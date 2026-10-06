@@ -40,6 +40,22 @@ export const GEMINI_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.gemini;
 export const DEFAULT_IMAGE_TIMEOUT_MS = 10 * 60 * 1000;
 export const MAX_LIBRARY_GENERATIONS = 150;
 
+function deadlineExpired(deadlineAt) {
+  return Number.isFinite(deadlineAt) && Date.now() >= deadlineAt;
+}
+
+function assertBeforeDeadline(deadlineAt, phase) {
+  if (!deadlineExpired(deadlineAt)) return;
+  const error = new Error(`${phase} deadline exceeded`);
+  error.code = 'ETIMEDOUT';
+  throw error;
+}
+
+function timeoutForDeadline(deadlineAt, fallbackMs) {
+  if (!Number.isFinite(deadlineAt)) return fallbackMs;
+  return Math.max(1, Math.min(fallbackMs, Math.floor(deadlineAt - Date.now())));
+}
+
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 const VISION_SCHEMA = Object.freeze({
   type: 'object',
@@ -150,7 +166,7 @@ function ensureInsideWorkspace(target, label) {
   return absolute;
 }
 
-async function runCodexDirect({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null }) {
+async function runCodexDirect({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null, timeoutMs = DEFAULT_IMAGE_TIMEOUT_MS }) {
   const runtime = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-codex-image-'));
   const imageGenerationStartedAt = Date.now();
   const outputPath = path.join(runtime, 'last-message.txt');
@@ -175,6 +191,7 @@ async function runCodexDirect({ prompt, imagePath = '', imageOutputPath = '', ge
       cwd: runtime,
       env: { ...process.env, CODEX_HOME: codexHome() },
       input: prompt,
+      timeoutMs,
     });
     const threadId = parseThreadId(result.stdout);
     const generated = threadId
@@ -193,7 +210,7 @@ async function runCodexDirect({ prompt, imagePath = '', imageOutputPath = '', ge
   }
 }
 
-function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null, timeoutMs = DEFAULT_IMAGE_TIMEOUT_MS }) {
+function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null, timeoutMs = DEFAULT_IMAGE_TIMEOUT_MS, deadlineAt }) {
   const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
   if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
   const request = {
@@ -218,7 +235,10 @@ function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', gene
       client.destroy();
       if (error) reject(error); else resolve(value);
     };
-    const socketTimeout = setTimeout(() => finish(new Error(`Codex broker timed out after ${timeoutMs}ms`)), timeoutMs + 30_000);
+    const socketTimeoutMs = Number.isFinite(deadlineAt)
+      ? Math.max(1, deadlineAt - Date.now())
+      : timeoutMs + 30_000;
+    const socketTimeout = setTimeout(() => finish(new Error(`Codex broker timed out after ${timeoutMs}ms`)), socketTimeoutMs);
     socketTimeout.unref?.();
     client.setEncoding('utf8');
     client.on('error', (error) => finish(error));
@@ -241,21 +261,21 @@ function requestCodexBroker({ prompt, imagePath = '', imageOutputPath = '', gene
   });
 }
 
-async function runCodex({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null, timeoutMs = DEFAULT_IMAGE_TIMEOUT_MS }) {
+async function runCodex({ prompt, imagePath = '', imageOutputPath = '', generate = false, schema = null, timeoutMs = DEFAULT_IMAGE_TIMEOUT_MS, deadlineAt }) {
   if (process.env.CODEX_AUTH_BROKER_SOCKET) {
-    return requestCodexBroker({ prompt, imagePath, imageOutputPath, generate, schema, timeoutMs });
+    return requestCodexBroker({ prompt, imagePath, imageOutputPath, generate, schema, timeoutMs, deadlineAt });
   }
-  return runCodexDirect({ prompt, imagePath, imageOutputPath, generate, schema });
+  return runCodexDirect({ prompt, imagePath, imageOutputPath, generate, schema, timeoutMs });
 }
 
-async function runGeminiImage(prompt, destination) {
+async function runGeminiImage(prompt, destination, { timeoutMs = 120_000 } = {}) {
   const apiKey = String(process.env.GEMINI_API_KEY || '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY is not configured');
   // The stable 3.1 Flash Image model is exposed through the Interactions API;
   // keeping the key in the header also prevents it from entering URL logs.
   const endpoint = 'https://generativelanguage.googleapis.com/v1beta/interactions';
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 120_000);
+  const timer = setTimeout(() => controller.abort(), Math.max(1, Math.floor(timeoutMs)));
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
@@ -281,7 +301,7 @@ async function runGeminiImage(prompt, destination) {
   }
 }
 
-async function runGeminiVision(filePath) {
+async function runGeminiVision(filePath, { timeoutMs = 120_000 } = {}) {
   const apiKey = String(process.env.GEMINI_API_KEY || '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY is not configured for the vision fallback');
   const image = fs.readFileSync(filePath).toString('base64');
@@ -296,7 +316,7 @@ async function runGeminiVision(filePath) {
     `Policy: ${GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 120_000);
+  const timer = setTimeout(() => controller.abort(), Math.max(1, Math.floor(timeoutMs)));
   try {
     const response = await fetch('https://generativelanguage.googleapis.com/v1beta/interactions', {
       method: 'POST',
@@ -374,7 +394,7 @@ function parseVisionResult(text) {
   throw new Error('vision verifier returned no JSON result');
 }
 
-export async function verifyGeneratedImage(filePath) {
+export async function verifyGeneratedImage(filePath, { deadlineAt } = {}) {
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
     'Return only the requested JSON object.',
@@ -387,12 +407,23 @@ export async function verifyGeneratedImage(filePath) {
   ].join('\n');
   let verdict;
   try {
-    const result = await runCodex({ prompt, imagePath: filePath, schema: VISION_SCHEMA, timeoutMs: DEFAULT_IMAGE_TIMEOUT_MS });
+    assertBeforeDeadline(deadlineAt, 'image vision verification');
+    const result = await runCodex({
+      prompt,
+      imagePath: filePath,
+      schema: VISION_SCHEMA,
+      timeoutMs: timeoutForDeadline(deadlineAt, DEFAULT_IMAGE_TIMEOUT_MS),
+      deadlineAt,
+    });
     verdict = parseVisionResult(result.text);
   } catch (codexError) {
+    assertBeforeDeadline(deadlineAt, 'image vision fallback');
     if (!String(process.env.GEMINI_API_KEY || '').trim()) throw codexError;
-    verdict = await runGeminiVision(filePath);
+    verdict = await runGeminiVision(filePath, {
+      timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
+    });
   }
+  assertBeforeDeadline(deadlineAt, 'image vision result');
   if (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
   }
@@ -412,6 +443,7 @@ export async function generateImageFromSpec(spec, {
   maxAttempts = 3,
   onProviderAttempt,
   now = () => new Date(),
+  deadlineAt,
 } = {}) {
   const normalized = normalizeGeneratedImageSpec({ ...spec, assetId: assetId || spec.assetId });
   const finalAssetId = normalized.assetId || `generated-${sha256(generatedImagePromptInput(normalized)).slice(0, 24)}`;
@@ -425,6 +457,7 @@ export async function generateImageFromSpec(spec, {
     : providers.length;
   let lastError;
   for (let attempt = 0; attempt < attemptLimit; attempt++) {
+    assertBeforeDeadline(deadlineAt, 'image generation');
     const provider = providers[attempt];
     const variation = attempt === 0 ? variationBase : `${variationBase}; safety revision ${attempt}`;
     const prompt = buildGeneratedImagePrompt(normalized, { variation });
@@ -434,18 +467,29 @@ export async function generateImageFromSpec(spec, {
     try {
       const providerInfo = providerRecordFields(provider);
       if (provider === 'openai-codex') {
-        await runCodex({ prompt, generate: true, imageOutputPath: rawPath, timeoutMs: DEFAULT_IMAGE_TIMEOUT_MS });
+        await runCodex({
+          prompt,
+          generate: true,
+          imageOutputPath: rawPath,
+          timeoutMs: timeoutForDeadline(deadlineAt, DEFAULT_IMAGE_TIMEOUT_MS),
+          deadlineAt,
+        });
       } else {
-        await runGeminiImage(prompt, rawPath);
+        await runGeminiImage(prompt, rawPath, {
+          timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
+        });
       }
       const generatedAt = now().toISOString();
+      assertBeforeDeadline(deadlineAt, 'image normalization');
       await normalizeToWebp(rawPath, finalPath, normalized, {
         title: normalized.subject,
         provider,
         model: providerInfo.model,
       });
       const inspected = await inspectWebp(finalPath, normalized.format);
-      const vision = await verifyGeneratedImage(finalPath);
+      assertBeforeDeadline(deadlineAt, 'image vision verification');
+      const vision = await verifyGeneratedImage(finalPath, { deadlineAt });
+      assertBeforeDeadline(deadlineAt, 'image record finalization');
       const verifiedAt = now().toISOString();
       const record = {
         schema: 1,
@@ -482,6 +526,7 @@ export async function generateImageFromSpec(spec, {
       lastError = error;
       fs.rmSync(rawPath, { force: true });
       fs.rmSync(finalPath, { force: true });
+      if (deadlineExpired(deadlineAt)) break;
     }
   }
   throw new Error(`All image providers failed for ${finalAssetId}: ${lastError?.message || 'unknown error'}`);

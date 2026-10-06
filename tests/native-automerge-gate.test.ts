@@ -809,20 +809,29 @@ describe('native auto-merge gate (#8512)', () => {
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
 
-    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid })");
+    expect(gateSource).toContain('nativeAutoMergeArgs({');
+    expect(gateSource).toContain('title: beforeMutation.title');
     expect(nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
+      title: 'fix(ci): preserve squash subject',
       headSha: HEAD,
     })).toEqual([
       'pr', 'merge', '8517', '--repo', 'valerielinc-ops/frontaliere-si-o-no',
-      '--auto', '--squash', '--delete-branch', '--match-head-commit', HEAD,
+      '--auto', '--squash', '--subject', 'fix(ci): preserve squash subject (#8517)',
+      '--delete-branch', '--match-head-commit', HEAD,
     ]);
     expect(() => nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
       headSha: 'not-a-sha',
     })).toThrow(/HEAD SHA/);
+    expect(() => nativeAutoMergeArgs({
+      repo: 'valerielinc-ops/frontaliere-si-o-no',
+      prNumber: '8517',
+      title: '',
+      headSha: HEAD,
+    })).toThrow(/titolo PR/iu);
   });
 
   it('recognizes a concurrent GitHub auto-merge opt-in without treating other failures as benign', () => {
@@ -1094,6 +1103,8 @@ describe('native auto-merge workflow wiring (#8512)', () => {
     expect(evaluator).toContain("surface: 'pull-request'");
     expect(evaluator).not.toContain("labels.some((label) => String(label || '').toLowerCase() === 'needs-human')");
     expect(evaluator).not.toContain('needs-human-veto');
+    expect(evaluator).toContain("'--subject',");
+    expect(evaluator).toContain('formatSquashCommitSubject({ prNumber: PR, title: freshPr.title })');
     expect(evaluator).toContain("'--match-head-commit', freshPr.headRefOid");
   });
 

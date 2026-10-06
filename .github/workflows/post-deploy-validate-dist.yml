@@ -114,7 +114,7 @@ jobs:
 
       # Download GitHub Pages artifact + run source validators sequentially.
       #
-      # Previously the 4 source validators were launched as `run_bg ... &` in
+      # Previously the 5 source validators were launched as `run_bg ... &` in
       # parallel with the artifact download, to save ~30-60s. That race
       # caused `validate:translation-completeness` and
       # `validate:crawler-summaries` (which read `dist/data/jobs.json` and
@@ -445,12 +445,12 @@ jobs:
           # the "gate exact" guarantee). Format matches the awk row so the summary
           # parser (grep -oE 'rc=[0-9]+$') reads it.
           for vn in validate:translation-completeness validate:crawler-summaries \
-                    validate:third-party-secrets gate:seo-source; do
+                    validate:third-party-secrets validate:og-images gate:seo-source; do
             printf '%-40s %7.2f rc=%d\n' "$vn" 0 99 > "$RESDIR/$vn"
           done
 
-          # These four validators are independent processes with no shared state
-          # and no dist dependency, so run them CONCURRENTLY on the 4-vCPU runner.
+          # These five validators are independent processes with no shared state
+          # or dependency on one another, so run them CONCURRENTLY on the 4-vCPU runner.
           # Wall drops from sum(~6.8min serial) to the slowest single gate
           # (gate:seo-source ~110s). The old "cheap-first fail-fast" ordering is
           # moot when all four run together.
@@ -461,9 +461,11 @@ jobs:
             npm run validate:crawler-summaries & pids+=("$!")
           run_validator validate:third-party-secrets      /tmp/v12.log \
             npm run validate:third-party-secrets & pids+=("$!")
+          run_validator validate:og-images                /tmp/v13.log \
+            npm run validate:og-images & pids+=("$!")
           # --maxWorkers=2: unrestrained, vitest's own thread pool (pool:
           # 'threads', isolate: true) opens up to nCPU worker threads on TOP of
-          # the three sibling validators above, all racing for the same 4 vCPU.
+          # the four sibling validators above, all racing for the same 4 vCPU.
           # That oversubscription is what turned "slow" into "past the global
           # 15s testTimeout" on issue #7192's two recurrences — a DIFFERENT
           # test timed out each time (cathedral-previous-slug-canton.test.ts,
@@ -488,6 +490,7 @@ jobs:
               validate:translation-completeness) vlog=/tmp/v10.log ;;
               validate:crawler-summaries)        vlog=/tmp/v11.log ;;
               validate:third-party-secrets)      vlog=/tmp/v12.log ;;
+              validate:og-images)               vlog=/tmp/v13.log ;;
               gate:seo-source)                   vlog=/tmp/v27.log ;;
               *)                                 vlog="" ;;
             esac

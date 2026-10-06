@@ -9,6 +9,8 @@
  *   create-account page           → random password, stored encrypted BEFORE
  *                                   the click; the planner fills the rest
  *   "check your e-mail"           → the inbox's verification link or code
+ *   SuccessFactors sign-in with an unverified account
+ *                             → restart registration to issue a fresh OTP
  *   sign-in page, account known   → alias + password
  *   application form with its own → the same random password, typed with the
  *   password field                  rest of the form (portal.mjs)
@@ -105,6 +107,11 @@ export function asksExistingPassword(field) {
 // SuccessFactors refuses more than 18 characters (Coop, 2026-10-02); every
 // other portal keeps the 20 it has always had.
 const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
+
+/** SuccessFactors creates the external candidate only after its OTP succeeds. */
+export function usesOtpAccountCreation(portal = '') {
+  return /(?:successfactors|sapsf)\.|jobs\.sap\.com/i.test(String(portal));
+}
 
 /**
  * The password's length on this portal (its host, or its channel id): not one
