@@ -199,17 +199,22 @@ async function cancelReaderOnReadError(reader) {
 }
 
 /**
- * The bytes of a stream chunk as a view. A chunk that is not bytes is a read
- * error, not an empty chunk: `new Uint8Array(value.buffer, …)` over a value
- * with no `buffer` builds an EMPTY view without throwing, so the chunk would
- * vanish, `total` would never grow, and a stream that keeps producing such
- * chunks would never reach the byte cap. The `toString` tag covers a bare
+ * The bytes of a stream chunk. A chunk that is not bytes is a read error, not
+ * an empty chunk: `new Uint8Array(value.buffer, …)` over a value with no
+ * `buffer` builds an EMPTY view without throwing, so the chunk would vanish,
+ * `total` would never grow, and a stream that keeps producing such chunks
+ * would never reach the byte cap. The `toString` tag covers a bare
  * ArrayBuffer from another realm, which fails `instanceof`.
+ *
+ * A typed array comes back as a byte view, which the caller copies with
+ * `slice`. A bare ArrayBuffer comes back as a copy already: a Uint8Array built
+ * directly on it would be a view on the producer's memory, which a reader may
+ * reuse on the next read (#7483).
  */
 function byteViewOfChunk(value) {
   if (ArrayBuffer.isView(value)) return new Uint8Array(value.buffer, value.byteOffset, value.byteLength);
   if (value instanceof ArrayBuffer || Object.prototype.toString.call(value) === '[object ArrayBuffer]') {
-    return new Uint8Array(value);
+    return new Uint8Array(value.slice(0));
   }
   throw new TypeError('limited_body_chunk_not_bytes');
 }

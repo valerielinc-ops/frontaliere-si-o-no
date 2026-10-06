@@ -413,6 +413,45 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(releaseLock).toHaveBeenCalledTimes(1);
   });
 
+  it('reads a sitemap streamed as bare ArrayBuffer chunks that the producer reuses', async () => {
+    const xml = '<urlset><url><loc>https://example.test/a/</loc></url><url><loc>https://example.test/b/</loc></url></urlset>';
+    const bytes = new TextEncoder().encode(xml);
+    const half = Math.ceil(bytes.byteLength / 2);
+    const parts = [bytes.subarray(0, half), bytes.subarray(half)];
+    // One buffer for every read, as a pooling producer does: a chunk kept as a
+    // view on it would be rewritten by the next read.
+    const shared = new ArrayBuffer(half);
+    let index = 0;
+    const reader = {
+      read: vi.fn(async () => {
+        if (index >= parts.length) return { done: true, value: undefined };
+        const view = new Uint8Array(shared);
+        view.fill(0x20);
+        view.set(parts[index]);
+        index += 1;
+        return { done: false, value: shared };
+      }),
+      cancel: vi.fn().mockResolvedValue(undefined),
+      releaseLock: vi.fn(),
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader) },
+    };
+    const inventory = await collectSitemapInventory({
+      baseUrl: 'https://example.test',
+      sitemapUrl: 'https://example.test/sitemap.xml',
+      fetchImpl: vi.fn().mockResolvedValue(response),
+    });
+
+    expect(inventory.errors).toEqual([]);
+    expect(inventory.urls).toEqual(['https://example.test/a/', 'https://example.test/b/']);
+    expect(reader.cancel).not.toHaveBeenCalled();
+    expect(reader.releaseLock).toHaveBeenCalledTimes(1);
+  });
+
   it('keeps same-site link evidence while excluding externals and router actions', () => {
     const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/?calc=1">query</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">router action</a><a href="<nav:calculator>">malformed editor token</a>', `${BASE}/`, BASE);
     expect(links).toEqual([
