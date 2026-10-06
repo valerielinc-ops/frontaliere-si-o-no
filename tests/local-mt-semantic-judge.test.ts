@@ -6,6 +6,7 @@ import {
   classifyMopupWrite,
   commitMopupCandidate,
   judgeMopupWrite,
+  semanticCandidateBlocks,
 } from '../scripts/local-mt-mopup.mjs';
 import {
   cosineSimilarity,
@@ -89,6 +90,108 @@ describe('local-mt semantic judge', () => {
       'Cappellano carcerario',
       'Prigionieri',
     ]);
+  });
+
+  it('prewarms deduplicated vectors without changing verdict order', async () => {
+    const pairs = [
+      { sourceText: 'Gefängnisseelsorger', candidateText: 'Cappellano carcerario' },
+      { sourceText: 'Gefängnisseelsorger', candidateText: 'Prigionieri' },
+      { sourceText: 'Mitarbeiter Rezeption', candidateText: 'Addetto alla reception' },
+      { sourceText: 'Mitarbeiter Rezeption', candidateText: 'Ricevimento dei dipendenti' },
+    ];
+    const coldCalls: EmbedCall[] = [];
+    const cold = createLocalMtSemanticJudge({ embed: fakeEmbedder(coldCalls) });
+    const coldVerdicts = [];
+    for (const pair of pairs) coldVerdicts.push(await cold(pair));
+
+    const warmCalls: EmbedCall[] = [];
+    const warm = createLocalMtSemanticJudge({ embed: fakeEmbedder(warmCalls) });
+    const warmup = await warm.prewarm(
+      pairs.flatMap(({ sourceText, candidateText }) => [sourceText, candidateText]),
+      { batchSize: 2 },
+    );
+    const warmVerdicts = [];
+    for (const pair of pairs) warmVerdicts.push(await warm(pair));
+
+    expect(warmup).toEqual({ requested: 6, embedded: 6, failed: 0 });
+    expect(warmVerdicts.map(({ accepted, reason, score }) => ({ accepted, reason, score })))
+      .toEqual(coldVerdicts.map(({ accepted, reason, score }) => ({ accepted, reason, score })));
+    expect(coldCalls).toHaveLength(6);
+    expect(coldCalls.every(({ inputs }) => inputs.length === 1)).toBe(true);
+    expect(warmCalls.map(({ inputs }) => inputs.length)).toEqual([2, 2, 2]);
+    expect(warmCalls.every(({ prefix }) => prefix === 'passage')).toBe(true);
+  });
+
+  it('keeps 600 unique candidate pairs inside cache-fitting blocks', async () => {
+    const cacheMax = 1024;
+    const batchSize = 64;
+    const calls: EmbedCall[] = [];
+    const judge = createLocalMtSemanticJudge({
+      embed: async ({ inputs, prefix }: EmbedCall) => {
+        calls.push({ inputs, prefix });
+        return inputs.map(() => [1, 0]);
+      },
+      cacheMax,
+    });
+    const pairs = Array.from({ length: 600 }, (_, index) => ({
+      sourceText: `unique source ${index}`,
+      candidateText: `unique candidate ${index}`,
+    }));
+
+    const blocks = semanticCandidateBlocks(pairs, cacheMax);
+    for (const block of blocks) {
+      await judge.prewarm(
+        block.flatMap(({ sourceText, candidateText }) => [sourceText, candidateText]),
+        { batchSize },
+      );
+      for (const pair of block) await judge(pair);
+    }
+
+    expect(blocks.map((block) => block.length)).toEqual([512, 88]);
+    expect(calls).toHaveLength(19);
+    expect(calls.map(({ inputs }) => inputs.length)).toEqual([
+      ...Array.from({ length: 18 }, () => 64),
+      48,
+    ]);
+    expect(calls.some(({ inputs }) => inputs.length === 1)).toBe(false);
+  });
+
+  it('falls back to one-text embedding after a failed batch and still writes', async () => {
+    const calls: EmbedCall[] = [];
+    let failedBatch = false;
+    const judge = createLocalMtSemanticJudge({
+      embed: async ({ inputs, prefix }: EmbedCall) => {
+        calls.push({ inputs, prefix });
+        if (inputs.length > 1 && !failedBatch) {
+          failedBatch = true;
+          throw new Error('batch unavailable');
+        }
+        return fakeEmbedder()({ inputs, prefix });
+      },
+    });
+    const job = metricJob();
+    const candidate = classifyMopupStructure({
+      job,
+      locale: 'it',
+      field: 'title',
+      rawText: 'Cappellano carcerario',
+    });
+
+    await expect(judge.prewarm([
+      candidate.normalizedSourceText,
+      candidate.incoming,
+    ])).resolves.toEqual({ requested: 2, embedded: 0, failed: 2 });
+    const result = await commitMopupCandidate({
+      job,
+      locale: 'it',
+      field: 'title',
+      candidate,
+      judge,
+    });
+
+    expect(result).toMatchObject({ written: true, decision: 'write' });
+    expect(job.titleByLocale.it).toBe('Cappellano carcerario');
+    expect(calls.map(({ inputs }) => inputs.length)).toEqual([2, 1, 1]);
   });
 
   it('fails closed, never throws, for missing text, malformed vectors and embedder errors', async () => {
