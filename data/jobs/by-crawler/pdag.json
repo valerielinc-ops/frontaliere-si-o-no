@@ -3000,7 +3000,7 @@
       "slug": "dipl-infermieristica-professionale-dipl-cura-specialista-unita-di-cura-acuta-kjp-psychiatrische-dienste-aargau-pdag",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-dipl-cura-specialista-unita-di-cura-acuta-kjp-psychiatrische-dienste-aargau-pdag",
-        "en": "dipl-nurse-dipl-nurse-acute-ward-kjp-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-nursing-professional-dipl-care-specialist-acute-care-unit-kjp-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-unite-de-soins-actifs-kjp-psychiatrische-dienste-aargau-pdag-windisch"
       },
@@ -3049,7 +3049,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
-        "dipl-nursing-professional-dipl-care-specialist-acute-care-unit-kjp-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-nurse-dipl-nurse-acute-ward-kjp-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3057,7 +3057,7 @@
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch",
-          "dipl-nursing-professional-dipl-care-specialist-acute-care-unit-kjp-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-nurse-dipl-nurse-acute-ward-kjp-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "fr": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-akutstation-kjp-pdag-windisch"
@@ -3244,7 +3244,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-f5bcec",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-f5bcec",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
         "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch-f5bcec"
       },
@@ -3292,7 +3292,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
@@ -3301,7 +3300,6 @@
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-pdag-windisch",
-          "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
           "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "fr": [
@@ -4352,7 +4350,7 @@
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4398,7 +4396,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
@@ -4406,7 +4403,6 @@
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2",
           "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
@@ -6111,12 +6107,12 @@
     },
     {
       "id": "pdag-620944072c2c",
-      "slug": "leiterin-leiter-sekretariat-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "capo-del-segretariato-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "leiterin-leiter-sekretariat-pdag-windisch",
-        "it": "leiterin-leiter-sekretariat-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "leiterin-leiter-sekretariat-pdag-windisch",
-        "fr": "leiterin-leiter-sekretariat-pdag-windisch"
+        "it": "capo-del-segretariato-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "head-of-secretariat-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "chef-du-secretariat-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -6164,11 +6160,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-sekretariat-pdag-windisch",
+          "leiterin-leiter-sekretariat-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "en": [
+          "leiterin-leiter-sekretariat-pdag-windisch"
+        ],
+        "fr": [
           "leiterin-leiter-sekretariat-pdag-windisch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-sekretariat-pdag-windisch"
+        "leiterin-leiter-sekretariat-pdag-windisch",
+        "leiterin-leiter-sekretariat-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 119000,
       "salaryMax": 166000,

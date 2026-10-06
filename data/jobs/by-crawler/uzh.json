@@ -2215,7 +2215,7 @@
         "it": "professore-di-neurologia-universitat-zurich-zurich",
         "en": "professorship-of-neurology-uzh-zurich",
         "de": "professur-fur-neurologie-universitat-zurich-zurich",
-        "fr": "professorship-of-neurology-universitat-zurich"
+        "fr": "professeur-de-neurologie-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -2262,7 +2262,6 @@
       "previousSlugs": [
         "professorship-of-neurology-uzh-zurich",
         "professorship-of-neurology-universitat-zurich-zurich",
-        "professeur-de-neurologie-universitat-zurich-zurich",
         "professorship-of-neurology-universitat-zurich"
       ],
       "previousSlugsByLocale": {
@@ -2271,7 +2270,6 @@
         ],
         "fr": [
           "professorship-of-neurology-universitat-zurich-zurich",
-          "professeur-de-neurologie-universitat-zurich-zurich",
           "professorship-of-neurology-universitat-zurich"
         ]
       },
@@ -9386,12 +9384,12 @@
     },
     {
       "id": "uzh-d25a82cf06ed",
-      "slug": "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations",
+      "slug": "2-posizioni-di-dottorato-in-un-progetto-sulle-disparita-di-salute-tra-le-popolazioni-legate-alle-migrazioni-in-svizzera",
       "slugByLocale": {
         "en": "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations",
-        "it": "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations",
-        "de": "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations",
-        "fr": "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations"
+        "it": "2-posizioni-di-dottorato-in-un-progetto-sulle-disparita-di-salute-tra-le-popolazioni-legate-alle-migrazioni-in-svizzera",
+        "de": "2-phd-stellen-in-einem-projekt-zu-gesundheitlichen-ungleichheiten-zwischen-migrationsbezogenen-bevolkerungsgruppen-in",
+        "fr": "2-postes-de-doctorat-dans-un-projet-sur-les-disparites-de-sante-entre-les-populations-liees-a-la-migration-en-suisse"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -9450,7 +9448,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:16:24.928Z"
+      "firstSeenAt": "2026-10-06T09:16:24.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations"
+        ],
+        "de": [
+          "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations"
+        ],
+        "fr": [
+          "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations"
+        ]
+      },
+      "previousSlugs": [
+        "2-phd-positions-in-a-project-about-health-disparities-among-migration-related-populations"
+      ]
     }
   ]
 }

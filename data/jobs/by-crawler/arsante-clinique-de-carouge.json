@@ -80,7 +80,7 @@
       "slug": "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
       "slugByLocale": {
         "it": "medico-esperto-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
-        "en": "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
+        "en": "expert-doctor-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
         "de": "facharzt-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy",
         "fr": "medecin-expert-arsante-clinique-de-carouge-lancy"
       },
@@ -126,14 +126,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medecin-expert-arsante-clinique-de-carouge-lancy"
+        "medecin-expert-arsante-clinique-de-carouge-lancy",
+        "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-expert-arsante-clinique-de-carouge-lancy"
         ],
         "en": [
-          "medecin-expert-arsante-clinique-de-carouge-lancy"
+          "medecin-expert-arsante-clinique-de-carouge-lancy",
+          "expert-physician-arsante-clinique-de-carouge-centre-d-expertise-medicale-lancy-lancy"
         ],
         "de": [
           "medecin-expert-arsante-clinique-de-carouge-lancy"
@@ -859,7 +861,7 @@
       "slugByLocale": {
         "it": "capo-arsante-clinique-de-carouge-arsante-carouge",
         "en": "chief-nurse-arsante-clinique-de-carouge-arsante-carouge",
-        "de": "infirmier-ere-chef-fe-arsante-clinique-de-carouge-arsante-carouge",
+        "de": "krankenpfleger-in-chef-in-arsante-clinique-de-carouge-arsante-carouge",
         "fr": "infirmier-ere-chef-fe-arsante-clinique-de-carouge-carouge"
       },
       "company": "Arsanté (Clinique de Carouge) — Arsanté",

@@ -922,7 +922,7 @@
       "slugByLocale": {
         "it": "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "chief-resident-physician-or-deputy-chief-resident-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -969,7 +969,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel",
-        "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
@@ -977,7 +976,6 @@
           "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
         ],
         "de": [
-          "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
@@ -1169,7 +1167,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1220,7 +1218,6 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
@@ -1234,7 +1231,6 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
@@ -2419,12 +2415,12 @@
     },
     {
       "id": "cnp-a0f314aecd14",
-      "slug": "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier",
+      "slug": "infermiera-in-piscina-ospedaliera-50-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier",
-        "it": "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier",
-        "en": "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier",
-        "de": "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier"
+        "it": "infermiera-in-piscina-ospedaliera-50-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "nurse-in-hospital-pool-50-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "krankenschwester-im-krankenhaus-pool-50-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
       "companyKey": "cnp",
@@ -2482,7 +2478,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:21:57.578Z"
+      "firstSeenAt": "2026-10-06T09:21:57.578Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier"
+        ],
+        "en": [
+          "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier"
+        ],
+        "de": [
+          "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-au-pool-hospitalier-50-cnp-marin-epagnier"
+      ]
     }
   ]
 }

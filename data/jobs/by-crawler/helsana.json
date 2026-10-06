@@ -752,7 +752,7 @@
       "slug": "candidatura-spontanea-helsana-lausanne",
       "slugByLocale": {
         "it": "candidatura-spontanea-helsana-lausanne",
-        "en": "candidature-spontanee-helsana-lausanne",
+        "en": "spontaneous-application-helsana-lausanne",
         "de": "candidature-spontanee-helsana-lausanne",
         "fr": "candidature-spontanee-helsana-lausanne"
       },
@@ -800,8 +800,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "candidature-spontanee-helsana-lausanne",
-        "candidatura-spontanee-helsana-lausanne",
-        "spontaneous-application-helsana-lausanne"
+        "candidatura-spontanee-helsana-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -809,7 +808,6 @@
           "candidatura-spontanee-helsana-lausanne"
         ],
         "en": [
-          "spontaneous-application-helsana-lausanne",
           "candidature-spontanee-helsana-lausanne"
         ]
       },
@@ -3959,8 +3957,8 @@
       "slugByLocale": {
         "de": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027",
         "it": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027-helsana-dubendorf-stettbach",
-        "en": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027",
-        "fr": "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
+        "en": "temporary-customer-support-de-fr-a-80-100-fridged-until-30-september-2027-helsana-dubendorf-stettbach",
+        "fr": "support-client-temporaire-de-fr-a-80-100-refrigere-jusqu-a-30-septembre-2027-helsana-dubendorf-stettbach"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -4007,6 +4005,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
+        ],
+        "en": [
+          "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
+        ],
+        "fr": [
           "temporare-kundenbetreuerin-fach-support-de-fr-a-80-100-befris-tet-bis-30-september-2027"
         ]
       },

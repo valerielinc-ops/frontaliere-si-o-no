@@ -1794,7 +1794,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-telecom-it-80-100-groupe-e-matran-mad-4",
         "en": "telecom-project-manager-it-80-100-groupe-e-matran-mad-4",
-        "de": "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4",
+        "de": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       },
       "company": "Groupe E",
@@ -1851,7 +1851,6 @@
           "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
         ],
         "de": [
-          "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
           "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
         ]
       },
@@ -2743,7 +2742,7 @@
       "slugByLocale": {
         "it": "capo-o-responsabile-delle-infrastrutture-stradali-e-ferroviarie-groupe-e-mont-sur-rolle",
         "en": "chief-or-construction-manager-road-and-rail-infrastructure-groupe-e-mont-sur-rolle",
-        "de": "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle",
+        "de": "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
         "fr": "cheffe-ou-chef-de-chantier-infrastructures-routieres-et-ferroviaires-groupe-e-mont-sur"
       },
       "company": "Groupe E",
@@ -2798,7 +2797,6 @@
         "mount-or-mount-in-road-and-rail-infrastructure-80-100-groupe-e-matran-mad-4",
         "mount-oder-mount-in-stra-en-und-schieneninfrastruktur-80-100-groupe-e-matran-mad-4",
         "monteuse-ou-monteur-en-infrastructures-routieres-et-ferroviaires-80-100-groupe-e-matran",
-        "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
         "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle"
       ],
       "previousSlugsByLocale": {
@@ -2820,7 +2818,6 @@
         "de": [
           "cheffe-ou-chef-de-chantier-infrastructures-routieres-et-ferroviaires-groupe-e-mont-sur",
           "mount-oder-mount-in-stra-en-und-schieneninfrastruktur-80-100-groupe-e-mont-sur-rolle",
-          "leiter-oder-bauleiter-stra-en-und-schieneninfrastruktur-groupe-e-mont-sur-rolle",
           "baufuhrer-strassen-und-bahninfrastruktur-groupe-e-mont-sur-rolle"
         ],
         "fr": [
@@ -3314,12 +3311,12 @@
     },
     {
       "id": "groupe-e-392fa15bf180",
-      "slug": "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e",
+      "slug": "ingegnere-elettrico-lot-infrastruttura-mt-bt-80-100-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
         "fr": "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e",
-        "it": "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e",
-        "en": "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e",
-        "de": "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e"
+        "it": "ingegnere-elettrico-lot-infrastruttura-mt-bt-80-100-groupe-e-granges-paccot-plexus",
+        "en": "electrical-engineer-lot-infrastructure-mt-bt-80-100-groupe-e-granges-paccot-plexus",
+        "de": "elektroingenieur-lot-infrastruktur-mt-bt-80-100-groupe-e-granges-paccot-plexus"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3378,7 +3375,21 @@
         }
       },
       "streetAddress": "Route de Morat 135",
-      "firstSeenAt": "2026-10-06T09:21:12.493Z"
+      "firstSeenAt": "2026-10-06T09:21:12.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e"
+        ],
+        "en": [
+          "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e"
+        ],
+        "de": [
+          "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieure-ou-ingenieur-en-genie-electrique-lot-infrastructure-mt-bt-80-100-groupe-e"
+      ]
     }
   ]
 }

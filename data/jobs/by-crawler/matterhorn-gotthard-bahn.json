@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-8020f490f838",
-      "slug": "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "manutenzione-del-personale-dell-officina-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt",
       "slugByLocale": {
         "de": "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "manutenzione-del-personale-dell-officina-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "en": "workshop-staff-maintenance-ggb-m-f-d-matterhorn-gotthard-bahn-zermatt",
+        "fr": "entretien-du-personnel-de-l-atelier-ggb-h-f-d-matterhorn-gotthard-bahn-zermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -83,7 +83,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "werkstattmitarbeiter-instandhaltung-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
@@ -689,7 +703,7 @@
       "id": "matterhorn-gotthard-bahn-e957ff653084",
       "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
-        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
@@ -758,14 +772,12 @@
       },
       "previousSlugs": [
         "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
         ]
       },
       "needsRetranslation": true,

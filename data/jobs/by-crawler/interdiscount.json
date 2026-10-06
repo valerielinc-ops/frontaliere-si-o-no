@@ -24634,7 +24634,7 @@
       "slugByLocale": {
         "de": "product-purchasing-manager-outdoor-personalcare-kaffee-amp-kuche-80-100-interdiscount",
         "it": "product-purchasing-manager-outdoor-personalcare-kaffee-amp-kuche-80-100-interdiscount",
-        "en": "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf",
+        "en": "product-purchasing-manager-outdoor-personal-care-coffee-kitchen-80-100-interdiscount-jegenstorf",
         "fr": "product-purchase-manager-outdoor-personalcare-cafe-kitchen-80-100-interdiscount-jegenstorf"
       },
       "company": "Interdiscount",
@@ -24710,7 +24710,15 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "product-purchasing-manager-outdoor-personalcare-kaffee-kuche-80-100-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-4ad3f976-c1b",

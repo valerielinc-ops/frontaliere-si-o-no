@@ -1233,7 +1233,7 @@
         "it": "postdoc-in-cancro-neuroscience-epfl-lausanne",
         "en": "postdoc-in-cancer-neuroscience-epfl-lausanne",
         "de": "postdoc-in-krebs-neurowissenschaften-epfl-lausanne",
-        "fr": "postdoc-in-cancer-neuroscience-epfl-lausanne"
+        "fr": "post-doctorat-en-neurosciences-du-cancer-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1282,6 +1282,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "postdoc-in-cancer-neuroscience-epfl-lausanne"
+        ],
+        "fr": [
           "postdoc-in-cancer-neuroscience-epfl-lausanne"
         ]
       },
@@ -2247,9 +2250,9 @@
     },
     {
       "id": "epfl-c4257b0432ac",
-      "slug": "phd-in-iontronic-materials-epfl-lausanne",
+      "slug": "dottorato-in-materiali-iontronici-epfl-lausanne",
       "slugByLocale": {
-        "it": "phd-in-iontronic-materials-epfl-lausanne",
+        "it": "dottorato-in-materiali-iontronici-epfl-lausanne",
         "en": "int-epfl-lausanne",
         "de": "promotionsstelle-in-iontronischen-materialien-epfl-lausanne",
         "fr": "doctorat-en-materiaux-iontroniques-epfl-lausanne"
@@ -2305,6 +2308,9 @@
         ],
         "fr": [
           "phd-en-materiaux-iontriques-epfl-lausanne"
+        ],
+        "it": [
+          "phd-in-iontronic-materials-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -2312,7 +2318,8 @@
         "promotion-in-iontronic-materialien-epfl-lausanne",
         "phd-in-iontroischen-materialien-epfl-lausanne",
         "phd-in-iontronic-materialien-epfl-lausanne",
-        "phd-in-iontronischen-werkstoffen-epfl-lausanne"
+        "phd-in-iontronischen-werkstoffen-epfl-lausanne",
+        "phd-in-iontronic-materials-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.733Z",
       "salaryMin": 60500,
@@ -5914,12 +5921,12 @@
     },
     {
       "id": "epfl-8ece23d70ed4",
-      "slug": "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-nella-progettazione-acceleratore-per-la-fcc-ee-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne",
-        "it": "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne",
-        "de": "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne",
-        "fr": "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne"
+        "it": "ricercatore-post-dottorato-nella-progettazione-acceleratore-per-la-fcc-ee-epfl-lausanne",
+        "de": "postdoktorand-im-beschleunigerdesign-fur-den-fcc-ee-epfl-lausanne",
+        "fr": "chercheur-postdoctoral-en-conception-d-accelerateurs-pour-le-stagiaire-de-fac-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5980,7 +5987,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-06T09:20:41.426Z"
+      "firstSeenAt": "2026-10-06T09:20:41.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-accelerator-design-for-the-fcc-ee-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-bdb2dfc9d8b1",
@@ -6054,12 +6075,12 @@
     },
     {
       "id": "epfl-7908d31366a3",
-      "slug": "coordinateur-trice-mobilite-70-epfl-lausanne",
+      "slug": "coordinatore-della-mobilita-70-epfl-lausanne",
       "slugByLocale": {
         "fr": "coordinateur-trice-mobilite-70-epfl-lausanne",
-        "it": "coordinateur-trice-mobilite-70-epfl-lausanne",
-        "en": "coordinateur-trice-mobilite-70-epfl-lausanne",
-        "de": "coordinateur-trice-mobilite-70-epfl-lausanne"
+        "it": "coordinatore-della-mobilita-70-epfl-lausanne",
+        "en": "mobility-coordinator-70-epfl-lausanne",
+        "de": "mobilitatskoordinator-70-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6120,16 +6141,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-06T09:20:40.164Z"
+      "firstSeenAt": "2026-10-06T09:20:40.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-mobilite-70-epfl-lausanne"
+        ],
+        "en": [
+          "coordinateur-trice-mobilite-70-epfl-lausanne"
+        ],
+        "de": [
+          "coordinateur-trice-mobilite-70-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-mobilite-70-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-e324a4dae0c6",
-      "slug": "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne",
+      "slug": "phd-sistemi-di-approvvigionamento-urbano-comportamento-di-sufficienza-e-benessere-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne",
-        "it": "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne",
-        "de": "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne",
-        "fr": "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne"
+        "it": "phd-sistemi-di-approvvigionamento-urbano-comportamento-di-sufficienza-e-benessere-epfl-lausanne",
+        "de": "phd-urbane-versorgungssysteme-suffizienzverhalten-und-wohlbefinden-epfl-lausanne",
+        "fr": "doctorat-systemes-d-approvisionnement-urbain-comportement-suffisant-et-bien-etre-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -6190,7 +6225,21 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-06T09:20:39.482Z"
+      "firstSeenAt": "2026-10-06T09:20:39.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne"
+        ],
+        "de": [
+          "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-urban-provisioning-systems-sufficiency-behaviour-and-well-being-epfl-lausanne"
+      ]
     }
   ]
 }

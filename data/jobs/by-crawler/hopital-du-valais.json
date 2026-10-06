@@ -5035,12 +5035,12 @@
     },
     {
       "id": "hopital-du-valais-4b696f99c7d5",
-      "slug": "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole",
+      "slug": "midwife-teste-di-ostetricia-tra-il-60-e-il-100-per-il-polo-ostetrico-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole",
-        "it": "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole",
-        "en": "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole",
-        "de": "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole"
+        "it": "midwife-teste-di-ostetricia-tra-il-60-e-il-100-per-il-polo-ostetrico-hopital-du-valais-sion",
+        "en": "midwife-midwife-heads-of-care-unit-between-60-and-100-for-the-obstetric-pole-hopital-du-valais-sion",
+        "de": "hebamme-hebammenleiter-zwischen-60-und-100-fur-den-geburtspol-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5100,16 +5100,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T09:14:18.378Z"
+      "firstSeenAt": "2026-10-06T09:14:18.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole"
+        ],
+        "en": [
+          "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole"
+        ],
+        "de": [
+          "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole"
+        ]
+      },
+      "previousSlugs": [
+        "homme-sage-femme-sage-femme-chefs-fes-d-unite-de-soins-entre-60-et-100-pour-le-pole"
+      ]
     },
     {
       "id": "hopital-du-valais-782547b16132",
-      "slug": "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique",
+      "slug": "ostetricia-clinica-ostetricia-maschile-tra-il-60-e-il-100-per-il-polo-ostetrico-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique",
-        "it": "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique",
-        "en": "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique",
-        "de": "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique"
+        "it": "ostetricia-clinica-ostetricia-maschile-tra-il-60-e-il-100-per-il-polo-ostetrico-hopital-du-valais-sion",
+        "en": "clinical-midwife-male-clinician-midwife-between-60-and-100-for-the-obstetric-pole-hopital-du-valais-sion",
+        "de": "klinische-hebamme-mannliche-kliniker-hebamme-zwischen-60-und-100-fur-den-geburtspol-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5169,7 +5183,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T09:14:18.016Z"
+      "firstSeenAt": "2026-10-06T09:14:18.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique"
+        ],
+        "en": [
+          "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique"
+        ],
+        "de": [
+          "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-clinicienne-homme-sage-femme-clinicien-entre-60-et-100-pour-le-pole-obstetrique"
+      ]
     },
     {
       "id": "hopital-du-valais-c40e3961d1fc",
@@ -5417,12 +5445,12 @@
     },
     {
       "id": "hopital-du-valais-7bb7af62de04",
-      "slug": "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de",
+      "slug": "infermieri-80-per-il-pole-de-psychiatrie-et-psicotherapie-per-le-sue-unita-di-psichiatria-e-psicoterapia-degli-anziani",
       "slugByLocale": {
         "fr": "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de",
-        "it": "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de",
-        "en": "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de",
-        "de": "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de"
+        "it": "infermieri-80-per-il-pole-de-psychiatrie-et-psicotherapie-per-le-sue-unita-di-psichiatria-e-psicoterapia-degli-anziani",
+        "en": "nurses-80-for-the-pole-de-psychiatrie-et-psychotherapie-for-its-units-of-psychiatry-and-psychotherapy-of-the-elderly",
+        "de": "krankenschwestern-80-fur-die-pole-de-psychiatrie-et-psychotherapie-fur-seine-einheiten-der-psychiatrie-und"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5482,16 +5510,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T09:14:16.531Z"
+      "firstSeenAt": "2026-10-06T09:14:16.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de"
+        ],
+        "en": [
+          "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de"
+        ],
+        "de": [
+          "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-de-80-pour-le-pole-de-psychiatrie-et-psychotherapie-pour-ses-unites-de"
+      ]
     },
     {
       "id": "hopital-du-valais-e7c22f94d653",
-      "slug": "pharma-assistent-in-60-hopital-du-valais-brig",
+      "slug": "assistente-farmaceutico-60-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pharma-assistent-in-60-hopital-du-valais-brig",
-        "it": "pharma-assistent-in-60-hopital-du-valais-brig",
-        "en": "pharma-assistent-in-60-hopital-du-valais-brig",
-        "fr": "pharma-assistent-in-60-hopital-du-valais-brig"
+        "it": "assistente-farmaceutico-60-hopital-du-valais-brig",
+        "en": "pharmaceutical-assistant-in-60-hopital-du-valais-brig",
+        "fr": "assistant-pharmaceutique-dans-60-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -5551,7 +5593,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T09:14:16.163Z"
+      "firstSeenAt": "2026-10-06T09:14:16.163Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-in-60-hopital-du-valais-brig"
+        ],
+        "en": [
+          "pharma-assistent-in-60-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "pharma-assistent-in-60-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-in-60-hopital-du-valais-brig"
+      ]
     }
   ]
 }

@@ -2894,12 +2894,12 @@
     },
     {
       "id": "ikea-b5ce0965c23d",
-      "slug": "legal-counsel-ikea-ch",
+      "slug": "avviso-legale-ikea-pratteln-bl",
       "slugByLocale": {
         "en": "legal-counsel-ikea-ch",
-        "it": "legal-counsel-ikea-ch",
-        "de": "legal-counsel-ikea-ch",
-        "fr": "legal-counsel-ikea-ch"
+        "it": "avviso-legale-ikea-pratteln-bl",
+        "de": "rechtsberatung-ikea-pratteln-bl",
+        "fr": "conseiller-juridique-ikea-pratteln-bl"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -2957,7 +2957,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:16:21.337Z"
+      "firstSeenAt": "2026-10-06T09:16:21.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-ikea-ch"
+        ],
+        "de": [
+          "legal-counsel-ikea-ch"
+        ],
+        "fr": [
+          "legal-counsel-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-ikea-ch"
+      ]
     },
     {
       "id": "ikea-1e9eeb5a806f",

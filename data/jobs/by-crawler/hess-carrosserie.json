@@ -1293,8 +1293,8 @@
       "slugByLocale": {
         "de": "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100",
         "it": "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100",
-        "fr": "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100"
+        "en": "service-technician-commissioning-specialist-electric-buses-commercial-vehicles-international-80-100-m-f-d-carrosserie",
+        "fr": "technicien-de-service-mise-en-service-d-autobus-electriques-specialises-vehicules-utilitaires-internationaux-80-100-h-f"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -1344,6 +1344,12 @@
       "department": "Reparatur und Service",
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100"
+        ],
+        "en": [
+          "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100"
+        ],
+        "fr": [
           "servicetechniker-inbetriebnahme-spezialist-elektrobusse-nutzfahrzeuge-international-80-100"
         ]
       },
@@ -2317,7 +2323,7 @@
       "slug": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "it": "trattamenti-per-veicoli-a-tutto-tondo-m-f-d-carrosserie-hess-ag-bellach",
-        "en": "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach",
+        "en": "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
         "de": "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
         "fr": "traitement-des-vehicules-tout-terrain-h-f-d-carrosserie-hess-ag-bellach"
       },
@@ -2371,7 +2377,6 @@
         "reisefreudiger-allrounder-80-100-m-w-d-hess-bellach",
         "voyageur-tout-terrain-80-100-m-f-d-carrosserie-hess-ag-bellach",
         "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
-        "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
         "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
       ],
       "previousSlugsByLocale": {
@@ -2385,7 +2390,6 @@
         "en": [
           "traveling-all-rounder-80-100-m-f-d-carrosserie-hess-ag-bellach",
           "allrounder-fahrzeugbehandlungen-m-w-d-hess-bellach",
-          "all-rounder-vehicle-treatments-m-f-d-carrosserie-hess-ag-bellach",
           "allrounder-fahrzeugbehandlungen-m-w-d-carrosserie-hess-ag-bellach"
         ],
         "de": [
@@ -2559,8 +2563,7 @@
         ],
         "en": [
           "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
-          "body-spider-glider-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+          "body-spider-glider-carrosserie-hess-ag-rothenburg"
         ],
         "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"

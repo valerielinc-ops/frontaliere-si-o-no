@@ -166,12 +166,12 @@
     },
     {
       "id": "stiftung-kind-autismus-8e13c1ed611e",
-      "slug": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
+      "slug": "assistente-sociale-al-servizio-civile-stiftung-kind-und-autismus-urdorf",
       "slugByLocale": {
         "de": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "it": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "en": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "fr": "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        "it": "assistente-sociale-al-servizio-civile-stiftung-kind-und-autismus-urdorf",
+        "en": "community-service-providers-in-the-social-sector-stiftung-kind-und-autismus-urdorf",
+        "fr": "service-s-civil-s-dans-le-domaine-social-stiftung-kind-und-autismus-urdorf"
       },
       "company": "Stiftung Kind und Autismus",
       "companyKey": "stiftung-kind-autismus",
@@ -231,7 +231,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-02T23:17:06.184Z"
+      "firstSeenAt": "2026-07-02T23:17:06.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "en": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "fr": [
+          "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ]
+      },
+      "previousSlugs": [
+        "zivildienstleistende-r-im-sozialwesen-stiftung-kind-autismus-urdorf"
+      ]
     },
     {
       "id": "stiftung-kind-autismus-571fd0927ef1",
@@ -239,8 +253,8 @@
       "slugByLocale": {
         "de": "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf",
         "it": "vorpraktikum-o-praktikum-im-sozialwesen-stiftung-kind-und-autismus-urdorf",
-        "en": "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf",
-        "fr": "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        "en": "pre-internship-or-internship-in-social-work-stiftung-kind-und-autismus-urdorf",
+        "fr": "stage-ou-stage-en-travail-social-avant-les-etudes-stiftung-kind-und-autismus-urdorf"
       },
       "company": "Stiftung Kind und Autismus",
       "companyKey": "stiftung-kind-autismus",
@@ -289,6 +303,12 @@
       "externalId": "0081",
       "previousSlugsByLocale": {
         "it": [
+          "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "en": [
+          "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf"
+        ],
+        "fr": [
           "vorpraktikum-oder-praktikum-im-sozialwesen-stiftung-kind-autismus-urdorf"
         ]
       },

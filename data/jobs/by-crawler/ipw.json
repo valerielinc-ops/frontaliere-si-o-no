@@ -1595,12 +1595,12 @@
     },
     {
       "id": "ipw-3ef744743543",
-      "slug": "diplomierte-pflegefachperson-hf-fh-ipw-winterthur",
+      "slug": "infermiere-certificato-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-ipw-winterthur",
-        "it": "diplomierte-pflegefachperson-hf-fh-ipw-winterthur",
-        "en": "diplomierte-pflegefachperson-hf-fh-ipw-winterthur",
-        "fr": "diplomierte-pflegefachperson-hf-fh-ipw-winterthur"
+        "it": "infermiere-certificato-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "certified-nurse-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "fr": "infirmiere-agreee-hf-fh-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1662,7 +1662,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T09:21:59.555Z"
+      "firstSeenAt": "2026-10-06T09:21:59.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-ipw-winterthur"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-ipw-winterthur"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-341195f72d80",

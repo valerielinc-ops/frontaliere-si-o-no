@@ -1593,8 +1593,7 @@
           "dipl-nurse-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-h36uc9",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-h36uc9"
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:19.039Z",
@@ -1681,8 +1680,7 @@
           "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-9ydwgq",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-9ydwgq"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-3"
@@ -1918,8 +1916,7 @@
           "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-000svw",
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-000svw"
         ]
       },
       "firstSeenAt": "2026-07-06T13:10:43.829Z",
@@ -3877,12 +3874,12 @@
     },
     {
       "id": "balgrist-a01d347dd0f3",
-      "slug": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
+      "slug": "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
-        "it": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
-        "en": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich",
-        "fr": "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+        "it": "esperta-infermieristica-esperto-infermieristico-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "en": "nursing-expert-cns-m-f-d-80-100-universitatsklinik-balgrist-zurich",
+        "fr": "experte-en-soins-infirmiers-cns-h-f-d-80-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -3941,7 +3938,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-14T21:36:52.066Z"
+      "firstSeenAt": "2026-08-14T21:36:52.066Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperten-cns-m-w-d-80-100-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-3f48a1bff947",

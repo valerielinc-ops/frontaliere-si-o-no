@@ -3551,12 +3551,12 @@
     },
     {
       "id": "concordia-db3ec69960fe",
-      "slug": "versicherungsberater-in-100-in-visp-concordia-visp",
+      "slug": "consulente-assicurativo-100-a-visp-concordia-visp",
       "slugByLocale": {
         "de": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "it": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "en": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "fr": "versicherungsberater-in-100-in-visp-concordia-visp"
+        "it": "consulente-assicurativo-100-a-visp-concordia-visp",
+        "en": "insuranceadvisor-100-in-visp-concordia-visp",
+        "fr": "conseiller-ere-en-assurance-100-a-viege-concordia-visp"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3616,7 +3616,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T13:38:29.053Z"
+      "firstSeenAt": "2026-09-03T13:38:29.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ],
+        "en": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ],
+        "fr": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-visp-concordia-visp"
+      ]
     },
     {
       "id": "concordia-7d5484693250",

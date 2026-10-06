@@ -702,12 +702,12 @@
     },
     {
       "id": "planzer-017b77a380f5",
-      "slug": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
+      "slug": "team-leader-nella-raccolta-m-f-d-planzer-daniken",
       "slugByLocale": {
         "de": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "it": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "en": "teamleiter-kommissionierung-m-w-d-planzer-daniken",
-        "fr": "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        "it": "team-leader-nella-raccolta-m-f-d-planzer-daniken",
+        "en": "team-leader-picking-m-f-d-planzer-daniken",
+        "fr": "chef-d-equipe-selection-h-f-d-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -766,7 +766,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        ],
+        "en": [
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        ],
+        "fr": [
+          "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kommissionierung-m-w-d-planzer-daniken"
+      ]
     },
     {
       "id": "planzer-aec7e0bbceb6",
