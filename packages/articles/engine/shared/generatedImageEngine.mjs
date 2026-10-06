@@ -511,7 +511,11 @@ export async function generateImageFromSpec(spec, {
         verifiedAt,
         restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
         scope: normalized.scope,
-        imageUrl: `${normalized.scope === 'event-library' ? '/images/events/library/' : '/images/generated/'}${finalAssetId}.webp`,
+        imageUrl: `${normalized.scope === 'event-library'
+          ? '/images/events/library/'
+          : normalized.scope === 'article-hero'
+            ? '/images/blog/'
+            : '/images/generated/'}${finalAssetId}.webp`,
         category: normalized.category,
         area: normalized.area,
         season: normalized.season,

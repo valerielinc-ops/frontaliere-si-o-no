@@ -156,7 +156,7 @@ export function generatedImagePromptInput(spec, options) {
 }
 
 export function isGeneratedImagePath(value) {
-  return typeof value === 'string' && /^\/images\/(?:events\/library|generated)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|blog)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
 }
 
 export function generatedImageAssetIdFromPath(value) {
@@ -208,7 +208,11 @@ export function validateGeneratedImageRecord(record) {
     errors.push('vision gate verdict is missing or rejected');
   }
   if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a generated WebP path');
-  const expectedPrefix = record.scope === 'event-library' ? '/images/events/library/' : '/images/generated/';
+  const expectedPrefix = record.scope === 'event-library'
+    ? '/images/events/library/'
+    : record.scope === 'article-hero'
+      ? '/images/blog/'
+      : '/images/generated/';
   if (record.imageUrl && !record.imageUrl.startsWith(expectedPrefix)) errors.push('imageUrl does not match scope');
   if (record.imageUrl && generatedImageAssetIdFromPath(record.imageUrl) !== record.assetId) errors.push('imageUrl assetId mismatch');
   if (record.width / record.height < 1.6 || record.width / record.height > 1.9) errors.push('image aspect ratio is outside the editorial range');
