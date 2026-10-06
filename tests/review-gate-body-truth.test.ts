@@ -27,20 +27,26 @@ const PR_BODY = [
   '## Non implementato (ancora)', '',
   '- production-deploy — blocked: configurazione owner-only del ruleset',
 ].join('\n');
-const PERF_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L13`: 🔴 Important: claim perf senza baseline pre-merge.\n';
+const PERF_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L13`: 🔴 Important: claim perf senza baseline pre-merge.\nBody citation: "claim perf senza baseline rimosso"\n';
 const IMPL_RED = '## Findings (Important: 1, Nit: 0)\n\n`PR body:L3`: 🔴 Important: la voce non corrisponde al diff.\n';
 const files = { files: ['scripts/lib/foo.mjs'], complete: true, prBody: PR_BODY };
 
 const STALE_BODY_FINDING = [
   '## Findings (Important: 1, Nit: 0)',
   '',
-  '`PR body:L13`: 🔴 Important: il claim non è più presente nel body.',
+  '`PR body:L13`: 🔴 Important: la voce non è più presente nel body.',
   'Body citation: "testo rimosso dal body corrente"',
 ].join('\n');
 const CURRENT_BODY_WITHOUT_CITATION = [
   '## Implementato',
   '',
   '- una modifica corrente',
+  '',
+  '- altro',
+  '',
+  '',
+  '',
+  '',
   '',
   '## Non implementato (ancora)',
   '',
@@ -66,7 +72,9 @@ describe('the deterministic body contract is the single source of truth', () => 
   });
 
   it('keeps blocking body findings the contract cannot judge', () => {
-    expect(classifyReview(PERF_RED, { ...files, bodyContractPassed: true }).blocking).toBe(true);
+    const perf = classifyReview(PERF_RED, { ...files, bodyContractPassed: true });
+    expect(perf.blocking).toBe(true);
+    expect(perf.staleBodyDeclassified).toHaveLength(0);
     expect(classifyReview(IMPL_RED, { ...files, bodyContractPassed: true }).blocking).toBe(true);
     expect(classifyReview(BODY_RED, { ...files, prBody: null, bodyContractPassed: true }).blocking).toBe(true);
   });

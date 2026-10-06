@@ -438,7 +438,8 @@ export function classifyReview(body, {
         ? normalizeBodyCitationText(bodyCitation)
         : '';
       if (normalizedCitation && hasCurrentPrBody
-          && !normalizedPrBody.includes(normalizedCitation)) {
+          && !normalizedPrBody.includes(normalizedCitation)
+          && isContractDomainBodyFinding(finding, prBody)) {
         staleBodyDeclassified.push({
           ...finding,
           bodyCitation,
@@ -447,7 +448,8 @@ export function classifyReview(body, {
         continue;
       }
       // Body-only findings never enter the generic unchanged-code-line
-      // declassification: without the quote-absent proof they remain red.
+      // declassification: without the quote-absent proof, or outside the
+      // deterministic contract domain, they remain red.
     } else if (staleIds.has(finding.findingNumber)) {
       staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
       continue;
