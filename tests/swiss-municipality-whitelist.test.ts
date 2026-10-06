@@ -3,6 +3,7 @@ import {
   isKnownSwissCity,
   isCantonOnlyLabel,
   findSwissCityInText,
+  swissCityFromLocationField,
   isKnownSwissMunicipality,
   normalizeSwissTargetLocationText,
 } from '../scripts/lib/target-swiss-locations.mjs';
@@ -33,6 +34,19 @@ describe('Swiss municipality whitelist (BFS)', () => {
       expect(isKnownSwissCity('Milano')).toBe(false);
       expect(isKnownSwissCity('Modena')).toBe(false);
       expect(isKnownSwissCity('Paris')).toBe(false);
+    });
+
+    it('accepts Swiss exonyms, sub-localities, and canton-scoped homonyms', () => {
+      expect(isKnownSwissCity('Geneva')).toBe(true);
+      expect(isKnownSwissCity('Bienne')).toBe(true);
+      expect(isKnownSwissCity('Küssnacht am Rigi')).toBe(true);
+      expect(isKnownSwissCity('Bremgarten', 'AG')).toBe(true);
+      expect(isKnownSwissCity('Gossau', 'SG')).toBe(true);
+      expect(isKnownSwissCity('Gossau', 'ZH')).toBe(true);
+      expect(isKnownSwissCity('Altdorf', 'UR')).toBe(true);
+      expect(isKnownSwissCity('Bremgarten')).toBe(false); // ambiguous without the record canton
+      expect(swissCityFromLocationField('Bremgarten, Aargau', 'AG')).toBe('Bremgarten');
+      expect(swissCityFromLocationField('Switzerland (Mex)', 'VD')).toBe('Mex');
     });
 
     it('handles empty / null input', () => {
