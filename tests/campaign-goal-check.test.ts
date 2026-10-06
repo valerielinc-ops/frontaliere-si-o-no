@@ -495,12 +495,17 @@ describe('alert funnel surface attribution (#7763/#7764)', () => {
   });
 
   it('a post-auth replay keeps a qualifying origin without widening the allowlist (issue 9576)', () => {
-    // Every origin the guest submit can carry through sign-in is a surface
-    // that emits job_alert_cta_shown, so the replayed job_alert_created lands
-    // on the numerator of the same population as its impression.
+    // Every origin the guest submit can carry through sign-in emits the same
+    // generic shown event. The five allowlisted form handoffs land on the
+    // campaign numerator; the saved-jobs nudge is intentionally diagnostic and
+    // remains outside this campaign's seven-surface population.
     expect(PENDING_JOB_ALERT_ORIGINS.length).toBeGreaterThan(0);
     for (const origin of PENDING_JOB_ALERT_ORIGINS) {
-      expect(ALERT_CTA_SURFACES).toContain(origin);
+      if (origin === 'saved_jobs_nudge') {
+        expect(ALERT_CTA_SURFACES).not.toContain(origin);
+      } else {
+        expect(ALERT_CTA_SURFACES).toContain(origin);
+      }
     }
     // The diagnostic auth-path value stays OUT: no impression is ever
     // emitted under it, and admitting it would inflate only the numerator.
