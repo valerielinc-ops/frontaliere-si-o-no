@@ -510,7 +510,13 @@ async function computeResendDynamicDailyLimit(nowMs = Date.now()) {
     console.warn(`⚠️  [resend] quota-cycle usage unverifiable — falling back to the ${provider.dailyLimit}/day free-plan ceiling`);
     return provider.dailyLimit;
   }
-  const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS));
+  // The current UTC day is the send day, not a full future day. Excluding it
+  // from the pacing denominator keeps a fresh cycle at the provider's hard
+  // 100/day ceiling while the following days still share the remaining
+  // monthly budget. Without this, a 31-day cycle starts at floor(3000 / 31)
+  // = 96 and the daily hard cap is lowered merely because the calendar has 31
+  // dates, even though the account quota is 3000 messages per cycle.
+  const daysRemaining = Math.max(1, Math.ceil((cycleEnd.getTime() - nowMs) / DAY_MS) - 1);
   const remainingBudget = Math.max(0, provider.monthlyLimit - count);
   const dynamicLimit = Math.min(provider.dailyLimit, Math.floor(remainingBudget / daysRemaining));
   console.log(`   [resend] cycle ${cycleStart.toISOString().slice(0, 10)}→${cycleEnd.toISOString().slice(0, 10)}: used=${count}/${provider.monthlyLimit}, daysRemaining=${daysRemaining}, dynamic dailyLimit=${dynamicLimit}`);

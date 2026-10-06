@@ -52,6 +52,7 @@ import {
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { isCrossChannelStop, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { evaluateJobAlertConsent } from './lib/jobalert-backfill-core.mjs';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
@@ -770,24 +771,7 @@ export function __setFirestoreAdminForTest(fakeDb) {
 
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) {
-      // Service account JSON (CI/CD)
-      initializeApp({ credential: cert(cred) });
-    } else {
-      // ADC / user credentials (local dev)
-      const { applicationDefault } = await import('firebase-admin/app');
-      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-    }
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 

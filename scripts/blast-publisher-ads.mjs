@@ -35,13 +35,13 @@ import {
   isAdvertisingSuppressed,
   matchSubscribersForAd,
 } from '../services/publisherBlastMatch.mjs';
-import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
-import { FieldValue, getFirestore } from 'firebase-admin/firestore';
+import { FieldValue } from 'firebase-admin/firestore';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
 import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './lib/email-cascade.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -50,13 +50,7 @@ const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const SITE = 'https://frontaliereticino.ch';
 
 async function initDb() {
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: getFirestore() };
+  return { db: await getFirestoreDb() };
 }
 
 async function main() {
