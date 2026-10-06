@@ -2,7 +2,6 @@ export const DEPLOY_WORKFLOW_PATH = '.github/workflows/deploy-cloud-functions.ym
 export const DEPLOY_JOB_NAME = 'deploy-functions';
 export const HOSTED_RUNNER_ALLOCATION_MESSAGE =
   'The job was not acquired by Runner of type hosted even after multiple attempts';
-export const FIRST_RUN_ATTEMPT = 1;
 
 /**
  * Only production deploys from main are safe to replay automatically. A
@@ -10,13 +9,27 @@ export const FIRST_RUN_ATTEMPT = 1;
  * bounded even when GitHub emits another completion event for the replay.
  */
 export function isCloudFunctionsRunCandidate(run) {
-  const attempt = Number(run?.run_attempt ?? FIRST_RUN_ATTEMPT);
   return run?.conclusion === 'failure'
     && run?.path === DEPLOY_WORKFLOW_PATH
     && run?.head_branch === 'main'
     && ['push', 'workflow_dispatch'].includes(run?.event)
-    && Number.isSafeInteger(attempt)
-    && attempt === FIRST_RUN_ATTEMPT;
+    && Number.isSafeInteger(run?.run_attempt)
+    && run.run_attempt === 1;
+}
+
+/**
+ * A recovery replays the source SHA. Once another main deploy run exists, that
+ * SHA is stale even if the newer run is still queued; replaying it could put an
+ * older production state behind the newer deploy in the shared concurrency
+ * group. The Actions run id is the durable ordering key returned by the API.
+ */
+export function hasNewerDeployRun(run, workflowRuns) {
+  if (!Array.isArray(workflowRuns) || !Number.isSafeInteger(run?.id)) return true;
+  return workflowRuns.some((candidate) => (
+    Number.isSafeInteger(candidate?.id)
+    && candidate.id > run.id
+    && candidate.head_branch === 'main'
+  ));
 }
 
 /**
@@ -42,8 +55,9 @@ export function isHostedRunnerAllocationFailure(job, annotations = []) {
  * `annotationsByJob` is keyed by the check-run/job id so callers can fetch
  * annotations lazily through the Checks API without weakening the predicate.
  */
-export function shouldRetryCloudFunctionsRun({ run, jobs, annotationsByJob } = {}) {
+export function shouldRetryCloudFunctionsRun({ run, jobs, annotationsByJob, workflowRuns } = {}) {
   if (!isCloudFunctionsRunCandidate(run) || !Array.isArray(jobs)) return false;
+  if (hasNewerDeployRun(run, workflowRuns)) return false;
   return jobs.some((job) => isHostedRunnerAllocationFailure(
     job,
     annotationsByJob?.[String(job?.id)] || [],

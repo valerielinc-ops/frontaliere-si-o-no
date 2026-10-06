@@ -19,6 +19,7 @@ const DEPLOY_WORKFLOW_PATH = path.resolve(
 );
 
 const sourceRun = {
+  id: 37517850000,
   conclusion: 'failure',
   event: 'push',
   head_branch: 'main',
@@ -45,6 +46,7 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       run: sourceRun,
       jobs: [unassignedJob],
       annotationsByJob: { [String(unassignedJob.id)]: runnerAnnotation },
+      workflowRuns: [],
     })).toBe(true);
   });
 
@@ -63,6 +65,18 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       run: sourceRun,
       jobs: [{ ...unassignedJob, conclusion: 'cancelled' }],
       annotationsByJob: { [String(unassignedJob.id)]: [] },
+      workflowRuns: [],
+    })).toBe(false);
+  });
+
+  it('refuses missing attempts and stale source SHAs when a newer main run exists', () => {
+    expect(isCloudFunctionsRunCandidate({ ...sourceRun, run_attempt: undefined })).toBe(false);
+    expect(isCloudFunctionsRunCandidate({ ...sourceRun, run_attempt: '1' })).toBe(false);
+    expect(shouldRetryCloudFunctionsRun({
+      run: sourceRun,
+      jobs: [unassignedJob],
+      annotationsByJob: { [String(unassignedJob.id)]: runnerAnnotation },
+      workflowRuns: [{ id: sourceRun.id + 1, head_branch: 'main' }],
     })).toBe(false);
   });
 
@@ -74,7 +88,7 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       types: ['completed'],
     });
     expect(recovery.permissions).toMatchObject({ actions: 'write', checks: 'read' });
-    expect(recovery.jobs.retry.if).toContain("run_attempt < 2");
+    expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
     expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);
