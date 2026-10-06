@@ -186,6 +186,48 @@ describe('L4 Alert → Return', () => {
     });
   });
 
+  it('carries the validated return measurement into the public waiting sample', async () => {
+    const cohortNow = new Date('2026-10-05T00:00:00.000Z');
+    const insufficientUntil = '2026-10-14T00:00:00.000Z';
+    const source = tempSource(outcomes({
+      generatedAt: cohortNow.toISOString(),
+      returningUsers7d: null,
+      export: {
+        consentChecked: true,
+        deduplicationChecked: true,
+        quietHoursChecked: true,
+        quietHoursEvidence: 'test sender schedule',
+        externalDeliveryUntouched: true,
+        unattributedDeliveries: 0,
+        returnMeasurement: {
+          status: 'insufficient',
+          source: 'GA4 Data API',
+          dimension: 'sessionCampaignName',
+          metric: 'totalUsers',
+          insufficientUntil,
+        },
+      },
+    }));
+    const issues: Array<Record<string, unknown>> = [];
+    const result = await runL4({
+      now: cohortNow,
+      configPath: source.configPath,
+      snoozesPath: source.snoozesPath,
+      outcomePath: source.outcomePath,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+
+    expect(result.observation.sourceSnapshot.outcomes).toMatchObject({
+      returnMeasurement: { status: 'insufficient', insufficientUntil },
+    });
+    expect(issues[0]).toMatchObject({
+      state: 'awaiting-sample',
+      sample: { windowDays: 9 },
+    });
+  });
+
   it('marks stale outcomes and keeps a future timestamp from starting the window', async () => {
     const verdict = validateAlertReturn({ config: config(), snoozes: snoozes(), outcomes: outcomes({ generatedAt: '2026-09-01T12:00:00.000Z' }) }, { now: NOW });
     expect(verdict.quality).toBe('stale');
