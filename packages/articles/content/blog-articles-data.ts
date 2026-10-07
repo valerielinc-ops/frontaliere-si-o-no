@@ -43049,6 +43049,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'coda-a8-castronno-solbiate',
+ category: 'novita',
+ date: '2026-10-07T22:16:34.106Z',
+ image: '/images/blog/article-coda-a8-castronno-solbiate.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

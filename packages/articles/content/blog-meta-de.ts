@@ -12759,6 +12759,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lifestyle-innovation-hub-chiasso.title': 'Lifestyle Innovation Hub in Chiasso: 30 Millionen investiert',
     'blog.article.lifestyle-innovation-hub-chiasso.excerpt': '## Auf einen Blick - Umwandlung des ehemaligen Sitzes von Credit Suisse mit einer Gesamtinvestition von 30 Millionen Franken - Eröffnet in Chiasso am 7. Oktober 2026',
     'blog.article.lifestyle-innovation-hub-chiasso.imageAlt': 'Der am 7. Oktober 2026 in Chiasso eröffnete Lifestyle Innovation Hub, ein sechsstöckiges Gebäude mit über 10 000 m², das Innovation, KI sowie die Bereiche Travel, Hospitality, Design und Media fokussiert.',
+    'blog.article.coda-a8-castronno-solbiate.title': 'Unfall auf der A8 zwischen Castronno und Solbiate: Stau',
+    'blog.article.coda-a8-castronno-solbiate.excerpt': 'Ab 18 Uhr am Mittwoch, dem 7. Oktober, hat der Unfall zwischen Castronno und Solbiate Arno den Verkehr zwischen Varese und Gallarate lahmgelegt. Um 20 Uhr wieder Normalität.',
+    'blog.article.coda-a8-castronno-solbiate.imageAlt': 'Verkehrsstau nach dem Unfall auf der A8 zwischen Castronno und Solbiate Arno.',
 };
 
 export default blogMetaDe;

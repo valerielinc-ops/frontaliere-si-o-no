@@ -101021,6 +101021,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coda-a8-castronno-solbiate': {
+    title: 'Incidente A8 tra Castronno e Solbiate: code | Frontaliere Ticino',
+    description: 'Incidente sulla A8 tra Castronno e Solbiate Arno: dalle 18 code tra Varese e Gallarate, traffico sulla Statale e ritorno alla normalità intorno alle 20.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, castronno, solbiate, code',
+    ogTitle: 'Code sulla A8 tra Castronno e Solbiate',
+    ogDescription: 'Lo scontro tra Castronno e Solbiate Arno ha provocato una lunga coda sulla A8 e paralizzato la viabilità tra Varese e Gallarate. Il traffico si è riversato sulla Statale, dove il semaforo a senso alternato del ponte ha creato un ulteriore imbuto.',
+    canonicalPath: '/articoli-frontaliere/coda-a8-castronno-solbiate/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente A8 tra Castronno e Solbiate: code",
+      "description": "Incidente sulla A8 tra Castronno e Solbiate Arno: dalle 18 code tra Varese e Gallarate, traffico sulla Statale e ritorno alla normalità intorno alle 20.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-coda-a8-castronno-solbiate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda stradale dopo l'incidente sulla A8 tra Castronno e Solbiate Arno."
+      },
+      "datePublished": "2026-10-07T22:16:34+00:00",
+      "dateModified": "2026-10-07T22:16:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coda-a8-castronno-solbiate/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
