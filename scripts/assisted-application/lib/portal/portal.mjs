@@ -542,7 +542,8 @@ async function clickFirst(page, snapshot, patterns) {
       return true;
     }
     const link = page.getByRole('link', { name: pattern }).first();
-    if (await link.count()) {
+    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+    if (linkVisible) {
       await clickPortalLink(page, link);
       return true;
     }
