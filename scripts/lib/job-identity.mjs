@@ -81,8 +81,11 @@ export function archiveRecordSourceIdentities(expiredJob = {}) {
  * does not name the active job is a different posting that merely shares
  * title/company/location (typically a sibling vacancy archived as a dedup
  * duplicate); merging it hands the active job another posting's routes,
- * hash-tailed slug included (#11596). Records without any identity, or an
- * active job without a URL, cannot be judged here and stay eligible.
+ * hash-tailed slug included (#11596). When the active job has a URL but the
+ * archive has no source identity, the evidence is ambiguous and must fail
+ * closed. The legacy fallback remains only for records where neither side has
+ * a stable identity, because the caller's exact route/title/company/location
+ * evidence is the only available proof in that deliberately bounded case.
  *
  * @param {object} expiredJob archive record
  * @param {object} activeJob candidate active owner
@@ -90,7 +93,9 @@ export function archiveRecordSourceIdentities(expiredJob = {}) {
  */
 export function archiveRecordNamesPosting(expiredJob = {}, activeJob = {}) {
   const expiredIds = archiveRecordSourceIdentities(expiredJob);
-  if (expiredIds.size === 0 || !normalizeSpace(activeJob?.url ?? '')) return true;
+  const activeUrl = normalizeSpace(activeJob?.url ?? '');
+  if (expiredIds.size === 0) return !activeUrl;
+  if (!activeUrl) return true;
   return expiredIds.has(buildStableJobIdentity(activeJob));
 }
 

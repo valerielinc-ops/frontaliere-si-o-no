@@ -163,7 +163,7 @@
         "it": "master-s-thesis-gestione-del-portafoglio-discrezionale-12-mesi-di-contratto-pictet-group-geneva",
         "en": "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva",
         "de": "masterarbeit-diskretionares-portfoliomanagement-12-monate-vertrag-pictet-group-geneva",
-        "fr": "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-group-geneva"
+        "fr": "these-de-maitrise-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -208,7 +208,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva",
-        "these-de-maitrise-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva",
         "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
@@ -220,7 +219,6 @@
         ],
         "fr": [
           "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-geneva",
-          "these-de-maitrise-gestion-discretionnaire-de-portefeuille-contrat-de-12-mois-pictet-group-geneva",
           "master-s-thesis-discretionary-portfolio-management-12-months-contract-pictet-group-geneva"
         ]
       },
@@ -392,17 +390,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "needsRetranslation": true
+      "postalCode": "1204"
     },
     {
       "id": "pictet-e5e666c24adc",
-      "slug": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
+      "slug": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "it": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "de": "client-relationship-officer-18-months-fixed-term-pictet-zurich",
-        "fr": "client-relationship-officer-18-months-fixed-term-pictet-zurich"
+        "it": "responsabile-relazioni-cliente-18-mesi-a-tempo-determinato-pictet-group-zurich",
+        "de": "client-relationship-officer-18-monate-befristet-pictet-group-zurich",
+        "fr": "agent-de-relations-avec-la-clientele-18-mois-de-duree-determinee-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -461,7 +458,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-06T21:18:07.156Z"
+      "firstSeenAt": "2026-10-06T21:18:07.156Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-18-months-fixed-term-pictet-zurich"
+        ],
+        "de": [
+          "client-relationship-officer-18-months-fixed-term-pictet-zurich"
+        ],
+        "fr": [
+          "client-relationship-officer-18-months-fixed-term-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-18-months-fixed-term-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-ebd7d442e240",
