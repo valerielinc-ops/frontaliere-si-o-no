@@ -8,6 +8,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
@@ -153,7 +154,7 @@ function parseArgs(argv) {
   return args;
 }
 
-if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href) {
   try {
     const args = parseArgs(process.argv.slice(2));
     if (!args) process.exit(0);

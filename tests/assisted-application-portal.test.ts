@@ -3,7 +3,7 @@ import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candida
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -209,6 +209,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'select', value: 'f', options: [{ value: 'f', label: 'Frau' }] })).toBe(true);
     expect(holdsValue({ kind: 'listbox', value: 'Italien' })).toBe(true);
     expect(holdsValue({ kind: 'text', value: '-- Seleziona --' })).toBe(false);
+    expect(holdsValue({ kind: 'combobox', value: 'Aucune sélection' })).toBe(false);
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
@@ -379,6 +380,16 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: school.id, action: 'select', value: 'Autre', source: 'profile' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('deduplicates a portal question after an ATS changes its wording', () => {
+    const questions = [
+      { id: 'portal_old_address', source: 'portal', question: 'Qual è la tua via e il numero civico?' },
+      { id: 'portal_new_address', source: 'portal', question: 'Rue et numéro' },
+      { id: 'school', source: 'portal', question: 'In quale scuola sei attualmente?' },
+      { id: 'rule', source: 'rule', question: 'Qual è la tua via e il numero civico?' },
+    ];
+    expect(dedupePortalQuestions(questions).map((question) => question.id)).toEqual(['portal_old_address', 'school', 'rule']);
   });
 
   it('derives an age threshold only from the explicit date of birth', () => {

@@ -602,7 +602,7 @@ export function agencyNoOption(field) {
 }
 
 // "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.
-const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez))?[-–—\s.…]*$/i;
+const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(sélection|selection)(née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)?[-–—\s.…]*$/i;
 
 /** The field already has an answer on the page (filled before, or prefilled by the portal). */
 export function holdsValue(field) {
