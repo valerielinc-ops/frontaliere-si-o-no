@@ -125,6 +125,45 @@ describe('event description rewrite validator', () => {
     }).ok).toBe(true);
   });
 
+  it('accepts equivalent translated venue, date, number and currency forms from structured facts', () => {
+    const structuredFacts = [
+      'Museo civico',
+      'Zürich',
+      'TI',
+      '2026-10-12',
+      '18:00',
+      '{"amount":25,"currency":"CHF"}',
+    ];
+    expect(validateRewriteDescription('The event presents a cultural programme. The visit takes place at the Civic Museum.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('L\'appuntamento è previsto il dodici ottobre duemilaventisei. La visita è indicata nelle informazioni disponibili.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('Der Eintritt kostet fünfundzwanzig Schweizer Franken. Die Veranstaltung ist in den Daten erfasst.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('The event starts at 6:30 pm. The visit takes place at the Civic Museum.', {
+      sourceTexts: source,
+      factTexts: ['Museo civico', '2026-10-12', '18:30'],
+    }).ok).toBe(true);
+  });
+
+  it('keeps new dates and names rejected after equivalence normalization', () => {
+    const structuredFacts = ['Museo civico', '2026-10-12', '{"amount":25,"currency":"CHF"}'];
+    expect(validateRewriteDescription('L\'appuntamento è previsto il dodici novembre duemilaventisei. La visita è indicata nelle informazioni disponibili.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    })).toEqual({ ok: false, code: 'new-number' });
+    expect(validateRewriteDescription('The event presents a cultural programme. The visit takes place at the New Palace.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    })).toEqual({ ok: false, code: 'new-name' });
+  });
+
   it('accepts a factual two-sentence paraphrase in all four locales', () => {
     const descriptions = {
       it: 'L\'appuntamento propone opere locali in esposizione. La visita si svolge al museo civico.',
