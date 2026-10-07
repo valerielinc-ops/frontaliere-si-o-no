@@ -100,10 +100,13 @@ export const FINDING_CLASSES = Object.freeze([
 
 export const REGRESSION_CLASS = 'regression';
 
-// Il tag sta DOPO i due punti: `IMPORTANT_MARKER_RE` del gate pretende
-// `🔴 Important` seguito subito da `:`/`—`/`-`, quindi un tag infilato prima
-// del separatore rende il finding invisibile al parser.
-const CLASS_TAG_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]\s*\[\s*([a-z-]{3,20})\s*\]/iu;
+// Il tag segue la severita', con o senza separatore. Con il separatore e' la
+// forma storica (`🔴 Important: [classe] ...`). Senza, e' la forma con ancora
+// di posizione che il gate riconosce dalla PR 9339
+// (`path:L<n>: 🔴 Important [classe] ...`): li' il finding esiste, e una classe
+// non letta varrebbe `other`. Per `regression` non e' un dettaglio: e' il tag
+// che impedisce a `unchangedLineImportants` di declassare il finding.
+const CLASS_TAG_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*(?:[:—-]\s*)?\[\s*([a-z-]{3,20})\s*\]/iu;
 const PATH_LIKE_RE = /^(?:\.{1,2}\/)?(?:[A-Za-z0-9_.@-]+\/)+[A-Za-z0-9_.@-]+$/u;
 const EXTENSION_RE = /\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|yaml|yml|jsx)$/u;
 const BACKTICK_RE = /`([^`\n]{1,120})`/gu;

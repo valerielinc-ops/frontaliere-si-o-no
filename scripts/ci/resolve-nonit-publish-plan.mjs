@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
- * Admit non-IT shard tails completed by deploy-publish.yml.
+ * Admit the complete non-IT shard tail completed by deploy-publish.yml.
  *
- * The source build plan deliberately leaves en/de/fr stale while their
- * validated source artifacts cross the workflow boundary. This resolver only
- * promotes a locale after the post-build receipt proves the full tail and the
- * receipt artifact belongs to this publish run.
+ * The source build plan leaves en/de/fr source-ready while their validated
+ * artifacts cross the workflow boundary. This resolver promotes a locale only
+ * after the post-build receipt proves the full tail and the receipt artifact
+ * belongs to this publish run. A partial tail cannot accompany a new IT
+ * snapshot: the resulting cross-locale hreflang graph would be incomplete.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -108,17 +109,19 @@ export function resolveNonItPublishPlan({
     if (!staleReasons[locale]) staleReasons[locale] = 'not admitted; keep the last-known-good locale shard';
   }
 
+  const incompleteLocales = LOCALES.filter((locale) => !healthy.has(locale));
+  const allowed = failures.length === 0 && incompleteLocales.length === 0;
   return {
-    allowed: healthy.has('it'),
+    allowed,
     healthyLocales: LOCALES.filter((locale) => healthy.has(locale)),
     staleLocales: LOCALES.filter((locale) => stale.has(locale)),
     staleReasons,
     readyLocales,
     requestedTail,
     failures,
-    reason: readyLocales.length
+    reason: allowed
       ? `admitted post-build tail for ${readyLocales.join(', ')}`
-      : 'no non-IT post-build tail was admitted',
+      : `post-build locale handoff is incomplete for ${incompleteLocales.join(', ') || 'the recorded provenance'}`,
   };
 }
 
