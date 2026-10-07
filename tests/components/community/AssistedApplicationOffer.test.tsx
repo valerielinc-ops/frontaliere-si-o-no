@@ -117,7 +117,14 @@ describe('AssistedApplicationOffer', () => {
     expect(actions.className).toMatch(/(^|\s)bottom-0(\s|$)/);
     expect(actions.className).toMatch(/(^|\s)bg-surface(\s|$)/);
     // Inside the scrolling card, not outside it.
-    expect(screen.getByRole('dialog')).toContainElement(actions);
+    const card = screen.getByRole('dialog');
+    expect(card).toContainElement(actions);
+    // The card has no bottom padding of its own (its content wrapper carries it): the pinned
+    // block reaches the card's bottom edge, with no strip of scrolled text under it.
+    expect(card.className).not.toMatch(/(^|\s)(sm:)?p-\d|(^|\s)(sm:)?pb-\d|(^|\s)(sm:)?py-\d/);
+    expect(actions.parentElement?.className).toMatch(/(^|\s)pb-4(\s|$)/);
+    expect(actions.parentElement?.className).toMatch(/(^|\s)sm:pb-6(\s|$)/);
+    expect(actions.parentElement?.parentElement).toBe(card);
   });
 
   it('leaves the body scroll and Escape to its host when embedded, and names who opened it', () => {

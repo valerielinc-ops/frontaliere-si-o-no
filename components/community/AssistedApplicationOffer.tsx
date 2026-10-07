@@ -95,10 +95,13 @@ export default function AssistedApplicationOffer({
         aria-modal="true"
         aria-labelledby="assisted-application-offer-title"
         aria-describedby="assisted-application-offer-description"
-        className="relative my-auto max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem,calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px)))] sm:p-6"
+        className="relative my-auto max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface px-4 pt-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem,calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px)))] sm:px-6 sm:pt-6"
         style={adClearance.cardStyle}
       >
-        <div className="space-y-5">
+        {/* The bottom padding sits here, not on the scrolling card: the pinned
+            actions block then reaches the card's bottom edge, and no scrolled
+            text shows in a strip under it (live 2026-10-07: 16-24 px). */}
+        <div className="space-y-5 pb-4 sm:pb-6">
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0">
               <p className="text-sm font-semibold text-accent">{companyName}</p>
