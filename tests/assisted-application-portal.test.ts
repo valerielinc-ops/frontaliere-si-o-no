@@ -383,6 +383,21 @@ describe('portal runner helpers', () => {
     expect(guarded.missingRequired).toEqual([]);
   });
 
+  it('reuses a saved semantic answer when the portal changes the question id', () => {
+    const out = autoAnswersForPortalQuestions({
+      questions: [{ id: 'new-age', source: 'portal', required: true, type: 'yes_no', question: 'Meno di 26 anni?', options: ['Sì', 'No'] }],
+      candidate: { profile: {}, portalQuestionsAnswered: [{ question: 'Are you under 26?', answer: 'Yes' }] },
+      answers: {},
+    });
+    expect(out).toEqual({ 'new-age': 'Sì' });
+
+    const field = { id: 'new-address', kind: 'text', label: 'Qual è la via e il numero civico?', required: true, options: [] };
+    expect(candidateAnswerForField({
+      profile: {},
+      portalQuestionsAnswered: [{ question: 'Qual è la tua via e il numero civico?', answer: 'Via Test 1' }],
+    }, field)).toEqual({ value: 'Via Test 1', source: 'answers' });
+  });
+
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {
     const candidate = candidateForForm({
       identity: { name: 'Maria Anna Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '+41 79 000 00 00' },
