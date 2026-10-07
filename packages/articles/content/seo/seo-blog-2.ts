@@ -365,7 +365,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Tetto salari manager energia: il dibattito federale e il suo riverbero",
- "description": "Un'iniziativa parlamentare propone un tetto ai salari dei manager energetici pubblici. Scopri l'impatto di questa discussione sul costo della vita e sui",
+ "description": "Un'iniziativa parlamentare propone un tetto ai salari dei manager energetici pubblici. Scopri l'impatto di questa discussione sul costo della vita",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/stipendi-manager-energia-ticino.webp`,
  "width": 1344,
@@ -481,7 +481,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Iniziativa 'Anti-Dumping' Salariale al Voto in Ticino",
- "description": "L'8 marzo 2026 il Ticino decide sull'iniziativa 'anti-dumping' per blindare i salari con notifica contratti obbligatoria e più controlli. Impatto sui",
+ "description": "L'8 marzo 2026 il Ticino decide sull'iniziativa 'anti-dumping' per blindare i salari con notifica contratti obbligatoria e più controlli. Impatto",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/ticino-voto-anti-dumping.webp`,
  "width": 1344,

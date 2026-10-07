@@ -5920,12 +5920,12 @@
     },
     {
       "id": "coopers-4321e9622ab0",
-      "slug": "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt",
+      "slug": "ricercatore-associato-sviluppo-del-processo-a-valle-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
         "en": "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt",
-        "it": "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt",
+        "it": "ricercatore-associato-sviluppo-del-processo-a-valle-m-f-d-coopers-group-ag-basel-stadt",
         "de": "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt",
-        "fr": "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt"
+        "fr": "scientifique-associe-developpement-de-processus-en-aval-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -5995,7 +5995,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-07T09:23:45.395Z"
+      "firstSeenAt": "2026-10-07T09:23:45.395Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "associate-scientist-downstream-process-development-m-f-d-coopers-basel-stadt"
+      ]
     }
   ]
 }

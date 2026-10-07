@@ -3188,8 +3188,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-maennedorf-ch",
         "it": "mitarbeiterin-empfang-e-patientenaufnahme-50-m-w-d-spital-mannedorf",
-        "en": "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-mannedorf-mannedorf"
+        "en": "reception-and-patient-reception-staff-50-m-f-d-spital-mannedorf-mannedorf",
+        "fr": "personnel-d-accueil-et-de-reception-du-patient-50-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3241,10 +3241,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-maennedorf-ch"
+        ],
+        "en": [
+          "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-maennedorf-ch"
+        "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-maennedorf-ch",
+        "mitarbeiterin-empfang-und-patientenaufnahme-50-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 45800,
       "salaryMax": 64000,

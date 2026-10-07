@@ -253,9 +253,9 @@
     },
     {
       "id": "spital-muri-f52693654702",
-      "slug": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag",
+      "slug": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag",
+        "it": "primario-ginecologia-e-ostetricia-spital-muri-muri-ag",
         "en": "senior-physician-gynecology-and-obstetrics-spital-muri-muri-ag",
         "de": "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
         "fr": "medecin-principal-gynecologie-et-obstetrique-spital-muri-muri-ag"
@@ -306,11 +306,13 @@
       "pensumMax": 80,
       "pensum": "50 - 80%",
       "previousSlugs": [
-        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag"
+        "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
+        "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag"
+          "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag",
+          "oberarztin-oberarzt-gynakologie-e-geburtshilfe-spital-muri-ag"
         ],
         "en": [
           "oberarztin-oberarzt-gynakologie-und-geburtshilfe-spital-muri-muri-ag"
@@ -336,9 +338,9 @@
     },
     {
       "id": "spital-muri-e0efddaaa125",
-      "slug": "mpa-fage-con-schwerpunkt-pneumologie-e-knochendichtemessung-dexa-spital-muri-ag",
+      "slug": "mpa-fage-con-particolare-attenzione-alla-pneumologia-e-alla-misurazione-della-densita-ossea-dexa-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "mpa-fage-con-schwerpunkt-pneumologie-e-knochendichtemessung-dexa-spital-muri-ag",
+        "it": "mpa-fage-con-particolare-attenzione-alla-pneumologia-e-alla-misurazione-della-densita-ossea-dexa-spital-muri-muri-ag",
         "en": "mpa-fage-with-focus-on-pneumology-and-bone-density-measurement-dexa-spital-muri-muri-ag",
         "de": "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag",
         "fr": "mpa-fage-avec-un-accent-sur-la-pneumologie-et-la-mesure-de-la-densite-osseuse-dexa-spital-muri-muri-ag"
@@ -389,11 +391,13 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag"
+        "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag",
+        "mpa-fage-con-schwerpunkt-pneumologie-e-knochendichtemessung-dexa-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag"
+          "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag",
+          "mpa-fage-con-schwerpunkt-pneumologie-e-knochendichtemessung-dexa-spital-muri-ag"
         ],
         "en": [
           "mpa-fage-mit-schwerpunkt-pneumologie-und-knochendichtemessung-dexa-spital-muri-muri-ag"
@@ -474,8 +478,7 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-        "physiotherapist-fh-spital-muri-muri-ag",
-        "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
+        "physiotherapist-fh-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -483,8 +486,7 @@
         ],
         "en": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
-          "physiotherapist-fh-spital-muri-muri-ag",
-          "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
+          "physiotherapist-fh-spital-muri-muri-ag"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag"
@@ -507,9 +509,9 @@
     },
     {
       "id": "spital-muri-fcbf2b8bf260",
-      "slug": "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag",
+      "slug": "mpa-segretaria-medica-specializzata-in-ortopedia-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag",
+        "it": "mpa-segretaria-medica-specializzata-in-ortopedia-spital-muri-muri-ag",
         "en": "mpa-medical-secretary-with-focus-on-orthopaedics-spital-muri-muri-ag",
         "de": "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag",
         "fr": "mpa-secretaire-medicale-en-orthopedie-spital-muri-muri-ag"
@@ -572,7 +574,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-arztsekretarin-mit-schwerpunkt-orthopadie-spital-muri-muri-ag"
+      ]
     },
     {
       "id": "spital-muri-f6288a697197",
@@ -1334,9 +1344,9 @@
     },
     {
       "id": "spital-muri-d4cf15658afd",
-      "slug": "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag",
+      "slug": "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag",
+        "it": "mpa-mpk-per-team-leader-team-leader-orario-di-consultazione-medicina-spital-muri-muri-ag",
         "en": "mpa-mpk-for-team-leader-team-leader-medical-consultation-hours-spital-muri-muri-ag",
         "de": "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
         "fr": "mpa-mpk-pour-les-heures-de-consultation-medicale-du-chef-d-equipe-chef-d-equipe-spital-muri-muri-ag"
@@ -1387,11 +1397,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag"
+        "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
+        "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag"
+          "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag",
+          "mpa-mpk-per-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-ag"
         ],
         "en": [
           "mpa-mpk-fur-teamleiterin-teamleiter-sprechstunden-medizin-spital-muri-muri-ag"
@@ -1668,9 +1680,9 @@
     },
     {
       "id": "spital-muri-ad79e2ed78db",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-spital-muri-ag",
+      "slug": "assistente-assistente-sanitaria-e-sociale-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "assistentin-assistent-gesundheit-e-soziales-spital-muri-ag",
+        "it": "assistente-assistente-sanitaria-e-sociale-spital-muri-muri-ag",
         "en": "assistant-health-and-social-affairs-spital-muri-muri-ag",
         "de": "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag",
         "fr": "assistant-a-la-sante-et-aux-affaires-sociales-spital-muri-muri-ag"
@@ -1721,11 +1733,13 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag"
+        "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag",
+        "assistentin-assistent-gesundheit-e-soziales-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag"
+          "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag",
+          "assistentin-assistent-gesundheit-e-soziales-spital-muri-ag"
         ],
         "en": [
           "assistentin-assistent-gesundheit-und-soziales-spital-muri-muri-ag"
@@ -1919,12 +1933,12 @@
     },
     {
       "id": "spital-muri-e137921ef4ed",
-      "slug": "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag",
+      "slug": "apprendista-assistente-assistente-per-la-salute-e-gli-affari-sociali-cfp-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag",
-        "en": "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
+        "it": "apprendista-assistente-assistente-per-la-salute-e-gli-affari-sociali-cfp-spital-muri-muri-ag",
+        "en": "learner-assistant-health-and-social-affairs-eba-spital-muri-muri-ag",
         "de": "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
-        "fr": "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
+        "fr": "apprenti-e-apprenti-e-assistant-e-assistant-e-sante-et-social-afp-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -1972,10 +1986,18 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
+        "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
+        "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag",
+          "apprendista-assistentin-assistent-gesundheit-e-soziales-afp-spital-muri-ag"
+        ],
+        "en": [
+          "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
+        ],
+        "fr": [
           "lernende-lernender-assistentin-assistent-gesundheit-und-soziales-eba-spital-muri-muri-ag"
         ]
       },
@@ -1996,12 +2018,12 @@
     },
     {
       "id": "spital-muri-d3c7b06f7565",
-      "slug": "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag",
+      "slug": "responsabile-area-hr-responsabile-area-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag",
+        "it": "responsabile-area-hr-responsabile-area-spital-muri-muri-ag",
         "en": "hr-area-manager-s-spital-muri-muri-ag",
         "de": "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag",
-        "fr": "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
+        "fr": "responsable-rh-responsable-rh-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2061,16 +2083,27 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
+        ],
+        "fr": [
+          "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "hr-bereichsverantwortliche-bereichsverantwortlicher-spital-muri-muri-ag"
+      ]
     },
     {
       "id": "spital-muri-f1a102d63d00",
-      "slug": "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag",
+      "slug": "apprendista-specialista-ict-afc-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag",
-        "en": "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
+        "it": "apprendista-specialista-ict-afc-spital-muri-muri-ag",
+        "en": "apprentice-ict-specialist-efz-spital-muri-muri-ag",
         "de": "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
-        "fr": "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
+        "fr": "apprenti-e-specialiste-tic-cfc-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2118,10 +2151,18 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
+        "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
+        "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag",
+          "apprendista-ict-fachfrau-ict-fachmann-cfc-spital-muri-muri-ag"
+        ],
+        "en": [
+          "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
+        ],
+        "fr": [
           "lernende-r-ict-fachfrau-ict-fachmann-efz-spital-muri-muri-ag"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "barry-callebaut-5862b565774e",
-      "slug": "global-accounts-lead-sustainability-barry-callebaut-ch",
+      "slug": "conti-globali-piombo-sostenibilita-barry-callebaut-zurich",
       "slugByLocale": {
         "en": "global-accounts-lead-sustainability-barry-callebaut-ch",
-        "it": "global-accounts-lead-sustainability-barry-callebaut-ch",
+        "it": "conti-globali-piombo-sostenibilita-barry-callebaut-zurich",
         "de": "global-accounts-lead-sustainability-barry-callebaut-ch",
-        "fr": "global-accounts-lead-sustainability-barry-callebaut-ch"
+        "fr": "responsable-des-comptes-mondiaux-durabilite-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -67,7 +67,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-07T09:31:17.360Z"
+      "firstSeenAt": "2026-10-07T09:31:17.360Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-accounts-lead-sustainability-barry-callebaut-ch"
+        ],
+        "fr": [
+          "global-accounts-lead-sustainability-barry-callebaut-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-accounts-lead-sustainability-barry-callebaut-ch"
+      ]
     },
     {
       "id": "barry-callebaut-a9871ff11912",
@@ -75,7 +86,7 @@
       "slugByLocale": {
         "it": "commerciante-di-cacao-barry-callebaut-zurich",
         "en": "cocoa-trader-barry-callebaut-ch",
-        "de": "cocoa-trader-barry-callebaut-zurich",
+        "de": "kakaohandler-barry-callebaut-zurich",
         "fr": "marchand-de-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -119,7 +130,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cocoa-trader-barry-callebaut-ch",
-        "kakaohandler-barry-callebaut-zurich",
         "cocoa-trader-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
@@ -128,7 +138,6 @@
         ],
         "de": [
           "cocoa-trader-barry-callebaut-ch",
-          "kakaohandler-barry-callebaut-zurich",
           "cocoa-trader-barry-callebaut-zurich"
         ],
         "fr": [
@@ -159,7 +168,7 @@
         "it": "direttore-digital-finanza-co-barry-callebaut-zurich",
         "en": "director-digital-finance-co-barry-callebaut-ch",
         "de": "direktor-digital-finanzen-co-barry-callebaut-zurich",
-        "fr": "director-digital-finance-co-barry-callebaut-zurich"
+        "fr": "directeur-finances-numeriques-co-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
       "companyKey": "barry-callebaut",
@@ -203,7 +212,6 @@
       "previousSlugs": [
         "director-digital-finance-co-barry-callebaut-ch",
         "directeur-des-finances-numeriques-co-barry-callebaut-zurich",
-        "directeur-finances-numeriques-co-barry-callebaut-zurich",
         "director-digital-finance-co-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
@@ -216,7 +224,6 @@
         "fr": [
           "director-digital-finance-co-barry-callebaut-ch",
           "directeur-des-finances-numeriques-co-barry-callebaut-zurich",
-          "directeur-finances-numeriques-co-barry-callebaut-zurich",
           "director-digital-finance-co-barry-callebaut-zurich"
         ]
       },
@@ -322,7 +329,7 @@
       "slugByLocale": {
         "it": "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
         "en": "senior-cocoa-derivatives-trader-barry-callebaut-ch",
-        "de": "cocoa-derivatives-trader-barry-callebaut-zurich",
+        "de": "kakaoderivatehandler-barry-callebaut-zurich",
         "fr": "metier-principal-des-derives-du-cacao-barry-callebaut-zurich"
       },
       "company": "Barry Callebaut",
@@ -368,7 +375,6 @@
         "senior-cocoa-derivatives-trader-barry-callebaut-ch",
         "cocoa-derivatives-trader-barry-callebaut-ch",
         "handler-fur-kakaoderivate-barry-callebaut-zurich",
-        "kakaoderivatehandler-barry-callebaut-zurich",
         "cocoa-derivatives-trader-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
@@ -379,7 +385,6 @@
         "de": [
           "senior-cocoa-derivatives-trader-barry-callebaut-ch",
           "handler-fur-kakaoderivate-barry-callebaut-zurich",
-          "kakaoderivatehandler-barry-callebaut-zurich",
           "cocoa-derivatives-trader-barry-callebaut-zurich"
         ],
         "fr": [

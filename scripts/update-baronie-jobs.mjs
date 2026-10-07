@@ -79,6 +79,14 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const DETAIL_DELAY_MS = 800;
 
+/**
+ * A zero after discovering detail URLs is not a source-proven empty snapshot
+ * when any detail fetch failed: the source extraction was incomplete.
+ */
+export function classifyBaronieEmptyResult(detailFetchFailures = 0) {
+  return detailFetchFailures > 0 ? 'source-extraction-failed' : 'no-jobs-parsed';
+}
+
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback) {
   try { return JSON.parse(fs.readFileSync(filePath, 'utf8')); }
@@ -347,7 +355,7 @@ async function main() {
   // (a NON-geographic drop) reads as `discovered > 0, written === 0`, exactly
   // like a legitimate "found jobs, none Swiss" run, and check-crawler-health
   // calls a broken crawler healthy.
-  const counts = { discovered: null, parsed: null };
+  const counts = { discovered: null, parsed: null, abortKind: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Baronie — Dedicated Crawler');
@@ -360,6 +368,7 @@ async function main() {
   counts.discovered = jobUrls.length;
   console.log(`📋 Found ${jobUrls.length} job URLs`);
   if (jobUrls.length === 0) {
+    counts.abortKind = classifyBaronieEmptyResult();
     console.log('⚠️ No job URLs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;
@@ -368,6 +377,7 @@ async function main() {
   // 2. Fetch and parse each detail page
   console.log('\n📄 Fetching detail pages...');
   const parsed = [];
+  let detailFetchFailures = 0;
   for (const url of jobUrls) {
     const detail = await fetchBaronieDetailPage(url, TIMEOUT_MS);
     if (detail) {
@@ -377,6 +387,7 @@ async function main() {
         parsed.push({ url, detail });
       }
     } else {
+      detailFetchFailures += 1;
       console.log(`  ⚠️ ${url} → detail page failed`);
     }
     if (parsed.length < jobUrls.length) await sleep(DETAIL_DELAY_MS);
@@ -385,6 +396,7 @@ async function main() {
   console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
   counts.parsed = parsed.length;
   if (parsed.length === 0) {
+    counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
     console.log('⚠️ No Swiss jobs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;

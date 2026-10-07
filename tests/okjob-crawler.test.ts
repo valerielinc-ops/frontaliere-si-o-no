@@ -6,6 +6,7 @@ import {
   isOkjobJob,
   isTrustedDomain,
 } from '../scripts/lib/okjob-job-parser.mjs';
+import { loadSpec, templateToRegex } from '../scripts/lib/prospector/spec-crawler.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
@@ -13,6 +14,20 @@ describe('OK Job SA, succursale di Mendrisio crawler parser', () => {
   it('exports valid company key and name', () => {
     expect(OKJOB_KEY).toBe('okjob');
     expect(OKJOB_COMPANY_NAME).toBe('OK Job SA, succursale di Mendrisio');
+  });
+
+  it('matches the current French, German, and Italian detail URL templates', () => {
+    const spec = loadSpec(OKJOB_KEY);
+    const detailTemplate = templateToRegex(spec.detailTemplate);
+    const paths = [
+      '/offres-demplois/charpentiers-menuisiers-ferblantiers-neuchatel/',
+      '/de/jobangebote/betriebselektriker-in-100-m-w-d-biel/',
+      '/it/offerte-di-lavoro/tecnico-a-industriale-specializzato-a-elettromeccanico-a-mendrisio/',
+    ];
+
+    for (const path of paths) {
+      expect(detailTemplate.test(path), path).toBe(true);
+    }
   });
 
   // ── isCompanyJob ──

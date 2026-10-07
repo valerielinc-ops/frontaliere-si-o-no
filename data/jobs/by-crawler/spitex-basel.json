@@ -857,12 +857,12 @@
     },
     {
       "id": "spitex-basel-85da8c998b9a",
-      "slug": "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel",
+      "slug": "infermieristica-responsabile-psichiatria-pediatrica-spitex-basel-basel",
       "slugByLocale": {
         "de": "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel",
-        "it": "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel",
-        "en": "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel",
-        "fr": "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+        "it": "infermieristica-responsabile-psichiatria-pediatrica-spitex-basel-basel",
+        "en": "case-responsible-nursing-pediatric-psychiatry-spitex-basel-basel",
+        "fr": "soins-infirmiers-responsables-psychiatrie-pediatrique-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -921,7 +921,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:12:10.164Z"
+      "firstSeenAt": "2026-10-07T09:12:10.164Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+        ],
+        "en": [
+          "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+        ],
+        "fr": [
+          "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "fallverantwortliche-r-pflege-padiatrische-psychiatrie-spitex-basel-basel"
+      ]
     }
   ]
 }

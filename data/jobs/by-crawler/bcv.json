@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bcv-e908007933b2",
-      "slug": "chief-credit-officer-cheffe-ou-chef-de-division-banque-cantonale-vaudoise-lausanne",
+      "slug": "chief-credit-officer-capo-divisione-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne",
-        "it": "chief-credit-officer-cheffe-ou-chef-de-division-banque-cantonale-vaudoise-lausanne",
+        "it": "chief-credit-officer-capo-divisione-banque-cantonale-vaudoise-lausanne",
         "en": "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne",
-        "de": "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne"
+        "de": "chief-credit-officer-abteilungsleiter-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -58,11 +58,16 @@
       "sfJobId": "1445095733",
       "previousSlugsByLocale": {
         "it": [
+          "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne",
+          "chief-credit-officer-cheffe-ou-chef-de-division-banque-cantonale-vaudoise-lausanne"
+        ],
+        "de": [
           "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne"
         ]
       },
       "previousSlugs": [
-        "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne"
+        "chief-credit-officer-cheffe-ou-chef-de-division-bcv-lausanne",
+        "chief-credit-officer-cheffe-ou-chef-de-division-banque-cantonale-vaudoise-lausanne"
       ],
       "salaryMin": 174500,
       "salaryMax": 306000,
@@ -660,7 +665,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -717,7 +722,6 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
           "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
@@ -725,7 +729,6 @@
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,

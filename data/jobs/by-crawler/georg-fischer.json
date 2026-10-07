@@ -973,12 +973,12 @@
     },
     {
       "id": "georg-fischer-0e543d38cc53",
-      "slug": "einrichterin-gussputzerei-m-w-d-georg-fischer-ch",
+      "slug": "convertitore-mulino-da-colata-m-f-d-georg-fischer-sissach",
       "slugByLocale": {
         "de": "einrichterin-gussputzerei-m-w-d-georg-fischer-ch",
-        "it": "einrichterin-gussputzerei-m-w-d-georg-fischer-ch",
-        "en": "einrichterin-gussputzerei-m-w-d-georg-fischer-ch",
-        "fr": "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+        "it": "convertitore-mulino-da-colata-m-f-d-georg-fischer-sissach",
+        "en": "converter-casting-mill-m-f-d-georg-fischer-sissach",
+        "fr": "convertisseur-machine-de-coulee-h-f-d-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
       "companyKey": "georg-fischer",
@@ -1036,7 +1036,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4450"
+      "postalCode": "4450",
+      "previousSlugsByLocale": {
+        "it": [
+          "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+        ],
+        "en": [
+          "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+        ],
+        "fr": [
+          "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "einrichterin-gussputzerei-m-w-d-georg-fischer-ch"
+      ]
     },
     {
       "id": "georg-fischer-5d4223daa2d3",

@@ -9,7 +9,7 @@
         "it": "apprendista-m-a-advisory-corporate-finanza-deloitte-geneva",
         "en": "trainee-m-a-advisory-corporate-finance-deloitte-geneva",
         "de": "auszubildender-m-a-advisory-corporate-finanzen-deloitte-geneva",
-        "fr": "trainee-m-a-advisory-corporate-finance-deloitte-geneva"
+        "fr": "avis-de-m-et-a-au-stagiaire-finances-ministerielles-deloitte-geneva"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -56,8 +56,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-m-a-advisory-corporate-finance-deloitte-geneva",
-        "avis-de-m-et-a-au-stagiaire-finances-ministerielles-deloitte-geneva"
+        "trainee-m-a-advisory-corporate-finance-deloitte-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -67,7 +66,6 @@
           "trainee-m-a-advisory-corporate-finance-deloitte-geneva"
         ],
         "fr": [
-          "avis-de-m-et-a-au-stagiaire-finances-ministerielles-deloitte-geneva",
           "trainee-m-a-advisory-corporate-finance-deloitte-geneva"
         ]
       },
@@ -518,12 +516,12 @@
     },
     {
       "id": "deloitte-25929660239d",
-      "slug": "senior-executive-assistant-technology-transformation-deloitte-zurich",
+      "slug": "senior-executive-assistant-tecnologia-e-trasformazione-deloitte-zurich",
       "slugByLocale": {
         "en": "senior-executive-assistant-technology-transformation-deloitte-zurich",
-        "it": "senior-executive-assistant-technology-transformation-deloitte-zurich",
+        "it": "senior-executive-assistant-tecnologia-e-trasformazione-deloitte-zurich",
         "de": "senior-executive-assistant-technology-transformation-deloitte-zurich",
-        "fr": "senior-executive-assistant-technology-transformation-deloitte-zurich"
+        "fr": "assistant-executif-principal-technologie-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -584,7 +582,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:20:29.513Z"
+      "firstSeenAt": "2026-10-07T09:20:29.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-executive-assistant-technology-transformation-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-executive-assistant-technology-transformation-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-executive-assistant-technology-transformation-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-ce9b46b7fa58",

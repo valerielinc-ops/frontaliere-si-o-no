@@ -164,23 +164,31 @@ const HAS_LETTERS_RE = /[^\W\d_]/u;
  * dropping content is safer than inventing text, and the caller's normal
  * quality gate still decides whether the assembled candidate is publishable.
  */
-export async function preserveStructuredTranslation(text, translateLine) {
+export async function preserveStructuredTranslation(text, translateLine, { concurrent = false, shouldSkipLine = null } = {}) {
   const lines = String(text || '').replace(/\r\n/g, '\n').split('\n');
-  const translatedLines = [];
-  for (const line of lines) {
+  const translateOneLine = async (line) => {
     const match = STRUCTURED_LINE_RE.exec(line);
     const prefix = match?.[1] || '';
     const content = match?.[2] || '';
     if (!content.trim() || !HAS_LETTERS_RE.test(content)) {
-      translatedLines.push(line);
-      continue;
+      return line;
     }
-    const translated = await translateLine(content.trim());
+    const cleanContent = content.trim();
+    if (typeof shouldSkipLine === 'function' && shouldSkipLine(cleanContent)) {
+      return `${prefix}${cleanContent}`;
+    }
+    const translated = await translateLine(cleanContent);
     const translatedText = String(translated || '');
     const oneLine = (translatedText.includes('\n') ? '' : translatedText)
       .replace(/[ \t]+/g, ' ')
       .trim();
-    translatedLines.push(`${prefix}${oneLine || content.trim()}`);
+    return `${prefix}${oneLine || cleanContent}`;
+  };
+  const translatedLines = concurrent
+    ? await Promise.all(lines.map((line) => translateOneLine(line)))
+    : [];
+  if (!concurrent) {
+    for (const line of lines) translatedLines.push(await translateOneLine(line));
   }
   return translatedLines.join('\n').trim();
 }

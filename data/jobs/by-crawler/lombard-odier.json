@@ -3806,12 +3806,12 @@
     },
     {
       "id": "lombard-odier-b9998bc9227e",
-      "slug": "chief-of-staff-wealth-planning-80-100-lombard-odier-ch",
+      "slug": "capo-di-stato-maggiore-pianificazione-della-ricchezza-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "en": "chief-of-staff-wealth-planning-80-100-lombard-odier-ch",
-        "it": "chief-of-staff-wealth-planning-80-100-lombard-odier-ch",
-        "de": "chief-of-staff-wealth-planning-80-100-lombard-odier-ch",
-        "fr": "chief-of-staff-wealth-planning-80-100-lombard-odier-ch"
+        "it": "capo-di-stato-maggiore-pianificazione-della-ricchezza-80-100-lombard-odier-geneva",
+        "de": "stabschef-vermogensplanung-80-100-lombard-odier-geneva",
+        "fr": "chef-de-cabinet-planification-de-patrimoine-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -3870,16 +3870,30 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-07T09:53:52.027Z"
+      "firstSeenAt": "2026-10-07T09:53:52.027Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chief-of-staff-wealth-planning-80-100-lombard-odier-ch"
+        ],
+        "de": [
+          "chief-of-staff-wealth-planning-80-100-lombard-odier-ch"
+        ],
+        "fr": [
+          "chief-of-staff-wealth-planning-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chief-of-staff-wealth-planning-80-100-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-5f0dc62fcd6a",
-      "slug": "project-manager-strategy-transformation-80-100-lombard-odier-ch",
+      "slug": "project-manager-strategia-trasformazione-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "en": "project-manager-strategy-transformation-80-100-lombard-odier-ch",
-        "it": "project-manager-strategy-transformation-80-100-lombard-odier-ch",
-        "de": "project-manager-strategy-transformation-80-100-lombard-odier-ch",
-        "fr": "project-manager-strategy-transformation-80-100-lombard-odier-ch"
+        "it": "project-manager-strategia-trasformazione-80-100-lombard-odier-geneva",
+        "de": "projektmanager-strategie-transformation-80-100-lombard-odier-geneva",
+        "fr": "gestionnaire-de-projet-strategie-et-transformation-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -3938,7 +3952,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-07T09:53:51.245Z"
+      "firstSeenAt": "2026-10-07T09:53:51.245Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-strategy-transformation-80-100-lombard-odier-ch"
+        ],
+        "de": [
+          "project-manager-strategy-transformation-80-100-lombard-odier-ch"
+        ],
+        "fr": [
+          "project-manager-strategy-transformation-80-100-lombard-odier-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-strategy-transformation-80-100-lombard-odier-ch"
+      ]
     },
     {
       "id": "lombard-odier-372cdbf79aee",

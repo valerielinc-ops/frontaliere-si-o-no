@@ -193,6 +193,10 @@ function runExhaustedTierSkipScenario(
         "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
       )
       .replace(
+        "import { detectLanguageWithConfidence } from './detect-language.mjs';",
+        "const detectLanguageWithConfidence = (text, fallback = 'en') => ({ lang: fallback, confidence: 0 });",
+      )
+      .replace(
         "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",
         ${JSON.stringify(AI_SEARCH_TEMPLATE_IMPORT)},
       )
@@ -303,6 +307,10 @@ function runRetryOutcomeResetScenario() {
       .replace(
         "import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';",
         "const hasStructuredContent = () => false; const preserveStructuredTranslation = async () => '';",
+      )
+      .replace(
+        "import { detectLanguageWithConfidence } from './detect-language.mjs';",
+        "const detectLanguageWithConfidence = (text, fallback = 'en') => ({ lang: fallback, confidence: 0 });",
       )
       .replace(
         "import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';",

@@ -404,8 +404,8 @@
       "slugByLocale": {
         "de": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem",
         "it": "pflegeassistent-pflegeassistentin-o-assistent-assistentin-gesundheit-soziales-auf-dem-notfall-spital-zollikerberg",
-        "en": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem",
-        "fr": "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
+        "en": "nursing-assistant-or-assistant-health-social-care-on-an-emergency-spital-zollikerberg-zollikerberg",
+        "fr": "assistante-infirmiere-ou-assistante-sanitaire-et-sociale-en-cas-d-urgence-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -453,6 +453,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
+        ],
+        "en": [
+          "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
+        ],
+        "fr": [
           "pflegeassistent-pflegeassistentin-oder-assistent-assistentin-gesundheit-soziales-auf-dem"
         ]
       },

@@ -707,7 +707,7 @@
         "it": "cuocere-cuocere-dietetico-80-senevita-be-muri-b",
         "en": "diet-cook-diet-cook-80-senevita-be-muri-b",
         "de": "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "fr": "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
+        "fr": "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -757,7 +757,6 @@
         "cook-culinary-80-senevita-be-muri-b",
         "cuisson-culinaire-80-senevita-be-muri-b",
         "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "diete-cuisine-diete-cuisine-80-senevita-be-muri-b",
         "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
       ],
       "previousSlugsByLocale": {
@@ -778,7 +777,6 @@
           "koch-kochin-80-senevita-be-muri-b-bern",
           "cuisson-culinaire-80-senevita-be-muri-b",
           "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-          "diete-cuisine-diete-cuisine-80-senevita-be-muri-b",
           "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
         ]
       },
@@ -5068,9 +5066,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach",
-        "en": "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach",
+        "en": "health-specialist-efz-50-100-senevita-zh-erlenbach",
         "de": "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach",
-        "fr": "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach"
+        "fr": "specialiste-de-la-sante-efz-50-100-senevita-zh-erlenbach"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -5123,6 +5121,12 @@
         "it": [
           "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach",
           "fachfrau-mann-gesundheit-efz-50-100-senevita-zh-erlenbach"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-50-100-stv-wohnbereichsleitung-senevita-zh-erlenbach"
         ]
       },
       "firstSeenAt": "2026-09-30T21:21:27.516Z",
@@ -8478,7 +8482,7 @@
       "slug": "cuocere-cucinare-80-senevita-be-bern",
       "slugByLocale": {
         "it": "cuocere-cucinare-80-senevita-be-bern",
-        "en": "kochin-koch-80-senevita-be-bern",
+        "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
         "fr": "cuire-cuir-80-senevita-be-bern"
       },
@@ -8525,15 +8529,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-senevita-be-bern",
-        "cook-cook-80-senevita-be-bern"
+        "kochin-koch-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-senevita-be-bern"
         ],
         "en": [
-          "cook-cook-80-senevita-be-bern",
           "kochin-koch-80-senevita-be-bern"
         ],
         "fr": [
@@ -17806,9 +17808,9 @@
     },
     {
       "id": "senevita-43e934bd4a84",
-      "slug": "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen",
+      "slug": "assistente-infermieristico-srk-nell-ora-paga-o-mensile-regione-salariale-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen",
+        "it": "assistente-infermieristico-srk-nell-ora-paga-o-mensile-regione-salariale-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg",
         "en": "nursing-assistant-in-srk-in-the-hourly-wage-or-monthly-wage-region-frauenfeld-kreuzlingen-and-romanshorn-senevita-tg",
         "de": "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
         "fr": "assistant-infirmier-in-srk-dans-la-region-des-salaires-horaires-ou-mensuels-frauenfeld-kreuzlingen-et-romanshorn"
@@ -17861,7 +17863,8 @@
         ],
         "it": [
           "pflegehelfer-in-srk-im-stundenloh-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
-          "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-frauenfeld-kreuzlingen-und"
+          "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
+          "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen"
         ],
         "en": [
           "pflegehelfer-in-srk-im-stundenloh-oder-monatslohn-region-frauenfeld-kreuzlingen-und"
@@ -17872,7 +17875,8 @@
       },
       "previousSlugs": [
         "pflegehelfer-in-srk-im-stundenloh-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
-        "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-frauenfeld-kreuzlingen-und"
+        "pflegehelfer-in-srk-im-stundenlohn-oder-monatslohn-region-frauenfeld-kreuzlingen-und",
+        "pflegehelfer-in-srk-im-stundenloh-o-monatslohn-region-frauenfeld-kreuzlingen-e-romanshorn-senevita-tg-kreuzlingen"
       ],
       "firstSeenAt": "2026-08-07T21:46:10.906Z",
       "salaryMin": 81500,

@@ -3957,7 +3957,7 @@
       "slug": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "it": "dottorato-studente-dottorato-di-psicologia-dello-studente-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "de": "doktorandin-doktorand-psychologie-upd-bern",
         "fr": "doctorat-etudiant-doctorat-etudiant-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       },
@@ -4005,7 +4005,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "doktorandin-doktorand-psychologie-upd-bern",
-        "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
         "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "previousSlugsByLocale": {
@@ -4014,7 +4013,6 @@
         ],
         "en": [
           "doktorandin-doktorand-psychologie-upd-bern",
-          "doctoral-student-doctoral-student-psychology-universitare-psychiatrische-dienste-bern-upd-bern",
           "doktorandin-doktorand-psychologie-universitare-psychiatrische-dienste-bern-upd-bern"
         ],
         "fr": [
@@ -8460,8 +8458,8 @@
       "slugByLocale": {
         "de": "administrative-assistenz-lehre-und-forschung-upd-bern",
         "it": "administrative-assistenz-lehre-e-forschung-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "administrative-assistenz-lehre-und-forschung-upd-bern",
-        "fr": "administrative-assistenz-lehre-und-forschung-upd-bern"
+        "en": "administrative-assistant-teaching-and-research-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "assistant-administratif-enseignement-et-recherche-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -8510,6 +8508,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "administrative-assistenz-lehre-und-forschung-upd-bern"
+        ],
+        "en": [
+          "administrative-assistenz-lehre-und-forschung-upd-bern"
+        ],
+        "fr": [
           "administrative-assistenz-lehre-und-forschung-upd-bern"
         ]
       },

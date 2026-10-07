@@ -9,7 +9,7 @@
         "it": "risoluzione-dei-problemi-di-sviluppo-del-sistema-roche-rotkreuz",
         "en": "system-development-troubleshooter-roche-ch",
         "de": "systementwicklung-troubleshooter-roche-rotkreuz",
-        "fr": "system-development-troubleshooter-roche-rotkreuz"
+        "fr": "developpement-du-systeme-depanneur-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -52,7 +52,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz",
         "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
@@ -60,7 +59,6 @@
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz",
           "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
@@ -7794,7 +7792,7 @@
         "it": "consulente-legale-senior-sviluppo-aziendale-legale-e-societario-roche-basel",
         "en": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
         "de": "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "fr": "senior-legal-counsel-legal-business-development-corporate-roche-basel"
+        "fr": "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -7837,7 +7835,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-legal-counsel-legal-business-development-corporate-roche-ch",
-        "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
         "senior-legal-counsel-legal-business-development-corporate-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -7845,7 +7842,6 @@
           "senior-legal-counsel-legal-business-development-corporate-roche-ch"
         ],
         "fr": [
-          "conseiller-juridique-principal-developpement-des-affaires-juridiques-et-entreprises-roche-basel",
           "senior-legal-counsel-legal-business-development-corporate-roche-basel"
         ]
       },
@@ -9128,7 +9124,7 @@
       "slugByLocale": {
         "it": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "en": "site-data-operations-lead-roche-ch",
-        "de": "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst",
+        "de": "gestione-dei-dati-del-sito-roche-kaiseraugst",
         "fr": "exploitation-des-donnees-du-site-responsable-roche-kaiseraugst"
       },
       "company": "Roche",
@@ -9172,12 +9168,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "site-data-operations-lead-roche-ch",
-        "site-data-operations-lead-roche-kaiseraugst"
+        "site-data-operations-lead-roche-kaiseraugst",
+        "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
           "site-data-operations-lead-roche-ch",
           "site-data-operations-lead-roche-kaiseraugst"
+        ],
+        "de": [
+          "leiter-des-betriebs-von-site-data-operations-roche-kaiseraugst"
         ]
       },
       "salaryMin": 123000,
