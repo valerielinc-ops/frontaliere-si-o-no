@@ -108,7 +108,7 @@ const EOC: EmployerBrand = {
   shortName: 'EOC',
   fullName: 'Ente Ospedaliero Cantonale',
   website: 'https://www.eoc.ch',
-  careersUrl: 'https://www.eoc.ch/it/carriere/offerte-di-lavoro.html',
+  careersUrl: 'https://www.eoc.ch/lavorare-in-eoc.html',
   locations: [
     'Ospedale Regionale di Bellinzona e Valli (Bellinzona, Acquarossa, Faido)',
     'Ospedale Regionale di Lugano (Civico e Italiano)',
@@ -1272,7 +1272,7 @@ const MEDACTA: EmployerBrand = {
   shortName: 'Medacta',
   fullName: 'Medacta International SA',
   website: 'https://www.medacta.com',
-  careersUrl: 'https://www.medacta.com/careers',
+  careersUrl: 'https://www.medacta.com/EN/careers-countries',
   locations: [
     'Sede centrale Castel San Pietro (TI)',
     'Stabilimento produttivo Castel San Pietro',

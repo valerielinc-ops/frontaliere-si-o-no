@@ -2283,6 +2283,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
  {
  "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "name": "Comuni Italiani di Frontiera",
+ "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera/`,
+ "description": "Elenco dei comuni italiani della fascia di frontiera con la Svizzera",
+ "inLanguage": "it"
+ },
+ {
+ "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Comuni Italiani di Frontiera",
  "description": "Elenco dei comuni italiani situati nella fascia di frontiera con la Svizzera",

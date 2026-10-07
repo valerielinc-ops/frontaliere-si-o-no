@@ -34,6 +34,7 @@ import {
   PLATE_AUCTION_SALE_RECOGNITION,
   observeCatalogueDisappearance,
   recognizeCatalogueSales,
+  recognizeTimedCatalogueTurnover,
 } from '../../functions/src/plateAuctionQualityCore.js';
 import { isExplicitlyEmptyCatalogue } from '../../functions/src/plateAuctionsCore.js';
 
@@ -90,9 +91,10 @@ function sourceStatus(source, result) {
     lastCheckedAt: result.fetchedAt,
   };
   if (result.error) return { ...base, status: 'degraded', rowCount: result.previousRows.length, errorCode: 'fetch_failed', lastSuccessAt: result.previousSuccessAt };
-  // Recognised sales are a healthy catalogue doing what a catalogue does; only
-  // an unrecognised loss is evidence of a broken or truncated upstream.
-  if (result.sourceDisappeared && !result.allLossesAreSales) return {
+  // Recognised fixed-price sales and calibrated timed-card turnover are healthy
+  // catalogue changes; only an unrecognised loss is evidence of a broken or
+  // truncated upstream.
+  if (result.sourceDisappeared && !result.healthyDespiteDisappearance) return {
     ...base,
     status: 'degraded',
     rowCount: result.rows.length,
@@ -155,6 +157,7 @@ export {
   PLATE_AUCTION_SALE_RECOGNITION,
   observeCatalogueDisappearance,
   recognizeCatalogueSales,
+  recognizeTimedCatalogueTurnover,
 };
 
 
@@ -272,6 +275,16 @@ export async function collectPlateAuctions({
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
+      const timedTurnoverDecision = recognizeTimedCatalogueTurnover({
+        sourceKey: key,
+        previousCount: previousLiveCount,
+        fetchedCount: rows.length,
+        vanishedCount: newlyMissing.length,
+      });
+      // Fixed-price sources use saleDecision; card platforms need the same
+      // shape check over ALL missing timed cards before their loss is treated
+      // as an expected board refresh.
+      const healthyFetchDecision = timedTurnoverDecision || saleDecision;
       // A known-missing row is resolved only by a fetch that is itself healthy
       // (non-empty, band and cap passed on the NEW losses) once the grace
       // window has elapsed: a run that may be truncated is no evidence that an
@@ -279,7 +292,7 @@ export async function collectPlateAuctions({
       // either: it lists nothing to measure against, and retiring the last
       // rows of a source there would leave it with none, which check-health
       // rejects as fatal for an active source and would freeze every baseline.
-      const healthyFetch = rows.length > 0 && saleDecision.recognized;
+      const healthyFetch = rows.length > 0 && healthyFetchDecision.recognized;
       const expiredMissing = healthyFetch
         ? knownMissing.filter((row) => now.getTime() - missingSinceMs(row) >= PLATE_AUCTION_MISSING_GRACE_MS)
         : [];
@@ -291,7 +304,11 @@ export async function collectPlateAuctions({
         `[collectPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
         + `protected=${protectedRows.length} known-missing=${knownMissing.length} expired-missing=${expiredMissing.length} `
-        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+        + (timedTurnoverDecision
+          ? (timedTurnoverDecision.recognized
+            ? `decision=timed-turnover accepted vanished=${newlyMissing.length}`
+            : `decision=timed-turnover preserve-as-live blocked-by=${timedTurnoverDecision.blockedBy.join('+')}`)
+          : (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`)),
       );
       // An expired known-missing row goes through the same record as a sale:
       // closed, `disappearedFromCatalogue`, last asking price, never a final.
@@ -326,12 +343,27 @@ export async function collectPlateAuctions({
       // Only a row the last fetch still listed can make THIS fetch look broken;
       // a known-missing row was reported by the run that first missed it.
       const sourceDisappeared = answered && newlyMissing.length > 0;
-      // The source is only healthy-despite-losses when EVERY newly missing
-      // active row was a recognized sale. One protected row means the feed also
-      // lost something checkDisappearedSources() calls an upstream anomaly, and
-      // a single recognized sale must not launder that into `active`.
-      const allLossesAreSales = saleDecision.recognized && protectedRows.length === 0 && saleCandidates.length > 0;
-      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: !answered, sourceDisappeared, allLossesAreSales, catalogueSales, qualityIssues: quality.issues, error: null };
+      // Fixed-price disappearance is healthy only when every newly missing row
+      // is a recognized sale. Card platforms have a separate measured turnover
+      // band: their timed rows remain preserved with `missingSince`, while the
+      // complete replacement-shaped fetch can still keep the source active.
+      const healthyDespiteDisappearance = (saleDecision.recognized
+        && protectedRows.length === 0
+        && saleCandidates.length > 0)
+        || timedTurnoverDecision?.recognized === true;
+      results[key] = {
+        rows: outputRows,
+        fetchedAt,
+        fetchedRowCount: rows.length,
+        previousRows: previousForSource,
+        previousSuccessAt,
+        zeroRows: !answered,
+        sourceDisappeared,
+        healthyDespiteDisappearance,
+        catalogueSales,
+        qualityIssues: quality.issues,
+        error: null,
+      };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);

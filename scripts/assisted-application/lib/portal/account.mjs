@@ -40,6 +40,7 @@ const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:ver
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
+const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
 /**
  * What the page after the "create account" click says: `refused` (still the
@@ -65,6 +66,12 @@ export function verificationOutcome(after) {
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
+}
+
+/** The OTP page is still processing the click; its code field is not a rejection yet. */
+export function verificationIsPending(after) {
+  if (!codeField(after)) return false;
+  return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }
 
 /** create: two password fields (password + repeat); sign_in: one. */

@@ -229,6 +229,7 @@ import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
+ getAssistedApplicationCheckoutErrorCode,
 } from '@/services/assistedApplicationCheckout';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
@@ -493,6 +494,8 @@ const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
 // enough to not collide with the save interaction that triggered it.
 const SAVED_NUDGE_SHOW_DELAY_MS = 1200;
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
+const ASSISTED_CHECKOUT_AUTH_RESUME_KEY = 'frontaliere_assisted_checkout_auth_resume';
+const ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS = 30 * 60 * 1000;
 
 /** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
 const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
@@ -595,6 +598,33 @@ function clearJobAuthRedirectSlug(): void {
  sessionStorage.removeItem(JOB_AUTH_REDIRECT_SLUG_KEY);
  } catch {
  // Ignore storage failures.
+ }
+}
+
+function saveAssistedCheckoutAuthResume(jobId: string): void {
+ try {
+  sessionStorage.setItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY, JSON.stringify({ jobId, savedAt: Date.now() }));
+ } catch {
+  // Auth can still complete when sessionStorage is unavailable.
+ }
+}
+
+function consumeAssistedCheckoutAuthResume(jobId: string): boolean {
+ try {
+  const raw = sessionStorage.getItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  if (!raw) return false;
+  const marker = JSON.parse(raw) as { jobId?: unknown; savedAt?: unknown };
+  if (marker?.jobId !== jobId) return false;
+  const savedAt = Number(marker.savedAt);
+  if (!Number.isFinite(savedAt) || Date.now() - savedAt < 0 || Date.now() - savedAt > ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS) {
+   sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+   return false;
+  }
+  sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  return true;
+ } catch {
+  try { sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY); } catch { /* storage unavailable */ }
+  return false;
  }
 }
 
@@ -7323,9 +7353,53 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'checkout_started',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
+  const checkoutResumed = Boolean(
+   authUser?.getIdToken
+   && authUser?.isAnonymous !== true
+   && consumeAssistedCheckoutAuthResume(String(job.id)),
+  );
+  if (checkoutResumed) {
+   trackAssistedApplicationEvent(
+    'checkout_resumed',
+    { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   );
+  }
+  let user: any | null = null;
   try {
-   const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
-   if (!user?.getIdToken) throw new Error('assisted_application_auth_required');
+   user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
+  } catch (error) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_failed',
+     error_code: getAssistedApplicationCheckoutErrorCode(error),
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  if (!user?.getIdToken) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_required',
+     error_code: 'assisted_application_auth_required',
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  try {
    const currentPath = `${window.location.origin}${window.location.pathname}`;
    const result = await createAssistedApplicationCheckout({
     jobId: String(job.id),
@@ -7341,15 +7415,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
   } catch (error) {
    setAssistedCheckoutBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-  trackAssistedApplicationEvent(
-   'checkout_failed',
+   const errorCode = getAssistedApplicationCheckoutErrorCode(error);
+   const failureReason = errorCode === 'assisted_application_auth_required'
+    ? 'auth_required'
+    : 'session_creation_failed';
+   trackAssistedApplicationEvent(
+    'checkout_failed',
     {
      ...assistedApplicationJobContext(job, assistedApplicationVariant),
      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
-     reason: 'session_creation_failed',
+     reason: failureReason,
+     error_code: errorCode,
     },
-  );
-   if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
+   );
+   if (failureReason === 'auth_required') {
+    saveAssistedCheckoutAuthResume(String(job.id));
+    onRequireAuth?.();
+   }
   }
  };
 
