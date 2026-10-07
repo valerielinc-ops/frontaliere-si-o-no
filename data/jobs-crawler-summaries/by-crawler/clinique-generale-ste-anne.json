@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-10-06T21:22:10.658Z",
+  "generatedAt": "2026-10-07T09:27:10.911Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5201,
-  "avgDurationMs": 5201,
+  "durationMs": 5695,
+  "avgDurationMs": 5695,
   "durationHistory": [
-    5201
+    5695
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
       "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:21:58.132Z",
+      "crawledAt": "2026-10-07T09:26:59.828Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -67,5 +67,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
