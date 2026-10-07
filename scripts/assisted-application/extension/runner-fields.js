@@ -9,11 +9,19 @@
   // Ids a framework generates, which say nothing to the planner: React's
   // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
   const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
+  // What a person types into needs a box a person can see: a honeypot is drawn in a box of no size (Workday's
+  // «beecatcher» is 1 px wide and a hundredth of a pixel tall) and a registration with it filled is dropped
+  // without a word. A native checkbox, radio, select or file input is often hidden on purpose behind a
+  // widget of its own, and keeps the rule it had.
+  const MIN_TYPED_BOX_PX = 2;
+  const typedInto = (element) => element.tagName === 'TEXTAREA'
+    || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     if (element.type === 'file') return style.display !== 'none' || rect.width >= 0; // file inputs are often hidden behind a button
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0;
+    const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
+    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
@@ -180,6 +188,7 @@
   const forms = [...document.forms];
   const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
   const radios = new Map();
+  const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
@@ -190,6 +199,9 @@
     if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
+    // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
+    // is a trap whatever its size: never a field of the form.
+    if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {
       const name = element.name || element.id;
@@ -313,7 +325,9 @@
     });
   }
   const buttons = [...document.querySelectorAll('button, input[type="submit"], a[role="button"], [role="button"]')]
-    .filter((element) => visible(element) && element.getAttribute('aria-haspopup') !== 'listbox')
+    // A button hidden from people (aria-hidden) is not one to press: Workday keeps its real submit under a
+    // «click_filter» overlay with the same name, and reads a click on the hidden one as a robot's.
+    .filter((element) => visible(element) && !element.closest('[aria-hidden="true"]') && element.getAttribute('aria-haspopup') !== 'listbox')
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),

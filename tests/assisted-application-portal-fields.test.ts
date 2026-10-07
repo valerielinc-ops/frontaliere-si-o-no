@@ -206,6 +206,41 @@ describe('portal field extraction', () => {
     expect(guardPlan({ actions: [{ fieldId: 'f26', action: 'select', value: 'Nein', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [employee]).actions.map((action: any) => action.value)).toEqual(['Nein']);
   });
 
+  // A real order of 2026-10-07 (Workday): the «Create Account» page as its own code draws it.
+  it('never reads a honeypot as a field of the form, nor a button hidden from people as one to press', () => {
+    const account = extract(`
+      <form>
+        <label for="e">Email Address*</label><input id="e" type="text" autocomplete="email" required>
+        <label for="p1">Password*</label><input id="p1" type="password" required>
+        <label for="p2">Verify New Password*</label><input id="p2" type="password" required>
+        <div><label for="hp">Enter website. This input is for robots only, do not enter if you're human.</label>
+          <input id="hp" name="website" type="text" data-automation-id="beecatcher" data-size="1"></div>
+        <div><div role="button" tabindex="0" aria-label="Create Account" data-automation-id="click_filter"></div>
+          <button type="submit" tabindex="-2" aria-hidden="true" aria-label="Create Account">Create Account</button></div>
+        <button type="button" aria-label="Sign In">Sign In</button>
+      </form>`);
+    expect(account.fields.map((field: any) => field.label)).toEqual(['Email Address*', 'Password*', 'Verify New Password*']);
+    // The overlay people click is the one «Create Account»; the real submit under it is hidden from them.
+    // (jsdom has no innerText: the buttons of this file are read by their aria-label.)
+    expect(account.buttons.map((button: any) => button.text)).toEqual(['Create Account', 'Sign In']);
+    // A trap is one by what its label says or by its size alone, whichever it shows.
+    const traps = extract(`
+      <label for="a">Leave this field for robots only</label><input id="a" name="trap_a">
+      <label for="b">Company</label><input id="b" name="company_fax" data-size="1">
+      <label for="c">Only fill this in if you are human? No: if you're human, skip it</label><input id="c" name="trap_c">
+      <label for="d">Website</label><input id="d" name="website">
+      <label for="t">Notes</label><textarea id="t" name="notes" data-size="1"></textarea>`);
+    expect(traps.fields.map((field: any) => field.name)).toEqual(['website']);
+    // What is hidden on purpose behind a widget of its own keeps the rule it had: a native checkbox with a
+    // visible label, a file input behind its button.
+    const widgets = extract(`
+      <label for="k"><input id="k" type="checkbox" name="privacy" data-size="1"> I accept</label>
+      <label for="f">CV</label><input id="f" type="file" name="cv" data-size="1">
+      <div aria-hidden="true"><button type="button" aria-label="Behind a dialog">Behind a dialog</button></div><button type="button" aria-label="Next">Next</button>`);
+    expect(widgets.fields.map((field: any) => field.name)).toEqual(['privacy', 'cv']);
+    expect(widgets.buttons.map((button: any) => button.text)).toEqual(['Next']);
+  });
+
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>

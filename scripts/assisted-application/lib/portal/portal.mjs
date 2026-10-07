@@ -54,6 +54,9 @@ export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\
 export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
 const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
 const OUTCOME_TIMEOUT_MS = 60_000;
+// How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
+const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
+const AUTH_OUTCOME_POLL_MS = 500;
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -870,7 +873,32 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false }) {
+/**
+ * The page a registration or a sign-in leads to, once the portal has answered its click: another kind of
+ * page, or the same form with its messages. A page application answers without loading a new document, so
+ * «network idle» is long past and the page read at once is still the form: a real order of 2026-10-07
+ * (Workday) was judged «registration refused» 1.9 s after its password was stored, while the request was
+ * on its way, and the password of an account that may exist was thrown away.
+ * The answer is a change: a message the page already showed before the click (the notice «your account has
+ * been created» above the sign-in form) is not the answer to it.
+ * @param {'create'|'sign_in'} before the page the click was made on
+ * @param {string[]} [shown] the messages on the page right before the click
+ */
+async function awaitAuthOutcome(page, before, shown = []) {
+  await settle(page);
+  const read = () => extractFields(page).catch(() => null); // a page that is reloading cannot be read yet
+  const told = JSON.stringify(shown || []);
+  const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
+  const deadline = Date.now() + AUTH_OUTCOME_TIMEOUT_MS;
+  let after = await read();
+  while (unanswered(after) && Date.now() < deadline) {
+    await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
+    after = await read();
+  }
+  return after || extractFields(page);
+}
+
+async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -893,7 +921,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
     await settle(page);
     const registration = await extractFields(page);
     if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
-    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true });
+    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
   }
 
   if (kind === 'sign_in') {
@@ -903,13 +931,25 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       { fieldId: email.id, action: 'fill', value: account.email },
       { fieldId: password.id, action: 'fill', value: account.password },
     ], {});
+    const shown = (await extractFields(page, NAVIGATION).catch(() => null))?.errors || [];
+    diagnostics?.beforeClick('account');
     if (!await clickFirst(page, snapshot, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE])) return { handoff: 'account' };
-    await settle(page);
-    const after = await extractFields(page);
+    const after = await awaitAuthOutcome(page, 'sign_in', shown);
+    diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
       return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after });
     }
-    if (authPageKind(after) === 'sign_in') return { handoff: 'account_sign_in_failed' };
+    if (authPageKind(after) === 'sign_in') {
+      // A registration the portal never answered (status `unanswered`): the account was not created after
+      // all. It is created now, once; any other account that cannot sign in is the owner's to look at.
+      if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed' };
+      await ctx.accounts.discard(host, 'never_created');
+      if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return { handoff: 'account_sign_in_failed' };
+      await settle(page);
+      const registration = await extractFields(page);
+      if (authPageKind(registration) !== 'create') return { handoff: 'account_sign_in_failed' };
+      return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
+    }
     await ctx.accounts.mark(host, { lastSignInAt: Date.now() });
     return { snapshot: after, reopen: true };
   }
@@ -946,18 +986,26 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   const privacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   const filled = await extractFields(page, NAVIGATION);
+  diagnostics?.beforeClick('account');
   if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
     // A retry is still the same unverified account: keep its encrypted
     // password so the owner can retry after the portal exposes its button.
     if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
     return noted({ handoff: 'account' });
   }
-  await settle(page);
-  const after = await extractFields(page);
+  const after = await awaitAuthOutcome(page, 'create', filled.errors);
+  diagnostics?.afterClick();
   const outcome = registrationOutcome(after);
   if (outcome === 'refused') {
     if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
-    // No account exists: the next run creates it again instead of signing in.
+    if (JSON.stringify(after.errors || []) === JSON.stringify(filled.errors || [])) {
+      // Still the form, and no word from the portal: it did not answer in time. The registration may have
+      // gone through, so the password stays; the next run signs in with it, and creates the account again
+      // only if that sign-in fails.
+      await ctx.accounts.mark(host, { status: 'unanswered' });
+      return noted({ handoff: 'account_create_unanswered' });
+    }
+    // The portal said no: no account exists, the next run creates it again instead of signing in.
     await ctx.accounts.discard(host, 'registration_refused');
     return noted({ handoff: 'account_create_refused' });
   }
@@ -1368,7 +1416,7 @@ export async function submitViaPortal(ctx) {
       if (ownAccount && !ctx.accounts) return await handoff('account');
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
-        const auth = await handleAuth({ page, snapshot, ctx });
+        const auth = await handleAuth({ page, snapshot, ctx, diagnostics });
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),

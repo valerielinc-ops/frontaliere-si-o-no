@@ -149,6 +149,23 @@ export function startPortalDiagnostics(context, httpFailures = []) {
       await context.addInitScript({ content: await fetchDiagnosticScript() });
       fetchInstalled = true;
     },
+    /**
+     * A click whose answer decides the run before the final one (a registration, a sign-in): the lists make
+     * room for it, as they do for the final click, and what follows carries its own phase. A page
+     * application loads forty requests by itself: on a real order of 2026-10-07 (Workday) the lists were
+     * full before the registration was sent, and the evidence could not say whether it had left.
+     */
+    beforeClick(name) {
+      phase = name;
+      bodyReads = 0;
+      for (const list of [data.console, data.pageErrors, data.requests, data.responses, data.requestFailures]) {
+        if (list.length > 10) list.splice(0, list.length - 10);
+      }
+    },
+    /** The decisive click was answered: what follows is the way to the next page again. */
+    afterClick() {
+      phase = 'navigation';
+    },
     async beforeSubmit(page) {
       phase = 'submit';
       // Reserve the bounded network/error budget for the decisive click.
