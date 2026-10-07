@@ -20,7 +20,6 @@ import { readAttr } from './html-attr.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { FeedEndpointUnavailableError } from './feed-endpoint-guard.mjs';
 import {
-  fetchJobupSearchHtml,
   filterJobupCardsByEmployer,
   parseJobupSearchCards,
 } from './jobup-ch-feed-common.mjs';
@@ -220,7 +219,14 @@ async function fetchCareerPage() {
 
 async function fetchJobupSearchPage() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 40_000;
-  return fetchJobupSearchHtml(JOBUP_SEARCH_URL, { timeoutMs });
+  return fetchHtml(JOBUP_SEARCH_URL, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': USER_AGENT,
+      'Accept-Language': 'fr-CH,fr;q=0.9',
+    },
+  });
 }
 
 /**

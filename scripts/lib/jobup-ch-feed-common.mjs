@@ -35,7 +35,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
-import { fetchHtmlViaJinaWithRetry, fetchViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
 import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -262,17 +262,6 @@ export function filterJobupCardsByEmployer(cards = [], employerName = '') {
   return (Array.isArray(cards) ? cards : []).filter(
     (card) => normalizeSpace(card?.company).toLowerCase() === target,
   );
-}
-
-/** Fetch a jobup.ch search page through the clean-egress Jina HTML proxy. */
-export async function fetchJobupSearchHtml(searchUrl, { timeoutMs = 40000 } = {}) {
-  const response = await fetchViaJinaWithRetry(searchUrl, { timeoutMs, format: 'html' });
-  if (!response || !response.ok) {
-    const reason = response?.headers?.get?.('x-jina-retry-reason') || `HTTP ${response?.status}`;
-    console.warn(`  ⚠️ jobup SERP fetch via Jina not usable (${reason})`);
-    return '';
-  }
-  return response.text();
 }
 
 async function fetchFeed(url) {

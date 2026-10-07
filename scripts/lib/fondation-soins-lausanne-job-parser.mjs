@@ -55,10 +55,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import {
   fetchJobupDetailDescription,
-  fetchJobupSearchHtml,
   filterJobupCardsByEmployer,
   parseJobupSearchCards,
   detectEmploymentTypeFromOccupation,
@@ -161,7 +161,13 @@ async function fetchSerpHtml() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 40000;
   // jobup.ch WAF-blocks datacenter IPs → always go through the clean-IP Jina
   // proxy (HTML return format), retried across Jina's IP pool.
-  return fetchJobupSearchHtml(SEARCH_URL, { timeoutMs });
+  const res = await fetchViaJinaWithRetry(SEARCH_URL, { timeoutMs, format: 'html' });
+  if (!res || !res.ok) {
+    const reason = res?.headers?.get?.('x-jina-retry-reason') || `HTTP ${res?.status}`;
+    console.warn(`  ⚠️ jobup SERP fetch via Jina not usable (${reason})`);
+    return '';
+  }
+  return await res.text();
 }
 
 /* ── Public API ────────────────────────────────────────────── */
