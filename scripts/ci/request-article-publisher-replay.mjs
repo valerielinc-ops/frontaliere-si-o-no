@@ -89,6 +89,8 @@ export function hasWorkflowDispatch(workflowYaml) {
   // `yaml` follows YAML 1.2 (`on` is a string), but accept the boolean key as
   // well so this guard remains correct if the parser configuration changes.
   const triggers = document?.on ?? document?.true;
+  if (triggers === 'workflow_dispatch') return true;
+  if (Array.isArray(triggers)) return triggers.includes('workflow_dispatch');
   return Boolean(
     triggers && typeof triggers === 'object' && !Array.isArray(triggers)
       && Object.prototype.hasOwnProperty.call(triggers, 'workflow_dispatch'),
@@ -167,12 +169,9 @@ export function requestPublisherReplay({
     throw new Error(`${PUBLISHER_REPOSITORY}/${PUBLISHER_WORKFLOW} has no workflow_dispatch trigger`);
   }
 
-  runGh([
-    'workflow', 'run', PUBLISHER_WORKFLOW,
-    '--repo', PUBLISHER_REPOSITORY,
-    '--ref', PUBLISHER_REF,
-  ], { token: publisherToken });
-
+  // Claim the cooldown before dispatching. If the workflow is accepted but its
+  // response is lost, the durable issue comment still prevents the next sync
+  // from dispatching the same recovery again within the bounded window.
   const body = replayComment({
     runUrl: env.RUN_URL,
     reason: env.GATE_REASON,
@@ -181,6 +180,13 @@ export function requestPublisherReplay({
   runGh([
     'issue', 'comment', String(issue.number), '--repo', currentRepository, '--body-file', '-',
   ], { token: currentToken, input: body });
+
+  runGh([
+    'workflow', 'run', PUBLISHER_WORKFLOW,
+    '--repo', PUBLISHER_REPOSITORY,
+    '--ref', PUBLISHER_REF,
+  ], { token: publisherToken });
+
   console.log(`[article-publisher-replay] requested ${PUBLISHER_REPOSITORY}/${PUBLISHER_WORKFLOW}`);
   return { requested: true, issueNumber: Number(issue.number) };
 }

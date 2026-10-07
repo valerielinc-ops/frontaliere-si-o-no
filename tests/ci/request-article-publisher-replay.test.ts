@@ -44,11 +44,13 @@ describe('article publisher replay guard', () => {
 
   it('requires a workflow_dispatch trigger before dispatching the publisher', () => {
     expect(hasWorkflowDispatch('name: x\non:\n  workflow_dispatch: {}\n')).toBe(true);
+    expect(hasWorkflowDispatch('name: x\non: workflow_dispatch\n')).toBe(true);
+    expect(hasWorkflowDispatch('name: x\non: [workflow_dispatch]\n')).toBe(true);
     expect(hasWorkflowDispatch('name: x\non:\n  push:\n    branches: [main]\n')).toBe(false);
     expect(hasWorkflowDispatch('not: [yaml')).toBe(false);
   });
 
-  it('dispatches once and records the marker after the issue threshold', () => {
+  it('claims the cooldown before dispatching after the issue threshold', () => {
     const calls: Array<{ args: string[]; options: Record<string, unknown> }> = [];
     const runGh = (args: string[], options: Record<string, unknown>) => {
       calls.push({ args, options });
@@ -84,6 +86,42 @@ describe('article publisher replay guard', () => {
     expect(comment?.args).toContain('--body-file');
     expect(comment?.options.input).toContain(REPLAY_MARKER);
     expect(comment?.options.input).toContain('published API is behind');
+    expect(calls.indexOf(comment!)).toBeLessThan(calls.indexOf(dispatch!));
+  });
+
+  it('keeps the durable cooldown when the dispatch response is lost', () => {
+    const comments: Array<{ body: string; createdAt: string }> = [];
+    let dispatches = 0;
+    const runGh = (args: string[], options: Record<string, unknown>) => {
+      if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify([ISSUE]);
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ comments });
+      if (args[0] === 'workflow' && args[1] === 'view') {
+        return 'name: Publish article data API\non:\n  workflow_dispatch: {}\n';
+      }
+      if (args[0] === 'issue' && args[1] === 'comment') {
+        comments.push({ body: String(options.input), createdAt: new Date(NOW).toISOString() });
+        return '';
+      }
+      if (args[0] === 'workflow' && args[1] === 'run') {
+        dispatches += 1;
+        throw new Error('workflow accepted, response lost');
+      }
+      throw new Error(`unexpected call: ${args.join(' ')}`);
+    };
+    const env = {
+      GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+      GH_TOKEN: 'site-token',
+      PUBLISHER_GH_TOKEN: 'publisher-token',
+    };
+
+    expect(() => requestPublisherReplay({ now: NOW, runGh, env })).toThrow('response lost');
+    expect(dispatches).toBe(1);
+    expect(requestPublisherReplay({ now: NOW + 1, runGh, env })).toMatchObject({
+      requested: false,
+      reason: 'cooldown',
+      issueNumber: 5618,
+    });
+    expect(dispatches).toBe(1);
   });
 
   it('does not dispatch while the replay cooldown is active', () => {
