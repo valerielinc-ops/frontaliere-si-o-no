@@ -437,7 +437,7 @@ describe('PR loop: capacità write verificata prima delle mutation', () => {
     const autoMerge = namedStep(testsWorkflow, 'post-review', 'Enable native auto-merge after the required job');
     const setup = namedStep(testsWorkflow, 'post-review', 'Setup Node.js + npm ci for autorebase');
     const autorebase = namedStep(testsWorkflow, 'post-review', 'Rebase near-merge PRs after review or stale rescue');
-    const markerRepair = namedStep(testsWorkflow, 'post-review', 'Repair missing Codex review marker (zero-agent)');
+    const markerRepair = namedStep(testsWorkflow, 'vitest', 'Repair missing Codex review marker (zero-agent)');
 
     expect(String(capability.run)).toContain('APP_TOKEN_DATA_REFRESH');
     expect(String(capability.run)).toContain('GITHUB_PAT');
