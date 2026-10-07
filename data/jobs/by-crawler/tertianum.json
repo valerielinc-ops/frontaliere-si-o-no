@@ -1115,7 +1115,7 @@
         "it": "collaboratore-trice-hauswirtschaft-tertianum-horgen",
         "en": "staff-home-management-tertianum-horgen",
         "de": "mitarbeiter-in-hauswirtschaft-tertianum-horgen",
-        "fr": "agent-e-d-entretien-80-tertianum-horgen"
+        "fr": "personnel-gestion-du-domicile-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1191,7 +1191,6 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-hauswirtschaft-80-tertianum-horgen",
-        "personnel-gestion-du-domicile-tertianum-horgen",
         "agent-e-d-entretien-80-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
@@ -1206,7 +1205,6 @@
         ],
         "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-80-tertianum-horgen",
-          "personnel-gestion-du-domicile-tertianum-horgen",
           "agent-e-d-entretien-80-tertianum-horgen"
         ]
       },
@@ -1312,7 +1310,7 @@
         "it": "cucina-tertianum-thun",
         "en": "cook-chef-apprenticeship-certificate-100-tertianum-thun",
         "de": "kochin-koch-tertianum-thun",
-        "fr": "cuisinier-cuisiniere-cfc-100-tertianum-thun"
+        "fr": "cuire-tertianum-thun"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1390,7 +1388,6 @@
         "kochin-koch-tertianum-thun",
         "cook-tertianum-thun",
         "kochin-koch-efz-100-tertianum-thun",
-        "cuire-tertianum-thun",
         "cuisinier-cuisiniere-cfc-100-tertianum-thun"
       ],
       "previousSlugsByLocale": {
@@ -1404,7 +1401,6 @@
         ],
         "fr": [
           "kochin-koch-tertianum-thun",
-          "cuire-tertianum-thun",
           "cuisinier-cuisiniere-cfc-100-tertianum-thun"
         ]
       },
@@ -1817,7 +1813,7 @@
       "slug": "pflegefachfrau-mann-come-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "pflegefachfrau-mann-come-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
-        "en": "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden",
+        "en": "nursing-professional-as-vocational-trainer-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
         "fr": "professionnel-des-soins-infirmiers-en-tant-que-formateur-professionnel-tertianum-rheinfelden"
       },
@@ -1902,7 +1898,6 @@
         "en": [
           "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
           "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum-rheinfelden",
-          "nursing-professional-as-vocational-trainer-tertianum-rheinfelden",
           "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden"
         ],
         "fr": [
@@ -1913,7 +1908,6 @@
         "pflegefachfrau-mann-als-berufsbildnerin-berufsbildner-tertianum-rheinfelden",
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildnerin-berufsbildner-80-100-tertianum-rheinfelden",
-        "nursing-professional-as-vocational-trainer-tertianum-rheinfelden",
         "registered-nurse-diploma-hf-as-training-instructor-80-100-tertianum-rheinfelden"
       ],
       "firstSeenAt": "2026-07-30T22:18:32.424Z",
@@ -2013,9 +2007,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-80-100-tertianum-rheinfelden",
-        "en": "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
+        "en": "nursing-professional-tertianum-rheinfelden",
         "de": "pflegefachfrau-mann-tertianum-rheinfelden",
-        "fr": "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-rheinfelden"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -2094,19 +2088,15 @@
           "infermieristica-professionale-tertianum-rheinfelden"
         ],
         "en": [
-          "nursing-professional-tertianum-rheinfelden",
           "registered-nurse-hf-fh-80-100-tertianum-rheinfelden"
         ],
         "fr": [
-          "professionnels-des-soins-infirmiers-tertianum-rheinfelden",
           "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-mann-tertianum-rheinfelden",
         "infermieristica-professionale-tertianum-rheinfelden",
-        "nursing-professional-tertianum-rheinfelden",
-        "professionnels-des-soins-infirmiers-tertianum-rheinfelden",
         "registered-nurse-hf-fh-80-100-tertianum-rheinfelden",
         "infirmiere-infirmier-diplome-e-hf-fh-80-100-tertianum-rheinfelden"
       ],
@@ -3304,7 +3294,7 @@
       "slug": "apprendista-cuoco-cuoca-tertianum-luzern",
       "slugByLocale": {
         "it": "apprendista-cuoco-cuoca-tertianum-luzern",
-        "en": "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern",
+        "en": "apprentice-koch-kochin-tertianum-luzern",
         "de": "lernende-r-koch-kochin-tertianum-luzern",
         "fr": "apprenti-e-cuisinier-cuisiniere-tertianum-luzern"
       },
@@ -3390,7 +3380,6 @@
         ],
         "en": [
           "apprentice-cook-tertianum-luzern",
-          "apprentice-koch-kochin-tertianum-luzern",
           "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
         ]
       },
@@ -3398,7 +3387,6 @@
         "lehrstelle-als-kochin-koch-efz-oder-als-kuchenangestellte-kuchenangestellter-eba-tertianum",
         "lernende-r-koch-kochin-tertianum-luzern",
         "apprentice-cook-tertianum-luzern",
-        "apprentice-koch-kochin-tertianum-luzern",
         "apprenticeship-as-cook-efz-or-kitchen-assistant-eba-tertianum-luzern"
       ],
       "firstSeenAt": "2026-05-19T12:22:02.750Z",
@@ -4709,7 +4697,7 @@
       "companyDomain": "tertianum.ch",
       "title": "Gruppenleiter/in Pflege und Betreuung",
       "titleByLocale": {
-        "it": "Gruppenleiter/in Pflege e Betreuung",
+        "it": "Capogruppo Cura e assistenza",
         "en": "Group Leader Nursing and Care",
         "de": "Gruppenleiter/in Pflege und Betreuung",
         "fr": "Chef (fe) de groupe Soins et encadrement"
@@ -4782,7 +4770,7 @@
         "it": "specialista-ristorante-20-60-tertianum-solothurn",
         "en": "restaurant-specialist-20-60-tertianum-solothurn",
         "de": "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "fr": "restaurantfachmann-frau-20-60-tertianum-solothurn"
+        "fr": "specialiste-en-restauration-20-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -4828,8 +4816,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "restaurantfachmann-frau-20-60-tertianum-solothurn",
-        "specialiste-des-restaurants-20-60-tertianum-solothurn",
-        "specialiste-en-restauration-20-60-tertianum-solothurn"
+        "specialiste-des-restaurants-20-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4840,7 +4827,6 @@
         ],
         "fr": [
           "specialiste-des-restaurants-20-60-tertianum-solothurn",
-          "specialiste-en-restauration-20-60-tertianum-solothurn",
           "restaurantfachmann-frau-20-60-tertianum-solothurn"
         ]
       },
@@ -6086,7 +6072,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür unseren Betrieb Tertianum Residenz Zürich Enge suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 100% im Nachtdienst\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Ausführen von behandlungspflegerischen Tätigkeiten\n\n• Unterstützung unserer Gäste in der Körperpflege und den weiteren alltäglichen Lebensaktivitäten\n\n• Regelmässige Rundgänge\n\n• Beobachtung und Evaluation von Pflege- und Betreuungssituationen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach Smartphone)\n\n• Übernahme und Verantwortung von zugeteilten fachlichen Aufgaben in der Nacht\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Erfahrung in der Langzeitpflege von Vorteil\n\n• InterRAI LTCF erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre cœur bat-il pour les personnes âgées ? La profession d'infirmière est-elle votre vocation ? Voyez-vous des opportunités de nous apporter de manière significative vos compétences et votre expérience afin d’avoir un impact positif sur la vie de nos clients ? Alors vous êtes la personne idéale pour nous !\n\nNous recherchons immédiatement ou sur rendez-vous quelqu'un pour notre entreprise Tertianum Residenz Zürich Enge.\n\nSpécialiste de la santé EFZ 100% en service de nuit\n\nVos tâches\n\n• Soins holistiques et accompagnement des clients conformément à nos principes de soins et au processus de soins\n\n• Réaliser des activités infirmières liées au traitement\n\n• Soutenir nos clients dans l'hygiène personnelle et d'autres activités de la vie quotidienne\n\n• Visites régulières\n\n• Observation et évaluation des situations de soins infirmiers et de soins\n\n• Documentation électronique des soins via CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Assumer et assumer la responsabilité des tâches techniques assignées la nuit\n\nVotre profil\n\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Une expérience en soins de longue durée est un plus\n\n• InterRAI LTCF souhaité ou volonté de suivre ces cours (payants)\n\n• Une attitude chaleureuse et humoristique\n\n• Profitez d'une variété de défis\n\n• Bonne connaissance de l'allemand parlé et écrit\n\nPourquoi Tertianum ?\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n• Possibilités de formation interne et externe\n\n• un jour de congé supplémentaire le mois de l'anniversaire\n\n• Déjeuner quotidien pour 10 CHF\n\n• Abonnements mobiles et Internet à prix réduit avec Sunrise\n\n• Des réductions sur certaines assurances complémentaires santé\n\n• Abonnement demi-tarif CFF\n\n• Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nÊtes-vous intéressé?\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Z%C3%BCrich-Fachfrau-Fachmann-Gesundheit-EFZ-100-im-Nachtdienst-Z%C3%BCri-8002/1424666233/",
@@ -6202,7 +6187,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Haus Le Manoir in Gampelen suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 80-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI/BESA bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI-Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
         "fr": "Votre cœur bat-il pour les personnes âgées ? La profession d'infirmière est-elle votre vocation ? Voyez-vous des opportunités de nous apporter de manière significative vos compétences et votre expérience afin d’avoir un impact positif sur la vie de nos clients ? Alors vous êtes la personne idéale pour nous !\n\nNous recherchons quelqu'un pour la maison Le Manoir à Gampelen immédiatement ou sur rendez-vous\n\nSpécialiste de la santé EFZ 80-100%\n\nVos tâches\n\n• Soins holistiques et accompagnement des clients conformément à nos principes de soins et au processus de soins\n\n• Assumer des tâches en tant qu'aidant\n\n• Participation au processus de soins et à l'évaluation des besoins de soins avec RAI/BESA pour les invités assignés\n\n•\n\n• Documentation électronique des soins via CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Planification et accompagnement des visites chez le médecin\n\n• Assumer la responsabilité au quotidien\n\n• Assumer des tâches en tant que sujet sur un sujet spécialisé et participer ainsi au réseau du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Une expérience professionnelle en soins de longue durée est un avantage\n\n• Connaissances RAI souhaitées ou volonté de suivre ces cours (payants)\n\n• Une attitude chaleureuse et humoristique\n\n• Profitez d'une variété de défis\n\n• Bonne connaissance de l'allemand parlé et écrit\n\nPourquoi Tertianum ?\n\nTertianum offre des opportunités intéressantes dans les carrières spécialisées et de gestion.\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n• Possibilités de formation interne et externe\n\n• un jour de congé supplémentaire le mois de l'anniversaire\n\n• Déjeuner quotidien pour 10 CHF\n\n• Abonnements mobiles et Internet à prix réduit avec Sunrise\n\n• Des réductions sur certaines assurances complémentaires santé\n\n• Abonnement demi-tarif CFF\n\n• Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nÊtes-vous intéressé?\n\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "Gampelen",
       "canton": "BE",
       "url": "https://jobs.tertianum.ch/job/Gampelen-Fachfrau-mann-Gesundheit-EFZ-80-100-BE-3236/1429357533/",
@@ -7385,7 +7369,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür unseren Betrieb Tertianum Am Spisertor suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 60-100% im Tagesdienst\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI/BESA bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach\n\n• Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\n• Selbständige Übernahme der Verantwortung für die gesamte Station während der Tagesschicht\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI-Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Présentation\n\nVotre cœur bat-il pour les personnes âgées ? La profession d'infirmière est-elle votre vocation ? Voyez-vous des opportunités de nous apporter de manière significative vos compétences et votre expérience afin d’avoir un impact positif sur la vie de nos clients ? Alors vous êtes la personne idéale pour nous !\n\nNous recherchons quelqu'un pour notre entreprise Tertianum Am Spisertor immédiatement ou sur rendez-vous\n\nSpécialiste de la santé EFZ 60-100% en service quotidien\n\nTâches\n\n- Soins holistiques et accompagnement des clients conformément à nos principes de soins et au processus de soins\n- Assumer des tâches en tant qu'aidant\n- Participation au processus de soins et à l'évaluation des besoins de soins avec RAI/BESA pour les invités assignés\n- Documentation électronique des soins via CareCoach\n- Participation au réseau groupe pour la qualité des soins\n- Assumer de manière indépendante la responsabilité de l'ensemble de la station pendant le quart de jour\n\nExigences\n\n- Formation complétée en tant que spécialiste de la santé EFZ\n- Une expérience professionnelle en soins de longue durée est un avantage\n- Connaissances RAI souhaitées ou volonté de suivre ces cours\n- Une attitude chaleureuse et humoristique\n- Profitez d'une variété de défis\n- Bonne connaissance de l'allemand parlé et écrit\n\nNous offrons\n\nTertianum offre des opportunités intéressantes dans les carrières spécialisées et de gestion.\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n- Possibilités de formation interne et externe\n- Jour de congé supplémentaire le mois de l'anniversaire\n- Déjeuner quotidien pour 10 CHF\n- Abonnements mobile et Internet à prix réduit avec Sunrise\n- Des réductions sur certaines complémentaires santé\n- Abonnement demi-tarif CFF\n- Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nContacter\n\nÊtes-vous intéressé?\n\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.tertianum.ch/job/St_-Gallen-Fachfrau-Fachmann-Gesundheit-EFZ-im-Tagesdienst-St_-9000/1284336601/",
@@ -8126,7 +8109,6 @@
         "de": "Hol dir dein EFZ über eine Ausbildung in der Gastronomie.\n\nBei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Köchin / Koch erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld. Während deiner Ausbildung wirst du durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt.\n\nFür unsere Residenz Sphinxmatte in Solothurn suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Köchin / Koch EFZ\n\nDas lernst du bei uns\n\n• Arbeiten in verschiedenen Bereichen der Küche: Speisen vorbereiten, kochen, anrichten und ausgeben\n\n• Rüstarbeiten und Lagerung: Du sorgst dafür, dass alle Zutaten frisch und vorrätig sind\n\n• Sorgfalt und Sauberkeit: Hygiene ist besonders wichtig, bei uns lernst du die HACCP-Verordnung kennen und weisst, wie sie in der Küche umgesetzt wird\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft, Verantwortungsbewusstsein sowie Hygienebewusstsein und Ordnungssinn\n\n• Interesse am Kochen und Freude am Umgang mit Lebensmitteln\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier.\n\nUnd vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer  Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen?  Kein Problem, melde dich ganz einfach bei: André Schürch, Leiter Küche, unter der Telefonnummer 032 544 19 19.",
         "fr": "Obtenez votre EFZ par un apprentissage en gastronomie.\n\nAvec nous, vous commencez un apprentissage varié et significatif avec un avenir, car en tant que cuisinier, un environnement de travail favorable vous attend dès le premier jour. Durant votre formation, vous serez accompagné et soutenu par nos formateurs professionnels expérimentés.\n\nPour notre résidence Sphinxmatte à Soleure nous vous cherchons à 1. Août 2027 pour\n\nApprentissage comme cuisinier / cuisinier EFZ\n\nTu apprendras ça avec nous.\n\n• Travail dans différentes zones de la cuisine: préparation des aliments, cuisine, préparation et dépenses\n\n• Équipement et stockage: Vous assurez que tous les ingrédients sont frais et en stock\n\n• Soin et propreté : l'hygiène est particulièrement importante, avec nous vous apprenez à connaître le règlement HACCP et comment il est mis en œuvre dans la cuisine\n\nApporte ça avec toi.\n\n• Études terminées (écoles secondaires A ou B) avec de bons résultats scolaires\n\n• Grande volonté d'apprendre, sens des responsabilités, sensibilisation à l'hygiène et sens de l'ordre\n\n• Intérêt pour la cuisine et le plaisir de traiter les aliments\n\n• Utile, sortante et axée sur l'équipe, avec un fort sens du soin et de la conscience\n\n• Volonté de travailler irrégulièrement\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis polyvalents et un travail pratique\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nQuels avantages vous offrons-nous ?\nVous êtes tout aussi important pour nous que votre éducation ! Par conséquent, nous vous offrons les avantages suivants:\n\n• Pour ton anniversaire tu es libre\n\n• Réduction des abonnements mobiles à Sunrise\n\n• Abonnement gratuit à mi-axe CFF\n\n• Chaque déjeuner pour CHF 5\n\n• Avantages et offres autour du fitness, des loisirs et de votre bien-être\n\n• Jusqu'à 10% de réduction sur votre assurance maladie complémentaire\n\n• Manifestations régulières en équipe\n\n• Et bien plus encore...\n\nVous commencez directement par une journée d'initiation passionnante et dans la moitié de votre entraînement nous vous invitons à notre camp d'été pour une semaine entière. Bien sûr, votre diplôme de formation doit être correctement célébré, pour cela nous organisons une cérémonie de graduation inoubliable pour tous les diplômés.\n\nEt peut-être que ce n'est que le début de votre carrière avec nous ! Nous offrons de nombreuses possibilités de travailler au sein de notre entreprise directement après l'obtention du diplôme.\n\nD'autres avantages et idées peuvent être trouvés sur notre site Web.\n\nIntéressant ?\nUne fois que nous aurons vos documents de demande complets, ils seront examinés par notre équipe. Si votre dossier nous convainc, nous nous réjouissons de vous rencontrer personnellement lors d'une première conversation. Ensuite, vous pouvez plonger directement dans le monde Tertianum un ou plusieurs jours d'essai et obtenir une image de la vie quotidienne avec nous.\n\nDe quoi avons-nous besoin pour votre demande complète?\n\n• CVC\n\n• Certificats scolaires\n\n• Résultats de l'essai de verrouillage et, le cas échéant, du multicontrôle\n\nCet enseignement pourrait-il être quelque chose pour vous ?\nEnsuite, cliquez sur \"Appliquer maintenant\" et créez votre compte personnel pour nous envoyer votre application complète.\n\nNous nous réjouissons de votre candidature!\n\nToujours des questions ? Pas de problème, inscrivez-vous avec: André Schürch, Chef de cuisine, au numéro de téléphone 032 544 19 19."
       },
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.tertianum.ch/job/Solothurn-Lehrstelle-als-K%C3%B6chin-Koch-EFZ-SO-4500/1413607433/",
@@ -9435,9 +9417,9 @@
       "id": "tertianum-32ca17a198df",
       "slug": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-all-80-tertianum-delemont",
+        "it": "80-laurea-in-infermiera-tertianum-delemont",
         "en": "80-graduate-nurse-tertianum-delemont",
-        "de": "infirmier-ere-diplome-e-a-80-tertianum-delemont",
+        "de": "80-diplom-krankenschwester-tertianum-delemont",
         "fr": "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       },
       "company": "Tertianum",
@@ -9507,20 +9489,16 @@
         ]
       },
       "previousSlugs": [
-        "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-        "80-laurea-in-infermiera-tertianum-delemont",
-        "80-diplom-krankenschwester-tertianum-delemont"
+        "infirmier-ere-diplome-e-a-80-tertianum-delemont"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-diplome-e-a-80-tertianum-delemont",
-          "80-laurea-in-infermiera-tertianum-delemont"
+          "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "en": [
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ],
         "de": [
-          "80-diplom-krankenschwester-tertianum-delemont",
           "infirmier-ere-diplome-e-a-80-tertianum-delemont"
         ]
       },
@@ -9799,9 +9777,9 @@
       "slug": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-60-100-tertianum-zollikerberg",
-        "en": "registered-nurse-hf-60-100-tertianum-zollikerberg",
+        "en": "nursing-professional-tertianum-zollikerberg",
         "de": "pflegefachfrau-mann-tertianum-zollikerberg",
-        "fr": "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-zollikerberg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -9878,12 +9856,10 @@
         ],
         "en": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "nursing-professional-tertianum-zollikerberg",
           "registered-nurse-hf-60-100-tertianum-zollikerberg"
         ],
         "fr": [
           "pflegefachfrau-mann-tertianum-zollikerberg",
-          "professionnels-des-soins-infirmiers-tertianum-zollikerberg",
           "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
         ]
       },
@@ -9892,8 +9868,6 @@
         "pflegefachfrau-mann-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-60-100-tertianum-zollikerberg",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-60-100-tertianum-zollikerberg",
-        "nursing-professional-tertianum-zollikerberg",
-        "professionnels-des-soins-infirmiers-tertianum-zollikerberg",
         "registered-nurse-hf-60-100-tertianum-zollikerberg",
         "infirmiere-infirmier-diplome-hf-60-100-tertianum-zollikerberg"
       ],
@@ -10133,7 +10107,7 @@
         "it": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
         "en": "apprentice-restoration-professional-man-tertianum-pfaffikon",
         "de": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "fr": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "fr": "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -10182,8 +10156,7 @@
         "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon",
         "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon",
         "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
-        "apprentissage-restauration-professionnelle-tertianum-pfaffikon",
-        "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon"
+        "apprentissage-restauration-professionnelle-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10197,7 +10170,6 @@
         "fr": [
           "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon",
           "apprentissage-restauration-professionnelle-tertianum-pfaffikon",
-          "apprenti-e-specialiste-en-restauration-tertianum-pfaffikon",
           "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ]
       },
@@ -10409,7 +10381,7 @@
       "id": "tertianum-57f61878cf77",
       "slug": "pflegefachfrau-mann-tertianum-uster",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-uster",
+        "it": "infermiera-tertianum-uster",
         "en": "nursing-professional-tertianum-uster",
         "de": "pflegefachfrau-mann-tertianum-uster",
         "fr": "professionnels-des-soins-infirmiers-tertianum-uster"
@@ -10457,13 +10429,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermieristica-professionale-tertianum-uster",
-        "infermiera-tertianum-uster"
+        "infermieristica-professionale-tertianum-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermieristica-professionale-tertianum-uster",
-          "infermiera-tertianum-uster"
+          "infermieristica-professionale-tertianum-uster"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:28.804Z",
@@ -11167,7 +11137,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Haus Tertianum Kirchdorf/Kappelerhof in der Region Baden suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 80-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI/BESA bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre cœur bat-il pour les personnes âgées ? La profession d'infirmière est-elle votre vocation ? Voyez-vous des opportunités de nous apporter de manière significative vos compétences et votre expérience afin d’avoir un impact positif sur la vie de nos clients ? Alors vous êtes la personne idéale pour nous !\n\nNous recherchons immédiatement ou sur rendez-vous quelqu'un pour la Haus Tertianum Kirchdorf/Kappelerhof dans la région de Baden.\n\nSpécialiste de la santé EFZ 80-100%\n\nVos tâches\n\n• Soins holistiques et soutien aux clients conformément à nos principes de soins et au processus de soins.\n\n• Assumer des tâches en tant qu'aidant\n\n• Participation au processus de soins et à l'évaluation des besoins de soins avec RAI/BESA pour les invités assignés\n\n•\n\n• Documentation électronique des soins via CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Planification et accompagnement des visites chez le médecin\n\n• Assumer la responsabilité au quotidien\n\n• Assumer des tâches en tant que sujet sur un sujet spécialisé et participer ainsi au réseau du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Une expérience professionnelle en soins de longue durée est un avantage\n\n• Connaissances RAI souhaitées ou volonté de suivre ces cours (payants)\n\n• Une attitude chaleureuse et humoristique\n\n• Profitez d'une variété de défis\n\n• Bonne connaissance de l'allemand parlé et écrit\n\nPourquoi Tertianum ?\n\nTertianum offre des opportunités intéressantes dans les carrières spécialisées et de gestion.\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n• Possibilités de formation interne et externe\n\n• un jour de congé supplémentaire le mois de l'anniversaire\n\n• Déjeuner quotidien pour 10 CHF\n\n• Abonnements mobiles et Internet à prix réduit avec Sunrise\n\n• Des réductions sur certaines assurances complémentaires santé\n\n• Abonnement demi-tarif CFF\n\n• Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nÊtes-vous intéressé?\n\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "Kirchdorf",
       "canton": "AG",
       "url": "https://jobs.tertianum.ch/job/Kirchdorf-Fachfrau-Fachmann-Gesundheit-EFZ-80-100-AG-5416/1374800333/",
@@ -11355,7 +11324,7 @@
         "it": "dipl-infermieristica-professionale-infermieristica-tertianum-lenzburg",
         "en": "diploma-in-nursing-nurse-tertianum-lenzburg",
         "de": "dipl-pflegefachfrau-pflegefachmann-tertianum-lenzburg",
-        "fr": "inf-dipl-tertianum-lenzburg"
+        "fr": "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -11436,7 +11405,6 @@
         "dipl-nursing-specialist-60-100-tertianum-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-im-spatdienst-60-100-tertianum-winterthur",
         "dipl-specialiste-des-soins-infirmiers-60-100-tertianum-winterthur",
-        "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg",
         "inf-dipl-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
@@ -11445,7 +11413,6 @@
           "dipl-infermiera-nurse-professionale-tertianum-lenzburg"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-infirmier-e-tertianum-lenzburg",
           "inf-dipl-tertianum-lenzburg"
         ]
       },
@@ -11579,7 +11546,7 @@
       "slug": "specialista-della-salute-tertianum-zollikerberg",
       "slugByLocale": {
         "it": "specialista-della-salute-tertianum-zollikerberg",
-        "en": "professional-health-efz-80-100-tertianum-zollikerberg",
+        "en": "healthcare-specialist-tertianum-zollikerberg",
         "de": "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
         "fr": "specialiste-en-sante-tertianum-zollikerberg"
       },
@@ -11600,7 +11567,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür die \"Tertianum Residenz Zollikerberg\" in der Region Zürich suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 80-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI LTCF bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions d'utiliser vos compétences et votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour le \"Tertianum Residenz Zollikerberg\" dans la région de Zurich, nous recherchons un\n\nSanté professionnelle EFZ 80-100 %\n\nLeurs tâches\n\n• Soins holistiques et soins des invités dans le sens de notre énoncé de mission de soins et le processus de soins\n\n• Assomption des tâches de soignant\n\n• Participation au processus de prise en charge et à la classification des besoins de soins avec la RAI LTCF parmi les invités assignés\n\n• Documentation de soins électroniques utilisant CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Planification et soutien des visites médicales\n\n• Hypothèse de la responsabilité quotidienne\n\n• En assumant les tâches de support thématique pour un sujet et en participant ainsi au réseau à l'échelle du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation du spécialiste/de la santé EFZ\n\n• L'expérience professionnelle en soins de longue durée est bénéfique\n\n• Connaissances RAI souhaitées ou volonté d'assister à ces cours (payés)\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis multiples\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nPourquoi Tertianum ?\n\nTertianum offre des opportunités intéressantes dans les carrières professionnelles et de leadership.\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\n\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel.\n\n​"
       },
-      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Zollikerberg-Fachfrau-Fachmann-Gesundheit-EFZ-80-100-Z%C3%BCri-8125/1391232933/",
@@ -11627,7 +11593,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
-        "healthcare-specialist-tertianum-zollikerberg",
         "professional-health-efz-80-100-tertianum-zollikerberg"
       ],
       "previousSlugsByLocale": {
@@ -11636,7 +11601,6 @@
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-zollikerberg",
-          "healthcare-specialist-tertianum-zollikerberg",
           "professional-health-efz-80-100-tertianum-zollikerberg"
         ],
         "fr": [
@@ -13303,7 +13267,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Möchten Sie Erfahrungen in diesem Bereich sammeln und einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Lindenhof in Orpund suchen wir nach Vereinbarung eine/einen\n\nPraktikantin / Praktikant Pflege und Betreuung 80-100%, befristet bis max. 1 Jahr nach Start\n\nIhre Aufgaben\n\n• Mithilfe bei der Betreuung und Begleitung der Gäste\n\n• Nach Anleitung die Gäste bei der einfachen Körperpflege unterstützen\n\n• Gemäss Anleitung und Delegation für unsere Gäste Alltagsbeschäftigungen wie Spaziergänge etc. anbieten.\n\n• Teilnahme an Pflegerapporten und Weiterleitung von wichtigen Beobachtungen\n\n• Mithilfe bei logistischen hauswirtschaftlichen Tätigkeiten\n\n• Selbständige Ausführung der zugeteilten Arbeiten\n\nIhr Profil\n\n• Freude an der Arbeit und liebevoller Umgang mit unseren Gästen\n\n• Teamplayer und hilfsbereit\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.",
         "fr": "Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voulez-vous acquérir de l'expérience dans ce domaine et avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour le Tertianum Lindenhof à Orpund nous cherchons un accord\n\nStage / Stage soins infirmiers 80-100%, limité à max. 1 an après le début\n\nLeurs tâches\n\n• Aide pour prendre soin et accompagner les hôtes\n\n• Après l'orientation, soutenir les clients dans des soins personnels simples\n\n• Selon les conseils et la délégation pour nos invités offrent des activités quotidiennes telles que des promenades, etc.\n\n• Participation aux rapports sur les soins infirmiers et transmission d'observations importantes\n\n• Assistance aux activités logistiques nationales\n\n• Travail indépendant\n\nVotre profil\n\n• La joie au travail et le traitement aimant de nos invités\n\n• Joueur d'équipe et utile\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis multiples\n\n• Compétences en allemand dans l'écriture et la parole\n\nPourquoi Tertianum ?\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe."
       },
-      "needsRetranslation": true,
       "location": "Orpund",
       "canton": "BE",
       "url": "https://jobs.tertianum.ch/job/Orpund-Praktikantin-Pflege-und-Betreuung-80-100-BE-2552/1441169533/",
@@ -13570,7 +13533,6 @@
         "de": "Die Tertianum Residenz Huob, mitten im Zentrum von Pfäffikon SZ, besteht aus 67 modernen Appartements mit hausinternem Spitexdienst und einem Rehabilitations-, Pflege- und Demenzwohnbereich mit 21 Einzelzimmern, Restaurant intern und öffentlichem Restaurant ROSSOROSSO, Physiotherapie, Fitness, Therapiebad, Coiffeursalon, Podologie und Kosmetikstudio.\n\nAb Sommer 2028 suchen wir Dich für die\n\nLehrstelle als Köchin / Koch EFZ\n\nDeine Aufgaben\n\n•\n Du lernst, abwechslungsreiche warme und kalte Gerichte zuzubereiten\n\n•\n Sorgfältiges Rüsten und der richtige Umgang mit frischen Lebensmitteln gehören dazu\n\n•\n Auch in der Patisserie kannst Du Deine kreative Seite ausleben\n\nDein Profil\n\n•\n Kochen macht Dir Spass und Du arbeitest gerne mit Lebensmitteln\n\n•\n Hygiene und Ordnung sind für Dich selbstverständlich\n\n•\n Mit Deiner schnellen Auffassungsgabe und Deinem Organisationstalent behältst Du auch in stressigen Momenten den Überblick\n\n•\n Unregelmässige Einsätze an Wochenenden und Feiertagen sind Teil des Berufs – im Gegenzug profitierst Du von freien Tagen ausserhalb der Stosszeiten\n\nWas wir Dir bieten\n\nBei uns erwartet Dich ein Ausbildungsplatz, an dem Teamgeist, Vertrauen und Menschlichkeit im Mittelpunkt stehen. Wir sind ein dynamisches Team und legen grossen Wert auf eine fundierte, praxisnahe Ausbildung , bei der Du Schritt für Schritt alles lernst, was Du für Deine Zukunft brauchst.\n\nAusserdem profitierst Du von:\n\n•\n spannenden Einblicken in eine vielseitige Gastronomie mit Restaurant und Pflegebereich\n\n•\n modernen Arbeitszeitmodellen, die Dir auch Raum für Dein Privatleben lassen\n\n•\n attraktiven Benefits sowie vielen Weiterbildungs- und Entwicklungsmöglichkeiten\n\nNeugierig geworden?\nDann freuen wir uns darauf, Dich bald persönlich kennenzulernen!\n\nFür Fragen steht Dir Marco Ebnöther, Leitung Küche, unter der Telefonnummer 055 416 12 04 gerne zur Verfügung.",
         "fr": "Descrizione Le Tertianum Residenz Huob, situé dans le centre de Pfäffikon SZ, se compose de 67 appartements modernes avec service en interne Spitex et un espace de vie de réhabilitation, d'allaitement et de démence avec 21 chambres individuelles, restaurant intérieur et restaurant public ROSSOROSSO, physiothérapie, fitness, salle de bain thérapeutique, salon de Coiffeur, podologie et studio cosmétique. Mansioni - Vous apprenez à préparer des plats chauds et froids variés - Les haricots et la bonne manipulation des aliments frais font partie de cela - aussi dans la pâtisserie Découvrez votre site créatif\n• Requisiti - Cuisine Vous aimez le plaisir et vous aimez travailler avec la nourriture - l'hygiène et l'ordre sont évidents - avec votre compréhension rapide et votre talent organisationnel Vous avez également une vue d'ensemble des moments stressants - des paris irréguliers le week-end et les vacances font partie de la profession - en retour De jours libres en dehors des temps de stosting\n• Cosa offriamo - lieu d'entraînement où l'esprit d'équipe, la confiance et l'humanité sont au centre - Trouvés, formation pratique, où vous apprenez progressivement tout ce dont vous avez besoin pour votre avenir - Aperçu passionnant d'une gastronomie polyvalente avec restaurant et zone de soins - Modèles modernes de temps de travail, qui vous donnent également de la place pour votre vie privée - Attirance Avantages Développement Alors nous avons hâte de vous rencontrer personnellement! Pour toute question, veuillez contacter Marco Ebnöther, Chef de cuisine, sous le numéro de téléphone 055 416 12 04."
       },
-      "needsRetranslation": true,
       "location": "Pfäffikon",
       "canton": "SZ",
       "url": "https://jobs.tertianum.ch/job/Pf%C3%A4ffikon-Lehrstelle-als-K%C3%B6chin-Koch-EFZ-Start-2028-SZ-8808/738709901/",
@@ -13831,9 +13793,9 @@
       "slug": "ristorazione-professionale-tertianum-meilen",
       "slugByLocale": {
         "it": "ristorazione-professionale-tertianum-meilen",
-        "en": "restaurant-specialist-tertianum-meilen",
+        "en": "restoration-professional-tertianum-meilen",
         "de": "restaurationsfachfrau-mann-tertianum-meilen",
-        "fr": "restaurationsfachfrau-mann-tertianum-meilen"
+        "fr": "professionnel-de-restauration-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -13908,8 +13870,6 @@
       },
       "previousSlugs": [
         "restaurationsfachfrau-mann-tertianum-meilen",
-        "restoration-professional-tertianum-meilen",
-        "professionnel-de-restauration-tertianum-meilen",
         "restaurant-specialist-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
@@ -13918,11 +13878,9 @@
         ],
         "en": [
           "restaurationsfachfrau-mann-tertianum-meilen",
-          "restoration-professional-tertianum-meilen",
           "restaurant-specialist-tertianum-meilen"
         ],
         "fr": [
-          "professionnel-de-restauration-tertianum-meilen",
           "restaurationsfachfrau-mann-tertianum-meilen"
         ]
       },
@@ -14128,7 +14086,7 @@
       "slug": "cuoco-cuoca-tertianum-bern",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-bern",
-        "en": "kochin-koch-tertianum-bern",
+        "en": "chef-tertianum-bern",
         "de": "kochin-koch-tertianum-bern",
         "fr": "cuisinier-cuisiniere-tertianum-bern"
       },
@@ -14214,8 +14172,7 @@
         "cuocere-cucinare-50-70-tertianum-bern",
         "cook-cook-50-70-tertianum-bern",
         "cuisson-cuisson-50-70-tertianum-bern",
-        "cook-tertianum-bern",
-        "chef-tertianum-bern"
+        "cook-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14230,7 +14187,6 @@
         ],
         "en": [
           "cook-tertianum-bern",
-          "chef-tertianum-bern",
           "kochin-koch-tertianum-bern"
         ],
         "de": [
@@ -14492,7 +14448,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung welcher für Sie nicht nur die Lebensqualität anderer verbessert, sondern auch eine Befriedigung und Sinnhaftigkeit im eigenen Leben schafft? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kunden zu haben? Dann sind Sie bei uns richtig!\n\nDas familiäre Wohn- und Pflegezentrum Sternmatt in Luzern bietet Menschen mit Demenz ein sicheres, lebensbejahendes Zuhause in einem Umfeld, das von Respekt und Sorgsamkeit geprägt ist. In den geschützten Wohnbereichen erhalten unsere Pflegegäste die Betreuung, die sie brauchen. Auf ihre individuellen Bedürfnisse abgestimmt.\n\nFür das Tertianum Sternmatt in der Region Luzern suchen wir 01.11.2026 oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 80-100% im Nachtdienst\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Ausführen von behandlungspflegerischen Tätigkeiten\n\n• Unterstützung unserer Gäste in der Körperpflege und den weiteren alltäglichen Lebensaktivitäten\n\n• Regelmässige Rundgänge\n\n• Beobachtung und Evaluation von Pflege- und Betreuungssituationen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach Smartphone)\n\n• Übernahme und Verantwortung von zugeteilten fachlichen Aufgaben in der Nacht\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Erfahrung in der Langzeitpflege von Vorteil\n\n• RAI - Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre cœur bat-il pour les personnes âgées ? La profession d'infirmière est-elle votre vocation, car elle améliore non seulement la qualité de vie des autres, mais crée également de la satisfaction et un sens à votre propre vie ? Voyez-vous des opportunités d’utiliser vos compétences et votre expérience pour avoir un impact positif sur la vie de nos clients ? Alors vous êtes au bon endroit !\n\nLe centre de vie et de soins familial Sternmatt à Lucerne offre aux personnes atteintes de démence un foyer sûr et propice à la vie dans un environnement caractérisé par le respect et l'attention. Dans les espaces de vie protégés, nos hôtes soignants reçoivent les soins dont ils ont besoin. Adapté à vos besoins individuels.\n\nNous recherchons quelqu'un pour le Tertianum Sternmatt dans la région de Lucerne le 1er novembre 2026 ou sur rendez-vous\n\nSpécialiste de la santé EFZ 80-100% en service de nuit\n\nVos tâches\n\n• Soins holistiques et accompagnement des clients conformément à nos principes de soins et au processus de soins\n\n• Réaliser des activités infirmières liées au traitement\n\n• Soutenir nos clients dans l'hygiène personnelle et d'autres activités de la vie quotidienne\n\n• Visites régulières\n\n• Observation et évaluation des situations de soins infirmiers et de soins\n\n• Documentation électronique des soins via CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Assumer et assumer la responsabilité des tâches techniques assignées la nuit\n\nVotre profil\n\n• Formation complétée en tant que spécialiste de la santé EFZ\n\n• Une expérience en soins de longue durée est un plus\n\n• RAI - connaissances souhaitées ou volonté de suivre ces cours (payants)\n\n• Une attitude chaleureuse et humoristique\n\n• Profitez d'une variété de défis\n\n• Bonne connaissance de l'allemand parlé et écrit\n\nPourquoi Tertianum ?\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n• Possibilités de formation interne et externe\n\n• un jour de congé supplémentaire le mois de l'anniversaire\n\n• Déjeuner quotidien pour 10 CHF\n\n• Abonnements mobiles et Internet à prix réduit avec Sunrise\n\n• Des réductions sur certaines assurances complémentaires santé\n\n• Abonnement demi-tarif CFF\n\n• Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nÊtes-vous intéressé?\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://jobs.tertianum.ch/job/Luzern-Fachfrau-Fachmann-Gesundheit-EFZ-80-100-im-Nachtdienst-Luze-6005/1429818833/",
@@ -14935,7 +14890,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür unser Haus Tertianum Sonnenplatz in Emmen in der Region Luzern suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 40-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI/BESA bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI/BESA-Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions d'utiliser vos compétences et votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour notre maison Tertianum Sonnenplatz à Emmen dans la région de Lucerne, nous recherchons un\n\nSpécialiste de la santé EFZ\n\nLeurs tâches\n\n• Soins holistiques et soins des invités dans le sens de notre énoncé de mission de soins et le processus de soins\n\n• Assomption des tâches de soignant\n\n• Participation au processus de soins et à la classification des besoins de soins avec RAI/BESA pour les invités assignés\n\n• Documentation de soins électroniques utilisant CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Planification et soutien des visites médicales\n\n• Hypothèse de la responsabilité quotidienne\n\n• En assumant les tâches de support thématique pour un sujet et en participant ainsi au réseau à l'échelle du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation du spécialiste/de la santé EFZ\n\n• L'expérience professionnelle en soins de longue durée est bénéfique\n\n• Connaissances RAI/BESA requises ou volonté de suivre ces cours (payés)\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis multiples\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nPourquoi Tertianum ?\n\nTertianum offre des opportunités intéressantes dans les carrières professionnelles et de leadership.\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\n\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel.\n\n​"
       },
-      "needsRetranslation": true,
       "location": "Emmenbrücke",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Emmenbr%C3%BCcke-Fachfrau-Fachmann-Gesundheit-EFZ-40-100-Luze-6020/1427362133/",
@@ -15020,7 +14974,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen und Ihre Leidenschaft gehört der Gastronomie? Sie lieben gutes Essen, übernehmen gerne Verantwortung und möchten mit Ihrer Kochkunst etwas bewirken? Als Teamleiter/in Küche & Produktion bringen Sie Ihre Erfahrung, Ihre Leidenschaft und Ihr Führungstalent ein – entwickeln neue Ideen, setzen kulinarische Akzente und bringen gemeinsam mit Ihrem Team Genuss auf den Teller.\n\nFür das Tertianum Letzipark in der Region Zürich suchen wir ab 01.12.2026 oder nach Vereinbarung eine/einen\n\nTeamleiterin / Teamleiter Küche & Produktion 100%\n\nIn dieser operativen Schlüsselfunktion übernehmen Sie die Führung des Küchenteams und stellen gemeinsam mit der Clusterverantwortung Küche die qualitativ hochwertige Produktion für das Tertianum Letzipark und die angeschlossenen Standorte sicher. In Ihrer Funktion unterstehen Sie der Leitung Hotellerie.\n\nIhre Aufgaben\n\n• Operative Verantwortung für den Bereich Küche\n\n• Führung, Einsatzplanung, Entwicklung und Schulung der Mitarbeitenden im gesamten Küchenbereich\n\n• Organisation, Koordination und Sicherstellung der termingerechten Produktion und Belieferung der angeschlossenen Standorte inklusive Mengen-, Qualitäts- und Schnittstellenkontrolle\n\n• Steuerung der Produktionsmengen, Kontrolle der Warenkosten sowie aktive Reduktion von Überproduktion und Food Waste\n\n• Mitarbeit bei der Menüplanung sowie Umsetzung und Weiterentwicklung von Rezepturen, Produktionsvorgaben und Portionsgrössen\n\n• Aktive Mitarbeit in der Küche sowie kontinuierliche Weiterentwicklung der operativen Abläufe\n\n• Implementierung, Überwachung und Einhaltung von Qualitätsstandards, HACCP–Konzeptes, Arbeitssicherheitsrichtlinien, Audit-Anforderungen\n\n• Aktive Bewirtschaftung des KVP-Prozesses mittels Kaizen-Tool\n\n• Mitverantwortung für Wareneinkauf, Budget- und Controlling-Management, Inventur sowie Qualitätsmanagement\n\n• Fachliche Begleitung und Ausbildung der Lernenden im Küchenbereich\n\n• Enge fachliche Zusammenarbeit mit der Clusterverantwortung Küche sowie den Verantwortlichen der belieferten Standorte\n\n• Sicherstellung einer reibungslosen Zusammenarbeit zwischen F&B, Front Office, Pflege und Leitung Hotellerie\n\n• Enge Zusammenarbeit und direkte Berichtslinie an die Leitung Hotellerie\n\n• Stellvertretung bei Abwesenheit der Leitung Hotellerie (Service und Küche)\n\nIhr Profil\n\n• Mehrjährige Führungserfahrung in einer vergleichbaren Küchenfunktion, idealerweise in der Gemeinschaftsgastronomie oder einer Gesundheitsinstitution\n\n• Abgeschlossene weiterführende Berufsausbildung\n\n• Hohe Dienstleistungsorientierung und sichtbare Präsenz im operativen Küchenbereich\n\n• Gute MS-Office-Kenntnisse und eine hohe Affinität für digitale Küchen-, Bestell- und Planungssysteme\n\n• Unternehmerisches Denken, Kreativität sowie ein hoher Qualitäts- und Serviceanspruch\n\n• Belastbarkeit, Durchsetzungsstärke und gleichzeitig wertschätzender Führungsstil\n\n• Eine positive, lösungsorientierte und humorvolle Grundeinstellung\n\n• Fahrausweis der Kategorie B für Fahrzeuge mit manuellem Schaltgetriebe ist Voraussetzung\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Keine Zimmerstunde\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Votre cœur bat pour les personnes âgées et votre passion est la gastronomie ? Vous aimez la bonne cuisine, aimez prendre des responsabilités et souhaitez faire la différence dans votre cuisine ? En tant que chef d'équipe en cuisine et en production, vous apporterez votre expérience, votre passion et votre talent de leader - développerez de nouvelles idées, mettrez des accents culinaires et apporterez du plaisir dans l'assiette avec votre équipe.\n\nNous recherchons quelqu'un pour le Tertianum Letzipark dans la région de Zurich à partir du 1er décembre 2026 ou sur rendez-vous\n\nChef d'équipe / chef d'équipe cuisine & production 100%\n\nDans cette fonction opérationnelle clé, vous dirigerez l'équipe de cuisine et, en collaboration avec la responsabilité du cluster cuisine, assurerez une production de haute qualité pour le Tertianum Letzipark et les sites associés. Dans votre rôle, vous rapportez à la direction de l'industrie hôtelière.\n\nVos tâches\n\n• Responsabilité opérationnelle du coin cuisine\n\n• Gestion, planification du déploiement, développement et formation des employés dans tout le secteur de la cuisine\n\n• Organisation, coordination et garantie des délais de production et de livraison sur les sites connectés, y compris le contrôle de la quantité, de la qualité et de l'interface.\n\n• Contrôler les quantités de production, contrôler le coût des marchandises et réduire activement la surproduction et le gaspillage alimentaire\n\n• Participation à la planification des menus ainsi qu'à la mise en œuvre et au développement ultérieur des recettes, des spécifications de production et de la taille des portions\n\n• Participation active à la cuisine et développement continu des processus opérationnels\n\n• Mise en œuvre, suivi et respect des normes de qualité, des concepts HACCP, des directives de sécurité au travail, des exigences d'audit\n\n• Gestion active du processus CIP à l'aide de l'outil Kaizen\n\n• Responsabilité conjointe des achats de marchandises, de la gestion du budget et du contrôle de gestion, de la gestion des stocks et de la qualité.\n\n• Accompagnement professionnel et formation des apprenants en cuisine\n\n• Collaboration professionnelle étroite avec le responsable de la cuisine du cluster et les responsables des emplacements approvisionnés\n\n• Assurer une collaboration fluide entre la restauration, la réception, les soins infirmiers et la direction de l'hôtel\n\n• Coopération étroite et lien direct avec la direction de l'industrie hôtelière\n\n• Adjoint en cas d'absence du directeur de l'hôtel (service et cuisine)\n\nVotre profil\n\n• Plusieurs années d'expérience en gestion dans une fonction de cuisine comparable, idéalement en restauration collective ou dans un établissement de santé\n\n• Formation professionnelle complémentaire complétée\n\n• Orientation élevée vers le service et présence visible dans la zone de cuisine opérationnelle\n\n• Bonnes compétences en MS Office et grande affinité pour les systèmes de cuisine, de commande et de planification numériques.\n\n• Esprit entrepreneurial, créativité ainsi que normes de qualité et de service élevées\n\n• Résilience, assertivité et en même temps style de leadership reconnaissant\n\n• Une attitude positive, orientée vers les solutions et pleine d'humour\n\n• Un permis de conduire de catégorie B pour les véhicules à transmission manuelle est requis.\n\n• Très bonne connaissance de l'allemand parlé et écrit\n\nPourquoi Tertianum ?\n\nIl est important pour nous que nos collaborateurs puissent facilement concilier vie professionnelle et vie privée. Cela comprend un large éventail d’avantages différents, par exemple :\n\n• Possibilités de formation interne et externe\n\n• Pas d'heure de chambre\n\n• un jour de congé supplémentaire le mois de l'anniversaire\n\n• Abonnements mobiles et Internet à prix réduit avec Sunrise\n\n• Des réductions sur certaines assurances complémentaires santé\n\n• Abonnement demi-tarif CFF\n\n• Diverses réductions sur la flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nÊtes-vous intéressé?\n\nNous vous offrons une perspective passionnante : avec nous, vous pouvez utiliser vos compétences et vos connaissances spécialisées au sein d'une équipe motivée et flexible. Vous prenez vos responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous sommes impatients de recevoir votre candidature complète en ligne via notre outil de candidature. Cliquez sur «"
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Z%C3%BCrich-Teamleiterin-Teamleiter-K%C3%BCche-&-Produktion-100-Z%C3%BCri-8048/1427049733/",
@@ -15443,7 +15396,7 @@
         "it": "sous-chef-cuoco-100-tertianum-horgen",
         "en": "second-sous-chef-tertianum-horgen",
         "de": "sous-chefin-sous-chef-tertianum-horgen",
-        "fr": "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
+        "fr": "second-de-cuisine-tertianum-horgen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -15520,7 +15473,6 @@
       "previousSlugs": [
         "sous-chefin-sous-chef-tertianum-horgen",
         "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen",
-        "second-de-cuisine-tertianum-horgen",
         "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
@@ -15529,7 +15481,6 @@
           "sous-chefin-sous-chef-oder-kochin-koch-100-tertianum-horgen"
         ],
         "fr": [
-          "second-de-cuisine-tertianum-horgen",
           "sous-chef-sous-cheffe-ou-cuisinier-cuisiniere-100-tertianum-horgen"
         ]
       },
@@ -16153,7 +16104,6 @@
         "de": "Für unser idyllische \"Villa Böcklin\" suchen wir eine engagierte und fachlich sichere Dipl. Pflegefachperson HF/FH oder Fachangestellte/r Gesundehit EFZ die mit viel Leidenschaft die Berufsbildung unserer Lernenden übernimmt. Eine hochprozentige Anstellung, 90-100% ist möglich bei direkter Dienstübernahme in der Pflege. 60-80% bezieht sich ausschliesslich auf die Berufsbildung mit geregelten Arbeitszeiten . DU hast die Wahl... Wir freuen uns auf DICH!\n\nWir suchen ab sofort oder nach Vereinbarung eine/einen\n\nHauptberuflich - Berufsbildnerin / Berufsbildner Pflege 60-80%\n\nIhre Aufgaben\n\n• Sie schaffen Lernsituationen für die Auszubildenden, leiten sie auf den Abteilungen an, dokumentieren den Lernprozess, geben Feedback und beurteilen sie mündlich und schriftlich.\n\n• Sie planen und koordinieren selbstständig die Lernbegleitungen und arbeiten mit den Auszubildenden 1:1 zusammen.\n\n• Sie kommunizieren offen und transparent in unserem Bildungsteam und den Pflegeteams und nehmen eine wichtige Funktion im Führungsdreieck ein.\n\n• Ausführen von behandlungspflegerischen Tätigkeiten die als Lernsituation genutzt werden\n\n• Planung und Begleitung von Arztvisiten\n\n• Elektronische Pflegedokumentation mittels Care-Coach\n\n• Übernahme von Aufgaben als Bezugsperson\n\n• Steuerung des Pflegeprozesses - je nach Ausbildungsstand der Lernenden\n\n• Leitung von Fallbesprechungen - je nach Ausbildungsstand der Lernenden\n\n• Übernahme von der Tagesverantwortung mit den Lernenden zusammen\n\n• Übernahme von Aufgaben als Thementräger/in, fachliche Weisungsbefugnis\n\n• Geregelte Arbeitszeiten\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/-mann HF/FH/DNII, \"FaGe EFZ\" oder eine gleichwertige, durch das SRK anerkannte Ausbildung\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• Erfahrung als RAI-Koordinaton von Vorteil\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Freude an der Zusammenarbeit mit Lernenden und Studierenden\n\n• Eine anerkannte Weiterbildung im pädagogischen Bereich (mindestens Berufsbildnerkurs)\n\nWarum Tertianum?\n\nUns liegt viel daran, dass unsere Mitarbeitenden ihre berufliche Entwicklung und ihre Lebensgestaltung in Einklang bringen können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Fitnessvergünstigungen\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• SBB Halbtaxabonnement\n\n• Versicherungsvergünstigungen\n\n• Flottenrabatte\n\n• Vergünstigungen bei Sunrise\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nDann bieten wir Ihnen eine spannende Perspektive: Bei uns setzen Sie Ihre individuellen Fähigkeiten und Ihre Professionalität in einem motivierten und flexiblen Team ein. Zudem übernehmen Sie ein hohes Mass an Verantwortung und gestalten so die Zukunft von Tertianum aktiv mit. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool oder villaboecklin@tertianum.ch\n\n​",
         "fr": "Pour notre idyllique 'Villa Böcklin', nous recherchons une personne engagée et techniquement compétente, infirmière diplômée HF/FH ou assistante en santé EFZ qui, avec beaucoup de passion, prend en charge la formation professionnelle de nos apprentis. Un emploi à temps plein, de 90 à 100 %, est possible avec une prise de fonction directe en soins infirmiers. 60-80 % se réfère exclusivement à la formation professionnelle avec des horaires de travail réguliers. Vous avez le choix... Nous avons hâte de vous accueillir!\n\nNous recherchons immédiatement ou selon accord une\n\nÀ temps plein - Formatrice/formateur professionnel en soins infirmiers 60-80%\n\nVos tâches\n\n• Vous créez des situations d'apprentissage pour les apprentis, les guidez dans les départements, documentez le processus d'apprentissage, fournissez des retours et les évaluez oralement et par écrit.\n\n• Vous planifiez et coordonnez les accompagnements d'apprentissage de manière autonome et travaillez avec les apprentis sur une base 1:1.\n\n• Vous communiquez de manière ouverte et transparente avec notre équipe éducative et les équipes de soins infirmiers et occupez une fonction importante dans le triangle de leadership.\n\n• Exécution d'activités de soins infirmiers de traitement utilisées comme situations d'apprentissage.\n\n• Planification et accompagnement des visites médicales.\n\n• Documentation électronique des soins infirmiers à l'aide de Care-Coach.\n\n• Assumption de tâches en tant que personne de contact.\n\n• Contrôle du processus de soins infirmiers - selon le niveau de formation des apprentis.\n\n• Direction des discussions de cas - selon le niveau de formation des apprentis.\n\n• Assumption de la responsabilité quotidienne avec les apprentis.\n\n• Assumption de tâches en tant que porteur de thème, autorité technique.\n\n• Horaires de travail réguliers.\n\nVotre profil\n\n• Formation terminée en tant qu'infirmière diplômée HF/FH/DNII, 'FaGe EFZ' ou une formation équivalente reconnue par la CRS.\n\n• Expérience professionnelle dans les soins à long terme préférable.\n\n• Expérience en tant que coordinateur RAI préférable.\n\n• Une attitude de base chaleureuse et humoristique.\n\n• Joie des défis variés.\n\n• Bonnes compétences en langue allemande, à l'oral et à l'écrit.\n\n• Joie de travailler avec des apprentis et des étudiants.\n\n• Une formation reconnue dans le domaine pédagogique (au moins cours de formateur professionnel).\n\nPourquoi Tertianum?\nNous tenons beaucoup à ce que nos employés puissent concilier leur développement professionnel et leur vie personnelle. Cela inclut une gamme diversifiée de différents avantages, par exemple:\n\n• Possibilités de formation interne et externe.\n\n• Réductions pour le fitness.\n\n• Jour férié supplémentaire dans le mois d'anniversaire.\n\n• Abonnement SBB à demi-tarif.\n\n• Réductions d'assurance.\n\n• Réductions de flotte.\n\n• Réductions chez Sunrise.\n\nD'autres avantages sont disponibles sur notre site web.\n\nÊtes-vous intéressé?\nAlors nous vous offrons une perspective passionnante: chez nous, vous mettez en pratique vos compétences individuelles et votre professionnalisme dans une équipe motivée et flexible. De plus, vous assumez un haut degré de responsabilité et contribuez activement à façonner l'avenir de Tertianum. Postulez dès maintenant et devenez membre de notre équipe.\n\nNous nous réjouissons de recevoir votre candidature complète via notre outil de candidature ou villaboecklin@tertianum.ch."
       },
-      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/Z%C3%BCrich-Hauptberuflich-BerufsbildnerinBerufsbildner-Pflege-60-80-Z%C3%BCri-8032/1268224701/",
@@ -16510,10 +16460,10 @@
       "id": "tertianum-a72bf1a77ee5",
       "slug": "cuoco-cuoca-60-tertianum-solothurn",
       "slugByLocale": {
-        "it": "cuoco-cuoca-60-tertianum-solothurn",
-        "en": "kochin-koch-60-tertianum-solothurn",
+        "it": "cuocere-chef-60-tertianum-solothurn",
+        "en": "cook-chef-60-tertianum-solothurn",
         "de": "kochin-koch-60-tertianum-solothurn",
-        "fr": "cuisinier-cuisiniere-60-tertianum-solothurn"
+        "fr": "cuisson-chef-60-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -16586,21 +16536,19 @@
       "previousSlugs": [
         "kochin-koch-60-tertianum-solothurn",
         "cuocere-chef-60-tertianum-solothurn",
-        "cook-chef-60-tertianum-solothurn",
-        "cuisson-chef-60-tertianum-solothurn"
+        "cuisson-chef-60-tertianum-solothurn",
+        "cuisinier-cuisiniere-60-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-60-tertianum-solothurn",
-          "cuocere-chef-60-tertianum-solothurn"
+          "kochin-koch-60-tertianum-solothurn"
         ],
         "en": [
-          "cook-chef-60-tertianum-solothurn",
           "kochin-koch-60-tertianum-solothurn"
         ],
         "fr": [
           "kochin-koch-60-tertianum-solothurn",
-          "cuisson-chef-60-tertianum-solothurn"
+          "cuisinier-cuisiniere-60-tertianum-solothurn"
         ]
       },
       "firstSeenAt": "2026-06-30T23:36:19.207Z",
@@ -17296,7 +17244,7 @@
       "slug": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
       "slugByLocale": {
         "it": "gruppenleiter-in-pflege-e-betreuung-tertianum-wattwil",
-        "en": "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil",
+        "en": "group-leader-care-and-care-tertianum-wattwil",
         "de": "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "fr": "chef-de-groupe-soins-et-soins-tertianum-wattwil"
       },
@@ -17353,7 +17301,6 @@
         "en": [
           "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
           "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-dnii-80-100-tertianum-wattwil",
-          "group-leader-care-and-care-tertianum-wattwil",
           "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
         ],
         "fr": [
@@ -17364,7 +17311,6 @@
       "previousSlugs": [
         "gruppenleiter-in-pflege-und-betreuung-tertianum-wattwil",
         "teamleitung-dipl-pflegefachfrau-pflegefachmann-hf-dnii-80-100-tertianum-wattwil",
-        "group-leader-care-and-care-tertianum-wattwil",
         "team-management-dipl-nursing-professional-hf-dnii-80-100-tertianum-wattwil"
       ],
       "firstSeenAt": "2026-08-20T22:13:18.526Z",
@@ -17387,9 +17333,9 @@
       "slug": "infermieristica-professionale-tertianum-stadel",
       "slugByLocale": {
         "it": "infermieristica-professionale-tertianum-stadel",
-        "en": "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
+        "en": "nurse-tertianum-stadel",
         "de": "pflegefachfrau-mann-tertianum-stadel",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
+        "fr": "infirmier-infirmiere-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -17443,11 +17389,9 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel"
         ],
         "en": [
-          "nurse-tertianum-stadel",
           "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel"
         ],
         "fr": [
-          "infirmier-infirmiere-tertianum-stadel",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
         ]
       },
@@ -17455,8 +17399,6 @@
         "dipl-infermiere-i-hf-fh-dnii-in-servizio-notturno-60-100-tertianum-stadel",
         "pflegefachfrau-mann-tertianum-stadel-mqcj0r",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
-        "nurse-tertianum-stadel",
-        "infirmier-infirmiere-tertianum-stadel",
         "dipl-nursing-specialist-hf-fh-dnii-on-night-duty-60-100-tertianum-stadel",
         "dipl-specialiste-des-soins-infirmiers-hf-fh-dnii-en-service-de-nuit-60-100-tertianum-stadel"
       ],
@@ -17771,7 +17713,6 @@
         "de": "Am Corporate Servicecenter im Tertianum Giessenturm in Dübendorf sind die zentrale Administration sowie die Geschäftsleitung der Tertianum Gruppe ansässig. Spezialisten aus den verschiedensten Fachbereichen bilden die Grundlage für ein abwechslungsreiches und interessantes Arbeitsumfeld.\n\nDie Zeit ist in Bewegung – wir sind es auch. Für die Abteilung Rechnungswesen suchen wir per sofort oder nach Vereinbarung eine mitdenkende, eigenverantwortliche und pragmatische Macher-Persönlichkeit als\n\nTeilprojektleiterin /Teilprojektleiter 50%\n\nSie sind die zentrale Ansprechperson für den Fachbereich Finanzen innerhalb des Projekts LEA. Sie verbinden Fachwissen, Prozesse und Projektarbeit und sorgen dafür, dass die Anforderungen des Fachbereichs erfolgreich in die zukünftige Lösung einfliessen.\n\nIhre Aufgaben\n\n• Vertretung des Fachbereichs Finanzen im Projekt LEA\n\n• Erarbeitung, Abstimmung, Abnahme und Dokumentation von Fachkonzepten und Prozessen\n\n• Definition und Harmonisierung zukünftiger Finanzprozesse\n\n• Sicherstellung eines transparenten Informationsflusses zwischen Fachbereich und Projektteam\n\n• Koordination und termingerechte Bearbeitung der fachlichen Pendenzen\n\n• Sicherstellung einer hohen Stammdatenqualität\n\n• Definition von Testfällen sowie Planung und Durchführung von Fachtests\n\n• Fachliche Beurteilung und Freigabe von Konzepten und Testergebnissen\n\n• Unterstützung bei der Vorbereitung und Durchführung von Schulungen\n\n• Aktive Mitarbeit während Cutover und Hypercare\n\n• Frühzeitige Identifikation und Eskalation von Risiken und Abhängigkeiten\n\nIhr Profil\n\n• Ausbildung im Finanz- und Rechnungswesen oder eine vergleichbare betriebswirtschaftliche Ausbildung\n\n• Mehrjährige Berufserfahrung im Accounting, idealerweise mit Schwerpunkt Kreditorenbuchhaltung\n\n• Erfahrung in Projekten sowie bei der Einführung oder Weiterentwicklung von Finanzprozessen\n\n• Fundierte Kenntnisse von Purchase-to-Pay-(P2P) und Freigabeprozessen\n\n• Sehr gute Kenntnisse in SAP FI/MM\n\n• Hohe IT-Affinität und gutes Verständnis für Systeme und Schnittstellen\n\n• Erfahrung mit Prozess- oder Systemeinführungen, Fachtests und Schulungen\n\n• Sehr gute Deutschkenntnisse; Französischkenntnisse sind von Vorteil\n\nWarum Tertianum?\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nZahlen sind Ihre Passion?\n\nÜbernehmen Sie gerne Verantwortung und möchten Sie die zukünftigen Finanzprozesse aktiv mitgestalten? Unser Team freut sich auf eine engagierte Persönlichkeit, die ihr Fachwissen einbringt und Veränderungen gemeinsam mit uns vorantreibt.\n\nFür Fragen steht Ihnen Ciydem Sihyürek, Teamleiterin Kreditoren oder Tanja Hilber, Leiterin Operational Finance, unter der Telefonnummer 043 544 15 15 gerne zur Verfügung.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.\n\n​",
         "fr": "Le Centre de services corporatifs de Tertianum Giessenturm à Dübendorf abrite l'administration centrale et la gestion du groupe Tertianum. Les spécialistes d'un large éventail de disciplines constituent la base d'un environnement de travail varié et intéressant.\n\nLe temps bouge – nous aussi. Pour le département de la comptabilité, nous sommes à la recherche d'une personnalité créatrice réfléchie, auto-responsable et pragmatique dès que possible ou d'un commun accord.\n\nGestionnaire de sous-projet / Gestionnaire de sous-projet 50 %\n\nVous êtes la personne-ressource centrale du service des finances du projet LEA. Ils combinent expertise, processus et travaux de projet et veillent à ce que les exigences du Ministère soient intégrées avec succès à la solution future.\n\nLeurs tâches\n\n• Représentation du ministère des Finances dans le projet LEA\n\n• Élaboration, coordination, acceptation et documentation de concepts et processus techniques\n\n• Définition et harmonisation des futurs processus financiers\n\n• Assurer une circulation transparente de l'information entre le ministère et l'équipe de projet\n\n• Coordination et traitement en temps voulu des pénitences professionnelles\n\n• Assurer une haute qualité des données de base\n\n• Définition des cas d ' essai et planification et mise en œuvre des essais spécialisés\n\n• Évaluation technique et homologation des concepts et des résultats d'essai\n\n• Appui à la préparation et à la mise en œuvre de la formation\n\n• Participation active à Cutover et Hypercare\n\n• Identification précoce et escalade des risques et des dépendances\n\nVotre profil\n\n• Formation financière et comptable ou formation professionnelle comparable\n\n• Plusieurs années d'expérience professionnelle en comptabilité, idéalement avec un accent sur les comptes créditeurs\n\n• Expérience des projets ainsi que de l'introduction ou du développement de processus financiers\n\n• Connaissance approfondie des processus d'achat à paiement et d'approbation\n\n• Très bonne connaissance de SAP FI/MM\n\n• Haute affinité informatique et bonne compréhension des systèmes et interfaces\n\n• Expérience de la mise en œuvre de processus ou de systèmes, des essais techniques et de la formation\n\n• Très bonne connaissance de l'allemand; la connaissance du français est bénéfique\n\nPourquoi Tertianum ?\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nLes chiffres sont votre passion ?\n\nAimeriez-vous prendre des responsabilités et façonner activement les processus financiers futurs? Notre équipe se réjouit à la perspective d'une personnalité dévouée qui apporte son expertise et stimule le changement avec nous.\n\nPour toute question, Ciydem Sihyürek, chef d'équipe des créanciers, ou Tanja Hilber, chef des finances opérationnelles, est disponible au numéro de téléphone 043 544 15 15.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel.\n\n​"
       },
-      "needsRetranslation": true,
       "location": "Dübendorf",
       "canton": "ZH",
       "url": "https://jobs.tertianum.ch/job/D%C3%BCbendorf-Teilprojektleiterin-Teilprojektleiter-50-Z%C3%BCri-8600/1439546433/",
@@ -19107,9 +19048,9 @@
       "slug": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
       "slugByLocale": {
         "it": "apprendista-di-hoteleria-e-servizi-alberghieri-tertianum-zurich",
-        "en": "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
+        "en": "apprentice-hotelfachfrau-mann-tertianum-zurich",
         "de": "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
-        "fr": "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
+        "fr": "apprenti-en-service-hotelier-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -19187,8 +19128,6 @@
         "lehrstelle-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-tertianum-zurich",
         "lernende-r-hotelfachfrau-mann-tertianum-zurich",
         "hotel-services-apprentice-tertianum-zurich",
-        "apprentice-hotelfachfrau-mann-tertianum-zurich",
-        "apprenti-en-service-hotelier-tertianum-zurich",
         "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich",
         "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
       ],
@@ -19199,14 +19138,12 @@
         ],
         "en": [
           "hotel-services-apprentice-tertianum-zurich",
-          "apprentice-hotelfachfrau-mann-tertianum-zurich",
           "apprenticeship-as-a-housekeeping-specialist-efz-tertianum-zurich"
         ],
         "de": [
           "lernende-r-hotelfachfrau-mann-tertianum-zurich"
         ],
         "fr": [
-          "apprenti-en-service-hotelier-tertianum-zurich",
           "apprentissage-en-tant-que-specialiste-en-economie-domestique-efz-tertianum-zurich"
         ]
       },
@@ -19332,7 +19269,7 @@
       "slug": "cuoco-cuoca-tertianum-horgen",
       "slugByLocale": {
         "it": "cuoco-cuoca-tertianum-horgen",
-        "en": "cook-efz-80-100-tertianum-horgen",
+        "en": "chef-co-chef-tertianum-horgen",
         "de": "kochin-koch-tertianum-horgen",
         "fr": "cuisinier-chef-cuisinier-tertianum-horgen"
       },
@@ -19412,7 +19349,6 @@
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-bern",
-        "chef-co-chef-tertianum-horgen",
         "cook-efz-80-100-tertianum-horgen"
       ],
       "previousSlugsByLocale": {
@@ -19422,7 +19358,6 @@
           "kochin-koch-efz-80-100-tertianum-bern"
         ],
         "en": [
-          "chef-co-chef-tertianum-horgen",
           "cook-efz-80-100-tertianum-horgen"
         ]
       },
@@ -20285,7 +20220,6 @@
         "de": "Ihr Herz schlägt für ältere Menschen? Ist der Beruf der Pflegekraft eine echte Berufung? Möchten Sie Ihre Fähigkeiten und Erfahrungen in den Dienst einer sinnvollen Mission stellen und einen konkreten Beitrag zum Wohlergehen unserer Kunden leisten? Dann bist du die Person, die wir suchen!\n\nFür Tertianum Eaudine in Montreux suchen wir den 1. November 2026, eins / eins:\n\n80% CRS Gesundheitsassistent\n\nIhre Aufgaben\n\n• Anleitung und Unterstützung von zugewiesenen Hosts\n• Unterstützung für Körperpflege, Bewegung und andere tägliche Aktivitäten\n• Bieten Sie unseren Gästen tägliche Aktivitäten mit kreativen Berufen, Prome-Nades, etc.\n• Unterstützung von Aufgaben als Referenzperson Unterbringung auf Weisungen\n• Teilnahme an Pflegeberichten und Übermittlung wichtiger Beobachtungen\n• Schreiben von Pflegehinweisen in unserem CareCoach Pflegedokumentationssystem (möglicherweise mobil mit dem CareCoach Smartphone)\n• Unterstützung logistischer und Haushaltsaktivitäten\n\nDein Profil\n• Haben einen CRS oder gleichwertigen Pflegekurs und ein Langzeitpflegepraktikum absolviert.\n• Berufserfahrung in der Pflege von mehreren Jahren ist ein Asset\n• Eine warme und humorvolle Haltung\n• Freude an verschiedenen Herausforderungen\n• Gute Kenntnisse in Französisch gesprochen und geschrieben\n\nWarum Tertianum? Es ist uns wichtig, dass unsere Mitarbeiter Arbeit und Privatleben in Einklang bringen können. Dazu gehören eine Vielzahl attraktiver Dienstleistungen wie:\n• Interne und externe Weiterbildungsmöglichkeiten\n• Ein zusätzlicher freier Tag während des Geburtstagsmonats\n• Tägliches Mittagessen für CHF 10.00\n• Halbpreis-SBB-Abonnement\n• Mobile Abonnements und Sunrise Internet zu reduzierten Preisen\n• Rabatt auf bestimmte Zusatzkrankenversicherungen\n• Diverse Discount-Flotte\n\nWeitere Vorteile finden Sie auf unserer Website.\n\nTertianum Das Bristol\n• Avenue de Chillon 63\n• 1820 Montreux-Territet\nTel. 021 962 60 60\n• lebristol@tertianum.ch\n• www.tertianum.ch/lebristol\n\nSind Sie interessiert? Wir bieten Ihnen eine anregende Perspektive: Zu Hause können Sie Ihre Fähigkeiten und Kompetenzen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und gestalten die Zukunft von Tertianum mit. Bewerben Sie sich jetzt und treten Sie unserem Team bei.\nWir freuen uns auf Ihre vollständige Bewerbung über unser Online-Tool. Klicken Sie auf \"Bewerben\" und erstellen Sie Ihr persönliches Konto oder senden Sie Ihre Bewerbung direkt an folgende Adresse: claudia.matos@tertianum.ch",
         "fr": "Votre coeur bat pour les personnes âgées ? Le métier de soignante / soignant est-il une véritable vocation ? Vous souhaitez mettre vos compétences et votre expérience au service d’une mission porteuse de sens, et contribuer concrètement au bien-être de nos clientes et clients ? Alors vous êtes la personne que nous recherchons !\n\nPour Tertianum L’Eaudine à Montreux, nous recherchons pour le 1er novembre 2026, une / un :\n\nAuxiliaire de santé CRS à 80 %\n\nVos tâches\n\n• Encadrement et accompagnement des hôtes attribués\n• Soutien pour les soins corporels, le mouvement et d'autres activités quotidiennes\n• Proposer à nos hôtes des activités quotidiennes avec des occupations créatives, des prome-nades, etc.\n• Prise en charge de tâches en tant que personne de référence Logement sur instructions\n• Participation aux rapports de soins et transmission d'observations importantes\n• Rédaction de notes de soins dans notre système de documentation des soins CareCoach (pos-sible en mobilité avec le smartphone CareCoach)\n• Aide aux activités logistiques et ménagères\n\nVotre profil\n• Avoir suivi un cours de soins CRS ou équivalent et effectué un stage dans le domaine des soins de longue durée.\n• Une expérience professionnelle dans les soins de plusieurs années est un atout\n• Une attitude chaleureuse et pleine d'humour\n• Plaisir à relever des défis variés\n• Bonne connaissance du français à l'oral et à l'écrit\n\nPourquoi Tertianum ? Il est important pour nous que nos collaborateurs puissent concilier au mieux vie professionnelle et vie pri-vée. Cela inclut une offre variée de prestations attrayantes, par exemple :\n• Possibilités de formation continue internes et externes\n• Un jour de congé supplémentaire durant le mois d’anniversaire\n• Repas de midi quotidien pour CHF 10.00\n• Abonnement CFF demi-tarif\n• Abonnements mobile et Internet Sunrise à prix réduits\n• Rabais sur certaines assurances complémentaires maladie\n• Divers rabais flotte\n\nVous trouverez d’autres avantages sur notre site Internet.\n\nTertianum Le Bristol\n• Avenue de Chillon 63\n• 1820 Montreux-Territet\nTel. 021 962 60 60\n• lebristol@tertianum.ch\n• www.tertianum.ch/lebristol\n\nVous êtes intéressé(e) ? Nous vous offrons une perspective stimulante : chez nous, vous pouvez mettre à profit vos compétences et votre expertise au sein d’une équipe motivée et flexible. Vous assumez des responsabilités et contribuez à façonner l’avenir de Tertianum. Postulez dès maintenant et rejoignez notre équipe.\nNous nous réjouissons de recevoir votre candidature complète via notre outil en ligne. Cliquez sur « Postuler » et créez votre compte personnel ou envoyez votre candidature directement à l’adresse suivante : claudia.matos@tertianum.ch"
       },
-      "needsRetranslation": true,
       "location": "Territet",
       "canton": "VD",
       "url": "https://jobs.tertianum.ch/job/Territet-Auxiliaire-de-sant%C3%A9-CRS-%C3%A0-80-VD-1820/1440086933/",
@@ -20453,9 +20387,9 @@
       "slug": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
       "slugByLocale": {
         "it": "dipl-infermieristica-professionale-hf-80-100-tertianum-unterterzen",
-        "en": "dipl-nurse-hf-80-100-tertianum-unterterzen",
+        "en": "nursing-professional-tertianum-unterterzen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-        "fr": "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
+        "fr": "professionnels-des-soins-infirmiers-tertianum-unterterzen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -20541,8 +20475,6 @@
         "diplome-e-en-soins-infirmiers-hf-en-tant-que-responsable-de-la-formation-professionnelle-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-als-berufsbildungsverantwortliche-r-80-100-tertianum",
         "dipl-pflegefachfrau-pflegefachmann-hf-mit-berufsbildungsverantwortung-80-100-tertianum",
-        "nursing-professional-tertianum-unterterzen",
-        "professionnels-des-soins-infirmiers-tertianum-unterterzen",
         "dipl-nurse-hf-80-100-tertianum-unterterzen",
         "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
       ],
@@ -20566,7 +20498,6 @@
           "pflegefachfrau-mann-tertianum-unterterzen",
           "dipl-care-professional-hf-as-vocational-training-responsible-80-100-tertianum-bern",
           "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-          "nursing-professional-tertianum-unterterzen",
           "dipl-nurse-hf-80-100-tertianum-unterterzen"
         ],
         "de": [
@@ -20577,7 +20508,6 @@
           "pflegefachfrau-mann-tertianum-unterterzen",
           "diplome-e-en-soins-infirmiers-hf-en-tant-que-responsable-de-la-formation-professionnelle-80-100-tertianum-bern",
           "dipl-pflegefachfrau-pflegefachmann-hf-80-100-tertianum-unterterzen",
-          "professionnels-des-soins-infirmiers-tertianum-unterterzen",
           "dipl-infirmiere-infirmier-hf-80-100-tertianum-unterterzen"
         ]
       },
@@ -22102,7 +22032,7 @@
       "slug": "responsabile-regionale-immobiliare-sicurezza-tertianum-dubendorf",
       "slugByLocale": {
         "it": "responsabile-regionale-immobiliare-sicurezza-tertianum-dubendorf",
-        "en": "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf",
+        "en": "regional-specialist-in-property-management-security-tertianum-dubendorf",
         "de": "regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-tertianum-dubendorf",
         "fr": "specialiste-regional-en-gestion-immobiliere-securite-tertianum-dubendorf"
       },
@@ -22176,14 +22106,12 @@
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit"
         ],
         "en": [
-          "regional-specialist-in-property-management-security-tertianum-dubendorf",
           "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
         ]
       },
       "previousSlugs": [
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit",
         "regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-tertianum-dubendorf",
-        "regional-specialist-in-property-management-security-tertianum-dubendorf",
         "facility-manager-hf-als-regionale-fachverantwortung-immobilienbewirtschaftung-sicherheit-80-100-tertianum-dubendorf"
       ],
       "firstSeenAt": "2026-05-19T12:21:18.136Z",
@@ -22885,12 +22813,12 @@
     },
     {
       "id": "tertianum-3d09db97cc44",
-      "slug": "directeur-trice-de-site-adjoint-tertianum-morges",
+      "slug": "direttore-del-sito-aggiunto-tertianum-morges",
       "slugByLocale": {
         "fr": "directeur-trice-de-site-adjoint-tertianum-morges",
-        "it": "directeur-trice-de-site-adjoint-tertianum-morges",
-        "en": "directeur-trice-de-site-adjoint-tertianum-morges",
-        "de": "directeur-trice-de-site-adjoint-tertianum-morges"
+        "it": "direttore-del-sito-aggiunto-tertianum-morges",
+        "en": "deputy-site-manager-tertianum-morges",
+        "de": "stellvertretender-site-manager-tertianum-morges"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -22948,7 +22876,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:46:03.335Z"
+      "firstSeenAt": "2026-10-06T21:46:03.335Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-de-site-adjoint-tertianum-morges"
+        ],
+        "en": [
+          "directeur-trice-de-site-adjoint-tertianum-morges"
+        ],
+        "de": [
+          "directeur-trice-de-site-adjoint-tertianum-morges"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-de-site-adjoint-tertianum-morges"
+      ]
     },
     {
       "id": "tertianum-e03d35c890e8",
@@ -23028,11 +22970,11 @@
     },
     {
       "id": "tertianum-75b803ae2654",
-      "slug": "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke",
+      "slug": "dipl-attivazione-professionale-hf-80-tertianum-emmenbrucke",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke",
-        "it": "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke",
-        "en": "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke",
+        "it": "dipl-attivazione-professionale-hf-80-tertianum-emmenbrucke",
+        "en": "dipl-professional-professional-activation-hf-80-tertianum-emmenbrucke",
         "fr": "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke"
       },
       "company": "Tertianum",
@@ -23091,7 +23033,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:46:00.095Z"
+      "firstSeenAt": "2026-10-06T21:46:00.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-aktivierung-hf-80-tertianum-emmenbrucke"
+      ]
     },
     {
       "id": "tertianum-727f536f0cf1",

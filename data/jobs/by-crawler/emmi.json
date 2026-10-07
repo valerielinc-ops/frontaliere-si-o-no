@@ -8198,9 +8198,9 @@
       "slug": "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell",
       "slugByLocale": {
         "de": "teamleiter-in-milchabfullung-emmi-ch",
-        "it": "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell",
-        "en": "team-leader-milk-bottling-emmi-bischofszell",
-        "fr": "chef-de-l-equipe-d-embouteillage-du-lait-emmi-bischofszell"
+        "it": "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
+        "en": "team-leader-in-milk-bottling-emmi-bischofszell-thurgau",
+        "fr": "chef-d-equipe-en-bouteille-de-lait-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8271,13 +8271,23 @@
           "schichtleiter-in-emmi-ch",
           "shift-leader-emmi-bischofszell-thurgau",
           "capo-turno-emmi-bischofszell-thurgau",
-          "teamleiter-in-milchabfullung-emmi-ch"
+          "teamleiter-in-milchabfullung-emmi-ch",
+          "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell"
         ],
         "en": [
-          "team-leader-in-milk-bottling-emmi-bischofszell-thurgau"
+          "team-leader-in-milk-bottling-emmi-bischofszell-thurgau",
+          "team-leader-milk-bottling-emmi-bischofszell",
+          "teamleiter-in-milchabfullung-emmi-ch",
+          "shift-leader-100-emmi-bischofszell-thurgau"
         ],
         "fr": [
-          "chef-d-equipe-en-bouteille-de-lait-emmi-bischofszell-thurgau"
+          "chef-d-equipe-en-bouteille-de-lait-emmi-bischofszell-thurgau",
+          "chef-de-l-equipe-d-embouteillage-du-lait-emmi-bischofszell",
+          "teamleiter-in-milchabfullung-emmi-ch",
+          "chef-d-equipe-100-emmi-bischofszell-thurgau"
+        ],
+        "de": [
+          "schichtleiter-in-100-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
@@ -8295,7 +8305,10 @@
         "schichtleiter-in-emmi-ch",
         "shift-leader-emmi-bischofszell-thurgau",
         "capo-turno-emmi-bischofszell-thurgau",
-        "teamleiter-in-milchabfullung-emmi-ch"
+        "teamleiter-in-milchabfullung-emmi-ch",
+        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell",
+        "team-leader-milk-bottling-emmi-bischofszell",
+        "chef-de-l-equipe-d-embouteillage-du-lait-emmi-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8317,9 +8330,9 @@
       "slug": "meccanica-aziendale-emmi-bischofszell",
       "slugByLocale": {
         "de": "betriebsmechaniker-in-emmi-ch",
-        "it": "meccanica-aziendale-emmi-bischofszell",
-        "en": "business-mechanic-emmi-bischofszell",
-        "fr": "mecanicien-d-affaires-emmi-bischofszell"
+        "it": "meccanica-aziendale-in-emmi-bischofszell-thurgau",
+        "en": "business-mechanic-in-emmi-bischofszell-thurgau",
+        "fr": "mecanicien-d-affaires-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8382,13 +8395,26 @@
           "betriebsmechaniker-in-emmi-ch-2",
           "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
           "betriebsmechaniker-in-emmi-bischofszell",
-          "betriebsmechaniker-in-emmi-ch-3"
-        ],
-        "en": [
+          "betriebsmechaniker-in-emmi-ch-3",
+          "meccanica-aziendale-emmi-bischofszell",
+          "betriebsmechaniker-in-emmi-ch",
+          "mecanicien-d-affaires-emmi-bischofszell",
           "business-mechanic-in-emmi-bischofszell-thurgau"
         ],
+        "en": [
+          "business-mechanic-in-emmi-bischofszell-thurgau",
+          "business-mechanic-emmi-bischofszell",
+          "plant-mechanic-emmi-bischofszell",
+          "betriebsmechaniker-in-emmi-bischofszell"
+        ],
         "fr": [
-          "mecanicien-d-affaires-emmi-bischofszell-thurgau"
+          "mecanicien-d-affaires-emmi-bischofszell-thurgau",
+          "mecanicien-d-affaires-emmi-bischofszell",
+          "betriebsmechaniker-in-emmi-bischofszell",
+          "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau"
+        ],
+        "de": [
+          "betriebsmechaniker-in-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
@@ -8400,7 +8426,11 @@
         "betriebsmechaniker-in-emmi-ch-2",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
         "betriebsmechaniker-in-emmi-bischofszell",
-        "betriebsmechaniker-in-emmi-ch-3"
+        "betriebsmechaniker-in-emmi-ch-3",
+        "meccanica-aziendale-emmi-bischofszell",
+        "business-mechanic-emmi-bischofszell",
+        "mecanicien-d-affaires-emmi-bischofszell",
+        "betriebsmechaniker-in-emmi-ch"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8536,9 +8566,9 @@
       "slug": "operatore-di-impianti-misto-emmi-suhr",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mischerei-emmi-ch",
-        "it": "operatore-di-impianti-misto-emmi-suhr",
-        "en": "mixed-plant-operator-emmi-suhr",
-        "fr": "operateur-d-installations-mixtes-emmi-suhr"
+        "it": "operatore-di-impianti-misto-emmi-suhr-aargau",
+        "en": "plant-manager-in-mixed-plant-emmi-suhr-aargau",
+        "fr": "operateur-d-installations-mixtes-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8596,7 +8626,6 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "operatore-di-impianti-misto-emmi-suhr-aargau",
           "conducteur-d-installation-en-melange-emmi-suhr",
           "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
           "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
@@ -8615,12 +8644,16 @@
           "anlagenfuhrer-in-pet-emmi-ch",
           "plant-operator-pet-emmi-suhr",
           "gestore-dell-impianto-in-pet-emmi-suhr",
-          "anlagenfuhrer-in-mischerei-emmi-ch"
+          "anlagenfuhrer-in-mischerei-emmi-ch",
+          "operatore-di-impianti-misto-emmi-suhr"
         ],
         "en": [
           "plant-manager-in-mixed-plant-emmi-suhr-aargau",
           "plant-manager-mixing-plant-emmi-suhr",
-          "system-operator-in-bottling-emmi-suhr-aargau"
+          "system-operator-in-bottling-emmi-suhr-aargau",
+          "mixed-plant-operator-emmi-suhr",
+          "plant-manager-in-mixing-plant-emmi-suhr-aargau",
+          "anlagenfuhrer-in-mischerei-emmi-ch"
         ],
         "de": [
           "anlagenfuhrer-in-mischerei-emmi-suhr",
@@ -8630,7 +8663,10 @@
           "operateur-d-installations-mixtes-emmi-suhr-aargau",
           "gestionnaire-de-la-plante-en-usine-mixte-emmi-suhr-aargau",
           "operateur-de-systeme-en-mise-en-bouteille-emmi-suhr-aargau",
-          "responsable-d-installation-de-remplissage-emmi-suhr"
+          "responsable-d-installation-de-remplissage-emmi-suhr",
+          "operateur-d-installations-mixtes-emmi-suhr",
+          "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
+          "anlagenfuhrer-in-mischerei-emmi-ch"
         ]
       },
       "previousSlugs": [
@@ -8663,7 +8699,10 @@
         "anlagenfuhrer-in-pet-emmi-ch",
         "plant-operator-pet-emmi-suhr",
         "gestore-dell-impianto-in-pet-emmi-suhr",
-        "anlagenfuhrer-in-mischerei-emmi-ch"
+        "anlagenfuhrer-in-mischerei-emmi-ch",
+        "operatore-di-impianti-misto-emmi-suhr",
+        "mixed-plant-operator-emmi-suhr",
+        "operateur-d-installations-mixtes-emmi-suhr"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8685,9 +8724,9 @@
       "slug": "responsabile-delle-piante-latte-passato-emmi-suhr",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-past-milch-emmi-ch",
-        "it": "responsabile-delle-piante-latte-passato-emmi-suhr",
-        "en": "plant-manager-past-milk-emmi-suhr",
-        "fr": "responsable-de-l-usine-a-passe-milch-emmi-suhr"
+        "it": "responsabile-delle-piante-latte-passato-emmi-suhr-aargau",
+        "en": "plant-manager-in-past-milch-emmi-suhr-aargau",
+        "fr": "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8745,13 +8784,20 @@
         "it": [
           "responsabile-delle-piante-latte-passato-emmi-suhr-aargau",
           "responsabile-impianti-in-past-milch-emmi-suhr-aargau",
-          "anlagenfuhrer-in-past-milch-emmi-ch"
-        ],
-        "en": [
+          "anlagenfuhrer-in-past-milch-emmi-ch",
+          "responsabile-delle-piante-latte-passato-emmi-suhr",
+          "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau",
           "plant-manager-in-past-milch-emmi-suhr-aargau"
         ],
+        "en": [
+          "plant-manager-in-past-milch-emmi-suhr-aargau",
+          "plant-manager-past-milk-emmi-suhr",
+          "anlagenfuhrer-in-past-milch-emmi-ch"
+        ],
         "fr": [
-          "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau"
+          "responsable-de-l-usine-a-passe-milch-emmi-suhr-aargau",
+          "responsable-de-l-usine-a-passe-milch-emmi-suhr",
+          "anlagenfuhrer-in-past-milch-emmi-ch"
         ]
       },
       "previousSlugs": [
@@ -8759,7 +8805,10 @@
         "plant-manager-in-past-milch-emmi-suhr-aargau",
         "responsabile-delle-piante-latte-passato-emmi-suhr-aargau",
         "responsabile-impianti-in-past-milch-emmi-suhr-aargau",
-        "anlagenfuhrer-in-past-milch-emmi-ch"
+        "anlagenfuhrer-in-past-milch-emmi-ch",
+        "responsabile-delle-piante-latte-passato-emmi-suhr",
+        "plant-manager-past-milk-emmi-suhr",
+        "responsable-de-l-usine-a-passe-milch-emmi-suhr"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -8781,9 +8830,9 @@
       "slug": "specialita-degli-operatori-emmi-bischofszell",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-spezialitaten-emmi-ch",
-        "it": "specialita-degli-operatori-emmi-bischofszell",
-        "en": "specialties-of-operators-emmi-bischofszell",
-        "fr": "specialites-des-operateurs-emmi-bischofszell"
+        "it": "specialita-degli-operatori-emmi-bischofszell-thurgau",
+        "en": "specialties-of-operators-emmi-bischofszell-thurgau",
+        "fr": "specialites-des-operateurs-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8843,13 +8892,18 @@
         "it": [
           "specialita-degli-operatori-emmi-bischofszell-thurgau",
           "maschinenfuhrer-in-spezialitaten-emmi-bischofszell",
-          "maschinenfuhrer-in-spezialitaten-emmi-ch"
+          "maschinenfuhrer-in-spezialitaten-emmi-ch",
+          "specialita-degli-operatori-emmi-bischofszell"
         ],
         "en": [
-          "specialties-of-operators-emmi-bischofszell-thurgau"
+          "specialties-of-operators-emmi-bischofszell-thurgau",
+          "specialties-of-operators-emmi-bischofszell",
+          "maschinenfuhrer-in-spezialitaten-emmi-bischofszell"
         ],
         "fr": [
-          "specialites-des-operateurs-emmi-bischofszell-thurgau"
+          "specialites-des-operateurs-emmi-bischofszell-thurgau",
+          "specialites-des-operateurs-emmi-bischofszell",
+          "maschinenfuhrer-in-spezialitaten-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
@@ -8857,7 +8911,10 @@
         "specialties-of-operators-emmi-bischofszell-thurgau",
         "specialita-degli-operatori-emmi-bischofszell-thurgau",
         "maschinenfuhrer-in-spezialitaten-emmi-bischofszell",
-        "maschinenfuhrer-in-spezialitaten-emmi-ch"
+        "maschinenfuhrer-in-spezialitaten-emmi-ch",
+        "specialita-degli-operatori-emmi-bischofszell",
+        "specialties-of-operators-emmi-bischofszell",
+        "specialites-des-operateurs-emmi-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8879,9 +8936,9 @@
       "slug": "modellazione-di-plant-manager-emmi-suhr",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-modellierung-emmi-ch",
-        "it": "modellazione-di-plant-manager-emmi-suhr",
-        "en": "plant-manager-modeling-emmi-suhr",
-        "fr": "modelisation-du-gestionnaire-d-usine-emmi-suhr"
+        "it": "modellazione-di-plant-manager-emmi-suhr-aargau",
+        "en": "plant-manager-modeling-emmi-suhr-aargau",
+        "fr": "modelisation-du-gestionnaire-d-usine-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8937,20 +8994,28 @@
       "previousSlugsByLocale": {
         "it": [
           "modellazione-di-plant-manager-emmi-suhr-aargau",
-          "anlagenfuhrer-in-modellierung-emmi-ch"
+          "anlagenfuhrer-in-modellierung-emmi-ch",
+          "modellazione-di-plant-manager-emmi-suhr"
         ],
         "en": [
-          "plant-manager-modeling-emmi-suhr-aargau"
+          "plant-manager-modeling-emmi-suhr-aargau",
+          "plant-manager-modeling-emmi-suhr",
+          "anlagenfuhrer-in-modellierung-emmi-ch"
         ],
         "fr": [
-          "modelisation-du-gestionnaire-d-usine-emmi-suhr-aargau"
+          "modelisation-du-gestionnaire-d-usine-emmi-suhr-aargau",
+          "modelisation-du-gestionnaire-d-usine-emmi-suhr",
+          "anlagenfuhrer-in-modellierung-emmi-ch"
         ]
       },
       "previousSlugs": [
         "modelisation-du-gestionnaire-d-usine-emmi-suhr-aargau",
         "plant-manager-modeling-emmi-suhr-aargau",
         "modellazione-di-plant-manager-emmi-suhr-aargau",
-        "anlagenfuhrer-in-modellierung-emmi-ch"
+        "anlagenfuhrer-in-modellierung-emmi-ch",
+        "modellazione-di-plant-manager-emmi-suhr",
+        "plant-manager-modeling-emmi-suhr",
+        "modelisation-du-gestionnaire-d-usine-emmi-suhr"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,

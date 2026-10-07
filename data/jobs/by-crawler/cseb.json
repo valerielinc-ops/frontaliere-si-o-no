@@ -179,7 +179,7 @@
       "companyDomain": "cseb.ch",
       "title": "Assistent/-in Gesundheit und Soziales, Pflegehelfer/-in, Sozialbetreuer/-in Spitex (50-80%)",
       "titleByLocale": {
-        "it": "Assistent/-in Gesundheit e Soziales, Pflegehelfer/-in, Sozialbetreuer/-in Spitex (50-80%)",
+        "it": "Assistente sanitario e sociale, assistente infermieristico, assistente sociale Spitex (50-80%)",
         "en": "Health and social care assistant, nursing assistant, social care worker Spitex (50-80%)",
         "de": "Assistent/-in Gesundheit und Soziales, Pflegehelfer/-in, Sozialbetreuer/-in Spitex (50-80%)",
         "fr": "Assistant (e) santé et social (e), aide-soignant (e), assistant (e) social (e) Spitex (50-80 %)"
@@ -1656,9 +1656,9 @@
       "slug": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
       "slugByLocale": {
         "it": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
         "de": "famulatur-stelle-cseb-ch",
-        "fr": "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
+        "fr": "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol"
       },
       "company": "Center da Sanadad Engiadina Bassa",
       "companyKey": "cseb",
@@ -1708,8 +1708,6 @@
         "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
         "famulatur-stelle-center-da-sanadad-engiadina-bassa-scuol",
         "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
-        "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
-        "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol",
         "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
         "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
       ],
@@ -1720,7 +1718,6 @@
         ],
         "en": [
           "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
-          "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
           "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "de": [
@@ -1728,11 +1725,10 @@
         ],
         "fr": [
           "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
-          "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol",
           "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -1747,7 +1743,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 0
     },
     {
       "id": "cseb-781bb83526e4",

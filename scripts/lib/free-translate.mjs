@@ -2042,6 +2042,47 @@ function delay(ms) {
  * @returns {Promise<string>} Translated text or ''
  */
 /**
+ * Drop the empty bold spans of ONE line (`** **`, `** : **`, `** - **`).
+ *
+ * Markers pair up left to right, so only the text BETWEEN an opening marker and
+ * its closing one is judged. A single regex over the whole text cannot tell the
+ * two apart: it matched ANY two markers with nothing but blanks or punctuation
+ * between them, and that is also the gap between the end of one bold span and
+ * the start of the next. `**a**, **b**` became `**a b**`; and since `\s`
+ * crosses line breaks, a list item ending in bold swallowed the item after it
+ * (`... **1.260 CHF/mese**\n- **LPP**: ...` came back as one line). Working
+ * line by line also makes the step unable to add or remove a line break by
+ * construction.
+ */
+function dropEmptyBoldSpansInLine(line) {
+  const parts = line.split('**');
+  if (parts.length < 3) return line;
+  let out = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const content = parts[index];
+    if (index + 1 >= parts.length) {
+      // Opening marker with no closing one on this line: the parity rule below
+      // decides what happens to it.
+      out += `**${content}`;
+      break;
+    }
+    out += /^[\s:;,.\-–—]*$/u.test(content) ? ' ' : `**${content}**`;
+    out += parts[index + 1];
+  }
+  return out;
+}
+
+/**
+ * A line made only of separator glyphs, with at least one that is not a blank:
+ * a Markdown rule (`---`) or the decoration some translators add (`______`).
+ * A line of blanks is a blank line.
+ */
+export function isSeparatorOnlyLine(line) {
+  const value = String(line ?? '');
+  return /^[\s_\-=*•·~]{3,}$/u.test(value) && /\S/u.test(value);
+}
+
+/**
  * Post-process a translator output to make sure `**bold**` markdown markers
  * stay balanced. AI translators frequently re-flow paragraphs in a way that
  * leaves orphan `**` (count parity broken) or empty `**…**` runs containing
@@ -2054,37 +2095,72 @@ function delay(ms) {
  * Exported so the same balancer can be reused outside the cascade (tests,
  * upstream sanitizers, retroactive cleanup scripts).
  *
+ * `sourceText` is optional. When the caller has the source, the rules the
+ * SOURCE owns are kept: `---` between two sections is Markdown structure, not
+ * decoration added by a translator, and dropping it took two lines away from a
+ * translation that had kept them (the rule, then one of the blank lines around
+ * it at step 5). Ownership is by COUNT, in order — as many separator-only
+ * lines as the source has — and not by position: a whole field reaches this
+ * function with the blank runs of each translated block already collapsed by
+ * the engine, so it is rarely line-aligned with the raw source, and a rule
+ * kept only "at the same line number" was dropped in exactly those fields.
+ *
  * @param {string} s
+ * @param {{ sourceText?: string|null }} [options]
  * @returns {string}
  */
-export function balanceMarkdownMarkers(s) {
+export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
   if (typeof s !== 'string' || !s) return s;
   let out = s;
+  // A rule made of asterisks (`***`, `****`) is not bold markup, but it is
+  // made of the very marker steps 1 and 2 look for: read as bold, `****` was
+  // an "empty bold" and vanished, and the single `**` inside `***` made the
+  // count odd, which stripped every real bold of the field and left a lone `*`
+  // where the rule was. Rule lines are opaque to both steps (and to step 4).
+  const exceptRules = (transform) => (line) => (isSeparatorOnlyLine(line) ? line : transform(line));
   // 1. Drop empty / whitespace-only / punctuation-only bolds (e.g. `** **`,
-  //    `**  **`, `** : **`, `** - **`).
-  out = out.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  //    `**  **`, `** : **`, `** - **`), one line at a time: see
+  //    `dropEmptyBoldSpansInLine`.
+  out = out.split('\n').map(exceptRules(dropEmptyBoldSpansInLine)).join('\n');
   // 2. If `**` count is odd, the output is unrecoverable as bold structure —
   //    strip every `**` so the renderer sees plain text instead of a half-
   //    bold span.
-  const count = (out.match(/\*\*/g) || []).length;
+  const count = out.split('\n')
+    .reduce((total, line) => total + (isSeparatorOnlyLine(line) ? 0 : (line.match(/\*\*/g) || []).length), 0);
   if (count % 2 !== 0) {
-    out = out.replace(/\*\*/g, '');
+    out = out.split('\n').map(exceptRules((line) => line.replace(/\*\*/g, ''))).join('\n');
   }
   // 3. Strip standalone separator-only lines (`______`, `======`) that some
-  //    translators emit as decoration.
-  out = out
-    .split('\n')
-    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
-    .join('\n');
+  //    translators emit as decoration — except as many rules as the source
+  //    owns. Without a source every such line goes, blank-only ones included,
+  //    as it always did.
+  const separatorOnly = (line) => /^[\s_\-=*•·~]{3,}$/.test(line);
+  const outLines = out.split('\n');
+  const sourceLines = typeof sourceText === 'string' ? sourceText.split('\n') : null;
+  const sourceRuleCount = sourceLines === null ? 0 : sourceLines.filter(isSeparatorOnlyLine).length;
+  let keptRules = 0;
+  const keptLines = outLines.filter((line) => {
+    if (!separatorOnly(line)) return true;
+    if (sourceLines === null) return false;
+    // With a source, a line of blanks is a blank line of the text.
+    if (!isSeparatorOnlyLine(line)) return true;
+    if (keptRules >= sourceRuleCount) return false;
+    keptRules += 1;
+    return true;
+  });
+  const removedSeparatorLines = outLines.length - keptLines.length;
+  out = keptLines.join('\n');
   // 4. Strip trailing inline separator runs that often hug a line end.
   out = out
     .split('\n')
-    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
+    .map((line) => (isSeparatorOnlyLine(line) ? line : line.replace(/\s+[_\-=~*]{3,}\s*$/g, '')).trimEnd())
     .join('\n');
   // 5. Collapse 3+ consecutive newlines that step 3 may have created when
   //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →
-  //    \n\n\n after filter).
-  out = out.replace(/\n{3,}/g, '\n\n');
+  //    \n\n\n after filter). A text repaired against its source that lost no
+  //    line at step 3 has nothing to collapse: its blank runs are its own, and
+  //    collapsing them changed the line count of a field nobody had touched.
+  if (sourceLines === null || removedSeparatorLines > 0) out = out.replace(/\n{3,}/g, '\n\n');
   // 6. Collapse the consecutive double-spaces that step 1 may have left.
   out = out.replace(/[ \t]{2,}/g, ' ');
   return out.trim();
@@ -2183,7 +2259,7 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
   const finalize = (out) => {
     const finalized = finalizeTranslatedText({
       sourceText: sourceClean,
-      translatedText: balanceMarkdownMarkers(out),
+      translatedText: balanceMarkdownMarkers(out, { sourceText: clean }),
       targetLang,
       fieldType,
       protectedTokens,
