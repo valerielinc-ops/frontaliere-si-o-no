@@ -146,15 +146,70 @@ describe('published image policy', () => {
       );
       fs.writeFileSync(path.join(dist, 'notes.txt'), `<meta property="og:image" content="${SITE_ORIGIN}/ignored.png">`, 'utf8');
 
-      const { references, total } = collectOgImageReferences(dist);
+      const { references, total, counts } = collectOgImageReferences(dist);
 
       expect(total).toBe(41);
+      expect(counts).toEqual({ events: 0, articles: 1, static: 1 });
       expect(references).toEqual([
         { file: 'articles/a/index.html', url: `${IMAGE_CDN_ORIGIN}/images/blog/a.webp` },
         { file: 'jobs/job-00/index.html', url: shared },
       ]);
     } finally {
       fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+
+  it('bounds the retained rows when every OG image is distinct', () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-distinct-'));
+    try {
+      const metas = Array.from({ length: 5000 }, (_, i) => `<meta property="og:image" content="${SITE_ORIGIN}/cards/${i}.png">`);
+      fs.writeFileSync(path.join(dist, 'index.html'), metas.join('\n'), 'utf8');
+
+      const { references, total, counts } = collectOgImageReferences(dist);
+
+      expect(total).toBe(5000);
+      expect(counts).toEqual({ events: 0, articles: 0, static: 5000 });
+      expect(references).toHaveLength(3);
+      expect(references[0].url).toBe(`${SITE_ORIGIN}/cards/0.png`);
+      expect(references[2].url).toBe(`${SITE_ORIGIN}/cards/4999.png`);
+      // Past the per-family buffer the middle pick is the retained row at or
+      // just before the true middle (ordinal 2499), never further than a stride.
+      const middle = Number(references[1].url.match(/cards\/(\d+)\.png$/)?.[1]);
+      expect(middle).toBeLessThanOrEqual(2499);
+      expect(middle).toBeGreaterThan(2499 - 16);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+
+  it('walks the dist in the order of a global path sort', () => {
+    // `a.html` sorts before `a/z.html` in a sort over full paths; a naive
+    // per-directory name sort visits the directory first and would let a bad
+    // first sample slip past `--sample-size 1`.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-order-'));
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      fs.mkdirSync(path.join(root, 'dist', 'a'), { recursive: true });
+      fs.writeFileSync(
+        path.join(root, 'dist', 'a', 'z.html'),
+        `<meta property="og:image" content="${SITE_ORIGIN}/og-image.png">`,
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(root, 'dist', 'a.html'),
+        '<meta property="og:image" content="https://images.example.com/not-ours.png">',
+        'utf8',
+      );
+
+      expect(collectOgImageReferences(path.join(root, 'dist')).references.map((row) => row.file))
+        .toEqual(['a.html', 'a/z.html']);
+      expect(runOgImageGate(['--dist', 'dist', '--sample-size', '1', '--allow-missing-families'], { root })).toBe(1);
+      expect(errorSpy.mock.calls.flat().join('\n')).toContain('a.html');
+    } finally {
+      errorSpy.mockRestore();
+      logSpy.mockRestore();
+      fs.rmSync(root, { recursive: true, force: true });
     }
   });
 

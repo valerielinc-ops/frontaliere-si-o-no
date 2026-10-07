@@ -22,13 +22,16 @@ const ROOT = path.resolve(__dirname, '..');
 
 // Generator on purpose: the full dist holds millions of HTML files, and an
 // in-memory sorted list of every path was part of what pushed the gate past
-// the heap limit. Entries are sorted per directory to keep the walk (and so
-// the representative sample) deterministic.
+// the heap limit. Siblings are ordered by the key they contribute to a full
+// path (a directory counts as `name/`), which yields exactly the order of the
+// former global sort over all paths — `a.html` before `a/z.html` — so the
+// representative sample is unchanged.
 function* walkHtml(root) {
   if (!fs.existsSync(root)) return;
   const entries = fs.readdirSync(root, { withFileTypes: true })
-    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
-  for (const entry of entries) {
+    .map((entry) => ({ entry, key: entry.isDirectory() ? `${entry.name}${path.sep}` : entry.name }))
+    .sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
+  for (const { entry } of entries) {
     const filePath = path.join(root, entry.name);
     if (entry.isDirectory()) yield* walkHtml(filePath);
     else if (entry.isFile() && /\.html?$/i.test(entry.name)) yield filePath;
@@ -70,27 +73,6 @@ export function extractOgImageUrls(html, pageUrl = SITE_ORIGIN) {
   return urls;
 }
 
-/**
- * Streams the dist and keeps one row per distinct og:image URL (the first page
- * that references it), plus the total number of references seen. The gate only
- * samples distinct URLs, so retaining a `{ file, url }` row for every page made
- * memory grow with the page count and aborted on the full production dist.
- */
-export function collectOgImageReferences(distDir) {
-  const unique = new Map();
-  let total = 0;
-  for (const filePath of walkHtml(distDir)) {
-    const relative = path.relative(distDir, filePath).split(path.sep).join('/');
-    const pageUrl = new URL(relative, `${SITE_ORIGIN}/`).href;
-    const html = fs.readFileSync(filePath, 'utf8');
-    for (const url of extractOgImageUrls(html, pageUrl)) {
-      total += 1;
-      if (!unique.has(url)) unique.set(url, { file: relative, url });
-    }
-  }
-  return { references: [...unique.values()], total };
-}
-
 function familyFor(url) {
   try {
     const pathname = new URL(url).pathname;
@@ -100,6 +82,68 @@ function familyFor(url) {
     // The policy will report the malformed URL; keep it in the static sample.
   }
   return 'static';
+}
+
+const FAMILIES = ['events', 'articles', 'static'];
+// Rows kept per family while streaming. Up to this many distinct URLs the
+// family is held in full and the sample is exact; beyond it the stride doubles
+// and only the middle pick becomes approximate (first and last stay exact).
+const FAMILY_BUFFER_CAP = 1024;
+
+/**
+ * Streams the dist and returns the representative rows of each family (first,
+ * middle and last distinct og:image URL in walk order, or every row when the
+ * family has at most `sampleSize` of them), the distinct count per family and
+ * the total number of references seen.
+ *
+ * Nothing is retained per page: the first version kept a `{ file, url }` row
+ * for every og:image tag and aborted on the full production dist. What still
+ * grows is the set of distinct URL strings needed to de-duplicate; rows are
+ * bounded by FAMILY_BUFFER_CAP per family. Each row names the first page that
+ * references its URL.
+ */
+export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
+  const seen = new Set();
+  const state = new Map(FAMILIES.map((family) => [family, { count: 0, stride: 1, buffer: [], last: null }]));
+  let total = 0;
+  for (const filePath of walkHtml(distDir)) {
+    const relative = path.relative(distDir, filePath).split(path.sep).join('/');
+    const pageUrl = new URL(relative, `${SITE_ORIGIN}/`).href;
+    const html = fs.readFileSync(filePath, 'utf8');
+    for (const url of extractOgImageUrls(html, pageUrl)) {
+      total += 1;
+      if (seen.has(url)) continue;
+      seen.add(url);
+      const family = state.get(familyFor(url));
+      const row = { file: relative, url };
+      // buffer[i] always holds the row with ordinal i * stride.
+      if (family.count % family.stride === 0) {
+        family.buffer.push(row);
+        if (family.buffer.length > FAMILY_BUFFER_CAP) {
+          family.buffer = family.buffer.filter((_, index) => index % 2 === 0);
+          family.stride *= 2;
+        }
+      }
+      family.last = row;
+      family.count += 1;
+    }
+  }
+
+  const keep = Math.min(FAMILY_BUFFER_CAP, Math.max(1, Number(sampleSize) || 1));
+  const references = [];
+  const counts = {};
+  for (const name of FAMILIES) {
+    const family = state.get(name);
+    counts[name] = family.count;
+    if (family.count <= keep) {
+      // count <= keep <= cap: the buffer is the whole family.
+      references.push(...family.buffer);
+      continue;
+    }
+    const middle = family.buffer[Math.floor(Math.floor((family.count - 1) / 2) / family.stride)];
+    references.push(...new Set([family.buffer[0], middle, family.last]));
+  }
+  return { references, total, counts };
 }
 
 function representative(rows, sampleSize) {
@@ -127,8 +171,11 @@ function representative(rows, sampleSize) {
   };
 }
 
-export function verifyOgImageReferences(references, { policy, sampleSize = 3, requireFamilies = true } = {}) {
+export function verifyOgImageReferences(references, { policy, sampleSize = 3, requireFamilies = true, counts } = {}) {
   const selected = representative(references, sampleSize);
+  // A streamed collection hands over only the sampled rows: its per-family
+  // distinct counts are the real ones, not the size of that sample.
+  if (counts) selected.counts = counts;
   const errors = [];
   if (selected.samples.length === 0) errors.push('no og:image meta tags found in dist');
   if (requireFamilies) {
@@ -155,14 +202,14 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const sampleSize = Number(argValue(argv, '--sample-size', '3')) || 3;
   const requireFamilies = !argv.includes('--allow-missing-families');
   const policy = loadPublishedImagePolicy({ root });
-  const { references, total } = collectOgImageReferences(distDir);
-  const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies });
+  const { references, total, counts } = collectOgImageReferences(distDir, { sampleSize });
+  const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
   if (policy.registryErrors.length > 0) {
     result.valid = false;
     result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
   }
 
-  console.log(`og:image references: ${total} (${references.length} distinct); sample events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
+  console.log(`og:image references: ${total}; distinct events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
   for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);
   if (!result.valid) {
     for (const error of result.errors) console.error(`::error::og-image gate: ${error}`);
