@@ -30,8 +30,7 @@ const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
 const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
 const CORPUS_OVERLAY_SOURCES = [
   'scripts/lib/article-corpus-overlay.mjs',
-  'scripts/lib/articles-api-base.mjs',
-  'scripts/lib/articles-sync-pin.mjs',
+  'scripts/lib/article-image-postcondition.mjs',
   'scripts/lib/corpus-canton-exclusion.mjs',
   'scripts/lib/corpus-local-preserve.mjs',
 ];

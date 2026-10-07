@@ -159,28 +159,76 @@ permanent_fail=0
 last_commit=''
 last_skipped_newer_count=0
 last_skipped_newer_names=''
-last_skipped_stamp_only_count=0
+last_history_warning_count=0
 
-extract_content_revision() {
-  sed -nE 's/.*<meta[[:space:]]+name="ft:content-rev"[[:space:]]+content="([0-9]+)\.([0-9A-Fa-f]{7,40})"[^>]*>.*/\1.\2/p' <<< "$1" | sed -n '1p'
+article_content_revision="${ARTICLE_CONTENT_REVISION:-}"
+if [ -n "$article_content_revision" ] && ! [[ "$article_content_revision" =~ ^[0-9]+\.[0-9A-Fa-f]{7,40}$ ]]; then
+  echo "::error::ARTICLE_CONTENT_REVISION must be <epoch>.<sha> (7–40 hexadecimal characters)" >&2
+  exit 1
+fi
+
+remote_newer_paths=()
+
+append_remote_newer_path() {
+  local candidate="$1"
+  local existing
+  for existing in "${remote_newer_paths[@]}"; do
+    [ "$existing" = "$candidate" ] && return 0
+  done
+  remote_newer_paths+=("$candidate")
 }
 
-normalize_content_revision() {
-  sed -E 's/[[:space:]]*<meta[[:space:]]+name="ft:content-rev"[[:space:]]+content="[0-9]+\.[0-9A-Fa-f]{7,40}"[^>]*>[[:space:]]*//g' <<< "$1"
-}
+collect_remote_newer_paths() {
+  local own_epoch="$1"
+  local head_epoch boundary commits commit trailer remote_epoch parent changed_path
+  remote_newer_paths=()
 
-revision_is_newer() {
-  local remote_revision="$1"
-  local incoming_revision="$2"
-  local remote_epoch remote_sha incoming_epoch incoming_sha
-  remote_epoch="${remote_revision%%.*}"
-  remote_sha="${remote_revision#*.}"
-  incoming_epoch="${incoming_revision%%.*}"
-  incoming_sha="${incoming_revision#*.}"
-  if [ "$remote_epoch" -gt "$incoming_epoch" ]; then return 0; fi
-  if [ "$remote_epoch" -lt "$incoming_epoch" ]; then return 1; fi
-  if [[ "$remote_sha" > "$incoming_sha" ]]; then return 0; fi
-  return 1
+  head_epoch="$(git -C "$stage" show -s --format=%ct HEAD 2>/dev/null)" || {
+    echo "::warning::monotonic guard: cannot read shard HEAD timestamp; publishing current paths without history filtering" >&2
+    last_history_warning_count=$((last_history_warning_count + 1))
+    return 0
+  }
+  if ! [[ "$head_epoch" =~ ^[0-9]+$ ]]; then
+    echo "::warning::monotonic guard: shard HEAD timestamp is unreadable; publishing current paths without history filtering" >&2
+    last_history_warning_count=$((last_history_warning_count + 1))
+    return 0
+  fi
+  if [ "$head_epoch" -lt "$own_epoch" ]; then return 0; fi
+
+  boundary=$((own_epoch - 3600))
+  if ! git -C "$stage" fetch --quiet --filter=blob:none --shallow-since="$boundary" origin main >/dev/null 2>&1; then
+    echo "::warning::monotonic guard: shard history fetch failed; publishing current paths without history filtering" >&2
+    last_history_warning_count=$((last_history_warning_count + 1))
+    return 0
+  fi
+  commits="$(git -C "$stage" log --format=%H HEAD 2>/dev/null)" || {
+    echo "::warning::monotonic guard: shard history is unreadable; publishing current paths without history filtering" >&2
+    last_history_warning_count=$((last_history_warning_count + 1))
+    return 0
+  }
+  while IFS= read -r commit; do
+    [ -n "$commit" ] || continue
+    trailer="$(git -C "$stage" show -s --format='%(trailers:key=Content-Rev,valueonly)' "$commit" 2>/dev/null)" || {
+      echo "::warning::monotonic guard: cannot inspect shard commit $commit; publishing current paths without history filtering" >&2
+      last_history_warning_count=$((last_history_warning_count + 1))
+      remote_newer_paths=()
+      return 0
+    }
+    trailer="$(printf '%s' "$trailer" | sed -n '1p')"
+    [[ "$trailer" =~ ^[0-9]+\.[0-9A-Fa-f]{7,40}$ ]] || continue
+    remote_epoch="${trailer%%.*}"
+    [ "$remote_epoch" -gt "$own_epoch" ] || continue
+    parent="$(git -C "$stage" rev-parse "$commit^" 2>/dev/null)" || continue
+    while IFS= read -r changed_path; do
+      [ -n "$changed_path" ] || continue
+      append_remote_newer_path "$changed_path"
+    done < <(git -C "$stage" diff-tree --no-commit-id --name-only -r "$parent" "$commit" 2>/dev/null) || {
+      echo "::warning::monotonic guard: cannot read the tree diff for shard commit $commit; publishing current paths without history filtering" >&2
+      last_history_warning_count=$((last_history_warning_count + 1))
+      remote_newer_paths=()
+      return 0
+    }
+  done <<< "$commits"
 }
 
 write_push_summary() {
@@ -194,7 +242,7 @@ write_push_summary() {
     "$section-$loc" \
     "$last_skipped_newer_count" \
     "$last_skipped_newer_names" \
-    "$last_skipped_stamp_only_count" > "$summary_file" || true
+    "$last_history_warning_count" > "$summary_file" || true
 }
 
 _attempt() {
@@ -230,38 +278,26 @@ _attempt() {
   local -a eligible_relpaths=()
   local -a skipped_newer_paths=()
   local rel src sha new_count=0
-  local incoming_html remote_html incoming_revision remote_revision normalized_incoming normalized_remote
   last_skipped_newer_count=0
   last_skipped_newer_names=''
-  last_skipped_stamp_only_count=0
+  last_history_warning_count=0
 
+  if [ -n "$article_content_revision" ]; then
+    collect_remote_newer_paths "${article_content_revision%%.*}"
+  fi
   for rel in "${relpaths[@]}"; do
-    src="$scratch_dist_dir/$rel"
-    incoming_html="$(<"$src")"
-    if [ -n "$(git -C "$stage" ls-tree HEAD -- "$rel" 2>/dev/null)" ]; then
-      remote_html="$(git -C "$stage" show "HEAD:$rel" 2>/dev/null)" || return 1
-      incoming_revision="$(extract_content_revision "$incoming_html")"
-      remote_revision="$(extract_content_revision "$remote_html")"
-      normalized_incoming="$(normalize_content_revision "$incoming_html")"
-      normalized_remote="$(normalize_content_revision "$remote_html")"
-
-      # A stamp-only change is not a content change. This check comes first so
-      # a page with an older/newer stamp but identical shell is not republished.
-      if [ "$normalized_incoming" = "$normalized_remote" ]; then
-        last_skipped_stamp_only_count=$((last_skipped_stamp_only_count + 1))
-        continue
-      fi
-
-      # An unstamped incoming page is older than any stamped remote page. This
-      # keeps pre-engine-lockstep output from rolling a newer site page back.
-      if [ -n "$remote_revision" ] && {
-        [ -z "$incoming_revision" ] || revision_is_newer "$remote_revision" "$incoming_revision";
-      }; then
-        skipped_newer_paths+=("$rel")
-        continue
-      fi
+    local is_newer=0
+    if [ -n "$article_content_revision" ]; then
+      local newer_path
+      for newer_path in "${remote_newer_paths[@]}"; do
+        if [ "$newer_path" = "$rel" ]; then is_newer=1; break; fi
+      done
     fi
-    eligible_relpaths+=("$rel")
+    if [ "$is_newer" = 1 ]; then
+      skipped_newer_paths+=("$rel")
+    else
+      eligible_relpaths+=("$rel")
+    fi
   done
 
   last_skipped_newer_count="${#skipped_newer_paths[@]}"
@@ -278,8 +314,8 @@ _attempt() {
     done
     echo "monotonic guard: kept remote for $last_skipped_newer_count newer article path(s): $last_skipped_newer_names"
   fi
-  if [ "$last_skipped_stamp_only_count" -gt 0 ]; then
-    echo "monotonic guard: skipped $last_skipped_stamp_only_count stamp-only path change(s)"
+  if [ "$last_history_warning_count" -gt 0 ]; then
+    echo "monotonic guard: history unavailable for $last_history_warning_count check(s); current paths were published"
   fi
 
   for rel in "${eligible_relpaths[@]}"; do
@@ -317,7 +353,14 @@ _attempt() {
   fi
 
   local commit
-  commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#eligible_relpaths[@]} path(s) touched")" || return 1
+  if [ -n "$article_content_revision" ]; then
+    commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD \
+      -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#eligible_relpaths[@]} path(s) touched" \
+      -m "Content-Rev: $article_content_revision")" || return 1
+  else
+    commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD \
+      -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#eligible_relpaths[@]} path(s) touched")" || return 1
+  fi
   # Published for the PAT fallback below: it re-pushes THIS commit, so it must
   # outlive the function scope.
   last_commit="$commit"

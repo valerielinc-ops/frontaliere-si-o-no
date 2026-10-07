@@ -80,6 +80,7 @@ import {
   hubPathsByLocale,
   shardTokenForSection,
 } from './lib/render-and-push-hubs.mjs';
+import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -199,7 +200,7 @@ function missingLiveHubSlugs(localRegistry, liveSlugs) {
 }
 
 function parseArgs(argv) {
-  const out = { section: 'all', locale: 'all', dryRun: false, out: null, summary: null };
+  const out = { section: 'all', locale: 'all', dryRun: false, out: null, summary: null, allowContentOverlay: false };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--section') out.section = argv[++i];
@@ -207,6 +208,7 @@ function parseArgs(argv) {
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--summary') out.summary = argv[++i];
     else if (a === '--dry-run') out.dryRun = true;
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
     else {
       console.error(`${LOG} unknown argument "${a}"`);
       process.exit(1);
@@ -548,6 +550,17 @@ async function main() {
   // shared R2 section lease and its watcher paths.
   assertArticleChunkLease({ required: leaseRequired });
 
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: args.dryRun,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? await prepareCorpusContentOverlay({ rootDir: ROOT_DIR })
+    : { commit: null, contentRevision: null };
+  else console.log(`${LOG} ${overlayMode.reason}`);
+
   // Before the first dynamic import of any build plugin — see the function's
   // own doc comment for why later is a no-op.
   pinRenderEnv();
@@ -711,6 +724,7 @@ async function main() {
     targetLocales,
     summary,
     pushScript,
+    articleContentRevision: corpusOverlay.contentRevision,
   });
 
   if (args.summary) {
@@ -731,6 +745,7 @@ export async function pushRenderedLocales({
   targetLocales,
   summary,
   pushScript,
+  articleContentRevision = '',
   spawn: spawnCommand = spawnAsync,
 }) {
   let pushFailed = false;
@@ -753,7 +768,11 @@ export async function pushRenderedLocales({
       const { status } = await spawnCommand(
         'bash',
         [pushScript, entry.shardToken, locale, entry.distDir, ...relpaths],
-        { stdio: 'inherit', env: process.env, cwd: ROOT_DIR },
+        {
+          stdio: 'inherit',
+          env: { ...process.env, ARTICLE_CONTENT_REVISION: articleContentRevision || '' },
+          cwd: ROOT_DIR,
+        },
       );
       results.push({ locale, status });
     }

@@ -184,22 +184,6 @@ function articleRssAlternatePath(section: OgSectionDescriptor, locale: string): 
  return `/${baseName}${locale === 'it' ? '' : `-${locale}`}.xml`;
 }
 
-const CONTENT_REVISION_RE = /^[0-9]+\.[0-9a-f]{7,40}$/;
-
-/**
- * Emit the publisher's corpus revision only when the caller supplies one.
- * The renderer never derives a revision from its own checkout: a site build
- * and a corpus publish can legitimately have different Git histories.
- */
-export function contentRevisionMetaTag(contentRevision?: string): string {
- const value = typeof contentRevision === 'string' ? contentRevision.trim() : '';
- if (!value) return '';
- if (!CONTENT_REVISION_RE.test(value)) {
-  throw new Error(`contentRevision non valido: atteso <epoch>.<sha-corto>, ricevuto "${value}"`);
- }
- return `<meta name="ft:content-rev" content="${value}">`;
-}
-
 export interface RenderArticlePagesOptions {
  rootDir: string;
  distDir: string;
@@ -229,8 +213,6 @@ export interface RenderArticlePagesOptions {
  * error, so callers may safely pass ids belonging to other sections.
  */
  onlyArticleIds?: string[];
- /** Explicit revision of the corpus whose text inputs are being rendered. */
- contentRevision?: string;
 }
 
 export interface RenderArticlePagesResult {
@@ -313,7 +295,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const onlyArticleIdSet: Set<string> | undefined = opts.onlyArticleId
  ? new Set([opts.onlyArticleId])
  : (opts.onlyArticleIds && opts.onlyArticleIds.length ? new Set(opts.onlyArticleIds) : undefined);
- const contentRevisionTag = contentRevisionMetaTag(opts.contentRevision);
 
  // Source-of-truth fallback for article images, used by resolveImagePath when
  // the SEO entry's own candidate has no file in distDir.
@@ -1674,7 +1655,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const headTags = ` <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
-${contentRevisionTag ? ` ${contentRevisionTag}\n` : ''}
  <title>${esc(htmlPageTitle)}</title>
  <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleLocale))}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
