@@ -10,6 +10,7 @@ import {
   FUEL_CHART_SCRIPT_FILENAME,
   GTAG_INIT_CONTENT,
   GTAG_INIT_FILENAME,
+  GTAG_INIT_VERSIONED_FILENAME,
   GTAG_INIT_URL,
   GTAG_SNIPPET,
   POSTHOG_INIT_FILENAME,
@@ -49,8 +50,16 @@ describe('stable asset filenames', () => {
   it('content-addresses the identity-bearing gtag-init reference', () => {
     const expectedHash = createHash('sha256').update(GTAG_INIT_CONTENT).digest('hex').slice(0, 12);
 
-    expect(GTAG_INIT_URL).toBe(`/assets/${GTAG_INIT_FILENAME}?v=${expectedHash}`);
+    expect(GTAG_INIT_VERSIONED_FILENAME).toBe(`gtag-init-${expectedHash}.js`);
+    expect(GTAG_INIT_URL).toBe(`/assets/${GTAG_INIT_VERSIONED_FILENAME}`);
     expect(GTAG_SNIPPET).toContain(`<script defer src="${GTAG_INIT_URL}"></script>`);
+
+    const staticScriptsSource = fs.readFileSync(
+      path.join(process.cwd(), 'build-plugins', 'staticScriptsPlugin.ts'),
+      'utf-8',
+    );
+    expect(staticScriptsSource).toContain('[GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT]');
+    expect(staticScriptsSource).toContain('[GTAG_INIT_FILENAME, GTAG_INIT_CONTENT]');
   });
 
   it('the stylesheet sources exist in public/assets/ (Vite copies them verbatim to dist)', () => {

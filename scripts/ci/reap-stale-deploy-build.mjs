@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * reap-stale-deploy-build.mjs — release a deploy build lock that outlives its
  * own six-hour job timeout.
@@ -180,7 +181,7 @@ async function main() {
   return 0;
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main()
     .then((code) => process.exit(code))

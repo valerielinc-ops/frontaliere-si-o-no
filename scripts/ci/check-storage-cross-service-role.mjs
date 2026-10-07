@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Guard for `firebase deploy --only storage` in CI.
  *
@@ -23,7 +25,6 @@
 
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export const CROSS_SERVICE_RULES_ROLE = 'roles/firebaserules.firestoreServiceAgent';
 const CROSS_SERVICE_CALL_RX = /firestore\.(get|exists)\s*\(/;
@@ -121,7 +122,7 @@ async function main() {
   return code;
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().then((code) => { process.exitCode = code; }, (error) => {
     console.error(error);
     process.exitCode = 1;

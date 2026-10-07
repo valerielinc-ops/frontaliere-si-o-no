@@ -112,6 +112,40 @@ describe('resolveGithubIssue — close canonical issue on green', () => {
     errorSpy.mockRestore();
   });
 
+  it('retries a transient GraphQL close and verifies the recovered issue state', () => {
+    let closeAttempts = 0;
+    let viewAttempts = 0;
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return JSON.stringify([
+          { number: 1247, title: 'Validation Failure (dist): post-deploy', url: 'u', state: 'OPEN' },
+        ]);
+      }
+      if (args[0] === 'issue' && args[1] === 'close') {
+        closeAttempts += 1;
+        if (closeAttempts === 1) {
+          throw Object.assign(new Error('Command failed'), {
+            stderr: 'GraphQL: Something went wrong while executing your query',
+          });
+        }
+        return '';
+      }
+      if (args[0] === 'issue' && args[1] === 'view') {
+        viewAttempts += 1;
+        return JSON.stringify({ state: viewAttempts === 1 ? 'OPEN' : 'CLOSED' });
+      }
+      return '';
+    });
+
+    const warningSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const res = resolveGithubIssue('Validation Failure (dist): post-deploy', {});
+
+    expect(res).toMatchObject({ number: 1247, persisted: true });
+    expect(closeAttempts).toBe(2);
+    expect(viewAttempts).toBe(2);
+    warningSpy.mockRestore();
+  });
+
   it('does not report success when close stdout is non-null but the issue stays OPEN', () => {
     mockOpenCanonical({ closeOk: true, viewState: 'OPEN' });
     const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});

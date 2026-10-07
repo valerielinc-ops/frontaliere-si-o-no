@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Read-only outcome exporters for the site-only loop ledgers.
@@ -1716,7 +1717,7 @@ export async function main({ argv = process.argv.slice(2) } = {}) {
   });
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[outcome-export] fatal: ${error.message}`);
     process.exitCode = 1;

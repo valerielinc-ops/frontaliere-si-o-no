@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+
 import { canonicalJson, digestDocument } from './lib/canonical-json-digest.mjs';
 import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 import {
@@ -20,7 +22,6 @@ import {
   isMissingExactGitHubResource,
 } from './lib/github-actions-read-client.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 const OBSERVER_WORKFLOW = 'crawler-generation-observer-shadow.yml';
 const OBSERVER_PATH = `.github/workflows/${OBSERVER_WORKFLOW}`;
@@ -543,7 +544,7 @@ export async function runCrawlerGenerationObserverSelectorCli(
   return payload;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runCrawlerGenerationObserverSelectorCli().then((payload) => {
     process.stdout.write(`${JSON.stringify({ selected: payload.matrix.length })}\n`);
   }).catch((error) => {

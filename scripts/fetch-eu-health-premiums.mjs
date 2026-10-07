@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /** Country-of-residence premiums, separate from Swiss canton/commune premiums. */
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -59,4 +60,4 @@ async function main() {
   }
   console.log(`EU premiums ${year}: ${Object.keys(snapshot.countries).length} countries; Italy ${Object.keys(snapshot.countries.IT.insurers).length} insurers`);
 }
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) main().catch(error => { console.error(error.message); process.exitCode = 1; });
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main().catch(error => { console.error(error.message); process.exitCode = 1; });

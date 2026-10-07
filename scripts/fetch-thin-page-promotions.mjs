@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 // fetch-thin-page-promotions.mjs
 //
 // Hourly self-heal feedback loop for tiered emission (artifact-shrink
@@ -50,7 +51,7 @@
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { appendFileSync, existsSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
@@ -285,6 +286,6 @@ export async function main() {
   return errors.length > 0 ? 3 : 0;
 }
 
-if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().then((code) => { process.exitCode = code; }).catch((e) => { console.error('[thin-promotions] fatal:', e); process.exitCode = 2; });
 }

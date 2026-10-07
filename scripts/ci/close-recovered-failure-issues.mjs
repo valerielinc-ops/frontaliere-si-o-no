@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * close-recovered-failure-issues.mjs — zero-Claude reconciler.
  *
@@ -2958,7 +2960,7 @@ function main() {
 
 // CLI entry point (guarded so this module can be imported for unit tests without
 // triggering real `gh` calls at import time).
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main();
 }

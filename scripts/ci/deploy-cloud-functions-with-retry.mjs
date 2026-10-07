@@ -1,8 +1,8 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import { spawn } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
 
 /**
  * The Firebase CLI can receive an HTML error page from the Google APIs while
@@ -133,7 +133,7 @@ export async function deployFunctions({
 }
 
 const isMain = process.argv[1]
-  && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const result = await deployFunctions();

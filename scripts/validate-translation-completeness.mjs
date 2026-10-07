@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * validate-translation-completeness.mjs — Deploy gate for 4-locale locale-slot
  * coverage.
@@ -49,7 +51,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 
@@ -307,5 +309,5 @@ async function main() {
 // Main-guarded so the pure helpers above can be imported by tests without
 // requiring data/jobs.json (which is gitignored and assembled at build time).
 const isMainModule = process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) await main();

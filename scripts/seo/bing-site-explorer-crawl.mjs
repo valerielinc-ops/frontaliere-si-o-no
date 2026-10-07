@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Deterministic, Bing-compatible sitemap/tree crawler.
@@ -14,7 +16,7 @@ import {
   closeSync, mkdirSync, openSync, readFileSync, readdirSync, writeSync,
 } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
 import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 import {
@@ -1011,7 +1013,7 @@ async function main() {
   console.log(JSON.stringify({ mode: 'partition', partition: report.partition, partitions: report.partitions, manifestCount: report.manifestCount, checkedCount: report.checkedCount, findings: report.findings.length, out }, null, 2));
 }
 
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try { await main(); }
   catch (error) { console.error(error?.stack || error); process.exitCode = 1; }

@@ -112,6 +112,8 @@ const AJOIE_IDENTITIES = Object.freeze({
   // treating the address-qualified label as a new pharmacy.
   'AMAVITA - MALVOISINS 1': AJOIE_AMAVITA_PORRENTRUY,
   'AMAVITA PORRENTRUY': AJOIE_AMAVITA_PORRENTRUY,
+  // The same official PDF also omits one R in the city spelling on some rows.
+  'AMAVITA PORRENTUY': AJOIE_AMAVITA_PORRENTRUY,
   'MILLIET VILLE': { id: 'ju-ajoie-milliet-ville', name: 'Amavita Milliet Ville', city: 'Porrentruy' },
   BENU: { id: 'ju-ajoie-benu-porrentruy', name: 'Benu Porrentruy', city: 'Porrentruy' },
   ERARD: { id: 'ju-ajoie-erard-alle', name: 'Pharmacie Erard', city: 'Alle' },
@@ -261,7 +263,7 @@ function extractDelemontRows(text, { sourceUrl, fetchedAt, calendarYear = new Da
   let currentYear = calendarYear;
   for (const line of lines) {
     if (!/\bdu\s+sam\b/i.test(line) || !/\bau\s+sam\b/i.test(line)) continue;
-    const match = /^\s*(.+?)\s+du\s+sam\s+(\d{1,2})\s+([^\s]+).*?au\s+sam\s+(\d{1,2})\s+([^\s]+)\s+à8h/i.exec(line);
+    const match = /^\s*(.+?)\s+du\s+sam\s+(\d{1,2})\s+([^\s]+).*?au\s+sam\s+(\d{1,2})\s+([^\s]+)\s+à\s*8\s*h/i.exec(line);
     if (!match) continue;
     const name = normalizeWhitespace(match[1]);
     const startMonth = monthNumber(match[3]);

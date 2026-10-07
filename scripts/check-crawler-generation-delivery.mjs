@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Gate: a crawler generation must not lose a delivery.
  *
@@ -25,8 +27,7 @@
  * delivery fault or no settled generation, 2 invalid input.
  */
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { validateCrawlerGenerationLedgerEntry } from './crawler-group-generation-finalizer.mjs';
 import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 import {
@@ -38,7 +39,6 @@ import {
   selectSettledGenerationToken,
 } from './lib/crawler-generation-delivery.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const DEFAULT_LEDGER = 'data/crawler-generation-ledger.jsonl';
 const DEFAULT_ROSTER = 'scripts/ci/crawler-generation-roster.json';
 
@@ -150,7 +150,7 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
   return result;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     const result = runCrawlerGenerationDeliveryCheck(parseArgs(process.argv.slice(2)));
     process.exitCode = crawlerDeliveryGateExitCode(result);

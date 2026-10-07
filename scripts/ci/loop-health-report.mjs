@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * loop-health-report.mjs — osservabilità DETERMINISTICA del loop autonomo
  * (zero-model). Calcola le metriche di salute che altrimenti vanno raccolte
@@ -1142,4 +1144,4 @@ function main() {
 
 // Guarded so the pure helpers above (warnKey/warnStreaks) can be unit-tested
 // without the module firing a full network report on import.
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

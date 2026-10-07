@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * campaign-goal-check.mjs — scheduled verification of the measurable goals
  * declared in the campaign backlog issues #4298-#4307
@@ -1062,7 +1063,7 @@ async function main() {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((e) => {
     console.error(`[campaign-goal-check] fatal: ${e.message}`);
     process.exitCode = 1;

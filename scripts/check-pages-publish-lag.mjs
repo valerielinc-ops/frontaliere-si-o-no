@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * check-pages-publish-lag.mjs — Watchdog for the deploy→PUBLISH gap.
  *
@@ -484,7 +485,7 @@ async function main() {
   process.exit(0);
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`[check-pages-publish-lag] Fatal: ${err.stack || err.message}`);

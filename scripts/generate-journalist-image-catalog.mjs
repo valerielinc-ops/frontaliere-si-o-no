@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Local, non-AI image catalog for the redazione cover-image picker
  * (components/pages/JournalistDashboardPage.tsx / services/journalistImageCatalog.ts).
@@ -76,7 +78,7 @@ export function appendCatalogEntry(blogImagePath) {
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const catalog = buildCatalog();
   writeCatalog(catalog);
   console.log(`✅ Wrote ${catalog.length} entries to ${path.relative(PROJECT_ROOT, OUT_PATH)}`);

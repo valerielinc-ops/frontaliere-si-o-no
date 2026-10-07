@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 // Build the daily evidence index — aggregates GSC + GA4 data into one JSON
 // file consumed by the cascaded scoring + discovery pool layers.
 //
@@ -182,8 +183,7 @@ async function main() {
 
 function isMain() {
   try {
-    const entry = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : '';
-    return import.meta.url === entry;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

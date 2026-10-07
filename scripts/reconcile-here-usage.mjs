@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Reconcile the HERE transaction budget counter with HERE's *real* billed usage.
  *
@@ -336,7 +338,7 @@ async function main() {
 }
 
 // Only run when invoked directly (allow importing pure helpers in tests).
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`❌ reconcile-here-usage failed: ${err.message}`);
     process.exit(1);

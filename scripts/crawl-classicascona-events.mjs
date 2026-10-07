@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — classicAscona (Settimane Musicali di Ascona), canton TI, on the
  * shared `createAgendaCrawler` factory (scripts/lib/agenda-crawler-factory.mjs).
@@ -265,7 +266,7 @@ async function main() {
   if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[${SOURCE.key}] crawl failed: ${err?.message || err}`);
     process.exit(1);

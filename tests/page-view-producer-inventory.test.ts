@@ -101,11 +101,9 @@ function balancedSpan(text: string, from: number, open: string, close: string): 
 
 /**
  * emission_id present with a value that is not a literal empty/absent one.
- * An identifier passes: `emission_id: resolvedPageViewEmissionId` in
- * trackPageView is null only when a caller passes `emissionId === null`
- * explicitly, the documented «dedup non disponibile» opt-out of its signature
- * (no caller does it today). That runtime path is behaviour, not inventory,
- * and stays out of this static scan by design.
+ * `trackPageView` normalizes an explicit `emissionId === null` into a fresh
+ * identity at runtime, so the producer remains tagged even when a caller
+ * cannot provide the original identity.
  */
 function carriesEmissionId(params: string): boolean {
   const match = params.match(/(?:^|[{,\s])['"]?emission_id['"]?\s*:\s*([^,}\s]+)/);

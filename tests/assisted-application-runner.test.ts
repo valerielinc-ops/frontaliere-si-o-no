@@ -7,8 +7,10 @@ import {
   REQUIREMENTS_SCHEMA,
 } from '../functions/src/assistedApplicationAiPrompts.js';
 import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
+import { CV_TEXT_VERSION } from '../scripts/assisted-application/lib/cv-text.mjs';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
-import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
+import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
+import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
@@ -216,6 +218,49 @@ describe('draft mode', () => {
     const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
     const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
     expect(reread.calls).toBe(5);
+    // A CV text read before a fix of the reading (2026-10-07: the boxes of a PDF glued together) is read again.
+    expect(first.cvTextVersion).toBe(CV_TEXT_VERSION);
+    const { cvTextVersion, ...unversioned } = first;
+    expect((await run(unversioned)).calls).toBe(5);
+    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(5);
+  });
+
+  it('does not stop at the owner a seasonal job on Workday that is open: its age is no ghost sign', async () => {
+    // A real order of 2026-10-07: «Weihnachtsaushilfe», published two months before, a generic text, and a page
+    // read «expired» (Workday's empty shell). «Suspicious» held the draft at the owner with no clock.
+    const jobUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Weihnachtsaushilfe_R15163';
+    const fetchImpl = (title: string) => vi.fn(async (url: string, init: any = {}) => {
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) {
+        if (init.method === 'HEAD') return new Response(null, { status: 200 });
+        return new Response(JSON.stringify({
+          description: POSTING, applyUrl: jobUrl, titleByLocale: { it: 'Aiuto', de: title }, addressLocality: 'Lugano',
+          datePosted: '2026-07-29', postingDateSource: 'reported',
+        }), { status: 200 });
+      }
+      if (url.includes('/wday/cxs/acme/Careers/job/')) return new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true } }), { status: 200 });
+      return new Response('<html><body><div id="root"></div></body></html>', { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const vague = () => {
+      const codex = fakeCodex();
+      return vi.fn(async (request: any) => {
+        const answer = await codex(request);
+        return request.schema === REQUIREMENTS_SCHEMA ? { ...answer, legitimacy: { specificity: 'vague', contradictions: [], contractorQuote: '', aiDirectedQuote: '', rolling: false } } : answer;
+      });
+    };
+    const draftOf = (title: string) => buildDraft({
+      order: { ...order, jobUrl }, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex: vague(), bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fetchImpl(title), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    const seasonal = await draftOf('Weihnachtsaushilfe (m/w/d)');
+    expect(seasonal.liveness).toMatchObject({ result: 'active', code: 'ats_api_open' });
+    expect(seasonal.legitimacy).toMatchObject({ tier: 'caution', ageDays: 63 });
+    expect(seasonal.legitimacy.signals.map((signal: any) => `${signal.key}:${signal.weight}`)).toEqual(expect.arrayContaining(['age:neutral', 'apply_open:positive', 'vague:concerning']));
+    expect(seasonal.legitimacy.notes.map((note: any) => note.key)).toContain('seasonal');
+    expect(evaluateRedFlags(seasonal).owner).not.toContain('legitimacy');
+    // The same posting for a job of every season is still the owner's to look at.
+    const yearRound = await draftOf('Verkaufsberater (m/w/d)');
+    expect(yearRound.legitimacy.tier).toBe('suspicious');
+    expect(evaluateRedFlags(yearRound).owner).toContain('legitimacy');
   });
 
   it('keeps on the next round’s tailored CV the photo the candidate gave on the review page', async () => {
@@ -783,6 +828,46 @@ describe('career-ops liveness', () => {
     expect(isHardClosed({ result: 'expired', code: 'insufficient_content' }, { datasetGone: true })).toBe(false);
     expect(isHardClosed({ result: 'expired', code: 'listing_page' }, { datasetGone: true })).toBe(true);
     expect(isHardClosed({ result: 'uncertain', code: 'bot_challenge' }, { datasetGone: true })).toBe(false);
+  });
+
+  it('asks Workday itself whether a posting is open: its page is the same empty shell, open or gone', async () => {
+    // A real order of 2026-10-07: an open Workday posting read «expired, insufficient_content».
+    expect(classifyWorkdayLiveness({ gone: false, info: { canApply: true, posted: true } })).toMatchObject({ result: 'active', code: 'ats_api_open' });
+    expect(classifyWorkdayLiveness({ gone: false, info: { canApply: false, posted: true } })).toMatchObject({ result: 'expired', code: 'ats_api_closed' });
+    expect(classifyWorkdayLiveness({ gone: false, info: { canApply: true, posted: false } })).toMatchObject({ result: 'expired', code: 'ats_api_closed' });
+    expect(classifyWorkdayLiveness({ gone: true, info: null })).toMatchObject({ result: 'expired', code: 'ats_api_gone' });
+    // Nothing said: the page is read as before.
+    expect(classifyWorkdayLiveness({ gone: false, info: {} })).toBeNull();
+    expect(classifyWorkdayLiveness(null)).toBeNull();
+    // Workday's «gone» comes from an address this code derives: it refunds only when our dataset dropped the job too.
+    for (const code of ['ats_api_gone', 'ats_api_closed']) {
+      expect(isHardClosed({ result: 'expired', code })).toBe(false);
+      expect(isHardClosed({ result: 'expired', code }, { datasetGone: true })).toBe(true);
+    }
+    expect(isHardClosed({ result: 'active', code: 'ats_api_open' }, { datasetGone: true })).toBe(false);
+
+    const jobUrl = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Verkaufsberater_R15163';
+    const shell = '<html><body><div id="root"></div></body></html>';
+    const workday = (api: () => Response, dataset = 200) => async (url: string) => {
+      if (url.startsWith('https://cdn.frontaliereticino.ch/')) return new Response(null, { status: dataset });
+      return url.includes('/wday/cxs/acme/Careers/job/') ? api() : new Response(shell, { status: 200, headers: { 'content-type': 'text/html' } });
+    };
+    const check = (fetchImpl: any) => checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl }, posting: { applyUrl: jobUrl }, fetchImpl, resolve: publicDns });
+    const open = () => new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true } }), { status: 200 });
+    const gone = () => new Response(JSON.stringify({ httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 });
+    expect(await check(workday(open))).toMatchObject({ page: { result: 'active', code: 'ats_api_open' }, closed: false });
+    // The same career site under Workday's other name, myworkdaysite.com.
+    for (const siteUrl of ['https://wd502.myworkdaysite.com/de-CH/recruiting/acme/Careers/job/Lugano/Verkaufsberater_R15163', 'https://acme.myworkdaysite.com/Careers/job/Lugano/Verkaufsberater_R15163']) {
+      expect(await checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl: siteUrl }, posting: { applyUrl: siteUrl }, fetchImpl: workday(open), resolve: publicDns }))
+        .toMatchObject({ page: { result: 'active', code: 'ats_api_open' } });
+      expect(await checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl: siteUrl }, posting: { applyUrl: siteUrl }, fetchImpl: workday(gone), resolve: publicDns }))
+        .toMatchObject({ page: { result: 'expired', code: 'ats_api_gone' } });
+    }
+    expect(await check(workday(gone))).toMatchObject({ page: { result: 'expired', code: 'ats_api_gone' }, datasetGone: false, closed: false });
+    expect(await check(workday(gone, 404))).toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: true, closed: true });
+    // Workday does not answer: the shell, as before, which never refunds.
+    expect(await check(workday(() => new Response('', { status: 503 }), 404))).toMatchObject({ page: { result: 'expired', code: 'insufficient_content' }, closed: false });
+    expect(await check(workday(() => { throw new Error('socket hang up'); }, 404))).toMatchObject({ page: { code: 'insufficient_content' }, closed: false });
   });
 });
 

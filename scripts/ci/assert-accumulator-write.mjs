@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Check a materialized accumulator before a workflow commits it.
@@ -68,7 +70,7 @@ export function assertAccumulatorFileWrite(
 }
 
 const filePaths = process.argv.slice(2);
-if (process.argv[1]?.endsWith('assert-accumulator-write.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   if (filePaths.length === 0) {
     console.error('usage: assert-accumulator-write.mjs <file> [file ...]');
     process.exitCode = 2;

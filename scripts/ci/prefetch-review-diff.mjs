@@ -1,8 +1,9 @@
+import { realpathSync } from 'node:fs';
 /** Build the review patch on the host, before the network-isolated reviewer starts. */
 import { TEST_DIFF_EXCLUSIONS } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { openSync, closeSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const sha = value => {
@@ -170,4 +171,4 @@ export function main(env = process.env, { api: injectedApi, cwd = process.cwd() 
     + `${reviewedFrom ? `, narrowed to what moved since ${reviewedFrom}` : ''}).`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

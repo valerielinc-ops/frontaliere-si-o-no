@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Pre-merge validation for workflow files changed by the current PR.
  *
@@ -554,4 +556,4 @@ function main() {
     : 'Nessun workflow modificato nella diff della PR.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

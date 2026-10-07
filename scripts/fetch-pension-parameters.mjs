@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * fetch-pension-parameters.mjs — parametri previdenziali svizzeri (pipeline
  * D11 «pensioni»).
@@ -330,7 +331,7 @@ export async function main() {
   return { year, changed };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`❌ ${err.message}`);
     process.exit(1);

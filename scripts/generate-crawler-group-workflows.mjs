@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scripts/generate-crawler-group-workflows.mjs
  *
@@ -3884,7 +3886,7 @@ export function bootstrapAssignmentsFromWorkflows({
 }
 
 // CLI entry point
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   const check = process.argv.includes('--check');
   const bootstrap = process.argv.includes('--bootstrap-from-workflows');

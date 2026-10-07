@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // scripts/mine-topic-candidates.mjs
 //
 // Phase-2 orchestrator: pulls candidates from GSC orphans + Google Trends +
@@ -541,8 +543,7 @@ async function safeRun(fn, timeoutMs = PER_SOURCE_TIMEOUT_MS) {
 
 const isMain = (() => {
   try {
-    const url = new URL(import.meta.url);
-    return process.argv[1] && url.pathname === process.argv[1];
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }
