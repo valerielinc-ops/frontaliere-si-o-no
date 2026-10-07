@@ -95,6 +95,22 @@ describe('Pizzarotti listing classification', () => {
     expect(result.lastFetchOutcome).toBe('ok');
   });
 
+  it('preserves the St. abbreviation when the teaser omits the region code', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/st-gallen-no-region">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager con sede a St. Gallen. Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('St. Gallen');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('St. Gallen');
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
   it('does not prove an empty target slice when a location is unknown', () => {
     const result = classifyPizzarottiListings([
       { href: '/jobs/unknown', title: 'Unknown role', location: 'A newly added place' },
