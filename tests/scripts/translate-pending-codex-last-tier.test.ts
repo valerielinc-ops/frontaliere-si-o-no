@@ -46,8 +46,13 @@ function expectBudget(step: Step) {
   const calls = effectiveMaxCalls();
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
   expect(calls, step.name).toBe(DEFAULT_CODEX_MAX_CALLS);
-  // Decisione del proprietario del 2026-10-06 («alza le chiamate»): 350 per
-  // fase. La variabile di repository resta il rollback immediato.
+  // Il proprietario ha chiesto il 2026-10-06 di alzare le chiamate (30 -> 180).
+  // Il valore 350 e' derivato, non deciso da lui: e' quanto entra nei 900 s di
+  // una corsia di riparazione con 3 corsie Codex a ~7,6 s per chiamata (run
+  // 37654795148, fase 2b: 177 chiamate in 1342 s). I budget di tempo non
+  // cambiano. Il tetto resta scritto: un valore piu' alto passa da una nuova
+  // decisione, non da un refuso. La variabile di repository
+  // FREE_TRANSLATE_CODEX_MAX_CALLS resta il rollback immediato.
   expect(calls, step.name).toBeLessThanOrEqual(350);
   expect(ms, step.name).toBeGreaterThan(0);
   // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
