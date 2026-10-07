@@ -34,6 +34,7 @@ import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mj
 import { hasStructuredContent, preserveStructuredTranslation } from './translation-quality.mjs';
 import { getKeyFactsHeading, getTldrHeading } from './ai-search-template.mjs';
 import { detectAiMetaResponse } from './ai-meta-response.mjs';
+import { detectLanguageWithConfidence } from './detect-language.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -1221,8 +1222,9 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 //     l'articolo. Si conta l'orologio, non la somma delle durate: due
 //     richieste parallele di 10 s costano 10 s. Ogni controllo legge il tempo
 //     gia' speso da tutte le richieste partite prima.
-//   - Tre richieste fallite di fila (errore, risposta vuota o soli echi della
-//     sorgente) fermano il tier.
+//   - Tre richieste fallite di fila (errore, risposta vuota, rifiuto o soli
+//     echi di testo sostanziale) fermano il tier; gli echi classificati come
+//     invarianti non incrementano lo streak.
 // Esaurito un budget, una riga di log e il tier non si tenta piu'; i testi in
 // coda escono subito verso il tier successivo.
 //
@@ -1234,10 +1236,17 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 // 1 titolo 7,1 s, 5 titoli insieme 36,8 s, 6 richieste parallele 11,5 s). Il
 // costo fisso di una richiesta e' invece il prompt, ~5,9k token di input anche
 // per tre parole. Quindi:
-//   - finche' c'e' una corsia libera (FREE_TRANSLATE_CODEX_LANES, default 2,
-//     massimo 3 come le corsie del broker; 0 vale 1, perche' il tier si spegne
-//     con FREE_TRANSLATE_CODEX_MAX_CALLS=0) un testo parte subito da solo, con
-//     il prompt di sempre: e' la strada piu' veloce;
+//   - senza un batch esplicito, finche' c'e' una corsia libera
+//     (FREE_TRANSLATE_CODEX_LANES, default 2, massimo 3 come le corsie del
+//     broker; 0 vale 1, perche' il tier si spegne con
+//     FREE_TRANSLATE_CODEX_MAX_CALLS=0) un testo parte subito da solo, con il
+//     prompt di sempre: e' la strada piu' veloce e resta il default degli altri
+//     chiamanti;
+//   - translate-pending imposta FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS > 1:
+//     il primo testo aspetta una breve finestra di raccolta, cosi' anche un
+//     burst che entra da chiamanti separati (o dalle righe strutturate di un
+//     solo campo) arriva davvero a `_takeCodexGroup` invece di riempire le
+//     corsie con tre singleton;
 //   - quando le corsie sono tutte occupate i testi aspettano comunque, e al
 //     primo posto libero quelli con la stessa coppia di lingue partono insieme
 //     in UNA richiesta con uno schema a id: ogni gruppo prende la sua parte
@@ -1258,6 +1267,7 @@ const CODEX_TRANSLATE_LANES_MAX = 3;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
 const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
+const CODEX_TRANSLATE_BATCH_COLLECTION_MS = 25;
 // Sotto questo residuo una chiamata non ha il tempo di finire: stesso minimo
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
 const CODEX_TRANSLATE_MIN_CALL_MS = 15_000;
@@ -1367,6 +1377,7 @@ let _codexBusySince = 0;
 let _codexInFlight = 0;
 /** @type {Array<{clean: string, sourceLang: string, targetLang: string, outcome: any, resolve: (value: string) => void, reject: (error: unknown) => void}>} */
 let _codexPending = [];
+let _codexPumpTimer = null;
 let _codexConsecutiveFailures = 0;
 let _codexStopReason = '';
 let _codexEngagedLogged = false;
@@ -1483,6 +1494,60 @@ function _cleanCodexTranslation(raw, source, marker) {
   return normalizeBlock(out);
 }
 
+const CODEX_INVARIANT_LABEL_RE = /^(?:sede|sede di lavoro|luogo|location|standort|lieu|nome|name|azienda|company|società|employer|datore di lavoro|codice|code|sigla|acronimo|brand|marchio)\s*:/iu;
+
+/** Invarianti evidenti che una descrizione strutturata non deve mandare al modello. */
+function _codexInvariantSourceReason(text) {
+  const clean = normalizeBlock(text);
+  if (!clean) return null;
+  if (!/\p{L}/u.test(clean)) return 'no-letters';
+
+  const acronymCandidate = clean.replace(/[()[\]{},:;]+/gu, ' ').trim();
+  const acronymWords = acronymCandidate.split(/\s+/u).filter(Boolean);
+  if (acronymWords.length > 0 && acronymWords.length <= 4
+    && acronymWords.every((word) => /^[\p{Lu}\p{N}][\p{Lu}\p{N}&./+_-]*$/u.test(word))) {
+    return 'acronym';
+  }
+
+  const labelled = /^([^:]{1,40}):\s*(.+)$/u.exec(clean);
+  if (labelled && CODEX_INVARIANT_LABEL_RE.test(`${labelled[1]}:`)) {
+    const valueWords = labelled[2].split(/[\s,/&()+-]+/u).filter(Boolean);
+    const looksLikeName = valueWords.length > 0 && valueWords.length <= 4
+      && valueWords.every((word) => /^[\p{Lu}][\p{Ll}\p{M}\d'’.-]*$/u.test(word)
+        || /^[\p{Lu}\p{N}]{2,}$/u.test(word));
+    if (looksLikeName) return 'proper-name';
+  }
+  return null;
+}
+
+/**
+ * Motivo di un eco che non rappresenta un fallimento della lane. Il detector
+ * viene usato solo sull'output gia' riconosciuto come identico alla sorgente:
+ * non puo' quindi classificare per errore una normale traduzione nella lingua
+ * di arrivo come invariabile.
+ */
+function _codexInvariantEchoReason(source, output, sourceLang, targetLang, outcome) {
+  const sourceReason = _codexInvariantSourceReason(source);
+  if (sourceReason) return sourceReason;
+  if ((_echoTiersByOutcome.get(outcome)?.size || 0) >= CODEX_LAST_SKIP_ECHOES) return 'echoed-by-2-engines';
+  const targetBase = String(targetLang || '').split('-')[0].toLowerCase();
+  const sourceBase = String(sourceLang || '').split('-')[0].toLowerCase();
+  const detectedSource = detectLanguageWithConfidence(source, targetLang);
+  if (detectedSource.lang === targetBase && detectedSource.confidence >= 0.5) return 'same-language';
+  const detected = detectLanguageWithConfidence(output, targetLang);
+  const wordCount = (output.match(TRANSLATABLE_WORD_RE) || []).length;
+  return wordCount < MIN_SUBSTANTIVE_PASSTHROUGH_WORDS
+    && detected.lang === sourceBase
+    && detected.confidence >= 0.5
+    ? 'same-language'
+    : null;
+}
+
+function _logCodexNonTranslation(item, reason) {
+  const prefix = item.clean.replace(/\s+/gu, ' ').trim().slice(0, 40);
+  console.log(`   ⚠️  [codex] non-tradotto len=${item.clean.length} pair=${item.sourceLang}->${item.targetLang} reason=${reason} prefix=${JSON.stringify(prefix)}`);
+}
+
 async function translateWithCodex(text, sourceLang, targetLang, outcome = null, position = 'primary') {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
@@ -1495,7 +1560,7 @@ async function translateWithCodex(text, sourceLang, targetLang, outcome = null, 
   if (position === 'after-premium' && !_premiumTiersDownForRun()) return '';
   return new Promise((resolve, reject) => {
     _codexPending.push({ clean, sourceLang, targetLang, outcome, resolve, reject });
-    _pumpCodex();
+    _scheduleCodexPump();
   });
 }
 
@@ -1509,9 +1574,31 @@ function _codexBatchMaxTexts() {
   return Math.min(Math.max(texts, 1), CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT);
 }
 
+/**
+ * Il batching ritardato e' una opt-in dei workflow che hanno misurato la
+ * necessita' di accorpare testi. Senza una variabile esplicita il percorso
+ * generale conserva l'avvio immediato delle richieste singleton.
+ */
+function _codexBatchingExplicitlyEnabled() {
+  const raw = String(process.env.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS || '').trim();
+  return /^\d+$/.test(raw) && Number(raw) > 1;
+}
+
 /** Tempo di orologio speso finora con almeno una richiesta in volo. */
 function _codexSpentNow() {
   return _codexSpentMs + (_codexBusySince ? Date.now() - _codexBusySince : 0);
+}
+
+function _scheduleCodexPump() {
+  if (!_codexBatchingExplicitlyEnabled() || _codexInFlight > 0) {
+    _pumpCodex();
+    return;
+  }
+  if (_codexPumpTimer !== null) return;
+  _codexPumpTimer = setTimeout(() => {
+    _codexPumpTimer = null;
+    _pumpCodex();
+  }, CODEX_TRANSLATE_BATCH_COLLECTION_MS);
 }
 
 /**
@@ -1543,11 +1630,19 @@ function _pumpCodex() {
  * gemello del sito: 8 testi FAQ in 45 s col gruppo pieno, in 30 s con la quota).
  */
 function _takeCodexGroup() {
-  const share = Math.ceil(_codexPending.length / _codexLanes());
+  const pendingCount = _codexPending.length;
+  const share = Math.ceil(pendingCount / _codexLanes());
   const first = _codexPending.shift();
   const group = [first];
   let chars = first.clean.length;
-  const maxTexts = Math.min(_codexBatchMaxTexts(), Math.max(share, 1));
+  // With an explicit batch setting, a short burst of at most one text per
+  // lane is precisely the case the collection window is meant to rescue:
+  // `ceil(2 / 3)` or `ceil(3 / 3)` would otherwise keep every text singleton.
+  // For a longer queue retain the measured queue/lane partition so one full
+  // batch does not starve the other lanes.
+  const maxTexts = pendingCount <= _codexLanes() && _codexBatchingExplicitlyEnabled()
+    ? Math.min(_codexBatchMaxTexts(), pendingCount)
+    : Math.min(_codexBatchMaxTexts(), Math.max(share, 1));
   for (let i = 0; i < _codexPending.length && group.length < maxTexts;) {
     const item = _codexPending[i];
     if (item.sourceLang === first.sourceLang && item.targetLang === first.targetLang
@@ -1642,6 +1737,7 @@ async function _translateGroupWithCodex(group) {
   } catch (err) {
     // Il messaggio non si stampa (puo' portare la coda di stderr del broker):
     // `tryTier` conta l'errore in `tierErrors.codex`, testo per testo.
+    for (const item of group) _logCodexNonTranslation(item, 'error');
     _noteCodexFailure();
     throw err;
   }
@@ -1651,24 +1747,53 @@ async function _translateGroupWithCodex(group) {
   // risposta singola sia quella batch senza scartare gli item sani del gruppo.
   // Una meta-risposta (rifiuto, richiesta dell'input) vale come l'eco del
   // prompt: '' qui, cosi' conta anche come fallimento della lane qui sotto e
-  // una batch di soli rifiuti non azzera lo streak dello stop.
-  for (const [source, out] of byText) {
-    if (out && (codexPromptEchoMarker(out, source) || detectAiMetaResponse(out, { source }))) byText.set(source, '');
+  // una batch di soli rifiuti non azzera lo streak dello stop. Un eco di una
+  // riga invariabile, invece, e' un esito previsto: si logga, ma non aumenta
+  // lo streak e non spegne il tier che puo' ancora tradurre altri testi.
+  const realFailures = new Set();
+  const invariantEchoes = new Set();
+  const translated = new Set();
+  for (const source of unique) {
+    const out = byText.get(source) || '';
+    const item = group.find((candidate) => candidate.clean === source) || group[0];
+    if (!out) {
+      _logCodexNonTranslation(item, 'empty');
+      realFailures.add(source);
+      continue;
+    }
+    if (codexPromptEchoMarker(out, source)) {
+      byText.set(source, '');
+      _logCodexNonTranslation(item, 'echo-prompt');
+      realFailures.add(source);
+      continue;
+    }
+    if (detectAiMetaResponse(out, { source })) {
+      byText.set(source, '');
+      _logCodexNonTranslation(item, 'refusal');
+      realFailures.add(source);
+      continue;
+    }
+    if (isSourcePassthrough(source, out)) {
+      const invariantReason = _codexInvariantEchoReason(source, out, item.sourceLang, item.targetLang, item.outcome);
+      _logCodexNonTranslation(item, invariantReason ? `invariant-${invariantReason}` : 'echo-source');
+      if (invariantReason) invariantEchoes.add(source);
+      else realFailures.add(source);
+      continue;
+    }
+    translated.add(source);
   }
   const results = group.map((item) => byText.get(item.clean) || '');
   group.forEach((item, index) => {
     if (!results[index]) noteTranslationOutcome(item.outcome, 'incomplete');
   });
-  // Un eco della sorgente non e' una traduzione: `tryTier` lo rifiuta e lo
-  // conta fra i passthrough, e qui conta come fallimento. Azzerare lo streak
-  // su un eco lasciava consumare tutto il budget a una lane che rimanda
-  // indietro il testo, senza mai far scattare lo stop.
-  const translated = unique.some((text) => {
-    const out = byText.get(text);
-    return out && !isSourcePassthrough(text, out);
-  });
-  if (translated) _codexConsecutiveFailures = 0;
-  else _noteCodexFailure();
+  // Un eco sostanziale della sorgente non e' una traduzione: `tryTier` lo
+  // rifiuta e lo conta fra i passthrough, e qui conta come fallimento.
+  // L'eccezione e' una riga che il rilevatore classifica come invariabile:
+  // azzerare lo streak su quella riga evita di consumare tutto il budget su
+  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri.
+  if (translated.size > 0) _codexConsecutiveFailures = 0;
+  else if (realFailures.size > 0) _noteCodexFailure();
+  else if (invariantEchoes.size > 0) _codexConsecutiveFailures = 0;
   return results;
 }
 
@@ -1735,6 +1860,10 @@ async function _codexTranslateBatch(call, opts, texts, sourceLang, targetLang) {
  * `null` ripristina `callLLM`.
  */
 export function setCodexTranslateCallForTests(fn) {
+  if (_codexPumpTimer !== null) {
+    clearTimeout(_codexPumpTimer);
+    _codexPumpTimer = null;
+  }
   _codexCallForTests = typeof fn === 'function' ? fn : null;
   _codexCalls = 0;
   _codexTexts = 0;
@@ -2508,9 +2637,18 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
   if (fieldType === 'description' && hasStructuredContent(text)) {
     const structureOutcome = _outcome || {};
     delete structureOutcome._structuredBoundaryMiss;
+    const explicitCodexBatching = _codexBatchingExplicitlyEnabled();
     const translated = await preserveStructuredTranslation(text, (line) => freeTranslateCore({
       text: line, sourceLang, targetLang, fieldType, _outcome: structureOutcome,
-    }));
+    }), {
+      concurrent: explicitCodexBatching && _codexSocketPresent(),
+      // Nomi, sigle e righe senza lettere traducibili non devono consumare
+      // quota Codex solo per essere rimandati identici. Le righe ordinarie
+      // restano nella cascata e, se il modello le rimanda, passano dalla
+      // guardia di `_translateGroupWithCodex` che distingue l'eco innocuo dal
+      // rifiuto reale.
+      shouldSkipLine: explicitCodexBatching ? (line) => Boolean(_codexInvariantSourceReason(line)) : null,
+    });
     const boundaryMiss = structureOutcome._structuredBoundaryMiss === true;
     delete structureOutcome._structuredBoundaryMiss;
     // A provider that ignored one line's boundary may have left a mixed

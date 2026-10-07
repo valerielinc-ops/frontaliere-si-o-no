@@ -384,6 +384,114 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 
+  it('con il batching esplicito raccoglie le righe di una descrizione anche dal chiamante seriale', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');
+    try {
+      const texts = numbered(20);
+      const source = texts.map((text) => `- ${text}`).join('\n');
+      const calls = stubCodex(codexAnswer());
+      const { value } = await captureLog(() => ft.freeTranslate({
+        text: source,
+        sourceLang: 'it',
+        targetLang: 'en',
+        fieldType: 'description',
+      }));
+
+      expect(value.split('\n')).toEqual(texts.map((text) => `- ${translationOf(text)}`));
+      expect(calls.some(({ messages }) => batchItems(messages))).toBe(true);
+      expect(calls.length).toBeLessThan(texts.length);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+    }
+  });
+
+  it('il burst breve di tre testi occupa un gruppo invece di tre singleton', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');
+    try {
+      const texts = numbered(3);
+      const calls = stubCodex(codexAnswer());
+      const { value } = await captureLog(() => Promise.all(texts.map((text) => tr(text))));
+      expect(value).toEqual(texts.map(translationOf));
+      expect(calls).toHaveLength(1);
+      expect(batchItems(calls[0].messages)).toHaveLength(3);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+    }
+  });
+
+  it('le righe strutturate invariabili non consumano una chiamata Codex', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');
+    try {
+      const translatable = `${IT} Numero 1.`;
+      const source = `- Sede: Lugano\n- ABC-123\n- ${translatable}`;
+      const calls = stubCodex(codexAnswer());
+      const { value } = await captureLog(() => ft.freeTranslate({
+        text: source,
+        sourceLang: 'it',
+        targetLang: 'en',
+        fieldType: 'description',
+      }));
+
+      expect(value.split('\n')).toEqual([
+        '- Sede: Lugano',
+        '- ABC-123',
+        `- ${translationOf(translatable)}`,
+      ]);
+      expect(calls).toHaveLength(1);
+      expect(batchItems(calls[0].messages)).toBeNull();
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+    }
+  });
+
+  it('tre echi di una riga invariabile non spengono Codex e vengono registrati senza errore', async () => {
+    const invariant = 'Sede: Lugano';
+    const calls = stubCodex((messages) => {
+      const items = batchItems(messages);
+      const user = items ? items[0].text : messages.find((m) => m.role === 'user')!.content;
+      if (user.includes('Sede: Lugano')) return invariant;
+      return `CODEX ${EN}`;
+    });
+    const { value, lines } = await captureLog(async () => [
+      await tr(invariant),
+      await tr(invariant),
+      await tr(invariant),
+      await tr(),
+    ]);
+
+    expect(value.slice(0, 3)).toEqual(Array(3).fill(`MYMEMORY ${EN}`));
+    expect(value[3]).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(4);
+    expect(lines.filter((line) => line.includes('3 fallimenti consecutivi'))).toHaveLength(0);
+    expect(lines.filter((line) => line.includes('reason=invariant'))).toHaveLength(3);
+  });
+
+  it('un eco gia\' nella lingua di arrivo secondo il rilevatore non spegne Codex', async () => {
+    const alreadyEnglish = 'The team will work with your experience and responsibilities.';
+    const calls = stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      return user.includes(alreadyEnglish) ? alreadyEnglish : `CODEX ${EN}`;
+    });
+    const { value, lines } = await captureLog(async () => [
+      await tr(alreadyEnglish),
+      await tr(alreadyEnglish),
+      await tr(alreadyEnglish),
+      await tr(),
+    ]);
+
+    expect(value.slice(0, 3)).toEqual(Array(3).fill(`MYMEMORY ${EN}`));
+    expect(value[3]).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(4);
+    expect(lines.filter((line) => line.includes('reason=invariant-same-language'))).toHaveLength(3);
+    expect(lines.filter((line) => line.includes('3 fallimenti consecutivi'))).toHaveLength(0);
+  });
+
   it('con una corsia le richieste passano una alla volta e non superano insieme il budget di tempo', async () => {
     // Orologio finto: ogni chiamata "dura" 10 s. Con 20 s di budget la prima
     // chiamata lascia 10 s, sotto il minimo di 15 s per chiamata: le altre non
@@ -606,6 +714,7 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(calls).toHaveLength(3);
     expect(codexCounters().errors - before.errors).toBe(3);
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('reason=error'))).toHaveLength(3);
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
   });
@@ -627,6 +736,7 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
     expect(calls).toHaveLength(3);
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+    expect(lines.filter((l) => l.includes('reason=refusal'))).toHaveLength(3);
   });
 
   it('FREE_TRANSLATE_CODEX_TIER=last: Codex non prende il testo prima dei tier senza quota', async () => {
