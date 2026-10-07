@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-07",
+  "generatedAt": "2026-10-08",
   "source": {
     "gitCommit": "7c8bdf2de2cfb1e12b15db19ba8171a57162d8dd",
     "heroFiles": 6818,
@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5035
+      "6": 5036
     },
-    "publishedCovers": 6747,
+    "publishedCovers": 6748,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179453,6 +179453,33 @@
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1791,
       "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lifestyle-innovation-hub-chiasso": {
+      "cover": "/images/blog/article-lifestyle-innovation-hub-chiasso.webp",
+      "hash": "5edb4ff5e4d97cf5e61af0a358fe80b222dfa42e34c2ca5e582b8b1b30c96d73",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "lifestyle-innovation-hub-chiasso",
+          "category": "novita",
+          "date": "2026-10-07T21:45:03.951Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
