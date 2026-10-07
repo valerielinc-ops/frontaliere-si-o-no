@@ -32,7 +32,7 @@ describe('Facebook pharmacy discovery', () => {
     })]);
   });
 
-  it('reports candidate page URLs for later Graph API identity verification', async () => {
+  it('reports candidate page URLs for later public identity verification', async () => {
     const html = '<a href="https://www.facebook.com/farmacia-internazionale-casciago?ref=search">page</a>';
     expect(extractFacebookCandidateUrls(html)).toEqual([
       'https://www.facebook.com/farmacia-internazionale-casciago',
@@ -47,7 +47,7 @@ describe('Facebook pharmacy discovery', () => {
 
     expect(result.candidates).toEqual([expect.objectContaining({
       pharmacyId: pharmacy.id,
-      status: 'candidate_needs_graph_verification',
+      status: 'candidate_needs_identity_verification',
       urls: ['https://www.facebook.com/farmacia-internazionale-casciago'],
     })]);
   });

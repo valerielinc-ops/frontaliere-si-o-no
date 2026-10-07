@@ -58,8 +58,8 @@ jobs:
         run: |
           set -euo pipefail
           jq -r '.candidates[] | "- \(.pharmacyId): \(.status); candidates=\(.urls | length)"' "$RUNNER_TEMP/pharmacy-facebook-discovery.json" >> "$GITHUB_STEP_SUMMARY"
-          if jq -e '.candidates | any(.status == "candidate_needs_graph_verification")' "$RUNNER_TEMP/pharmacy-facebook-discovery.json" >/dev/null; then
-            echo "Candidate URLs require Graph API identity verification; no facts were published by this workflow." >> "$GITHUB_STEP_SUMMARY"
+          if jq -e '.candidates | any(.status == "candidate_needs_identity_verification")' "$RUNNER_TEMP/pharmacy-facebook-discovery.json" >/dev/null; then
+            echo "Candidate URLs need public identity verification; no unverified facts were published by this workflow." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Upload discovery report

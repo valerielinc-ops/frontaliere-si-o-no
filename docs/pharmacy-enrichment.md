@@ -43,19 +43,22 @@ solo da fonti esplicitamente registrate in
   dallo stesso snapshot di `main`. L’importer riceve inoltre solo gli ID
   contenuti nel lease, non l’intera allow-list configurata. Una prenotazione
   interrotta resta quindi conservativa fino al merge o al cambio mese.
-- Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
-  `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
-  località devono corrispondere prima di accettare i dati; i post e le
-  recensioni non vengono importati. Se i valori Facebook sono già coperti da
-  una fonte con priorità maggiore, Facebook resta comunque registrato come
-  fonte corroborante: la provenienza osservata non sostituisce il fatto
-  selezionato.
+- Facebook pubblico, tramite il workflow di discovery, senza usare la pagina
+  `frontaliereticino` né credenziali Meta. Il nome e la località devono
+  corrispondere prima di accettare un candidato; i post e le recensioni non
+  vengono importati. L'adapter Graph con `PHARMACY_FACEBOOK_PAGE_ID` e
+  `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` è solo un percorso opzionale di
+  corroborazione e non è richiesto per la ricerca pubblica. Se i valori
+  Facebook sono già coperti da una fonte con priorità maggiore, Facebook resta
+  comunque registrato come fonte corroborante: la provenienza osservata non
+  sostituisce il fatto selezionato.
 - Il workflow settimanale `discover-pharmacy-facebook.yml` cerca le farmacie
   esplicitamente elencate in `discoveryPharmacyIds` nella ricerca pubblica di
   Facebook e salva solo un report artifact con eventuali URL candidati. Non
   pubblica fatti dai risultati di ricerca: Facebook spesso risponde con login o
-  checkpoint e ogni candidato deve essere verificato dall'API Graph con il
-  Page ID e il token autorizzato prima di entrare nello snapshot.
+  checkpoint. I candidati pubblici passano prima da un controllo di identità;
+  un eventuale controllo Graph è facoltativo e il workflow non aggira mai un
+  login o un checkpoint.
 
 I segreti arrivano da Firebase Remote Config tramite
 `scripts/load-rc-env.mjs`; non devono essere inseriti nel JSON o nei log. Se

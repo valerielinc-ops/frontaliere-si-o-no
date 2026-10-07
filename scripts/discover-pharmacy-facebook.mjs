@@ -5,8 +5,9 @@
  *
  * This is discovery only: it never publishes facts from a search result.
  * Facebook frequently serves login/checkpoint HTML to unauthenticated public
- * searches, so a candidate must still be verified through the Graph API by
- * the pharmacy enrichment adapter with an authorised Page token.
+ * searches. Discovery therefore reports only public candidates; an optional
+ * Graph adapter may corroborate a candidate, but no Page token is required by
+ * this workflow and no unverified facts are published from it.
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -85,7 +86,7 @@ export async function discoverFacebookCandidates({
         query: text(`${pharmacy.name} ${pharmacy.city}`),
         searchUrl,
         checkedAt,
-        status: blocked ? 'public_search_blocked' : urls.length ? 'candidate_needs_graph_verification' : 'no_candidate',
+        status: blocked ? 'public_search_blocked' : urls.length ? 'candidate_needs_identity_verification' : 'no_candidate',
         urls: blocked ? [] : urls,
       });
     } catch (error) {
