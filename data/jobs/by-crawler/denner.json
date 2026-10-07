@@ -5153,7 +5153,7 @@
       "slugByLocale": {
         "it": "verkaufer-in-denner-interlaken",
         "en": "verkaufer-in-denner-interlaken",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-rtv6c7",
         "fr": "verkaufer-in-denner-interlaken"
       },
       "company": "Denner",
@@ -11442,9 +11442,9 @@
       },
       "slugByLocale": {
         "it": "venditore-denner-zug",
-        "en": "verkaufer-in-denner-zug",
+        "en": "verkaufer-in-denner-zug-rtrz4s",
         "de": "verkaufer-in-denner",
-        "fr": "verkaufer-in-denner-zug"
+        "fr": "verkaufer-in-denner-zug-rtrz4s"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -11867,7 +11867,7 @@
       "slugByLocale": {
         "it": "venditore-denner-zweisimmen",
         "en": "shop-assistant-denner-zweisimmen",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-o0pnha",
         "fr": "vendeur-denner-zweisimmen"
       },
       "company": "Denner",
@@ -19088,7 +19088,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-negozio-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-geicje",
         "de": "stv-filialleiter-in-denner-ag-zurich-geicje",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich"
       },
@@ -19839,7 +19839,7 @@
       },
       "slugByLocale": {
         "it": "vice-direttore-di-filiale-denner-ag-zurich",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-gdn8qz",
         "de": "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "fr": "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
       },
@@ -21416,7 +21416,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-greifensee",
         "en": "hourly-wage-salesperson-denner-greifensee",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-ln4ak3",
         "fr": "vendeur-eusea-l-heure-denner-greifensee"
       },
       "company": "Denner",
@@ -22893,7 +22893,7 @@
       "slugByLocale": {
         "it": "venditore-denner-biel-bienne",
         "en": "shop-assistant-denner-biel-bienne",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-giwqst",
         "fr": "vendeur-denner-biel-bienne"
       },
       "company": "Denner",
@@ -27137,7 +27137,26 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-denner"
+          "venditore-venditore-denner-payerne",
+          "vendeur-vendeuse-denner-3",
+          "venditore-venditrice-denner-payerne",
+          "seller-seller-denner-payerne",
+          "verkaufer-verkaufer-denner-payerne",
+          "vendeur-vendeuse-denner-payerne",
+          "vendeur-vendeuse-denner-2",
+          "vendeur-vendeuse-denner-17pl8x",
+          "venditore-venditore-denner-sa-vevey",
+          "venditore-venditore-denner-vevey",
+          "venditore-venditore-denner-uvrier",
+          "venditore-venditore-denner-sa-sierre",
+          "vendeur-vendeuse-denner-champlan",
+          "venditore-venditore-denner-sierre",
+          "vendeur-vendeuse-denner-sa-delemont",
+          "seller-seller-denner-sa-lausanne",
+          "vendeur-vendeuse-denner-lausanne",
+          "seller-seller-denner-sa-vevey",
+          "seller-seller-denner-vevey",
+          "seller-seller-denner-uvrier"
         ],
         "en": [
           "seller-seller-denner-echallens"
@@ -27149,7 +27168,52 @@
       "previousSlugs": [
         "vendeur-vendeuse-denner",
         "seller-seller-denner-echallens",
-        "verkaufer-verkaufer-denner-echallens"
+        "verkaufer-verkaufer-denner-echallens",
+        "seller-seller-denner-sa-sierre",
+        "seller-seller-denner-sierre",
+        "seller-seller-denner-sa-delemont",
+        "seller-seller-denner-delemont",
+        "verkaufer-verkaufer-denner-sa-lausanne",
+        "verkaufer-verkaufer-denner-sa-vevey",
+        "verkaufer-verkaufer-denner-vevey",
+        "verkaufer-verkaufer-denner-uvrier",
+        "verkaufer-verkaufer-denner-sa-sierre",
+        "verkaufer-verkaufer-denner-sierre",
+        "verkaufer-verkaufer-denner-sa-delemont",
+        "verkaufer-verkaufer-denner-delemont",
+        "vendeur-vendeuse-denner-sa-lausanne-17pl8x",
+        "vendeur-vendeuse-denner-sa-vevey-4gdx0o",
+        "vendeur-vendeuse-denner-vevey",
+        "vendeur-vendeuse-denner-uvrier",
+        "vendeur-vendeuse-denner-sa-sierre-71vxzp",
+        "vendeur-vendeuse-denner-sierre",
+        "vendeur-vendeuse-denner-sa-delemont-62keja",
+        "vendeur-vendeuse-denner-delemont",
+        "vendeur-vendeuse-denner-sa-lausanne",
+        "venditore-venditore-denner-lausanne",
+        "seller-seller-denner-lausanne",
+        "verkaufer-verkaufer-denner-lausanne",
+        "vendeur-vendeuse-denner-4",
+        "venditore-venditore-denner-payerne",
+        "vendeur-vendeuse-denner-3",
+        "venditore-venditrice-denner-payerne",
+        "seller-seller-denner-payerne",
+        "verkaufer-verkaufer-denner-payerne",
+        "vendeur-vendeuse-denner-payerne",
+        "vendeur-vendeuse-denner-2",
+        "vendeur-vendeuse-denner-17pl8x",
+        "venditore-venditore-denner-sa-vevey",
+        "venditore-venditore-denner-vevey",
+        "venditore-venditore-denner-uvrier",
+        "venditore-venditore-denner-sa-sierre",
+        "vendeur-vendeuse-denner-champlan",
+        "venditore-venditore-denner-sierre",
+        "vendeur-vendeuse-denner-sa-delemont",
+        "seller-seller-denner-sa-lausanne",
+        "vendeur-vendeuse-denner-lausanne",
+        "seller-seller-denner-sa-vevey",
+        "seller-seller-denner-vevey",
+        "seller-seller-denner-uvrier"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -28003,7 +28067,7 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-horgen",
         "en": "hourly-wage-salesperson-denner-horgen",
-        "de": "verkaufer-in-im-stundenlohn-denner",
+        "de": "verkaufer-in-im-stundenlohn-denner-ruuxay",
         "fr": "vendeur-eusea-l-heure-denner-horgen"
       },
       "company": "Denner",
@@ -28298,7 +28362,7 @@
       "slugByLocale": {
         "it": "venditore-denner-jegenstorf",
         "en": "shop-assistant-denner-jegenstorf",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-h50cu0",
         "fr": "vendeur-denner-jegenstorf"
       },
       "company": "Denner",
@@ -28591,7 +28655,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "en": "stv-filialleiter-in-denner-zurich",
+        "en": "stv-filialleiter-in-denner-zurich-2zbait",
         "de": "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "fr": "directeur-de-succursale-stv-in-denner-ag-zurich-3e601b"
       },
