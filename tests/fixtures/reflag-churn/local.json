@@ -80,6 +80,27 @@
         "de": "New English description.",
         "fr": "New English description."
       }
+    },
+    {
+      "id": "blank-remote-slot",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "Addetto alla logistica"
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "no-base-evidence",
+      "url": "https://example.test/no-base-evidence",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "Addetto alla logistica"
+      },
+      "needsRetranslation": true
     }
   ]
 }

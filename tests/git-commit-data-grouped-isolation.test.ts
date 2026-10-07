@@ -1546,6 +1546,18 @@ describe('git-commit-data.sh locale translation protection', () => {
         needsRetranslation: true,
       });
       expect(byId.get('source-change-guard').titleByLocale.it).toBe('New English source');
+      // A whitespace-only remote slot is not a translation: nothing to restore,
+      // so the local copy and its marker stay.
+      expect(byId.get('blank-remote-slot')).toMatchObject({
+        titleByLocale: { de: 'Addetto alla logistica' },
+        needsRetranslation: true,
+      });
+      // Without sourceLang and source field in the merge base there is no
+      // evidence that the source is unchanged: generic merge, marker kept.
+      expect(byId.get('no-base-evidence')).toMatchObject({
+        titleByLocale: { de: 'Addetto alla logistica' },
+        needsRetranslation: true,
+      });
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });

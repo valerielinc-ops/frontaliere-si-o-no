@@ -76,6 +76,25 @@
         "de": "Neue englische Beschreibung.",
         "fr": "Nouvelle description anglaise."
       }
+    },
+    {
+      "id": "blank-remote-slot",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "   "
+      }
+    },
+    {
+      "id": "no-base-evidence",
+      "url": "https://example.test/no-base-evidence",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "Logistikmitarbeiter"
+      }
     }
   ]
 }

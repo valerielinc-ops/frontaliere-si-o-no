@@ -76,6 +76,19 @@
         "de": "Old source description.",
         "fr": "Ancienne description française."
       }
+    },
+    {
+      "id": "blank-remote-slot",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "   "
+      }
+    },
+    {
+      "id": "no-base-evidence",
+      "url": "https://example.test/no-base-evidence"
     }
   ]
 }

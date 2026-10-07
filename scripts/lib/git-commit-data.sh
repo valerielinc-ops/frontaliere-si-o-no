@@ -1238,8 +1238,8 @@ function sameNonEmptyLocaleMergeText(left, right) {
  * translation and re-queues the job on the next scan.
  *
  * Protect only the narrow, observable regression:
- * - sourceLang is the same on remote and local;
- * - the source field is unchanged between those sides;
+ * - sourceLang is present in the merge base and the same on remote and local;
+ * - the source field is present in the merge base and unchanged on both sides;
  * - local non-source slot is a normalized copy of that source field; and
  * - remote has a non-empty, different value for the same slot.
  *
@@ -1255,10 +1255,12 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
     remoteObj.sourceLang && localObj.sourceLang
     && String(remoteObj.sourceLang).trim() !== String(localObj.sourceLang).trim()
   ) return [];
-  if (baseObj.sourceLang !== undefined && (
+  // No merge-base evidence means no proof that the source stayed put: leave
+  // the generic merge alone instead of assuming "unchanged".
+  if (
     !sameNonEmptyLocaleMergeText(baseObj.sourceLang, remoteObj.sourceLang)
     || !sameNonEmptyLocaleMergeText(baseObj.sourceLang, localObj.sourceLang)
-  )) return [];
+  ) return [];
 
   const repairs = [];
   for (const { field, mapKey } of [
@@ -1268,8 +1270,7 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
     const remoteSource = remoteObj[field];
     const localSource = localObj[field];
     if (!sameNonEmptyLocaleMergeText(remoteSource, localSource)) continue;
-    if (baseObj[field] !== undefined
-      && !sameNonEmptyLocaleMergeText(baseObj[field], remoteSource)) continue;
+    if (!sameNonEmptyLocaleMergeText(baseObj[field], remoteSource)) continue;
     const remoteMap = isPlainObject(remoteObj[mapKey]) ? remoteObj[mapKey] : {};
     const localMap = isPlainObject(localObj[mapKey]) ? localObj[mapKey] : {};
     for (const locale of LOCALE_TRANSLATION_KEYS) {
@@ -1277,7 +1278,8 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
       const localValue = localMap[locale];
       const remoteValue = remoteMap[locale];
       if (!sameNonEmptyLocaleMergeText(localValue, localSource)) continue;
-      if (!remoteValue || sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
+      if (normalizeLocaleMergeText(remoteValue).length === 0) continue;
+      if (sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
       if (sameNonEmptyLocaleMergeText(localValue, remoteValue)) continue;
       repairs.push({ mapKey, locale, value: remoteValue });
     }
