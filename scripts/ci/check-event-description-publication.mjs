@@ -8,6 +8,10 @@ import {
   loadEventDescriptionRewriteCache,
   rewriteCacheKey,
 } from '../lib/event-description-policy.mjs';
+import {
+  isValidRejectionMemoryEntry,
+  REJECTION_MEMORY_SCHEMA_VERSION,
+} from '../lib/event-description-throughput.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 const DATASET_PATHS = [
@@ -99,12 +103,39 @@ function checkRewriteCache(cache) {
   return errors;
 }
 
+function checkRejectionMemory(cache) {
+  const errors = [];
+  const rejectionCount = Object.keys(cache.rejections || {}).length;
+  if (rejectionCount > 0 && cache.rejectionMemorySchemaVersion !== REJECTION_MEMORY_SCHEMA_VERSION) {
+    errors.push(fail('missing-rejection-memory-schema', { version: cache.rejectionMemorySchemaVersion }));
+  } else if (cache.rejectionMemorySchemaVersion !== undefined && cache.rejectionMemorySchemaVersion !== REJECTION_MEMORY_SCHEMA_VERSION) {
+    errors.push(fail('unsupported-rejection-memory-schema', { version: cache.rejectionMemorySchemaVersion }));
+  }
+  const allowedFields = new Set(['id', 'sourceDescriptionHash', 'code', 'rejectedRuns', 'lastAttemptAt', 'policyVersion', 'promptVersion']);
+  for (const [key, entry] of Object.entries(cache.rejections || {})) {
+    if (Object.keys(entry || {}).some((field) => !allowedFields.has(field))) {
+      errors.push(fail('unexpected-rejection-memory-field', { key }));
+    }
+    if (Object.keys(entry || {}).some((field) => RAW_SOURCE_FIELDS.includes(field))) {
+      errors.push(fail('raw-source-field-in-rejection-memory', { key }));
+    }
+    if (key !== rewriteCacheKey(entry?.id, entry?.sourceDescriptionHash)) {
+      errors.push(fail('rejection-memory-key-mismatch', { key }));
+    }
+    if (!isValidRejectionMemoryEntry(entry, { id: entry?.id, sourceHash: entry?.sourceDescriptionHash })) {
+      errors.push(fail('invalid-rejection-memory-entry', { key }));
+    }
+  }
+  return errors;
+}
+
 function main() {
   const cache = loadEventDescriptionRewriteCache(CACHE_PATH);
   const errors = [
     ...checkSliceFiles(),
     ...checkDatasets(cache),
     ...checkRewriteCache(cache),
+    ...checkRejectionMemory(cache),
   ];
   if (existsSync(TRANSLATION_CACHE_PATH)) {
     const translationCache = readJson(TRANSLATION_CACHE_PATH);
@@ -119,7 +150,7 @@ function main() {
   }
   const dataset = existsSync(DATASET_PATHS[0]) ? readJson(DATASET_PATHS[0]) : { events: [] };
   const rewritten = (dataset.events || []).filter((event) => event.description).length;
-  console.log(JSON.stringify({ ok: true, datasets: DATASET_PATHS.filter(existsSync).length, events: (dataset.events || []).length, rewritten, cacheEntries: Object.keys(cache.entries || {}).length }));
+  console.log(JSON.stringify({ ok: true, datasets: DATASET_PATHS.filter(existsSync).length, events: (dataset.events || []).length, rewritten, cacheEntries: Object.keys(cache.entries || {}).length, rejectionMemoryEntries: Object.keys(cache.rejections || {}).length }));
 }
 
 main();

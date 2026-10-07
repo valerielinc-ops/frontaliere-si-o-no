@@ -73,6 +73,15 @@ describe('loop clock table and cadence', () => {
     });
   });
 
+  it('keeps event description rewriting on the hourly external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-event-description-rewrite',
+      repo: 'site',
+      workflow: 'event-description-rewrite.yml',
+      everyMinutes: 60,
+    });
+  });
+
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
     const observed = new Set<string>();
     const longestCadence = Math.max(...LOOP_CLOCK_ENTRIES.map((entry) => entry.everyMinutes));
@@ -434,6 +443,15 @@ describe('loop clock observer', () => {
       ...options,
     }).then((report) => ({ report, createIssueImpl, resolveIssueImpl, listRunsImpl }));
   };
+
+  it('observes the event-description rewrite marker as its own hourly entry', () => {
+    const entry = LOOP_CLOCK_ENTRIES.find((candidate) => candidate.id === 'site-event-description-rewrite');
+    expect(entry).toBeDefined();
+    const run = clockRun(entry!, 30);
+    expect(selectLoopClockRun([run], entry!)).toBe(run);
+    expect(assessLoopClockFreshness({ now: NOW, lastRunAt: run.createdAt, everyMinutes: entry!.everyMinutes }))
+      .toMatchObject({ stale: false, thresholdMinutes: 180 });
+  });
 
   it('counts only a workflow_dispatch on main that carries the marker of the entry', () => {
     const entry = { ...customEntry('picked'), everyMinutes: 30 };

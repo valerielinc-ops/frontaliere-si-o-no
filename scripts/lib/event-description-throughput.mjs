@@ -2,12 +2,19 @@ import crypto from 'node:crypto';
 import { readFileSync } from 'node:fs';
 
 import {
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
   isValidRewriteCacheEntry,
+  isValidSourceDescriptionHash,
   rewriteCacheKey,
   sourceDescriptionHash,
 } from './event-description-policy.mjs';
 
 export const THROUGHPUT_SCHEMA_VERSION = 1;
+export const REJECTION_MEMORY_SCHEMA_VERSION = 1;
+export const MAX_REJECTION_RUNS = 3;
+export const REJECTION_WAIT_BASE_MS = 60 * 60 * 1000;
 export const DEFAULT_SHARD_COUNT = 3;
 export const MIN_SHARD_COUNT = 1;
 export const MAX_SHARD_COUNT = 4;
@@ -73,6 +80,142 @@ export function selectShardQueue(queue, { shardCount = 1, shardIndex = 0, limit 
   return selected.slice(0, Number.isInteger(max) ? max : selected.length);
 }
 
+export function rejectionMemoryKey(id, sourceHash) {
+  return rewriteCacheKey(id, sourceHash);
+}
+
+export function isValidRejectionMemoryEntry(entry, { id, sourceHash } = {}) {
+  return Boolean(
+    entry
+      && typeof entry.id === 'string'
+      && entry.id === id
+      && isValidSourceDescriptionHash(sourceHash)
+      && entry.sourceDescriptionHash === sourceHash
+      && typeof entry.code === 'string'
+      && /^[a-z0-9-]+$/u.test(entry.code)
+      && Number.isInteger(entry.rejectedRuns)
+      && entry.rejectedRuns >= 1
+      && entry.rejectedRuns <= MAX_REJECTION_RUNS
+      && typeof entry.lastAttemptAt === 'string'
+      && Number.isFinite(Date.parse(entry.lastAttemptAt))
+      && typeof entry.policyVersion === 'string'
+      && /^[a-z0-9-]+$/u.test(entry.policyVersion)
+      && typeof entry.promptVersion === 'string'
+      && /^[a-z0-9-]+$/u.test(entry.promptVersion),
+  );
+}
+
+export function rejectionWaitMs(rejectedRuns, baseMs = REJECTION_WAIT_BASE_MS) {
+  const runs = Math.max(1, Number.parseInt(String(rejectedRuns), 10) || 1);
+  return Math.max(0, Number(baseMs) || 0) * (2 ** (runs - 1));
+}
+
+/** Return the queue state without persisting a derived status in the cache. */
+export function rejectionStatus(
+  entry,
+  {
+    id,
+    sourceHash,
+    now = new Date(),
+    policyVersion = EVENT_DESCRIPTION_POLICY_VERSION,
+    promptVersion = EVENT_DESCRIPTION_PROMPT_VERSION,
+  } = {},
+) {
+  if (!isValidRejectionMemoryEntry(entry, { id, sourceHash })) return 'new';
+  if (entry.policyVersion !== policyVersion || entry.promptVersion !== promptVersion) return 'retryable';
+  if (entry.rejectedRuns >= MAX_REJECTION_RUNS) return 'parked';
+  const nowMs = now instanceof Date ? now.getTime() : Date.parse(now);
+  const lastAttemptMs = Date.parse(entry.lastAttemptAt);
+  if (!Number.isFinite(nowMs) || !Number.isFinite(lastAttemptMs)) return 'retryable';
+  return nowMs >= lastAttemptMs + rejectionWaitMs(entry.rejectedRuns) ? 'retryable' : 'waiting';
+}
+
+/** Input-budget skips never reached the provider and must not consume retry memory. */
+export function shouldPersistRejectionMemory({ definitive = false, code = '' } = {}) {
+  return Boolean(definitive) && code !== 'input-budget';
+}
+
+/** Add one run-level rejection using only the public-safe memory fields. */
+export function recordRejectionMemory(
+  memory,
+  { id, sourceDescriptionHash: sourceHash },
+  code,
+  {
+    now = new Date(),
+    policyVersion = EVENT_DESCRIPTION_POLICY_VERSION,
+    promptVersion = EVENT_DESCRIPTION_PROMPT_VERSION,
+  } = {},
+) {
+  if (!memory || typeof memory !== 'object' || !id || !isValidSourceDescriptionHash(sourceHash) || !/^[a-z0-9-]+$/u.test(String(code))) return null;
+  const key = rejectionMemoryKey(id, sourceHash);
+  const previous = memory?.[key];
+  const sameContext = isValidRejectionMemoryEntry(previous, { id, sourceHash })
+    && previous.policyVersion === policyVersion
+    && previous.promptVersion === promptVersion;
+  const rejectedRuns = sameContext ? Math.min(MAX_REJECTION_RUNS, previous.rejectedRuns + 1) : 1;
+  const entry = {
+    id,
+    sourceDescriptionHash: sourceHash,
+    code: String(code),
+    rejectedRuns,
+    lastAttemptAt: (now instanceof Date ? now : new Date(now)).toISOString(),
+    policyVersion,
+    promptVersion,
+  };
+  memory[key] = entry;
+  return entry;
+}
+
+export function queueStateForEvent(event, cache, { now = new Date() } = {}) {
+  const hash = event?.sourceDescriptionHash || sourceDescriptionHash(event);
+  if (!event?.id || !isValidSourceDescriptionHash(hash)) return 'not-candidate';
+  const entries = cache?.entries && typeof cache.entries === 'object' ? cache.entries : {};
+  if (isValidRewriteCacheEntry(entries[rewriteCacheKey(event.id, hash)], { id: event.id, sourceHash: hash })) return 'accepted';
+  const rejections = cache?.rejections && typeof cache.rejections === 'object' ? cache.rejections : {};
+  return rejectionStatus(rejections[rejectionMemoryKey(event.id, hash)], {
+    id: event.id,
+    sourceHash: hash,
+    now,
+  });
+}
+
+export function summarizeRewriteQueue(dataset, cache, { now = new Date() } = {}) {
+  const counts = {
+    pending: 0,
+    toAttempt: 0,
+    neverAttempted: 0,
+    retryable: 0,
+    waitingRetry: 0,
+    parked: 0,
+    accepted: 0,
+  };
+  for (const event of dataset?.events || []) {
+    const state = queueStateForEvent(event, cache, { now });
+    if (state === 'accepted') {
+      counts.accepted += 1;
+    } else if (state === 'new') {
+      counts.pending += 1;
+      counts.toAttempt += 1;
+      counts.neverAttempted += 1;
+    } else if (state === 'retryable') {
+      counts.pending += 1;
+      counts.toAttempt += 1;
+      counts.retryable += 1;
+    } else if (state === 'waiting' || state === 'parked') {
+      counts.pending += 1;
+      counts[state === 'waiting' ? 'waitingRetry' : 'parked'] += 1;
+    }
+  }
+  return { ...counts, workable: counts.toAttempt + counts.waitingRetry };
+}
+
+/** Keep first attempts ahead of retries while preserving the caller's date order. */
+export function compareQueueAttemptPriority(left, right) {
+  const leftRank = left?.selectionClass === 'new' ? 0 : 1;
+  const rightRank = right?.selectionClass === 'new' ? 0 : 1;
+  return leftRank - rightRank;
+}
+
 function stableValue(value) {
   return JSON.stringify(value);
 }
@@ -116,11 +259,48 @@ export function mergeRewriteCaches(baseCache, shardCaches = []) {
     }
   }
 
+  const baseRejections = baseCache?.rejections && typeof baseCache.rejections === 'object'
+    ? baseCache.rejections
+    : {};
+  const rejections = {};
+  for (const [key, candidate] of Object.entries(baseRejections)) {
+    if (
+      isValidRejectionMemoryEntry(candidate, { id: candidate?.id, sourceHash: candidate?.sourceDescriptionHash })
+      && key === rejectionMemoryKey(candidate.id, candidate.sourceDescriptionHash)
+    ) rejections[key] = candidate;
+  }
+  let duplicateRejectionKeys = 0;
+  for (const cache of caches) {
+    const shardRejections = cache?.rejections && typeof cache.rejections === 'object' ? cache.rejections : {};
+    for (const key of Object.keys(shardRejections).sort()) {
+      const candidate = shardRejections[key];
+      if (!isValidRejectionMemoryEntry(candidate, { id: candidate?.id, sourceHash: candidate?.sourceDescriptionHash })) continue;
+      const existing = rejections[key];
+      if (!existing) {
+        rejections[key] = candidate;
+        continue;
+      }
+      if (stableValue(existing) === stableValue(candidate)) continue;
+      duplicateRejectionKeys += 1;
+      const existingRuns = Number(existing.rejectedRuns) || 0;
+      const candidateRuns = Number(candidate.rejectedRuns) || 0;
+      const existingAt = Date.parse(existing.lastAttemptAt) || 0;
+      const candidateAt = Date.parse(candidate.lastAttemptAt) || 0;
+      if (
+        candidateRuns > existingRuns
+        || (candidateRuns === existingRuns && candidateAt > existingAt)
+        || (candidateRuns === existingRuns && candidateAt === existingAt && stableValue(candidate).localeCompare(stableValue(existing)) < 0)
+      ) rejections[key] = candidate;
+    }
+  }
+  for (const key of Object.keys(entries)) delete rejections[key];
+
   return {
     ...baseCache,
-    schemaVersion: baseCache?.schemaVersion ?? 1,
+    schemaVersion: EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
     entries: sortedEntries(entries),
-    mergeStats: { duplicateKeys, preservedBaseKeys },
+    rejections: sortedEntries(rejections),
+    mergeStats: { duplicateKeys, preservedBaseKeys, duplicateRejectionKeys },
   };
 }
 
@@ -187,12 +367,7 @@ export function adaptThroughput({
 }
 
 export function countPendingEvents(dataset, cache) {
-  const entries = cache?.entries && typeof cache.entries === 'object' ? cache.entries : {};
-  return (dataset?.events || []).reduce((pending, event) => {
-    const hash = event?.sourceDescriptionHash || sourceDescriptionHash(event);
-    const entry = hash && entries[rewriteCacheKey(event.id, hash)];
-    return pending + (hash && !isValidRewriteCacheEntry(entry, { id: event.id, sourceHash: hash }) ? 1 : 0);
-  }, 0);
+  return summarizeRewriteQueue(dataset, cache).pending;
 }
 
 export function readJsonFile(filePath, fallback = null) {
@@ -234,11 +409,27 @@ export function emptyRewriteStats({ shardIndex = 0, shardCount = 1, limit = 0, s
     observedElapsedMs: 0,
     backoffMs: 0,
     rejectionCodes: {},
+    rejectionDetails: {},
+    selectedNeverAttempted: 0,
+    selectedRetries: 0,
+    acceptedNeverAttempted: 0,
+    acceptedRetries: 0,
+    rejectedNeverAttempted: 0,
+    rejectedRetries: 0,
+    parkedFallbackCandidates: 0,
+    parkedUnchanged: 0,
     totalCandidateRecords: 0,
     selected: 0,
     queueRemaining: 0,
+    toAttempt: 0,
+    neverAttempted: 0,
+    retryable: 0,
+    waitingRetry: 0,
+    parked: 0,
     model: '',
     promptVersion: '',
+    policyVersion: '',
+    rejectionMemorySchemaVersion: REJECTION_MEMORY_SCHEMA_VERSION,
     quota: { tokenCountersExposed: false },
   };
 }
