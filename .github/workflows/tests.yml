@@ -1366,6 +1366,7 @@ jobs:
           guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
         run: |
           set -euo pipefail
+          guard_base_ref="${guard_base_ref:?guard_base_ref is required}"
           # Il checkout è tree:0 e conserva il grafo dei commit. Aggiorniamo il
           # solo remote-tracking ref del base senza depth: il marker e ogni
           # antenato necessario alla domanda restano risolvibili, senza scaricare
@@ -1970,7 +1971,11 @@ jobs:
         # `git merge-base` che gli step più in basso usano come fallback. Senza
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
-        run: git fetch --no-tags origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
+        env:
+          TESTS_GUARD_REF: ${{ github.base_ref || 'main' }}
+        run: |
+          tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
+          git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -1987,7 +1992,11 @@ jobs:
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
+        env:
+          FACTUALITY_REF: ${{ github.base_ref || 'main' }}
+        run: |
+          factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
+          node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
@@ -2398,15 +2407,18 @@ jobs:
       - name: Collect independent source gates
         id: collect-independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
+        env:
+          SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
+          INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           failures=0
-          if [ "${{ steps.source-guards.outcome }}" = "failure" ]; then
+          if [ "$SOURCE_GUARDS_OUTCOME" = "failure" ]; then
             echo "source guards failed"
             failures=1
           fi
-          if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
+          if [ "$INDEPENDENT_GATES_OUTCOME" != "skipped" ]; then
             expected_file="$state_dir/expected-labels"
             if [ ! -s "$expected_file" ]; then
               echo "::error::independent gate expected roster is missing or empty"
@@ -3327,11 +3339,11 @@ jobs:
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         with:
           # `github_token` alimenta gli helper provider-neutral della action e
-          # conserva il fallback lifecycle; il bridge host-side della review
-          # può postare una review che riattiva auto-merge e quindi usa solo
-          # App/PAT. Il mint fallisce soft, ma il bridge resta fail-closed.
-          github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # deve usare la stessa identità App/PAT verificata del bridge host-side.
+          # Quando il selettore è vuoto, l'action resta fail-closed prima del
+          # delivery: GITHUB_TOKEN non può diventare un publisher anti-recursivo.
+          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+          codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
           # Per-tier effort from the tier step; `max` when the tier step did
@@ -3764,10 +3776,12 @@ jobs:
         # the provenance marker requested in its prompt (observed on #9346).
         # Repair that formatting defect deterministically; never rerun the
         # model and never copy a stale, red, or ambiguous verdict.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') && ((env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '') || env.GITHUB_PAT != '') }}
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Marker repair is a GitHub mutation: never publish it with the
+          # read-only Actions token when no verified App/PAT identity exists.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -3938,8 +3952,10 @@ jobs:
           set -euo pipefail
           automerge=false
           autorebase=false
-          [ "$AUTOMERGE" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
-          [ "$AUTOREBASE" = "true" ] && autorebase=true
+          automerge_requested="${AUTOMERGE:-false}"
+          autorebase_requested="${AUTOREBASE:-false}"
+          [ "$automerge_requested" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
+          [ "$autorebase_requested" = "true" ] && autorebase=true
           {
             echo "automerge=$automerge"
             echo "autorebase=$autorebase"
@@ -4047,7 +4063,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       # Il token App e' l'identita' primaria; senza, l'opt-in viene saltato e
-      # l'autorebase ripiega su GITHUB_TOKEN (fail-soft, come prima).
+      # ogni mutation resta pending fino a un'identità write-capable.
       - name: Mint post-review App token
         continue-on-error: true
         env:
@@ -4055,6 +4071,71 @@ jobs:
           APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
+
+      - name: Resolve post-review write-capable identity
+        id: post_review_write_capability
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
+        env:
+          APP_TOKEN: ${{ env.APP_TOKEN }}
+          APP_TOKEN_DATA_REFRESH: ${{ env.APP_TOKEN_DATA_REFRESH }}
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          if [ "${APP_TOKEN_DATA_REFRESH:-}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; then
+            {
+              echo 'write_capable=true'
+              if [ "${APP_TOKEN_WORKFLOWS:-}" = 'true' ]; then
+                echo 'workflow_write_capable=true'
+              else
+                echo 'workflow_write_capable=false'
+              fi
+              echo 'pending=false'
+              echo 'retry=false'
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            {
+              echo 'write_capable=true'
+              echo 'workflow_write_capable=true'
+              echo 'pending=false'
+              echo 'retry=false'
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          {
+            echo 'write_capable=false'
+            echo 'workflow_write_capable=false'
+            echo 'pending=true'
+            echo 'retry=true'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Report pending post-review mutation
+        if: ${{ (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') && (steps.post_review_write_capability.outputs.write_capable != 'true' || (needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable != 'true')) }}
+        env:
+          AUTOREBASE: ${{ needs.vitest.outputs.autorebase }}
+          WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.write_capable }}
+          WORKFLOW_WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.workflow_write_capable }}
+        run: |
+          set -euo pipefail
+          if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Post-review mutation pending: no App token verified with contents:write + pull_requests:write and no PAT is available. No auto-merge opt-in, autorebase, or branch push will run."
+          elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Autorebase pending: the selected write-capable identity has no verified workflows:write capability; pr-autorebase.mjs will not run."
+          fi
+          {
+            echo '### Post-review mutation pending'
+            if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo '- Nessun token verificato con contents:write + pull_requests:write: nessun fallback su GITHUB_TOKEN, nessun autorebase e nessun push.'
+              echo '- Native auto-merge: retry-native-automerge.yml ritentera con il PAT caricato da Remote Config.'
+            elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo "- Autorebase: resta pending perché l’identità selezionata non ha \`workflows:write\` verificato; \`pr-autorebase.mjs\` non viene eseguito."
+            fi
+            if [ "${AUTOREBASE:-false}" = 'true' ]; then
+              echo "- Autorebase: verra rivalutato dal prossimo percorso del ciclo con un'identita write-capable e workflow-capable."
+            fi
+          } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
 
       # ── Opt-in al native auto-merge, dopo il job required ────────────────
       #
@@ -4152,19 +4233,20 @@ jobs:
       # `vitest (unit + integration)` sulla HEAD = `success`, step
       # `Require approving Codex review` = `success`), come fa il retry.
       - name: Enable native auto-merge after the required job
-        if: ${{ needs.vitest.outputs.automerge == 'true' }}
+        if: ${{ needs.vitest.outputs.automerge == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' }}
         continue-on-error: true
         env:
           REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ needs.vitest.outputs.pr_number }}
+          POST_REVIEW_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           if [ -z "${NATIVE_AUTOMERGE_HELPER_DIR:-}" ] || [ -z "${NATIVE_AUTOMERGE_SOURCE_ROOT:-}" ]; then
             echo "::warning::sorgente native auto-merge da main non validata; nessun opt-in — retry-native-automerge.yml ritenta entro 20 min."
             exit 0
           fi
-          if [ -z "${APP_TOKEN:-}" ]; then
-            echo "::warning::App token assente; nessun opt-in (nessun ripiego su GITHUB_TOKEN, che non risveglierebbe il deploy) — retry-native-automerge.yml ritenta entro 20 min."
+          if [ -z "${POST_REVIEW_TOKEN:-}" ]; then
+            echo "::warning::Identità write-capable non disponibile dopo il guard; nessun opt-in — retry-native-automerge.yml ritenta entro 20 min."
             exit 0
           fi
           cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
@@ -4184,7 +4266,7 @@ jobs:
           # abbandono tardivo per stato cambiato, e non costa una lettura API
           # in piu' ne' un secondo uso del token.
           set +e
-          GH_TOKEN="$APP_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
+          GH_TOKEN="$POST_REVIEW_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
             "$REPOSITORY" "$PR_NUMBER" 2>&1 | tee "$RUNNER_TEMP/native-automerge-gate.log"
           gate_status=${PIPESTATUS[0]}
           set -e
@@ -4198,17 +4280,17 @@ jobs:
       # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
       # uno sweeper che fa solo git e API.
       - name: Setup Node.js + npm ci for autorebase
-        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         uses: ./.github/actions/ci-npm-setup
         with:
           npm-ci-args: --ignore-scripts
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ needs.vitest.outputs.autorebase == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           DRY_RUN: 'false'
         run: node scripts/ci/pr-autorebase.mjs

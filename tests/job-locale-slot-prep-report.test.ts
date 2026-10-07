@@ -188,10 +188,18 @@ function makeSandbox(jobs: Job[], slices: Record<string, Job[]>) {
   fs.symlinkSync(path.resolve(process.cwd(), 'scripts'), path.join(sandbox, 'scripts'));
   fs.symlinkSync(path.resolve(process.cwd(), 'node_modules'), path.join(sandbox, 'node_modules'));
   fs.symlinkSync(path.resolve(process.cwd(), 'packages'), path.join(sandbox, 'packages'));
-  fs.symlinkSync(
-    path.resolve(process.cwd(), 'data', 'canton-municipalities.json'),
-    path.join(sandbox, 'data', 'canton-municipalities.json'),
-  );
+  // cleanup-jobs.mjs reaches these through JSON import attributes
+  // (target-swiss-locations.mjs): a missing file is a link-time error.
+  for (const file of [
+    'canton-municipalities.json',
+    'swiss-locality-postal-codes.json',
+    'swiss-postal-code-index.json',
+  ]) {
+    fs.symlinkSync(
+      path.resolve(process.cwd(), 'data', file),
+      path.join(sandbox, 'data', file),
+    );
+  }
   fs.writeFileSync(path.join(sandbox, 'data', 'jobs.json'), JSON.stringify(jobs, null, 2));
   fs.writeFileSync(path.join(sandbox, 'public', 'data', 'jobs.json'), JSON.stringify(jobs, null, 2));
   for (const [key, sliceJobs] of Object.entries(slices)) {

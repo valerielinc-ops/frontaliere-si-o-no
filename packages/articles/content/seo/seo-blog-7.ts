@@ -4658,7 +4658,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
     title: 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
     description: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, lostallo, soazza, mesocco, titolo',
-    ogTitle: 'Lostallo, Soazza e Mesocco per il titolo di "Comune più attivo della Svizzera"',
+    ogTitle: 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
     ogDescription: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026.',
     canonicalPath: '/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026/',
     structuredData: {
@@ -8519,10 +8519,10 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
   },
 
   'blog-a4-milano-brescia-diviazione-obbligatoria-2026': {
-    title: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    title: 'A4 Milano-Brescia: deviazione verso Varese (5-6 maggio)',
     description: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, milano-brescia, deviazione, obbligatoria, verso',
-    ogTitle: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    ogTitle: 'A4 Milano-Brescia: deviazione verso Varese (5-6 maggio)',
     ogDescription: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.',
     canonicalPath: '/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026/',
     structuredData: {
@@ -8603,10 +8603,10 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
   },
 
   'blog-a4-milano-brescia-chiusura-notturna-2026': {
-    title: 'A4 chiusa tra Sesto e Monza: notti interessate | Frontaliere Ticino',
+    title: 'A4 chiusa tra Sesto e Monza: notti interessate',
     description: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, chiusa, sesto, monza, notti',
-    ogTitle: 'A4 Milano-Brescia chiusa tra Sesto San Giovanni e Monza: tutte le notti interessate',
+    ogTitle: 'A4 chiusa tra Sesto e Monza: notti interessate',
     ogDescription: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati.',
     canonicalPath: '/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026/',
     structuredData: {

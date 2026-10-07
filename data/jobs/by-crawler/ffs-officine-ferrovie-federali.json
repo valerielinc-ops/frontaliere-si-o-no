@@ -10286,7 +10286,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -10304,7 +10304,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -10690,7 +10691,7 @@
           "controleur-de-trafic-ferroviaire-a-entree-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T23:07:31.007Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -10708,7 +10709,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-17030e33d4a9",
@@ -10821,9 +10823,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -10894,8 +10896,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -10905,12 +10905,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -12846,7 +12844,7 @@
       "slugByLocale": {
         "it": "responsabile-dei-lavori-ffs-officine-ferrovie-federali-renens-vd",
         "en": "works-manager-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "werksleiter-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -12904,7 +12902,7 @@
       "crawledAt": "2026-10-07T09:42:03.398Z",
       "previousSlugs": [
         "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
-        "werksleiter-ffs-officine-ferrovie-federali-renens-vd"
+        "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12915,7 +12913,7 @@
         ],
         "de": [
           "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
-          "werksleiter-ffs-officine-ferrovie-federali-renens-vd"
+          "leiter-der-arbeiten-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "salaryMin": 97500,
@@ -12941,8 +12939,8 @@
       "slug": "responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
       "slugByLocale": {
         "it": "responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
-        "en": "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
-        "de": "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
+        "en": "head-m-f-d-land-acquisition-and-land-activities-east-region-ffs-officine-ferrovie-federali-altstetten",
+        "de": "leiter-m-w-d-region-landerwerb-und-landaktivitaten-ost-ffs-officine-ferrovie-federali-altstetten",
         "fr": "chef-h-f-d-acquisition-des-terres-et-activites-foncieres-de-la-region-est-ffs-officine-ferrovie-federali-altstetten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -13008,18 +13006,14 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:00.810Z",
       "previousSlugs": [
-        "head-m-f-d-land-acquisition-and-land-activities-east-region-ffs-officine-ferrovie-federali-altstetten",
-        "leiter-m-w-d-region-landerwerb-und-landaktivitaten-ost-ffs-officine-ferrovie-federali-altstetten",
         "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
         "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "head-m-f-d-land-acquisition-and-land-activities-east-region-ffs-officine-ferrovie-federali-altstetten",
           "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
         ],
         "de": [
-          "leiter-m-w-d-region-landerwerb-und-landaktivitaten-ost-ffs-officine-ferrovie-federali-altstetten",
           "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
         ]
       },
@@ -13328,7 +13322,7 @@
         "it": "caposquadra-di-turno-nella-verniciatura-ffs-officine-ferrovie-federali-olten",
         "en": "shift-supervisor-in-the-paint-shop-ffs-officine-ferrovie-federali-olten",
         "de": "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-        "fr": "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
+        "fr": "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13372,7 +13366,6 @@
       "crawledAt": "2026-10-07T09:42:05.808Z",
       "previousSlugs": [
         "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-        "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten",
         "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
@@ -13384,7 +13377,6 @@
         ],
         "fr": [
           "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-          "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten",
           "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
         ]
       },
@@ -13414,7 +13406,7 @@
         "it": "pulizia-del-supervisore-del-turno-ffs-officine-ferrovie-federali-chur",
         "en": "shift-supervisor-cleaning-ffs-officine-ferrovie-federali-chur",
         "de": "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-        "fr": "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
+        "fr": "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13488,7 +13480,6 @@
       "crawledAt": "2026-10-07T09:42:05.302Z",
       "previousSlugs": [
         "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-        "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur",
         "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
       ],
       "previousSlugsByLocale": {
@@ -13500,7 +13491,6 @@
         ],
         "fr": [
           "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-          "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur",
           "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
         ]
       },
@@ -13846,7 +13836,7 @@
       "slugByLocale": {
         "it": "specialista-in-sistemi-di-drenaggio-e-responsabile-stradale-di-collegamento-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
         "en": "specialist-in-drainage-systems-and-connection-road-manager-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "spezialisierte-wasserentsorgungsanlagen-und-verbindungskanalmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "spezialist-fur-entwasserungssysteme-und-verbindungsstra-enmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -13906,7 +13896,7 @@
       "previousSlugs": [
         "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd",
         "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
-        "spezialist-fur-entwasserungssysteme-und-verbindungsstra-enmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
+        "spezialisierte-wasserentsorgungsanlagen-und-verbindungskanalmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13919,7 +13909,7 @@
         "de": [
           "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd",
           "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
-          "spezialist-fur-entwasserungssysteme-und-verbindungsstra-enmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
+          "spezialisierte-wasserentsorgungsanlagen-und-verbindungskanalmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "firstSeenAt": "2026-10-06T21:40:17.499Z",
@@ -14062,9 +14052,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14133,8 +14123,8 @@
       "crawledAt": "2026-10-07T09:42:10.806Z",
       "previousSlugs": [
         "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
-        "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+        "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten",
+        "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14142,11 +14132,11 @@
         ],
         "en": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten"
+          "interlocking-employees-r-olten-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-          "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
+          "salaries-interloques-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-10-06T21:40:19.991Z",
@@ -14173,7 +14163,7 @@
       "slug": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
       "slugByLocale": {
         "it": "catenaria-speciale-per-montatori-ffs-officine-ferrovie-federali-arth-goldau",
-        "en": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
+        "en": "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau",
         "de": "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
         "fr": "une-catenaire-speciale-pour-ajusteurs-ffs-officine-ferrovie-federali-arth-goldau"
       },
@@ -14235,15 +14225,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:08.809Z",
       "previousSlugs": [
-        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau",
-        "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau"
+        "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "en": [
-          "special-fitter-catenary-ffs-officine-ferrovie-federali-arth-goldau",
           "spezialmonteur-in-fahrleitung-ffs-officine-ferrovie-federali-arth-goldau"
         ],
         "fr": [
@@ -14274,9 +14262,9 @@
       "slug": "cavi-speciali-giuntrice-elettricista-elettricista-meccanico-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
         "it": "cavi-speciali-giuntrice-elettricista-elettricista-meccanico-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14336,20 +14324,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:09.307Z",
       "previousSlugs": [
-        "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz",
-        "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz"
+        "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "en": [
-          "special-fitter-cable-splicer-electrician-electrician-mechanic-ffs-officine-ferrovie-federali-deutschschweiz",
           "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "fr": [
-          "cable-special-brosseur-electricien-electricien-mecanicien-ffs-officine-ferrovie-federali-deutschschweiz",
           "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
@@ -14378,9 +14362,9 @@
       "slug": "montatore-speciale-di-cavi-ingegneria-civile-giardiniere-muratore-ingegnere-civile-costruttore-di-percorsi-stradali-ffs-officine-ferrovie-federali-deutschschweiz",
       "slugByLocale": {
         "it": "montatore-speciale-di-cavi-ingegneria-civile-giardiniere-muratore-ingegnere-civile-costruttore-di-percorsi-stradali-ffs-officine-ferrovie-federali-deutschschweiz",
-        "en": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
+        "en": "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz",
         "de": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "fr": "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
+        "fr": "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14437,20 +14421,16 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-10-07T09:42:09.824Z",
       "previousSlugs": [
-        "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz",
-        "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz",
-        "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz"
+        "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "en": [
-          "special-fitter-cable-civil-engineering-landscape-gardener-bricklayer-civil-engineer-traffic-route-builder-ffs-officine-ferrovie-federali-deutschschweiz",
           "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ],
         "fr": [
-          "installateur-special-de-cables-genie-civil-paysagiste-macon-ingenieur-civil-constructeur-de-routes-de-circulation-ffs-officine-ferrovie-federali-deutschschweiz",
           "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-deutschschweiz"
         ]
       },
@@ -14763,11 +14743,11 @@
     },
     {
       "id": "sbb-199deb86317e",
-      "slug": "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern",
+      "slug": "head-m-f-d-frontdesk-finanza-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern",
-        "en": "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern",
-        "de": "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern",
+        "it": "head-m-f-d-frontdesk-finanza-ffs-officine-ferrovie-federali-bern",
+        "en": "head-m-f-d-frontdesk-finance-ffs-officine-ferrovie-federali-bern",
+        "de": "leiter-m-w-d-frontdesk-finance-ffs-officine-ferrovie-federali-bern",
         "fr": "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -14861,7 +14841,21 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/responsable-m-f-d-frontdesk-finances/da601ed6-d3bb-462a-8b57-eb9cce921b9f",
-      "firstSeenAt": "2026-10-07T09:42:03.813Z"
+      "firstSeenAt": "2026-10-07T09:42:03.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-m-f-d-frontdesk-finances-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-031cc87db5dd",

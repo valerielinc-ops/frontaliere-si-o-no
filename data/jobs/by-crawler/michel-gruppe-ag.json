@@ -487,8 +487,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen",
         "it": "collaboratore-trice-innenbegrunung-40-michel-gruppe-ag-meiringen",
-        "en": "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen",
-        "fr": "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen"
+        "en": "associate-innenbegrunung-40-michel-gruppe-ag-meiringen",
+        "fr": "collaborateur-trice-innenbegrunung-40-michel-gruppe-ag-meiringen"
       },
       "company": "Michel Gruppe AG",
       "companyKey": "michel-gruppe-ag",
@@ -539,6 +539,12 @@
       "department": "Hotellerie",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen"
+        ],
+        "en": [
+          "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen"
+        ],
+        "fr": [
           "mitarbeiter-in-innenbegrunung-40-michel-gruppe-ag-meiringen"
         ]
       },

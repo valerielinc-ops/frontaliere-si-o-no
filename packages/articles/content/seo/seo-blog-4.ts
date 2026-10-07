@@ -2108,7 +2108,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
 
  'blog-fatture-mediche-gonfiate-ticino': {
  title: 'Fatture Mediche Gonfiate: Un Problema | Frontaliere Ticino',
- description: 'In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate. Scopri come affrontare questa problematica. Dati aggiornati 2026 per frontalieri in Ticino.',
+ description: 'Sondaggio ACSI: il 60% dei partecipanti ha ricevuto almeno una fattura medica sbagliata. Come controllare i conteggi e contestare gli errori in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, fatture, mediche, gonfiate, problema',
  ogTitle: 'Fatture Mediche Gonfiate in Ticino',
  ogDescription: 'Scopri il fenomeno delle fatture mediche gonfiate in Ticino e come difenderti.',
@@ -2117,7 +2117,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Fatture Mediche Gonfiate: Un Problema Sempre Più Diffuso in Ticino",
- "description": "In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate. Scopri come affrontare questa problematica. Dati aggiornati 2026 per frontalieri in Ticino.",
+ "description": "Sondaggio ACSI: il 60% dei partecipanti ha ricevuto almeno una fattura medica sbagliata. Come controllare i conteggi e contestare gli errori in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/fatture-mediche-gonfiate-ticino.webp`,
  "width": 1344,
@@ -4768,7 +4768,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione",
- "description": "La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea causata da un infortunio Tecnico. La circolazione è tornata alla normalità e gli",
+ "description": "La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea causata da un infortunio Tecnico. La circolazione è tornata alla normalità",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/riaperta-galleria-monte-ceneri.webp`,
  "width": 1200,

@@ -190,6 +190,9 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'duferco': '/images/brands/duferco.png',
  'dxt-commodities': 'https://dxt.com/wp-content/uploads/2025/04/logo-DXT.png',
  'ecam': cLogo('ecam.swiss'),
+ // #6504 residual: the Commons asset is the published Edmond de Rothschild
+ // mark, rather than a favicon from the careers host.
+ 'edmond-de-rothschild': 'https://commons.wikimedia.org/wiki/Special:FilePath/Rothschild_Edmond_Transparent.png',
  'efg-international': '/images/logos/efg-international.svg',
  'ehc-vd': '/images/brands/ehc-vd.ico',
  'emil-frey': cLogo('emilfrey.ch'),
@@ -208,6 +211,10 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'etavis': cLogo('etavis.ch'),
  'eth-zurich': cLogo('ethzurich.ch'),
  'everest-re': cLogo('everestre.com'),
+ // #6504 residual: the official site exposes only a small favicon; this is
+ // the published Imerys mark from the company-origin Commons file.
+ 'imerys': 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
+ 'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
  'fart': gFavicon('fartiamo.ch'),
  'ferring': cLogo('ferring.com'),
  'ferrovia-retica': '/images/brands/ferrovia-retica.png',
@@ -342,7 +349,9 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'mcdonald-s-switzerland': '/images/brands/mcdonald-s-switzerland.png',
  'medacta-international': 'https://www.medacta.com/images/header/Logo_Medacta.svg',
  'medartis': cLogo('medartis.com'),
- 'mediamarkt': cLogo('mediamarkt.ch'),
+ // #6504 residual: keep the visible red MediaMarkt wordmark instead of the
+ // stale 48px manifest entry; the Commons SVG is sourced from Media-Saturn.
+ 'mediamarkt': 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg',
  'medics-labor': cLogo('medics.ch'),
  'medtronic': cLogo('medtronic.com'),
  'merian-iselin': cLogo('merianiselin.ch'),
@@ -558,14 +567,25 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'css-versicherung': cLogo('css.ch'),
 };
 
-// Overlay the locally-mirrored logo paths on top of the registry. Any slug
-// present in the manifest serves /images/brands/{slug}.{ext} instead of the
-// upstream URL — eliminating broken-image issues for the SPA and the static
-// SEO pages alike. Refresh with `node scripts/download-company-logos.mjs` or
-// the canonical audit downloader.
+// These direct sources are curated fallbacks for the current missing-logo
+// audit. The generated manifest can contain an older low-resolution asset
+// (MediaMarkt is the known example), so it must not shadow these entries.
+export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
+ 'edmond-de-rothschild',
+ 'imerys',
+ 'farmacia-internazionale-dr-merloni',
+ 'mediamarkt',
+]);
+
+// Overlay the locally-mirrored logo paths on top of the registry. Any
+// non-curated slug present in the manifest serves /images/brands/{slug}.{ext}
+// instead of the upstream URL — eliminating broken-image issues for the SPA
+// and the static SEO pages alike. Refresh with
+// `node scripts/download-company-logos.mjs` or the canonical audit downloader.
 for (const [slug, localPath] of Object.entries(
  COMPANY_LOGOS_MANIFEST as Record<string, string>,
 )) {
+ if (CURATED_EXTERNAL_LOGO_KEYS.has(slug)) continue;
  CRAWLED_COMPANY_LOGOS[slug] = localPath;
 }
 

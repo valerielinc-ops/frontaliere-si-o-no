@@ -393,7 +393,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -442,7 +442,6 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
@@ -450,7 +449,6 @@
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
           "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
@@ -3330,7 +3328,7 @@
       "title": "Underwriting Portfolio Analyst - Motor & Haushalt (m/w/d)",
       "titleByLocale": {
         "it": "Underwriting Portfolio Analista - Motor & Haushalt (m/w/d)",
-        "en": "Underwriting Portfolio Analyst - Motor & Haushalt (m/w/d)",
+        "en": "Underwriting Portfolio Analyst - Motor & Household (m/f/d)",
         "de": "Underwriting Portfolio Analyst - Motor & Haushalt (m/w/d)",
         "fr": "Underwriting Portfolio Analyste - Motor & Haushalt (m/w/d)"
       },
@@ -3366,7 +3364,6 @@
       "featured": false,
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "underwriting-portfolio-analyst-motor-haushalt-m-w-d-zurich-insurance-sede-ticino-zurich"
       ],
@@ -3553,12 +3550,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1374162857",
-      "slug": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich",
+      "slug": "operazioni-di-conformita-degli-studenti-di-lavoro-zurich-insurance-zurich-1374162857",
       "slugByLocale": {
         "en": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich",
-        "it": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich",
+        "it": "operazioni-di-conformita-degli-studenti-di-lavoro-zurich-insurance-zurich-1374162857",
         "de": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich",
-        "fr": "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich"
+        "fr": "operations-de-conformite-des-etudiants-en-travail-zurich-insurance-zurich-1374162857"
       },
       "slugDisambiguator": "1374162857",
       "company": "Zurich Insurance",
@@ -3618,7 +3615,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:32:33.982Z"
+      "firstSeenAt": "2026-10-07T09:32:33.982Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-compliance-operations-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1374167957",
@@ -3699,12 +3707,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1374166557",
-      "slug": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-zurich-1374166557",
+      "slug": "specialista-sos-primo-livello-italiano-m-f-d-zurich-insurance-zurich-1374166557",
       "slugByLocale": {
         "de": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-zurich-1374166557",
-        "en": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "fr": "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "it": "specialista-sos-primo-livello-italiano-m-f-d-zurich-insurance-zurich-1374166557",
+        "en": "specialist-sos-first-level-italian-m-f-d-zurich-insurance-zurich-1374166557",
+        "fr": "specialiste-sos-premier-niveau-italien-h-f-d-zurich-insurance-zurich-1374166557"
       },
       "slugDisambiguator": "1374166557",
       "company": "Zurich Insurance",
@@ -3753,11 +3761,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich",
+          "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-zurich-1374166557"
+        ],
+        "en": [
+          "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
           "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich"
         ]
       },
       "previousSlugs": [
-        "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "spezialist-sos-first-level-italienisch-m-w-d-zurich-insurance-zurich-1374166557"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
