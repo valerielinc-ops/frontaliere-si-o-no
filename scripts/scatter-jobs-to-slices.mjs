@@ -18,15 +18,202 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { addPreviousSlugForLocale, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
-import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
+import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
-import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
+import { decontaminateJobs, decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.join(ROOT, 'data', 'jobs.json');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+
+function normalizedJobUrl(job) {
+  return String(job?.url || '').trim().toLowerCase();
+}
+
+function addToIndex(index, key, job) {
+  if (!key) return;
+  const entries = index.get(key);
+  if (entries) entries.push(job);
+  else index.set(key, [job]);
+}
+
+function uniqueIndexEntry(index, key) {
+  if (!key || !index.has(key)) return { found: false, job: null };
+  const entries = index.get(key);
+  return { found: true, job: entries.length === 1 ? entries[0] : null };
+}
+
+/**
+ * Build the assembled-job indexes used by the assembled→slice writer.
+ *
+ * `assemble-jobs-dataset.mjs` stamps a synthetic `.id` on records that did
+ * not have one in their crawler slice. An index keyed only by
+ * `resolveJobDiffKey()` therefore misses the same record on the slice side:
+ * the assembled record resolves to its synthetic id while the slice resolves
+ * to its URL. URL identity is the strongest join key here, followed by the
+ * stable URL token and only then the generic diff key. Every index retains
+ * ambiguity instead of silently choosing a sibling.
+ *
+ * @param {Array<object>} assembledJobs
+ * @returns {{byUrl: Map<string, object[]>, byStableUrl: Map<string, object[]>, byDiffKey: Map<string, object[]>}}
+ */
+export function buildAssembledJobIndex(assembledJobs) {
+  const index = {
+    byUrl: new Map(),
+    byStableUrl: new Map(),
+    byDiffKey: new Map(),
+  };
+  for (const job of Array.isArray(assembledJobs) ? assembledJobs : []) {
+    const url = normalizedJobUrl(job);
+    if (url) {
+      addToIndex(index.byUrl, url, job);
+      const stableUrl = extractStableJobId(url);
+      if (stableUrl) addToIndex(index.byStableUrl, stableUrl, job);
+    }
+    addToIndex(index.byDiffKey, resolveJobDiffKey(job), job);
+  }
+  return index;
+}
+
+/**
+ * Match one per-crawler slice job to its assembled counterpart.
+ *
+ * URL identity wins over the assembled-only synthetic id. A stable URL token
+ * handles URL decoration changes, while the generic diff key remains the
+ * final fallback for records with no usable URL. Ambiguous indexes and
+ * contradictory URL identities are rejected: assigning a translation or SEO
+ * bridge to a sibling is worse than leaving that record for a later run.
+ *
+ * @param {object} sliceJob
+ * @param {{byUrl: Map<string, object[]>, byStableUrl: Map<string, object[]>, byDiffKey: Map<string, object[]>}} index
+ * @returns {object|null}
+ */
+export function matchAssembledJob(sliceJob, index) {
+  const sliceUrl = normalizedJobUrl(sliceJob);
+  const exact = uniqueIndexEntry(index?.byUrl, sliceUrl);
+  if (exact.found) {
+    const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+    if (!exact.job || (byDiffKey.found && byDiffKey.job !== exact.job)) return null;
+    return exact.job;
+  }
+
+  const stableUrl = extractStableJobId(sliceUrl);
+  const stable = uniqueIndexEntry(index?.byStableUrl, stableUrl);
+  if (stable.found) {
+    const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+    if (!stable.job || (byDiffKey.found && byDiffKey.job !== stable.job)) return null;
+    return stable.job;
+  }
+
+  const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+  if (!byDiffKey.found || !byDiffKey.job) return null;
+
+  const assembledUrl = normalizedJobUrl(byDiffKey.job);
+  if (sliceUrl && assembledUrl) {
+    const assembledStableUrl = extractStableJobId(assembledUrl);
+    if (sliceUrl !== assembledUrl && (!stableUrl || stableUrl !== assembledStableUrl)) return null;
+  }
+  return byDiffKey.job;
+}
+
+/**
+ * Verify the assembled→slice contract after a scatter run.
+ *
+ * The assembled dataset is the population that must be represented in the
+ * committed active slices. Slice-only records are allowed because assembly
+ * may deduplicate or filter them, but an assembled record that cannot be
+ * matched, an ambiguous slice identity, a missing bridge, an active-locale
+ * slug mismatch, or a second pending write is a real parity failure.
+ *
+ * @param {Array<object>} assembledJobs
+ * @param {Array<{file?: string, jobs: Array<object>}>} sliceEntries
+ * @returns {object}
+ */
+export function verifyScatterParity(assembledJobs, sliceEntries) {
+  const jobs = Array.isArray(assembledJobs) ? assembledJobs : [];
+  const index = buildAssembledJobIndex(jobs);
+  const assembledKeys = new Set();
+  let duplicateAssembledKeys = 0;
+  let unkeyedAssembledJobs = 0;
+  for (const job of jobs) {
+    const key = resolveJobDiffKey(job);
+    if (!key) {
+      unkeyedAssembledJobs++;
+      continue;
+    }
+    if (assembledKeys.has(key)) duplicateAssembledKeys++;
+    assembledKeys.add(key);
+  }
+
+  const matchedKeys = new Set();
+  const assembledMatchCounts = new Map();
+  const sliceKeys = new Set();
+  let duplicateSliceKeys = 0;
+  let duplicateAssembledMatches = 0;
+  let sliceJobs = 0;
+  let unmatchedSliceJobs = 0;
+  let missingBridges = 0;
+  let pendingWrites = 0;
+  let activeSlugMismatches = 0;
+
+  for (const entry of Array.isArray(sliceEntries) ? sliceEntries : []) {
+    for (const sliceJob of Array.isArray(entry?.jobs) ? entry.jobs : []) {
+      sliceJobs++;
+      const sliceKey = resolveJobDiffKey(sliceJob);
+      if (sliceKey && sliceKeys.has(sliceKey)) duplicateSliceKeys++;
+      if (sliceKey) sliceKeys.add(sliceKey);
+
+      const assembled = matchAssembledJob(sliceJob, index);
+      if (!assembled) {
+        unmatchedSliceJobs++;
+        continue;
+      }
+      const matchCount = (assembledMatchCounts.get(assembled) || 0) + 1;
+      assembledMatchCounts.set(assembled, matchCount);
+      if (matchCount > 1) duplicateAssembledMatches++;
+      matchedKeys.add(resolveJobDiffKey(assembled));
+      missingBridges += collectMissingAssembledBridges(sliceJob, assembled).length;
+      if (applyAssembledToSliceJob(sliceJob, assembled).changed) pendingWrites++;
+
+      const effectiveSlugs = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+      if (!localeMapsEqual(effectiveSlugs, sliceJob.slugByLocale)) activeSlugMismatches++;
+    }
+  }
+
+  const report = {
+    assembledJobs: jobs.length,
+    uniqueAssembledJobs: assembledKeys.size,
+    matchedAssembledJobs: matchedKeys.size,
+    missingAssembledJobs: unkeyedAssembledJobs + [...assembledKeys].filter((key) => !matchedKeys.has(key)).length,
+    unkeyedAssembledJobs,
+    duplicateAssembledKeys,
+    sliceJobs,
+    unmatchedSliceJobs,
+    duplicateSliceKeys,
+    duplicateAssembledMatches,
+    missingBridges,
+    pendingWrites,
+    activeSlugMismatches,
+  };
+  report.passed = report.missingAssembledJobs === 0
+    && report.unkeyedAssembledJobs === 0
+    && report.duplicateAssembledKeys === 0
+    && report.duplicateSliceKeys === 0
+    && report.duplicateAssembledMatches === 0
+    && report.missingBridges === 0
+    && report.pendingWrites === 0
+    && report.activeSlugMismatches === 0;
+  return report;
+}
+
+function readSliceEntries(directory) {
+  return listSliceFileNames(directory).flatMap((file) => {
+    const slice = readJson(path.join(directory, file), null);
+    return slice && Array.isArray(slice.jobs) ? [{ file, jobs: slice.jobs }] : [];
+  });
+}
 
 function readJson(filePath, fallback) {
   try {
@@ -103,6 +290,18 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
   const headroom = Math.max(0, LEGACY_PREV_SLUGS_CAP - known.size);
   if (headroom === 0) return [];
 
+  // `addPreviousSlugForLocale` also caps each locale bucket at 20. A flat
+  // union can still have room while a particular locale bucket is full; in
+  // that case adding a missing attributed bridge would evict an older slice
+  // bridge and make every subsequent run rotate the same capped set. Preserve
+  // the committed bucket and fall back to the wider, provenance-unknown flat
+  // bridge instead. This keeps the URL reachable without inventing a
+  // locale-bucket eviction.
+  const localeHeadroom = new Map(LOCALES.map((locale) => {
+    const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
+    return [locale, Math.max(0, DEFAULT_PREV_SLUG_CAP - bucket.length)];
+  }));
+
   // Pass 1 (preferred): locale-attributed bridges. A value already present in
   // the flat array but missing from THIS locale's bucket still counts as new
   // for the bucket (bridge emission routes through the bucket preferentially),
@@ -121,20 +320,26 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
         if (seen.has(dedupKey)) continue;
         const consumesHeadroom = !known.has(v);
         if (consumesHeadroom && adds.filter((a) => !a._free).length >= headroom) continue;
+        const hasLocaleRoom = (localeHeadroom.get(locale) || 0) > 0;
+        if (!hasLocaleRoom && !consumesHeadroom) continue;
         seen.add(dedupKey);
-        adds.push({ locale, slug: v, _free: !consumesHeadroom });
+        adds.push({ locale: hasLocaleRoom ? locale : null, slug: v, _free: !consumesHeadroom });
+        if (hasLocaleRoom) localeHeadroom.set(locale, localeHeadroom.get(locale) - 1);
         if (consumesHeadroom) known.add(v);
       }
     }
   }
   // Pass 2: unattributed flat-only bridges → default to the IT bucket, only up
-  // to remaining headroom.
+  // to remaining headroom. If IT is full, preserve the bridge in the flat
+  // legacy field rather than rotating a committed locale bucket.
   for (const s of (Array.isArray(assembled.previousSlugs) ? assembled.previousSlugs : [])) {
     const v = String(s || '');
     if (!v || known.has(v)) continue;
     if (adds.filter((a) => !a._free).length >= headroom) break;
     known.add(v);
-    adds.push({ locale: 'it', slug: v, _free: false });
+    const hasItRoom = (localeHeadroom.get('it') || 0) > 0;
+    adds.push({ locale: hasItRoom ? 'it' : null, slug: v, _free: false });
+    if (hasItRoom) localeHeadroom.set('it', localeHeadroom.get('it') - 1);
   }
   return adds.map(({ locale, slug }) => ({ locale, slug }));
 }
@@ -163,17 +368,19 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // independent of this list's headroom accuracy.
   const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled).length > 0;
 
-  // Compare locale fields — only update if they changed. Field-by-field via
-  // `localeMapsEqual`, NOT `JSON.stringify` (follow-up #7492): the assembled
-  // side and the slice side build their locale maps independently, so the same
-  // it/en/de/fr pairs can serialise in a different key order and a raw string
-  // comparison then reports a change that isn't one — a rewrite of every job in
-  // the slice, and a `changed` flag that contradicts the per-locale rename loop
-  // below, which compares values one locale at a time.
+  // Compare the effective locale projection — only update if the assembled
+  // values would change what the slice serves. `mergeLocaleMap()` deliberately
+  // keeps a non-empty slice value when the assembled value is empty, so compare
+  // after that defensive merge rather than treating a preserved value as drift.
+  // Field-by-field via `localeMapsEqual`, NOT `JSON.stringify` (follow-up
+  // #7492): the two sides can build maps in different key orders.
+  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
+  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
+  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
   const changed =
-    !localeMapsEqual(assembled.titleByLocale, sliceJob.titleByLocale) ||
-    !localeMapsEqual(assembled.descriptionByLocale, sliceJob.descriptionByLocale) ||
-    !localeMapsEqual(assembled.slugByLocale, sliceJob.slugByLocale) ||
+    !localeMapsEqual(mergedTitle, sliceJob.titleByLocale) ||
+    !localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale) ||
+    !localeMapsEqual(mergedSlug, sliceJob.slugByLocale) ||
     hasMissingBridgesPreRename;
 
   if (!changed) return { job: sliceJob, changed: false };
@@ -181,10 +388,6 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // Defensive merge: never overwrite a non-empty locale value with an empty one.
   // The assembled data may have had locales stripped by ensureLocaleFields when
   // AI translation failed — the per-crawler file is the source of truth.
-  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
-
   // Track slug changes: preserve old slug values in previousSlugsByLocale so the build
   // plugin can generate bridge/redirect pages for SEO continuity (prevents 404s
   // for URLs that Google/Bing may have already indexed).
@@ -192,7 +395,16 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
     ? sliceJob.slugByLocale : {};
   const newSlugs = mergedSlug && typeof mergedSlug === 'object' ? mergedSlug : {};
 
-  const updatedJob = { ...sliceJob, titleByLocale: mergedTitle, descriptionByLocale: mergedDesc, slugByLocale: mergedSlug };
+  const updatedJob = {
+    ...sliceJob,
+    previousSlugs: Array.isArray(sliceJob.previousSlugs) ? [...sliceJob.previousSlugs] : sliceJob.previousSlugs,
+    previousSlugsByLocale: sliceJob.previousSlugsByLocale && typeof sliceJob.previousSlugsByLocale === 'object'
+      ? Object.fromEntries(Object.entries(sliceJob.previousSlugsByLocale).map(([locale, slugs]) => [locale, Array.isArray(slugs) ? [...slugs] : slugs]))
+      : sliceJob.previousSlugsByLocale,
+    titleByLocale: mergedTitle,
+    descriptionByLocale: mergedDesc,
+    slugByLocale: mergedSlug,
+  };
 
   // Detect per-locale slug changes and record with locale context.
   // Route through the canonical journal-backed helper (instead of a
@@ -248,7 +460,11 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // accurate to what's actually left.
   const missingBridges = collectMissingAssembledBridges(updatedJob, assembled);
   for (const { locale, slug } of missingBridges) {
-    addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
+    if (locale) {
+      addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
+    } else {
+      promotePreviousSlugToLegacy(updatedJob, slug, LEGACY_PREV_SLUGS_CAP, 'scatter-jobs-to-slices/carry-forward-legacy');
+    }
   }
 
   return { job: updatedJob, changed: true };
@@ -261,17 +477,20 @@ function main() {
     process.exit(0);
   }
 
-  // Index assembled jobs by stable diff key (id / url / slug fallback — see
-  // resolveJobDiffKey) — NOT bare .slug. Bare-slug keying collides across
-  // companies whenever two jobs compute the same slug (463 live collisions
-  // confirmed in data/jobs/by-crawler/*.json, e.g. klinik-sonnenhalde vs.
-  // allianz-suisse), silently merging wrong-company locale/slug data into a
-  // slice (previousSlugs writer regression, issue #3734).
-  const jobIndex = new Map();
-  for (const job of jobs) {
-    const key = resolveJobDiffKey(job);
-    if (key) jobIndex.set(key, job);
+  // The assembled snapshot can still carry a previous-slug claim that the
+  // slice ownership pass would redirect to another current job. Normalize the
+  // in-memory source before scattering; otherwise the post-write ownership
+  // pass would move the claim away and the next scatter run would add it back,
+  // making the writer non-idempotent.
+  const assembledOwnership = decontaminateJobs(jobs);
+  if (assembledOwnership.moved > 0 || assembledOwnership.emptyLocaleBucketsPruned > 0) {
+    console.log(`🧭 assembled prev-slug ownership: redirected ${assembledOwnership.moved} slug(s), pruned ${assembledOwnership.emptyLocaleBucketsPruned} empty locale bucket(s) in memory.`);
   }
+
+  // URL-first matching is required because assembly stamps synthetic ids on
+  // records that were id-less in their crawler slice. The identity guard also
+  // prevents a colliding id/slug from assigning one job's bridges to another.
+  const jobIndex = buildAssembledJobIndex(jobs);
 
   // Read each slice, update jobs with matching slugs, write back if changed
   const sliceFiles = fs.existsSync(SLICES_DIR)
@@ -288,9 +507,7 @@ function main() {
 
     let sliceChanged = false;
     const updatedSliceJobs = slice.jobs.map((sliceJob) => {
-      const sliceKey = resolveJobDiffKey(sliceJob);
-      if (!sliceKey) return sliceJob;
-      const assembled = jobIndex.get(sliceKey);
+      const assembled = matchAssembledJob(sliceJob, jobIndex);
       if (!assembled) return sliceJob;
 
       const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
@@ -326,6 +543,13 @@ function main() {
   const ownership = decontaminateSliceDirectory(SLICES_DIR, { apply: true });
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
+  }
+
+  const parity = verifyScatterParity(jobs, readSliceEntries(SLICES_DIR));
+  console.log(`🔎 SCATTER_PARITY ${JSON.stringify(parity)}`);
+  if (!parity.passed) {
+    console.error('❌ Scatter parity failed — refusing to publish an unverified assembled→slice projection.');
+    process.exitCode = 1;
   }
 }
 
