@@ -12733,6 +12733,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petizione-recupero-carovita-ticino.title': 'Trade unions petition for cost-of-living compensation in Ticino',
     'blog.article.petizione-recupero-carovita-ticino.excerpt': '## TL;DR - OCST, VPOD and SIT are calling for compensation for inflation. - Between December 2020 and September 2026, inflation increased by approximately',
     'blog.article.petizione-recupero-carovita-ticino.imageAlt': 'Ticino public sector workers with banners supporting the cost-of-living recovery petition',
+    'blog.article.treno-foliage-locarno-domodossola.title': 'Foliage Train: Locarno-Domodossola from October 10',
+    'blog.article.treno-foliage-locarno-domodossola.excerpt': '## TL;DR - From October 10 to November 15, 2026 - 52 kilometers between Locarno and Domodossola - Just under two hours each way - Ticket valid for one or two days',
+    'blog.article.treno-foliage-locarno-domodossola.imageAlt': 'The Foliage Train crosses autumn landscapes between Locarno and Domodossola',
 };
 
 export default blogMetaEn;

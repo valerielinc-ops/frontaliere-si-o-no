@@ -100703,6 +100703,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-treno-foliage-locarno-domodossola': {
+    title: 'Treno del Foliage: Locarno-Domodossola dal 10 ottobre',
+    description: '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, foliage, locarno-domodossola, ottobre',
+    ogTitle: 'Treno del Foliage 2026 tra Locarno e Domodossola',
+    ogDescription: '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
+    canonicalPath: '/articoli-frontaliere/treno-foliage-locarno-domodossola/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno del Foliage: Locarno-Domodossola dal 10 ottobre",
+      "description": "## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026-2.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola"
+      },
+      "datePublished": "2026-10-07T09:13:12+00:00",
+      "dateModified": "2026-10-07T09:13:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treno-foliage-locarno-domodossola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

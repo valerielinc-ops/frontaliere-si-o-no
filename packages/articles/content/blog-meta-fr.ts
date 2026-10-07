@@ -12735,6 +12735,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.petizione-recupero-carovita-ticino.title': 'Pétition des syndicats pour le rattrapage du renchérissement au Tessin',
     'blog.article.petizione-recupero-carovita-ticino.excerpt': '## En bref - OCST, VPOD et SIT demandent le rattrapage du renchérissement. - Au cours de la période comprise entre décembre 2020 et septembre 2026, le renchérissement a augmenté d\'environ',
     'blog.article.petizione-recupero-carovita-ticino.imageAlt': 'Travailleurs du secteur public tessinois avec des banderoles soutenant la pétition pour la récupération du coût de la vie',
+    'blog.article.treno-foliage-locarno-domodossola.title': 'Treno del Foliage : Locarno-Domodossola à partir du 10 octobre',
+    'blog.article.treno-foliage-locarno-domodossola.excerpt': '## En bref - Du 10 octobre au 15 novembre 2026 - 52 kilomètres entre Locarno et Domodossola - Un peu moins de deux heures par trajet - Billet valable un ou deux jours',
+    'blog.article.treno-foliage-locarno-domodossola.imageAlt': 'Le Train du Foliage traverse les paysages d\'automne entre Locarno et Domodossola',
 };
 
 export default blogMetaFr;

@@ -12734,6 +12734,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-recupero-carovita-ticino.title': 'Petizione sindacati per recupero carovati in Ticino',
     'blog.article.petizione-recupero-carovita-ticino.excerpt': '## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa',
     'blog.article.petizione-recupero-carovita-ticino.imageAlt': 'Lavoratori del settore pubblico ticinese con striscioni a sostegno della petizione per il recupero del carovita',
+    'blog.article.treno-foliage-locarno-domodossola.title': 'Treno del Foliage: Locarno-Domodossola dal 10 ottobre',
+    'blog.article.treno-foliage-locarno-domodossola.excerpt': '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
+    'blog.article.treno-foliage-locarno-domodossola.imageAlt': 'Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola',
 };
 
 export default blogMetaIt;
