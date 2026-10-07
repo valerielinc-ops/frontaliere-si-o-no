@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * One-shot recovery of company follows that confirmed visitors asked for but
  * never received (2026-10-05).
@@ -268,7 +269,7 @@ export async function runBackfill({
   return counts;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runBackfill().then(() => process.exit(0)).catch((error) => {
     console.error(error?.stack || error);
     process.exit(1);

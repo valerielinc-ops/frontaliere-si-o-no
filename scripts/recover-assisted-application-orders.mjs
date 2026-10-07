@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Owner-run recovery for paid assisted applications (0,99 €) whose customer
  * never received the concierge email — the orders paid before the email-first
@@ -168,7 +170,7 @@ async function main() {
   if (!args.apply && !args.testTo) console.log('\nDry run: nothing sent or written. Use --order <id> --test-to <email>, then --apply.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().then(() => process.exit(0), (error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exit(1);

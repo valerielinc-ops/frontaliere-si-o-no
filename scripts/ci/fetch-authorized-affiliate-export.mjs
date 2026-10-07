@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Fetch the owner-configured commercial affiliate export for L8.
@@ -272,7 +273,7 @@ export async function main({
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L8 commercial export] fatal: ${error.message}`);
     process.exitCode = 1;

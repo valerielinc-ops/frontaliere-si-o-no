@@ -148,6 +148,21 @@ describe('handoffOriginVerdict: quando l\'hand-off non ha più nulla da riapplic
     });
   });
 
+  it('evidenza senza HEAD o con HEAD stantia resta non verificata', () => {
+    expect(handoffOriginVerdict({
+      state: 'OPEN',
+      mergeable: 'MERGEABLE',
+      mergeStateStatus: 'CLEAN',
+      headRefOid: HEAD,
+    }, { expectedHead: '' })).toEqual({ resolved: false, reason: 'origin-head-unverified' });
+    expect(handoffOriginVerdict({
+      state: 'OPEN',
+      mergeable: 'MERGEABLE',
+      mergeStateStatus: 'CLEAN',
+      headRefOid: 'b'.repeat(40),
+    }, { expectedHead: HEAD.slice(0, 12) })).toEqual({ resolved: false, reason: 'origin-head-unverified' });
+  });
+
   it('il ramo di hand-off precede il filtro follow-up-only, che lo lasciava passare', () => {
     const source = readFileSync('scripts/ci/check-issue-already-resolved.mjs', 'utf8');
     const main = source.slice(source.indexOf('function main() {'));

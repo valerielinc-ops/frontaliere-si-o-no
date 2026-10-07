@@ -53,6 +53,16 @@ describe('loop clock table and cadence', () => {
     expect(LOOP_CLOCK_ENTRIES.every((entry) => entry.everyMinutes % LOOP_CLOCK_TICK_MINUTES === 0)).toBe(true);
   });
 
+  it('keeps the hourly revenue monitor on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-revenue-signal-monitor',
+      repo: 'site',
+      workflow: 'revenue-signal-monitor.yml',
+      everyMinutes: 60,
+      introducedAt: '2026-10-07T16:50:03Z',
+    });
+  });
+
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
     const observed = new Set<string>();
     const longestCadence = Math.max(...LOOP_CLOCK_ENTRIES.map((entry) => entry.everyMinutes));
@@ -222,8 +232,13 @@ describe('loop clock dispatch', () => {
   ])('applies the untriaged condition for $count pending issue(s)', async ({ count, expected, dispatches }) => {
     const entry = { ...customEntry(`condition-${count}`), condition: 'untriaged-issues' };
     const tick = tickForEntries([entry]);
-    const fetchImpl = vi.fn(async (url: string) => url.includes('/search/issues')
-      ? new Response(JSON.stringify({ total_count: count }), { status: 200 })
+    const issues = Array.from({ length: count }, (_, index) => ({
+      number: index + 1,
+      created_at: `2026-10-07T0${index}:00:00Z`,
+      labels: [],
+    }));
+    const fetchImpl = vi.fn(async (url: string) => url.includes('/issues?')
+      ? new Response(JSON.stringify(issues), { status: 200 })
       : new Response(null, { status: 204 }));
     const report = await dispatchLoopClock({
       scheduledAt: tick,
@@ -241,11 +256,37 @@ describe('loop clock dispatch', () => {
     expect(fetchImpl.mock.calls.some(([url]) => String(url).includes('/dispatches'))).toBe(dispatches);
   });
 
-  it('dispatches anyway when the untriaged search fails', async () => {
+  it('filters the current issue listing instead of trusting search-index labels', async () => {
+    const entry = { ...customEntry('condition-current-listing'), condition: 'untriaged-issues' };
+    const tick = tickForEntries([entry]);
+    const fetchImpl = vi.fn(async (url: string) => url.includes('/issues?')
+      ? new Response(JSON.stringify([
+        { number: 1, pull_request: { url: 'https://example.invalid/pr/1' }, labels: [] },
+        { number: 2, created_at: '2026-10-07T00:00:00Z', labels: [{ name: 'agent:triaged' }] },
+      ]), { status: 200 })
+      : new Response(null, { status: 204 }));
+
+    const report = await dispatchLoopClock({
+      scheduledAt: tick,
+      entries: [entry],
+      fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      getRemoteConfigValueImpl: async () => '',
+    });
+
+    expect(report.results[0]).toMatchObject({
+      id: entry.id,
+      dispatched: false,
+      reason: 'condition_no_untriaged_issues',
+    });
+    expect(fetchImpl.mock.calls.some(([url]) => String(url).includes('/dispatches'))).toBe(false);
+  });
+
+  it('dispatches anyway when the current issue listing fails', async () => {
     const entry = { ...customEntry('condition-search-failed'), condition: 'untriaged-issues' };
     const tick = tickForEntries([entry]);
     const fetchImpl = vi.fn(async (url: string) => {
-      if (url.includes('/search/issues')) throw new Error('search failed: secret-token');
+      if (url.includes('/issues?')) throw new Error('listing failed: secret-token');
       return new Response(null, { status: 204 });
     });
     const report = await dispatchLoopClock({
@@ -513,6 +554,40 @@ describe('loop clock observer', () => {
     expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${slow.id}`);
   });
 
+  it('gives a newly introduced entry its own warm-up window after the clock is established', async () => {
+    const established = { ...customEntry('established'), everyMinutes: 15 };
+    const newcomer = {
+      ...customEntry('newcomer'),
+      everyMinutes: 60,
+      introducedAt: minutesAgo(30),
+    };
+    const runsOf = (workflow: string) => (
+      workflow === established.workflow
+        ? [clockRun(established, 400), clockRun(established, 5)]
+        : [otherRun(1)]
+    );
+    const young = await observe([established, newcomer], [], {
+      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+    });
+
+    expect(young.report.results.find((result) => result.id === established.id)).toMatchObject({ state: 'healthy' });
+    expect(young.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
+      state: 'too_early',
+      reason: 'entry_younger_than_threshold',
+    });
+    expect(young.createIssueImpl).not.toHaveBeenCalled();
+
+    const old = await observe([established, { ...newcomer, introducedAt: minutesAgo(200) }], [], {
+      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+    });
+    expect(old.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
+      state: 'stale',
+      reason: 'no_marked_run_observed',
+    });
+    expect(old.createIssueImpl).toHaveBeenCalledTimes(1);
+    expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${newcomer.id}`);
+  });
+
   it('keeps an entry healthy on its own marked dispatch and resolves its issue', async () => {
     const entry = { ...customEntry('clock-alive'), everyMinutes: 30 };
     const { report, createIssueImpl, resolveIssueImpl } = await observe([entry], [otherRun(1), clockRun(entry, 35)]);
@@ -575,6 +650,22 @@ describe('loop clock observer', () => {
     expect(listRunsImpl).not.toHaveBeenCalled();
     expect(createIssueImpl).not.toHaveBeenCalled();
     expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps a conditional entry inconclusive when the oldest issue date is unreadable', async () => {
+    const entry = { ...customEntry('conditional-unknown-date'), everyMinutes: 10, condition: 'untriaged-issues' };
+    const { report, createIssueImpl, resolveIssueImpl, listRunsImpl } = await observe([entry], [], {
+      untriagedIssuesImpl: async () => ({ count: 1, oldestCreatedAt: null }),
+    });
+    expect(report.results[0]).toMatchObject({
+      id: entry.id,
+      state: 'inconclusive',
+      reason: 'condition_oldest_created_at_missing',
+    });
+    expect(report.errors).toBe(1);
+    expect(listRunsImpl).not.toHaveBeenCalled();
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
   });
 
   // The dispatcher checks the condition on its own tick: an issue opened a

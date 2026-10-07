@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-auth-signup-subscribers.mjs — osservatore contro la recidiva del buco
  * iscrizioni-da-login del 12-15 settembre 2026.
@@ -345,8 +347,7 @@ async function main() {
   process.exit(verdict.alert ? 1 : 0);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}`
-  || process.argv[1]?.endsWith('check-auth-signup-subscribers.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`❌ check-auth-signup-subscribers fallito: ${err?.message || err}`);

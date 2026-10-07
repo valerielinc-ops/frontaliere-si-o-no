@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   discoverFacebookCandidates,
+  extractFacebookPublicFacts,
   extractFacebookCandidateUrls,
   facebookSearchUrl,
 } from '../scripts/discover-pharmacy-facebook.mjs';
@@ -50,6 +51,49 @@ describe('Facebook pharmacy discovery', () => {
       status: 'candidate_needs_identity_verification',
       urls: ['https://www.facebook.com/farmacia-internazionale-casciago'],
     })]);
+  });
+
+  it('extracts only identity-matched facts from an accessible public page', async () => {
+    const searchHtml = '<a href="https://www.facebook.com/farmacia-internazionale-casciago?ref=search">page</a>';
+    const pageHtml = `
+      <html><head>
+        <meta property="og:title" content="Farmacia Internazionale di Casciago">
+        <meta property="og:description" content="Farmacia Internazionale di Casciago, Casciago">
+      </head><body>
+        <h1>Farmacia Internazionale di Casciago</h1>
+        <p>Casciago</p>
+        <a href="tel:+39 0332 227362">chiama</a>
+        <p>Orari: lunedì: 08:30-20:00; domenica chiuso</p>
+        <p>Rating 5/5 e 99 recensioni</p>
+      </body></html>`;
+    expect(extractFacebookPublicFacts(pageHtml, pharmacy, 'https://www.facebook.com/farmacia-internazionale-casciago')).toMatchObject({
+      matched: true,
+      facts: {
+        phone: '+39 0332 227362',
+        openingHours: expect.arrayContaining([
+          { dayOfWeek: 'monday', opens: '08:30', closes: '20:00' },
+          { dayOfWeek: 'sunday', opens: '', closes: '', isClosed: true },
+        ]),
+      },
+    });
+
+    const result = await discoverFacebookCandidates({
+      config: { providers: { facebook: { discoveryPharmacyIds: [pharmacy.id] } } },
+      pharmacies: [pharmacy],
+      checkedAt,
+      fetchDocument: async (url) => url.includes('/public/') ? searchHtml : pageHtml,
+    });
+
+    expect(result.candidates).toEqual([expect.objectContaining({
+      pharmacyId: pharmacy.id,
+      status: 'candidate_publicly_verified',
+      urls: ['https://www.facebook.com/farmacia-internazionale-casciago'],
+      verified: expect.objectContaining({
+        matched: true,
+        facts: expect.objectContaining({ phone: '+39 0332 227362' }),
+      }),
+    })]);
+    expect(JSON.stringify(result)).not.toContain('recensioni');
   });
 
   it('does not silently search pharmacies outside the explicit discovery allow-list', async () => {

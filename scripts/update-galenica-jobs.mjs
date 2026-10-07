@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Galenica crawler runner.
  *
@@ -954,6 +956,6 @@ async function main() {
 
 // CLI entry point — guarded so unit tests can import isSwissGalenicaItem()
 // without triggering a live crawl (issue #3055 item 3 test coverage).
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'Galenica'));
 }

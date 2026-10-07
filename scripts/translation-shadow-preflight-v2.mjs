@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import {
   assertSafeTranslationShadowOutputPath,
@@ -11,7 +11,6 @@ import {
   writeTranslationShadowArtifactAtomicV2,
 } from './lib/translation-shadow-preflight-v2.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
 
 function usage() {
@@ -139,7 +138,7 @@ export function runTranslationShadowBindingCaptureCli(argv, {
   };
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     const modeIndex = process.argv.indexOf('--mode');
     if (process.argv[modeIndex + 1] === 'capture') {

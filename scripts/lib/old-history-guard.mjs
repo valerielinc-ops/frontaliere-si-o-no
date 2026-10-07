@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { execFileSync, spawnSync } from 'node:child_process';
+import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 
@@ -232,7 +233,14 @@ export function checkOldHistory({
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
-  if (refreshBase && result.reason !== 'marker-unavailable' && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
+  // Any available marker can produce an inconclusive false result from
+  // `merge-base --is-ancestor` when the repository is shallow: the marker may
+  // be beyond the shallow boundary, even when its object is already local.
+  // `marker-in-base` is the one conclusive fast path because both ancestry
+  // checks have already succeeded.
+  const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
+    && result.reason !== 'marker-in-base';
+  if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
     withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
@@ -316,6 +324,6 @@ export async function main(argv = process.argv.slice(2)) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   await main();
 }

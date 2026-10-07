@@ -7,8 +7,8 @@
  *     fallback, then classified by liveness.mjs.
  */
 
-import { JOB_DETAIL_BASE, fetchPublicPage, htmlToText } from '../../../functions/src/assistedApplicationAiJob.js';
-import { applyControlsFromHtml, classifyLiveness, isHardClosed } from './liveness.mjs';
+import { JOB_DETAIL_BASE, fetchPublicPage, fetchWorkdayPosting, htmlToText } from '../../../functions/src/assistedApplicationAiJob.js';
+import { applyControlsFromHtml, classifyLiveness, classifyWorkdayLiveness, isHardClosed } from './liveness.mjs';
 
 const TIMEOUT_MS = 12_000;
 const MAX_HTML = 1_500_000;
@@ -32,8 +32,12 @@ export async function checkPostingLiveness({ order, posting, fetchImpl = fetch, 
   let page = { result: 'uncertain', code: 'not_checked', reason: 'no public url' };
   if (url) {
     try {
-      const response = await fetchPublicPage(fetchImpl, url, resolve);
-      if (response) {
+      // Workday's page is an empty shell (liveness.mjs): its own JSON answers first.
+      const workday = classifyWorkdayLiveness(await fetchWorkdayPosting(fetchImpl, url, resolve).catch(() => null));
+      const response = workday ? null : await fetchPublicPage(fetchImpl, url, resolve);
+      if (workday) {
+        page = workday;
+      } else if (response) {
         const html = (await response.text()).slice(0, MAX_HTML);
         page = classifyLiveness({
           status: response.status,

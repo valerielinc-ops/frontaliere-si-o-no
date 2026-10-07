@@ -17,6 +17,14 @@ import { promisify } from 'node:util';
 import { extractCvText } from '../../../functions/src/assistedApplicationAiDocuments.js';
 
 const execFile = promisify(execFileCallback);
+/**
+ * The version of the reading. A draft keeps the CV text it was written from and
+ * a regeneration reuses it (draft.mjs): a text read before a fix of the reading
+ * is read again.
+ *   2 (2026-10-07): the text blocks of a PDF are told apart by their position
+ *     (extractPdfText): «2022 - 202520192018» is three dates again.
+ */
+export const CV_TEXT_VERSION = 2;
 const MIN_TEXT_CHARS = 200;
 const MAX_OCR_PAGES = 4;
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
 import { readAllAttr, readAttr, readMetaContent, scanStartTags } from './lib/html-attr.mjs';
@@ -725,5 +726,4 @@ function printWarningGroup(label, entries, limit) {
 
 export { collectHtmlFiles, validateBestPracticeSeo };
 
-const invokedScript = process.argv[1] ? pathToFileURL(process.argv[1]).href : '';
-if (import.meta.url === invokedScript) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

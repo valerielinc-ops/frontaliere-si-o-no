@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * canary-user-value.mjs — user-value (ARPU) crash detector.
  *
@@ -186,6 +187,6 @@ async function main() {
   process.exit(result.verdict === 'regression' ? 1 : 0);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

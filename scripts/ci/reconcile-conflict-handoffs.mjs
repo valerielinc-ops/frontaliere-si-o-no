@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import fs, { realpathSync } from 'node:fs';
 /**
  * reconcile-conflict-handoffs.mjs — chiude gli hand-off di conflitto il cui
  * lavoro e' gia' fatto (zero-Claude).
@@ -16,7 +18,7 @@
  * sweep copre gli hand-off che nessuno rilancia.
  *
  * Ogni tick (followup-drainer.yml, prima del drain) per ogni hand-off aperto:
- *   1. duplicati della stessa PR di origine → resta quella con un claim o una
+ *   1. duplicati della stessa PR di origine e HEAD → resta quella con un claim o una
  *      PR in volo, poi quella instradata al fixer, poi la piu' vecchia
  *      (`electHandoffKeeper`); le altre chiuse `duplicate`, ma non prima di
  *      `MIN_DUPLICATE_AGE_MINUTES` dalla loro creazione;
@@ -45,9 +47,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   conflictClearedAfter,
   conflictHandoffExpectedHead,
@@ -144,7 +144,7 @@ export function handoffRouted(issue) {
 }
 
 /**
- * Chi resta fra gli hand-off della stessa PR di origine: (1) chi ha lavoro
+ * Chi resta fra gli hand-off della stessa PR di origine + HEAD: (1) chi ha lavoro
  * avviato (`handoffBusy`), (2) chi e' instradato al fixer, (3) il numero piu'
  * basso. Pura e deterministica: due run concorrenti eleggono la stessa.
  *
@@ -162,23 +162,31 @@ export function electHandoffKeeper(members, origin, openPrs = []) {
 }
 
 /**
- * Raggruppa gli hand-off aperti per PR di origine ed elegge chi resta con
- * `electHandoffKeeper`. Gli altri sono duplicati. Pura.
+ * Raggruppa gli hand-off aperti per PR di origine + HEAD provata ed elegge chi
+ * resta con `electHandoffKeeper`. Gli altri sono duplicati. Un body senza HEAD
+ * non viene mai accoppiato a un altro body: senza la seconda chiave il
+ * riconciliatore resta fail-closed e non chiude lavoro valido per errore.
  *
- * @returns {Array<{ origin: number, keeper: object, duplicates: object[] }>}
+ * @returns {Array<{ origin: number, head: string, keeper: object, duplicates: object[] }>}
  */
 export function groupHandoffs(issues, openPrs = []) {
-  const groups = new Map();
+  const groups = [];
   for (const issue of issues || []) {
     const origin = conflictHandoffOriginPr(issue?.title);
     if (origin === null) continue;
-    if (!groups.has(origin)) groups.set(origin, []);
-    groups.get(origin).push(issue);
+    const head = conflictHandoffExpectedHead(issue?.body);
+    const group = head
+      ? groups.find((candidate) => candidate.origin === origin
+        && candidate.head
+        && (candidate.head.startsWith(head) || head.startsWith(candidate.head)))
+      : null;
+    if (group) group.members.push(issue);
+    else groups.push({ origin, head, members: [issue] });
   }
-  return [...groups.entries()].map(([origin, members]) => {
+  return groups.map(({ origin, head, members }) => {
     const sorted = [...members].sort((a, b) => Number(a.number) - Number(b.number));
     const keeper = electHandoffKeeper(sorted, origin, openPrs);
-    return { origin, keeper, duplicates: sorted.filter((issue) => issue !== keeper) };
+    return { origin, head, keeper, duplicates: sorted.filter((issue) => issue !== keeper) };
   });
 }
 
@@ -751,7 +759,7 @@ function main() {
 }
 
 // Best-effort: un errore non deve mai far fallire il drain che segue.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

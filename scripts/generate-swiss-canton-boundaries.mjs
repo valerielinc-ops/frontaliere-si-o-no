@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Generate `data/swiss-canton-boundaries.json`: the 26 canton polygons used by
@@ -143,7 +144,7 @@ async function main() {
   console.log(`[canton-boundaries] wrote ${OUTPUT_FILE}`);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[canton-boundaries] ${err?.message || err}`);
     process.exit(1);

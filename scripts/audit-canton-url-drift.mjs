@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-canton-url-drift.mjs — how many already-indexed job URLs changed their
  * canton section since a point in the past, and in which direction.
@@ -538,7 +540,7 @@ async function main() {
 // (tests/canton-url-drift-audit.test.ts e tests/monitor-scheda-openers.test.ts,
 // misurato il 2026-09-30).
 const invokedAsCli = Boolean(process.argv[1])
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   // Fail-soft: a monitor must never be the thing that breaks the branch.
   main().catch((e) => {

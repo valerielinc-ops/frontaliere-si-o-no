@@ -101,11 +101,56 @@ export function extractDocxText(buffer) {
 
 // ── PDF text ───────────────────────────────────────────────────────────────
 
+/**
+ * What stands between two text items of a page that pdf.js left unseparated:
+ * a line break where the baseline changes, a space where the same line leaves
+ * a gap, nothing where one word was only split (a kerning pair, a font change).
+ */
+function itemSeparator(previous, item) {
+  if (![previous.x, previous.y, item.x, item.y].every(Number.isFinite)) return '';
+  const size = Math.max(previous.fontSize || 0, item.fontSize || 0, previous.height || 0, item.height || 0) || 1;
+  if (Math.abs(item.y - previous.y) > size * 0.5) return '\n';
+  const gap = item.x - (previous.x + (previous.width || 0));
+  return gap > size * 0.25 || gap < -size * 0.5 ? ' ' : '';
+}
+
+/** A text item with its position: unpdf's own (`x`, `y`, `fontSize`), or read from pdf.js' raw `transform`. */
+function positioned(item) {
+  if (Number.isFinite(item.x) && Number.isFinite(item.y)) return item;
+  if (!Array.isArray(item.transform)) return item;
+  const [, , c, d, x, y] = item.transform;
+  return { ...item, x, y, fontSize: item.fontSize || Math.hypot(Number(c) || 0, Number(d) || 0) };
+}
+
+/**
+ * The text of one page from its positioned items (unpdf's extractTextItems).
+ * pdf.js marks a line break (hasEOL) and a word gap (an item of one space)
+ * inside one content stream, never between two form XObjects, and a design
+ * tool exports each text box as one: a CV laid out in boxes (a real order,
+ * 2026-10-07: the years of three jobs, each in its own box) read
+ * «2022 - 202520192018» and «TuristicoIstituto Tecnico», so the fact gate
+ * found neither the years nor the school and stopped the draft at the owner.
+ * Only items pdf.js left unseparated are told apart, by where they stand.
+ * @param {Array<{str:string, x?:number, y?:number, transform?:number[], width:number, height:number, fontSize?:number, hasEOL:boolean}>} items
+ */
+export function pdfItemsText(items) {
+  let text = '';
+  let previous = null;
+  for (const raw of items || []) {
+    if (typeof raw?.str !== 'string') continue;
+    const item = positioned(raw);
+    if (item.str.trim() && previous && !/\s$/.test(text)) text += itemSeparator(previous, item);
+    text += item.str + (item.hasEOL ? '\n' : '');
+    if (item.str.trim()) previous = item;
+  }
+  return text;
+}
+
 export async function extractPdfText(buffer) {
-  const { extractText, getDocumentProxy } = await import('unpdf');
+  const { extractTextItems, getDocumentProxy } = await import('unpdf');
   const pdf = await getDocumentProxy(new Uint8Array(buffer));
-  const { text } = await extractText(pdf, { mergePages: true });
-  return normalizeWhitespace(Array.isArray(text) ? text.join('\n') : text);
+  const { items } = await extractTextItems(pdf);
+  return normalizeWhitespace(items.map(pdfItemsText).join('\n'));
 }
 
 /**

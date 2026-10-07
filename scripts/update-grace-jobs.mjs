@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -807,7 +809,7 @@ async function main() {
 // Guard top-level execution so the module can be imported by tests without
 // triggering a live Playwright crawl. Run only when invoked directly via
 // `node scripts/update-grace-jobs.mjs` (npm script `jobs:update:grace`).
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     const msg = err instanceof Error ? err.message : String(err);
     if (msg.includes('challenge did not resolve') || msg.includes('still blocked')) {

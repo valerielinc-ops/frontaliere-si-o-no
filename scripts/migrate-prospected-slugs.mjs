@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Migrate the six dedicated prospector families to the canonical
  * title/company/location slug base plus the URL-derived disambiguator.
@@ -313,10 +314,7 @@ export function main({ apply = process.argv.includes('--apply') } = {}) {
   return { entries, changed: changed.length, applied: apply };
 }
 
-const entrypoint = process.argv[1]
-  ? pathToFileURL(path.resolve(process.argv[1])).href
-  : '';
-if (import.meta.url === entrypoint) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

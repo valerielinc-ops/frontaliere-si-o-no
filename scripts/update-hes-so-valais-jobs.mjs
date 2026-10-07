@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated HES-SO Valais-Wallis crawler runner.
  *
@@ -974,7 +976,7 @@ async function main() {
 
 // Only run when executed directly, not when imported by tests
 const _isMain = process.argv[1] &&
-  fileURLToPath(import.meta.url) === fs.realpathSync(process.argv[1]);
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (_isMain) {
   main().catch((err) => exitCrawlerOnError(err, 'HES-SO Valais-Wallis'));
 }

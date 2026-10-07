@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scan-unreported-failures.mjs — la rete di sicurezza GLOBALE sui workflow rossi.
  *
@@ -849,19 +851,49 @@ export function ownerSignalPersisted(entry, openIssues, run) {
 }
 
 /**
- * Issue di failure chiuse che possono avere già coperto una run riletta dalla
- * finestra di lookback.
+ * Prova che un owner di dominio chiuso abbia coperto la run osservata.
  *
- * Il listing delle aperte basta finché la canonica resta aperta. Un fix può
- * però chiuderla prima del run verde successivo: la passata seguente rilegge
- * ancora il rosso storico e, senza questo secondo registro, apre un duplicato
- * generico. È successo con `user-value-canary`: la issue di dominio #10260 è
- * stata chiusa dal merge della fix prima della prima esecuzione giornaliera
- * successiva, poi lo scanner ha creato #10374 sulla stessa run.
+ * Una issue chiusa non può coprire un crash generico: questa funzione viene
+ * chiamata solo per una voce di `VERDICT_STEPS`, e richiede che l'evento che
+ * ha scritto l'owner sia riferibile alla run osservata. Per il listing REST
+ * l'unico evento owner verificabile è la creazione dell'issue durante la run
+ * (`run.created_at <= createdAt <= run.updated_at`); una issue già esistente
+ * che viene chiusa durante o dopo la run non è prova del suo verdetto. La
+ * chiusura deve inoltre seguire la creazione, anche quando la scansione legge
+ * il rosso storico dopo una run sana.
  *
- * La chiusura non copre indiscriminatamente il futuro: chi chiama confronta
- * `closedAt` con l'inizio della run, usando la stessa guardia temporale del
- * creator (`occurrencePredatesClose`).
+ * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
+ * @param {Array<{ title?: string, createdAt?: string, closedAt?: string }>|null} closedIssues
+ * @param {{ created_at?: string, updated_at?: string }} run
+ */
+export function closedOwnerSignalPersisted(entry, closedIssues, run) {
+  const owner = typeof entry?.owner === 'string' ? entry.owner : '';
+  if (!owner.trim() || !Array.isArray(closedIssues)) return false;
+  const startedAt = Date.parse(run?.created_at ?? '');
+  const finishedAt = Date.parse(run?.updated_at ?? run?.created_at ?? '');
+  if (!Number.isFinite(startedAt) || !Number.isFinite(finishedAt)) return false;
+  return closedIssues.some((issue) => {
+    if (typeof issue?.title !== 'string' || !issue.title.startsWith(owner)) return false;
+    const createdAt = Date.parse(issue.createdAt ?? '');
+    const closedAt = Date.parse(issue.closedAt ?? '');
+    return Number.isFinite(createdAt) && Number.isFinite(closedAt)
+      && createdAt >= startedAt && createdAt <= finishedAt && closedAt >= createdAt;
+  });
+}
+
+/**
+ * Issue chiuse che possono avere già coperto una run riletta dalla finestra di
+ * lookback.
+ *
+ * Il listing delle aperte basta finché la canonica resta aperta. Un monitor di
+ * dominio può però chiudere la propria issue quando la run successiva è sana,
+ * prima che lo scanner orario rilegga il rosso storico: in quel caso l'issue
+ * chiusa resta prova del verdetto del monitor, ma non deve diventare una
+ * copertura storica per un crash generico. Il listing conserva quindi i due
+ * contratti separati:
+ *   - `failures`: solo le issue della famiglia `CI/Workflow/Crawler Failure:`;
+ *   - `domainOwners`: issue con `**Workflow:**`, usate solo da
+ *     `closedOwnerSignalPersisted` per i verdetti registrati.
  *
  * Quale storico serve, e perché si legge per intero. Una chiusura copre una
  * run solo se è POSTERIORE al suo inizio, e ogni run considerata è iniziata
@@ -879,11 +911,16 @@ export function ownerSignalPersisted(entry, openIssues, run) {
  * tetto di pagine rendono `null`: un listing non provato completo non prova
  * l'assenza della canonica, e chi chiama non apre duplicati.
  */
-export function closedFailureIssueWorkflows(since, {
-  fetchPage = (page) => {
+export function closedIssueHistory(since, {
+  fetchPage: fetchPageOverride,
+  maxPages = CLOSED_ISSUE_LISTING_MAX_PAGES,
+  pageSize = CLOSED_ISSUE_LISTING_PAGE_SIZE,
+} = {}) {
+  if (!Number.isFinite(Date.parse(String(since ?? '')))) return null;
+  const fetchPage = fetchPageOverride ?? ((page) => {
     const raw = gh(
       ['api', `repos/${REPO || '{owner}/{repo}'}/issues?state=closed`
-        + `&since=${encodeURIComponent(since)}&per_page=${CLOSED_ISSUE_LISTING_PAGE_SIZE}&page=${page}`],
+        + `&since=${encodeURIComponent(since)}&per_page=${pageSize}&page=${page}`],
       { allowFailure: true },
     );
     if (raw === null) return null;
@@ -892,36 +929,47 @@ export function closedFailureIssueWorkflows(since, {
     } catch {
       return null;
     }
-  },
-  maxPages = CLOSED_ISSUE_LISTING_MAX_PAGES,
-  pageSize = CLOSED_ISSUE_LISTING_PAGE_SIZE,
-} = {}) {
-  if (!Number.isFinite(Date.parse(String(since ?? '')))) return null;
+  });
+
   const byNumber = new Map();
   for (let page = 1; page <= maxPages; page += 1) {
     const items = fetchPage(page);
     if (!Array.isArray(items)) return null;
     for (const item of items) {
-      // La REST delle issue elenca anche le PR: non sono issue di failure.
-      // Una issue di dominio con solo `**Workflow:**` nel corpo non è invece
-      // una copertura storica di un failure generico: la sua copertura va
-      // provata sullo step-verdetto, quando la run è ancora osservabile.
-      if (!item || typeof item !== 'object' || item.pull_request
-        || issueMatchSource(item) !== 'failure-title') continue;
+      // La REST delle issue elenca anche le PR: non sono owner di un verdetto.
+      if (!item || typeof item !== 'object' || item.pull_request) continue;
+      const source = issueMatchSource(item);
+      if (source !== 'failure-title' && source !== 'workflow-field') continue;
       byNumber.set(item.number, {
         number: item.number,
-        title: item.title,
+        title: item.title ?? '',
+        createdAt: item.created_at ?? null,
+        updatedAt: item.updated_at ?? null,
         closedAt: item.closed_at ?? null,
         body: item.body ?? '',
+        url: item.html_url ?? item.url ?? null,
       });
     }
-    if (items.length < pageSize) return latestClosedIssuePerWorkflow([...byNumber.values()]);
+    if (items.length < pageSize) {
+      const all = [...byNumber.values()];
+      return {
+        failures: latestClosedIssuePerWorkflow(
+          all.filter((item) => issueMatchSource(item) === 'failure-title'),
+        ),
+        domainOwners: all.filter((item) => issueMatchSource(item) === 'workflow-field'),
+      };
+    }
   }
   console.error(
     `::error::[scan-unreported-failures] ${maxPages} pagine di issue chiuse dopo ${since} senza `
-      + 'arrivare in fondo: lo storico delle canoniche non è provato completo e non si aprono duplicati.',
+      + 'arrivare in fondo: lo storico delle issue non è provato completo e non si aprono duplicati.',
   );
   return null;
+}
+
+/** Compatibilità per i caller che usano solo la rete di failure generica. */
+export function closedFailureIssueWorkflows(since, options = {}) {
+  return closedIssueHistory(since, options)?.failures ?? null;
 }
 
 /**
@@ -1280,6 +1328,16 @@ export async function scanFailures() {
     return 1;
   }
 
+  let closedHistory = null;
+  let closedHistoryLoaded = false;
+  const loadClosedHistory = () => {
+    if (!closedHistoryLoaded) {
+      closedHistory = closedIssueHistory(horizon);
+      closedHistoryLoaded = true;
+    }
+    return closedHistory;
+  };
+
   const workflows = registeredWorkflows();
   if (!workflows) {
     console.error('::error::[scan-unreported-failures] registro dei workflow illeggibile — impossibile risolvere i nomi, nessuna issue aperta in questa passata.');
@@ -1321,7 +1379,16 @@ export async function scanFailures() {
     // i nomi degli step da soli non provano che il segnale sia arrivato.
     const verdictEntry = VERDICT_STEPS[wf?.path || ''];
     const verdictOnly = Boolean(verdictEntry) && isVerdictOnlyFailure(wf.path, readRunJobs(run.id).jobs);
-    const ownerPersisted = verdictOnly && ownerSignalPersisted(verdictEntry, openIssueList, run);
+    let ownerPersisted = verdictOnly && ownerSignalPersisted(verdictEntry, openIssueList, run);
+    if (verdictOnly && !ownerPersisted) {
+      // A source-health owner may already be closed by the next healthy run
+      // before this hourly lookback sees the red run. The closed history is
+      // still scoped to verdict owners; it never covers a generic failure.
+      const history = loadClosedHistory();
+      ownerPersisted = Boolean(
+        history && closedOwnerSignalPersisted(verdictEntry, history.domainOwners, run),
+      );
+    }
     if (verdictOnly && !ownerPersisted) {
       console.warn(
         `::warning::[scan-unreported-failures] ${workflowName}: run ${run.id} rossa per il solo step-verdetto, `
@@ -1370,14 +1437,8 @@ export async function scanFailures() {
   // divergere dai conteggi che stampa.
   const tally = { delivered: 0, active: 0, recovered: 0, historical: 0, deferred: [], undelivered: [] };
   const pending = [...byWorkflow.entries()];
-  let closedIssues = null;
-  let closedIssuesLoaded = false;
   const loadClosedIssues = () => {
-    if (!closedIssuesLoaded) {
-      closedIssues = closedFailureIssueWorkflows(horizon);
-      closedIssuesLoaded = true;
-    }
-    return closedIssues;
+    return loadClosedHistory()?.failures ?? null;
   };
 
   for (let i = 0; i < pending.length; i += 1) {
@@ -1782,7 +1843,7 @@ async function main() {
   return DORMANT_MODE ? scanDormant() : scanFailures();
 }
 
-if (process.argv[1]?.endsWith('scan-unreported-failures.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main()
     .then((code) => process.exit(code))
     .catch((e) => {

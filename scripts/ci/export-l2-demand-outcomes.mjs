@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * Read-only L2 demand-to-utility outcome export.
@@ -384,7 +385,7 @@ export async function main({
   return output;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L2 outcome-export] fatal: ${error.message}`);
     process.exitCode = 1;

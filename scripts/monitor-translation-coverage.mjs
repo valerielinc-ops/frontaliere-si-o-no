@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * monitor-translation-coverage.mjs — allarme sulla quota `complete` della
  * history delle traduzioni (data/translation-stats-history.json).
@@ -37,8 +39,6 @@
  */
 
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export const WINDOW_DAYS = 7;
 /** «oltre 10 punti»: un calo di esattamente 10 punti non scatta. */
@@ -274,7 +274,7 @@ async function main() {
 }
 
 const isMainModule = process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) {
   main().catch((err) => {
     console.error(`monitor-translation-coverage: ${err.stack || err.message}`);

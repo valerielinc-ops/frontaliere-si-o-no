@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Preflight del token di generazione di un crawler-group, eseguito subito dopo
  * il checkout e prima di qualunque crawl.
@@ -17,11 +19,8 @@
  *
  * Exit: 0 token valido (stampato), 1 token assente o malformato.
  */
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
+import { isCrawlerGenerationToken, resolveCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
 /**
  * @param {NodeJS.ProcessEnv} env
@@ -40,7 +39,7 @@ export function checkCrawlerGenerationToken(env = process.env) {
   };
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const result = checkCrawlerGenerationToken(process.env);
   if (result.ok) {
     console.log(`crawler generation token: ${result.token}`);

@@ -59,7 +59,9 @@ const ITALIAN_CLOSED_CLASS = new Set([
   ...ITALIAN_ARTICLES,
   'un', 'uno', 'una',
   ...Object.values(ITALIAN_PREPOSITION_ARTICLE_TABLE).flat(),
-  'col', 'coi',
+  // `col` is intentionally excluded from the locale-agnostic runtime set:
+  // it is also the valid English noun for a mountain pass.
+  'coi',
 ]);
 
 function lastWord(value: string): string {
@@ -128,6 +130,12 @@ describe('peelDanglingClauseTail — the shared primitive', () => {
     expect(peelDanglingClauseTail('Cross-border guide for')).toBe('Cross-border guide');
     expect(peelDanglingClauseTail('Grenzgänger Ratgeber für')).toBe('Grenzgänger Ratgeber');
     expect(peelDanglingClauseTail('Guide frontalier pour')).toBe('Guide frontalier');
+  });
+
+  it('does not treat the English noun col as a dangling stopword', () => {
+    expect(peelDanglingClauseTail('Hiking route above the mountain col')).toBe(
+      'Hiking route above the mountain col',
+    );
   });
 });
 

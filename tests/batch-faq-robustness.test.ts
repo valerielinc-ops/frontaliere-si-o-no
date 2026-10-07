@@ -104,7 +104,7 @@ describe('SIGTERM — la bomba che publish-journalist-article armava ogni 15 min
   });
 
   it('installSigtermCheckpoint viene CHIAMATA solo dentro la guardia sull entry point', () => {
-    const guardia = SCRIPT_SRC.indexOf('if (import.meta.url ===');
+    const guardia = SCRIPT_SRC.indexOf('pathToFileURL(realpathSync(process.argv[1])).href');
     expect(guardia).toBeGreaterThan(0);
     // Le CHIAMATE, non la definizione: `function installSigtermCheckpoint()`
     // sta per forza sopra la guardia, ed e' giusto che ci stia.

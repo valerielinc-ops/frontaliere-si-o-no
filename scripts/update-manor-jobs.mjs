@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Manor crawler runner.
  *
@@ -1227,7 +1229,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-const isDirectRun = process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+const isDirectRun = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) {
   main().catch((err) => exitCrawlerOnError(err, 'Manor'));
 }

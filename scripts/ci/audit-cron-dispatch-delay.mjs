@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * audit-cron-dispatch-delay.mjs — reads the cron-slot measurements and answers
@@ -308,7 +310,7 @@ async function main() {
   console.log(`\n${renderHistoryReport(summaries, comparison, { slotA, slotB, totalRecords: records.length, hourHistogram })}\n`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`❌ audit failed: ${err?.message || err}`);
     process.exit(1);

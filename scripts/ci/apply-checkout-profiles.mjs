@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Scrive nei workflow lo sparse-checkout calcolato da checkout-profile-analyzer.mjs.
  *
@@ -367,4 +369,4 @@ function main() {
   if (CHECK && typecheckMissing.length) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

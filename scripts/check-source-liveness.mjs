@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * check-source-liveness.mjs — the one component whose job is to notice that a
  * monitoring source has stopped ingesting, and to say so exactly once.
@@ -171,7 +172,7 @@ export async function main({
   return { verdict, issued: true };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((e) => {
     console.error(`[check-source-liveness] fatal: ${e.message}`);
     process.exitCode = 1;

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Ville de Genève Agenda (events, pilot non-TI canton, GE).
  *
@@ -329,7 +330,7 @@ async function main() {
 // Only crawl when invoked directly (`node scripts/crawl-ge-agenda.mjs`), so
 // tests can import `parseGeneveAgendaHtml`/`parseGeneveDateFr` without
 // triggering a live fetch.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[ge-agenda] crawl failed: ${err?.message || err}`);
     process.exit(1);

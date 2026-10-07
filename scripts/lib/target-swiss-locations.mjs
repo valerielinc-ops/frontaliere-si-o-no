@@ -353,9 +353,11 @@ export function isCantonRelevant(text = '', cantonCode = '', {
   // 2b. Official Swiss Post/swisstopo localities that are not BFS communes.
   // They are opt-in because this function is also used for free-text canton
   // inference; accepting every postal locality there changes conservative
-  // parser behaviour. Structured location-field callers can opt in.
+  // parser behaviour. Structured location-field callers can opt in, and may
+  // safely include canton-scoped ambiguous names because their postal pair
+  // has already supplied the disambiguating source evidence.
   if (includeOfficialLocality) {
-    const officialLocalityTokens = getOfficialLocalityTokens(code);
+    const officialLocalityTokens = getOfficialLocalityTokens(code, { includeAmbiguous: true });
     if (officialLocalityTokens.size > 0 && hasToken([...officialLocalityTokens], lower)) return true;
   }
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Zurich official auction-platform connector. */
 import {
   fetchHtml,
@@ -22,7 +24,7 @@ export async function fetchZhPlateAuctions() {
   return parseZhAuctions(html, { fetchedAt: new Date().toISOString() });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchZhPlateAuctions()
     .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
     .catch((error) => {

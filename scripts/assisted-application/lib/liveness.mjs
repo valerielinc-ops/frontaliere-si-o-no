@@ -112,11 +112,31 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
   return { result: 'uncertain', code: 'no_apply_control', reason: 'content present but no apply control' };
 }
 
+/**
+ * A Workday posting, by what Workday's own JSON says of it (fetchWorkdayPosting):
+ * its page is an empty shell filled by script, the same for an open posting and
+ * for one that is gone, so the page read «expired, insufficient_content» for
+ * every Workday posting (a real order, 2026-10-07). Open when it is published
+ * and takes applications; closed when Workday says it is not, or that it does
+ * not exist. null when the JSON says nothing: the page is then read as before.
+ * @param {{gone:boolean, info:object|null}|null} posting
+ */
+export function classifyWorkdayLiveness(posting) {
+  if (!posting) return null;
+  if (posting.gone) return { result: 'expired', code: 'ats_api_gone', reason: 'Workday: the posting does not exist' };
+  const { canApply, posted } = posting.info || {};
+  if (canApply === true && posted !== false) return { result: 'active', code: 'ats_api_open', reason: 'Workday: published and taking applications' };
+  if (canApply === false || posted === false) return { result: 'expired', code: 'ats_api_closed', reason: 'Workday: not published or closed to applications' };
+  return null;
+}
+
 const HARD_CODES = new Set(['http_gone', 'expired_url', 'expired_body']);
 // `insufficient_content` is NOT enough even with the dataset gone: a
 // JavaScript-rendered portal (Workday) returns an almost empty HTML shell
-// while the posting is still open.
-const CORROBORATED_CODES = new Set(['expired_body_soft', 'listing_page']);
+// while the posting is still open. Workday's own answer that a posting is gone
+// or closed is read from an address this code derives: it refunds only with
+// our dataset having dropped the job too.
+const CORROBORATED_CODES = new Set(['expired_body_soft', 'listing_page', 'ats_api_gone', 'ats_api_closed']);
 
 /**
  * @param {{result:string, code:string}} page classification of the employer page

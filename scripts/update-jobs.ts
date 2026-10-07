@@ -1,4 +1,6 @@
 #!/usr/bin/env npx ts-node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Job Board Scraper Script
  * 
@@ -931,7 +933,7 @@ export async function main() {
 }
 
 // Importing for verification must not run network requests or write production data.
-if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(error => {
     console.error('❌ Scraper error:', error);
     process.exit(1);

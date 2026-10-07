@@ -39,7 +39,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
-import { pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
+import { cleanPreviousSlugsPerLocale, pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { addPreviousSlugForLocale, promotePreviousSlugToLegacy } from './lib/dedicated-crawler-common.mjs';
 import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
@@ -61,7 +61,56 @@ export function listCrawlerSlicePaths(directories = CRAWLER_SLICE_DIRS) {
   return directories.flatMap((dir) => listSliceFilePaths(dir)).sort();
 }
 
+function normalizedSlug(value) {
+  return String(value ?? '').trim();
+}
+
+function targetAlreadyServesSlug(job, locale, slug) {
+  const normalized = normalizedSlug(slug);
+  if (!normalized || !job || typeof job !== 'object') return false;
+
+  // The master slug is the live Italian route even when the redirect was
+  // recorded under a different locale. Adding it back as history would create
+  // a self-canonical bridge on the next SEO emit.
+  if (normalized === normalizedSlug(job.slug)) return true;
+
+  if (locale !== null) {
+    return normalized === normalizedSlug(job.slugByLocale?.[locale]);
+  }
+
+  return Object.values(job.slugByLocale || {})
+    .some((activeSlug) => normalized === normalizedSlug(activeSlug));
+}
+
+function hasSelfCanonicalBridge(job) {
+  if (!job || typeof job !== 'object') return false;
+  const masterSlug = normalizedSlug(job.slug);
+  const activeByLocale = job.slugByLocale && typeof job.slugByLocale === 'object'
+    ? job.slugByLocale
+    : {};
+  const activeAnyLocale = new Set(
+    Object.values(activeByLocale).map(normalizedSlug).filter(Boolean),
+  );
+
+  for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
+    if (!Array.isArray(slugs)) continue;
+    const activeLocale = normalizedSlug(activeByLocale[locale]);
+    if (slugs.some((slug) => {
+      const normalized = normalizedSlug(slug);
+      return normalized === activeLocale || normalized === masterSlug;
+    })) return true;
+  }
+
+  return Array.isArray(job.previousSlugs)
+    && job.previousSlugs.some((slug) => {
+      const normalized = normalizedSlug(slug);
+      return normalized === masterSlug || activeAnyLocale.has(normalized);
+    });
+}
+
 function applyAddition(action) {
+  if (targetAlreadyServesSlug(action.targetJob, action.locale, action.slug)) return false;
+
   if (action.locale !== null) {
     addPreviousSlugForLocale(
       action.targetJob,
@@ -70,19 +119,20 @@ function applyAddition(action) {
       Number.MAX_SAFE_INTEGER,
       'decontaminate-prev-slugs',
     );
-    return;
+    return true;
   }
   // A locale-aware action already synchronized this slug to the legacy flat
   // union. Only promote genuinely flat-only history; promotePreviousSlugToLegacy
   // intentionally removes locale provenance and must not erase a locale move.
   if (Array.isArray(action.targetJob.previousSlugs)
-      && action.targetJob.previousSlugs.includes(action.slug)) return;
+      && action.targetJob.previousSlugs.includes(action.slug)) return false;
   promotePreviousSlugToLegacy(
     action.targetJob,
     action.slug,
     Number.MAX_SAFE_INTEGER,
     'decontaminate-prev-slugs',
   );
+  return true;
 }
 
 function removePlannedSlugs(job, plans) {
@@ -238,6 +288,31 @@ export function decontaminateEntries(entries, {
   }
   for (const [job, jobPlans] of plansByJob) removePlannedSlugs(job, jobPlans);
 
+  // Ownership moves can add a slug that is already the target's active route.
+  // Clean after additions/removals as well as before a direct writer's pass so
+  // the final persisted slice cannot emit a self-canonical bridge. Keep the
+  // cleanup scoped to source entries: callers may provide an owner-only fleet
+  // index and must not rewrite unrelated slices merely because they were used
+  // for lookup.
+  const cleanupChangedEntries = new Set();
+  for (const entry of validEntries) {
+    if (!sourceSet.has(entry)) continue;
+    for (const job of entry.slice.jobs) {
+      if (!job || typeof job !== 'object') continue;
+      if (!hasSelfCanonicalBridge(job)) continue;
+      const before = JSON.stringify({
+        previousSlugs: job.previousSlugs,
+        previousSlugsByLocale: job.previousSlugsByLocale,
+      });
+      cleanPreviousSlugsPerLocale(job);
+      const after = JSON.stringify({
+        previousSlugs: job.previousSlugs,
+        previousSlugsByLocale: job.previousSlugsByLocale,
+      });
+      if (before !== after) cleanupChangedEntries.add(entry);
+    }
+  }
+
   for (const entry of validEntries) {
     if (!sourceSet.has(entry)) continue;
     for (const job of entry.slice.jobs) {
@@ -248,7 +323,11 @@ export function decontaminateEntries(entries, {
 
   const sourceChangedEntries = validEntries.filter((entry) => (
     sourceSet.has(entry)
-    && (stats.get(entry).moved > 0 || stats.get(entry).emptyLocaleBucketsPruned > 0)
+    && (
+      stats.get(entry).moved > 0
+      || stats.get(entry).emptyLocaleBucketsPruned > 0
+      || cleanupChangedEntries.has(entry)
+    )
   ));
   const crossFileTargets = new Set(crossFilePlans.map((plan) => plan.targetEntry));
   const changedEntries = validEntries.filter((entry) => (

@@ -163,13 +163,31 @@ describe('Swiss canton pharmacy calendar parser', () => {
     })).toThrow('Delémont pharmacy identity is not allowlisted: Unlisted Pharmacy');
   });
 
-  it('maps the address-qualified Ajoie Amavita label to its canonical identity', () => {
+  it('accepts the spaced time label used by the current Jura PDF layout', () => {
+    const row = 'Pharmacie du Jura du sam 27 décembre à 8 h au sam 3 janvier à 8 h';
+    const text = Array.from({ length: 52 }, () => row).join('\n');
+
+    const parsed = extractDelemontRows(text, {
+      sourceUrl: SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+      calendarYear: 2026,
+    });
+
+    expect(parsed.rows).toHaveLength(52);
+    expect(parsed.pharmacies).toEqual([expect.objectContaining({
+      id: 'ju-delemont-pharmacie-du-jura',
+      name: 'Pharmacie du Jura',
+      city: 'Delémont',
+    })]);
+  });
+
+  it.each(['AMAVITA - MALVOISINS 1', 'AMAVITA PORRENTRUY', 'AMAVITA PORRENTUY'])('maps the Ajoie Amavita source label %s to its canonical identity', (sourceName) => {
     const formatDate = (offset: number) => {
       const date = new Date(Date.UTC(2026, 0, 1 + offset));
       return `${String(date.getUTCDate()).padStart(2, '0')}.${String(date.getUTCMonth() + 1).padStart(2, '0')}.${date.getUTCFullYear()}`;
     };
     const text = Array.from({ length: 45 }, (_, index) =>
-      `du ${formatDate(index)} au ${formatDate(index + 1)} Pharmacie AMAVITA - MALVOISINS 1`,
+      `du ${formatDate(index)} au ${formatDate(index + 1)} Pharmacie ${sourceName}`,
     ).join('\n');
 
     const parsed = extractAjoieRows(text, {

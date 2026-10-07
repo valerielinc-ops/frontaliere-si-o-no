@@ -61,7 +61,7 @@ import {
   tailoredCvSystemPrompt,
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
-import { readCvText } from './cv-text.mjs';
+import { CV_TEXT_VERSION, readCvText } from './cv-text.mjs';
 import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -125,6 +125,8 @@ export async function buildDraft(ctx) {
     && previousDraft.cvKey === order.cvStorageKey
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
+    // A CV text read before a fix of the reading is read again, and the profile with it.
+    && previousDraft.cvTextVersion === CV_TEXT_VERSION
     // Requirements read before the requested documents existed are read again.
     && Array.isArray(previousDraft.requirementsRaw.requestedDocuments)
     // So is a profile read before the kinds of experience: an internship would count as a job.
@@ -319,7 +321,8 @@ export async function buildDraft(ctx) {
     ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf', baselineText: cvText }) } : {}),
   };
   const legitimacy = assessLegitimacy({
-    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
+    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName,
+    titles: [title, order.jobTitle, requirements.roleTitle], nowMs,
   });
   log('ats', ats.original.structural.grade, `${ats.original.keywords.coverage ?? '-'}%`, 'tailored', tailored.record.status, 'legitimacy', legitimacy.tier);
 
@@ -329,6 +332,7 @@ export async function buildDraft(ctx) {
     round,
     cvKey: order.cvStorageKey,
     cvTextMethod: cvMethod,
+    cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),
     model: 'codex-cli/gpt-5.6-luna',
     effort: 'max',

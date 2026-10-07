@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Rebuild the files identified by guard-data-integrity on the latest main tip.
@@ -111,6 +113,6 @@ export function restoreDataIntegrityFiles({
   }
 }
 
-if (process.argv[1]?.endsWith('restore-data-integrity-files.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   restoreDataIntegrityFiles();
 }

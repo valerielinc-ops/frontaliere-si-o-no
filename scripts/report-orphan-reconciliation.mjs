@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-orphan-reconciliation.mjs — does `sync-gsc-orphans` actually reconcile
  * anything, or is it just green?
@@ -284,6 +286,6 @@ function main() {
   }
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

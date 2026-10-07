@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
 /**
  * check-ai-visibility.mjs — Monitor AI search engine citations of frontaliereticino.ch
  *
@@ -1095,7 +1096,7 @@ function isNpmBinWrapper(p) {
 }
 
 const isDirectRun = Boolean(process.argv[1])
-  && (realPath(process.argv[1]) === realPath(AI_VISIBILITY_SCRIPT_PATH)
+  && ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()
     || isNpmBinWrapper(process.argv[1]));
 
 if (isDirectRun) {
