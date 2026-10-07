@@ -1,0 +1,46 @@
+name: discover-pharmacy-facebook
+
+on:
+  schedule:
+    - cron: '37 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: discover-pharmacy-facebook
+  cancel-in-progress: false
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Search configured pharmacies for Facebook candidates
+        run: node scripts/discover-pharmacy-facebook.mjs --output "$RUNNER_TEMP/pharmacy-facebook-discovery.json"
+
+      - name: Summarize discovery result
+        run: |
+          set -euo pipefail
+          jq -r '.candidates[] | "- \(.pharmacyId): \(.status); candidates=\(.urls | length)"' "$RUNNER_TEMP/pharmacy-facebook-discovery.json" >> "$GITHUB_STEP_SUMMARY"
+          if jq -e '.candidates | any(.status == "candidate_needs_graph_verification")' "$RUNNER_TEMP/pharmacy-facebook-discovery.json" >/dev/null; then
+            echo "Candidate URLs require Graph API identity verification; no facts were published by this workflow." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload discovery report
+        uses: actions/upload-artifact@v7
+        with:
+          name: pharmacy-facebook-discovery
+          path: ${{ runner.temp }}/pharmacy-facebook-discovery.json
+          retention-days: 30

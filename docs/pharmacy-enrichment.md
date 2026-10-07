@@ -29,6 +29,12 @@ solo da fonti esplicitamente registrate in
   navigazione Google Maps costruito dall'identità già verificata nel catalogo:
   è solo un collegamento di ricerca e non rappresenta dati, coordinate,
   recensioni o rating restituiti da Google.
+- Il workflow conserva nello snapshot un contatore mensile delle richieste
+  Google e lo riserva prima di ogni chiamata. `monthlyRequestLimit` è limitato
+  hard-coded a 10.000 per Google Places; una risposta fallita conta comunque,
+  così un retry non può superare il tetto nello stesso mese. Il registro si
+  azzera sul mese UTC successivo e `maxAgeDays: 30` evita richieste ripetute per
+  una sede già verificata.
 - Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
   `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
   località devono corrispondere prima di accettare i dati; i post e le
@@ -36,6 +42,12 @@ solo da fonti esplicitamente registrate in
   una fonte con priorità maggiore, Facebook resta comunque registrato come
   fonte corroborante: la provenienza osservata non sostituisce il fatto
   selezionato.
+- Il workflow settimanale `discover-pharmacy-facebook.yml` cerca le farmacie
+  esplicitamente elencate in `discoveryPharmacyIds` nella ricerca pubblica di
+  Facebook e salva solo un report artifact con eventuali URL candidati. Non
+  pubblica fatti dai risultati di ricerca: Facebook spesso risponde con login o
+  checkpoint e ogni candidato deve essere verificato dall'API Graph con il
+  Page ID e il token autorizzato prima di entrare nello snapshot.
 
 I segreti arrivano da Firebase Remote Config tramite
 `scripts/load-rc-env.mjs`; non devono essere inseriti nel JSON o nei log. Se
