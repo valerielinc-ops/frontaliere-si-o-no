@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 import {
   adaptThroughput,
@@ -30,6 +32,35 @@ test('workflow defaults stay linked to the planner defaults', () => {
   assert.match(workflow, new RegExp(`default: '${DEFAULT_SHARD_COUNT}'`));
   assert.match(workflow, new RegExp(`default: '${DEFAULT_EVENTS_PER_SHARD}'`));
   assert.match(workflow, /cron: '0 \* \* \* \*'/u);
+});
+
+test('planner emits every workflow output without replacing existing step outputs', () => {
+  const root = mkdtempSync(path.join(tmpdir(), 'event-description-plan-'));
+  const outputPath = path.join(root, 'github-output');
+  writeFileSync(outputPath, 'existing=kept\n');
+
+  const stdout = execFileSync(process.execPath, [
+    path.join(process.cwd(), 'scripts/plan-event-description-rewrite.mjs'),
+    '--requested-shards', String(DEFAULT_SHARD_COUNT),
+    '--requested-events-per-shard', String(DEFAULT_EVENTS_PER_SHARD),
+    '--github-output', outputPath,
+  ], { encoding: 'utf8' });
+  const plan = JSON.parse(stdout);
+  const outputs = Object.fromEntries(readFileSync(outputPath, 'utf8').trim().split('\n').map((line) => {
+    const separator = line.indexOf('=');
+    return [line.slice(0, separator), line.slice(separator + 1)];
+  }));
+
+  assert.deepEqual(outputs, {
+    existing: 'kept',
+    effective_shards: String(plan.effectiveShards),
+    events_per_shard: String(plan.eventsPerShard),
+    quota_error_threshold: String(plan.quotaErrorThreshold),
+    circuit_breaker_threshold: String(plan.circuitBreakerThreshold),
+    shard_matrix: JSON.stringify(plan.shardMatrix),
+    direction: plan.direction,
+    reason: plan.reason,
+  });
 });
 
 test('hash partition is deterministic, disjoint and exhaustive', () => {
