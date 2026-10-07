@@ -16,6 +16,19 @@ import {
   sourceDescriptionHash,
   validateRewriteBundle,
 } from './lib/event-description-policy.mjs';
+import {
+  CIRCUIT_BREAKER_THRESHOLD,
+  DEFAULT_SHARD_COUNT,
+  QUOTA_BACKOFF_BASE_MS,
+  QUOTA_BACKOFF_MAX_MS,
+  QUOTA_ERROR_THRESHOLD,
+  classifyCodexFailure,
+  emptyRewriteStats,
+  exponentialBackoffMs,
+  isCircuitBreakerFailure,
+  normalizeShardCount,
+  selectShardQueue,
+} from './lib/event-description-throughput.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const DEFAULT_DATASET = path.join(REPO_ROOT, 'data', 'events.json');
@@ -63,8 +76,15 @@ Options:
   --max-input-chars N        Prompt input cap per call (default: 60000)
   --max-total-input-chars N  Prompt input cap for the complete run (default: 1000000)
   --max-attempts N           Calls per invalid batch/item (default: 3)
+  --shard-count N            Number of deterministic queue shards (default: 1)
+  --shard-index N            Zero-based shard index (default: 0)
+  --circuit-breaker-threshold N  Transient broker errors before this shard stops (default: 2)
+  --quota-backoff-base-ms N  First quota/timeout backoff in milliseconds (default: 15000)
+  --quota-backoff-max-ms N   Maximum quota/timeout backoff in milliseconds (default: 120000)
+  --output-cache PATH        Write only this shard's accepted cache entries
   --stats-output PATH        Write aggregate stats JSON without source text
   --dry-run                  Select and report, but do not call Codex or write cache
+  --empty                    Write an empty shard result without a source export
 `;
 
 function optionValue(args, name, fallback = undefined) {
@@ -88,10 +108,13 @@ function parseArgs(argv) {
     console.log(HELP);
     process.exit(0);
   }
+  const empty = argv.includes('--empty');
   const sourceExport = optionValue(argv, '--source-export');
-  if (!sourceExport) throw new Error('--source-export is required');
+  if (!sourceExport && !empty) throw new Error('--source-export is required');
+  const shardCount = normalizeShardCount(optionValue(argv, '--shard-count', DEFAULT_SHARD_COUNT));
+  const shardIndex = numberOption(argv, '--shard-index', 0, { min: 0, max: shardCount - 1 });
   return {
-    sourceExport: path.resolve(sourceExport),
+    sourceExport: sourceExport ? path.resolve(sourceExport) : '',
     dataset: path.resolve(optionValue(argv, '--dataset', DEFAULT_DATASET)),
     cache: path.resolve(optionValue(argv, '--cache', DEFAULT_CACHE)),
     limit: numberOption(argv, '--limit', DEFAULT_LIMIT, { min: 1, max: 10_000 }),
@@ -100,8 +123,15 @@ function parseArgs(argv) {
     maxInputChars: numberOption(argv, '--max-input-chars', DEFAULT_MAX_INPUT_CHARS, { min: 10_000, max: 500_000 }),
     maxTotalInputChars: numberOption(argv, '--max-total-input-chars', DEFAULT_MAX_TOTAL_INPUT_CHARS, { min: 50_000, max: 10_000_000 }),
     maxAttempts: numberOption(argv, '--max-attempts', DEFAULT_MAX_ATTEMPTS, { min: 1, max: 5 }),
+    shardCount,
+    shardIndex,
+    circuitBreakerThreshold: numberOption(argv, '--circuit-breaker-threshold', CIRCUIT_BREAKER_THRESHOLD, { min: 1, max: 10 }),
+    quotaBackoffBaseMs: numberOption(argv, '--quota-backoff-base-ms', QUOTA_BACKOFF_BASE_MS, { min: 0, max: 600_000 }),
+    quotaBackoffMaxMs: numberOption(argv, '--quota-backoff-max-ms', QUOTA_BACKOFF_MAX_MS, { min: 0, max: 1_800_000 }),
+    outputCache: optionValue(argv, '--output-cache', undefined),
     statsOutput: optionValue(argv, '--stats-output', undefined),
     dryRun: argv.includes('--dry-run'),
+    empty,
   };
 }
 
@@ -353,7 +383,7 @@ function selectQueue(records, dataset, cache, options) {
     queue.push(candidate);
   }
   queue.sort((a, b) => priorityCompare(a.currentEvent, b.currentEvent));
-  return { queue: queue.slice(0, options.limit), totalPending };
+  return { queue, totalPending };
 }
 
 function buildBatches(queue, options) {
@@ -379,7 +409,7 @@ function buildBatches(queue, options) {
   return { batches, inputBudgetSkipped };
 }
 
-async function processBatch(batch, cache, options, stats) {
+async function processBatch(batch, cache, options, stats, acceptedEntries, breaker) {
   let pending = [...batch];
   let retryReasons = new Map();
   for (let attempt = 1; attempt <= options.maxAttempts && pending.length; attempt += 1) {
@@ -399,16 +429,48 @@ async function processBatch(batch, cache, options, stats) {
     let result;
     try {
       result = await requestCodex(prompt);
-    } catch {
+      stats.elapsedMs += Date.now() - started;
+      breaker.failureStreak = 0;
+    } catch (error) {
+      stats.elapsedMs += Date.now() - started;
+      const failureKind = classifyCodexFailure(error);
       stats.transportFailures += 1;
-      retryReasons = new Map(pending.map((record) => [record.id, 'codex-call-failed']));
+      if (failureKind === 'quota') stats.quotaErrors += 1;
+      if (failureKind === 'timeout') stats.timeoutErrors += 1;
+      if (failureKind === 'transport') stats.brokerErrors += 1;
+
+      if (isCircuitBreakerFailure(failureKind)) breaker.failureStreak += 1;
+      else breaker.failureStreak = 0;
+      retryReasons = new Map(pending.map((record) => [record.id, `codex-${failureKind}`]));
+      const quotaCircuitOpen = failureKind === 'quota' && stats.quotaErrors >= options.circuitBreakerThreshold;
+      const transientCircuitOpen = failureKind !== 'quota'
+        && isCircuitBreakerFailure(failureKind)
+        && breaker.failureStreak >= options.circuitBreakerThreshold;
+      if (quotaCircuitOpen || transientCircuitOpen) {
+        breaker.open = true;
+        breaker.reason = failureKind;
+        stats.circuitBreakerTrips += 1;
+        stats.circuitOpen = true;
+        stats.circuitReason = failureKind;
+        stats.rejected += pending.length;
+        const rejectionCode = `${failureKind}-circuit-open`;
+        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + pending.length;
+        break;
+      }
       if (attempt === options.maxAttempts) {
         stats.rejected += pending.length;
-        stats.rejectionCodes['codex-call-failed'] = (stats.rejectionCodes['codex-call-failed'] || 0) + pending.length;
+        const rejectionCode = `codex-${failureKind}`;
+        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + pending.length;
+        break;
       }
+      stats.retries += pending.length;
+      const backoffMs = isCircuitBreakerFailure(failureKind)
+        ? exponentialBackoffMs(breaker.failureStreak, options.quotaBackoffBaseMs, options.quotaBackoffMaxMs)
+        : Math.min(60_000, 5_000 * (2 ** (attempt - 1)));
+      stats.backoffMs += backoffMs;
+      await sleep(backoffMs);
       continue;
     }
-    stats.elapsedMs += Date.now() - started;
     const resultText = JSON.stringify(result);
     stats.outputChars += resultText.length;
     const outputById = normalizeModelResult(result);
@@ -432,6 +494,7 @@ async function processBatch(batch, cache, options, stats) {
       }
       const entry = makeCacheEntry(record, descriptions);
       cache.entries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
+      acceptedEntries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
       stats.accepted += 1;
     }
     pending = nextPending;
@@ -452,9 +515,11 @@ function finishStats(stats, queue, options) {
   // deliberate quota-friendly pauses.
   const observedElapsedMs = stats.elapsedMs + stats.backoffMs;
   const elapsedHours = Math.max(observedElapsedMs / 3_600_000, 1 / 3_600_000);
+  const durationMs = Math.max(0, Date.parse(stats.completedAt) - Date.parse(stats.startedAt));
   return {
     ...stats,
     observedElapsedMs,
+    durationMs,
     selected: queue.length,
     queueRemaining: Math.max(0, stats.totalCandidateRecords - stats.accepted),
     model: EVENT_DESCRIPTION_REWRITE_MODEL,
@@ -462,21 +527,49 @@ function finishStats(stats, queue, options) {
     batchSize: options.batchSize,
     maxInputChars: options.maxInputChars,
     maxTotalInputChars: options.maxTotalInputChars,
+    shardIndex: options.shardIndex,
+    shardCount: options.shardCount,
+    limit: options.limit,
+    quotaErrorThreshold: QUOTA_ERROR_THRESHOLD,
+    circuitBreakerThreshold: options.circuitBreakerThreshold,
     callsPerHour: Number((stats.calls / elapsedHours).toFixed(2)),
     acceptedPerCall: Number((stats.accepted / Math.max(stats.calls, 1)).toFixed(2)),
     elapsedHours: Number(elapsedHours.toFixed(4)),
     quota: {
       lunaCalls: stats.calls,
+      quotaErrors: stats.quotaErrors,
+      timeoutErrors: stats.timeoutErrors,
+      circuitBreakerTrips: stats.circuitBreakerTrips,
       retries: stats.retries,
       backoffMs: stats.backoffMs,
       tokenCountersExposed: false,
-      note: 'Codex OAuth broker/CLI non espone un contatore token; il gate misura chiamate, caratteri e backoff.',
+      note: 'Codex OAuth broker/CLI non espone un contatore token; il gate misura chiamate, errori, caratteri e backoff.',
     },
   };
 }
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
+  if (options.empty) {
+    const startedAt = new Date().toISOString();
+    const stats = {
+      ...emptyRewriteStats({
+        shardIndex: options.shardIndex,
+        shardCount: options.shardCount,
+        limit: options.limit,
+        startedAt,
+      }),
+      completedAt: new Date().toISOString(),
+      model: EVENT_DESCRIPTION_REWRITE_MODEL,
+      promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
+      quotaErrorThreshold: QUOTA_ERROR_THRESHOLD,
+      circuitBreakerThreshold: options.circuitBreakerThreshold,
+    };
+    if (options.outputCache) writeCache(path.resolve(options.outputCache), { entries: {} });
+    if (options.statsOutput) writeFileSync(path.resolve(options.statsOutput), `${JSON.stringify(stats, null, 2)}\n`, { mode: 0o600 });
+    console.log(JSON.stringify(stats));
+    return;
+  }
   if (!existsSync(options.sourceExport)) throw new Error('private source export not found');
   if (!existsSync(options.dataset)) throw new Error('dataset not found');
   const records = loadSourceRecords(options.sourceExport);
@@ -484,13 +577,28 @@ async function main() {
   const cache = loadEventDescriptionRewriteCache(options.cache);
   cache.entries ||= {};
   const { queue, totalPending } = selectQueue(records, dataset, cache, options);
+  const selectedQueue = selectShardQueue(queue, {
+    shardCount: options.shardCount,
+    shardIndex: options.shardIndex,
+    limit: options.limit,
+  });
   const stats = {
+    throughputSchemaVersion: 1,
+    shardIndex: options.shardIndex,
+    shardCount: options.shardCount,
+    limit: options.limit,
     startedAt: new Date().toISOString(),
     calls: 0,
     attempts: 0,
     retries: 0,
     accepted: 0,
     rejected: 0,
+    quotaErrors: 0,
+    timeoutErrors: 0,
+    brokerErrors: 0,
+    circuitBreakerTrips: 0,
+    circuitOpen: false,
+    circuitReason: '',
     transportFailures: 0,
     inputChars: 0,
     outputChars: 0,
@@ -500,13 +608,36 @@ async function main() {
     rejectionCodes: {},
     totalCandidateRecords: totalPending,
   };
-  const { batches, inputBudgetSkipped } = buildBatches(queue, options);
+  const { batches, inputBudgetSkipped } = buildBatches(selectedQueue, options);
   stats.inputBudgetSkipped += inputBudgetSkipped.length;
   const processQueue = batches.flat();
+  const acceptedEntries = {};
+  const breaker = { failureStreak: 0, open: false, reason: '' };
   if (!options.dryRun) {
-    for (const batch of batches) await processBatch(batch, cache, options, stats);
+    for (let index = 0; index < batches.length; index += 1) {
+      if (breaker.open) {
+        const remaining = batches.slice(index).flat();
+        stats.rejected += remaining.length;
+        const rejectionCode = `${breaker.reason}-circuit-open`;
+        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + remaining.length;
+        break;
+      }
+      await processBatch(batches[index], cache, options, stats, acceptedEntries, breaker);
+    }
   }
-  const finalStats = finishStats({ ...stats, completedAt: new Date().toISOString() }, processQueue, options);
+  if (options.outputCache) writeCache(path.resolve(options.outputCache), { ...cache, entries: acceptedEntries });
+  const finalStats = finishStats({
+    ...stats,
+    completedAt: new Date().toISOString(),
+    quota: {
+      lunaCalls: stats.calls,
+      quotaErrors: stats.quotaErrors,
+      timeoutErrors: stats.timeoutErrors,
+      circuitBreakerTrips: stats.circuitBreakerTrips,
+      tokenCountersExposed: false,
+      note: 'Codex OAuth broker/CLI non espone un contatore token; il gate misura chiamate, errori, caratteri e backoff.',
+    },
+  }, processQueue, options);
   if (options.statsOutput) {
     writeFileSync(path.resolve(options.statsOutput), `${JSON.stringify(finalStats, null, 2)}\n`, { mode: 0o600 });
   }
