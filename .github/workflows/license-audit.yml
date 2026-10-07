@@ -152,6 +152,7 @@ jobs:
             > "$RUNNER_TEMP/license-audit-read.stdout"
           rc=$?
           cat "$RUNNER_TEMP/license-audit-read.md" >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/license-audit-read.md"
           exit "$rc"
 
       - name: Setup Codex OAuth image lane
@@ -189,6 +190,7 @@ jobs:
             cp "$RUNNER_TEMP/license-audit-read.md" "$RUNNER_TEMP/license-audit-final.md"
           fi
           cat "$RUNNER_TEMP/license-audit-final.md" >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/license-audit-final.md"
           exit "$rc"
 
       - name: Keep the read-only report as the final report
@@ -269,19 +271,20 @@ jobs:
         run: |
           body="$RUNNER_TEMP/license-audit-pr-body.md"
           generated="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.generated || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          reused="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.reused || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
           alarm="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log(x.alarm?.required ? 'true' : 'false');" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo true)"
           cat > "$body" <<EOF
           ## Implementato
-          - L'audit deterministico misura fonti eventi, immagini pubblicate, testi, copie residue e stato CDN con controlli stabili, soglie, esempi limitati e rapporto JSON versionato.
+          - L'audit deterministico in ".github/workflows/license-audit.yml" misura fonti eventi, immagini pubblicate, testi, copie residue e stato CDN con controlli stabili, soglie, esempi limitati e rapporto JSON versionato.
           - Le violazioni riparabili usano esclusivamente il motore immagini governato, mantengono l'URL del contenuto, rispettano il tetto $AUDIT_LIMIT e vengono caricate con purge mirato.
-          - Questa esecuzione ha prodotto $generated sostituzioni generate; la pubblicazione passa dal PR dati condiviso e non esegue push diretto su main.
+          - Questa esecuzione ha prodotto $generated sostituzioni generate e riusato $reused record già governati; la pubblicazione passa dal PR dati condiviso e non esegue push diretto su main.
 
           ## Non implementato (ancora)
           EOF
           if [ "$alarm" = true ]; then
-            printf '%s\n' '- by construction: i fail non rimediabili vengono mantenuti come allarme nella issue stabile; loghi, asset publisher/social senza fonte e foto di autori reali non vengono rimpiazzati automaticamente.' >> "$body"
+            printf '%s\n' '- by construction: i fail non rimediabili vengono mantenuti come allarme nella issue stabile; loghi, asset publisher/social senza fonte e foto di autori reali non vengono rimpiazzati automaticamente. **Motivo:** queste superfici richiedono una fonte o una decisione editoriale non inferibile. **Prossimo passo:** la issue stabile raccoglie gli esempi per la correzione manuale.' >> "$body"
           else
-            printf '%s\n' '- by construction: loghi, asset publisher/social senza fonte e foto di autori reali restano inventario e non vengono rimpiazzati automaticamente.' >> "$body"
+            printf '%s\n' '- by construction: loghi, asset publisher/social senza fonte e foto di autori reali restano inventario e non vengono rimpiazzati automaticamente. **Motivo:** queste superfici richiedono una fonte o una decisione editoriale non inferibile. **Prossimo passo:** il rapporto versionato mantiene l inventario per la prossima verifica.' >> "$body"
           fi
 
       - name: Validate the data PR body
@@ -297,6 +300,8 @@ jobs:
           export GH_TOKEN="${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/license-audit-latest.json \
+            --path data/events.json \
+            --path data/events/by-source/ \
             --path data/event-image-library.json \
             --path data/generated-image-registry.json \
             --path data/blog-generated-image-registry.json \

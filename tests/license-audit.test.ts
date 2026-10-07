@@ -303,4 +303,86 @@ describe('license audit replacement invariants', () => {
     const queue = JSON.parse(fs.readFileSync(path.join(root, 'data/blog-cover-replacements.json'), 'utf8'));
     expect(queue.items['fixture-article'].fromCover).toBe(queue.items['fixture-article'].toCover);
   });
+
+  it('routes a removed event source to a unique governed event-library record and reuses it', async () => {
+    const root = tempRoot();
+    const oldEvent = {
+      id: 'tio:agenda:old-item',
+      sourceKey: 'tio-agenda',
+      title: 'Fixture event',
+      category: 'sport',
+      canton: 'TI',
+      startDate: '2026-01-10',
+      imageUrl: '/images/events/tio-agenda-old.webp',
+    };
+    fs.mkdirSync(path.join(root, 'data', 'events', 'by-source'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'data', 'events.json'), JSON.stringify({ events: [oldEvent] }));
+    fs.writeFileSync(
+      path.join(root, 'data', 'events', 'by-source', 'tio-agenda.json'),
+      JSON.stringify({ events: [oldEvent] }),
+    );
+    fs.copyFileSync(
+      path.join(ROOT, 'data', 'event-image-library.json'),
+      path.join(root, 'data', 'event-image-library.json'),
+    );
+
+    const initial = auditEventImages({ events: [oldEvent], eventRegistry: { assets: [] } });
+    const candidate = initial.candidates[0];
+    expect(candidate.imageUrl).toMatch(/^\/images\/events\/library\/audit-event-tio-agenda-old-item-[a-z0-9]+\.webp$/);
+    expect(candidate.imageUrl).not.toBe(oldEvent.imageUrl);
+
+    const base = generatedFixture();
+    const generated = {
+      ...base,
+      assetId: candidate.assetId,
+      imageUrl: candidate.imageUrl,
+      category: candidate.category,
+      area: candidate.area,
+      season: candidate.season,
+      variant: 'license-audit-test',
+    };
+    const result = await applyLicenseReplacements({
+      root,
+      candidates: [candidate],
+      limit: 1,
+      outputDir: path.join(root, '.cache/license-audit'),
+      generator: async (_spec, options) => {
+        const filePath = path.join(options.outputDir, candidate.assetId + '.webp');
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+        fs.writeFileSync(filePath, 'fixture');
+        return { filePath, record: generated };
+      },
+    });
+    expect(result.failures).toHaveLength(0);
+    expect(result.generated[0].imageUrl).toBe(candidate.imageUrl);
+
+    const updatedDataset = JSON.parse(fs.readFileSync(path.join(root, 'data', 'events.json'), 'utf8'));
+    const updatedSlice = JSON.parse(fs.readFileSync(
+      path.join(root, 'data', 'events', 'by-source', 'tio-agenda.json'),
+      'utf8',
+    ));
+    expect(updatedDataset.events[0].imageUrl).toBe(candidate.imageUrl);
+    expect(updatedSlice.events[0].imageUrl).toBe(candidate.imageUrl);
+    const registry = JSON.parse(fs.readFileSync(path.join(root, 'data', 'event-image-library.json'), 'utf8'));
+    const reAudit = auditEventImages({ events: updatedDataset.events, eventRegistry: registry });
+    expect(reAudit.controls.find((control) => control.id === 'A.events-published-images')?.status).toBe('pass');
+    expect(auditEventSourceSlices({
+      root,
+      slices: [{ file: 'tio-agenda.json', value: updatedSlice }],
+      eventRegistry: registry,
+    }).control.status).toBe('pass');
+
+    let generatorCalls = 0;
+    const reused = await applyLicenseReplacements({
+      root,
+      candidates: [{ ...candidate, existingRecord: generated }],
+      limit: 1,
+      generator: async () => {
+        generatorCalls += 1;
+        throw new Error('existing governed record should be reused');
+      },
+    });
+    expect(generatorCalls).toBe(0);
+    expect(reused.reused[0].imageUrl).toBe(candidate.imageUrl);
+  });
 });

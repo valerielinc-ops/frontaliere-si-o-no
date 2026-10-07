@@ -17,6 +17,13 @@ import {
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
 import { validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import {
+  EVENT_IMAGE_LIBRARY_PREFIX,
+  eventImageSeason,
+  normalizeEventImageArea,
+  normalizeEventImageCategory,
+  stableEventImageHash,
+} from '../../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { SITE_ORIGIN, SITE_OWNED_OG_IMAGE_ALLOWLIST } from '../lib/published-image-policy.mjs';
 
 export const LICENSE_AUDIT_SCHEMA_VERSION = 1;
@@ -184,7 +191,6 @@ function removedSourceInUrl(url) {
   return REMOVED_EVENT_IMAGE_SOURCES.find((source) => (
     value.includes('/images/events/' + source + '-')
     || value.includes('/images/events/' + source + '/')
-    || value.includes(source + '-')
   )) || null;
 }
 
@@ -323,7 +329,8 @@ export function auditEventImages({
   });
   return {
     rows,
-    candidates: invalid.filter((row) => row.autoRepairable).map((row) => eventReplacementCandidate(row.event, row.reason)),
+    candidates: invalid.filter((row) => row.autoRepairable)
+      .map((row) => eventReplacementCandidate(row.event, row.reason, eventRegistry)),
     controls: [imageControl, crawlerControl],
   };
 }
@@ -385,27 +392,25 @@ function slugPart(value, fallback = 'generic') {
   return normalized || fallback;
 }
 
-function eventArea(event) {
-  if (event?.canton === 'TI' || event?.canton === 'GR') return 'laghi';
-  if (event?.canton === 'GE' || event?.canton === 'VD' || event?.canton === 'VS') return 'alpi-montagna';
-  return 'confine';
-}
-
-function eventSeason(event) {
-  const month = Number(String(event?.startDate || '').slice(5, 7));
-  return month >= 3 && month <= 8 ? 'primavera-estate' : 'autunno-inverno';
-}
-
-function eventReplacementCandidate(event, reason) {
-  const category = slugPart(event?.category, 'generico');
-  const area = eventArea(event);
-  const season = eventSeason(event);
+function eventReplacementCandidate(event, reason, eventRegistry) {
+  const category = normalizeEventImageCategory(event);
+  const area = normalizeEventImageArea(event);
+  const season = eventImageSeason(event?.startDate);
+  const eventId = String(event?.id || 'event');
+  const eventKey = slugPart(eventId, 'event').slice(0, 80) + '-' + stableEventImageHash(eventId).toString(36);
+  const assetId = 'audit-event-' + eventKey;
+  const imageUrl = EVENT_IMAGE_LIBRARY_PREFIX + assetId + '.webp';
+  const existingRecord = (eventRegistry?.assets || []).find((record) => (
+    record?.assetId === assetId
+    && safeGeneratedValidation(record, GENERATED_SCOPES.event).valid
+  )) || null;
   return {
     kind: 'event',
     scope: GENERATED_SCOPES.event,
     key: event?.id || 'unknown-event',
-    assetId: 'event-' + category + '-' + area + '-' + season,
-    imageUrl: event?.imageUrl || null,
+    assetId,
+    imageUrl,
+    originalImageUrl: event?.imageUrl || null,
     eventId: event?.id || null,
     sourceKey: event?.sourceKey || null,
     category,
@@ -414,8 +419,9 @@ function eventReplacementCandidate(event, reason) {
     reason,
     priority: Number(event?.traffic || event?.priority || 0),
     recency: event?.updatedAt || event?.startDate || '',
-    autoRepairable: true,
-    nonRemediable: Boolean(removedSourceInUrl(event?.imageUrl)),
+    autoRepairable: Boolean(event?.id),
+    nonRemediable: !event?.id,
+    existingRecord,
   };
 }
 
@@ -1496,8 +1502,9 @@ function updateGeneratedRegistry(root, file, scope, generated) {
     assetCount: 0,
     assets: [],
   });
-  const assets = new Map((current.assets || []).map((record) => [record.imageUrl, record]));
-  assets.set(generated.imageUrl, generated);
+  const keyFor = (record) => scope === 'event-library' ? record.assetId : record.imageUrl;
+  const assets = new Map((current.assets || []).map((record) => [keyFor(record), record]));
+  assets.set(keyFor(generated), generated);
   const registry = {
     ...current,
     assetCount: assets.size,
@@ -1577,7 +1584,7 @@ function updateEventDatasets(root, candidate, generated) {
     const events = normalizeEventsDataset(value);
     let changed = false;
     for (const event of events) {
-      if (event.id !== candidate.eventId) continue;
+      if (!candidate.eventId || event.id !== candidate.eventId) continue;
       event.imageUrl = generated.imageUrl;
       event.imageAssetId = generated.assetId;
       event.imageLicense = generated.license;
@@ -1604,10 +1611,23 @@ export async function applyLicenseReplacements({
 }) {
   const plan = planReplacements(candidates, limit);
   const generated = [];
+  const reused = [];
   const failures = [];
   fs.mkdirSync(outputDir, { recursive: true });
   for (const candidate of plan.selected) {
     try {
+      if (candidate.kind === 'event' && candidate.existingRecord) {
+        updateEventDatasets(root, candidate, candidate.existingRecord);
+        reused.push({
+          kind: candidate.kind,
+          scope: candidate.scope,
+          assetId: candidate.existingRecord.assetId,
+          imageUrl: candidate.existingRecord.imageUrl,
+          provider: candidate.existingRecord.provider,
+          originalImageUrl: candidate.originalImageUrl || null,
+        });
+        continue;
+      }
       const spec = buildGenerationSpec(candidate);
       const scopeDir = path.join(outputDir, candidate.scope);
       const result = await generator(spec, {
@@ -1650,6 +1670,7 @@ export async function applyLicenseReplacements({
           localFile: relative(root, result.filePath),
         });
       } else if (candidate.kind === 'event') {
+        copyGeneratedFile(root, result, candidate.imageUrl);
         updateGeneratedRegistry(root, 'data/event-image-library.json', 'event-library', result.record);
         updateEventDatasets(root, candidate, result.record);
         generated.push({
@@ -1676,6 +1697,7 @@ export async function applyLicenseReplacements({
     selected: plan.selected.length,
     deferred: plan.deferred.length,
     generated,
+    reused,
     failures,
   };
 }
@@ -1699,6 +1721,8 @@ export function renderMarkdownReport(report) {
     '- Commit: ' + (report.commit || 'unknown'),
     '- Sezioni: ' + (report.sections || []).join(', '),
     '- Candidati auto-riparabili: ' + Number(report.remediation?.candidateCount || 0),
+    '- Nuove sostituzioni generate: ' + Number(report.actions?.generated?.length || 0),
+    '- Record governati riusati: ' + Number(report.actions?.reused?.length || 0),
     '',
     '| ID | Esito | Soglia | Conteggi |',
     '| --- | --- | --- | --- |',
@@ -1815,7 +1839,7 @@ async function main() {
     report.actions = actions;
     report.alarm = reportAlarm(report.controls, actions);
   } else {
-    report.actions = { requested: false, generated: [], failures: [], selected: 0, deferred: 0 };
+    report.actions = { requested: false, generated: [], reused: [], failures: [], selected: 0, deferred: 0 };
   }
   if (args.jsonOut) writeJson(path.resolve(root, args.jsonOut), report);
   const markdown = renderMarkdownReport(report);
