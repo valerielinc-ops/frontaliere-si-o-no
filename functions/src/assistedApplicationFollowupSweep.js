@@ -79,6 +79,11 @@ async function stop(db, orderId, followup, reason, nowMs) {
   return { ok: true, stopped: reason };
 }
 
+const FOLLOWUP_TIMEOUT_MS = 420_000;
+// The one repair of a follow-up the fact gate stops: shorter, and only after a first writing this quick.
+const REPAIR_TIMEOUT_MS = 120_000;
+const REPAIR_WITHIN_MS = 180_000;
+
 /** Codex drafts follow-up n; the candidate gets it with the 12-hour clock. */
 async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret }) {
   const { order, followup, draft, flow } = context;
@@ -87,29 +92,43 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
   const appliedOn = formatAppliedOn(followup.submittedAt, language);
   const days = Math.max(1, Math.round((nowMs - followup.submittedAt) / DAY_MS));
   const previous = [...(followup.history || [])].reverse().find((item) => item.event === 'sent')?.body || null;
-  const raw = await codex({
-    systemPrompt: followupSystemPrompt(language, n),
-    userText: followupUserText({
-      companyName: order.companyName,
-      roleTitle: draft.job?.title || order.jobTitle,
-      contactPerson: draft.contactPerson,
-      appliedOn,
-      days,
-      application: { subject: followup.subject, body: draft.applicationEmail?.body || '' },
-      previousFollowup: previous,
-      evidence: (draft.matches || []).filter((item) => item.status === 'met' && item.evidence).slice(0, 4).map((item) => item.evidence),
-      postingExcerpt: draft.factSources?.posting || '',
-    }),
-    schema: FOLLOWUP_SCHEMA,
-    name: 'followup',
-    timeoutMs: 420_000,
-  });
-  const { body, violations } = sanitizeFollowup(raw, { n });
   // The date and the day count the model was given are facts too. The
   // follow-up is a claim field (CLAIM_FIELDS): it leaves in the candidate's
   // name, so a figure only the posting gives is not the candidate's.
   // With the candidate's permit status of now (decision 8).
-  const facts = checkDraftFacts({ followup: body }, { ...factSourcesNow({ order, draft, flow }), order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` });
+  const sources = { ...factSourcesNow({ order, draft, flow }), order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` };
+  const write = async (factCheckFindings = [], timeoutMs = FOLLOWUP_TIMEOUT_MS) => {
+    const raw = await codex({
+      systemPrompt: followupSystemPrompt(language, n),
+      userText: followupUserText({
+        companyName: order.companyName,
+        roleTitle: draft.job?.title || order.jobTitle,
+        contactPerson: draft.contactPerson,
+        appliedOn,
+        days,
+        application: { subject: followup.subject, body: draft.applicationEmail?.body || '' },
+        previousFollowup: previous,
+        evidence: (draft.matches || []).filter((item) => item.status === 'met' && item.evidence).slice(0, 4).map((item) => item.evidence),
+        postingExcerpt: draft.factSources?.posting || '',
+        factCheckFindings,
+      }),
+      schema: FOLLOWUP_SCHEMA,
+      name: 'followup',
+      timeoutMs,
+    });
+    const written = sanitizeFollowup(raw, { n });
+    return { ...written, facts: checkDraftFacts({ followup: written.body }, sources) };
+  };
+  const started = Date.now();
+  let { body, violations, facts } = await write();
+  // Self-repair (2026-10-07, as scripts/assisted-application/lib/draft.mjs does for the letter): a follow-up
+  // the fact gate stops is written once more, the model told what the gate did not find, and kept only when
+  // the gate passes it. Only when the first writing left the time: the sweep has 540 s for all its orders.
+  if (!violations.length && !facts.ok && Date.now() - started < REPAIR_WITHIN_MS) {
+    const findings = facts.unsupported.slice(0, 12).map(({ kind, token, context }) => ({ kind, token, context }));
+    const again = await write(findings, REPAIR_TIMEOUT_MS).catch(() => null);
+    if (again && !again.violations.length && again.facts.ok) ({ body, violations, facts } = again);
+  }
   const pending = { n, body, subject: replySubject(followup.subject), createdAt: nowMs, deadlineAt: nowMs + FOLLOWUP_REVIEW_MS, attempts: 0 };
   if (violations.length || !facts.ok) {
     // Not sendable as written: kept for the owner queue, never sent.

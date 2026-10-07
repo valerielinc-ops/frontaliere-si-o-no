@@ -235,6 +235,31 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(employerReplied([{ receivedAt: 5, category: 'question' }], 0)).toBe(true);
   });
 
+  it('writes once more a follow-up the fact gate stops, and holds it for the owner only when the repair fails too', async () => {
+    // As the draft does for the letter (2026-10-07): one warning held the follow-up for the owner, never sent.
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const drafted = async (repair: () => any) => {
+      const store = followupStore();
+      await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
+      const codex = vi.fn(async (request: any) => (request.userText.includes('"factCheckFindings"') ? repair() : { body: invented }));
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS });
+      return { followup: store.read(`${ORDER_PATH}/automation/followup`), requests: (codex.mock.calls as any[]).map(([request]) => request) };
+    };
+    const fixed = await drafted(() => ({ body: GOOD_FOLLOWUP }));
+    expect(fixed.followup).toMatchObject({ state: 'awaiting_candidate', pending: { n: 1, body: GOOD_FOLLOWUP } });
+    expect(fixed.requests).toHaveLength(2);
+    expect(fixed.requests[0].userText).not.toContain('"factCheckFindings"');
+    expect(JSON.parse(fixed.requests[1].userText).factCheckFindings).toEqual([expect.objectContaining({ kind: 'number', token: '9' })]);
+    expect(fixed.requests[1].timeoutMs).toBeLessThan(fixed.requests[0].timeoutMs);
+    // The repair still invents, breaks a rule of the follow-up, or does not come: held for the owner, as before.
+    for (const repair of [() => ({ body: invented }), () => ({ body: 'Buongiorno, volevo solo sapere se avete novità.' }), () => { throw new Error('codex unavailable'); }]) {
+      const held = await drafted(repair);
+      expect(held.followup).toMatchObject({ state: 'stopped', stopReason: 'fact_check', pending: { n: 1, body: invented } });
+      expect(held.requests).toHaveLength(2);
+    }
+  });
+
   it('drafts on day 7, sends after the 12 hours, then the day-14 one, then stops', async () => {
     const store = followupStore();
     await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
