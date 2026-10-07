@@ -518,28 +518,47 @@ describe('post-deploy-validate-dist.yml — the audit runs on every deploy, repo
 
   /**
    * The subshell that launches the audit inside the capped pool — CODE only.
-   * Anchored on a line that *starts* with the command, because the rationale
-   * comment above it quotes the same command and every flag it deliberately
-   * does not pass; slicing from the first textual occurrence would swallow the
-   * comment (and the neighbouring Discover block) and make every assertion
-   * below vacuous in the direction that matters.
+   * Anchored on the executable guard line, because the rationale comment above
+   * it quotes the same command and every flag it deliberately does not pass;
+   * slicing from the first textual occurrence would swallow the comment (and
+   * the neighbouring Discover block) and make every assertion below vacuous in
+   * the direction that matters.
    */
   const block = (() => {
     const lines = POSTDEPLOY.split('\n');
-    const cmd = lines.findIndex((l) => /^\s*npm run audit:job-title-locale\b/.test(l));
+    const cmd = lines.findIndex((l) =>
+      /^\s*build_skew_guard_run npm audit:job-title-locale\b.*\bnpm run audit:job-title-locale\b/.test(l)
+    );
     if (cmd < 0) return '';
     let start = cmd;
     while (start > 0 && !/^\s*wait_slot\s*$/.test(lines[start])) start -= 1;
     let end = cmd;
     while (end < lines.length - 1 && !/^\s*\)\s*&\s*$/.test(lines[end])) end += 1;
-    return lines.slice(start, end + 1).join('\n');
+
+    // Measure shell commands, not YAML wrapping: the skew guard keeps the
+    // audit invocation on a continuation line and the block contains one
+    // explanatory comment. The executable boundaries remain unchanged.
+    const commands: string[] = [];
+    for (const raw of lines.slice(start, end + 1)) {
+      const line = raw.replace(/\s+#.*$/, '').trim();
+      if (!line) continue;
+      const previous = commands.at(-1);
+      if (previous?.endsWith('\\')) {
+        commands[commands.length - 1] = `${previous.slice(0, -1)} ${line}`;
+      } else {
+        commands.push(line);
+      }
+    }
+    return commands.join('\n');
   })();
 
   it('the extracted block is the launch code, not the prose around it', () => {
     // Guards the guard: an empty or over-wide slice would make the
     // `not.toMatch` assertions below pass for the wrong reason.
     expect(block).toMatch(/^\s*wait_slot\s*$/m);
-    expect(block).toMatch(/^\s*npm run audit:job-title-locale\b/m);
+    expect(block).toMatch(
+      /^\s*build_skew_guard_run npm audit:job-title-locale\b.*\bnpm run audit:job-title-locale\b/m,
+    );
     expect(block.split('\n').length).toBeLessThan(20);
   });
 
