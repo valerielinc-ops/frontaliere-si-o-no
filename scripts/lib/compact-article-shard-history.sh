@@ -92,6 +92,9 @@ fi
 SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
 if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
+if [ -n "${SHARD_REPO_OVERRIDE:-}" ]; then
+  SHARD_REPO="$SHARD_REPO_OVERRIDE"
+fi
 
 if [ -z "${RUNNER_TEMP:-}" ]; then
   RUNNER_TEMP="$(mktemp -d)"
@@ -137,6 +140,26 @@ rc=0
   esac
 
   echo "$section-$loc shard: $n_commits commit(s) >= cap $ARTICLE_SHARD_HISTORY_CAP — flattening to a single orphan commit"
+  # The flatten erases every commit message, and with them the Content-Rev
+  # trailers by which push-article-shard-incremental.sh tells that a page came
+  # from a newer corpus revision than the one being pushed. Carry the newest
+  # one onto the orphan commit: being the root, it covers every path, so a
+  # publisher that rendered from an older revision keeps the shard as it is
+  # instead of rolling pages back. Read here, while the probe clone still has
+  # the history (commit messages need no blob).
+  newest_content_rev="$(
+    git -C "$stage" log --format='%(trailers:key=Content-Rev,valueonly)' HEAD 2>/dev/null \
+      | grep -E '^[0-9]+\.[0-9A-Fa-f]{7,40}$' \
+      | sort -t. -k1,1n \
+      | tail -n 1
+  )" || newest_content_rev=''
+  compaction_message="$section-$loc shard history compaction (run ${GITHUB_RUN_ID:-local}) [$n_commits -> 1 commit]"
+  if [ -n "$newest_content_rev" ]; then
+    compaction_message="$compaction_message
+
+Content-Rev: $newest_content_rev"
+    echo "$section-$loc shard: newest Content-Rev $newest_content_rev carried onto the orphan commit"
+  fi
   # shard_orphan_flatten_and_push commits whatever is CURRENTLY on disk in
   # $stage — the blobless probe clone above has no working tree, so re-clone
   # WITH a full checkout here to materialize the real current content before
@@ -146,7 +169,7 @@ rc=0
   git -C "$stage" config user.email "valerielinc@gmail.com"
   git -C "$stage" config user.name "Valerie Linc"
   shard_orphan_flatten_and_push "$stage" "$SHARD_REPO" \
-    "$section-$loc shard history compaction (run ${GITHUB_RUN_ID:-local}) [$n_commits -> 1 commit]" \
+    "$compaction_message" \
     "$section-$loc shard compaction"
 ) || rc=$?
 

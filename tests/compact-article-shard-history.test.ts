@@ -8,12 +8,11 @@
 // here against real temp git fixtures (not just regex), same convention as
 // tests/shard-git-helpers.test.ts.
 //
-// scripts/lib/compact-article-shard-history.sh itself (the CLI wrapper) is
-// NOT invoked end-to-end here: it hardcodes a git@github.com: SSH remote
-// (same as push-section-shard.sh / push-article-shard-incremental.sh, which
-// are likewise only structurally tested in this repo, never run end-to-end
-// in CI) — so it gets structural/regex coverage below, same convention as
-// tests/shard-safety-rails.test.ts.
+// scripts/lib/compact-article-shard-history.sh itself (the CLI wrapper) gets
+// structural/regex coverage below, same convention as
+// tests/shard-safety-rails.test.ts, plus one end-to-end block at the bottom
+// (issue 12091): through SHARD_REPO_OVERRIDE it runs against a file:// remote,
+// to prove that a flatten does not erase the newest Content-Rev.
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import { execSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
@@ -260,5 +259,122 @@ describe('compact-article-shard-history.sh — structural invariants (issue #488
 
   it('never introduces a working-tree file check on a --no-checkout clone (same class as defect A/B)', () => {
     expect(script).not.toMatch(/\[\s+-f\s+"\$stage\//);
+  });
+});
+
+// Issue 12091. The article publishers decide "is the page on the shard newer
+// than mine?" from the Content-Rev trailers of the shard commits. A flatten
+// that erased them would let a publisher holding an older corpus revision
+// roll pages back right after a compaction. The orphan commit therefore
+// carries the newest trailer of the history it replaces; as a root commit it
+// covers every path.
+describe('compact-article-shard-history.sh keeps the newest Content-Rev across a flatten', () => {
+  const COMPACT = join(process.cwd(), 'scripts/lib/compact-article-shard-history.sh');
+  const PUSH = join(process.cwd(), 'scripts/lib/push-article-shard-incremental.sh');
+  const REL = 'articoli-frontaliere/compaction-test/index.html';
+  const page = (body: string) => `<html><head><title>t</title></head><body>${body}</body></html>\n`;
+  let root: string;
+
+  beforeAll(() => {
+    root = mkdtempSync(join(tmpdir(), 'compact-content-rev-'));
+  });
+  afterAll(() => {
+    rmSync(root, { recursive: true, force: true });
+  });
+
+  function seedShard(name: string, commits: Array<{ body: string; epoch: number; rev?: string }>): string {
+    const bare = join(root, `${name}.git`);
+    const seed = join(root, `${name}-seed`);
+    sh(`git init -q --bare -b main "${bare}"`);
+    sh(`git -C "${bare}" config uploadpack.allowfilter true`);
+    sh(`mkdir -p "${join(seed, 'articoli-frontaliere/compaction-test')}"`);
+    sh('git init -q -b main', seed);
+    gitIdentity(seed);
+    for (const commit of commits) {
+      writeFileSync(join(seed, REL), page(commit.body));
+      writeFileSync(join(seed, '.shard-filecount'), '1\n');
+      sh('git add -A', seed);
+      const message = commit.rev ? `pub\n\nContent-Rev: ${commit.rev}` : 'pub';
+      const date = new Date(commit.epoch * 1000).toISOString();
+      execSync('git commit -q -F -', {
+        cwd: seed,
+        input: message,
+        env: { ...process.env, GIT_AUTHOR_DATE: date, GIT_COMMITTER_DATE: date },
+        stdio: ['pipe', 'pipe', 'pipe'],
+      });
+    }
+    sh(`git push -q "${bare}" main`, seed);
+    return bare;
+  }
+
+  function run(script: string, args: string[], bare: string, extraEnv: Record<string, string> = {}): string {
+    const runnerTemp = mkdtempSync(join(root, 'runner-'));
+    return execSync(`bash "${script}" ${args.map((arg) => `"${arg}"`).join(' ')} 2>&1`, {
+      cwd: process.cwd(),
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: 'test-deploy-key',
+        SHARD_REPO_OVERRIDE: `file://${bare}`,
+        RUNNER_TEMP: runnerTemp,
+        GIT_TERMINAL_PROMPT: '0',
+        ...extraEnv,
+      },
+      timeout: 60_000,
+    });
+  }
+
+  const trailerOf = (bare: string) =>
+    sh(`git -C "${bare}" log -1 --format='%(trailers:key=Content-Rev,valueonly)' main`);
+
+  it('carries the newest trailer, not the last one, onto the orphan commit', () => {
+    const bare = seedShard('newest', [
+      { body: 'v1', epoch: 2_000_000_000 },
+      { body: 'v2', epoch: 2_000_000_110, rev: '2000000100.fffffff' },
+      { body: 'v3', epoch: 2_000_000_120, rev: '2000000050.eeeeeee' },
+    ]);
+    const output = run(COMPACT, ['articolifrontaliere', 'it'], bare, { ARTICLE_SHARD_HISTORY_CAP: '2' });
+    expect(output).toContain('flattening to a single orphan commit');
+    expect(sh(`git -C "${bare}" rev-list --count main`)).toBe('1');
+    expect(trailerOf(bare)).toBe('2000000100.fffffff');
+  });
+
+  it('a publisher holding an older revision keeps the page after the flatten', () => {
+    const bare = seedShard('guarded', [
+      { body: 'v1', epoch: 2_000_000_000 },
+      { body: 'published-from-newer', epoch: 2_000_000_110, rev: '2000000100.fffffff' },
+    ]);
+    // The fixture revisions live at a made-up epoch, so the flatten is dated
+    // after them, as a real one always is: the guard stops reading as soon as
+    // the shard head is older than the revision being pushed.
+    const flattenedAt = new Date(2_000_000_200 * 1000).toISOString();
+    run(COMPACT, ['articolifrontaliere', 'it'], bare, {
+      ARTICLE_SHARD_HISTORY_CAP: '2',
+      GIT_AUTHOR_DATE: flattenedAt,
+      GIT_COMMITTER_DATE: flattenedAt,
+    });
+    const head = sh(`git -C "${bare}" rev-parse main`);
+
+    const dist = mkdtempSync(join(root, 'dist-'));
+    sh(`mkdir -p "${join(dist, 'articoli-frontaliere/compaction-test')}"`);
+    writeFileSync(join(dist, REL), page('rendered-from-older'));
+    const output = run(PUSH, ['articolifrontaliere', 'it', dist, REL], bare, {
+      ARTICLE_CONTENT_REVISION: '2000000000.aaaaaaa',
+      SHARD_INCREMENTAL_PUSH_MAX_ATTEMPTS: '1',
+      SHARD_INCREMENTAL_PUSH_RETRY_DELAY: '0',
+    });
+    expect(output).toContain('kept remote for 1 newer article path');
+    expect(sh(`git -C "${bare}" rev-parse main`)).toBe(head);
+    expect(sh(`git -C "${bare}" show main:${REL}`)).toContain('published-from-newer');
+  });
+
+  it('writes no trailer when the history never carried one', () => {
+    const bare = seedShard('plain', [
+      { body: 'v1', epoch: 2_000_000_000 },
+      { body: 'v2', epoch: 2_000_000_010 },
+    ]);
+    run(COMPACT, ['articolifrontaliere', 'it'], bare, { ARTICLE_SHARD_HISTORY_CAP: '2' });
+    expect(sh(`git -C "${bare}" rev-list --count main`)).toBe('1');
+    expect(trailerOf(bare)).toBe('');
   });
 });
