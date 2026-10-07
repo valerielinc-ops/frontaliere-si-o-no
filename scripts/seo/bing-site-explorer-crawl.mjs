@@ -109,6 +109,7 @@ function isDeclaredSearchBridge({ url, canonical, html }) {
   const sourceSection = getJobBoardSectionPrefix(source.pathname);
   const targetSection = getJobBoardSectionPrefix(target.pathname);
   if (!sourceSection || !targetSection) return false;
+  if (targetSection !== sourceSection) return false;
 
   const sourceLocale = localeForJobBoardSection(sourceSection);
   if (!sourceLocale || sourceLocale !== localeForJobBoardSection(targetSection)) return false;

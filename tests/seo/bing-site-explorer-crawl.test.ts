@@ -252,6 +252,22 @@ describe('Bing-compatible full-tree crawler', () => {
     }
   });
 
+  it('keeps cross-canton search canonicals actionable in the frontier', () => {
+    const url = `${BASE}/cerca-lavoro-ticino/ricerca-lugano/`;
+    const canonical = `${BASE}/cerca-lavoro-zurigo/`;
+    const result = classifyDocument({
+      url,
+      status: 200,
+      scope: 'discovered-frontier',
+      html: `${REDIRECT_STUB_MARKER}<title>Bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}">`,
+    });
+    const codes = result.findings.map((item) => item.code);
+
+    expect(codes).toContain(BING_FRONTIER_CANONICAL_DRIFT);
+    expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
+    expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+  });
+
   it('keeps expected canonical consolidations out of the actionable issue body', () => {
     const expectedUrl = `${BASE}/blog/vecchio-slug/`;
     const driftUrl = `${BASE}/blog/old/`;
