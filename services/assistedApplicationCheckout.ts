@@ -19,6 +19,38 @@ export interface AssistedApplicationCheckoutResult {
   orderId: string;
 }
 
+export interface AssistedApplicationCheckoutError extends Error {
+  code?: string;
+  status?: number;
+}
+
+const SAFE_ERROR_CODE_RE = /^[a-z][a-z0-9_.:/-]{0,63}$/;
+
+function safeErrorCode(value: unknown): string | null {
+  if (typeof value !== 'string') return null;
+  const code = value.trim();
+  return SAFE_ERROR_CODE_RE.test(code) ? code : null;
+}
+
+function httpErrorCode(value: unknown): string | null {
+  const status = Number(value);
+  return Number.isInteger(status) && status >= 100 && status <= 599 ? `http_${status}` : null;
+}
+
+/** Return only bounded provider/function codes or a coarse HTTP/network code. */
+export function getAssistedApplicationCheckoutErrorCode(error: unknown): string {
+  const candidate = safeErrorCode((error as AssistedApplicationCheckoutError | null)?.code);
+  if (candidate) return candidate;
+  return httpErrorCode((error as AssistedApplicationCheckoutError | null)?.status) || 'unknown';
+}
+
+function checkoutError(code: string, status?: number): AssistedApplicationCheckoutError {
+  const error = new Error(code) as AssistedApplicationCheckoutError;
+  error.code = code;
+  if (Number.isInteger(status) && status !== undefined && status >= 100 && status <= 599) error.status = status;
+  return error;
+}
+
 const REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v2';
 const LEGACY_REQUEST_KEY_STORAGE_PREFIX = 'frontaliere_assisted_application_checkout_v1';
 const REQUEST_KEY_RE = /^[A-Za-z0-9_-]{16,128}$/;
@@ -124,10 +156,11 @@ export async function ensureAssistedApplicationAuth(): Promise<any | null> {
   try {
     const result = await authModule.signInAnonymously(auth);
     return result?.user || null;
-  } catch {
+  } catch (error) {
     // Anonymous Auth may be disabled in a project; surface one stable caller
     // error so the UI can route the visitor to the existing sign-in flow.
-    throw new Error('assisted_application_auth_required');
+    const code = getAssistedApplicationCheckoutErrorCode(error);
+    throw checkoutError(code === 'unknown' ? 'assisted_application_auth_failed' : code);
   }
 }
 
@@ -136,21 +169,27 @@ export async function createAssistedApplicationCheckout(
   user: { uid?: string; getIdToken: () => Promise<string> },
 ): Promise<AssistedApplicationCheckoutResult> {
   const token = await user.getIdToken();
-  if (!token) throw new Error('assisted_application_auth_required');
+  if (!token) throw checkoutError('assisted_application_auth_required');
 
   const requestKey = persistentRequestKey(input, user);
 
-  const response = await fetch(CREATE_ASSISTED_APPLICATION_CHECKOUT_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({ ...input, requestKey }),
-  });
+  let response: Response;
+  try {
+    response = await fetch(CREATE_ASSISTED_APPLICATION_CHECKOUT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ ...input, requestKey }),
+    });
+  } catch {
+    throw checkoutError('network_error');
+  }
   const data = await response.json().catch(() => ({}));
   if (!response.ok || !data?.ok || !data?.url || !data?.orderId) {
-    throw new Error(`assisted_application_checkout_failed:${response.status}`);
+    const code = safeErrorCode(data?.error) || (httpErrorCode(response.status) || 'invalid_response');
+    throw checkoutError(code, response.status);
   }
   return data as AssistedApplicationCheckoutResult;
 }

@@ -305,4 +305,19 @@ describe('assisted application JobBoard handoff', () => {
       /if \(shouldBypassAssistedApplicationExperiment \|\| !assistedApplicationVariantReady[\s\S]*trackAssistedApplicationEvent\(/,
     );
   });
+
+  it('keeps checkout auth failures distinct from session failures and records the auth resume', () => {
+    const start = jobBoardSource.indexOf('const startAssistedCheckout = ');
+    const end = jobBoardSource.indexOf('// A treatment click can happen', start);
+    const checkout = jobBoardSource.slice(start, end);
+
+    expect(checkout).toContain("reason: 'auth_failed'");
+    expect(checkout).toContain("reason: 'auth_required'");
+    expect(checkout).toContain("error_code: 'assisted_application_auth_required'");
+    expect(checkout).toContain("reason: 'session_creation_failed'");
+    expect(checkout).toContain('error_code: getAssistedApplicationCheckoutErrorCode(error)');
+    expect(checkout).toContain("'checkout_resumed'");
+    expect(checkout).toContain('saveAssistedCheckoutAuthResume(String(job.id))');
+    expect(checkout).not.toContain('error.message');
+  });
 });
