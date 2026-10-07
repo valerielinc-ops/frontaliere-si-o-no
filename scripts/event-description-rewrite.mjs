@@ -216,6 +216,7 @@ function factsContext(facts) {
 
 const POOR_SOURCE_MAX_WORDS = 7;
 const POOR_SOURCE_MAX_CHARS = 60;
+const POOR_SOURCE_MIN_WORDS = 50;
 
 function isPoorSource(sourceTextsForRecord) {
   const richest = (sourceTextsForRecord || []).reduce((best, value) => {
@@ -247,36 +248,64 @@ function displayFactValue(value) {
   return '';
 }
 
-function fallbackFact(record) {
+const FALLBACK_FACT_FIELDS = Object.freeze([
+  'venue',
+  'comune',
+  'canton',
+  'category',
+  'organizer',
+  'performer',
+  'startDate',
+  'startTime',
+  'price',
+]);
+
+const FALLBACK_FACT_LABELS = Object.freeze({
+  it: { venue: 'luogo', comune: 'comune', canton: 'cantone', category: 'categoria', organizer: 'organizzatore', performer: 'partecipante', startDate: 'data', startTime: 'ora', price: 'prezzo' },
+  en: { venue: 'venue', comune: 'municipality', canton: 'canton', category: 'category', organizer: 'organiser', performer: 'participant', startDate: 'date', startTime: 'time', price: 'price' },
+  de: { venue: 'ort', comune: 'gemeinde', canton: 'kanton', category: 'kategorie', organizer: 'veranstalter', performer: 'mitwirkender', startDate: 'datum', startTime: 'uhrzeit', price: 'preis' },
+  fr: { venue: 'lieu', comune: 'commune', canton: 'canton', category: 'catégorie', organizer: 'organisateur', performer: 'participant', startDate: 'date', startTime: 'heure', price: 'prix' },
+});
+
+function fallbackFactEntries(record) {
   const facts = record.facts || {};
-  for (const field of ['venue', 'comune', 'region', 'canton', 'organizer', 'performer']) {
-    const value = displayFactValue(facts[field]);
-    if (value) return value.replace(/[.!?]+$/u, '').trim();
+  const entries = [];
+  const seen = new Set();
+  for (const field of FALLBACK_FACT_FIELDS) {
+    const raw = displayFactValue(facts[field]).replace(/[.!?]+$/u, '').trim();
+    if (!raw) continue;
+    const value = raw.split(/\s+/u).slice(0, 6).join(' ');
+    const normalized = value.toLocaleLowerCase('und');
+    if (seen.has(normalized)) continue;
+    seen.add(normalized);
+    entries.push({ field, value });
   }
-  return '';
+  return entries;
+}
+
+function wordCount(value) {
+  return typeof value === 'string' ? value.trim().split(/\s+/u).filter(Boolean).length : 0;
+}
+
+function meetsPoorSourceWordFloor(descriptions) {
+  return EVENT_DESCRIPTION_LOCALES.every((locale) => wordCount(descriptions?.[locale]) >= POOR_SOURCE_MIN_WORDS);
 }
 
 function buildMinimalRewriteDescriptions(record) {
-  const fact = fallbackFact(record);
-  const suffixes = fact
-    ? {
-      it: `Il luogo o riferimento strutturato indicato è ${fact}.`,
-      en: `The structured place or reference recorded is ${fact}.`,
-      de: `Als strukturierter Ort oder Bezug ist ${fact} angegeben.`,
-      fr: `Le lieu ou repère structuré indiqué est ${fact}.`,
-    }
-    : {
-      it: 'La scheda riporta le informazioni essenziali disponibili.',
-      en: 'The listing contains the essential available information.',
-      de: 'Der Eintrag enthält die verfügbaren wesentlichen Informationen.',
-      fr: 'La fiche contient les informations essentielles disponibles.',
+  const entries = fallbackFactEntries(record);
+  const uniqueValues = new Set(entries.map(({ value }) => value.toLocaleLowerCase('und')));
+  if (entries.length < 2 || uniqueValues.size < 2) return null;
+  return Object.fromEntries(EVENT_DESCRIPTION_LOCALES.map((locale) => {
+    const labels = FALLBACK_FACT_LABELS[locale];
+    const factList = entries.map(({ field, value }) => `${labels[field]}: ${value}`).join('; ');
+    const descriptions = {
+      it: `La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: ${factList}. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.`,
+      en: `The record describes an event and preserves the available structured references: ${factList}. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.`,
+      de: `Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ${factList}. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.`,
+      fr: `La fiche décrit un événement et conserve les repères structurés disponibles : ${factList}. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante.`,
     };
-  return {
-    it: `L'evento è registrato nelle informazioni disponibili. ${suffixes.it}`,
-    en: `The event is recorded in the available information. ${suffixes.en}`,
-    de: `Die Veranstaltung ist in den verfügbaren Informationen erfasst. ${suffixes.de}`,
-    fr: `L'événement est enregistré dans les informations disponibles. ${suffixes.fr}`,
-  };
+    return [locale, descriptions[locale]];
+  }));
 }
 
 function buildBatchPrompt(batch, retryReasons = new Map()) {
@@ -294,7 +323,7 @@ function buildBatchPrompt(batch, retryReasons = new Map()) {
     'Use only facts present in the supplied event facts or source descriptions. Structured fields (title, venue, municipality, canton, region, organiser, performer, date, time and price) are authoritative and may be expressed in the target language with equivalent spelling, inflection or date/number format. Do not add names, dates, times, prices, places, performers or organisers that are not present there.',
     'Do not copy any sequence of eight consecutive normalized words from any source description. Dates, times, prices and full addresses are already shown as factual metadata: normally omit them from the prose, especially day/date/time combinations. Never reproduce a long event title verbatim; if the title itself is long, refer to the event generically (for example “l’appuntamento”, “the concert”, “die Veranstaltung” or “le rendez-vous”). Paraphrase the facts; never translate by sentence substitution.',
     'Do not use promotional superlatives, calls to action, invented context, citations, Markdown, HTML, bullet lists or labels.',
-    'On a retry for source-ngram-8, change the wording and sentence structure completely, omit dates/times/addresses and long title fragments, and use only broad factual statements. On a retry for new-name, keep proper names only when they occur in the supplied facts or source context, or use an obvious translation/inflection of a structured place or venue. On a retry for sentence-count, return exactly two complete sentences per language. For sourceQuality=poor, write the shortest safe two-sentence factual description using only structured fields; do not invent context merely to make the source sound richer.',
+    'On a retry for source-ngram-8, change the wording and sentence structure completely, omit dates/times/addresses and long title fragments, and use only broad factual statements. On a retry for new-name, keep proper names only when they occur in the supplied facts or source context, or use an obvious translation/inflection of a structured place or venue. On a retry for sentence-count, return exactly two complete sentences per language. For sourceQuality=poor, write an event-specific factual description of at least 50 words in each locale using at least two structured fields; if the structured context is insufficient, do not pad with generic prose because the result will be rejected.',
     'The source descriptions are private inputs. They must not be returned, quoted or mentioned.',
     JSON.stringify({ events: records }),
   ].join('\n\n');
@@ -584,8 +613,9 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
         sourceTexts: record.sourceTexts,
         factTexts: factsContext(record.facts),
       });
-      if (!validation.ok) {
-        const code = Object.values(validation.errors || {})[0] || 'missing-output';
+      const poorSourceTooShort = record.sourceQuality === 'poor' && !meetsPoorSourceWordFloor(descriptions);
+      if (!validation.ok || poorSourceTooShort) {
+        const code = Object.values(validation.errors || {})[0] || (poorSourceTooShort ? 'poor-source-word-floor' : 'missing-output');
         if (attempt >= options.maxAttempts) {
           rejectRecords(stats, [record], code);
         } else {
@@ -728,7 +758,7 @@ async function main() {
         sourceTexts: record.sourceTexts,
         factTexts: factsContext(record.facts),
       });
-      if (validation.ok) acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback: true });
+      if (validation.ok && meetsPoorSourceWordFloor(descriptions)) acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback: true });
       else modelQueue.push(record);
     }
   } else {
