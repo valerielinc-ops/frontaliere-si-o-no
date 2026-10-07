@@ -12741,6 +12741,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.biasca-17enne-arrestato-accoltellamento.title': 'Biasca: arrestation 17 ans agression couteau près gare',
     'blog.article.biasca-17enne-arrestato-accoltellamento.excerpt': '## En bref - À Biasca, arrestation d’un résident syrien de 17 ans - Blessé à l’abdomen, le jeune de 21 ans est hors de danger - L’accusation principale est celle de tentative d’homicide',
     'blog.article.biasca-17enne-arrestato-accoltellamento.imageAlt': 'Ruban de police et gyrophares près de la gare de Biasca au crépuscule',
+    'blog.article.pedemontana-truffa-sms-frontalieri.title': 'Pedemontana avertit : aucun paiement de péage par SMS ou e-mail',
+    'blog.article.pedemontana-truffa-sms-frontalieri.excerpt': '## En bref - Pedemontana ne demande pas le paiement de péages par SMS ou e-mail - Les escrocs menacent de blocage ou d\'immobilisation du véhicule - Les liens renvoient vers de faux domaines - Vérifiez',
+    'blog.article.pedemontana-truffa-sms-frontalieri.imageAlt': 'Photo réaliste d\'un poste de péage autoroutier tessinois au lever du soleil avec la voiture d\'un frontalier approchant',
+    'blog.article.pedemontana-falso-pedaggio-sms.title': 'Pedemontana : aucun paiement de péage par SMS ou e-mail',
+    'blog.article.pedemontana-falso-pedaggio-sms.excerpt': '## En bref - Pedemontana signale de faux péages par e-mail, SMS et WhatsApp - Les messages menacent d\'un blocage ou d\'une immobilisation administrative - Les éventuels péages se',
+    'blog.article.pedemontana-falso-pedaggio-sms.imageAlt': 'Vue sur le lac de Lugano avec les montagnes et un smartphone affichant un SMS suspect sur le pare-brise d\'une voiture.',
 };
 
 export default blogMetaFr;

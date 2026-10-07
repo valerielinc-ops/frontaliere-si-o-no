@@ -12740,6 +12740,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.biasca-17enne-arrestato-accoltellamento.title': 'Biasca: arrestato 17enne per accoltellamento vicino alla stazione',
     'blog.article.biasca-17enne-arrestato-accoltellamento.excerpt': '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
     'blog.article.biasca-17enne-arrestato-accoltellamento.imageAlt': 'Nastro della polizia e luci lampeggianti vicino alla stazione di Biasca al tramonto',
+    'blog.article.pedemontana-truffa-sms-frontalieri.title': 'Pedemontana avverte: nessun pagamento pedaggio via SMS o email',
+    'blog.article.pedemontana-truffa-sms-frontalieri.excerpt': '## In breve - Pedemontana non chiede pedaggi via SMS o e-mail - I truffatori minacciano blocco o fermo del veicolo - I link rimandano a domini falsi - Verifica',
+    'blog.article.pedemontana-truffa-sms-frontalieri.imageAlt': 'Foto realistica di un casello autostradale ticinese all\'alba con un\'auto di un frontalier in avvicinamento',
+    'blog.article.pedemontana-falso-pedaggio-sms.title': 'Pedemontana: nessun pagamento pedaggio via SMS o email',
+    'blog.article.pedemontana-falso-pedaggio-sms.excerpt': '## In breve - Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp - I messaggi minacciano blocco o fermo amministrativo - Eventuali pedaggi si',
+    'blog.article.pedemontana-falso-pedaggio-sms.imageAlt': 'Vista del lago di Lugano con le montagne e uno smartphone che mostra un SMS sospetto sul parabrezza di un\'auto.',
 };
 
 export default blogMetaIt;

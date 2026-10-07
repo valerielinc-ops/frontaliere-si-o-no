@@ -42976,6 +42976,26 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pedemontana-truffa-sms-frontalieri',
+ category: 'pratico',
+ date: '2026-10-07T10:36:08.818Z',
+ image: '/images/blog/pedemontana-avviso-truffa.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'pedemontana-falso-pedaggio-sms',
+ category: 'pratico',
+ date: '2026-10-07T10:51:03.091Z',
+ image: '/images/blog/pedemontana-avviso-truffa.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
