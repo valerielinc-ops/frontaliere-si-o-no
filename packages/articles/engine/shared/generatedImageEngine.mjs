@@ -593,8 +593,8 @@ export function isSuitablePhotoCandidate(candidate) {
 const PHOTO_AREA_ANCHORS = Object.freeze({
   'ticino-confine': ['lugano', 'locarno', 'bellinzona', 'mendrisio', 'melide', 'morcote', 'agno', 'chiasso', 'ticino', 'como', 'varese'],
   'svizzera-urbana': ['zurich', 'zürich', 'bern', 'basel', 'geneva', 'geneve', 'lausanne', 'lucerne', 'luzern', 'st gallen'],
-  'alpi-montagna': ['swiss alps', 'alps', 'zermatt', 'engadin', 'valais', 'wallis', 'graubunden', 'grisons', 'davos', 'switzerland', 'swiss'],
-  laghi: ['lake', 'lago', 'lac', 'lugano', 'maggiore', 'geneva', 'zurich', 'lucerne', 'neuchatel'],
+  'alpi-montagna': ['swiss alps', 'zermatt', 'engadin', 'valais', 'wallis', 'graubunden', 'grisons', 'davos', 'moleson', 'moléson', 'bernese alps'],
+  laghi: ['lake lugano', 'lago lugano', 'lac lugano', 'lake maggiore', 'lago maggiore', 'lake geneva', 'lac leman', 'lake zurich', 'lake lucerne', 'lake neuchatel', 'lugano', 'maggiore', 'geneva', 'zurich', 'lucerne', 'neuchatel'],
 });
 
 function photoCandidateText(candidate) {
@@ -614,7 +614,7 @@ export function isPhotoCandidateRelevantToSpec(spec, candidate) {
   const anchors = PHOTO_AREA_ANCHORS[String(spec?.area || '').trim()];
   if (!anchors) return true;
   const text = photoCandidateText(candidate);
-  if (!text) return true;
+  if (!text) return false;
   return anchors.some((anchor) => text.includes(String(anchor).toLowerCase()));
 }
 

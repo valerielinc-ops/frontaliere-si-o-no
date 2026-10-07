@@ -156,10 +156,10 @@ describe('generated image provider contracts', () => {
       variant: '02',
     };
     const candidates = [
-      { type: 'photo', sourcePageUrl: 'https://photos.example/used-hash', width: 2400, height: 1600, sha256: 'a'.repeat(64) },
-      { type: 'photo', sourcePageUrl: 'https://photos.example/used-page', width: 2400, height: 1600, sha256: 'b'.repeat(64) },
-      { type: 'photo', sourcePageUrl: 'https://photos.example/keep-a', width: 2400, height: 1600, sha256: 'c'.repeat(64) },
-      { type: 'photo', sourcePageUrl: 'https://photos.example/keep-b', width: 2400, height: 1600, sha256: 'd'.repeat(64) },
+      { type: 'photo', title: 'Lake Zurich', sourcePageUrl: 'https://photos.example/used-hash', width: 2400, height: 1600, sha256: 'a'.repeat(64) },
+      { type: 'photo', title: 'Lake Zurich', sourcePageUrl: 'https://photos.example/used-page', width: 2400, height: 1600, sha256: 'b'.repeat(64) },
+      { type: 'photo', title: 'Lake Zurich', sourcePageUrl: 'https://photos.example/keep-a', width: 2400, height: 1600, sha256: 'c'.repeat(64) },
+      { type: 'photo', title: 'Lake Zurich', sourcePageUrl: 'https://photos.example/keep-b', width: 2400, height: 1600, sha256: 'd'.repeat(64) },
     ];
     const usedRecords = [{
       scope: 'event-library',
@@ -192,6 +192,14 @@ describe('generated image provider contracts', () => {
     expect(isPhotoCandidateRelevantToSpec(
       { area: 'svizzera-urbana' },
       { title: 'Mykonos finale live set, Greece', width: 6240, height: 4160 },
+    )).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec(
+      { area: 'laghi' },
+      { title: 'Lake Tahoe', width: 2400, height: 1600 },
+    )).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec(
+      { area: 'laghi' },
+      { title: '', width: 2400, height: 1600 },
     )).toBe(false);
   });
 
