@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { renderArticlePages } from '../packages/articles/engine/ogPagesPlugin';
+import { renderArticlePages } from '../build-plugins/ogPagesPlugin';
 
 const rootDir = process.cwd();
 let distDir: string | undefined;
