@@ -687,27 +687,123 @@ function tidySpacing(value = '') {
 // it rewrote the link (`Perch A9`, `l 80%99UE`) in every translated text that
 // cites such a URL: a 404 behind a source line that looked untouched.
 //
-// Both forms keep one level of balanced parentheses inside the destination,
-// the way Wikipedia-style URLs carry them (`…/Lugano_(citt%C3%A0)`,
+// Both forms keep balanced parentheses inside the destination, the way
+// Wikipedia-style URLs carry them (`…/Lugano_(citt%C3%A0)`,
 // `…/a(b)/Perch%C3%A9`): closing the span at the first `)` left whatever
 // followed it exposed to the strip. A lone `(` is still part of the URL, and a
 // bare URL quoted inside a parenthesis of prose still ends before the `)`.
-const LINK_SPAN_RE = /\]\((?:[^()\s]|\((?:[^()\s]*\))?)*\)|(?:https?:\/\/|www\.)(?:[^\s<>"'()\]]|\((?:[^\s<>"'()\]]*\))?)+/gi;
+//
+// This is deliberately a small scanner rather than one large regexp. Markdown
+// destinations may be relative, angle-bracketed, and followed by a quoted or
+// parenthesized title; a regexp that only recognizes absolute URLs or stops at
+// the first space rewrites percent-encoded bytes in those valid forms.
 const LINK_SLOT_RE = /\u0000(\d+)\u0000/g;
+
+function markdownLinkEnd(text, openIndex) {
+  let depth = 1;
+  let angle = false;
+  let quote = '';
+  for (let i = openIndex + 1; i < text.length; i += 1) {
+    const ch = text[i];
+    if (ch === '\\') {
+      i += 1;
+      continue;
+    }
+    if (quote) {
+      if (ch === quote) quote = '';
+      continue;
+    }
+    if (angle) {
+      if (ch === '>') angle = false;
+      continue;
+    }
+    if (ch === '<') {
+      angle = true;
+      continue;
+    }
+    if ((ch === '"' || ch === "'") && /\s/.test(text[i - 1] || '')) {
+      quote = ch;
+      continue;
+    }
+    if (ch === '(') {
+      depth += 1;
+      continue;
+    }
+    if (ch === ')') {
+      depth -= 1;
+      if (depth === 0) return i + 1;
+    }
+  }
+  return -1;
+}
+
+function bareUrlEnd(text, start) {
+  let parentheses = 0;
+  for (let i = start; i < text.length; i += 1) {
+    const ch = text[i];
+    if (/\s|[<>"'\]]/.test(ch)) return i;
+    if (ch === '(') {
+      parentheses += 1;
+      continue;
+    }
+    if (ch === ')') {
+      if (parentheses === 0) return i;
+      parentheses -= 1;
+    }
+  }
+  return text.length;
+}
+
+function collectOpaqueSpans(text) {
+  const spans = [];
+  let i = 0;
+  while (i < text.length) {
+    if (text[i] === ']' && text[i + 1] === '(') {
+      const end = markdownLinkEnd(text, i + 1);
+      if (end !== -1) {
+        spans.push([i, end]);
+        i = end;
+        continue;
+      }
+    }
+    const lower = text.slice(i, i + 8).toLowerCase();
+    if (lower.startsWith('https://') || lower.startsWith('http://') || lower.startsWith('www.')) {
+      const end = bareUrlEnd(text, i);
+      if (end > i) {
+        spans.push([i, end]);
+        i = end;
+        continue;
+      }
+    }
+    i += 1;
+  }
+  return spans;
+}
+
+function maskOpaqueSpans(text) {
+  const links = [];
+  let cursor = 0;
+  let masked = '';
+  for (const [start, end] of collectOpaqueSpans(text)) {
+    if (start < cursor) continue;
+    masked += text.slice(cursor, start);
+    links.push(text.slice(start, end));
+    masked += `\u0000${links.length - 1}\u0000`;
+    cursor = end;
+  }
+  masked += text.slice(cursor);
+  return { masked, links };
+}
 
 /** Remove template/placeholder tokens (see the design note above). */
 export function stripPlaceholderTokens(text = '') {
   const input = String(text ?? '');
   if (!input) return input;
-  const links = [];
   // A text that already carries the slot character cannot be masked safely:
   // it is processed as before.
-  const masked = input.includes('\u0000')
-    ? input
-    : input.replace(LINK_SPAN_RE, (span) => {
-      links.push(span);
-      return `\u0000${links.length - 1}\u0000`;
-    });
+  const { masked, links } = input.includes('\u0000')
+    ? { masked: input, links: [] }
+    : maskOpaqueSpans(input);
   const out = masked
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');

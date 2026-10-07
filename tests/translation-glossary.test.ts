@@ -582,6 +582,17 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     }
   });
 
+  it('keeps relative and angle-bracket destinations with optional titles opaque', () => {
+    for (const text of [
+      '[fonte](/guide/Perch%C3%A9 "titolo")',
+      '[fonte](</guide/Perch%C3%A9> "titolo (breve)")',
+      "[fonte](/guide/a\\(b\\)/Perch%C3%A9 'titolo')",
+      '![fonte [annidata]](/guide/Perch%C3%A9 "titolo")',
+    ]) {
+      expect(stripPlaceholderTokens(text), text).toBe(text);
+    }
+  });
+
   it('a bare URL quoted inside a parenthesis of prose ends before the closing one', () => {
     // The placeholder after the parenthesis is prose and is still stripped;
     // the URL before it is returned byte for byte.
