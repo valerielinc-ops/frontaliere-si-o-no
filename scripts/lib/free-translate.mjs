@@ -13,9 +13,8 @@
  *   9. Lingva, Mozhi+Google, unofficial Google Translate, Mozhi+DeepL,
  *      Mozhi+Yandex (local/dev tiers, often blocked from Actions IPs)
  *
- * `FREE_TRANSLATE_CODEX_TIER=last` is an explicit caller override that moves
- * Codex to the end of the cascade. translate-pending sets it for the title
- * repair lane (Phase 2a.2), where Codex is the last resort after the free tiers.
+ * `FREE_TRANSLATE_CODEX_TIER=last` remains a narrow compatibility override for
+ * an explicitly opted-in legacy caller; production workflows no longer set it.
  *
  * Features:
  *   - Instance health tracking: remembers which instances are down to skip them
@@ -1201,9 +1200,8 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 // timeout o quota lo rendono
 // inutilizzabile, ai-models.mjs apre un circuito per run e questa cascata
 // prosegue immediatamente con DeepL, Azure e gli altri tier nell'ordine
-// storico. `FREE_TRANSLATE_CODEX_TIER=last` resta un override esplicito del
-// caller: la corsia di riparazione titoli lo usa quando Codex deve essere
-// l'ultimo fallback invece del tier primario della cascata generale.
+// storico. `FREE_TRANSLATE_CODEX_TIER=last` è mantenuto solo per un caller
+// legacy esplicito, non è usato dai workflow del sito.
 //
 // La lane e' quella del corpo articolo: il broker che
 // `.github/actions/setup-claude-haiku-fallback` avvia quando c'e'

@@ -392,11 +392,12 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
-      # ── Codex Luna Max: available to the title repair lane as last resort ──
+      # ── Codex Luna Max: available from the first title repair lane on ──────
       # Start the broker after the Argos bulk pass and BEFORE Phase 2a.2. The
-      # title lane therefore gets the same final Codex tier as 2b/2d/2e when
-      # provider keys fail, while the existing cascade and its guards remain
-      # unchanged when the broker is unavailable or disabled.
+      # title lane therefore gets Codex in the same default (primary) position
+      # as 2b/2d/2e — owner decision 2026-10-06: Codex is the first lane of
+      # every translation cascade — while the existing cascade and its guards
+      # remain unchanged when the broker is unavailable or disabled.
       - id: setup_claude_haiku_fallback
         if: inputs.skip_translate != true && inputs.dry_run != true
         uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
@@ -405,9 +406,10 @@ jobs:
           broker_idle_ttl_ms: '12600000'
 
       # ── Phase 2a.2: title residue to the free cascade, before descriptions ──
-      # Titles Argos left as source copies go to the free cascade (DeepL →
-      # Azure → … → Codex Luna Max) BEFORE the job cascade (2b) and the
-      # description lanes spend time and premium quota on descriptions. Writes
+      # Titles Argos left as source copies go to the cascade (Codex Luna Max
+      # for at most 15 of the lane's 25 minutes, then DeepL → Azure → …) BEFORE
+      # the job cascade (2b) and the description lanes spend time and premium
+      # quota on descriptions. Writes
       # slices only; the re-assemble and the Argos commit below pick it up, and
       # it is gated like them so 2b never scatters a stale dataset over it.
       - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
@@ -418,9 +420,8 @@ jobs:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '6600000' # 110 * 60 * 1000 run-wide ceiling
           UNTRANSLATED_TITLE_FIX_WINDOW_MS: '1500000'   # 25 * 60 * 1000 from this step's start
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          FREE_TRANSLATE_CODEX_TIER: 'last'
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
-          FREE_TRANSLATE_CODEX_MAX_MS: '1500000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
           FREE_TRANSLATE_CODEX_LANES: '3'
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
