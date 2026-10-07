@@ -15,6 +15,11 @@ import {
 
 const workflow = readFileSync(path.join(process.cwd(), '.github/workflows/event-description-rewrite.yml'), 'utf8');
 
+test('workflow data PR body writes actual newlines', () => {
+  assert.match(workflow, /\]\.join\("\\n"\);/u);
+  assert.doesNotMatch(workflow, /\]\.join\("\\\\n"\);/u);
+});
+
 test('workflow defaults stay linked to the planner defaults', () => {
   assert.match(workflow, new RegExp(`default: '${DEFAULT_SHARD_COUNT}'`));
   assert.match(workflow, new RegExp(`default: '${DEFAULT_EVENTS_PER_SHARD}'`));
