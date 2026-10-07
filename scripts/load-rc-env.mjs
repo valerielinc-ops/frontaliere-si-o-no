@@ -353,6 +353,7 @@ export const RC_TO_ENV = {
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
   FAL_KEY:                        ['FAL_KEY'],
+  POLLINATIONS_API_KEY:            ['POLLINATIONS_API_KEY'],
   PEXELS_API_KEY:                 ['PEXELS_API_KEY'],
 
   // Events crawler (scripts/crawl-openagenda-events.mjs, crawl-events.yml):

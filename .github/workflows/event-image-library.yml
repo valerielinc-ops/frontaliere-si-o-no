@@ -10,6 +10,11 @@ on:
         required: false
         default: '20'
         type: string
+      provider:
+        description: 'Provider or comma-separated chain: auto, openai-codex, gemini, fal, together, pollinations, wikimedia, pexels, pixabay'
+        required: false
+        default: 'auto'
+        type: string
 
 concurrency:
   group: event-image-library
@@ -25,6 +30,7 @@ jobs:
     timeout-minutes: 180
     env:
       MAX_ASSETS: ${{ inputs.max_assets || '20' }}
+      IMAGE_PROVIDER: ${{ inputs.provider || 'auto' }}
 
     steps:
       - name: Checkout
@@ -72,6 +78,18 @@ jobs:
             exit 2
           fi
 
+      - name: Validate image provider chain
+        run: |
+          export IMAGE_PROVIDER
+          node --input-type=module -e '
+            const allowed = new Set(["auto", "openai-codex", "gemini", "fal", "together", "pollinations", "wikimedia", "pexels", "pixabay"]);
+            const requested = process.env.IMAGE_PROVIDER.split(/[>,\s]+/).filter(Boolean);
+            if (!requested.length || requested.some((provider) => !allowed.has(provider))) {
+              console.error(`::error::provider must contain only auto, openai-codex, gemini, fal, together, pollinations, wikimedia, pexels or pixabay; got ${process.env.IMAGE_PROVIDER}`);
+              process.exit(2);
+            }
+          '
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -104,6 +122,7 @@ jobs:
         run: |
           node scripts/generate-event-image-library.mjs \
             --limit "$MAX_ASSETS" \
+            --provider "$IMAGE_PROVIDER" \
             --registry data/event-image-library.json \
             --output-dir .cache/event-image-library
 
@@ -126,11 +145,12 @@ jobs:
           body="$RUNNER_TEMP/event-image-library-pr-body.md"
           cat > "$body" <<'EOF'
           ## Implementato
-          - Il motore condiviso assegna in modo deterministico gli slot mancanti della libreria eventi e persiste solo record verificati con provider, modello, hash, dimensioni, marcatura media generativa e restrizioni.
-          - I WebP nuovi sono stati caricati su R2 sotto `images/events/library/` prima della proposta del registro, con controllo del gate eventi.
+          - Il motore condiviso assegna in modo deterministico gli slot mancanti della libreria eventi usando la catena richiesta (`$IMAGE_PROVIDER`) e persiste solo record verificati con provider, modello, termini/licenza, hash, dimensioni e marcatura metadata coerente.
+          - I WebP nuovi sono stati caricati su R2 sotto `images/events/library/` prima della proposta del registro, con controllo del gate eventi e dei crediti per le eventuali foto reali.
+          - Il limite operativo resta di 20 nuovi asset per run; un provider non configurato o non disponibile viene diagnosticato senza interrompere le altre varianti della catena.
 
           ## Non implementato (ancora)
-          - Il passaggio di `create-article.mjs` e degli altri generatori al motore è blocked: PR successiva nel corpus sul motore.
+          - Nessun elemento residuo in questa PR: il mirror dell’engine verso il corpus resta automatico per scelta e il comportamento `article-hero` usa la stessa catena governata.
           EOF
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/event-image-library.json \

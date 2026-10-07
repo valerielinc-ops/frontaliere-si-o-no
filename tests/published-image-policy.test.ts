@@ -37,6 +37,19 @@ describe('published image policy', () => {
     });
   });
 
+  it('accepts a verified licensed photo record through the same CDN gate', () => {
+    const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
+    const policy = loadPublishedImagePolicy({ root: ROOT });
+    const record = registry.assets.find((asset) => asset.kind === 'photo');
+
+    expect(record).toBeDefined();
+    expect(policy.check(`${IMAGE_CDN_ORIGIN}${record.imageUrl}`, { requireCdn: true })).toMatchObject({
+      valid: true,
+      source: 'licensed-photo-registry',
+      path: record.imageUrl,
+    });
+  });
+
   it('accepts a credited blog cover with status ok and rejects a missing one', () => {
     const policy = loadPublishedImagePolicy({ root: ROOT });
     expect(

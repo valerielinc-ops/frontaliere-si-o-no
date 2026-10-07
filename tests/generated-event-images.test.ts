@@ -3,6 +3,7 @@ import {
   buildGeneratedImagePrompt,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  LICENSED_PHOTO_RESTRICTIONS,
   validateGeneratedImageRegistry,
   validateGeneratedImageRecord,
   verifyPublishedEventImages,
@@ -59,6 +60,37 @@ const ARTICLE_RECORD = {
   imageUrl: '/images/blog/historical-article-hero.webp',
 };
 
+const PHOTO_RECORD = {
+  ...RECORD,
+  assetId: 'event-lago-laghi-primavera-v02',
+  kind: 'photo',
+  provider: 'wikimedia',
+  model: 'Wikimedia Commons file mirror',
+  license: 'CC BY-SA 4.0',
+  licenseFamily: 'cc-by-sa',
+  licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+  credit: 'Ada Wikimedia · CC BY-SA 4.0',
+  author: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
+  sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+  sourceImageUrl: 'https://upload.wikimedia.org/lago.jpg',
+  copyrightNotice: '© Ada Wikimedia',
+  acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+  restrictions: [...LICENSED_PHOTO_RESTRICTIONS],
+  vision: {
+    ok: true,
+    contains_text: true,
+    contains_logo: false,
+    contains_recognizable_face: false,
+    looks_like_specific_real_event: false,
+    notes: 'safe licensed landscape fixture',
+  },
+  imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
+  category: 'generico',
+  area: 'laghi',
+  season: 'primavera-estate',
+  variant: '02',
+};
+
 describe('generated event image policy', () => {
   it('keeps the forbidden-content policy in the canonical prompt', () => {
     const prompt = buildGeneratedImagePrompt({
@@ -80,6 +112,16 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);
   });
+
+  it('validates licensed photo metadata and rejects a missing licence', () => {
+    expect(validateGeneratedImageRecord(PHOTO_RECORD).valid).toBe(true);
+    expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, license: '' }).valid).toBe(false);
+    expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, author: undefined }).valid).toBe(false);
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      vision: { ...PHOTO_RECORD.vision, contains_recognizable_face: true },
+    }).valid).toBe(false);
+  });
 });
 
 describe('event image library taxonomy and assignment', () => {
@@ -87,6 +129,8 @@ describe('event image library taxonomy and assignment', () => {
     const slots = eventImageLibrarySlots();
     expect(slots).toHaveLength(96);
     expect(new Set(slots.map((slot) => slot.assetId)).size).toBe(96);
+    expect(eventImageLibrarySlots({ variants: 3 })).toHaveLength(288);
+    expect(eventImageLibrarySlots({ variants: 3 })[1].assetId).toContain('-v02');
   });
 
   it('normalizes dirty categories and maps cantons to macro-areas', () => {
@@ -152,6 +196,24 @@ describe('published event image gate', () => {
       },
     ], [RECORD]);
     expect(result).toEqual({ valid: true, errors: [] });
+  });
+
+  it('accepts a registered licensed photo only when attribution is propagated', () => {
+    const event = {
+      id: 'event:photo',
+      imageUrl: PHOTO_RECORD.imageUrl,
+      imageAssetId: PHOTO_RECORD.assetId,
+      imageLicense: PHOTO_RECORD.license,
+      imageLicenseUrl: PHOTO_RECORD.licenseUrl,
+      imageCredit: PHOTO_RECORD.credit,
+      imageProvider: PHOTO_RECORD.provider,
+      imageAuthor: PHOTO_RECORD.author,
+      imageSourcePageUrl: PHOTO_RECORD.sourcePageUrl,
+      imageCopyrightNotice: PHOTO_RECORD.copyrightNotice,
+      imageAcquireLicensePage: PHOTO_RECORD.acquireLicensePage,
+    };
+    expect(verifyPublishedEventImages([event], [PHOTO_RECORD])).toEqual({ valid: true, errors: [] });
+    expect(verifyPublishedEventImages([{ ...event, imageLicense: 'generated-provider' }], [PHOTO_RECORD]).valid).toBe(false);
   });
 
   it('rejects generated event fields that drift from the registry record', () => {
