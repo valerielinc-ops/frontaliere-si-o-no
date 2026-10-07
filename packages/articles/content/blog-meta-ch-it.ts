@@ -7862,6 +7862,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cancro-prostata-assistenza-svizzera.title': 'Cancro alla prostata: assistenza buona in Svizzera 2020‑2023',
     'blog.article.cancro-prostata-assistenza-svizzera.excerpt': '## In breve - Oltre 35\'000 casi analizzati tra il 2020 e il 2023 - 8\'929 nuovi casi e 1\'340 decessi medi annui - Il 76% emerge dallo screening opportunistico',
     'blog.article.cancro-prostata-assistenza-svizzera.imageAlt': 'Medico e paziente che discutono i risultati del test PSA in uno studio medico svizzero con vista sulle Alpi',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.title': 'Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.excerpt': '## In breve - I titoli della Confederazione a dieci anni rendono 0,58% - La BNS mantiene il tasso guida allo 0% - Il rendimento è salito da 0,18% a 0,69%',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.imageAlt': 'Immagine editoriale relativa a: Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
 };
 
 export default blogMetaChIt;

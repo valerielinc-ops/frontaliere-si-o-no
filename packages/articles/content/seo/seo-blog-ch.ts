@@ -99091,6 +99091,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0': {
+    title: 'Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    description: '## In breve - I titoli della Confederazione a dieci anni rendono 0,58% - La BNS mantiene il tasso guida allo 0% - Il rendimento è salito da 0,18% a 0,69%',
+    keywords: 'frontalieri, ticino, svizzera, italia, rendimenti, titoli, svizzeri, rialzo',
+    ogTitle: 'Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    ogDescription: '## In breve - I titoli della Confederazione a dieci anni rendono 0,58% - La BNS mantiene il tasso guida allo 0% - Il rendimento è salito da 0,18% a 0,69%',
+    canonicalPath: '/articoli-svizzera/rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rendimenti titoli svizzeri in rialzo, BNS allo 0%",
+      "description": "## In breve - I titoli della Confederazione a dieci anni rendono 0,58% - La BNS mantiene il tasso guida allo 0% - Il rendimento è salito da 0,18% a 0,69%",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Rendimenti titoli svizzeri in rialzo, BNS allo 0%"
+      },
+      "datePublished": "2026-10-07T12:04:10+00:00",
+      "dateModified": "2026-10-07T12:04:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

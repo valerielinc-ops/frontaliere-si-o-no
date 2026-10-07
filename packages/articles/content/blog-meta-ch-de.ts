@@ -7862,6 +7862,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cancro-prostata-assistenza-svizzera.title': 'Prostatakrebs: gute Versorgung in der Schweiz 2020‑2023',
     'blog.article.cancro-prostata-assistenza-svizzera.excerpt': '## Auf einen Blick - Über 35\'000 Fälle wurden zwischen 2020 und 2023 analysiert - 8\'929 neue Fälle und durchschnittlich 1\'340 Todesfälle pro Jahr - 76% werden durch opportunistisches Screening entdeckt',
     'blog.article.cancro-prostata-assistenza-svizzera.imageAlt': 'Arzt und Patient besprechen PSA-Testergebnisse in einem schweizerischen Arztbüro mit Alpenblick',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.title': 'Renditen Schweizer Anleihen steigen, SNB bei 0%',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.excerpt': '## Auf einen Blick - Zehnjährige Anleihen der Eidgenossenschaft rentieren 0,58% - Die SNB belässt den Leitzins bei 0% - Die Rendite ist von 0,18% auf 0,69% gestiegen',
+    'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.imageAlt': 'Redaktionelles Bild zu: Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
 };
 
 export default blogMetaChDe;
