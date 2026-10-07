@@ -7,6 +7,7 @@ import { spawn } from 'node:child_process';
 import {
   EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
   EVENT_DESCRIPTION_LOCALES,
+  EVENT_DESCRIPTION_POLICY_VERSION,
   EVENT_DESCRIPTION_PROMPT_VERSION,
   EVENT_DESCRIPTION_REWRITE_MODEL,
   factsForPrompt,
@@ -19,16 +20,25 @@ import {
 import {
   CIRCUIT_BREAKER_THRESHOLD,
   DEFAULT_SHARD_COUNT,
+  REJECTION_MEMORY_SCHEMA_VERSION,
   QUOTA_BACKOFF_BASE_MS,
   QUOTA_BACKOFF_MAX_MS,
   QUOTA_ERROR_THRESHOLD,
   classifyCodexFailure,
+  compareQueueAttemptPriority,
   emptyRewriteStats,
   exponentialBackoffMs,
   isCircuitBreakerFailure,
   normalizeShardCount,
+  recordRejectionMemory,
+  queueStateForEvent,
   selectShardQueue,
+  summarizeRewriteQueue,
 } from './lib/event-description-throughput.mjs';
+import {
+  buildMinimalRewriteDescriptions,
+  meetsPoorSourceWordFloor,
+} from './lib/event-description-fallback.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const DEFAULT_DATASET = path.join(REPO_ROOT, 'data', 'events.json');
@@ -227,87 +237,6 @@ function isPoorSource(sourceTextsForRecord) {
   return words <= POOR_SOURCE_MAX_WORDS || richest.length < POOR_SOURCE_MAX_CHARS;
 }
 
-function displayFactValue(value) {
-  if (typeof value === 'string') return value.replace(/\s+/gu, ' ').trim();
-  if (Array.isArray(value)) {
-    for (const item of value) {
-      const result = displayFactValue(item);
-      if (result) return result;
-    }
-    return '';
-  }
-  if (!value || typeof value !== 'object') return '';
-  for (const key of ['name', 'label', 'title', 'value', 'street', 'locality', 'address']) {
-    const result = displayFactValue(value[key]);
-    if (result) return result;
-  }
-  for (const nested of Object.values(value)) {
-    const result = displayFactValue(nested);
-    if (result) return result;
-  }
-  return '';
-}
-
-const FALLBACK_FACT_FIELDS = Object.freeze([
-  'venue',
-  'comune',
-  'canton',
-  'category',
-  'organizer',
-  'performer',
-  'startDate',
-  'startTime',
-  'price',
-]);
-
-const FALLBACK_FACT_LABELS = Object.freeze({
-  it: { venue: 'luogo', comune: 'comune', canton: 'cantone', category: 'categoria', organizer: 'organizzatore', performer: 'partecipante', startDate: 'data', startTime: 'ora', price: 'prezzo' },
-  en: { venue: 'venue', comune: 'municipality', canton: 'canton', category: 'category', organizer: 'organiser', performer: 'participant', startDate: 'date', startTime: 'time', price: 'price' },
-  de: { venue: 'ort', comune: 'gemeinde', canton: 'kanton', category: 'kategorie', organizer: 'veranstalter', performer: 'mitwirkender', startDate: 'datum', startTime: 'uhrzeit', price: 'preis' },
-  fr: { venue: 'lieu', comune: 'commune', canton: 'canton', category: 'catégorie', organizer: 'organisateur', performer: 'participant', startDate: 'date', startTime: 'heure', price: 'prix' },
-});
-
-function fallbackFactEntries(record) {
-  const facts = record.facts || {};
-  const entries = [];
-  const seen = new Set();
-  for (const field of FALLBACK_FACT_FIELDS) {
-    const raw = displayFactValue(facts[field]).replace(/[.!?]+$/u, '').trim();
-    if (!raw) continue;
-    const value = raw.split(/\s+/u).slice(0, 6).join(' ');
-    const normalized = value.toLocaleLowerCase('und');
-    if (seen.has(normalized)) continue;
-    seen.add(normalized);
-    entries.push({ field, value });
-  }
-  return entries;
-}
-
-function wordCount(value) {
-  return typeof value === 'string' ? value.trim().split(/\s+/u).filter(Boolean).length : 0;
-}
-
-function meetsPoorSourceWordFloor(descriptions) {
-  return EVENT_DESCRIPTION_LOCALES.every((locale) => wordCount(descriptions?.[locale]) >= POOR_SOURCE_MIN_WORDS);
-}
-
-function buildMinimalRewriteDescriptions(record) {
-  const entries = fallbackFactEntries(record);
-  const uniqueValues = new Set(entries.map(({ value }) => value.toLocaleLowerCase('und')));
-  if (entries.length < 2 || uniqueValues.size < 2) return null;
-  return Object.fromEntries(EVENT_DESCRIPTION_LOCALES.map((locale) => {
-    const labels = FALLBACK_FACT_LABELS[locale];
-    const factList = entries.map(({ field, value }) => `${labels[field]}: ${value}`).join('; ');
-    const descriptions = {
-      it: `La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: ${factList}. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.`,
-      en: `The record describes an event and preserves the available structured references: ${factList}. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.`,
-      de: `Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ${factList}. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.`,
-      fr: `La fiche décrit un événement et conserve les repères structurés disponibles : ${factList}. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante.`,
-    };
-    return [locale, descriptions[locale]];
-  }));
-}
-
 function buildBatchPrompt(batch, retryReasons = new Map()) {
   const records = batch.map((record) => ({
     id: record.id,
@@ -422,12 +351,16 @@ function writeCache(cachePath, cache) {
   mkdirSync(path.dirname(cachePath), { recursive: true });
   const tempPath = `${cachePath}.tmp-${process.pid}`;
   const orderedEntries = Object.fromEntries(Object.entries(cache.entries || {}).sort(([left], [right]) => left.localeCompare(right)));
+  const orderedRejections = Object.fromEntries(Object.entries(cache.rejections || {}).sort(([left], [right]) => left.localeCompare(right)));
   const output = {
     schemaVersion: EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+    rejectionMemorySchemaVersion: REJECTION_MEMORY_SCHEMA_VERSION,
     generatedAt: new Date().toISOString(),
     model: EVENT_DESCRIPTION_REWRITE_MODEL,
     promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
+    policyVersion: EVENT_DESCRIPTION_POLICY_VERSION,
     entries: orderedEntries,
+    rejections: orderedRejections,
   };
   writeFileSync(tempPath, `${JSON.stringify(output, null, 2)}\n`, { mode: 0o600 });
   renameSync(tempPath, cachePath);
@@ -449,14 +382,10 @@ function makeCacheEntry(record, descriptions) {
 
 function selectQueue(records, dataset, cache, options) {
   const currentById = new Map((dataset.events || []).map((event) => [event.id, event]));
-  let totalPending = 0;
-  for (const event of currentById.values()) {
-    const hash = event.sourceDescriptionHash || sourceDescriptionHash(event);
-    const cached = hash && cache.entries?.[rewriteCacheKey(event.id, hash)];
-    if (hash && !isValidRewriteCacheEntry(cached, { id: event.id, sourceHash: hash })) totalPending += 1;
-  }
+  const queueState = summarizeRewriteQueue(dataset, cache);
   const seen = new Set();
   const queue = [];
+  const parkedQueue = [];
   for (const record of records) {
     if (!record?.id) continue;
     const current = currentById.get(record.id);
@@ -467,6 +396,7 @@ function selectQueue(records, dataset, cache, options) {
     seen.add(recordKey);
     const currentHash = current.sourceDescriptionHash || sourceDescriptionHash(current);
     if (currentHash !== hash) continue;
+    const state = queueStateForEvent({ ...current, sourceDescriptionHash: hash }, cache);
     const candidate = {
       ...record,
       sourceDescriptionHash: hash,
@@ -478,10 +408,18 @@ function selectQueue(records, dataset, cache, options) {
     const cached = cache.entries?.[rewriteCacheKey(candidate.id, hash)];
     if (isValidRewriteCacheEntry(cached, { id: candidate.id, sourceHash: hash })) continue;
     if (!withinDays(current.startDate, options.days)) continue;
-    queue.push(candidate);
+    if (state === 'parked') {
+      candidate.selectionClass = 'parked';
+      parkedQueue.push(candidate);
+    } else if (state === 'new' || state === 'retryable') {
+      candidate.selectionClass = state === 'new' ? 'new' : 'retryable';
+      queue.push(candidate);
+    }
   }
-  queue.sort((a, b) => priorityCompare(a.currentEvent, b.currentEvent));
-  return { queue, totalPending };
+  const priority = (left, right) => compareQueueAttemptPriority(left, right) || priorityCompare(left.currentEvent, right.currentEvent);
+  queue.sort(priority);
+  parkedQueue.sort((a, b) => priorityCompare(a.currentEvent, b.currentEvent));
+  return { queue, parkedQueue, queueState };
 }
 
 function buildBatches(queue, options) {
@@ -507,21 +445,50 @@ function buildBatches(queue, options) {
   return { batches, inputBudgetSkipped };
 }
 
-function rejectRecords(stats, records, code) {
+function rejectRecords(
+  stats,
+  records,
+  code,
+  {
+    rejectionMemory = null,
+    rejectionEntries = null,
+    definitive = false,
+    detail = '',
+  } = {},
+) {
   stats.rejected += records.length;
   stats.rejectionCodes[code] = (stats.rejectionCodes[code] || 0) + records.length;
+  if (detail) {
+    const detailKey = `${code}:${detail}`;
+    stats.rejectionDetails[detailKey] = (stats.rejectionDetails[detailKey] || 0) + records.length;
+  }
+  for (const record of records) {
+    if (record?.selectionClass === 'new') stats.rejectedNeverAttempted += 1;
+    if (record?.selectionClass === 'retryable') stats.rejectedRetries += 1;
+    if (!definitive || !rejectionMemory || !rejectionEntries || !record?.id) continue;
+    stats._rejectionKeys ||= new Set();
+    const key = rewriteCacheKey(record.id, record.sourceDescriptionHash);
+    if (stats._rejectionKeys.has(key)) continue;
+    stats._rejectionKeys.add(key);
+    const entry = recordRejectionMemory(rejectionMemory, record, code);
+    if (entry) rejectionEntries[key] = entry;
+  }
 }
 
 function acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback = false } = {}) {
   const entry = makeCacheEntry(record, descriptions);
-  cache.entries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
-  acceptedEntries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
+  const key = rewriteCacheKey(record.id, record.sourceDescriptionHash);
+  cache.entries[key] = entry;
+  delete cache.rejections?.[key];
+  acceptedEntries[key] = entry;
   stats.accepted += 1;
   if (fallback) stats.acceptedByFallback += 1;
   else stats.acceptedByModel += 1;
+  if (record.selectionClass === 'new') stats.acceptedNeverAttempted += 1;
+  if (record.selectionClass === 'retryable') stats.acceptedRetries += 1;
 }
 
-async function processBatch(batch, cache, options, stats, acceptedEntries, breaker) {
+async function processBatch(batch, cache, options, stats, acceptedEntries, rejectionEntries, breaker) {
   // The first call keeps the throughput benefit of a batch. Every retry is a
   // singleton, so one invalid event can never make accepted neighbours repeat
   // or disappear. A timed-out batch is also split before its first retry.
@@ -537,13 +504,21 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
     if (prompt.length > options.maxInputChars) {
       const skipped = work.length + group.length;
       stats.inputBudgetSkipped += skipped;
-      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget');
+      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget', {
+        rejectionMemory: cache.rejections,
+        rejectionEntries,
+        definitive: true,
+      });
       break;
     }
     if (stats.inputChars + prompt.length > options.maxTotalInputChars) {
       const skipped = work.length + group.length;
       stats.inputBudgetSkipped += skipped;
-      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget');
+      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget', {
+        rejectionMemory: cache.rejections,
+        rejectionEntries,
+        definitive: true,
+      });
       break;
     }
     stats.calls += 1;
@@ -617,7 +592,13 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
       if (!validation.ok || poorSourceTooShort) {
         const code = Object.values(validation.errors || {})[0] || (poorSourceTooShort ? 'poor-source-word-floor' : 'missing-output');
         if (attempt >= options.maxAttempts) {
-          rejectRecords(stats, [record], code);
+          const detail = Object.entries(validation.details || {}).find(([locale]) => validation.errors?.[locale] === code)?.[1] || '';
+          rejectRecords(stats, [record], code, {
+            rejectionMemory: cache.rejections,
+            rejectionEntries,
+            definitive: true,
+            detail,
+          });
         } else {
           stats.retries += 1;
           retryable.push({ record, attempt, retryReason: code });
@@ -639,21 +620,30 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
   }
 }
 
-function finishStats(stats, queue, options) {
+function finishStats(stats, queue, options, queueState) {
   // Include retry backoff in the observed throughput. The model call timer is
   // still kept separately so a run can distinguish provider latency from the
   // deliberate quota-friendly pauses.
   const observedElapsedMs = stats.elapsedMs + stats.backoffMs;
   const elapsedHours = Math.max(observedElapsedMs / 3_600_000, 1 / 3_600_000);
   const durationMs = Math.max(0, Date.parse(stats.completedAt) - Date.parse(stats.startedAt));
+  const serializableStats = { ...stats };
+  delete serializableStats._rejectionKeys;
   return {
-    ...stats,
+    ...serializableStats,
     observedElapsedMs,
     durationMs,
     selected: queue.length,
-    queueRemaining: Math.max(0, stats.totalCandidateRecords - stats.accepted),
+    queueRemaining: queueState.workable,
+    toAttempt: queueState.toAttempt,
+    neverAttempted: queueState.neverAttempted,
+    retryable: queueState.retryable,
+    waitingRetry: queueState.waitingRetry,
+    parked: queueState.parked,
     model: EVENT_DESCRIPTION_REWRITE_MODEL,
     promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
+    policyVersion: EVENT_DESCRIPTION_POLICY_VERSION,
+    rejectionMemorySchemaVersion: REJECTION_MEMORY_SCHEMA_VERSION,
     batchSize: options.batchSize,
     timeoutMs: options.timeoutMs,
     maxInputChars: options.maxInputChars,
@@ -710,12 +700,20 @@ async function main() {
   const dataset = readJson(options.dataset);
   const cache = loadEventDescriptionRewriteCache(options.cache);
   cache.entries ||= {};
-  const { queue, totalPending } = selectQueue(records, dataset, cache, options);
+  cache.rejections ||= {};
+  const { queue, parkedQueue, queueState } = selectQueue(records, dataset, cache, options);
   const selectedQueue = selectShardQueue(queue, {
     shardCount: options.shardCount,
     shardIndex: options.shardIndex,
     limit: options.limit,
   });
+  const selectedParkedQueue = options.dryRun
+    ? []
+    : selectShardQueue(parkedQueue, {
+      shardCount: options.shardCount,
+      shardIndex: options.shardIndex,
+      limit: Math.max(0, options.limit - selectedQueue.length),
+    });
   const stats = {
     throughputSchemaVersion: 1,
     shardIndex: options.shardIndex,
@@ -743,11 +741,34 @@ async function main() {
     elapsedMs: 0,
     backoffMs: 0,
     rejectionCodes: {},
-    totalCandidateRecords: totalPending,
+    rejectionDetails: {},
+    selectedNeverAttempted: selectedQueue.filter((record) => record.selectionClass === 'new').length,
+    selectedRetries: selectedQueue.filter((record) => record.selectionClass === 'retryable').length,
+    acceptedNeverAttempted: 0,
+    acceptedRetries: 0,
+    rejectedNeverAttempted: 0,
+    rejectedRetries: 0,
+    parkedFallbackCandidates: 0,
+    parkedUnchanged: 0,
+    totalCandidateRecords: queueState.pending,
   };
   const acceptedEntries = {};
+  const rejectionEntries = {};
   const modelQueue = [];
   if (!options.dryRun) {
+    for (const record of selectedParkedQueue) {
+      stats.parkedFallbackCandidates += 1;
+      const descriptions = buildMinimalRewriteDescriptions(record);
+      const validation = validateRewriteBundle(descriptions, {
+        sourceTexts: record.sourceTexts,
+        factTexts: factsContext(record.facts),
+      });
+      if (validation.ok && meetsPoorSourceWordFloor(descriptions, POOR_SOURCE_MIN_WORDS)) {
+        acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback: true });
+      } else {
+        stats.parkedUnchanged += 1;
+      }
+    }
     for (const record of selectedQueue) {
       if (record.sourceQuality !== 'poor') {
         modelQueue.push(record);
@@ -767,21 +788,25 @@ async function main() {
   if (!options.dryRun && stats.acceptedByFallback > 0) writeCache(options.cache, cache);
   const { batches, inputBudgetSkipped } = buildBatches(modelQueue, options);
   stats.inputBudgetSkipped += inputBudgetSkipped.length;
-  if (inputBudgetSkipped.length) rejectRecords(stats, inputBudgetSkipped, 'input-budget');
+  if (inputBudgetSkipped.length) rejectRecords(stats, inputBudgetSkipped, 'input-budget', {
+    rejectionMemory: cache.rejections,
+    rejectionEntries,
+    definitive: true,
+  });
   const breaker = { failureStreak: 0, open: false, reason: '' };
   if (!options.dryRun) {
     for (let index = 0; index < batches.length; index += 1) {
       if (breaker.open) {
         const remaining = batches.slice(index).flat();
-        stats.rejected += remaining.length;
         const rejectionCode = `${breaker.reason}-circuit-open`;
-        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + remaining.length;
+        rejectRecords(stats, remaining, rejectionCode);
         break;
       }
-      await processBatch(batches[index], cache, options, stats, acceptedEntries, breaker);
+      await processBatch(batches[index], cache, options, stats, acceptedEntries, rejectionEntries, breaker);
     }
   }
-  if (options.outputCache) writeCache(path.resolve(options.outputCache), { ...cache, entries: acceptedEntries });
+  if (options.outputCache) writeCache(path.resolve(options.outputCache), { ...cache, entries: acceptedEntries, rejections: rejectionEntries });
+  const finalQueueState = summarizeRewriteQueue(dataset, cache);
   const finalStats = finishStats({
     ...stats,
     completedAt: new Date().toISOString(),
@@ -793,7 +818,7 @@ async function main() {
       tokenCountersExposed: false,
       note: 'Codex OAuth broker/CLI non espone un contatore token; il gate misura chiamate, errori, caratteri e backoff.',
     },
-  }, selectedQueue, options);
+  }, [...selectedQueue, ...selectedParkedQueue], options, finalQueueState);
   if (options.statsOutput) {
     writeFileSync(path.resolve(options.statsOutput), `${JSON.stringify(finalStats, null, 2)}\n`, { mode: 0o600 });
   }

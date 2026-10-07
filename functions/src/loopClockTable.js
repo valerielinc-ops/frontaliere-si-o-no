@@ -20,6 +20,7 @@ const entries = [
     everyMinutes: 60,
     introducedAt: '2026-10-07T16:50:03Z',
   },
+  { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
   // (one Actions call per scheduled workflow) is budgeted once a day on the
   // native cron of that workflow, not once an hour.

@@ -4,12 +4,14 @@ import path from 'node:path';
 
 export const EVENT_DESCRIPTION_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 export const EVENT_DESCRIPTION_REWRITE_MODEL = 'gpt-5.6-luna';
-export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v2';
-export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 1;
+export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v3';
+export const EVENT_DESCRIPTION_POLICY_VERSION = 'event-description-policy-v3';
+export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 2;
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
 export const EVENT_DESCRIPTION_MIN_CHARS = 30;
 const ACCEPTED_CACHE_PROMPT_VERSIONS = new Set([
   'event-description-rewrite-v1',
+  'event-description-rewrite-v2',
   EVENT_DESCRIPTION_PROMPT_VERSION,
 ]);
 const MODULE_REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
@@ -211,21 +213,22 @@ const COMMON_NAME_TRANSLATIONS = Object.freeze({
   museo: ['museum', 'musée'],
   museum: ['museo', 'musée'],
   musee: ['museo', 'museum'],
-  civico: ['civic', 'civique', 'städtisch'],
-  civic: ['civico', 'civique', 'städtisch'],
-  civique: ['civico', 'civic', 'städtisch'],
-  stadtisch: ['civico', 'civic', 'civique'],
+  civico: ['civic', 'civique', 'städtisch', 'municipal', 'municipale', 'comunale', 'communal', 'kommunal'],
+  civic: ['civico', 'civique', 'städtisch', 'municipal', 'municipale', 'comunale', 'communal', 'kommunal'],
+  civique: ['civico', 'civic', 'städtisch', 'municipal', 'municipale', 'comunale', 'communal', 'kommunal'],
+  stadtisch: ['civico', 'civic', 'civique', 'municipal', 'municipale', 'comunale', 'communal', 'kommunal'],
+  municipal: ['civico', 'civic', 'civique', 'municipale', 'comunale', 'communal', 'städtisch', 'kommunal'],
+  municipale: ['civico', 'civic', 'civique', 'municipal', 'comunale', 'communal', 'städtisch', 'kommunal'],
+  kommunal: ['civico', 'civic', 'civique', 'municipal', 'municipale', 'comunale', 'communal', 'städtisch'],
   teatro: ['theatre', 'theater', 'théâtre'],
   theater: ['teatro', 'theatre', 'théâtre'],
   theatre: ['teatro', 'theater', 'théâtre'],
-  comunale: ['municipal', 'communal', 'kommunal'],
+  comunale: ['civico', 'civic', 'municipal', 'municipale', 'communal', 'kommunal'],
   comune: ['municipality', 'commune', 'gemeinde'],
   municipality: ['comune', 'commune', 'gemeinde'],
   commune: ['comune', 'municipality', 'gemeinde'],
   gemeinde: ['comune', 'municipality', 'commune'],
-  municipal: ['comunale', 'communal', 'kommunal'],
   communal: ['comunale', 'municipal', 'kommunal'],
-  kommunal: ['comunale', 'municipal', 'communal'],
   cantone: ['canton', 'canton', 'kanton'],
   canton: ['cantone', 'kanton'],
   kanton: ['cantone', 'canton'],
@@ -268,6 +271,12 @@ const COMMON_NAME_TRANSLATIONS = Object.freeze({
   parco: ['park', 'parc'],
   park: ['parco', 'parc'],
   parc: ['parco', 'park'],
+  di: ['d', 'de', 'du', 'of', 'von'],
+  d: ['di', 'de', 'du', 'of', 'von'],
+  de: ['di', 'd', 'du', 'of', 'von'],
+  du: ['di', 'd', 'de', 'of', 'von'],
+  of: ['di', 'd', 'de', 'du', 'von'],
+  von: ['di', 'd', 'de', 'du', 'of'],
 });
 
 function usableText(value) {
@@ -394,7 +403,7 @@ function cacheEntryDescriptions(entry) {
 
 export function isValidRewriteCacheEntry(entry, { id, sourceHash } = {}) {
   if (!entry || entry.id !== id || !isValidSourceDescriptionHash(sourceHash) || entry.sourceDescriptionHash !== sourceHash) return false;
-  // Prompt v2 changes generation and retry guidance, not the source hash or
+  // Earlier prompt versions changed generation and retry guidance, not the source hash or
   // either safety invariant. Keep already-published v1 entries usable until
   // their source changes; new entries are written with the current version.
   if (entry.model !== EVENT_DESCRIPTION_REWRITE_MODEL || !ACCEPTED_CACHE_PROMPT_VERSIONS.has(entry.promptVersion)) return false;
@@ -716,21 +725,54 @@ function currencySignatures(value) {
   return signatures;
 }
 
-function capitalizedNameRuns(value) {
+const GENERIC_NAME_LEAD_PHRASES = new Set([
+  'l evento',
+  'l appuntamento',
+  'l incontro',
+  'l occasione',
+  'l esposizione',
+  'l anlass',
+  'l veranstaltung',
+  'l evenement',
+  'l exposition',
+]);
+
+function trimGenericNameLead(tokens, sentenceStart) {
+  if (!sentenceStart || !tokens.length) return { tokens, removed: false };
+  const first = normalizeWordPhrase(tokens[0]);
+  if (!GENERIC_NAME_LEAD_PHRASES.has(first)) return { tokens, removed: false };
+  return { tokens: tokens.slice(1), removed: true };
+}
+
+function capitalizedNameRuns(value, { withMetadata = false } = {}) {
   const runs = [];
   for (const sentence of normalizeDescriptionText(value).split(/[.!?…]+/u)) {
-    const tokens = sentence.split(/\s+/);
+    const tokens = sentence.split(/\s+/).filter(Boolean);
     let current = [];
+    let currentSentenceStart = false;
+    let sentenceStart = true;
     const flush = () => {
-      const normalized = comparisonTokens(current.join(' '));
+      const trimmed = trimGenericNameLead(current, currentSentenceStart);
+      const normalized = comparisonTokens(trimmed.tokens.join(' '));
       const currencyRun = normalized.length >= 2 && normalized.every((token) => CURRENCY_NAME_WORDS.has(token));
-      if (current.length >= 2 && !CAPITALIZED_NAME_STOPWORDS.has(current[0]) && !currencyRun) runs.push(current.join(' '));
+      if (trimmed.tokens.length >= 2 && !CAPITALIZED_NAME_STOPWORDS.has(trimmed.tokens[0]) && !currencyRun) {
+        const run = {
+          text: trimmed.tokens.join(' '),
+          sentenceStart: currentSentenceStart,
+          genericLeadRemoved: trimmed.removed,
+        };
+        runs.push(withMetadata ? run : run.text);
+      }
       current = [];
+      currentSentenceStart = false;
     };
     for (const rawToken of tokens) {
       const token = rawToken.replace(/^[^\p{L}]+|[^\p{L}'’\-]+$/gu, '');
-      if (/^\p{Lu}[\p{L}'’\-]+$/u.test(token)) current.push(token);
-      else flush();
+      if (/^\p{Lu}[\p{L}'’\-]+$/u.test(token)) {
+        if (!current.length) currentSentenceStart = sentenceStart;
+        current.push(token);
+      } else flush();
+      sentenceStart = false;
       // A comma, pipe, slash or similar punctuation separates two factual
       // names even when both sides are capitalised (for example a venue and
       // its street). Do not turn those adjacent, independently-known names
@@ -827,6 +869,45 @@ function containsAllowedNamePhrase(run, phrases) {
   return Boolean(normalized && phrases.has(normalized));
 }
 
+function nameTokenAliases(token) {
+  return new Set([
+    token,
+    ...(COMMON_NAME_TRANSLATIONS[token] || []),
+  ].flatMap((value) => comparisonTokens(value)));
+}
+
+function inflectionStem(token) {
+  if (token.length < 5) return token;
+  return token.replace(/(?:i|e|o|a|s)$/u, '');
+}
+
+function equivalentNameToken(candidate, allowed) {
+  const candidateAliases = nameTokenAliases(candidate);
+  const allowedAliases = nameTokenAliases(allowed);
+  if ([...candidateAliases].some((token) => allowedAliases.has(token))) return true;
+  const candidateStem = inflectionStem(candidate);
+  const allowedStem = inflectionStem(allowed);
+  return candidateStem.length >= 4 && candidateStem === allowedStem;
+}
+
+function isKnownNameVariant(run, phrases) {
+  const candidateTokens = comparisonTokens(run);
+  if (candidateTokens.length < 2 || candidateTokens.length > 6) return false;
+  for (const phrase of phrases) {
+    const allowedTokens = comparisonTokens(phrase);
+    if (allowedTokens.length !== candidateTokens.length) continue;
+    if (candidateTokens.every((token, index) => equivalentNameToken(token, allowedTokens[index]))) return true;
+  }
+  return false;
+}
+
+function nameFailureDetail(run) {
+  if (run.sentenceStart) return 'capitalized-sentence-lead';
+  if (/[-’']/u.test(run.text)) return 'punctuated-name';
+  if (comparisonTokens(run.text).length >= 2) return 'multiword-unknown-name';
+  return 'single-token-unknown-name';
+}
+
 function containsPromotionalLanguage(candidate) {
   return comparisonTokens(candidate).some((token) => PROMOTIONAL_WORDS.has(token));
 }
@@ -861,9 +942,9 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
   }
 
   const names = allowedNamePhrases(sourceTexts, factTexts);
-  if (capitalizedNameRuns(text).some((run) => !containsAllowedNamePhrase(run, names))) {
-    return { ok: false, code: 'new-name' };
-  }
+  const invalidNameRun = capitalizedNameRuns(text, { withMetadata: true })
+    .find((run) => !containsAllowedNamePhrase(run.text, names) && !isKnownNameVariant(run.text, names));
+  if (invalidNameRun) return { ok: false, code: 'new-name', detail: nameFailureDetail(invalidNameRun) };
   if (/[*_`#<>]/.test(text)) return { ok: false, code: 'markup' };
   return { ok: true };
 }
@@ -871,11 +952,15 @@ export function validateRewriteDescription(candidate, { sourceTexts = [], factTe
 export function validateRewriteBundle(descriptions, { sourceTexts = [], factTexts = [] } = {}) {
   if (!descriptions || typeof descriptions !== 'object') return { ok: false, errors: { bundle: 'missing' } };
   const errors = {};
+  const details = {};
   for (const locale of EVENT_DESCRIPTION_LOCALES) {
     const result = validateRewriteDescription(descriptions[locale], { sourceTexts, factTexts });
-    if (!result.ok) errors[locale] = result.code;
+    if (!result.ok) {
+      errors[locale] = result.code;
+      if (result.detail) details[locale] = result.detail;
+    }
   }
-  return { ok: Object.keys(errors).length === 0, errors };
+  return { ok: Object.keys(errors).length === 0, errors, ...(Object.keys(details).length ? { details } : {}) };
 }
 
 export function factsForPrompt(event) {
