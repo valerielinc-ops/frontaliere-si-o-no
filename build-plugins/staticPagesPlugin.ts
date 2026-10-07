@@ -2467,6 +2467,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (!firstSeg) return '';
 
  const tags: string[] = [];
+ // The first two article cards are marked fetchpriority="high" by the
+ // shared hub renderer because they are the likely LCP candidates. A
+ // high-priority <img> is still discovered only after the body is parsed;
+ // matching image preloads let the browser start those same requests while
+ // it is parsing the head. Keep this capped at the two cards marked high so
+ // the hub does not turn every card into an eager request.
+ const addHubCardPreloads = (articles: readonly StaticArticle[], excludeUrl = ''): void => {
+ for (const article of articles.slice(0, 2)) {
+ if (article.image === excludeUrl) continue;
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${article.image}">`);
+ }
+ };
  const componentPrefixes = routeAwarePreloadChunksFor(urlPath, sectionChunks[firstSeg]);
  if (componentPrefixes) {
  for (const prefix of componentPrefixes) {
@@ -2497,6 +2509,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || sectionHero;
  if (preloadHero) {
  tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
+ }
+ if (!isDetail) {
+ addHubCardPreloads(isSwissSection ? swissArticlesStatic : blogArticlesStatic, preloadHero);
  }
  }
  // Generated SEO cards (glossary and its translated route family) are emitted
