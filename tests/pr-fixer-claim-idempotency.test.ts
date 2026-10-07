@@ -507,10 +507,17 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
 
   it('releases a run superseded by an external branch push before failure classification', () => {
     for (const [name, source] of [['redflag', redflag], ['redcheck', redcheck] as const]) {
-      const alignStart = source.indexOf('Align review workflows (merge origin/main, anti-401 drift)');
+      const alignStart = source.indexOf('Check review workflows (anti-401 drift, no local merge)');
       const align = source.slice(alignStart, source.indexOf('Setup Node.js', alignStart));
+      expect(alignStart, `${name}: anti-drift step missing`).toBeGreaterThan(-1);
       expect(align, `${name}: align step must expose its original branch baseline`).toContain('id: align');
-      expect(align, `${name}: align step must capture HEAD before the local merge`).toContain('echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"');
+      expect(align, `${name}: align step must capture HEAD before the remote baseline check`).toContain('echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"');
+      expect(align, `${name}: main fetch must fail closed`).toContain('if ! git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main" -q; then');
+      expect(align, `${name}: workflow validation must compare only the review workflow`).toContain('git diff --quiet origin/main -- .github/workflows/pr-review-loop.yml');
+      expect(align, `${name}: drift must fail closed`).toContain('workflow-validation drift');
+      expect(align, `${name}: no local merge may create a new HEAD`).not.toContain('git merge');
+      expect(align, `${name}: anti-drift check may not repair the checkout`).not.toMatch(/git (reset --hard|clean -fd|checkout)/u);
+      expect(align.indexOf('echo "start_sha=$(git rev-parse HEAD)"'), `${name}: baseline capture`).toBeLessThan(align.indexOf('git fetch --no-tags origin'));
       const classify = source.slice(source.indexOf('Classify outcome (work-done, not CLI exit)'));
       expect(classify, `${name}: classify step`).toContain('CLAIM_STATUS=released');
       expect(classify, `${name}: classify must compare remote against the pre-merge baseline`).toContain('START_SHA: ${{ steps.align.outputs.start_sha }}');
