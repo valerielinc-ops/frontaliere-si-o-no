@@ -117,10 +117,56 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRecord(PHOTO_RECORD).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, license: '' }).valid).toBe(false);
     expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, author: undefined }).valid).toBe(false);
+    const imageAuthorUrl = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      author: { name: 'Ada Wikimedia', url: 'https://cdn.example.test/ada.jpeg' },
+    });
+    expect(imageAuthorUrl.valid).toBe(false);
+    expect(imageAuthorUrl.errors).toContain('photo author.url must not point to an image file');
     expect(validateGeneratedImageRecord({
       ...PHOTO_RECORD,
       vision: { ...PHOTO_RECORD.vision, contains_recognizable_face: true },
     }).valid).toBe(false);
+
+    const pexelsRecord = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pexels',
+      license: 'Pexels License',
+      licenseFamily: 'pexels',
+      licenseUrl: 'https://www.pexels.com/license/',
+      author: { name: 'Ada Pexels', url: 'https://www.pexels.com/@ada' },
+      sourcePageUrl: 'https://www.pexels.com/photo/lago-123/',
+    });
+    expect(pexelsRecord.valid).toBe(true);
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pexels',
+      license: 'Pexels License',
+      licenseFamily: 'pexels',
+      licenseUrl: 'https://www.pexels.com/license/',
+      author: { name: 'Ada Pexels', url: 'https://example.test/@ada' },
+      sourcePageUrl: 'https://www.pexels.com/photo/lago-123/',
+    }).errors).toContain('pexels author.url must use the pexels domain');
+
+    const pixabayRecord = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pixabay',
+      license: 'Pixabay Content License',
+      licenseFamily: 'pixabay',
+      licenseUrl: 'https://pixabay.com/service/license-summary/',
+      author: { name: 'Ada Pixabay', url: 'https://pixabay.com/users/Ada-42/' },
+      sourcePageUrl: 'https://pixabay.com/photos/lago-123/',
+    });
+    expect(pixabayRecord.valid).toBe(true);
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pixabay',
+      license: 'Pixabay Content License',
+      licenseFamily: 'pixabay',
+      licenseUrl: 'https://pixabay.com/service/license-summary/',
+      author: { name: 'Ada Pixabay', url: 'https://cdn.pixabay.com/user/avatar' },
+      sourcePageUrl: 'https://pixabay.com/photos/lago-123/',
+    }).errors).toContain('pixabay author.url must use the pixabay domain');
   });
 });
 
