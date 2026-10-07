@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-10-06T21:19:45.211Z",
+  "assembledAt": "2026-10-07T09:20:33.488Z",
   "jobs": [
     {
       "id": "fusalp-375e9ddc749d",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:38.638Z",
+      "crawledAt": "2026-10-07T09:20:24.202Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +112,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:37.230Z",
+      "crawledAt": "2026-10-07T09:20:20.591Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,7 +174,7 @@
       "companyDomain": "fusalp.com",
       "title": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
       "titleByLocale": {
-        "it": "ASSISTANT STORE MANAGER (M/F) - FRENCH & ENGLISH",
+        "it": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "en": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "de": "Assistent STORE MANAGER (M/W) - FRENCH & ENGLISH",
         "fr": "MANAGER ASSISTANT (H/F) - FRANÇAIS & ANGLAIS"
@@ -191,7 +191,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:29.739Z",
+      "crawledAt": "2026-10-07T09:20:07.394Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -265,7 +265,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-100-fixed-term-contract-permanent-opportunity_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:26.907Z",
+      "crawledAt": "2026-10-07T09:20:03.844Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,7 +344,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:25.763Z",
+      "crawledAt": "2026-10-07T09:20:02.622Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -399,7 +399,7 @@
         "it": "store-manager-m-f-contratto-a-tempo-indeterminato-100-1-novembre-2026-fusalp-saanen",
         "en": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen",
         "de": "filialleiter-m-w-festanstellung-100-1-november-2026-fusalp-saanen",
-        "fr": "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        "fr": "store-manager-h-f-contrat-permanent-100-1er-novembre-2026-fusalp-saanen"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -423,7 +423,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:24.661Z",
+      "crawledAt": "2026-10-07T09:19:58.947Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -449,6 +449,9 @@
           "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
         ],
         "de": [
+          "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
+        ],
+        "fr": [
           "store-manager-m-w-permanent-contract-100-1-november-2026-fusalp-saanen"
         ]
       },

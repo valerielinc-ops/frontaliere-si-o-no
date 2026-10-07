@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-10-06T21:13:54.650Z",
+  "assembledAt": "2026-10-07T09:19:55.701Z",
   "jobs": [
     {
       "id": "vaudoise-c628f745d1ff",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/56620544/Versicherungs-und-Vorsorgeberater-in-m-w-d-100-?jobDbPVId=284073040&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:48.048Z",
+      "crawledAt": "2026-10-07T09:19:48.777Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "url": "https://vaudoise.softgarden.io/job/67263475/Mitarbeiter-in-Kundensupport-m-w-d-60-?jobDbPVId=284096625&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:47.785Z",
+      "crawledAt": "2026-10-07T09:19:48.389Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +195,7 @@
       "url": "https://vaudoise.softgarden.io/job/65923194/Senior-Sachbearbeiter-in-Leistungen-Unfall-m-w-d-80%E2%80%93100-?jobDbPVId=284304440&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:47.522Z",
+      "crawledAt": "2026-10-07T09:19:48.075Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -259,7 +259,7 @@
       "title": "Care Manager (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Care Manager (m/f/x) - 80-100%",
-        "en": "Care Manager (m/f/x) - 80-100%",
+        "en": "Care Manager (h/f/x) - 80-100%",
         "de": "Care Manager (m/w/x) - 80-100%",
         "fr": "Care Manager (h/f/x) - 80-100%"
       },
@@ -275,7 +275,7 @@
       "url": "https://vaudoise.softgarden.io/job/65968298/Care-Manager-h-f-x-80-100-?jobDbPVId=284455815&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:47.261Z",
+      "crawledAt": "2026-10-07T09:19:47.764Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -294,6 +294,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Previdenza",
       "firstSeenAt": "2026-07-09T22:38:36.399Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -341,7 +342,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=284455835&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:46.782Z",
+      "crawledAt": "2026-10-07T09:19:47.417Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -423,7 +424,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=284732332&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:46.528Z",
+      "crawledAt": "2026-10-07T09:19:47.104Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -456,6 +457,7 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -503,7 +505,7 @@
       "url": "https://vaudoise.softgarden.io/job/67022175/Chef-Cheffe-de-groupe-Formation-Assurances-de-personnes-Qualit%C3%A9-FR-DE-h-f-x-80-100-?jobDbPVId=284751197&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:46.261Z",
+      "crawledAt": "2026-10-07T09:19:46.767Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -588,7 +590,7 @@
       "url": "https://vaudoise.softgarden.io/job/67348490/Chef-Cheffe-de-groupe-Souscription-Choses-Assurances-Techniques-FR-DE-h-f-x-100-?jobDbPVId=284751227&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:45.995Z",
+      "crawledAt": "2026-10-07T09:19:46.394Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -670,7 +672,7 @@
       "url": "https://vaudoise.softgarden.io/job/67419112/Gruppenleiter-in-Underwriting-Sach-und-Technische-Versicherungen-FR-DE-m-w-d-100-?jobDbPVId=284768987&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:45.472Z",
+      "crawledAt": "2026-10-07T09:19:46.079Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -750,7 +752,7 @@
       "url": "https://vaudoise.softgarden.io/job/67493747/HR-Business-Partner-Senior-h-f-x-%E2%80%93-80-100-?jobDbPVId=285056517&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:45.198Z",
+      "crawledAt": "2026-10-07T09:19:45.771Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -769,6 +771,7 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "firstSeenAt": "2026-09-19T22:51:56.938Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -816,7 +819,7 @@
       "url": "https://vaudoise.softgarden.io/job/67379855/Stagiaire-universitaire-HES-en-Transformation-Digitale-RH-h-f-x-?jobDbPVId=285105362&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:44.932Z",
+      "crawledAt": "2026-10-07T09:19:45.462Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -896,7 +899,7 @@
       "url": "https://vaudoise.softgarden.io/job/67008105/Stagiaire-universitaire-HES-Performance-Talent-RH-h-f-x-?jobDbPVId=285105772&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:44.670Z",
+      "crawledAt": "2026-10-07T09:19:45.066Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -970,7 +973,7 @@
       "url": "https://vaudoise.softgarden.io/job/67524172/Stagiaire-universitaire-HES-Master-en-Sciences-Actuarielles-%E2%80%93-Pr%C3%A9voyance-h-f-x-%E2%80%93-100-?jobDbPVId=285164442&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:44.143Z",
+      "crawledAt": "2026-10-07T09:19:44.753Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1050,7 +1053,7 @@
       "url": "https://vaudoise.softgarden.io/job/67524517/Stagiaire-universitaire-HES-Ma%C3%AEtrise-End-to-End-de-solutions-IA-h-f-x-%E2%80%93-80-100-?jobDbPVId=285165662&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:43.866Z",
+      "crawledAt": "2026-10-07T09:19:44.430Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1130,7 +1133,7 @@
       "url": "https://vaudoise.softgarden.io/job/67528837/Dienststellenleiter-in-Deutschschweiz-Leistungen-Unfall-m-w-d-80-100-?jobDbPVId=285201487&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:43.599Z",
+      "crawledAt": "2026-10-07T09:19:44.110Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1210,7 +1213,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=285232842&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:43.330Z",
+      "crawledAt": "2026-10-07T09:19:43.798Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1284,7 +1287,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285374807&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:43.033Z",
+      "crawledAt": "2026-10-07T09:19:43.483Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1371,7 +1374,7 @@
       "titleByLocale": {
         "it": "Perdita di testa/gruppo di guadagno di malattia - 80%-100% (h/f/x)",
         "en": "Head / Group Head Loss of sickness gain - 80%-100% (h/f/x)",
-        "de": "Kopf / Gruppenleiter Verlust des Krankheitsgewinns - 80%-100% (m/w/x)",
+        "de": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)",
         "fr": "Chef / Cheffe de groupe Perte de gain maladie - 80%-100% (h/f/x)"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Au sein du Département Assurances de personnes, et afin de renforcer le service Perte de gain maladie (PGM), nous recherchons un/e Chef de groupe Perte de gain maladie entre 80 et 100% , basé à Lausanne. Le rôle comporte d’une part la conduite d’une équipe de gestionnaires spécialisés et d’autre part de la gestion de dossiers de sinistres. Les missions qui vous attendent :\n• Apporter votre soutien et vos conseils techniques à vos collaborateurs dans les dossiers\n• Organiser et coordonner le travail de votre groupe : tenue de séances d’équipe, bilatérales, organisation des plans de remplacements, etc.\n• Participer activement aux séances hebdomadaires des cadres du service et collaborer étroitement avec la cheffe de service ainsi que les autres chefs de groupe\n• Former vos collaborateurs (10 personnes) et veiller à la bonne application des règles de gestion\n• Planifier, organiser et contrôler le traitement des cas de prestations de votre équipe et participer activement à l'amélioration et à la simplification des processus de traitement\n• Traiter de manière autonome et proactive une partie des cas de sinistres de votre propre portefeuille de client (à partir de l’ouverture et en étroite collaboration avec les médecins-conseils et nos Care Managers)\n• Entretenir des contacts réguliers avec les partenaires, les assurés, les employeurs et les prestataires de soins Votre profil :\n• Brevet fédéral en assurances ou titre jugé équivalent\n• Expérience confirmée dans le domaine des prestations PGM\n• Leader expérimenté(e), reconnu(e) pour votre capacité à mobiliser les équipes, à instaurer une atmosphère de travail positive et à favoriser le développement des collaborateurs, tout en prenant des décisions efficaces dans des environnements exigeants\n• De langue maternelle française, une très bonne maîtrise de l’italien constitue un atout\n• A l’aise avec les outils informatiques usuels (MS Office) Si vous êtes également un leader investi, organisé, force de proposition et faites preuve d’une forte orientation client et disposez d’un caractère positif, vous êtes alors probablement la personne que nous recherchons ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• De la gestion d'équipe et une prise de responsabilités\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
@@ -1386,7 +1389,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=285374847&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:42.776Z",
+      "crawledAt": "2026-10-07T09:19:43.174Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1421,6 +1424,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1468,7 +1472,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=285374852&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:42.513Z",
+      "crawledAt": "2026-10-07T09:19:42.852Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1544,7 +1548,7 @@
       "url": "https://vaudoise.softgarden.io/job/67561682/Gestionnaire-de-cas-complexes-LAA-bilingue-fran%C3%A7ais-italien-80-100-h-f-x-?jobDbPVId=285430227&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:42.250Z",
+      "crawledAt": "2026-10-07T09:19:42.538Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1579,6 +1583,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:07.612Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -1610,7 +1615,7 @@
       "title": "Stagiaire universitaire/HES Business Analyst Copilot & Rovo (h/f/x) – 80-100%",
       "titleByLocale": {
         "it": "Allenatore universitario / HES Business Analyst Copilot & Rovo (m/f/x) – 80-100%",
-        "en": "University Intern/HES Business Analyst Copilot & Rovo (m/f/x) – 80-100%",
+        "en": "Stagiaire universitaire/HES Business Analyst Copilot & Rovo (h/f/x) – 80-100%",
         "de": "Universitätstrainee / HES Business Analyst Copilot & Rovo (m/w/x) - 80-100%",
         "fr": "Stagiaire universitaire/HES Business Analyste Copilot & Rovo (h/f/x) – 80-100%"
       },
@@ -1626,7 +1631,7 @@
       "url": "https://vaudoise.softgarden.io/job/67577687/Stagiaire-universitaire-HES-Business-Analyst-Copilot-Rovo-h-f-x-%E2%80%93-80-100-?jobDbPVId=285471892&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:41.962Z",
+      "crawledAt": "2026-10-07T09:19:42.220Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1656,6 +1661,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:07.268Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1703,7 +1709,7 @@
       "url": "https://vaudoise.softgarden.io/job/67617297/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285599377&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:41.705Z",
+      "crawledAt": "2026-10-07T09:19:41.878Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -1767,7 +1773,7 @@
       "title": "Expertin/en für Learning Design & Digital Learning (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Esperto di progettazione e apprendimento digitale (m/f/d) 80-100 %",
-        "en": "Expert for Learning Design & Digital Learning (m/f/d) 80-100 %",
+        "en": "Expertin/en für Learning Design & Digital Learning (m/w/d) 80-100%",
         "de": "Expertin/en für Learning Design & Digital Learning (m/w/d) 80-100%",
         "fr": "Expert en conception et apprentissage numérique (h/f/d) 80-100 %"
       },
@@ -1783,7 +1789,7 @@
       "url": "https://vaudoise.softgarden.io/job/66912865/Expertin-en-f%C3%BCr-Learning-Design-Digital-Learning-m-w-d-80-100-?jobDbPVId=285688092&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:41.444Z",
+      "crawledAt": "2026-10-07T09:19:41.566Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1815,6 +1821,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:15:14.156Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1862,7 +1869,7 @@
       "url": "https://vaudoise.softgarden.io/job/67649397/Stagiaire-universitaire-HES-en-Marketing-%C3%A9v%C3%A9nementiel-h-f-x-%E2%80%93-100-?jobDbPVId=285726012&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:41.177Z",
+      "crawledAt": "2026-10-07T09:19:41.258Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1942,7 +1949,7 @@
       "url": "https://vaudoise.softgarden.io/job/67651152/Stagiaire-universitaire-HES-en-Marketing-assurances-animali%C3%A8res-h-f-x-%E2%80%93-100-?jobDbPVId=285729822&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:40.880Z",
+      "crawledAt": "2026-10-07T09:19:40.946Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2022,7 +2029,7 @@
       "url": "https://vaudoise.softgarden.io/job/67666707/Stagiaire-universitaire-HES-Master-%E2%80%93-Assurances-de-personnes-h-f-x-%E2%80%93-100-?jobDbPVId=285778567&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:40.617Z",
+      "crawledAt": "2026-10-07T09:19:40.612Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2102,7 +2109,7 @@
       "url": "https://vaudoise.softgarden.io/job/66314843/Gestionnaire-prestations-perte-de-gain-maladie-h-f-x-80-100-?jobDbPVId=285864727&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:40.357Z",
+      "crawledAt": "2026-10-07T09:19:40.300Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2148,6 +2155,7 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:17:23.233Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2195,7 +2203,7 @@
       "url": "https://vaudoise.softgarden.io/job/66994435/Responsable-Commercial-Pr%C3%A9voyance-h-f-x-80-100-?jobDbPVId=285885992&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:40.097Z",
+      "crawledAt": "2026-10-07T09:19:39.982Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2228,6 +2236,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T19:54:11.393Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2243,86 +2252,6 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD"
-    },
-    {
-      "id": "vaudoise-f5047f613519",
-      "slug": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-geneve",
-      "slugByLocale": {
-        "it": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-geneve",
-        "en": "adviser-advisor-m-f-x-100-vaudoise-assurances-geneve",
-        "de": "berater-berater-m-w-x-100-vaudoise-assurances-geneve",
-        "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Conseiller / Conseillère (h/f/x) 100%",
-      "titleByLocale": {
-        "it": "Consigliere / Consigliere (m/f/x) 100%",
-        "en": "Adviser / Advisor (m/f/x) 100%",
-        "de": "Berater / Berater (m/w/x) 100%",
-        "fr": "Conseiller / Conseillère (h/f/x) 100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de notre Agence de Genève qui propose à nos clients des services de haut niveau dans le traitement des leurs affaires, nous recherchons un/e Conseiller/Conseillère. Les diverses missions qui vous attendent :\n• Contribuer au développement d'un portefeuille existant de clients\n• Identifier de nouveaux prospects (particuliers, entreprises)\n• Déceler les besoins de la clientèle et soumettre des solutions adaptées\n• Participer activement à des événements destinés à la clientèle\n• Développer et animer son réseau de partenaires Ce qui vous rend unique :\n• Titulaire de la certification AFA, la certification IAF constituerait un réel atout\n• Expérience reconnue et réussie dans le domaine du conseil en assurances\n• Forte capacité de réseautage\n• Un ancrage local est souhaité Si vous êtes également dynamique, flexible, doté d’un solide sens de la négociation et bien intégré dans le milieu social et économique local, alors vous êtes la personne qu’il nous faut ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di integrare il nostro team all'interno della nostra Agenzia di Ginevra, che offre ai nostri clienti servizi di alto livello nel trattamento della loro attività, stiamo cercando un consulente. Le varie missioni che vi aspettano:\n• Contribuisci allo sviluppo di un portafoglio client esistente\n• Identificare nuove prospettive (individuali, imprese)\n• Identificare le esigenze dei clienti e presentare soluzioni su misura\n• Partecipa attivamente agli eventi dei clienti\n• Sviluppare e condurre la propria rete di partner Cosa ti rende unico:\n• titolare di certificazione AFA, certificazione IAF sarebbe un vero bene\n• Esperienza riconosciuta e di successo nella consulenza assicurativa\n• Forte capacità di networking\n• L'ancoraggio locale è desiderato Se sei anche dinamico, flessibile, con un forte senso di negoziazione e ben integrato nell'ambiente sociale ed economico locale, allora sei la persona di cui abbiamo bisogno! Vi offriamo:\n• Un ambiente di lavoro sano in una società comune certificata \"Great Place to Work\"\n• Prestazioni sociali multiple, compresa la flessibilità nell'organizzazione del lavoro\n• Sostegno allo sviluppo e alla formazione\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to complement our team within our Geneva Agency, which offers our clients high-level services in the processing of their business, we are looking for an advisor. The various missions that await you:\n• Contribute to the development of an existing client portfolio\n• Identify new prospects (individuals, businesses)\n• Identify customer needs and submit tailored solutions\n• Actively participate in customer events\n• Develop and lead its network of partners What makes you unique:\n• AFA certification holder, IAF certification would be a real asset\n• Recognized and successful experience in insurance consulting\n• Strong networking capacity\n• Local anchoring is desired If you are also dynamic, flexible, with a strong negotiating sense and well integrated into the local social and economic environment, then you are the person we need! We offer you:\n• A healthy working environment in a mutual company certified \"Great Place to Work\"\n• Multiple social benefits, including flexibility in work organisation\n• Support in development and training\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung eines gesunden, integrativen und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihrer Talente. Um unser Team innerhalb unserer Agentur in Genf zu ergänzen, die unseren Kunden hochrangige Dienstleistungen bei der Abwicklung ihres Geschäfts anbietet, suchen wir einen Berater. Die verschiedenen Missionen, die euch erwarten:\n• Beitrag zur Entwicklung eines bestehenden Kundenportfolios\n• Identifizieren Sie neue Perspektiven (Einzelpersonen, Unternehmen)\n• Kundenbedürfnisse identifizieren und maßgeschneiderte Lösungen einreichen\n• Aktiv an Kundenveranstaltungen teilnehmen\n• Entwickeln und führen Sie Ihr Partnernetzwerk Was dich einzigartig macht:\n• AFA-Zertifizierungsinhaber, IAF-Zertifizierung wäre ein echter Vermögenswert\n• Anerkannte und erfolgreiche Erfahrung in der Versicherungsberatung\n• Starke Netzwerkkapazität\n• Lokale Verankerung ist erwünscht Wenn Sie auch dynamisch, flexibel, mit einem starken Verhandlungssinn und gut in das lokale soziale und wirtschaftliche Umfeld integriert sind, dann sind Sie die Person, die wir brauchen! Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere Sozialleistungen, einschließlich Flexibilität in der Arbeitsorganisation\n• Unterstützung in Entwicklung und Ausbildung\n• Menschliche Werte mit Fokus auf das Wohlbefinden der Mitarbeiter Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de notre Agence de Genève qui propose à nos clients des services de haut niveau dans le traitement des leurs affaires, nous recherchons un/e Conseiller/Conseillère. Les diverses missions qui vous attendent :\n• Contribuer au développement d'un portefeuille existant de clients\n• Identifier de nouveaux prospects (particuliers, entreprises)\n• Déceler les besoins de la clientèle et soumettre des solutions adaptées\n• Participer activement à des événements destinés à la clientèle\n• Développer et animer son réseau de partenaires Ce qui vous rend unique :\n• Titulaire de la certification AFA, la certification IAF constituerait un réel atout\n• Expérience reconnue et réussie dans le domaine du conseil en assurances\n• Forte capacité de réseautage\n• Un ancrage local est souhaité Si vous êtes également dynamique, flexible, doté d’un solide sens de la négociation et bien intégré dans le milieu social et économique local, alors vous êtes la personne qu’il nous faut ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Genève",
-      "canton": "GE",
-      "url": "https://vaudoise.softgarden.io/job/67700842/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285994302&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:39.821Z",
-      "addressLocality": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-28T15:29:03.812+02:00",
-      "postedDate": "2026-09-28T15:29:03.812+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://vaudoise.softgarden.io/job/67700842/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285994302&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Vendita, commercio e servizio alla clientela",
-      "previousSlugs": [
-        "conseiller-conseillere-h-f-x-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
-        ],
-        "en": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
-        ],
-        "de": [
-          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:40:06.560Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1201",
-      "addressRegion": "GE"
     },
     {
       "id": "vaudoise-cc575da5136d",
@@ -2355,7 +2284,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=286030997&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:39.562Z",
+      "crawledAt": "2026-10-07T09:19:39.674Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2382,6 +2311,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.959Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2429,7 +2359,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=286031112&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:39.300Z",
+      "crawledAt": "2026-10-07T09:19:39.358Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -2510,7 +2440,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=286031142&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:39.033Z",
+      "crawledAt": "2026-10-07T09:19:39.003Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2601,7 +2531,7 @@
       "url": "https://vaudoise.softgarden.io/job/67600117/Gruppenleiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=286409027&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:38.715Z",
+      "crawledAt": "2026-10-07T09:19:38.637Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2681,7 +2611,7 @@
       "url": "https://vaudoise.softgarden.io/job/67040195/Gruppenleiter-in-Ausbildung-Qualit%C3%A4t-DE-FR-m-w-d-80-100-?jobDbPVId=286418362&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:38.449Z",
+      "crawledAt": "2026-10-07T09:19:38.326Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2747,7 +2677,7 @@
       "url": "https://vaudoise.softgarden.io/job/67822787/Mitarbeiter-in-Kundensupport-m-w-d-80-?jobDbPVId=286427307&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:38.186Z",
+      "crawledAt": "2026-10-07T09:19:38.014Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2832,7 +2762,7 @@
       "url": "https://vaudoise.softgarden.io/job/67087090/Apprenti-employ%C3%A9-de-commerce-en-assurances-priv%C3%A9es-h-f-x-pour-notre-Agence-de-la-Broye-%C3%A0-Payerne?jobDbPVId=286467585&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:37.925Z",
+      "crawledAt": "2026-10-07T09:19:37.705Z",
       "addressLocality": "Payerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2912,7 +2842,7 @@
       "url": "https://vaudoise.softgarden.io/job/67835982/Stagiaire-universitaire-HES-Product-Owner-h-f-x-%E2%80%93-80-100-?jobDbPVId=286519212&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:37.628Z",
+      "crawledAt": "2026-10-07T09:19:37.385Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2938,8 +2868,8 @@
           "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch"
         ]
       },
-      "firstSeenAt": "2026-10-03T09:10:36.036Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:10:36.036Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -2987,7 +2917,7 @@
       "url": "https://vaudoise.softgarden.io/job/67837732/Stagiaire-universitaire-HES-en-Sponsoring-et-Ev%C3%A9nements-h-f-x-%E2%80%93100-?jobDbPVId=286524587&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:37.358Z",
+      "crawledAt": "2026-10-07T09:19:37.074Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3067,7 +2997,7 @@
       "url": "https://vaudoise.softgarden.io/job/67854862/Business-Analyst-Senior-h-f-x-80-100-?jobDbPVId=286595007&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:37.095Z",
+      "crawledAt": "2026-10-07T09:19:36.762Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3094,6 +3024,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:10:35.181Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3141,7 +3072,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=286653952&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:36.830Z",
+      "crawledAt": "2026-10-07T09:19:36.442Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3215,7 +3146,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=286653967&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:36.512Z",
+      "crawledAt": "2026-10-07T09:19:36.133Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -3291,7 +3222,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=286653987&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:36.207Z",
+      "crawledAt": "2026-10-07T09:19:35.792Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -3374,7 +3305,7 @@
       "url": "https://vaudoise.softgarden.io/job/67853347/Un-responsable-une-responsable-de-groupe-PMO-h-f-x-80-100-?jobDbPVId=286688932&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:35.911Z",
+      "crawledAt": "2026-10-07T09:19:35.397Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3455,7 +3386,7 @@
       "url": "https://vaudoise.softgarden.io/job/67894077/Stagiaire-universitaire-HES-Actuariat-Vie-Data-h-f-x-%E2%80%93-80-100-?jobDbPVId=286813597&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:35.646Z",
+      "crawledAt": "2026-10-07T09:19:35.080Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3516,7 +3447,7 @@
       "title": "Senior Full Stack Engineer & Technical Lead (.NET / Angular / Azure) (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Senior Full Stack Ingegnere & Technical Lead (.NET / Angular / Azure) (h/f/x) - 80-100%",
-        "en": "Senior Full Stack Engineer & Technical Lead (.NET / Angular / Azure) (m/f/x) - 80-100%",
+        "en": "Senior Full Stack Engineer & Technical Lead (.NET / Angular / Azure) (h/f/x) - 80-100%",
         "de": "Senior Full Stack Ingenieur & Technical Lead (.NET / Angular / Azure) (h/f/x) - 80-100%",
         "fr": "Senior Full Stack Ingénieur & Responsable technique (.NET / Angular / Azure) (h/f/x) - 80-100%"
       },
@@ -3532,7 +3463,7 @@
       "url": "https://vaudoise.softgarden.io/job/67898452/Senior-Full-Stack-Engineer-Technical-Lead-.NET-Angular-Azure-h-f-x-80-100-?jobDbPVId=286825122&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:35.370Z",
+      "crawledAt": "2026-10-07T09:19:34.760Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3550,7 +3481,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobCategory": "Informatica e tecnologia",
-      "firstSeenAt": "2026-10-06T09:15:28.832Z",
+      "previousSlugs": [
+        "senior-full-stack-engineer-technical-lead-net-angular-azure-h-f-x-80-100-vaudoise-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-full-stack-engineer-technical-lead-net-angular-azure-h-f-x-80-100-vaudoise-ch"
@@ -3559,9 +3492,8 @@
           "senior-full-stack-engineer-technical-lead-net-angular-azure-h-f-x-80-100-vaudoise-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-full-stack-engineer-technical-lead-net-angular-azure-h-f-x-80-100-vaudoise-ch"
-      ],
+      "firstSeenAt": "2026-10-06T09:15:28.832Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -3579,6 +3511,432 @@
       "addressRegion": "VD"
     },
     {
+      "id": "vaudoise-2599f35d5ed1",
+      "slug": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
+        "it": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
+        "en": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
+        "de": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Apprenti employé de commerce en assurances privées (h/f/x)",
+      "titleByLocale": {
+        "fr": "Apprenti employé de commerce en assurances privées (h/f/x)",
+        "it": "Apprenti employé de commerce en assurances privées (h/f/x)",
+        "en": "Apprenti employé de commerce en assurances privées (h/f/x)",
+        "de": "Apprenti employé de commerce en assurances privées (h/f/x)"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège de Lausanne, la Vaudoise Assurances recherche un·e apprenti·e employé·e de commerce motivé·e, engagé·e et curieux·se , souhaitant débuter sa formation le 1er août 2027 . Votre profil Vous correspondez aux critères suivants :\n• Un bon certificat de fin d’études secondaires (voie prégymnasiale ou voie générale, niveau 2)\n• Un intérêt marqué pour le domaine des assurances\n• De très bonnes connaissances du français, à l’oral comme à l’écrit\n• Une réelle motivation à découvrir le monde de l’assurance et à vous investir pleinement dans votre apprentissage\n• Une personnalité enthousiaste, curieuse et engagée\n• De bonnes capacités de communication et un bon sens de l’organisation Nous vous offrons\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée « Great Place to Work »\n• Un apprentissage varié et passionnant vous permettant de découvrir les différentes facettes du domaine de l’assurance\n• Un accompagnement tout au long de votre formation pour vous permettre de développer vos compétences et votre potentiel\n• Des perspectives d’engagement au terme de votre apprentissage Intéressé·e ? Nous nous réjouissons de découvrir votre candidature ! Merci de nous faire parvenir votre dossier complet par voie digitale , comprenant :\n• Une lettre de motivation\n• Votre CV\n• Les copies de vos trois derniers bulletins scolaires\n• Vos éventuelles attestations de stage\n• Les résultats du test Multicheck, si vous en disposez Envie de commencer votre parcours professionnel avec nous ? Nous nous réjouissons de recevoir votre candidature !",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège de Lausanne, la Vaudoise Assurances recherche un·e apprenti·e employé·e de commerce motivé·e, engagé·e et curieux·se , souhaitant débuter sa formation le 1er août 2027 . Votre profil Vous correspondez aux critères suivants :\n• Un bon certificat de fin d’études secondaires (voie prégymnasiale ou voie générale, niveau 2)\n• Un intérêt marqué pour le domaine des assurances\n• De très bonnes connaissances du français, à l’oral comme à l’écrit\n• Une réelle motivation à découvrir le monde de l’assurance et à vous investir pleinement dans votre apprentissage\n• Une personnalité enthousiaste, curieuse et engagée\n• De bonnes capacités de communication et un bon sens de l’organisation Nous vous offrons\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée « Great Place to Work »\n• Un apprentissage varié et passionnant vous permettant de découvrir les différentes facettes du domaine de l’assurance\n• Un accompagnement tout au long de votre formation pour vous permettre de développer vos compétences et votre potentiel\n• Des perspectives d’engagement au terme de votre apprentissage Intéressé·e ? Nous nous réjouissons de découvrir votre candidature ! Merci de nous faire parvenir votre dossier complet par voie digitale , comprenant :\n• Une lettre de motivation\n• Votre CV\n• Les copies de vos trois derniers bulletins scolaires\n• Vos éventuelles attestations de stage\n• Les résultats du test Multicheck, si vous en disposez Envie de commencer votre parcours professionnel avec nous ? Nous nous réjouissons de recevoir votre candidature !",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège de Lausanne, la Vaudoise Assurances recherche un·e apprenti·e employé·e de commerce motivé·e, engagé·e et curieux·se , souhaitant débuter sa formation le 1er août 2027 . Votre profil Vous correspondez aux critères suivants :\n• Un bon certificat de fin d’études secondaires (voie prégymnasiale ou voie générale, niveau 2)\n• Un intérêt marqué pour le domaine des assurances\n• De très bonnes connaissances du français, à l’oral comme à l’écrit\n• Une réelle motivation à découvrir le monde de l’assurance et à vous investir pleinement dans votre apprentissage\n• Une personnalité enthousiaste, curieuse et engagée\n• De bonnes capacités de communication et un bon sens de l’organisation Nous vous offrons\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée « Great Place to Work »\n• Un apprentissage varié et passionnant vous permettant de découvrir les différentes facettes du domaine de l’assurance\n• Un accompagnement tout au long de votre formation pour vous permettre de développer vos compétences et votre potentiel\n• Des perspectives d’engagement au terme de votre apprentissage Intéressé·e ? Nous nous réjouissons de découvrir votre candidature ! Merci de nous faire parvenir votre dossier complet par voie digitale , comprenant :\n• Une lettre de motivation\n• Votre CV\n• Les copies de vos trois derniers bulletins scolaires\n• Vos éventuelles attestations de stage\n• Les résultats du test Multicheck, si vous en disposez Envie de commencer votre parcours professionnel avec nous ? Nous nous réjouissons de recevoir votre candidature !",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège de Lausanne, la Vaudoise Assurances recherche un·e apprenti·e employé·e de commerce motivé·e, engagé·e et curieux·se , souhaitant débuter sa formation le 1er août 2027 . Votre profil Vous correspondez aux critères suivants :\n• Un bon certificat de fin d’études secondaires (voie prégymnasiale ou voie générale, niveau 2)\n• Un intérêt marqué pour le domaine des assurances\n• De très bonnes connaissances du français, à l’oral comme à l’écrit\n• Une réelle motivation à découvrir le monde de l’assurance et à vous investir pleinement dans votre apprentissage\n• Une personnalité enthousiaste, curieuse et engagée\n• De bonnes capacités de communication et un bon sens de l’organisation Nous vous offrons\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée « Great Place to Work »\n• Un apprentissage varié et passionnant vous permettant de découvrir les différentes facettes du domaine de l’assurance\n• Un accompagnement tout au long de votre formation pour vous permettre de développer vos compétences et votre potentiel\n• Des perspectives d’engagement au terme de votre apprentissage Intéressé·e ? Nous nous réjouissons de découvrir votre candidature ! Merci de nous faire parvenir votre dossier complet par voie digitale , comprenant :\n• Une lettre de motivation\n• Votre CV\n• Les copies de vos trois derniers bulletins scolaires\n• Vos éventuelles attestations de stage\n• Les résultats du test Multicheck, si vous en disposez Envie de commencer votre parcours professionnel avec nous ? Nous nous réjouissons de recevoir votre candidature !",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège de Lausanne, la Vaudoise Assurances recherche un·e apprenti·e employé·e de commerce motivé·e, engagé·e et curieux·se , souhaitant débuter sa formation le 1er août 2027 . Votre profil Vous correspondez aux critères suivants :\n• Un bon certificat de fin d’études secondaires (voie prégymnasiale ou voie générale, niveau 2)\n• Un intérêt marqué pour le domaine des assurances\n• De très bonnes connaissances du français, à l’oral comme à l’écrit\n• Une réelle motivation à découvrir le monde de l’assurance et à vous investir pleinement dans votre apprentissage\n• Une personnalité enthousiaste, curieuse et engagée\n• De bonnes capacités de communication et un bon sens de l’organisation Nous vous offrons\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée « Great Place to Work »\n• Un apprentissage varié et passionnant vous permettant de découvrir les différentes facettes du domaine de l’assurance\n• Un accompagnement tout au long de votre formation pour vous permettre de développer vos compétences et votre potentiel\n• Des perspectives d’engagement au terme de votre apprentissage Intéressé·e ? Nous nous réjouissons de découvrir votre candidature ! Merci de nous faire parvenir votre dossier complet par voie digitale , comprenant :\n• Une lettre de motivation\n• Votre CV\n• Les copies de vos trois derniers bulletins scolaires\n• Vos éventuelles attestations de stage\n• Les résultats du test Multicheck, si vous en disposez Envie de commencer votre parcours professionnel avec nous ? Nous nous réjouissons de recevoir votre candidature !"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/67922682/Apprenti-employ%C3%A9-de-commerce-en-assurances-priv%C3%A9es-h-f-x-?jobDbPVId=286921367&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:19:34.453Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T10:04:37.414+02:00",
+      "postedDate": "2026-10-07T10:04:37.414+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67922682/Apprenti-employ%C3%A9-de-commerce-en-assurances-priv%C3%A9es-h-f-x-?jobDbPVId=286921367&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Assicurazioni Direzione",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-07T09:19:34.453Z"
+    },
+    {
+      "id": "vaudoise-45f1c98f7b8a",
+      "slug": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
+        "it": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
+        "en": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
+        "de": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Apprenti-e opérateur-trice en informatique CFC (h/f/x)",
+      "titleByLocale": {
+        "fr": "Apprenti-e opérateur-trice en informatique CFC (h/f/x)",
+        "it": "Apprenti-e opérateur-trice en informatique CFC (h/f/x)",
+        "en": "Apprenti-e opérateur-trice en informatique CFC (h/f/x)",
+        "de": "Apprenti-e opérateur-trice en informatique CFC (h/f/x)"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e opérateur-trice en informatique CFC (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionne le matériel informatique, résoudre des problèmes et aider les autres lorsqu’ils rencontrent des difficultés techniques ? Vous souhaitez apprendre un métier concret et varié tout en développant vos compétences dans un environnement stimulant ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 3 années de formation :\n• Prendre en charge les incidents et les demandes d’assistance informatique ;\n• Accompagner et assister les utilisateurs dans leurs besoins informatiques ;\n• Participer à la formation des utilisateurs ;\n• Installer et mettre en service du matériel informatique, notamment des ordinateurs et des imprimantes, ainsi que des logiciels ;\n• Assurer l’entretien du matériel informatique et des logiciels ;\n• Identifier, analyser et résoudre les problèmes techniques ;\n• Documenter les procédures mises en place et les solutions apportées ;\n• Connecter les appareils et les différents services au réseau. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez les activités pratiques et avez une bonne habileté technique ;\n• Vous appréciez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit d’analyse ;\n• Vous aimez le contact avec les autres, avez le sens du service et appréciez le travail en équipe ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et concrète dans le domaine de l’informatique ;\n• La possibilité de développer vos compétences techniques tout en étant en contact avec les utilisateurs ;\n• La possibilité d’acquérir une expérience pratique au contact de professionnel-le-s de l’informatique ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e opérateur-trice en informatique CFC (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionne le matériel informatique, résoudre des problèmes et aider les autres lorsqu’ils rencontrent des difficultés techniques ? Vous souhaitez apprendre un métier concret et varié tout en développant vos compétences dans un environnement stimulant ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 3 années de formation :\n• Prendre en charge les incidents et les demandes d’assistance informatique ;\n• Accompagner et assister les utilisateurs dans leurs besoins informatiques ;\n• Participer à la formation des utilisateurs ;\n• Installer et mettre en service du matériel informatique, notamment des ordinateurs et des imprimantes, ainsi que des logiciels ;\n• Assurer l’entretien du matériel informatique et des logiciels ;\n• Identifier, analyser et résoudre les problèmes techniques ;\n• Documenter les procédures mises en place et les solutions apportées ;\n• Connecter les appareils et les différents services au réseau. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez les activités pratiques et avez une bonne habileté technique ;\n• Vous appréciez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit d’analyse ;\n• Vous aimez le contact avec les autres, avez le sens du service et appréciez le travail en équipe ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et concrète dans le domaine de l’informatique ;\n• La possibilité de développer vos compétences techniques tout en étant en contact avec les utilisateurs ;\n• La possibilité d’acquérir une expérience pratique au contact de professionnel-le-s de l’informatique ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e opérateur-trice en informatique CFC (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionne le matériel informatique, résoudre des problèmes et aider les autres lorsqu’ils rencontrent des difficultés techniques ? Vous souhaitez apprendre un métier concret et varié tout en développant vos compétences dans un environnement stimulant ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 3 années de formation :\n• Prendre en charge les incidents et les demandes d’assistance informatique ;\n• Accompagner et assister les utilisateurs dans leurs besoins informatiques ;\n• Participer à la formation des utilisateurs ;\n• Installer et mettre en service du matériel informatique, notamment des ordinateurs et des imprimantes, ainsi que des logiciels ;\n• Assurer l’entretien du matériel informatique et des logiciels ;\n• Identifier, analyser et résoudre les problèmes techniques ;\n• Documenter les procédures mises en place et les solutions apportées ;\n• Connecter les appareils et les différents services au réseau. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez les activités pratiques et avez une bonne habileté technique ;\n• Vous appréciez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit d’analyse ;\n• Vous aimez le contact avec les autres, avez le sens du service et appréciez le travail en équipe ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et concrète dans le domaine de l’informatique ;\n• La possibilité de développer vos compétences techniques tout en étant en contact avec les utilisateurs ;\n• La possibilité d’acquérir une expérience pratique au contact de professionnel-le-s de l’informatique ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e opérateur-trice en informatique CFC (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionne le matériel informatique, résoudre des problèmes et aider les autres lorsqu’ils rencontrent des difficultés techniques ? Vous souhaitez apprendre un métier concret et varié tout en développant vos compétences dans un environnement stimulant ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 3 années de formation :\n• Prendre en charge les incidents et les demandes d’assistance informatique ;\n• Accompagner et assister les utilisateurs dans leurs besoins informatiques ;\n• Participer à la formation des utilisateurs ;\n• Installer et mettre en service du matériel informatique, notamment des ordinateurs et des imprimantes, ainsi que des logiciels ;\n• Assurer l’entretien du matériel informatique et des logiciels ;\n• Identifier, analyser et résoudre les problèmes techniques ;\n• Documenter les procédures mises en place et les solutions apportées ;\n• Connecter les appareils et les différents services au réseau. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez les activités pratiques et avez une bonne habileté technique ;\n• Vous appréciez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit d’analyse ;\n• Vous aimez le contact avec les autres, avez le sens du service et appréciez le travail en équipe ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et concrète dans le domaine de l’informatique ;\n• La possibilité de développer vos compétences techniques tout en étant en contact avec les utilisateurs ;\n• La possibilité d’acquérir une expérience pratique au contact de professionnel-le-s de l’informatique ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e opérateur-trice en informatique CFC (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionne le matériel informatique, résoudre des problèmes et aider les autres lorsqu’ils rencontrent des difficultés techniques ? Vous souhaitez apprendre un métier concret et varié tout en développant vos compétences dans un environnement stimulant ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 3 années de formation :\n• Prendre en charge les incidents et les demandes d’assistance informatique ;\n• Accompagner et assister les utilisateurs dans leurs besoins informatiques ;\n• Participer à la formation des utilisateurs ;\n• Installer et mettre en service du matériel informatique, notamment des ordinateurs et des imprimantes, ainsi que des logiciels ;\n• Assurer l’entretien du matériel informatique et des logiciels ;\n• Identifier, analyser et résoudre les problèmes techniques ;\n• Documenter les procédures mises en place et les solutions apportées ;\n• Connecter les appareils et les différents services au réseau. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez les activités pratiques et avez une bonne habileté technique ;\n• Vous appréciez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit d’analyse ;\n• Vous aimez le contact avec les autres, avez le sens du service et appréciez le travail en équipe ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et concrète dans le domaine de l’informatique ;\n• La possibilité de développer vos compétences techniques tout en étant en contact avec les utilisateurs ;\n• La possibilité d’acquérir une expérience pratique au contact de professionnel-le-s de l’informatique ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/67925002/Apprenti-e-op%C3%A9rateur-trice-en-informatique-CFC-h-f-x-?jobDbPVId=286922097&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:19:34.141Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T10:07:16.854+02:00",
+      "postedDate": "2026-10-07T10:07:16.854+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67925002/Apprenti-e-op%C3%A9rateur-trice-en-informatique-CFC-h-f-x-?jobDbPVId=286922097&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Informatica e tecnologia",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-07T09:19:34.141Z"
+    },
+    {
+      "id": "vaudoise-fff3dd8e313d",
+      "slug": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
+        "it": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
+        "en": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
+        "de": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x)",
+      "titleByLocale": {
+        "fr": "Apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x)",
+        "it": "Apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x)",
+        "en": "Apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x)",
+        "de": "Apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x)"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionnent les applications, résoudre des problèmes et imaginer des solutions ? Vous souhaitez apprendre à développer des applications tout en évoluant dans un environnement stimulant et concret ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 4 années de formation :\n• Analyser les besoins des utilisateurs et vérifier la faisabilité technique des solutions envisagées ;\n• Élaborer différentes propositions de solutions pour le développement et la mise en œuvre d’applications ;\n• Développer et programmer des applications à l’aide de logiciels et de langages informatiques appropriés ;\n• Tester et vérifier la qualité, la sécurité et le bon fonctionnement des applications et des interfaces ;\n• Installer et déployer les applications sur les plateformes appropriées et en assurer le bon fonctionnement ;\n• Veiller à la protection des informations et à la sécurité des données. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit analytique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et passionnante dans le domaine de l’informatique et du développement d’applications ;\n• La possibilité de développer vos compétences au contact de professionnel-le-s et de participer à des activités concrètes ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature ! apprenti Informaticien Orientation Développement d'applications (h/f/x)",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionnent les applications, résoudre des problèmes et imaginer des solutions ? Vous souhaitez apprendre à développer des applications tout en évoluant dans un environnement stimulant et concret ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 4 années de formation :\n• Analyser les besoins des utilisateurs et vérifier la faisabilité technique des solutions envisagées ;\n• Élaborer différentes propositions de solutions pour le développement et la mise en œuvre d’applications ;\n• Développer et programmer des applications à l’aide de logiciels et de langages informatiques appropriés ;\n• Tester et vérifier la qualité, la sécurité et le bon fonctionnement des applications et des interfaces ;\n• Installer et déployer les applications sur les plateformes appropriées et en assurer le bon fonctionnement ;\n• Veiller à la protection des informations et à la sécurité des données. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit analytique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et passionnante dans le domaine de l’informatique et du développement d’applications ;\n• La possibilité de développer vos compétences au contact de professionnel-le-s et de participer à des activités concrètes ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature ! apprenti Informaticien Orientation Développement d'applications (h/f/x)",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionnent les applications, résoudre des problèmes et imaginer des solutions ? Vous souhaitez apprendre à développer des applications tout en évoluant dans un environnement stimulant et concret ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 4 années de formation :\n• Analyser les besoins des utilisateurs et vérifier la faisabilité technique des solutions envisagées ;\n• Élaborer différentes propositions de solutions pour le développement et la mise en œuvre d’applications ;\n• Développer et programmer des applications à l’aide de logiciels et de langages informatiques appropriés ;\n• Tester et vérifier la qualité, la sécurité et le bon fonctionnement des applications et des interfaces ;\n• Installer et déployer les applications sur les plateformes appropriées et en assurer le bon fonctionnement ;\n• Veiller à la protection des informations et à la sécurité des données. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit analytique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et passionnante dans le domaine de l’informatique et du développement d’applications ;\n• La possibilité de développer vos compétences au contact de professionnel-le-s et de participer à des activités concrètes ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature ! apprenti Informaticien Orientation Développement d'applications (h/f/x)",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionnent les applications, résoudre des problèmes et imaginer des solutions ? Vous souhaitez apprendre à développer des applications tout en évoluant dans un environnement stimulant et concret ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 4 années de formation :\n• Analyser les besoins des utilisateurs et vérifier la faisabilité technique des solutions envisagées ;\n• Élaborer différentes propositions de solutions pour le développement et la mise en œuvre d’applications ;\n• Développer et programmer des applications à l’aide de logiciels et de langages informatiques appropriés ;\n• Tester et vérifier la qualité, la sécurité et le bon fonctionnement des applications et des interfaces ;\n• Installer et déployer les applications sur les plateformes appropriées et en assurer le bon fonctionnement ;\n• Veiller à la protection des informations et à la sécurité des données. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit analytique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et passionnante dans le domaine de l’informatique et du développement d’applications ;\n• La possibilité de développer vos compétences au contact de professionnel-le-s et de participer à des activités concrètes ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature ! apprenti Informaticien Orientation Développement d'applications (h/f/x)",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e informaticien-ne CFC, orientation développement d’applications (h/f/x) dès le 1er août 2027 . Vous êtes passionné-e par l’informatique et les nouvelles technologies ? Vous aimez comprendre comment fonctionnent les applications, résoudre des problèmes et imaginer des solutions ? Vous souhaitez apprendre à développer des applications tout en évoluant dans un environnement stimulant et concret ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent durant ces 4 années de formation :\n• Analyser les besoins des utilisateurs et vérifier la faisabilité technique des solutions envisagées ;\n• Élaborer différentes propositions de solutions pour le développement et la mise en œuvre d’applications ;\n• Développer et programmer des applications à l’aide de logiciels et de langages informatiques appropriés ;\n• Tester et vérifier la qualité, la sécurité et le bon fonctionnement des applications et des interfaces ;\n• Installer et déployer les applications sur les plateformes appropriées et en assurer le bon fonctionnement ;\n• Veiller à la protection des informations et à la sécurité des données. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes curieux-se, motivé-e et avez envie d’apprendre ;\n• Vous êtes passionné-e par l’informatique et les nouvelles technologies ;\n• Vous aimez comprendre, analyser et résoudre des problèmes ;\n• Vous faites preuve de logique et avez un bon esprit analytique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes organisé-e, rigoureux-se et prêt-e à vous investir pleinement dans votre formation. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée et passionnante dans le domaine de l’informatique et du développement d’applications ;\n• La possibilité de développer vos compétences au contact de professionnel-le-s et de participer à des activités concrètes ;\n• Un accompagnement tout au long de votre apprentissage afin de développer progressivement vos compétences et votre autonomie ;\n• La possibilité de découvrir l’environnement informatique d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature ! apprenti Informaticien Orientation Développement d'applications (h/f/x)"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/67925012/Apprenti-e-informaticien-ne-CFC,-orientation-d%C3%A9veloppement-d%E2%80%99applications-h-f-x-?jobDbPVId=286922247&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:19:33.831Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T10:08:06.688+02:00",
+      "postedDate": "2026-10-07T10:08:06.688+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67925012/Apprenti-e-informaticien-ne-CFC,-orientation-d%C3%A9veloppement-d%E2%80%99applications-h-f-x-?jobDbPVId=286922247&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Informatica e tecnologia",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-07T09:19:33.831Z"
+    },
+    {
+      "id": "vaudoise-307cbb68f1a2",
+      "slug": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+      "slugByLocale": {
+        "fr": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+        "it": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+        "en": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+        "de": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Apprenti / apprentie agent relation client CFC (h/f/x)",
+      "titleByLocale": {
+        "fr": "Apprenti / apprentie agent relation client CFC (h/f/x)",
+        "it": "Apprenti / apprentie agent relation client CFC (h/f/x)",
+        "en": "Apprenti / apprentie agent relation client CFC (h/f/x)",
+        "de": "Apprenti / apprentie agent relation client CFC (h/f/x)"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e Agent-e Relation Client (h/f/x) dès le 1er août 2027 . Vous recherchez un apprentissage qui vous permette de découvrir le monde professionnel, de développer vos compétences et d’évoluer dans un environnement de travail stimulant et bienveillant ? Vous appréciez le contact avec les autres et souhaitez exercer un métier orienté vers la relation client ? Alors cette formation pourrait être faite pour vous ! Voici les tâches qui vous attendront durant ces 3 années de formation :\n• Répondre aux appels entrants provenant des différents canaux de communication ;\n• Accueillir, renseigner et accompagner les clients dans leurs demandes ;\n• Identifier des opportunités de conseil et les transmettre aux conseillers de la Vaudoise Assurances ;\n• Tenir à jour les données clients ;\n• Analyser et traiter les demandes et réclamations des clients ;\n• Rediriger, lorsque cela est nécessaire, les clients vers les services compétents. Votre profil :\n• Vous êtes titulaire d’un certificat de fin de scolarité obligatoire ou arriverez prochainement au terme de votre scolarité et souhaitez vous lancer dans le monde professionnel ;\n• Vous êtes ouvert-e, aimable, curieux-se et motivé-e ;\n• Vous aimez le contact avec les autres et avez le sens du service et de la relation client ;\n• Vous communiquez avec aisance et appréciez le travail en équipe ;\n• Vous maîtrisez parfaitement le français. De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Une formation professionnelle variée et passionnante dans le domaine de l’assurance et de la relation client ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e Agent-e Relation Client (h/f/x) dès le 1er août 2027 . Vous recherchez un apprentissage qui vous permette de découvrir le monde professionnel, de développer vos compétences et d’évoluer dans un environnement de travail stimulant et bienveillant ? Vous appréciez le contact avec les autres et souhaitez exercer un métier orienté vers la relation client ? Alors cette formation pourrait être faite pour vous ! Voici les tâches qui vous attendront durant ces 3 années de formation :\n• Répondre aux appels entrants provenant des différents canaux de communication ;\n• Accueillir, renseigner et accompagner les clients dans leurs demandes ;\n• Identifier des opportunités de conseil et les transmettre aux conseillers de la Vaudoise Assurances ;\n• Tenir à jour les données clients ;\n• Analyser et traiter les demandes et réclamations des clients ;\n• Rediriger, lorsque cela est nécessaire, les clients vers les services compétents. Votre profil :\n• Vous êtes titulaire d’un certificat de fin de scolarité obligatoire ou arriverez prochainement au terme de votre scolarité et souhaitez vous lancer dans le monde professionnel ;\n• Vous êtes ouvert-e, aimable, curieux-se et motivé-e ;\n• Vous aimez le contact avec les autres et avez le sens du service et de la relation client ;\n• Vous communiquez avec aisance et appréciez le travail en équipe ;\n• Vous maîtrisez parfaitement le français. De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Une formation professionnelle variée et passionnante dans le domaine de l’assurance et de la relation client ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e Agent-e Relation Client (h/f/x) dès le 1er août 2027 . Vous recherchez un apprentissage qui vous permette de découvrir le monde professionnel, de développer vos compétences et d’évoluer dans un environnement de travail stimulant et bienveillant ? Vous appréciez le contact avec les autres et souhaitez exercer un métier orienté vers la relation client ? Alors cette formation pourrait être faite pour vous ! Voici les tâches qui vous attendront durant ces 3 années de formation :\n• Répondre aux appels entrants provenant des différents canaux de communication ;\n• Accueillir, renseigner et accompagner les clients dans leurs demandes ;\n• Identifier des opportunités de conseil et les transmettre aux conseillers de la Vaudoise Assurances ;\n• Tenir à jour les données clients ;\n• Analyser et traiter les demandes et réclamations des clients ;\n• Rediriger, lorsque cela est nécessaire, les clients vers les services compétents. Votre profil :\n• Vous êtes titulaire d’un certificat de fin de scolarité obligatoire ou arriverez prochainement au terme de votre scolarité et souhaitez vous lancer dans le monde professionnel ;\n• Vous êtes ouvert-e, aimable, curieux-se et motivé-e ;\n• Vous aimez le contact avec les autres et avez le sens du service et de la relation client ;\n• Vous communiquez avec aisance et appréciez le travail en équipe ;\n• Vous maîtrisez parfaitement le français. De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Une formation professionnelle variée et passionnante dans le domaine de l’assurance et de la relation client ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e Agent-e Relation Client (h/f/x) dès le 1er août 2027 . Vous recherchez un apprentissage qui vous permette de découvrir le monde professionnel, de développer vos compétences et d’évoluer dans un environnement de travail stimulant et bienveillant ? Vous appréciez le contact avec les autres et souhaitez exercer un métier orienté vers la relation client ? Alors cette formation pourrait être faite pour vous ! Voici les tâches qui vous attendront durant ces 3 années de formation :\n• Répondre aux appels entrants provenant des différents canaux de communication ;\n• Accueillir, renseigner et accompagner les clients dans leurs demandes ;\n• Identifier des opportunités de conseil et les transmettre aux conseillers de la Vaudoise Assurances ;\n• Tenir à jour les données clients ;\n• Analyser et traiter les demandes et réclamations des clients ;\n• Rediriger, lorsque cela est nécessaire, les clients vers les services compétents. Votre profil :\n• Vous êtes titulaire d’un certificat de fin de scolarité obligatoire ou arriverez prochainement au terme de votre scolarité et souhaitez vous lancer dans le monde professionnel ;\n• Vous êtes ouvert-e, aimable, curieux-se et motivé-e ;\n• Vous aimez le contact avec les autres et avez le sens du service et de la relation client ;\n• Vous communiquez avec aisance et appréciez le travail en équipe ;\n• Vous maîtrisez parfaitement le français. De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Une formation professionnelle variée et passionnante dans le domaine de l’assurance et de la relation client ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Pour son siège à Lausanne, la Vaudoise Assurances souhaite recruter un-e apprenti-e Agent-e Relation Client (h/f/x) dès le 1er août 2027 . Vous recherchez un apprentissage qui vous permette de découvrir le monde professionnel, de développer vos compétences et d’évoluer dans un environnement de travail stimulant et bienveillant ? Vous appréciez le contact avec les autres et souhaitez exercer un métier orienté vers la relation client ? Alors cette formation pourrait être faite pour vous ! Voici les tâches qui vous attendront durant ces 3 années de formation :\n• Répondre aux appels entrants provenant des différents canaux de communication ;\n• Accueillir, renseigner et accompagner les clients dans leurs demandes ;\n• Identifier des opportunités de conseil et les transmettre aux conseillers de la Vaudoise Assurances ;\n• Tenir à jour les données clients ;\n• Analyser et traiter les demandes et réclamations des clients ;\n• Rediriger, lorsque cela est nécessaire, les clients vers les services compétents. Votre profil :\n• Vous êtes titulaire d’un certificat de fin de scolarité obligatoire ou arriverez prochainement au terme de votre scolarité et souhaitez vous lancer dans le monde professionnel ;\n• Vous êtes ouvert-e, aimable, curieux-se et motivé-e ;\n• Vous aimez le contact avec les autres et avez le sens du service et de la relation client ;\n• Vous communiquez avec aisance et appréciez le travail en équipe ;\n• Vous maîtrisez parfaitement le français. De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Une formation professionnelle variée et passionnante dans le domaine de l’assurance et de la relation client ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/67925067/Apprenti-apprentie-agent-relation-client-CFC-h-f-x-?jobDbPVId=286922557&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:19:33.514Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T10:09:44.582+02:00",
+      "postedDate": "2026-10-07T10:09:44.582+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67925067/Apprenti-apprentie-agent-relation-client-CFC-h-f-x-?jobDbPVId=286922557&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Vendita, commercio e servizio alla clientela",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-07T09:19:33.514Z"
+    },
+    {
+      "id": "vaudoise-cd64398821a2",
+      "slug": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
+      "slugByLocale": {
+        "fr": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
+        "it": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
+        "en": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
+        "de": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Apprenti / Apprentie logisticien / logisticienne (h/f/x) à 100% pour notre Centre Logistique Evénementiel à Cheseaux-sur-Lausanne",
+      "titleByLocale": {
+        "fr": "Apprenti / Apprentie logisticien / logisticienne (h/f/x) à 100% pour notre Centre Logistique Evénementiel à Cheseaux-sur-Lausanne",
+        "it": "Apprenti / Apprentie logisticien / logisticienne (h/f/x) à 100% pour notre Centre Logistique Evénementiel à Cheseaux-sur-Lausanne",
+        "en": "Apprenti / Apprentie logisticien / logisticienne (h/f/x) à 100% pour notre Centre Logistique Evénementiel à Cheseaux-sur-Lausanne",
+        "de": "Apprenti / Apprentie logisticien / logisticienne (h/f/x) à 100% pour notre Centre Logistique Evénementiel à Cheseaux-sur-Lausanne"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Lieu de travail : Cheseaux-sur-Lausanne Pour notre Centre Logistique Événementiel , nous recherchons un-e apprenti-e logisticien-ne dès le 1er août 2027 . Vous aimez organiser, bouger, travailler en équipe et participer concrètement à la réussite de différentes activités ? Vous souhaitez apprendre un métier varié, qui combine logistique, technique et événementiel ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent : Durant votre apprentissage, vous aurez notamment l’occasion de :\n• Réceptionner, contrôler et stocker les marchandises ;\n• Préparer les commandes internes et organiser les expéditions ;\n• Assurer le suivi informatique des stocks et participer aux inventaires ;\n• Manipuler du matériel professionnel et participer aux différentes étapes logistiques : picking, palettisation, préparation et retour de matériel, etc. ;\n• Participer à la préparation logistique de nos différents événements ;\n• Contribuer aux activités liées à la décoration et aux productions visuelles. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes motivé-e, curieux-se et avez envie d’apprendre ;\n• Vous avez un intérêt pour les activités pratiques et techniques ;\n• Vous avez un intérêt pour la logistique événementielle ;\n• Vous êtes organisé-e et faites preuve de logique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes flexible et aimez exercer des activités variées ;\n• De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée, concrète et dynamique dans le domaine de la logistique ;\n• La possibilité de participer à des activités diversifiées, notamment dans les domaines de la logistique et de l’événementiel ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences et votre autonomie ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+      "descriptionByLocale": {
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Lieu de travail : Cheseaux-sur-Lausanne Pour notre Centre Logistique Événementiel , nous recherchons un-e apprenti-e logisticien-ne dès le 1er août 2027 . Vous aimez organiser, bouger, travailler en équipe et participer concrètement à la réussite de différentes activités ? Vous souhaitez apprendre un métier varié, qui combine logistique, technique et événementiel ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent : Durant votre apprentissage, vous aurez notamment l’occasion de :\n• Réceptionner, contrôler et stocker les marchandises ;\n• Préparer les commandes internes et organiser les expéditions ;\n• Assurer le suivi informatique des stocks et participer aux inventaires ;\n• Manipuler du matériel professionnel et participer aux différentes étapes logistiques : picking, palettisation, préparation et retour de matériel, etc. ;\n• Participer à la préparation logistique de nos différents événements ;\n• Contribuer aux activités liées à la décoration et aux productions visuelles. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes motivé-e, curieux-se et avez envie d’apprendre ;\n• Vous avez un intérêt pour les activités pratiques et techniques ;\n• Vous avez un intérêt pour la logistique événementielle ;\n• Vous êtes organisé-e et faites preuve de logique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes flexible et aimez exercer des activités variées ;\n• De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée, concrète et dynamique dans le domaine de la logistique ;\n• La possibilité de participer à des activités diversifiées, notamment dans les domaines de la logistique et de l’événementiel ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences et votre autonomie ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Lieu de travail : Cheseaux-sur-Lausanne Pour notre Centre Logistique Événementiel , nous recherchons un-e apprenti-e logisticien-ne dès le 1er août 2027 . Vous aimez organiser, bouger, travailler en équipe et participer concrètement à la réussite de différentes activités ? Vous souhaitez apprendre un métier varié, qui combine logistique, technique et événementiel ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent : Durant votre apprentissage, vous aurez notamment l’occasion de :\n• Réceptionner, contrôler et stocker les marchandises ;\n• Préparer les commandes internes et organiser les expéditions ;\n• Assurer le suivi informatique des stocks et participer aux inventaires ;\n• Manipuler du matériel professionnel et participer aux différentes étapes logistiques : picking, palettisation, préparation et retour de matériel, etc. ;\n• Participer à la préparation logistique de nos différents événements ;\n• Contribuer aux activités liées à la décoration et aux productions visuelles. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes motivé-e, curieux-se et avez envie d’apprendre ;\n• Vous avez un intérêt pour les activités pratiques et techniques ;\n• Vous avez un intérêt pour la logistique événementielle ;\n• Vous êtes organisé-e et faites preuve de logique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes flexible et aimez exercer des activités variées ;\n• De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée, concrète et dynamique dans le domaine de la logistique ;\n• La possibilité de participer à des activités diversifiées, notamment dans les domaines de la logistique et de l’événementiel ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences et votre autonomie ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Lieu de travail : Cheseaux-sur-Lausanne Pour notre Centre Logistique Événementiel , nous recherchons un-e apprenti-e logisticien-ne dès le 1er août 2027 . Vous aimez organiser, bouger, travailler en équipe et participer concrètement à la réussite de différentes activités ? Vous souhaitez apprendre un métier varié, qui combine logistique, technique et événementiel ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent : Durant votre apprentissage, vous aurez notamment l’occasion de :\n• Réceptionner, contrôler et stocker les marchandises ;\n• Préparer les commandes internes et organiser les expéditions ;\n• Assurer le suivi informatique des stocks et participer aux inventaires ;\n• Manipuler du matériel professionnel et participer aux différentes étapes logistiques : picking, palettisation, préparation et retour de matériel, etc. ;\n• Participer à la préparation logistique de nos différents événements ;\n• Contribuer aux activités liées à la décoration et aux productions visuelles. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes motivé-e, curieux-se et avez envie d’apprendre ;\n• Vous avez un intérêt pour les activités pratiques et techniques ;\n• Vous avez un intérêt pour la logistique événementielle ;\n• Vous êtes organisé-e et faites preuve de logique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes flexible et aimez exercer des activités variées ;\n• De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée, concrète et dynamique dans le domaine de la logistique ;\n• La possibilité de participer à des activités diversifiées, notamment dans les domaines de la logistique et de l’événementiel ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences et votre autonomie ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle accorde une place importante à l’accompagnement et à l’épanouissement des jeunes talents, avec plus de 120 apprenant-e-s formé-e-s chaque année au sein de ses différents départements. Lieu de travail : Cheseaux-sur-Lausanne Pour notre Centre Logistique Événementiel , nous recherchons un-e apprenti-e logisticien-ne dès le 1er août 2027 . Vous aimez organiser, bouger, travailler en équipe et participer concrètement à la réussite de différentes activités ? Vous souhaitez apprendre un métier varié, qui combine logistique, technique et événementiel ? Alors cet apprentissage pourrait être fait pour vous ! Les missions qui vous attendent : Durant votre apprentissage, vous aurez notamment l’occasion de :\n• Réceptionner, contrôler et stocker les marchandises ;\n• Préparer les commandes internes et organiser les expéditions ;\n• Assurer le suivi informatique des stocks et participer aux inventaires ;\n• Manipuler du matériel professionnel et participer aux différentes étapes logistiques : picking, palettisation, préparation et retour de matériel, etc. ;\n• Participer à la préparation logistique de nos différents événements ;\n• Contribuer aux activités liées à la décoration et aux productions visuelles. Votre profil :\n• Vous avez terminé votre scolarité obligatoire ou arriverez prochainement à son terme ;\n• Vous êtes motivé-e, curieux-se et avez envie d’apprendre ;\n• Vous avez un intérêt pour les activités pratiques et techniques ;\n• Vous avez un intérêt pour la logistique événementielle ;\n• Vous êtes organisé-e et faites preuve de logique ;\n• Vous appréciez le travail en équipe et communiquez facilement avec les autres ;\n• Vous êtes flexible et aimez exercer des activités variées ;\n• De bonnes connaissances en allemand constituent un atout. Nous vous offrons :\n• Un environnement de travail sain et stimulant au sein d’une entreprise mutualiste certifiée « Great Place to Work » ;\n• Une formation professionnelle variée, concrète et dynamique dans le domaine de la logistique ;\n• La possibilité de participer à des activités diversifiées, notamment dans les domaines de la logistique et de l’événementiel ;\n• Un accompagnement tout au long de votre apprentissage afin de développer vos compétences et votre autonomie ;\n• La possibilité de découvrir le fonctionnement d’une grande compagnie d’assurance et de construire progressivement votre avenir professionnel ;\n• Des opportunités d’engagement au terme de votre formation. Intéressé-e ? Alors n’hésitez pas à nous transmettre votre dossier de candidature complet comprenant :\n• votre lettre de motivation ;\n• votre CV ;\n• vos trois derniers bulletins scolaires ;\n• vos éventuelles attestations de stage. Nous nous réjouissons de découvrir votre profil et de recevoir votre candidature !"
+      },
+      "location": "Cheseaux-sur-Lausanne",
+      "canton": "VD",
+      "url": "https://vaudoise.softgarden.io/job/67925417/Apprenti-Apprentie-logisticien-logisticienne-h-f-x-%C3%A0-100-pour-notre-Centre-Logistique-Ev%C3%A9nementiel-%C3%A0-Cheseaux-sur-Lausanne-?jobDbPVId=286923167&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:19:33.192Z",
+      "addressLocality": "Cheseaux-sur-Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T10:11:32.217+02:00",
+      "postedDate": "2026-10-07T10:11:32.217+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67925417/Apprenti-Apprentie-logisticien-logisticienne-h-f-x-%C3%A0-100-pour-notre-Centre-Logistique-Ev%C3%A9nementiel-%C3%A0-Cheseaux-sur-Lausanne-?jobDbPVId=286923167&l=it",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobCategory": "Acquisti e logistica",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1033",
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-10-07T09:19:33.192Z"
+    },
+    {
+      "id": "vaudoise-f5047f613519",
+      "slug": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-geneve",
+      "slugByLocale": {
+        "it": "consigliere-consigliere-m-f-x-100-vaudoise-assurances-geneve",
+        "en": "adviser-advisor-m-f-x-100-vaudoise-assurances-geneve",
+        "de": "berater-berater-m-w-x-100-vaudoise-assurances-geneve",
+        "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+      },
+      "company": "Vaudoise Assurances",
+      "companyKey": "vaudoise",
+      "companyDomain": "vaudoise.ch",
+      "title": "Conseiller / Conseillère (h/f/x) 100%",
+      "titleByLocale": {
+        "it": "Consigliere / Consigliere (m/f/x) 100%",
+        "en": "Adviser / Advisor (m/f/x) 100%",
+        "de": "Berater / Berater (m/w/x) 100%",
+        "fr": "Conseiller / Conseillère (h/f/x) 100%"
+      },
+      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de notre Agence de Genève qui propose à nos clients des services de haut niveau dans le traitement des leurs affaires, nous recherchons un/e Conseiller/Conseillère. Les diverses missions qui vous attendent :\n• Contribuer au développement d'un portefeuille existant de clients\n• Identifier de nouveaux prospects (particuliers, entreprises)\n• Déceler les besoins de la clientèle et soumettre des solutions adaptées\n• Participer activement à des événements destinés à la clientèle\n• Développer et animer son réseau de partenaires Ce qui vous rend unique :\n• Titulaire de la certification AFA, la certification IAF constituerait un réel atout\n• Expérience reconnue et réussie dans le domaine du conseil en assurances\n• Forte capacité de réseautage\n• Un ancrage local est souhaité Si vous êtes également dynamique, flexible, doté d’un solide sens de la négociation et bien intégré dans le milieu social et économique local, alors vous êtes la personne qu’il nous faut ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
+      "descriptionByLocale": {
+        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Al fine di integrare il nostro team all'interno della nostra Agenzia di Ginevra, che offre ai nostri clienti servizi di alto livello nel trattamento della loro attività, stiamo cercando un consulente. Le varie missioni che vi aspettano:\n• Contribuisci allo sviluppo di un portafoglio client esistente\n• Identificare nuove prospettive (individuali, imprese)\n• Identificare le esigenze dei clienti e presentare soluzioni su misura\n• Partecipa attivamente agli eventi dei clienti\n• Sviluppare e condurre la propria rete di partner Cosa ti rende unico:\n• titolare di certificazione AFA, certificazione IAF sarebbe un vero bene\n• Esperienza riconosciuta e di successo nella consulenza assicurativa\n• Forte capacità di networking\n• L'ancoraggio locale è desiderato Se sei anche dinamico, flessibile, con un forte senso di negoziazione e ben integrato nell'ambiente sociale ed economico locale, allora sei la persona di cui abbiamo bisogno! Vi offriamo:\n• Un ambiente di lavoro sano in una società comune certificata \"Great Place to Work\"\n• Prestazioni sociali multiple, compresa la flessibilità nell'organizzazione del lavoro\n• Sostegno allo sviluppo e alla formazione\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
+        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. In order to complement our team within our Geneva Agency, which offers our clients high-level services in the processing of their business, we are looking for an advisor. The various missions that await you:\n• Contribute to the development of an existing client portfolio\n• Identify new prospects (individuals, businesses)\n• Identify customer needs and submit tailored solutions\n• Actively participate in customer events\n• Develop and lead its network of partners What makes you unique:\n• AFA certification holder, IAF certification would be a real asset\n• Recognized and successful experience in insurance consulting\n• Strong networking capacity\n• Local anchoring is desired If you are also dynamic, flexible, with a strong negotiating sense and well integrated into the local social and economic environment, then you are the person we need! We offer you:\n• A healthy working environment in a mutual company certified \"Great Place to Work\"\n• Multiple social benefits, including flexibility in work organisation\n• Support in development and training\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
+        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung eines gesunden, integrativen und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihrer Talente. Um unser Team innerhalb unserer Agentur in Genf zu ergänzen, die unseren Kunden hochrangige Dienstleistungen bei der Abwicklung ihres Geschäfts anbietet, suchen wir einen Berater. Die verschiedenen Missionen, die euch erwarten:\n• Beitrag zur Entwicklung eines bestehenden Kundenportfolios\n• Identifizieren Sie neue Perspektiven (Einzelpersonen, Unternehmen)\n• Kundenbedürfnisse identifizieren und maßgeschneiderte Lösungen einreichen\n• Aktiv an Kundenveranstaltungen teilnehmen\n• Entwickeln und führen Sie Ihr Partnernetzwerk Was dich einzigartig macht:\n• AFA-Zertifizierungsinhaber, IAF-Zertifizierung wäre ein echter Vermögenswert\n• Anerkannte und erfolgreiche Erfahrung in der Versicherungsberatung\n• Starke Netzwerkkapazität\n• Lokale Verankerung ist erwünscht Wenn Sie auch dynamisch, flexibel, mit einem starken Verhandlungssinn und gut in das lokale soziale und wirtschaftliche Umfeld integriert sind, dann sind Sie die Person, die wir brauchen! Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert \"Great Place to Work\"\n• Mehrere Sozialleistungen, einschließlich Flexibilität in der Arbeitsorganisation\n• Unterstützung in Entwicklung und Ausbildung\n• Menschliche Werte mit Fokus auf das Wohlbefinden der Mitarbeiter Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen).",
+        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Afin de compléter notre équipe au sein de notre Agence de Genève qui propose à nos clients des services de haut niveau dans le traitement des leurs affaires, nous recherchons un/e Conseiller/Conseillère. Les diverses missions qui vous attendent :\n• Contribuer au développement d'un portefeuille existant de clients\n• Identifier de nouveaux prospects (particuliers, entreprises)\n• Déceler les besoins de la clientèle et soumettre des solutions adaptées\n• Participer activement à des événements destinés à la clientèle\n• Développer et animer son réseau de partenaires Ce qui vous rend unique :\n• Titulaire de la certification AFA, la certification IAF constituerait un réel atout\n• Expérience reconnue et réussie dans le domaine du conseil en assurances\n• Forte capacité de réseautage\n• Un ancrage local est souhaité Si vous êtes également dynamique, flexible, doté d’un solide sens de la négociation et bien intégré dans le milieu social et économique local, alors vous êtes la personne qu’il nous faut ! Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \"Great Place to Work\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail\n• Un soutien dans le développement et la formation\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://vaudoise.softgarden.io/job/67700842/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285994302&l=it",
+      "source": "Vaudoise Assurances Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-06T21:13:39.821Z",
+      "addressLocality": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-28T15:29:03.812+02:00",
+      "postedDate": "2026-09-28T15:29:03.812+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://vaudoise.softgarden.io/job/67700842/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285994302&l=it",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Vendita, commercio e servizio alla clientela",
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:40:06.560Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "addressRegion": "GE",
+      "crawlerMissStreak": 1
+    },
+    {
       "id": "vaudoise-8b2372315e47",
       "slug": "proprietario-del-prodotto-rh-m-f-x-100-csd-1-anno-vaudoise-assurances-lausanne",
       "slugByLocale": {
@@ -3593,7 +3951,7 @@
       "title": "Product Owner RH (h/f/x) – 100% – CDD 1 an",
       "titleByLocale": {
         "it": "Proprietario del prodotto RH (m/f/x) – 100% – CSD 1 anno",
-        "en": "Product Owner RH (m/f/x) – 100% – CSD 1 year",
+        "en": "Product Owner RH (h/f/x) – 100% – CDD 1 an",
         "de": "Product Owner RH (m/w/x) – 100% – CSD 1 Jahr",
         "fr": "Product Owner RH (h/f/x) – 100% – CDD 1 an"
       },
@@ -3654,85 +4012,8 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "vaudoise-8bc700b10adf",
-      "slug": "business-analista-distribution-et-experience-client-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "business-analista-distribution-et-experience-client-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "business-analyst-distribution-et-experience-client-h-f-x-80-100-vaudoise-ch",
-        "de": "business-analyst-vertrieb-und-erfahrung-client-m-w-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "business-analyst-distribution-et-experience-client-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Business Analyst - Distribution et Experience Client (h/f/x) - 80-100%",
-      "titleByLocale": {
-        "it": "Business Analista - Distribution et Experience Client (h/f/x) - 80-100%",
-        "en": "Business Analyst - Distribution et Experience Client (h/f/x) - 80-100%",
-        "de": "Business Analyst - Vertrieb und Erfahrung Client (m/w/x) - 80-100%",
-        "fr": "Business Analyste - Distribution et Experience Client (h/f/x) - 80-100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Vous souhaitez jouer un rôle clé dans la transformation digitale de la Vaudoise Assurances ? Être un acteur clé de la transformation digitale de la distribution en contribuant à la conception des futurs services destinés aux courtiers, agents et partenaires de la Vaudoise, afin de simplifier leurs activités quotidiennes et soutenir le développement commercial de l'entreprise? Rejoignez l’équipe en charge du domaine gestion des canaux et de la distribution en tant que Business Analyst (h/f/x) : une équipe pluridisciplinaire composée de Business Analysts, Développeurs et Product Owner en charge notamment du commissionnement, de la gestion des rabais ou encore des solutions courtier. Vous y occuperez un rôle central et évoluerez dans un environnement stimulant où vous aborderez des problématiques variées et aurez l'opportunité de contribuer à de nombreux sujets stratégiques. Votre rôle consistera à faire le lien entre les besoins métier et les solutions techniques afin de concevoir et déployer des solutions digitales à forte valeur ajoutée. Les missions qui vous attendent :\n• Analyser et challenger des besoins métiers variés recueillis par le PO et les formaliser en exigences claires\n• Co-construire des solutions technico-fonctionnelles avec les développeurs et les architectes\n• Documenter et modéliser (UML, BPMN) pour partager une vision commune des systèmes\n• Tester et valider (fonctionnels, UAT, suivi de mise en production)\n• Contribuer activement aux cérémonies agiles et au pilotage du projet\n• Piloter des intégrateurs sur de nouvelles implémentations Votre profil :\n• Minimum 3 ans en tant que Business Analyst, idéalement dans le secteur des assurances (certification BA = atout)\n• Diplôme supérieur (EPF, HES, HEC, UNI ou équivalent) en informatique, ingénierie ou domaine connexe\n• Bonne compréhension des architectures IT, développement frontend et APIs\n• Maîtrise d’Atlassian (Jira, Confluence), expérience confirmée en Agile (Scrum, Kanban).\n• Français C1, anglais B2 (allemand = réel plus). Vous êtes orienté solutions, proactif et doté d’un excellent sens de la communication. Vous savez naviguer avec aisance entre les univers métier et IT et aimez apprendre en continu. Nous vous offrons :\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Vuoi svolgere un ruolo chiave nella trasformazione digitale di Vaudoise Assurances? Essere un player chiave nella trasformazione digitale della distribuzione contribuendo alla progettazione dei servizi futuri per i broker, gli agenti e i partner Vaudoise, al fine di semplificare le loro attività quotidiane e sostenere lo sviluppo aziendale dell'azienda? Unisciti al team responsabile della gestione dei canali e della distribuzione come Business Analyst (m/f/x): un team multidisciplinare composto da Business Analysts, Sviluppatori e Product Owner incaricato di commissionare, gestione degli sconti e soluzioni broker. Si svolgerà un ruolo centrale e si evolve in un ambiente stimolante in cui si affronterà varie questioni e avrà l'opportunità di contribuire a molti argomenti strategici. Il vostro ruolo sarà quello di collegare le esigenze aziendali con soluzioni tecniche al fine di progettare e distribuire soluzioni digitali di alto valore. Le missioni che vi aspettano:\n• Analizzare e sfidare le varie esigenze aziendali raccolte dal PO e formalizzarle in chiari requisiti\n• Costruire soluzioni tecniche-funzionali con sviluppatori e architetti\n• Documento e modello (UML, BPMN) per condividere una visione comune dei sistemi\n• Test e convalida (funzionale, UAT, monitoraggio della produzione)\n• Contribuire attivamente alle cerimonie agili e alla gestione del progetto\n• Integratori pilota sulle nuove implementazioni Il tuo profilo:\n• Minimo 3 anni come Business Analyst, idealmente nel settore assicurativo (BA certificazione = asset)\n• Laurea (EPF, HES, HEC, UNI o equivalente) in informatica, ingegneria o campi correlati\n• Buona comprensione delle architetture IT, frontend sviluppo e API\n• Mastery of Atlassian (Jira, Confluence), esperienza confermata in Agile (Scrum, Kanban).\n• Francese C1, inglese B2 (tedesco = reale plus). Siete soluzioni orientate, proattive e avete un eccellente senso di comunicazione. Sai come navigare facilmente tra i mondi aziendali e IT e come imparare continuamente. Vi offriamo:\n• Un ambiente di lavoro sano all'interno di una società comune certificata Great Place to Work\n• Condizioni attraenti e vantaggi sociali competitivi\n• Flessibilità nell'organizzazione del lavoro\n• Un quadro stimolante per lo sviluppo delle competenze e il miglioramento continuo Non vediamo l'ora di ricevere digitalmente il pacchetto completo delle applicazioni (con curriculum vitae, lettera di copertura, copie dei certificati di lavoro e dei diplomi)",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. Want to play a key role in the digital transformation of Vaudoise Assurances? To be a key player in the digital transformation of distribution by contributing to the design of future services for Vaudoise brokers, agents and partners, in order to simplify their daily activities and support the business development of the company? Join the team in charge of channel management and distribution as a Business Analyst (m/f/x): a multidisciplinary team composed of Business Analysts, Developers and Product Owner in charge of commissioning, discount management and broker solutions. You will play a central role and evolve in a stimulating environment where you will address various issues and have the opportunity to contribute to many strategic topics. Your role will be to link business needs with technical solutions in order to design and deploy high-value digital solutions. The missions that await you:\n• Analyze and challenge the varied business needs collected by the PO and formalize them into clear requirements\n• Co-build technical-functional solutions with developers and architects\n• Document and model (UML, BPMN) to share a common vision of systems\n• Test and validate (functional, UAT, production monitoring)\n• Actively contribute to agile ceremonies and project management\n• Pilot integrators on new implementations Your profile:\n• Minimum 3 years as a Business Analyst, ideally in the insurance sector (BA certification = asset)\n• Graduate degree (EPF, HES, HEC, UNI or equivalent) in computer science, engineering or related fields\n• Good understanding of IT architectures, frontend development and APIs\n• Mastery of Atlassian (Jira, Confluence), experience confirmed in Agile (Scrum, Kanban).\n• French C1, English B2 (German = real plus). You are oriented solutions, proactive and have an excellent sense of communication. You know how to navigate easily between business and IT worlds and like to learn continuously. We offer you:\n• A healthy work environment within a mutual company certified Great Place to Work\n• Attractive conditions and competitive social benefits\n• Flexibility in work organisation\n• A stimulating framework for skills development and continuous improvement We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas)",
-        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und seinen Werten fördert es die Schaffung einer gesunden, integrativen und inspirierenden Arbeitsumgebung, die ideal ist, um Ihre Talente zu entwickeln. Möchten Sie eine Schlüsselrolle bei der digitalen Transformation von Vaudoise Assurances spielen? Um ein wichtiger Akteur in der digitalen Transformation des Vertriebs zu sein, indem Sie zur Gestaltung zukünftiger Dienstleistungen für Vaudoise-Broker, Agenten und Partner beitragen, um ihre täglichen Aktivitäten zu vereinfachen und die Geschäftsentwicklung des Unternehmens zu unterstützen? Schließen Sie sich dem Team an, das als Business Analyst für Channel Management und Distribution zuständig ist: ein multidisziplinäres Team, bestehend aus Business Analysten, Entwicklern und Product Owner, das für die Kommissionierung, das Discountmanagement und die Brokerlösungen zuständig ist. Sie werden eine zentrale Rolle spielen und sich in einem anregenden Umfeld entwickeln, in dem Sie verschiedene Themen ansprechen und die Möglichkeit haben, zu vielen strategischen Themen beizutragen. Ihre Aufgabe besteht darin, Geschäftsanforderungen mit technischen Lösungen zu verknüpfen, um hochwertige digitale Lösungen zu entwerfen und einzusetzen. Die Missionen, die euch erwarten:\n• Analysieren und hinterfragen Sie die vielfältigen Geschäftsanforderungen, die vom PO gesammelt werden, und formalisieren Sie sie in klare Anforderungen\n• Co-Build technisch-funktionale Lösungen mit Entwicklern und Architekten\n• Dokument und Modell (UML, BPMN), um eine gemeinsame Vision von Systemen zu teilen\n• Test und Validierung (Funktionalität, UAT, Produktionsüberwachung)\n• Aktiv zu agilen Zeremonien und Projektmanagement beitragen\n• Pilotintegratoren zu neuen Implementierungen Ihr Profil:\n• Mindestens 3 Jahre als Business Analyst, idealerweise im Versicherungssektor (BA-Zertifizierung = Asset)\n• Hochschulabschluss (EPF, HES, HEC, UNI oder gleichwertig) in Informatik, Ingenieurwissenschaften oder verwandten Bereichen\n• Gutes Verständnis von IT-Architekturen, Frontend-Entwicklung und APIs\n• Beherrschung von Atlassian (Jira, Confluence), Erfahrung bestätigt in Agile (Scrum, Kanban).\n• Französisch C1, Englisch B2 (Deutsch = real plus). Sie sind orientierte Lösungen, proaktiv und haben einen ausgezeichneten Sinn für Kommunikation. Sie wissen, wie Sie leicht zwischen Geschäfts- und IT-Welten navigieren können und lernen gerne kontinuierlich. Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen zertifiziert Great Place to Work\n• Attraktive Bedingungen und wettbewerbsfähige Sozialleistungen\n• Flexibilität in der Arbeitsorganisation\n• Ein anregender Rahmen für die Kompetenzentwicklung und kontinuierliche Verbesserung Wir freuen uns auf Ihr komplettes Bewerbungspaket digital (mit Lebenslauf, Anschreiben, Kopien von Arbeitszertifikaten und Diplomen)",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Vous souhaitez jouer un rôle clé dans la transformation digitale de la Vaudoise Assurances ? Être un acteur clé de la transformation digitale de la distribution en contribuant à la conception des futurs services destinés aux courtiers, agents et partenaires de la Vaudoise, afin de simplifier leurs activités quotidiennes et soutenir le développement commercial de l'entreprise? Rejoignez l’équipe en charge du domaine gestion des canaux et de la distribution en tant que Business Analyst (h/f/x) : une équipe pluridisciplinaire composée de Business Analysts, Développeurs et Product Owner en charge notamment du commissionnement, de la gestion des rabais ou encore des solutions courtier. Vous y occuperez un rôle central et évoluerez dans un environnement stimulant où vous aborderez des problématiques variées et aurez l'opportunité de contribuer à de nombreux sujets stratégiques. Votre rôle consistera à faire le lien entre les besoins métier et les solutions techniques afin de concevoir et déployer des solutions digitales à forte valeur ajoutée. Les missions qui vous attendent :\n• Analyser et challenger des besoins métiers variés recueillis par le PO et les formaliser en exigences claires\n• Co-construire des solutions technico-fonctionnelles avec les développeurs et les architectes\n• Documenter et modéliser (UML, BPMN) pour partager une vision commune des systèmes\n• Tester et valider (fonctionnels, UAT, suivi de mise en production)\n• Contribuer activement aux cérémonies agiles et au pilotage du projet\n• Piloter des intégrateurs sur de nouvelles implémentations Votre profil :\n• Minimum 3 ans en tant que Business Analyst, idéalement dans le secteur des assurances (certification BA = atout)\n• Diplôme supérieur (EPF, HES, HEC, UNI ou équivalent) en informatique, ingénierie ou domaine connexe\n• Bonne compréhension des architectures IT, développement frontend et APIs\n• Maîtrise d’Atlassian (Jira, Confluence), expérience confirmée en Agile (Scrum, Kanban).\n• Français C1, anglais B2 (allemand = réel plus). Vous êtes orienté solutions, proactif et doté d’un excellent sens de la communication. Vous savez naviguer avec aisance entre les univers métier et IT et aimez apprendre en continu. Nous vous offrons :\n• Un environnement de travail sain au sein d’une entreprise mutualiste certifiée Great Place to Work\n• Des conditions attractives et des avantages sociaux compétitifs\n• Une flexibilité dans l’organisation du travail\n• Un cadre stimulant favorisant le développement des compétences et l’amélioration continue Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)"
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/67499332/Business-Analyst-Distribution-et-Experience-Client-h-f-x-80-100-?jobDbPVId=285092062&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-05T21:42:02.395Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-17T16:32:15.286+02:00",
-      "postedDate": "2026-09-17T16:32:15.286+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://vaudoise.softgarden.io/job/67499332/Business-Analyst-Distribution-et-Experience-Client-h-f-x-80-100-?jobDbPVId=285092062&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Vendita, commercio e servizio alla clientela",
-      "previousSlugs": [
-        "business-analyst-distribution-et-experience-client-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-distribution-et-experience-client-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "business-analyst-distribution-et-experience-client-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:51:56.692Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD",
       "crawlerMissStreak": 2,
-      "postalCode": "1003"
+      "needsRetranslation": true
     }
   ]
 }
