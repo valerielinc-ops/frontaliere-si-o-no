@@ -1,16 +1,16 @@
 {
   "key": "la-fonte",
   "label": "La Fonte",
-  "generatedAt": "2026-10-07T09:27:24.033Z",
+  "generatedAt": "2026-10-07T21:35:14.844Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3227,
-  "avgDurationMs": 3227,
+  "durationMs": 2336,
+  "avgDurationMs": 2336,
   "durationHistory": [
-    3227
+    2336
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,9 +47,9 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -105,5 +105,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }
