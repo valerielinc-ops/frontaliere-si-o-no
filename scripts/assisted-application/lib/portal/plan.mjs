@@ -426,12 +426,8 @@ export function candidateAnswerForField(candidate, field) {
 /** The candidate already answered this very question with this answer (review page). */
 export function answeredByCandidate(candidate, question, answer) {
   const given = String(answer || '').trim();
-  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
-    .some((item) => {
-      const sameQuestion = comparableAnswer(questionFromLabel(item.question)) === comparableAnswer(questionFromLabel(question))
-        || (questionTopic(item.question) && questionTopic(item.question) === questionTopic(question));
-      return sameQuestion && equivalentAnswer(question, item.answer, given);
-    });
+  const previous = candidateAnswerForQuestion(candidate, question);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
