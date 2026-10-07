@@ -333,9 +333,10 @@ export function parseListingPage(html) {
 export function classifyAilListingHtml(html = '') {
   const listings = parseListingPage(html);
   const emptyStateBlocks = html.matchAll(
-    /<div\b[^>]*\bclass\s*=\s*["'][^"']*\binner-title\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi,
+    /<div\b[^>]*(?:^|\s)class\s*=\s*(["'])([^"']*)\1[^>]*>([\s\S]*?)<\/div>/gi,
   );
-  const authoritativeEmptySnapshot = listings.length === 0 && [...emptyStateBlocks].some(([, content]) => {
+  const authoritativeEmptySnapshot = listings.length === 0 && [...emptyStateBlocks].some(([, , classValue, content]) => {
+    if (!/(?:^|\s)inner-title(?:\s|$)/u.test(classValue)) return false;
     const visibleText = normalizeSpace(decodeHtmlEntities(content).replace(/<[^>]*>/g, ' '));
     return AIL_EMPTY_SOURCE_RE.test(visibleText);
   });

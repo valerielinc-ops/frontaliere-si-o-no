@@ -197,6 +197,17 @@ describe('AIL crawler listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(false);
   });
 
+  it('requires an exact class attribute and class token', () => {
+    for (const html of [
+      '<div data-class="inner-title">Al momento non ci sono posizioni aperte</div>',
+      '<div class="not-inner-title">Al momento non ci sono posizioni aperte</div>',
+    ]) {
+      const result = classifyAilListingHtml(html);
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
+  });
+
   it('recognises a job article as a successful non-empty response', () => {
     const html = [
       '<article class="job-position">',
