@@ -193,7 +193,7 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'tests.yml :: vitest :: Publish bounded ledger-only automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish automatic LGTM for a tests-only PR': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish carry-forward LGTM (code contribution unchanged)': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
-  'tests.yml :: post-review :: Enable native auto-merge after the required job': { reason: 'no-publish', why: "attiva l'auto-merge nativo, non pusha" },
+  'tests.yml :: post-review :: Resolve post-review write-capable identity': { reason: 'no-publish', why: 'verifica la capacita del token prima delle mutation' },
   'traffic-data-freshness.yml :: freshness-check :: Verify token loaded (fail-loud guard)': { reason: 'no-publish', why: 'controlla solo la presenza di un token' },
   'traffic-data-freshness.yml :: freshness-check :: Self-heal — dispatch traffic-scheduler (via App token/PAT)': { reason: 'no-publish', why: 'dispatch dello scheduler' },
 };

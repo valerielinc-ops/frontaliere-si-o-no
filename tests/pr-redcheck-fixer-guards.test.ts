@@ -218,7 +218,7 @@ describe('parità col gemello — ciò che è stato ereditato deve restare intat
   it('passa alla action lo stesso token con cui ha autenticato il remote', () => {
     // L'invariante di classe di issue-fix-app-token-wiring: senza, la action
     // conia un token proprio e riscrive il remote appena configurato.
-    expect(src).toContain('github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(src).toContain("github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}");
   });
 
   it('classifica l\'esito sul LAVORO fatto, non sull\'exit della CLI', () => {
