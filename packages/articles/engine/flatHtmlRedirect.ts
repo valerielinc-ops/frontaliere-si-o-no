@@ -272,17 +272,47 @@ export function extractOgTags(indexHtml: string): string {
   return tags.join('\n');
 }
 
+/** Extract the validated corpus revision stamp from a canonical article page. */
+export function extractContentRevisionTag(indexHtml: string): string {
+  const metaRx = /<meta\b[^>]*\/?\s*>/gi;
+  const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+  const masked = maskInactiveMarkup(indexHtml, { maskRcdata: true });
+  let match: RegExpExecArray | null;
+  while ((match = metaRx.exec(masked))) {
+    const tag = match[0];
+    attrRx.lastIndex = 0;
+    const attrs: Record<string, string> = {};
+    let attrMatch: RegExpExecArray | null;
+    while ((attrMatch = attrRx.exec(tag))) {
+      const [, rawName, dq = '', sq = ''] = attrMatch;
+      attrs[String(rawName || '').toLowerCase()] = dq || sq || '';
+    }
+    if (
+      String(attrs.name || '').toLowerCase() === 'ft:content-rev'
+      && /^[0-9]+\.[0-9a-f]{7,40}$/i.test(String(attrs.content || ''))
+    ) {
+      return tag;
+    }
+  }
+  return '';
+}
+
 /** Shared noindex redirect-bridge template — reused by any plugin that needs to
  * point a stale-but-still-crawled URL at its live replacement (see
  * `findOrphanedCompanyCityPairs` in weeklyEmployersPlugin.ts). */
-export const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string): string =>
+export const NOINDEX_BRIDGE = (
+  slashUrl: string,
+  title: string,
+  ogTags: string,
+  contentRevisionTag = '',
+): string =>
   `<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <title>${title}</title>
 <link rel="canonical" href="${slashUrl}">
-<meta name="robots" content="noindex,follow">${ogTags ? `\n${ogTags}` : ''}
+<meta name="robots" content="noindex,follow">${ogTags ? `\n${ogTags}` : ''}${contentRevisionTag ? `\n${contentRevisionTag}` : ''}
 <script>location.replace(${JSON.stringify(slashUrl)} + window.location.search + window.location.hash)</script>
 </head>
 <body><h1>${title}</h1><a href="${slashUrl}">Continua su ${slashUrl}</a></body>
@@ -309,6 +339,7 @@ export const NOINDEX_BRIDGE = (slashUrl: string, title: string, ogTags: string):
 export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string): string {
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
+  let contentRevisionTag = '';
   try {
     const titleMatch = maskInactiveMarkup(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
@@ -318,10 +349,11 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
       }
     }
     ogTags = extractOgTags(siblingHtml);
+    contentRevisionTag = extractContentRevisionTag(siblingHtml);
   } catch {
     // fallback already set; ogTags stays empty
   }
-  return NOINDEX_BRIDGE(slashUrl, title, ogTags);
+  return NOINDEX_BRIDGE(slashUrl, title, ogTags, contentRevisionTag);
 }
 
 export { maskInactiveMarkup, stripScriptsAndStyles };

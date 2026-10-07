@@ -82,6 +82,7 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
 import { assertCorpusObserved } from './lib/assert-corpus-observed.mjs';
+import { prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -157,6 +158,24 @@ function spawnAsync(cmd, args, opts) {
   });
 }
 
+function absorbPushSummary(manifest, summaryFile) {
+  if (!fs.existsSync(summaryFile)) return;
+  const [shard, rawNewer, names = '', rawStampOnly = ''] = fs.readFileSync(summaryFile, 'utf-8').trim().split('\t');
+  const newer = Number(rawNewer);
+  const stampOnly = Number(rawStampOnly);
+  if (!shard || !Number.isFinite(newer) || !Number.isFinite(stampOnly)) {
+    console.error(`[rerender-article-corpus] invalid push summary from ${summaryFile}`);
+    return;
+  }
+  const summary = manifest.pushSummary.monotonicGuard;
+  summary.remoteNewerSkipped += newer;
+  summary.stampOnlySkipped += stampOnly;
+  for (const rel of names.split(',').filter(Boolean)) {
+    if (summary.firstRemoteNewerPaths.length >= 5) break;
+    summary.firstRemoteNewerPaths.push(rel);
+  }
+}
+
 // Id enumeration is imported from build-plugins/shared/articleSectionDescriptors.ts
 // (`enumerateSectionArticleIds`). The drift audit uses that module's narrower
 // `enumerateRenderableSectionArticleIds` population because body-only chunks
@@ -197,6 +216,7 @@ async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
     distDir,
     section: sectionName,
     onlyArticleIds: ids,
+    contentRevision: process.env.ARTICLE_CONTENT_REVISION,
   });
 
   fs.rmSync(scratchImagesLink, { force: true });
@@ -239,12 +259,28 @@ async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
 }
 
 async function runOrchestrator(args) {
+  const corpusOverlay = await prepareCorpusContentOverlay({ rootDir: ROOT_DIR });
+  process.env.ARTICLE_CONTENT_REVISION = corpusOverlay.contentRevision;
   const { ARTICLE_SECTION_DESCRIPTORS, enumerateSectionArticleIds } = await import('../build-plugins/shared/articleSectionDescriptors.ts');
   const sections = ARTICLE_SECTION_DESCRIPTORS.filter((s) => args.section === 'all' || s.name === args.section);
 
   const distDir = args.out ? path.resolve(args.out) : fs.mkdtempSync(path.join(os.tmpdir(), 'rerender-corpus-'));
   fs.mkdirSync(distDir, { recursive: true });
-  const manifest = { generatedAt: new Date().toISOString(), distDir, sections: {} };
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    distDir,
+    corpusCommit: corpusOverlay.commit,
+    corpusContentRevision: corpusOverlay.contentRevision,
+    corpusManifestUrl: corpusOverlay.manifestUrl,
+    pushSummary: {
+      monotonicGuard: {
+        remoteNewerSkipped: 0,
+        stampOnlySkipped: 0,
+        firstRemoteNewerPaths: [],
+      },
+    },
+    sections: {},
+  };
   let anyFailure = false;
 
   for (const section of sections) {
@@ -364,46 +400,55 @@ async function runOrchestrator(args) {
   // per locale (sequential within a locale — same repo, avoid needless
   // non-fast-forward retries from racing against ourselves).
   const targetLocales = args.locale === 'all' ? LOCALES : [args.locale];
+  const pushSummaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rerender-corpus-push-summary-'));
 
-  for (const [sectionName, data] of Object.entries(manifest.sections)) {
-    // "articoli" + section name is a DERIVATION (not a duplicated literal):
-    // matches the shard-token naming convention already fixed by
-    // scripts/lib/section-shard-slugs.json's own key names
-    // (articolifrontaliere/articolisvizzera) and fast-publish-article.yml's
-    // equivalent branch — see that workflow's `if [ "$section" = "svizzera" ]`
-    // step, which this formula is provably equivalent to for the two known
-    // section names.
-    const shardToken = `articoli${sectionName}`;
+  try {
+    for (const [sectionName, data] of Object.entries(manifest.sections)) {
+      // "articoli" + section name is a DERIVATION (not a duplicated literal):
+      // matches the shard-token naming convention already fixed by
+      // scripts/lib/section-shard-slugs.json's own key names
+      // (articolifrontaliere/articolisvizzera) and fast-publish-article.yml's
+      // equivalent branch — see that workflow's `if [ "$section" = "svizzera" ]`
+      // step, which this formula is provably equivalent to for the two known
+      // section names.
+      const shardToken = `articoli${sectionName}`;
 
-    const localePushes = targetLocales.map(async (locale) => {
-      const relpaths = [];
-      for (const e of data.entries) {
-        if (e.paths[locale]) relpaths.push(e.paths[locale]);
-        if (e.flatPaths[locale]) relpaths.push(e.flatPaths[locale]);
-      }
-      if (relpaths.length === 0) return;
-
-      const pushChunks = chunkArray(relpaths, args.pushBatchSize);
-      console.log(
-        `[rerender-article-corpus] pushing ${relpaths.length} relpath(s) to ${shardToken}-${locale} in ${pushChunks.length} chunk(s)`,
-      );
-      const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
-      for (let i = 0; i < pushChunks.length; i++) {
-        const { status } = await spawnAsync('bash', [pushScript, shardToken, locale, distDir, ...pushChunks[i]], {
-          stdio: 'inherit',
-          env: process.env,
-        });
-        if (status !== 0) {
-          console.error(
-            `[rerender-article-corpus] push chunk ${i + 1}/${pushChunks.length} to ${shardToken}-${locale} FAILED (exit ${status})`,
-          );
-          anyFailure = true;
+      const localePushes = targetLocales.map(async (locale) => {
+        const relpaths = [];
+        for (const e of data.entries) {
+          if (e.paths[locale]) relpaths.push(e.paths[locale]);
+          if (e.flatPaths[locale]) relpaths.push(e.flatPaths[locale]);
         }
-      }
-    });
+        if (relpaths.length === 0) return;
 
-    await Promise.all(localePushes);
+        const pushChunks = chunkArray(relpaths, args.pushBatchSize);
+        console.log(
+          `[rerender-article-corpus] pushing ${relpaths.length} relpath(s) to ${shardToken}-${locale} in ${pushChunks.length} chunk(s)`,
+        );
+        const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
+        for (let i = 0; i < pushChunks.length; i++) {
+          const summaryFile = path.join(pushSummaryDir, `${sectionName}-${locale}-${i}.tsv`);
+          const { status } = await spawnAsync('bash', [pushScript, shardToken, locale, distDir, ...pushChunks[i]], {
+            stdio: 'inherit',
+            env: { ...process.env, ARTICLE_PUSH_SUMMARY_FILE: summaryFile },
+          });
+          absorbPushSummary(manifest, summaryFile);
+          if (status !== 0) {
+            console.error(
+              `[rerender-article-corpus] push chunk ${i + 1}/${pushChunks.length} to ${shardToken}-${locale} FAILED (exit ${status})`,
+            );
+            anyFailure = true;
+          }
+        }
+      });
+
+      await Promise.all(localePushes);
+    }
+  } finally {
+    fs.rmSync(pushSummaryDir, { recursive: true, force: true });
   }
+
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
 
   if (anyFailure) process.exitCode = 1;
 }

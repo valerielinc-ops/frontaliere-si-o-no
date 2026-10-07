@@ -119,6 +119,9 @@ fi
 SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"
 if [ -z "$SHARD_OWNER" ] || [ "$SHARD_OWNER" = "null" ]; then SHARD_OWNER="valerielinc-ops"; fi
 SHARD_REPO="git@github.com:$SHARD_OWNER/frontaliere-$section-$loc.git"
+if [ -n "${SHARD_REPO_OVERRIDE:-}" ]; then
+  SHARD_REPO="$SHARD_REPO_OVERRIDE"
+fi
 
 if [ -z "${RUNNER_TEMP:-}" ]; then
   RUNNER_TEMP="$(mktemp -d)"
@@ -154,6 +157,45 @@ permanent_fail=0
 # Set by _attempt once it has a commit to push; read by the PAT fallback after
 # the retry loop. Declared here because `set -u` is on.
 last_commit=''
+last_skipped_newer_count=0
+last_skipped_newer_names=''
+last_skipped_stamp_only_count=0
+
+extract_content_revision() {
+  sed -nE 's/.*<meta[[:space:]]+name="ft:content-rev"[[:space:]]+content="([0-9]+)\.([0-9A-Fa-f]{7,40})"[^>]*>.*/\1.\2/p' <<< "$1" | sed -n '1p'
+}
+
+normalize_content_revision() {
+  sed -E 's/[[:space:]]*<meta[[:space:]]+name="ft:content-rev"[[:space:]]+content="[0-9]+\.[0-9A-Fa-f]{7,40}"[^>]*>[[:space:]]*//g' <<< "$1"
+}
+
+revision_is_newer() {
+  local remote_revision="$1"
+  local incoming_revision="$2"
+  local remote_epoch remote_sha incoming_epoch incoming_sha
+  remote_epoch="${remote_revision%%.*}"
+  remote_sha="${remote_revision#*.}"
+  incoming_epoch="${incoming_revision%%.*}"
+  incoming_sha="${incoming_revision#*.}"
+  if [ "$remote_epoch" -gt "$incoming_epoch" ]; then return 0; fi
+  if [ "$remote_epoch" -lt "$incoming_epoch" ]; then return 1; fi
+  if [[ "$remote_sha" > "$incoming_sha" ]]; then return 0; fi
+  return 1
+}
+
+write_push_summary() {
+  local summary_file="${ARTICLE_PUSH_SUMMARY_FILE:-}"
+  [ -n "$summary_file" ] || return 0
+  if ! mkdir -p "$(dirname "$summary_file")" 2>/dev/null; then
+    echo "::warning::unable to create push summary directory for $summary_file" >&2
+    return 0
+  fi
+  printf '%s\t%s\t%s\t%s\n' \
+    "$section-$loc" \
+    "$last_skipped_newer_count" \
+    "$last_skipped_newer_names" \
+    "$last_skipped_stamp_only_count" > "$summary_file" || true
+}
 
 _attempt() {
   rm -rf "$stage"
@@ -185,8 +227,62 @@ _attempt() {
 
   git -C "$stage" read-tree HEAD || return 1
 
+  local -a eligible_relpaths=()
+  local -a skipped_newer_paths=()
   local rel src sha new_count=0
+  local incoming_html remote_html incoming_revision remote_revision normalized_incoming normalized_remote
+  last_skipped_newer_count=0
+  last_skipped_newer_names=''
+  last_skipped_stamp_only_count=0
+
   for rel in "${relpaths[@]}"; do
+    src="$scratch_dist_dir/$rel"
+    incoming_html="$(<"$src")"
+    if [ -n "$(git -C "$stage" ls-tree HEAD -- "$rel" 2>/dev/null)" ]; then
+      remote_html="$(git -C "$stage" show "HEAD:$rel" 2>/dev/null)" || return 1
+      incoming_revision="$(extract_content_revision "$incoming_html")"
+      remote_revision="$(extract_content_revision "$remote_html")"
+      normalized_incoming="$(normalize_content_revision "$incoming_html")"
+      normalized_remote="$(normalize_content_revision "$remote_html")"
+
+      # A stamp-only change is not a content change. This check comes first so
+      # a page with an older/newer stamp but identical shell is not republished.
+      if [ "$normalized_incoming" = "$normalized_remote" ]; then
+        last_skipped_stamp_only_count=$((last_skipped_stamp_only_count + 1))
+        continue
+      fi
+
+      # An unstamped incoming page is older than any stamped remote page. This
+      # keeps pre-engine-lockstep output from rolling a newer site page back.
+      if [ -n "$remote_revision" ] && {
+        [ -z "$incoming_revision" ] || revision_is_newer "$remote_revision" "$incoming_revision";
+      }; then
+        skipped_newer_paths+=("$rel")
+        continue
+      fi
+    fi
+    eligible_relpaths+=("$rel")
+  done
+
+  last_skipped_newer_count="${#skipped_newer_paths[@]}"
+  if [ "$last_skipped_newer_count" -gt 0 ]; then
+    local skipped_name shown_count=0
+    for skipped_name in "${skipped_newer_paths[@]}"; do
+      [ "$shown_count" -ge 5 ] && break
+      if [ -n "$last_skipped_newer_names" ]; then
+        last_skipped_newer_names="$last_skipped_newer_names,$skipped_name"
+      else
+        last_skipped_newer_names="$skipped_name"
+      fi
+      shown_count=$((shown_count + 1))
+    done
+    echo "monotonic guard: kept remote for $last_skipped_newer_count newer article path(s): $last_skipped_newer_names"
+  fi
+  if [ "$last_skipped_stamp_only_count" -gt 0 ]; then
+    echo "monotonic guard: skipped $last_skipped_stamp_only_count stamp-only path change(s)"
+  fi
+
+  for rel in "${eligible_relpaths[@]}"; do
     src="$scratch_dist_dir/$rel"
     # ls-tree only touches tree objects (never a blob fetch) — used purely to
     # classify rel as "new" vs "replaced" for the .shard-filecount delta below.
@@ -221,7 +317,7 @@ _attempt() {
   fi
 
   local commit
-  commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#relpaths[@]} path(s) touched")" || return 1
+  commit="$(git -C "$stage" commit-tree "$new_tree" -p HEAD -m "$section-$loc article fast-push (${GITHUB_SHA:-local}) — +$new_count new, ${#eligible_relpaths[@]} path(s) touched")" || return 1
   # Published for the PAT fallback below: it re-pushes THIS commit, so it must
   # outlive the function scope.
   last_commit="$commit"
@@ -262,6 +358,8 @@ if [ "$ok" != 1 ]; then
   if [ "$permanent_fail" != 1 ]; then
     echo "::error::$section-$loc article shard push failed after $retry_max_attempts attempts (+ PAT fallback)" >&2
   fi
+  write_push_summary
   exit 1
 fi
+write_push_summary
 exit 0
