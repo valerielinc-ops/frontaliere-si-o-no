@@ -57,12 +57,18 @@ export function registrationOutcome(after) {
 /**
  * What the page after the verification link or code says. Only a positive
  * state counts as `accepted`: a confirmation, the sign-in page or the
- * application form. An expired or wrong token is `rejected`; anything else
+ * application form. An expired or wrong token is `rejected`; `pending` is the
+ * portal's bounded loading state after an OTP click; anything else is
  * `unconfirmed`, and neither is recorded as verified.
  */
 export function verificationOutcome(after) {
-  if (after.errors?.length || VERIFY_FAILED_RE.test(after.text) || codeField(after)) return 'rejected';
+  const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
+  const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
+  const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(after.text);
+  if (rejected) return 'rejected';
+  if (loading) return 'pending';
   if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
+  if (codeField(after)) return 'rejected';
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
