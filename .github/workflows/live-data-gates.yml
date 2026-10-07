@@ -72,6 +72,19 @@ jobs:
       - name: npm ci
         run: npm ci
 
+      # The live snapshot can contain aliases restored by a data-recovery run
+      # before its fleet-wide ownership pass. Repair only the disposable CI
+      # checkout, then prove the pass converges before feeding the data to
+      # assembly and the observer. The recovery workflow persists the same
+      # repair through its normal data PR path.
+      - name: Repair previous-slug ownership before live assertions
+        run: |
+          set -euo pipefail
+          node scripts/decontaminate-prev-slugs.mjs --apply \
+            | tee "$RUNNER_TEMP/live-prev-slug-ownership-apply.log"
+          node scripts/decontaminate-prev-slugs.mjs \
+            | tee "$RUNNER_TEMP/live-prev-slug-ownership-check.log"
+
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
         uses: ./.github/actions/assemble-jobs-cache-key
