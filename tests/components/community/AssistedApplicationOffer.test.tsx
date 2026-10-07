@@ -101,6 +101,23 @@ describe('AssistedApplicationOffer', () => {
     renderOffer({ error: 'Non siamo riusciti ad avviare il pagamento.' });
 
     expect(screen.getByRole('alert')).toHaveTextContent('Non siamo riusciti ad avviare il pagamento.');
+    // With the actions, which stay on screen while the card scrolls.
+    expect(screen.getByTestId('assisted-application-offer-actions')).toContainElement(screen.getByRole('alert'));
+  });
+
+  it('pins both choices to the bottom of the card, so a short card never hides the free path', () => {
+    // Live 2026-10-07: above Google's anchor ad the card was 550 px for 724 px of
+    // content, and the free button sat below the fold.
+    renderOffer();
+
+    const actions = screen.getByTestId('assisted-application-offer-actions');
+    expect(actions).toContainElement(screen.getByTestId('assisted-application-offer-paid'));
+    expect(actions).toContainElement(screen.getByTestId('assisted-application-offer-external'));
+    expect(actions.className).toMatch(/(^|\s)sticky(\s|$)/);
+    expect(actions.className).toMatch(/(^|\s)bottom-0(\s|$)/);
+    expect(actions.className).toMatch(/(^|\s)bg-surface(\s|$)/);
+    // Inside the scrolling card, not outside it.
+    expect(screen.getByRole('dialog')).toContainElement(actions);
   });
 
   it('leaves the body scroll and Escape to its host when embedded, and names who opened it', () => {
