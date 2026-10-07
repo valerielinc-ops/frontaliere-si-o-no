@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { EVENT_IMAGE_LICENSES, isEventImageSourceAllowed } from '../lib/events-utils.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
@@ -25,10 +26,12 @@ import {
   stableEventImageHash,
 } from '../../packages/articles/engine/shared/eventImageLibrary.mjs';
 import { SITE_ORIGIN, SITE_OWNED_OG_IMAGE_ALLOWLIST } from '../lib/published-image-policy.mjs';
+import { brandLogoSlug } from '../../build-plugins/shared/brandSlugData.mjs';
 
 export const LICENSE_AUDIT_SCHEMA_VERSION = 1;
 export const DEFAULT_LIMIT = 20;
 export const MAX_LIMIT = 20;
+export const MAX_REPLACEMENT_URLS = 5;
 export const MAX_EXAMPLES = 10;
 export const OLD_HISTORY_MARKER = 'dab77221540a4e369440f762228be7e0be21155d';
 export const ALARM_TITLE = 'License audit: non-remediable publication violations';
@@ -68,6 +71,8 @@ const GENERATED_SCOPES = Object.freeze({
   place: 'place',
   author: 'editorial-profile',
 });
+const LOGO_FAMILIES = new Set(['brands', 'providers', 'insurers', 'logos']);
+const BRAND_LOGO_EXTENSIONS = Object.freeze(['png', 'svg', 'jpg', 'jpeg', 'ico', 'gif', 'webp']);
 
 function readJson(file, fallback = null) {
   try {
@@ -490,7 +495,68 @@ function parseSourceImageReferences(root) {
       }
     }
   }
-  return { references, blogKeys };
+  const dynamicFuelLogos = parseFuelBrandLogoReferences(root);
+  for (const url of dynamicFuelLogos.references) references.add(url);
+  return {
+    references,
+    blogKeys,
+    dynamicFuelLogoPaths: dynamicFuelLogos.sourceRegisteredPaths,
+    dynamicFuelLogoEvidence: dynamicFuelLogos.evidence,
+  };
+}
+
+function collectBrandValues(value, brands) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectBrandValues(item, brands);
+    return;
+  }
+  if (!value || typeof value !== 'object') return;
+  for (const [key, child] of Object.entries(value)) {
+    if (key === 'brand' && typeof child === 'string' && child.trim()) brands.add(child.trim());
+    collectBrandValues(child, brands);
+  }
+}
+
+function publicBrandLogoPath(root, slug, availableFiles = new Set()) {
+  for (const extension of BRAND_LOGO_EXTENSIONS) {
+    const relativePath = `public/images/brands/${slug}.${extension}`;
+    if (fs.existsSync(path.join(root, relativePath)) || availableFiles.has(relativePath)) {
+      return { relativePath, url: `/images/brands/${slug}.${extension}` };
+    }
+  }
+  return null;
+}
+
+/**
+ * Fuel pages build `/images/brands/{brandLogoSlug(brand)}.svg` at runtime and
+ * the SSG resolver probes the same slug against the public asset extensions.
+ * The inventory must therefore inspect the current fuel data, not only string
+ * literals in TypeScript source.
+ */
+export function parseFuelBrandLogoReferences(root) {
+  const brands = new Set();
+  const availableFiles = new Set([
+    ...gitTreeFiles(root, 'HEAD', 'public/images'),
+    ...trackedFiles(root, 'public/images'),
+  ]);
+  for (const relativeFile of ['data/fuel-prices.json', 'data/fuel-prices-cantons.json']) {
+    const value = readJson(path.join(root, relativeFile));
+    if (value) collectBrandValues(value, brands);
+  }
+  const references = new Set();
+  const sourceRegisteredPaths = new Set();
+  const evidence = new Map();
+  for (const brand of [...brands].sort()) {
+    const slug = brandLogoSlug(brand);
+    if (!slug) continue;
+    const resolved = publicBrandLogoPath(root, slug, availableFiles);
+    if (!resolved) continue;
+    const reason = `dynamic fuel-station brand reference: data fuel brand "${brand}" -> brandLogoSlug "${slug}" -> ${resolved.url}`;
+    references.add(resolved.url);
+    sourceRegisteredPaths.add(resolved.url);
+    evidence.set(resolved.url, reason);
+  }
+  return { references, sourceRegisteredPaths, evidence };
 }
 
 function collectSocialReferences(root) {
@@ -571,7 +637,22 @@ export function classifyPublishedImage({
   referenced = true,
   sourceRegistered = false,
   protectedRealAuthor = false,
+  sourceEvidence = null,
 }) {
+  if (!referenced && LOGO_FAMILIES.has(family)) {
+    return {
+      family,
+      url,
+      status: 'inutilizzato',
+      valid: true,
+      referenced: false,
+      protectedRealAuthor,
+      sourceRegistered,
+      autoRepairable: false,
+      nonRemediable: false,
+      reason: 'logo has no current content reference; owner review required',
+    };
+  }
   if (!referenced) {
     return {
       family,
@@ -611,7 +692,7 @@ export function classifyPublishedImage({
       sourceRegistered,
       autoRepairable: false,
       nonRemediable: false,
-      reason: 'source registration exists; logo inventory is not auto-repaired',
+      reason: sourceEvidence || 'source registration exists; logo inventory is not auto-repaired',
     };
   }
   if (!record || recordValid === false) {
@@ -654,6 +735,26 @@ function parentImageUrl(family, url) {
   return value.replace('/thumbnails/', '/').replace(/-(?:480|800)w(?=\.[^.]+$)/, '');
 }
 
+const REPLACEMENT_URL_RE = /^\/images\/(?:blog|places|authors)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/;
+
+/** Parse and validate the manual replacement list before any filesystem write. */
+export function parseReplacementUrls(value) {
+  const rawValues = Array.isArray(value) ? value.join('\n') : String(value ?? '');
+  const urls = rawValues.split(/[\n,]/).map((item) => item.trim()).filter(Boolean);
+  if (urls.length > MAX_REPLACEMENT_URLS) {
+    throw new Error(`--replace-urls accepts at most ${MAX_REPLACEMENT_URLS} image URLs`);
+  }
+  const seen = new Set();
+  for (const url of urls) {
+    if (!REPLACEMENT_URL_RE.test(url)) {
+      throw new Error(`invalid replacement URL: ${url}; expected a single /images/{blog|places|authors}/{asset}.webp path`);
+    }
+    if (seen.has(url)) throw new Error(`duplicate replacement URL: ${url}`);
+    seen.add(url);
+  }
+  return urls;
+}
+
 function imageCandidate(item, authorsByPath, ledgerItem) {
   if (!item.autoRepairable) return null;
   const family = item.family;
@@ -682,6 +783,38 @@ function imageCandidate(item, authorsByPath, ledgerItem) {
   };
 }
 
+export function buildForcedReplacementCandidates({
+  replaceUrls = [],
+  inventory = [],
+  authorsByPath = new Map(),
+  ledger = {},
+}) {
+  return parseReplacementUrls(replaceUrls).map((url) => {
+    const row = inventory.find((item) => item.url === url);
+    if (!row) throw new Error(`replacement URL is not a currently published inventory item: ${url}`);
+    if (!['blog', 'places', 'authors'].includes(row.family)) {
+      throw new Error(`replacement URL is not replaceable by the governed image engine: ${url}`);
+    }
+    if (!row.referenced) throw new Error(`replacement URL is not currently referenced by content: ${url}`);
+    const author = authorsByPath.get(url);
+    if (row.protectedRealAuthor || author?.kind === 'real-author') {
+      throw new Error(`real-author image cannot be manually replaced: ${url}`);
+    }
+    const key = row.family === 'blog' ? blogKeyFromUrl(url) : null;
+    const candidate = imageCandidate(
+      { ...row, autoRepairable: true, forced: true },
+      authorsByPath,
+      key ? ledger.covers?.[key] : null,
+    );
+    if (!candidate) throw new Error(`replacement URL could not be converted to a governed candidate: ${url}`);
+    return {
+      ...candidate,
+      forced: true,
+      reason: `manual replacement requested for ${url}`,
+    };
+  });
+}
+
 function recordsWithoutFiles(registries, publicUrls) {
   const rows = [];
   for (const [scope, registry] of Object.entries(registries)) {
@@ -707,16 +840,19 @@ export function auditOtherImages({
   references = new Set(),
   authorsByPath = new Map(),
   sourceRegisteredLogoPaths = new Set(),
+  sourceRegisteredLogoEvidence = new Map(),
   socialUrls = [],
 }) {
   const generatedByUrl = {
     blog: generatedRecordMap(registries.blog, GENERATED_SCOPES.blog),
     places: generatedRecordMap(registries.shared, GENERATED_SCOPES.place),
     authors: generatedRecordMap(registries.shared, GENERATED_SCOPES.author),
+    publisher: generatedRecordMap(registries.shared, 'publisher'),
   };
   const inventory = [];
   const candidates = [];
   const publicUrls = new Set();
+  const socialReferenceUrls = new Set(socialUrls.map((url) => String(url).replace(IMAGE_CDN_ORIGIN, '')));
   const files = publicFiles.map(pathFamily).filter((item) => item && IMAGE_FAMILIES.includes(item.family));
 
   for (const file of files) {
@@ -726,7 +862,10 @@ export function auditOtherImages({
     const referenceUrl = parentImageUrl(file.family, file.url);
     const referenced = file.family === 'blog'
       ? blogKeys.has(ledgerKey) || ledgerItem?.currentlyPublished === true
-      : references.has(file.url) || references.has(referenceUrl) || file.family === 'publisher';
+      : references.has(file.url)
+        || references.has(referenceUrl)
+        || file.family === 'publisher'
+        || (file.family === 'social' && socialReferenceUrls.has(file.url));
     const author = file.family === 'authors' ? authorsByPath.get(file.url) : null;
     let recordInfo = null;
     if (file.family === 'blog') {
@@ -737,6 +876,11 @@ export function auditOtherImages({
       recordInfo = generated
         ? { record: generated.record, valid: generated.valid, errors: generated.errors }
         : { record: null, valid: false, errors: ['generated registry record missing'] };
+    } else if (file.family === 'publisher') {
+      const generated = generatedByUrl.publisher.get(file.url);
+      recordInfo = generated
+        ? { record: generated.record, valid: generated.valid, errors: generated.errors, source: 'generated-registry' }
+        : { record: null, valid: false, errors: ['publisher registry record missing'], source: 'missing' };
     }
     const classified = classifyPublishedImage({
       family: file.family,
@@ -746,6 +890,7 @@ export function auditOtherImages({
       inferred: recordInfo?.inferred,
       referenced,
       sourceRegistered: sourceRegisteredLogoPaths.has(file.url),
+      sourceEvidence: sourceRegisteredLogoEvidence.get(file.url) || null,
       protectedRealAuthor: author?.kind === 'real-author',
     });
     const row = {
@@ -781,8 +926,9 @@ export function auditOtherImages({
   const nonRemediable = publishedUnresolved.filter((row) => row.nonRemediable);
   const inferred = inventory.filter((row) => row.status === 'inferred');
   const orphanFiles = inventory.filter((row) => row.status === 'orfano');
-  const logoRows = inventory.filter((row) => ['brands', 'providers', 'insurers', 'logos'].includes(row.family));
-  const logoFailures = logoRows.filter((row) => !row.sourceRegistered);
+  const unusedLogos = inventory.filter((row) => row.status === 'inutilizzato');
+  const logoRows = inventory.filter((row) => LOGO_FAMILIES.has(row.family));
+  const logoFailures = logoRows.filter((row) => row.referenced && !row.sourceRegistered);
 
   const publishedControl = makeControl({
     id: 'B.published-image-records',
@@ -799,6 +945,7 @@ export function auditOtherImages({
       orphan: statusCounts.orfano || 0,
       autoRepairable: candidates.length,
       nonRemediable: nonRemediable.length,
+      unusedLogos: unusedLogos.length,
     },
     failures: publishedUnresolved.map((row) => ({
       family: row.family,
@@ -811,6 +958,7 @@ export function auditOtherImages({
     warnings: [
       ...inferred.map((row) => ({ family: row.family, imageUrl: row.url, status: row.status })),
       ...orphanFiles.map((row) => ({ family: row.family, imageUrl: row.url, status: row.status })),
+      ...unusedLogos.map((row) => ({ family: row.family, imageUrl: row.url, status: row.status, reason: row.reason })),
       ...orphanRecords,
     ],
     alarm: true,
@@ -823,10 +971,13 @@ export function auditOtherImages({
     threshold: 'unregistered logo file = 0',
     counts: {
       inventory: logoRows.length,
-      registered: logoRows.length - logoFailures.length,
+      used: logoRows.filter((row) => row.referenced).length,
+      registered: logoRows.filter((row) => row.sourceRegistered).length,
+      unused: unusedLogos.length,
       withoutRegisteredSource: logoFailures.length,
     },
     failures: logoFailures.map((row) => ({ family: row.family, imageUrl: row.url, reason: row.reason })),
+    warnings: unusedLogos.map((row) => ({ family: row.family, imageUrl: row.url, status: row.status, reason: row.reason })),
     alarm: true,
     remediation: 'none; source registration is human-owned',
   });
@@ -1238,8 +1389,13 @@ function loadAuditContext(root) {
     rewriteCache,
     references: refs.references,
     blogKeys: refs.blogKeys,
+    dynamicFuelLogoPaths: refs.dynamicFuelLogoPaths,
+    dynamicFuelLogoEvidence: refs.dynamicFuelLogoEvidence,
     authorsByPath: parseAuthors(root),
-    sourceRegisteredLogoPaths: parseSourceRegisteredLogoPaths(root),
+    sourceRegisteredLogoPaths: new Set([
+      ...parseSourceRegisteredLogoPaths(root),
+      ...refs.dynamicFuelLogoPaths,
+    ]),
     socialUrls: collectSocialReferences(root),
     publicFiles: loadPublicImagePaths(root),
   };
@@ -1283,8 +1439,13 @@ export async function runLicenseAudit({
   r2Lister = listR2LegacyKeys,
   descriptionGate = null,
   dist = null,
+  replaceUrls = [],
 }) {
   const selected = selectedSections(sections);
+  const requestedReplacementUrls = parseReplacementUrls(replaceUrls);
+  if (requestedReplacementUrls.length && !selected.has('B')) {
+    throw new Error('manual image replacements require section B');
+  }
   const context = loadAuditContext(root);
   const controls = [];
   const candidates = [];
@@ -1321,6 +1482,7 @@ export async function runLicenseAudit({
       references: context.references,
       authorsByPath: context.authorsByPath,
       sourceRegisteredLogoPaths: context.sourceRegisteredLogoPaths,
+      sourceRegisteredLogoEvidence: context.dynamicFuelLogoEvidence,
       socialUrls: context.socialUrls,
     });
     controls.push(...otherAudit.controls);
@@ -1328,11 +1490,18 @@ export async function runLicenseAudit({
       dist: dist || path.join(root, 'dist'),
       knownUrls: new Set(otherAudit.inventory.map((item) => item.url)),
     }));
-    candidates.push(...otherAudit.candidates);
+    const forcedCandidates = buildForcedReplacementCandidates({
+      replaceUrls: requestedReplacementUrls,
+      inventory: otherAudit.inventory,
+      authorsByPath: context.authorsByPath,
+      ledger: context.ledger,
+    });
+    candidates.push(...otherAudit.candidates, ...forcedCandidates);
     details.images = {
       inventory: otherAudit.inventory.length,
       statusCounts: countStatuses(otherAudit.inventory),
       orphanRecords: otherAudit.orphanRecords.length,
+      forcedReplacementUrls: requestedReplacementUrls,
     };
   }
   if (selected.has('C')) {
@@ -1390,11 +1559,18 @@ export function planReplacements(candidates, limit = DEFAULT_LIMIT) {
   if (!Number.isInteger(limit) || limit < 1 || limit > MAX_LIMIT) {
     throw new Error('replacement limit must be an integer from 1 to ' + MAX_LIMIT);
   }
-  const eligible = (candidates || []).filter((candidate) => (
+  const ranked = (candidates || []).filter((candidate) => (
     candidate?.autoRepairable
     && !candidate?.protectedRealAuthor
     && candidate?.kind !== 'real-author'
-  )).sort(compareCandidates);
+  )).sort((a, b) => Number(Boolean(b?.forced)) - Number(Boolean(a?.forced)) || compareCandidates(a, b));
+  const seen = new Set();
+  const eligible = ranked.filter((candidate) => {
+    const identity = candidate?.imageUrl || candidate?.path || candidate?.assetId;
+    if (!identity || seen.has(identity)) return false;
+    seen.add(identity);
+    return true;
+  });
   return {
     requested: eligible.length,
     limit,
@@ -1656,6 +1832,7 @@ export async function applyLicenseReplacements({
           provider: result.record.provider,
           sha256: result.record.sha256,
           localFile: relative(root, result.filePath),
+          forced: Boolean(candidate.forced),
         });
       } else if (candidate.kind === 'place' || candidate.kind === 'editorial-profile') {
         copyGeneratedFile(root, result, candidate.imageUrl);
@@ -1668,6 +1845,7 @@ export async function applyLicenseReplacements({
           provider: result.record.provider,
           sha256: result.record.sha256,
           localFile: relative(root, result.filePath),
+          forced: Boolean(candidate.forced),
         });
       } else if (candidate.kind === 'event') {
         copyGeneratedFile(root, result, candidate.imageUrl);
@@ -1681,6 +1859,7 @@ export async function applyLicenseReplacements({
           provider: result.record.provider,
           sha256: result.record.sha256,
           localFile: relative(root, result.filePath),
+          forced: Boolean(candidate.forced),
         });
       }
     } catch (error) {
@@ -1763,6 +1942,7 @@ function parseArgs(argv) {
     jsonOut: null,
     markdownOut: null,
     dist: null,
+    replaceUrls: '',
   };
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -1777,8 +1957,9 @@ function parseArgs(argv) {
     else if (arg === '--json-out') args.jsonOut = argv[++index];
     else if (arg === '--markdown-out') args.markdownOut = argv[++index];
     else if (arg === '--dist') args.dist = argv[++index];
+    else if (arg === '--replace-urls') args.replaceUrls = argv[++index] || '';
     else if (arg === '--help') {
-      console.log('Usage: node scripts/audit/license-audit.mjs [--apply] [--limit 1..20] [--sections all|A,B,C,D] [--ref REF] [--refs-file FILE] [--probe-cdn] [--r2-list] [--dist DIR] [--json-out FILE] [--markdown-out FILE]');
+      console.log('Usage: node scripts/audit/license-audit.mjs [--apply] [--limit 1..20] [--sections all|A,B,C,D] [--replace-urls URL[,URL...]] [--ref REF] [--refs-file FILE] [--probe-cdn] [--r2-list] [--dist DIR] [--json-out FILE] [--markdown-out FILE]');
       process.exit(0);
     } else {
       throw new Error('Unknown argument: ' + arg);
@@ -1806,6 +1987,7 @@ async function main() {
     probeCdn: args.probeCdn,
     listR2: args.listR2,
     dist: args.dist,
+    replaceUrls: args.replaceUrls,
   });
   let report = before;
   if (args.apply) {
@@ -1835,6 +2017,7 @@ async function main() {
       probeCdn: args.probeCdn,
       listR2: args.listR2,
       dist: args.dist,
+      replaceUrls: [],
     });
     report.actions = actions;
     report.alarm = reportAlarm(report.controls, actions);
@@ -1852,13 +2035,7 @@ async function main() {
   if (report.overall === 'fail' || report.alarm?.required) process.exitCode = 1;
 }
 
-const isDirectRun = (() => {
-  try {
-    return import.meta.url === new URL('file://' + process.argv[1]).href;
-  } catch {
-    return false;
-  }
-})();
+const isDirectRun = isInvokedDirectly(import.meta.url);
 
 if (isDirectRun) {
   main().catch((error) => {

@@ -20,6 +20,11 @@ on:
         required: false
         default: all
         type: string
+      replace_urls:
+        description: 'Manual replacement URLs, one /images/blog|places|authors/*.webp per line (max 5; never logos or real-author photos)'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
   group: license-audit
@@ -38,6 +43,7 @@ jobs:
       APPLY_REQUESTED: ${{ github.event_name == 'schedule' && 'true' || inputs.apply || 'false' }}
       AUDIT_LIMIT: ${{ inputs.limit || '20' }}
       AUDIT_SECTIONS: ${{ inputs.sections || 'all' }}
+      AUDIT_REPLACE_URLS: ${{ inputs.replace_urls || '' }}
 
     steps:
       - name: Checkout without the image archive
@@ -51,7 +57,9 @@ jobs:
             /package.json
             /package-lock.json
             /.github/actions/setup-claude-haiku-fallback/
+            /.github/actions/setup-codex-sandbox/
             /scripts/
+            /build-plugins/shared/brandSlugData.mjs
             /packages/articles/engine/
             /packages/articles/content/blog-articles-data.ts
             /packages/articles/content/swiss-articles-data.ts
@@ -68,6 +76,8 @@ jobs:
             /data/events-description-rewrites.json
             /data/authors.ts
             /data/company-logos-manifest.json
+            /data/fuel-prices.json
+            /data/fuel-prices-cantons.json
             /data/canton-url-slugs.json
             /data/municipalities.ts
             /components/guide/FrontierGuide.tsx
@@ -97,6 +107,10 @@ jobs:
             all|A|B|C|D|A,B|A,C|A,D|B,C|B,D|C,D|A,B,C|A,B,D|A,C,D|B,C,D|A,B,C,D) ;;
             *) echo '::error::sections must be all or a subset of A,B,C,D'; exit 2 ;;
           esac
+          if [ -n "$AUDIT_REPLACE_URLS" ] && [ "$APPLY_REQUESTED" != true ]; then
+            echo '::error::replace_urls requires apply=true'
+            exit 2
+          fi
 
       - name: Prepare Firebase credentials
         env:
@@ -148,6 +162,7 @@ jobs:
             --refs-file "$RUNNER_TEMP/license-audit-refs.txt" \
             --probe-cdn \
             --r2-list \
+            --replace-urls "$AUDIT_REPLACE_URLS" \
             --json-out "$RUNNER_TEMP/license-audit-read.json" \
             --markdown-out "$RUNNER_TEMP/license-audit-read.md" \
             > "$RUNNER_TEMP/license-audit-read.stdout"
@@ -182,6 +197,7 @@ jobs:
             --refs-file "$RUNNER_TEMP/license-audit-refs.txt" \
             --probe-cdn \
             --r2-list \
+            --replace-urls "$AUDIT_REPLACE_URLS" \
             --json-out "$RUNNER_TEMP/license-audit-final.json" \
             --markdown-out "$RUNNER_TEMP/license-audit-final.md" \
             > "$RUNNER_TEMP/license-audit-final.stdout"
@@ -193,6 +209,17 @@ jobs:
           cat "$RUNNER_TEMP/license-audit-final.md" >> "$GITHUB_STEP_SUMMARY"
           cat "$RUNNER_TEMP/license-audit-final.md"
           exit "$rc"
+
+      - name: Generate thumbnails for replaced blog heroes
+        if: always() && env.APPLY_REQUESTED == 'true'
+        run: |
+          set -euo pipefail
+          has_article="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.generated || []).some((item) => item.kind === 'article-hero') ? 'true' : 'false');" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo false)"
+          if [ "$has_article" = true ]; then
+            node scripts/generate-image-thumbnails.mjs --source-dir public/images/blog
+          else
+            echo 'No generated article hero; thumbnail generation skipped.'
+          fi
 
       - name: Keep the read-only report as the final report
         if: env.APPLY_REQUESTED != 'true'
@@ -208,7 +235,7 @@ jobs:
           set -euo pipefail
           purge_urls=''
           has_article=false
-          node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); for (const item of x.actions?.generated || []) console.log([item.scope,item.assetId,item.localFile,item.imageUrl].join('\t'));" "$RUNNER_TEMP/license-audit-final.json" > "$RUNNER_TEMP/license-audit-generated.tsv"
+          node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); for (const item of x.actions?.generated || []) { console.log([item.scope,item.assetId,item.localFile,item.imageUrl].join('\t')); if (item.kind === 'article-hero') { const thumb='public/images/blog/thumbnails/'+item.assetId+'-480w.webp'; if (fs.existsSync(thumb)) console.log(['article-thumbnail',item.assetId+'-480w',thumb,'/images/blog/thumbnails/'+item.assetId+'-480w.webp'].join('\t')); } }" "$RUNNER_TEMP/license-audit-final.json" > "$RUNNER_TEMP/license-audit-generated.tsv"
           while IFS="$(printf '\t')" read -r -u 9 scope asset_id local_file image_url; do
             [ -n "$asset_id" ] || continue
             key="$(printf '%s' "$image_url" | sed 's#^/##')"
@@ -234,6 +261,65 @@ jobs:
           fi
           if [ -n "$purge_urls" ]; then
             node scripts/cf-purge-cache.mjs --files="$purge_urls"
+          fi
+
+      - name: Sync audited blog covers into the corpus publisher
+        if: always() && env.APPLY_REQUESTED == 'true'
+        run: |
+          set -euo pipefail
+          article_count="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.generated || []).filter((item) => item.kind === 'article-hero').length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          if [ "$article_count" -eq 0 ]; then
+            echo 'No generated blog hero; no corpus PR is needed.'
+            exit 0
+          fi
+          : "${GITHUB_PAT_NANAKO:?GITHUB_PAT_NANAKO was not loaded from Remote Config}"
+          corpus_dir="$RUNNER_TEMP/frontaliere-articles-license-audit"
+          branch='chore/license-audit-covers'
+          git clone --filter=blob:none --no-checkout --branch main \
+            "https://x-access-token:${GITHUB_PAT_NANAKO}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
+            "$corpus_dir"
+          git -C "$corpus_dir" fetch --no-tags origin "refs/heads/$branch:refs/remotes/origin/$branch" || true
+          if git -C "$corpus_dir" show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+            git -C "$corpus_dir" checkout --quiet -B "$branch" "refs/remotes/origin/$branch"
+          else
+            git -C "$corpus_dir" checkout --quiet -b "$branch" origin/main
+          fi
+          git -C "$corpus_dir" sparse-checkout set --no-cone \
+            '/data/generated-image-registry.json' \
+            '/public/images/blog/'
+          git -C "$corpus_dir" checkout --quiet
+          node scripts/audit/sync-corpus-blog-covers.mjs \
+            --report "$RUNNER_TEMP/license-audit-final.json" \
+            --site-root "$GITHUB_WORKSPACE" \
+            --corpus-root "$corpus_dir" \
+            > "$RUNNER_TEMP/license-audit-corpus-sync.json"
+          git -C "$corpus_dir" config user.name 'frontaliere-automation[bot]'
+          git -C "$corpus_dir" config user.email '296434481+frontaliere-automation[bot]@users.noreply.github.com'
+          git -C "$corpus_dir" add -- data/generated-image-registry.json public/images/blog/
+          if git -C "$corpus_dir" diff --cached --quiet; then
+            echo 'Corpus already contains the exact audited cover bytes and record.'
+            exit 0
+          fi
+          git -C "$corpus_dir" commit -m 'chore(licenses): sync audited blog covers'
+          git -C "$corpus_dir" push origin "HEAD:$branch"
+          body="$RUNNER_TEMP/license-audit-corpus-pr-body.md"
+          item_count="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log(x.items?.length || 0);" "$RUNNER_TEMP/license-audit-corpus-sync.json")"
+          cat > "$body" <<EOF
+          ## Implementato
+          - Porta nel corpus $item_count copertina/e e miniature generate dal motore governato del sito, conservando lo stesso URL articolo, gli stessi byte e lo stesso record data/generated-image-registry.json.
+          - Il workflow publish-api.yml pubblica sul CDN solo i file blog cambiati dal push (hero e thumbnail) e fa purge mirato dopo il PUT; questo impedisce a una ripubblicazione corpus di ripristinare il file precedente.
+
+          ## Non implementato (ancora)
+          - by construction: questa PR non modifica regenerate-queued-covers.yml né i suoi test; la coda esistente resta il percorso dei nuovi articoli, mentre questa PR sincronizza esclusivamente sostituzioni già governate e assegnate allo stesso URL.
+          EOF
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          export GH_TOKEN="$GITHUB_PAT_NANAKO"
+          pr_number="$(gh pr list --repo nanakokyobashi-rgb/frontaliere-articles --state open --base main --head "$branch" --json number --jq '.[0].number // empty')"
+          if [ -n "$pr_number" ]; then
+            gh pr edit "$pr_number" --repo nanakokyobashi-rgb/frontaliere-articles --title 'chore(licenses): sync audited blog covers' --body-file "$body"
+            echo "Updated corpus PR #$pr_number"
+          else
+            gh pr create --repo nanakokyobashi-rgb/frontaliere-articles --base main --head "$branch" --title 'chore(licenses): sync audited blog covers' --body-file "$body"
           fi
 
       - name: Version the latest report
@@ -298,6 +384,12 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
+          generated="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.generated || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          reused="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.reused || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          if [ "$APPLY_REQUESTED" = true ] && [ "$generated" -eq 0 ] && [ "$reused" -eq 0 ] && [ -z "$AUDIT_REPLACE_URLS" ]; then
+            echo 'No governed replacement was needed; no data PR will be opened.'
+            exit 0
+          fi
           export GH_TOKEN="${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
           bash scripts/lib/open-data-refresh-pr.sh \
             --path data/license-audit-latest.json \

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-10-07T09:27:18.416Z",
+  "assembledAt": "2026-10-07T21:35:07.175Z",
   "jobs": [
     {
       "title": "Stagiaire",
@@ -23,7 +23,7 @@
         "it": "Stagiaire",
         "en": "Intern",
         "de": "Praktikum",
-        "fr": "Rester baissé"
+        "fr": "Stagiaire"
       },
       "descriptionByLocale": {
         "it": "È possibile svolgere uno stage presso una struttura abitativa (Fonte 3 a Neggio o Fonte 8 a Lugano) o presso un laboratorio protetto (*La Fattoria* a Vaglio, *Il Fornaio* a Lugano, *Lo Spazio Officina* ad Agno).\n\nLo stage può avere validità preformativa e prevede l’accompagnamento di persone con disabilità in attività socio-assistenziali e/o lavorative.\n\nCondizioni:\n\n- maggiore età\n- spiccato interesse e motivazione all’accompagnamento e assistenza di persone con disabilità\n- percentuale lavorativa del 100% (42 ore settimanali)\n- durata 4-12 mesi\n- retribuzione di CHF 800.- mensili netti (secondo CCL Istituzioni sociali)\n\nLe/gli interessate/i sono pregate/i di inviare la loro candidatura indicando il settore d’interesse, il possibile inizio e durata dello stage, insieme ad una lettera di presentazione, un curriculum vitae e la copia dei certificati di studio via mail a [recruiting@lafonte.ch](mailto:recruiting@lafonte.ch)",
@@ -33,8 +33,8 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "en": "intern-fondazione-la-fonte-luganese-malcantone",
+        "de": "praktikum-fondazione-la-fonte-luganese-malcantone",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
       "sourceLang": "it",
@@ -46,7 +46,7 @@
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "en": [
-          "intern-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ],
         "fr": [
           "stagiaire-fondazione-la-fonte-luganese-malcantone"
@@ -56,7 +56,7 @@
         ],
         "de": [
           "praktikant-fondazione-la-fonte-luganese-malcantone",
-          "praktikum-fondazione-la-fonte-luganese-malcantone"
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ]
       },
       "previousSlugs": [
@@ -64,8 +64,7 @@
         "stagiaire-la-fonte-luganese-malcantone",
         "apprendistato-fondazione-la-fonte-lugano",
         "praktikant-fondazione-la-fonte-luganese-malcantone",
-        "intern-fondazione-la-fonte-luganese-malcantone",
-        "praktikum-fondazione-la-fonte-luganese-malcantone"
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -88,7 +87,8 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "salarySource": "estimated",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "needsRetranslation": true
     },
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",

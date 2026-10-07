@@ -352,14 +352,16 @@ describe('deploy.yml — the rearm job is wired so it can only ever ADD a build'
     expect(doc.concurrency?.['cancel-in-progress']).toBe(false);
   });
 
-  it('the push trigger is UNCHANGED — the re-arm is not a debounce in disguise', () => {
-    // Route 1 (schedule instead of push) was rejected because it charges every
-    // urgent merge the debounce interval, and would not have helped at all in
-    // the measured incident: the queue was empty, not overfull.
+  it('moves push admission to the cheap request workflow', () => {
     const on = (YAML.parse(DEPLOY_YML) as { on?: Record<string, unknown> }).on ?? {};
-    expect(Object.keys(on), 'deploy.yml must still build on push to main').toContain('push');
-    expect(Object.keys(on), 'a schedule trigger would be the debounce this deliberately avoids').not.toContain(
-      'schedule',
-    );
+    expect(Object.keys(on), 'deploy.yml must remain dispatch-only').not.toContain('push');
+    expect(Object.keys(on)).toContain('workflow_dispatch');
+    expect(Object.keys(on), 'the build must not become schedule-driven').not.toContain('schedule');
+
+    const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
+    const requestOn = (YAML.parse(request) as { on?: Record<string, unknown> }).on ?? {};
+    expect(Object.keys(requestOn)).toContain('push');
+    expect(Object.keys(requestOn)).toContain('workflow_run');
+    expect(request).toContain('scripts/ci/request-latest-deploy.mjs');
   });
 });

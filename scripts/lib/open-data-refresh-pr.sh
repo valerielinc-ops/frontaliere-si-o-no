@@ -243,18 +243,53 @@ fi
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
 stage_paths() {
-  if [ "$RESOLVE_SYMLINKS" = true ]; then
-    # Generated article surfaces may be edited through historical symlink paths.
-    # Resolve those paths before staging so the PR carries the real tracked blobs.
-    node scripts/lib/git-add-resolved.mjs "${PATHS[@]}"
-  elif [ "$FORCE_ADD" = true ]; then
-    # Some refreshes intentionally publish generated cache paths that remain
-    # ignored in the normal checkout (for example the fuel cache/history). Keep
-    # the force explicit at the publisher boundary so an ignored path can never
-    # disappear silently from an otherwise successful refresh PR.
-    git add -A -f -- "${PATHS[@]}"
-  else
-    git add -A -- "${PATHS[@]}"
+  local target resolved_target changed_path
+  local target_has_changes
+  local -a stageable_paths=()
+
+  # Never pass a whole sparse-excluded directory to `git add -A`: Git would
+  # interpret every absent tracked archive entry as a deletion. Build the
+  # producer-owned file list from real worktree changes and untracked output,
+  # while still letting a required missing path fail with Git's own error.
+  for target in "${PATHS[@]}"; do
+    resolved_target="$target"
+    if [ "$RESOLVE_SYMLINKS" = true ]; then
+      # Generated article surfaces may be edited through historical symlink
+      # paths. Resolve them before collecting the actual files to stage.
+      resolved_target="$(node scripts/lib/git-add-resolved.mjs --print-only "$target")" || return 1
+    fi
+    target_has_changes=false
+    while IFS= read -r -d '' changed_path; do
+      stageable_paths+=("$changed_path")
+      target_has_changes=true
+    done < <(git diff --name-only -z --diff-filter=ACDMRTUXB -- "$resolved_target")
+    if [ "$FORCE_ADD" = true ]; then
+      while IFS= read -r -d '' changed_path; do
+        stageable_paths+=("$changed_path")
+        target_has_changes=true
+      done < <(git ls-files --others -z -- "$resolved_target")
+    else
+      while IFS= read -r -d '' changed_path; do
+        stageable_paths+=("$changed_path")
+        target_has_changes=true
+      done < <(git ls-files --others --exclude-standard -z -- "$resolved_target")
+    fi
+    if [ "$target_has_changes" = false ] \
+      && [ ! -e "$resolved_target" ] \
+      && [ ! -L "$resolved_target" ] \
+      && ! git ls-files --error-unmatch -- "$resolved_target" > /dev/null 2>&1; then
+      # Preserve the required-path contract for typos and missing producers.
+      git add --sparse -A -- "$resolved_target"
+    fi
+  done
+
+  if [ "${#stageable_paths[@]}" -gt 0 ]; then
+    if [ "$FORCE_ADD" = true ]; then
+      # Keep force explicit so ignored generated cache files can be published.
+      git add --sparse -A -f -- "${stageable_paths[@]}"
+    else
+      git add --sparse -A -- "${stageable_paths[@]}"
+    fi
   fi
 }
 

@@ -1,16 +1,16 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-07T09:14:48.021Z",
+  "generatedAt": "2026-10-07T21:17:14.030Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 13772,
-  "avgDurationMs": 13772,
+  "durationMs": 11352,
+  "avgDurationMs": 11352,
   "durationHistory": [
-    13772
+    11352
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -84,7 +84,6 @@
       },
       "jobReqId": "JR100400",
       "id": "bracco-a02df283e511",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:11:31.328Z",
       "crawledAt": "",
       "salaryMin": 49500,
@@ -94,14 +93,15 @@
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "postalCode": "6814",
-      "_qualityScore": 85,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

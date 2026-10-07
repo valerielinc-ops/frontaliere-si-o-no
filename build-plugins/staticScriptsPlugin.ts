@@ -78,6 +78,29 @@ import {
   JOB_BOARD_FC_LOADER_FILENAME,
 } from './jobBoardGpt';
 
+/**
+ * Every file this plugin writes to dist/assets, as [name, content].
+ *
+ * Exported for tests/cdn-shell-producers.test.ts: a name derived from its own
+ * content reaches the CDN only with a full deploy, so each one listed here must
+ * also be published by the fast emitters before they push HTML
+ * (scripts/lib/cdn-shell-producers.mjs, #12270).
+ */
+export function listStaticScriptFiles(): Array<readonly [string, string]> {
+  return [
+    [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT],
+    [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
+    [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
+    [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
+    [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
+    [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
+    [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
+    [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
+    [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
+    [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
+  ];
+}
+
 export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
     name: 'static-scripts',
@@ -86,18 +109,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
       const outDir = path.resolve(rootDir, 'dist', 'assets');
       fs.mkdirSync(outDir, { recursive: true });
 
-      const files: Array<readonly [string, string]> = [
-        [GTAG_INIT_VERSIONED_FILENAME, GTAG_INIT_CONTENT],
-        [GTAG_INIT_FILENAME, GTAG_INIT_CONTENT],
-        [ADSENSE_LOADER_FILENAME, ADSENSE_LOADER_CONTENT],
-        [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
-        [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
-        [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
-        [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
-        [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
-        [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
-        [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
-      ];
+      const files = listStaticScriptFiles();
 
       let totalBytes = 0;
       for (const [name, content] of files) {

@@ -43,6 +43,8 @@ function fakePortal() {
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
+  // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
+  const workday = { accounts: new Map(), silent: false, cover: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0 };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -191,6 +193,83 @@ function fakePortal() {
       });
     </script>`);
 
+  // Workday's account page as read on 2026-10-07 (Rituals): the form answers by script, a second and a half
+  // after the click, without loading a document; its real submit is hidden (aria-hidden, tabindex -2)
+  // under a «click_filter» overlay, and only a click on the overlay counts («NoCaptcha»); a honeypot a
+  // hundredth of a pixel tall («beecatcher») must stay empty. A click that fails either test does nothing.
+  // Above the page, the site's header has a «Sign In» of its own: it opens a dialog over everything, and
+  // comes first in the document (dry run of 2026-10-07: the runner pressed it instead of the form's link).
+  // The form's link draws the other form a moment later, in place. The sign-in form is drawn anew once, right
+  // after it is typed into (on the real page, when what it loads arrives late): what was typed is gone and
+  // its overlay is another element. `workday.cover` puts something over the button: it cannot be pressed.
+  const workdayAccountPage = () => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
+    <header><button id="util" type="button">Sign In</button></header>
+    <div id="popup" role="dialog" aria-modal="true" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:#fff">
+      <label for="pe">Email Address *</label><input id="pe" type="text">
+      <label for="pp">Password *</label><input id="pp" type="password">
+      <button type="button">Close</button>
+    </div>
+    <main>
+    <h2 id="title">Create Account</h2>
+    <form id="auth">
+      <div id="notice"></div>
+      <label for="e">Email Address *</label><input id="e" type="text" autocomplete="email" required>
+      <label for="p1">Password *</label><input id="p1" type="password" autocomplete="new-password" required>
+      <div id="again"><label for="p2">Verify New Password *</label><input id="p2" type="password" autocomplete="new-password" required></div>
+      <div style="position:relative"><label for="hp">Enter website. This input is for robots only, do not enter if you're human.</label>
+        <input id="hp" name="website" type="text" data-automation-id="beecatcher" style="display:block;border:0;width:1px;transform:scaleY(.01);margin-top:-22px"></div>
+      <div style="position:relative;height:40px">
+        <div id="filter" role="button" tabindex="0" aria-label="Create Account" data-automation-id="click_filter" style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:3;cursor:pointer"></div>
+        ${workday.cover ? '<div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:9"></div>' : ''}
+        <button id="go" type="submit" tabindex="-2" aria-hidden="true" style="width:100%;height:40px">Create Account</button>
+      </div>
+      <button id="swap" type="button">Sign In</button>
+    </form>
+    <script>
+      let view = 'create';
+      let human = false;
+      const el = (id) => document.getElementById(id);
+      const show = (next, notice) => {
+        view = next;
+        human = false;
+        const name = next === 'create' ? 'Create Account' : 'Sign In';
+        el('title').textContent = name;
+        el('go').textContent = name;
+        el('filter').setAttribute('aria-label', name);
+        el('swap').textContent = next === 'create' ? 'Sign In' : 'Create Account';
+        el('again').style.display = next === 'create' ? '' : 'none';
+        el('p2').required = next === 'create';
+        el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
+      };
+      el('swap').onclick = () => setTimeout(() => show(view === 'create' ? 'sign_in' : 'create', ''), 700);
+      el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
+      el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
+      let redrawn = false;
+      el('p1').addEventListener('input', () => {
+        if (view !== 'sign_in' || redrawn) return;
+        redrawn = true;
+        setTimeout(() => {
+          el('e').value = '';
+          el('p1').value = '';
+          const fresh = el('filter').cloneNode(true);
+          fresh.removeAttribute('data-aa-id');
+          fresh.onclick = el('filter').onclick;
+          el('filter').replaceWith(fresh);
+        }, 50);
+      });
+      el('auth').onsubmit = (event) => {
+        event.preventDefault();
+        if (!human || el('hp').value) { fetch('/wd/dropped', { method: 'POST' }); return; }
+        const body = new URLSearchParams({ email: el('e').value, password: el('p1').value });
+        setTimeout(async () => {
+          const answer = await (await fetch(view === 'create' ? '/wd/register' : '/wd/login', { method: 'POST', body })).json();
+          if (answer.silent) return;
+          if (view === 'create') show(answer.ok ? 'sign_in' : 'create', answer.message);
+          else if (answer.ok) window.location.href = '/apply';
+          else show('sign_in', answer.message);
+        }, 1500);
+      };
+    </script></main></body></html>`;
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
@@ -313,6 +392,31 @@ function fakePortal() {
       }
       coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '', anrede: body.get('anrede'), birth: body.get('birth'), agency: body.get('agency') });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
+    }
+    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
+    if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/apply') : send(workdayAccountPage());
+    if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
+      workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
+      res.writeHead(204);
+      return res.end();
+    }
+    if (route === 'POST /wd/register' || route === 'POST /wd/login') {
+      const body = new URLSearchParams(await readBody(req));
+      const json = (answer, headers = {}) => { res.writeHead(200, { 'content-type': 'application/json', ...headers }); res.end(JSON.stringify(answer)); };
+      if (route === 'POST /wd/register') {
+        workday.registrations += 1;
+        // «created»: the account is made, and the answer still never comes.
+        if (workday.silent === 'created') workday.accounts.set(body.get('email'), body.get('password'));
+        if (workday.silent) return json({ silent: true });
+        if (workday.accounts.has(body.get('email'))) return json({ ok: false, message: 'An account already exists for this email address.' });
+        workday.accounts.set(body.get('email'), body.get('password'));
+        return json({ ok: true, message: 'Your account has been created.' });
+      }
+      workday.logins += 1;
+      if (workday.accounts.get(body.get('email')) !== body.get('password')) return json({ ok: false, message: 'Invalid Username/Password' });
+      const sid = Math.random().toString(36).slice(2);
+      state.sessions.add(sid);
+      return json({ ok: true }, { 'set-cookie': `sid=${sid}; Path=/` });
     }
     if (route === 'GET /login') {
       if (state.sessions.has(sessionOf(req))) return redirect('/apply');
@@ -465,7 +569,7 @@ function fakePortal() {
     res.writeHead(404);
     res.end();
   });
-  return { server, state, coop, umantis };
+  return { server, state, coop, umantis, workday };
 }
 
 /**
@@ -511,6 +615,8 @@ async function fakeCodex({ prompt }) {
     if (/photo|other documents/i.test(field.label)) return act('skip', '', { source: 'rule' });
     if (/cover letter/i.test(field.label)) return act('upload', '', { document: 'cover_letter', source: 'documents' });
     if (/cell phone/i.test(field.label)) return act('fill', '+41 79 000 00 00');
+    // A honeypot must never reach the planner (fields.mjs): one that did would be filled.
+    if (/website/i.test(field.label)) return act('fill', 'https://example.com');
     if (/how did you hear/i.test(field.label)) return act('select', 'Online job board', { source: 'rule' });
     if (/^title/i.test(field.label)) return act('select', 'Mr', { source: 'answers' });
     if (/data release/i.test(field.label)) return act('select', (field.options || []).find((option) => /deleted/.test(option)) || '', { source: 'consent' });
@@ -520,8 +626,89 @@ async function fakeCodex({ prompt }) {
   return { actions, missingRequired: [] };
 }
 
+/**
+ * Workday's account page (a real order of 2026-10-07, Rituals): the runner judged the registration 1.9 s
+ * after storing its password, while the portal had not answered yet, called it refused and threw the
+ * password away.
+ */
+async function workdayAccountChecks({ base, state, workday, files, executablePath, check }) {
+  const host = new URL(base).hostname;
+  const saved = new Map();
+  const accounts = {
+    async load(hostname) { return saved.get(hostname) || null; },
+    async save(hostname, { email, password }) { saved.set(hostname, { email, password, createdAt: Date.now(), verifiedAt: null, status: 'pending' }); },
+    async mark(hostname, patch) { saved.set(hostname, { ...saved.get(hostname), ...patch }); },
+    async discard(hostname) { saved.delete(hostname); },
+    async waitForVerification() { return null; },
+  };
+  const run = () => submitViaPortal({
+    applyUrl: `${base}/wd/job`, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
+    launch: () => launchChromium({ headless: true, executablePath }),
+  });
+  const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
+
+  // The portal never answers the registration: no word of refusal, so the password stays for the next run.
+  workday.silent = true;
+  const unanswered = await run();
+  check('Workday: a registration the portal does not answer is handed over as unanswered, its password kept',
+    unanswered.event.type === 'submit_handoff' && unanswered.event.reason === 'account_create_unanswered'
+    && saved.get(host)?.status === 'unanswered' && Boolean(saved.get(host)?.password) && workday.registrations === 1);
+  check('Workday: the overlay is what gets clicked and the honeypot stays empty (nothing dropped by the «NoCaptcha»)', workday.dropped === 0);
+  // The next run tries the password it kept; the account is not there, so it is created now, and the
+  // application leaves. The answer comes a second and a half after each click.
+  workday.silent = false;
+  const applications = state.applications.length;
+  const recovered = await run();
+  check('Workday: the next run signs in with the kept password, and creates the account when that fails',
+    recovered.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password
+    && workday.registrations === 2 && state.applications.length === applications + 1 && workday.dropped === 0);
+  check('Workday: the late answers are waited for (sign-in refused, account created, signed in)',
+    /sign_in/.test(authOf(recovered)) && /create/.test(authOf(recovered)) && Boolean(saved.get(host)?.lastSignInAt));
+  // A later order's run on the same account signs in at once.
+  state.sessions.clear();
+  const again = await run();
+  check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
+  // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
+  // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  check('Workday: the «Sign In» link of the form is the one pressed, never the one in the site header', workday.headerSignIns === 0 && /create:ok/.test(authOf(again)) && /sign_in:ok/.test(authOf(again)));
+  // The portal says no (the address is taken): its message is read, and no password is kept.
+  saved.clear();
+  state.sessions.clear();
+  const refused = await run();
+  check('Workday: a registration the portal refuses in words is handed over as refused, and keeps no password',
+    refused.event.type === 'submit_handoff' && refused.event.reason === 'account_create_refused' && !saved.has(host));
+  // The registration went through and its answer never came: the next run signs in with the kept password,
+  // and from then on the account is on record as created (review of #12255: left `unanswered`, a later
+  // sign-in that fails would create it again and throw a real account's password away).
+  workday.accounts.clear();
+  state.sessions.clear();
+  workday.silent = 'created';
+  await run();
+  workday.silent = false;
+  const registrations = workday.registrations;
+  const signedIn = await run();
+  check('Workday: an account whose registration was never answered is on record as created once it has signed in',
+    signedIn.event.type === 'submit_succeeded' && workday.registrations === registrations && saved.get(host)?.status === 'created');
+  // The button of the registration cannot be pressed (something lies over it): a stop with the page kept,
+  // not a failed run, and the password stored before the click stays as `unanswered`, so the next run signs
+  // in, finds no account and creates it (left `pending` it would stop at the failed sign-in).
+  workday.accounts.clear();
+  saved.clear();
+  state.sessions.clear();
+  workday.cover = true;
+  const covered = await run();
+  workday.cover = false;
+  check('Workday: a registration button that cannot be pressed is a stop with its page, the password kept as unanswered',
+    covered.event.type === 'submit_handoff' && covered.event.reason === 'account' && Boolean(covered.evidence.handoffScreenshot)
+    && /create:control_error/.test(authOf(covered)) && saved.get(host)?.status === 'unanswered' && workday.registrations === registrations);
+  state.sessions.clear();
+  const afterCover = await run();
+  check('Workday: the run after that stop creates the account and sends the application',
+    afterCover.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password && saved.get(host)?.status === 'created');
+}
+
 async function main() {
-  const { server, state, coop, umantis } = fakePortal();
+  const { server, state, coop, umantis, workday } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
   const otpBase = `http://career5.successfactors.localhost:${server.address().port}`;
@@ -842,6 +1029,7 @@ async function main() {
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
+    await workdayAccountChecks({ base: `http://workday.localhost:${server.address().port}`, state, workday, files, executablePath, check });
   } finally {
     server.close();
     await rm(dir, { recursive: true, force: true });

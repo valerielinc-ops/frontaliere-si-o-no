@@ -103,7 +103,7 @@ jobs:
           bash scripts/lib/git-push-with-retry.sh \
             --branch "${GITHUB_REF_NAME:-main}" \
             --regenerate-cmd "node scripts/collect-traffic.mjs && node scripts/compute-border-wait-averages.mjs && node scripts/publish-border-wait-window.mjs && git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json public/data/border-wait-averages.json public/data/border-wait-ranking-window.json"
-        # NOTE: Commit + push goes to main BUT deploy.yml has paths-ignore on
+        # NOTE: Commit + push goes to main BUT deploy-request.yml has paths-ignore on
         # data/border-wait-* so this won't trigger a deploy storm — periodic
         # deploys will pick up the new JSON.
 

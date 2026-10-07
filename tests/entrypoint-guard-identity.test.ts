@@ -4,11 +4,21 @@
  * L'osservatore percorre tutte le radici di codice materializzate dal profilo
  * sparse del checkout. Un nuovo guard ESM deve usare la forma canonica con
  * realpath oppure l'helper condiviso `isInvokedDirectly(import.meta.url)`.
+ *
+ * Le forme canoniche sono due. Quella a un lato canonicalizza `process.argv[1]`
+ * e la confronta con `import.meta.url`. Quella a due lati passa da `realpathSync`
+ * anche il modulo: e' la forma che il repository pubblicatore pretende dai propri
+ * entrypoint (`generator/tests/main-guard-followups.test.mjs` la'), quindi un
+ * gemello identico puo' viaggiare solo con quella. Finche' qui era ammessa solo
+ * la prima, `scripts/ci/claude-codex-fallback.mjs` non aveva un testo che
+ * passasse nei due repository, e il trasporto di 25 gemelli e' rimasto rosso
+ * (PR 2439 del pubblicatore, 2026-10-07).
  */
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import {
   existsSync,
+  mkdirSync,
   mkdtempSync,
   readdirSync,
   readFileSync,
@@ -44,7 +54,11 @@ const EXCLUDED_DIRECTORIES = new Set([
   'fixture',
 ]);
 const CODE_FILE_RE = /\.(mjs|js|ts|tsx)$/;
-const CANONICAL_GUARD_RE = /pathToFileURL\(\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\]\s*\)\s*\)\.href/;
+const ONE_SIDED_GUARD_RE = /pathToFileURL\(\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\]\s*\)\s*\)\.href/;
+const TWO_SIDED_GUARD_RE = /(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*fileURLToPath\(\s*import\.meta\.url\s*\)\s*\)\s*===\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\](?:\s*\|\|\s*(?:''|""))?\s*\)/;
+const isCanonicalGuard = (text: string) => ONE_SIDED_GUARD_RE.test(text) || TWO_SIDED_GUARD_RE.test(text);
+// Gemelli identici i cui guard sono fissati anche dal test del pubblicatore.
+const TWO_SIDED_TWINS = ['scripts/ci/claude-codex-fallback.mjs'];
 const HELPER_GUARD_RE = /isInvokedDirectly\(\s*import\.meta\.url\s*\)/;
 
 const runNode = (entry: string, args: string[], options: Record<string, unknown> = {}) =>
@@ -75,7 +89,7 @@ function factsForSource(source: string): GuardFacts {
     arg: /process\.argv\s*\[\s*1\s*\]/.test(source),
     meta: /import\.meta\.(?:url|filename)|fileURLToPath\(\s*import\.meta\.url|new\s+URL\(\s*import\.meta\.url/.test(source),
     marker: /__filename|SCRIPT_PATH|endsWith\s*\(|basename\s*\(/.test(source),
-    canonical: CANONICAL_GUARD_RE.test(source),
+    canonical: isCanonicalGuard(source),
   };
 }
 
@@ -166,11 +180,11 @@ function censusFile(file: string, parse: (source: string) => { type: string; [ke
       const left = facts(node.left);
       const right = facts(node.right);
       const isIdentity = (left.arg && (right.meta || right.marker)) || (right.arg && (left.meta || left.marker));
-      if (isIdentity && !CANONICAL_GUARD_RE.test(nodeText(node))) identityNodes.push(node);
+      if (isIdentity && !isCanonicalGuard(nodeText(node))) identityNodes.push(node);
     }
     if ((node.type === 'CallExpression' || node.type === 'OptionalCallExpression') && /\.endsWith\s*\(/.test(nodeText(node))) {
       const current = facts(node);
-      if (current.arg && (current.meta || current.marker) && !CANONICAL_GUARD_RE.test(nodeText(node))) suffixNodes.push(node);
+      if (current.arg && (current.meta || current.marker) && !isCanonicalGuard(nodeText(node))) suffixNodes.push(node);
     }
   }
 
@@ -186,7 +200,7 @@ function censusFile(file: string, parse: (source: string) => { type: string; [ke
     const hasIdentity = identityNodes.some((candidate) => inside(candidate, node));
     const hasSuffix = suffixNodes.some((candidate) => inside(candidate, node));
     const current = facts(node);
-    if ((hasIdentity && hasSuffix || CANONICAL_GUARD_RE.test(currentText) && hasSuffix)
+    if ((hasIdentity && hasSuffix || isCanonicalGuard(currentText) && hasSuffix)
       && current.arg && (current.meta || current.marker)) selected.push(node);
   }
   for (const node of identityNodes) if (!selected.some((outer) => inside(node, outer))) selected.push(node);
@@ -253,6 +267,70 @@ describe('guard di entrypoint canonico (#7292)', () => {
     expect(census.roots.length).toBeGreaterThan(0);
     expect(census.files.length).toBeGreaterThan(0);
     expect(census.offenders).toEqual([]);
+  });
+
+  it('la forma a due lati esegue dal symlink e non dall\'omonimo', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'entrypoint-guard-'));
+    const moduleDir = path.join(dir, 'real');
+    const impostorDir = path.join(dir, 'other');
+    mkdirSync(moduleDir);
+    mkdirSync(impostorDir);
+    const entry = path.join(moduleDir, 'two-sided.mjs');
+    writeFileSync(entry, [
+      "import fs from 'node:fs';",
+      "import { fileURLToPath } from 'node:url';",
+      'const invokedDirectly = (() => {',
+      '  try {',
+      "    return fs.realpathSync(fileURLToPath(import.meta.url)) === fs.realpathSync(process.argv[1] || '');",
+      '  } catch {',
+      '    return false;',
+      '  }',
+      '})();',
+      "if (invokedDirectly) process.stdout.write('ran');",
+      '',
+    ].join('\n'));
+    expect(TWO_SIDED_GUARD_RE.test(readFileSync(entry, 'utf8'))).toBe(true);
+
+    const link = path.join(dir, 'link.mjs');
+    symlinkSync(entry, link);
+    expect(runNode(link, [])).toBe('ran');
+    expect(runNode(entry, [])).toBe('ran');
+
+    const impostor = path.join(impostorDir, 'two-sided.mjs');
+    writeFileSync(impostor, `import ${JSON.stringify(entry)};\n`);
+    expect(runNode(impostor, [])).toBe('');
+  });
+
+  it('i gemelli fissati anche dal pubblicatore usano la forma a due lati', () => {
+    for (const relative of TWO_SIDED_TWINS) {
+      const source = readFileSync(path.join(ROOT, relative), 'utf8');
+      const guard = source.slice(source.lastIndexOf('const invokedDirectly'));
+
+      // Le quattro asserzioni del test del pubblicatore, alla lettera: un testo
+      // che non le passa qui non puo' essere trasportato la'.
+      expect(guard, relative).toMatch(/realpathSync\(fileURLToPath\(import\.meta\.url\)\)/);
+      expect(guard, relative).toMatch(/realpathSync\(process\.argv\[1\]\s*\|\|\s*['"]['"]\)/);
+      expect(guard, relative).not.toMatch(/pathToFileURL\(process\.argv\[1\]/);
+      expect(guard, relative).not.toMatch(/path\.resolve\(process\.argv\[1\]\)/);
+      expect(TWO_SIDED_GUARD_RE.test(guard), relative).toBe(true);
+    }
+  });
+
+  it('il selettore dei test correlati fa girare questo censimento sul suo perimetro', () => {
+    // Il censimento legge l'albero da disco: senza questa voce uno script nuovo
+    // con un guard non canonico entra su main senza che il test giri.
+    const runner = readFileSync(path.join(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf8');
+    const entry = /\[\s*'tests\/entrypoint-guard-identity\.test\.ts',\s*\/(.+)\/,?\s*\]/.exec(runner);
+    expect(entry, 'voce assente in sourceTreeLintTests').not.toBeNull();
+
+    const perimeter = new RegExp(entry![1]);
+    for (const root of CENSUS_ROOTS) {
+      for (const extension of ['mjs', 'js', 'ts', 'tsx']) {
+        expect(perimeter.test(`${root}/nuovo/script.${extension}`), `${root} .${extension}`).toBe(true);
+      }
+    }
+    expect(perimeter.test('docs/nota.md')).toBe(false);
+    expect(perimeter.test('tests/qualcosa.test.ts')).toBe(false);
   });
 
   it('mantiene i campioni di comportamento delle due famiglie convertite', () => {

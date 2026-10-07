@@ -1457,11 +1457,10 @@ export function dropSkippedRuns(runs) {
 // famiglia: il rosso è il verdetto, non un incidente. `crawler-health-monitor.yml` lo fa
 // con lo step `Fail if any crawler stale` (id `failgate`), e il suo reporter interno lo
 // esclude già (`if: failure() && steps.failgate.conclusion != 'failure'`). Lo scanner
-// centrale (`scan-unreported-failures.mjs`) no: conosceva solo l'esclusione per workflow
-// INTERO, e dal 2026-09-19 teneva aperta «CI Failure: crawler-health-monitor» con «nessuno
-// step interno l'ha segnalato» — 10 run rosse su 10, tutte già coperte dalle issue
-// `[crawler-health] <slug>:` — mentre questo closer vedeva l'ultima run rossa e non
-// chiudeva mai.
+// centrale (`scan-unreported-failures.mjs`) deve riconoscere questa situazione per step,
+// non per workflow INTERO: altrimenti una run coperta dall'opener del monitor viene
+// raccontata una seconda volta come «CI Failure», mentre un crash in uno step precedente
+// resta correttamente segnalabile.
 //
 // Il registro è per STEP, non per workflow: mettere il monitor fra i workflow
 // «intenzionalmente rossi» nasconderebbe anche i suoi guasti veri (il 2026-09-30 la run
@@ -1505,6 +1504,12 @@ export const VERDICT_STEPS = Object.freeze({
     verdict: 'Fail the run on the source-health verdict',
     producers: Object.freeze(['Fail closed on source health or snapshot drift']),
     owner: 'Plate auction source degraded: ',
+  }),
+  '.github/workflows/runtime-reliability-watch.yml': Object.freeze({
+    workflowName: 'Runtime reliability watchdog',
+    verdict: 'Fail when runtime remains degraded',
+    producers: Object.freeze(['Open or update reliability issue']),
+    owner: 'Runtime reliability: ',
   }),
 });
 

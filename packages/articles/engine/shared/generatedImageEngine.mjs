@@ -29,6 +29,7 @@ import {
   GENERATED_IMAGE_POLICY,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  LICENSED_PHOTO_MODIFICATIONS,
   LICENSED_PHOTO_KIND,
   LICENSED_PHOTO_LICENSES,
   LICENSED_PHOTO_LICENSE_URLS,
@@ -38,7 +39,11 @@ import {
   generatedImagePathForScope,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
-import { eventImageLibrarySlots, EVENT_IMAGE_LIBRARY_MAX_VARIANTS } from './eventImageLibrary.mjs';
+import {
+  eventImageLibrarySlots,
+  eventImagePhotoSearchQueries,
+  EVENT_IMAGE_LIBRARY_MAX_VARIANTS,
+} from './eventImageLibrary.mjs';
 
 export const CODEX_IMAGE_MODEL = 'gpt-image-2.5';
 export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-5.6-luna';
@@ -103,9 +108,10 @@ const VISION_SCHEMA = Object.freeze({
     contains_logo: { type: 'boolean' },
     contains_recognizable_face: { type: 'boolean' },
     looks_like_specific_real_event: { type: 'boolean' },
+    is_photograph: { type: 'boolean' },
     notes: { type: 'string' },
   },
-  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'looks_like_specific_real_event', 'notes'],
+  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'looks_like_specific_real_event', 'is_photograph', 'notes'],
 });
 
 function listFilesRecursively(root) {
@@ -521,6 +527,154 @@ function positiveDimension(value) {
   return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
 }
 
+const NON_PHOTOGRAPHIC_TERMS = Object.freeze([
+  'painting',
+  'paintings',
+  'painted',
+  'drawing',
+  'drawings',
+  'illustration',
+  'illustrations',
+  'illustrated',
+  'map',
+  'maps',
+  'cartographic',
+  'coat of arms',
+  'heraldic',
+  'logo',
+  'logos',
+  'scan',
+  'scans',
+  'scanned',
+  'poster',
+  'posters',
+  'engraving',
+  'etching',
+  'lithograph',
+  'woodcut',
+  'fresco',
+  'collage',
+  'watercolour',
+  'watercolor',
+  'sketch',
+  'diagram',
+  'flag',
+  'screenshot',
+  'rendering',
+]);
+
+export function isPhotographicMetadata(value) {
+  const text = stripMarkup(
+    Array.isArray(value)
+      ? value.map((item) => typeof item === 'object' ? item?.title || item?.value || '' : item).join(' ')
+      : typeof value === 'object' && value !== null
+        ? value.value || value.title || value.text || ''
+        : value,
+  ).toLowerCase();
+  return !NON_PHOTOGRAPHIC_TERMS.some((term) => new RegExp(`\\b${term.replace(/ /g, '\\s+')}\\b`, 'i').test(text));
+}
+
+export function isSuitablePhotoCandidate(candidate) {
+  if (!candidate || (candidate.type !== undefined && String(candidate.type).toLowerCase() !== 'photo')) return false;
+  if (!isPhotographicMetadata([
+    candidate.title,
+    candidate.alt,
+    candidate.description,
+    candidate.tags,
+    candidate.categories,
+  ])) return false;
+  const width = positiveDimension(candidate.width);
+  const height = positiveDimension(candidate.height);
+  return Boolean(width && height
+    && Math.max(width, height) >= 1600
+    && width / height >= 1.2);
+}
+
+const PHOTO_AREA_ANCHORS = Object.freeze({
+  'ticino-confine': ['lugano', 'locarno', 'bellinzona', 'mendrisio', 'melide', 'morcote', 'agno', 'chiasso', 'ticino', 'como', 'varese'],
+  'svizzera-urbana': ['zurich', 'zürich', 'bern', 'basel', 'geneva', 'geneve', 'lausanne', 'lucerne', 'luzern', 'st gallen'],
+  'alpi-montagna': ['swiss alps', 'zermatt', 'engadin', 'valais', 'wallis', 'graubunden', 'grisons', 'davos', 'moleson', 'moléson', 'bernese alps'],
+  laghi: ['lake lugano', 'lago lugano', 'lac lugano', 'lake maggiore', 'lago maggiore', 'lake geneva', 'lac leman', 'lake zurich', 'lake lucerne', 'lake neuchatel', 'lugano', 'maggiore', 'geneva', 'zurich', 'lucerne', 'neuchatel'],
+});
+
+function photoCandidateText(candidate) {
+  return stripMarkup([
+    candidate?.title,
+    candidate?.alt,
+    candidate?.description,
+    candidate?.tags,
+    Array.isArray(candidate?.categories)
+      ? candidate.categories.map((value) => typeof value === 'object' ? value?.title || value?.value || '' : value).join(' ')
+      : candidate?.categories,
+  ].map((value) => value || '').join(' ')).toLowerCase();
+}
+
+/** Keep a search hit tied to the geographical area encoded by its slot. */
+export function isPhotoCandidateRelevantToSpec(spec, candidate) {
+  const anchors = PHOTO_AREA_ANCHORS[String(spec?.area || '').trim()];
+  if (!anchors) return true;
+  const text = photoCandidateText(candidate);
+  if (!text) return false;
+  return anchors.some((anchor) => text.includes(String(anchor).toLowerCase()));
+}
+
+function recordSourcePageUrl(record) {
+  return String(record?.sourcePageUrl || record?.pageUrl || '').trim();
+}
+
+function photoCollisionKey(value) {
+  return String(value || '').trim();
+}
+
+export function photoRecordCollision(record, usedRecords = []) {
+  if (!record || record.kind !== LICENSED_PHOTO_KIND) return null;
+  const sourcePageUrl = recordSourcePageUrl(record);
+  const hash = photoCollisionKey(record.sha256);
+  for (const used of Array.isArray(usedRecords) ? usedRecords : []) {
+    if (!used || used.scope !== record.scope) continue;
+    if (sourcePageUrl && sourcePageUrl === recordSourcePageUrl(used)) {
+      return { type: 'sourcePageUrl', value: sourcePageUrl, assetId: used.assetId };
+    }
+    if (hash && hash === photoCollisionKey(used.sha256)) {
+      return { type: 'sha256', value: hash, assetId: used.assetId };
+    }
+  }
+  return null;
+}
+
+export function selectDeterministicPhotoCandidates(spec, candidates, { usedRecords = [], excludedSourcePageUrls = [] } = {}) {
+  const usedPages = new Set((Array.isArray(usedRecords) ? usedRecords : [])
+    .filter((record) => record?.scope === spec?.scope)
+    .map(recordSourcePageUrl)
+    .filter(Boolean));
+  const usedHashes = new Set((Array.isArray(usedRecords) ? usedRecords : [])
+    .filter((record) => record?.scope === spec?.scope)
+    .map((record) => photoCollisionKey(record.sha256))
+    .filter(Boolean));
+  const excludedPages = new Set((excludedSourcePageUrls instanceof Set
+    ? [...excludedSourcePageUrls]
+    : Array.isArray(excludedSourcePageUrls) ? excludedSourcePageUrls : [])
+    .map((url) => String(url || '').trim())
+    .filter(Boolean));
+  const unique = new Map();
+  for (const candidate of Array.isArray(candidates) ? candidates : []) {
+    const sourcePageUrl = recordSourcePageUrl(candidate);
+    const candidateHash = photoCollisionKey(candidate.sha256 || candidate.sourceSha256);
+    if (!sourcePageUrl || !isSuitablePhotoCandidate(candidate) || !isPhotoCandidateRelevantToSpec(spec, candidate)) continue;
+    if (usedPages.has(sourcePageUrl) || excludedPages.has(sourcePageUrl) || (candidateHash && usedHashes.has(candidateHash))) continue;
+    if (!unique.has(sourcePageUrl)) unique.set(sourcePageUrl, candidate);
+  }
+  return [...unique.values()].sort((a, b) => {
+    const aScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${recordSourcePageUrl(a)}`);
+    const bScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${recordSourcePageUrl(b)}`);
+    return aScore.localeCompare(bScore) || recordSourcePageUrl(a).localeCompare(recordSourcePageUrl(b));
+  });
+}
+
+export function selectDeterministicPhotoCandidate(spec, candidates, options) {
+  return selectDeterministicPhotoCandidates(spec, candidates, options)[0] || null;
+}
+
 function canonicalPhotoLicense(provider, licenseText, licenseUrl) {
   const text = stripMarkup(licenseText);
   const lower = text.toLowerCase();
@@ -550,6 +704,9 @@ export function verifyWikimediaExtmetadata(page) {
   const metadata = info?.extmetadata;
   if (!info || !metadata || typeof metadata !== 'object') return null;
   const title = String(page.title || '');
+  const description = metadata.ImageDescription?.value || metadata.ObjectName?.value || '';
+  const categories = Array.isArray(page.categories) ? page.categories : [];
+  if (!isPhotographicMetadata([title, description, metadata.DepictedPeople?.value, categories])) return null;
   const derivedPageUrl = title
     ? `https://commons.wikimedia.org/wiki/${encodeURIComponent(title.replace(/\s+/g, '_')).replace(/%3A/gi, ':')}`
     : '';
@@ -566,28 +723,39 @@ export function verifyWikimediaExtmetadata(page) {
   );
   const author = stripMarkup(metadata.Artist?.value || metadata.Credit?.value);
   if (!license || !author) return null;
+  const width = positiveDimension(info.width);
+  const height = positiveDimension(info.height);
+  if (!isSuitablePhotoCandidate({ type: 'photo', title, description, categories, width, height })) return null;
   const authorUrl = /^https:\/\//i.test(String(metadata.Artist?.source || '')) ? metadata.Artist.source : undefined;
   return {
+    type: 'photo',
+    title,
+    description,
+    categories,
     license: license.name,
     licenseFamily: license.family,
     licenseUrl: license.url,
     author: { name: author, ...(authorUrl ? { url: authorUrl } : {}) },
     sourcePageUrl: pageUrl,
     sourceImageUrl,
-    width: positiveDimension(info.width),
-    height: positiveDimension(info.height),
+    width,
+    height,
+    sourceWidth: width,
+    sourceHeight: height,
     copyrightNotice: license.family === 'pd' || license.family === 'cc0' ? license.name : `© ${author}`,
     acquireLicensePage: pageUrl,
     credit: `${author} · ${license.name}`,
   };
 }
 
-export function extractPexelsPhoto(response) {
-  const photo = Array.isArray(response?.photos) ? response.photos[0] : null;
+function pexelsPhotoRecord(photo) {
   if (!photo?.photographer || !photo?.url) return null;
   const imageUrl = photo.src?.large2x || photo.src?.large || photo.src?.original;
   if (!imageUrl) return null;
   return {
+    type: 'photo',
+    title: photo.alt || '',
+    alt: photo.alt || '',
     license: 'Pexels License',
     licenseFamily: 'pexels',
     licenseUrl: LICENSED_PHOTO_LICENSE_URLS.pexels,
@@ -596,6 +764,8 @@ export function extractPexelsPhoto(response) {
     sourceImageUrl: String(imageUrl),
     width: positiveDimension(photo.width),
     height: positiveDimension(photo.height),
+    sourceWidth: positiveDimension(photo.width),
+    sourceHeight: positiveDimension(photo.height),
     copyrightNotice: `© ${photo.photographer}`,
     acquireLicensePage: String(photo.url),
     credit: `${photo.photographer} · Pexels`,
@@ -609,12 +779,24 @@ export function pixabayAuthorProfileUrl(photo) {
   return `https://pixabay.com/users/${encodeURIComponent(user)}-${userId}/`;
 }
 
-export function extractPixabayPhoto(response) {
-  const photo = Array.isArray(response?.hits) ? response.hits[0] : null;
+export function extractPexelsPhotos(response) {
+  return (Array.isArray(response?.photos) ? response.photos : [])
+    .map(pexelsPhotoRecord)
+    .filter(Boolean);
+}
+
+export function extractPexelsPhoto(response) {
+  return extractPexelsPhotos(response)[0] || null;
+}
+
+function pixabayPhotoRecord(photo) {
   const imageUrl = photo?.largeImageURL || photo?.webformatURL;
   if (!photo?.user || !photo?.pageURL || !imageUrl) return null;
   const authorUrl = pixabayAuthorProfileUrl(photo);
   return {
+    type: photo.type || 'photo',
+    title: photo.tags || '',
+    tags: photo.tags || '',
     license: 'Pixabay Content License',
     licenseFamily: 'pixabay',
     licenseUrl: LICENSED_PHOTO_LICENSE_URLS.pixabay,
@@ -623,104 +805,140 @@ export function extractPixabayPhoto(response) {
     sourceImageUrl: String(imageUrl),
     width: positiveDimension(photo.imageWidth),
     height: positiveDimension(photo.imageHeight),
+    sourceWidth: positiveDimension(photo.imageWidth),
+    sourceHeight: positiveDimension(photo.imageHeight),
     copyrightNotice: `© ${photo.user}`,
     acquireLicensePage: String(photo.pageURL),
     credit: `${photo.user} · Pixabay`,
   };
 }
 
-function photoQuery(spec) {
-  const area = String(spec.area || '').toLowerCase();
-  const placeQuery = area.includes('lagh') || area.includes('lake') || area.includes('lago')
-    ? 'Lake Lugano Switzerland landscape'
-    : area.includes('alp') || area.includes('montagn')
-      ? 'Swiss Alps mountain landscape'
-      : area.includes('urban') || area.includes('urbana') || area.includes('citt')
-        ? 'Lugano city view'
-        : area.includes('ticino') || area.includes('confine') || area.includes('lugan')
-          ? 'Lugano Ticino Switzerland landscape'
-          : '';
-  return placeQuery || 'Ticino Switzerland landscape';
+export function extractPixabayPhotos(response) {
+  return (Array.isArray(response?.hits) ? response.hits : [])
+    .map(pixabayPhotoRecord)
+    .filter(Boolean);
 }
 
-function wikimediaSearchQueries(spec) {
-  const area = String(spec.area || '').toLowerCase();
-  const fallback = area.includes('lagh') || area.includes('lake') || area.includes('lago')
-    ? 'Lugano lake Switzerland'
-    : area.includes('alp') || area.includes('montagn')
-      ? 'Swiss Alps landscape'
-      : area.includes('urban') || area.includes('urbana') || area.includes('citt')
-        ? 'Lugano city view'
-        : 'Lugano Ticino Switzerland';
-  return [...new Set([photoQuery(spec), fallback, 'Lugano'].filter(Boolean))];
+export function extractPixabayPhoto(response) {
+  return extractPixabayPhotos(response)[0] || null;
 }
 
-async function runWikimediaPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+export function photoSearchQueries(spec) {
+  return eventImagePhotoSearchQueries(spec);
+}
+
+export function photoQuery(spec) {
+  return photoSearchQueries(spec)[0];
+}
+
+export function wikimediaSearchQueries(spec) {
+  return photoSearchQueries(spec);
+}
+
+async function runWikimediaPhoto(spec, destination, { timeoutMs = 45_000, usedRecords = [], excludedSourcePageUrls = [] } = {}) {
   const userAgent = { 'User-Agent': 'FrontaliereImageEngine/1.0 (https://frontaliereticino.ch/)' };
   const providerDeadline = Date.now() + Math.max(1, Math.floor(timeoutMs));
   const remainingTimeout = () => Math.max(1, providerDeadline - Date.now());
   let lastError = '';
+  const candidates = [];
   for (const search of wikimediaSearchQueries(spec)) {
+    if (Date.now() >= providerDeadline) break;
     const query = encodeURIComponent(search);
-    const endpoint = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${query}&gsrnamespace=6&gsrlimit=12&prop=imageinfo&inprop=url&iiprop=url|size|mime|extmetadata&iiurlwidth=1600&format=json`;
-    const response = await fetch(endpoint, {
-      headers: userAgent,
-      signal: AbortSignal.timeout(remainingTimeout()),
-    });
-    if (!response.ok) throw new Error(formatProviderHttpError('Wikimedia', response.status, await response.text()));
-    const json = await response.json();
+    const endpoint = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${query}&gsrnamespace=6&gsrlimit=20&prop=imageinfo|categories&cllimit=30&inprop=url&iiprop=url|size|mime|extmetadata&iiurlwidth=1600&format=json`;
+    let json;
+    try {
+      const response = await fetch(endpoint, {
+        headers: userAgent,
+        signal: AbortSignal.timeout(remainingTimeout()),
+      });
+      if (!response.ok) {
+        lastError = formatProviderHttpError('Wikimedia', response.status, await response.text());
+        continue;
+      }
+      json = await response.json();
+    } catch (error) {
+      lastError = summarizeProviderErrorBody(error?.message || error);
+      continue;
+    }
     if (json?.error) {
       lastError = `Wikimedia API error: ${String(json.error.info || json.error.code || 'unknown error')}`;
       continue;
     }
-    const pages = Object.values(json?.query?.pages || {})
-      .sort((a, b) => Number(a.pageid || 0) - Number(b.pageid || 0));
-    for (const page of pages) {
+    for (const page of Object.values(json?.query?.pages || {})) {
       const metadata = verifyWikimediaExtmetadata(page);
-      if (!metadata) continue;
-      try {
-        await downloadImageToFile(metadata.sourceImageUrl, destination, {
-          provider: 'Wikimedia',
-          timeoutMs: remainingTimeout(),
-          headers: userAgent,
-        });
-        return { imagePath: destination, model: 'Wikimedia Commons file mirror', photo: metadata };
-      } catch (error) {
-        // A licensed metadata hit with a broken CDN URL is not a usable record;
-        // continue to the next verified file rather than downgrading the gate.
-        lastError = summarizeProviderErrorBody(error?.message || error);
-      }
+      if (metadata) candidates.push(metadata);
+    }
+  }
+  const ranked = selectDeterministicPhotoCandidates(spec, candidates, { usedRecords, excludedSourcePageUrls });
+  for (const photo of ranked) {
+    try {
+      await downloadImageToFile(photo.sourceImageUrl, destination, {
+        provider: 'Wikimedia',
+        timeoutMs: remainingTimeout(),
+        headers: userAgent,
+      });
+      return { imagePath: destination, model: 'Wikimedia Commons file mirror', photo };
+    } catch (error) {
+      // A licensed metadata hit with a broken CDN URL is not a usable record;
+      // continue to the next verified file rather than downgrading the gate.
+      lastError = summarizeProviderErrorBody(error?.message || error);
     }
   }
   throw new Error(lastError || 'Wikimedia returned no image with a verified CC0/public-domain/CC BY/CC BY-SA licence');
 }
 
-async function runPexelsPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+async function runPexelsPhoto(spec, destination, { timeoutMs = 45_000, usedRecords = [], excludedSourcePageUrls = [] } = {}) {
   const apiKey = String(process.env.PEXELS_API_KEY || '').trim();
   if (!apiKey) throw new Error('PEXELS_API_KEY is not configured');
-  const endpoint = `https://api.pexels.com/v1/search?query=${encodeURIComponent(photoQuery(spec))}&orientation=landscape&size=large&per_page=20`;
-  const response = await fetch(endpoint, {
-    headers: { Authorization: apiKey },
-    signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))),
-  });
-  if (!response.ok) throw new Error(formatProviderHttpError('Pexels', response.status, await response.text()));
-  const json = await response.json();
-  const photo = extractPexelsPhoto(json);
-  if (!photo) throw new Error('Pexels returned no photo with photographer and source page');
-  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pexels', timeoutMs });
+  const providerDeadline = Date.now() + Math.max(1, Math.floor(timeoutMs));
+  const candidates = [];
+  let lastError = '';
+  for (const search of photoSearchQueries(spec)) {
+    if (Date.now() >= providerDeadline) break;
+    const endpoint = `https://api.pexels.com/v1/search?query=${encodeURIComponent(search)}&orientation=landscape&size=large&per_page=20`;
+    try {
+      const response = await fetch(endpoint, {
+        headers: { Authorization: apiKey },
+        signal: AbortSignal.timeout(Math.max(1, providerDeadline - Date.now())),
+      });
+      if (!response.ok) {
+        lastError = formatProviderHttpError('Pexels', response.status, await response.text());
+        continue;
+      }
+      candidates.push(...extractPexelsPhotos(await response.json()));
+    } catch (error) {
+      lastError = summarizeProviderErrorBody(error?.message || error);
+    }
+  }
+  const photo = selectDeterministicPhotoCandidate(spec, candidates, { usedRecords, excludedSourcePageUrls });
+  if (!photo) throw new Error(lastError || 'Pexels returned no suitable photo with photographer and source page');
+  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pexels', timeoutMs: Math.max(1, providerDeadline - Date.now()) });
   return { imagePath: destination, model: 'Pexels photo search', photo };
 }
 
-async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000, usedRecords = [], excludedSourcePageUrls = [] } = {}) {
   const apiKey = String(process.env.PIXABAY_API_KEY || '').trim();
   if (!apiKey) throw new Error('PIXABAY_API_KEY is not configured');
-  const endpoint = `https://pixabay.com/api/?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(photoQuery(spec))}&image_type=photo&orientation=horizontal&per_page=20&min_width=1280&safesearch=true`;
-  const response = await fetch(endpoint, { signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))) });
-  if (!response.ok) throw new Error(formatProviderHttpError('Pixabay', response.status, await response.text()));
-  const json = await response.json();
-  const photo = extractPixabayPhoto(json);
-  if (!photo) throw new Error('Pixabay returned no photo with author and source page');
-  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pixabay', timeoutMs });
+  const providerDeadline = Date.now() + Math.max(1, Math.floor(timeoutMs));
+  const candidates = [];
+  let lastError = '';
+  for (const search of photoSearchQueries(spec)) {
+    if (Date.now() >= providerDeadline) break;
+    const endpoint = `https://pixabay.com/api/?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(search)}&image_type=photo&orientation=horizontal&per_page=50&min_width=1600&safesearch=true`;
+    try {
+      const response = await fetch(endpoint, { signal: AbortSignal.timeout(Math.max(1, providerDeadline - Date.now())) });
+      if (!response.ok) {
+        lastError = formatProviderHttpError('Pixabay', response.status, await response.text());
+        continue;
+      }
+      candidates.push(...extractPixabayPhotos(await response.json()));
+    } catch (error) {
+      lastError = summarizeProviderErrorBody(error?.message || error);
+    }
+  }
+  const photo = selectDeterministicPhotoCandidate(spec, candidates, { usedRecords, excludedSourcePageUrls });
+  if (!photo) throw new Error(lastError || 'Pixabay returned no suitable photo with author and source page');
+  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pixabay', timeoutMs: Math.max(1, providerDeadline - Date.now()) });
   return { imagePath: destination, model: 'Pixabay photo search', photo };
 }
 
@@ -730,7 +948,7 @@ async function runGeminiVision(filePath, { timeoutMs = 120_000, kind = GENERATED
   const image = fs.readFileSync(filePath).toString('base64');
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
-    'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, looks_like_specific_real_event and notes.',
+    'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, looks_like_specific_real_event, is_photograph and notes.',
     kind === LICENSED_PHOTO_KIND
       ? 'This is a real licensed photo candidate; a real place is allowed, but reject recognizable people in the foreground and logos or brands.'
       : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
@@ -740,6 +958,9 @@ async function runGeminiVision(filePath, { timeoutMs = 120_000, kind = GENERATED
     'Mark any logo, brand or trademark as contains_logo=true.',
     'Mark any recognizable human face or public figure as contains_recognizable_face=true.',
     'Mark a documentary/news image of a specific real event as looks_like_specific_real_event=true.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'Set is_photograph=true only when the image is a real camera photograph, not a painting, drawing, map, scan, poster, logo or illustration.'
+      : 'Set is_photograph=false for this generated illustration.',
     `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   const controller = new AbortController();
@@ -844,6 +1065,9 @@ export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERA
     'contains_logo is true for any logo, brand or trademark.',
     'contains_recognizable_face is true for any recognizable human face or public figure.',
     'looks_like_specific_real_event is true for a documentary/news photograph of a specific real event.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'is_photograph is true only for a real camera photograph, never a painting, drawing, map, scan, poster, logo or illustration.'
+      : 'is_photograph is false for this generated illustration.',
     `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   let verdict;
@@ -867,7 +1091,7 @@ export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERA
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
   const rejected = kind === LICENSED_PHOTO_KIND
-    ? (!verdict.ok || verdict.contains_logo || verdict.contains_recognizable_face)
+    ? (!verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face)
     : (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event);
   if (rejected) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
@@ -897,6 +1121,7 @@ export async function generateImageFromSpec(spec, {
   providers,
   providerTimeouts,
   verifyImage = verifyGeneratedImage,
+  usedRecords = [],
   onProviderAttempt,
   now = () => new Date(),
   deadlineAt,
@@ -913,6 +1138,7 @@ export async function generateImageFromSpec(spec, {
     : sequence.length;
   let lastError;
   const failures = [];
+  const rejectedPhotoSources = new Set();
   for (let attempt = 0; attempt < attemptLimit; attempt++) {
     assertBeforeDeadline(deadlineAt, 'image generation');
     const selectedProvider = sequence[attempt];
@@ -931,7 +1157,10 @@ export async function generateImageFromSpec(spec, {
     const promptHash = prompt ? sha256(prompt) : undefined;
     const rawPath = path.join(destinationDir, `.${finalAssetId}.${attempt}.raw`);
     onProviderAttempt?.({ provider: selectedProvider, attempt: attempt + 1, assetId: finalAssetId, status: 'started', kind: recordKind });
-    try {
+    let photoCandidateAttempts = 0;
+    while (true) {
+      let attemptedPhotoSource = '';
+      try {
       const timeoutMs = timeoutForDeadline(deadlineAt, providerTimeoutMs(selectedProvider, providerTimeouts));
       let providerResult;
       if (selectedProvider === 'openai-codex') {
@@ -958,22 +1187,40 @@ export async function generateImageFromSpec(spec, {
           seed: sha256(`${finalAssetId}:${attempt}`).slice(0, 8),
         });
       } else if (selectedProvider === 'wikimedia') {
-        providerResult = await runWikimediaPhoto(normalized, rawPath, { timeoutMs });
+        providerResult = await runWikimediaPhoto(normalized, rawPath, {
+          timeoutMs,
+          usedRecords,
+          excludedSourcePageUrls: rejectedPhotoSources,
+        });
       } else if (selectedProvider === 'pexels') {
-        providerResult = await runPexelsPhoto(normalized, rawPath, { timeoutMs });
+        providerResult = await runPexelsPhoto(normalized, rawPath, {
+          timeoutMs,
+          usedRecords,
+          excludedSourcePageUrls: rejectedPhotoSources,
+        });
       } else if (selectedProvider === 'pixabay') {
-        providerResult = await runPixabayPhoto(normalized, rawPath, { timeoutMs });
+        providerResult = await runPixabayPhoto(normalized, rawPath, {
+          timeoutMs,
+          usedRecords,
+          excludedSourcePageUrls: rejectedPhotoSources,
+        });
       } else {
         throw new Error(`Unsupported image provider: ${selectedProvider}`);
       }
       const generatedAt = now().toISOString();
       assertBeforeDeadline(deadlineAt, 'image normalization');
       const photo = providerResult.photo || null;
+      attemptedPhotoSource = recordSourcePageUrl(photo);
       const providerInfo = providerRecordFields(selectedProvider) || {
         model: providerResult.model,
         executorModel: providerResult.model,
         licenseUrl: photo?.licenseUrl,
       };
+      if (recordKind === LICENSED_PHOTO_KIND && !photo) throw new Error('licensed-photo provider returned no photo metadata');
+      const modifications = recordKind === LICENSED_PHOTO_KIND
+        && ['cc-by', 'cc-by-sa'].includes(photo.licenseFamily)
+        ? [...LICENSED_PHOTO_MODIFICATIONS]
+        : undefined;
       const normalizedForProvider = { ...normalized, kind: recordKind };
       const xmpMetadata = {
         title: normalized.subject,
@@ -983,6 +1230,7 @@ export async function generateImageFromSpec(spec, {
         credit: photo?.credit || GENERATED_IMAGE_CREDIT,
         author: photo?.author,
         sourcePageUrl: photo?.sourcePageUrl,
+        modifications,
       };
       await normalizeToWebp(rawPath, finalPath, normalizedForProvider, xmpMetadata);
       const inspected = await inspectWebp(finalPath, { ...normalized.format, kind: recordKind }, xmpMetadata);
@@ -1011,8 +1259,11 @@ export async function generateImageFromSpec(spec, {
           author: photo.author,
           sourcePageUrl: photo.sourcePageUrl,
           sourceImageUrl: photo.sourceImageUrl,
+          sourceWidth: photo.sourceWidth || photo.width,
+          sourceHeight: photo.sourceHeight || photo.height,
           copyrightNotice: photo.copyrightNotice,
           acquireLicensePage: photo.acquireLicensePage,
+          ...(modifications ? { modifications } : {}),
         }),
         sha256: sha256(inspected.buffer),
         bytes: inspected.buffer.byteLength,
@@ -1030,16 +1281,29 @@ export async function generateImageFromSpec(spec, {
         variant: normalized.variant,
         vision,
       };
+      const collision = recordKind === LICENSED_PHOTO_KIND ? photoRecordCollision(record, usedRecords) : null;
+      if (collision) {
+        const duplicate = new Error(`licensed photo duplicates ${collision.type} already used by ${collision.assetId}`);
+        duplicate.code = 'DUPLICATE_PHOTO';
+        throw duplicate;
+      }
       const validation = validateGeneratedImageRecord(record);
       if (!validation.valid) throw new Error(`generated record invalid: ${validation.errors.join(', ')}`);
       fs.rmSync(rawPath, { force: true });
       return { filePath: finalPath, record, prompt };
-    } catch (error) {
-      lastError = error;
-      failures.push({ provider: selectedProvider, reason: summarizeProviderErrorBody(error?.message || error) });
-      fs.rmSync(rawPath, { force: true });
-      fs.rmSync(finalPath, { force: true });
-      if (deadlineExpired(deadlineAt)) break;
+      } catch (error) {
+        lastError = error;
+        failures.push({ provider: selectedProvider, reason: summarizeProviderErrorBody(error?.message || error) });
+        fs.rmSync(rawPath, { force: true });
+        fs.rmSync(finalPath, { force: true });
+        if (deadlineExpired(deadlineAt)) break;
+        if (recordKind === LICENSED_PHOTO_KIND && attemptedPhotoSource && photoCandidateAttempts < 19) {
+          rejectedPhotoSources.add(attemptedPhotoSource);
+          photoCandidateAttempts += 1;
+          continue;
+        }
+        break;
+      }
     }
   }
   const error = new Error(`All image providers failed for ${finalAssetId}: ${failures.map((item) => `${item.provider} (${item.reason})`).join('; ') || lastError?.message || 'unknown error'}`);
@@ -1061,6 +1325,7 @@ export async function generateEventImageLibrary({
   chain,
   kind,
   variants = EVENT_IMAGE_LIBRARY_MAX_VARIANTS,
+  replaceAssetIds = [],
   onAssetGenerated,
 } = {}) {
   const boundedLimit = Math.min(MAX_LIBRARY_GENERATIONS, Math.max(0, Number(limit) || 0));
@@ -1070,6 +1335,9 @@ export async function generateEventImageLibrary({
   const resolvedKind = kind || (LICENSED_PHOTO_PROVIDERS.includes(firstRequestedProvider) ? LICENSED_PHOTO_KIND : GENERATED_IMAGE_KIND);
   const registry = readRegistry(resolvedRegistryPath);
   const assetsById = new Map(registry.assets.map((record) => [record.assetId, record]));
+  for (const assetId of Array.isArray(replaceAssetIds) ? replaceAssetIds : []) {
+    assetsById.delete(String(assetId));
+  }
   const generated = [];
   let generationCalls = 0;
   const providerCounts = Object.fromEntries(IMAGE_PROVIDERS.map((name) => [name, 0]));
@@ -1106,7 +1374,7 @@ export async function generateEventImageLibrary({
       const result = await generateImageFromSpec({
         scope: 'event-library',
         subject: slot.subject,
-        area: slot.areaLabel,
+        area: slot.area,
         season: slot.season,
         category: slot.category,
         variant: slot.variant,
@@ -1118,6 +1386,7 @@ export async function generateEventImageLibrary({
         assetId: slot.assetId,
         provider,
         chain,
+        usedRecords: [...assetsById.values()],
         onProviderAttempt: ({ provider: attemptedProvider, status = 'started', reason }) => {
           if (status === 'skipped') {
             addProviderFailure(attemptedProvider, reason || 'not configured');
@@ -1130,8 +1399,7 @@ export async function generateEventImageLibrary({
           providerCounts[attemptedProvider] += 1;
         },
       });
-      // The prompt gets a human-readable area label; the registry keeps the
-      // canonical taxonomy key used by the deterministic selector.
+      // The registry and provider queries use the canonical taxonomy key.
       result.record.area = slot.area;
       assetsById.set(slot.assetId, result.record);
       generated.push(result);

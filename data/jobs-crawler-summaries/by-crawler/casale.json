@@ -1,62 +1,19 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-10-07T09:13:45.222Z",
+  "generatedAt": "2026-10-07T21:15:49.287Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1686,
-  "avgDurationMs": 1686,
+  "unchangedCount": 2,
+  "durationMs": 2139,
+  "avgDurationMs": 2139,
   "durationHistory": [
-    1686
+    2139
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "url": "https://recruit.casale.ch/o/home-office-construction-engineer",
-      "applyUrl": "https://recruit.casale.ch/o/home-office-construction-engineer/c/new",
-      "title": "Home Office Construction Engineer",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "home-office-construction-engineer-casale-lugano",
-      "category": "engineering",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "source": "casale-careers-crawler",
-      "sourceLang": "en",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "casale-8e2b66d8ba74",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -100,7 +57,49 @@
         "translation": 25,
         "completeness": 20
       }
+    },
+    {
+      "url": "https://recruit.casale.ch/o/home-office-construction-engineer",
+      "applyUrl": "https://recruit.casale.ch/o/home-office-construction-engineer/c/new",
+      "title": "Home Office Construction Engineer",
+      "company": "Casale SA",
+      "companyKey": "casale",
+      "location": "Lugano, Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giulio Pocobelli 6",
+      "slug": "home-office-construction-engineer-casale-lugano",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "casale-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Ingegneria / Chimica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "casale-8e2b66d8ba74",
+      "firstSeenAt": "2026-04-13T21:19:25.409Z",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

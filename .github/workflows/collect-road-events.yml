@@ -13,7 +13,7 @@ name: Collect Road Events (closures, roadworks, transit)
 # closures change over hours, not minutes, and one DATEX pull costs one unit
 # of the shared opentransportdata/traffic-situations quota.
 #
-# Both files are in deploy.yml's paths-ignore: no page reads them at build
+# Both files are in deploy-request.yml's paths-ignore: no page reads them at build
 # time yet, so a push every 3 hours must not start a full SEO deploy. They
 # reach the CDN with the next deploy triggered by anything else (the same
 # contract as data/border-wait-averages.json).

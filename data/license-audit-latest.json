@@ -1,10 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T19:02:51.007Z",
-  "commit": "334c2d49c5d91398c25969163445b29a38245c84",
+  "generatedAt": "2026-10-07T23:28:59.726Z",
+  "commit": "7bbdc76734b14efe9f7329a1c41eecb61b6da509",
   "mainRef": "origin/main",
   "refsInspected": [
-    "origin/main"
+    "origin/main",
+    "refs/audit/pr-12294",
+    "refs/audit/pr-12293",
+    "refs/audit/pr-12292",
+    "refs/audit/pr-12286",
+    "refs/audit/pr-12281",
+    "refs/audit/pr-12277",
+    "refs/audit/pr-12251",
+    "refs/audit/pr-12214"
   ],
   "sections": [
     "A",
@@ -12,11 +20,11 @@
     "C",
     "D"
   ],
-  "overall": "fail",
+  "overall": "warn",
   "summary": {
     "pass": 10,
-    "warn": 3,
-    "fail": 2
+    "warn": 5,
+    "fail": 0
   },
   "controls": [
     {
@@ -71,101 +79,72 @@
       "section": "B",
       "title": "Immagini pubblicate: record di licenza ammesso o record generativo valido",
       "threshold": "published missing/unlicensed images = 0 after bounded repair",
-      "status": "fail",
+      "status": "warn",
       "counts": {
         "files": 11268,
-        "published": 11107,
-        "ok": 3429,
+        "published": 11112,
+        "ok": 3453,
         "inferred": 7659,
-        "withoutRecord": 19,
+        "withoutRecord": 0,
         "unlicensed": 0,
-        "orphan": 174,
+        "orphan": 137,
         "autoRepairable": 0,
-        "nonRemediable": 19
+        "nonRemediable": 0,
+        "unusedLogos": 19
       },
       "examples": [
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-rect-400.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+          "status": "inferred"
         },
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-rect-400.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
+          "status": "inferred"
         },
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-1000.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/142-linea-aiuto-vittime-violenza-ticino.webp",
+          "status": "inferred"
         },
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-1000.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
+          "status": "inferred"
         },
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-512.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/142-violenza-ticino-2026.webp",
+          "status": "inferred"
         },
         {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-512.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/1maggio-eremo-monastero-legge-varese.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/20mila-firme-autostrada-pedaggio.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/25-centimetri-lago-maggiore-frontalieri.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/300-persone-pasto-vegetale-lugano-2026.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/a13-chiusure-mappo-minusio-2026.webp",
+          "status": "inferred"
         }
       ],
-      "alarm": true,
+      "alarm": false,
       "remediation": "article-hero/place/editorial-profile; logos are inventory-only"
     },
     {
@@ -173,65 +152,77 @@
       "section": "B",
       "title": "Loghi: file presenti e fonte registrata, senza sostituzione automatica",
       "threshold": "unregistered logo file = 0",
-      "status": "fail",
+      "status": "warn",
       "counts": {
         "inventory": 711,
-        "registered": 674,
-        "withoutRegisteredSource": 37
+        "used": 692,
+        "registered": 692,
+        "unused": 19,
+        "withoutRegisteredSource": 0
       },
       "examples": [
         {
           "family": "brands",
           "imageUrl": "/images/brands/agip.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/agipeni.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/agrola.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/api-ip.svg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         },
         {
           "family": "brands",
           "imageUrl": "/images/brands/aral.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/avia.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/bp.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/carrefour.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/cooppronto.svg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         },
         {
           "family": "brands",
           "imageUrl": "/images/brands/efg-international.jpg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/eni.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ip.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/jet.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oil.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oilexpress.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ok.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/prada.png",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         }
       ],
-      "alarm": true,
+      "alarm": false,
       "remediation": "none; source registration is human-owned"
     },
     {
@@ -291,12 +282,12 @@
       "status": "warn",
       "counts": {
         "events": 11970,
-        "withoutDescription": 11722,
-        "rewritten": 248
+        "withoutDescription": 11642,
+        "rewritten": 328
       },
       "examples": [
         {
-          "count": 11722
+          "count": 11642
         }
       ],
       "alarm": false,
@@ -309,7 +300,7 @@
       "threshold": "entries without complete rewrite = 0",
       "status": "pass",
       "counts": {
-        "entries": 249,
+        "entries": 329,
         "residual": 0
       },
       "examples": [],
@@ -367,7 +358,7 @@
       "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
       "status": "pass",
       "counts": {
-        "refsInspected": 1,
+        "refsInspected": 9,
         "refsContainingMarker": 0,
         "markerObjectUnavailable": 0
       },
@@ -386,7 +377,7 @@
         "httpProbes": 8,
         "httpLive": 0,
         "r2Keys": 0,
-        "r2Available": 0
+        "r2Available": 1
       },
       "examples": [],
       "alarm": false,
@@ -403,22 +394,24 @@
       }
     },
     "images": {
-      "inventory": 11281,
+      "inventory": 11268,
       "statusCounts": {
-        "ok": 3429,
+        "ok": 3453,
         "inferred": 7659,
-        "orfano": 174,
-        "senza record": 19
+        "orfano": 137,
+        "inutilizzato": 19
       },
-      "orphanRecords": 0
+      "orphanRecords": 0,
+      "forcedReplacementUrls": []
     },
     "text": {
       "gate": {
         "ok": true,
         "datasets": 1,
         "events": 11970,
-        "rewritten": 248,
-        "cacheEntries": 249
+        "rewritten": 328,
+        "cacheEntries": 329,
+        "rejectionMemoryEntries": 0
       }
     },
     "history": {
@@ -428,7 +421,7 @@
   "remediation": {
     "candidateCount": 0,
     "autoRepairableCount": 0,
-    "nonRemediableCount": 19,
+    "nonRemediableCount": 0,
     "candidates": []
   },
   "alarm": {
@@ -436,103 +429,26 @@
     "title": "License audit: non-remediable publication violations",
     "nonRemediableFailures": [
       {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-rect-400.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-rect-400.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-1000.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-1000.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-512.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-512.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
       }
     ]
   },
   "actions": {
-    "requested": false,
+    "requested": 1,
+    "selected": 1,
+    "deferred": 0,
     "generated": [],
     "reused": [],
-    "failures": [],
-    "selected": 0,
-    "deferred": 0
+    "failures": [
+      {
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+      }
+    ]
   }
 }

@@ -16,9 +16,9 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
-import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE } from '../../../../functions/src/lib/permitStatus.js';
-import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE, isNationalityField } from '../../../../functions/src/lib/permitStatus.js';
+import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths, nationalityOptionLabel } from './fill.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -167,7 +167,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     ...answered.map(topicOf).filter((topic) => topic >= 0),
     ...answered.map(questionTopic).filter(Boolean),
   ]);
-  const isAnswered = (question) => answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
+  const isAnswered = (question) => Boolean(candidateAnswerForQuestion(candidate, question))
+    || answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
     || answeredTopics.has(topicOf(question))
     || (questionTopic(question) && answeredTopics.has(questionTopic(question)));
   const questions = [];
@@ -258,9 +259,11 @@ export function refusal(action, info) {
   return '';
 }
 
-async function chooseOption(page, locator, info, value) {
+async function chooseOption(page, locator, info, value, question = '') {
   if (info.tag === 'select') {
-    await locator.selectOption({ label: value }, { timeout: ACTION_TIMEOUT_MS });
+    const labels = await locator.evaluate((element) => [...element.options].map((option) => option.textContent || ''));
+    const selectedLabel = isNationalityField(question) ? nationalityOptionLabel(value, labels) || value : value;
+    await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
     return;
   }
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
@@ -268,12 +271,24 @@ async function chooseOption(page, locator, info, value) {
   // Only the exact label: "1990" never picks "1990s" (second review of #10707).
   // Without it the action fails and the model, seeing the open list on the
   // next snapshot, names an option that exists.
-  const exact = page.getByRole('option', { name: value, exact: true }).first();
+  let selectedLabel = value;
+  let exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
   try {
     await exact.waitFor({ state: 'visible', timeout: 4000 });
   } catch {
-    await locator.press('Escape').catch(() => {});
-    throw new Error('option_not_found');
+    if (!isNationalityField(question)) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    const options = page.getByRole('option');
+    const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
+    selectedLabel = nationalityOptionLabel(value, labels);
+    if (!selectedLabel) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    exact = page.getByRole('option', { name: selectedLabel, exact: true }).first();
+    await exact.waitFor({ state: 'visible', timeout: 4000 });
   }
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
 }
@@ -307,7 +322,7 @@ export async function runAction(page, action, files = {}) {
     if (action.action === 'click') await locator.click({ timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'fill') await locator.fill(info.tag === 'textarea' ? value : value.replace(/[\r\n]+/g, ' '), { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'type') await locator.pressSequentially(value.replace(/[\r\n]+/g, ' '), { delay: 50, timeout: ACTION_TIMEOUT_MS });
-    else if (action.action === 'select') await chooseOption(page, locator, info, value);
+    else if (action.action === 'select') await chooseOption(page, locator, info, value, action.question);
     else if (action.action === 'press') await locator.press(value, { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'upload') {
       const paths = documentPaths(files, action.document);

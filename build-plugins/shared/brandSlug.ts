@@ -1,3 +1,9 @@
+import {
+  BRAND_LOGO_ALIASES as CANONICAL_BRAND_LOGO_ALIASES,
+  brandLogoSlug as canonicalBrandLogoSlug,
+  normaliseBrand as canonicalNormaliseBrand,
+} from './brandSlugData.mjs';
+
 /**
  * Canonical fuel-station brand-slug normalisation — the single source of truth
  * shared by every consumer (build-time logo resolution in `fuelBrandLogo.ts`,
@@ -16,25 +22,11 @@
  * normalised brand (diacritic-folded, lowercased, non-`[a-z0-9-]` stripped);
  * values are the logo-manifest slug.
  */
-export const BRAND_LOGO_ALIASES: Record<string, string> = {
-  eni: 'agipeni',
-  agip: 'agipeni',
-  coop: 'cooppronto',
-  cooppronto: 'cooppronto',
-  ruedirussel: 'ruedirussel',
-  ruedirüssel: 'ruedirussel',
-  migrolino: 'migrol',
-  total: 'totalenergies',
-  totalenergies: 'totalenergies',
-};
+export const BRAND_LOGO_ALIASES: Record<string, string> = CANONICAL_BRAND_LOGO_ALIASES;
 
 /** Diacritic-fold + lowercase + strip to the `[a-z0-9-]` filter logo lookups expect. */
 export function normaliseBrand(brand: string | undefined | null): string {
-  return String(brand ?? '')
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .toLowerCase()
-    .replace(/[^a-z0-9-]/g, '');
+  return canonicalNormaliseBrand(brand);
 }
 
 /**
@@ -45,6 +37,5 @@ export function normaliseBrand(brand: string | undefined | null): string {
  * the build picked up the aliased logo but the client fell back to initials.
  */
 export function brandLogoSlug(brand: string | undefined | null): string {
-  const normalised = normaliseBrand(brand);
-  return BRAND_LOGO_ALIASES[normalised] ?? normalised;
+  return canonicalBrandLogoSlug(brand);
 }

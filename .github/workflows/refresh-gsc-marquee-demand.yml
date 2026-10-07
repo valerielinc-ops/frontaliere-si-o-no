@@ -31,7 +31,7 @@ name: Refresh GSC marquee demand
 # ── WEEKLY, NOT DAILY ───────────────────────────────────────────────────────
 # The extractor reads a 90-day GSC window, so one day of new data moves ~1/90
 # of the corpus while costing one commit on `main`. `data/**` is NOT in
-# deploy.yml's paths-ignore (only a handful of named files are), so every
+# deploy-request.yml's paths-ignore (only a handful of named files are), so every
 # commit here is a potential full SEO build — median 130 min, on a queue
 # deploy.yml's own comment measures as saturated rather than starved. Weekly is
 # the cadence at which the artifact actually changes.

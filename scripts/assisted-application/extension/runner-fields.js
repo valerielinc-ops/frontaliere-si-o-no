@@ -9,11 +9,19 @@
   // Ids a framework generates, which say nothing to the planner: React's
   // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
   const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
+  // What a person types into needs a box a person can see: a honeypot is drawn in a box of no size (Workday's
+  // «beecatcher» is 1 px wide and a hundredth of a pixel tall) and a registration with it filled is dropped
+  // without a word. A native checkbox, radio, select or file input is often hidden on purpose behind a
+  // widget of its own, and keeps the rule it had.
+  const MIN_TYPED_BOX_PX = 2;
+  const typedInto = (element) => element.tagName === 'TEXTAREA'
+    || (element.tagName === 'INPUT' && !['checkbox', 'radio', 'file', 'range', 'color', 'hidden'].includes((element.getAttribute('type') || 'text').toLowerCase()));
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     if (element.type === 'file') return style.display !== 'none' || rect.width >= 0; // file inputs are often hidden behind a button
-    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0;
+    const min = typedInto(element) ? MIN_TYPED_BOX_PX : 0;
+    const shown = style.visibility !== 'hidden' && style.display !== 'none' && rect.width > 0 && rect.height > 0 && rect.width >= min && rect.height >= min;
     if (shown || !['checkbox', 'radio'].includes(element.type)) return shown;
     // Custom-styled checkbox/radio: the native input is hidden, its label is what people click.
     const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
@@ -37,6 +45,15 @@
   const dialogMeta = (element) => {
     const dialogId = dialogIdFor(element);
     return { dialog: Boolean(dialogId), dialogId };
+  };
+  // The site's own header, navigation and footer, around the page: a «Sign In» up there is the site's (on
+  // Workday it opens a dialog over the page), not the link of the form below. A <footer> or a <header>
+  // inside the form, a dialog or the page's main part belongs to it.
+  const SITE_CHROME = 'header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]';
+  const PAGE_CONTENT = 'main, [role="main"], form, dialog, [role="dialog"], article, section';
+  const inSiteChrome = (element) => {
+    const chrome = element.closest(SITE_CHROME);
+    return Boolean(chrome) && !chrome.closest(PAGE_CONTENT);
   };
   const textOf = (id) => {
     const node = id && document.getElementById(id);
@@ -180,6 +197,7 @@
   const forms = [...document.forms];
   const formOf = (element) => (element.form ? forms.indexOf(element.form) : -1);
   const radios = new Map();
+  const HONEYPOT_LABEL = /\b(?:for|nur für|solo per|pour les) (?:robots?|bots?|roboter)\b|\bif you(?:'|’)?re (?:a )?human\b|\bif you are (?:a )?human\b/i;
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
     const tag = element.tagName.toLowerCase();
@@ -190,6 +208,9 @@
     if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
     if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
+    // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
+    // is a trap whatever its size: never a field of the form.
+    if (element.getAttribute('data-automation-id') === 'beecatcher' || HONEYPOT_LABEL.test(labelFor(element))) continue;
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {
       const name = element.name || element.id;
@@ -233,7 +254,10 @@
       // opened. A select by another name: its options are read (extractFields).
       field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
       field.selectLike = Boolean(field.ownedList)
-        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
+        // SuccessFactors localises its empty value too: Rolex's French form
+        // says «Aucune sélection», not «Sélectionnez». It is still the same
+        // owned picklist, not a free-text combobox.
+        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
@@ -312,14 +336,30 @@
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
   }
-  const buttons = [...document.querySelectorAll('button, input[type="submit"], a[role="button"], [role="button"]')]
-    .filter((element) => visible(element) && element.getAttribute('aria-haspopup') !== 'listbox')
+  // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to
+  // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
+  // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides
+  // while a modal dialog is open lies under that dialog.
+  const BUTTONS = 'button, input[type="submit"], a[role="button"], [role="button"]';
+  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || '');
+  const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
+  const underClickFilter = (element) => {
+    if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
+    const name = buttonName(element);
+    return Boolean(name) && [...(element.parentElement?.querySelectorAll(BUTTONS) || [])]
+      .some((other) => other !== element && !hiddenFromPeople(other) && visible(other) && buttonName(other) === name);
+  };
+  const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
+  const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
+  const buttons = [...document.querySelectorAll(BUTTONS)]
+    .filter((element) => visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),
-      text: clean(element.innerText || element.value || element.getAttribute('aria-label') || ''),
+      text: buttonName(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      ...(inSiteChrome(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);

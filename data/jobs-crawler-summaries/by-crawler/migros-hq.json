@@ -1,7 +1,7 @@
 {
   "key": "migros-hq",
   "label": "Migros HQ Zürich",
-  "generatedAt": "2026-10-07T09:48:14.571Z",
+  "generatedAt": "2026-10-07T21:57:32.289Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6935,
-  "avgDurationMs": 6935,
+  "durationMs": 6882,
+  "avgDurationMs": 6882,
   "durationHistory": [
-    6935
+    6882
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-it-service-management-prozesse-wmd/1154b515-4e45-4735-a454-ac9d1965f08c",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:48:03.549Z",
+      "crawledAt": "2026-10-07T21:57:18.804Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -78,7 +78,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/product-owner-servicenow-plattform-basis-wmd/5ebe9a24-db13-4fee-a3b1-b041531b7f2b",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:48:03.525Z",
+      "crawledAt": "2026-10-07T21:57:18.781Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -124,7 +124,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/senior-fullstack-software-engineer-wmd/09ccf7b4-dac3-4044-8c6b-e99ce019a15e",
       "source": "Migros-Genossenschafts-Bund National Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:48:03.553Z",
+      "crawledAt": "2026-10-07T21:57:18.808Z",
       "addressLocality": "Zürich",
       "streetAddress": "Limmatstrasse 152",
       "postalCode": "8001",
@@ -155,5 +155,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

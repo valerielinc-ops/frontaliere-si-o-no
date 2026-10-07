@@ -140,6 +140,7 @@ interface SiteEvent {
   imageSourcePageUrl?: string;
   imageCopyrightNotice?: string;
   imageAcquireLicensePage?: string;
+  imageModifications?: string[];
   sourceKey: string;
   sourceName: string;
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
@@ -291,7 +292,10 @@ function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): strin
     ? `<a href="${esc(event.imageSourcePageUrl)}" rel="nofollow noopener" target="_blank">${esc(author)}</a>`
     : esc(author);
   const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license nofollow noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
-  return `<span class="ev-img-credit" data-event-image-credit="licensed">${esc(COPY[locale].licensedImageLabel)}: ${authorLink} · ${licenseLink}</span>`;
+  const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
+    ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
+    : '';
+  return `<span class="ev-img-credit" data-event-image-credit="licensed">${esc(COPY[locale].licensedImageLabel)}: ${authorLink} · ${licenseLink}${modification}</span>`;
 }
 
 /** Materialize the shared assignment for both fresh and pre-library snapshots. */
@@ -553,6 +557,7 @@ interface Copy {
   at: string;
   generatedImageLabel: string;
   licensedImageLabel: string;
+  modifiedImageLabel: string;
   exploreMore: string;
   methodologyTitle: string;
   methodology: string;
@@ -611,6 +616,7 @@ const COPY: Record<Locale, Copy> = {
     at: 'presso',
     generatedImageLabel: 'Immagine illustrativa generata con IA',
     licensedImageLabel: 'Foto',
+    modifiedImageLabel: 'ritagliata, ridimensionata e convertita in WebP',
     exploreMore: 'Esplora anche',
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology: 'Gli eventi sono raccolti automaticamente dalle agende pubbliche del Ticino e aggiornati ogni giorno. Ogni evento è attribuito al comune in base al luogo o alla regione indicata dalla fonte. Verifica sempre data, orario e luogo sulla pagina originale dell\'organizzatore prima di metterti in viaggio: orari e disponibilità possono cambiare.',
@@ -662,6 +668,7 @@ const COPY: Record<Locale, Copy> = {
     at: 'at',
     generatedImageLabel: 'Illustrative image generated with AI',
     licensedImageLabel: 'Photo',
+    modifiedImageLabel: 'cropped, resized and converted to WebP',
     exploreMore: 'Explore also',
     methodologyTitle: 'How we collect events',
     methodology: 'Events are gathered automatically from public Ticino agendas and refreshed every day. Each event is attributed to a municipality based on the venue or the region given by the source. Always verify date, time and venue on the organiser\'s original page before travelling: times and availability can change.',
@@ -713,6 +720,7 @@ const COPY: Record<Locale, Copy> = {
     at: 'im',
     generatedImageLabel: 'Illustrative KI-generierte Abbildung',
     licensedImageLabel: 'Foto',
+    modifiedImageLabel: 'zugeschnitten, skaliert und in WebP konvertiert',
     exploreMore: 'Ebenfalls entdecken',
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology: 'Die Veranstaltungen werden automatisch aus öffentlichen Tessiner Agenden gesammelt und täglich aktualisiert. Jeder Anlass wird anhand des Veranstaltungsorts oder der angegebenen Region einer Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters: Zeiten und Verfügbarkeit können sich ändern.',
@@ -764,6 +772,7 @@ const COPY: Record<Locale, Copy> = {
     at: 'à',
     generatedImageLabel: 'Image illustrative générée par IA',
     licensedImageLabel: 'Photo',
+    modifiedImageLabel: 'recadrée, redimensionnée et convertie en WebP',
     exploreMore: 'À explorer aussi',
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology: 'Les événements sont recueillis automatiquement dans les agendas publics du Tessin et actualisés chaque jour. Chaque événement est attribué à une commune selon le lieu ou la région indiquée par la source. Vérifiez toujours date, horaire et lieu sur la page d\'origine de l\'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.',
@@ -1613,7 +1622,12 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),
-    creditText: event.imageCredit || event.sourceName,
+    creditText: [
+      event.imageCredit || event.sourceName,
+      ...(Array.isArray(event.imageModifications) && event.imageModifications.length
+        ? ['cropped, resized and converted to WebP']
+        : []),
+    ].join(' · '),
     width: 1200,
     height: 675,
     ...(creator ? { creator } : {}),

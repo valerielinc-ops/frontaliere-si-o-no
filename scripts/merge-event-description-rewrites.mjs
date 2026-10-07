@@ -2,11 +2,17 @@
 
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION, loadEventDescriptionRewriteCache } from './lib/event-description-policy.mjs';
 import {
-  countPendingEvents,
+  EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  EVENT_DESCRIPTION_POLICY_VERSION,
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+  EVENT_DESCRIPTION_REWRITE_MODEL,
+  loadEventDescriptionRewriteCache,
+} from './lib/event-description-policy.mjs';
+import {
+  REJECTION_MEMORY_SCHEMA_VERSION,
   mergeRewriteCaches,
-  readJsonFile,
+  summarizeRewriteQueue,
 } from './lib/event-description-throughput.mjs';
 
 function argument(name, fallback = '') {
@@ -36,24 +42,68 @@ function findFiles(root, basename) {
   return files.sort();
 }
 
-function mergeStats(statsFiles, plan, mergedCache, datasetPath) {
+function sumStats(stats, key) {
+  return stats.reduce((total, shard) => total + (Number(shard[key]) || 0), 0);
+}
+
+function mergeCounterMaps(stats, key) {
+  return stats.reduce((all, item) => {
+    for (const [name, count] of Object.entries(item[key] || {})) all[name] = (all[name] || 0) + (Number(count) || 0);
+    return all;
+  }, {});
+}
+
+function stableValue(value) {
+  if (Array.isArray(value)) return value.map(stableValue);
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stableValue(value[key])]));
+  }
+  return value;
+}
+
+function recentSuccessfulRuns(currentStats, recentStatsFiles) {
+  const candidates = [
+    currentStats,
+    ...recentStatsFiles.map((file) => readJson(file, null)).filter(Boolean),
+  ];
+  const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+  const seen = new Set();
+  return candidates.filter((run, index) => {
+    const completedAt = Date.parse(run.completedAt || run.startedAt || '');
+    if (!Number.isFinite(completedAt) || completedAt < cutoff) return false;
+    const key = String(run.runId || `file-${index}`);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function mergeStats(statsFiles, plan, mergedCache, datasetPath, recentStatsFiles = []) {
   const stats = statsFiles.map((file) => readJson(file, {})).filter(Boolean);
-  const sum = (key) => stats.reduce((total, shard) => total + (Number(shard[key]) || 0), 0);
+  const sum = (key) => sumStats(stats, key);
   const durationMs = stats.reduce((max, shard) => Math.max(max, Number(shard.durationMs) || 0), 0);
   const dataset = readJson(datasetPath, { events: [] });
-  const queueRemaining = countPendingEvents(dataset, mergedCache);
+  const queueState = summarizeRewriteQueue(dataset, mergedCache);
   const accepted = sum('accepted');
-  const acceptedPerDay = accepted * 24;
-  return {
-    throughputSchemaVersion: 1,
+  const currentStats = {
     runId: process.env.GITHUB_RUN_ID || '',
+    completedAt: new Date().toISOString(),
+    accepted,
+  };
+  const recentRuns = recentSuccessfulRuns(currentStats, recentStatsFiles);
+  const acceptedPerDay = recentRuns.reduce((total, run) => total + (Number(run.accepted) || 0), 0);
+  const selected = sum('selected');
+  return {
+    throughputSchemaVersion: 2,
+    runId: currentStats.runId,
+    completedAt: currentStats.completedAt,
     effectiveShards: Number(plan?.effectiveShards) || stats.length,
     eventsPerShard: Number(plan?.eventsPerShard) || 0,
     quotaErrorThreshold: Number(plan?.quotaErrorThreshold) || 0,
     direction: plan?.direction || '',
     planReason: plan?.reason || '',
     shardCount: stats.length,
-    selected: sum('selected'),
+    selected,
     accepted,
     rejected: sum('rejected'),
     calls: sum('calls'),
@@ -74,16 +124,28 @@ function mergeStats(statsFiles, plan, mergedCache, datasetPath) {
     backoffMs: sum('backoffMs'),
     acceptedByModel: sum('acceptedByModel'),
     acceptedByFallback: sum('acceptedByFallback'),
-    eventAttemptsPerSelected: Number((sum('eventAttempts') / Math.max(sum('selected'), 1)).toFixed(2)),
+    eventAttemptsPerSelected: Number((sum('eventAttempts') / Math.max(selected, 1)).toFixed(2)),
     eventAttemptsPerAccepted: Number((sum('eventAttempts') / Math.max(accepted, 1)).toFixed(2)),
     observedMsPerAccepted: Number((sum('observedElapsedMs') / Math.max(accepted, 1)).toFixed(1)),
-    queueRemaining,
+    selectedNeverAttempted: sum('selectedNeverAttempted'),
+    selectedRetries: sum('selectedRetries'),
+    acceptedNeverAttempted: sum('acceptedNeverAttempted'),
+    acceptedRetries: sum('acceptedRetries'),
+    rejectedNeverAttempted: sum('rejectedNeverAttempted'),
+    rejectedRetries: sum('rejectedRetries'),
+    parkedFallbackCandidates: sum('parkedFallbackCandidates'),
+    parkedUnchanged: sum('parkedUnchanged'),
+    toAttempt: queueState.toAttempt,
+    neverAttempted: queueState.neverAttempted,
+    retryable: queueState.retryable,
+    waitingRetry: queueState.waitingRetry,
+    parked: queueState.parked,
+    queueRemaining: queueState.workable,
     acceptedPerDay,
-    estimatedDaysRemaining: acceptedPerDay > 0 ? Number((queueRemaining / acceptedPerDay).toFixed(2)) : null,
-    rejectionCodes: stats.reduce((all, shard) => {
-      for (const [code, count] of Object.entries(shard.rejectionCodes || {})) all[code] = (all[code] || 0) + (Number(count) || 0);
-      return all;
-    }, {}),
+    recentSuccessfulRuns: recentRuns.length,
+    estimatedDaysRemaining: acceptedPerDay > 0 ? Number((queueState.workable / acceptedPerDay).toFixed(2)) : null,
+    rejectionCodes: mergeCounterMaps(stats, 'rejectionCodes'),
+    rejectionDetails: mergeCounterMaps(stats, 'rejectionDetails'),
     shards: stats.map((shard) => ({
       shardIndex: shard.shardIndex,
       selected: shard.selected,
@@ -108,6 +170,8 @@ const outputPath = path.resolve(argument('--output', basePath));
 const statsOutput = argument('--stats-output');
 const datasetPath = path.resolve(argument('--dataset', 'data/events.json'));
 const planPath = argument('--plan');
+const recentStatsDirArgument = argument('--recent-stats-dir');
+const recentStatsDir = recentStatsDirArgument ? path.resolve(recentStatsDirArgument) : '';
 
 const baseCache = loadEventDescriptionRewriteCache(basePath);
 const shardCacheFiles = findFiles(shardDir, 'cache.json');
@@ -115,19 +179,30 @@ const shardStatsFiles = findFiles(shardDir, 'stats.json');
 const shardCaches = shardCacheFiles.map((file) => readJson(file, { entries: {} }));
 const merged = mergeRewriteCaches(baseCache, shardCaches);
 const output = {
-  schemaVersion: merged.schemaVersion ?? EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  schemaVersion: EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION,
+  rejectionMemorySchemaVersion: REJECTION_MEMORY_SCHEMA_VERSION,
   generatedAt: new Date().toISOString(),
-  model: merged.model,
-  promptVersion: merged.promptVersion,
+  model: EVENT_DESCRIPTION_REWRITE_MODEL,
+  promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
+  policyVersion: EVENT_DESCRIPTION_POLICY_VERSION,
   entries: merged.entries,
+  rejections: merged.rejections,
 };
 mkdirSync(path.dirname(outputPath), { recursive: true });
 writeFileSync(outputPath, `${JSON.stringify(output, null, 2)}\n`, { mode: 0o600 });
 
 const plan = planPath ? readJson(planPath, {}) : {};
-const stats = mergeStats(shardStatsFiles, plan, output, datasetPath);
+const recentStatsFiles = recentStatsDir ? findFiles(recentStatsDir, 'event-description-rewrite-stats.json') : [];
+const stats = mergeStats(shardStatsFiles, plan, output, datasetPath, recentStatsFiles);
 stats.cacheMerge = merged.mergeStats;
 stats.shardArtifacts = shardCacheFiles.length;
+stats.cacheChanged = JSON.stringify(stableValue({
+  entries: baseCache.entries || {},
+  rejections: baseCache.rejections || {},
+})) !== JSON.stringify(stableValue({
+  entries: output.entries || {},
+  rejections: output.rejections || {},
+}));
 if (statsOutput) {
   writeFileSync(path.resolve(statsOutput), `${JSON.stringify(stats, null, 2)}\n`, { mode: 0o600 });
 }

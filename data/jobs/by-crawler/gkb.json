@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-10-07T09:15:11.240Z",
+  "assembledAt": "2026-10-07T21:19:07.328Z",
   "jobs": [
     {
       "id": "gkb-f712e7fcb987",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1914/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:06.581Z",
+      "crawledAt": "2026-10-07T21:19:01.154Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1920/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:05.697Z",
+      "crawledAt": "2026-10-07T21:19:00.318Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1919/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:04.803Z",
+      "crawledAt": "2026-10-07T21:18:59.466Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -286,7 +286,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1921/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:03.907Z",
+      "crawledAt": "2026-10-07T21:18:58.648Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1904/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:03.014Z",
+      "crawledAt": "2026-10-07T21:18:57.800Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -412,6 +412,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.923Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -458,7 +459,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1905/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:02.128Z",
+      "crawledAt": "2026-10-07T21:18:56.818Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -501,6 +502,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.619Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -547,7 +549,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1906/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:01.232Z",
+      "crawledAt": "2026-10-07T21:18:55.988Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -586,6 +588,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.315Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -632,7 +635,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1892/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:15:00.350Z",
+      "crawledAt": "2026-10-07T21:18:55.125Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -677,6 +680,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:50.012Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -723,7 +727,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:59.444Z",
+      "crawledAt": "2026-10-07T21:18:54.290Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -761,6 +765,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:49.407Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -807,7 +812,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:58.542Z",
+      "crawledAt": "2026-10-07T21:18:53.438Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -842,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T21:29:48.798Z",
+      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -888,7 +894,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:57.650Z",
+      "crawledAt": "2026-10-07T21:18:52.616Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -976,7 +982,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1950/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:56.779Z",
+      "crawledAt": "2026-10-07T21:18:51.786Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1065,7 +1071,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1955/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:55.890Z",
+      "crawledAt": "2026-10-07T21:18:50.965Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1111,6 +1117,7 @@
         "berater-in-firmenkunden-recovery-80-100-gkb-ch"
       ],
       "firstSeenAt": "2026-07-30T11:16:56.532Z",
+      "needsRetranslation": true,
       "salaryMin": 165000,
       "salaryMax": 290000,
       "salarySource": "estimated",
@@ -1157,7 +1164,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:55.017Z",
+      "crawledAt": "2026-10-07T21:18:50.117Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1198,6 +1205,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:45.906Z",
+      "needsRetranslation": true,
       "salaryMin": 79200,
       "salaryMax": 139200,
       "salarySource": "estimated",
@@ -1232,11 +1240,11 @@
         "de": "Assistent:in Hypotheken Thusis (40%)",
         "fr": "Assistante : en hypothèques de base (40%)"
       },
-      "description": "Graubündner Kantonalbank | online seit: 26.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+      "description": "Graubündner Kantonalbank | online seit: 08/26/2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
         "it": "Graubündner Kantonalbank | online dal 18.08.2026 | Qualunque sia il tuo futuro. A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Ti piace una funzione di assistente versatile, come pensare lungo e sono alla ricerca di un compito a lungo termine in cui si può contribuire? Allora hai proprio ragione con noi! | da ora in poi o per accordo |\n• Supporto del team Mortgage\n• Trattamento indipendente degli ordini del cliente\n• Telefono e contatto personale del cliente\n• Attività amministrative varie\n• Organizzazione e trattamento dei due rinnovi annuali |\n• Istruzione commerciale, preferibilmente bancario o stage\n• La conoscenza precedente nel settore del finanziamento è un vantaggio\n• Alto orientamento al cliente, disponibilità a svolgere e resilienza\n• Personalità flessibile e orientata al team con metodi di lavoro indipendenti e affidabili\n• In combinazione con gli studi part-time possibili | Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei presentare domanda",
         "en": "Graubündner Kantonalbank | online since 18.08.2026 | Whatever your future will look like. At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Do you enjoy a versatile assistant function, like to think along and are looking for a long-term task in which you can contribute? Then you are exactly right with us! | from now on or by agreement |\n• Support of the Mortgage Team\n• Independent processing of client orders\n• Telephone and personal customer contact\n• Miscellaneous administrative activities\n• Organization and processing of annually due renewals |\n• Commercial education, preferably banking or internship\n• Previous knowledge in the financing business is an advantage\n• High customer orientation, willingness to perform and resilience\n• Flexible, team-oriented personality with independent, reliable working methods\n• In combination with part-time studies possible | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
-        "de": "Graubündner Kantonalbank | online seit: 26.08.2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
+        "de": "Graubündner Kantonalbank | online seit: 08/26/2026 | „Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.“ Hast du Freude an einer vielseitigen Assistenzfunktion, denkst gerne mit und suchst eine langfristige Aufgabe, in der du dich einbringen kannst? Dann bist du bei uns genau richtig! | ab sofort oder nach Vereinbarung |\n• Unterstützung des Hypothekar-Teams\n• Selbstständige Abwicklung von Kundenaufträgen\n• Telefonischer und persönlicher Kundenkontakt\n• Verschiedene administrative Tätigkeiten\n• Organisation und Bearbeitung der jährlich fälligen Prolongationen |\n• Kaufmännische Ausbildung, vorzugsweise Banklehre oder Praktikum\n• Vorkenntnisse im Finanzierungsgeschäft von Vorteil\n• Hohe Kundenorientierung, Leistungsbereitschaft und Belastbarkeit\n• Flexible, teamorientierte Persönlichkeit mit selbstständiger zuverlässiger Arbeitsweise\n• In Kombination mit berufsbegleitendem Studium möglich | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis 18.08.2026 Quel que soit votre avenir. Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Appréciez-vous une fonction d'assistant polyvalente, comme penser le long et sont à la recherche d'une tâche à long terme dans laquelle vous pouvez contribuer? Alors tu as exactement raison avec nous ! Désormais ou par accord\n• Soutien de l'équipe d'hypothèques\n• Traitement indépendant des commandes des clients\n• Téléphone et contact client personnel\n• Activités administratives diverses\n• Organisation et traitement des renouvellements annuels dus\n• Éducation commerciale, de préférence bancaire ou de stage\n• Les connaissances antérieures dans l'entreprise de financement est un avantage\n• Orientation client élevée, volonté de performance et résilience\n• Personnalité flexible, orientée équipe avec des méthodes de travail indépendantes et fiables\n• En combinaison avec des études à temps partiel possibles. Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous, que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Thusis",
@@ -1244,7 +1252,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1924/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:54.141Z",
+      "crawledAt": "2026-10-07T21:18:49.259Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1288,6 +1296,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T22:03:08.013Z",
+      "needsRetranslation": true,
       "salaryMin": 39600,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -1308,7 +1317,7 @@
       "slug": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
       "slugByLocale": {
         "it": "stagista-asb-bancario-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
-        "en": "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european",
+        "en": "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis",
         "de": "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
         "fr": "stagist-asb-banking-roveredo-a-partir-d-aout-2027-graubundner-kantonalbank-thusis"
       },
@@ -1334,7 +1343,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1908/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:53.249Z",
+      "crawledAt": "2026-10-07T21:18:48.519Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1356,14 +1365,14 @@
       "previousSlugs": [
         "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis",
         "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch",
-        "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
+        "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagista-asb-banking-roveredo-da-agosto-2027-gkb-ch"
         ],
         "en": [
-          "stagista-asb-banking-roveredo-da-agosto-2027-graubundner-kantonalbank-thusis"
+          "the-commission-has-decided-to-initiate-proceedings-under-article-93-2-of-the-treaty-on-the-functioning-of-the-european"
         ],
         "de": [
           "stagist-asb-banking-roveredo-ab-august-2027-graubundner-kantonalbank-thusis"
@@ -1417,7 +1426,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1974/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:52.354Z",
+      "crawledAt": "2026-10-07T21:18:47.675Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1467,6 +1476,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:06.872Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 103500,
       "salarySource": "estimated",
@@ -1513,7 +1523,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1976/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:51.457Z",
+      "crawledAt": "2026-10-07T21:18:46.833Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -1595,7 +1605,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1975/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:50.562Z",
+      "crawledAt": "2026-10-07T21:18:45.985Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1628,6 +1638,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:09.406Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "salarySource": "estimated",
@@ -1674,7 +1685,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1980/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:49.669Z",
+      "crawledAt": "2026-10-07T21:18:45.146Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1751,7 +1762,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1977/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:48.794Z",
+      "crawledAt": "2026-10-07T21:18:44.300Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1837,7 +1848,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1978/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:47.897Z",
+      "crawledAt": "2026-10-07T21:18:43.457Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1892,9 +1903,9 @@
       "slug": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
       "slugByLocale": {
         "it": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
-        "en": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
+        "en": "nnh-holding-ag-employee-quality-and-contract-management-80-100-zurich-graubundner-kantonalbank-zurich",
         "de": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
-        "fr": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
+        "fr": "nnh-holding-ag-employe-en-gestion-de-la-qualite-et-des-contrats-80-100-zurich-graubundner-kantonalbank-zurich"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -1902,9 +1913,9 @@
       "title": "NNH Holding AG: Mitarbeiter:in Qualitäts- und Vertragsmanagement (80-100%), Zürich",
       "titleByLocale": {
         "it": "NNH Holding AG: Collaboratore/trice Qualitäts- e Vertragsmanagement (80-100%), Zürich",
-        "en": "NNH Holding AG: Associate Qualitäts- und Vertragsmanagement (80-100%), Zürich",
+        "en": "NNH Holding AG: Employee Quality and Contract Management (80-100%), Zurich",
         "de": "NNH Holding AG: Mitarbeiter:in Qualitäts- und Vertragsmanagement (80-100%), Zürich",
-        "fr": "NNH Holding AG: Collaborateur/trice Qualitäts- und Vertragsmanagement (80-100%), Zürich"
+        "fr": "NNH Holding AG : Employé :en gestion de la qualité et des contrats (80-100%), Zurich"
       },
       "description": "Graubündner Kantonalbank | online seit: 05.10.2026 | NNH Holding AG - Wir sind ein Start-Up mit aktuell sechs Mitarbeitenden und arbeiten zusammen mit unseren Aktionären (Kantonalbanken), Beteiligungen und Partnern am Aufbau einer digitalen Plattform im Bereich «Wohnen». Unser Fokus liegt auf der Entwicklung von B2B-Angeboten, die unsere Kunden im Dialog mit ihren Endkunden und intern nutzen. Da wir mit Bankdaten arbeiten, haben Zuverlässigkeit, Qualität und Compliance für uns einen sehr hohen Stellenwert. In deiner neuen Rolle unterstützt du einen effizienten und sicheren Betrieb unserer Plattform. Du übernimmst wesentliche Aufgaben im Testing und bist Ansprechpartner für die Überwachung der Qualität unserer Services. Zudem verantwortest das Vertragsmanagement und entwickelst unsere Prozesse für die Standardisierung der Vertragsdokumente kontinuierlich weiter. Wir bieten dir vielfältige Aufgaben, die du in unternehmensübergreifenden, interdisziplinären Teams zum Erfolg führst. | ab Januar 2027 oder nach Vereinbarung |\n• Durchführung manueller System- und Abnahmetests (UAT) inklusive Dokumentation der Testergebnisse sowie Nachverfolgung von Fehlerbehebungen bis zum erfolgreichen Abschluss\n• Weiterentwicklung von Teststrategien und Testprozessen, Erarbeitung geeigneter Testdaten sowie Koordination der Testaktivitäten\n• Verantwortung für die Messung, Analyse und das Reporting von Qualitätskennzahlen (KPIs)\n• Pflege und laufende Aktualisierung des Vertragsinventars mit Sicherstellung einer lückenlosen Vertragserfassung\n• Überwachung von Vertragslaufzeiten, Kündigungsfristen und vereinbarten Verpflichtungen sowie rechtzeitige Auslösung von Review-Prozessen\n• Verwaltung und Aktualisierung von Standardverträgen und Templates in Abstimmung mit dem Team sowie Sicherstellung der Verwendung der jeweils aktuellen Versionen |\n• Mehrjährige Erfahrung im IT-Betrieb, Testmanagement und/oder Qualitätsmanagement, bevorzugt mit entsprechenden Weiterbildungen\n• Ausgeprägte analytische Fähigkeiten, strukturierte Arbeitsweise und Kommunikationsstärke\n• Kundenorientierte, selbständige und belastbare Persönlichkeit mit hohem Qualitätsanspruch\n• Sprachen: Deutsch verhandlungssicher, Englisch Niveau B2 | Bist du bereit, gemeinsam mit uns B2B-Services rund ums Thema \"Wohnen\" auf einer modernen Cloud-Plattform für unsere Aktionäre und Kunden bereitzustellen? Dann sende deine Bewerbungsunterlagen direkt an Samira ( samira.amanda.luzi@gkb.ch ). Dein Ansprechpartner für weitere Fragen: Ronny Fuchs, CTO NNH Holding AG ronny.fuchs@nnh-holding.ch Dein HR Kontakt: Samira Amanda Luzi, HR Business Partner samira.amanda.luzi@gkb.ch Die NNH Holding AG ist im Besitz von 18 Kantonalbanken. Seit Herbst 2022 arbeitet die NNH als operative Gesellschaft am Thema Ökosystem Wohnen. Zudem hält die NNH Holding zwei Beteiligungen an der newhome AG und der Swiss Digital Home AG. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
@@ -1918,7 +1929,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1979/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:46.981Z",
+      "crawledAt": "2026-10-07T21:18:42.629Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressCountry": "CH",
@@ -1940,11 +1951,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
+        ],
+        "en": [
+          "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
+        ],
+        "fr": [
+          "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1968,9 +1986,9 @@
       "id": "gkb-3edd13b93955",
       "slug": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
       "slugByLocale": {
-        "de": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
         "it": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
         "en": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
+        "de": "senior-produktmanager-in-finanzieren-60-100-gkb-ch",
         "fr": "senior-produktmanager-in-finanzieren-60-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
@@ -1978,16 +1996,16 @@
       "companyDomain": "gkb.ch",
       "title": "Senior Produktmanager:in Finanzieren (60-100%)",
       "titleByLocale": {
-        "de": "Senior Produktmanager:in Finanzieren (60-100%)",
         "it": "Senior Produktmanager:in Finanzieren (60-100%)",
         "en": "Senior Produktmanager:in Finanzieren (60-100%)",
+        "de": "Senior Produktmanager:in Finanzieren (60-100%)",
         "fr": "Senior Produktmanager:in Finanzieren (60-100%)"
       },
       "description": "Graubündner Kantonalbank | online seit: 07.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Schlägt dein Herz beim Thema Finanzieren höher? Bist du eine Persönlichkeit die Veränderung aktiv vorantreibt? Möchtest du künftig in einer modernen Arbeitsumgebung und einer wertschätzenden Teamkultur arbeiten? Dann bietet dir dieser Job die Möglichkeit dazu. | ab sofort oder nach Vereinbarung |\n• Produktverantwortung im Topic Team Finanzieren als Senior Produktmanager:in\n• Spannende Produkt-Lifecyclemanagement Aufgaben mit End to End Verantwortung: Von Markt- und Trendanalysen über strategische, konzeptionelle Arbeiten bis hin zur technischen Umsetzung\n• Engagement in (Gesamtbank-) Projekten in enger Zusammenarbeit mit verschiedenen Schnittstellen\n• Affinität für Digitalisierung, technische Umsetzung sowie Motivation, sich in Businessanalysen zu vertiefen\n• Steuerung des Pricings von Finanzierungs-Produkten in Absprache mit den internen Anspruchsgruppen |\n• Mehrjährige relevante Berufserfahrung\n• Abgeschlossenes Studium in Wirtschaftswissenschaften oder vergleichbare Ausbildung (Universität/Fachhochschule/MAS etc.). Weiterbildungen im Finanzierungsbereich sind ein Plus\n• Macherpersönlichkeit, die Passion für Finanzierungsthemen mitbringt\n• Stark mit Zahlen, ausgeprägte analytische Fähigkeiten und vernetztes Denkvermögen\n• Hohes Qualitätsbewusstsein und in der Lage, ins Detail zu gehen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
       "descriptionByLocale": {
-        "de": "Graubündner Kantonalbank | online seit: 07.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Schlägt dein Herz beim Thema Finanzieren höher? Bist du eine Persönlichkeit die Veränderung aktiv vorantreibt? Möchtest du künftig in einer modernen Arbeitsumgebung und einer wertschätzenden Teamkultur arbeiten? Dann bietet dir dieser Job die Möglichkeit dazu. | ab sofort oder nach Vereinbarung |\n• Produktverantwortung im Topic Team Finanzieren als Senior Produktmanager:in\n• Spannende Produkt-Lifecyclemanagement Aufgaben mit End to End Verantwortung: Von Markt- und Trendanalysen über strategische, konzeptionelle Arbeiten bis hin zur technischen Umsetzung\n• Engagement in (Gesamtbank-) Projekten in enger Zusammenarbeit mit verschiedenen Schnittstellen\n• Affinität für Digitalisierung, technische Umsetzung sowie Motivation, sich in Businessanalysen zu vertiefen\n• Steuerung des Pricings von Finanzierungs-Produkten in Absprache mit den internen Anspruchsgruppen |\n• Mehrjährige relevante Berufserfahrung\n• Abgeschlossenes Studium in Wirtschaftswissenschaften oder vergleichbare Ausbildung (Universität/Fachhochschule/MAS etc.). Weiterbildungen im Finanzierungsbereich sind ein Plus\n• Macherpersönlichkeit, die Passion für Finanzierungsthemen mitbringt\n• Stark mit Zahlen, ausgeprägte analytische Fähigkeiten und vernetztes Denkvermögen\n• Hohes Qualitätsbewusstsein und in der Lage, ins Detail zu gehen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "it": "Graubündner Kantonalbank | on-line da: 07.10.2026 | \"Qualsiasi sia il tuo futuro\". A Graubündner Kantonalbank, ci assicuriamo che non sia solo un futuro, ma il miglior futuro di sempre. Il tuo cuore batte più in alto quando si tratta di finanza? Sei una personalità che guida attivamente il cambiamento? Vuoi lavorare in un ambiente di lavoro moderno e in futuro una cultura del team apprezzata? Allora questo lavoro ti dà l'opportunità. | da ora in poi o per accordo |\n• Responsabilità del prodotto nel Topic Team Finance come Senior Product Manager:in\n• Emozionanti compiti di gestione del ciclo di vita del prodotto con responsabilità end-to-end: Dal mercato e dalle analisi di tendenza al lavoro strategico e concettuale all'implementazione tecnica\n• Engagement in (overall banking) progetti in stretta collaborazione con varie interfacce\n• Affinità per la digitalizzazione, l'implementazione tecnica e la motivazione per approfondire le analisi aziendali\n• Controllo dei prezzi dei prodotti di finanziamento in consultazione con gli stakeholder interni |\n• Esperienza professionale pluriennale\n• Studi completi in economia o formazione comparabile (università/università tecnica/MAS ecc.). L'ulteriore formazione nell'area di finanziamento è un vantaggio\n• Personalità del creatore che ha una passione per il finanziamento di argomenti\n• Forte con numeri, forti capacità analitiche e competenze di pensiero in rete\n• Sensibilizzazione di alta qualità ed essere in grado di entrare nei dettagli | Sei pronto per il tuo futuro migliore? Quindi applicare ora. Non siamo alla ricerca di CV perfetti, ma talenti con curiosità, guida e un senso di responsabilità. Anche se non porti tutto: Se vuoi crescere, hai ragione con noi – sia all'inizio della tua carriera che già con molta esperienza nei tuoi bagagli. | Sono interessato e vorrei presentare domanda",
         "en": "Graubündner Kantonalbank | online since: 07.10.2026 | \"Whatever your future will look like\". At Graubündner Kantonalbank, we ensure that it is not just any future, but the best future ever. Does your heart beat higher when it comes to finance? Are you a personality actively driving change? Do you want to work in a modern working environment and an appreciative team culture in the future? Then this job gives you the opportunity. | from now on or by agreement |\n• Product responsibility in the Topic Team Finance as Senior Product Manager:in\n• Exciting product lifecycle management tasks with end-to-end responsibility: From market and trend analyses to strategic, conceptual work to technical implementation\n• Engagement in (overall banking) projects in close cooperation with various interfaces\n• Affinity for digitalization, technical implementation and motivation to deepen in business analyses\n• Control of the pricing of financing products in consultation with the internal stakeholders |\n• Multiannual relevant professional experience\n• Completed studies in economics or comparable training (university/technical college/MAS etc.). Further training in the financing area is a plus\n• Maker personality who has a passion for financing topics\n• Strong with numbers, strong analytical skills and networked thinking skills\n• High quality awareness and being able to go into detail | Are you ready for your best future? Then apply now. We are not looking for perfect CVs, but talents with curiosity, drive and a sense of responsibility. Even if you do not bring everything: If you want to grow, you are right with us – whether at the beginning of your career or already with a lot of experience in your luggage. | I am interested and would like to apply",
+        "de": "Graubündner Kantonalbank | online seit: 07.10.2026 | \"Wie auch immer deine Zukunft aussehen wird. Wir bei der Graubündner Kantonalbank sorgen dafür, dass es nicht irgendeine Zukunft wird, sondern die beste Zukunft aller Zeiten.\" Schlägt dein Herz beim Thema Finanzieren höher? Bist du eine Persönlichkeit die Veränderung aktiv vorantreibt? Möchtest du künftig in einer modernen Arbeitsumgebung und einer wertschätzenden Teamkultur arbeiten? Dann bietet dir dieser Job die Möglichkeit dazu. | ab sofort oder nach Vereinbarung |\n• Produktverantwortung im Topic Team Finanzieren als Senior Produktmanager:in\n• Spannende Produkt-Lifecyclemanagement Aufgaben mit End to End Verantwortung: Von Markt- und Trendanalysen über strategische, konzeptionelle Arbeiten bis hin zur technischen Umsetzung\n• Engagement in (Gesamtbank-) Projekten in enger Zusammenarbeit mit verschiedenen Schnittstellen\n• Affinität für Digitalisierung, technische Umsetzung sowie Motivation, sich in Businessanalysen zu vertiefen\n• Steuerung des Pricings von Finanzierungs-Produkten in Absprache mit den internen Anspruchsgruppen |\n• Mehrjährige relevante Berufserfahrung\n• Abgeschlossenes Studium in Wirtschaftswissenschaften oder vergleichbare Ausbildung (Universität/Fachhochschule/MAS etc.). Weiterbildungen im Finanzierungsbereich sind ein Plus\n• Macherpersönlichkeit, die Passion für Finanzierungsthemen mitbringt\n• Stark mit Zahlen, ausgeprägte analytische Fähigkeiten und vernetztes Denkvermögen\n• Hohes Qualitätsbewusstsein und in der Lage, ins Detail zu gehen | Bist du bereit für deine beste Zukunft? Dann bewirb dich jetzt. Wir suchen keine perfekten CVs, sondern Talente mit Neugier, Drive und Verantwortungsbewusstsein. Auch wenn du nicht alles mitbringst: Wenn du wachsen willst, bist du bei uns richtig – ob am Anfang deiner Laufbahn oder bereits mit viel Erfahrung im Gepäck. | Ich bin interessiert und möchte mich bewerben",
         "fr": "Graubündner Kantonalbank en ligne depuis: 07.10.2026: \"Quel que soit votre avenir ressemblera\". Chez Graubündner Kantonalbank, nous nous assurons que ce n'est pas n'importe quel avenir, mais le meilleur avenir jamais. Votre cœur bat-il plus haut quand il s'agit de financer ? Êtes-vous une personnalité qui conduit activement au changement? Voulez-vous travailler dans un environnement de travail moderne et une culture d'équipe reconnaissante à l'avenir? Alors ce travail vous donne l'opportunité. Désormais ou par accord\n• La responsabilité du produit dans le thème de l'équipe Finances en tant que gestionnaire principal des produits:in\n• Exciting des tâches de gestion du cycle de vie des produits avec responsabilité de bout en bout: des analyses de marché et des tendances aux travaux stratégiques et conceptuels à la mise en œuvre technique\n• Engagement dans des projets (bancaires généraux) en étroite coopération avec diverses interfaces\n• Affinité pour la numérisation, la mise en œuvre technique et la motivation à approfondir les analyses commerciales\n• Contrôle de la tarification des produits de financement en consultation avec les acteurs internes\n• Expérience professionnelle pertinente pluriannuelle\n• Études terminées en économie ou formation comparable (université/collège technique/MAS, etc.). La formation continue dans le domaine financier est un plus\n• Personnalité Maker qui a une passion pour les sujets de financement\n• Fort avec des chiffres, de solides compétences analytiques et des compétences de pensée en réseau\n• Sensibilisation de haute qualité et être en mesure d'entrer dans le détail. Alors appliquez maintenant. Nous ne cherchons pas des CV parfaits, mais des talents avec curiosité, dynamisme et sens des responsabilités. Même si vous n'apportez pas tout: Si vous voulez grandir, vous avez raison avec nous, que ce soit au début de votre carrière ou déjà avec beaucoup d'expérience dans vos bagages. Je suis intéressé et je voudrais postuler"
       },
       "location": "Chur",
@@ -1995,7 +2013,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1984/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:14:46.069Z",
+      "crawledAt": "2026-10-07T21:18:41.791Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2012,9 +2030,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1984/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
@@ -2122,7 +2138,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

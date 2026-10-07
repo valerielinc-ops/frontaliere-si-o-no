@@ -971,6 +971,13 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     ['a title opener after the last ")" of the line', `${'](a'.repeat(30_000)}) (${'x'.repeat(100_000)}`],
     // Not the scanner: the spacing tidy-up after the strip, quadratic on main.
     ['emptied brackets side by side', '[] '.repeat(66_000)],
+    // The label repair after the strip: 10 to 27 s on these before it was
+    // bounded to a short window in front of each destination.
+    ['placeholder labels on tens of thousands of links', '[COMPANY](a) '.repeat(40_000)],
+    ['emptied labels on tens of thousands of links', '[{COMPANY}](a) '.repeat(40_000)],
+    ['placeholder alternative text on tens of thousands of images', '![COMPANY](a) '.repeat(40_000)],
+    ['labels that lost their closing bracket, repeated', '[x [COMPANY]](a) '.repeat(30_000)],
+    ['doubled closing brackets in front of every destination', ']](a) '.repeat(40_000)],
   ] as const;
 
   it.each(PATHOLOGICAL_SHAPES)('stays within the linearity budget on %s', (_name, shape) => {
@@ -981,5 +988,161 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     expect(output).not.toContain('%COMPANY%');
     expect(output).toContain(ABSOLUTE);
     expect(elapsedMs).toBeLessThan(1000);
+  });
+});
+
+describe('translation glossary — a placeholder used as link text', () => {
+  // Review of the corpus transport 2418: the opaque span of a Markdown link
+  // started at `](`, so the closing bracket of the label was hidden and
+  // `[COMPANY](…)` kept its placeholder as publishable link text. An emptied
+  // label stays an empty label, as a template placeholder always left it.
+  const LABEL_CASES = [
+    {
+      name: 'the label is a vocabulary placeholder',
+      input: 'Lavora con [COMPANY](https://example.ch/jobs) a Lugano',
+      expected: 'Lavora con [](https://example.ch/jobs) a Lugano',
+    },
+    {
+      name: 'the label is a template placeholder',
+      input: 'Lavora con [{COMPANY}](https://example.ch/jobs) a Lugano',
+      expected: 'Lavora con [](https://example.ch/jobs) a Lugano',
+    },
+    {
+      name: 'the label is a double-bracket placeholder',
+      input: 'Lavora con [[COMPANY]](https://example.ch/jobs) a Lugano',
+      expected: 'Lavora con [](https://example.ch/jobs) a Lugano',
+    },
+    {
+      name: 'the link is the whole text',
+      input: '[COMPANY](https://example.ch/jobs)',
+      expected: '[](https://example.ch/jobs)',
+    },
+    {
+      name: 'a placeholder at the end of a label that keeps its text',
+      input: 'Vedi [offerta {COMPANY}](https://example.ch/{ID}/x) ora',
+      expected: 'Vedi [offerta](https://example.ch/{ID}/x) ora',
+    },
+    {
+      name: 'a placeholder at the start of a label that keeps its text',
+      input: 'Vedi [{COMPANY} offerta](https://example.ch/x) ora',
+      expected: 'Vedi [offerta](https://example.ch/x) ora',
+    },
+    {
+      name: 'a placeholder that takes the closing bracket of the label with it',
+      input: '[x [COMPANY]](https://example.ch/a)',
+      expected: '[x](https://example.ch/a)',
+    },
+    {
+      name: 'a nested bracket in a label that keeps its text',
+      input: '[a [b] {COMPANY}](https://e.ch/n)',
+      expected: '[a [b]](https://e.ch/n)',
+    },
+    {
+      name: 'an image whose alternative text is a placeholder',
+      input: 'Logo ![COMPANY](https://cdn.example/logo.png) qui',
+      expected: 'Logo ![](https://cdn.example/logo.png) qui',
+    },
+    {
+      name: 'an image whose alternative text is emptied',
+      input: 'Logo ![{COMPANY}](https://cdn.example/logo.png) qui',
+      expected: 'Logo ![](https://cdn.example/logo.png) qui',
+    },
+    {
+      name: 'an image that keeps part of its alternative text',
+      input: 'Logo ![foto {COMPANY}](https://cdn.example/logo.png) qui',
+      expected: 'Logo ![foto](https://cdn.example/logo.png) qui',
+    },
+    {
+      name: 'an untouched link next to a placeholder in prose',
+      input: 'Lavora con [Acme SA](https://example.ch/jobs) a Lugano {COMPANY}',
+      expected: 'Lavora con [Acme SA](https://example.ch/jobs) a Lugano',
+    },
+    {
+      name: 'a bracketed note in front of a link whose label loses a placeholder',
+      input: 'vedi [1] [nota {COMPANY}](https://e.ch/n) e [COMPANY]',
+      expected: 'vedi [1] [nota](https://e.ch/n) e',
+    },
+    {
+      name: 'an image opener keeps the blank in front of it',
+      input: 'Guarda ![img](https://cdn.example/a.png) {COMPANY}',
+      expected: 'Guarda ![img](https://cdn.example/a.png)',
+    },
+    // Review of the first version of this fix: the blank between `!` and the
+    // link was dropped before deciding what the `!` was, and the link came
+    // back as an image (`Wow![](…)`).
+    {
+      name: 'a link behind an exclamation mark stays a link',
+      input: 'Wow! [COMPANY](https://example.test/)',
+      expected: 'Wow! [](https://example.test/)',
+    },
+    {
+      name: 'an image glued to the word in front of it stays an image',
+      input: 'Wow![COMPANY](https://example.test/a.png)',
+      expected: 'Wow![](https://example.test/a.png)',
+    },
+    {
+      name: 'an image inside the label of a link',
+      input: '[![COMPANY](https://cdn.example/i.png)](https://e.ch/x)',
+      expected: '[![](https://cdn.example/i.png)](https://e.ch/x)',
+    },
+    {
+      name: 'a URL inside a label that loses a placeholder',
+      input: '[vedi https://e.ch/Perch%C3%A9 {COMPANY}](https://e.ch/x)',
+      expected: '[vedi https://e.ch/Perch%C3%A9](https://e.ch/x)',
+    },
+    {
+      name: 'an escaped bracket inside a label',
+      input: '[a \\] {COMPANY}](https://e.ch/x) fine',
+      expected: '[a \\]](https://e.ch/x) fine',
+    },
+  ] as const;
+
+  it.each(LABEL_CASES)('$name', ({ input, expected }) => {
+    expect(stripPlaceholderTokens(input)).toBe(expected);
+  });
+
+  it('never drops a destination, whatever happens to its label', () => {
+    for (const { input } of LABEL_CASES) {
+      const destinations = [...input.matchAll(/\]\((https?:[^)\s]+)\)/g)].map((match) => match[1]);
+      const output = stripPlaceholderTokens(input);
+      for (const destination of destinations) expect(output).toContain(`(${destination})`);
+      expect(output).not.toMatch(/COMPANY/);
+    }
+  });
+
+  it('leaves the tail of an unclosed link alone (second finding of the same review, not reproduced)', () => {
+    for (const input of ['Vedi [x](https://h/a_(b)/tail%COMPANY% fine', 'Vedi [x](https://h/a_(b)/tail%COMPANY%']) {
+      expect(stripPlaceholderTokens(input)).toBe(input);
+    }
+  });
+
+  it('returns a label no placeholder touches identical, to the byte', () => {
+    // Same review: a placeholder removed anywhere made every label of the
+    // text lose the blanks at its edges.
+    expect(stripPlaceholderTokens('Leggi [ testo ](https://e.ch/a) {COMPANY}'))
+      .toBe('Leggi [ testo ](https://e.ch/a)');
+    expect(stripPlaceholderTokens('Leggi [ testo  doppio ](https://e.ch/a) e [COMPANY](https://e.ch/b)'))
+      .toBe('Leggi [ testo  doppio ](https://e.ch/a) e [](https://e.ch/b)');
+  });
+
+  it('keeps the link closed and its destination intact on both sides of the label cap', () => {
+    // The opening bracket is searched within the cap of every other link
+    // part (512). Within reach the label is stripped on its own; beyond it
+    // the outer pass strips the placeholder and the closing bracket stays
+    // with the destination.
+    const shapes = new Set<string>();
+    for (let length = 495; length <= 520; length += 1) {
+      const output = stripPlaceholderTokens(`[${'x'.repeat(length)} {COMPANY}](https://e.ch/x) fine`);
+      expect(output).toMatch(/^\[x+ ?\]\(https:\/\/e\.ch\/x\) fine$/);
+      expect(output.match(/x+/)?.[0].length).toBe(length);
+      shapes.add(output.replace(/x+/, 'X'));
+    }
+    expect([...shapes].sort()).toEqual(['[X ](https://e.ch/x) fine', '[X](https://e.ch/x) fine']);
+  });
+
+  it('repairs a label behind a long paragraph and a second link on the same line', () => {
+    const prose = 'parola '.repeat(400);
+    const input = `${prose}[offerta {COMPANY}](https://e.ch/x) ${prose}[COMPANY](https://e.ch/y)`;
+    expect(stripPlaceholderTokens(input)).toBe(`${prose}[offerta](https://e.ch/x) ${prose}[](https://e.ch/y)`);
   });
 });

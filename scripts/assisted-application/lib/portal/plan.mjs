@@ -223,6 +223,11 @@ export function questionFromLabel(label) {
 
 const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
 const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
+// SuccessFactors (Rolex, 2026-10-07) labels the combined field «Rue et numéro».
+// Its wording is one address question even though «numéro» is not followed by
+// «civique» or «de la rue». Keep the conjunction bounded so a phone number or
+// another unrelated number in a longer label cannot become an address alias.
+const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
@@ -230,8 +235,9 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 function addressQuestionTopic(text) {
   const street = STREET_ADDRESS_RE.test(text);
   const houseNumber = HOUSE_NUMBER_RE.test(text);
+  const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
   if (!street && !houseNumber) return '';
-  if (street && houseNumber) return 'address';
+  if ((street && houseNumber) || streetNumberPair) return 'address';
   return houseNumber ? 'address_house_number' : 'address_street';
 }
 
@@ -352,7 +358,14 @@ function equivalentAnswer(question, left, right) {
 
 /** The candidate already answered this question, including a wording/ID variant. */
 export function candidateAnswerForQuestion(candidate, question) {
-  const items = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  // A portal can discover a new question while submitting, after the draft's
+  // question list was built. Keep the semantic fallback usable in that path
+  // too: the answer id still carries the portal question's wording as a slug.
+  const fromAnswerIds = Object.entries(candidate?.answers || {})
+    .filter(([id, answer]) => /^portal_/i.test(id) && String(answer || '').trim())
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+  const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
   const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
@@ -419,12 +432,8 @@ export function candidateAnswerForField(candidate, field) {
 /** The candidate already answered this very question with this answer (review page). */
 export function answeredByCandidate(candidate, question, answer) {
   const given = String(answer || '').trim();
-  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
-    .some((item) => {
-      const sameQuestion = comparableAnswer(questionFromLabel(item.question)) === comparableAnswer(questionFromLabel(question))
-        || (questionTopic(item.question) && questionTopic(item.question) === questionTopic(question));
-      return sameQuestion && equivalentAnswer(question, item.answer, given);
-    });
+  const previous = candidateAnswerForQuestion(candidate, question);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -593,7 +602,7 @@ export function agencyNoOption(field) {
 }
 
 // "Select One", "Bitte wählen", "-- Seleziona --": a dropdown still on its prompt holds nothing.
-const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez))?[-–—\s.…]*$/i;
+const PLACEHOLDER = /^[-–—\s]*(select( one| an option)?|choose( one)?|please (select|choose)( one)?|bitte (aus)?wählen|auswählen|seleziona(re)?|scegli|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(sélection|selection)(née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)?[-–—\s.…]*$/i;
 
 /** The field already has an answer on the page (filled before, or prefilled by the portal). */
 export function holdsValue(field) {
