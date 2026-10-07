@@ -255,9 +255,9 @@
     },
     {
       "id": "entero-22f1fa3284fe",
-      "slug": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
+      "slug": "cuoco-80-100-con-prospettiva-agogica-entero-niederlenz",
       "slugByLocale": {
-        "it": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
+        "it": "cuoco-80-100-con-prospettiva-agogica-entero-niederlenz",
         "en": "chef-80-100-with-an-agogic-perspective-entero-niederlenz",
         "de": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
         "fr": "chef-80-100-avec-une-perspective-agogique-entero-niederlenz"
@@ -317,13 +317,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
+      ]
     },
     {
       "id": "entero-f3595012c94c",
-      "slug": "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil",
+      "slug": "cuoco-cuoca-80-100-con-prospettiva-agogica-entero-egliswil",
       "slugByLocale": {
-        "it": "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil",
+        "it": "cuoco-cuoca-80-100-con-prospettiva-agogica-entero-egliswil",
         "en": "chef-80-100-with-an-agogic-perspective-entero-egliswil",
         "de": "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil",
         "fr": "chef-80-100-avec-une-perspective-agogique-entero-egliswil"
@@ -383,7 +391,15 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
+      ]
     }
   ]
 }

@@ -13214,12 +13214,12 @@
         "de": "Stv. Teamleader Zustellung Pakete",
         "fr": "Suppléant chef d'équipe Livraison colis"
       },
-      "slug": "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens",
+      "slug": "vice-teamleader-consegna-pacchi-die-schweizerische-post-kriens",
       "slugByLocale": {
-        "it": "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens",
-        "en": "stv-teamleader-delivery-packages-die-schweizerische-post-kriens",
+        "it": "vice-teamleader-consegna-pacchi-die-schweizerische-post-kriens",
+        "en": "deputy-team-leader-delivery-packages-die-schweizerische-post-kriens",
         "de": "stv-teamleader-zustellung-pakete-post",
-        "fr": "stv-packs-de-livraison-teamleader-die-schweizerische-post-kriens"
+        "fr": "suppleant-chef-d-equipe-livraison-colis-die-schweizerische-post-kriens"
       },
       "sourceLang": "de",
       "department": "",
@@ -13256,17 +13256,23 @@
       "firstSeenAt": "2026-09-30T21:46:39.487Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleader-zustellung-pakete-post"
+          "stv-teamleader-zustellung-pakete-post",
+          "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens"
         ],
         "en": [
-          "stv-teamleader-zustellung-pakete-post"
+          "stv-teamleader-zustellung-pakete-post",
+          "stv-teamleader-delivery-packages-die-schweizerische-post-kriens"
         ],
         "fr": [
-          "stv-teamleader-zustellung-pakete-post"
+          "stv-teamleader-zustellung-pakete-post",
+          "stv-packs-de-livraison-teamleader-die-schweizerische-post-kriens"
         ]
       },
       "previousSlugs": [
-        "stv-teamleader-zustellung-pakete-post"
+        "stv-teamleader-zustellung-pakete-post",
+        "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens",
+        "stv-teamleader-delivery-packages-die-schweizerische-post-kriens",
+        "stv-packs-de-livraison-teamleader-die-schweizerische-post-kriens"
       ],
       "postedDate": "2026-09-30",
       "postingDateSource": "reported",

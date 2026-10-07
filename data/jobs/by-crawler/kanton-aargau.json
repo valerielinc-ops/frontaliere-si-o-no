@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "kanton-aargau-6c764059b0c9",
-      "slug": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-e-analysen-im-bereich-behindertenhilfe-80-100-kanton-aargau-aarau",
+      "slug": "tirocinante-universitario-lavoro-di-progetto-e-analisi-nel-settore-dell-assistenza-ai-disabili-80-100-kanton-aargau",
       "slugByLocale": {
-        "it": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-e-analysen-im-bereich-behindertenhilfe-80-100-kanton-aargau-aarau",
+        "it": "tirocinante-universitario-lavoro-di-progetto-e-analisi-nel-settore-dell-assistenza-ai-disabili-80-100-kanton-aargau",
         "en": "university-intern-university-intern-project-work-and-analyses-in-the-field-of-disability-assistance-80-100-kanton-aargau",
         "de": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich",
         "fr": "stage-universitaire-stage-universitaire-travaux-et-analyses-dans-le-domaine-de-l-aide-aux-personnes-handicapees-80-100"
@@ -58,11 +58,13 @@
       "department": "Abteilung Sonderschulung, Heime und Werkstätten",
       "previousSlugs": [
         "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich",
-        "stage-universitaire-stage-universitaire-travaux-et-analyses-de-projets-dans-le-domaine-de-l-aide-aux-personnes"
+        "stage-universitaire-stage-universitaire-travaux-et-analyses-de-projets-dans-le-domaine-de-l-aide-aux-personnes",
+        "hochschulpraktikantin-hochschulpraktikant-projektarbeit-e-analysen-im-bereich-behindertenhilfe-80-100-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
+          "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich",
+          "hochschulpraktikantin-hochschulpraktikant-projektarbeit-e-analysen-im-bereich-behindertenhilfe-80-100-kanton-aargau-aarau"
         ],
         "en": [
           "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
@@ -674,12 +676,12 @@
     },
     {
       "id": "kanton-aargau-97bd4aeaa6e2",
-      "slug": "responsabile-di-progetto-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
+      "slug": "responsabile-di-progetto-servizio-sanitario-gestione-di-grandi-eventi-60-70-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
-        "en": "project-manager-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
+        "it": "responsabile-di-progetto-servizio-sanitario-gestione-di-grandi-eventi-60-70-kanton-aargau-aarau",
+        "en": "project-manager-medical-service-major-event-management-60-70-kanton-aargau-aarau",
         "de": "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
-        "fr": "chef-de-projet-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
+        "fr": "chef-fe-de-projet-gestion-des-grands-evenements-sanitaires-60-70-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -726,17 +728,23 @@
       "requirementsByLocale": {},
       "department": "Abteilung Gesundheit",
       "previousSlugs": [
-        "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+        "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
+        "responsabile-di-progetto-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
+        "project-manager-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
+        "chef-de-projet-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
+          "responsabile-di-progetto-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
         ],
         "en": [
-          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
+          "project-manager-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
         ],
         "fr": [
-          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
+          "chef-de-projet-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:09.981Z",
@@ -756,9 +764,9 @@
     },
     {
       "id": "kanton-aargau-2bdb3a535fbd",
-      "slug": "fachspezialistin-fachspezialist-rettungs-e-katastrophenwesen-60-kanton-aargau-aarau",
+      "slug": "specialista-specialista-in-soccorso-e-catastrofi-60-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "fachspezialistin-fachspezialist-rettungs-e-katastrophenwesen-60-kanton-aargau-aarau",
+        "it": "specialista-specialista-in-soccorso-e-catastrofi-60-kanton-aargau-aarau",
         "en": "specialist-rescue-and-disaster-management-60-kanton-aargau-aarau",
         "de": "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch",
         "fr": "specialiste-sauvetage-et-gestion-des-catastrophes-60-kanton-aargau-aarau"
@@ -809,11 +817,13 @@
       "department": "Abteilung Gesundheit",
       "previousSlugs": [
         "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch",
-        "specialiste-en-sauvetage-et-gestion-des-catastrophes-60-kanton-aargau-aarau"
+        "specialiste-en-sauvetage-et-gestion-des-catastrophes-60-kanton-aargau-aarau",
+        "fachspezialistin-fachspezialist-rettungs-e-katastrophenwesen-60-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
+          "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch",
+          "fachspezialistin-fachspezialist-rettungs-e-katastrophenwesen-60-kanton-aargau-aarau"
         ],
         "en": [
           "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
@@ -1009,9 +1019,9 @@
     },
     {
       "id": "kanton-aargau-14473ade4a37",
-      "slug": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
+      "slug": "artigiano-a-con-patente-ce-100-kanton-aargau-lenzburg",
       "slugByLocale": {
-        "it": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
+        "it": "artigiano-a-con-patente-ce-100-kanton-aargau-lenzburg",
         "en": "tradesperson-with-driving-licence-ce-100-kanton-aargau-lenzburg",
         "de": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
         "fr": "artisan-artisan-avec-permis-de-conduire-ce-100-kanton-aargau-lenzburg"
@@ -1061,11 +1071,15 @@
       "requirementsByLocale": {},
       "department": "Abteilung Tiefbau",
       "previousSlugs": [
-        "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg"
+        "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg",
+        "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
           "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg"
+        ],
+        "it": [
+          "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch"
         ]
       },
       "firstSeenAt": "2026-10-03T09:24:06.513Z",
@@ -1590,9 +1604,9 @@
     },
     {
       "id": "kanton-aargau-cd2cf9549688",
-      "slug": "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau",
+      "slug": "tirocinio-come-specialista-in-manutenzione-aziendale-afc-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau",
+        "it": "tirocinio-come-specialista-in-manutenzione-aziendale-afc-kanton-aargau-aarau",
         "en": "internship-as-a-specialist-specialist-in-business-maintenance-efz-kanton-aargau-aarau",
         "de": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
         "fr": "stage-en-tant-que-specialiste-specialiste-de-la-maintenance-des-entreprises-efz-kanton-aargau-aarau"
@@ -1645,11 +1659,13 @@
       "previousSlugs": [
         "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
         "internship-as-a-specialist-specialist-business-maintenance-efz-kanton-aargau-aarau",
-        "stage-en-tant-que-specialiste-specialiste-kanton-aargau-aarau"
+        "stage-en-tant-que-specialiste-specialiste-kanton-aargau-aarau",
+        "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
+          "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau"
         ],
         "en": [
           "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
@@ -2426,9 +2442,9 @@
     },
     {
       "id": "kanton-aargau-d97a22ae8f03",
-      "slug": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-hausdienst-100-kanton-aargau-baden",
+      "slug": "apprendistato-come-tecnico-a-manutenzione-aziendale-afc-priorita-servizio-domestico-100-kanton-aargau-baden",
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-hausdienst-100-kanton-aargau-baden",
+        "it": "apprendistato-come-tecnico-a-manutenzione-aziendale-afc-priorita-servizio-domestico-100-kanton-aargau-baden",
         "en": "apprenticeship-as-a-specialist-business-maintenance-specialist-efz-focus-on-home-service-100-kanton-aargau-baden",
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton",
         "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-la-maintenance-d-entreprise-efz-se-concentre-sur-le-service-a"
@@ -2479,11 +2495,13 @@
       "department": "Kantonsschule Baden",
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton",
-        "apprentissage-en-tant-que-specialiste-specialiste-de-maintenance-d-entreprise-efz-se-concentre-sur-le-service-a-domicile"
+        "apprentissage-en-tant-que-specialiste-specialiste-de-maintenance-d-entreprise-efz-se-concentre-sur-le-service-a-domicile",
+        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-hausdienst-100-kanton-aargau-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton",
+          "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-hausdienst-100-kanton-aargau-baden"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
@@ -3356,9 +3374,9 @@
     },
     {
       "id": "kanton-aargau-ef0bed3ae0d5",
-      "slug": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen",
+      "slug": "apprendistato-come-tecnico-a-manutenzione-aziendale-afc-specializzazione-servizio-domiciliare-100-kanton-aargau",
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen",
+        "it": "apprendistato-come-tecnico-a-manutenzione-aziendale-afc-specializzazione-servizio-domiciliare-100-kanton-aargau",
         "en": "apprenticeship-as-a-specialist-business-maintenance-specialist-efz-department-house-service-100-kanton-aargau-wettingen",
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
         "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-la-maintenance-d-entreprise-efz-service-menagere-100-kanton-aargau"
@@ -3409,11 +3427,13 @@
       "department": "Hausdienst",
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
-        "apprentissage-en-tant-que-specialiste-specialiste-de-l-entretien-des-affaires-efz-service-de-maison-departemental-100"
+        "apprentissage-en-tant-que-specialiste-specialiste-de-l-entretien-des-affaires-efz-service-de-maison-departemental-100",
+        "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
+          "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
@@ -4115,9 +4135,9 @@
     },
     {
       "id": "kanton-aargau-d06713f724d4",
-      "slug": "informatikerin-informatiker-applikationsmanagement-e-datenverarbeitung-80-100-kanton-aargau-schafisheim-5033-buchs",
+      "slug": "informatico-a-gestione-delle-applicazioni-ed-elaborazione-dei-dati-80-100-kanton-aargau-schafisheim-5033-buchs",
       "slugByLocale": {
-        "it": "informatikerin-informatiker-applikationsmanagement-e-datenverarbeitung-80-100-kanton-aargau-schafisheim-5033-buchs",
+        "it": "informatico-a-gestione-delle-applicazioni-ed-elaborazione-dei-dati-80-100-kanton-aargau-schafisheim-5033-buchs",
         "en": "computer-scientist-computer-science-application-management-and-data-processing-80-100-kanton-aargau-schafisheim-5033",
         "de": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton",
         "fr": "informatique-informatique-gestion-des-applications-et-traitement-des-donnees-80-100-kanton-aargau-schafisheim-5033-buchs"
@@ -4167,11 +4187,13 @@
       "requirementsByLocale": {},
       "department": "Kantonspolizei",
       "previousSlugs": [
-        "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
+        "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton",
+        "informatikerin-informatiker-applikationsmanagement-e-datenverarbeitung-80-100-kanton-aargau-schafisheim-5033-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
+          "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton",
+          "informatikerin-informatiker-applikationsmanagement-e-datenverarbeitung-80-100-kanton-aargau-schafisheim-5033-buchs"
         ],
         "en": [
           "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
@@ -4280,9 +4302,9 @@
     },
     {
       "id": "kanton-aargau-25d9e1071958",
-      "slug": "praktikum-im-bereich-fliessgewasserokologie-e-siedlungsentwasserung-80-100-kanton-aargau-aarau",
+      "slug": "tirocinio-in-ecologia-dei-corsi-d-acqua-e-drenaggio-degli-insediamenti-80-100-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-fliessgewasserokologie-e-siedlungsentwasserung-80-100-kanton-aargau-aarau",
+        "it": "tirocinio-in-ecologia-dei-corsi-d-acqua-e-drenaggio-degli-insediamenti-80-100-kanton-aargau-aarau",
         "en": "internship-in-river-ecology-and-urban-drainage-80-100-kanton-aargau-aarau",
         "de": "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau",
         "fr": "stage-en-ecologie-fluviale-et-drainage-urbain-80-100-kanton-aargau-aarau"
@@ -4333,11 +4355,13 @@
       "requirementsByLocale": {},
       "department": "Abteilung für Umwelt",
       "previousSlugs": [
-        "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
+        "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau",
+        "praktikum-im-bereich-fliessgewasserokologie-e-siedlungsentwasserung-80-100-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
+          "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau",
+          "praktikum-im-bereich-fliessgewasserokologie-e-siedlungsentwasserung-80-100-kanton-aargau-aarau"
         ],
         "en": [
           "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
@@ -5125,12 +5149,12 @@
     },
     {
       "id": "kanton-aargau-fbf64b5bad52",
-      "slug": "apprendistato-kauffrau-kaufmann-cfc-kanton-aargau-aarau",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "apprendistato-kauffrau-kaufmann-cfc-kanton-aargau-aarau",
-        "en": "apprenticeship-kauffrau-kaufmann-efz-kanton-aargau-aarau",
+        "it": "apprendistato-impiegato-a-di-commercio-afc-kanton-aargau-aarau",
+        "en": "apprenticeship-as-a-businesswoman-businessman-efz-kanton-aargau-aarau",
         "de": "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch",
-        "fr": "apprentissage-kauffrau-kaufmann-efz-kanton-aargau-aarau"
+        "fr": "place-d-apprentissage-employee-de-commerce-cfc-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5177,17 +5201,23 @@
       "requirementsByLocale": {},
       "department": "Departement Bau, Verkehr und Umwelt",
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch"
+        "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch",
+        "apprendistato-kauffrau-kaufmann-cfc-kanton-aargau-aarau",
+        "apprenticeship-kauffrau-kaufmann-efz-kanton-aargau-aarau",
+        "apprentissage-kauffrau-kaufmann-efz-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch"
+          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch",
+          "apprendistato-kauffrau-kaufmann-cfc-kanton-aargau-aarau"
         ],
         "en": [
-          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch"
+          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch",
+          "apprenticeship-kauffrau-kaufmann-efz-kanton-aargau-aarau"
         ],
         "fr": [
-          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch"
+          "lehrstelle-kauffrau-kaufmann-efz-kanton-aargau-ch",
+          "apprentissage-kauffrau-kaufmann-efz-kanton-aargau-aarau"
         ]
       },
       "firstSeenAt": "2026-10-03T09:23:37.838Z",
@@ -5877,10 +5907,10 @@
     },
     {
       "id": "kanton-aargau-f944f4e8f5f1",
-      "slug": "apprendistato-come-gartnerin-gartner-cfc-kanton-aargau-wettingen",
+      "slug": "apprendistato-come-giardiniere-afc-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch",
-        "it": "apprendistato-come-gartnerin-gartner-cfc-kanton-aargau-wettingen",
+        "it": "apprendistato-come-giardiniere-afc-kanton-aargau-wettingen",
         "en": "apprenticeship-as-a-gardener-gardener-efz-kanton-aargau-wettingen",
         "fr": "apprentissage-comme-jardinier-jardinier-efz-kanton-aargau-wettingen"
       },
@@ -5930,11 +5960,13 @@
       "department": "Kantonsschule Wettingen",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
+          "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch",
+          "apprendistato-come-gartnerin-gartner-cfc-kanton-aargau-wettingen"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
+        "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch",
+        "apprendistato-come-gartnerin-gartner-cfc-kanton-aargau-wettingen"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -6456,9 +6488,9 @@
     },
     {
       "id": "kanton-aargau-aa2a0cf0b50a",
-      "slug": "praktikum-im-bereich-naturgefahren-e-wasserbau-80-100-kanton-aargau-aarau",
+      "slug": "tirocinio-nel-settore-dei-pericoli-naturali-e-dell-ingegneria-idraulica-80-100-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "praktikum-im-bereich-naturgefahren-e-wasserbau-80-100-kanton-aargau-aarau",
+        "it": "tirocinio-nel-settore-dei-pericoli-naturali-e-dell-ingegneria-idraulica-80-100-kanton-aargau-aarau",
         "en": "internship-in-the-field-of-natural-hazards-and-hydraulic-engineering-80-100-kanton-aargau-aarau",
         "de": "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch",
         "fr": "stage-dans-le-domaine-des-risques-naturels-et-de-l-ingenierie-hydraulique-80-100-kanton-aargau-aarau"
@@ -6509,11 +6541,13 @@
       "department": "Abteilung Landschaft und Gewässer",
       "previousSlugs": [
         "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch",
-        "stage-dans-le-domaine-des-risques-naturels-et-du-genie-hydraulique-80-100-kanton-aargau-aarau"
+        "stage-dans-le-domaine-des-risques-naturels-et-du-genie-hydraulique-80-100-kanton-aargau-aarau",
+        "praktikum-im-bereich-naturgefahren-e-wasserbau-80-100-kanton-aargau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"
+          "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch",
+          "praktikum-im-bereich-naturgefahren-e-wasserbau-80-100-kanton-aargau-aarau"
         ],
         "en": [
           "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"

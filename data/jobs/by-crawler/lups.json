@@ -5376,7 +5376,7 @@
       "slug": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
-        "en": "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
+        "en": "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban",
         "de": "ergotherapeutin-m-w-d-60-lups-st-urban",
         "fr": "ergotherapeute-h-f-d-60-luzerner-psychiatrie-lups-st-urban"
       },
@@ -5423,8 +5423,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-m-w-d-60-lups-st-urban",
-        "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban",
-        "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban"
+        "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5432,7 +5431,7 @@
           "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
         ],
         "en": [
-          "occupational-therapist-m-f-d-60-luzerner-psychiatrie-lups-st-urban"
+          "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
         ],
         "fr": [
           "ergotherapeutin-m-w-d-60-luzerner-psychiatrie-lups-st-urban"
@@ -5773,9 +5772,9 @@
     },
     {
       "id": "lups-9863b8cb155c",
-      "slug": "leitende-psychologin-o-oberarztin-m-w-d-60-100-luzerner-psychiatrie-lups-luzern",
+      "slug": "dirigente-psicologo-o-primario-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
-        "it": "leitende-psychologin-o-oberarztin-m-w-d-60-100-luzerner-psychiatrie-lups-luzern",
+        "it": "dirigente-psicologo-o-primario-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
         "en": "senior-psychologist-m-f-d-60-100-luzerner-psychiatrie-lups-luzern",
         "de": "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern",
         "fr": "psychologue-principal-h-f-d-60-100-luzerner-psychiatrie-lups-luzern"
@@ -5822,11 +5821,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern"
+        "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern",
+        "leitende-psychologin-o-oberarztin-m-w-d-60-100-luzerner-psychiatrie-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern"
+          "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern",
+          "leitende-psychologin-o-oberarztin-m-w-d-60-100-luzerner-psychiatrie-lups-luzern"
         ],
         "en": [
           "leitende-psychologin-oder-oberarztin-m-w-d-60-100-lups-luzern"

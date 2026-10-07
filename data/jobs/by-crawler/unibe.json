@@ -3918,9 +3918,9 @@
     },
     {
       "id": "unibe-9c486c88079e",
-      "slug": "assistenzstelle-mit-moglichkeit-zur-promotion-unibe-bern",
+      "slug": "servizio-di-assistenza-con-possibilita-di-promozione-universitat-bern-bern",
       "slugByLocale": {
-        "it": "assistenzstelle-mit-moglichkeit-zur-promotion-unibe-bern",
+        "it": "servizio-di-assistenza-con-possibilita-di-promozione-universitat-bern-bern",
         "en": "assistant-with-possibility-of-promotion-universitat-bern-bern",
         "de": "assistenzstelle-mit-moglichkeit-zur-promotion-unibe-bern",
         "fr": "assistant-avec-possibilite-de-promotion-universitat-bern-bern"
@@ -3981,7 +3981,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzstelle-mit-moglichkeit-zur-promotion-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzstelle-mit-moglichkeit-zur-promotion-unibe-bern"
+      ]
     },
     {
       "id": "unibe-5190bc20586a",
@@ -4787,7 +4795,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern-a5xwgv",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -4833,7 +4841,8 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "postdoc-universitat-bern-bern",
+        "postdoc-universitat-bern-bern-a5xwgv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4843,7 +4852,8 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern",
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"

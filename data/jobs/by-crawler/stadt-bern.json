@@ -1494,9 +1494,9 @@
     },
     {
       "id": "stadt-bern-b9ddeadcd138",
-      "slug": "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern",
+      "slug": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
       "slugByLocale": {
-        "it": "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern",
+        "it": "vigile-del-fuoco-professionista-vigile-del-fuoco-professionista-con-attestato-professionale-federale-stadt-bern-bern",
         "en": "professional-firefighter-professional-firefighter-with-federal-law-specialist-card-stadt-bern-bern",
         "de": "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern",
         "fr": "pompier-professionnel-pompier-professionnel-avec-le-droit-federal-carte-de-specialiste-stadt-bern-bern"
@@ -1556,7 +1556,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "berufsfeuerwehrfrau-berufsfeuerwehrmann-mit-eidg-fachausweis-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-30bc8b3c067e",
@@ -2038,12 +2046,12 @@
     },
     {
       "id": "stadt-bern-a96f72465261",
-      "slug": "collaboratore-trice-in-administration-stadt-bern",
+      "slug": "collaboratore-tricein-amministrazione-80-stadt-bern-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-administration-stadt-bern",
-        "en": "mitarbeiter-in-administration-stadt-bern-bern",
+        "it": "collaboratore-tricein-amministrazione-80-stadt-bern-bern",
+        "en": "administration-employee-80-stadt-bern-bern",
         "de": "mitarbeiter-in-administration-stadt-bern-bern",
-        "fr": "mitarbeiter-in-administration-stadt-bern-bern"
+        "fr": "employe-e-administration-80-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2090,12 +2098,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-administration-stadt-bern-bern",
-        "mitarbeiter-in-administration-80-stadt-bern-bern"
+        "mitarbeiter-in-administration-80-stadt-bern-bern",
+        "collaboratore-trice-in-administration-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-administration-stadt-bern-bern",
-          "mitarbeiter-in-administration-80-stadt-bern-bern"
+          "mitarbeiter-in-administration-80-stadt-bern-bern",
+          "collaboratore-trice-in-administration-stadt-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-administration-stadt-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-administration-stadt-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-03T09:14:36.468Z",

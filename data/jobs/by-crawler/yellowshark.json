@@ -63251,12 +63251,12 @@
     },
     {
       "id": "yellowshark-61c4eede22c5",
-      "slug": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch",
+      "slug": "professionista-hr-m-f-80-100-yellowshark-ag-uster-zh",
       "slugByLocale": {
-        "it": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch",
+        "it": "professionista-hr-m-f-80-100-yellowshark-ag-uster-zh",
         "en": "hr-specialist-m-f-80-100-yellowshark-ag-uster",
         "de": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch",
-        "fr": "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch"
+        "fr": "specialiste-rh-h-f-80-100-yellowshark-ag-uster-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -63300,11 +63300,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-specialist-m-f-80-100-yellowshark-ag-uster-zh"
+        "hr-specialist-m-f-80-100-yellowshark-ag-uster-zh",
+        "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "en": [
           "hr-specialist-m-f-80-100-yellowshark-ag-uster-zh"
+        ],
+        "it": [
+          "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-fachperson-w-m-80-100-uster-zh-yellowshark-ch"
         ]
       },
       "needsRetranslation": true,
@@ -70237,12 +70244,12 @@
     },
     {
       "id": "yellowshark-be4c619f705d",
-      "slug": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
+      "slug": "specialista-hr-m-f-80-100-yellowshark-ag-rotkreuz-zg",
       "slugByLocale": {
-        "it": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
+        "it": "specialista-hr-m-f-80-100-yellowshark-ag-rotkreuz-zg",
         "en": "hr-specialist-m-f-80-100-yellowshark-ag-rotkreuz-zg",
         "de": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
-        "fr": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch"
+        "fr": "specialiste-des-rh-h-f-80-100-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -70298,7 +70305,18 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-c8bb1d9216cb",

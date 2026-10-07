@@ -4714,9 +4714,9 @@
     },
     {
       "id": "schindler-2968382132d6",
-      "slug": "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
+      "slug": "addetto-a-alla-contabilita-e-alla-gestione-della-cassa-pensione-m-f-d-80-schindler-ebikon",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
+        "it": "addetto-a-alla-contabilita-e-alla-gestione-della-cassa-pensione-m-f-d-80-schindler-ebikon",
         "en": "accounting-and-pension-fund-administration-clerk-m-f-d-80-schindler-ebikon",
         "de": "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
         "fr": "responsable-de-la-comptabilite-et-de-la-gestion-des-caisses-de-pension-h-f-d-80-schindler-ebikon"
@@ -4763,11 +4763,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
+        "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
+        "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
+          "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
+          "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
         ],
         "en": [
           "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
@@ -5267,12 +5269,12 @@
     },
     {
       "id": "schindler-fb98eb6f1d6e",
-      "slug": "schnupperpraktikum-per-kantischuler-innen-schindler-ebikon",
+      "slug": "tirocinio-di-prova-professioni-tecniche-perstudentikanti-schindler-ebikon",
       "slugByLocale": {
-        "it": "schnupperpraktikum-per-kantischuler-innen-schindler-ebikon",
-        "en": "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon",
+        "it": "tirocinio-di-prova-professioni-tecniche-perstudentikanti-schindler-ebikon",
+        "en": "taster-internship-in-technical-professions-for-cantonal-students-schindler-ebikon",
         "de": "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon",
-        "fr": "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon"
+        "fr": "stage-d-initiation-aux-metiers-techniques-poureleves-de-kantiers-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -5316,10 +5318,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon"
+        "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon",
+        "schnupperpraktikum-per-kantischuler-innen-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon",
+          "schnupperpraktikum-per-kantischuler-innen-schindler-ebikon"
+        ],
+        "en": [
+          "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon"
+        ],
+        "fr": [
           "schnupperpraktikum-fur-kantischuler-innen-schindler-ebikon"
         ]
       },
@@ -6183,9 +6193,9 @@
     },
     {
       "id": "schindler-81d73eddff06",
-      "slug": "schnupperpraktikum-ict-lehrberufe-per-kantischuler-innen-schindler-ebikon",
+      "slug": "tirocinio-di-prova-ict-apprendistato-perstudentikanti-schindler-ebikon",
       "slugByLocale": {
-        "it": "schnupperpraktikum-ict-lehrberufe-per-kantischuler-innen-schindler-ebikon",
+        "it": "tirocinio-di-prova-ict-apprendistato-perstudentikanti-schindler-ebikon",
         "en": "taster-internship-ict-apprenticeships-for-cantonal-students-schindler-ebikon",
         "de": "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon",
         "fr": "stage-d-initiation-aux-metiers-des-tic-pour-leseleves-de-chant-schindler-ebikon"
@@ -6232,11 +6242,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"
+        "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon",
+        "schnupperpraktikum-ict-lehrberufe-per-kantischuler-innen-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"
+          "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon",
+          "schnupperpraktikum-ict-lehrberufe-per-kantischuler-innen-schindler-ebikon"
         ],
         "en": [
           "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"

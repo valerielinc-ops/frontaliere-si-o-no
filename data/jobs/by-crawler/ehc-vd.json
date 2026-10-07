@@ -4848,7 +4848,7 @@
       "slugByLocale": {
         "it": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "apprenti-assistant-medical-f-h-ehc-vd-morges",
-        "de": "apprenti-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "medizinischer-assistenzlehrling-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "apprenti-assistant-medical-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4893,14 +4893,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-assistant-medical-f-h-ehc-vd-morges"
+        "apprenti-assistant-medical-f-h-ehc-vd-morges",
+        "apprenti-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-assistant-medical-f-h-ehc-vd-morges"
         ],
         "de": [
-          "apprenti-assistant-medical-f-h-ehc-vd-morges"
+          "apprenti-assistant-medical-f-h-ehc-vd-morges",
+          "apprenti-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-10-01T09:15:43.315Z",
@@ -4924,7 +4926,7 @@
       "slugByLocale": {
         "it": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "trainee-medical-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "stagiaire-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "praktikant-medizinische-praxisassistentin-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "stagiaire-assistant-medical-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4969,7 +4971,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stagiaire-assistant-medical-f-h-ehc-vd-morges"
+        "stagiaire-assistant-medical-f-h-ehc-vd-morges",
+        "stagiaire-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4979,7 +4982,8 @@
           "stagiaire-assistant-medical-f-h-ehc-vd-morges"
         ],
         "de": [
-          "stagiaire-assistant-medical-f-h-ehc-vd-morges"
+          "stagiaire-assistant-medical-f-h-ehc-vd-morges",
+          "stagiaire-assistent-medical-f-h-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-10-01T09:15:43.313Z",
@@ -5171,7 +5175,7 @@
       "slugByLocale": {
         "it": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "en": "apprenticeship-esa-socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "apprenti-ase-assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "vse-lehrling-sozialpadagogischer-assistent-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "fr": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -5216,7 +5220,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+        "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
+        "apprenti-ase-assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5226,7 +5231,8 @@
           "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
         ],
         "de": [
-          "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+          "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
+          "apprenti-ase-assistent-socio-educatif-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ]
       },
       "firstSeenAt": "2026-10-01T09:15:43.356Z",
@@ -5330,7 +5336,7 @@
       "slugByLocale": {
         "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
-        "de": "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "sagw-lehrling-pflege-und-gesundheitsassistent-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -5375,7 +5381,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
+        "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5385,7 +5392,8 @@
           "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
         ],
         "de": [
-          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
+          "apprenti-assc-assistent-soins-et-sante-communautaire-f-h-ensemble-hospitalier-de-la-cote-ehc-aubonne"
         ]
       },
       "firstSeenAt": "2026-10-01T09:15:43.337Z",

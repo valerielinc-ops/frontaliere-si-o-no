@@ -10076,9 +10076,9 @@
       "slug": "collaboratore-trice-empfang-equans-switzerland-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-empfang-equans-switzerland-zurich",
-        "en": "associate-empfang-equans-switzerland-zurich",
+        "en": "receptionist-equans-switzerland-zurich",
         "de": "mitarbeiter-in-empfang-equans-zurich",
-        "fr": "collaborateur-trice-empfang-equans-switzerland-zurich"
+        "fr": "employe-a-la-reception-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10124,17 +10124,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-empfang-equans-zurich"
+        "mitarbeiter-in-empfang-equans-zurich",
+        "associate-empfang-equans-switzerland-zurich",
+        "collaborateur-trice-empfang-equans-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-equans-zurich"
         ],
         "en": [
-          "mitarbeiter-in-empfang-equans-zurich"
+          "mitarbeiter-in-empfang-equans-zurich",
+          "associate-empfang-equans-switzerland-zurich"
         ],
         "fr": [
-          "mitarbeiter-in-empfang-equans-zurich"
+          "mitarbeiter-in-empfang-equans-zurich",
+          "collaborateur-trice-empfang-equans-switzerland-zurich"
         ]
       },
       "firstSeenAt": "2026-10-01T09:13:44.451Z",
@@ -10231,9 +10235,9 @@
     },
     {
       "id": "equans-3cc7b4176ce2",
-      "slug": "responsabile-di-progetto-sanitar-equans-switzerland-bern",
+      "slug": "capoprogetto-a-sanitario-a-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-sanitar-equans-switzerland-bern",
+        "it": "capoprogetto-a-sanitario-a-equans-switzerland-bern",
         "en": "project-manager-sanitar-equans-switzerland-bern",
         "de": "projektleiter-in-sanitar-equans-bern",
         "fr": "chef-de-projet-sanitar-equans-switzerland-bern"
@@ -10281,11 +10285,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-sanitar-equans-bern"
+        "projektleiter-in-sanitar-equans-bern",
+        "responsabile-di-progetto-sanitar-equans-switzerland-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-sanitar-equans-bern"
+          "projektleiter-in-sanitar-equans-bern",
+          "responsabile-di-progetto-sanitar-equans-switzerland-bern"
         ],
         "en": [
           "projektleiter-in-sanitar-equans-bern"
@@ -10314,9 +10320,9 @@
       "slug": "collaboratore-trice-empfang-equans-switzerland-kloten",
       "slugByLocale": {
         "it": "collaboratore-trice-empfang-equans-switzerland-kloten",
-        "en": "associate-empfang-equans-switzerland-kloten",
+        "en": "receptionist-equans-switzerland-kloten",
         "de": "mitarbeiter-in-empfang-equans-kloten",
-        "fr": "collaborateur-trice-empfang-equans-switzerland-kloten"
+        "fr": "employe-a-la-reception-equans-switzerland-kloten"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -10362,17 +10368,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-empfang-equans-kloten"
+        "mitarbeiter-in-empfang-equans-kloten",
+        "associate-empfang-equans-switzerland-kloten",
+        "collaborateur-trice-empfang-equans-switzerland-kloten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-empfang-equans-kloten"
         ],
         "en": [
-          "mitarbeiter-in-empfang-equans-kloten"
+          "mitarbeiter-in-empfang-equans-kloten",
+          "associate-empfang-equans-switzerland-kloten"
         ],
         "fr": [
-          "mitarbeiter-in-empfang-equans-kloten"
+          "mitarbeiter-in-empfang-equans-kloten",
+          "collaborateur-trice-empfang-equans-switzerland-kloten"
         ]
       },
       "firstSeenAt": "2026-10-03T09:11:24.027Z",
@@ -10473,10 +10483,10 @@
     },
     {
       "id": "equans-f34e5837e6b7",
-      "slug": "housekeeper-in-equans-switzerland-fallanden",
+      "slug": "custode-equans-switzerland-fallanden",
       "slugByLocale": {
-        "it": "housekeeper-in-equans-switzerland-fallanden",
-        "en": "hauswart-in-equans-fallanden",
+        "it": "custode-equans-switzerland-fallanden",
+        "en": "caretaker-equans-switzerland-fallanden",
         "de": "hauswart-in-equans-fallanden",
         "fr": "femme-de-menage-equans-switzerland-fallanden"
       },
@@ -10523,13 +10533,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hauswart-in-equans-fallanden"
+        "hauswart-in-equans-fallanden",
+        "housekeeper-in-equans-switzerland-fallanden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hauswart-in-equans-fallanden"
+          "hauswart-in-equans-fallanden",
+          "housekeeper-in-equans-switzerland-fallanden"
         ],
         "fr": [
+          "hauswart-in-equans-fallanden"
+        ],
+        "en": [
           "hauswart-in-equans-fallanden"
         ]
       },

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-d5ec90065bfe",
-      "slug": "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "infermiere-dipl-sss-reparto-privato-come-guardia-notturna-permanente-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "it": "infermiere-dipl-sss-reparto-privato-come-guardia-notturna-permanente-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
         "en": "dipl-nursing-professional-hf-private-station-as-permanent-night-watch-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
         "de": "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar",
         "fr": "dipl-station-privee-professionnelle-de-soins-infirmiers-hf-comme-veille-nocturne-permanente-h-f-d-spitalverbund"
@@ -54,11 +54,13 @@
       "requirementsByLocale": {},
       "externalId": "4078537",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"
+        "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar",
+        "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"
+          "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar",
+          "dipl-pflegefachperson-hf-privatstation-come-dauernachtwache-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "en": [
           "dipl-pflegefachperson-hf-privatstation-als-dauernachtwache-m-w-d-svar-spitalverbund-ar"

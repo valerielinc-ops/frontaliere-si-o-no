@@ -4489,12 +4489,12 @@
     },
     {
       "id": "pdag-1abd2436f984",
-      "slug": "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau",
+      "slug": "psicologa-senior-psicologo-senior-dell-ambulatorio-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
-        "it": "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau",
-        "en": "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau",
+        "it": "psicologa-senior-psicologo-senior-dell-ambulatorio-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "senior-psychologist-senior-psychologist-outpatient-clinic-psychiatrische-dienste-aargau-pdag-aarau",
         "de": "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau",
-        "fr": "oberpsychologin-oberpsychologer-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
+        "fr": "psychologue-en-chef-psychologue-en-chef-service-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4539,14 +4539,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau"
+        "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau",
+        "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau",
+        "oberpsychologin-oberpsychologer-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau"
+          "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau",
+          "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau"
         ],
         "en": [
-          "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau"
+          "oberpsychologin-oberpsychologe-ambulatorium-pdag-aarau",
+          "oberpsychologin-oberpsychologer-ambulatorium-psychiatrische-dienste-aargau-pdag-aarau"
+        ],
+        "fr": [
+          "oberpsychologin-oberpsychologer-ambulatoire-psychiatrische-dienste-aargau-pdag-aarau"
         ]
       },
       "firstSeenAt": "2026-09-30T21:34:39.548Z",
@@ -4731,9 +4738,9 @@
     },
     {
       "id": "pdag-7458188f56e4",
-      "slug": "gartner-in-collaboratore-trice-in-parkunterhalt-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "giardiniere-a-addetto-a-alla-manutenzione-dei-parchi-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "gartner-in-collaboratore-trice-in-parkunterhalt-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "giardiniere-a-addetto-a-alla-manutenzione-dei-parchi-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "gardener-employee-parking-maintenance-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch",
         "fr": "jardinier-jardiniere-employe-entretien-du-parc-psychiatrische-dienste-aargau-pdag-windisch"
@@ -4781,11 +4788,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch"
+        "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch",
+        "gartner-in-collaboratore-trice-in-parkunterhalt-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch"
+          "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch",
+          "gartner-in-collaboratore-trice-in-parkunterhalt-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "gartner-in-mitarbeiter-in-parkunterhalt-pdag-windisch"
@@ -4892,9 +4901,9 @@
     },
     {
       "id": "pdag-26289db5a38b",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-o-sozialpadagogin-sozialpadagoge-psychiatrische-dienste-aargau-pdag-rheinfelden",
+      "slug": "infermiera-diplomata-infermiere-diplomato-o-educatrice-sociale-educatore-sociale-psychiatrische-dienste-aargau-pdag",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-o-sozialpadagogin-sozialpadagoge-psychiatrische-dienste-aargau-pdag-rheinfelden",
+        "it": "infermiera-diplomata-infermiere-diplomato-o-educatrice-sociale-educatore-sociale-psychiatrische-dienste-aargau-pdag",
         "en": "dipl-nursing-professional-dipl-nursing-professional-or-social-pedagogue-social-pedagogue-psychiatrische-dienste-aargau",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag",
         "fr": "dipl-professionnels-des-soins-infirmiers-dipl-pedagogue-professionnelle-ou-sociale-pedagogie-sociale-psychiatrische"
@@ -4942,11 +4951,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-o-sozialpadagogin-sozialpadagoge-psychiatrische-dienste-aargau-pdag-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-o-sozialpadagogin-sozialpadagoge-psychiatrische-dienste-aargau-pdag-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-oder-sozialpadagogin-sozialpadagoge-pdag"
