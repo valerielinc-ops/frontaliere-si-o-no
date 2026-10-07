@@ -16,6 +16,13 @@ function declaration(file: string, name: string, deps: Record<string, unknown>, 
 }
 const unknown = { datePosted: '', postedDate: '', postingDateSource: 'unknown' };
 const common = { sourcePostingDateFields, mergeSourcePostingDates, COMPANY_NAME: 'Employer', COMPANY_KEY: 'employer', HQ: { canton: 'TI' }, mergeLocaleTextMap: (a: object, b: object) => ({ ...a, ...b }) };
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+  abortKind: null,
+  authoritativeEmptySnapshot: false,
+};
 beforeEach(() => vi.useFakeTimers({ toFake: ['setTimeout'] }));
 afterEach(() => vi.useRealTimers());
 for (const kind of ['valid', 'missing', 'invalid', 'future', 'deadline-only', 'long-year', 'year-suffix'] as const) {
@@ -27,7 +34,8 @@ for (const kind of ['valid', 'missing', 'invalid', 'future', 'deadline-only', 'l
     const normalizeSpace = (s: string) => String(s).replace(/\s+/g, ' ').trim();
     const parseItalianDate = declaration('ail', 'parseItalianDate', { ITALIAN_MONTHS: { giugno: '06', aprile: '04' } });
     const parseListingPage = declaration('ail', 'parseListingPage', { ...common, parseItalianDate, normalizeSpace, decodeHtmlEntities: (s: string) => s, BASE_URL: 'https://ail.ch', CAREERS_URL: 'https://ail.ch/jobs' });
-    const producer = declaration('ail', 'fetchAilJobs', { ...common, parseListingPage, AJAX_URL: 'https://ail.ch/ajax', CAREERS_URL: 'https://ail.ch/jobs', fetchPage: async () => html, buildAilDescriptionFields: () => ({ description: '', descriptionByLocale: {}, sourceLang: 'it' }), slugify: () => 'tecnico', detectCategory: () => 'engineering', detectEmploymentType: () => 'full-time', detectExperienceLevel: () => 'mid' });
+    const classifyAilListingHtml = declaration('ail', 'classifyAilListingHtml', { parseListingPage, normalizeSpace, decodeHtmlEntities: (s: string) => s, AIL_EMPTY_SOURCE_RE: /^al momento\s+non ci sono\s+posizioni\s+aperte[.!]?$/i });
+    const producer = declaration('ail', 'fetchAilJobs', { ...common, SUMMARY_COUNTS, parseListingPage, classifyAilListingHtml, AJAX_URL: 'https://ail.ch/ajax', CAREERS_URL: 'https://ail.ch/jobs', fetchPage: async () => ({ html, fetchOutcome: 'ok' }), buildAilDescriptionFields: () => ({ description: '', descriptionByLocale: {}, sourceLang: 'it' }), slugify: () => 'tecnico', detectCategory: () => 'engineering', detectEmploymentType: () => 'full-time', detectExperienceLevel: () => 'mid' });
     const pending = producer(); await vi.runAllTimersAsync(); const jobs = await pending;
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toMatchObject(kind === 'valid' ? { datePosted: `${year}-06-15`, postedDate: `${year}-06-15`, postingDateSource: 'reported' } : unknown);
