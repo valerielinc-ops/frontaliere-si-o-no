@@ -6752,6 +6752,7 @@ const KNOWN_ITALIAN_LOCATION_MARKERS = [
   'parma',
   'ponte taro',
   'baragiano',
+  'campomorone',
 ];
 
 export function isExplicitlyOutsideTarget(text) {
