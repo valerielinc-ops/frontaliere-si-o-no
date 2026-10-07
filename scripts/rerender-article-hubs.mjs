@@ -676,10 +676,11 @@ async function main() {
     process.exit(1);
   }
 
-  // A one-way published-ahead mismatch is an expected handoff between the
-  // fast publisher and the corpus-sync PR. Preserve the strict no-publish
-  // decision above, but report it to the workflow as a successful defer so it
-  // does not open a duplicate failure issue while the sync is converging.
+  // A published-ahead or bounded one-for-one registry mismatch is an expected
+  // handoff between the fast publisher and the corpus-sync PR. Preserve the
+  // strict no-publish decision above, but report it to the workflow as a
+  // successful defer so it does not open a duplicate failure issue while the
+  // sync is converging.
   if (deferred) {
     if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
     console.log(`${LOG} freshness deferred — nothing pushed`);
