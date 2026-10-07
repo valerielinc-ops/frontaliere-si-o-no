@@ -34,16 +34,21 @@ export function summarizeUntriagedIssues(issues) {
   let count = 0;
   let oldestCreatedAt = null;
   let oldestTimestamp = Infinity;
+  let hasUnknownCreatedAt = false;
 
   for (const issue of Array.isArray(issues) ? issues : []) {
     if (!isUntriagedIssue(issue)) continue;
     count += 1;
     const timestamp = Date.parse(issue.created_at ?? issue.createdAt ?? '');
-    if (Number.isFinite(timestamp) && timestamp < oldestTimestamp) {
+    if (!Number.isFinite(timestamp)) {
+      hasUnknownCreatedAt = true;
+      continue;
+    }
+    if (timestamp < oldestTimestamp) {
       oldestTimestamp = timestamp;
       oldestCreatedAt = new Date(timestamp).toISOString();
     }
   }
 
-  return { count, oldestCreatedAt };
+  return { count, oldestCreatedAt: hasUnknownCreatedAt ? null : oldestCreatedAt };
 }

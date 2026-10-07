@@ -277,6 +277,11 @@ export async function runLoopClockHealth({
       results.push({ id: entry.id, state: 'not_due', reason: 'no_untriaged_issues' });
       continue;
     }
+    if (!condition.oldestCreatedAt) {
+      errors += 1;
+      results.push({ id: entry.id, state: 'inconclusive', reason: 'condition_oldest_created_at_missing' });
+      continue;
+    }
     // The clock only owes a dispatch once an issue has waited a whole
     // threshold: one opened a minute ago has not met a tick yet.
     const oldestAt = Date.parse(condition.oldestCreatedAt ?? '');

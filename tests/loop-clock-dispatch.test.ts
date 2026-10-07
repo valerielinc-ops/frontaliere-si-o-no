@@ -617,6 +617,22 @@ describe('loop clock observer', () => {
     expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
   });
 
+  it('keeps a conditional entry inconclusive when the oldest issue date is unreadable', async () => {
+    const entry = { ...customEntry('conditional-unknown-date'), everyMinutes: 10, condition: 'untriaged-issues' };
+    const { report, createIssueImpl, resolveIssueImpl, listRunsImpl } = await observe([entry], [], {
+      untriagedIssuesImpl: async () => ({ count: 1, oldestCreatedAt: null }),
+    });
+    expect(report.results[0]).toMatchObject({
+      id: entry.id,
+      state: 'inconclusive',
+      reason: 'condition_oldest_created_at_missing',
+    });
+    expect(report.errors).toBe(1);
+    expect(listRunsImpl).not.toHaveBeenCalled();
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
+  });
+
   // The dispatcher checks the condition on its own tick: an issue opened a
   // minute before the observer runs has not met one yet.
   it('owes a conditional dispatch only once an untriaged issue has waited a whole threshold', async () => {
