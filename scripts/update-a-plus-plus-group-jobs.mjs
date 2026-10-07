@@ -47,6 +47,7 @@ import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import {
   parseAplusListings,
   classifyAplusListings,
+  isAplusClassifiableLocation,
   isAplusEmptyListingPage,
   parseAplusJobDetail,
   inferAplusCanton,
@@ -144,12 +145,37 @@ function inferCategory(detail = {}) {
   return 'architecture';
 }
 
+async function resolveUnclassifiedAplusListing(listing) {
+  if (isAplusClassifiableLocation(listing.location)) return listing;
+
+  const detailUrl = absoluteUrl(listing.href);
+  try {
+    const detailHtml = await fetchText(detailUrl);
+    const detail = parseAplusJobDetail(detailHtml, detailUrl);
+    const location = String(detail.location || listing.location || '').trim();
+    if (!location || location === listing.location) return listing;
+    console.log(`  🔎 Resolved ${listing.title} location from detail page: ${location}`);
+    return { ...listing, location, detailHtml };
+  } catch (error) {
+    console.warn(`⚠️  Could not resolve ${listing.title} location from detail page: ${error.message}`);
+    return listing;
+  }
+}
+
+async function resolveUnclassifiedAplusListings(listings) {
+  const resolved = [];
+  for (const listing of listings) {
+    resolved.push(await resolveUnclassifiedAplusListing(listing));
+  }
+  return resolved;
+}
+
 /* ── Fetch listings ────────────────────────────────────────── */
 
 async function fetchListings(summaryCounts = null) {
   console.log(`🔍 Fetching A++ Group jobs from InRecruiting: ${LISTING_URL}`);
   const html = await fetchText(LISTING_URL);
-  const all = parseAplusListings(html);
+  const all = await resolveUnclassifiedAplusListings(parseAplusListings(html));
   const discovery = classifyAplusListings(all, {
     sourceEmpty: isAplusEmptyListingPage(html, all),
   });
@@ -197,7 +223,7 @@ function absoluteUrl(raw = '') {
 
 async function buildAplusJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
-  const html = await fetchText(detailUrl);
+  const html = listing.detailHtml || await fetchText(detailUrl);
   const detail = parseAplusJobDetail(html, detailUrl);
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
