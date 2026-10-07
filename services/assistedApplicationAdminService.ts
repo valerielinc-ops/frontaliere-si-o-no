@@ -91,6 +91,8 @@ export interface AssistedApplicationAutomationView {
     /** The fields the candidate corrected on the review page. */
     formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
+    /** The round reached its sending: the candidate approved it, so the robot may be asked to send it again. */
+    roundSent?: boolean;
     history: Array<{ at: number; event: string; state: string }>;
   } | null;
   draft: {
@@ -280,6 +282,9 @@ function errorMessage(error: unknown, status: number): string {
     not_owner_review: 'L’automazione non è in attesa della tua revisione.',
     not_regenerable: 'In questo stato non si può rigenerare la bozza.',
     not_taken_over: 'L’automazione non è sospesa.',
+    not_approved: 'Il candidato non ha ancora approvato questa bozza: il robot non la invia. Premi «Riprendi automazione» per rimetterla in revisione.',
+    not_retryable: 'In questo stato l’invio automatico non si può rilanciare.',
+    no_approved_draft: 'Non c’è una bozza approvata per questo giro.',
     already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
     no_flow: 'L’automazione non è stata avviata per questo ordine.',
     invalid_email: 'Indirizzo email non valido.',

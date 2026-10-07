@@ -34,7 +34,7 @@ import {
   startAutomation,
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
-import { factCheckTokens } from './assistedApplicationFlow.js';
+import { factCheckTokens, roundWasSent } from './assistedApplicationFlow.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
 import { MAX_FILES_PER_DOCUMENT, MAX_REQUIRED_DOCUMENTS, extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
@@ -170,6 +170,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       // The fields the candidate corrected on the review page.
       formOverrides: flow.formOverrides || {},
       dispatch: flow.dispatch || null,
+      // The round reached its sending (the candidate approved it): only then may the robot be asked to send it again.
+      roundSent: roundWasSent(flow),
       history: (flow.history || []).slice(-12),
     } : null,
     draft: draft ? {
