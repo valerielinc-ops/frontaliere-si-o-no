@@ -494,17 +494,29 @@ jobs:
       # This script ONLY regenerates slugByLocale from existing titleByLocale.
       # It NEVER modifies titles, descriptions, or needsRetranslation.
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: node scripts/regenerate-slugs-by-locale.mjs
 
+      - name: Upload slug regeneration proof
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
+
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -513,7 +525,7 @@ jobs:
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"
