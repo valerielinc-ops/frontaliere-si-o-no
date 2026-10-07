@@ -27,7 +27,19 @@ const PUBLIC_EMPLOYER_RE = /\b(cantone|canton|kanton|comune|città|citta|stadt|g
 // taking applications in October). career-ops reads the age «adjusted for the role type»: like a public
 // posting or a rolling opening, a seasonal one is no ghost job because it is two months old. Read in the job
 // title only, accents folded; the whole word, so «stagionatura» and a «seasoned» manager are none.
-const SEASONAL_TITLE_RE = /weihnacht|saison|\bnatal(?:e|izi[oae])\b|\bnoel\b|\bchristmas\b|\bxmas\b|\bstagional[ei]\b|\bstagione\b|\bseason(?:al)?\b/;
+const SEASONAL_TITLE_RE = new RegExp([
+  // Christmas.
+  'weihnacht', String.raw`\bnatal(?:e|izi[oae])\b`, String.raw`\bnoel\b`, String.raw`\bchristmas\b`, String.raw`\bxmas\b`,
+  // The season itself.
+  'saison', String.raw`\bstagional[ei]\b`, String.raw`\bstagione\b`, String.raw`\bseason(?:al)?\b`,
+  // Summer and winter: the whole word, or the German compound of a job («Sommerhilfe», «Winterdienst»),
+  // never the start of another word («Winterthur», «Wintergarten»).
+  String.raw`\b(?:sommer|winter)(?:ferien)?(?:hilfe|aushilfen?|jobs?|personal|kraft|krafte|dienst)?\b`,
+  String.raw`\bsummer\b`, String.raw`\bestiv[oaie]\b`, String.raw`\binvern(?:o|al[ei])\b`,
+  String.raw`\bhiver(?:nal(?:e|es)?)?\b`, String.raw`\bete\b`, String.raw`\bestival(?:e|es)?\b`,
+  // The Italian «estate» only where it cannot be the English one («Real Estate Agent»).
+  String.raw`\bl['’]estate\b`, String.raw`\bestate 20\d\d\b`,
+].join('|'));
 const SEASONAL_MAX_AGE_DAYS = 120;
 
 const foldTitle = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');

@@ -114,21 +114,31 @@ function itemSeparator(previous, item) {
   return gap > size * 0.25 || gap < -size * 0.5 ? ' ' : '';
 }
 
+/** A text item with its position: unpdf's own (`x`, `y`, `fontSize`), or read from pdf.js' raw `transform`. */
+function positioned(item) {
+  if (Number.isFinite(item.x) && Number.isFinite(item.y)) return item;
+  if (!Array.isArray(item.transform)) return item;
+  const [, , c, d, x, y] = item.transform;
+  return { ...item, x, y, fontSize: item.fontSize || Math.hypot(Number(c) || 0, Number(d) || 0) };
+}
+
 /**
  * The text of one page from its positioned items (unpdf's extractTextItems).
  * pdf.js marks a line break (hasEOL) and a word gap (an item of one space)
- * inside a text block, never between two blocks: a CV laid out in boxes (a
- * real order, 2026-10-07: the years of three jobs, each in its own box) read
+ * inside one content stream, never between two form XObjects, and a design
+ * tool exports each text box as one: a CV laid out in boxes (a real order,
+ * 2026-10-07: the years of three jobs, each in its own box) read
  * «2022 - 202520192018» and «TuristicoIstituto Tecnico», so the fact gate
  * found neither the years nor the school and stopped the draft at the owner.
  * Only items pdf.js left unseparated are told apart, by where they stand.
- * @param {Array<{str:string, x:number, y:number, width:number, height:number, fontSize:number, hasEOL:boolean}>} items
+ * @param {Array<{str:string, x?:number, y?:number, transform?:number[], width:number, height:number, fontSize?:number, hasEOL:boolean}>} items
  */
 export function pdfItemsText(items) {
   let text = '';
   let previous = null;
-  for (const item of items || []) {
-    if (typeof item?.str !== 'string') continue;
+  for (const raw of items || []) {
+    if (typeof raw?.str !== 'string') continue;
+    const item = positioned(raw);
     if (item.str.trim() && previous && !/\s$/.test(text)) text += itemSeparator(previous, item);
     text += item.str + (item.hasEOL ? '\n' : '');
     if (item.str.trim()) previous = item;

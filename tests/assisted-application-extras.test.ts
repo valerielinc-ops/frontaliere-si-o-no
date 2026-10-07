@@ -82,10 +82,19 @@ describe('posting legitimacy (career-ops Block G)', () => {
     // Past four months it is old like any other; and a job of every season is judged as before.
     expect(assess({ posting: posting('2026-05-20', { de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
     expect(assess({ posting: posting('2026-07-29', { de: 'Verkaufsberater (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
-    for (const title of ['Aide de Noël', 'Vendeur·euse saisonnier·ère', 'Christmas Sales Assistant', 'Cameriere per la stagione invernale', 'Seasonal Associate', 'Sommersaison: Servicemitarbeiter']) {
+    for (const title of [
+      'Aide de Noël', 'Vendeur·euse saisonnier·ère', 'Christmas Sales Assistant', 'Cameriere per la stagione invernale', 'Seasonal Associate', 'Sommersaison: Servicemitarbeiter',
+      // Summer and winter, in the four languages and in English (review of #12225).
+      'Summer sales assistant', 'Addetto estivo', 'Sommerhilfe', 'Employé d’hiver', 'Bagnino per l’estate', 'Animatrice estate 2027', 'Job d\'été', 'Aushilfe Sommer 2027',
+      'Sommerferienjob Lager', 'Mitarbeiter Winterdienst', 'Winter season staff', 'Cameriere inverno 2026/27', 'Serveur·euse saison estivale',
+    ]) {
       expect(isSeasonalTitle([title]), title).toBe(true);
     }
-    for (const title of ['Addetto alla stagionatura', 'Seasoned Sales Manager', 'Natalia Rossi Assistant', 'Infermiera 80-100%', '']) {
+    // The start of another word is no season («Winterthur», a city many Swiss titles name), nor is the English «estate».
+    for (const title of [
+      'Addetto alla stagionatura', 'Seasoned Sales Manager', 'Natalia Rossi Assistant', 'Infermiera 80-100%', '',
+      'Pflegefachfrau HF, Winterthur', 'Monteur Wintergarten', 'Real Estate Agent', 'Estate Manager', 'Responsable hivernage',
+    ]) {
       expect(isSeasonalTitle([title]), title).toBe(false);
     }
   });

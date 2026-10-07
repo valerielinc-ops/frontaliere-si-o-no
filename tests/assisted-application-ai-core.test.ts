@@ -156,8 +156,46 @@ describe('cover letter PDF', () => {
     // A superscript stays on its line; items without a position are joined as before.
     expect(pdfItemsText([item('1', 100, 300, 4), item('er', 104, 303, 6, { height: 5, fontSize: 5 })])).toBe('1er');
     expect(pdfItemsText([{ str: 'a' }, { str: 'b', hasEOL: true }, { str: 'c' }] as any)).toBe('ab\nc');
+    // pdf.js' own items carry the position in `transform`: read the same way (review of #12225).
+    const raw = (str: string, x: number, y: number, width: number) => ({ str, transform: [8, 0, 0, 8, x, y], width, height: 8, hasEOL: false });
+    expect(pdfItemsText([raw('Receptionist', 100, 300, 50), raw('2019', 400, 300, 17.3), raw('Hotel Esempio', 100, 280, 52)] as any)).toBe('Receptionist 2019\nHotel Esempio');
+  });
+
+  it('reads a real PDF whose text boxes are form XObjects with its blocks apart', async () => {
+    // How a design tool exports a CV: each text box a form XObject, drawn at its own place. pdf.js marks no
+    // break between two of them, and unpdf's own joining gives «Contact2022 - 202520192018Diploma …».
+    const text = await extractCvText(boxedPdf([
+      { x: 279, y: 512, text: 'Contact', size: 16 },
+      { x: 512.6, y: 476.5, text: '2022 - 2025' }, { x: 542.2, y: 332.4, text: '2019' }, { x: 548.6, y: 182.4, text: '2018' },
+      { x: 279, y: 611.7, text: 'Diploma di scuola superiore - Turistico' }, { x: 279, y: 596.8, text: 'Istituto Tecnico Esempio' },
+      { x: 279, y: 300, text: 'Receptionist' }, { x: 540, y: 300, text: '2019' },
+    ]), 'pdf');
+    expect(text).toBe('Contact\n2022 - 2025\n2019\n2018\nDiploma di scuola superiore - Turistico\nIstituto Tecnico Esempio\nReceptionist 2019');
   });
 });
+
+/** A one-page PDF whose text boxes are form XObjects, each drawn at its own place. */
+function boxedPdf(boxes: Array<{ x: number; y: number; text: string; size?: number }>): Buffer {
+  const stream = (dictionary: string, content: string) => `<< ${dictionary} /Length ${Buffer.byteLength(content, 'latin1')} >>\nstream\n${content}\nendstream`;
+  const objects = [
+    '<< /Type /Catalog /Pages 2 0 R >>',
+    '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
+    `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /XObject << ${boxes.map((_, index) => `/B${index} ${6 + index} 0 R`).join(' ')} >> >> /Contents 5 0 R >>`,
+    '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>',
+    stream('', boxes.map(({ x, y }, index) => `q 1 0 0 1 ${x} ${y} cm /B${index} Do Q`).join('\n')),
+    ...boxes.map(({ text, size = 8 }) => stream('/Type /XObject /Subtype /Form /BBox [0 0 400 40] /Resources << /Font << /F1 4 0 R >> >>', `BT /F1 ${size} Tf (${text}) Tj ET`)),
+  ];
+  let body = '%PDF-1.4\n';
+  const offsets = objects.map((object, index) => {
+    const offset = Buffer.byteLength(body, 'latin1');
+    body += `${index + 1} 0 obj\n${object}\nendobj\n`;
+    return offset;
+  });
+  const xref = Buffer.byteLength(body, 'latin1');
+  body += `xref\n0 ${objects.length + 1}\n0000000000 65535 f \n${offsets.map((offset) => `${String(offset).padStart(10, '0')} 00000 n \n`).join('')}`;
+  body += `trailer\n<< /Size ${objects.length + 1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+  return Buffer.from(body, 'latin1');
+}
 
 describe('fact gate', () => {
   const index = buildFactIndex([
@@ -393,8 +431,19 @@ describe('job posting fetch', () => {
     expect(workdayPostingApiUrl('https://acme.wd3.myworkdayjobs.com/Careers/job/Lugano/Verkaufsberater_R15163/apply/applyManually?source=x')).toBe(api);
     expect(workdayPostingApiUrl('https://acme.wd103.myworkdayjobs.com/de-DE/Careers/job/Verkaufsberater_R15163/apply'))
       .toBe('https://acme.wd103.myworkdayjobs.com/wday/cxs/acme/Careers/job/Verkaufsberater_R15163');
+    // A locale written in lower case or with an underscore is still the locale, not the site.
+    expect(workdayPostingApiUrl('https://acme.wd3.myworkdayjobs.com/de_de/Careers/job/Lugano/Verkaufsberater_R15163')).toBe(api);
+    // The same career site under Workday's other name (read on 2026-10-07: wd502.myworkdaysite.com answers the
+    // same JSON and the same «not found» error): the tenant is in the path, after «recruiting».
+    expect(workdayPostingApiUrl('https://wd502.myworkdaysite.com/de-CH/recruiting/acme/Careers/job/Lugano/Verkaufsberater_R15163/apply'))
+      .toBe('https://wd502.myworkdaysite.com/wday/cxs/acme/Careers/job/Lugano/Verkaufsberater_R15163');
+    expect(workdayPostingApiUrl('https://wd502.myworkdaysite.com/recruiting/acme/Careers/job/Verkaufsberater_R15163'))
+      .toBe('https://wd502.myworkdaysite.com/wday/cxs/acme/Careers/job/Verkaufsberater_R15163');
     // A career site's home, another portal, plain http: no posting of Workday's.
-    for (const other of ['https://acme.wd3.myworkdayjobs.com/en-US/Careers', 'https://jobs.lever.co/acme/1', 'http://acme.wd3.myworkdayjobs.com/Careers/job/a/b', 'not a url']) {
+    for (const other of [
+      'https://acme.wd3.myworkdayjobs.com/en-US/Careers', 'https://wd502.myworkdaysite.com/recruiting/acme/Careers', 'https://wd502.myworkdaysite.com/Careers/job/a/b',
+      'https://jobs.lever.co/acme/1', 'http://acme.wd3.myworkdayjobs.com/Careers/job/a/b', 'not a url',
+    ]) {
       expect(workdayPostingApiUrl(other)).toBe('');
     }
 

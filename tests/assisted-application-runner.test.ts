@@ -856,6 +856,10 @@ describe('career-ops liveness', () => {
     const open = () => new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true } }), { status: 200 });
     const gone = () => new Response(JSON.stringify({ httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 });
     expect(await check(workday(open))).toMatchObject({ page: { result: 'active', code: 'ats_api_open' }, closed: false });
+    // The same career site under Workday's other name, myworkdaysite.com.
+    const siteUrl = 'https://wd502.myworkdaysite.com/de-CH/recruiting/acme/Careers/job/Lugano/Verkaufsberater_R15163';
+    expect(await checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl: siteUrl }, posting: { applyUrl: siteUrl }, fetchImpl: workday(open), resolve: publicDns }))
+      .toMatchObject({ page: { result: 'active', code: 'ats_api_open' } });
     expect(await check(workday(gone))).toMatchObject({ page: { result: 'expired', code: 'ats_api_gone' }, datasetGone: false, closed: false });
     expect(await check(workday(gone, 404))).toMatchObject({ page: { code: 'ats_api_gone' }, datasetGone: true, closed: true });
     // Workday does not answer: the shell, as before, which never refunds.
