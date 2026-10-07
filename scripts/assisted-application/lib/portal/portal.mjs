@@ -364,8 +364,10 @@ async function openApplicationForm(context, page, snapshot) {
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
     const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
-    const linkCount = link ? await link.count() : 0;
-    if (!manual && !apply && !linkCount) return { page, snapshot };
+    const linkVisible = link
+      ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
+      : false;
+    if (!manual && !apply && !linkVisible) return { page, snapshot };
     if (manual || apply) {
       const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
       await clickButton(page, manual || apply);
