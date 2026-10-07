@@ -114,6 +114,10 @@ function blockedPlan({
   recoveryRequired = false,
   legacySourceLocales = [],
 }) {
+  const recoveryReason = recoveryRequired
+    ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; dispatch a current build to replay the split handoff`
+    : '';
+  const reason = reasons.join('; ') || 'no locale publish plan was admissible';
   return {
     allowed: false,
     mode: 'blocked',
@@ -127,7 +131,7 @@ function blockedPlan({
     legacySourceLocales,
     staleLocales: LOCALES.slice(),
     staleReasons,
-    reason: reasons.join('; ') || 'no locale publish plan was admissible',
+    reason: [reason, recoveryReason].filter(Boolean).join('; '),
   };
 }
 

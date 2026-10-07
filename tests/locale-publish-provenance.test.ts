@@ -391,6 +391,12 @@ describe('locale publish workflow wiring', () => {
           jobs: jobs(), provenance: [
             { file: 'it.json', manifest: receipt('it') },
             { file: `${locale}.json`, manifest: source },
+            ...(['en', 'de', 'fr'] as const)
+              .filter((supportingLocale) => supportingLocale !== locale)
+              .map((supportingLocale) => ({
+                file: `${supportingLocale}.json`,
+                manifest: receipt(supportingLocale),
+              })),
           ],
         });
         expect(plan.tailLocales.includes(locale)).toBe(admitted);
