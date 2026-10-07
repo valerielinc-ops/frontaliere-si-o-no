@@ -81,6 +81,25 @@ describe('event description publication policy', () => {
     expect(applyDescriptionRewrite(EVENT, { entries: { [rewriteCacheKey(EVENT.id, 'wrong')]: entry } }).description).toBeUndefined();
   });
 
+  it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
+    const hash = sourceDescriptionHash(EVENT)!;
+    const entry = {
+      id: EVENT.id,
+      sourceDescriptionHash: hash,
+      description: 'La mostra riunisce opere locali. L\'appuntamento si tiene al museo civico.',
+      descriptionByLocale: {
+        it: 'La mostra riunisce opere locali. L\'appuntamento si tiene al museo civico.',
+        en: 'The exhibition brings together local works. The event takes place at the civic museum.',
+        de: 'Die Ausstellung versammelt lokale Werke. Der Anlass findet im Stadtmuseum statt.',
+        fr: 'L’exposition réunit des œuvres locales. Le rendez-vous a lieu au musée civique.',
+      },
+      model: EVENT_DESCRIPTION_REWRITE_MODEL,
+      promptVersion: 'event-description-rewrite-v1',
+      rewrittenAt: '2026-10-06T08:00:00.000Z',
+    };
+    expect(isValidRewriteCacheEntry(entry, { id: EVENT.id, sourceHash: hash })).toBe(true);
+  });
+
   it('removes description-derived translation entries but keeps title translations', () => {
     const cache = {
       'description::it::testo privato': { en: 'private' },
@@ -123,6 +142,45 @@ describe('event description rewrite validator', () => {
       sourceTexts: source,
       factTexts: [...facts, '{"amount":25,"currency":"CHF"}'],
     }).ok).toBe(true);
+  });
+
+  it('accepts equivalent translated venue, date, number and currency forms from structured facts', () => {
+    const structuredFacts = [
+      'Museo civico',
+      'Zürich',
+      'TI',
+      '2026-10-12',
+      '18:00',
+      '{"amount":25,"currency":"CHF"}',
+    ];
+    expect(validateRewriteDescription('The event presents a cultural programme. The visit takes place at the Civic Museum.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('L\'appuntamento è previsto il dodici ottobre duemilaventisei. La visita è indicata nelle informazioni disponibili.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('Der Eintritt kostet fünfundzwanzig Schweizer Franken. Die Veranstaltung ist in den Daten erfasst.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('The event starts at 6:30 pm. The visit takes place at the Civic Museum.', {
+      sourceTexts: source,
+      factTexts: ['Museo civico', '2026-10-12', '18:30'],
+    }).ok).toBe(true);
+  });
+
+  it('keeps new dates and names rejected after equivalence normalization', () => {
+    const structuredFacts = ['Museo civico', '2026-10-12', '{"amount":25,"currency":"CHF"}'];
+    expect(validateRewriteDescription('L\'appuntamento è previsto il dodici novembre duemilaventisei. La visita è indicata nelle informazioni disponibili.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    })).toEqual({ ok: false, code: 'new-number' });
+    expect(validateRewriteDescription('The event presents a cultural programme. The visit takes place at the New Palace.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    })).toEqual({ ok: false, code: 'new-name' });
   });
 
   it('accepts a factual two-sentence paraphrase in all four locales', () => {
