@@ -4,12 +4,15 @@ import {
   createJobsSourceRelayHandler,
   RELAY_MAX_UPSTREAM_PER_DAY,
   MAX_RELAY_RESPONSE_BYTES,
+  parseAllowedRelayTarget,
   verifyGithubOidcToken,
 } from '../functions/src/jobsSourceRelay.js';
 import { fetchSourceViaRelay } from '../scripts/lib/source-relay-fetch.mjs';
 
 const ALLOWED_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CHUR_URL = 'https://jobs.chur.ch/Pflegefachfrau-de-j1719.html';
+const ALTEN_LISTING_URL = 'https://www.alten.ch/career/jobs/';
+const ALTEN_JOB_URL = 'https://www.alten.ch/jobs/903-pipe-project-manager-it/';
 const RELAY_ENV = {
   ACTIONS_ID_TOKEN_REQUEST_URL: 'https://token.actions.githubusercontent.com/request',
   ACTIONS_ID_TOKEN_REQUEST_TOKEN: 'actions-request-token',
@@ -59,6 +62,28 @@ afterEach(() => {
 });
 
 describe('jobsSourceRelay', () => {
+  it('allows only the canonical ALTEN listing and job-detail paths', () => {
+    expect(parseAllowedRelayTarget(ALTEN_LISTING_URL)).toMatchObject({
+      host: 'www.alten.ch',
+      path: '/career/jobs/',
+    });
+    expect(parseAllowedRelayTarget(ALTEN_JOB_URL)).toMatchObject({
+      host: 'www.alten.ch',
+      path: '/jobs/903-pipe-project-manager-it/',
+    });
+
+    for (const url of [
+      'https://alten.ch/career/jobs/',
+      'https://www.alten.ch/career/jobs',
+      'https://www.alten.ch/career/jobs/other/',
+      'https://www.alten.ch/jobs/903-pipe-project-manager-it/apply/',
+      'https://www.alten.ch/jobs/not-a-source-page/',
+      'http://www.alten.ch/career/jobs/',
+    ]) {
+      expect(parseAllowedRelayTarget(url), url).toBeNull();
+    }
+  });
+
   it('declares private IAM invocation before application authentication', () => {
     const source = readFileSync('functions/index.js', 'utf8');
 
@@ -273,6 +298,51 @@ describe('source relay crawler client', () => {
         Accept: 'text/html, application/json',
       },
     });
+  });
+
+  it('accepts the pipelines GitHub OIDC request host', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input).startsWith('https://pipelines.actions.githubusercontent.com/')) {
+        return new Response(JSON.stringify({ value: 'github-oidc-token' }), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        });
+      }
+      return new Response('relayed source', {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      });
+    });
+    const response = await fetchSourceViaRelay(CHUR_URL, {
+      relayUrl: 'https://europe-west6-frontaliere.cloudfunctions.net/jobsSourceRelay',
+      fetchImpl,
+      env: {
+        ...RELAY_ENV,
+        ACTIONS_ID_TOKEN_REQUEST_URL: 'https://pipelines.actions.githubusercontent.com/request',
+      },
+    });
+
+    expect(response?.status).toBe(200);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(String(fetchImpl.mock.calls[0][0])).toContain('pipelines.actions.githubusercontent.com');
+  });
+
+  it.each([
+    ['an unrelated host', 'https://evil.example/request'],
+    ['a lookalike subdomain', 'https://evil.pipelines.actions.githubusercontent.com/request'],
+    ['a non-HTTPS URL', 'http://pipelines.actions.githubusercontent.com/request'],
+    ['an explicit port', 'https://pipelines.actions.githubusercontent.com:443/request'],
+    ['userinfo', 'https://user@pipelines.actions.githubusercontent.com/request'],
+  ])('rejects OIDC request URLs with %s', async (_description, requestUrl) => {
+    const fetchImpl = vi.fn();
+    const response = await fetchSourceViaRelay(CHUR_URL, {
+      relayUrl: 'https://europe-west6-frontaliere.cloudfunctions.net/jobsSourceRelay',
+      fetchImpl,
+      env: { ...RELAY_ENV, ACTIONS_ID_TOKEN_REQUEST_URL: requestUrl },
+    });
+
+    expect(response).toBeNull();
+    expect(fetchImpl).not.toHaveBeenCalled();
   });
 
   it('bounds an OIDC fetch that never settles with the shared relay deadline', async () => {
