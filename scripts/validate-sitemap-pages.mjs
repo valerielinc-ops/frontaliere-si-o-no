@@ -475,8 +475,24 @@ function judgeHistoricalCheck(name, offenders, filesScanned) {
   return verdict;
 }
 
+function historicalCheckPassed(verdict) {
+  return HISTORICAL_CORPUS
+    ? Boolean(verdict?.historicalCorpus && verdict?.measured && verdict?.passed)
+    : Boolean(verdict?.passed);
+}
+
+function historicalMeasurementInvalid(verdict) {
+  return HISTORICAL_CORPUS
+    && !(verdict?.historicalCorpus && verdict?.measured);
+}
+
 function appendHistoricalSummary(out, verdict) {
-  if (verdict?.historicalCorpus) out.push(`\n⚠️  ${verdict.humanSummary}.\n`);
+  if (!HISTORICAL_CORPUS || !verdict) return;
+  if (verdict.historicalCorpus) {
+    out.push(`\n⚠️  ${verdict.humanSummary}.\n`);
+  } else {
+    out.push(`\n❌ ${verdict.humanSummary}.\n`);
+  }
 }
 
 // ── 1) audit-sitemap-canonicals ────────────────────────────────────────────
@@ -596,14 +612,14 @@ function runAuditSitemapCanonicals() {
     if (warners.length > slice.length) out.push(`… ${warners.length - slice.length} more\n`);
   }
 
-  if (hardFailers.length === 0) {
+  if (hardFailers.length === 0 && historicalCheckPassed(historical)) {
     checks.sitemapCanonicals.pass = true;
     appendHistoricalSummary(out, historical);
     checks.sitemapCanonicals.summary = out.join('');
     return;
   }
 
-  if (strictOffenders === 0 && historical.historicalCorpus && historical.passed) {
+  if (strictOffenders === 0 && historicalCheckPassed(historical)) {
     out.push(
       `\nHistorical corpus measurement retained ${historicalOffenders} ` +
       'cross-page mismatch(es) as a non-regressing emission rate; missing canonicals remain strict.\n',
@@ -614,6 +630,7 @@ function runAuditSitemapCanonicals() {
     return;
   }
 
+  appendHistoricalSummary(out, historical);
   out.push(
     `\nFAIL: sitemap canonical integrity gate found ${hardFailers.length} offender(s).\n` +
     `Sitemap <loc> URLs MUST self-canonicalize. See CLAUDE.md SEO rules.\n\n`
@@ -653,6 +670,7 @@ function runValidateCanonical() {
   const errors = [];
   const warnings = [];
   let bridgeSkipped = 0;
+  let filesScanned = 0;
 
   for (const url of sitemapUrls) {
     const htmlFile = findHtmlFile_vc(url);
@@ -660,6 +678,7 @@ function runValidateCanonical() {
 
     const fullContent = readHtml(htmlFile);
     if (fullContent === null) continue;
+    filesScanned += 1;
     const content = fullContent.slice(0, 8000);
 
     if (content.includes('Versione canonica disponibile')) {
@@ -714,11 +733,11 @@ function runValidateCanonical() {
   const historical = judgeHistoricalCheck(
     'validate:canonical',
     historicalErrors.length,
-    sitemapUrls.size,
+    filesScanned,
   );
 
-  const historicalPass = historical.historicalCorpus && historical.passed;
-  const historicalPopulationInvalid = HISTORICAL_CORPUS && !historical.measured;
+  const historicalPass = historicalCheckPassed(historical);
+  const historicalPopulationInvalid = historicalMeasurementInvalid(historical);
   if (historicalPopulationInvalid) {
     out.push('❌ Historical corpus canonical check had no measurable sitemap population; refusing a vacuous pass.\n');
   }
@@ -948,8 +967,8 @@ function runValidateContentQuality() {
     historicalOffenders,
     eligibleUrls,
   );
-  const historicalPass = historical.historicalCorpus && historical.passed;
-  const historicalPopulationInvalid = HISTORICAL_CORPUS && !historical.measured;
+  const historicalPass = historicalCheckPassed(historical);
+  const historicalPopulationInvalid = historicalMeasurementInvalid(historical);
   appendHistoricalSummary(out, historical);
   if (historicalPopulationInvalid) {
     out.push('❌ Historical corpus content-quality check had no eligible sitemap population; refusing a vacuous pass.\n');
@@ -991,7 +1010,7 @@ function runValidateContentQuality() {
 
   const blockingErrors = (historicalPopulationInvalid ? 1 : 0)
     + thinContent.length
-    + (historicalPass ? 0 : historicalOffenders);
+    + (historicalPopulationInvalid || historicalPass ? 0 : Math.max(1, historicalOffenders));
   if (blockingErrors > 0) {
     out.push(`\n❌ BLOCKING: ${blockingErrors} error(s) found. Fix before deploying.\n`);
     checks.contentQuality.pass = false;

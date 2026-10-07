@@ -37,6 +37,18 @@ const STRICT_TOLERANCE = Object.freeze({
   minAbsDelta: 0,
 });
 
+/**
+ * Ledger tolerances are data, not code. Keep their permissiveness bounded so
+ * a malformed or accidentally widened snapshot cannot turn the historical
+ * ratchet into a bypass. Percent tolerances cannot exceed the full rate; the
+ * absolute offender floor is intentionally kept small and bounded.
+ */
+export const HISTORICAL_TOLERANCE_LIMITS = Object.freeze({
+  relPct: 100,
+  absPp: 100,
+  minAbsDelta: 100,
+});
+
 function ledgerPath(path = HISTORICAL_CORPUS_LEDGER) {
   return isAbsolute(path) ? path : join(ROOT, path);
 }
@@ -45,11 +57,23 @@ function finiteNonNegative(value) {
   return typeof value === 'number' && Number.isFinite(value) && value >= 0;
 }
 
+function validTolerance(tolerance) {
+  if (tolerance === undefined) return true;
+  if (!tolerance || typeof tolerance !== 'object' || Array.isArray(tolerance)) return false;
+  if (Object.keys(tolerance).some((name) => !Object.hasOwn(HISTORICAL_TOLERANCE_LIMITS, name))) return false;
+  return Object.entries(HISTORICAL_TOLERANCE_LIMITS).every(([name, maximum]) => {
+    const value = tolerance[name];
+    return value === undefined || (finiteNonNegative(value) && value <= maximum);
+  });
+}
+
 function validCheckEntry(entry) {
   return Boolean(
     entry
       && typeof entry === 'object'
       && finiteNonNegative(entry.ceilingRatePct)
+      && entry.ceilingRatePct <= 100
+      && validTolerance(entry.tolerance)
       && entry.measurement
       && typeof entry.measurement === 'object'
       && Number.isInteger(entry.measurement.filesScanned)
@@ -93,6 +117,15 @@ function strictVerdict({ check, offenders, filesScanned, reason }) {
   };
 }
 
+function unavailableHistoricalVerdict({ check, offenders, filesScanned, reason }) {
+  return {
+    ...strictVerdict({ check, offenders, filesScanned, reason }),
+    measured: false,
+    passed: false,
+    regression: true,
+  };
+}
+
 /**
  * Judge one blocking sitemap sub-check.
  *
@@ -111,8 +144,14 @@ export function evaluateHistoricalCorpusRate({
   if (!historicalCorpus) {
     return strictVerdict({ check, offenders, filesScanned, reason: 'source/local validation' });
   }
-  if (!ledger?.checks?.[check]) {
-    return strictVerdict({ check, offenders, filesScanned, reason: 'historical ledger unavailable' });
+  const entry = ledger?.checks?.[check];
+  if (!validCheckEntry(entry)) {
+    return unavailableHistoricalVerdict({
+      check,
+      offenders,
+      filesScanned,
+      reason: 'historical ledger unavailable',
+    });
   }
   if (!(filesScanned > 0)) {
     return {
@@ -124,7 +163,6 @@ export function evaluateHistoricalCorpusRate({
     };
   }
 
-  const entry = ledger.checks[check];
   const tolerance = { ...STRICT_TOLERANCE, ...(entry.tolerance ?? {}) };
   const comparison = evaluateMixAdjustedTotalRegression({
     scannedByFeature: { [check]: filesScanned },
