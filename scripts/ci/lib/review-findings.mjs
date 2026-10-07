@@ -70,21 +70,105 @@ export function stripBodyCitationLines(text) {
     .join('\n');
 }
 
+function markdownBracketEnd(text, openingIndex) {
+  let depth = 0;
+  for (let index = openingIndex; index < text.length; index += 1) {
+    if (text[index] === '\\') {
+      index += 1;
+      continue;
+    }
+    if (text[index] === '[') depth += 1;
+    if (text[index] !== ']') continue;
+    depth -= 1;
+    if (depth === 0) return index;
+  }
+  return -1;
+}
+
+function markdownDestinationEnd(text, openingIndex) {
+  let depth = 1;
+  for (let index = openingIndex + 1; index < text.length; index += 1) {
+    if (text[index] === '\\') {
+      index += 1;
+      continue;
+    }
+    if (text[index] === '(') {
+      depth += 1;
+      continue;
+    }
+    if (text[index] !== ')') continue;
+    depth -= 1;
+    if (depth === 0) return index;
+  }
+  return -1;
+}
+
 /**
- * Compare body text without treating Markdown decoration or whitespace layout
- * as content. The comparison remains case-sensitive and preserves words and
- * punctuation, so the quote is still evidence of the exact text.
+ * Remove Markdown link/image destinations while retaining their labels.
+ *
+ * A regular expression using `[^)]*` cannot distinguish the closing
+ * parenthesis of a destination from a parenthesis inside that destination.
+ * Scan the label and destination instead, honoring escapes and nesting; an
+ * unterminated or otherwise ambiguous construct is retained verbatim.
  */
+export function normalizeMarkdownDestination(value) {
+  const source = String(value || '');
+  let normalized = '';
+  for (let index = 0; index < source.length; index += 1) {
+    const isImage = source[index] === '!' && source[index + 1] === '[';
+    const openingIndex = isImage ? index + 1 : index;
+    if (source[openingIndex] !== '[') {
+      normalized += source[index];
+      continue;
+    }
+    const labelEnd = markdownBracketEnd(source, openingIndex);
+    const destinationOpening = labelEnd >= 0 && source[labelEnd + 1] === '('
+      ? labelEnd + 1
+      : -1;
+    if (destinationOpening < 0) {
+      normalized += source[index];
+      continue;
+    }
+    const destinationEnd = markdownDestinationEnd(source, destinationOpening);
+    if (destinationEnd < 0) {
+      normalized += source[index];
+      continue;
+    }
+    normalized += source.slice(openingIndex + 1, labelEnd);
+    index = destinationEnd;
+  }
+  return normalized;
+}
+
+function stripMarkdownEmphasis(text) {
+  let normalized = text;
+  let previous;
+  do {
+    previous = normalized;
+    normalized = normalized
+      // GFM strikethrough and strong emphasis are paired delimiters. A lone
+      // tilde, star, or underscore is content and must remain in the quote.
+      .replace(/(?<!\\)~~(?=\S)([^\n]*?\S)(?<!\\)~~/gu, '$1')
+      .replace(/(?<!\\)\*\*(?=\S)([^\n]*?\S)(?<!\\)\*\*(?!\w)/gu, '$1')
+      .replace(/(?<![\w\\])__(?=\S)([^\n]*?\S)(?<!\\)__(?!\w)/gu, '$1')
+      .replace(/(?<!\\)\*(?=\S)([^\n]*?\S)(?<!\\)\*(?!\w)/gu, '$1')
+      .replace(/(?<![\w\\])_(?=\S)([^\n]*?\S)(?<!\\)_(?!\w)/gu, '$1');
+  } while (normalized !== previous);
+  return normalized;
+}
+
 export function normalizeBodyCitationText(value) {
+  // Compare body text without treating Markdown decoration or whitespace
+  // layout as content. The comparison remains case-sensitive and preserves
+  // words and punctuation, so the quote is still evidence of the exact text.
   let text = String(value || '').normalize('NFKC').replace(/\r\n?/gu, '\n');
   text = text
-    .replace(/<!--[\s\S]*?-->/gu, ' ')
-    .replace(/!\[([^\]]*)\]\([^)]*\)/gu, '$1')
-    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
+    .replace(/<!--[\s\S]*?-->/gu, ' ');
+  text = normalizeMarkdownDestination(text)
     .replace(/```[^\n]*\n?/gu, '')
     .replace(/`([^`\n]*)`/gu, '$1')
-    .replace(/^\s{0,3}(?:#{1,6}\s+|>\s?|[-*+]\s+|\d+\.\s+)/gmu, '')
-    .replace(/[*_~]/gu, '');
+    .replace(/^\s{0,3}(?:#{1,6}\s+|>\s?|[-*+]\s+|\d+\.\s+)/gmu, '');
+  text = stripMarkdownEmphasis(text);
   return text.replace(/\s+/gu, ' ').trim();
 }
 
