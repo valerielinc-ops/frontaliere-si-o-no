@@ -634,7 +634,6 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
         }
         try {
           const result = fs.readFileSync(outputPath, 'utf8').trim();
-          if (!result) throw new Error('Codex CLI returned an empty last message');
           if (imageOutputPath) {
             const workspaceRoot = fs.realpathSync(process.cwd());
             const destination = path.resolve(imageOutputPath);
@@ -643,10 +642,17 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
               throw new Error('imageOutputPath must stay inside the job workspace');
             }
             const generated = newestGeneratedImage(path.join(codexHome, 'generated_images'), imageGenerationStartedAt - 1000);
-            if (!generated) throw new Error('Codex completed without a generated image file');
+            if (!generated) {
+              const reason = codexFailureReason(stderrTail);
+              throw new Error(`Codex completed without a generated image file${reason ? `: ${reason}` : ''}`);
+            }
             fs.mkdirSync(path.dirname(destination), { recursive: true, mode: 0o700 });
             fs.copyFileSync(generated, destination);
           }
+          // Image-only Codex calls are successful even when the CLI does not
+          // write a textual last message. The generated file is the result;
+          // requiring outputPath first made the broker discard valid images.
+          if (!result && !imageOutputPath) throw new Error('Codex CLI returned an empty last message');
           resolve(result);
         } catch (error) {
           reject(error);
