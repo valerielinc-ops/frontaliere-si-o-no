@@ -6,8 +6,8 @@
  */
 
 export type BlogBodyTranslations = Record<string, string>;
-import type { ArticleSection } from '@/services/articleSections';
-import { isCantonArticleSection } from '@/services/runtimeArticleSections';
+import type { ArticleSection } from './articleSections';
+import { isCantonArticleSection } from './runtimeArticleSections';
 
 export async function loadBlogBodyChunk(
   locale: string,
