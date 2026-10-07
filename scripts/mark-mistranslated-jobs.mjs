@@ -109,7 +109,7 @@ const LOCALES = DEFAULT_JOB_LOCALES;
 /** Matches translate-pending.yml's `max_jobs` default for the AI cascade — the
  *  only step that can repair a partially-translated title. See THROUGHPUT. */
 export const DEFAULT_MARK_CAP = 100;
-/** Stop marking entirely once this many jobs already await retranslation. */
+/** Hold description-only marking once this many jobs already await retranslation. */
 export const DEFAULT_QUEUE_CEILING = 2000;
 const MIN_DESCRIPTION_CHARS = 120;
 const DESCRIPTION_CONFIDENCE = 0.65;
@@ -276,7 +276,7 @@ export function selectMistranslatedJobs(
     const descriptionHit = !titleHit && !descriptionThrottled && descriptions
       ? descriptionOffence(job)
       : null;
-    const genderFormHit = !titleHit && !descriptionHit && !descriptionThrottled && genderForms
+    const genderFormHit = !titleHit && !descriptionHit && genderForms
       ? genderFormOffence(job)
       : null;
     const offence = titleHit || descriptionHit || genderFormHit;
@@ -352,9 +352,10 @@ function main() {
     return;
   }
   if (selection.descriptionThrottled) {
+    const titleLaneHits = selection.titleHits + selection.genderFormHits;
     console.log(
       `⏸️  Backpressure: ${selection.queueDepth} jobs already await retranslation (ceiling ${opts.queueCeiling}).`
-        + ` Holding description-only detections; ${selection.titleHits} title repair job(s) remain eligible for local MT.`
+        + ` Holding description-only detections; ${titleLaneHits} title-lane repair job(s) remain eligible for local MT.`
     );
   }
   console.log(

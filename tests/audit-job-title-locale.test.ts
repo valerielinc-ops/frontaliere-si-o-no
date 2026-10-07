@@ -460,6 +460,26 @@ describe('mark-mistranslated-jobs — idempotent title marking', () => {
     expect(DEFAULT_QUEUE_CEILING).toBeGreaterThan(0);
   });
 
+  it('keeps gender-form title repair independent of description backpressure', () => {
+    const sel = selectMistranslatedJobs([
+      { slug: 'queued', needsRetranslation: true },
+      { slug: 'gender', sourceLang: 'de', title: 'Mitarbeiter:innen' },
+    ], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      queueCeiling: 1,
+    });
+
+    expect(sel.descriptionThrottled).toBe(true);
+    expect(sel.throttled).toBe(false);
+    expect(sel.queueDepth).toBe(1);
+    expect(sel.slugs.has('gender')).toBe(true);
+    expect(sel.genderFormHits).toBe(1);
+    expect(sel.titleHits).toBe(0);
+    expect(sel.descriptionHits).toBe(0);
+  });
+
   it('still catches wrong-language descriptions when titles are switched off', () => {
     const germanDescription = 'Wir suchen eine engagierte Mitarbeiterin für unser Team in der Pflege. '
       + 'Die Stelle umfasst die Betreuung von Patienten und die Zusammenarbeit mit den Ärzten der Klinik. '
