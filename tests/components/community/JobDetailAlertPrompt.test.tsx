@@ -81,6 +81,10 @@ describe('JobDetailAlertPrompt', () => {
     expect(dialog.textContent).toContain('Sanità');
     expect(screen.getByText(/Sì, attiva/)).toBeTruthy();
     expect(screen.getByText(/Non ora/)).toBeTruthy();
+    expect(dialog.querySelector('[data-consent-key="communicationsOptIn"]')).toHaveClass(
+      'text-[10px]',
+      'leading-tight',
+    );
   });
 
   it('calls onDismissed and onClose when "Non ora" is clicked', () => {
