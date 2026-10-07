@@ -16,11 +16,12 @@
 // - AT: the public E-Control Spritpreisrechner API; no robots.txt on
 //   api.e-control.at (the API is publicly documented, but no separate open-data
 //   licence was found; keep the provider attribution in the output).
-// - DE: Tankerkönig/MTS-K has CC BY data but requires a manually approved
-//   personal API key and its redistribution terms are not suitable for this
-//   public cache; the optional adapter is skipped without that key.
-// One plain request per source per day (the daily run of
-// update-fuel-prices.yml), honest User-Agent, no header spoofing.
+// - DE: Tankerkönig/MTS-K data is CC BY 4.0. The optional adapter uses one
+//   list.php request per configured border group, serialised at the provider's
+//   one-request-per-minute limit, and skips the whole overlay on ok:false.
+// One plain request per source per daily run, honest User-Agent, no header
+// spoofing. Tankerkönig requests deliberately have no retry: a retry would be
+// another API request and could violate the provider's frequency limit.
 
 import { inflateRawSync } from 'node:zlib';
 
@@ -29,8 +30,11 @@ import {
   DE_POINTS_BY_CANTON,
   DE_SEARCH_RADIUS_KM,
   FR_DEPARTMENTS_BY_CANTON,
+  FUELS,
+  MIN_STATIONS_PER_RECORD,
   MAX_NATIONAL_PRICE_AGE_DAYS,
   extractSingleZipEntry,
+  isPlausiblePrice,
   parseBfsFuelXlsx,
   parseEControStations,
   parseFrenchInstantXml,
@@ -41,6 +45,7 @@ export const FR_INSTANT_FEED_URL = 'https://donnees.roulez-eco.fr/opendata/insta
 export const BFS_FUEL_PRICES_URL = 'https://dam-api.bfs.admin.ch/hub/api/dam/assets/orderNr:su-d-05.02.91/master';
 export const AT_ECONTROL_BY_REGION_URL = 'https://api.e-control.at/sprit/1.0/search/gas-stations/by-region';
 export const DE_TANKERKOENIG_LIST_URL = 'https://creativecommons.tankerkoenig.de/json/list.php';
+export const DE_REQUEST_INTERVAL_MS = 60_000;
 const USER_AGENT = 'FrontaliereTicino/1.0 (+https://frontaliereticino.ch/)';
 const TIMEOUT_MS = 45_000;
 
@@ -66,6 +71,8 @@ async function fetchWithRetry(url, { retries = 3, as = 'json', fetchImpl = fetch
 function redactKey(message, key) {
   return key ? String(message).split(key).join('***') : String(message);
 }
+
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export async function fetchFrenchStations({ fetchImpl, retries } = {}) {
   const departments = [...new Set(Object.values(FR_DEPARTMENTS_BY_CANTON).flat())];
@@ -140,41 +147,79 @@ export async function fetchAustrianStations({ fetchImpl, retries } = {}) {
   };
 }
 
-export async function fetchGermanStations({ apiKey = process.env.TANKERKOENIG_API_KEY, fetchImpl, retries } = {}) {
+export async function fetchGermanStations({
+  apiKey = process.env.TANKERKOENIG_API_KEY,
+  fetchImpl,
+  requestIntervalMs = DE_REQUEST_INTERVAL_MS,
+  sleepImpl = wait,
+} = {}) {
   if (!apiKey) {
     return {
       status: 'skipped',
-      reason: 'blocked: manual registration at https://onboarding.tankerkoenig.de/ is required; Remote Config parameter TANKERKOENIG_API_KEY is intentionally unset',
+      reason: 'TANKERKOENIG_API_KEY is not configured (Remote Config); DE overlay skipped',
       data: {},
     };
   }
   const byCanton = {};
   const failures = [];
-  // Cantons in parallel: in the worst case (every request timing out through
-  // all retries) the source costs one retry chain, not five in a row, and
-  // stays well inside the job's 20-minute cap.
-  await Promise.all(Object.entries(DE_POINTS_BY_CANTON).map(async ([canton, points]) => {
+  const coverage = {};
+  let rejectedReason = null;
+  let requestNumber = 0;
+  // Requests are intentionally sequential. Tankerkönig documents one request
+  // per minute for the free API; parallel calls would make an otherwise valid
+  // daily run exceed that limit and could deactivate the key.
+  for (const [canton, points] of Object.entries(DE_POINTS_BY_CANTON)) {
+    if (requestNumber > 0 && requestIntervalMs > 0) await sleepImpl(requestIntervalMs);
+    requestNumber++;
     const seen = new Map();
-    for (const point of points) {
-      const qs = new URLSearchParams({
-        lat: String(point.lat), lng: String(point.lng), rad: String(DE_SEARCH_RADIUS_KM),
-        sort: 'dist', type: 'all', apikey: apiKey,
-      });
-      try {
-        for (const s of parseTankerkoenigStations(await fetchWithRetry(`${DE_TANKERKOENIG_LIST_URL}?${qs}`, { fetchImpl, retries }))) {
-          if (!seen.has(s.id)) seen.set(s.id, s);
-        }
-      } catch (err) {
-        failures.push(`${canton}: ${redactKey(err?.message || err, apiKey)}`);
+    const point = points[0];
+    const qs = new URLSearchParams({
+      lat: String(point.lat), lng: String(point.lng), rad: String(DE_SEARCH_RADIUS_KM),
+      sort: 'dist', type: 'all', apikey: apiKey,
+    });
+    let parsedStations = false;
+    try {
+      // Never retry a Tankerkönig request: even a transient HTTP/network
+      // error is reported as a source failure and leaves the other overlays
+      // publishable. A rejected ok:false response also stops immediately, as
+      // the provider recommends sending no further requests for that key.
+      const response = await fetchWithRetry(`${DE_TANKERKOENIG_LIST_URL}?${qs}`, { fetchImpl, retries: 1 });
+      if (response?.ok === false) {
+        rejectedReason = `rejected: ${redactKey(response.message || 'API returned ok:false', apiKey)}`;
+        break;
       }
+      for (const s of parseTankerkoenigStations(response)) {
+        if (!seen.has(s.id)) seen.set(s.id, s);
+      }
+      parsedStations = true;
+    } catch (err) {
+      failures.push(`${canton}: ${redactKey(err?.message || err, apiKey)}`);
     }
     byCanton[canton] = [...seen.values()];
-  }));
+    if (!parsedStations) continue;
+    const stations = byCanton[canton];
+    const counts = Object.fromEntries(FUELS.map((fuel) => [
+      fuel,
+      stations.filter((station) => isPlausiblePrice(station[fuel])).length,
+    ]));
+    coverage[canton] = { stations: stations.length, ...counts };
+    const insufficient = FUELS
+      .filter((fuel) => counts[fuel] < MIN_STATIONS_PER_RECORD)
+      .map((fuel) => `${fuel}=${counts[fuel]}`);
+    if (insufficient.length) {
+      failures.push(`${canton}: fewer than ${MIN_STATIONS_PER_RECORD} stations per fuel (${insufficient.join(', ')})`);
+    }
+  }
+  // A rejected key invalidates the whole DE overlay, including groups fetched
+  // before the rejection. Do not publish a partial snapshot while advertising
+  // `skipped` health to downstream consumers.
+  if (rejectedReason) return { status: 'skipped', reason: rejectedReason, data: {}, coverage: {} };
   const total = Object.values(byCanton).reduce((n, list) => n + list.length, 0);
-  if (!total) return { status: 'failed', reason: failures.join('; ') || 'empty response', data: byCanton };
+  if (!total) return { status: 'failed', reason: failures.join('; ') || 'empty response', data: byCanton, coverage };
   return {
-    status: failures.length ? 'partial' : 'ok',
+    status: failures.length ? 'failed' : 'ok',
     ...(failures.length ? { reason: failures.join('; ') } : {}),
     data: byCanton,
+    coverage,
   };
 }
