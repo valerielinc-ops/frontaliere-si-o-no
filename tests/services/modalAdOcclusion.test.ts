@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { GOOGLE_ANCHOR_TAB_ALLOWANCE_PX, observeGoogleAdEdgeInsets, observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
+import { APPLICATION_OFFER_AD_INSET_VAR, APPLICATION_OFFER_CARD_ROOM } from '@/components/community/useApplicationOfferAdClearance';
 const cleanups: Array<() => void> = [];
 afterEach(() => { cleanups.splice(0).forEach((f) => f()); document.body.innerHTML = ''; });
 function ad(fixed: boolean) {
@@ -59,8 +60,17 @@ describe('promotions yield to Google overlays without suppressing ads', () => {
    expect(src.split('style={adClearance.cardStyle}').length - 1, file).toBe(cards);
    expect(src.split('role="dialog"').length - 1, `${file}: one clearance per dialog card`).toBe(cards);
   }
-  expect(readFileSync(resolve(process.cwd(), 'components/community/RewardedApplicationOffer.tsx'), 'utf8'))
-   .toMatch(/const cardClass = '[^']*overflow-y-auto/);
+  const rewarded = readFileSync(resolve(process.cwd(), 'components/community/RewardedApplicationOffer.tsx'), 'utf8');
+  expect(rewarded).toMatch(/const cardClass = '[^']*overflow-y-auto/);
+  // The cards subtract the anchor's height through a custom property, so the breakpoint caps
+  // stay in the classes: an inline max-height capped phones at 42rem too (live 2026-10-07).
+  expect(APPLICATION_OFFER_CARD_ROOM).toContain(`var(${APPLICATION_OFFER_AD_INSET_VAR},0px)`);
+  expect(hook).toContain('[APPLICATION_OFFER_AD_INSET_VAR]:');
+  expect(hook).not.toContain('maxHeight');
+  expect(rewarded).toContain(`const cardClass = 'max-h-[${APPLICATION_OFFER_CARD_ROOM}] `);
+  const assisted = readFileSync(resolve(process.cwd(), 'components/community/AssistedApplicationOffer.tsx'), 'utf8');
+  expect(assisted).toContain(` max-h-[${APPLICATION_OFFER_CARD_ROOM}] `);
+  expect(assisted).toContain(` sm:max-h-[min(90dvh,42rem,${APPLICATION_OFFER_CARD_ROOM})] `);
  });
  it('keeps Auto Ads selectors out of modal suppression CSS and JS', () => {
   const css = readFileSync(resolve(process.cwd(), 'index.css'), 'utf8');
