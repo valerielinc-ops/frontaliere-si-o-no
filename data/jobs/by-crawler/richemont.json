@@ -10871,11 +10871,11 @@
     },
     {
       "id": "richemont-238f49b48f84",
-      "slug": "emailleur-richemont-le-cret-du-locle",
+      "slug": "email-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "emailleur-richemont-le-cret-du-locle",
+        "it": "email-cartier-manufacture-le-cret-du-locle",
         "en": "emailleur-richemont-le-cret-du-locle",
-        "de": "emailleur-richemont-le-cret-du-locle",
+        "de": "e-mail-cartier-manufacture-le-cret-du-locle",
         "fr": "emailleur-richemont-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -10920,11 +10920,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "courriel-cartier-manufacture-le-cret-du-locle"
+        "courriel-cartier-manufacture-le-cret-du-locle",
+        "emailleur-richemont-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "courriel-cartier-manufacture-le-cret-du-locle"
+        ],
+        "it": [
+          "emailleur-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "emailleur-richemont-le-cret-du-locle"
         ]
       },
       "salaryMin": 68000,

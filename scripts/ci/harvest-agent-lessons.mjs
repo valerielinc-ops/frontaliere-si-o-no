@@ -795,7 +795,10 @@ export function bucketFinding(text) {
     // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
     // provide the workflow/auth context for an unrelated finding.
     if (t.key === 'workflow-scope-creds') {
-      const severity = /(?:🔴\s*Important:|🟡\s*Nit:)/i.exec(scannable);
+      // Separatore e grassetto facoltativi: la forma con ancora di posizione
+      // (`path:L<n>: 🔴 Important testo`) non porta i due punti, e senza
+      // riconoscerla la riga intera, path compresi, tornava a fare da contesto.
+      const severity = /(?:🔴\s*\*{0,2}\s*Important|🟡\s*\*{0,2}\s*Nit)\s*\*{0,2}\s*[:—-]?/iu.exec(scannable);
       const finding = severity
         ? scannable.slice(severity.index + severity[0].length)
         : scannable;

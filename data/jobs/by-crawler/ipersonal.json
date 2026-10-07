@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ipersonal-c1e99d6be141",
-      "slug": "allgemeinarzt-arztin-medipersonal-aarau-1-aargau",
+      "slug": "professionista-generale-medipersonal-aarau-1-aargau",
       "slugByLocale": {
         "de": "allgemeinarzt-arztin-medipersonal-aarau-1-aargau",
-        "it": "allgemeinarzt-arztin-medipersonal-aarau-1-aargau",
-        "en": "allgemeinarzt-arztin-medipersonal-aarau-1-aargau",
-        "fr": "allgemeinarzt-arztin-medipersonal-aarau-1-aargau"
+        "it": "professionista-generale-medipersonal-aarau-1-aargau",
+        "en": "general-practitioner-medipersonal-aarau-1-aargau",
+        "fr": "specialiste-general-medipersonal-aarau-1-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -63,16 +63,30 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-10-06T21:11:46.107Z"
+      "firstSeenAt": "2026-10-06T21:11:46.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-arztin-medipersonal-aarau-1-aargau"
+        ],
+        "en": [
+          "allgemeinarzt-arztin-medipersonal-aarau-1-aargau"
+        ],
+        "fr": [
+          "allgemeinarzt-arztin-medipersonal-aarau-1-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-arztin-medipersonal-aarau-1-aargau"
+      ]
     },
     {
       "id": "ipersonal-84d8cc2a1a92",
-      "slug": "allgemeinarzt-arztin-medipersonal-thusis-graubunden",
+      "slug": "professionista-generale-medipersonal-thusis-graubunden",
       "slugByLocale": {
         "de": "allgemeinarzt-arztin-medipersonal-thusis-graubunden",
-        "it": "allgemeinarzt-arztin-medipersonal-thusis-graubunden",
-        "en": "allgemeinarzt-arztin-medipersonal-thusis-graubunden",
-        "fr": "allgemeinarzt-arztin-medipersonal-thusis-graubunden"
+        "it": "professionista-generale-medipersonal-thusis-graubunden",
+        "en": "general-practitioner-medipersonal-thusis-graubunden",
+        "fr": "specialiste-general-medipersonal-thusis-graubunden"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -126,16 +140,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:45.806Z"
+      "firstSeenAt": "2026-10-06T21:11:45.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-arztin-medipersonal-thusis-graubunden"
+        ],
+        "en": [
+          "allgemeinarzt-arztin-medipersonal-thusis-graubunden"
+        ],
+        "fr": [
+          "allgemeinarzt-arztin-medipersonal-thusis-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-arztin-medipersonal-thusis-graubunden"
+      ]
     },
     {
       "id": "ipersonal-b0d689cd6d7e",
-      "slug": "advance-practice-nurse-medipersonal-oberdiessbach-bern",
+      "slug": "infermiere-di-pratica-avanzata-medipersonal-oberdiessbach-bern",
       "slugByLocale": {
         "de": "advance-practice-nurse-medipersonal-oberdiessbach-bern",
-        "it": "advance-practice-nurse-medipersonal-oberdiessbach-bern",
-        "en": "advance-practice-nurse-medipersonal-oberdiessbach-bern",
-        "fr": "advance-practice-nurse-medipersonal-oberdiessbach-bern"
+        "it": "infermiere-di-pratica-avanzata-medipersonal-oberdiessbach-bern",
+        "en": "feelings-in-the-european-union-medipersonal-oberdiessbach-bern",
+        "fr": "infirmiere-praticienne-avancee-medipersonal-oberdiessbach-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -189,16 +217,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:45.504Z"
+      "firstSeenAt": "2026-10-06T21:11:45.504Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-medipersonal-oberdiessbach-bern"
+        ],
+        "en": [
+          "advance-practice-nurse-medipersonal-oberdiessbach-bern"
+        ],
+        "fr": [
+          "advance-practice-nurse-medipersonal-oberdiessbach-bern"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-medipersonal-oberdiessbach-bern"
+      ]
     },
     {
       "id": "ipersonal-d77d35cadab3",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau",
+      "slug": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-neuenhof-aargau",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-neuenhof-aargau",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-neuenhof-aargau",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-neuenhof-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -252,14 +294,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:45.203Z"
+      "firstSeenAt": "2026-10-06T21:11:45.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-neuenhof-aargau"
+      ]
     },
     {
       "id": "ipersonal-7b94072f1efc",
-      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-bern",
+      "slug": "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern",
-        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-bern",
+        "it": "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern",
         "en": "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern",
         "fr": "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern"
       },
@@ -305,11 +361,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern"
+          "dipl-pflegefachfrau-mann-fh-medipersonal-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-medipersonal-bern-bern"
+        "dipl-pflegefachfrau-mann-fh-medipersonal-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -328,12 +384,12 @@
     },
     {
       "id": "ipersonal-64cca8ed5839",
-      "slug": "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich",
+      "slug": "professionista-generale-praticante-generale-medipersonal-gruningen-zurich",
       "slugByLocale": {
         "de": "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich",
-        "it": "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich",
-        "en": "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich",
-        "fr": "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich"
+        "it": "professionista-generale-praticante-generale-medipersonal-gruningen-zurich",
+        "en": "general-practitioner-general-practitioner-medipersonal-gruningen-zurich",
+        "fr": "omnipraticien-omnipraticien-medipersonal-gruningen-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -387,16 +443,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:44.601Z"
+      "firstSeenAt": "2026-10-06T21:11:44.601Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich"
+        ],
+        "en": [
+          "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich"
+        ],
+        "fr": [
+          "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "allgemeinarzt-allgemeinarztin-medipersonal-gruningen-zurich"
+      ]
     },
     {
       "id": "ipersonal-d0a6d1e786e2",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-schinznach-aargau",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-schinznach-aargau",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-schinznach-aargau",
+        "fr": "dipl-sdn-expert-expert-en-soins-intensifs-medipersonal-schinznach-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -450,16 +520,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:44.300Z"
+      "firstSeenAt": "2026-10-06T21:11:44.300Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-schinznach-aargau"
+      ]
     },
     {
       "id": "ipersonal-b590e63b25f7",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-medipersonal-oberwil-b",
       "slugByLocale": {
-        "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+        "de": "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b",
+        "it": "dipl-expert-expert-anesthesia-care-nds-medipersonal-oberwil-b",
+        "en": "dipl-expert-expert-anesthesia-care-nds-medipersonal-oberwil-b",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-medipersonal-oberwil-b"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -513,16 +597,33 @@
         }
       },
       "postalCode": "6317",
-      "firstSeenAt": "2026-10-06T21:11:43.998Z"
+      "firstSeenAt": "2026-10-06T21:11:43.998Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+        ],
+        "de": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-medipersonal-oberwil-b-zug-zug"
+      ]
     },
     {
       "id": "ipersonal-77a08824328e",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern",
+      "slug": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-kirchlindach-bern",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern"
+        "it": "dipl-specialista-esperto-operazioni-ingegneria-hf-medipersonal-kirchlindach-bern",
+        "en": "dipl-specialist-expert-operations-engineering-hf-medipersonal-kirchlindach-bern",
+        "fr": "dipl-specialiste-expert-genie-des-operations-hf-medipersonal-kirchlindach-bern"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -576,16 +677,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:43.697Z"
+      "firstSeenAt": "2026-10-06T21:11:43.697Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-medipersonal-kirchlindach-bern"
+      ]
     },
     {
       "id": "ipersonal-640bc860cdcc",
-      "slug": "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich",
+      "slug": "angiologie-facharzt-cfc-medipersonal-einsiedeln-zurich",
       "slugByLocale": {
         "de": "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich",
-        "it": "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich",
-        "en": "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich",
-        "fr": "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich"
+        "it": "angiologie-facharzt-cfc-medipersonal-einsiedeln-zurich",
+        "en": "angiology-specialist-efz-medipersonal-einsiedeln-zurich",
+        "fr": "specialiste-en-angologie-efz-medipersonal-einsiedeln-zurich"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -639,16 +754,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:43.397Z"
+      "firstSeenAt": "2026-10-06T21:11:43.397Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich"
+        ],
+        "en": [
+          "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich"
+        ],
+        "fr": [
+          "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "angiologie-facharzt-efz-medipersonal-einsiedeln-zurich"
+      ]
     },
     {
       "id": "ipersonal-606c9ef9b051",
-      "slug": "advance-practice-nurse-medipersonal-solothurn-solothurn",
+      "slug": "infermiere-di-pratica-avanzata-medipersonal-solothurn-solothurn",
       "slugByLocale": {
         "de": "advance-practice-nurse-medipersonal-solothurn-solothurn",
-        "it": "advance-practice-nurse-medipersonal-solothurn-solothurn",
-        "en": "advance-practice-nurse-medipersonal-solothurn-solothurn",
-        "fr": "advance-practice-nurse-medipersonal-solothurn-solothurn"
+        "it": "infermiere-di-pratica-avanzata-medipersonal-solothurn-solothurn",
+        "en": "feelings-in-the-european-union-medipersonal-solothurn-solothurn",
+        "fr": "infirmiere-praticienne-avancee-medipersonal-solothurn-solothurn"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -702,16 +831,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:43.095Z"
+      "firstSeenAt": "2026-10-06T21:11:43.095Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-medipersonal-solothurn-solothurn"
+        ],
+        "en": [
+          "advance-practice-nurse-medipersonal-solothurn-solothurn"
+        ],
+        "fr": [
+          "advance-practice-nurse-medipersonal-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-medipersonal-solothurn-solothurn"
+      ]
     },
     {
       "id": "ipersonal-c2a6cc42cebb",
-      "slug": "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg",
+      "slug": "infermiere-di-pratica-avanzata-medipersonal-gurmels-fribourg-freiburg",
       "slugByLocale": {
         "de": "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg",
-        "it": "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg",
-        "en": "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg",
-        "fr": "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg"
+        "it": "infermiere-di-pratica-avanzata-medipersonal-gurmels-fribourg-freiburg",
+        "en": "feelings-in-the-european-union-medipersonal-gurmels-fribourg-freiburg",
+        "fr": "infirmiere-praticienne-avancee-medipersonal-gurmels-fribourg-freiburg"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -765,16 +908,30 @@
         }
       },
       "postalCode": "3212",
-      "firstSeenAt": "2026-10-06T21:11:42.794Z"
+      "firstSeenAt": "2026-10-06T21:11:42.794Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg"
+        ],
+        "en": [
+          "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg"
+        ],
+        "fr": [
+          "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg"
+        ]
+      },
+      "previousSlugs": [
+        "advance-practice-nurse-medipersonal-gurmels-fribourg-freiburg"
+      ]
     },
     {
       "id": "ipersonal-4c73e16aef3e",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land",
+      "slug": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-allschwil-basel-land",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land",
-        "it": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land",
-        "en": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land"
+        "it": "dipl-specialista-infermieristica-fh-bachelor-of-science-in-nursing-medipersonal-allschwil-basel-land",
+        "en": "dipl-nursing-specialist-fh-bachelor-of-science-in-nursing-medipersonal-allschwil-basel-land",
+        "fr": "dipl-specialiste-des-soins-infirmiers-fh-bachelor-of-science-in-nursing-medipersonal-allschwil-basel-land"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -828,16 +985,30 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-06T21:11:42.493Z"
+      "firstSeenAt": "2026-10-06T21:11:42.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-fh-bachelor-of-science-in-pflege-medipersonal-allschwil-basel-land"
+      ]
     },
     {
       "id": "ipersonal-b128edf9daac",
-      "slug": "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau",
+      "slug": "dipl-expert-expert-intensive-care-nds-medipersonal-menziken-aargau",
       "slugByLocale": {
         "de": "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau",
-        "it": "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau",
-        "en": "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau"
+        "it": "dipl-expert-expert-intensive-care-nds-medipersonal-menziken-aargau",
+        "en": "dipl-expert-expert-intensive-care-nds-medipersonal-menziken-aargau",
+        "fr": "dipl-sdn-expert-expert-en-soins-intensifs-medipersonal-menziken-aargau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -891,16 +1062,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:42.191Z"
+      "firstSeenAt": "2026-10-06T21:11:42.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-intensivpflege-nds-medipersonal-menziken-aargau"
+      ]
     },
     {
       "id": "ipersonal-9c34943985e2",
-      "slug": "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau",
+      "slug": "infermiera-di-pratica-avanzata-apn-master-of-science-in-infermieristica-medipersonal-erlen-thurgau",
       "slugByLocale": {
         "de": "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau",
-        "it": "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau",
-        "en": "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau",
-        "fr": "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau"
+        "it": "infermiera-di-pratica-avanzata-apn-master-of-science-in-infermieristica-medipersonal-erlen-thurgau",
+        "en": "advanced-practice-nurse-apn-master-of-science-in-nursing-medipersonal-erlen-thurgau",
+        "fr": "infirmiere-en-pratique-avancee-apn-maitrise-en-sciences-infirmieres-medipersonal-erlen-thurgau"
       },
       "company": "MediPersonal",
       "companyKey": "ipersonal",
@@ -954,7 +1139,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:11:41.888Z"
+      "firstSeenAt": "2026-10-06T21:11:41.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau"
+        ],
+        "en": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau"
+        ],
+        "fr": [
+          "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-master-of-science-in-pflege-medipersonal-erlen-thurgau"
+      ]
     }
   ]
 }
