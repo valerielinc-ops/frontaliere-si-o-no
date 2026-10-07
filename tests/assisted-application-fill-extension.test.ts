@@ -372,7 +372,7 @@ describe('fill extension: the runner’s reading on any portal', () => {
         list.innerHTML = '';
       }));
     });
-    const field = read().fields.find((item: any) => item.id === 'nationality');
+    const field = read().fields.find((item: any) => /Nationalité/.test(item.label));
     expect(field).toMatchObject({ kind: 'combobox', selectLike: true, ownedList: 'nat:_listSelect' });
     const result = await F.fillPage(document, {
       ...kit,
