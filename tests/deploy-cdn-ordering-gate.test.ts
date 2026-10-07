@@ -32,6 +32,7 @@ import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
+const DEPLOY_REQUEST_YML = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
 const DEPLOY_ALL_YML = `${DEPLOY_YML}\n${DEPLOY_PUBLISH_YML}`;
 const PREP_SH = resolve('scripts/lib/deploy-it-pages-prep.sh');
@@ -1111,15 +1112,15 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
   });
 });
 
-describe('deploy.yml — the paths-ignore denylist keeps its recorded verdict', () => {
-  it('records that paths-ignore does not apply to workflow_dispatch (the #5251 measurement)', () => {
-    // Not decoration: the obvious "fix" for the cancelled-run count is to widen
-    // this denylist, and it would move 0 of the 40/141 dispatch-triggered runs.
-    // If someone deletes the note, the next diagnosis repeats the mistake.
-    const head = DEPLOY_YML.slice(0, DEPLOY_YML.indexOf('paths-ignore:'));
+describe('deploy-request.yml — the paths-ignore denylist keeps its recorded verdict', () => {
+  it('records that paths-ignore is only for the cheap push request (the #5251 measurement)', () => {
+    // The expensive build is now dispatch-only. Keeping the denylist on the
+    // request workflow preserves the old data-freshness boundary without ever
+    // putting a push-triggered build into GitHub's one-pending replacement slot.
+    const head = DEPLOY_REQUEST_YML.slice(0, DEPLOY_REQUEST_YML.indexOf('paths-ignore:'));
+    expect(head).toMatch(/workflow_run/);
     expect(head).toMatch(/workflow_dispatch/);
-    expect(head).toMatch(/trigger-deploy\.sh/);
-    expect(head).toMatch(/#5251/);
+    expect(DEPLOY_REQUEST_YML).toMatch(/Queue latest GitHub Pages deploy|request workflow/i);
   });
 });
 

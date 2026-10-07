@@ -1,0 +1,103 @@
+name: Queue latest GitHub Pages deploy
+
+# Pushes are cheap control-plane events. They do not run the six-hour Pages
+# build directly: the dispatcher starts deploy.yml only when its build lock is
+# free. workflow_run is the second edge, so the latest main tip is picked up
+# immediately after the current build finishes even if every push arrived while
+# that build was running.
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    # Keep the previous denylist here, where it now controls the cheap request
+    # workflow rather than the production build. A mixed push remains eligible
+    # by GitHub's normal paths-ignore semantics. This filter applies only to
+    # push: manual request/recovery and workflow_run completion events remain
+    # eligible by design.
+    #
+    # The list is deliberately conservative: files that can feed Vite or an
+    # assemble/build plugin stay deploy-bound. A forgotten path therefore
+    # starts a request (safe), while an ignored path only rides the next real
+    # deploy (the established data-freshness contract).
+    paths-ignore:
+      - 'data/border-wait-current.json'
+      - 'public/data/border-wait-current.json'
+      - 'data/border-wait-history/**'
+      - 'data/build-history/**'
+      - 'data/seo-health-state.json'
+      - 'data/seo-health/**'
+      - 'data/border-wait-averages.json'
+      - 'public/data/border-wait-averages.json'
+      - 'data/road-events.json'
+      - 'public/data/road-events.json'
+      - 'data/weather-snapshot.json'
+      - 'data/loop-fleet/**'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
+      - '*.md'
+      - 'docs/**'
+      - '.github/**'
+      - 'tests/**'
+      - '.claude/**'
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+    branches:
+      - main
+
+concurrency:
+  # This is only the request coordinator. It has no production side effects;
+  # the real build lock remains pages-build-run in deploy.yml.
+  group: deploy-request-dispatcher
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  request:
+    name: Dispatch latest deploy when idle
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout dispatcher
+        uses: actions/checkout@v7
+        with:
+          sparse-checkout: |
+            /scripts/ci/request-latest-deploy.mjs
+            /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/is-invoked-directly.mjs
+            /scripts/ci/mint-app-token.mjs
+            /scripts/lib/githubApiHeaders.mjs
+            /functions/src/githubApiHeaders.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Mint App token for downstream workflow events
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Request one build for the current main tip
+        env:
+          DEPLOY_BRANCH: main
+          DEPLOY_WORKFLOW: deploy.yml
+          DEPLOY_MAX_BUILDS_PER_SHA: '2'
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
+            echo '::warning::deploy request skipped: App token with actions:write is unavailable'
+            exit 0
+          fi
+          GH_TOKEN="$APP_TOKEN" node scripts/ci/request-latest-deploy.mjs
