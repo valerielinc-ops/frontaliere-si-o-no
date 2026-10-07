@@ -456,13 +456,23 @@ condiviso: nello stesso replay, togliendo dalla pagina anche il blocco
 fr 52,2 %). Togliere quel contesto, insieme alle sue FAQ JSON-LD, è una scelta
 editoriale e SEO che resta aperta. Non è stato fatto qui.
 
+Il seguito della stessa issue completa quella leva: il contesto `city-landing`
+non viene più copiato sulla leaf professione × città. È già disponibile sul
+city hub canonico verso cui la leaf porta con la CTA, mentre la leaf conserva
+offerte reali, datori, confronto tra città/professioni, benchmark, CTA e
+breadcrumb. Di conseguenza la leaf non emette più il `FAQPage` generico del
+hub. Il replay sullo stesso corpus porta la coorte italiana a **54,2 %** (en
+59,1 %, de 59,1 %, fr 52,2 %), sopra il target senza spostare alcuna soglia;
+il test `tests/profession-city-insights.test.ts` misura la relazione con/senza
+payload. Il live scan ufficiale resta il controllo post-deploy:
+`node scripts/ci/information-gain-live-scan.mjs --per-family=12`.
+
 L'osservatore è `tests/profession-city-insights.test.ts`: due sorelle con dati
 diversi producono blocchi diversi, una pagina senza dati non produce il blocco,
-i link puntano solo a coppie sopra il floor, e su un corpus sintetico la coorte
-con il blocco sta sopra la soglia pinnata (misurato 18,3-20,3 %, soglia 17,3 %)
-mentre senza resta sotto (12,5-13,3 %). Il corpus sintetico vale per la
-relazione con/senza blocco, non per l'assoluto: `data/jobs.json` lo assembla la
-CI.
+la leaf non duplica il contesto/FAQ del hub, i link puntano solo a coppie sopra
+il floor e la coorte con il payload supera il 40 % mentre il controllo senza
+payload resta sotto. Il corpus sintetico vale per la relazione con/senza
+blocco, non per l'assoluto: `data/jobs.json` lo assembla la CI.
 
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
