@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-07T18:14:03.309Z",
+  "generated": "2026-07-22T12:17:34.562Z",
   "mode": "rate",
   "threshold": 66,
   "tolerance": {
@@ -9,8 +9,8 @@
     "maxDeltaPp": 3
   },
   "scanned": 2220043,
-  "totalOffenders": 4325,
-  "totalRatePct": 0.1948,
+  "totalOffenders": 4374,
+  "totalRatePct": 0.197,
   "byFeature": {
     "spa-other": {
       "scanned": 1567,
@@ -24,8 +24,8 @@
     },
     "blog": {
       "scanned": 13769,
-      "offenders": 2416,
-      "ratePct": 17.5467
+      "offenders": 2465,
+      "ratePct": 17.9025
     },
     "job-board": {
       "scanned": 2163211,
@@ -94,10 +94,10 @@
     }
   },
   "byLocale": {
-    "it": 629,
+    "it": 678,
     "de": 756,
     "fr": 2347,
     "en": 593
   },
-  "_comment": "Rate-based baseline for audit-title-length (title length > 66 chars). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance). 2026-10-07 measure: blog 2381→2416 offenders and it 594→629, from effective Italian article titles frontaliere 872→981 and svizzera 399→325; decisione del proprietario del 2026-10-07, corpus issue 2281."
+  "_comment": "Rate-based baseline for audit-title-length (title length > 66 chars). The per-page threshold is the hard quality gate; this ratchet tracks the offender RATE (offenders/scanned) per feature so organic page growth does not regress the build. A feature fails only when its rate exceeds baseRate*(1+relPct/100)+absPp AND its absolute offender count grows by more than minAbsDelta. Rates must only DECREASE going forward (modulo tolerance). 2026-10-07, manual adjustment, not a regeneration (owner decision of 2026-10-07, corpus issue 2281): the Italian article <title>, H1 and headline now come from the real headline instead of the ogTitle. Measured on corpus main 57f0ab45a32d, per article page: Italian titles over 66 chars 1 106 -> 1 273 (frontaliere 714 -> 948, svizzera 392 -> 325), i.e. +167 on 27 136 article pages = +0.615 pp. Only the blog rate moves, by that delta scaled to this file’s scanned count: +84 offenders, 17.2925 -> 17.9025 (totals and the it locale follow by the same 84). Every other bucket, the threshold and the tolerance are untouched."
 }

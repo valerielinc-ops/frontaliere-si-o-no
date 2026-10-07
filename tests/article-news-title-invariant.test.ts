@@ -4,12 +4,24 @@ import os from 'node:os';
 import path from 'node:path';
 
 import {
+  countArticlesByTitleKey,
+  createArticleTitleResolver,
   normalizeArticleTitle,
   renderArticlePages,
   resolveArticleTitle,
 } from '../build-plugins/ogPagesPlugin';
+import {
+  SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS,
+  blogKeyToArticleId,
+  extractBlogEntryPositions,
+} from '../packages/articles/engine/shared/articleSectionDescriptors';
+import { decodeTsStringEscapes } from '../packages/articles/engine/shared/tsStringEscapes';
 
 const rootDir = process.cwd();
+
+const LOCALES = ['it', 'en', 'de', 'fr'] as const;
+type Locale = (typeof LOCALES)[number];
+type SectionName = 'frontaliere' | 'svizzera';
 
 function decodeHtml(value: string): string {
   return value
@@ -29,137 +41,282 @@ function extractNewsArticle(html: string): Record<string, unknown> {
   return newsScript!;
 }
 
+/** The three places a headline must agree in, plus the social title. */
+function readTitles(html: string) {
+  return {
+    title: decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? ''),
+    h1: decodeHtml(html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] ?? ''),
+    headline: String(extractNewsArticle(html).headline ?? ''),
+    ogTitle: decodeHtml(html.match(/<meta property="og:title" content="([^"]*)">/)?.[1] ?? ''),
+    ogImageAlt: decodeHtml(html.match(/<meta property="og:image:alt" content="([^"]*)">/)?.[1] ?? ''),
+  };
+}
+
+interface TitleSource {
+  id: string;
+  /** How many SEO entries carry this id (the frontaliere chunks overlap). */
+  listed: number;
+  type: string;
+  ogTitle: string;
+  /** False when the ogTitle carries an escape: counted, never picked as a case. */
+  plain: boolean;
+  headline: Partial<Record<Locale, string>>;
+}
+
+/**
+ * Title sources of a section, read from the content the engine renders.
+ *
+ * The rendering tests below take their expectations from here, never from a
+ * string typed in this file: the content is a copy of the corpus that every
+ * sync replaces, and a headline pinned here would turn the next editorial fix
+ * (a truncated ogTitle repaired, a duplicate article retired) into a red test.
+ * Headlines go through the engine's own decoder; an entry whose ogTitle
+ * carries an escape is never picked as a case, so that the SEO-entry decoder
+ * is not mirrored here.
+ */
+function readTitleSources(sectionName: SectionName): TitleSource[] {
+  const section = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.find((candidate) => candidate.name === sectionName);
+  if (!section) throw new Error(`no descriptor for section ${sectionName}`);
+  const seoSource = section.seoFiles
+    .map((file) => {
+      const full = path.join(rootDir, file);
+      return fs.existsSync(full) ? fs.readFileSync(full, 'utf8') : '';
+    })
+    .join('\n');
+  const headlines = {} as Record<Locale, Map<string, string>>;
+  for (const locale of LOCALES) {
+    const source = fs.readFileSync(path.join(rootDir, `services/locales/${section.metaPrefix}-${locale}.ts`), 'utf8');
+    headlines[locale] = new Map(
+      [...source.matchAll(/'blog\.article\.([^']+)\.title'\s*:\s*'((?:[^'\\]|\\.)*)'/g)]
+        .map((match) => [match[1], decodeTsStringEscapes(match[2], { newlineAs: ' ' })]),
+    );
+  }
+  const byId = new Map<string, TitleSource>();
+  for (const position of extractBlogEntryPositions(seoSource)) {
+    const id = blogKeyToArticleId(position.key);
+    const known = byId.get(id);
+    if (known) {
+      known.listed += 1;
+      continue;
+    }
+    const block = seoSource.slice(position.start, position.end);
+    const quoted = (key: string) =>
+      block.match(new RegExp(`${key}:\\s*'((?:[^'\\\\]|\\\\.)*)'`, 'm'))?.[1]
+      ?? block.match(new RegExp(`${key}:\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm'))?.[1];
+    // Same order as the engine: the ogTitle, else the SEO title.
+    const ogTitle = quoted('ogTitle') || quoted('title') || '';
+    const headline: Partial<Record<Locale, string>> = {};
+    for (const locale of LOCALES) headline[locale] = headlines[locale].get(id);
+    byId.set(id, {
+      id,
+      listed: 1,
+      type: block.match(/"@type":\s*"([^"]+)"/)?.[1] ?? '',
+      ogTitle,
+      plain: Boolean(ogTitle) && !ogTitle.includes('\\'),
+      headline,
+    });
+  }
+  return [...byId.values()];
+}
+
+/** Sources whose Italian headline no other article of the section is shown under. */
+function withUniqueItalianHeadline(sources: TitleSource[]): TitleSource[] {
+  const articlesByHeadline = countArticlesByTitleKey(
+    sources.map((source) => ({ articleId: source.id, key: normalizeArticleTitle(source.headline.it || source.ogTitle) })),
+    (entry) => entry.key,
+  );
+  return sources.filter((source) => source.headline.it
+    && articlesByHeadline.get(normalizeArticleTitle(source.headline.it)) === 1);
+}
+
+async function renderTitles(section: SectionName, ids: string[]) {
+  const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-title-'));
+  try {
+    const result = await renderArticlePages({ rootDir, distDir, section, onlyArticleIds: ids });
+    const titles = new Map<string, Record<Locale, ReturnType<typeof readTitles>>>();
+    for (const entry of result.entries) {
+      const perLocale = {} as Record<Locale, ReturnType<typeof readTitles>>;
+      for (const locale of LOCALES) {
+        perLocale[locale] = readTitles(fs.readFileSync(path.join(distDir, entry.paths[locale]), 'utf8'));
+      }
+      titles.set(entry.articleId, perLocale);
+    }
+    return titles;
+  } finally {
+    fs.rmSync(distDir, { recursive: true, force: true });
+  }
+}
+
+// Event pages carry brand and disambiguator in <title>: the invariant under
+// test is the NewsArticle one.
+const isNews = (source: TitleSource) => source.type !== 'Event' && source.plain;
+const frontaliere = readTitleSources('frontaliere');
+const svizzera = readTitleSources('svizzera');
+const isTranslated = (source: TitleSource) => Boolean(source.headline.en && source.headline.de && source.headline.fr);
+const differsFromSocialTitle = (source: TitleSource) =>
+  normalizeArticleTitle(source.headline.it ?? '') !== normalizeArticleTitle(source.ogTitle);
+
+// An Italian headline that is not the social title: the page must show the
+// former and keep the latter for the social card.
+const realHeadlineCase = withUniqueItalianHeadline(frontaliere)
+  .find((source) => isNews(source) && source.listed === 1 && differsFromSocialTitle(source) && isTranslated(source));
+// The frontaliere chunks overlap: 983 of 4 165 ids were listed twice on
+// 2026-10-07. Such an article is one page and must not collide with itself.
+const listedTwiceCase = withUniqueItalianHeadline(frontaliere)
+  .find((source) => isNews(source) && source.listed > 1 && differsFromSocialTitle(source));
+// Two different articles under one Italian headline, with distinct social titles.
+const sharedHeadlinePair = (() => {
+  const byHeadline = new Map<string, TitleSource[]>();
+  for (const source of frontaliere) {
+    if (!source.headline.it) continue;
+    const key = normalizeArticleTitle(source.headline.it);
+    byHeadline.set(key, [...(byHeadline.get(key) ?? []), source]);
+  }
+  return [...byHeadline.values()].find((group) => group.length === 2
+    && group.every(isNews)
+    && normalizeArticleTitle(group[0].ogTitle) !== normalizeArticleTitle(group[1].ogTitle)
+    && group.every((source) => normalizeArticleTitle(source.ogTitle) !== normalizeArticleTitle(source.headline.it ?? '')));
+})();
+const longHeadlineCase = withUniqueItalianHeadline(svizzera)
+  .find((source) => isNews(source) && normalizeArticleTitle(source.headline.it ?? '').length > 66);
+
 describe('NewsArticle title invariant', () => {
-  it('keeps title, H1 and headline identical for a long localized headline', async () => {
-    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-news-title-'));
+  it('finds in the content the cases the rendering tests need', () => {
+    // A missing overlap or a missing shared headline is good news for the
+    // content and skips its test; these two can only disappear with the corpus.
+    expect(realHeadlineCase, 'no Italian headline that differs from its ogTitle').toBeDefined();
+    expect(longHeadlineCase, 'no Swiss Italian headline longer than 66 characters').toBeDefined();
+  });
 
-    try {
-      const result = await renderArticlePages({
-        rootDir,
-        distDir,
-        section: 'svizzera',
-        // This source title is >66 chars, exercising the exact path that used
-        // to cap htmlPageTitle before the title invariant was enforced.
-        onlyArticleId: 'iniziative-casse-malati-2026',
-      });
+  it('keeps title, H1 and headline identical for a long headline', async () => {
+    // A headline over 66 characters exercises the exact path that used to cap
+    // htmlPageTitle before the title invariant was enforced.
+    const source = longHeadlineCase!;
+    const titles = (await renderTitles('svizzera', [source.id])).get(source.id)!.it;
 
-      expect(result.entries).toHaveLength(1);
-      const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
-      const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
-      const h1 = decodeHtml(html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] ?? '');
-      const headline = String(extractNewsArticle(html).headline ?? '');
+    expect(titles.headline.length).toBeGreaterThan(66);
+    expect(titles.headline).toBe(normalizeArticleTitle(source.headline.it!));
+    expect(titles.title).toBe(titles.headline);
+    expect(titles.h1).toBe(titles.headline);
+  }, 120_000);
 
-      expect(headline.length).toBeGreaterThan(66);
-      expect(title).toBe(headline);
-      expect(h1).toBe(headline);
-    } finally {
-      fs.rmSync(distDir, { recursive: true, force: true });
+  it('shows the real Italian headline and keeps the ogTitle for the social card', async () => {
+    const source = realHeadlineCase!;
+    const titles = (await renderTitles('frontaliere', [source.id])).get(source.id)!;
+    const headline = normalizeArticleTitle(source.headline.it!);
+    const socialTitle = normalizeArticleTitle(source.ogTitle);
+
+    expect(headline).not.toBe(socialTitle);
+    expect(titles.it.title).toBe(headline);
+    expect(titles.it.h1).toBe(headline);
+    expect(titles.it.headline).toBe(headline);
+    expect(titles.it.ogTitle).toBe(socialTitle);
+    expect(titles.it.ogImageAlt).toBe(socialTitle);
+    // The other three locales already read their own headline: unchanged.
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const localized = normalizeArticleTitle(source.headline[locale]!);
+      expect(titles[locale].title).toBe(localized);
+      expect(titles[locale].h1).toBe(localized);
+      expect(titles[locale].headline).toBe(localized);
+      expect(titles[locale].ogTitle).toBe(localized);
     }
   }, 120_000);
 
-  it('uses blog-meta-it for visible Italian titles while retaining ogTitle for social cards', async () => {
-    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-it-title-'));
+  (listedTwiceCase ? it : it.skip)('shows the real headline of an article listed in two SEO chunks', async () => {
+    const source = listedTwiceCase!;
+    const titles = (await renderTitles('frontaliere', [source.id])).get(source.id)!.it;
+    const headline = normalizeArticleTitle(source.headline.it!);
 
-    try {
-      const result = await renderArticlePages({
-        rootDir,
-        distDir,
-        section: 'frontaliere',
-        onlyArticleId: 'stop-export-materiale-bellico',
-      });
-
-      expect(result.entries).toHaveLength(1);
-      const html = fs.readFileSync(path.join(distDir, result.entries[0].paths.it), 'utf8');
-      const trueTitle = 'Ticino sospende esportazioni di materiale bellico verso gli USA';
-      const socialTitle = 'Ticino sospende esportazioni di materiale bellico verso gli';
-      const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
-      const h1 = decodeHtml(html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] ?? '');
-      const headline = String(extractNewsArticle(html).headline ?? '');
-      const ogTitle = decodeHtml(html.match(/<meta property="og:title" content="([^"]*)">/)?.[1] ?? '');
-      const ogImageAlt = decodeHtml(html.match(/<meta property="og:image:alt" content="([^"]*)">/)?.[1] ?? '');
-
-      expect(title).toBe(trueTitle);
-      expect(h1).toBe(trueTitle);
-      expect(headline).toBe(trueTitle);
-      expect(ogTitle).toBe(socialTitle);
-      expect(ogImageAlt).toBe(socialTitle);
-      expect(html).toContain(`content="${socialTitle}"`);
-      expect(html).not.toContain(`property="og:title" content="${trueTitle}"`);
-    } finally {
-      fs.rmSync(distDir, { recursive: true, force: true });
-    }
+    expect(titles.title).toBe(headline);
+    expect(titles.h1).toBe(headline);
+    expect(titles.headline).toBe(headline);
   }, 120_000);
 
-  it('keeps the existing localized title output for en, de and fr', async () => {
-    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-non-it-title-'));
-    const expected = {
-      en: 'Ticino Suspends Arms Exports to the USA',
-      de: 'Tessin setzt Waffenexporte in die USA aus',
-      fr: "Tessin suspend ses exportations d'armes vers les États-Unis",
-    } as const;
+  (sharedHeadlinePair ? it : it.skip)('keeps two articles that share an Italian headline on their own ogTitle', async () => {
+    const pair = sharedHeadlinePair!;
+    const titles = await renderTitles('frontaliere', pair.map((source) => source.id));
 
-    try {
-      const result = await renderArticlePages({
-        rootDir,
-        distDir,
-        section: 'frontaliere',
-        onlyArticleId: 'stop-export-materiale-bellico',
-      });
-
-      const entry = result.entries[0];
-      for (const locale of Object.keys(expected) as Array<keyof typeof expected>) {
-        const html = fs.readFileSync(path.join(distDir, entry.paths[locale]), 'utf8');
-        const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
-        const h1 = decodeHtml(html.match(/<h1>([\s\S]*?)<\/h1>/)?.[1] ?? '');
-        const headline = String(extractNewsArticle(html).headline ?? '');
-        const ogTitle = decodeHtml(html.match(/<meta property="og:title" content="([^"]*)">/)?.[1] ?? '');
-
-        expect(title).toBe(expected[locale]);
-        expect(h1).toBe(expected[locale]);
-        expect(headline).toBe(expected[locale]);
-        expect(ogTitle).toBe(expected[locale]);
-      }
-    } finally {
-      fs.rmSync(distDir, { recursive: true, force: true });
+    for (const source of pair) {
+      const shown = titles.get(source.id)!.it;
+      expect(shown.title).toBe(normalizeArticleTitle(source.ogTitle));
+      expect(shown.h1).toBe(shown.title);
+      expect(shown.headline).toBe(shown.title);
     }
+    expect(titles.get(pair[0].id)!.it.title).not.toBe(titles.get(pair[1].id)!.it.title);
   }, 120_000);
+});
 
-  it('keeps distinct ogTitles when equal Italian true titles collide', async () => {
-    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'ogpages-it-collision-'));
-    const ids = [
-      'bandiera-svizzera-scarpe-on-controversia',
-      'controversia-bandiera-svizzera-scarpe-on',
-    ];
+describe('article title resolver', () => {
+  const entry = (articleId: string, ogT: string) => ({ articleId, ogT });
+  const resolverFor = (
+    entries: Array<{ articleId: string; ogT: string }>,
+    headlines: Record<string, string | undefined>,
+    requireUniqueHeadline = true,
+  ) => createArticleTitleResolver(entries, (article) => headlines[article.articleId], requireUniqueHeadline);
 
-    try {
-      const result = await renderArticlePages({
-        rootDir,
-        distDir,
-        section: 'frontaliere',
-        onlyArticleIds: ids,
-      });
+  it('counts articles, not SEO entries', () => {
+    const listedTwice = [entry('a', 'A'), entry('a', 'A'), entry('b', 'B')];
+    expect([...countArticlesByTitleKey(listedTwice, (article) => article.ogT)]).toEqual([['A', 1], ['B', 1]]);
 
-      expect(new Set(result.entries.map((entry) => entry.articleId))).toEqual(new Set(ids));
-      const renderedTitles = new Map<string, string>();
-      for (const id of ids) {
-        const entry = result.entries.find((candidate) => candidate.articleId === id)!;
-        const html = fs.readFileSync(path.join(distDir, entry.paths.it), 'utf8');
-        const title = decodeHtml(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? '');
-        renderedTitles.set(id, title);
-      }
+    const sharedByTwo = [entry('a', 'T'), entry('b', 'T'), entry('b', 'T')];
+    expect(countArticlesByTitleKey(sharedByTwo, (article) => article.ogT).get('T')).toBe(2);
+  });
 
-      expect(renderedTitles.get(ids[0])).toBe('Controversia bandiera svizzera su scarpe On | Frontaliere');
-      expect(renderedTitles.get(ids[1])).toBe('Controversia bandiera svizzera scarpe On');
-      expect(renderedTitles.get(ids[0])).not.toBe(renderedTitles.get(ids[1]));
-    } finally {
-      fs.rmSync(distDir, { recursive: true, force: true });
-    }
-  }, 120_000);
+  it('shows the real headline of an article listed twice: it does not collide with itself', () => {
+    const entries = [entry('a', 'Social A'), entry('a', 'Social A'), entry('b', 'Social B')];
+    const titleOf = resolverFor(entries, { a: 'Titolo vero di A', b: 'Titolo vero di B' });
 
-  it('uses ogTitle when the Italian localized title is missing or explicitly colliding', () => {
+    expect(entries.map(titleOf)).toEqual(['Titolo vero di A', 'Titolo vero di A', 'Titolo vero di B']);
+  });
+
+  it('keeps each article on its own ogTitle when two share a headline', () => {
+    const entries = [entry('a', 'Social A'), entry('b', 'Social B | Frontaliere Ticino'), entry('c', 'Social C')];
+    const titleOf = resolverFor(entries, {
+      a: 'Stesso titolo',
+      b: 'Stesso titolo | Frontaliere Ticino',
+      c: 'Titolo unico',
+    });
+
+    expect(entries.map(titleOf)).toEqual(['Social A', 'Social B', 'Titolo unico']);
+  });
+
+  it('counts the ogTitle an article without headline is shown under', () => {
+    // `b` has no headline and is shown under its ogTitle: `a` cannot take the
+    // same words as its headline.
+    const entries = [entry('a', 'Social A'), entry('b', 'Titolo conteso')];
+    const titleOf = resolverFor(entries, { a: 'Titolo conteso' });
+
+    expect(entries.map(titleOf)).toEqual(['Social A', 'Titolo conteso']);
+  });
+
+  it('falls back to the ogTitle when the headline is missing', () => {
+    const entries = [entry('a', 'Social A | Frontaliere Ticino')];
+
+    expect(resolverFor(entries, {})(entries[0])).toBe('Social A');
+    expect(resolverFor(entries, {}, false)(entries[0])).toBe('Social A');
+  });
+
+  it('leaves the other locales as they were: a shared localized headline is still shown', () => {
+    const entries = [entry('a', 'Social A'), entry('b', 'Social B')];
+    const titleOf = resolverFor(entries, { a: 'Same headline', b: 'Same headline' }, false);
+
+    expect(entries.map(titleOf)).toEqual(['Same headline', 'Same headline']);
+  });
+
+  it('strips the publisher suffix whichever source wins', () => {
     expect(resolveArticleTitle(undefined, 'Social fallback | Frontaliere Ticino')).toBe('Social fallback');
     expect(resolveArticleTitle('Titolo vero', 'Social fallback')).toBe('Titolo vero');
     expect(resolveArticleTitle('Titolo vero', 'Social fallback', true)).toBe('Social fallback');
     expect(normalizeArticleTitle('Titolo vero | Frontaliere Ticino')).toBe('Titolo vero');
+  });
+
+  it('feeds the title-collision map and the page from the same resolver', () => {
+    // The map decides which Event pages get a disambiguator; keyed by another
+    // formula than the one html() shows, it answers for a title no page has.
+    const source = fs.readFileSync(path.join(rootDir, 'packages/articles/engine/ogPagesPlugin.ts'), 'utf8');
+
+    expect(source).toContain('const localizedTitle = articleTitleFor[articleLocale](en);');
+    expect(source).toContain('(article) => buildTitleWithBrand(articleTitleFor[locale](article)),');
+    expect(source).not.toMatch(/\.title\s*\|\|\s*(?:en|article)\.ogT/);
   });
 });

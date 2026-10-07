@@ -66,6 +66,59 @@ export function resolveArticleTitle(
 }
 
 /**
+ * Count how many DISTINCT articles share each title key.
+ *
+ * The unit is the article, not the SEO entry: a section's seo files are
+ * concatenated verbatim (frontaliere reads seo-blog.ts + seo-blog-2..10.ts)
+ * and an id listed in two chunks is still ONE page at ONE URL. Counting
+ * entries made every such article collide with itself — 983 of the 4 165
+ * frontaliere ids on 2026-10-07 — which would hand a spurious disambiguator
+ * to an Event page and deny the real headline to an Italian one.
+ */
+export function countArticlesByTitleKey<T extends { articleId: string }>(
+ entries: readonly T[],
+ titleKey: (entry: T) => string,
+): Map<string, number> {
+ const articleIdsByKey = new Map<string, Set<string>>();
+ for (const entry of entries) {
+  const key = titleKey(entry);
+  const ids = articleIdsByKey.get(key);
+  if (ids) ids.add(entry.articleId);
+  else articleIdsByKey.set(key, new Set([entry.articleId]));
+ }
+ const counts = new Map<string, number>();
+ for (const [key, ids] of articleIdsByKey) counts.set(key, ids.size);
+ return counts;
+}
+
+/**
+ * Build the resolver of the headline a page shows in one locale, before brand
+ * and disambiguator. ONE formula: html() and the title-collision map both call
+ * the resolver, so they cannot drift apart.
+ *
+ * `requireUniqueHeadline` (Italian): the real headline is shown only when no
+ * other article of the section carries it. Two articles that share a headline
+ * each keep their own ogTitle, so moving <title>/H1/headline from ogTitle to
+ * the real headline can never hand two pages the same <title>. The other
+ * locales predate the rule and keep showing their localized headline as it is.
+ */
+export function createArticleTitleResolver<T extends { articleId: string; ogT: string }>(
+ entries: readonly T[],
+ headlineOf: (entry: T) => string | undefined,
+ requireUniqueHeadline: boolean,
+): (entry: T) => string {
+ const articlesByHeadline = requireUniqueHeadline
+  ? countArticlesByTitleKey(entries, (entry) => normalizeArticleTitle(headlineOf(entry) || entry.ogT))
+  : null;
+ return (entry) => {
+  const headline = headlineOf(entry);
+  const sharedHeadline = Boolean(headline)
+   && (articlesByHeadline?.get(normalizeArticleTitle(headline as string)) || 0) > 1;
+  return resolveArticleTitle(headline, entry.ogT, sharedHeadline);
+ };
+}
+
+/**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
  *
  * Deliberately re-stated here instead of imported: this package is being split
@@ -915,20 +968,25 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  fr: parseBlogMetaLocale('fr'),
  } as const;
 
- const titleRawForLocale = (article: Entry, locale: 'it' | 'en' | 'de' | 'fr'): string =>
-  blogMetaByLocale[locale][article.articleId]?.title || article.ogT;
- const titleCollisionKeyForLocale = (article: Entry, locale: 'it' | 'en' | 'de' | 'fr'): string =>
-  buildTitleWithBrand(normalizeArticleTitle(titleRawForLocale(article, locale)));
+ // Headline shown per locale. Italian reads its real headline from
+ // blog-meta-it like the other three locales read theirs (owner decision,
+ // 2026-10-07, corpus issue 2281), but only where that headline is unique.
+ const articleTitleFor = {
+  it: createArticleTitleResolver(entries, (article) => blogMetaByLocale.it[article.articleId]?.title, true),
+  en: createArticleTitleResolver(entries, (article) => blogMetaByLocale.en[article.articleId]?.title, false),
+  de: createArticleTitleResolver(entries, (article) => blogMetaByLocale.de[article.articleId]?.title, false),
+  fr: createArticleTitleResolver(entries, (article) => blogMetaByLocale.fr[article.articleId]?.title, false),
+ } as const;
 
- // Populate the title-collision map now that locale meta is available.
- // Mirror the title formula used inside html(): localizedTitle stripped of
- // the publisher suffix, then re-joined with the canonical brand suffix.
- for (const en of entries) {
-  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-   const baseT = titleCollisionKeyForLocale(en, locale);
-   const m = articleTitleCollisions[locale];
-   m.set(baseT, (m.get(baseT) || 0) + 1);
-  }
+ // Populate the title-collision map now that locale meta is available. It is
+ // keyed by the headline html() actually shows (same resolver), re-joined with
+ // the canonical brand suffix, and it counts ARTICLES, not SEO entries — see
+ // countArticlesByTitleKey.
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  articleTitleCollisions[locale] = countArticlesByTitleKey(
+   entries,
+   (article) => buildTitleWithBrand(articleTitleFor[locale](article)),
+  );
  }
 
  const blogBodyByLocale = {
@@ -1188,21 +1246,11 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const localeForMeta: 'en' | 'de' | 'fr' | null =
  (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
  const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
- const titleMeta = blogMetaByLocale[articleLocale][en.articleId];
- const titleCandidateRaw = titleRawForLocale(en, articleLocale);
- const trueItalianTitleCollides = articleLocale === 'it'
-  && Boolean(titleMeta?.title)
-  && (articleTitleCollisions.it.get(titleCollisionKeyForLocale(en, 'it')) || 0) > 1;
- const localizedTitle = resolveArticleTitle(
-  trueItalianTitleCollides ? undefined : titleCandidateRaw,
-  en.ogT,
-  trueItalianTitleCollides,
- );
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
  // Headline VERBATIM — no truncation. Brand applied conditionally below.
- // The collision decision and the visible title are tied to the same
- // locale-specific source formula used by the map above.
+ // Same resolver the title-collision map is keyed by.
+ const localizedTitle = articleTitleFor[articleLocale](en);
  // Repair descriptions the corpus generator already amputated mid-clause
  // BEFORE they reach this render layer. `scripts/create-article.mjs` cut the
  // stored excerpt to a fixed budget without peeling the tail, so 2 936 entries
