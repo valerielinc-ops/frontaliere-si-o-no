@@ -46,7 +46,13 @@ case "$1 $2" in
   "pr list") kind=pr ;;
   "issue list") kind=issue ;;
   "issue edit") exit 0 ;;
-  "label create") exit 0 ;;
+  "label create")
+    case "\${FAKE_LABEL_CREATE:-}" in
+      already-exists) echo 'HTTP 422: Validation Failed (already_exists)' >&2; exit 1 ;;
+      failure) echo 'HTTP 403: Resource not accessible by integration' >&2; exit 1 ;;
+    esac
+    exit 0
+    ;;
   api\\ *) kind=api ;;
   *) echo "unexpected gh $*" >&2; exit 97 ;;
 esac
@@ -81,6 +87,7 @@ interface Scenario {
   issues?: Item[];
   api?: ApiItem[];
   fail?: 'pr' | 'issue' | 'api';
+  labelCreate?: 'already-exists' | 'failure';
   resolveRc?: number;
 }
 
@@ -106,6 +113,7 @@ function runStep(scenario: Scenario) {
       FAKE_ISSUES: JSON.stringify(stamp(scenario.issues)),
       FAKE_API: JSON.stringify(scenario.api ?? []),
       FAKE_FAIL: scenario.fail ?? '',
+      FAKE_LABEL_CREATE: scenario.labelCreate ?? '',
       FAKE_RESOLVE_RC: String(scenario.resolveRc ?? 0),
     },
   });
@@ -181,6 +189,27 @@ describe('recycle-stale-prs — digest needs-human a liste vuote', () => {
     expect(run.creates[0]).toContain(`--title ${TITLE}`);
     expect(run.creates[0]).toContain('#11398');
     expect(run.creates[0]).toContain('#9244');
+  });
+
+  it('errore reale nella creazione della label: step rosso prima dell apertura', () => {
+    const run = runStep({
+      labelCreate: 'failure',
+      prs: [{ number: 11398, title: 'fix: qualcosa' }],
+      api: [DIGEST],
+    });
+    expect(run.status).not.toBe(0);
+    expect(run.creates).toEqual([]);
+  });
+
+  it('label gia esistente: il bootstrap prosegue verso il creator', () => {
+    const run = runStep({
+      labelCreate: 'already-exists',
+      prs: [{ number: 11398, title: 'fix: qualcosa' }],
+      api: [DIGEST],
+    });
+    expect(run.status, run.output).toBe(0);
+    expect(run.creates).toHaveLength(1);
+    expect(run.creates[0]).toContain(`--title ${TITLE}`);
   });
 
   it('solo issue needs-human, nessuna PR: niente chiusura', () => {

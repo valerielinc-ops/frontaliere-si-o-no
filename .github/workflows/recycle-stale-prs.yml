@@ -652,11 +652,19 @@ jobs:
           [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
           # Ensure the tracker label exists before the creator sends it in the
           # issue payload; otherwise the first run can fail before emitting it.
-          gh label create "agent:no-age-out" \
+          if LABEL_CREATE_ERROR=$(gh label create "agent:no-age-out" \
             --repo "$GH_REPO" \
             --color "0e8a16" \
             --description "Issue-contatore/tracker permanente: mai eleggibile all'age-out del followup-drainer (#5615)" \
-            2>/dev/null || true
+            2>&1); then
+            :
+          elif printf '%s\n' "$LABEL_CREATE_ERROR" | grep -Eqi 'already[ _-]?exists|has already been taken'; then
+            echo "La label agent:no-age-out esiste gia; proseguo."
+          else
+            echo "::error::Creazione della label agent:no-age-out fallita: il tracker non puo essere assicurato." >&2
+            printf '%s\n' "$LABEL_CREATE_ERROR" >&2
+            exit 1
+          fi
           # Markdown backticks in this literal description are intentional.
           # shellcheck disable=SC2016
           DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue indica esclusivamente una decisione reale del proprietario. I blocchi tecnici usano `automation-deferred` e rientrano nello sweep automatico.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — domande decidibili rimaste dopo la lettura di VISION.md e DECISIONS.md; richiedono una risposta esplicita del proprietario. I parcheggi tecnici del followup-drainer e del closer non compaiono qui:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human, e si richiude da sola al primo run in cui entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
