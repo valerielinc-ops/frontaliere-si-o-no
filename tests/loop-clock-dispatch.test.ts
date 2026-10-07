@@ -1,4 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
+import { posix } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it, vi } from 'vitest';
 import YAML from 'yaml';
@@ -616,5 +617,32 @@ describe('loop clock observer', () => {
     expect(workflow).toContain('if: always()');
     expect(observer).toContain('createGithubIssue');
     expect(observer).toContain('resolveGithubIssue');
+  });
+
+  // The heartbeat job checks out a hand-written list of files, not the
+  // repository: an import added to one of its scripts and not to that list is
+  // an ERR_MODULE_NOT_FOUND on the runner, on every run, behind green tests.
+  it('checks out every file the heartbeat scripts import, transitively', () => {
+    const workflow = YAML.parse(readFileSync(`${root}/.github/workflows/orchestrator-heartbeat.yml`, 'utf8')) as {
+      jobs: Record<string, { steps: Array<{ uses?: string; run?: string; with?: Record<string, string> }> }>;
+    };
+    const steps = workflow.jobs.heartbeat.steps;
+    const checkout = steps.find((step) => step.uses?.startsWith('actions/checkout@'));
+    const checkedOut = new Set(String(checkout?.with?.['sparse-checkout'] ?? '').split('\n').map((line) => line.trim()).filter(Boolean));
+    const entrypoints = steps.flatMap((step) => [...String(step.run ?? '').matchAll(/\bnode\s+(scripts\/[\w./-]+\.mjs)/g)].map((match) => match[1]));
+    expect(entrypoints).toEqual(expect.arrayContaining(['scripts/ci/orchestrator-heartbeat.mjs', 'scripts/ci/loop-clock-health.mjs']));
+
+    const closure = new Set<string>();
+    const queue = [...entrypoints];
+    while (queue.length > 0) {
+      const file = queue.pop() as string;
+      if (closure.has(file)) continue;
+      closure.add(file);
+      const source = readFileSync(`${root}/${file}`, 'utf8');
+      for (const match of source.matchAll(/\b(?:from|import)\s*\(?\s*['"](\.{1,2}\/[^'"]+)['"]/g)) {
+        queue.push(posix.normalize(posix.join(posix.dirname(file), match[1])));
+      }
+    }
+    expect([...closure].filter((file) => !checkedOut.has(file)).sort()).toEqual([]);
   });
 });

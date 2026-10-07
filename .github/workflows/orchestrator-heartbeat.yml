@@ -42,6 +42,7 @@ jobs:
             package.json
             scripts/ci/orchestrator-heartbeat.mjs
             scripts/ci/loop-clock-health.mjs
+            scripts/ci/lib/run-listing-window.mjs
             scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
             functions/src/lib/orchestratorSlot.js
