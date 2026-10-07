@@ -4975,9 +4975,9 @@
     },
     {
       "id": "mobiliar-0e1bf8075717",
-      "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach",
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach",
       "slugByLocale": {
-        "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach",
+        "it": "consulente-assicurativo-e-previdenziale-m-f-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach",
         "en": "insurance-and-pension-advisor-m-f-d-general-agency-rapperswil-glarus-die-mobiliar-eschenbach",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
         "fr": "conseiller-en-assurance-et-pension-h-f-d-agence-generale-rapperswil-glarus-die-mobiliar-eschenbach"
@@ -5040,11 +5040,13 @@
       },
       "sfJobId": "1163794755",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+        "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+        "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
+          "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch",
+          "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-rapperswil-glarus-die-mobiliar-eschenbach"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-rapperswil-glarus-mobiliar-ch"
@@ -6051,9 +6053,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6117,7 +6119,6 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg",
         "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
         "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
@@ -6127,12 +6128,10 @@
         ],
         "en": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-lenzburg",
           "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-lenzburg",
           "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
@@ -6157,9 +6156,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6223,7 +6222,6 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil",
         "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
         "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
@@ -6233,12 +6231,10 @@
         ],
         "en": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-wil",
           "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-wil",
           "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },

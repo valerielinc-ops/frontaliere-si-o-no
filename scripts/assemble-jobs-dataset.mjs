@@ -4180,7 +4180,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // vacancy housekeeping archived as a duplicate. Merging it would hand the
     // active job another posting's routes, including its hash-tailed slug,
     // which becomes cross-job contamination once that posting is re-listed
-    // (#11596). Records without any identity keep the legacy evidence rules.
+    // (#11596). An identity-less archive record is therefore ambiguous when
+    // the active match has a stable URL; the shared helper fails closed there.
+    // The bounded legacy evidence rules remain only when neither side has a
+    // stable identity.
     if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost

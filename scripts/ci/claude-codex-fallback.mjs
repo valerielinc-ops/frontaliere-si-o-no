@@ -1,4 +1,3 @@
-import { realpathSync } from 'node:fs';
 /**
  * Contratto provider-neutral per l'evidenza Claude/Codex.
  *
@@ -250,6 +249,14 @@ function main() {
   }
 }
 
-if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
+const invokedDirectly = (() => {
+  try {
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (invokedDirectly) {
   main();
 }

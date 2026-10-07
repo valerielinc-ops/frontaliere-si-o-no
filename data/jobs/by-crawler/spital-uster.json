@@ -5011,8 +5011,8 @@
       "slugByLocale": {
         "de": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100",
         "it": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-per-bewegungsapparat-80-100-spital-uster",
-        "en": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100",
-        "fr": "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100"
+        "en": "clinical-specialist-clinical-specialist-center-for-musculoskeletal-system-80-100-spital-uster-uster",
+        "fr": "specialiste-clinique-specialiste-clinique-centre-pour-le-systeme-musculo-squelettique-80-100-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -5061,6 +5061,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100"
+        ],
+        "en": [
+          "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100"
+        ],
+        "fr": [
           "klinische-fachspezialistin-klinischer-fachspezialist-zentrum-fur-bewegungsapparat-80-100"
         ]
       },
