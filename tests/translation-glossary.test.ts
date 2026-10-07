@@ -2,10 +2,12 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 // @ts-expect-error — plain .mjs helper, no type declarations
 import {
   applyGlossaryCorrections,
+  finalizeTranslatedText,
   getGlossaryVetoStats,
   normalizeGermanGenderForms,
   restoreProtectedTokens,
   resetGlossaryVetoStats,
+  stripPlaceholderTokens,
 } from '../scripts/lib/translation-glossary.mjs';
 
 describe('translation glossary — German gender compounds', () => {
@@ -539,5 +541,73 @@ describe('translation glossary — customs-role veto on the frontalieri rule', (
       targetLang: 'en',
       fieldType: 'description',
     })).toBe('The cross-border commuters work in Switzerland.');
+  });
+});
+
+/**
+ * A pair of percent-encoded bytes reads exactly like a `%TOKEN%` placeholder.
+ * The strip rewrote the URL of every translated text that cited one
+ * (`Perch%C3%A9` → `Perch A9`): 13 body fields on the article corpus, all
+ * source links, all dead after translation.
+ */
+describe('translation glossary — placeholder strip leaves links alone', () => {
+  const RSI = 'https://www.rsi.ch/info/dialogo/Perch%C3%A9-sviluppare-nuovi-farmaci-costa-sempre-di-pi%C3%B9--4071262.html';
+
+  it('keeps percent-encoded bytes inside a Markdown link target', () => {
+    const text = `*Fonte: [rsi.ch](${RSI})*`;
+    expect(stripPlaceholderTokens(text)).toBe(text);
+  });
+
+  it('keeps percent-encoded bytes inside a bare URL and a relative link', () => {
+    for (const text of [
+      'Vedi https://www.rsi.ch/info/svizzera/Frontalieri-disoccupati-l%E2%80%99UE-approva e basta.',
+      '[guida](/it/guida%C3%A8/) e [calcolatore](nav:calculator)',
+    ]) {
+      expect(stripPlaceholderTokens(text)).toBe(text);
+    }
+  });
+
+  it('keeps the whole destination when the URL carries balanced parentheses', () => {
+    // Closing the span at the first `)` left the rest of the URL exposed:
+    // `…/a(b)/Perch%C3%A9` came back as `…/a(b)/Perch A9`.
+    for (const text of [
+      '[RSI](https://example.test/a(b)/Perch%C3%A9)',
+      '[Lugano](https://it.wikipedia.org/wiki/Lugano_(citt%C3%A0))',
+      'Fonte: https://example.test/a(b)/Perch%C3%A9 e basta.',
+      'Fonte: https://it.wikipedia.org/wiki/Lugano_(citt%C3%A0)/Perch%C3%A9 e basta.',
+      // A lone `(` is still part of the URL, as before.
+      '[x](https://example.test/a(b/Perch%C3%A9) e https://example.test/a(b/Perch%C3%A9 poi',
+    ]) {
+      expect(stripPlaceholderTokens(text), text).toBe(text);
+    }
+  });
+
+  it('a bare URL quoted inside a parenthesis of prose ends before the closing one', () => {
+    // The placeholder after the parenthesis is prose and is still stripped;
+    // the URL before it is returned byte for byte.
+    expect(stripPlaceholderTokens('(vedi https://example.test/Perch%C3%A9) per %COMPANY% a Lugano'))
+      .toBe('(vedi https://example.test/Perch%C3%A9) per a Lugano');
+    expect(stripPlaceholderTokens('(vedi https://example.test/a(b)/Perch%C3%A9) per %COMPANY% a Lugano'))
+      .toBe('(vedi https://example.test/a(b)/Perch%C3%A9) per a Lugano');
+  });
+
+  it('still strips a real placeholder next to a link, and leaves the link intact', () => {
+    expect(stripPlaceholderTokens(`Lavora con {COMPANY} — fonte ${RSI}`)).toBe(`Lavora con — fonte ${RSI}`);
+    expect(stripPlaceholderTokens('Offerta di %COMPANY% a Lugano')).toBe('Offerta di a Lugano');
+    const linked = stripPlaceholderTokens(`[{{title}}](${RSI})`);
+    expect(linked).not.toContain('{{title}}');
+    expect(linked).toContain(`](${RSI})`);
+  });
+
+  it('the exit transform returns the link of a translated source line unchanged', () => {
+    const source = `*Fonte: [rsi.ch](${RSI})*`;
+    expect(
+      finalizeTranslatedText({
+        sourceText: source,
+        translatedText: `*Quelle: [rsi.ch](${RSI})*`,
+        targetLang: 'de',
+        fieldType: 'description',
+      }),
+    ).toBe(`*Quelle: [rsi.ch](${RSI})*`);
   });
 });

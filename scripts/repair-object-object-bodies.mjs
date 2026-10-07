@@ -166,7 +166,7 @@ async function translateBlock(block, locale) {
     if (!r.ok) throw new Error(`nav-link sentinel mangled (expected ${expected})`);
     restored = r.text;
   }
-  return applyTermFixes(balanceMarkdownMarkers(restored), locale);
+  return applyTermFixes(balanceMarkdownMarkers(restored, { sourceText: block }), locale);
 }
 
 /**

@@ -1679,12 +1679,12 @@
     },
     {
       "id": "abbott-7a925c890a49",
-      "slug": "financial-analyst-abbott-ch",
+      "slug": "financial-analista-abbott-allschwil",
       "slugByLocale": {
         "en": "financial-analyst-abbott-ch",
-        "it": "financial-analyst-abbott-ch",
-        "de": "financial-analyst-abbott-ch",
-        "fr": "financial-analyst-abbott-ch"
+        "it": "financial-analista-abbott-allschwil",
+        "de": "finanzanalyst-abbott-allschwil",
+        "fr": "financial-analyste-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1743,7 +1743,21 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-06T21:27:52.337Z"
+      "firstSeenAt": "2026-10-06T21:27:52.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-analyst-abbott-ch"
+        ],
+        "de": [
+          "financial-analyst-abbott-ch"
+        ],
+        "fr": [
+          "financial-analyst-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-analyst-abbott-ch"
+      ]
     }
   ]
 }

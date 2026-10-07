@@ -355,9 +355,9 @@
     },
     {
       "id": "mobiliar-9a515ac5c3c8",
-      "slug": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne",
+      "slug": "collaboratore-al-servizio-sinistri-m-f-d-agence-generale-montagnes-et-vallees-ne-die-mobiliar-fleurier",
       "slugByLocale": {
-        "it": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne",
+        "it": "collaboratore-al-servizio-sinistri-m-f-d-agence-generale-montagnes-et-vallees-ne-die-mobiliar-fleurier",
         "en": "collaborator-for-disasters-m-f-d-general-agency-mountains-and-valleys-ne-die-mobiliar-fleurier",
         "de": "mitarbeiter-fur-katastrophen-m-w-d-general-agency-berge-und-taler-ne-die-mobiliar-fleurier",
         "fr": "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne"
@@ -403,7 +403,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "sfJobId": "1165137455",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:54:18.234Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -418,7 +417,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2114"
+      "postalCode": "2114",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-au-service-des-sinistres-f-h-d-agence-general-montagnes-et-vallees-ne"
+      ]
     },
     {
       "id": "mobiliar-9d7b97afdc12",
@@ -1209,7 +1216,6 @@
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-wil-die-mobiliar-wil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:54:01.012Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2290,7 +2296,6 @@
           "leiter-vorsorge-generalagentur-wil-w-m-d-mobiliar-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:54:19.954Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2975,7 +2980,6 @@
           "kv-lehrstelle-efz-2027-generalagentur-reinach-ag-w-m-d-mobiliar-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:54:05.390Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -5412,7 +5416,6 @@
           "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:34.732Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
