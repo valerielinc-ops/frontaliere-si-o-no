@@ -114,8 +114,9 @@ if (failures.length > 0) {
   threshold: { metric: 'count', value: 0, comparator: '<=' },
   offenders: _offendersForReport,
   byFeature: _byFeatureForReport,
+  sampleRate: 1,
   extra: { pagesScanned: pages.length },
- });
+});
  process.exit(1);
 }
 
@@ -125,5 +126,6 @@ await writeAuditReport({
  passed: true,
  threshold: { metric: 'count', value: 0, comparator: '<=' },
  offenders: [],
+ sampleRate: 1,
  extra: { pagesScanned: pages.length },
 });
