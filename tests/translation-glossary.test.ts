@@ -567,6 +567,30 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     }
   });
 
+  it('keeps the whole destination when the URL carries balanced parentheses', () => {
+    // Closing the span at the first `)` left the rest of the URL exposed:
+    // `…/a(b)/Perch%C3%A9` came back as `…/a(b)/Perch A9`.
+    for (const text of [
+      '[RSI](https://example.test/a(b)/Perch%C3%A9)',
+      '[Lugano](https://it.wikipedia.org/wiki/Lugano_(citt%C3%A0))',
+      'Fonte: https://example.test/a(b)/Perch%C3%A9 e basta.',
+      'Fonte: https://it.wikipedia.org/wiki/Lugano_(citt%C3%A0)/Perch%C3%A9 e basta.',
+      // A lone `(` is still part of the URL, as before.
+      '[x](https://example.test/a(b/Perch%C3%A9) e https://example.test/a(b/Perch%C3%A9 poi',
+    ]) {
+      expect(stripPlaceholderTokens(text), text).toBe(text);
+    }
+  });
+
+  it('a bare URL quoted inside a parenthesis of prose ends before the closing one', () => {
+    // The placeholder after the parenthesis is prose and is still stripped;
+    // the URL before it is returned byte for byte.
+    expect(stripPlaceholderTokens('(vedi https://example.test/Perch%C3%A9) per %COMPANY% a Lugano'))
+      .toBe('(vedi https://example.test/Perch%C3%A9) per a Lugano');
+    expect(stripPlaceholderTokens('(vedi https://example.test/a(b)/Perch%C3%A9) per %COMPANY% a Lugano'))
+      .toBe('(vedi https://example.test/a(b)/Perch%C3%A9) per a Lugano');
+  });
+
   it('still strips a real placeholder next to a link, and leaves the link intact', () => {
     expect(stripPlaceholderTokens(`Lavora con {COMPANY} — fonte ${RSI}`)).toBe(`Lavora con — fonte ${RSI}`);
     expect(stripPlaceholderTokens('Offerta di %COMPANY% a Lugano')).toBe('Offerta di a Lugano');
