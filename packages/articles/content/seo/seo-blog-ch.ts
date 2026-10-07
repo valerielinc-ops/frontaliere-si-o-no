@@ -99057,6 +99057,40 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cancro-prostata-assistenza-svizzera': {
+    title: 'Cancro alla prostata: assistenza buona in Svizzera 2020‑2023',
+    description: '## In breve - Oltre 35\'000 casi analizzati tra il 2020 e il 2023 - 8\'929 nuovi casi e 1\'340 decessi medi annui - Il 76% emerge dallo screening opportunistico',
+    keywords: 'frontalieri, ticino, svizzera, italia, cancro, alla, prostata, assistenza',
+    ogTitle: 'Cancro alla prostata: assistenza buona in Svizzera 2020‑2023',
+    ogDescription: '## In breve - Oltre 35\'000 casi analizzati tra il 2020 e il 2023 - 8\'929 nuovi casi e 1\'340 decessi medi annui - Il 76% emerge dallo screening opportunistico',
+    canonicalPath: '/articoli-svizzera/cancro-prostata-assistenza-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cancro alla prostata: assistenza buona in Svizzera 2020‑2023",
+      "description": "## In breve - Oltre 35'000 casi analizzati tra il 2020 e il 2023 - 8'929 nuovi casi e 1'340 decessi medi annui - Il 76% emerge dallo screening opportunistico",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/allarme-aumento-affitti-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico e paziente che discutono i risultati del test PSA in uno studio medico svizzero con vista sulle Alpi"
+      },
+      "datePublished": "2026-10-07T10:02:14+00:00",
+      "dateModified": "2026-10-07T10:02:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cancro-prostata-assistenza-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

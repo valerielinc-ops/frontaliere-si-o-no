@@ -7859,6 +7859,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-india-accordi-bilaterali.title': 'Switzerland and India: new agreements on migration and employment',
     'blog.article.svizzera-india-accordi-bilaterali.excerpt': '## TL;DR - October 5, 2026: Parmelin meets Indian leaders - Switzerland and India sign two agreements - TEPA: one year since its entry into force with EFTA',
     'blog.article.svizzera-india-accordi-bilaterali.imageAlt': 'Federal Palace in Bern, seat of the Swiss government',
+    'blog.article.cancro-prostata-assistenza-svizzera.title': 'Prostate cancer: good care in Switzerland 2020–2023',
+    'blog.article.cancro-prostata-assistenza-svizzera.excerpt': '## TL;DR - Over 35\'000 cases analyzed between 2020 and 2023 - 8\'929 new cases and 1\'340 average annual deaths - 76% is detected through opportunistic screening',
+    'blog.article.cancro-prostata-assistenza-svizzera.imageAlt': 'Doctor and patient discussing PSA test results in a Swiss medical office with Alpine view',
 };
 
 export default blogMetaChEn;

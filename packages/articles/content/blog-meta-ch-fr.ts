@@ -7859,6 +7859,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzera-india-accordi-bilaterali.title': 'Suisse et Inde : nouveaux accords sur la migration et le travail',
     'blog.article.svizzera-india-accordi-bilaterali.excerpt': '## En bref - 5 octobre 2026 : Parmelin rencontre les dirigeants indiens - La Suisse et l’Inde signent deux accords - TEPA : un an après son entrée en vigueur avec l’AELE',
     'blog.article.svizzera-india-accordi-bilaterali.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse',
+    'blog.article.cancro-prostata-assistenza-svizzera.title': 'Cancer de la prostate : bonne prise en charge en Suisse 2020‑2023',
+    'blog.article.cancro-prostata-assistenza-svizzera.excerpt': '## En bref - Plus de 35\'000 cas analysés entre 2020 et 2023 - 8\'929 nouveaux cas et 1\'340 décès annuels en moyenne - 76% sont détectés grâce au dépistage opportuniste',
+    'blog.article.cancro-prostata-assistenza-svizzera.imageAlt': 'Médecin et patient discutant des résultats du test PSA dans un cabinet médical suisse avec vue sur les Alpes',
 };
 
 export default blogMetaChFr;
