@@ -90,7 +90,7 @@
           "expert-expert-soins-intensifs-snd-soins-intensifs-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T22:27:59.395Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -104,7 +104,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     },
     {
       "id": "ksw-b24044f1e140",
@@ -3454,7 +3455,6 @@
           "fachfrau-fachmann-gesundheit-urologie-und-orthopadie-ksw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:15:10.995Z",
       "salaryMin": 91500,
       "salaryMax": 128000,

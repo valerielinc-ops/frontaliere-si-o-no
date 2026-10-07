@@ -7245,7 +7245,7 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Reifenfachmann*frau",
       "titleByLocale": {
-        "it": "Reifenfachmann*frau",
+        "it": "Tiro professionale*donna",
         "en": "Tyre specialist",
         "de": "Reifenfachmann*frau",
         "fr": "Spécialiste du pneu*femme"
@@ -7300,7 +7300,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:09.898Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -9233,7 +9232,7 @@
       "title": "Köch*in, Standort Wildbach",
       "titleByLocale": {
         "it": "Cuoco/a, sede di Wildbach",
-        "en": "Köch*in, Standort Wildbach",
+        "en": "Köch*in, Wildbach location",
         "de": "Köch*in, Standort Wildbach",
         "fr": "Cuisinier·ère, site de Wildbach"
       },
@@ -20221,7 +20220,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -34439,7 +34437,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51137",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137"
@@ -34522,11 +34519,23 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hotellerie-standort-trotte-stadt-zuerich-zurigo-51794"
+          "mitarbeiter-in-hotellerie-standort-trotte-stadt-zuerich-zurigo-51794",
+          "i-dipendenti-industria-alberghiera-posizione-trotte-stadt-zurich-zurich",
+          "employees-hotel-industry-location-trotte-stadt-zurich-zurich",
+          "employes-de-l-hotellerie-emplacement-trotte-stadt-zurich-zurich"
+        ],
+        "en": [
+          "employees-hotel-industry-location-trotte-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "employes-de-l-hotellerie-emplacement-trotte-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hotellerie-standort-trotte-stadt-zuerich-zurigo-51794"
+        "mitarbeiter-in-hotellerie-standort-trotte-stadt-zuerich-zurigo-51794",
+        "i-dipendenti-industria-alberghiera-posizione-trotte-stadt-zurich-zurich",
+        "employees-hotel-industry-location-trotte-stadt-zurich-zurich",
+        "employes-de-l-hotellerie-emplacement-trotte-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
