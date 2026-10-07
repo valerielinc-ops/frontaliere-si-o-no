@@ -4,7 +4,7 @@
  *
  * Finds jobs where titleByLocale[locale] is an exact copy or a
  * marker-backed partial copy of the source title and translates them using the
- * free-translate cascade (DeepL → MyMemory → etc).
+ * free-translate cascade (Codex Luna Max → DeepL → MyMemory → etc).
  *
  * Uses the free cascade. In translate-pending, the workflow supplies the
  * Codex Luna Max broker, which is the first tier of the cascade (owner
@@ -22,13 +22,18 @@
  *     closed if its marker is missing.
  *   UNTRANSLATED_TITLE_FIX_WINDOW_MS — optional window from this process's
  *     start; the lane stops at min(deadline, elapsed at start + window).
+ *   UNTRANSLATED_TITLE_FIX_CONCURRENCY — optional cap for title candidates in
+ *     flight; the default follows FREE_TRANSLATE_CODEX_LANES ×
+ *     FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS and is clamped to a safe maximum.
+ *   UNTRANSLATED_TITLE_FIX_FALLBACK_CONCURRENCY — cap used after Codex is
+ *     absent or its per-run budget is spent (default 2).
  */
 
 import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats as getCodexTierStatsDefault, logCascadeSummary } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { isTitleRepairQueueVerdict } from './lib/untranslated-title-repair.mjs';
@@ -72,6 +77,250 @@ function titleFixAttemptKey(file, job, jobIdx, locale) {
 function dateMs(value) {
   const parsed = Date.parse(String(value || ''));
   return Number.isFinite(parsed) ? parsed : Number.MAX_SAFE_INTEGER;
+}
+
+const TITLE_FIX_CONCURRENCY_MAX = 30;
+const TITLE_FIX_FALLBACK_CONCURRENCY_DEFAULT = 2;
+const TITLE_FIX_FALLBACK_CONCURRENCY_MAX = 5;
+
+function boundedEnvInteger(name, fallback, min, max) {
+  const raw = String(process.env[name] || '').trim();
+  if (!/^\d+$/.test(raw)) return fallback;
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value)) return fallback;
+  return Math.min(Math.max(value, min), max);
+}
+
+/**
+ * Keep enough title requests in flight for the Codex collection window to
+ * feed every configured lane, while retaining an explicit operator cap.
+ */
+export function resolveTitleFixConcurrency() {
+  const lanes = boundedEnvInteger('FREE_TRANSLATE_CODEX_LANES', 2, 1, 3);
+  const batchMaxTexts = boundedEnvInteger('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', 5, 1, 10);
+  const derived = Math.min(TITLE_FIX_CONCURRENCY_MAX, lanes * batchMaxTexts);
+  return boundedEnvInteger('UNTRANSLATED_TITLE_FIX_CONCURRENCY', derived, 1, TITLE_FIX_CONCURRENCY_MAX);
+}
+
+export function resolveTitleFixFallbackConcurrency() {
+  return boundedEnvInteger(
+    'UNTRANSLATED_TITLE_FIX_FALLBACK_CONCURRENCY',
+    TITLE_FIX_FALLBACK_CONCURRENCY_DEFAULT,
+    1,
+    TITLE_FIX_FALLBACK_CONCURRENCY_MAX,
+  );
+}
+
+function normalizeConcurrency(value, fallback, max) {
+  const numeric = Number(value);
+  if (!Number.isSafeInteger(numeric)) return fallback;
+  return Math.min(Math.max(numeric, 1), max);
+}
+
+function codexCanAcceptMoreWork(getCodexStats) {
+  let stats;
+  try {
+    stats = getCodexStats();
+  } catch {
+    return false;
+  }
+  if (!stats || stats.lanePresent !== true || stats.stopReason) return false;
+  const calls = Number(stats.calls);
+  const maxCalls = Number(stats.maxCalls);
+  if (Number.isFinite(maxCalls) && maxCalls >= 0 && Number.isFinite(calls) && calls >= maxCalls) return false;
+  const spentMs = Number(stats.spentMs);
+  const maxMs = Number(stats.maxMs);
+  if (Number.isFinite(maxMs) && maxMs >= 0 && Number.isFinite(spentMs) && spentMs >= maxMs) return false;
+  return true;
+}
+
+function titleFixCandidateContext(job, sourceTitle, locale) {
+  return {
+    sourceTitle,
+    sourceLang: job.sourceLang || 'it',
+    targetLang: locale,
+    targetLocale: locale,
+    company: job.company || '',
+    location: job.addressLocality || job.location || '',
+  };
+}
+
+/**
+ * Process the discovered queue with a bounded, priority-preserving pool.
+ * The callback is called once per candidate; free-translate owns the Codex
+ * collection window and batches the requests that overlap here.
+ */
+export function runTitleFixCandidatePool({
+  candidates = [],
+  sliceCache,
+  attemptState = { version: 1, attempts: {} },
+  dryRun = false,
+  budgetOk = () => true,
+  translate = freeTranslateWithRetry,
+  getCodexTierStats = getCodexTierStatsDefault,
+  maxConcurrency = resolveTitleFixConcurrency(),
+  fallbackConcurrency = resolveTitleFixFallbackConcurrency(),
+} = {}) {
+  if (!attemptState || typeof attemptState !== 'object') {
+    attemptState = { version: 1, attempts: {} };
+  }
+  if (!attemptState.attempts || typeof attemptState.attempts !== 'object') {
+    attemptState.attempts = {};
+  }
+  const codexConcurrency = normalizeConcurrency(maxConcurrency, resolveTitleFixConcurrency(), TITLE_FIX_CONCURRENCY_MAX);
+  const freeProviderConcurrency = normalizeConcurrency(
+    fallbackConcurrency,
+    resolveTitleFixFallbackConcurrency(),
+    TITLE_FIX_FALLBACK_CONCURRENCY_MAX,
+  );
+  const changedFiles = new Set();
+  let nextIndex = 0;
+  let active = 0;
+  let deadlineReached = false;
+  let stateChanged = false;
+  let totalFixed = 0;
+  let totalNoop = 0;
+  let totalFailed = 0;
+
+  const processCandidate = async (candidate) => {
+    const sliceData = sliceCache?.get(candidate.file);
+    const job = sliceData?.jobs?.[candidate.jobIdx];
+    if (!job) return;
+    const sourceLang = job.sourceLang || 'it';
+    const sourceTitle = (job.title || '').trim();
+    const table = job.titleByLocale || {};
+    const existing = String(table[candidate.locale] || '').trim();
+    if (!sourceTitle || !existing) return;
+
+    const currentVerdict = titleLooksUntranslated({
+      ...titleFixCandidateContext(job, sourceTitle, candidate.locale),
+      title: existing,
+    });
+    if (!isTitleRepairQueueVerdict(currentVerdict)) return;
+
+    let translated = '';
+    try {
+      translated = await translate({
+        text: sourceTitle,
+        sourceLang,
+        targetLang: candidate.locale,
+        maxRetries: 0,
+      });
+    } catch {
+      translated = '';
+    }
+
+    if (!dryRun) {
+      const prior = attemptState.attempts[candidate.key] || {};
+      attemptState.attempts[candidate.key] = {
+        attempts: (Number(prior.attempts) || 0) + 1,
+        lastAttemptAt: new Date().toISOString(),
+      };
+      stateChanged = true;
+    }
+
+    if (!translated) {
+      totalFailed++;
+      return;
+    }
+    if (isTitleSourceCopy(translated, existing)) {
+      totalNoop++;
+      return;
+    }
+    if (isTitleSourceCopy(translated, sourceTitle) || titleContainsLlmReasoning(translated)) {
+      totalFailed++;
+      return;
+    }
+    const translatedVerdict = titleLooksUntranslated({
+      ...titleFixCandidateContext(job, sourceTitle, candidate.locale),
+      title: translated,
+    });
+    if (translatedVerdict.untranslated) {
+      totalFailed++;
+      return;
+    }
+
+    if (!dryRun) {
+      // Re-read the table after the await. JavaScript resumes each candidate
+      // synchronously here, so two locales of one job retain each other's
+      // completed write instead of assigning a stale snapshot.
+      const latestTable = job.titleByLocale || {};
+      latestTable[candidate.locale] = translated;
+      job.titleByLocale = latestTable;
+      changedFiles.add(candidate.file);
+    }
+    totalFixed++;
+  };
+
+  return new Promise((resolve, reject) => {
+    let settled = false;
+
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      resolve({
+        totalFixed,
+        totalNoop,
+        totalFailed,
+        deadlineReached,
+        changedFiles,
+        stateChanged,
+        attemptState,
+      });
+    };
+
+    const schedule = () => {
+      if (settled) return;
+      const targetConcurrency = codexCanAcceptMoreWork(getCodexTierStats)
+        ? codexConcurrency
+        : freeProviderConcurrency;
+
+      while (!deadlineReached && active < targetConcurrency && nextIndex < candidates.length) {
+        // This check is deliberately inside the single-candidate claim, not
+        // once per batch: every new candidate must pass the shared deadline.
+        if (!budgetOk()) {
+          deadlineReached = true;
+          break;
+        }
+        const candidate = candidates[nextIndex++];
+        active++;
+        Promise.resolve()
+          .then(() => processCandidate(candidate))
+          .catch((error) => {
+            if (!settled) {
+              settled = true;
+              reject(error);
+            }
+          })
+          .finally(() => {
+            active--;
+            schedule();
+          });
+      }
+
+      if (active === 0 && (deadlineReached || nextIndex >= candidates.length)) finish();
+    };
+
+    schedule();
+  });
+}
+
+export function persistTitleFixWork({
+  changedFiles,
+  sliceCache,
+  attemptState,
+  stateChanged,
+  byCrawlerDir = BY_CRAWLER_DIR,
+  statePath = TITLE_FIX_STATE_PATH,
+}) {
+  let slicesChanged = 0;
+  for (const file of changedFiles || []) {
+    writeJson(path.join(byCrawlerDir, file), sliceCache.get(file));
+    slicesChanged++;
+    console.log(`  ✅ ${file.replace('.json', '')}`);
+  }
+  if (stateChanged) writeJson(statePath, attemptState);
+  return slicesChanged;
 }
 
 async function main() {
@@ -128,108 +377,37 @@ async function main() {
     || a.jobIdx - b.jobIdx
     || a.locale.localeCompare(b.locale));
 
-  let totalFixed = 0;
-  let totalNoop = 0;
-  let totalFailed = 0;
-  let slicesChanged = 0;
   const budgetOk = () => (Date.now() - RUN_START_MS) < TITLE_FIX_DEADLINE_MS;
-  let deadlineReached = false;
-  const changedFiles = new Set();
-  let stateChanged = false;
 
   console.log(`🔧 Fixing title repair candidates across ${files.length} slices (${candidates.length} slots)...`);
   if (DRY_RUN) console.log('   (DRY RUN — no files will be modified)\n');
 
-  for (const candidate of candidates) {
-    if (!budgetOk()) {
-      deadlineReached = true;
-      break;
-    }
-    const sliceData = sliceCache.get(candidate.file);
-    const job = sliceData?.jobs?.[candidate.jobIdx];
-    if (!job) continue;
-    const sl = job.sourceLang || 'it';
-    const sourceTitle = (job.title || '').trim();
-    const tbl = job.titleByLocale || {};
-    const existing = String(tbl[candidate.locale] || '').trim();
-    if (!sourceTitle || !existing) continue;
-    const currentVerdict = titleLooksUntranslated({
-      title: existing,
-      sourceTitle,
-      sourceLang: sl,
-      targetLocale: candidate.locale,
-      company: job.company || '',
-      location: job.addressLocality || job.location || '',
-    });
-    const stillBroken = isTitleRepairQueueVerdict(currentVerdict);
-    if (!stillBroken) continue;
+  const result = await runTitleFixCandidatePool({
+    candidates,
+    sliceCache,
+    attemptState,
+    dryRun: DRY_RUN,
+    budgetOk,
+  });
+  const slicesChanged = DRY_RUN ? 0 : persistTitleFixWork({
+    changedFiles: result.changedFiles,
+    sliceCache,
+    attemptState: result.attemptState,
+    stateChanged: result.stateChanged,
+  });
 
-    const translated = await freeTranslateWithRetry({
-      text: sourceTitle,
-      sourceLang: sl,
-      targetLang: candidate.locale,
-      maxRetries: 0,
-    });
-    if (!DRY_RUN) {
-      const prior = attemptState.attempts[candidate.key] || {};
-      attemptState.attempts[candidate.key] = {
-        attempts: (Number(prior.attempts) || 0) + 1,
-        lastAttemptAt: new Date().toISOString(),
-      };
-      stateChanged = true;
-    }
-
-    if (!translated) {
-      totalFailed++;
-      continue;
-    }
-    if (isTitleSourceCopy(translated, existing)) {
-      totalNoop++;
-      continue;
-    }
-    if (isTitleSourceCopy(translated, sourceTitle) || titleContainsLlmReasoning(translated)) {
-      totalFailed++;
-      continue;
-    }
-    const translatedVerdict = titleLooksUntranslated({
-      title: translated,
-      sourceTitle,
-      sourceLang: sl,
-      targetLocale: candidate.locale,
-      company: job.company || '',
-      location: job.addressLocality || job.location || '',
-    });
-    if (translatedVerdict.untranslated) {
-      totalFailed++;
-      continue;
-    }
-
-    if (!DRY_RUN) {
-      tbl[candidate.locale] = translated;
-      job.titleByLocale = tbl;
-      changedFiles.add(candidate.file);
-    }
-    totalFixed++;
-  }
-
-  if (!DRY_RUN) {
-    for (const file of changedFiles) {
-      writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));
-      slicesChanged++;
-      console.log(`  ✅ ${file.replace('.json', '')}`);
-    }
-    if (stateChanged) writeJson(TITLE_FIX_STATE_PATH, attemptState);
-  }
-
-  if (deadlineReached) {
+  if (result.deadlineReached) {
     const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
     console.log(`\n⏰ Title-fix deadline reached after ~${elapsedMin}min — completed work was persisted; remaining slices stay queued for the next run.`);
   }
 
-  console.log(`\n📊 Title fix complete: ${totalFixed} translated, ${totalNoop} no-op, ${totalFailed} failed`);
+  console.log(`\n📊 Title fix complete: ${result.totalFixed} translated, ${result.totalNoop} no-op, ${result.totalFailed} failed`);
   console.log(`   ${slicesChanged} slices modified`);
   logCascadeSummary();
 }
 
-installCodexReserveReport('2d-titles', () => ({ codex: getCodexTierStats(), cascade: getCascadeStats() }));
-main().catch(err => { console.error('❌', err.message); process.exit(1); });
+const IS_MAIN = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+if (IS_MAIN) {
+  installCodexReserveReport('2d-titles', () => ({ codex: getCodexTierStatsDefault(), cascade: getCascadeStats() }));
+  main().catch(err => { console.error('❌', err.message); process.exit(1); });
+}

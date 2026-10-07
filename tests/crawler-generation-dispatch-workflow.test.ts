@@ -290,7 +290,7 @@ describe('crawler generation PR B workflow wiring', () => {
       expect(resolver.index).toBeLessThan(cascade.index);
       expect(resolver.step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
       expect(resolver.step.run).toContain('preserving effective setting');
-      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=180');
+      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=350');
       const cascadeEnv = steps[cascade.index].env ?? {};
       expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
       expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
