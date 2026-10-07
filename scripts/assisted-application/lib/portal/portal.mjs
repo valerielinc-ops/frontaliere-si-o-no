@@ -63,6 +63,9 @@ const AUTH_VIEW_TIMEOUT_MS = 8_000;
 // Between the last field typed and the reading that checks it is still there: a form drawn anew meanwhile
 // shows by then, and Workday counts a click in the first half second of its form as a robot's.
 const AUTH_TYPED_WAIT_MS = 600;
+// How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
+const REDRAW_WAIT_MS = 3000;
+const MAX_REDRAWS_PER_PAGE = 2;
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -953,7 +956,9 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
  */
 async function awaitAuthOutcome(page, before, shown = []) {
   await settle(page);
-  const read = () => extractFields(page).catch(() => null); // a page that is reloading cannot be read yet
+  // A page that is reloading cannot be read yet. Read without opening its listboxes while waiting (the form
+  // behind a sign-in has several, and each reading would open and close them all); in full once it is there.
+  const read = () => extractFields(page, NAVIGATION).catch(() => null);
   const told = JSON.stringify(shown || []);
   const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
   const started = Date.now();
@@ -970,7 +975,7 @@ async function awaitAuthOutcome(page, before, shown = []) {
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
-  return after || extractFields(page);
+  return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
 /** What tells one account page from another, and a page from the same one read a moment later. */
@@ -985,7 +990,7 @@ const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((fi
  */
 async function awaitAuthView(page, before) {
   await settle(page);
-  const read = () => extractFields(page).catch(() => null);
+  const read = () => extractFields(page, NAVIGATION).catch(() => null);
   const drawn = (after) => Boolean(after) && after.fields.length > 0 && authViewSignature(after) !== authViewSignature(before);
   const deadline = Date.now() + AUTH_VIEW_TIMEOUT_MS;
   let after = await read();
@@ -995,7 +1000,7 @@ async function awaitAuthView(page, before) {
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
-  return after || extractFields(page);
+  return (await extractFields(page).catch(() => null)) || after || extractFields(page);
 }
 
 /**
@@ -1425,6 +1430,8 @@ export async function submitViaPortal(ctx) {
     // The passwords this run typed into application forms that create their own account, by host.
     const ownPasswords = new Map();
     const uploaded = new Set();
+    // How often a page was planned again because a choice redrew it, by address.
+    const redraws = new Map();
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
     const openTries = new Map();
@@ -1616,7 +1623,31 @@ export async function submitViaPortal(ctx) {
         const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
         const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
         const plannedUrl = page.url();
-        const results = await applyActions(page, snapshot.fields, actions, ctx.files);
+        // Choices first: one of them may redraw the form (on Workday the name and address fields follow the
+        // country), and what was typed before into fields that are no more is lost without a word (dry run of
+        // 2026-10-07: the address went into «Address Line 1», the country was chosen last, and the form that
+        // was saved had «Street Name» and «Postcode» empty). A choice the field already shows is not made again.
+        const fieldOf = (action) => snapshot.fields.find((field) => field.id === action.fieldId);
+        const tidy = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+        const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
+        const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
+        const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        const results = [
+          ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
+          ...await applyActions(page, snapshot.fields, choices, ctx.files),
+        ];
+        // The form after the choices: with other fields than the ones planned it is read and planned again
+        // (twice at most for one page), and nothing is typed into what is no longer there.
+        const labelsOf = (view) => view.fields.map((field) => field.label).join('|');
+        let redrawn = false;
+        if (choices.length && (redraws.get(plannedUrl) || 0) < MAX_REDRAWS_PER_PAGE) {
+          for (let waited = 0; waited < REDRAW_WAIT_MS && !redrawn && page.url() === plannedUrl; waited += 500) {
+            await page.waitForTimeout(500);
+            const now = await extractFields(page, NAVIGATION).catch(() => null);
+            redrawn = Boolean(now) && now.fields.length > 0 && labelsOf(now) !== labelsOf(snapshot);
+          }
+        }
+        if (!redrawn) results.push(...await applyActions(page, snapshot.fields, actions.filter((action) => !isChoice(action)), ctx.files));
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
           const uploadAction = result.ok && actions.find((item) => item.fieldId === result.fieldId && item.action === 'upload');
@@ -1629,6 +1660,13 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        if (redrawn && page.url() === plannedUrl) {
+          redraws.set(plannedUrl, (redraws.get(plannedUrl) || 0) + 1);
+          evidence.steps.at(-1).redrawn = true;
+          snapshot = await awaitFields(page, await extractFields(page));
+          step -= 1; // the same page, planned again
+          continue;
+        }
         if (ownAccount) {
           const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
           evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };

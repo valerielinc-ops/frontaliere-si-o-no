@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -464,6 +464,13 @@ describe('portal runner helpers', () => {
     expect(findButton(signIn, /^sign in$/i)).toEqual(signIn[2]);
     expect(findButton(signIn.slice(0, 2), /^sign in$/i)).toEqual(signIn[0]);
     expect(findButton([signIn[0], { ...signIn[2], disabled: true }], /^sign in$/i)).toEqual(signIn[0]);
+    // A search box is answered when its chosen value names what would be typed (Workday's phone code: «+41»
+    // typed, «Switzerland (+41)» chosen); another country's code, an empty box or an empty answer are not.
+    expect(searchHolds('Switzerland (+41)', '+41')).toBe(true);
+    expect(searchHolds(' switzerland  (+41) ', 'Switzerland')).toBe(true);
+    expect(searchHolds('United States of America (+1)', '+41')).toBe(false);
+    expect(searchHolds('', '+41')).toBe(false);
+    expect(searchHolds('Switzerland (+41)', '')).toBe(false);
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);

@@ -44,7 +44,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0 };
+  const workday = { accounts: new Map(), silent: false, cover: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -400,11 +400,60 @@ function fakePortal() {
     // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
     if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
+    // The form behind the account. Its «Country» is a listbox button, and choosing draws the address fields
+    // anew for that country a moment later, as other elements («Address Line 1» becomes «Street Name»): what
+    // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
+    // seconds after Enter the only match is taken by itself and shown as that pill (also an «option» on the
+    // page); several matches are listed to choose from (Workday's «My Information», 2026-10-07).
     if (route === 'GET /wd/form') {
       if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
       return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
         <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
-        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>${form('/apply', '<label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required><label for="pc">Postal Code</label><input id="pc" name="postalCode"><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>', true)}</main></body></html>`);
+        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>
+        <form method="post" action="/wd/submit" enctype="multipart/form-data">
+          <label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required>
+          <label for="m">E-Mail *</label><input id="m" type="email" name="mail" required>
+          <div id="addr"></div><input type="hidden" name="country" id="countryValue" value="United States of America">
+          <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off">
+          <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
+          <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
+          <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>
+        </form>
+        <ul id="countries" role="listbox" style="display:none"><li role="option">Switzerland</li><li role="option">United States of America</li></ul>
+        <ul id="codes" role="listbox" style="display:none"></ul></main>
+        <script>
+          const el = (id) => document.getElementById(id);
+          const draw = (country) => {
+            el('addr').innerHTML = '<button type="button" id="country" aria-haspopup="listbox" aria-label="Country*">' + country + '</button>' + (country === 'Switzerland'
+              ? '<label for="st">Street Name</label><input id="st" name="street"><label for="pc">Postcode</label><input id="pc" name="postcode">'
+              : '<label for="a1">Address Line 1</label><input id="a1" name="address1"><label for="pc">Postal Code</label><input id="pc" name="postalCode">');
+            el('country').onclick = () => { el('countries').style.display = 'block'; };
+            el('country').onkeydown = (event) => { if (event.key === 'Escape') el('countries').style.display = 'none'; };
+          };
+          draw('United States of America');
+          for (const option of el('countries').children) {
+            option.onclick = () => { el('countries').style.display = 'none'; el('countryValue').value = option.textContent; setTimeout(() => draw(option.textContent), 400); };
+          }
+          el('pcode').onkeydown = (event) => {
+            if (event.key !== 'Enter') return;
+            event.preventDefault();
+            const choose = (code) => { el('phoneCodeValue').value = code; el('pill').textContent = code; el('pcode').value = ''; el('codes').style.display = 'none'; };
+            setTimeout(() => {
+              const matches = ['Switzerland (+41)', 'Italy (+39)'].filter((code) => code.includes(el('pcode').value));
+              if (matches.length === 1) return choose(matches[0]);
+              el('codes').innerHTML = matches.map((code) => '<li role="option">' + code + '</li>').join('');
+              el('codes').style.display = 'block';
+              for (const option of el('codes').children) option.onclick = () => choose(option.textContent);
+            }, 2000);
+          };
+        </script></body></html>`);
+    }
+    if (route === 'POST /wd/submit') {
+      const raw = await readBody(req);
+      const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
+      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode') });
+      state.applications.push({ hasCv: /filename="CV_/.test(raw), first: part('first') });
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
       workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
@@ -620,6 +669,12 @@ async function fakeCodex({ prompt }) {
     if (/anrede/i.test(field.label)) return act('select', 'Herr', { source: 'answers' });
     if (/geburtsdatum/i.test(field.label)) return act('fill', '1990-05-12', { source: 'profile' });
     if (/vorname|first name/i.test(field.label)) return act('fill', 'Luca');
+    // Workday's first page: the country is a listbox, the address follows it, the phone code is a search.
+    if (/^country\*?$/i.test(field.label)) return act('select', 'Switzerland', { source: 'profile' });
+    if (/address line 1/i.test(field.label)) return act('fill', 'Via Esempio 1');
+    if (/street name/i.test(field.label)) return act('fill', 'Via Esempio');
+    if (/postcode|postal code/i.test(field.label)) return act('fill', '6830');
+    if (/phone code/i.test(field.label)) return act('fill', '+41');
     if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
     if (/nachname|last name/i.test(field.label)) return act('fill', 'Bianchi');
     // umantis' form: no photo and no other document to give, the letter in its own field.
@@ -683,6 +738,12 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
   // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
   // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  // The country is chosen before anything is typed, the form it redraws is planned again, and the phone
+  // code's matches are waited for: the address is in the fields of the chosen country, not in ones that are gone.
+  const sent = workday.forms.at(-1) || {};
+  check('Workday: the country is chosen first, the redrawn form planned again, the phone code picked from its late matches',
+    sent.country === 'Switzerland' && sent.street === 'Via Esempio' && sent.postcode === '6830' && sent.phoneCode === 'Switzerland (+41)'
+    && again.evidence.steps.some((step) => step.redrawn) && !again.evidence.steps.some((step) => (step.failures || []).length));
   // The posting's page says only the brand: the employer is the order's by the posting's own data, and the
   // form behind the account (whose title is still the account page's) is the posting's by its role.
   check('Workday: the form is the posting’s by the employer its data names, another entity of the order’s company',
