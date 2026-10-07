@@ -55,7 +55,7 @@ describe('fuel price refresh publication', () => {
 
     expect(publisher).toContain('FORCE_ADD=false');
     expect(publisher).toContain('--force');
-    expect(publisher).toContain('git add -A -f -- "${PATHS[@]}"');
-    expect(publisher).toContain('git add -A -- "${PATHS[@]}"');
+    expect(publisher).toContain('git add --sparse -A -f -- "${PATHS[@]}"');
+    expect(publisher).toContain('git add --sparse -A -- "${PATHS[@]}"');
   });
 });

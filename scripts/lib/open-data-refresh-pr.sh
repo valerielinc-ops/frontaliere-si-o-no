@@ -252,9 +252,12 @@ stage_paths() {
     # ignored in the normal checkout (for example the fuel cache/history). Keep
     # the force explicit at the publisher boundary so an ignored path can never
     # disappear silently from an otherwise successful refresh PR.
-    git add -A -f -- "${PATHS[@]}"
+    git add --sparse -A -f -- "${PATHS[@]}"
   else
-    git add -A -- "${PATHS[@]}"
+    # Some refreshes deliberately keep large tracked image trees outside the
+    # sparse checkout. `--sparse` lets a generated file under one of those
+    # paths enter the index without materializing the existing archive.
+    git add --sparse -A -- "${PATHS[@]}"
   fi
 }
 

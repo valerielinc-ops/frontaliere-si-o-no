@@ -157,6 +157,17 @@ describe('optional refresh paths (sync run 37515283217)', () => {
     expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/credits.json'])).toBe('{"cover":"governed"}');
   });
 
+  it('stages a generated optional file outside the sparse checkout', () => {
+    const setup = fixture();
+    git(setup.repo, ['sparse-checkout', 'init', '--no-cone']);
+    git(setup.repo, ['sparse-checkout', 'set', '--no-cone', '/data/', '/scripts/']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'public/images/generated/credits.json', '{"cover":"governed"}\n');
+    const result = publishPlain(setup, ['--optional-path', 'public/images/generated']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/credits.json'])).toBe('{"cover":"governed"}');
+  });
+
   it.each([
     ['plain git add', publishPlain],
     ['resolved symlinks', (setup: ReturnType<typeof fixture>, extra: string[]) => publish(setup, false, extra)],
