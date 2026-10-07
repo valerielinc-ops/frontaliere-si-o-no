@@ -13,8 +13,9 @@
  *   9. Lingva, Mozhi+Google, unofficial Google Translate, Mozhi+DeepL,
  *      Mozhi+Yandex (local/dev tiers, often blocked from Actions IPs)
  *
- * `FREE_TRANSLATE_CODEX_TIER=last` remains a narrow compatibility override for
- * an explicitly opted-in legacy caller; production workflows no longer set it.
+ * `FREE_TRANSLATE_CODEX_TIER=last` is an explicit caller override that moves
+ * Codex to the end of the cascade. translate-pending sets it for the title
+ * repair lane (Phase 2a.2), where Codex is the last resort after the free tiers.
  *
  * Features:
  *   - Instance health tracking: remembers which instances are down to skip them
