@@ -902,6 +902,14 @@ jobs:
       - name: "Phase 3: Regenerate locale slugs"
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/regenerate-slugs-by-locale.mjs
+      - name: Upload slug regeneration proof
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Commit slug regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
