@@ -4248,7 +4248,6 @@
           "zimmermann-zimmerin-fur-duschtrennwande-montage-und-service-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.869Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -8120,7 +8119,6 @@
           "schweisser-in-mit-vielseitiger-tatigkeit-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.865Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8954,14 +8952,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T15:25:37.864Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "schreinerpraktiker-in-mit-cnc-erfahrung-luzern-luzern-fachkraft-ch"
-        ]
-      },
-      "previousSlugs": [
-        "schreinerpraktiker-in-mit-cnc-erfahrung-luzern-luzern-fachkraft-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -8974,7 +8964,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schreinerpraktiker-in-mit-cnc-erfahrung-luzern-luzern-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schreinerpraktiker-in-mit-cnc-erfahrung-luzern-luzern-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-84f828bf810e",
@@ -9120,7 +9118,6 @@
           "schreinerpraktiker-in-fur-kundendienst-und-montage-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.863Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -11458,7 +11455,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8340",
       "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -11494,7 +11490,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8340"
     },
     {
       "id": "fachkraft-33c107e2258f",
@@ -13446,7 +13443,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -13482,7 +13478,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8400"
     },
     {
       "id": "fachkraft-9e3d8310e33d",
@@ -14099,7 +14096,6 @@
           "schreiner-in-fur-umbauten-und-renovationen-andelfingen-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.850Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14646,7 +14642,6 @@
           "schreiner-in-fur-spannende-montageeinsatz-im-raum-entlebuch-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.850Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -15468,7 +15463,6 @@
           "schreiner-in-fur-montagetatigkeiten-im-innenausbau-weinfelden-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.848Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15548,7 +15542,6 @@
           "schreiner-in-fur-produktion-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.848Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15701,7 +15694,6 @@
           "schreiner-in-fur-prototypenbau-und-serienfertigung-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.848Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -15775,7 +15767,6 @@
           "schreiner-in-fur-renovationen-und-servicearbeiten-weinfelden-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.848Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -15849,7 +15840,6 @@
           "schreiner-in-fur-montagearbeiten-aarau-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.841Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -16306,7 +16296,6 @@
           "schreiner-in-fur-montageeinsatze-und-innenausbau-st-gallen-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.841Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16710,7 +16699,6 @@
           "schreiner-in-fur-montage-von-turen-und-toren-st-gallen-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.841Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -16790,7 +16778,6 @@
           "schreiner-in-fur-montage-und-reparatur-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.839Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -17020,7 +17007,6 @@
           "schreiner-in-fur-montage-und-service-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.839Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17094,7 +17080,6 @@
           "schreiner-in-fur-montage-und-service-von-duschtrennwanden-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.839Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -17647,7 +17632,6 @@
           "schreiner-in-fur-montage-und-innenausbau-kreuzlingen-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.847Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -17727,7 +17711,6 @@
           "schreiner-in-fur-montage-und-kundenkontakt-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.847Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -19303,7 +19286,6 @@
           "schreiner-in-fur-kuchenmontage-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.844Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -22548,7 +22530,6 @@
           "schreiner-in-fur-glasmontage-und-kundeneinsatz-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.838Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -22942,7 +22923,6 @@
           "schreiner-in-fur-fenstermontage-mit-technischem-verstandnis-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.467Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -23016,7 +22996,6 @@
           "schreiner-in-fur-fenstermontage-und-service-einsiedeln-schwyz-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.467Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -23176,7 +23155,6 @@
           "schreiner-in-fur-fur-spezialeinrichtungen-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.837Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -23256,7 +23234,6 @@
           "schreiner-in-fur-gfk-bauteile-und-konstruktionen-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.837Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -23336,7 +23313,6 @@
           "schreiner-in-fur-glas-montage-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.837Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -23492,7 +23468,6 @@
           "schreiner-in-fur-fensterbau-und-montage-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.466Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -23652,7 +23627,6 @@
           "schreiner-in-fur-fensterbau-mit-kundenberatung-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.466Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -23726,7 +23700,6 @@
           "schreiner-in-fur-fensterbau-mit-projektleitung-bulach-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.466Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -23806,7 +23779,6 @@
           "schreiner-in-fur-fenster-und-turmontage-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.465Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -24133,7 +24105,6 @@
         "schreiner-in-fur-fensterbau-st-gallen-st-gallen-fachkraft-ch",
         "schreiner-in-fur-fensterbau-fachkraft-ch-gmbh-st-gallen"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.465Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -24292,7 +24263,6 @@
           "schreiner-in-fur-die-montage-von-turen-und-fenstern-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.464Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -24372,7 +24342,6 @@
           "schreiner-in-fur-die-oberflachenbehandlung-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.464Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -24446,7 +24415,6 @@
           "schreiner-in-fur-endmontage-und-objekteinrichtung-weinfelden-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.465Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -24520,7 +24488,6 @@
           "schreiner-in-fur-fachgerechte-montage-von-innenausbauten-zurzach-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.465Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -24743,7 +24710,6 @@
           "schreiner-in-fur-cnc-bearbeitungszentren-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.834Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -24979,7 +24945,6 @@
           "schreiner-in-fur-den-elementbau-sarnen-obwalden-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.834Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -25275,7 +25240,6 @@
           "schreiner-in-fur-betonvorfabrikation-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.833Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -25956,7 +25920,6 @@
           "schreiner-in-fur-bank-und-maschinenarbeiten-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.832Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -26965,7 +26928,6 @@
           "schreiner-in-efz-fur-montage-und-kundenberatung-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.460Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -27119,7 +27081,6 @@
           "schreiner-in-als-werkstattleiter-im-fensterbau-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.458Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -27193,7 +27154,6 @@
           "schreiner-in-cnc-holzfertigung-mit-fuhrungsverantwortung-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.458Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28358,7 +28318,6 @@
           "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.457Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -31631,14 +31590,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T04:32:46.457Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-fachkraft-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-fachkraft-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -31651,7 +31602,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-694c725a994f",
@@ -38278,7 +38237,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/polymechaniker-in-schaffhausen-dauerstelle-302654/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.837Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -46897,7 +46855,6 @@
           "polymechaniker-in-allrounder-fur-vielseitige-fertigungsaufgaben-wil-sg-st-gallen-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.419Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -46985,7 +46942,6 @@
           "polymecanicien-ne-polyvalent-ne-avec-responsabilite-de-direction-fachkraft-ch-gmbh-bulach"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.419Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -53352,7 +53308,6 @@
           "polymechaniker-in-montage-fur-getriebetechnik-fachkraft-ch-gmbh-zurzach"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.405Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -56198,7 +56153,6 @@
         "polymechaniker-in-instandhaltung-mit-eigenverantwortlicher-umsetzung-wil-sg-st-gallen",
         "polymechaniker-in-instandhaltung-con-eigenverantwortlicher-umsetzung-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.398Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -59654,7 +59608,6 @@
           "polymechaniker-in-cnc-fertigung-mit-teamverantwortung-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.392Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -62546,7 +62499,6 @@
           "polymechaniker-in-cnc-fertigung-mit-mastercam-erfahrung-gossau-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.385Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -62623,7 +62575,6 @@
           "polymechaniker-in-cnc-fertigung-mit-mastercam-fur-2-schicht-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.385Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -63008,7 +62959,6 @@
           "polymechaniker-in-cnc-fertigung-mit-heidenhain-steuerungserfahrung-hinwil-zurich-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.383Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -63085,7 +63035,6 @@
       "previousSlugs": [
         "polymechaniker-in-cnc-fertigung-mit-internationaler-verantwortung-pfaffikon-zurich"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.383Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -63241,7 +63190,6 @@
           "polymechaniker-in-cnc-fertigung-mit-mastercam-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.384Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -63554,7 +63502,6 @@
           "polymechaniker-in-cnc-fertigung-mit-heidenhain-programmiersprache-sursee-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.383Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -63634,7 +63581,6 @@
           "polymechaniker-in-cnc-fertigung-mit-heidenhain-steuerungen-pfaffikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.383Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -65793,7 +65739,6 @@
           "polymechaniker-in-cnc-fertigung-mit-cnc-programmierung-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.378Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -65873,7 +65818,6 @@
           "polymechaniker-in-cnc-fertigung-mit-cnc-programmierung-aarau-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.378Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -69775,7 +69719,6 @@
           "polymechaniker-in-cnc-fertigung-drehen-mit-fanuc-und-siemens-steuerungen-winterthur-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.367Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -71735,7 +71678,6 @@
           "montage-elektriker-in-mit-kundenkontakt-hinwil-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.361Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -71816,7 +71758,6 @@
           "montage-elektriker-in-mit-kundenservice-und-flexibilitat-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.362Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -71894,7 +71835,6 @@
           "montage-elektriker-in-mit-option-fur-festanstellung-fachkraft-ch-gmbh-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.362Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -71980,7 +71920,6 @@
           "montage-elektriker-in-mit-schwerpunkt-beleuchtungstechnik-fachkraft-ch-gmbh-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.362Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -72137,7 +72076,6 @@
           "montage-elektriker-in-mit-selbststandiger-arbeitsweise-fachkraft-ch-gmbh-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.362Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -72538,7 +72476,6 @@
           "montage-elektriker-in-mit-hoher-eigenverantwortung-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.361Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -72624,7 +72561,6 @@
           "montage-elektriker-in-mit-hoher-eigenverantwortung-fachkraft-ch-gmbh-winterthur"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.361Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -73892,7 +73828,6 @@
           "metallbaukonstrukteur-in-mit-verantwortung-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.353Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -74608,7 +74543,6 @@
         "metallbauer-in-mit-vielseitigkeit-und-eigenverantwortung-rapperswil-jona-st-gallen",
         "metallbauer-in-mit-vielseitigkeit-und-eigenverantwortung-fachkraft-ch-gmbh-rapperswil-jona"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.353Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -79704,7 +79638,6 @@
           "metallbauer-in-fur-stahl-und-metallbaukonstruktionen-fachkraft-ch-gmbh-wil-sg"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.340Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -79861,7 +79794,6 @@
           "metallbauer-in-fur-stahl-und-metallbauprojekte-fachkraft-ch-gmbh-weinfelden"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.341Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -80399,7 +80331,6 @@
           "metallbauer-in-fur-service-und-montage-von-toranlagen-pfaffikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.338Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -80550,7 +80481,6 @@
           "metallbauer-in-fur-schweissarbeiten-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.337Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -80701,7 +80631,6 @@
           "metallbauer-in-fur-schweizweite-montagearbeiten-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.338Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -80854,7 +80783,6 @@
           "metallbauer-in-fur-montageeinsatze-und-wartungsarbeiten-rapperswil-jona-st-gallen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.335Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81012,7 +80940,6 @@
         "metallbauer-in-fur-produktion-frauenfeld-thurgau-fachkraft-ch",
         "metallbauer-in-fur-produktion-fachkraft-ch-gmbh-frauenfeld"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.335Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81092,7 +81019,6 @@
           "metallbauer-in-fur-produktion-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.335Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -81166,7 +81092,6 @@
           "metallbauer-in-fur-prototypenbau-und-wartung-weinfelden-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.336Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81240,7 +81165,6 @@
           "metallbauer-in-fur-rohrleitungsbau-weinfelden-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.336Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81393,7 +81317,6 @@
           "metallbauer-in-fur-montage-von-turen-und-toren-st-gallen-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.334Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81859,7 +81782,6 @@
           "metallbauer-in-fur-montageeinsatze-im-metall-und-stahlbau-fachkraft-ch-gmbh-wil-sg"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.334Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -81933,7 +81855,6 @@
           "metallbauer-in-fur-montage-und-servicearbeiten-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.333Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -82174,7 +82095,6 @@
           "metallbauer-in-fur-montage-von-grosskuchenanlagen-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.333Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -82255,7 +82175,6 @@
           "metallbauer-in-fur-montage-von-grosskuchenapparate-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.333Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -82413,7 +82332,6 @@
           "metallbauer-in-fur-montage-von-metallkonstruktionen-fachkraft-ch-gmbh-zofingen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.333Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -88176,7 +88094,6 @@
           "metallbauer-in-hilfsarbeiter-in-fur-anspruchsvolle-metallmontage-luzern-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.320Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -88250,7 +88167,6 @@
           "metallbauer-in-hilfsarbeiter-in-fur-fensterbau-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.320Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -88501,7 +88417,6 @@
           "metallbauer-in-werkstattleiter-in-mit-fuhrungsfunktion-fachkraft-ch-gmbh-wil-sg"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.319Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -89453,7 +89368,6 @@
           "metallbauer-in-projektleiter-in-fur-metallbauprojekte-fachkraft-ch-gmbh-gossau"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.318Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -89776,7 +89690,6 @@
           "maler-in-mit-vielseitigen-kundenprojekten-fachkraft-ch-gmbh-kreuzlingen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.314Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -93825,7 +93738,6 @@
           "maler-in-fur-kundenmalerei-mit-verantwortung-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.308Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -93978,7 +93890,6 @@
           "maler-in-fur-kundenmalerei-und-spritz-und-lackierarbeiten-sarnen-obwalden-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.308Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -94138,7 +94049,6 @@
           "maler-in-fur-kreative-oberflachen-affoltern-am-albis-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.306Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -94212,7 +94122,6 @@
           "maler-in-fur-kundenmalerarbeiten-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.306Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -94286,7 +94195,6 @@
           "maler-in-fur-kundenmalerei-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.308Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -94366,7 +94274,6 @@
           "maler-in-fur-kundenmalerei-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.308Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -102430,7 +102337,6 @@
         "landmaschinenmechaniker-in-mit-schwerpunkt-instandhaltung-und-storungsbehebung-bremgarten",
         "landmaschinenmechaniker-in-mit-schwerpunkt-instandhaltung-und-storungsbehebung-fachkraft-ch-gmbh-bremgarten"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.292Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -102672,7 +102578,6 @@
           "landmaschinenmechaniker-in-mit-fuhrungsaufgabe-im-werkhof-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.290Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -102746,7 +102651,6 @@
           "landmaschinenmechaniker-in-mit-fuhrungserfahrung-hochdorf-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.290Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -102896,7 +102800,6 @@
           "landmaschinenmechaniker-in-mit-hydraulik-und-pneumatikkompetenz-willisau-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.290Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -102970,7 +102873,6 @@
           "landmaschinenmechaniker-in-mit-hydraulikkenntnissen-dietikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.290Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -103210,7 +103112,6 @@
         "landmaschinenmechaniker-in-mit-erfahrung-als-betriebsmechaniker-in-bremgarten-aargau",
         "landmaschinenmechaniker-in-mit-erfahrung-als-betriebsmechaniker-in-fachkraft-ch-gmbh-bremgarten"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.289Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -103361,7 +103262,6 @@
           "landmaschinenmechaniker-in-mit-erfahrung-in-service-und-reparatur-zurich-zurich-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.290Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -108572,7 +108472,6 @@
           "heizungsinstallateur-in-mit-service-und-wartungserfahrung-zug-zug-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.277Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -111466,7 +111365,6 @@
           "gipser-in-mit-schwerpunkt-brandschutzmontage-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.270Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -117090,7 +116988,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-maschinenkenntnissen-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.259Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -117581,7 +117478,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-maschinenbedienung-schaffhausen-schaffhausen",
         "gartner-in-garten-und-landschaftsbau-mit-maschinenbedienung-fachkraft-ch-gmbh-schaffhausen"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.258Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -117662,7 +117558,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-leitungsaufgaben-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.257Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -117902,7 +117797,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-maschinenbedienung-uster-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.258Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -119032,7 +118926,6 @@
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-meilen-zurich-fachkraft-ch"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.256Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -119116,7 +119009,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortlicher-tatigkeit-baden-aargau",
         "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortlicher-tatigkeit-fachkraft-ch-gmbh-baden"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.255Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -119281,7 +119173,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-entwicklungsperspektive-dielsdorf-zurich",
         "gartner-in-garten-und-landschaftsbau-mit-entwicklungsperspektive-fachkraft-ch-gmbh-dielsdorf"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.255Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -119442,7 +119333,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortlichem-arbeiten-baden-aargau",
         "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortlichem-arbeiten-fachkraft-ch-gmbh-baden"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.254Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -119521,7 +119411,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-baumaschinenkenntnissen-schaffhausen-schaffhausen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.628Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -119596,7 +119485,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-anspruchsvollen-gartenprojekten-winterthur-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.253Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -119759,7 +119647,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-vielseitige-gartenprojekte-zurich-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.252Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -119927,7 +119814,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreichen-einsatzbereichen-affoltern-am",
         "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreichen-einsatzbereichen-fachkraft-ch-gmbh-affoltern-am-albis"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.253Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -120011,7 +119897,6 @@
         "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreichen-gartenbauprojekten-dietikon",
         "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreichen-gartenbauprojekten-fachkraft-ch-gmbh-dietikon"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.253Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -120092,7 +119977,6 @@
           "gartner-in-garten-und-landschaftsbau-mit-abwechslungsreichen-projekten-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.253Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -120411,7 +120295,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-unterhaltsabteilung-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.252Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -124366,7 +124249,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-abwechslungsreiche-gartenarbeiten-wil-sg-st"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.737Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -124440,7 +124322,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-abwechslungsreiche-gartenprojekte-sursee-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.737Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -126107,7 +125988,6 @@
       "previousSlugs": [
         "elektroinstallateur-in-mit-weiterbildungsmoglichkeiten-winterthur-zurich-fachkraft-ch"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.241Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -126257,7 +126137,6 @@
           "elektroinstallateur-in-service-mit-kundenberatung-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.241Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -126813,7 +126692,6 @@
           "installateur-trice-electricien-ne-mit-vielseitigen-einsatzmoglichkeiten-fachkraft-ch-gmbh-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.241Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -126967,7 +126845,6 @@
           "installateur-trice-electricien-ne-mit-technischem-verstandnis-fachkraft-ch-gmbh-uster"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.240Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -127045,7 +126922,6 @@
           "installateur-trice-electricien-ne-mit-technischer-prazision-fachkraft-ch-gmbh-dietikon"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.240Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -127279,7 +127155,6 @@
           "elektroinstallateur-in-mit-verkaufsflair-als-personalberater-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.240Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -127682,7 +127557,6 @@
           "elektroinstallateur-in-mit-steuerungsbau-fachkraft-ch-gmbh-sursee"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.240Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -127756,7 +127630,6 @@
           "elektroinstallateur-in-mit-team-und-bauleitungserfahrung-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.240Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -130517,7 +130390,6 @@
           "installation-electrique-avec-experience-industrielle-fachkraft-ch-gmbh-luzern-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.233Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -134781,7 +134653,6 @@
           "elektroinstallateur-in-fur-steuerungsbau-und-inbetriebnahmen-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.223Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -136972,7 +136843,6 @@
           "elektroinstallateur-in-fur-photovoltaikanlagen-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.216Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -137053,7 +136923,6 @@
         "elektroinstallateur-in-fur-photovoltaiksysteme-zurich-zurich-fachkraft-ch",
         "installateur-trice-electricien-ne-fur-photovoltaiksysteme-fachkraft-ch-gmbh-zurich"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.216Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -138705,7 +138574,6 @@
       "previousSlugs": [
         "elektroinstallateur-in-fur-infrastrukturanlagen-mit-storungsanalyse-zurich-zurich"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.212Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -138779,7 +138647,6 @@
           "elektroinstallateur-in-fur-kaltetechnik-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.213Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -139089,7 +138956,6 @@
           "elektroinstallateur-in-fur-industrie-und-prozessanlagen-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.211Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -139170,7 +139036,6 @@
           "installateur-trice-electricien-ne-fur-industrie-gewerbe-und-wohnungsbau-fachkraft-ch-gmbh-dietikon"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.212Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -139251,7 +139116,6 @@
           "elektroinstallateur-in-fur-industriearbeiten-fachkraft-ch-gmbh-rapperswil-jona"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.212Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -139794,7 +139658,6 @@
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbeinstallationen-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.211Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -149103,7 +148966,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-zug-dauerstelle-303528/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.188Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -149429,7 +149291,6 @@
           "automatiker-in-mit-technischer-verantwortung-fachkraft-ch-gmbh-dietikon"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.187Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -155014,7 +154875,6 @@
           "automatiker-in-fur-instandhaltung-und-kundenbetreuung-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.170Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -156388,7 +156248,6 @@
           "automatiker-in-fur-aufzugsanlagenmontage-pfaffikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.167Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -168524,7 +168383,6 @@
           "maler-in-fur-fassaden-und-kundenmalerarbeiten-dietikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.114Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -175941,7 +175799,6 @@
           "metallbauer-in-mit-schweisszertifikat-und-montageerfahrung-olten-solothurn-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.053Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -180191,7 +180048,6 @@
           "metaux-pour-le-montage-de-structures-en-verre-fachkraft-ch-gmbh-aarau-aargau"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.116Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -180443,7 +180299,6 @@
           "metallbauer-in-hilfsarbeiter-in-fur-montage-von-zaunanlagen-fachkraft-ch-gmbh-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.116Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -188263,7 +188118,6 @@
           "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.102Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -188716,7 +188570,6 @@
           "metallbauer-in-fur-feinblechtechnik-bulach-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.628Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -189928,7 +189781,6 @@
           "elektroinstallateur-in-fur-netzwerk-und-glasfaserkabel-fachkraft-ch-gmbh-winterthur"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.072Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -190237,7 +190089,6 @@
           "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.414Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -190696,7 +190547,6 @@
           "anlagen-und-apparatebauer-in-fur-cnc-gesteuerte-abkantmaschinen-stans-nidwalden-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.412Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -192699,7 +192549,6 @@
           "polymechaniker-in-fur-montage-interne-montage-von-klimageraten-hochdorf-luzern-fachkraft"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.632Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -194382,7 +194231,6 @@
           "maler-in-fur-neubau-und-renovationsobjekte-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.115Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -199724,7 +199572,6 @@
           "schreiner-in-fur-massivholz-profilleistenbearbeitung-stans-nidwalden-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.446Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -207521,7 +207368,6 @@
           "gipser-in-fur-trockenbau-und-nassputz-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.519Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -210811,7 +210657,6 @@
           "elektroinstallateur-in-fur-montage-von-toranlagen-olten-solothurn-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.072Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -212670,7 +212515,6 @@
           "constructeur-constructrice-d-installations-et-d-appareils-pour-le-montage-et-l-atelier-fachkraft-ch-gmbh-kulm"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.412Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -215600,7 +215444,6 @@
           "produktionsmechaniker-in-fur-instandhaltung-und-wartung-olten-solothurn-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.632Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -215838,7 +215681,6 @@
           "polymechaniker-in-mit-elektrotechnik-und-serviceeinsatz-schaffhausen-schaffhausen"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.477Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -217369,7 +217211,6 @@
           "maler-in-fur-renovationsarbeiten-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.076Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -221464,7 +221305,6 @@
           "schreiner-in-fur-spielplatzgerate-und-aussenmobiliar-sarnen-obwalden-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.673Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -223145,7 +222985,6 @@
           "sanitarinstallateur-in-fur-neubauten-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.061Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -224061,7 +223900,6 @@
           "montage-elektriker-in-fur-neu-und-umbauprojekte-affoltern-am-albis-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.672Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -224514,7 +224352,6 @@
           "metallbaupraktiker-in-fur-anspruchsvolle-montagen-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.054Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -226042,7 +225879,6 @@
           "malerpraktiker-in-fur-fassaden-und-innenanstrich-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.115Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -235530,7 +235366,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/schreiner-in-luzern-dauerstelle-303739/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.854Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -236154,7 +235989,6 @@
           "schreiner-in-mit-cnc-erfahrung-frauenfeld-thurgau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.853Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -238873,7 +238707,6 @@
           "polymechaniker-in-mit-oberflachenbearbeitung-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.837Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -243336,7 +243169,6 @@
           "montage-elektriker-in-fur-wohnungsbauprojekte-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.360Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -243416,7 +243248,6 @@
           "montage-elektriker-in-fur-wohn-und-gewerbebau-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.360Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -244833,7 +244664,6 @@
           "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.355Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -245594,7 +245424,6 @@
           "maler-in-mit-vielseitigen-fachkenntnissen-rorschach-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.314Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -246320,7 +246149,6 @@
           "maler-in-mit-naturofloor-erfahrung-baden-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.771Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -246690,7 +246518,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-zuerich-dauerstelle-299182/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-27T00:50:05.770Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -247645,7 +247472,6 @@
           "konstrukteur-in-fur-den-werkzeugbau-schaffhausen-schaffhausen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T15:25:37.655Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -250727,7 +250553,6 @@
           "installateur-trice-electricien-ne-fur-industrie-und-gewerbebauten-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.211Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -250808,7 +250633,6 @@
           "elektroinstallateur-in-fur-grossformatige-beladesysteme-fachkraft-ch-gmbh-sursee"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.210Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -250955,7 +250779,6 @@
           "elektroinstallateur-in-fur-gebaudetechnik-und-servicearbeiten-dietikon-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.210Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -251029,7 +250852,6 @@
           "elektroinstallateur-in-fur-industrie-und-wohnungsbau-bulach-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.211Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -252184,7 +252006,6 @@
           "automatikmonteur-in-fur-schaltschrankbau-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.189Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -252558,7 +252379,6 @@
           "automatikmonteur-in-fur-anlagenumbauten-luzern-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.188Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -253030,7 +252850,6 @@
           "automatiker-in-fur-pneumatische-installationen-rapperswil-jona-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.172Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -253114,7 +252933,6 @@
         "automatiker-in-fur-produktion-wil-sg-st-gallen-fachkraft-ch",
         "automatiker-in-fur-produktion-fachkraft-ch-gmbh-wil-sg"
       ],
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.172Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -253188,7 +253006,6 @@
           "automatiker-in-fur-niederspannungsanlagen-zofingen-aargau-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.172Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -253349,7 +253166,6 @@
           "automatiker-in-fur-montage-verdrahtung-und-inbetriebnahme-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.172Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -253889,7 +253705,6 @@
           "automatiker-in-fur-maschinen-und-anlagenbau-mit-reisebereitschaft-zofingen-aargau"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.171Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -254046,7 +253861,6 @@
           "automatiker-in-fur-kaltetechnik-service-zurich-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.170Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -254288,7 +254102,6 @@
           "automatiker-in-fur-instandhaltungsarbeiten-winterthur-zurich-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.170Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -257345,7 +257158,6 @@
           "maler-in-fur-vielseitigen-einsatz-gesucht-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T04:32:46.102Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -277860,9 +277672,9 @@
       },
       "description": "Tätigkeiten - Kundenmalerei - Neubau und Renovationen - Innen- und Aussenarbeiten - Spritz- und Lackierarbeiten\n• Anforderungen - Lehre als Maler abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn. Bei abwechslungsreichen Einsätzen im Innen- und Aussenbereich kannst du deine Fachkenntnisse voll einsetzen. Der Betrieb setzt auf eine präzise und effiziente Arbeitsweise in einem kollegialen Umfeld. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
+        "de": "Tätigkeiten - Kundenmalerei - Neubau und Renovationen - Innen- und Aussenarbeiten - Spritz- und Lackierarbeiten\n• Anforderungen - Lehre als Maler abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn. Bei abwechslungsreichen Einsätzen im Innen- und Aussenbereich kannst du deine Fachkenntnisse voll einsetzen. Der Betrieb setzt auf eine präzise und effiziente Arbeitsweise in einem kollegialen Umfeld. Für unseren Auftraggeber suchen wir eine/n",
         "it": "Attività - Verniciatura dei clienti - Nuova costruzione e ristrutturazione - Lavori interni ed esterni - Spruzzatura e verniciatura\n• Requisiti - Insegnamento completato come pittore - Esperienza di settore approfondita - Metodi di lavoro precisi e avanzati - Aspetto amichevole del cliente - Gioia e interesse nell'offerta di professione Attendere con ansia un'attività versatile e impegnativa. Essi godono di un ottimo salario orario. Con vari usi nelle aree interne ed esterne, è possibile utilizzare la vostra esperienza al massimo. L'azienda si concentra su un modo preciso ed efficiente di lavorare in un ambiente collegiale. Per il nostro cliente stiamo cercando un",
         "en": "Activities - Customer painting - New construction and renovations - Interior and exterior work - Spraying and painting work\n• Requirements - Teaching completed as a painter - In-depth industry experience - Precise and forward working methods - Customer-friendly appearance - Joy and interest in the profession offer Look forward to a versatile and challenging activity. They enjoy a very good hourly wage. With varied uses in the interior and exterior areas, you can use your expertise to the full. The company focuses on a precise and efficient way of working in a collegial environment. For our client we are looking for a",
-        "de": "Tätigkeiten - Kundenmalerei - Neubau und Renovationen - Innen- und Aussenarbeiten - Spritz- und Lackierarbeiten\n• Anforderungen - Lehre als Maler abgeschlossen - Fundierte Branchenerfahrung - Exakte und speditive Arbeitsweise - Kundenfreundliches Auftreten - Freude und Interesse am Beruf Angebot Freuen Sie sich auf eine vielseitige und herausfordernde Tätigkeit. Sie kommen in den Genuss von einem sehr guten Stundenlohn. Bei abwechslungsreichen Einsätzen im Innen- und Aussenbereich kannst du deine Fachkenntnisse voll einsetzen. Der Betrieb setzt auf eine präzise und effiziente Arbeitsweise in einem kollegialen Umfeld. Für unseren Auftraggeber suchen wir eine/n",
         "fr": "Activités - Peinture à la clientèle - Nouvelle construction et rénovation - Travaux intérieurs et extérieurs - Pulvérisation et peinture\n• Exigences - Enseignement réalisé en tant que peintre - Expérience approfondie de l'industrie - Méthodes de travail précises et avancées - Apparition conviviale - Joy et intérêt pour l'offre professionnelle Vous avez envie d'une activité polyvalente et stimulante. Ils bénéficient d'un très bon salaire horaire. Avec des utilisations variées dans les domaines intérieur et extérieur, vous pouvez utiliser pleinement votre expertise. L'entreprise se concentre sur une manière précise et efficace de travailler dans un environnement collégial. Pour notre client, nous cherchons"
       },
       "location": "Winterthur, Zürich",
@@ -277875,7 +277687,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -277889,6 +277700,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/maler-in-winterthur-dauerstelle-302751/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "painter-for-customer-painting-and-renovations-fachkraft-ch-gmbh-winterthur",
         "peintre-pour-la-peinture-et-la-renovation-des-clients-fachkraft-ch-gmbh-winterthur",
@@ -277912,8 +277724,6 @@
           "maler-in-fur-kundenmalerei-und-renovationen-fachkraft-ch-gmbh-winterthur"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T15:25:37.410Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -277926,7 +277736,9 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-09-26T15:25:37.410Z"
     },
     {
       "id": "fachkraft-ac1991add674",
@@ -278098,9 +277910,9 @@
       "companyDomain": "fachkraft.ch",
       "title": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
       "titleByLocale": {
+        "de": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
         "it": "Giardiniere/a - Giardinaggio e paesaggistica con consulenza clienti",
         "en": "Gardener - gardening and landscaping with customer advice",
-        "de": "Gärtner/in - Garten- und Landschaftsbau mit Kundenberatung",
         "fr": "Jardinier/ère - Jardinage et aménagement paysager avec conseil à la clientèle"
       },
       "description": "Tätigkeiten - Pflege und Unterhalt von Gärten bei Privatkunden - Schnitt und Pflege von Gehölzen - Pflanzarbeiten und Verpflanzungen - Rasen und Grünflächenpflege - Kleinere Gartenbauarbeiten - Beratung von Kunden vor Ort - Bedienen von Maschinen und Geräten\n• Anforderungen - Ausbildung als Landschaftsgärtner/in EFZ - Führerausweis Kategorie BE - Selbstständig zuverlässig und motiviert - Freude an Gestaltung und Natur - Gepflegtes Auftreten und Kundenorientierung Angebot - Abwechslungsreiche Arbeit im Grünen - Moderne Arbeitsbedingungen und Entwicklungsmöglichkeiten - Attraktive Sozialleistungen - Mitspracherecht und Aufstiegschancen Die Tätigkeit umfasst die Pflege und den Unterhalt von Privatgärten inklusive Schnitt und Pflanzarbeiten. Ein Umfeld mit modernen Arbeitsbedingungen bietet abwechslungsreiche Einsätze im Grünen. Für unseren Auftraggeber suchen wir eine/n",
@@ -278120,7 +277932,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8400",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -278134,6 +277945,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/gaertner-in-garten-und-landschaftsbau-winterthur-dauerstelle-294703/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-mit-kundenberatung-fachkraft-ch-gmbh-winterthur",
         "gartner-in-garten-e-landschaftsbau-con-kundenberatung-fachkraft-ch-gmbh-lugano",
@@ -278159,8 +277971,6 @@
           "jardinier-jardin-et-amenagement-paysager-avec-conseils-a-la-clientele-fachkraft-ch-gmbh-winterthur-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.257Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -278174,6 +277984,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8400",
+      "firstSeenAt": "2026-09-28T04:32:46.257Z",
       "translationHoldReleasedAt": "2026-10-07T10:21:43.413Z"
     },
     {
@@ -278776,7 +278588,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6130",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -278790,16 +278601,15 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-willisau-dauerstelle-306327/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automatiker-in-mit-schemakenntnissen-willisau-luzern-fachkraft-ch"
-      ],
+      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-mit-schemakenntnissen-willisau-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-28T04:32:46.072Z",
+      "previousSlugs": [
+        "automatiker-in-mit-schemakenntnissen-willisau-luzern-fachkraft-ch"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -278812,7 +278622,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "postalCode": "6130",
+      "firstSeenAt": "2026-09-28T04:32:46.072Z"
     },
     {
       "id": "fachkraft-c5ef1e8a9c6a",
@@ -278863,7 +278675,6 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-baden-dauerstelle-300802/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-als-servicetechniker-in-baden-aargau-fachkraft-ch"
@@ -278902,16 +278713,16 @@
       "companyDomain": "fachkraft.ch",
       "title": "Automatiker/in als Servicetechniker für Aufzüge",
       "titleByLocale": {
+        "de": "Automatiker/in als Servicetechniker für Aufzüge",
         "it": "Tecnico di automazione come tecnico di assistenza per ascensori",
         "en": "Automatiker/in als Servicetechniker für Aufzüge",
-        "de": "Automatiker/in als Servicetechniker für Aufzüge",
         "fr": "Automatiker/in als Servicetechniker für Aufzüge"
       },
       "description": "Tätigkeiten - Selbständige Wartung und Betreuung von Aufzugsanlagen - Behebung von Störungen - Erledigung von elektrischen und mechanischen Reparaturen - Teilnahme am abwechselnden Pikettdienst - Kundenbetreuung vor Ort\n• Anforderungen - Ausbildung im Bereich Polymechaniker, Automatiker, Elektriker, Baumaschinenmechaniker, Landmaschinenmechaniker oder ähnlich - Führerausweis Kat. B - Kundenorientiertes, kompetentes und freundliches Auftreten - Flexibel, belastbar sowie Bereitschaft für den Pikettdienst Angebot - Abwechslungsreiche und verantwortungsvolle Tätigkeiten - Leistungsgerechte Entlohnung - Unabhängiges Familienunternehmen - Firmenfahrzeug - Umfassende Einführung Die selbständige Wartung und Reparatur von Aufzugsanlagen gehören zu deinen\n• Aufgaben. Der Betrieb bietet ein abwechslungsreiches sowie verantwortungsvolles Arbeitsumfeld in einem unabhängigen Familienunternehmen. Du überzeugst durch Flexibilität und ein freundliches Auftreten? Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
+        "de": "Tätigkeiten - Selbständige Wartung und Betreuung von Aufzugsanlagen - Behebung von Störungen - Erledigung von elektrischen und mechanischen Reparaturen - Teilnahme am abwechselnden Pikettdienst - Kundenbetreuung vor Ort\n• Anforderungen - Ausbildung im Bereich Polymechaniker, Automatiker, Elektriker, Baumaschinenmechaniker, Landmaschinenmechaniker oder ähnlich - Führerausweis Kat. B - Kundenorientiertes, kompetentes und freundliches Auftreten - Flexibel, belastbar sowie Bereitschaft für den Pikettdienst Angebot - Abwechslungsreiche und verantwortungsvolle Tätigkeiten - Leistungsgerechte Entlohnung - Unabhängiges Familienunternehmen - Firmenfahrzeug - Umfassende Einführung Die selbständige Wartung und Reparatur von Aufzugsanlagen gehören zu deinen\n• Aufgaben. Der Betrieb bietet ein abwechslungsreiches sowie verantwortungsvolles Arbeitsumfeld in einem unabhängigen Familienunternehmen. Du überzeugst durch Flexibilität und ein freundliches Auftreten? Für unseren Auftraggeber suchen wir eine/n",
         "it": "Tätigkeiten - Selbständige Wartung und Betreuung von Aufzugsanlagen - Behebung von Störungen - Erledigung von elektrischen und mechanischen Reparaturen - Teilnahme am abwechselnden Pikettdienst - Kundenbetreuung vor Ort\n• Anforderungen - Ausbildung im Bereich Polymechaniker, Automatiker, Elektriker, Baumaschinenmechaniker, Landmaschinenmechaniker oder ähnlich - Führerausweis Kat. B - Kundenorientiertes, kompetentes und freundliches Auftreten - Flexibel, belastbar sowie Bereitschaft für den Pikettdienst Angebot - Abwechslungsreiche und verantwortungsvolle Tätigkeiten - Leistungsgerechte Entlohnung - Unabhängiges Familienunternehmen - Firmenfahrzeug - Umfassende Einführung Die selbständige Wartung und Reparatur von Aufzugsanlagen gehören zu deinen\n• Aufgaben. Der Betrieb bietet ein abwechslungsreiches sowie verantwortungsvolles Arbeitsumfeld in einem unabhängigen Familienunternehmen. Du überzeugst durch Flexibilität und ein freundliches Auftreten? Für unseren Auftraggeber suchen wir eine/n",
         "en": "Activities - Independent maintenance and support of elevator installations - Repair of faults - Completion of electrical and mechanical repairs - Participation in the alternating piketting service - Customer support on site\n• Requirements - Training in the field of polymechanics, automatic technicians, electricians, construction machinery mechanics, agricultural machinery mechanics or similar - Driving Licence Cat. B - Customer-oriented, competent and friendly demeanor - Flexible, resilient and willingness to offer the picetting service - Varied and responsible activities - Performance-based remuneration - Independent family business - Company vehicle - Comprehensive introduction The independent maintenance and repair of elevator installations are among your\n• Tasks. The company offers a varied and responsible working environment in an independent family business. You convince through flexibility and a friendly appearance? For our client we are looking for a",
-        "de": "Tätigkeiten - Selbständige Wartung und Betreuung von Aufzugsanlagen - Behebung von Störungen - Erledigung von elektrischen und mechanischen Reparaturen - Teilnahme am abwechselnden Pikettdienst - Kundenbetreuung vor Ort\n• Anforderungen - Ausbildung im Bereich Polymechaniker, Automatiker, Elektriker, Baumaschinenmechaniker, Landmaschinenmechaniker oder ähnlich - Führerausweis Kat. B - Kundenorientiertes, kompetentes und freundliches Auftreten - Flexibel, belastbar sowie Bereitschaft für den Pikettdienst Angebot - Abwechslungsreiche und verantwortungsvolle Tätigkeiten - Leistungsgerechte Entlohnung - Unabhängiges Familienunternehmen - Firmenfahrzeug - Umfassende Einführung Die selbständige Wartung und Reparatur von Aufzugsanlagen gehören zu deinen\n• Aufgaben. Der Betrieb bietet ein abwechslungsreiches sowie verantwortungsvolles Arbeitsumfeld in einem unabhängigen Familienunternehmen. Du überzeugst durch Flexibilität und ein freundliches Auftreten? Für unseren Auftraggeber suchen wir eine/n",
         "fr": "Activités - Entretien et soutien indépendants des installations d'ascenseurs - Réparation des pannes - Achèvement des réparations électriques et mécaniques - Participation au service alterné de brochetage - Service à la clientèle sur place\n• Exigences - Formation dans le domaine de la polymécanique, des techniciens automatiques, des électriciens, des mécaniciens de machines de construction, des mécaniciens de machines agricoles ou similaires - Permis de conduire Cat. B - Déontologie axée sur le client, compétente et amicale - Flexible, résilient et volonté d'offrir le service de pistage - Activités diversifiées et responsables - Rémunération basée sur la performance - Entreprise familiale indépendante - Entreprise véhicule - Introduction complète L'entretien et la réparation indépendants des installations d'ascenseur sont parmi vos\n• Des tâches. L'entreprise offre un environnement de travail varié et responsable dans une entreprise familiale indépendante. Vous convainquez par la flexibilité et une apparence amicale ? Pour notre client, nous cherchons"
       },
       "location": "Zürich, Zürich",
@@ -278924,7 +278735,6 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "8001",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -278938,12 +278748,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-zuerich-dauerstelle-296609/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automatiker-in-als-servicetechniker-fur-aufzuge-zurich-zurich-fachkraft-ch",
-        "automatician-as-service-technician-for-elevators-fachkraft-ch-gmbh-zurich-zurich",
-        "automatique-comme-technicien-de-service-pour-ascenseurs-fachkraft-ch-gmbh-zurich-zurich",
-        "automatiker-in-als-servicetechniker-fur-aufzuge-fachkraft-ch-gmbh-zurich"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-als-servicetechniker-fur-aufzuge-zurich-zurich-fachkraft-ch"
@@ -278957,8 +278762,12 @@
           "automatiker-in-als-servicetechniker-fur-aufzuge-fachkraft-ch-gmbh-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.166Z",
+      "previousSlugs": [
+        "automatiker-in-als-servicetechniker-fur-aufzuge-zurich-zurich-fachkraft-ch",
+        "automatician-as-service-technician-for-elevators-fachkraft-ch-gmbh-zurich-zurich",
+        "automatique-comme-technicien-de-service-pour-ascenseurs-fachkraft-ch-gmbh-zurich-zurich",
+        "automatiker-in-als-servicetechniker-fur-aufzuge-fachkraft-ch-gmbh-zurich"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -278972,6 +278781,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-09-28T04:32:46.166Z",
       "translationHoldSince": "2026-10-06T22:25:22.868Z"
     },
     {
@@ -279086,8 +278897,8 @@
       "descriptionByLocale": {
         "de": "Tätigkeiten - Bestehende Gebäudeautomationsanlagen in der ganzen Schweiz betreuen - Wartungsarbeiten und Serviceeinsätze fachlich koordinieren - Störungen vor Ort und per Fernwartung beheben - Den technischen Kundendienst führen - An Projekten zur Optimierung des Kundenservices mitwirken\n• Anforderungen - Lehrabschluss als Elektroinstallateurin oder Elektroinstallateur oder Automatikerin oder Automatiker - Ausgeprägte Kundenorientierung im technischen Service - Lösungsorientiertes Vorgehen im Arbeitsalltag - Selbständige und klar strukturierte Arbeitsweise - Freude an Technik und direktem Kundenkontakt Angebot - Einsätze in einem spezialisierten Umfeld mit kulturellem Bezug - Flexible Arbeitszeiten - Sechs Wochen Ferien Das Betreuen von Gebäudeautomationsanlagen bildet den Schwerpunkt der Tätigkeit. Der Betrieb bietet dir flexible Arbeitszeiten und eine strukturierte Führungsaufgabe im technischen Kundendienst. Für unseren Auftraggeber suchen wir eine/n",
         "it": "Tätigkeiten - Bestehende Gebäudeautomationsanlagen in der ganzen Schweiz betreuen - Wartungsarbeiten und Serviceeinsätze fachlich koordinieren - Störungen vor Ort und per Fernwartung beheben - Den technischen Kundendienst führen - An Projekten zur Optimierung des Kundenservices mitwirken\n• Anforderungen - Lehrabschluss als Elektroinstallateurin oder Elektroinstallateur oder Automatikerin oder Automatiker - Ausgeprägte Kundenorientierung im technischen Service - Lösungsorientiertes Vorgehen im Arbeitsalltag - Selbständige und klar strukturierte Arbeitsweise - Freude an Technik und direktem Kundenkontakt Angebot - Einsätze in einem spezialisierten Umfeld mit kulturellem Bezug - Flexible Arbeitszeiten - Sechs Wochen Ferien Das Betreuen von Gebäudeautomationsanlagen bildet den Schwerpunkt der Tätigkeit. Der Betrieb bietet dir flexible Arbeitszeiten und eine strukturierte Führungsaufgabe im technischen Kundendienst. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten - Bestehende Gebäudeautomationsanlagen in der ganzen Schweiz betreuen - Wartungsarbeiten und Serviceeinsätze fachlich koordinieren - Störungen vor Ort und per Fernwartung beheben - Den technischen Kundendienst führen - An Projekten zur Optimierung des Kundenservices mitwirken\n• Anforderungen - Lehrabschluss als Elektroinstallateurin oder Elektroinstallateur oder Automatikerin oder Automatiker - Ausgeprägte Kundenorientierung im technischen Service - Lösungsorientiertes Vorgehen im Arbeitsalltag - Selbständige und klar strukturierte Arbeitsweise - Freude an Technik und direktem Kundenkontakt Angebot - Einsätze in einem spezialisierten Umfeld mit kulturellem Bezug - Flexible Arbeitszeiten - Sechs Wochen Ferien Das Betreuen von Gebäudeautomationsanlagen bildet den Schwerpunkt der Tätigkeit. Der Betrieb bietet dir flexible Arbeitszeiten und eine strukturierte Führungsaufgabe im technischen Kundendienst. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten - Bestehende Gebäudeautomationsanlagen in der ganzen Schweiz betreuen - Wartungsarbeiten und Serviceeinsätze fachlich koordinieren - Störungen vor Ort und per Fernwartung beheben - Den technischen Kundendienst führen - An Projekten zur Optimierung des Kundenservices mitwirken\n• Anforderungen - Lehrabschluss als Elektroinstallateurin oder Elektroinstallateur oder Automatikerin oder Automatiker - Ausgeprägte Kundenorientierung im technischen Service - Lösungsorientiertes Vorgehen im Arbeitsalltag - Selbständige und klar strukturierte Arbeitsweise - Freude an Technik und direktem Kundenkontakt Angebot - Einsätze in einem spezialisierten Umfeld mit kulturellem Bezug - Flexible Arbeitszeiten - Sechs Wochen Ferien Das Betreuen von Gebäudeautomationsanlagen bildet den Schwerpunkt der Tätigkeit. Der Betrieb bietet dir flexible Arbeitszeiten und eine strukturierte Führungsaufgabe im technischen Kundendienst. Für unseren Auftraggeber suchen wir eine/n"
+        "en": "Activities - Supporting existing building automation systems throughout Switzerland - Professionally coordinating maintenance work and service operations - Resolving disruptions on site and by remote maintenance - Leading the technical customer service - Participating in projects to optimize customer service\n• Requirements - Teaching qualification as an electrical installer or an electrical installer or automatic technician - Pronounced customer orientation in technical service - Solution-oriented approach in everyday work - Self-employed and clearly structured working method - Joy of technology and direct customer contact Offer - Assignments in a specialized environment with a cultural connection - Flexible working hours - Six weeks holiday The maintenance of building automation systems is the focus of the activity. The company offers you flexible working hours and a structured management role in technical customer service. For our client we are looking for a",
+        "fr": "Activités - Appui aux systèmes d'automatisation des bâtiments en Suisse - Coordination professionnelle des travaux d'entretien et des opérations de service - Résoudre les perturbations sur place et par maintenance à distance - Diriger le service technique à la clientèle - Participer à des projets visant à optimiser le service à la clientèle\n• Exigences - Formation d'un installateur électrique ou d'un installateur électrique ou d'un technicien automatique - Orientation client prononcée en service technique - Approche axée sur la solution dans le travail quotidien - Travailleur indépendant et méthode de travail clairement structurée - Joy de technologie et contact client direct Offre - Affectations dans un environnement spécialisé avec une connexion culturelle - Horaires de travail flexibles - Vacances de six semaines La maintenance des systèmes d'automatisation des bâtiments est au centre de l'activité. L'entreprise vous offre des horaires flexibles et un rôle de gestion structuré dans le service technique à la clientèle. Pour notre client, nous cherchons"
       },
       "location": "Sursee, Luzern",
       "canton": "LU",
@@ -279163,9 +278974,9 @@
       "companyDomain": "fachkraft.ch",
       "title": "Automatiker/in als Servicetechniker",
       "titleByLocale": {
+        "de": "Automatiker/in als Servicetechniker",
         "it": "Automatico/a come tecnico dell'assistenza",
         "en": "Automatiker/in als Servicetechniker",
-        "de": "Automatiker/in als Servicetechniker",
         "fr": "Automatiker/in als Servicetechniker"
       },
       "description": "Tätigkeiten - Systemlösungen international beim Kunden installieren - Anlagen und Geräte vor Ort in Betrieb nehmen - Mess- und Automationssysteme warten und reparieren - Hard- und Software inklusive Netzwerk einrichten - Telefonischen Support leisten und Anwender schulen\n• Anforderungen - Technische Grundausbildung erfolgreich abgeschlossen - Erfahrung im Maschinen- und Steuerungsbau zählt als Pluspunkt - Gute PC-Anwenderkenntnisse vorhanden - Deutsch als Muttersprache - Hohe Reisebereitschaft von rund 70 Prozent Angebot - Sorgfältige Einführung in den neuen Aufgabenbereich - Eigenes Geschäftsfahrzeug auch zur privaten Nutzung - Attraktive Rahmenbedingungen Systemlösungen vor Ort installieren und Anlagen in Betrieb nehmen gehört zu deinen\n• Aufgaben. Der Betrieb bietet dir eine sorgfältige Einführung und attraktive Arbeitsbedingungen. Für unseren Auftraggeber suchen wir eine/n",
@@ -279185,7 +278996,6 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6210",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -279199,16 +279009,15 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-sursee-dauerstelle-303001/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automatiker-in-als-servicetechniker-sursee-luzern-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-als-servicetechniker-sursee-luzern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.166Z",
+      "previousSlugs": [
+        "automatiker-in-als-servicetechniker-sursee-luzern-fachkraft-ch"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -279222,6 +279031,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "6210",
+      "firstSeenAt": "2026-09-28T04:32:46.166Z",
       "translationHoldSince": "2026-10-06T22:25:22.868Z"
     },
     {
@@ -279409,9 +279220,9 @@
       "companyDomain": "fachkraft.ch",
       "title": "Automatiker/in als Anlagetechniker",
       "titleByLocale": {
+        "de": "Automatiker/in als Anlagetechniker",
         "it": "Automatico/a come tecnico d'impianto",
         "en": "Automatiker/in als Anlagetechniker",
-        "de": "Automatiker/in als Anlagetechniker",
         "fr": "Automatiker/in als Anlagetechniker"
       },
       "description": "Tätigkeiten - Betriebssicherheit der automatisierten Logistikanlagen gewährleisten - Störungen an Fördertechnik und Shuttle-Systemen beheben - Instandhaltungsarbeiten an den Anlagen ausführen - Ersatzteillager verwalten und Komponentenverfügbarkeit sichern - Technische Themen mit Lieferanten und Generalunternehmer abstimmen \n• Anforderungen - Technische Grundausbildung als Elektrikerin oder Elektriker, Automatikerin oder Automatiker, Mechanikerin oder Mechaniker oder gleichwertig - Praxis in der Automations- oder Anlagentechnik - Gute mündliche und schriftliche Deutschkenntnisse - Körperliche Belastbarkeit und Schwindelfreiheit - NIV Anschlussbewilligung Art. 15 wäre wünschenswert Angebot - Einsatz im wöchentlichen Wechsel zwischen Früh- und Spätschicht - Pikettdienst im Turnus von sechs bis acht Wochen - Automatisiertes Arbeitsumfeld mit vielseitigen \n• Aufgaben Der Betrieb sorgt für die Sicherheit und Funktionsfähigkeit hochmoderner Logistikanlagen. Du bist verantwortlich für die Instandhaltung und Störungsbehebung der Fördertechnik und Shuttle-Systeme. Für unseren Auftraggeber suchen wir eine/n",
@@ -279444,16 +279255,15 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-langenthal-dauerstelle-296906/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "automatiker-in-als-anlagetechniker-langenthal-bern-fachkraft-ch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-als-anlagetechniker-langenthal-bern-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.165Z",
+      "previousSlugs": [
+        "automatiker-in-als-anlagetechniker-langenthal-bern-fachkraft-ch"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -279468,6 +279278,7 @@
         }
       },
       "postalCode": "4900",
+      "firstSeenAt": "2026-09-28T04:32:46.165Z",
       "translationHoldSince": "2026-10-06T22:25:22.868Z"
     },
     {
@@ -279566,9 +279377,9 @@
       },
       "description": "Tätigkeiten - Montage von Baugruppen und Produktionsanlagen - Eigenständige Durchführung von Qualitätskontrollen - Prüfung von Bauteilen im zugeteilten Fachbereich - Instandstellung fehlerhafter Teile im Fachbereich - Dokumentation der Testergebnisse nach Vorgaben\n• Anforderungen - Abgeschlossene Lehre als Automatikerin oder Automatiker - Erste Praxis in der Industrie ist wünschenswert - Gute Deutschkenntnisse sind erforderlich - Grundlegende PC-Anwenderkenntnisse - Genaue und strukturierte Arbeitsweise Angebot - Möglichkeit zur Mitwirkung an Prozessoptimierungen - Sauber eingerichtete und funktionale Arbeitsplätze - Chancen für die fachliche Entwicklung in der Produktion Die Hauptaufgabe liegt in der Montage und Instandstellung von Produktionsanlagen. Der Betrieb stellt saubere und effiziente Arbeitsplätze zur Verfügung. Für unseren Auftraggeber suchen wir eine/n",
       "descriptionByLocale": {
+        "de": "Tätigkeiten - Montage von Baugruppen und Produktionsanlagen - Eigenständige Durchführung von Qualitätskontrollen - Prüfung von Bauteilen im zugeteilten Fachbereich - Instandstellung fehlerhafter Teile im Fachbereich - Dokumentation der Testergebnisse nach Vorgaben\n• Anforderungen - Abgeschlossene Lehre als Automatikerin oder Automatiker - Erste Praxis in der Industrie ist wünschenswert - Gute Deutschkenntnisse sind erforderlich - Grundlegende PC-Anwenderkenntnisse - Genaue und strukturierte Arbeitsweise Angebot - Möglichkeit zur Mitwirkung an Prozessoptimierungen - Sauber eingerichtete und funktionale Arbeitsplätze - Chancen für die fachliche Entwicklung in der Produktion Die Hauptaufgabe liegt in der Montage und Instandstellung von Produktionsanlagen. Der Betrieb stellt saubere und effiziente Arbeitsplätze zur Verfügung. Für unseren Auftraggeber suchen wir eine/n",
         "it": "Attività - Assemblaggio di assemblaggi e impianti di produzione - Esecuzione indipendente dei controlli di qualità - Test di componenti nell'area oggetto assegnata - Riparazione di parti difettose nell'area oggetto - Documentazione dei risultati di prova secondo le specifiche\n• Requisiti - Completato l'apprendistato come tecnico automatico - La prima pratica nell'industria è auspicabile - È necessaria una buona conoscenza del tedesco - Conoscenza base dell'utente del PC - Metodi di lavoro accurati e strutturati Offerta - Possibilità di partecipare a ottimizzazioni di processo - Posti di lavoro puliti e funzionali - Opportunità per lo sviluppo professionale nella produzione Il compito principale è l'assemblaggio e la riparazione di impianti di produzione. L'azienda fornisce lavori puliti ed efficienti. Per il nostro cliente stiamo cercando un",
         "en": "Activities - Assembly of assemblies and production facilities - Independent performance of quality controls - Testing of components in the assigned subject area - Repair of defective parts in the subject area - Documentation of test results according to specifications\n• Requirements - Completed apprenticeship as an automatic technician - First practice in industry is desirable - Good knowledge of German is required - Basic PC user knowledge - Accurate and structured working methods Offer - Possibility to participate in process optimizations - Cleanly set up and functional workplaces - Opportunities for professional development in production The main task is the assembly and repair of production plants. The company provides clean and efficient jobs. For our client we are looking for a",
-        "de": "Tätigkeiten - Montage von Baugruppen und Produktionsanlagen - Eigenständige Durchführung von Qualitätskontrollen - Prüfung von Bauteilen im zugeteilten Fachbereich - Instandstellung fehlerhafter Teile im Fachbereich - Dokumentation der Testergebnisse nach Vorgaben\n• Anforderungen - Abgeschlossene Lehre als Automatikerin oder Automatiker - Erste Praxis in der Industrie ist wünschenswert - Gute Deutschkenntnisse sind erforderlich - Grundlegende PC-Anwenderkenntnisse - Genaue und strukturierte Arbeitsweise Angebot - Möglichkeit zur Mitwirkung an Prozessoptimierungen - Sauber eingerichtete und funktionale Arbeitsplätze - Chancen für die fachliche Entwicklung in der Produktion Die Hauptaufgabe liegt in der Montage und Instandstellung von Produktionsanlagen. Der Betrieb stellt saubere und effiziente Arbeitsplätze zur Verfügung. Für unseren Auftraggeber suchen wir eine/n",
         "fr": "Activités - Montage d'assemblages et d'installations de production - Performance indépendante des contrôles de qualité - Essai des composants dans la zone visée - Réparation des pièces défectueuses dans la zone visée - Documentation des résultats des essais selon les spécifications\n• Exigences - Apprentissage complété en tant que technicien automatique - La première pratique dans l'industrie est souhaitable - Une bonne connaissance de l'allemand est requise - Connaissances de base de l'utilisateur PC - Méthodes de travail précises et structurées Offre - Possibilité de participer à des optimisations de processus - Installation propre et lieux de travail fonctionnels - Possibilités de perfectionnement professionnel en production La tâche principale est l'assemblage et la réparation des usines de production. L'entreprise fournit des emplois propres et efficaces. Pour notre client, nous cherchons"
       },
       "location": "Wil SG, St. Gallen",
@@ -279581,7 +279392,6 @@
       "addressRegion": "SG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "9000",
       "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
@@ -279595,6 +279405,7 @@
       "applyUrl": "https://www.fachkraft.ch/stellen/automatiker-in-wil-sg-dauerstelle-294296/",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-montagetechnik-wil-sg-st-gallen-fachkraft-ch",
@@ -279612,8 +279423,6 @@
         "automatico-tecnologia-di-montaggio-fachkraft-ch-gmbh-wil-sg-st-gallen",
         "automatique-technologie-de-montage-fachkraft-ch-gmbh-wil-sg-st-gallen"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T04:32:46.165Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -279627,6 +279436,8 @@
           "unitText": "YEAR"
         }
       },
+      "postalCode": "9000",
+      "firstSeenAt": "2026-09-28T04:32:46.165Z",
       "translationHoldSince": "2026-10-06T22:25:22.868Z"
     },
     {
@@ -280033,8 +279844,8 @@
       "descriptionByLocale": {
         "de": "Tätigkeiten - Malerarbeiten in Innen- und Aussenbereichen ausführen - Einsätze bei Neubauten und Renovationen übernehmen - Projekte für Privat- und Geschäftskundschaft fachgerecht umsetzen\n• Anforderungen - Abgeschlossene Lehre als Malerin oder Maler - Breite Praxiserfahrung im Malerhandwerk nachweisbar - Exakte und zügige Arbeitsweise Angebot - Zusammenarbeit in einem routinierten Team - Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen - Attraktive Entlohnung im Stundenlohn Der Betrieb führt Malerarbeiten in Innen- und Aussenbereichen mit grosser Sorgfalt aus. Du profitierst von einem vielseitigen Arbeitsgebiet in einem eingespielten Team. Für unseren Auftraggeber suchen wir eine/n",
         "it": "Tätigkeiten - Malerarbeiten in Innen- und Aussenbereichen ausführen - Einsätze bei Neubauten und Renovationen übernehmen - Projekte für Privat- und Geschäftskundschaft fachgerecht umsetzen\n• Anforderungen - Abgeschlossene Lehre als Malerin oder Maler - Breite Praxiserfahrung im Malerhandwerk nachweisbar - Exakte und zügige Arbeitsweise Angebot - Zusammenarbeit in einem routinierten Team - Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen - Attraktive Entlohnung im Stundenlohn Der Betrieb führt Malerarbeiten in Innen- und Aussenbereichen mit grosser Sorgfalt aus. Du profitierst von einem vielseitigen Arbeitsgebiet in einem eingespielten Team. Für unseren Auftraggeber suchen wir eine/n",
-        "en": "Tätigkeiten - Malerarbeiten in Innen- und Aussenbereichen ausführen - Einsätze bei Neubauten und Renovationen übernehmen - Projekte für Privat- und Geschäftskundschaft fachgerecht umsetzen\n• Anforderungen - Abgeschlossene Lehre als Malerin oder Maler - Breite Praxiserfahrung im Malerhandwerk nachweisbar - Exakte und zügige Arbeitsweise Angebot - Zusammenarbeit in einem routinierten Team - Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen - Attraktive Entlohnung im Stundenlohn Der Betrieb führt Malerarbeiten in Innen- und Aussenbereichen mit grosser Sorgfalt aus. Du profitierst von einem vielseitigen Arbeitsgebiet in einem eingespielten Team. Für unseren Auftraggeber suchen wir eine/n",
-        "fr": "Tätigkeiten - Malerarbeiten in Innen- und Aussenbereichen ausführen - Einsätze bei Neubauten und Renovationen übernehmen - Projekte für Privat- und Geschäftskundschaft fachgerecht umsetzen\n• Anforderungen - Abgeschlossene Lehre als Malerin oder Maler - Breite Praxiserfahrung im Malerhandwerk nachweisbar - Exakte und zügige Arbeitsweise Angebot - Zusammenarbeit in einem routinierten Team - Vielseitiges Aufgabengebiet mit anspruchsvollen Einsätzen - Attraktive Entlohnung im Stundenlohn Der Betrieb führt Malerarbeiten in Innen- und Aussenbereichen mit grosser Sorgfalt aus. Du profitierst von einem vielseitigen Arbeitsgebiet in einem eingespielten Team. Für unseren Auftraggeber suchen wir eine/n"
+        "en": "Activities - perform painting work in interior and exterior areas - take on assignments in new buildings and renovations - implement projects professionally for private and business customers\n• Requirements - Completed apprenticeship as a painter - Widespread practical experience in painting craftsmanship verifiable - Accurate and rapid working methods Offered - Collaboration in a routine team - Various tasks with demanding assignments - Attractive remuneration in the hourly wage The company carries out painting work in interior and exterior areas with great care. You benefit from a versatile field of work in a well-established team. For our client we are looking for a",
+        "fr": "Activités - réaliser des travaux de peinture dans les espaces intérieurs et extérieurs - entreprendre des travaux dans de nouveaux bâtiments et rénovations - mettre en œuvre des projets professionnels pour les clients privés et commerciaux\n• Exigences - Apprentissage terminé en tant que peintre - Expérience pratique étendue en peinture d'artisanat vérifiable - Méthodes de travail précises et rapides offertes - Collaboration dans une équipe de routine - Diverses tâches avec des tâches exigeantes - Rémunération attrayante dans le salaire horaire L'entreprise réalise des travaux de peinture dans les zones intérieures et extérieures avec grand soin. Vous bénéficiez d'un champ de travail polyvalent dans une équipe bien établie. Pour notre client, nous cherchons"
       },
       "location": "Bülach, Zürich",
       "canton": "ZH",
