@@ -8,6 +8,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
   assertOldHistorySafe,
   checkOldHistory,
+  HISTORY_GRAPH_FETCH_TIMEOUT_MS,
   inspectOldHistory,
   OLD_HISTORY_FIRST_CHANGED_COMMIT,
 } from '../scripts/lib/old-history-guard.mjs';
@@ -133,6 +134,10 @@ describe('old-history-guard', () => {
 
   it('mantiene una sola costante di produzione per il marker', () => {
     expect(OLD_HISTORY_FIRST_CHANGED_COMMIT).toMatch(/^[0-9a-f]{40}$/);
+  });
+
+  it('usa un budget separato e bounded per completare un grafo shallow grande', () => {
+    expect(HISTORY_GRAPH_FETCH_TIMEOUT_MS).toBe(5 * 60_000);
   });
 
   it('completa il grafo per un marker locale scollegato dall’head shallow', () => {

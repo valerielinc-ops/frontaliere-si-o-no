@@ -13,12 +13,14 @@ import { withSingleFlightLock } from './single-flight-lock.mjs';
 export const OLD_HISTORY_FIRST_CHANGED_COMMIT = 'dab77221540a4e369440f762228be7e0be21155d';
 
 const DEFAULT_BASE_REF = 'refs/remotes/origin/main';
-// A shallow writer checkout may need to materialise the complete commit graph
-// before the marker can be classified. The previous 30s cap was shorter than
-// the observed treeless fetch on the site repository, turning a valid writer
-// run into a false workflow failure. Keep the operation bounded while leaving
-// enough budget for the graph fetch in the ten-minute monitor jobs.
-const FETCH_TIMEOUT_MS = 5 * 60_000;
+const FETCH_TIMEOUT_MS = 30_000;
+// A shallow refresh may need the complete commit graph to prove that a
+// fetched marker is not hidden beyond the shallow boundary. This fetch stays
+// tree-filtered, but its duration scales with the repository's commit graph;
+// the old 30-second cap made valid data-refresh PRs fail closed before the
+// history check could finish. Keep a separate, bounded budget for this slower
+// operation instead of relaxing the guard or sharing the short-fetch timeout.
+export const HISTORY_GRAPH_FETCH_TIMEOUT_MS = 5 * 60_000;
 
 const OLD_HISTORY_REMEDIATION = [
   'Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:',
@@ -97,6 +99,11 @@ function isRemoteObjectUnavailable(detail) {
 }
 
 function fetchCommitObject({ cwd, remote, commitRef }) {
+  // A zero object ID is Git's deletion sentinel, not a fetchable commit. The
+  // pre-push caller normally filters it, but the library also accepts direct
+  // callers; classify it as an unavailable marker without asking the remote
+  // to resolve an invalid ref.
+  if (/^0{40}$/u.test(commitRef)) return false;
   try {
     runGit([
       'fetch',
@@ -131,7 +138,7 @@ function completeShallowHistory({ cwd, remote, headRef, branch }) {
       '--filter=tree:0',
       remote,
       remoteHeadRef({ headRef, branch }),
-    ], { cwd, timeout: FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
+    ], { cwd, timeout: HISTORY_GRAPH_FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
   } catch (error) {
     const detail = safeGitErrorDetail(error);
     throw new Error(`Impossibile completare il grafo della storia per verificare il marker: ${detail || 'errore git sconosciuto'}`);
