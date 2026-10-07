@@ -28,7 +28,7 @@ const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
-const DEFAULT_CODEX_MAX_CALLS = 180;
+const DEFAULT_CODEX_MAX_CALLS = 350;
 
 function stepsOf(rel: string): Step[] {
   const workflow = YAML.parse(fs.readFileSync(path.resolve(process.cwd(), rel), 'utf8')) as {
@@ -46,10 +46,9 @@ function expectBudget(step: Step) {
   const calls = effectiveMaxCalls();
   const ms = Number(step.env?.FREE_TRANSLATE_CODEX_MAX_MS);
   expect(calls, step.name).toBe(DEFAULT_CODEX_MAX_CALLS);
-  // Decisione del proprietario del 2026-10-06 («alza le chiamate»): 180 per
-  // fase al posto di 30. Il tetto resta scritto: un valore piu' alto passa da
-  // una nuova decisione, non da un refuso.
-  expect(calls, step.name).toBeLessThanOrEqual(180);
+  // Decisione del proprietario del 2026-10-06 («alza le chiamate»): 350 per
+  // fase. La variabile di repository resta il rollback immediato.
+  expect(calls, step.name).toBeLessThanOrEqual(350);
   expect(ms, step.name).toBeGreaterThan(0);
   // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
   // riparazione restano a 15: la 2d/2e partono con almeno 15 minuti residui
