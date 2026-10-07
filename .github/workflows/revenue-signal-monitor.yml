@@ -1,4 +1,8 @@
 name: Revenue signal monitor
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Revenue signal monitor [loop-clock {0}]', inputs.loop_clock) || 'Revenue signal monitor' }}
 
 # Hourly ad-revenue alarm on GA4, Italy + Switzerland only.
 #
@@ -38,6 +42,11 @@ on:
     inputs:
       current_hour:
         description: 'Replay: hour to evaluate as YYYYMMDDHH (Europe/Zurich). Empty = now. A replay writes only the JSON and the summary, never an issue.'
+        required: false
+        default: ''
+        type: string
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
         required: false
         default: ''
         type: string

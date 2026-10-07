@@ -27,7 +27,156 @@ function decodeHtml(value) {
   return String(value || '')
     .replace(/&amp;/gi, '&')
     .replace(/&quot;/gi, '"')
-    .replace(/&#x27;|&#39;/gi, "'");
+    .replace(/&#x27;|&#39;/gi, "'")
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>');
+}
+
+function htmlAttribute(tag, name) {
+  const match = String(tag || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
+  return match ? decodeHtml(match[2]) : '';
+}
+
+function htmlText(html) {
+  return decodeHtml(String(html || '')
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' '))
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function metaContent(html, key) {
+  for (const match of String(html || '').matchAll(/<meta\b[^>]*>/gi)) {
+    const tag = match[0];
+    const property = htmlAttribute(tag, 'property') || htmlAttribute(tag, 'name');
+    if (property.toLowerCase() === key.toLowerCase()) return htmlAttribute(tag, 'content');
+  }
+  return '';
+}
+
+function safePublicHttpsUrl(value) {
+  try {
+    const parsed = new URL(String(value || '').trim());
+    return parsed.protocol === 'https:' ? parsed.toString() : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function parseJsonLdObjects(html) {
+  const objects = [];
+  for (const match of String(html || '').matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const parsed = JSON.parse(decodeHtml(match[1]));
+      const queue = Array.isArray(parsed) ? [...parsed] : [parsed];
+      while (queue.length) {
+        const value = queue.shift();
+        if (!value || typeof value !== 'object') continue;
+        if (Array.isArray(value)) queue.push(...value);
+        else {
+          objects.push(value);
+          for (const child of Object.values(value)) if (child && typeof child === 'object') queue.push(child);
+        }
+      }
+    } catch {
+      // Public pages frequently contain analytics JSON that is not valid JSON-LD.
+    }
+  }
+  return objects;
+}
+
+function normalize(value) {
+  return text(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+}
+
+function digits(value) {
+  return text(value).replace(/\D/g, '');
+}
+
+function nameTokens(value) {
+  return [...new Set(normalize(value)
+    .split(/[^a-z0-9]+/)
+    .filter((token) => token.length > 2 && !['farmacia', 'farmacie', 'dott', 'del', 'dei', 'della', 'sas', 'srl'].includes(token)))];
+}
+
+function parsePublicTime(value) {
+  const match = text(value).match(/^(\d{1,2})[.:](\d{2})$/);
+  if (!match) return undefined;
+  const hour = Number(match[1]);
+  const minute = Number(match[2]);
+  return hour >= 0 && hour <= 23 && minute >= 0 && minute <= 59
+    ? `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`
+    : undefined;
+}
+
+function parsePublicHours(value) {
+  const days = [
+    ['lunedi', 'monday'], ['martedi', 'tuesday'], ['mercoledi', 'wednesday'],
+    ['giovedi', 'thursday'], ['venerdi', 'friday'], ['sabato', 'saturday'], ['domenica', 'sunday'],
+  ];
+  const result = [];
+  const raw = normalize(value);
+  for (const [label, dayOfWeek] of days) {
+    const match = raw.match(new RegExp(`${label}\\s*:?[\\s-]*(\\d{1,2}[.:]\\d{2})\\s*[-–—]\\s*(\\d{1,2}[.:]\\d{2})`, 'i'));
+    const opens = parsePublicTime(match?.[1]);
+    const closes = parsePublicTime(match?.[2]);
+    if (opens && closes) result.push({ dayOfWeek, opens, closes });
+    if (new RegExp(`${label}\\s*:?[\\s-]*(?:chius[oa]|closed)\\b`, 'i').test(raw)) {
+      result.push({ dayOfWeek, opens: '', closes: '', isClosed: true });
+    }
+  }
+  return result;
+}
+
+function publicIdentityMatches(pharmacy, sourceText, phone) {
+  const body = normalize(sourceText);
+  const city = normalize(pharmacy.city);
+  const address = normalize(pharmacy.address);
+  const street = address.replace(/\b\d+[a-z]?\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const number = (address.match(/\b\d+[a-z]?\b/i) || [])[0];
+  const nameMatch = nameTokens(pharmacy.name).some((token) => body.includes(token));
+  const addressMatch = Boolean(city && body.includes(city) && street && body.includes(street) && number && body.includes(number));
+  const phoneMatch = Boolean(digits(pharmacy.phone) && phone && digits(phone) === digits(pharmacy.phone));
+  // A public page may omit the address but expose the exact catalogue phone.
+  // Name + city + exact phone is an equally strong branch identity anchor.
+  return Boolean(city && body.includes(city) && nameMatch && (addressMatch || phoneMatch));
+}
+
+/**
+ * Extract only reusable public profile facts from an accessible Facebook page.
+ * It deliberately ignores posts, reviews, ratings, follower counts and any
+ * value that cannot be tied to the catalogue identity.
+ */
+export function extractFacebookPublicFacts(html, pharmacy, pageUrl) {
+  const title = metaContent(html, 'og:title') || metaContent(html, 'twitter:title');
+  const description = metaContent(html, 'og:description') || metaContent(html, 'description');
+  const jsonLd = parseJsonLdObjects(html);
+  const phone = [...String(html || '').matchAll(/href=["']tel:([^"']+)["']/gi)].map((match) => decodeHtml(match[1]))[0]
+    || jsonLd.map((object) => object.telephone).find(Boolean)
+    || undefined;
+  const email = [...String(html || '').matchAll(/href=["']mailto:([^"']+)["']/gi)].map((match) => decodeHtml(match[1]).split('?')[0])[0]
+    || jsonLd.map((object) => object.email).find((value) => /@/.test(String(value || '')))
+    || undefined;
+  const website = jsonLd
+    .map((object) => object.url)
+    .map(safePublicHttpsUrl)
+    .find((url) => url && !/facebook\.com$/i.test(new URL(url).hostname));
+  const body = htmlText(html);
+  const sourceText = `${title} ${description} ${body}`;
+  const matched = publicIdentityMatches(pharmacy, sourceText, phone);
+  if (!matched) return { matched: false, facts: {}, pageUrl };
+  const facts = {};
+  if (phone && digits(phone).length >= 8) facts.phone = text(phone);
+  if (email && /@/.test(String(email))) facts.contactEmail = text(email);
+  if (website) facts.website = website;
+  const openingHours = parsePublicHours(sourceText);
+  if (openingHours.length) facts.openingHours = openingHours;
+  return { matched: true, facts, pageUrl };
 }
 
 export function facebookSearchUrl(pharmacy) {
@@ -81,14 +230,31 @@ export async function discoverFacebookCandidates({
       const html = await fetchDocument(searchUrl);
       const urls = extractFacebookCandidateUrls(html);
       const blocked = isBlockedSearchPage(html);
-      candidates.push({
+      const candidate = {
         pharmacyId,
         query: text(`${pharmacy.name} ${pharmacy.city}`),
         searchUrl,
         checkedAt,
         status: blocked ? 'public_search_blocked' : urls.length ? 'candidate_needs_identity_verification' : 'no_candidate',
         urls: blocked ? [] : urls,
-      });
+      };
+      if (!blocked && urls.length) {
+        for (const url of urls.slice(0, 10)) {
+          try {
+            const pageHtml = await fetchDocument(url);
+            if (isBlockedSearchPage(pageHtml)) continue;
+            const publicPage = extractFacebookPublicFacts(pageHtml, pharmacy, url);
+            if (!publicPage.matched || !Object.keys(publicPage.facts).length) continue;
+            candidate.status = 'candidate_publicly_verified';
+            candidate.verified = publicPage;
+            break;
+          } catch (error) {
+            candidate.pageWarnings ||= [];
+            candidate.pageWarnings.push(`${url}: ${error instanceof Error ? error.message : String(error)}`);
+          }
+        }
+      }
+      candidates.push(candidate);
     } catch (error) {
       candidates.push({
         pharmacyId,

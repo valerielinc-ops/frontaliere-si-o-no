@@ -82,6 +82,11 @@ import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { spawn, spawnSync } from 'node:child_process';
 import { assertCorpusObserved } from './lib/assert-corpus-observed.mjs';
+import {
+  decideCorpusOverlayMode,
+  prepareCorpusContentOverlay,
+} from './lib/article-corpus-overlay.mjs';
+import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
@@ -108,6 +113,7 @@ function parseArgs(argv) {
     onlyIds: undefined,
     out: undefined,
     manifest: undefined,
+    allowContentOverlay: false,
     workerSection: undefined,
     workerIdsFile: undefined,
     workerOut: undefined,
@@ -124,6 +130,7 @@ function parseArgs(argv) {
     else if (a === '--only-ids') out.onlyIds = argv[++i].split(',').map((s) => s.trim()).filter(Boolean);
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--manifest') out.manifest = argv[++i];
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
     else if (a === '--worker-section') out.workerSection = argv[++i];
     else if (a === '--worker-ids-file') out.workerIdsFile = argv[++i];
     else if (a === '--worker-out') out.workerOut = argv[++i];
@@ -155,6 +162,49 @@ function spawnAsync(cmd, args, opts) {
       resolve({ status: 1 });
     });
   });
+}
+
+function absorbPushSummary(manifest, summaryFile) {
+  if (!fs.existsSync(summaryFile)) return;
+  const [shard, rawNewer, names = '', rawHistoryWarnings = ''] = fs.readFileSync(summaryFile, 'utf-8').trim().split('\t');
+  const newer = Number(rawNewer);
+  const historyWarnings = Number(rawHistoryWarnings);
+  if (!shard || !Number.isFinite(newer) || !Number.isFinite(historyWarnings)) {
+    console.error(`[rerender-article-corpus] invalid push summary from ${summaryFile}`);
+    return;
+  }
+  const summary = manifest.pushSummary.monotonicGuard;
+  summary.remoteNewerSkipped += newer;
+  summary.historyWarnings += historyWarnings;
+  for (const rel of names.split(',').filter(Boolean)) {
+    if (summary.firstRemoteNewerPaths.length >= 5) break;
+    summary.firstRemoteNewerPaths.push(rel);
+  }
+}
+
+async function readSiteDeclaredImages(sectionName, ids) {
+  const filename = sectionName === 'svizzera' ? 'swiss-articles-data.ts' : 'blog-articles-data.ts';
+  const sourcePath = path.join(ROOT_DIR, 'packages', 'articles', 'content', filename);
+  if (!fs.existsSync(sourcePath)) return {};
+  const { readArticleRegistryMetadata } = await import('../packages/articles/engine/shared/articleRegistryMetadata.ts');
+  const wanted = new Set(ids);
+  return Object.fromEntries(
+    readArticleRegistryMetadata(fs.readFileSync(sourcePath, 'utf-8'))
+      .filter((entry) => wanted.has(entry.id))
+      .map((entry) => [entry.id, entry.image]),
+  );
+}
+
+function readEntryHtml(distDir, entries) {
+  const htmlByPath = {};
+  for (const entry of entries) {
+    for (const rel of [...Object.values(entry.paths || {}), ...Object.values(entry.flatPaths || {})]) {
+      if (rel && fs.existsSync(path.join(distDir, rel))) {
+        htmlByPath[rel] = fs.readFileSync(path.join(distDir, rel), 'utf-8');
+      }
+    }
+  }
+  return htmlByPath;
 }
 
 // Id enumeration is imported from build-plugins/shared/articleSectionDescriptors.ts
@@ -239,12 +289,38 @@ async function renderBatchWorker(sectionName, idsFile, distDir, resultFile) {
 }
 
 async function runOrchestrator(args) {
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: args.dryRun,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? await prepareCorpusContentOverlay({ rootDir: ROOT_DIR })
+    : { commit: null, contentRevision: null };
+  if (overlayMode.mode === 'local') {
+    console.log(`[rerender-article-corpus] ${overlayMode.reason}`);
+  }
   const { ARTICLE_SECTION_DESCRIPTORS, enumerateSectionArticleIds } = await import('../build-plugins/shared/articleSectionDescriptors.ts');
   const sections = ARTICLE_SECTION_DESCRIPTORS.filter((s) => args.section === 'all' || s.name === args.section);
 
   const distDir = args.out ? path.resolve(args.out) : fs.mkdtempSync(path.join(os.tmpdir(), 'rerender-corpus-'));
   fs.mkdirSync(distDir, { recursive: true });
-  const manifest = { generatedAt: new Date().toISOString(), distDir, sections: {} };
+  const manifest = {
+    generatedAt: new Date().toISOString(),
+    distDir,
+    corpusCommit: corpusOverlay.commit,
+    corpusContentRevision: corpusOverlay.contentRevision,
+    contentOverlay: overlayMode,
+    pushSummary: {
+      monotonicGuard: {
+        remoteNewerSkipped: 0,
+        historyWarnings: 0,
+        firstRemoteNewerPaths: [],
+      },
+    },
+    sections: {},
+  };
   let anyFailure = false;
 
   for (const section of sections) {
@@ -319,10 +395,26 @@ async function runOrchestrator(args) {
       fs.rmSync(offloadTmp, { recursive: true, force: true });
     }
 
+    const declaredImages = await readSiteDeclaredImages(section.name, ids);
+    const imagePostcondition = filterEntriesByImagePostcondition({
+      entries: allEntries,
+      declaredImages,
+      htmlByPath: readEntryHtml(distDir, allEntries),
+    });
+    if (imagePostcondition.excludedArticles.length > 0) {
+      console.error(
+        `[rerender-article-corpus] section=${section.name} image postcondition excluded ` +
+          `${imagePostcondition.excludedArticles.length} article(s) / ${imagePostcondition.excludedPages} page(s): ` +
+          `${imagePostcondition.firstExcludedArticleIds.join(', ')}`,
+      );
+    }
+
     manifest.sections[section.name] = {
       requestedIds: ids.length,
-      rendered: allEntries.length,
-      entries: allEntries.map((e) => ({ articleId: e.articleId, paths: e.paths, flatPaths: e.flatPaths, urls: e.urls })),
+      observed: allEntries.length,
+      rendered: imagePostcondition.entries.length,
+      imagePostcondition,
+      entries: imagePostcondition.entries.map((e) => ({ articleId: e.articleId, paths: e.paths, flatPaths: e.flatPaths, urls: e.urls })),
     };
   }
 
@@ -348,7 +440,7 @@ async function runOrchestrator(args) {
   assertCorpusObserved(
     '[rerender-article-corpus]',
     Object.fromEntries(
-      Object.entries(manifest.sections).map(([name, s]) => [name, { total: s.requestedIds, observed: s.rendered }]),
+      Object.entries(manifest.sections).map(([name, s]) => [name, { total: s.requestedIds, observed: s.observed }]),
     ),
   );
 
@@ -364,46 +456,59 @@ async function runOrchestrator(args) {
   // per locale (sequential within a locale — same repo, avoid needless
   // non-fast-forward retries from racing against ourselves).
   const targetLocales = args.locale === 'all' ? LOCALES : [args.locale];
+  const pushSummaryDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rerender-corpus-push-summary-'));
 
-  for (const [sectionName, data] of Object.entries(manifest.sections)) {
-    // "articoli" + section name is a DERIVATION (not a duplicated literal):
-    // matches the shard-token naming convention already fixed by
-    // scripts/lib/section-shard-slugs.json's own key names
-    // (articolifrontaliere/articolisvizzera) and fast-publish-article.yml's
-    // equivalent branch — see that workflow's `if [ "$section" = "svizzera" ]`
-    // step, which this formula is provably equivalent to for the two known
-    // section names.
-    const shardToken = `articoli${sectionName}`;
+  try {
+    for (const [sectionName, data] of Object.entries(manifest.sections)) {
+      // "articoli" + section name is a DERIVATION (not a duplicated literal):
+      // matches the shard-token naming convention already fixed by
+      // scripts/lib/section-shard-slugs.json's own key names
+      // (articolifrontaliere/articolisvizzera) and fast-publish-article.yml's
+      // equivalent branch — see that workflow's `if [ "$section" = "svizzera" ]`
+      // step, which this formula is provably equivalent to for the two known
+      // section names.
+      const shardToken = `articoli${sectionName}`;
 
-    const localePushes = targetLocales.map(async (locale) => {
-      const relpaths = [];
-      for (const e of data.entries) {
-        if (e.paths[locale]) relpaths.push(e.paths[locale]);
-        if (e.flatPaths[locale]) relpaths.push(e.flatPaths[locale]);
-      }
-      if (relpaths.length === 0) return;
-
-      const pushChunks = chunkArray(relpaths, args.pushBatchSize);
-      console.log(
-        `[rerender-article-corpus] pushing ${relpaths.length} relpath(s) to ${shardToken}-${locale} in ${pushChunks.length} chunk(s)`,
-      );
-      const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
-      for (let i = 0; i < pushChunks.length; i++) {
-        const { status } = await spawnAsync('bash', [pushScript, shardToken, locale, distDir, ...pushChunks[i]], {
-          stdio: 'inherit',
-          env: process.env,
-        });
-        if (status !== 0) {
-          console.error(
-            `[rerender-article-corpus] push chunk ${i + 1}/${pushChunks.length} to ${shardToken}-${locale} FAILED (exit ${status})`,
-          );
-          anyFailure = true;
+      const localePushes = targetLocales.map(async (locale) => {
+        const relpaths = [];
+        for (const e of data.entries) {
+          if (e.paths[locale]) relpaths.push(e.paths[locale]);
+          if (e.flatPaths[locale]) relpaths.push(e.flatPaths[locale]);
         }
-      }
-    });
+        if (relpaths.length === 0) return;
 
-    await Promise.all(localePushes);
+        const pushChunks = chunkArray(relpaths, args.pushBatchSize);
+        console.log(
+          `[rerender-article-corpus] pushing ${relpaths.length} relpath(s) to ${shardToken}-${locale} in ${pushChunks.length} chunk(s)`,
+        );
+        const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
+        for (let i = 0; i < pushChunks.length; i++) {
+          const summaryFile = path.join(pushSummaryDir, `${sectionName}-${locale}-${i}.tsv`);
+          const { status } = await spawnAsync('bash', [pushScript, shardToken, locale, distDir, ...pushChunks[i]], {
+            stdio: 'inherit',
+            env: {
+              ...process.env,
+              ARTICLE_CONTENT_REVISION: corpusOverlay.contentRevision || '',
+              ARTICLE_PUSH_SUMMARY_FILE: summaryFile,
+            },
+          });
+          absorbPushSummary(manifest, summaryFile);
+          if (status !== 0) {
+            console.error(
+              `[rerender-article-corpus] push chunk ${i + 1}/${pushChunks.length} to ${shardToken}-${locale} FAILED (exit ${status})`,
+            );
+            anyFailure = true;
+          }
+        }
+      });
+
+      await Promise.all(localePushes);
+    }
+  } finally {
+    fs.rmSync(pushSummaryDir, { recursive: true, force: true });
   }
+
+  fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf-8');
 
   if (anyFailure) process.exitCode = 1;
 }

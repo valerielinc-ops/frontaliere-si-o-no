@@ -47,6 +47,7 @@ jobs:
             scripts/lib/github-issue-creator.mjs
             functions/src/lib/orchestratorSlot.js
             functions/src/loopClockTable.js
+            functions/src/loopClockIssueCondition.js
           sparse-checkout-cone-mode: false
 
       - name: Check latest orchestrator cron slot

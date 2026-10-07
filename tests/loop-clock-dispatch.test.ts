@@ -53,6 +53,15 @@ describe('loop clock table and cadence', () => {
     expect(LOOP_CLOCK_ENTRIES.every((entry) => entry.everyMinutes % LOOP_CLOCK_TICK_MINUTES === 0)).toBe(true);
   });
 
+  it('keeps the hourly revenue monitor on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-revenue-signal-monitor',
+      repo: 'site',
+      workflow: 'revenue-signal-monitor.yml',
+      everyMinutes: 60,
+    });
+  });
+
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
     const observed = new Set<string>();
     const longestCadence = Math.max(...LOOP_CLOCK_ENTRIES.map((entry) => entry.everyMinutes));
@@ -222,8 +231,13 @@ describe('loop clock dispatch', () => {
   ])('applies the untriaged condition for $count pending issue(s)', async ({ count, expected, dispatches }) => {
     const entry = { ...customEntry(`condition-${count}`), condition: 'untriaged-issues' };
     const tick = tickForEntries([entry]);
-    const fetchImpl = vi.fn(async (url: string) => url.includes('/search/issues')
-      ? new Response(JSON.stringify({ total_count: count }), { status: 200 })
+    const issues = Array.from({ length: count }, (_, index) => ({
+      number: index + 1,
+      created_at: `2026-10-07T0${index}:00:00Z`,
+      labels: [],
+    }));
+    const fetchImpl = vi.fn(async (url: string) => url.includes('/issues?')
+      ? new Response(JSON.stringify(issues), { status: 200 })
       : new Response(null, { status: 204 }));
     const report = await dispatchLoopClock({
       scheduledAt: tick,
@@ -241,11 +255,37 @@ describe('loop clock dispatch', () => {
     expect(fetchImpl.mock.calls.some(([url]) => String(url).includes('/dispatches'))).toBe(dispatches);
   });
 
-  it('dispatches anyway when the untriaged search fails', async () => {
+  it('filters the current issue listing instead of trusting search-index labels', async () => {
+    const entry = { ...customEntry('condition-current-listing'), condition: 'untriaged-issues' };
+    const tick = tickForEntries([entry]);
+    const fetchImpl = vi.fn(async (url: string) => url.includes('/issues?')
+      ? new Response(JSON.stringify([
+        { number: 1, pull_request: { url: 'https://example.invalid/pr/1' }, labels: [] },
+        { number: 2, created_at: '2026-10-07T00:00:00Z', labels: [{ name: 'agent:triaged' }] },
+      ]), { status: 200 })
+      : new Response(null, { status: 204 }));
+
+    const report = await dispatchLoopClock({
+      scheduledAt: tick,
+      entries: [entry],
+      fetchImpl,
+      getRepoConfigImpl: repoConfig,
+      getRemoteConfigValueImpl: async () => '',
+    });
+
+    expect(report.results[0]).toMatchObject({
+      id: entry.id,
+      dispatched: false,
+      reason: 'condition_no_untriaged_issues',
+    });
+    expect(fetchImpl.mock.calls.some(([url]) => String(url).includes('/dispatches'))).toBe(false);
+  });
+
+  it('dispatches anyway when the current issue listing fails', async () => {
     const entry = { ...customEntry('condition-search-failed'), condition: 'untriaged-issues' };
     const tick = tickForEntries([entry]);
     const fetchImpl = vi.fn(async (url: string) => {
-      if (url.includes('/search/issues')) throw new Error('search failed: secret-token');
+      if (url.includes('/issues?')) throw new Error('listing failed: secret-token');
       return new Response(null, { status: 204 });
     });
     const report = await dispatchLoopClock({
@@ -575,6 +615,22 @@ describe('loop clock observer', () => {
     expect(listRunsImpl).not.toHaveBeenCalled();
     expect(createIssueImpl).not.toHaveBeenCalled();
     expect(resolveIssueImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps a conditional entry inconclusive when the oldest issue date is unreadable', async () => {
+    const entry = { ...customEntry('conditional-unknown-date'), everyMinutes: 10, condition: 'untriaged-issues' };
+    const { report, createIssueImpl, resolveIssueImpl, listRunsImpl } = await observe([entry], [], {
+      untriagedIssuesImpl: async () => ({ count: 1, oldestCreatedAt: null }),
+    });
+    expect(report.results[0]).toMatchObject({
+      id: entry.id,
+      state: 'inconclusive',
+      reason: 'condition_oldest_created_at_missing',
+    });
+    expect(report.errors).toBe(1);
+    expect(listRunsImpl).not.toHaveBeenCalled();
+    expect(createIssueImpl).not.toHaveBeenCalled();
+    expect(resolveIssueImpl).not.toHaveBeenCalled();
   });
 
   // The dispatcher checks the condition on its own tick: an issue opened a

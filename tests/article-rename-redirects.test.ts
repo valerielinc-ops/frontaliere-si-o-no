@@ -431,9 +431,10 @@ describe('cross-source redirect chains (PR #5537 review round 1)', () => {
   });
 
   it('reads the real map without hitting either guard', () => {
-    // 183 on the current main baseline, including the six redirects added
-    // after the original #8730 canary was recorded.
-    expect(Object.keys(HARDCODED).length).toBe(183);
+    // 195 on the current main baseline, including the six redirects added
+    // after the original #8730 canary was recorded and the twelve
+    // upstream-aborted article bridges declared by issue 11916.
+    expect(Object.keys(HARDCODED).length).toBe(195);
   });
 });
 

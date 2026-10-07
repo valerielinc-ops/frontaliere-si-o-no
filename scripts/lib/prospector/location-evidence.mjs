@@ -178,7 +178,7 @@ function isSwissCountry(value) {
   return Boolean(country && [...SWISS_COUNTRY_LABELS].some((label) => hasToken(country, label)));
 }
 
-function isExplicitlyForeign(value, addressCountry = '') {
+export function isExplicitlyForeign(value, addressCountry = '') {
   const country = String(addressCountry || '').trim();
   if (country && !isSwissCountry(country)) return true;
   if (hasOnlyExplicitForeignCountry(value)) return true;
@@ -201,10 +201,17 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const evidence = /** @type {any} */ (value && typeof value === 'object'
     ? value
     : { location: value, addressCountry });
+  const structuredLocationInput = Boolean(value && typeof value === 'object');
   const location = String(evidence.location || evidence.addressLocality || '').replace(/\s+/g, ' ').trim();
   const country = String(evidence.addressCountry || evidence.country || addressCountry || '').trim();
   const addressLocality = String(evidence.addressLocality || '').replace(/\s+/g, ' ').trim();
   const addressRegion = String(evidence.addressRegion || '').replace(/\s+/g, ' ').trim();
+  // Swiss Post localities are finer-grained than BFS communes (for example
+  // `Le Lignon`, 1219, belongs to GE but is not a commune). They are safe
+  // source evidence only when the vacancy also carries the postal pair; a
+  // bare locality remains fail-closed so prose cannot become geography.
+  const hasPostalAddressEvidence = Boolean(String(evidence.postalCode || '').trim())
+    || /(?:^|\D)(?:CH[\s-]?)?\d{4}(?:\D|$)/.test(location);
   if (!location) return null;
   // Municipality names have international homonyms (e.g. Provence VD). An
   // explicit terminal country segment from the source outranks that fuzzy
@@ -226,12 +233,48 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const locality = addressLocality || withoutCodes.split(/[,;/|]/)[0]
     .replace(/\b(?:switzerland|schweiz|suisse|svizzera|svizra)\b\s*$/i, '')
     .trim();
-  const municipalityCantons = swissMunicipalityCantons(locality);
+  // A bare Zürich plus a postal code still lacks a source-backed target-canton
+  // signal when the source did not provide an explicit locality or country.
+  // Reject it before the official-locality branch can treat the country-wide
+  // registry hit as sufficient evidence.
+  if (hasPostalAddressEvidence && !addressLocality && !country
+    && normalizeSwissTargetLocationText(location) === 'zurich') return null;
+  const municipalityCantons = swissMunicipalityCantons(locality, {
+    includeOfficialLocalities: hasPostalAddressEvidence,
+  });
   if (!explicitCanton && municipalityCantons.length > 1) return null;
   if (explicitCanton && addressLocality
-    && !isKnownSwissMunicipalityInCanton(addressLocality, explicitCanton)) return null;
-  const canton = explicitCanton || inferSwissTargetCanton(withoutCodes);
-  if (!canton || (!explicitCanton && !isCantonRelevant(withoutCodes, canton, { includeBorderProximity: false }))) return null;
+    && !isKnownSwissMunicipalityInCanton(addressLocality, explicitCanton, {
+      allowOfficialLocality: hasPostalAddressEvidence,
+    })) return null;
+  const localityCanton = !explicitCanton && municipalityCantons.length === 1
+    ? municipalityCantons[0]
+    : '';
+  // `swissMunicipalityCantons` is country-wide. Keep the target-canton guard
+  // on this inferred path instead of treating a unique registry hit as proof
+  // that the source location belongs to the configured funnel. The resolver
+  // has one relevance path; structured postal evidence only broadens the
+  // official-locality tokens accepted by `isCantonRelevant`.
+  const localityIsRelevant = localityCanton && isCantonRelevant(locality, localityCanton, {
+    includeBorderProximity: false,
+    includeOfficialLocality: hasPostalAddressEvidence,
+  });
+  if (localityCanton && !localityIsRelevant) return null;
+  // A bare canton label is not enough source-backed locality evidence: unlike
+  // a named municipality such as Winterthur, it can describe a broad region.
+  // Keep an explicit country or postal pair as the stronger source signal.
+  // `locationCodes` may strip a non-geographic employer suffix such as HQ,
+  // HO or EP before deriving `locality`; only the exact bare source value is
+  // the ambiguous canton-only case, not a decorated workplace label.
+  if (localityCanton && !structuredLocationInput && !country && !hasPostalAddressEvidence && !isSwissCountry(location)
+    && localityCanton === 'ZH' && normalizeSwissCantonCode(locality) === localityCanton
+    && normalizeSwissTargetLocationText(location) === normalizeSwissTargetLocationText(locality)) return null;
+  const canton = explicitCanton || localityCanton || inferSwissTargetCanton(withoutCodes);
+  if (!canton || (!explicitCanton && !localityIsRelevant
+    && !isCantonRelevant(withoutCodes, canton, {
+      includeBorderProximity: false,
+      includeOfficialLocality: hasPostalAddressEvidence,
+    }))) return null;
   const geography = { location, canton };
   if (country) geography.addressCountry = country;
   return geography;

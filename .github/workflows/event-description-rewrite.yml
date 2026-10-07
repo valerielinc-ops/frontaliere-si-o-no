@@ -259,7 +259,7 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_max_concurrency: '1'
-          broker_max_timeout_ms: '180000'
+          broker_max_timeout_ms: '120000'
 
       - name: Rewrite deterministic shard
         if: steps.input.outputs.has_input == 'true'
@@ -273,9 +273,11 @@ jobs:
             --limit "$EVENTS_PER_SHARD"
             --shard-count "$EFFECTIVE_SHARDS"
             --shard-index "$EVENT_DESCRIPTION_SHARD_INDEX"
+            --batch-size 4
             --max-input-chars 50000
-            --max-total-input-chars 150000
+            --max-total-input-chars 300000
             --max-attempts 3
+            --timeout-ms 120000
             --circuit-breaker-threshold "$CIRCUIT_BREAKER_THRESHOLD"
             --output-cache "$RUNNER_TEMP/event-description-shard/cache.json"
             --stats-output "$RUNNER_TEMP/event-description-shard/stats.json"
@@ -380,7 +382,7 @@ jobs:
               const duration = (Number(s.durationMs || 0) / 1000).toFixed(1);
               const rejectionCodes = Object.entries(s.rejectionCodes || {}).map(([code, count]) => `${code}: ${count}`).join(", ") || "nessuno";
               const days = s.estimatedDaysRemaining == null ? "n/d (nessuna accettazione)" : `${s.estimatedDaysRemaining}`;
-              appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Event description throughput\n\n- Piano: ${s.effectiveShards} shard × ${s.eventsPerShard} eventi/shard (${s.direction}: ${s.planReason})\n- Accettate: ${s.accepted}\n- Rifiuti: ${s.rejected} (${rejectionCodes})\n- Chiamate: ${s.calls}; retry: ${s.retries}; errori quota: ${s.quotaErrors}; timeout broker: ${s.timeoutErrors}; circuit breaker: ${s.circuitBreakerTrips}\n- Durata: ${duration}s\n- Coda residua stimata: ${s.queueRemaining}; giorni residui stimati a ${s.acceptedPerDay}/giorno: ${days}\n`);
+              appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Event description throughput\n\n- Piano: ${s.effectiveShards} shard × ${s.eventsPerShard} eventi/shard (${s.direction}: ${s.planReason})\n- Accettate: ${s.accepted} (fallback fattuale: ${s.acceptedByFallback || 0})\n- Rifiuti: ${s.rejected} (${rejectionCodes})\n- Chiamate: ${s.calls}; retry: ${s.retries}; tentativi evento medi: ${s.eventAttemptsPerSelected || 0}; timeout broker: ${s.timeoutErrors}; circuit breaker: ${s.circuitBreakerTrips}\n- Durata: ${duration}s; millisecondi osservati per accettata: ${s.observedMsPerAccepted || 0}\n- Coda residua stimata: ${s.queueRemaining}; giorni residui stimati a ${s.acceptedPerDay}/giorno: ${days}\n`);
             ' "$RUNNER_TEMP/event-description-rewrite-stats.json"
           fi
 
@@ -407,7 +409,7 @@ jobs:
           ACCEPTED: ${{ steps.merge.outputs.accepted }}
         run: |
           set -euo pipefail
-          : "${GITHUB_PAT_NANAKO:?GITHUB_PAT_NANAKO was not loaded from Remote Config}"
+          : "${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
           stats="$RUNNER_TEMP/event-description-rewrite-stats.json"
           body="$RUNNER_TEMP/event-description-rewrite-pr-body.md"
           # shellcheck disable=SC2016 # These ${...} expressions are JavaScript template literals.
@@ -424,7 +426,7 @@ jobs:
               `- Cadenza oraria con ${s.effectiveShards} shard paralleli effettivi e tetto ${s.eventsPerShard} eventi per shard; gli eventi sono partizionati in modo disgiunto ed esaustivo per hash stabile dell\u0027id, mantenendo l\u0027ordinamento per prossimità temporale e priorità TI/GR/VS/ZH.`,
               `- Ogni shard usa il proprio broker Codex seriale e pubblica solo un delta di cache nell\u0027artifact privato; il job finale unisce i delta in modo deterministico e idempotente, riassembla il dataset, esegue validate:event-descriptions e apre una sola PR dati.`,
               `- Il broker riconosce quota/rate-limit, timeout e indisponibilità transitoria: applica backoff esponenziale, apre il circuit breaker per shard al superamento della soglia quota o dopo errori transienti ripetuti e chiude verde conservando quanto prodotto; il piano successivo scende dopo errori quota e risale gradualmente senza errori.`,
-              `- Run reale: ${s.accepted} accettate, ${s.rejected} rifiuti (${rejectionCodes}), ${s.calls} chiamate, ${s.retries} retry, ${s.quotaErrors} errori quota, durata ${duration}s; coda residua ${s.queueRemaining}, stima ${days} giorni a ${s.acceptedPerDay}/giorno.`,
+              `- Run reale: ${s.accepted} accettate (${s.acceptedByFallback || 0} fallback fattuali), ${s.rejected} rifiuti (${rejectionCodes}), ${s.calls} chiamate, ${s.retries} retry, tentativi evento medi ${s.eventAttemptsPerSelected || 0}, ${s.quotaErrors} errori quota, durata ${duration}s; coda residua ${s.queueRemaining}, stima ${days} giorni a ${s.acceptedPerDay}/giorno.`,
               "",
               "## Non implementato (ancora)",
               "- Parametro Remote Config aggiuntivo: per scelta: rinviato per non toccare il loader del corpus in parallelo a un altro lavoro. Motivo: il loader è già oggetto di un lavoro concorrente nel corpus. Prossimo passo: mantenerlo fuori da questa PR e riesaminarlo solo dopo il riallineamento del loader.",
@@ -432,7 +434,7 @@ jobs:
             writeFileSync(process.argv[2], `${body}\n`);
           ' "$stats" "$body"
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
-          GH_TOKEN="$GITHUB_PAT_NANAKO" bash scripts/lib/open-data-refresh-pr.sh \
+          GH_TOKEN="$GITHUB_PAT" bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \
             --path data/events-description-rewrites.json \
             --path data/events.json \

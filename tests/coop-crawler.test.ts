@@ -29,6 +29,7 @@ import {
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
   fetchCoopDetailPage,
+  resolveCoopJsonLdGeography,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
   withoutRepublishedCoopVacancies,
@@ -93,6 +94,7 @@ describe('Coop authoritative detail routing', () => {
     expect(resolveCoopCantonCode('Graubünden', '', '')).toBe('GR');
     expect(resolveCoopCantonCode('Nidwaldo', '', '')).toBe('NW');
     expect(resolveCoopCantonCode('', 'Chur', '')).toBe('GR');
+    expect(resolveCoopCantonCode('Basel-Stadt', 'Region Muri AG', 'BS')).toBe('AG');
     expect(resolveCoopCantonCode('Principato del Liechtenstein', '', '')).toBe('');
   });
 
@@ -917,6 +919,19 @@ describe('titleOverlap — Coop titles', () => {
 // ──────────────────────────────────────────────────────────────
 
 describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
+  it('rejects a location marker when JSON-LD explicitly declares a foreign country', () => {
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'DE',
+    })).toBeNull();
+
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'CH',
+      addressRegion: 'BS',
+    })).toMatchObject({ location: 'Region Muri AG', canton: 'AG' });
+  });
+
   it('updates location and addressLocality when JSON-LD has different locality', () => {
     const job = {
       title: 'Verkaufsberater:in',
@@ -1066,6 +1081,37 @@ describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
     expect(updated.addressLocality).toBe('Region Muri AG');
     expect(updated.canton).toBe('AG');
     expect(updated.addressRegion).toBe('AG');
+  });
+
+  it('uses a source location marker over a conflicting structured region', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Region Muri AG',
+      addressLocality: 'Region Muri AG',
+      canton: 'BS',
+      addressRegion: 'BS',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Region Muri AG',
+          addressRegion: 'Basel-Stadt',
+          addressCountry: 'CH',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+
+    const { job: updated } = applyCoopJsonLdToJob(job, jsonLd);
+
+    expect(updated).toMatchObject({
+      location: 'Region Muri AG',
+      addressLocality: 'Region Muri AG',
+      canton: 'AG',
+      addressRegion: 'AG',
+    });
+    expect(jobLocationRedundancy(updated.location, updated.canton)?.conflict).toBeFalsy();
   });
 
   it('updates company when JSON-LD has a more specific store name', () => {
@@ -1322,6 +1368,26 @@ describe('Coop-family source-detail contract (#5253)', () => {
     });
     expect(result.location).not.toBe('Oberbüren');
     expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
+  });
+
+  it('keeps a source-owned regional marker when the listing region is stale', () => {
+    const listing = {
+      id: 'coop-regional-stable', companyKey: 'coop-ticino',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/test/66666666-6666-4666-8666-666666666666',
+      title: 'Verkäuferin Verkäufer', description: 'listing fallback',
+      location: 'Region Muri AG', addressLocality: 'Region Muri AG',
+      canton: 'BS', addressRegion: 'BS', addressCountry: 'CH', sourceLang: 'de',
+    };
+    const result = applyCoopSourceDetailToJob(
+      listing,
+      jsonLd(listing.title, 'Region Muri AG', 'Basel-Stadt'),
+    );
+
+    expect(result).toMatchObject({
+      location: 'Region Muri AG', addressLocality: 'Region Muri AG',
+      canton: 'AG', addressRegion: 'AG',
+    });
+    expect(jobLocationRedundancy(result.location, result.canton)?.conflict).toBeFalsy();
   });
 
   it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {

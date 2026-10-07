@@ -24,6 +24,10 @@ import {
   LOOP_CLOCK_ENTRIES,
   loopClockRunMarker,
 } from '../../functions/src/loopClockTable.js';
+import {
+  LOOP_CLOCK_ISSUES_PAGE_SIZE,
+  summarizeUntriagedIssues,
+} from '../../functions/src/loopClockIssueCondition.js';
 
 export const LOOP_CLOCK_HEALTH_ISSUE_PREFIX = 'Loop clock stale: ';
 export const LOOP_CLOCK_DOWN_ISSUE_TITLE = 'Loop clock is not dispatching';
@@ -161,16 +165,16 @@ function listDispatchRuns(repository, workflow, limit, windowMinutes = LOOP_CLOC
 
 /** Count of the untriaged issues and the creation time of the oldest one. */
 function untriagedIssues(repository) {
-  const query = `repo:${repository} is:issue is:open -label:agent:triaged`;
   const output = gh([
-    'api', '-X', 'GET', 'search/issues', '-f', `q=${query}`,
-    '-f', 'sort=created', '-f', 'order=asc', '-f', 'per_page=1',
-    '--jq', '{count: .total_count, oldestCreatedAt: (.items[0].created_at // null)}',
+    'api', '-X', 'GET', '--paginate', '--slurp', `repos/${repository}/issues`,
+    '-f', 'state=open', '-f', 'sort=created', '-f', 'direction=asc',
+    '-f', `per_page=${LOOP_CLOCK_ISSUES_PAGE_SIZE}`,
   ]);
-  const parsed = JSON.parse(output || 'null');
-  const count = Number(parsed?.count);
-  if (!Number.isFinite(count)) throw new Error('issue search response invalid');
-  return { count, oldestCreatedAt: parsed.oldestCreatedAt ?? null };
+  const pages = JSON.parse(output || 'null');
+  if (!Array.isArray(pages) || pages.some((page) => !Array.isArray(page))) {
+    throw new Error('issue listing response invalid');
+  }
+  return summarizeUntriagedIssues(pages.flat());
 }
 
 function issueTitle(entry) {
@@ -271,6 +275,11 @@ export async function runLoopClockHealth({
     if (condition.count === 0) {
       try { await resolveIssueImpl(issueTitle(entry), { workflow: LOOP_CLOCK_HEALTH_WORKFLOW }); } catch { errors += 1; }
       results.push({ id: entry.id, state: 'not_due', reason: 'no_untriaged_issues' });
+      continue;
+    }
+    if (!condition.oldestCreatedAt) {
+      errors += 1;
+      results.push({ id: entry.id, state: 'inconclusive', reason: 'condition_oldest_created_at_missing' });
       continue;
     }
     // The clock only owes a dispatch once an issue has waited a whole

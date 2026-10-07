@@ -193,6 +193,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'recover-prev-slugs.yml': [
     /Reconcile duplicate stable-id job records/u,
     /Backfill recoverable slugs/u,
+    /Decontaminate confirmed previousSlugs ownership/u,
     /Commit and push restored slices/u,
   ],
   'refresh-keyword-config.yml': [

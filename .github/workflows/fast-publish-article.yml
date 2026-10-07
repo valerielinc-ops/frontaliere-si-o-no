@@ -376,6 +376,8 @@ jobs:
           set -uo pipefail
           SUMMARY_PATH=/tmp/fast-publish/summary.json
           DIST_DIR=/tmp/fast-publish/dist
+          ARTICLE_CONTENT_REVISION="$(jq -er '.contentRevision // empty' "$SUMMARY_PATH")"
+          export ARTICLE_CONTENT_REVISION
           if [ "${{ inputs.section }}" = "svizzera" ]; then
             SHARD_SECTION="articolisvizzera"
           else
