@@ -653,7 +653,7 @@ step_push_cdn() {
   # applied inside each branch below (fail-closed): r2 → R2_* creds, pages →
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
-  stage=/tmp/cdn-stage
+  local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
@@ -678,6 +678,35 @@ step_push_cdn() {
   [ -d dist/og ]           && cp -r dist/og           "$stage/og"
   [ -d dist/data ]         && cp -r dist/data         "$stage/data"
   [ -d dist/assets ]       && cp -r dist/assets       "$stage/assets"
+  # The GA4 static page_view producer is identity-bearing. New HTML points at
+  # a content-addressed gtag-init-<hash>.js, while the stable alias keeps old
+  # HTML alive during cache convergence. Fail closed if either side is absent:
+  # publishing only a legacy or only an unversioned producer can recreate the
+  # D18 untagged page_view gap.
+  if [ ! -d "$stage/assets" ]; then
+    echo "::error::CDN asset stage is missing dist/assets and cannot publish the GA4 producer" >&2
+    return 1
+  fi
+  local gtag_html_references html_scan_status gtag_reference_count gtag_versioned_filename
+  gtag_html_references="$(grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\.js' dist | sort -u)"
+  html_scan_status=$?
+  if [ "$html_scan_status" -gt 1 ]; then
+    echo "::error::could not read generated HTML to resolve the current GA4 producer filename" >&2
+    return 1
+  fi
+  gtag_reference_count=0
+  if [ -n "$gtag_html_references" ]; then
+    gtag_reference_count="$(printf '%s\n' "$gtag_html_references" | wc -l | tr -d '[:space:]')"
+  fi
+  if [ "$gtag_reference_count" -ne 1 ]; then
+    echo "::error::generated HTML must reference exactly one content-addressed GA4 producer (found ${gtag_reference_count})" >&2
+    return 1
+  fi
+  gtag_versioned_filename="$gtag_html_references"
+  if [ ! -f "$stage/assets/gtag-init.js" ] || [ ! -f "$stage/assets/$gtag_versioned_filename" ]; then
+    echo "::error::CDN asset stage must contain gtag-init.js and the current HTML producer $gtag_versioned_filename" >&2
+    return 1
+  fi
   # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
   # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
   # HTML ref to rewrite, so the offload script just deletes dist/job-canon
