@@ -27,13 +27,18 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
 // a replay" and stays equal to the push trigger, this one answers "which
 // change makes a replay already in flight stale". The freshness test keeps it
 // complete from both ends: every script the publishing steps of the workflow
-// invoke must be listed here, and every file esbuild reads for a published
-// chunk must be covered by one of the two lists.
+// invoke to write an object must be listed here, and every file esbuild reads
+// for a published chunk must be covered by one of the two lists.
+//
+// The cache purge those steps issue is left out. It evicts edge keys and
+// stores nothing, so an older copy of it cannot leave older bytes at the
+// edge; and no script may name the purge script without its targeted flag
+// (tests/cf-zone-purge-blast-radius.test.ts). The freshness test names that
+// one exclusion and fails once the workflow stops invoking it.
 export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/publish-article-chunks.mjs',
   'scripts/publish-edge-files.mjs',
   'scripts/lib/upload-cdn-file.sh',
-  'scripts/cf-purge-cache.mjs',
 ]);
 
 export const PUBLISH_SOURCE_VERDICTS = Object.freeze({
