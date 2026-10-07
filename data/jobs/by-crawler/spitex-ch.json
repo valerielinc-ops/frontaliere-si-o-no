@@ -1594,8 +1594,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
         "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-2027-spitex-baretswil",
-        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
-        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
+        "en": "apprenticeship-as-a-specialist-in-health-fage-efz-2027-spitex-baretswil-baretswil",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-2027-spitex-baretswil-baretswil"
       },
       "company": "Spitex Bäretswil",
       "companyKey": "spitex-ch",
@@ -1645,6 +1645,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
         ]
       },
       "previousSlugs": [
@@ -1671,8 +1677,8 @@
       "slugByLocale": {
         "de": "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
         "it": "fachverantwortung-familienhilfe-e-hauswirtschaft-60-80-spitex-region-lenzburg",
-        "en": "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
-        "fr": "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
+        "en": "professional-responsibility-family-help-and-housekeeping-60-80-spitex-region-lenzburg-lenzburg",
+        "fr": "responsabilite-professionnelle-aide-familiale-et-menage-60-80-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -1721,6 +1727,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
+        ],
+        "en": [
+          "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
+        ],
+        "fr": [
           "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
         ]
       },
@@ -1825,8 +1837,8 @@
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
         "it": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
-        "en": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-burgdorf-oberburg-burgdorf",
-        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-burgdorf-oberburg-burgdorf"
+        "en": "certified-nurse-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+        "fr": "infirmiere-agreee-hf-fh-h-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
       },
       "company": "Spitex Burgdorf-Oberburg",
       "companyKey": "spitex-ch",
@@ -1882,10 +1894,10 @@
           "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
         ],
         "en": [
-          "certified-nurse-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-burgdorf-oberburg-burgdorf"
         ],
         "fr": [
-          "infirmiere-agreee-hf-fh-h-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-burgdorf-oberburg-burgdorf"
         ]
       },
       "previousSlugs": [
@@ -1895,7 +1907,8 @@
         "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
         "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
         "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",
-        "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf"
+        "infirmiere-agreee-hf-fh-h-f-d-60-90-dans-l-equipe-de-demence-spitex-burgdorf-oberburg-burgdorf",
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-burgdorf-oberburg-burgdorf"
       ],
       "salaryMin": 76500,
       "salaryMax": 107100,

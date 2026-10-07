@@ -52,7 +52,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-development-troubleshooter-roche-ch",
-        "developpement-du-systeme-depanneur-roche-rotkreuz",
         "system-development-troubleshooter-roche-rotkreuz"
       ],
       "previousSlugsByLocale": {
@@ -60,7 +59,6 @@
           "system-development-troubleshooter-roche-ch"
         ],
         "fr": [
-          "developpement-du-systeme-depanneur-roche-rotkreuz",
           "system-development-troubleshooter-roche-rotkreuz"
         ]
       },
@@ -9519,12 +9517,12 @@
     },
     {
       "id": "roche-c69cfa4d1d5e",
-      "slug": "post-doctorate-scientist-roche-ch",
+      "slug": "ricerca-post-dottorato-roche-basel",
       "slugByLocale": {
         "en": "post-doctorate-scientist-roche-ch",
-        "it": "post-doctorate-scientist-roche-ch",
-        "de": "post-doctorate-scientist-roche-ch",
-        "fr": "post-doctorate-scientist-roche-ch"
+        "it": "ricerca-post-dottorato-roche-basel",
+        "de": "postdoktorandin-roche-basel",
+        "fr": "chercheur-postdoctorant-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9582,7 +9580,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-06T21:12:46.086Z"
+      "firstSeenAt": "2026-10-06T21:12:46.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "post-doctorate-scientist-roche-ch"
+        ],
+        "de": [
+          "post-doctorate-scientist-roche-ch"
+        ],
+        "fr": [
+          "post-doctorate-scientist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "post-doctorate-scientist-roche-ch"
+      ]
     },
     {
       "id": "roche-daeba837ed5d",
@@ -9662,12 +9674,12 @@
     },
     {
       "id": "roche-3e8cc88d3763",
-      "slug": "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch",
+      "slug": "programma-di-regolamentazione-per-lo-sviluppo-di-un-prodotto-pdr-et-basel-2-anni-roche-basel",
       "slugByLocale": {
         "en": "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch",
-        "it": "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch",
+        "it": "programma-di-regolamentazione-per-lo-sviluppo-di-un-prodotto-pdr-et-basel-2-anni-roche-basel",
         "de": "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch",
-        "fr": "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch"
+        "fr": "programme-de-reglementation-du-developpement-d-un-produit-pdr-premiers-talents-et-bale-2-ans-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9725,7 +9737,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-06T21:12:43.757Z"
+      "firstSeenAt": "2026-10-06T21:12:43.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch"
+        ],
+        "fr": [
+          "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "one-product-development-regulatory-pdr-early-talent-et-program-basel-2-years-roche-ch"
+      ]
     },
     {
       "id": "roche-df46df1d8e6d",
@@ -9734,7 +9757,7 @@
         "de": "asset-lead-solids-roche-ch",
         "it": "asset-lead-solids-roche-ch",
         "en": "asset-lead-solids-roche-ch",
-        "fr": "asset-lead-solids-roche-ch"
+        "fr": "biens-solides-en-plomb-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",

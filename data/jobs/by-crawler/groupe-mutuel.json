@@ -1245,7 +1245,7 @@
       "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
       "slugByLocale": {
         "it": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
-        "en": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+        "en": "computer-operator-apprentice-m-f-100-groupe-mutuel-martigny",
         "de": "apprenti-computer-operator-m-w-100-groupe-mutuel-martigny",
         "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
       },
@@ -1272,6 +1272,9 @@
           "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
         ],
         "de": [
+          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+        ],
+        "en": [
           "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
         ]
       },
@@ -2498,11 +2501,11 @@
         "en": "Medical assistant - Temporary 12 months (m/f) 100%",
         "fr": "Assistant médical - Temporaire 12 mois (h/f) 100%"
       },
-      "slug": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel",
+      "slug": "assistente-medico-temporary-12-mesi-m-f-100-groupe-mutuel-sion",
       "slugByLocale": {
-        "fr": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel",
-        "en": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel",
-        "it": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel",
+        "fr": "assistant-medical-temporaire-12-mois-h-f-100-groupe-mutuel-sion",
+        "en": "medical-assistant-temporary-12-months-m-f-100-groupe-mutuel-sion",
+        "it": "assistente-medico-temporary-12-mesi-m-f-100-groupe-mutuel-sion",
         "de": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
       },
       "category": "general",
@@ -2538,7 +2541,21 @@
       "postalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T21:13:30.811Z"
+      "firstSeenAt": "2026-10-06T21:13:30.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+        ],
+        "en": [
+          "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+        ],
+        "fr": [
+          "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+      ]
     }
   ]
 }

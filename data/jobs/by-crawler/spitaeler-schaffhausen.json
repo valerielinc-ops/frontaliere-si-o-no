@@ -2929,9 +2929,9 @@
     },
     {
       "id": "spitaeler-schaffhausen-ea282489a3fc",
-      "slug": "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen",
+      "slug": "medico-quadro-con-funzione-speciale-mbf-medicina-d-urgenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen",
+        "it": "medico-quadro-con-funzione-speciale-mbf-medicina-d-urgenza-spitaler-schaffhausen-schaffhausen",
         "en": "cadre-doctor-with-special-function-mbf-emergency-medicine-spitaler-schaffhausen-schaffhausen",
         "de": "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen",
         "fr": "medecin-cadre-avec-une-fonction-speciale-mbf-medecine-d-urgence-spitaler-schaffhausen-schaffhausen"
@@ -2991,13 +2991,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-a61cc2160624",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion",
+      "slug": "infermiere-diplomato-infermiere-sss-psichiatria-a-lungo-termine-con-funzione-aggiuntiva-responsabilita-specialistica",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion",
+        "it": "infermiere-diplomato-infermiere-sss-psichiatria-a-lungo-termine-con-funzione-aggiuntiva-responsabilita-specialistica",
         "en": "qualified-nurse-nurse-hf-long-term-psychiatry-with-additional-function-specialist-responsibility-for-nursing-spitaler",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion",
         "fr": "dipl-infirmiere-infirmier-es-psychiatrie-a-long-terme-avec-fonction-supplementaire-responsabilite-professionnelle-des"
@@ -3057,7 +3065,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-618de425e6bd",
