@@ -118,6 +118,42 @@ describe('article corpus overlay mode', () => {
     }
   });
 
+  it('la ricerca si ferma al cambio più recente e non guarda prima della finestra', () => {
+    // Nel clone di CI, senza blob, ogni commit visitato dal pickaxe è uno
+    // scaricamento: la storia intera del registro vale migliaia di richieste.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-id-window-'));
+    const registryPath = path.join(root, 'content/routerBlogData.ts');
+    const commitAt = (epoch: number, message: string, content: string) => {
+      fs.writeFileSync(registryPath, content);
+      const env = { ...process.env, GIT_AUTHOR_DATE: `@${epoch} +0000`, GIT_COMMITTER_DATE: `@${epoch} +0000` };
+      execFileSync('git', ['-C', root, 'add', 'content/routerBlogData.ts'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'commit', '-m', message], { stdio: 'ignore', env });
+    };
+    const now = 1_791_400_000;
+    const day = 24 * 60 * 60;
+    try {
+      fs.mkdirSync(path.dirname(registryPath), { recursive: true });
+      execFileSync('git', ['-C', root, 'init', '--initial-branch=main'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'config', 'user.email', 'fixture@example.invalid'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'config', 'user.name', 'fixture'], { stdio: 'ignore' });
+      commitAt(now - 10 * day, 'old', "export const BLOG_SLUGS = { 'old-article': { it: 'old-article' } };\n");
+      commitAt(
+        now - 3600,
+        'recent',
+        "export const BLOG_SLUGS = { 'old-article': { it: 'old-article' }, 'recent-article': { it: 'recent-article' } };\n",
+      );
+      const since = now - 2 * day;
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'recent-article', { sinceEpochSeconds: since })).toBe(now - 3600);
+      // Fuori dalla finestra: più vecchio di tutto ciò che il chiamante tollera.
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'old-article', { sinceEpochSeconds: since })).toBe(since - 1);
+      // Senza finestra la ricerca resta completa.
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'old-article')).toBe(now - 10 * day);
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'never-seen')).toBeNull();
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('toglie indice e bridge quando il registro dichiara un’immagine ma l’HTML usa il fallback generico', () => {
     const result = filterEntriesByImagePostcondition({
       entries: [

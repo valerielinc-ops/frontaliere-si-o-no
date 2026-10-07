@@ -584,7 +584,11 @@ export async function checkCorpusFreshness(
   for (const id of [...missingIds, ...unpublishedIds]) {
     if (Object.prototype.hasOwnProperty.call(driftTimestamps, id) || !corpusCheckoutDir) continue;
     try {
-      driftTimestamps[id] = corpusArticleChangeTimestamp(corpusCheckoutDir, section, id);
+      // Twice the tolerated age: enough to tell a recent handoff from a
+      // stale one, without walking the whole registry history.
+      driftTimestamps[id] = corpusArticleChangeTimestamp(corpusCheckoutDir, section, id, {
+        sinceEpochSeconds: nowEpochSeconds - 2 * MAX_CORPUS_DRIFT_AGE_SECONDS,
+      });
     } catch {
       driftTimestamps[id] = null;
     }

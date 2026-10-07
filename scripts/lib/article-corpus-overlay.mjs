@@ -91,23 +91,26 @@ export function corpusRevisionFromCheckout(checkoutDir) {
  * membership in the current corpus registry. With the id present at HEAD this
  * is its latest introduction; with the id absent it is its latest retirement.
  * The hub freshness guard uses this timestamp to bound a no-publish handoff.
+ *
+ * The search is bounded on purpose. The CI clone has no blobs, and a pickaxe
+ * needs the registry at every commit it visits: over the whole history that is
+ * one lazy download per article ever generated. Only the newest change counts,
+ * and only inside the window the caller can still act on, so the walk stops at
+ * the first match and never looks before `sinceEpochSeconds`. A change that is
+ * not in the window is reported as one second before it: older than anything
+ * the caller tolerates, which is all it needs to know.
  */
-export function corpusArticleChangeTimestamp(checkoutDir, section, id) {
+export function corpusArticleChangeTimestamp(checkoutDir, section, id, { sinceEpochSeconds = null } = {}) {
   const registryPath = CORPUS_REGISTRY_FILES[section];
   if (!registryPath) throw new Error(`sezione corpus sconosciuta: ${section}`);
   const marker = `'${id}'`;
-  const timestamps = git(checkoutDir, [
-    'log',
-    '--first-parent',
-    '--format=%ct',
-    `-S${marker}`,
-    '--',
-    registryPath,
-  ])
-    .split('\n')
-    .map((value) => Number(value))
-    .filter((value) => Number.isFinite(value));
-  return timestamps[0] ?? null;
+  const bounded = Number.isFinite(sinceEpochSeconds);
+  const args = ['log', '--first-parent', '--max-count=1', '--format=%ct'];
+  if (bounded) args.push(`--since=${new Date(Math.floor(sinceEpochSeconds) * 1000).toISOString()}`);
+  args.push(`-S${marker}`, '--', registryPath);
+  const newest = Number(git(checkoutDir, args).split('\n')[0]);
+  if (Number.isFinite(newest) && newest > 0) return newest;
+  return bounded ? Math.floor(sinceEpochSeconds) - 1 : null;
 }
 
 export function prepareCorpusContentOverlay({
