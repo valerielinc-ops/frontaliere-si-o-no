@@ -118,7 +118,9 @@ export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup, { a
 
 // ── Workday ────────────────────────────────────────────────────────────────
 
-const WORKDAY_JOBS_HOST_RE = /^([a-z0-9-]+)\.wd\d+\.myworkdayjobs\.com$/;
+// The tenant as the first label of the host, on either of Workday's two domains (the channel's own pattern,
+// PORTALS, admits both), with or without the data centre («wd3»).
+const WORKDAY_TENANT_HOST_RE = /^([a-z0-9-]+)\.(?:wd\d+\.)?(?:myworkdayjobs|myworkdaysite)\.com$/;
 const WORKDAY_SITE_HOST_RE = /^wd\d+\.myworkdaysite\.com$/;
 const WORKDAY_LOCALE_RE = /^[a-z]{2}[-_][a-z]{2}$/i;
 const WORKDAY_TENANT_RE = /^[a-z0-9_-]+$/i;
@@ -129,6 +131,9 @@ const WORKDAY_TENANT_RE = /^[a-z0-9_-]+$/i;
  *   https://{tenant}.wdN.myworkdayjobs.com/[{locale}/]{site}/job/{…}
  *   https://wdN.myworkdaysite.com/[{locale}/]recruiting/{tenant}/{site}/job/{…}
  * and the JSON of both at https://{host}/wday/cxs/{tenant}/{site}/job/{…}.
+ * A host that names the tenant on myworkdaysite.com is read like the first
+ * (review of #12225): an address Workday does not serve answers nothing
+ * fetchWorkdayPosting reads, and the page is then read as before.
  * '' for any other address.
  */
 export function workdayPostingApiUrl(value) {
@@ -142,11 +147,14 @@ export function workdayPostingApiUrl(value) {
   const host = url.hostname.toLowerCase();
   const parts = url.pathname.split('/').filter(Boolean);
   if (WORKDAY_LOCALE_RE.test(parts[0] || '')) parts.shift();
-  let tenant = WORKDAY_JOBS_HOST_RE.exec(host)?.[1] || '';
-  // myworkdaysite.com names the tenant in the path, after «recruiting».
-  if (!tenant && WORKDAY_SITE_HOST_RE.test(host) && parts[0] === 'recruiting' && WORKDAY_TENANT_RE.test(parts[1] || '')) {
+  let tenant = '';
+  if (WORKDAY_SITE_HOST_RE.test(host)) {
+    // wdN.myworkdaysite.com names the tenant in the path, after «recruiting».
+    if (parts[0] !== 'recruiting' || !WORKDAY_TENANT_RE.test(parts[1] || '')) return '';
     tenant = parts[1];
     parts.splice(0, 2);
+  } else {
+    tenant = WORKDAY_TENANT_HOST_RE.exec(host)?.[1] || '';
   }
   if (!tenant) return '';
   // The apply steps of a posting («…/apply», «…/apply/applyManually») are not part of its address.

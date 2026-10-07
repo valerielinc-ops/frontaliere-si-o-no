@@ -439,6 +439,9 @@ describe('job posting fetch', () => {
       .toBe('https://wd502.myworkdaysite.com/wday/cxs/acme/Careers/job/Lugano/Verkaufsberater_R15163');
     expect(workdayPostingApiUrl('https://wd502.myworkdaysite.com/recruiting/acme/Careers/job/Verkaufsberater_R15163'))
       .toBe('https://wd502.myworkdaysite.com/wday/cxs/acme/Careers/job/Verkaufsberater_R15163');
+    // A host that names the tenant on myworkdaysite.com (the channel's pattern admits it) is read like the first.
+    expect(workdayPostingApiUrl('https://acme.myworkdaysite.com/Careers/job/Verkaufsberater_R15163'))
+      .toBe('https://acme.myworkdaysite.com/wday/cxs/acme/Careers/job/Verkaufsberater_R15163');
     // A career site's home, another portal, plain http: no posting of Workday's.
     for (const other of [
       'https://acme.wd3.myworkdayjobs.com/en-US/Careers', 'https://wd502.myworkdaysite.com/recruiting/acme/Careers', 'https://wd502.myworkdaysite.com/Careers/job/a/b',
