@@ -15,7 +15,6 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml');
 const DEPLOY_REF_EXPR = '${{ inputs.deploy_ref }}';
-const GUARD_PATH = '$RUNNER_TEMP/deploy-ref-skew-guard.sh';
 
 type Step = {
   name?: string;
@@ -69,23 +68,35 @@ function buildCheckoutJobs(): Array<[string, Job]> {
   );
 }
 
-function executableLines(run: string): Array<{ line: number; text: string }> {
-  return run.split('\n').flatMap((raw, index) => {
+function executableCommands(run: string): Array<{ line: number; text: string }> {
+  const commands: Array<{ line: number; text: string }> = [];
+  let current: { line: number; text: string } | undefined;
+  for (const [index, raw] of run.split('\n').entries()) {
     const text = raw.replace(/\s+#.*$/, '').trim();
-    return text && !text.startsWith('#') ? [{ line: index + 1, text }] : [];
-  });
+    if (!text || text.startsWith('#')) continue;
+    current = current
+      ? { line: current.line, text: `${current.text} ${text}` }
+      : { line: index + 1, text };
+    if (!text.endsWith('\\')) {
+      commands.push(current);
+      current = undefined;
+    }
+  }
+  if (current) commands.push(current);
+  return commands;
 }
 
 function directCalls(jobName: string, step: Step): DirectCall[] {
   if (typeof step.run !== 'string') return [];
   const calls: DirectCall[] = [];
-  for (const { line, text } of executableLines(step.run)) {
-    for (const match of text.matchAll(/\bnpm\s+run\s+([a-z0-9:_-]+)/g)) {
+  for (const { line, text } of executableCommands(step.run)) {
+    for (const match of text.matchAll(/\bnpm\s+run\s+("\$step_name"|[a-z0-9:_-]+)/g)) {
+      const target = match[1] === '"$step_name"' ? '$step_name' : match[1];
       calls.push({
         job: jobName,
         step: step.name ?? '(unnamed)',
         kind: 'npm',
-        target: match[1],
+        target,
         line,
         text,
       });
@@ -108,12 +119,25 @@ function exceptionKey(call: DirectCall): string {
   return [call.job, call.step, `${call.kind}:${call.target}`].join('\u0000');
 }
 
-function stepUsesGuard(step: Step): boolean {
-  return (
-    typeof step.run === 'string' &&
-    step.run.includes(`source "${GUARD_PATH}"`) &&
-    step.run.includes('build_skew_guard_run')
-  );
+function callUsesGuard(call: DirectCall, step: Step): boolean {
+  if (typeof step.run !== 'string') return false;
+  const loadsWorkflowGuard = step.run.includes('source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"');
+  if (call.text.includes('build_skew_guard_run')) return loadsWorkflowGuard;
+  if (
+    call.text.startsWith('run_validator ') &&
+    loadsWorkflowGuard &&
+    /run_validator\(\)[\s\S]*build_skew_guard_run/.test(step.run)
+  ) {
+    return true;
+  }
+  if (
+    call.text.startsWith('spawn_capped ') &&
+    loadsWorkflowGuard &&
+    /spawn_capped\(\)[\s\S]*build_skew_guard_run/.test(step.run)
+  ) {
+    return true;
+  }
+  return false;
 }
 
 function guardBlocks(): string[] {
@@ -142,7 +166,7 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
           const key = exceptionKey(call);
           if (DIRECT_CALL_EXCEPTIONS[key]) {
             seenExceptions.add(key);
-          } else if (!stepUsesGuard(step)) {
+          } else if (!callUsesGuard(call, step)) {
             unaccounted.push(call);
           }
         }
@@ -166,6 +190,12 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(guard).toContain('git show origin/main:package.json');
     expect(guard).toContain('git cat-file -e "origin/main:$target"');
     expect(guard).toContain('skipped-deploy_ref-drift');
+
+    const sourceStep = workflow.jobs?.['validate-dist-postbuild']?.steps?.find(
+      (step) => step.name === 'Run source validators (parallel — 4 vCPU)',
+    );
+    expect(sourceStep?.run).toContain('build_skew_guard_run "$kind" "$target" "$@"');
+    expect(sourceStep?.run).toContain('build_skew_guard_skip_row "$name" > "$RESDIR/$name"');
   });
 
   it('does not lose the source-validator calls from the census', () => {
@@ -226,13 +256,14 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         buildPackage: scenario.buildPackage,
         mainPackage: scenario.mainPackage,
         mainReadable: scenario.mainReadable,
-        commandExit: 7,
+        commandExit: scenario.expected.rc === 0 ? 0 : 7,
       });
       expect(result.rc, scenario.name).toBe(scenario.expected.rc);
       expect(result.skipped, scenario.name).toBe(scenario.expected.skipped);
       expect(result.ran, scenario.name).toBe(scenario.expected.ran);
       if (scenario.expected.skipped) {
         expect(result.stdout, scenario.name).toContain('(skipped-deploy_ref-drift)');
+        expect(result.stdout, scenario.name).toContain(`${scenario.target}(skipped-deploy_ref-drift)`);
       }
     }
   });
@@ -279,13 +310,14 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         buildFiles: scenario.buildFiles,
         mainFiles: scenario.mainFiles,
         mainReadable: scenario.mainReadable,
-        commandExit: 7,
+        commandExit: scenario.expected.rc === 0 ? 0 : 7,
       });
       expect(result.rc, scenario.name).toBe(scenario.expected.rc);
       expect(result.skipped, scenario.name).toBe(scenario.expected.skipped);
       expect(result.ran, scenario.name).toBe(scenario.expected.ran);
       if (scenario.expected.skipped) {
         expect(result.stdout, scenario.name).toContain('(skipped-deploy_ref-drift)');
+        expect(result.stdout, scenario.name).toContain(`${scenario.target}(skipped-deploy_ref-drift)`);
       }
     }
   });
@@ -344,6 +376,9 @@ function runGuardScenario(scenario: GuardScenario): {
       build_skew_guard_init
       build_skew_guard_run "$KIND" "$TARGET" sh -c 'printf ran > "$MARKER"; exit "$COMMAND_EXIT"'
       rc=$?
+      if [ "$BUILD_SKEW_GUARD_SKIPPED" -eq 1 ]; then
+        build_skew_guard_skip_row "$TARGET"
+      fi
       printf 'rc=%s skipped=%s\\n' "$rc" "$BUILD_SKEW_GUARD_SKIPPED"
     `;
     const child = spawnSync('/bin/bash', ['-c', shell], {
