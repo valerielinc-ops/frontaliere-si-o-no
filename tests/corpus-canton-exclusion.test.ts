@@ -123,4 +123,17 @@ describe('mirrorTree / countFiles with the canton exclusion', () => {
     expect(fs.existsSync(path.join(dst, 'stale.ts'))).toBe(false);
     expect(fs.existsSync(path.join(dst, '.git'))).toBe(true);
   });
+
+  it('deletes destination-only corpus-generated records so the pinned tree converges', () => {
+    const src = path.join(tmp, 'src');
+    const dst = path.join(tmp, 'dst');
+    write(src, 'routerBlogData.ts', 'new');
+    write(dst, 'routerBlogData.ts', 'old');
+    write(dst, 'image-credits/blog/retired.json');
+
+    mirrorTree(src, dst);
+
+    expect(fs.existsSync(path.join(dst, 'image-credits/blog/retired.json'))).toBe(false);
+    expect(fs.readFileSync(path.join(dst, 'routerBlogData.ts'), 'utf-8')).toBe('new');
+  });
 });
