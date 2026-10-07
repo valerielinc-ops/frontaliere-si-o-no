@@ -233,6 +233,12 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   const locality = addressLocality || withoutCodes.split(/[,;/|]/)[0]
     .replace(/\b(?:switzerland|schweiz|suisse|svizzera|svizra)\b\s*$/i, '')
     .trim();
+  // A bare Zürich plus a postal code still lacks a source-backed target-canton
+  // signal when the source did not provide an explicit locality or country.
+  // Reject it before the official-locality branch can treat the country-wide
+  // registry hit as sufficient evidence.
+  if (hasPostalAddressEvidence && !addressLocality && !country
+    && normalizeSwissTargetLocationText(location) === 'zurich') return null;
   const municipalityCantons = swissMunicipalityCantons(locality, {
     includeOfficialLocalities: hasPostalAddressEvidence,
   });
@@ -246,16 +252,13 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
     : '';
   // `swissMunicipalityCantons` is country-wide. Keep the target-canton guard
   // on this inferred path instead of treating a unique registry hit as proof
-  // that the source location belongs to the configured funnel.
-  const localityIsRelevant = localityCanton && (
-    isCantonRelevant(locality, localityCanton, {
-      includeBorderProximity: false,
-      includeOfficialLocality: hasPostalAddressEvidence,
-    })
-    || (hasPostalAddressEvidence && isKnownSwissMunicipalityInCanton(locality, localityCanton, {
-      allowOfficialLocality: true,
-    }))
-  );
+  // that the source location belongs to the configured funnel. The resolver
+  // has one relevance path; structured postal evidence only broadens the
+  // official-locality tokens accepted by `isCantonRelevant`.
+  const localityIsRelevant = localityCanton && isCantonRelevant(locality, localityCanton, {
+    includeBorderProximity: false,
+    includeOfficialLocality: hasPostalAddressEvidence,
+  });
   if (localityCanton && !localityIsRelevant) return null;
   // A bare canton label is not enough source-backed locality evidence: unlike
   // a named municipality such as Winterthur, it can describe a broad region.
@@ -263,12 +266,6 @@ export function resolveSourceBackedSwissGeography(value, addressCountry = '') {
   // `locationCodes` may strip a non-geographic employer suffix such as HQ,
   // HO or EP before deriving `locality`; only the exact bare source value is
   // the ambiguous canton-only case, not a decorated workplace label.
-  // A bare `Zürich` plus a postal code but without an explicit locality or
-  // country still lacks a source-backed target-canton signal. Keep that
-  // partial structured shape fail-closed; a caller with an explicit locality
-  // (as Pictet supplies) remains eligible.
-  if (hasPostalAddressEvidence && !addressLocality && !country
-    && normalizeSwissTargetLocationText(location) === 'zurich') return null;
   if (localityCanton && !structuredLocationInput && !country && !hasPostalAddressEvidence && !isSwissCountry(location)
     && localityCanton === 'ZH' && normalizeSwissCantonCode(locality) === localityCanton
     && normalizeSwissTargetLocationText(location) === normalizeSwissTargetLocationText(locality)) return null;

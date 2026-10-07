@@ -2030,6 +2030,7 @@ describe('production spec runtime', () => {
   it('accetta solo geografia svizzera estratta dalla sorgente', () => {
     expect(resolveSourceBackedSwissGeography('  Winterthur  ')).toEqual({ location: 'Winterthur', canton: 'ZH' });
     expect(resolveSourceBackedSwissGeography('Zürich')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({ location: 'Zürich', postalCode: '8000' })).toBeNull();
     expect(resolveSourceBackedSwissGeography({ location: 'Zürich', addressLocality: 'Zürich' }))
       .toMatchObject({ location: 'Zürich', canton: 'ZH' });
     for (const [locality, postalCode, canton] of [
