@@ -3,13 +3,13 @@ import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Frag
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams, getLocale, t as translate } from '@/services/i18n';
-import { fetchArticleOverlay, mergeOverlay } from '@/services/articlesOverlay';
+import { fetchArticleOverlay, mergeOverlay, type OverlayArticle } from '@/services/articlesOverlay';
 import { articleCoverImageLd, creditedStaticImageObject, fetchImageCredit, fetchImageCredits } from '@/services/imageCredits';
 import type { ImageCreditRecord } from '@/packages/articles/engine/shared/imageCredits.mjs';
 import ImageCreditLine from '@/components/community/ImageCreditLine';
 import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody, publishedSlugsForIds } from '@/services/runtimeArticleResolution';
 import type { Locale } from '@/services/i18n';
-import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs } from '@/services/router';
+import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, learnRuntimeCantonSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
 import {
@@ -19,7 +19,9 @@ import {
 } from '@/packages/articles/engine/shared/normalizeArticleMarkdown';
 import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes';
 import type { BlogArticleId, AppRoute } from '@/services/router';
-import type { HistoricalArticleSection } from '@/services/articleSections';
+import type { ArticleSection } from '@/services/articleSections';
+import { cantonSectionConfig, isCantonArticleSection } from '@/services/runtimeArticleSections';
+import { cantonDisplayName, cantonSectionLabel } from '@/packages/articles/engine/shared/cantonSectionCopy.mjs';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
@@ -122,7 +124,8 @@ interface TrendingEntry { id: string; views: number; lastViewed: number }
 const TRENDING_CACHE_KEY = 'blog_trending_cache';
 const TRENDING_CACHE_TTL = 60 * 60 * 1000; // 1 hour
 
-async function fetchTrendingArticles(validIds: Set<string>, section: 'frontaliere' | 'svizzera' = 'frontaliere'): Promise<TrendingEntry[]> {
+async function fetchTrendingArticles(validIds: Set<string>, section: ArticleSection = 'frontaliere'): Promise<TrendingEntry[]> {
+ if (isCantonArticleSection(section)) return [];
  const cacheKey = section === 'svizzera' ? `${TRENDING_CACHE_KEY}_ch` : TRENDING_CACHE_KEY;
  const trendingFile = section === 'svizzera' ? '/article-trending-ch.json' : '/article-trending.json';
  // Check localStorage cache first
@@ -1163,6 +1166,41 @@ import { ARTICLES } from '@/data/blog-articles-data';
 
 export { ARTICLES };
 
+const ARTICLE_CATEGORIES = new Set<Article['category']>(['fiscale', 'pratico', 'novita', 'pensione']);
+
+/** Convert the corpus' runtime index row into the shape used by the shared UI. */
+function articleFromOverlay(entry: OverlayArticle): Article {
+ const category = ARTICLE_CATEGORIES.has(entry.category as Article['category'])
+  ? entry.category as Article['category']
+  : 'novita';
+ return {
+  id: entry.id,
+  category,
+  date: entry.date || '',
+  ...(entry.updatedAt ? { updatedAt: entry.updatedAt } : {}),
+  image: entry.image || '/images/places/lugano.webp',
+  hasCalculator: entry.hasCalculator === true,
+  ...(entry.articleType ? { articleType: entry.articleType } : {}),
+  ...(entry.authorSlug ? { authorSlug: entry.authorSlug } : {}),
+  ...(entry.canton ? { canton: entry.canton } : {}),
+ };
+}
+
+function mergeArticleRecords(primary: readonly Article[], additions: readonly Article[]): Article[] {
+ const known = new Set(primary.map(article => article.id));
+ return [...primary, ...additions.filter(article => !known.has(article.id))];
+}
+
+function cantonSectionSubtitle(section: ArticleSection, locale: Locale): string {
+ const name = cantonDisplayName(section, locale);
+ return {
+  it: `${name}: notizie e guide su lavoro, fisco, mobilità, eventi, pensioni e servizi`,
+  en: `${name}: news and guides on work, taxes, mobility, events, pensions and services`,
+  de: `${name}: Nachrichten und Ratgeber zu Arbeit, Steuern, Mobilität, Veranstaltungen, Renten und Dienstleistungen`,
+  fr: `${name} : actualités et guides sur le travail, la fiscalité, la mobilité, les événements, les retraites et les services`,
+ }[locale];
+}
+
 // FRO-314: Dynamic import — blog-articles-data (122KB) is loaded asynchronously
 // so it doesn't block the BlogArticles chunk parse/execute time on mobile.
 // The component renders a skeleton until the data is ready.
@@ -1171,17 +1209,19 @@ const CATEGORIES = ['all', 'fiscale', 'pratico', 'novita', 'pensione'] as const;
 
 interface BlogArticlesProps {
  /** Currently selected article (from URL) — null means list view */
- selectedArticle?: BlogArticleId | null;
+ selectedArticle?: string | null;
  /** Navigate to an individual article (updates URL) */
- onSelectArticle?: (articleId: BlogArticleId | null) => void;
+ onSelectArticle?: (articleId: string | null) => void;
  /**
-  * Which article section to render: the cross-border hub (`frontaliere`,
-  * default) or the Switzerland-wide mirror (`svizzera`). Drives the registry,
-  * body directory, meta chunk and URL the shared component reads. Only the
-  * two historical sections: the SPA has no canton-section view (canton
-  * sections are prerendered pages served from R2).
+  * Which article section to render. Canton sections use the same registry,
+  * list, body recovery and interactive detail surface as the two historical
+  * sections; their published data remains corpus-owned and runtime-loaded.
   */
- section?: HistoricalArticleSection;
+ section?: ArticleSection;
+ /** One-based archive page supplied by the URL, when present. */
+ page?: number;
+ /** Persist archive pagination in the URL. */
+ onPageChange?: (page: number) => void;
 }
 
 /* CTA widget config */
@@ -1280,11 +1320,17 @@ function BlogArticles({
  selectedArticle = null,
  onSelectArticle,
  section = 'frontaliere',
+ page,
+ onPageChange,
 }: BlogArticlesProps) {
- // Build the route for an article in the active section (frontaliere or svizzera).
+ // Build the route for an article in the active section. Canton article ids
+ // are resolved from the published section index and deliberately never fall
+ // back to the historical frontaliere hub.
  const buildArticleRoute = useCallback((id: string): AppRoute => (
  section === 'svizzera'
  ? { activeTab: 'blog', blogSection: 'svizzera', swissArticle: id }
+ : isCantonArticleSection(section)
+ ? { activeTab: 'blog', blogSection: section, cantonArticle: id }
  : { activeTab: 'blog', blogArticle: id as BlogArticleId }
  ), [section]);
  const nav = useNavigation();
@@ -1294,6 +1340,17 @@ function BlogArticles({
  const [bodyReady, setBodyReady] = useState(false);
  // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
  const [articles, setArticles] = useState<Article[]>([]);
+ const [cantonRuntimeIds, setCantonRuntimeIds] = useState<ReadonlySet<string>>(new Set());
+ const buildArticleLinkRoute = useCallback((id: string): AppRoute => {
+  // The shared canton pool also includes historical articles attributed to the
+  // canton. Those articles belong to the historical frontaliere section, not
+  // to a corpus canton URL; keep their links canonical while retaining them
+  // as related content.
+  if (isCantonArticleSection(section) && !cantonRuntimeIds.has(id)) {
+   return { activeTab: 'blog', blogArticle: id as BlogArticleId };
+  }
+  return buildArticleRoute(id);
+ }, [buildArticleRoute, cantonRuntimeIds, section]);
  // Article ID → Article index for O(1) lookups (Vercel rule 7.13)
  const articleById = useMemo(() => new Map(articles.map(a => [a.id, a])), [articles]);
  const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -1303,6 +1360,17 @@ function BlogArticles({
  const storedPage = Number.parseInt(sessionStorage.getItem(BLOG_LIST_PAGE_STORAGE_KEY) || '', 10);
  return Number.isFinite(storedPage) && storedPage > 0 ? storedPage : 1;
  });
+ const setListPage = useCallback((nextPage: number) => {
+  setCurrentPage(nextPage);
+  onPageChange?.(nextPage);
+ }, [onPageChange]);
+ useEffect(() => {
+  if (isCantonArticleSection(section)) {
+   setCurrentPage(page && page > 0 ? page : 1);
+  } else if (page && page > 0) {
+   setCurrentPage(page);
+  }
+ }, [section, page]);
  const [gridRevealCount, setGridRevealCount] = useState(() => {
  if (typeof window === 'undefined') return 2;
  const w = window.innerWidth;
@@ -1366,16 +1434,32 @@ function BlogArticles({
  // Svizzera has no static importer (dynamic-only — verified in the shipped chunk), so
  // it keeps resilientImport: a real fetch failure there still self-heals via
  // cache-bust + budgeted reload.
- const articlesPromise: Promise<Article[]> = section === 'svizzera'
- ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => m.SWISS_ARTICLES)
- : Promise.resolve(ARTICLES);
+ const isCanton = isCantonArticleSection(section);
+ const cantonOverlayPromise = isCanton
+  // Canton sections are not present in the bundle, so pass a zero bundled
+  // count: the shared overlay helper upgrades to the publisher's full index
+  // whenever the recent window cannot cover the section total.
+  ? fetchArticleOverlay(section, getLocale(), 0)
+  : Promise.resolve([] as OverlayArticle[]);
+ const articleDataPromise: Promise<{ data: Article[]; overlay: OverlayArticle[] }> = isCanton
+  ? cantonOverlayPromise.then((overlay) => ({
+   overlay,
+   data: mergeOverlay([], overlay, getLocale()).articles.map(articleFromOverlay),
+  }))
+  : (section === 'svizzera'
+   ? resilientImport(() => import('@/data/swiss-articles-data'), m => Array.isArray(m.SWISS_ARTICLES)).then(m => ({ data: m.SWISS_ARTICLES, overlay: [] }))
+   : Promise.resolve({ data: ARTICLES, overlay: [] }));
+ const metadataPromise = isCanton
+  ? Promise.all([loadBlogMeta(section), loadBlogMeta('frontaliere')])
+  : loadBlogMeta(section);
  Promise.all([
- loadBlogMeta(section),
+ metadataPromise,
  // Swallow slug-map failure: degrade to id-fallback hrefs (pre-#3532
  // failure behavior) instead of blocking the whole blog render.
- preloadBlogData().catch(() => {}),
- articlesPromise,
- ]).then(([, , data]) => {
+ isCanton ? Promise.resolve() : preloadBlogData().catch(() => {}),
+ articleDataPromise,
+ ]).then(([, , payload]) => {
+ const { data, overlay } = payload;
  // Articles the router already resolved at runtime (issue #4974 item 3).
  // This component mounts only AFTER that resolution — the article page
  // stays on the shard's static HTML until then — so by the time we get
@@ -1385,9 +1469,36 @@ function BlogArticles({
  // used to be, which is exactly the failure this whole path exists to
  // avoid. The overlay fetch below still runs and is still authoritative
  // for the list; this only closes the gap before it lands.
- const seeded = mergeOverlay(data, runtimeArticleRecords(section), getLocale());
- setArticles(seeded.articles);
+ const runtimeOverlay = runtimeArticleRecords(section);
+ const seededArticles = isCanton
+  ? mergeArticleRecords(
+   data,
+   mergeOverlay([], runtimeOverlay, getLocale()).articles.map(articleFromOverlay),
+  )
+  : mergeOverlay(data, runtimeOverlay, getLocale()).articles;
+ const cantonCode = isCanton ? cantonSectionConfig(section)?.canton : undefined;
+ const listArticles = isCanton && cantonCode
+  ? mergeArticleRecords(seededArticles, ARTICLES.filter(article => article.canton?.includes(cantonCode)))
+  : seededArticles;
+ if (isCanton) setCantonRuntimeIds(new Set(seededArticles.map(article => article.id)));
+ setArticles(listArticles);
  setBlogReady(true);
+
+ if (isCanton) {
+  // The canton index is already the complete runtime list for this section.
+  // Learn localized slugs once so all cards and language switches remain
+  // canonical, then let the shared list/detail UI continue unchanged.
+  const knownIds = new Set(seededArticles.map(article => article.id));
+  const needSlug = overlay.filter(entry => knownIds.has(entry.id) && !entry.slug).map(entry => entry.id);
+  const locale = getLocale();
+  for (const entry of overlay) {
+   if (entry.slug) learnRuntimeCantonSlugs(section, entry.id, { [locale]: entry.slug });
+  }
+  void publishedSlugsForIds(section, needSlug).then((pairs) => {
+   for (const [id, slugs] of pairs) learnRuntimeCantonSlugs(section, id, slugs);
+  }).catch(() => {});
+  return;
+ }
 
  // Articles published since this bundle was built (issue #4974 item 3).
  // The registry above is compiled in, so anything the articles repo has
@@ -1406,7 +1517,7 @@ function BlogArticles({
    '',
  );
  void fetchArticleOverlay(section, getLocale(), data.length, bundledNewest || undefined).then(async (overlay) => {
-   const { articles: merged, added } = mergeOverlay(seeded.articles, overlay, getLocale());
+   const { articles: merged, added } = mergeOverlay(seededArticles, overlay, getLocale());
    if (added === 0) return;
 
    // Teach the router these articles' slugs BEFORE the cards paint.
@@ -1426,7 +1537,7 @@ function BlogArticles({
    // roughly 140 of the newest 150 differ, which is where the dead links are.
    const learn = section === 'svizzera' ? learnRuntimeSwissSlugs : learnRuntimeBlogSlugs;
    const locale = getLocale();
-   const knownIds = new Set(seeded.articles.map((a: { id: string }) => a.id));
+   const knownIds = new Set(seededArticles.map((a: { id: string }) => a.id));
    const fresh = merged.filter((a: { id: string }) => !knownIds.has(a.id));
 
    // A slug carried by the index itself costs nothing — prefer it, and let the
@@ -1444,7 +1555,7 @@ function BlogArticles({
    setArticles(merged);
  }).catch(() => {});
  }).catch(() => {});
- }, [section]);
+ }, [section, locale]);
 
  // Lazy-load article BODY when a specific article is selected
  useEffect(() => {
@@ -1470,6 +1581,8 @@ function BlogArticles({
  if (collectArticleBodySegments(selectedArticle, translate).length === 0) {
  const route = section === 'svizzera'
  ? { activeTab: 'blog' as const, blogSection: 'svizzera' as const, swissArticle: selectedArticle }
+ : isCantonArticleSection(section)
+ ? { activeTab: 'blog' as const, blogSection: section, cantonArticle: selectedArticle }
  : { activeTab: 'blog' as const, blogArticle: selectedArticle as BlogArticleId };
  const parts = await fetchArticleBodyParts(buildPath(route)).catch(() => [] as string[]);
  publishRuntimeArticleBody(selectedArticle, getLocale(), parts);
@@ -1477,7 +1590,7 @@ function BlogArticles({
  setBodyReady(true);
  }).catch(() => {});
  trackArticleView(selectedArticle);
- }, [selectedArticle, section]);
+ }, [selectedArticle, section, locale]);
 
  // Admin-set byline reassignment (see AdminPanel "Redazione" section), CSR-only.
  const [articleAuthorOverride, setArticleAuthorOverride] = useState<ArticleAuthorOverride | null>(null);
@@ -1625,6 +1738,12 @@ function BlogArticles({
  return () => observer.disconnect();
  }, [selectedArticle, bodyReady]);
  useEffect(() => {
+ if (isCantonArticleSection(section)) {
+  // The corpus owns the prerendered title, canonical, hreflang and JSON-LD
+  // for canton pages. Hydration must not replace its structured data with the
+  // historical bundle's client-generated variant.
+  return;
+ }
  if (!selectedArticle || articles.length === 0) return;
  const article = articles.find(a => a.id === selectedArticle);
  if (!article) return;
@@ -1632,7 +1751,7 @@ function BlogArticles({
  const excerpt = t(`blog.article.${article.id}.excerpt`);
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
- const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleRoute(article.id))}`;
+ const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleLinkRoute(article.id))}`;
  const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
@@ -1787,7 +1906,7 @@ function BlogArticles({
  if (existing) existing.remove();
  document.getElementById(faqScriptId)?.remove();
  };
- }, [selectedArticle, articles, locale, t, articleAuthorOverride, imageCredit]);
+ }, [selectedArticle, articles, locale, t, articleAuthorOverride, imageCredit, section]);
 
  const handleResponsiveImageError = useCallback((imagePath: string) => {
  setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));
@@ -1812,11 +1931,14 @@ function BlogArticles({
  }, []);
 
  const filteredArticles = useMemo(() => {
+ const listSource = isCantonArticleSection(section)
+  ? articles.filter(article => cantonRuntimeIds.has(article.id))
+  : articles;
  const filtered = selectedCategory === 'all'
- ? [...articles]
- : articles.filter(a => a.category === selectedCategory);
+ ? [...listSource]
+ : listSource.filter(a => a.category === selectedCategory);
  return filtered.sort(compareArticleSourceDates);
- }, [selectedCategory, articles]);
+ }, [selectedCategory, articles, section, cantonRuntimeIds]);
 
  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
  const desktopPageArticles = filteredArticles.slice(
@@ -1860,8 +1982,8 @@ function BlogArticles({
  }, [isMobile, hasMoreMobileArticles, loadMoreArticles, mobileArticleLimit]);
 
  useEffect(() => {
- setCurrentPage(prev => Math.min(prev, totalPages));
- }, [totalPages]);
+ if (currentPage > totalPages) setListPage(totalPages);
+ }, [currentPage, totalPages, setListPage]);
 
  useEffect(() => {
  if (typeof window === 'undefined') return;
@@ -1945,7 +2067,7 @@ function BlogArticles({
 
  const handleCategoryChange = (cat: string) => {
  setSelectedCategory(cat);
- setCurrentPage(1);
+ setListPage(1);
  setMobileArticleLimit(ARTICLES_PER_PAGE);
  };
 
@@ -1960,9 +2082,12 @@ function BlogArticles({
  // Category stats for the list-view header (must be above early returns to maintain stable hook order)
  const categoryStats = useMemo(() => {
  const counts: Record<string, number> = {};
- for (const a of articles) counts[a.category] = (counts[a.category] || 0) + 1;
+ const listSource = isCantonArticleSection(section)
+  ? articles.filter(article => cantonRuntimeIds.has(article.id))
+  : articles;
+ for (const a of listSource) counts[a.category] = (counts[a.category] || 0) + 1;
  return counts;
- }, [articles]);
+ }, [articles, section, cantonRuntimeIds]);
 
  // Article detail computed values — MUST be above early returns to maintain stable hook count.
  // React#310: placing useMemo after conditional returns (if !blogReady / if !bodyReady)
@@ -2010,6 +2135,10 @@ function BlogArticles({
  };
 
  const handleArticleClick = (articleId: string) => {
+ if (isCantonArticleSection(section) && !cantonRuntimeIds.has(articleId)) {
+  nav.navigateTo('blog', articleId);
+  return;
+ }
  if (onSelectArticle) {
  onSelectArticle(articleId as BlogArticleId);
  }
@@ -2022,7 +2151,7 @@ function BlogArticles({
  };
 
  const getArticleUrl = (articleId: string): string => {
- return `https://frontaliereticino.ch${buildPath(buildArticleRoute(articleId))}`;
+ return `https://frontaliereticino.ch${buildPath(buildArticleLinkRoute(articleId))}`;
  };
 
  const handleCopyLink = async (articleId: string) => {
@@ -2815,19 +2944,19 @@ function BlogArticles({
  <PreferredSourceCTA variant="card" />
  </Suspense>
 
- {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath(buildArticleRoute(prevArticle.id))} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+ {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 min-h-[44px] inline-flex items-center bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath(buildArticleLinkRoute(prevArticle.id))} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
  </div>
  </a>
  ) : <div />}
  {nextArticle ? (
  <a
- href={buildPath(buildArticleRoute(nextArticle.id))}
+ href={buildPath(buildArticleLinkRoute(nextArticle.id))}
  onClick={(e) => { e.preventDefault(); handleArticleClick(nextArticle.id); }}
  className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-right group"
  >
  <div className="min-w-0 flex-1">
  <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
- <p className="text-sm font-semibold font-display text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath(buildArticleRoute(related.id as BlogArticleId))} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <img src={related.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${related.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold font-display text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* GPT PoC slot (issue #2273) — disabled by default; renders null until GPT_POC_ENABLED is flipped. Non-funnel, below article content. */} <Suspense fallback={null}><GptPocSlot /></Suspense> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as CSSProperties} className="my-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath(buildArticleRoute(tr.id as BlogArticleId))} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <img src={tr.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${tr.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold font-display px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold font-display text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
+ <p className="text-sm font-semibold font-display text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath(buildArticleLinkRoute(related.id as BlogArticleId))} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <img src={related.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${related.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold font-display text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* GPT PoC slot (issue #2273) — disabled by default; renders null until GPT_POC_ENABLED is flipped. Non-funnel, below article content. */} <Suspense fallback={null}><GptPocSlot /></Suspense> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as CSSProperties} className="my-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath(buildArticleLinkRoute(tr.id as BlogArticleId))} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <img src={tr.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${tr.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold font-display px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold font-display text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
  </p>
  <div className="flex items-center gap-2 mt-1">
  <span className="text-xs text-warning font-medium">
@@ -3030,9 +3159,9 @@ function BlogArticles({
  <div className="text-center mb-2">
  <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2 flex items-center justify-center gap-2">
  <BookOpen size={28} className="text-accent" />
- {t('blog.title')}
+ {isCantonArticleSection(section) ? cantonSectionLabel(section, locale) : t('blog.title')}
  </h1>
- <p className="text-subtle">{t('blog.subtitle')}</p>
+ <p className="text-subtle">{isCantonArticleSection(section) ? cantonSectionSubtitle(section, locale) : t('blog.subtitle')}</p>
  </div>
 
  {/* Stats bar — gives immediate sense of depth and freshness */}
@@ -3075,7 +3204,7 @@ function BlogArticles({
  {/* Featured article (first one) — large hero card */}
  {pageArticles.length > 0 && (
  <a
- href={buildPath(buildArticleRoute(pageArticles[0].id))}
+ href={buildPath(buildArticleLinkRoute(pageArticles[0].id))}
  className="block w-full text-left group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
  onClick={(e) => { e.preventDefault(); handleArticleClick(pageArticles[0].id); }}
  >
@@ -3149,7 +3278,7 @@ function BlogArticles({
  {pageArticles.slice(1, isMobile ? undefined : 1 + gridRevealCount).map((article, idx) => (
  <Fragment key={article.id}>
  <a
- href={buildPath(buildArticleRoute(article.id))}
+ href={buildPath(buildArticleLinkRoute(article.id))}
  className={`flex flex-col text-left bg-surface rounded-xl border border-edge overflow-hidden hover:shadow-lg hover:border-accent transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
  onClick={(e) => { e.preventDefault(); handleArticleClick(article.id); }}
  >
@@ -3275,7 +3404,7 @@ function BlogArticles({
  {totalPages > 1 && (
  <div className="hidden sm:flex items-center justify-center gap-1 sm:gap-2">
  <button
- onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onClick={() => { setListPage(Math.max(1, currentPage - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  disabled={currentPage === 1}
  className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-body hover:bg-surface-raised transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
  aria-label={t('blog.pagination.prev')}
@@ -3304,7 +3433,7 @@ function BlogArticles({
  ) : (
  <button
  key={page}
- onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onClick={() => { setListPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  className={`w-11 h-11 rounded-lg text-sm font-medium transition-colors ${
  page === currentPage
  ? 'bg-accent-strong text-on-accent shadow-md'
@@ -3320,7 +3449,7 @@ function BlogArticles({
  })()}
  </div>
  <button
- onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onClick={() => { setListPage(Math.min(totalPages, currentPage + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  disabled={currentPage === totalPages}
  className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-body hover:bg-surface-raised transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
  aria-label={t('blog.pagination.next')}

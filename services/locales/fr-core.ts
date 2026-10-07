@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3987.title': "Articles par canton avec la même expérience complète",
+ 'whatsNew.v3987.cantonArticles.title': "Lire et découvrir les articles des cantons",
+ 'whatsNew.v3987.cantonArticles.desc': "Les sections cantonales actives utilisent désormais la même vue interactive que les articles frontaliers et suisses : archives, lecture, articles associés, partage et navigation sans rechargement.",
  'whatsNew.v3985.title': "Candidature assistée : vos documents restent avec vous",
  'whatsNew.v3985.keptDocuments.title': "Lettre et CV même après l’envoi, et en Word",
  'whatsNew.v3985.keptDocuments.desc': "Après l’envoi, l’e-mail de confirmation vous mène à la page de votre candidature, où la lettre et le CV sont prêts à être téléchargés. La lettre et le CV adapté existent aussi en copie Word à conserver et modifier : ce n’est jamais le fichier envoyé à l’entreprise.",
