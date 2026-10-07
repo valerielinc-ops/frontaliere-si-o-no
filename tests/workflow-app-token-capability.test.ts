@@ -193,7 +193,7 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'tests.yml :: vitest :: Publish bounded ledger-only automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish automatic LGTM for a tests-only PR': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish carry-forward LGTM (code contribution unchanged)': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
-  'tests.yml :: post-review :: Resolve post-review write-capable identity': { reason: 'no-publish', why: 'verifica la capacita del token prima delle mutation' },
+  'tests.yml :: post-review :: Resolve post-review write-capable identity -> env.APP_TOKEN': { reason: 'no-publish', why: 'verifica la capacita del token prima delle mutation' },
   'traffic-data-freshness.yml :: freshness-check :: Verify token loaded (fail-loud guard)': { reason: 'no-publish', why: 'controlla solo la presenza di un token' },
   'traffic-data-freshness.yml :: freshness-check :: Self-heal — dispatch traffic-scheduler (via App token/PAT)': { reason: 'no-publish', why: 'dispatch dello scheduler' },
 };
@@ -209,13 +209,24 @@ function scanAll(): StepFinding[] {
 const describeViolation = (f: StepFinding) =>
   `${f.key} -> ${[...f.unguarded, ...(f.shellReadsUnmapped ? ['$APP_TOKEN letto dallo script'] : [])].join(' | ')}`;
 
+const violationKeys = (f: StepFinding) => [
+  ...f.unguarded.map((expression) => `${f.key} -> ${expression}`),
+  ...(f.shellReadsUnmapped ? [`${f.key} -> $APP_TOKEN letto dallo script`] : []),
+];
+
+const allowanceFor = (f: StepFinding, violationKey: string) =>
+  ALLOWED[violationKey] ?? ALLOWED[f.key];
+
+const allViolationsAllowed = (f: StepFinding) =>
+  violationKeys(f).length > 0 && violationKeys(f).every((key) => allowanceFor(f, key));
+
 describe('workflow App token capability lint', () => {
   const findings = scanAll();
 
   it("Workflow: push o PR con un token da APP_TOKEN senza la forma condizionata, fuori dall'elenco pinnato", () => {
     const violations = findings
       .filter((f) => f.publishes.length > 0 && (f.unguarded.length > 0 || f.shellReadsUnmapped))
-      .filter((f) => ALLOWED[f.key]?.reason !== 'agent-lane')
+      .filter((f) => !violationKeys(f).every((key) => allowanceFor(f, key)?.reason === 'agent-lane'))
       .map(describeViolation);
     expect(violations).toEqual([]);
   });
@@ -223,7 +234,7 @@ describe('workflow App token capability lint', () => {
   it('classifica ogni altro uso di APP_TOKEN senza capacita verificata', () => {
     const unclassified = findings
       .filter((f) => f.publishes.length === 0 && (f.unguarded.length > 0 || f.shellReadsUnmapped))
-      .filter((f) => !ALLOWED[f.key])
+      .filter((f) => !allViolationsAllowed(f))
       .map(describeViolation);
     expect(unclassified).toEqual([]);
   });
@@ -232,8 +243,12 @@ describe('workflow App token capability lint', () => {
     const byKey = new Map(findings.map((f) => [f.key, f]));
     const problems: string[] = [];
     for (const [key, entry] of Object.entries(ALLOWED)) {
-      const f = byKey.get(key);
-      if (!f || (f.unguarded.length === 0 && !f.shellReadsUnmapped)) {
+      const separator = key.indexOf(' -> ');
+      const findingKey = separator >= 0 ? key.slice(0, separator) : key;
+      const expectedViolation = separator >= 0 ? key.slice(separator + 4) : undefined;
+      const f = byKey.get(findingKey);
+      const violations = f ? violationKeys(f) : [];
+      if (!f || (expectedViolation ? !violations.includes(key) : violations.length === 0)) {
         problems.push(`${key}: voce morta, lo step non usa piu' APP_TOKEN senza capacita'`);
         continue;
       }
