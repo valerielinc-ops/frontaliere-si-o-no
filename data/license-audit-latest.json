@@ -1,11 +1,13 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T23:13:08.934Z",
-  "commit": "3a20b499d17c8b5e90b3d3e0e1905a2f8057299a",
+  "generatedAt": "2026-10-07T23:28:59.726Z",
+  "commit": "7bbdc76734b14efe9f7329a1c41eecb61b6da509",
   "mainRef": "origin/main",
   "refsInspected": [
     "origin/main",
-    "refs/audit/pr-12287",
+    "refs/audit/pr-12294",
+    "refs/audit/pr-12293",
+    "refs/audit/pr-12292",
     "refs/audit/pr-12286",
     "refs/audit/pr-12281",
     "refs/audit/pr-12277",
@@ -356,7 +358,7 @@
       "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
       "status": "pass",
       "counts": {
-        "refsInspected": 7,
+        "refsInspected": 9,
         "refsContainingMarker": 0,
         "markerObjectUnavailable": 0
       },
@@ -423,16 +425,30 @@
     "candidates": []
   },
   "alarm": {
-    "required": false,
+    "required": true,
     "title": "License audit: non-remediable publication violations",
-    "nonRemediableFailures": []
+    "nonRemediableFailures": [
+      {
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+      }
+    ]
   },
   "actions": {
-    "requested": false,
+    "requested": 1,
+    "selected": 1,
+    "deferred": 0,
     "generated": [],
     "reused": [],
-    "failures": [],
-    "selected": 0,
-    "deferred": 0
+    "failures": [
+      {
+        "kind": "article-hero",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+      }
+    ]
   }
 }
