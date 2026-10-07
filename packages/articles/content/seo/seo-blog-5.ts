@@ -100437,7 +100437,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Domenica 11 ottobre 2026 a Gorla Minore - Evento dalle 12:00 alle 18:00 vicino alla vecchia stazione - Pranzo, trenini, giochi antichi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mobilita-trenord-aumento-biglietti-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-fischiava-treno-gorla.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Evento ferroviario vicino alla vecchia stazione di Gorla Minore"
@@ -100505,7 +100505,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Quattro weekend di chiusura tra ottobre e novembre 2026 - Stop da venerdì alle 20:20 a lunedì alle 04:20 - RE80 salta Como San Giovanni e Como",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/como-crisi-abitativa-alloggi-sfitti.webp`,
+        "url": `${BASE_URL}/images/blog/article-monte-olimpino-treni-weekend.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Treno regionale su una linea transfrontaliera tra Como e la Svizzera"
@@ -100539,7 +100539,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "Principe Leopoldo e Villa Sassa chiusi in Ticino: 140 licenziati. Daniele Lardi parla di riassumere buona parte e valuta misure per il personale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/hotel-ticino-76-licenziamenti.webp`,
+        "url": `${BASE_URL}/images/blog/article-hotel-ticino-140-licenziati.webp`,
         "width": 1200,
         "height": 675,
         "caption": "I due hotel Principe Leopoldo e Villa Sassa in Ticino"

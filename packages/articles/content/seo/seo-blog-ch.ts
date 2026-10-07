@@ -98863,7 +98863,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "## In breve - Il diesel in Svizzera sfiora 2,50 franchi al litro - Cressier copre circa il 35% dei carburanti nazionali - La raffinazione europea ha capacità",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/diesel-rincaro-geopolitica-svizzera.webp`,
+        "url": `${BASE_URL}/images/blog/article-raffineria-cressier-carburanti.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Pompa di diesel in Svizzera con una raffineria sullo sfondo"
@@ -98897,7 +98897,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il 29 novembre si voterà su quattro nuovi oggetti: aumento dell'IVA per la 13esima AVS, due iniziative popolari e modifica della legge sul materiale bellico.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-quattro-oggetti-urne-novembre.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Urna svizzera e schede per il voto del 29 novembre"
@@ -99361,6 +99361,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/carriere-politica-economica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-parmelin-avs-ue': {
+    title: 'Parmelin lascia il Consiglio federale il 31.12.2026',
+    description: '## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l\'1,6% - Il pacchetto Svizzera-UE è al Parlamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, lascia, consiglio, federale',
+    ogTitle: 'Parmelin lascia il Consiglio federale: novità 2026',
+    ogDescription: '## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l\'1,6% - Il pacchetto Svizzera-UE è al Parlamento',
+    canonicalPath: '/articoli-svizzera/parmelin-avs-ue/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parmelin lascia il Consiglio federale il 31.12.2026",
+      "description": "## In breve - Guy Parmelin lascerà il Consiglio federale il 31.12.2026 - Le rendite AVS/AI saliranno di circa l'1,6% - Il pacchetto Svizzera-UE è al Parlamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-parmelin-avs-ue.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sulle decisioni del Consiglio federale svizzero"
+      },
+      "datePublished": "2026-10-07T22:55:04+00:00",
+      "dateModified": "2026-10-07T22:55:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parmelin-avs-ue/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

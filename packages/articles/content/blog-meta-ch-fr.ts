@@ -7883,6 +7883,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.carriere-politica-economica.title': 'Travailler au SECO : postes et parcours professionnels',
     'blog.article.carriere-politica-economica.excerpt': '## En bref - Plus de 900 collaborateurs et cadres travaillent au SECO - Collaborateurs et cadres répartis sur trois sites suisses - Environ 30 personnes détachées travaillent',
     'blog.article.carriere-politica-economica.imageAlt': 'Collaborateurs au travail dans un bureau suisse moderne',
+    'blog.article.parmelin-avs-ue.title': 'Parmelin quitte le Conseil fédéral le 31 décembre 2026',
+    'blog.article.parmelin-avs-ue.excerpt': '## En bref - Guy Parmelin quittera le Conseil fédéral le 31 décembre 2026 - Les rentes AVS/AI augmenteront d\'environ 1,6% - Le paquet Suisse-UE est au Parlement',
+    'blog.article.parmelin-avs-ue.imageAlt': 'Documents sur les décisions du Conseil fédéral suisse',
 };
 
 export default blogMetaChFr;
