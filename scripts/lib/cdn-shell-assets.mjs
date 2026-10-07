@@ -26,6 +26,14 @@
  * It never replaces an object. The bytes behind a stable name stay the full
  * deploy's business: rewriting one here would change every published page
  * ahead of the build that goes with it.
+ *
+ * An object on R2 is not yet a file the pages get. Each edge location keeps
+ * the 404 it gave a browser while the object was missing (about three minutes
+ * on this host: HIT at 112 s, EXPIRED at 218 s, measured 2026-10-07), in one
+ * cache entry per `Origin`. The probe cannot see those entries: this host never
+ * answers a HEAD from its cache (`cf-cache-status: DYNAMIC`). So every file the
+ * first probe did not show is purged at the URL the pages use, in both cache
+ * variants, and must then be served there before anything is published.
  */
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -33,13 +41,40 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Node built-ins and upload-cdn-file.sh only, on purpose: this file travels
-// byte-identical to the publisher repository, whose copies of the sibling
-// modules differ or do not exist.
-const UPLOAD_HELPER = path.join(path.dirname(fileURLToPath(import.meta.url)), 'upload-cdn-file.sh');
+// Node built-ins and two commands, on purpose: this file travels byte-identical
+// to the publisher repository, whose copies of the sibling modules differ or
+// do not exist. Both repositories have upload-cdn-file.sh (the same file) and
+// cf-purge-cache.mjs (their own, with the same `--files=` mode and the same
+// success line); nothing is imported from either.
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const UPLOAD_HELPER = path.join(HERE, 'upload-cdn-file.sh');
+const PURGE_SCRIPT = path.join(HERE, '..', 'cf-purge-cache.mjs');
 
 /** Origin the shell assets are served from; the `assets/<name>` keys hang off it. */
 export const SHELL_ASSET_CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
+
+/**
+ * Origin of the pages that load the assets. A request that carries it reads a
+ * cache entry of its own (cf-purge-variants.mjs, VARY_ORIGINS):
+ * cf-purge-cache.mjs clears it together with the plain one.
+ */
+export const SHELL_ASSET_PAGE_ORIGIN = 'https://frontaliereticino.ch';
+
+/**
+ * URLs in one `--files=` purge: Cloudflare's cap, and cf-purge-cache.mjs fails
+ * a longer list instead of cutting it (MAX_TARGETED_FILES in the site's
+ * cf-purge-limits.mjs; tests/cdn-shell-assets.test.ts compares the two).
+ */
+export const SHELL_ASSET_PURGE_BATCH = 30;
+
+// cf-purge-cache.mjs exits 0 without purging when CF_API_TOKEN is not set;
+// this line, printed only after Cloudflare accepted every variant, is the signal.
+const PURGE_SUCCESS_LINE = '✅ Cloudflare edge cache purged for';
+const PURGE_TIMEOUT_MS = 90_000;
+
+// A purge is acknowledged at once and reaches every edge location within
+// about thirty seconds; the pages' URL is asked again over that span.
+const CONFIRM_DELAYS_MS = [0, 5_000, 15_000, 30_000];
 
 /**
  * The value the full deploy gives the whole assets/ class (`_r2_sync … assets`
@@ -80,13 +115,21 @@ export function shellAssetsFromStaticScripts(files) {
   return assets;
 }
 
+// 'present', 'absent' (the object is not there), or 'unknown' (anything that is
+// not an answer about the object — a challenge, a 5xx, a timeout).
+function answerOf(response) {
+  if (response.ok) return isHtml(response.headers?.get?.('content-type')) ? 'absent' : 'present';
+  return response.status === 404 || response.status === 410 ? 'absent' : 'unknown';
+}
+
 /**
- * What the CDN answers for `key`: 'present', 'absent' (the object is not
- * there), or 'unknown' (anything that is not an answer about the object — a
- * challenge, a 5xx, a timeout).
+ * Whether the object behind `key` can be read through the CDN: 'present',
+ * 'absent' or 'unknown'.
  *
- * The query string is one the edge has never seen: this host caches a 404 for
- * ten minutes, and that copy must not answer for an object uploaded since.
+ * A HEAD, which this host passes to R2 every time, with a query string the
+ * edge has never seen in case that changes: the answer is about the object,
+ * never about a copy the edge kept. It creates no cache entry either, so
+ * asking for a file that is not there leaves nothing behind.
  */
 export async function probeCdnAsset(key, {
   cdnOrigin = SHELL_ASSET_CDN_ORIGIN,
@@ -100,8 +143,39 @@ export async function probeCdnAsset(key, {
       headers: { 'User-Agent': PROBE_USER_AGENT },
       signal: AbortSignal.timeout(timeoutMs),
     });
-    if (response.ok) return isHtml(response.headers?.get?.('content-type')) ? 'absent' : 'present';
-    return response.status === 404 || response.status === 410 ? 'absent' : 'unknown';
+    return answerOf(response);
+  } catch {
+    return 'unknown';
+  }
+}
+
+/**
+ * What a page gets for `key`: a GET of the URL the HTML references, read from
+ * the edge cache like a browser's. `pageOrigin` selects the cache entry of a
+ * cross-origin load; without it, the one of a plain <script> or <link>.
+ *
+ * Only for an object that is on R2: asked for a missing one, this request is
+ * what makes the edge keep the 404.
+ *
+ * @param {string} key
+ * @param {{ pageOrigin?: string, cdnOrigin?: string, fetchImpl?: typeof fetch, timeoutMs?: number }} [options]
+ * @returns {Promise<'present' | 'absent' | 'unknown'>}
+ */
+export async function confirmCdnAsset(key, {
+  pageOrigin,
+  cdnOrigin = SHELL_ASSET_CDN_ORIGIN,
+  fetchImpl = fetch,
+  timeoutMs = PROBE_TIMEOUT_MS,
+} = {}) {
+  try {
+    const response = await fetchImpl(`${cdnOrigin}/${key}`, {
+      method: 'GET',
+      headers: { 'User-Agent': PROBE_USER_AGENT, ...(pageOrigin ? { Origin: pageOrigin } : {}) },
+      signal: AbortSignal.timeout(timeoutMs),
+    });
+    // The status and the type are the answer; the bytes are not read.
+    await response.body?.cancel?.().catch(() => {});
+    return answerOf(response);
   } catch {
     return 'unknown';
   }
@@ -139,18 +213,59 @@ export function uploadShellAsset(key, content, options) {
 }
 
 /**
- * Leaves every asset available on the CDN, or throws.
+ * Drops what the edge keeps for the pages' URL of each key, at every location
+ * and in both cache variants. False unless cf-purge-cache.mjs confirmed it.
+ *
+ * @param {string[]} keys
+ * @param {{
+ *   spawn?: (command: string, args: string[], options: { encoding: 'utf8', env: Record<string, string | undefined>, timeout: number }) => { status: number | null, stdout: string, stderr: string },
+ *   env?: Record<string, string | undefined>,
+ *   cdnOrigin?: string,
+ * }} [options]
+ * @returns {boolean}
+ */
+export function purgeCdnAssets(keys, {
+  spawn = spawnSync,
+  env = process.env,
+  cdnOrigin = SHELL_ASSET_CDN_ORIGIN,
+} = {}) {
+  for (let start = 0; start < keys.length; start += SHELL_ASSET_PURGE_BATCH) {
+    const urls = keys.slice(start, start + SHELL_ASSET_PURGE_BATCH).map((key) => `${cdnOrigin}/${key}`);
+    const result = spawn(process.execPath, [PURGE_SCRIPT, `--files=${urls.join(',')}`], {
+      encoding: 'utf8',
+      env,
+      timeout: PURGE_TIMEOUT_MS,
+    });
+    const output = `${result.stdout ?? ''}${result.stderr ?? ''}`;
+    process.stdout.write(output);
+    if (result.status !== 0 || !output.includes(PURGE_SUCCESS_LINE)) return false;
+  }
+  return true;
+}
+
+const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Leaves every asset served at the URL the pages use, or throws.
  *
  * The CDN is asked first: one HEAD per file, no credentials, and in the normal
  * run nothing else happens. R2 is read only for a file the CDN did not show,
  * and it is R2 — not the probe — that decides an upload: a runner the edge
- * challenges must neither replace an object that is there nor stop publishing.
+ * challenges must not replace an object that is there.
+ *
+ * A file the first probe did not show was missing a moment ago, or could not
+ * be read. Once it is on R2 its URL is purged and asked again; a purge that
+ * cannot be done or a URL that still does not answer stops the run, whether
+ * the file was uploaded here or found on R2.
  *
  * @param {{
  *   assets: Array<{ key: string, content: string }>,
  *   probe?: (key: string) => Promise<'present' | 'absent' | 'unknown'>,
  *   checkStored?: (key: string) => 'exists' | 'missing' | 'indeterminate' | Promise<'exists' | 'missing' | 'indeterminate'>,
  *   upload?: (key: string, content: string) => boolean | Promise<boolean>,
+ *   purge?: (keys: string[]) => boolean | Promise<boolean>,
+ *   confirm?: (key: string, options: { pageOrigin?: string }) => Promise<'present' | 'absent' | 'unknown'>,
+ *   wait?: (ms: number) => Promise<void>,
  *   log?: (line: string) => void,
  * }} options
  * @returns {Promise<Array<{ key: string, outcome: 'served' | 'stored' | 'uploaded' }>>}
@@ -160,6 +275,9 @@ export async function ensureCdnShellAssets({
   probe = probeCdnAsset,
   checkStored = checkStoredAsset,
   upload = uploadShellAsset,
+  purge = purgeCdnAssets,
+  confirm = confirmCdnAsset,
+  wait = waitFor,
   log = console.log,
 }) {
   const probed = await Promise.all(assets.map(({ key }) => probe(key)));
@@ -171,7 +289,7 @@ export async function ensureCdnShellAssets({
     }
     const stored = await checkStored(key);
     if (stored === 'exists') {
-      log(`${key}: on R2, not confirmed through the CDN (probe: ${probed[index]})`);
+      log(`${key}: on R2, not shown by the CDN (probe: ${probed[index]})`);
       results.push({ key, outcome: 'stored' });
       continue;
     }
@@ -184,6 +302,27 @@ export async function ensureCdnShellAssets({
     }
     results.push({ key, outcome: 'uploaded' });
   }
+
+  const unseen = results.filter((result) => result.outcome !== 'served').map((result) => result.key);
+  if (unseen.length > 0) {
+    if (!(await purge(unseen))) {
+      throw new Error(`${unseen.join(', ')}: on R2, but the edge cache could not be purged — a location that kept the 404 would go on answering with it; HTML that references ${unseen.length === 1 ? 'it' : 'them'} must not be published`);
+    }
+    for (const key of unseen) {
+      for (const pageOrigin of [undefined, SHELL_ASSET_PAGE_ORIGIN]) {
+        let answer = 'unknown';
+        for (const delay of CONFIRM_DELAYS_MS) {
+          if (delay > 0) await wait(delay);
+          answer = await confirm(key, { pageOrigin });
+          if (answer === 'present') break;
+        }
+        if (answer !== 'present') {
+          throw new Error(`${key}: on R2 and purged, but the URL the pages use still does not serve it (${pageOrigin ? `Origin ${pageOrigin}` : 'no Origin'}: ${answer}) — HTML that references it must not be published`);
+        }
+      }
+    }
+  }
+
   const count = (outcome) => results.filter((result) => result.outcome === outcome).length;
   log(`[cdn-shell-assets] ${results.length} file(s): ${count('served')} served, ${count('stored')} on R2, ${count('uploaded')} uploaded`);
   return results;
