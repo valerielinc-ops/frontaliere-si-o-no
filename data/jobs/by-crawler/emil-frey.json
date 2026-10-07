@@ -185,7 +185,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.406Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -361,7 +360,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.349Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -764,7 +762,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.366Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -845,7 +842,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:17:19.683Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1002,7 +998,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.326Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1077,7 +1072,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:28.364Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1484,10 +1478,10 @@
       "id": "emil-frey-c7add16750b0",
       "slug": "koordinator-in-flotten-emil-frey-zurich",
       "slugByLocale": {
-        "it": "koordinator-in-flotten-emil-frey-zurich",
-        "en": "koordinator-in-flotten-emil-frey-zurich",
+        "it": "coordinatore-in-flotte-emil-frey-zurich",
+        "en": "coordinator-in-fleets-emil-frey-zurich",
         "de": "koordinator-in-flotten-emil-frey-zurich",
-        "fr": "koordinator-in-flotten-emil-frey-zurich"
+        "fr": "coordonnateur-dans-les-flottes-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -1536,22 +1530,6 @@
       "localeMismatchSuppressedLen": 4470,
       "retranslationAttempts": 8,
       "firstSeenAt": "2026-08-21T21:38:48.025Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinatore-in-flotte-emil-frey-zurich"
-        ],
-        "en": [
-          "coordinator-in-fleets-emil-frey-zurich"
-        ],
-        "fr": [
-          "coordonnateur-dans-les-flottes-emil-frey-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "coordinatore-in-flotte-emil-frey-zurich",
-        "coordinator-in-fleets-emil-frey-zurich",
-        "coordonnateur-dans-les-flottes-emil-frey-zurich"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1632,7 +1610,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:00:49.548Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
@@ -1654,7 +1631,7 @@
         "it": "informazioni-sul-prodotto-emil-frey-safenwil",
         "en": "dent-technicians-emil-frey-safenwil",
         "de": "dellentechniker-in-emil-frey-safenwil",
-        "fr": "technicien-technicienne-en-debosselage-emil-frey-safenwil"
+        "fr": "techniciens-dentaires-emil-frey-safenwil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -1706,7 +1683,6 @@
         "dellentechniker-in-emil-frey-safenwil",
         "ditch-technician-emil-frey-safenwil",
         "technicien-de-la-base-emil-frey-safenwil",
-        "techniciens-dentaires-emil-frey-safenwil",
         "technicien-technicienne-en-debosselage-emil-frey-safenwil"
       ],
       "previousSlugsByLocale": {
@@ -1729,7 +1705,6 @@
           "peintre-in-emil-frey-safenwil",
           "dellentechniker-in-emil-frey-safenwil",
           "technicien-de-la-base-emil-frey-safenwil",
-          "techniciens-dentaires-emil-frey-safenwil",
           "technicien-technicienne-en-debosselage-emil-frey-safenwil"
         ]
       },
@@ -1821,8 +1796,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "emil-frey-5ae8ce1cf212",
@@ -2631,7 +2605,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:45.322Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2731,7 +2704,7 @@
       "slug": "carrozzeriepengler-in-emil-frey-safenwil",
       "slugByLocale": {
         "it": "carrozzeriepengler-in-emil-frey-safenwil",
-        "en": "carrosseriespengler-in-emil-frey-safenwil",
+        "en": "bodywork-plumber-emil-frey-safenwil",
         "de": "carrosseriespengler-in-emil-frey-safenwil",
         "fr": "plombier-carrosserie-emil-frey-safenwil"
       },
@@ -2779,15 +2752,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "carrosseriespengler-in-emil-frey-safenwil",
-        "pengler-de-carrosseries-emil-frey-safenwil",
-        "bodywork-plumber-emil-frey-safenwil"
+        "pengler-de-carrosseries-emil-frey-safenwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-in-emil-frey-safenwil"
         ],
         "en": [
-          "bodywork-plumber-emil-frey-safenwil",
           "carrosseriespengler-in-emil-frey-safenwil"
         ],
         "fr": [
@@ -3023,7 +2994,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-10T23:05:40.424Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -3369,7 +3339,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:18:18.180Z",
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -3869,7 +3838,7 @@
       "id": "emil-frey-04ece5fb4cc7",
       "slug": "event-cafe-koordinator-60-80-emil-frey-safenwil",
       "slugByLocale": {
-        "it": "event-cafe-koordinator-60-80-emil-frey-safenwil",
+        "it": "coordinatore-di-eventi-e-caffe-60-80-emil-frey-safenwil",
         "en": "event-cafe-koordinator-60-80-emil-frey-safenwil",
         "de": "event-cafe-koordinator-60-80-emil-frey-safenwil",
         "fr": "coordinateur-de-l-evenement-cafe-60-80-emil-frey-safenwil"
@@ -3879,7 +3848,7 @@
       "companyDomain": "emilfrey.ch",
       "title": "Event- & Café-Koordinator (60 - 80%)",
       "titleByLocale": {
-        "it": "Event- & Café-Koordinator (60 - 80%)",
+        "it": "Event & Café Coordinator (60 - 80%)",
         "en": "Event & Café Coordinator (60 - 80%)",
         "de": "Event- & Café-Koordinator (60 - 80%)",
         "fr": "Coordinateur de l'événement & Café (60 - 80%)"
@@ -3917,15 +3886,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:49:23.653Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "coordinatore-di-eventi-e-caffe-60-80-emil-frey-safenwil"
-        ]
-      },
-      "previousSlugs": [
-        "coordinatore-di-eventi-e-caffe-60-80-emil-frey-safenwil"
-      ],
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
@@ -4027,7 +3987,7 @@
         "it": "carrosserie-pengler-emil-frey-schaffhausen",
         "en": "carrosseries-pengler-emil-frey-schaffhausen",
         "de": "carrosseriespengler-in-emil-frey-schaffhausen",
-        "fr": "distributeur-distributrice-de-carrosserie-emil-frey-schaffhausen"
+        "fr": "panteau-de-carrosseries-emil-frey-schaffhausen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -4073,7 +4033,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "carrosseriespengler-in-emil-frey-schaffhausen",
-        "panteau-de-carrosseries-emil-frey-schaffhausen",
         "distributeur-distributrice-de-carrosserie-emil-frey-schaffhausen"
       ],
       "previousSlugsByLocale": {
@@ -4085,7 +4044,6 @@
         ],
         "fr": [
           "carrosseriespengler-in-emil-frey-schaffhausen",
-          "panteau-de-carrosseries-emil-frey-schaffhausen",
           "distributeur-distributrice-de-carrosserie-emil-frey-schaffhausen"
         ]
       },
@@ -4111,7 +4069,7 @@
       "slugByLocale": {
         "it": "pittore-emil-frey-sion",
         "en": "painter-emil-frey-sion",
-        "de": "carrossier-peintre-emil-frey-sion",
+        "de": "maler-emil-frey-sion",
         "fr": "carrossier-peintre-emil-frey-sion"
       },
       "company": "Emil Frey",
@@ -4157,8 +4115,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "carrossier-peintre-emil-frey-sion",
-        "maler-emil-frey-sion"
+        "carrossier-peintre-emil-frey-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4168,7 +4125,6 @@
           "carrossier-peintre-emil-frey-sion"
         ],
         "de": [
-          "maler-emil-frey-sion",
           "carrossier-peintre-emil-frey-sion"
         ]
       },
@@ -4348,7 +4304,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:57:03.938Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4378,7 +4333,7 @@
       "title": "Marketing und Event Koordinator",
       "titleByLocale": {
         "it": "Marketing e Event Koordinator",
-        "en": "Marketing und Event Koordinator",
+        "en": "Marketing and Event Coordinator",
         "de": "Marketing und Event Koordinator",
         "fr": "Coordinateur du marketing et des événements"
       },
@@ -4426,7 +4381,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:23.679Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -4493,7 +4447,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:40:23.678Z",
-      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -4515,7 +4468,7 @@
         "it": "professionista-del-marketing-60-80-emil-frey-safenwil",
         "en": "marketing-specialist-60-80-emil-frey-safenwil",
         "de": "marketingfachfrau-mann-60-80-emil-frey-safenwil",
-        "fr": "specialiste-du-marketing-60-80-emil-frey-safenwil"
+        "fr": "professionnel-de-commercialisation-60-a-80-emil-frey-safenwil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -4561,7 +4514,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketingfachfrau-mann-60-80-emil-frey-safenwil",
-        "professionnel-de-commercialisation-60-a-80-emil-frey-safenwil",
         "specialiste-du-marketing-60-80-emil-frey-safenwil"
       ],
       "previousSlugsByLocale": {
@@ -4573,7 +4525,6 @@
         ],
         "fr": [
           "marketingfachfrau-mann-60-80-emil-frey-safenwil",
-          "professionnel-de-commercialisation-60-a-80-emil-frey-safenwil",
           "specialiste-du-marketing-60-80-emil-frey-safenwil"
         ]
       },
@@ -4980,7 +4931,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:22:27.096Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5194,7 +5144,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-28T21:13:26.203Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5275,7 +5224,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:13:26.201Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5497,7 +5445,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T10:19:15.498Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5578,7 +5525,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T10:19:15.459Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5653,7 +5599,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:45.278Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -5803,7 +5748,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:18:04.937Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -5883,7 +5827,6 @@
           "mitarbeiter-in-kasse-empfang-und-vermietung-ca-50-emil-frey-safenwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:18:04.934Z",
       "salaryMin": 31000,
       "salaryMax": 47000,
@@ -6455,7 +6398,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:14:18.966Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -6477,7 +6419,7 @@
         "it": "diagnostica-automobilistica-in-emil-frey-basel",
         "en": "automotive-diagnosticians-emil-frey-basel",
         "de": "automobil-diagnostiker-in-emil-frey-basel",
-        "fr": "diagnosticien-ne-automobile-emil-frey-basel"
+        "fr": "diagnosticiens-automobiles-emil-frey-basel"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -6525,7 +6467,6 @@
         "automobil-diagnostiker-in-emil-frey-basel",
         "automotive-diagnostician-in-emil-frey-basel",
         "diagnostic-automobile-in-emil-frey-basel",
-        "diagnosticiens-automobiles-emil-frey-basel",
         "diagnosticien-ne-automobile-emil-frey-basel"
       ],
       "previousSlugsByLocale": {
@@ -6539,7 +6480,6 @@
         ],
         "fr": [
           "automobil-diagnostiker-in-emil-frey-basel",
-          "diagnosticiens-automobiles-emil-frey-basel",
           "diagnosticien-ne-automobile-emil-frey-basel"
         ]
       },
@@ -7234,21 +7174,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tolier-en-carrosserie-emil-frey-crissier",
-        "body-shell-emil-frey-crissier",
-        "korperschale-emil-frey-crissier"
+        "tolier-en-carrosserie-emil-frey-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tolier-en-carrosserie-emil-frey-crissier"
         ],
         "en": [
-          "tolier-en-carrosserie-emil-frey-crissier",
-          "body-shell-emil-frey-crissier"
+          "tolier-en-carrosserie-emil-frey-crissier"
         ],
         "de": [
-          "tolier-en-carrosserie-emil-frey-crissier",
-          "korperschale-emil-frey-crissier"
+          "tolier-en-carrosserie-emil-frey-crissier"
         ]
       },
       "firstSeenAt": "2026-07-08T22:16:13.749Z",
@@ -7332,7 +7268,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:55:27.123Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",

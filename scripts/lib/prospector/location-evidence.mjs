@@ -45,6 +45,22 @@ const EMPTY_LOCATION_EVIDENCE = Object.freeze({
   streetAddress: '',
 });
 
+/**
+ * Normalize one source location part used by an authoritative foreign
+ * snapshot proof. A source may prefix the locality with its postal code
+ * (for example `9490 Vaduz`); the postal code is evidence attached to the
+ * known locality, not a new locality name. Callers still have to compare the
+ * returned value with their explicit, source-reviewed allowlist.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function normalizeAuthoritativeNonSwissLocationPart(value = '') {
+  return normalizeSwissTargetLocationText(value)
+    .replace(/^\d{4,6}\s+/, '')
+    .trim();
+}
+
 function hasToken(value, token) {
   const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return new RegExp(`(?:^|\\s)${escaped}(?:$|\\s)`).test(value);
@@ -162,7 +178,7 @@ function isSwissCountry(value) {
   return Boolean(country && [...SWISS_COUNTRY_LABELS].some((label) => hasToken(country, label)));
 }
 
-function isExplicitlyForeign(value, addressCountry = '') {
+export function isExplicitlyForeign(value, addressCountry = '') {
   const country = String(addressCountry || '').trim();
   if (country && !isSwissCountry(country)) return true;
   if (hasOnlyExplicitForeignCountry(value)) return true;

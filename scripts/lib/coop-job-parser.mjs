@@ -8,11 +8,14 @@
 
 import { JSDOM } from 'jsdom';
 import { fetch as undiciFetch } from 'undici';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isExplicitlyForeign,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 import { inferAnyCanton, isCantonOnlyLabel, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './crawler-location-config.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
-import { preferLocationEncodedCanton } from './job-location-display.mjs';
+import { cantonNamedByLocation, preferLocationEncodedCanton } from './job-location-display.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -694,6 +697,8 @@ const COOP_CANTON_LABEL_OVERRIDES = {
 };
 
 export function resolveCoopCantonCode(raw = '', locality = '', fallback = '') {
+  const locationCanton = cantonNamedByLocation(locality) || cantonNamedByLocation(raw);
+  if (locationCanton) return locationCanton;
   const lower = String(raw || '').trim().toLowerCase();
   const override = COOP_CANTON_LABEL_OVERRIDES[lower];
   if (override) return override;
@@ -772,7 +777,7 @@ export function applyCoopJsonLdToJob(job, jsonLd) {
   const selectedCanton = selectedGeography?.canton
     || (ldRegion || ldLocality ? resolveCoopCantonCode(ldRegion, ldLocality, updated.canton) : '');
 
-  if (selectedLocation && selectedLocation !== updated.addressLocality) {
+  if (selectedLocation && (selectedLocation !== updated.location || selectedLocation !== updated.addressLocality)) {
     updated.location = selectedLocation;
     updated.addressLocality = selectedLocation;
     changed = true;
@@ -874,7 +879,26 @@ function jsonLdAddressCandidates(jsonLd = {}) {
   });
 }
 
-function resolveCoopJsonLdGeography(candidate) {
+export function resolveCoopJsonLdGeography(candidate) {
+  const location = normalizeSpace(candidate?.location || candidate?.addressLocality || '');
+  const addressCountry = normalizeSpace(
+    typeof candidate?.addressCountry === 'object'
+      ? candidate.addressCountry?.name || candidate.addressCountry?.['@id'] || ''
+      : candidate?.addressCountry || candidate?.country || '',
+  );
+  const locationCanton = cantonNamedByLocation(location);
+  // Validate an explicit country before letting a source-owned marker win.
+  // Do not feed the marker back into the country-token heuristic: `AG` is both
+  // a canton code and an ISO country code, while wrappers such as `Region Muri
+  // AG` are intentionally not resolvable as ordinary municipalities.
+  const explicitForeignCountry = isExplicitlyForeign('', addressCountry);
+  if (locationCanton && !explicitForeignCountry) {
+    return {
+      location,
+      canton: locationCanton,
+      ...(addressCountry ? { addressCountry } : {}),
+    };
+  }
   const direct = resolveSourceBackedSwissGeography(candidate);
   if (direct) return direct;
   // This ATS uses addressRegion for non-canton districts (for example
@@ -950,8 +974,8 @@ function pageWorkplaceEvidence(job, page) {
     postalCode: sameAsListing ? normalizeSpace(job?.postalCode || '') : '',
     streetAddress: sameAsListing ? normalizeSpace(job?.streetAddress || '') : '',
   };
-  const geography = (listingCanton ? resolveSourceBackedSwissGeography(candidate) : null)
-    || resolveSourceBackedSwissGeography({ ...candidate, addressRegion: '' });
+  const geography = (listingCanton ? resolveCoopJsonLdGeography(candidate) : null)
+    || resolveCoopJsonLdGeography({ ...candidate, addressRegion: '' });
   if (geography) return { candidate, geography };
   if (!isSwissCantonCode(listingCanton)) return null;
   const encodedCanton = inferAnyCanton(workplace);

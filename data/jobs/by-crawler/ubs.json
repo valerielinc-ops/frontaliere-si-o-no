@@ -1715,7 +1715,7 @@
       "companyDomain": "ubs.com",
       "title": "2027 Graduate Talent Program – Transferring Money / Payments – Zurich",
       "titleByLocale": {
-        "it": "2027 Graduate Talent Program – Transferring Money / Payments – Zurich",
+        "it": "2027 Graduate Talent Program – Trasferire denaro / pagamenti – Zurigo",
         "en": "2027 Graduate Talent Program – Transferring Money / Payments – Zurich",
         "de": "2027 Graduate Talent Program – Geldtransfer / Zahlungen – Zürich",
         "fr": "2027 Programme des talents diplômés – Transfert d'argent / paiements – Zurich"
@@ -1768,7 +1768,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:47.927Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -8240,7 +8239,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "participant-a-l-evenement-paye-en-heures-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8293,8 +8292,7 @@
       },
       "locationDerivedFrom": "vacancy-text",
       "previousSlugs": [
-        "event-attendant-hourly-paid-ubs-geneve",
-        "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+        "event-attendant-hourly-paid-ubs-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8304,7 +8302,6 @@
           "event-attendant-hourly-paid-ubs-geneve"
         ],
         "fr": [
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve",
           "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
@@ -8510,9 +8507,9 @@
     },
     {
       "id": "ubs-05ddf4b9059c",
-      "slug": "empfangsmitarbeiter-in-mit-serviceaufgaben-st-gallen-30-ubs-ostschweiz",
+      "slug": "addetto-a-alla-reception-con-mansioni-di-servizio-a-san-gallo-con-retribuzione-oraria-ubs-ostschweiz",
       "slugByLocale": {
-        "it": "empfangsmitarbeiter-in-mit-serviceaufgaben-st-gallen-30-ubs-ostschweiz",
+        "it": "addetto-a-alla-reception-con-mansioni-di-servizio-a-san-gallo-con-retribuzione-oraria-ubs-ostschweiz",
         "en": "reception-staff-with-service-tasks-st-gallen-30-ubs-ostschweiz",
         "de": "empfangsmitarbeiter-in-mit-serviceaufgaben-st-gallen-30-ubs-ostschweiz",
         "fr": "personnel-de-reception-avec-taches-de-service-st-gallen-30-ubs-ostschweiz"
@@ -8566,7 +8563,6 @@
         "categoryRaw": "Corporate Services, Infrastruktur und Standorte",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:11:44.534Z",
       "salaryMin": 29700,
       "salaryMax": 52200,
@@ -8581,7 +8577,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "empfangsmitarbeiter-in-mit-serviceaufgaben-st-gallen-30-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "empfangsmitarbeiter-in-mit-serviceaufgaben-st-gallen-30-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-63496ff3b05c",
@@ -10578,7 +10582,7 @@
       "title": "UBS Card Center AG - Senior Network Security Architect 100% (w/m/d)",
       "titleByLocale": {
         "it": "UBS Card Center AG - Senior Network Security Architetto 100% (w/m/d)",
-        "en": "UBS Card Center AG - Senior Network Security Architect 100% (w/m/d)",
+        "en": "UBS Card Center AG - Senior Network Security Architect 100% (m/f/d)",
         "de": "UBS Card Center AG - Senior Network Security Architect 100% (w/m/d)",
         "fr": "UBS Card Center AG - Senior Network Security Architecte 100% (w/m/d)"
       },

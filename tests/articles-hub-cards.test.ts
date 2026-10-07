@@ -96,6 +96,25 @@ describe('renderArticleHubCards', () => {
     expect(html).not.toContain('ssg-art-desc');
   });
 
+  it('flattens markdown headings and emphasis in source excerpts', () => {
+    const html = renderArticleHubCards({
+      articles: [ARTICLE],
+      locale: 'en',
+      sectionSlug: 'cross-border-articles',
+      localePrefix: 'en',
+      resolveSlug: (id) => id,
+      resolveMeta: () => ({
+        title: '## TL;DR: Cross-border worker guide',
+        desc: '## TL;DR - Arrested at Como, a 21-year-old Egyptian - Theft targeting tourists ## Key facts - **Source**: official police note',
+      }),
+    });
+
+    expect(html).toContain('>TL;DR: Cross-border worker guide</h3>');
+    expect(html).toContain('<p class="ssg-art-desc">TL;DR - Arrested at Como, a 21-year-old Egyptian - Theft targeting tourists Key facts - Source: official police note</p>');
+    expect(html).not.toContain('##');
+    expect(html).not.toContain('**');
+  });
+
   it('prefixes non-IT locales', () => {
     const html = renderArticleHubCards({
       articles: [ARTICLE],

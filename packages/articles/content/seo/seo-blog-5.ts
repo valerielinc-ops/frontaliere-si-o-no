@@ -11831,10 +11831,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
   },
 
   'blog-anguria-pannelli-incendio-ticino-2026': {
-    title: 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
+    title: 'Pannelli ignifughi con semi di anguria: sicurezza antincendio',
     description: 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, pannelli, ignifughi, semi, anguria',
-    ogTitle: 'Pannelli ignifughi con semi di anguria: rivoluzione per la sicurezza antincendio',
+    ogTitle: 'Pannelli ignifughi con semi di anguria: sicurezza antincendio',
     ogDescription: 'Scoperta del Politecnico di Zurigo: pannelli resistenti al fuoco realizzati con semi di anguria. Possibili applicazioni in Ticino.',
     canonicalPath: '/articoli-frontaliere/anguria-pannelli-incendio-ticino-2026/',
     structuredData: {
@@ -77483,7 +77483,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     description: 'Prezzi di benzina e gasolio allineati tra Lombardia e Svizzera. Lo sconto accise scade il 26 agosto. Conviene ancora fare il pieno oltre confine?',
     keywords: 'frontalieri, ticino, svizzera, italia, benzina, oltre, pieno, svizzero',
     ogTitle: 'Benzina oltre 2€, il pieno svizzero non conviene più',
-    ogDescription: 'Benzina e gasolio allineati tra Lombardia e Svizzera: 2,01€ vs 2,02€. Scadenza sconto accise il 26 agosto. Chi lavora in provincia di Varese deve rivedere la strategia di risparmio. Scopri i prezzi attuali sulle autostrade e cosa aspettarsi dalle',
+    ogDescription: 'Benzina e gasolio allineati tra Lombardia e Svizzera: 2,01€ vs 2,02€. Scadenza sconto accise il 26 agosto. Chi lavora in provincia di Varese deve rivedere la strategia di risparmio. Scopri i prezzi attuali sulle autostrade e cosa aspettarsi',
     canonicalPath: '/articoli-frontaliere/benzina-confine-svizzera-agosto-2026',
     structuredData: {
       "@context": "https://schema.org",
@@ -95159,7 +95159,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     description: 'Ad agosto i rincari in Ticino raggiungono il 3%, mentre casa e mobilità salgono del 2,4% a livello nazionale e l\'inflazione è allo 0,8%. Scopri i dati Comparis',
     keywords: 'frontalieri, ticino, svizzera, italia, rincari, mobilità, abitazione, agosto',
     ogTitle: 'Ticino guida i rincari di mobilità e abitazione',
-    ogDescription: 'Lo studio di Comparis e KOF evidenzia che ad agosto i rincari in Ticino sono al 3%, il più alto tra i cantoni, mentre a livello nazionale casa e mobilità aumentano del 2,4% e l\'inflazione generale resta allo 0,8%. L\'articolo analizza l\'impatto sulle',
+    ogDescription: 'Lo studio di Comparis e KOF evidenzia che ad agosto i rincari in Ticino sono al 3%, il più alto tra i cantoni, mentre a livello nazionale casa e mobilità aumentano del 2,4% e l\'inflazione generale resta allo 0,8%. L\'articolo analizza l\'impatto',
     canonicalPath: '/articoli-frontaliere/ticino-costi-mobilita-abitazione',
     structuredData: {
       "@context": "https://schema.org",
@@ -97323,7 +97323,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     description: 'Il 4 ottobre il lungolago di Gavirate ospita la Festa della Zucca con stand gastronomici, musica e rievocazioni storiche, mentre la Grand Fondo chiude molte',
     keywords: 'frontalieri, ticino, svizzera, italia, festa, zucca, gavirate, weekend',
     ogTitle: 'Festa della Zucca a Gavirate: weekend di ottobre in Varese',
-    ogDescription: 'Nel primo weekend di ottobre la provincia di Varese si anima: a Gavirate la Festa della Zucca attira famiglie con cibo, musica e rievocazioni dei Celti, Longobardi e Normanni; la Grand Fondo Tre Valli Varesine chiude numerose vie, rendendo gli',
+    ogDescription: 'Nel primo weekend di ottobre la provincia di Varese si anima: a Gavirate la Festa della Zucca attira famiglie con cibo, musica e rievocazioni dei Celti, Longobardi e Normanni; la Grand Fondo Tre Valli Varesine chiude numerose vie, rendendo',
     canonicalPath: '/articoli-frontaliere/festa-zucca-gavirate-weekend-ottobre/',
     structuredData: {
       "@context": "https://schema.org",
@@ -100495,6 +100495,453 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffa-finto-operatore-luino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fischiava-treno-gorla': {
+    title: 'Fischiava il treno: festa ferroviaria a Gorla Minore',
+    description: '## In breve - Domenica 11 ottobre 2026 a Gorla Minore - Evento dalle 12:00 alle 18:00 vicino alla vecchia stazione - Pranzo, trenini, giochi antichi',
+    keywords: 'frontalieri, ticino, svizzera, italia, fischiava, treno, festa, ferroviaria',
+    ogTitle: 'Gorla Minore: festa per la storia ferroviaria',
+    ogDescription: '## In breve - Domenica 11 ottobre 2026 a Gorla Minore - Evento dalle 12:00 alle 18:00 vicino alla vecchia stazione - Pranzo, trenini, giochi antichi',
+    canonicalPath: '/articoli-frontaliere/fischiava-treno-gorla/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fischiava il treno: festa ferroviaria a Gorla Minore",
+      "description": "## In breve - Domenica 11 ottobre 2026 a Gorla Minore - Evento dalle 12:00 alle 18:00 vicino alla vecchia stazione - Pranzo, trenini, giochi antichi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mobilita-trenord-aumento-biglietti-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Evento ferroviario vicino alla vecchia stazione di Gorla Minore"
+      },
+      "datePublished": "2026-10-07T04:45:21+00:00",
+      "dateModified": "2026-10-07T04:45:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fischiava-treno-gorla/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-clan-nazarbayev-ceresio': {
+    title: 'Nazarbayev sul Ceresio: petrolio, ville e permessi',
+    description: 'L\'inchiesta sul commercio di materie prime racconta l\'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno nel racconto.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nazarbayev, ceresio, petrolio, ville',
+    ogTitle: 'Clan Nazarbayev sul Ceresio: petrolio e ville',
+    ogDescription: 'La quarta puntata sul commercio di materie prime segue come il clan Nazarbayev è arrivato sul Ceresio. Il titolo parla di Luganistan, tra petrolio, ville e strani permessi di soggiorno, nel racconto di una cleptocrazia.',
+    canonicalPath: '/articoli-frontaliere/clan-nazarbayev-ceresio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nazarbayev sul Ceresio: petrolio, ville e permessi",
+      "description": "L'inchiesta sul commercio di materie prime racconta l'arrivo del clan Nazarbayev sul Ceresio, tra petrolio, ville e strani permessi di soggiorno nel racconto.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pronto-consulto-mendrisiotto-basso-ceresio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ville sul Ceresio nel racconto sul clan Nazarbayev"
+      },
+      "datePublished": "2026-10-07T04:58:11+00:00",
+      "dateModified": "2026-10-07T04:58:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/clan-nazarbayev-ceresio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-monte-olimpino-treni-weekend': {
+    title: 'Treni Como-Svizzera: 4 weekend di chiusura nel 2026',
+    description: '## In breve - Quattro weekend di chiusura tra ottobre e novembre 2026 - Stop da venerdì alle 20:20 a lunedì alle 04:20 - RE80 salta Como San Giovanni e Como',
+    keywords: 'frontalieri, ticino, svizzera, italia, treni, como-svizzera, weekend, chiusura',
+    ogTitle: 'Monte Olimpino 1: chiusure ferroviarie nel 2026',
+    ogDescription: '## In breve - Quattro weekend di chiusura tra ottobre e novembre 2026 - Stop da venerdì alle 20:20 a lunedì alle 04:20 - RE80 salta Como San Giovanni e Como',
+    canonicalPath: '/articoli-frontaliere/monte-olimpino-treni-weekend/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treni Como-Svizzera: 4 weekend di chiusura nel 2026",
+      "description": "## In breve - Quattro weekend di chiusura tra ottobre e novembre 2026 - Stop da venerdì alle 20:20 a lunedì alle 04:20 - RE80 salta Como San Giovanni e Como",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-crisi-abitativa-alloggi-sfitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale su una linea transfrontaliera tra Como e la Svizzera"
+      },
+      "datePublished": "2026-10-07T05:47:57+00:00",
+      "dateModified": "2026-10-07T05:47:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/monte-olimpino-treni-weekend/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-hotel-ticino-140-licenziati': {
+    title: 'Due hotel chiusi in Ticino: 140 licenziati | Frontaliere Ticino',
+    description: 'Principe Leopoldo e Villa Sassa chiusi in Ticino: 140 licenziati. Daniele Lardi parla di riassumere buona parte e valuta misure per il personale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, hotel, chiusi, licenziati, società',
+    ogTitle: 'Due hotel chiusi in Ticino: 140 licenziati',
+    ogDescription: 'La chiusura di Principe Leopoldo e Villa Sassa porta a 140 licenziamenti. Il presidente Daniele Lardi rassicura sul possibile rientro di buona parte del personale e annuncia la valutazione di misure di accompagnamento.',
+    canonicalPath: '/articoli-frontaliere/hotel-ticino-140-licenziati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Due hotel chiusi in Ticino: 140 licenziati",
+      "description": "Principe Leopoldo e Villa Sassa chiusi in Ticino: 140 licenziati. Daniele Lardi parla di riassumere buona parte e valuta misure per il personale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/hotel-ticino-76-licenziamenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I due hotel Principe Leopoldo e Villa Sassa in Ticino"
+      },
+      "datePublished": "2026-10-07T06:29:50+00:00",
+      "dateModified": "2026-10-07T06:29:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hotel-ticino-140-licenziati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-domodossola-arresto-hashish-stazione': {
+    title: 'Domodossola: arresto per chilo di hashish nel bagaglio',
+    description: '## In breve - Fermata alla stazione internazionale di Domodossola - Arrivava da Milano Centrale - Un chilo di hashish in dieci panetti - Valore stimato: oltre',
+    keywords: 'frontalieri, ticino, svizzera, italia, domodossola, arresto, chilo, hashish',
+    ogTitle: 'Domodossola: arresto per chilo di hashish nel bagaglio',
+    ogDescription: '## In breve - Fermata alla stazione internazionale di Domodossola - Arrivava da Milano Centrale - Un chilo di hashish in dieci panetti - Valore stimato: oltre',
+    canonicalPath: '/articoli-frontaliere/domodossola-arresto-hashish-stazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Domodossola: arresto per chilo di hashish nel bagaglio",
+      "description": "## In breve - Fermata alla stazione internazionale di Domodossola - Arrivava da Milano Centrale - Un chilo di hashish in dieci panetti - Valore stimato: oltre",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/affitti-friburgo-contestazione-canone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La stazione internazionale di Domodossola, dove è avvenuto l'arresto per traffico di stupefacenti"
+      },
+      "datePublished": "2026-10-07T06:58:03+00:00",
+      "dateModified": "2026-10-07T06:58:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/domodossola-arresto-hashish-stazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-petizione-recupero-carovita-ticino': {
+    title: 'Petizione sindacati per recupero carovati in Ticino',
+    description: '## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa',
+    keywords: 'frontalieri, ticino, svizzera, italia, petizione, sindacati, recupero, carovati',
+    ogTitle: 'Petizione sindacati per recupero carovati in Ticino',
+    ogDescription: '## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa',
+    canonicalPath: '/articoli-frontaliere/petizione-recupero-carovita-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petizione sindacati per recupero carovati in Ticino",
+      "description": "## In breve - OCST, VPOD e SIT chiedono il recupero del carovita. - Nel periodo compreso tra dicembre 2020 e settembre 2026, il rincaro è aumentato di circa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carovita-sindacati-recupero-divario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori del settore pubblico ticinese con striscioni a sostegno della petizione per il recupero del carovita"
+      },
+      "datePublished": "2026-10-07T08:24:41+00:00",
+      "dateModified": "2026-10-07T08:24:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petizione-recupero-carovita-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-treno-foliage-locarno-domodossola': {
+    title: 'Treno del Foliage: Locarno-Domodossola dal 10 ottobre',
+    description: '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, foliage, locarno-domodossola, ottobre',
+    ogTitle: 'Treno del Foliage 2026 tra Locarno e Domodossola',
+    ogDescription: '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
+    canonicalPath: '/articoli-frontaliere/treno-foliage-locarno-domodossola/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno del Foliage: Locarno-Domodossola dal 10 ottobre",
+      "description": "## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026-2.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola"
+      },
+      "datePublished": "2026-10-07T09:13:12+00:00",
+      "dateModified": "2026-10-07T09:13:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treno-foliage-locarno-domodossola/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-biasca-17enne-arrestato-accoltellamento': {
+    title: 'Biasca: arrestato 17enne per accoltellamento vicino alla stazione',
+    description: '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
+    keywords: 'frontalieri, ticino, svizzera, italia, biasca, arrestato, 17enne, accoltellamento',
+    ogTitle: 'Biasca: 17enne arrestato per accoltellamento vicino alla stazione',
+    ogDescription: '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
+    canonicalPath: '/articoli-frontaliere/biasca-17enne-arrestato-accoltellamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Biasca: arrestato 17enne per accoltellamento vicino alla stazione",
+      "description": "## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/biasca-accoltellamento-21enne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nastro della polizia e luci lampeggianti vicino alla stazione di Biasca al tramonto"
+      },
+      "datePublished": "2026-10-07T10:19:58+00:00",
+      "dateModified": "2026-10-07T10:19:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biasca-17enne-arrestato-accoltellamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pedemontana-truffa-sms-frontalieri': {
+    title: 'Pedemontana avverte: nessun pagamento pedaggio via SMS o email',
+    description: '## In breve - Pedemontana non chiede pedaggi via SMS o e-mail - I truffatori minacciano blocco o fermo del veicolo - I link rimandano a domini falsi - Verifica',
+    keywords: 'frontalieri, ticino, svizzera, italia, pedemontana, avverte, nessun, pagamento',
+    ogTitle: 'Pedemontana avverte: nessun pagamento pedaggio via SMS o email',
+    ogDescription: '## In breve - Pedemontana non chiede pedaggi via SMS o e-mail - I truffatori minacciano blocco o fermo del veicolo - I link rimandano a domini falsi - Verifica',
+    canonicalPath: '/articoli-frontaliere/pedemontana-truffa-sms-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pedemontana avverte: nessun pagamento pedaggio via SMS o email",
+      "description": "## In breve - Pedemontana non chiede pedaggi via SMS o e-mail - I truffatori minacciano blocco o fermo del veicolo - I link rimandano a domini falsi - Verifica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pedemontana-avviso-truffa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto realistica di un casello autostradale ticinese all'alba con un'auto di un frontalier in avvicinamento"
+      },
+      "datePublished": "2026-10-07T10:36:08+00:00",
+      "dateModified": "2026-10-07T10:36:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pedemontana-truffa-sms-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pedemontana-falso-pedaggio-sms': {
+    title: 'Pedemontana: nessun pagamento pedaggio via SMS o email',
+    description: '## In breve - Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp - I messaggi minacciano blocco o fermo amministrativo - Eventuali pedaggi si',
+    keywords: 'frontalieri, ticino, svizzera, italia, pedemontana, nessun, pagamento, pedaggio',
+    ogTitle: 'Pedemontana: nessun pagamento pedaggio via SMS o email',
+    ogDescription: '## In breve - Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp - I messaggi minacciano blocco o fermo amministrativo - Eventuali pedaggi si',
+    canonicalPath: '/articoli-frontaliere/pedemontana-falso-pedaggio-sms/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pedemontana: nessun pagamento pedaggio via SMS o email",
+      "description": "## In breve - Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp - I messaggi minacciano blocco o fermo amministrativo - Eventuali pedaggi si",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pedemontana-avviso-truffa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con le montagne e uno smartphone che mostra un SMS sospetto sul parabrezza di un'auto."
+      },
+      "datePublished": "2026-10-07T10:51:03+00:00",
+      "dateModified": "2026-10-07T10:51:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pedemontana-falso-pedaggio-sms/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aggressione-van-villa-olmo': {
+    title: 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
+    description: '## In breve - Arrestato a Como un 21enne egiziano - Furto in un van in via per Cernobbio - Colluttazione vicino al Lido di Villa Olmo - Beni e documenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, turisti, derubati, aggrediti',
+    ogTitle: 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
+    ogDescription: '## In breve - Arrestato a Como un 21enne egiziano - Furto in un van in via per Cernobbio - Colluttazione vicino al Lido di Villa Olmo - Beni e documenti',
+    canonicalPath: '/articoli-frontaliere/aggressione-van-villa-olmo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, turisti derubati e aggrediti nel van: arrestato 21enne",
+      "description": "## In breve - Arrestato a Como un 21enne egiziano - Furto in un van in via per Cernobbio - Colluttazione vicino al Lido di Villa Olmo - Beni e documenti",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trenord-furto-di-cavi-sospesa-como-milano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada lacustre notturna con un van parcheggiato"
+      },
+      "datePublished": "2026-10-07T11:07:36+00:00",
+      "dateModified": "2026-10-07T11:07:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aggressione-van-villa-olmo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-furto-van-cernobbio-21enne': {
+    title: 'Como, turisti derubati nel van: arrestato un 21enne',
+    description: '## In breve - Arrestato a Como un 21enne egiziano - Furto ai danni di turisti in via per Cernobbio - Colluttazione nei pressi del Lido di Villa Olmo - Indagini',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, turisti, derubati, arrestato',
+    ogTitle: 'Como, turisti derubati nel van: arrestato un 21enne',
+    ogDescription: '## In breve - Arrestato a Como un 21enne egiziano - Furto ai danni di turisti in via per Cernobbio - Colluttazione nei pressi del Lido di Villa Olmo - Indagini',
+    canonicalPath: '/articoli-frontaliere/furto-van-cernobbio-21enne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, turisti derubati nel van: arrestato un 21enne",
+      "description": "## In breve - Arrestato a Como un 21enne egiziano - Furto ai danni di turisti in via per Cernobbio - Colluttazione nei pressi del Lido di Villa Olmo - Indagini",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-furto-van-cernobbio-21enne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Como, van parcheggiato in via per Cernobbio dopo il furto ai danni di una coppia di turisti"
+      },
+      "datePublished": "2026-10-07T11:25:53+00:00",
+      "dateModified": "2026-10-07T11:25:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furto-van-cernobbio-21enne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-notte-bper-gallarate-bancomat': {
+    title: 'Bancomat esploso: colpo notturno alla Bper di Gallarate',
+    description: 'Un altro bancomat è saltato in aria alla Bper di Gallarate in un colpo notturno. La fonte disponibile riporta il luogo e la dinamica essenziale della notizia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bancomat, esploso, colpo, notturno',
+    ogTitle: 'Colpo notturno alla Bper di Gallarate',
+    ogDescription: 'La cronaca riguarda un altro bancomat saltato in aria durante un colpo notturno alla Bper di Gallarate. Il materiale disponibile conferma il luogo e la dinamica essenziale, senza aggiungere cifre, nomi o conseguenze.',
+    canonicalPath: '/articoli-frontaliere/notte-bper-gallarate-bancomat/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bancomat esploso: colpo notturno alla Bper di Gallarate",
+      "description": "Un altro bancomat è saltato in aria alla Bper di Gallarate in un colpo notturno. La fonte disponibile riporta il luogo e la dinamica essenziale della notizia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-locali-busto-arsizio-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banca in una strada del confine italo-svizzero durante la notte"
+      },
+      "datePublished": "2026-10-07T12:19:46+00:00",
+      "dateModified": "2026-10-07T12:19:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notte-bper-gallarate-bancomat/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

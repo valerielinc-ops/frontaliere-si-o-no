@@ -2637,6 +2637,13 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'maiali-polmonite-enzootica-svizzera': { it: 'maiali-polmonite-enzootica-svizzera', en: 'switzerland-pigs-enzootic-pneumonia', de: 'schweiz-schweine-enzootische-lunge', fr: 'suisse-porcs-pneumonie-enzootique' },
  'ginevra-iniziativa-cern-fcc': { it: 'ginevra-iniziativa-cern-fcc', en: 'geneva-initiative-cern-fcc', de: 'genf-initiative-cern-fcc', fr: 'geneve-initiative-cern-fcc' },
  'iniziative-mps-giustizia-respinte': { it: 'iniziative-mps-giustizia-respinte', en: 'mps-justice-initiatives-rejected', de: 'mps-justizinitiativen-abgelehnt', fr: 'initiatives-mps-justice-rejetees' },
+ 'raffineria-cressier-carburanti': { it: 'raffineria-cressier-carburanti', en: 'cressier-refinery-fuel-prices', de: 'raffinerie-cressier-treibstoffpreise', fr: 'raffinerie-cressier-prix-carburants' },
+ 'quattro-oggetti-urne-novembre': { it: 'quattro-oggetti-urne-novembre', en: 'four-ballot-items-november', de: 'vier-abstimmungsobjekte-november', fr: 'quatre-objets-vote-novembre' },
+ 'auto-elettrica-come-risparmiare-fino-al-50': { it: 'auto-elettrica-come-risparmiare-fino-al-50', en: 'electric-car-how-to-save-up-to-50', de: 'elektroautos-so-sparen-sie-bis-zu-50', fr: 'voiture-electrique-comment-economiser-jusqu-a-50' },
+ 'motore-filo-epfl': { it: 'motore-filo-epfl', en: 'epfl-fiber-shaped-motor', de: 'epfl-fadenmotor', fr: 'moteur-fil-epfl' },
+ 'svizzera-india-accordi-bilaterali': { it: 'svizzera-india-accordi-bilaterali', en: 'switzerland-india-bilateral-agreements', de: 'schweiz-indien-bilaterale-abkommen', fr: 'suisse-inde-accords-bilateraux' },
+ 'cancro-prostata-assistenza-svizzera': { it: 'cancro-prostata-assistenza-svizzera', en: 'prostate-cancer-good-care-in-switzerland-2020-2023', de: 'prostatakrebs-gute-versorgung-in-der-schweiz-2020-2023', fr: 'cancer-de-la-prostate-bonne-prise-en-charge-en-suisse-2020-2023' },
+ 'rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0': { it: 'rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0', en: 'swiss-bond-yields-rise-snb-at-0', de: 'renditen-schweizer-anleihen-steigen-snb-bei-0', fr: 'rendements-des-titres-suisses-en-hausse-bns-a-0' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
