@@ -57585,7 +57585,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori colpiti da siccità. Sospesi dazi su fieno, ridotte tariffe su mais. Agroscope',
     keywords: 'frontalieri, ticino, svizzera, italia, scarsità, foraggio, milioni, aiuti',
     ogTitle: 'Scarsità di foraggio: 54 milioni di aiuti federali',
-    ogDescription: 'La Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori svizzeri in difficoltà per scarsità di foraggio dovuta a siccità. Parmelin visita azienda che sperimenta sorgo e colture resistenti. Sospesi dazi su fieno e mais',
+    ogDescription: 'La Confederazione stanzia 54 milioni CHF in prestiti senza interessi per agricoltori svizzeri in difficoltà per scarsità di foraggio dovuta a siccità. Parmelin visita azienda che sperimenta sorgo e colture resistenti. Sospesi dazi su fieno e mais.',
     canonicalPath: '/articoli-svizzera/foraggio-siccita-aiuti-federali/',
     structuredData: {
       "@context": "https://schema.org",
