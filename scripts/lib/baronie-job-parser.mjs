@@ -238,6 +238,22 @@ export function parseBaronieDetailHtml(html) {
 }
 
 /**
+ * A detail response is usable for the Swiss filter only when the parser found
+ * the posting identity, body, and a location signal. Without all three, a
+ * zero Swiss-job result could be markup drift rather than a filtered-empty
+ * source snapshot.
+ */
+export function isBaronieDetailComplete(detail) {
+  return Boolean(
+    detail
+      && typeof detail === 'object'
+      && String(detail.detailTitle || '').trim()
+      && String(detail.markdown || '').trim()
+      && (String(detail.addressCountry || '').trim() || String(detail.location || '').trim()),
+  );
+}
+
+/**
  * Check if a Baronie job is actually in Switzerland (Ticino).
  */
 export function isSwissJob(parsed) {
