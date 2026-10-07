@@ -10,6 +10,7 @@ import {
   extractTogetherImageData,
   formatProviderHttpError,
   imageProviderSequence,
+  pixabayAuthorProfileUrl,
   providerConfiguration,
   verifyWikimediaExtmetadata,
 } from '../packages/articles/engine/shared/generatedImageEngine.mjs';
@@ -77,15 +78,30 @@ describe('generated image provider contracts', () => {
         src: { large2x: 'https://images.pexels.com/photo.jpg' },
       }],
     })?.license).toBe('Pexels License');
-    expect(extractPixabayPhoto({
+    const pixabayPhoto = extractPixabayPhoto({
       hits: [{
         user: 'Ada Pixabay',
+        user_id: 42,
+        userImageURL: 'https://cdn.pixabay.com/user/avatar.jpeg',
         pageURL: 'https://pixabay.com/photos/lake-123/',
         imageWidth: 1600,
         imageHeight: 900,
         largeImageURL: 'https://cdn.pixabay.com/photo.jpg',
       }],
-    })?.license).toBe('Pixabay Content License');
+    });
+    expect(pixabayPhoto?.license).toBe('Pixabay Content License');
+    expect(pixabayPhoto?.author).toEqual({
+      name: 'Ada Pixabay',
+      url: 'https://pixabay.com/users/Ada%20Pixabay-42/',
+    });
+  });
+
+  it('builds a Pixabay profile URL only when both API identity fields exist', () => {
+    expect(pixabayAuthorProfileUrl({ user: 'GPhotography', user_id: 19753942 })).toBe(
+      'https://pixabay.com/users/GPhotography-19753942/',
+    );
+    expect(pixabayAuthorProfileUrl({ user: 'GPhotography' })).toBeUndefined();
+    expect(pixabayAuthorProfileUrl({ user_id: 19753942 })).toBeUndefined();
   });
 
   it('accepts only a Wikimedia file with verified allowed extmetadata', () => {

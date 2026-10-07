@@ -602,15 +602,23 @@ export function extractPexelsPhoto(response) {
   };
 }
 
+export function pixabayAuthorProfileUrl(photo) {
+  const user = typeof photo?.user === 'string' ? photo.user.trim() : '';
+  const userId = Number(photo?.user_id);
+  if (!user || !Number.isInteger(userId) || userId <= 0) return undefined;
+  return `https://pixabay.com/users/${encodeURIComponent(user)}-${userId}/`;
+}
+
 export function extractPixabayPhoto(response) {
   const photo = Array.isArray(response?.hits) ? response.hits[0] : null;
   const imageUrl = photo?.largeImageURL || photo?.webformatURL;
   if (!photo?.user || !photo?.pageURL || !imageUrl) return null;
+  const authorUrl = pixabayAuthorProfileUrl(photo);
   return {
     license: 'Pixabay Content License',
     licenseFamily: 'pixabay',
     licenseUrl: LICENSED_PHOTO_LICENSE_URLS.pixabay,
-    author: { name: String(photo.user), ...(photo.userImageURL ? { url: photo.userImageURL } : {}) },
+    author: { name: String(photo.user), ...(authorUrl ? { url: authorUrl } : {}) },
     sourcePageUrl: String(photo.pageURL),
     sourceImageUrl: String(imageUrl),
     width: positiveDimension(photo.imageWidth),

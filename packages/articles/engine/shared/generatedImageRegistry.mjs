@@ -97,6 +97,11 @@ export function isLicensedPhotoRecord(record) {
 const DATE_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
 const SHA256_RE = /^[a-f0-9]{64}$/;
 const ASSET_ID_RE = /^[a-z0-9][a-z0-9._-]{2,127}$/;
+const PHOTO_AUTHOR_IMAGE_PATH_RE = /\.(?:jpe?g|png|webp|gif|avif|svg)$/i;
+const PHOTO_AUTHOR_HOSTS = Object.freeze({
+  pexels: Object.freeze(['pexels.com', 'www.pexels.com']),
+  pixabay: Object.freeze(['pixabay.com', 'www.pixabay.com']),
+});
 
 function isRecord(value) {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -144,6 +149,32 @@ function allowedPhotoLicenseUrl(record) {
   if (family === 'cc-by') return /\/licenses\/by(?:\/|$)/i.test(url);
   if (family === 'cc-by-sa') return /\/licenses\/by-sa(?:\/|$)/i.test(url);
   return false;
+}
+
+function photoAuthorUrlErrors(record) {
+  const authorUrl = record.author?.url;
+  if (authorUrl === undefined || authorUrl === null) return [];
+  if (typeof authorUrl !== 'string' || !authorUrl.trim()) {
+    return ['photo author.url must be a non-empty https URL'];
+  }
+
+  let parsed;
+  try {
+    parsed = new URL(authorUrl);
+  } catch {
+    return ['photo author.url must be a valid https URL'];
+  }
+  if (parsed.protocol !== 'https:') return ['photo author.url must be https'];
+
+  const errors = [];
+  if (PHOTO_AUTHOR_IMAGE_PATH_RE.test(parsed.pathname)) {
+    errors.push('photo author.url must not point to an image file');
+  }
+  const allowedHosts = PHOTO_AUTHOR_HOSTS[record.provider];
+  if (allowedHosts && !allowedHosts.includes(parsed.hostname.toLowerCase())) {
+    errors.push(`${record.provider} author.url must use the ${record.provider} domain`);
+  }
+  return errors;
 }
 
 function positiveInteger(value) {
@@ -315,9 +346,7 @@ export function validateGeneratedImageRecord(record) {
     }
     if (!/^https:\/\//i.test(String(pageUrl || ''))) errors.push('photo sourcePageUrl must be https');
     if (!isRecord(record.author) || !nonEmpty(record.author.name)) errors.push('photo author.name is required');
-    if (record.author?.url !== undefined && record.author.url !== null && !/^https:\/\//i.test(String(record.author.url))) {
-      errors.push('photo author.url must be https');
-    }
+    errors.push(...photoAuthorUrlErrors(record));
     if (!nonEmpty(record.credit)) errors.push('photo credit is required');
     if (!nonEmpty(record.copyrightNotice)) errors.push('photo copyrightNotice is required');
     if (!/^https:\/\//i.test(String(record.acquireLicensePage || ''))) errors.push('photo acquireLicensePage must be https');
