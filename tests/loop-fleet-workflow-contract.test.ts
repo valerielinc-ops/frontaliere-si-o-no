@@ -227,9 +227,12 @@ describe('loop fleet workflow contract', () => {
       const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
       const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
       const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
+      const usesWorkflowRunTrigger = /\n  workflow_run:\n/u.test(source);
 
       for (const dependency of dependencies) {
-        expect(pushPaths, `${name} push paths`).toContain(`- '${dependency}'`);
+        if (!usesWorkflowRunTrigger) {
+          expect(pushPaths, `${name} push paths`).toContain(`- '${dependency}'`);
+        }
         expect(pullRequestPaths, `${name} pull_request paths`).toContain(`- '${dependency}'`);
         expect(sparseCheckout, `${name} sparse checkout`).toContain(`/${dependency}`);
       }
