@@ -1344,6 +1344,9 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `  echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default ${watchdogMinutes})"`,
     `  worker_watchdog_minutes=${watchdogMinutes}`,
     'fi',
+    ...(dedicatedSlot
+      ? ['# Private relay slot for this member only; non-relay siblings use the group slot pool.']
+      : []),
     dedicatedSlot
       ? 'max_parallel=1'
       : `max_parallel="\${CRAWLER_GROUP_MAX_PARALLEL:-${CRAWLER_GROUP_MAX_PARALLEL}}"`,

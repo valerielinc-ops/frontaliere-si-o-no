@@ -4692,6 +4692,7 @@ jobs:
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
           fi
+          # Private relay slot for this member only; non-relay siblings use the group slot pool.
           max_parallel=1
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
             echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
