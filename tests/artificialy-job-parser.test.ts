@@ -15,6 +15,9 @@ const CLOUDFLARE_CHALLENGE = fs.readFileSync(
   new URL('./fixtures/artificialy-cloudflare-challenge.html', import.meta.url),
   'utf8',
 );
+const SOURCE_BODY = Array.from({ length: 8 }, (_, index) =>
+  `Source-backed posting section ${index + 1} describes responsibilities, collaboration, delivery expectations, and the skills required for this Artificialy role.`,
+).join(' ');
 
 describe('Artificialy career parser', () => {
   it('reproduces and classifies the Cloudflare 403 page as blocked', () => {
@@ -32,7 +35,26 @@ describe('Artificialy career parser', () => {
     });
   });
 
-  it('keeps a real JSON-LD career page healthy', () => {
+  it('keeps a real JSON-LD career page with a source body healthy', () => {
+    const html = `
+      <html><head><title>Artificialy careers</title></head><body>
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'AI Scientist',
+          jobLocation: { address: { addressLocality: 'Lugano', addressRegion: 'TI' } },
+          description: SOURCE_BODY,
+          url: 'https://www.artificialy.com/careers/ai-scientist',
+        })}</script>
+        <p>Artificialy careers and open positions in Switzerland.</p>
+      </body></html>`;
+
+    expect(parseArtificialyCareerPage(html)).toMatchObject({
+      blocked: false,
+      items: [expect.objectContaining({ title: 'AI Scientist', location: 'Lugano', description: SOURCE_BODY })],
+    });
+  });
+
+  it('rejects a 200 JSON-LD teaser instead of publishing it as a source body', () => {
     const html = `
       <html><head><title>Artificialy careers</title></head><body>
         <script type="application/ld+json">${JSON.stringify({
@@ -42,12 +64,32 @@ describe('Artificialy career parser', () => {
           description: 'Build useful AI systems.',
           url: 'https://www.artificialy.com/careers/ai-scientist',
         })}</script>
-        <p>Artificialy careers and open positions in Switzerland.</p>
+      </body></html>`;
+
+    expect(parseArtificialyCareerPage(html)).toEqual({ items: [], blocked: false });
+  });
+
+  it('falls back to a source-backed HTML card when JSON-LD has only a teaser', () => {
+    const html = `
+      <html><body>
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'Platform Engineer',
+          jobLocation: { address: { addressLocality: 'Zurich', addressRegion: 'ZH' } },
+          description: 'Short listing summary only.',
+          url: 'https://www.artificialy.com/careers/platform-engineer',
+        })}</script>
+        <article class="job-listing">
+          <h2>Platform Engineer</h2>
+          <span>Zurich</span>
+          <p>${SOURCE_BODY}</p>
+          <a href="/careers/platform-engineer">Apply</a>
+        </article>
       </body></html>`;
 
     expect(parseArtificialyCareerPage(html)).toMatchObject({
       blocked: false,
-      items: [expect.objectContaining({ title: 'AI Scientist', location: 'Lugano' })],
+      items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich', description: SOURCE_BODY })],
     });
   });
 
@@ -59,7 +101,7 @@ describe('Artificialy career parser', () => {
           '@type': 'JobPosting',
           title: 'Platform Engineer',
           jobLocation: { address: { addressLocality: 'Zurich', addressRegion: 'ZH' } },
-          description: 'Build reliable platform services.',
+          description: SOURCE_BODY,
           url: 'https://www.artificialy.com/careers/platform-engineer',
         })}</script>
       </body></html>`;
