@@ -2073,6 +2073,16 @@ function dropEmptyBoldSpansInLine(line) {
 }
 
 /**
+ * A line made only of separator glyphs, with at least one that is not a blank:
+ * a Markdown rule (`---`) or the decoration some translators add (`______`).
+ * A line of blanks is a blank line.
+ */
+export function isSeparatorOnlyLine(line) {
+  const value = String(line ?? '');
+  return /^[\s_\-=*•·~]{3,}$/u.test(value) && /\S/u.test(value);
+}
+
+/**
  * Post-process a translator output to make sure `**bold**` markdown markers
  * stay balanced. AI translators frequently re-flow paragraphs in a way that
  * leaves orphan `**` (count parity broken) or empty `**…**` runs containing
@@ -2085,12 +2095,15 @@ function dropEmptyBoldSpansInLine(line) {
  * Exported so the same balancer can be reused outside the cascade (tests,
  * upstream sanitizers, retroactive cleanup scripts).
  *
- * `sourceText` is optional. When the caller has the source and the text to
- * repair is line-aligned with it (same number of lines), a separator-only line
- * that the SOURCE owns at the same position is kept: `---` between two
- * sections is Markdown structure, not decoration added by a translator, and
- * dropping it took two lines away from a translation that had kept them (the
- * rule, then one of the blank lines around it at step 5).
+ * `sourceText` is optional. When the caller has the source, the rules the
+ * SOURCE owns are kept: `---` between two sections is Markdown structure, not
+ * decoration added by a translator, and dropping it took two lines away from a
+ * translation that had kept them (the rule, then one of the blank lines around
+ * it at step 5). Ownership is by COUNT, in order — as many separator-only
+ * lines as the source has — and not by position: a whole field reaches this
+ * function with the blank runs of each translated block already collapsed by
+ * the engine, so it is rarely line-aligned with the raw source, and a rule
+ * kept only "at the same line number" was dropped in exactly those fields.
  *
  * @param {string} s
  * @param {{ sourceText?: string|null }} [options]
@@ -2111,14 +2124,23 @@ export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
     out = out.replace(/\*\*/g, '');
   }
   // 3. Strip standalone separator-only lines (`______`, `======`) that some
-  //    translators emit as decoration — unless the source owns that line.
+  //    translators emit as decoration — except as many rules as the source
+  //    owns. Without a source every such line goes, blank-only ones included,
+  //    as it always did.
   const separatorOnly = (line) => /^[\s_\-=*•·~]{3,}$/.test(line);
   const outLines = out.split('\n');
   const sourceLines = typeof sourceText === 'string' ? sourceText.split('\n') : null;
-  const aligned = sourceLines !== null && sourceLines.length === outLines.length;
-  const keptLines = outLines.filter((line, index) => (
-    !separatorOnly(line) || (aligned && separatorOnly(sourceLines[index]))
-  ));
+  const sourceRuleCount = sourceLines === null ? 0 : sourceLines.filter(isSeparatorOnlyLine).length;
+  let keptRules = 0;
+  const keptLines = outLines.filter((line) => {
+    if (!separatorOnly(line)) return true;
+    if (sourceLines === null) return false;
+    // With a source, a line of blanks is a blank line of the text.
+    if (!isSeparatorOnlyLine(line)) return true;
+    if (keptRules >= sourceRuleCount) return false;
+    keptRules += 1;
+    return true;
+  });
   const removedSeparatorLines = outLines.length - keptLines.length;
   out = keptLines.join('\n');
   // 4. Strip trailing inline separator runs that often hug a line end.
@@ -2128,10 +2150,10 @@ export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
     .join('\n');
   // 5. Collapse 3+ consecutive newlines that step 3 may have created when
   //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →
-  //    \n\n\n after filter). A text that is line-aligned with its source and
-  //    lost no line at step 3 has nothing to collapse: its blank runs are the
-  //    source's.
-  if (!aligned || removedSeparatorLines > 0) out = out.replace(/\n{3,}/g, '\n\n');
+  //    \n\n\n after filter). A text repaired against its source that lost no
+  //    line at step 3 has nothing to collapse: its blank runs are its own, and
+  //    collapsing them changed the line count of a field nobody had touched.
+  if (sourceLines === null || removedSeparatorLines > 0) out = out.replace(/\n{3,}/g, '\n\n');
   // 6. Collapse the consecutive double-spaces that step 1 may have left.
   out = out.replace(/[ \t]{2,}/g, ' ');
   return out.trim();

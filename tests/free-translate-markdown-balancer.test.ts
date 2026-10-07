@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { balanceMarkdownMarkers } from '@/scripts/lib/free-translate.mjs';
+import { balanceMarkdownMarkers, isSeparatorOnlyLine } from '@/scripts/lib/free-translate.mjs';
 
 /**
  * Upstream root-cause guard for the literal-`**` bug we patched at render
@@ -113,22 +113,59 @@ describe('balanceMarkdownMarkers — never merges lines or neighbouring bolds', 
     expect(balanceMarkdownMarkers('prima **** dopo')).toBe('prima dopo');
   });
 
-  it('keeps a separator-only line that the source owns at the same position', () => {
+  it('keeps the separator-only lines that the source owns', () => {
     const source = 'Primo paragrafo.\n\n---\n\nSecondo paragrafo.';
     const translated = 'Erster Absatz.\n\n---\n\nZweiter Absatz.';
     // No source: decoration, as before.
     expect(balanceMarkdownMarkers(translated)).toBe('Erster Absatz.\n\nZweiter Absatz.');
-    // Line-aligned source: the rule is structure and stays.
+    // With the source: the rule is structure and stays.
     expect(balanceMarkdownMarkers(translated, { sourceText: source })).toBe(translated);
-    // The source has text at that position: the line is not the source's.
+    // A source without rules owns none: the decoration goes.
     expect(
       balanceMarkdownMarkers('Erster Absatz.\n=====\nZweiter Absatz.', {
         sourceText: 'Primo paragrafo.\nRiga di mezzo.\nSecondo paragrafo.',
       }),
     ).toBe('Erster Absatz.\nZweiter Absatz.');
-    // Source with a different line count: no alignment, behaviour as before.
     expect(balanceMarkdownMarkers(translated, { sourceText: 'Una riga sola.' })).toBe(
       'Erster Absatz.\n\nZweiter Absatz.',
     );
+  });
+
+  it('counts the rules of the source instead of looking for them at the same line', () => {
+    // Three blank lines in the raw source; the engine hands the block back
+    // with the run collapsed. The field has fewer lines than the source and
+    // the rule is no longer "at the same line number": it used to be dropped,
+    // and one of the blank lines around it with it.
+    const source = 'Primo paragrafo.\n\n\n\nSecondo paragrafo.\n\n---\n\nTerzo paragrafo.';
+    const translated = 'Erster Absatz.\n\nZweiter Absatz.\n\n---\n\nDritter Absatz.';
+    expect(translated.split('\n').length).not.toBe(source.split('\n').length);
+    expect(balanceMarkdownMarkers(translated, { sourceText: source })).toBe(translated);
+    // As many as the source has, in order: the second one is decoration.
+    expect(
+      balanceMarkdownMarkers('Erster Absatz.\n\n---\n\nZweiter Absatz.\n=====\nDritter Absatz.', {
+        sourceText: source,
+      }),
+    ).toBe('Erster Absatz.\n\n---\n\nZweiter Absatz.\nDritter Absatz.');
+  });
+
+  it('repaired against its source, a text that loses no rule keeps its own blank lines', () => {
+    const source = 'Primo paragrafo.\n\n\nSecondo paragrafo.';
+    const translated = 'Erster Absatz.\n\n\nZweiter Absatz.';
+    // No source: extra blank lines collapse, as before.
+    expect(balanceMarkdownMarkers(translated)).toBe('Erster Absatz.\n\nZweiter Absatz.');
+    expect(balanceMarkdownMarkers(translated, { sourceText: source })).toBe(translated);
+    // A line of blanks is a blank line of the text, not a separator.
+    expect(
+      balanceMarkdownMarkers('Erster Absatz.\n    \nZweiter Absatz.', { sourceText: source }).split('\n').length,
+    ).toBe(source.replace(/\n{3,}/g, '\n\n').split('\n').length);
+  });
+
+  it('isSeparatorOnlyLine reads a rule, not a blank line or a list item', () => {
+    for (const line of ['---', '-----------------', '- - -', '***', '===', '___']) {
+      expect(isSeparatorOnlyLine(line), line).toBe(true);
+    }
+    for (const line of ['- voce', '**grassetto**', '--', '    ', '', '— — —']) {
+      expect(isSeparatorOnlyLine(line), line).toBe(false);
+    }
   });
 });

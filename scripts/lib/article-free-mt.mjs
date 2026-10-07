@@ -239,12 +239,16 @@ export async function translateFieldFreeMt({
     return '';
   }
   const balanced = balanceMarkdown(restored, { sourceText: src });
-  // The markdown repair runs on the whole field, after every engine guard. A
-  // translation that came back with the source's line count must still have
-  // it: the repair used to merge list items here (`**a**\n- **b**` → one
-  // line), and no later check looks at lines.
-  if (lineCount(restored) === lineCount(src) && lineCount(balanced) !== lineCount(src)) {
-    onWarn(`free-MT ${targetLang}:${fieldType} markdown repair changed the line count (${lineCount(src)} → ${lineCount(balanced)})`);
+  // The markdown repair runs on the whole field, after every engine guard, and
+  // no later check looks at lines: it may not change their number. It used to
+  // merge list items here (`**a**\n- **b**` → one line). The comparison is
+  // with the text it was handed, not with the source: a block comes back from
+  // the engine with its blank runs collapsed, so the field is often not
+  // line-aligned with the raw source, and a guard that waited for that
+  // alignment did not look at exactly the fields where the repair could still
+  // drop a line.
+  if (lineCount(balanced) !== lineCount(restored)) {
+    onWarn(`free-MT ${targetLang}:${fieldType} markdown repair changed the line count (${lineCount(restored)} → ${lineCount(balanced)})`);
     return '';
   }
   return balanced;

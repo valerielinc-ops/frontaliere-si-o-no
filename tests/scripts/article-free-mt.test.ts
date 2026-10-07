@@ -233,4 +233,24 @@ describe('translateFieldFreeMt — the markdown repair may not change the line c
     expect(out).toBe('');
     expect(warnings.join(' ')).toMatch(/markdown repair changed the line count \(3 → 2\)/);
   });
+
+  it('refuses it also when the field is not line-aligned with the raw source', async () => {
+    // Three blank lines in a row: the engine hands the block back with the run
+    // collapsed, so the field has fewer lines than the raw source. The guard
+    // used to wait for that alignment and did not look at this field at all.
+    const unaligned = 'Primo paragrafo del testo.\n\n\n\n- prima voce dell elenco\n- seconda voce dell elenco';
+    const warnings: string[] = [];
+    const out = await translateFieldFreeMt({
+      text: unaligned,
+      sourceLang: 'it',
+      targetLang: 'de',
+      fieldType: 'description',
+      translate: async ({ text: source }: { text: string }) =>
+        source.replace(/\n{3,}/g, '\n\n').replace(/voce dell elenco/g, 'Punkt der Liste'),
+      balanceMarkdown: (value: string) => value.replace(/\n- /, ' '),
+      onWarn: (message: string) => warnings.push(message),
+    });
+    expect(out).toBe('');
+    expect(warnings.join(' ')).toMatch(/markdown repair changed the line count/);
+  });
 });
