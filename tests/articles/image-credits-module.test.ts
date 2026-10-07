@@ -205,7 +205,11 @@ describe('generated article-hero image records', () => {
   it('projects provider terms consistently to SEO, visible copy and RSS', () => {
     const ld = imageObjectCreditFields(generated);
     expect(ld).toEqual({
-      creator: { '@type': 'Organization', name: 'frontaliereticino.ch' },
+      creator: {
+        '@type': 'Organization',
+        '@id': 'https://frontaliereticino.ch/#image-creator-organization-frontaliereticino-ch-e7e2226e',
+        name: 'frontaliereticino.ch',
+      },
       creditText: 'frontaliereticino.ch (generated media)',
       copyrightNotice: 'Generated media; provider terms apply.',
       license: 'https://openai.com/policies/terms-of-use/',
@@ -360,7 +364,11 @@ describe('attribution requested by the licensor', () => {
   it('is the credit text; the creator stays the author; the notice is © author', () => {
     const ld = imageObjectCreditFields(FORTEPAN);
     expect(ld.creditText).toBe('FOTO:FORTEPAN / Angyalföldi Helytörténeti Gyűjtemény / Wikimedia Commons');
-    expect(ld.creator).toEqual({ '@type': 'Organization', name: 'Fortepan' });
+    expect(ld.creator).toEqual({
+      '@type': 'Organization',
+      '@id': 'https://frontaliereticino.ch/#image-creator-organization-fortepan-33cde663',
+      name: 'Fortepan',
+    });
     expect(ld.copyrightNotice).toBe('© Fortepan');
   });
 
@@ -372,6 +380,33 @@ describe('attribution requested by the licensor', () => {
       name: 'Riessdo',
       url: 'https://de.wikipedia.org/wiki/User:Riessdo',
     });
+  });
+
+  it('gives repeated name-only creators a deterministic id without inventing a profile URL', () => {
+    const maxRoser = record({
+      author: { text: 'Max Roser', name: 'Max Roser', url: null, type: 'Person' },
+    });
+    const first = imageObjectCreditFields(maxRoser).creator;
+    const second = imageObjectCreditFields(maxRoser).creator;
+    expect(first).toEqual(second);
+    expect(first).toMatchObject({ '@type': 'Person', name: 'Max Roser' });
+    expect(first['@id']).toBe('https://frontaliereticino.ch/#image-creator-person-max-roser-012a315f');
+    expect(first).not.toHaveProperty('url');
+  });
+
+  it('scopes an unknown creator to its cover instead of merging placeholders', () => {
+    const first = imageObjectCreditFields(UNKNOWN_PD).creator;
+    const second = imageObjectCreditFields({
+      ...UNKNOWN_PD,
+      cover: '/images/blog/another-unknown.webp',
+      commons: {
+        ...UNKNOWN_PD.commons,
+        pageUrl: 'https://commons.wikimedia.org/wiki/File:Another_unknown.png',
+      },
+    }).creator;
+    expect(first).toMatchObject({ '@type': 'Person', name: 'Unknown author' });
+    expect(first['@id']).toBe('https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e');
+    expect(second['@id']).not.toBe(first['@id']);
   });
 
   it('a ©-prefixed attribution is the copyright notice verbatim', () => {
@@ -437,7 +472,11 @@ describe('unknown author (courtesy credit only)', () => {
 
   it('never falls back to the site, Commons or the uploader as creator', () => {
     const ld = imageObjectCreditFields(UNKNOWN_PD);
-    expect(ld.creator).toEqual({ '@type': 'Person', name: UNKNOWN_AUTHOR_NAME });
+    expect(ld.creator).toEqual({
+      '@type': 'Person',
+      '@id': 'https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e',
+      name: UNKNOWN_AUTHOR_NAME,
+    });
     expect(ld.creditText).toBe(`${UNKNOWN_AUTHOR_NAME} / Wikimedia Commons`);
     expect(ld.copyrightNotice).toBe('Public domain');
   });
@@ -480,7 +519,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
 
   it('public domain keeps exactly the ImageObject fields it had', () => {
     expect(imageObjectCreditFields(PD)).toEqual({
-      creator: { '@type': 'Person', name: 'Sergei Mikhailovich Prokudin-Gorskii' },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-sergei-mikhailovich-prokudin-gorskii-8e498110',
+        name: 'Sergei Mikhailovich Prokudin-Gorskii',
+      },
       creditText: 'Sergei Mikhailovich Prokudin-Gorskii / Wikimedia Commons',
       copyrightNotice: 'Public domain',
       license: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
@@ -488,7 +531,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
       isBasedOn: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
     });
     expect(imageObjectCreditFields(UNKNOWN_PD)).toEqual({
-      creator: { '@type': 'Person', name: UNKNOWN_AUTHOR_NAME },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e',
+        name: UNKNOWN_AUTHOR_NAME,
+      },
       creditText: `${UNKNOWN_AUTHOR_NAME} / Wikimedia Commons`,
       copyrightNotice: 'Public domain',
       license: 'https://commons.wikimedia.org/wiki/File:Swiss_vote.png',
@@ -500,7 +547,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
   it('CC0 keeps exactly the ImageObject fields it had', () => {
     const page = 'https://commons.wikimedia.org/wiki/File:AI_Classroom_at_Universal_Ai_University.jpg';
     const expected = {
-      creator: { '@type': 'Person', name: 'ManoBV16' },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-manobv16-3fabcae8',
+        name: 'ManoBV16',
+      },
       creditText: 'ManoBV16 / Wikimedia Commons',
       copyrightNotice: 'CC0',
       license: 'https://creativecommons.org/publicdomain/zero/1.0/',

@@ -56,7 +56,11 @@ const siteClaimLiteral = {
 const { acquireLicensePage: _a, copyrightNotice: _c, license: _l, creator: _cr, creditText: _ct, ...strippedLiteral } = siteClaimLiteral;
 
 const CREDIT_FIELDS = {
-  creator: { '@type': 'Organization', name: 'Fixture Archive' },
+  creator: {
+    '@type': 'Organization',
+    '@id': 'https://frontaliereticino.ch/#image-creator-organization-fixture-archive-86f18a9b',
+    name: 'Fixture Archive',
+  },
   creditText: 'Fixture Archive / Wikimedia Commons',
   copyrightNotice: '© Fixture Archive',
   license: 'https://creativecommons.org/licenses/by/4.0/',
