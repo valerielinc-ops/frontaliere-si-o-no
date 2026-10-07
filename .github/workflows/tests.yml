@@ -1249,6 +1249,10 @@ jobs:
             # bundles change. The services/locales/blog-body symlink is in the
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            # The prompt-placeholder quarantine tests render this article's
+            # real body in every locale; keep their runtime input in the sparse
+            # checkout instead of silently exercising the generic SEO fallback.
+            /packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts
             /packages/articles/content/blog-body/de/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body/en/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body/fr/simulazione-fiscale-frontaliere-2026.ts
