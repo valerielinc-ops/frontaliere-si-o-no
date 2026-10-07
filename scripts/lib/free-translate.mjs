@@ -2112,16 +2112,23 @@ export function isSeparatorOnlyLine(line) {
 export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
   if (typeof s !== 'string' || !s) return s;
   let out = s;
+  // A rule made of asterisks (`***`, `****`) is not bold markup, but it is
+  // made of the very marker steps 1 and 2 look for: read as bold, `****` was
+  // an "empty bold" and vanished, and the single `**` inside `***` made the
+  // count odd, which stripped every real bold of the field and left a lone `*`
+  // where the rule was. Rule lines are opaque to both steps (and to step 4).
+  const exceptRules = (transform) => (line) => (isSeparatorOnlyLine(line) ? line : transform(line));
   // 1. Drop empty / whitespace-only / punctuation-only bolds (e.g. `** **`,
   //    `**  **`, `** : **`, `** - **`), one line at a time: see
   //    `dropEmptyBoldSpansInLine`.
-  out = out.split('\n').map(dropEmptyBoldSpansInLine).join('\n');
+  out = out.split('\n').map(exceptRules(dropEmptyBoldSpansInLine)).join('\n');
   // 2. If `**` count is odd, the output is unrecoverable as bold structure —
   //    strip every `**` so the renderer sees plain text instead of a half-
   //    bold span.
-  const count = (out.match(/\*\*/g) || []).length;
+  const count = out.split('\n')
+    .reduce((total, line) => total + (isSeparatorOnlyLine(line) ? 0 : (line.match(/\*\*/g) || []).length), 0);
   if (count % 2 !== 0) {
-    out = out.replace(/\*\*/g, '');
+    out = out.split('\n').map(exceptRules((line) => line.replace(/\*\*/g, ''))).join('\n');
   }
   // 3. Strip standalone separator-only lines (`______`, `======`) that some
   //    translators emit as decoration — except as many rules as the source
@@ -2146,7 +2153,7 @@ export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
   // 4. Strip trailing inline separator runs that often hug a line end.
   out = out
     .split('\n')
-    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
+    .map((line) => (isSeparatorOnlyLine(line) ? line : line.replace(/\s+[_\-=~*]{3,}\s*$/g, '')).trimEnd())
     .join('\n');
   // 5. Collapse 3+ consecutive newlines that step 3 may have created when
   //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →

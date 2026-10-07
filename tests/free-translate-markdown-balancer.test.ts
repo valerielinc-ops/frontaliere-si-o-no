@@ -160,6 +160,26 @@ describe('balanceMarkdownMarkers — never merges lines or neighbouring bolds', 
     ).toBe(source.replace(/\n{3,}/g, '\n\n').split('\n').length);
   });
 
+  it('a rule made of asterisks is not bold markup: it stays whole and the bolds of the text stay', () => {
+    // `****` read as bold was an "empty bold" and vanished; the single `**`
+    // inside `***` made the count odd, which stripped EVERY bold of the text
+    // and left a lone `*` where the rule was.
+    for (const rule of ['***', '****', '*****', '* * *']) {
+      const text = `**Primo** paragrafo.\n\n${rule}\n\n**Secondo** paragrafo.`;
+      expect(balanceMarkdownMarkers(text, { sourceText: text }), rule).toBe(text);
+    }
+    // No source: the rule is decoration and goes, the real bolds stay.
+    expect(balanceMarkdownMarkers('**Primo** paragrafo.\n\n***\n\n**Secondo** paragrafo.')).toBe(
+      '**Primo** paragrafo.\n\n**Secondo** paragrafo.',
+    );
+    // A really unpaired bold strips the markers of the prose lines, not the rule.
+    expect(
+      balanceMarkdownMarkers('**Primo paragrafo.\n\n***\n\n**Secondo** paragrafo.', {
+        sourceText: 'Uno.\n\n***\n\nDue.',
+      }),
+    ).toBe('Primo paragrafo.\n\n***\n\nSecondo paragrafo.');
+  });
+
   it('isSeparatorOnlyLine reads a rule, not a blank line or a list item', () => {
     for (const line of ['---', '-----------------', '- - -', '***', '===', '___']) {
       expect(isSeparatorOnlyLine(line), line).toBe(true);
