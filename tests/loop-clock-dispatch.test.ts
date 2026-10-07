@@ -59,7 +59,6 @@ describe('loop clock table and cadence', () => {
       repo: 'site',
       workflow: 'runtime-reliability-watch.yml',
       everyMinutes: 30,
-      introducedAt: '2026-10-08T06:00:00Z',
     });
   });
 
@@ -69,7 +68,6 @@ describe('loop clock table and cadence', () => {
       repo: 'site',
       workflow: 'revenue-signal-monitor.yml',
       everyMinutes: 60,
-      introducedAt: '2026-10-07T16:50:03Z',
     });
   });
 
@@ -80,6 +78,16 @@ describe('loop clock table and cadence', () => {
       workflow: 'event-description-rewrite.yml',
       everyMinutes: 60,
     });
+  });
+
+  // A field nothing reads is a promise nobody keeps: `introducedAt` was one,
+  // optional, and the second entry that needed it came without (#12284).
+  it('carries in an entry only the fields the dispatcher or the observer read', () => {
+    const read = new Set(['id', 'repo', 'workflow', 'everyMinutes', 'condition', 'inputs']);
+    const unread = LOOP_CLOCK_ENTRIES.flatMap((entry) => (
+      Object.keys(entry).filter((field) => !read.has(field)).map((field) => `${entry.id}.${field}`)
+    ));
+    expect(unread).toEqual([]);
   });
 
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
@@ -438,6 +446,8 @@ describe('loop clock observer', () => {
       repository: 'owner/site',
       listRunsImpl,
       untriagedIssuesImpl: async () => ({ count: 3, oldestCreatedAt: minutesAgo(600) }),
+      // The table of these cases has not changed for a month, unless one says otherwise.
+      tableChangedAtImpl: async () => Date.parse(minutesAgo(30 * 24 * 60)),
       createIssueImpl,
       resolveIssueImpl,
       ...options,
@@ -582,38 +592,116 @@ describe('loop clock observer', () => {
     expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${slow.id}`);
   });
 
-  it('gives a newly introduced entry its own warm-up window after the clock is established', async () => {
+  // An entry that joins a running clock cannot have had its first slot yet. The
+  // observer dates it from the last change of the table, read from the history.
+  describe('an entry that joined the running clock', () => {
     const established = { ...customEntry('established'), everyMinutes: 15 };
-    const newcomer = {
-      ...customEntry('newcomer'),
-      everyMinutes: 60,
-      introducedAt: minutesAgo(30),
-    };
-    const runsOf = (workflow: string) => (
+    const newcomer = { ...customEntry('newcomer'), everyMinutes: 60 };
+    const runsOf = (extra: unknown[] = []) => vi.fn(async (_repository: string, workflow: string) => (
       workflow === established.workflow
         ? [clockRun(established, 400), clockRun(established, 5)]
-        : [otherRun(1)]
+        : [otherRun(1), ...extra]
+    ));
+    const verdictOf = (report: { results: Array<{ id: string }> }, entry: { id: string }) => (
+      report.results.find((result) => result.id === entry.id)
     );
-    const young = await observe([established, newcomer], [], {
-      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+
+    it('is not called stale before the table that carries it is one threshold old', async () => {
+      const tableChangedAtImpl = vi.fn(async () => Date.parse(minutesAgo(30)));
+      const young = await observe([established, newcomer], [], { listRunsImpl: runsOf(), tableChangedAtImpl });
+
+      expect(verdictOf(young.report, established)).toMatchObject({ state: 'healthy' });
+      expect(verdictOf(young.report, newcomer)).toMatchObject({
+        state: 'too_early',
+        reason: 'table_younger_than_threshold',
+      });
+      expect(young.report.tableChangedAt).toBe(minutesAgo(30));
+      expect(young.createIssueImpl).not.toHaveBeenCalled();
+      expect(tableChangedAtImpl).toHaveBeenCalledWith('owner/site');
     });
 
-    expect(young.report.results.find((result) => result.id === established.id)).toMatchObject({ state: 'healthy' });
-    expect(young.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
-      state: 'too_early',
-      reason: 'entry_younger_than_threshold',
-    });
-    expect(young.createIssueImpl).not.toHaveBeenCalled();
+    it('is called stale once the table has stood unchanged for a whole threshold', async () => {
+      const old = await observe([established, newcomer], [], {
+        listRunsImpl: runsOf(),
+        tableChangedAtImpl: async () => Date.parse(minutesAgo(200)),
+      });
 
-    const old = await observe([established, { ...newcomer, introducedAt: minutesAgo(200) }], [], {
-      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+      expect(verdictOf(old.report, newcomer)).toMatchObject({ state: 'stale', reason: 'no_marked_run_observed' });
+      expect(old.createIssueImpl).toHaveBeenCalledTimes(1);
+      expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${newcomer.id}`);
     });
-    expect(old.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
-      state: 'stale',
-      reason: 'no_marked_run_observed',
+
+    // 2026-10-07: the entry reached main at 22:22:51Z, its first slot was due
+    // at 23:10Z, and the observer opened «Loop clock stale» at 22:30:45Z.
+    it('replays #12284: eight minutes after the merge nothing is owed, and the first dispatch makes it healthy', async () => {
+      const eightMinutesIn = await observe([established, newcomer], [], {
+        listRunsImpl: runsOf(),
+        tableChangedAtImpl: async () => Date.parse(minutesAgo(8)),
+      });
+      expect(verdictOf(eightMinutesIn.report, newcomer)).toMatchObject({ state: 'too_early' });
+      expect(eightMinutesIn.createIssueImpl).not.toHaveBeenCalled();
+      expect(eightMinutesIn.report.errors).toBe(0);
+
+      const tableChangedAtImpl = vi.fn(async () => Date.parse(minutesAgo(48)));
+      const afterTheFirstSlot = await observe([established, newcomer], [], {
+        listRunsImpl: runsOf([clockRun(newcomer, 1)]),
+        tableChangedAtImpl,
+      });
+      expect(verdictOf(afterTheFirstSlot.report, newcomer)).toMatchObject({ state: 'healthy' });
+      expect(afterTheFirstSlot.resolveIssueImpl).toHaveBeenCalledWith(
+        `Loop clock stale: ${newcomer.id}`,
+        expect.objectContaining({ workflow: 'loop-clock-health' }),
+      );
+      // Every entry has a dispatch of its own: the history is not read at all.
+      expect(tableChangedAtImpl).not.toHaveBeenCalled();
+      expect(afterTheFirstSlot.report.tableChangedAt).toBeNull();
     });
-    expect(old.createIssueImpl).toHaveBeenCalledTimes(1);
-    expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${newcomer.id}`);
+
+    it('reads the history once, whatever the number of entries without a dispatch', async () => {
+      const second = { ...customEntry('second-newcomer'), everyMinutes: 30 };
+      const tableChangedAtImpl = vi.fn(async () => Date.parse(minutesAgo(10)));
+      const report = await observe([established, newcomer, second], [], { listRunsImpl: runsOf(), tableChangedAtImpl });
+
+      expect(verdictOf(report.report, newcomer)).toMatchObject({ state: 'too_early' });
+      expect(verdictOf(report.report, second)).toMatchObject({ state: 'too_early' });
+      expect(tableChangedAtImpl).toHaveBeenCalledTimes(1);
+    });
+
+    it.each([
+      ['cannot be read', async () => { throw new Error('API unavailable'); }],
+      ['is not a date', async () => Number.NaN],
+    ])('gets no verdict of absence when the history of the table %s', async (_label, tableChangedAtImpl) => {
+      const blind = await observe([established, newcomer], [], { listRunsImpl: runsOf(), tableChangedAtImpl });
+
+      expect(verdictOf(blind.report, newcomer)).toMatchObject({
+        state: 'inconclusive',
+        reason: 'table_history_unavailable',
+      });
+      expect(blind.report.errors).toBe(1);
+      expect(blind.createIssueImpl).not.toHaveBeenCalled();
+      // The entry with its own dispatch is judged all the same.
+      expect(verdictOf(blind.report, established)).toMatchObject({ state: 'healthy' });
+    });
+
+    it('does not shelter a clock that never dispatched, or one younger than the entry threshold', async () => {
+      const tableChangedAtImpl = vi.fn(async () => Date.parse(minutesAgo(5)));
+
+      const never = await observe([established, newcomer], [otherRun(3)], { tableChangedAtImpl });
+      expect(never.report.clockDown).toBe(true);
+      expect(never.createIssueImpl).toHaveBeenCalledTimes(1);
+
+      const young = await observe([established, newcomer], [], {
+        listRunsImpl: vi.fn(async (_repository: string, workflow: string) => (
+          workflow === established.workflow ? [clockRun(established, 20), clockRun(established, 5)] : [otherRun(1)]
+        )),
+        tableChangedAtImpl,
+      });
+      expect(verdictOf(young.report, newcomer)).toMatchObject({
+        state: 'too_early',
+        reason: 'clock_younger_than_threshold',
+      });
+      expect(tableChangedAtImpl).not.toHaveBeenCalled();
+    });
   });
 
   it('keeps an entry healthy on its own marked dispatch and resolves its issue', async () => {
