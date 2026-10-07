@@ -13983,14 +13983,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:15:56.800Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialpflege-gruppenleitung-hf-pflege-intensivstation-mit-schwerpunkt-neurochirurgie-80"
-        ]
-      },
-      "previousSlugs": [
-        "spezialpflege-gruppenleitung-hf-pflege-intensivstation-mit-schwerpunkt-neurochirurgie-80"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -14003,7 +13995,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-gruppenleitung-hf-pflege-intensivstation-mit-schwerpunkt-neurochirurgie-80"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-gruppenleitung-hf-pflege-intensivstation-mit-schwerpunkt-neurochirurgie-80"
+      ]
     },
     {
       "id": "usz-6ddef6fc7412",
