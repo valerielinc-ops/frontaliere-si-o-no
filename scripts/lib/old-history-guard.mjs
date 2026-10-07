@@ -226,7 +226,14 @@ export function checkOldHistory({
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
-  if (refreshBase && result.reason !== 'marker-unavailable' && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
+  // Any available marker can produce an inconclusive false result from
+  // `merge-base --is-ancestor` when the repository is shallow: the marker may
+  // be beyond the shallow boundary, even when its object is already local.
+  // `marker-in-base` is the one conclusive fast path because both ancestry
+  // checks have already succeeded.
+  const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
+    && result.reason !== 'marker-in-base';
+  if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
     withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
