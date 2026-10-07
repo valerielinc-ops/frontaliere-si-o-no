@@ -8,11 +8,11 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
-import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 function readJson(file, fallback = null) {
   try {
@@ -154,7 +154,7 @@ function parseArgs(argv) {
   return args;
 }
 
-if (isInvokedDirectly(import.meta.url)) {
+if (process.argv[1] && import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href) {
   try {
     const args = parseArgs(process.argv.slice(2));
     if (!args) process.exit(0);
