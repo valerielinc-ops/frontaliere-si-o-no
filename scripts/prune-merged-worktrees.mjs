@@ -25,8 +25,10 @@
 //   • branch locale (no worktree) con PR MERGED su main e HEAD esatto → delete
 //   • worktree clean, 0-ahead, NESSUNA PR, fermo da IDLE_WORKTREE_MS e senza
 //      processi con la cwd dentro      → remove (niente da perdere: è tutto su main)
-//   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo;
-//      upstream-GONE segnalato nel report → tipico worktree Codex fuori dagli hook)
+//   • worktree/branch clean, non in uso, senza PR OPEN, con commit e segnali
+//      HEAD/index/reflog vecchi da EXPIRY_DAYS (default 3, minimo 1)
+//                                      → snapshot remoto verificato + remove
+//   • worktree/branch scaduto ma 0-ahead → remove senza snapshot
 //   • worktree LOCKED, in uso (cwd di un processo), checkout corrente o hooks-main
 //                                      → KEEP, mai toccato
 //   • branch con PR OPEN o worktree del repo principale (main) → KEEP, mai toccato
@@ -71,18 +73,26 @@
 // Uso:
 //   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
+//   node scripts/prune-merged-worktrees.mjs --expiry-days 5
+//   PRUNE_WORKTREE_EXPIRY_DAYS=5 node scripts/prune-merged-worktrees.mjs
 //   node scripts/prune-merged-worktrees.mjs --only <testo>  # solo worktree,
 //        branch e directory il cui path o nome contiene <testo> (diagnosi)
 //
-// Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh → degrada a
-// solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
+// `--orphans-only` è volutamente più prudente: considera solo branch
+// `worktree-agent-*` senza worktree, richiede una lista completa delle PR aperte
+// e non rimuove un branch ahead>0 finché il tag non è verificato sul remoto.
+//
+// Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh la regola di
+// scadenza resta report-only; il percorso normale conserva soltanto la vecchia
+// eccezione locale `worktree-agent-*` 0-ahead.
 
 import { execFileSync, execSync } from 'node:child_process';
 import {
-  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
+  appendFileSync, existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
   writeFileSync,
 } from 'node:fs';
 import { basename, join, relative, resolve } from 'node:path';
+import { hostname } from 'node:os';
 
 import {
   isMergedIntoBaseAtHead,
@@ -128,6 +138,27 @@ import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 
 const STARTED_AT = Date.now();
 const APPLY = process.argv.includes('--apply');
+const DAY_MS = 24 * 60 * 60 * 1000;
+const DEFAULT_EXPIRY_DAYS = 3;
+
+function optionNumber(name, envNames, fallback) {
+  const eq = process.argv.find((a) => a.startsWith(`${name}=`));
+  const index = process.argv.indexOf(name);
+  const raw = eq ? eq.slice(name.length + 1) : (index >= 0 ? process.argv[index + 1] : undefined);
+  const envRaw = envNames.map((key) => process.env[key]).find((value) => value !== undefined);
+  const value = raw ?? envRaw;
+  if (value === undefined || value === '') return fallback;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(1, parsed) : fallback;
+}
+
+// La scadenza è intenzionalmente separata da IDLE_WORKTREE_MS: un checkout
+// vuoto può essere raccolto dopo un giorno, ma un branch con commit propri
+// deve avere sia l'ultimo commit sia l'ultimo segnale HEAD/index più vecchi di
+// questa soglia. `--orphans-only` usa la stessa soglia, con guardie ancora più
+// strette perché non ha un worktree da ispezionare.
+const EXPIRY_DAYS = optionNumber('--expiry-days', ['PRUNE_WORKTREE_EXPIRY_DAYS', 'PRUNE_EXPIRY_DAYS'], DEFAULT_EXPIRY_DAYS);
+const EXPIRY_MS = EXPIRY_DAYS * DAY_MS;
 // --only <testo>: limita lo sweep ai worktree/branch/directory che lo contengono.
 const ONLY = (() => {
   const eq = process.argv.find((a) => a.startsWith('--only='));
@@ -145,6 +176,8 @@ const ORPHANS_ONLY = process.argv.includes('--orphans-only');
 // (quota condivisa col resto del workspace), le prove il tempo in più.
 let ghCalls = 0;
 let proofMs = 0;
+let snapshotsCreated = [];
+let skippedSnapshotFailures = 0;
 
 function sh(cmd, { allowFail = false } = {}) {
   if (cmd.startsWith('gh ')) ghCalls++;
@@ -206,33 +239,208 @@ function ghOut(args, { allowFail = false } = {}) {
 
 const mainBranch = sh('git symbolic-ref --quiet --short refs/remotes/origin/HEAD', { allowFail: true })
   .replace(/^origin\//, '') || 'main';
+const mainRef = `origin/${mainBranch}`;
+const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
+const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
+const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
+const SNAPSHOT_HOST = (hostname() || 'unknown-host').replace(/[^A-Za-z0-9._-]+/g, '-').replace(/\.{2,}/g, '.');
+const SNAPSHOT_DATE = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+const SNAPSHOT_INVENTORY_FILE = join(gitDir, 'frontaliere-worktree-expiry-inventory.jsonl');
 
-// --- FAST PATH: --orphans-only (SessionEnd hook) ----------------------------
-// Solo i branch worktree-agent-* 0-ahead SENZA worktree attaccato (case c:
-// sessione morta non raggiunge il pre-task-close). Self-contained, niente gh,
-// niente rimozione worktree, NIENTE fetch di rete → istantaneo, safe da girare
-// non-presidiato a ogni fine sessione. Usa l'origin/<main> locale: anche se
-// leggermente stale, un worktree-agent-* nasce branchato da main recente → resta
-// 0-ahead; se per stale risultasse ahead>0, viene saltato (mai cancellato a torto).
-if (ORPHANS_ONLY) {
+function commitTimestampMs(ref) {
+  const seconds = Number.parseInt(gitOut(['show', '-s', '--format=%ct', ref], { allowFail: true }), 10);
+  return Number.isFinite(seconds) ? seconds * 1000 : 0;
+}
+
+function expirySignalsAreOld(commitMs, activityMs) {
+  const now = Date.now();
+  return commitMs > 0 && activityMs > 0
+    && now - commitMs >= EXPIRY_MS
+    && now - activityMs >= EXPIRY_MS;
+}
+
+function branchSignalMs(branch, head) {
+  try { return statSync(join(gitDir, 'logs', 'refs', 'heads', branch)).mtimeMs; } catch { /* fallback al commit */ }
+  return commitTimestampMs(head);
+}
+
+function safeSnapshotBranch(branch, sha) {
+  const raw = branch || `detached-${String(sha || '').slice(0, 12)}`;
+  return raw.replace(/[^A-Za-z0-9._/-]+/g, '-').replace(/\.{2,}/g, '.').replace(/\/{2,}/g, '/')
+    .replace(/^\/+|\/+$/g, '') || `detached-${String(sha || '').slice(0, 12)}`;
+}
+
+function localTagSha(tag) {
+  return gitOut(['rev-parse', '--verify', `${tag}^{commit}`], { allowFail: true }) || null;
+}
+
+function remoteTagSha(tag) {
+  const raw = gitOut(['ls-remote', '--refs', 'origin', `refs/tags/${tag}`], { allowFail: true });
+  return raw.split('\n').map((line) => line.trim().split(/\s+/)[0]).find(Boolean) || null;
+}
+
+function expirySnapshotTag(branch, sha) {
+  const base = `snapshot/${SNAPSHOT_HOST}-${SNAPSHOT_DATE}/${safeSnapshotBranch(branch, sha)}`;
+  for (let suffix = 0; suffix < 100; suffix++) {
+    const tag = suffix === 0 ? base : `${base}-${suffix + 1}`;
+    if (!gitOk(['check-ref-format', `refs/tags/${tag}`])) continue;
+    const local = localTagSha(tag);
+    if (local && local !== sha) continue;
+    const remote = remoteTagSha(tag);
+    if (remote && remote !== sha) continue;
+    return { tag, remote };
+  }
+  return null;
+}
+
+function snapshotInventoryHas(tag, sha) {
+  try {
+    return readFileSync(SNAPSHOT_INVENTORY_FILE, 'utf8').split('\n').some((line) => {
+      if (!line) return false;
+      try {
+        const item = JSON.parse(line);
+        return item?.tag === tag && item?.sha === sha;
+      } catch { return false; }
+    });
+  } catch { return false; }
+}
+
+function snapshotFiles(sha) {
+  const diff = gitOut(['diff', '--name-only', `${mainRef}...${sha}`], { allowFail: true, maxBuffer: 16 * 1024 * 1024 });
+  if (diff) return [...new Set(diff.split('\n').filter(Boolean))];
+  return gitOut(['diff-tree', '--root', '--no-commit-id', '--name-only', '-r', sha], { allowFail: true })
+    .split('\n').filter(Boolean);
+}
+
+function recordSnapshot({ tag, branch = null, sha, kind = 'legacy' }) {
+  if (snapshotInventoryHas(tag, sha)) return true;
+  const count = gitOut(['rev-list', '--count', `${mainRef}..${sha}`], { allowFail: true });
+  const issues = issueNumbersInBranch(branch || '');
+  const item = {
+    recordedAt: new Date().toISOString(),
+    host: SNAPSHOT_HOST,
+    date: SNAPSHOT_DATE,
+    kind,
+    tag,
+    branch,
+    sha,
+    issue: issues.length ? issues.join(',') : null,
+    commits: count === '' ? null : Number.parseInt(count, 10),
+    files: snapshotFiles(sha),
+  };
+  try {
+    appendFileSync(SNAPSHOT_INVENTORY_FILE, `${JSON.stringify(item)}\n`, { mode: 0o600 });
+    snapshotsCreated.push(item);
+    return true;
+  } catch (error) {
+    console.log(`⚠️  FALLITO registro snapshot ${tag}: ${error?.message || 'inventario non scrivibile'}`);
+    return false;
+  }
+}
+
+// Snapshot della nuova regola: il tag deve esistere sul remoto e puntare alla
+// stessa testa prima che il chiamante possa rimuovere il branch/worktree.
+function snapshotExpiryBeforeDelete(branch, sha) {
+  const candidate = expirySnapshotTag(branch, sha);
+  if (!candidate) return false;
+  if (candidate.remote !== sha) {
+    const local = localTagSha(candidate.tag);
+    if (!local && !gitOk(['tag', candidate.tag, sha])) return false;
+    if (!gitOk(['push', 'origin', `refs/tags/${candidate.tag}`])) return false;
+    if (remoteTagSha(candidate.tag) !== sha) return false;
+  }
+  if (!recordSnapshot({ tag: candidate.tag, branch: branch || null, sha, kind: 'expiry' })) return false;
+  console.log(`snapshot remoto ${candidate.tag} -> ${sha.slice(0, 12)}`);
+  return true;
+}
+
+function runOrphansOnly() {
+  // `--orphans-only` è usato da SessionEnd: per prudenza non cancella nulla se
+  // la lettura bulk delle PR aperte non è disponibile o è troncata. Non ha un
+  // worktree da classificare, quindi i soli candidati sono branch
+  // `worktree-agent-*` senza checkout registrato; anche quelli ahead>0 vengono
+  // raccolti solo dopo snapshot remoto verificato.
+  const openRaw = ghOut(['pr', 'list', '--state', 'open', '--limit', '1000', '--json', PR_JSON_FIELDS], { allowFail: true });
+  let openPrs;
+  try { openPrs = openRaw ? JSON.parse(openRaw) : null; } catch { openPrs = null; }
+  const openListComplete = Array.isArray(openPrs) && openPrs.length < 1000;
   const attached = new Set(
     sh('git worktree list --porcelain', { allowFail: true })
-      .split('\n').filter((l) => l.startsWith('branch '))
-      .map((l) => l.slice('branch refs/heads/'.length)),
+      .split('\n').filter((line) => line.startsWith('branch '))
+      .map((line) => line.slice('branch refs/heads/'.length)),
   );
-  const orphans = sh("git for-each-ref --format='%(refname:short)' refs/heads", { allowFail: true })
+  const candidates = sh("git for-each-ref --format='%(refname:short)' refs/heads", { allowFail: true })
     .split('\n').filter(Boolean)
-    .filter((b) => /^worktree-agent-/.test(b) && !attached.has(b))
-    .filter((b) => sh(`git rev-list --count origin/${mainBranch}..${b}`, { allowFail: true }) === '0');
-  if (!APPLY) {
-    console.log(`[orphans-only] ${orphans.length} branch worktree-agent-* 0-ahead orfani:`);
-    orphans.forEach((b) => console.log(`  - ${b}`));
-    console.log(orphans.length ? 'dry-run: ri-esegui con --apply.' : 'niente da fare.');
-    process.exit(0);
+    .filter((branch) => /^worktree-agent-/.test(branch) && !attached.has(branch) && selected(branch));
+  const planned = [];
+  const skipped = new Map();
+  const skip = (reason) => skipped.set(reason, (skipped.get(reason) || 0) + 1);
+  for (const branch of candidates) {
+    if (!openListComplete) { skip('PR aperte non verificabili o lista troncata'); continue; }
+    const head = gitOut(['rev-parse', '--verify', `refs/heads/${branch}`], { allowFail: true });
+    const aheadRaw = gitOut(['rev-list', '--count', `${mainRef}..${branch}`], { allowFail: true });
+    const parsedAhead = Number.parseInt(aheadRaw, 10);
+    const ahead = aheadRaw === '' || !Number.isFinite(parsedAhead) ? null : parsedAhead;
+    const commitMs = commitTimestampMs(branch);
+    const activityMs = branchSignalMs(branch, branch);
+    const open = openPrs.some((pr) => pr?.headRefName === branch || pr?.headRefOid === head);
+    if (open) { skip('PR aperta'); continue; }
+    if (ahead === null || !expirySignalsAreOld(commitMs, activityMs)) {
+      skip('non scaduto (commit e reflog non entrambi vecchi)');
+      continue;
+    }
+    planned.push({ branch, head, ahead, snapshot: ahead > 0, expiryActivityMs: activityMs });
   }
-  let n = 0;
-  for (const b of orphans) if (shOk(`git branch -D "${b}"`)) { n++; console.log(`deleted ${b}`); }
-  if (orphans.length) console.log(`[orphans-only] ${n}/${orphans.length} branch orfani cancellati.`);
+  console.log(`[orphans-only] base=${mainRef} | mode=${APPLY ? 'APPLY' : 'dry-run'} | soglia=${EXPIRY_DAYS} giorni`);
+  console.log(`[orphans-only] candidati scaduti: ${planned.length}; saltati: ${[...skipped.values()].reduce((a, b) => a + b, 0)}`);
+  if (skipped.size) console.log(`[orphans-only] saltati per motivo: ${[...skipped.entries()].map(([reason, count]) => `${reason}=${count}`).join(', ')}.`);
+  planned.forEach((entry) => console.log(
+    `  - ${entry.branch} ahead=${entry.ahead}${entry.snapshot ? ' — snapshot remoto prima della rimozione' : ' — nessuno snapshot'}`,
+  ));
+  const plannedSnapshots = planned.filter((entry) => entry.snapshot).length;
+  if (!APPLY) {
+    console.log('[orphans-only] dry-run: niente rimosso. Ri-esegui con --apply per applicare.');
+    console.log(`[orphans-only] riassunto: snapshot da creare ${plannedSnapshots}; worktree rimossi 0; branch da rimuovere ${planned.length}; spazio liberabile stimato 0 B; saltati per motivo: ${[...skipped.entries()].map(([reason, count]) => `${reason}=${count}`).join(', ') || 'nessuno'}.`);
+    console.log(`[orphans-only] costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s; ${ghCalls} chiamate gh.`);
+    return;
+  }
+  let removed = 0;
+  for (const entry of planned) {
+    const beforeDelete = expiryBranchRecheck(entry);
+    if (!beforeDelete.ok) {
+      skip(beforeDelete.reason);
+      console.log(`⚠️  SALTATO ${entry.branch}: ${beforeDelete.reason} — branch lasciato intatto`);
+      continue;
+    }
+    if (entry.snapshot && !snapshotExpiryBeforeDelete(entry.branch, entry.head)) {
+      skippedSnapshotFailures++;
+      skip('snapshot remoto fallito');
+      console.log(`⚠️  FALLITO snapshot ${entry.branch} — branch lasciato intatto`);
+      continue;
+    }
+    const afterSnapshot = expiryBranchRecheck(entry);
+    if (!afterSnapshot.ok) {
+      skip(afterSnapshot.reason);
+      console.log(`⚠️  SALTATO ${entry.branch}: ${afterSnapshot.reason} — branch lasciato intatto`);
+      continue;
+    }
+    if (gitOk(['branch', '-D', entry.branch])) {
+      removed++;
+      console.log(`deleted branch ${entry.branch}`);
+    } else {
+      skip('rimozione branch fallita');
+    }
+  }
+  console.log(`[orphans-only] branch rimossi: ${removed}; snapshot creati: ${snapshotsCreated.length}; snapshot falliti: ${skippedSnapshotFailures}.`);
+  console.log(`[orphans-only] riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi 0; branch rimossi ${removed}; spazio liberato 0 B; saltati per motivo: ${[...skipped.entries()].map(([reason, count]) => `${reason}=${count}`).join(', ') || 'nessuno'}.`);
+  console.log(`[orphans-only] costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s; ${ghCalls} chiamate gh.`);
+}
+
+// --- FAST PATH: --orphans-only (SessionEnd hook) ----------------------------
+// Applica la stessa scadenza in forma prudente: solo branch worktree-agent-*
+// senza worktree, lista PR aperte completa e snapshot remoto verificato.
+if (ORPHANS_ONLY) {
+  runOrphansOnly();
   process.exit(0);
 }
 
@@ -250,9 +458,6 @@ if (ORPHANS_ONLY) {
 // residui che git non pota da sé. Fetch mancato = origin/<main> leggermente
 // stale, caso già tollerato dallo script (degrada a report-only, mai a una
 // cancellazione a torto).
-const gitDir = sh('git rev-parse --git-common-dir', { allowFail: true }) || '.git';
-const fetchLock = join(gitDir, 'frontaliere-prune-fetch.lock');
-
 // Il timeout è un guard anti-APPESO, non un tetto al lavoro legittimo: a
 // impedire il pile-up ci pensa il lock, non il timeout. Va quindi tenuto SOPRA
 // il fetch di catch-up più lento misurato (~20 min per 24'309 commit di
@@ -332,7 +537,18 @@ const prByNumber = new Map(); // numero → record, per le PR candidate delle pr
 // `update-all-dependencies`), sono detached, o riusano `fix/issue-N` di PR diverse.
 const prByHeadOid = new Map();
 const windowPrs = []; // tutte le PR lette in blocco, per le candidate per nome
-const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
+const PR_BULK_CACHE_FILE = join(gitDir, 'frontaliere-pr-window-cache.json');
+const PR_HEAD_CACHE_FILE = join(gitDir, 'frontaliere-pr-head-cache.json');
+const PR_CACHE_TTL_MS = 2 * 60 * 1000;
+let openPrListComplete = false;
+let bulkPrCacheHit = false;
+const prHeadCache = (() => {
+  try {
+    const parsed = JSON.parse(readFileSync(PR_HEAD_CACHE_FILE, 'utf8'));
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch { return {}; }
+})();
+let prHeadCacheChanged = false;
 function ingestPrs(json) {
   let prs;
   try { prs = JSON.parse(json); } catch { return; }
@@ -355,11 +571,73 @@ function ingestPrs(json) {
     if (!prev || rankPrState(pr.state) > rankPrState(prev)) prState.set(pr.headRefName, pr.state);
   }
 }
+
+function cachedBulkPrs() {
+  try {
+    const cached = JSON.parse(readFileSync(PR_BULK_CACHE_FILE, 'utf8'));
+    if (cached?.at && Date.now() - cached.at < PR_CACHE_TTL_MS && Array.isArray(cached.prs)) return JSON.stringify(cached.prs);
+  } catch { /* cache assente o illeggibile: lettura fresca */ }
+  return '';
+}
+
+function saveBulkPrs(raw) {
+  try {
+    const parsed = JSON.parse(raw);
+    const tmp = `${PR_BULK_CACHE_FILE}.${process.pid}.tmp`;
+    writeFileSync(tmp, JSON.stringify({ at: Date.now(), prs: parsed }));
+    renameSync(tmp, PR_BULK_CACHE_FILE);
+  } catch { /* la cache è solo un'ottimizzazione */ }
+}
+
+function cachedHeadQuery(cmd) {
+  const branch = /--head '([^']+)'/.exec(cmd)?.[1];
+  const entry = branch ? prHeadCache[branch] : null;
+  if (!entry || Date.now() - entry.at >= PR_CACHE_TTL_MS || typeof entry.raw !== 'string') return undefined;
+  let records;
+  try { records = JSON.parse(entry.raw); } catch { return undefined; }
+  const hasOpen = Array.isArray(records) && records.some((pr) => String(pr?.state).toUpperCase() === 'OPEN');
+  // Un negativo breve è riusabile solo quando la lista OPEN fresca è completa;
+  // un record OPEN in cache resta invece una protezione conservativa.
+  if (!openPrListComplete && !hasOpen) return undefined;
+  ingestPrs(entry.raw);
+  return entry.raw;
+}
+
+function saveHeadQuery(branch, raw) {
+  if (!branch || !raw) return;
+  prHeadCache[branch] = { at: Date.now(), raw };
+  prHeadCacheChanged = true;
+}
+
+function saveHeadCache() {
+  if (!prHeadCacheChanged) return;
+  for (const [branch, entry] of Object.entries(prHeadCache)) {
+    if (!entry?.at || Date.now() - entry.at >= PR_CACHE_TTL_MS) delete prHeadCache[branch];
+  }
+  const tmp = `${PR_HEAD_CACHE_FILE}.${process.pid}.tmp`;
+  try {
+    writeFileSync(tmp, JSON.stringify(prHeadCache));
+    renameSync(tmp, PR_HEAD_CACHE_FILE);
+  } catch {
+    try { rmSync(tmp, { force: true }); } catch { /* cache opzionale */ }
+  }
+}
+
 if (ghOk) {
-  // OPEN: set di protezione, query dedicata, mai troncato silenziosamente.
-  const openRaw = sh(`gh pr list --state open --limit 300 --json ${PR_JSON_FIELDS}`, { allowFail: true });
-  // all: finestra ampia, recency-sorted; i residui fuori finestra usano --head.
-  const allRaw = sh(`gh pr list --state all --limit 400 --json ${PR_JSON_FIELDS}`, { allowFail: true });
+  // OPEN: set di protezione, query dedicata; 1000 lascia spazio alla lettura
+  // completa e il codice rifiuta la scadenza se la lista è troncata.
+  const openRaw = sh(`gh pr list --state open --limit 1000 --json ${PR_JSON_FIELDS}`, { allowFail: true });
+  // all: lettura bulk più ampia, con cache breve. Un miss storico non autorizza
+  // da solo alcuna rimozione: le prove di contenuto restano attive.
+  let allRaw = cachedBulkPrs();
+  if (allRaw) bulkPrCacheHit = true;
+  else {
+    allRaw = sh(`gh pr list --state all --limit 1000 --json ${PR_JSON_FIELDS}`, { allowFail: true });
+    if (allRaw) saveBulkPrs(allRaw);
+  }
+  let openPrs;
+  try { openPrs = JSON.parse(openRaw); } catch { openPrs = null; }
+  openPrListComplete = Array.isArray(openPrs) && openPrs.length < 1000;
   if (openRaw === '' && allRaw === '') {
     ghOk = false; // entrambe throw → gh non utilizzabile
   } else {
@@ -371,8 +649,14 @@ if (ghOk) {
 const resolvePrState = makePrStateResolver({
   cache: prState,
   runQuery: (cmd) => {
+    const cached = cachedHeadQuery(cmd);
+    if (cached !== undefined) return cached;
     const raw = sh(cmd, { allowFail: true });
-    if (raw) ingestPrs(raw);
+    const branch = /--head '([^']+)'/.exec(cmd)?.[1];
+    if (raw) {
+      ingestPrs(raw);
+      saveHeadQuery(branch, raw);
+    }
     return raw;
   },
   enabled: ghOk,
@@ -676,6 +960,7 @@ function snapshotBeforeDelete(branch, required) {
   if (!sha) return false;
   const tag = snapshotTagName(branch);
   if (!gitOk(['tag', tag, sha])) return false;
+  if (!recordSnapshot({ tag, branch, sha })) return false;
   console.log(`snapshot ${tag} -> ${sha.slice(0, 12)}`);
   return true;
 }
@@ -687,6 +972,7 @@ function snapshotDetachedBeforeRemove(sha, required) {
   if (!sha) return false;
   const tag = snapshotTagName(`detached-${sha.slice(0, 12)}`);
   if (!gitOk(['tag', tag, sha])) return false;
+  if (!recordSnapshot({ tag, branch: `detached-${sha.slice(0, 12)}`, sha })) return false;
   console.log(`snapshot ${tag} -> ${sha.slice(0, 12)}`);
   return true;
 }
@@ -696,7 +982,6 @@ function snapshotDetachedBeforeRemove(sha, required) {
 // scripts/lib/merged-content-proof.mjs. Qui solo la scelta delle PR candidate
 // (nome, upstream, commit→PR, soggetti nello squash) con un tetto di chiamate:
 // la lista PR in blocco è già in memoria, il resto costa una chiamata per PR.
-const mainRef = `origin/${mainBranch}`;
 const prover = makeContentProver({ git: makeGitRunner(process.cwd()), mainRef });
 const MAX_CANDIDATES = 5; // PR provate per worktree
 const MAX_PR_LOOKUPS = 12; // `gh api pulls/<n>` per run, per le PR fuori finestra
@@ -1030,6 +1315,43 @@ function branchActivityMs(branch) {
   return Number.isFinite(ct) ? ct * 1000 : 0;
 }
 
+function expiryBranchRecheck(entry) {
+  const currentHead = headOfLocalBranch(entry.branch);
+  if (!currentHead || currentHead !== entry.head) {
+    return { ok: false, reason: 'HEAD cambiato durante lo sweep' };
+  }
+  const currentActivityMs = branchActivityMs(entry.branch);
+  if (!Number.isFinite(entry.expiryActivityMs) || currentActivityMs !== entry.expiryActivityMs) {
+    return { ok: false, reason: 'attività del branch cambiata durante lo sweep' };
+  }
+  if (!expirySignalsAreOld(commitTimestampMs(currentHead), currentActivityMs)) {
+    return { ok: false, reason: 'branch non più scaduto' };
+  }
+  return { ok: true };
+}
+
+function expiryWorktreeRecheck(entry, currentHead) {
+  const observedHead = currentHead ?? (entry.branch
+    ? headOfLocalBranch(entry.branch)
+    : gitOut(['-C', entry.path, 'rev-parse', '--verify', 'HEAD'], { allowFail: true }));
+  if (!observedHead || observedHead !== entry.head) {
+    return { ok: false, reason: 'HEAD cambiato durante lo sweep' };
+  }
+  const classification = classifyDirty(entry.path, { prExists: false });
+  if (classification.error || classification.significant.length > 0) {
+    return { ok: false, reason: 'worktree diventato sporco durante lo sweep' };
+  }
+  const adminDir = adminDirOf(entry.path);
+  const currentActivityMs = adminDir ? lastActivityMs(entry.path, adminDir) : 0;
+  if (!Number.isFinite(entry.expiryActivityMs) || currentActivityMs !== entry.expiryActivityMs) {
+    return { ok: false, reason: 'attività del worktree cambiata durante lo sweep' };
+  }
+  if (!expirySignalsAreOld(commitTimestampMs(observedHead), currentActivityMs)) {
+    return { ok: false, reason: 'worktree non più scaduto' };
+  }
+  return { ok: true };
+}
+
 const wtPorcelain = sh('git worktree list --porcelain');
 const worktrees = [];
 let cur = null;
@@ -1063,6 +1385,21 @@ for (const line of wtPorcelain.split('\n')) {
 
 const removeWt = []; // {path, branch}
 const reportWt = []; // {path, branch, reason}
+function openPrFor(branch, head) {
+  const records = [
+    ...(branch ? prRecords.get(branch) || [] : []),
+    ...(head ? prByHeadOid.get(head) || [] : []),
+  ];
+  return records.some((pr) => String(pr?.state).toUpperCase() === 'OPEN');
+}
+
+function knownPrFor(branch, head) {
+  return [
+    ...(branch ? prRecords.get(branch) || [] : []),
+    ...(head ? prByHeadOid.get(head) || [] : []),
+  ];
+}
+
 for (const wt of worktrees) {
   if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees|.wt → mai toccare (incl. main checkout)
   if (!selected(wt.path, wt.branch)) continue;
@@ -1106,11 +1443,52 @@ for (const wt of worktrees) {
     ? 'stato git illeggibile'
     : `DIRTY su ${significant.length} file`;
   const head = wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '');
-  const state = wt.branch ? resolveBranchPrState(wt.branch) : undefined;
-  const resolution = wt.branch ? branchPrResolution.get(wt.branch) : undefined;
-  if (state === 'OPEN') continue; // PR aperta → lavoro vivo
   const activity = adminDir ? lastActivityMs(wt.path, adminDir) : 0;
   const idle = isIdleSince(activity);
+  const expiryClassification = ignored.length && !aborted
+    ? classifyDirty(wt.path, { prExists: false })
+    : { significant, error: statusError };
+  const expiryClean = !statusError && !expiryClassification.error && expiryClassification.significant.length === 0;
+
+  // Candidati completamente puliti e già scaduti possono saltare le query
+  // mirate per nome/commit: la lista OPEN fresca e completa protegge comunque
+  // dal caso PR aperta; uno snapshot remoto conserva il lavoro se la PR storica
+  // è fuori dalla finestra bulk. Se esistono già record bulk, lasciamo passare
+  // il percorso storico per riusare le prove di contenuto esistenti.
+  const bulkKnownPrs = knownPrFor(wt.branch, head);
+  const expiryAhead = wt.branch ? aheadOfMain(wt.branch) : null;
+  const canPreselectExpiry = !wt.detached
+    && !statusError
+    && expiryClean
+    && Boolean(head)
+    && Boolean(wt.branch)
+    && SAFE_BRANCH_RE.test(wt.branch)
+    && ghOk
+    && openPrListComplete
+    && busySnapshot.known
+    && !openPrFor(wt.branch, head)
+    && bulkKnownPrs.length === 0
+    && expiryAhead === 0
+    && expirySignalsAreOld(commitTimestampMs(head), activity);
+  if (canPreselectExpiry) {
+    const days = Math.floor((Date.now() - activity) / DAY_MS);
+    removeWt.push({
+      ...wt,
+      expiry: true,
+      expirySnapshot: expiryAhead > 0,
+      expirySnapshotBranch: wt.branch,
+      expiryActivityMs: activity,
+      reason: `nessuna PR aperta, worktree pulito e fermo da ${days} giorni (soglia ${EXPIRY_DAYS}), ahead=${expiryAhead}`,
+    });
+    continue;
+  }
+
+  const state = wt.branch ? resolveBranchPrState(wt.branch) : undefined;
+  const resolution = wt.branch ? branchPrResolution.get(wt.branch) : undefined;
+  if (state === 'OPEN') {
+    reportWt.push({ ...wt, reason: 'PR aperta — KEEP, lavoro vivo' });
+    continue;
+  }
 
   // Prove di contenuto: tentate solo dove lo sweep altrimenti lascerebbe il
   // worktree in report, e solo con le guardie soddisfatte (il calcolo costa).
@@ -1129,6 +1507,28 @@ for (const wt of worktrees) {
         snapshot: wt.branch ? needsProofSnapshot({ hasSnapshot: hasSnapshotTag(wt.branch) }) : false,
         snapshotDetached: wt.branch ? false : needsProofSnapshot({ hasSnapshot: hasSnapshotAt(head) }),
         reason: proof.remove,
+      });
+      return;
+    }
+    const expiryAhead = wt.branch ? aheadOfMain(wt.branch) : aheadOfMain(head);
+    if (!statusError
+      && !expiryClassification.error
+      && expiryClassification.significant.length === 0
+      && openPrListComplete
+      && ghOk
+      && busySnapshot.known
+      && !openPrFor(wt.branch, head)
+      && expiryAhead !== null
+      && expirySignalsAreOld(commitTimestampMs(head), activity)) {
+      const days = Math.floor((Date.now() - activity) / DAY_MS);
+      removeWt.push({
+        ...wt,
+        expiry: true,
+        expirySnapshot: expiryAhead > 0,
+        expirySnapshotBranch: wt.branch || `detached-${head.slice(0, 12)}`,
+        expiryActivityMs: activity,
+        reason: `${reason.replace(/ — REPORT-ONLY$/, '')}; scadenza ${EXPIRY_DAYS} giorni superata, ahead=${expiryAhead}`,
+        expiryDays: days,
       });
       return;
     }
@@ -1171,6 +1571,10 @@ for (const wt of worktrees) {
     // commit non è su main per lo squash, ma è dentro l'HEAD di una PR MERGED.
     // Stessa prova dei branch: PR associata al commit + antenato del suo HEAD.
     const associated = !dirty ? associatedPrForCommit(head) : undefined;
+    if (associated?.state === 'OPEN') {
+      reportWt.push({ ...wt, reason: 'PR aperta associata all\'HEAD — KEEP, lavoro vivo' });
+      continue;
+    }
     if (associated?.state === 'MERGED' && commitIsAncestorOfPrHead(head, associated)) {
       removeWt.push({
         ...wt,
@@ -1447,6 +1851,27 @@ function branchProofOrReport(b, head, state, reason) {
     delBranch.push({ name: b, snapshot: needsProofSnapshot({ hasSnapshot: hasSnapshotTag(b) }), reason: proof.remove });
     return;
   }
+  const ahead = aheadOfMain(b);
+  if (ghOk
+    && openPrListComplete
+    && SAFE_BRANCH_RE.test(b)
+    && busySnapshot.known
+    && !openPrFor(b, head)
+    && ahead !== null
+    && expirySignalsAreOld(commitTimestampMs(head), activityMs)) {
+    const days = Math.floor((Date.now() - activityMs) / DAY_MS);
+    delBranch.push({
+      name: b,
+      expiry: true,
+      expirySnapshot: ahead > 0,
+      expirySnapshotBranch: b,
+      head,
+      expiryActivityMs: activityMs,
+      reason: `${reason.replace(/ — REPORT-ONLY$/, '')}; scadenza ${EXPIRY_DAYS} giorni superata, ahead=${ahead}`,
+      expiryDays: days,
+    });
+    return;
+  }
   reportBranch.push(attachNotes({ name: b, reason }, proof.notes, { state }));
 }
 
@@ -1454,8 +1879,36 @@ for (const b of allLocal) {
   if (b === mainBranch) continue;
   if (wtBranches.has(b)) continue; // gestito sopra come worktree
   if (!selected(b)) continue;
+  const head = headOfLocalBranch(b);
+  const activityMs = branchActivityMs(b);
+  const aheadBeforePr = aheadOfMain(b);
+  const bulkKnownPrs = knownPrFor(b, head);
+  if (ghOk
+    && openPrListComplete
+    && SAFE_BRANCH_RE.test(b)
+    && busySnapshot.known
+    && !openPrFor(b, head)
+    && bulkKnownPrs.length === 0
+    && aheadBeforePr === 0
+    && expirySignalsAreOld(commitTimestampMs(head), activityMs)) {
+    const days = Math.floor((Date.now() - activityMs) / DAY_MS);
+    delBranch.push({
+      name: b,
+      expiry: true,
+      expirySnapshot: aheadBeforePr > 0,
+      expirySnapshotBranch: b,
+      head,
+      expiryActivityMs: activityMs,
+      reason: `nessuna PR aperta, branch pulito e fermo da ${days} giorni (soglia ${EXPIRY_DAYS}), ahead=${aheadBeforePr}`,
+      expiryDays: days,
+    });
+    continue;
+  }
   const state = resolveBranchPrState(b);
-  if (state === 'OPEN') continue;
+  if (state === 'OPEN') {
+    reportBranch.push({ name: b, reason: 'PR aperta — KEEP, lavoro vivo' });
+    continue;
+  }
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) {
     delBranch.push({ name: b, snapshot: false, reason: 'orfano worktree-agent-* 0-ahead' });
     continue;
@@ -1464,7 +1917,6 @@ for (const b of allLocal) {
     reportBranch.push({ name: b, reason: 'stato PR non verificabile: gh indisponibile — REPORT-ONLY' });
     continue;
   }
-  const head = headOfLocalBranch(b);
   if (state === 'MERGED') {
     const resolution = branchPrResolution.get(b);
     const mergedAtHead = mergedPrAtHead(b, head);
@@ -1497,15 +1949,68 @@ for (const b of allLocal) {
 
 resolveIssueNotes();
 saveProofCache();
+saveHeadCache();
 const costLine = () => `ℹ️  costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s, di cui prove ${(proofMs / 1000).toFixed(1)} s; ${ghCalls} chiamate gh; ${prFetches} fetch di refs/pull.`;
+const cacheLine = () => `ℹ️  cache PR bulk=${bulkPrCacheHit ? 'hit' : 'miss'}; TTL=${PR_CACHE_TTL_MS / 1000}s.`;
+
+const sizeCache = new Map();
+function pathBytes(pathname) {
+  if (sizeCache.has(pathname)) return sizeCache.get(pathname);
+  if (!existsSync(pathname)) return 0;
+  try {
+    const raw = execFileSync('du', ['-sk', pathname], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+    const kb = Number.parseInt(raw.split(/\s+/)[0], 10);
+    const bytes = Number.isFinite(kb) ? kb * 1024 : 0;
+    sizeCache.set(pathname, bytes);
+    return bytes;
+  } catch { return 0; }
+}
+
+function formatBytes(bytes) {
+  if (!bytes) return '0 B';
+  if (bytes >= 1024 ** 3) return `${(bytes / 1024 ** 3).toFixed(1)} GiB`;
+  if (bytes >= 1024 ** 2) return `${(bytes / 1024 ** 2).toFixed(1)} MiB`;
+  return `${Math.round(bytes / 1024)} KiB`;
+}
+
+function plannedSnapshot(entry) {
+  return Boolean(entry.snapshot || entry.snapshotDetached || entry.expirySnapshot);
+}
+
+function skipCategory(reason) {
+  if (/PR aperta|PR OPEN/i.test(reason)) return 'PR aperta';
+  if (/DIRTY|sporco|stato git illeggibile/i.test(reason)) return 'sporco/stato illeggibile';
+  if (/in uso/i.test(reason)) return 'in uso';
+  if (/infrastrutturale/i.test(reason)) return 'infrastrutturale';
+  if (/LOCKED/i.test(reason)) return 'locked';
+  if (/checkout corrente|branch default/i.test(reason)) return 'checkout principale';
+  if (/PR CLOSED/i.test(reason)) return 'PR chiusa non provata';
+  if (/non verificabile|gh indisponibile/i.test(reason)) return 'prove non disponibili';
+  if (/recente|forse attivo/i.test(reason)) return 'attività recente';
+  if (/directory/i.test(reason)) return 'directory orfana non provata';
+  return 'altri report-only';
+}
+
+function skippedSummary() {
+  const counts = new Map();
+  for (const entry of [...reportWt, ...reportBranch, ...orphanReport]) {
+    const key = skipCategory(entry.reason || '');
+    counts.set(key, (counts.get(key) || 0) + 1);
+  }
+  return [...counts.entries()].map(([key, count]) => `${key}=${count}`).join(', ') || 'nessuno';
+}
+
+const plannedSpaceBytes = [...removeWt.map((entry) => entry.path), ...orphanRemove.map((entry) => entry.path)]
+  .reduce((total, pathname) => total + pathBytes(pathname), 0);
+const plannedSnapshotCount = [...removeWt, ...delBranch].filter(plannedSnapshot).length;
 
 // --- OUTPUT + APPLY ---------------------------------------------------------
-console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo worktree-agent-*+0-ahead)'} | mode=${APPLY ? 'APPLY' : 'dry-run'}`);
+console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (nessuna rimozione nuova)'} | mode=${APPLY ? 'APPLY' : 'dry-run'} | scadenza=${EXPIRY_DAYS} giorni`);
 console.log('');
 
 console.log(`worktree da rimuovere (${removeWt.length}):`);
 removeWt.forEach((w) => console.log(
-  `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${w.snapshot || w.snapshotDetached ? ' — crea snapshot prima della rimozione' : ''}`,
+  `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${plannedSnapshot(w) ? ' — crea snapshot prima della rimozione' : ''}`,
 ));
 console.log(`directory orfane da rimuovere (${orphanRemove.length}):`);
 orphanRemove.forEach((o) => console.log(o.proven
@@ -1513,7 +2018,7 @@ orphanRemove.forEach((o) => console.log(o.proven
   : `  - ${o.path} — nessun worktree registrato, solo residui (${o.files} file: .DS_Store / node_modules / body PR)`));
 console.log(`branch locali da cancellare (${delBranch.length}):`);
 delBranch.forEach((b) => console.log(
-  `  - ${b.name}${b.reason ? ` — ${b.reason}` : ''}${b.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
+  `  - ${b.name}${b.reason ? ` — ${b.reason}` : ''}${plannedSnapshot(b) ? ' — crea snapshot prima della rimozione' : ''}`,
 ));
 
 if (reportWt.length || reportBranch.length || orphanReport.length) {
@@ -1527,22 +2032,54 @@ if (reportWt.length || reportBranch.length || orphanReport.length) {
 if (!APPLY) {
   console.log('');
   console.log('dry-run: niente rimosso. Ri-esegui con --apply per applicare.');
+  console.log(`riassunto: snapshot da creare ${plannedSnapshotCount}; worktree da rimuovere ${removeWt.length}; spazio liberabile stimato ${formatBytes(plannedSpaceBytes)}; saltati per motivo: ${skippedSummary()}.`);
   console.log(costLine());
+  console.log(cacheLine());
   process.exit(0);
 }
 
 let done = 0;
 let failed = 0;
+let removedWorktrees = 0;
+let removedBranches = 0;
+let spaceFreedBytes = 0;
 for (const w of removeWt) {
-  if (w.branch && !snapshotBeforeDelete(w.branch, w.snapshot)) {
+  if (isBusy(w.path)) {
     failed++;
-    console.log(`⚠️  FALLITO snapshot ${w.branch} — worktree lasciato intatto`);
+    console.log(`⚠️  SALTATO worktree ${w.path}: un processo lo sta usando — lasciato intatto`);
     continue;
   }
-  if (!w.branch && !snapshotDetachedBeforeRemove(w.head, w.snapshotDetached)) {
+  const currentHead = w.branch ? headOfLocalBranch(w.branch) : gitOut(['-C', w.path, 'rev-parse', '--verify', 'HEAD'], { allowFail: true });
+  if (!currentHead || currentHead !== w.head) {
     failed++;
-    console.log(`⚠️  FALLITO snapshot ${w.head} — worktree lasciato intatto`);
+    console.log(`⚠️  SALTATO worktree ${w.path}: HEAD cambiato durante lo sweep — lasciato intatto`);
     continue;
+  }
+  if (w.expiry) {
+    const beforeDelete = expiryWorktreeRecheck(w, currentHead);
+    if (!beforeDelete.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO worktree ${w.path}: ${beforeDelete.reason} — lasciato intatto`);
+      continue;
+    }
+  }
+  const worktreeBytes = pathBytes(w.path);
+  const snapshotOk = w.expiry
+    ? (!w.expirySnapshot || snapshotExpiryBeforeDelete(w.expirySnapshotBranch || w.branch, w.head))
+    : (w.branch ? snapshotBeforeDelete(w.branch, w.snapshot) : snapshotDetachedBeforeRemove(w.head, w.snapshotDetached));
+  if (!snapshotOk) {
+    failed++;
+    skippedSnapshotFailures++;
+    console.log(`⚠️  FALLITO snapshot ${w.branch || w.head} — worktree lasciato intatto`);
+    continue;
+  }
+  if (w.expiry) {
+    const afterSnapshot = expiryWorktreeRecheck(w);
+    if (!afterSnapshot.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO worktree ${w.path}: ${afterSnapshot.reason} — lasciato intatto`);
+      continue;
+    }
   }
   // Il symlink `node_modules` non tracciato si toglie prima, senza seguirlo:
   // `git worktree remove` non deve mai attraversarlo.
@@ -1558,16 +2095,39 @@ for (const w of removeWt) {
   }
   if (w.branch) shOk(`git branch -D "${w.branch}"`); // best-effort: la dir è già via
   done++;
+  removedWorktrees++;
+  spaceFreedBytes += worktreeBytes;
   console.log(`removed worktree ${w.path}`);
 }
 for (const b of delBranch) {
-  if (!snapshotBeforeDelete(b.name, b.snapshot)) {
+  if (b.expiry) {
+    const beforeDelete = expiryBranchRecheck(b);
+    if (!beforeDelete.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO branch ${b.name}: ${beforeDelete.reason} — lasciato intatto`);
+      continue;
+    }
+  }
+  const snapshotOk = b.expiry
+    ? (!b.expirySnapshot || snapshotExpiryBeforeDelete(b.expirySnapshotBranch || b.name, b.head))
+    : snapshotBeforeDelete(b.name, b.snapshot);
+  if (!snapshotOk) {
     failed++;
+    skippedSnapshotFailures++;
     console.log(`⚠️  FALLITO snapshot ${b.name} — branch lasciato intatto`);
     continue;
   }
+  if (b.expiry) {
+    const afterSnapshot = expiryBranchRecheck(b);
+    if (!afterSnapshot.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO branch ${b.name}: ${afterSnapshot.reason} — lasciato intatto`);
+      continue;
+    }
+  }
   if (shOk(`git branch -D "${b.name}"`)) {
     done++;
+    removedBranches++;
     console.log(`deleted branch ${b.name}`);
   } else {
     failed++;
@@ -1599,4 +2159,6 @@ for (const o of orphanRemove) {
 sh('git worktree prune', { allowFail: true });
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
+console.log(`riassunto: snapshot creati ${snapshotsCreated.length}; worktree rimossi ${removedWorktrees}; branch rimossi ${removedBranches}; spazio liberato ${formatBytes(spaceFreedBytes)}; saltati per motivo: ${skippedSummary()}${skippedSnapshotFailures ? `; snapshot falliti=${skippedSnapshotFailures}` : ''}.`);
 console.log(costLine());
+console.log(cacheLine());

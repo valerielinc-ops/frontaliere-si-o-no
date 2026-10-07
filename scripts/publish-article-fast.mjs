@@ -109,6 +109,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { pinRenderEnv, renderHubsAndOffload } from './lib/render-and-push-hubs.mjs';
+import { decideCorpusOverlayMode, prepareCorpusContentOverlay } from './lib/article-corpus-overlay.mjs';
+import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
 // Output-boundary REFUSAL (see scripts/lib/control-char-publish-gate.mjs).
 // The renderer is build-plugins/ogPagesPlugin.ts, whose article half is the
 // mirrored engine under packages/articles/engine — so the guard sits where
@@ -129,6 +131,7 @@ function parseArgs(argv) {
     else if (a === '--section') out.section = argv[++i];
     else if (a === '--out') out.out = argv[++i];
     else if (a === '--summary') out.summary = argv[++i];
+    else if (a === '--allow-content-overlay') out.allowContentOverlay = true;
   }
   const missing = ['id', 'section', 'out', 'summary'].filter((k) => !out[k]);
   if (missing.length > 0) {
@@ -146,6 +149,15 @@ function parseArgs(argv) {
 async function main() {
   const t0 = Date.now();
   const args = parseArgs(process.argv.slice(2));
+  const overlayMode = decideCorpusOverlayMode({
+    isCi: process.env.GITHUB_ACTIONS === 'true',
+    dryRun: false,
+    explicit: args.allowContentOverlay,
+  });
+  if (overlayMode.mode === 'refuse') throw new Error(overlayMode.reason);
+  const corpusOverlay = overlayMode.mode === 'overlay'
+    ? await prepareCorpusContentOverlay({ rootDir: ROOT_DIR })
+    : { commit: null, contentRevision: null };
   const distDir = path.resolve(args.out);
   fs.mkdirSync(distDir, { recursive: true });
 
@@ -257,6 +269,25 @@ async function main() {
     logPrefix: '[publish-article-fast]',
   });
 
+  const registryFilename = args.section === 'svizzera' ? 'swiss-articles-data.ts' : 'blog-articles-data.ts';
+  const { readArticleRegistryMetadata } = await import('../packages/articles/engine/shared/articleRegistryMetadata.ts');
+  const registryPath = path.join(ROOT_DIR, 'packages', 'articles', 'content', registryFilename);
+  const declaredImages = fs.existsSync(registryPath)
+    ? Object.fromEntries(readArticleRegistryMetadata(fs.readFileSync(registryPath, 'utf-8')).map((item) => [item.id, item.image]))
+    : {};
+  const htmlByPath = {};
+  for (const rel of [...Object.values(entry.paths), ...Object.values(entry.flatPaths)]) {
+    if (rel && fs.existsSync(path.join(distDir, rel))) htmlByPath[rel] = fs.readFileSync(path.join(distDir, rel), 'utf-8');
+  }
+  const imagePostcondition = filterEntriesByImagePostcondition({ entries, declaredImages, htmlByPath });
+  const publishEntry = imagePostcondition.entries[0] ?? null;
+  if (imagePostcondition.excludedArticles.length > 0) {
+    console.error(
+      `[publish-article-fast] image postcondition withheld ${imagePostcondition.excludedPages} page(s) for ` +
+        `${imagePostcondition.firstExcludedArticleIds.join(', ')}`,
+    );
+  }
+
   // ── Summary JSON for stream B (shard push) / stream C (workflow) ──
   const sectionShardKey = args.section === 'frontaliere' ? 'articolifrontaliere' : 'articolisvizzera';
   const shardSlugs = JSON.parse(
@@ -282,8 +313,8 @@ async function main() {
     locales.map((locale) => [
       locale,
       [
-        entry.paths[locale],
-        entry.flatPaths[locale],
+        publishEntry?.paths[locale],
+        publishEntry?.flatPaths[locale],
         ...hubResult.pathsByLocale[locale],
         ...(topicHubResult.pathsByLocale[locale] ?? []),
       ].filter(Boolean),
@@ -334,13 +365,13 @@ async function main() {
       // the workflow's `if: failure()` reporter, as a Bug issue saying the
       // article never went out. A locale that did not publish its article page
       // therefore pushes whatever else is clean and advertises no URL to poll.
-      const articleRel = entry.paths[locale];
+      const articleRel = publishEntry?.paths[locale];
       const articlePublished = Boolean(articleRel) && paths.includes(articleRel);
       return {
         locale,
         subtree: locale === 'it' ? slugMap.it : `${locale}/${slugMap[locale]}`,
         paths,
-        ...(articlePublished ? { url: entry.urls[locale] } : {}),
+        ...(articlePublished ? { url: publishEntry.urls[locale] } : {}),
       };
     })
     .filter((shard) => shard.paths.length > 0);
@@ -358,10 +389,10 @@ async function main() {
   // article, breaking stream B/C's CDN push. DEFAULT_IMG ('/og-image.png',
   // last-resort fallback, not under images/) has no thumbnail and is already
   // a static site asset — never listed here.
-  const heroImgRel = entry.img.replace(/^\/+/, ''); // e.g. "images/blog/foo.webp" | "images/places/lugano-view.webp"
-  const heroDir = path.dirname(heroImgRel); // e.g. "images/blog" | "images/places"
+  const heroImgRel = publishEntry?.img?.replace(/^\/+/, ''); // e.g. "images/blog/foo.webp" | "images/places/lugano-view.webp"
+  const heroDir = heroImgRel ? path.dirname(heroImgRel) : ''; // e.g. "images/blog" | "images/places"
   const cdnUploads = [];
-  if (heroDir.startsWith('images/') || heroDir === 'images') {
+  if (heroImgRel && (heroDir.startsWith('images/') || heroDir === 'images')) {
     const heroExt = path.extname(heroImgRel) || '.webp';
     const heroBase = path.basename(heroImgRel, heroExt);
     const heroLocal = path.join('public', heroDir, `${heroBase}${heroExt}`);
@@ -416,7 +447,17 @@ async function main() {
     codes: [...new Set(findings.map((f) => `0x${f.code.toString(16).padStart(2, '0')}`))],
     count: findings.length,
   }));
-  const summary = { id: args.id, section: args.section, shards, cdnUploads, edgeFiles, refused };
+  const summary = {
+    id: args.id,
+    requestedId: args.id,
+    section: args.section,
+    contentRevision: corpusOverlay.contentRevision,
+    shards,
+    cdnUploads,
+    edgeFiles,
+    refused,
+    imagePostcondition,
+  };
   const summaryPath = path.resolve(args.summary);
   fs.mkdirSync(path.dirname(summaryPath), { recursive: true });
   fs.writeFileSync(summaryPath, JSON.stringify(summary, null, 2) + '\n', 'utf-8');
