@@ -56,8 +56,12 @@ export function loopClockOffsetMinutes(entry) {
 export function isLoopClockEntryDue(entry, scheduledAt) {
   const date = validDate(scheduledAt);
   const minute = Math.floor(date.getTime() / MINUTE_MS);
+  // Cloud Scheduler hands over the nominal slot, but a delayed or hand-fired
+  // tick can land a minute or two inside it: snap to the five-minute grid so
+  // the entries of that slot still run instead of silently matching nothing.
+  const slot = minute - (minute % LOOP_CLOCK_TICK_MINUTES);
   const offset = loopClockOffsetMinutes(entry);
-  return ((minute - offset) % entry.everyMinutes + entry.everyMinutes) % entry.everyMinutes === 0;
+  return ((slot - offset) % entry.everyMinutes + entry.everyMinutes) % entry.everyMinutes === 0;
 }
 
 export function dueLoopClockEntries(scheduledAt, entries = LOOP_CLOCK_ENTRIES) {

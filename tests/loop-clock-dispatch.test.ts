@@ -50,6 +50,19 @@ describe('loop clock table and cadence', () => {
     expect(LOOP_CLOCK_CLOUD_SCHEDULE).toBe('*/5 * * * *');
   });
 
+  it('treats a tick that lands inside a slot as that slot', () => {
+    const slot = Date.parse('2026-10-07T00:05:00Z');
+    const onGrid = dueLoopClockEntries(new Date(slot)).map((entry) => entry.id);
+    for (const lateBySeconds of [1, 59, 61, 150, 299]) {
+      const late = dueLoopClockEntries(new Date(slot + lateBySeconds * 1000)).map((entry) => entry.id);
+      expect(late).toEqual(onGrid);
+    }
+    const nextSlot = dueLoopClockEntries(new Date(slot + 300_000)).map((entry) => entry.id);
+    const everyTick = LOOP_CLOCK_ENTRIES.filter((entry) => entry.everyMinutes === LOOP_CLOCK_TICK_MINUTES);
+    expect(everyTick).toEqual([]);
+    expect(nextSlot).not.toEqual(onGrid);
+  });
+
   it('points every site entry to a dispatchable workflow without required inputs', () => {
     for (const entry of LOOP_CLOCK_ENTRIES.filter((candidate) => candidate.repo === 'site')) {
       const workflowPath = `${root}/.github/workflows/${entry.workflow}`;
