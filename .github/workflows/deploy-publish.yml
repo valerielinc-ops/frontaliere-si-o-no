@@ -221,6 +221,14 @@ jobs:
         locale: ${{ fromJSON(needs.resolve-publish-plan.outputs.tail_locales) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    # shard-secrets-overflow: stesso environment del build-locale di deploy.yml
+    # da cui questo job e' stato estratto. Le deploy key di sangallo, zugo, uri,
+    # vaud e vallese esistono solo li' (tetto di 100 secret per repo): senza
+    # questa riga `secrets.SHARD_<SEZIONE>_<LOCALE>_DEPLOY_KEY` e' vuoto, il push
+    # ripiega sul PAT e sugli shard di proprieta' nanakokyobashi-rgb riceve 403.
+    # sectionPush diventa failure, la ricevuta resta `source-ready` e l'intero
+    # deploy viene saltato con la run verde (run 37671196544).
+    environment: shard-secrets-overflow
     concurrency:
       group: nonit-shard-tail-${{ matrix.locale }}
       cancel-in-progress: false
