@@ -21976,16 +21976,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-tassa-salute-frontalieri-svizzera': {
     title: 'Tremate i bilanci dei comuni: la tassa sulla salute per i vecchi frontalieri',
-    description: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe gli',
+    description: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe',
     keywords: 'frontalieri, ticino, svizzera, italia, tremate, bilanci, comuni, tassa',
     ogTitle: 'La tassa sulla salute per i vecchi frontalieri fa tremare i bilanci dei comuni di confine',
-    ogDescription: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe gli',
+    ogDescription: 'La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un\'imposta e, se applicata dalle Regioni, violerebbe',
     canonicalPath: '/articoli-svizzera/tassa-salute-frontalieri-svizzera/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tremate i bilanci dei comuni: la tassa sulla salute per i vecchi frontalieri",
-      "description": "La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un'imposta e, se applicata dalle Regioni, violerebbe gli",
+      "description": "La tassa sulla salute introdotta dal Parlamento italiano nella legge di bilancio 2024 rappresenta un'imposta e, se applicata dalle Regioni, violerebbe",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -24307,7 +24307,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-rimborsi-730-sostituti-imposta': {
     title: 'Rimborsi 730: ora compensabili anche con imposte sostitutive in F24',
-    description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle',
+    description: 'Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive',
     keywords: 'frontalieri, ticino, svizzera, italia, rimborsi, compensabili, anche, imposte',
     ogTitle: 'Rimborsi 730 ora compensabili con imposte sostitutive in F24',
     ogDescription: 'Chiarimento delle Entrate del luglio 2026 sull’ampliamento del monte ritenute per il recupero dei rimborsi 730 tramite F24',
@@ -24316,7 +24316,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Rimborsi 730: ora compensabili anche con imposte sostitutive in F24",
-      "description": "Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive sulle",
+      "description": "Secondo quanto comunicato nel maggio 2026, i sostituti d’imposta possono recuperare i rimborsi dal modello 730 tramite F24 anche con imposte sostitutive",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/rimborsi-730-sostituti-imposta.webp`,
@@ -48750,16 +48750,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-prestazioni-uri-cassa': {
-    title: 'AVS Uri: cassa di compensazione e prestazioni complementari',
+    title: 'AVS e prestazioni complementari nel canton Uri',
     description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
-    ogTitle: 'AVS Uri: cassa di compensazione e prestazioni complementari',
+    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
     ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
     canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS Uri: cassa di compensazione e prestazioni complementari",
+      "headline": "AVS e prestazioni complementari nel canton Uri",
       "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
       "image": {
         "@type": "ImageObject",
@@ -54324,7 +54324,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Parlamento argoviese approva mozione per vietare il velo nelle scuole con 78 voti. Governo si oppone per dubbi di costituzionalità sulla sentenza del 2015',
     keywords: 'frontalieri, ticino, svizzera, italia, argovia, verso, divieto, velo',
     ogTitle: 'Argovia verso il divieto del velo nelle scuole',
-    ogDescription: 'Gran Consiglio argoviese approva mozione per vietare il velo alle alunne fino ai 16 anni nelle scuole pubbliche. Governo cantonale si oppone, invocando dubbi sulla costituzionalità e la giurisprudenza del Tribunale federale del 2015. Leggi gli',
+    ogDescription: 'Gran Consiglio argoviese approva mozione per vietare il velo alle alunne fino ai 16 anni nelle scuole pubbliche. Governo cantonale si oppone, invocando dubbi sulla costituzionalità e la giurisprudenza del Tribunale federale del 2015. Leggi',
     canonicalPath: '/articoli-svizzera/argovia-divieto-velo-scuole/',
     structuredData: {
       "@context": "https://schema.org",
@@ -54363,7 +54363,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'I Verdi chiedono una nuova Segretaria di Stato per il clima e l\'uscita programmata dalle energie fossili. Attacco diretto al consigliere federale Rösti',
     keywords: 'frontalieri, ticino, svizzera, italia, segretaria, stato, clima, richiesta',
     ogTitle: 'Verdi: nuova Segretaria di Stato per il clima',
-    ogDescription: 'I Verdi alzano la pressione sulla politica climatica federale: chiedono una Segretaria di Stato dedicata al clima e un\'uscita programmata dalle energie fossili. Nel mirino il consigliere federale Rösti, accusato di inazione. Leggi cosa cambia per gli',
+    ogDescription: 'I Verdi alzano la pressione sulla politica climatica federale: chiedono una Segretaria di Stato dedicata al clima e un\'uscita programmata dalle energie fossili. Nel mirino il consigliere federale Rösti, accusato di inazione. Leggi cosa cambia',
     canonicalPath: '/articoli-svizzera/verdi-segretaria-stato-clima/',
     structuredData: {
       "@context": "https://schema.org",
@@ -68387,7 +68387,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Ondate di calore e siccità colpiscono l\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, latte, patate, cari, canicola',
     ogTitle: 'Latte e patate più cari, la canicola prosciuga anche i portafogli',
-    ogDescription: 'Le ondate di calore e la siccità stanno avendo un impatto significativo sull\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Questo ha portato a un aumento dei prezzi per latte e patate, con conseguenze dirette sui',
+    ogDescription: 'Le ondate di calore e la siccità stanno avendo un impatto significativo sull\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Questo ha portato a un aumento dei prezzi per latte e patate, con conseguenze dirette',
     canonicalPath: '/articoli-svizzera/latte-patate-cari-canicola-svizzera/',
     structuredData: {
       "@context": "https://schema.org",
@@ -74578,7 +74578,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito',
     keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
     ogTitle: 'Asilo nido e custodia bambini nel Canton Appenzello Interno',
-    ogDescription: 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito e sussidi cantonali disponibili. Questo articolo fornisce informazioni dettagliate sulle',
+    ogDescription: 'Scopri le opzioni di custodia per bambini nel Canton Appenzello Interno, inclusi asili nido, famiglie diurne e doposcuola, con tariffe calcolate sul reddito e sussidi cantonali disponibili. Questo articolo fornisce informazioni dettagliate',
     canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-canton-appenzello-interno/',
     structuredData: {
       "@context": "https://schema.org",
@@ -77092,7 +77092,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Azioni Novartis crollano di oltre il 10% in una giornata. Capitalizzazione persa: 24 miliardi CHF. Due fallimenti nella ricerca clinica scuotono il gigante',
     keywords: 'frontalieri, ticino, svizzera, italia, giornata, nera, novartis, crollo',
     ogTitle: 'Novartis crolla: -10% e 24 miliardi persi',
-    ogDescription: 'Martedì è stata una giornata nera per Novartis. Il gigante farmaceutico basilese ha subìto il peggior crollo giornaliero della sua storia: -10%, 24 miliardi CHF di capitalizzazione persi. Due fallimenti nella ricerca clinica hanno scosso gli',
+    ogDescription: 'Martedì è stata una giornata nera per Novartis. Il gigante farmaceutico basilese ha subìto il peggior crollo giornaliero della sua storia: -10%, 24 miliardi CHF di capitalizzazione persi. Due fallimenti nella ricerca clinica hanno scosso',
     canonicalPath: '/articoli-svizzera/novartis-giornata-nera/',
     structuredData: {
       "@context": "https://schema.org",
@@ -86583,7 +86583,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'La fisioterapia ambulatoriale in Ticino è in crescita: i rimborsi per assicurato sono saliti del 42% tra 2017 e 2023. Lo studio SUPSI di maggio 2026 propone',
     keywords: 'frontalieri, ticino, svizzera, italia, fisioterapia, moratoria, basta, physioswiss',
     ogTitle: 'Fisioterapia in Ticino: moratoria non basta, Physioswiss',
-    ogDescription: 'In Ticino la fisioterapia ambulatoriale sta aumentando rapidamente: i rimborsi per assicurato sono cresciuti del 42% tra il 2017 e il 2023 secondo lo studio SUPSI consegnato a maggio 2026. Physioswiss Ticino avverte che una semplice moratoria sulle',
+    ogDescription: 'In Ticino la fisioterapia ambulatoriale sta aumentando rapidamente: i rimborsi per assicurato sono cresciuti del 42% tra il 2017 e il 2023 secondo lo studio SUPSI consegnato a maggio 2026. Physioswiss Ticino avverte che una semplice moratoria',
     canonicalPath: '/articoli-svizzera/fisioterapia-ticino-moratoria/',
     structuredData: {
       "@context": "https://schema.org",
@@ -95121,7 +95121,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     description: 'Guy Parmelin, 66 anni, annuncia oggi le dimissioni dal DEFR. Economiesuisse e USAM elogiano i suoi accordi con India, Vietnam e il rinnovo con la Cina',
     keywords: 'frontalieri, ticino, svizzera, italia, parmelin, dimette, mondo, economico',
     ogTitle: 'Parmelin si dimette, lodi economiche e nuovi accordi',
-    ogDescription: 'Il consigliere federale Guy Parmelin, 66enne, ha annunciato oggi le dimissioni dal DEFR. Economiesuisse e USAM hanno lodato il suo operato, citando gli accordi di libero scambio con India e Vietnam, l’avvio del rinnovo con la Cina, la legge sullo',
+    ogDescription: 'Il consigliere federale Guy Parmelin, 66enne, ha annunciato oggi le dimissioni dal DEFR. Economiesuisse e USAM hanno lodato il suo operato, citando gli accordi di libero scambio con India e Vietnam, l’avvio del rinnovo con la Cina, la legge',
     canonicalPath: '/articoli-svizzera/annuncio-parmelin-sgravio-2024/',
     structuredData: {
       "@context": "https://schema.org",
@@ -96234,7 +96234,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-diritti-casa-san-gallo': {
     title: 'Affitti Svizzera 2026: regole nel canton San Gallo',
-    description: 'Affitti in Svizzera 2026: a San Gallo il deposito cauzionale è limitato a tre mensilità; regole federali, disdetta e contestazione in 30 giorni per gli',
+    description: 'Affitti in Svizzera 2026: a San Gallo il deposito cauzionale è limitato a tre mensilità; regole federali, disdetta e contestazione in 30 giorni',
     keywords: 'frontalieri, ticino, svizzera, italia, affitti, regole, canton, gallo',
     ogTitle: 'Affitti Svizzera 2026: regole a San Gallo',
     ogDescription: 'Il mercato degli affitti in Svizzera nel 2026 si legge anche dalle regole: nel canton San Gallo valgono il diritto federale, la cauzione massima di tre pigioni, il conto vincolato e 30 giorni per contestare una disdetta.',
@@ -96243,7 +96243,7 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Affitti Svizzera 2026: regole nel canton San Gallo",
-      "description": "Affitti in Svizzera 2026: a San Gallo il deposito cauzionale è limitato a tre mensilità; regole federali, disdetta e contestazione in 30 giorni per gli",
+      "description": "Affitti in Svizzera 2026: a San Gallo il deposito cauzionale è limitato a tre mensilità; regole federali, disdetta e contestazione in 30 giorni",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -98883,6 +98883,176 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziative-mps-giustizia-respinte/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-raffineria-cressier-carburanti': {
+    title: 'Diesel svizzero sfiora 2,50 franchi: allarme Cressier',
+    description: '## In breve - Il diesel in Svizzera sfiora 2,50 franchi al litro - Cressier copre circa il 35% dei carburanti nazionali - La raffinazione europea ha capacità',
+    keywords: 'frontalieri, ticino, svizzera, italia, diesel, svizzero, sfiora, franchi',
+    ogTitle: 'Diesel svizzero quasi a 2,50 franchi: Cressier',
+    ogDescription: '## In breve - Il diesel in Svizzera sfiora 2,50 franchi al litro - Cressier copre circa il 35% dei carburanti nazionali - La raffinazione europea ha capacità',
+    canonicalPath: '/articoli-svizzera/raffineria-cressier-carburanti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diesel svizzero sfiora 2,50 franchi: allarme Cressier",
+      "description": "## In breve - Il diesel in Svizzera sfiora 2,50 franchi al litro - Cressier copre circa il 35% dei carburanti nazionali - La raffinazione europea ha capacità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/diesel-rincaro-geopolitica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di diesel in Svizzera con una raffineria sullo sfondo"
+      },
+      "datePublished": "2026-10-07T05:28:44+00:00",
+      "dateModified": "2026-10-07T05:28:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/raffineria-cressier-carburanti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-quattro-oggetti-urne-novembre': {
+    title: 'Voto del 29 novembre: IVA, AVS e quattro oggetti',
+    description: 'Il 29 novembre si voterà su quattro nuovi oggetti: aumento dell\'IVA per la 13esima AVS, due iniziative popolari e modifica della legge sul materiale bellico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, novembre, quattro, oggetti',
+    ogTitle: 'Voto del 29 novembre: IVA, AVS e quattro oggetti',
+    ogDescription: 'Il 29 novembre quattro oggetti arrivano alle urne: aumento dell\'IVA per la 13esima rendita AVS, due iniziative popolari e modifica della legge federale sul materiale bellico. Tamedia chiede ai lettori come voteranno.',
+    canonicalPath: '/articoli-svizzera/quattro-oggetti-urne-novembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto del 29 novembre: IVA, AVS e quattro oggetti",
+      "description": "Il 29 novembre si voterà su quattro nuovi oggetti: aumento dell'IVA per la 13esima AVS, due iniziative popolari e modifica della legge sul materiale bellico.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/voto-iva-avs-novembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Urna svizzera e schede per il voto del 29 novembre"
+      },
+      "datePublished": "2026-10-07T06:42:41+00:00",
+      "dateModified": "2026-10-07T06:42:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/quattro-oggetti-urne-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-auto-elettrica-come-risparmiare-fino-al-50': {
+    title: 'Auto elettrica: come risparmiare fino al 50% | Frontaliere Ticino',
+    description: '## In breve - Il TCS confronta i prezzi di 19’000 punti svizzeri - 50 kWh costano tra 23 e 46 franchi - Il 5% delle ricariche avviene alle colonnine rapide',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, elettrica, risparmiare, fino',
+    ogTitle: 'Auto elettrica: come risparmiare fino al 50%',
+    ogDescription: '## In breve - Il TCS confronta i prezzi di 19’000 punti svizzeri - 50 kWh costano tra 23 e 46 franchi - Il 5% delle ricariche avviene alle colonnine rapide',
+    canonicalPath: '/articoli-svizzera/auto-elettrica-come-risparmiare-fino-al-50/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto elettrica: come risparmiare fino al 50%",
+      "description": "## In breve - Il TCS confronta i prezzi di 19’000 punti svizzeri - 50 kWh costano tra 23 e 46 franchi - Il 5% delle ricariche avviene alle colonnine rapide",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Auto elettrica: come risparmiare fino al 50%"
+      },
+      "datePublished": "2026-10-07T07:21:41+00:00",
+      "dateModified": "2026-10-07T07:21:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/auto-elettrica-come-risparmiare-fino-al-50/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-motore-filo-epfl': {
+    title: 'EPFL sviluppa un motore a forma di filo | Frontaliere Ticino',
+    description: '## In breve - FiberMotor: diametro da 1 a 3 millimetri - Quattro motori sollevano una barretta da 46 grammi - Il prototipo è stato integrato in un paio',
+    keywords: 'frontalieri, ticino, svizzera, italia, epfl, sviluppa, motore, forma',
+    ogTitle: 'FiberMotor EPFL: motore a forma di filo',
+    ogDescription: '## In breve - FiberMotor: diametro da 1 a 3 millimetri - Quattro motori sollevano una barretta da 46 grammi - Il prototipo è stato integrato in un paio',
+    canonicalPath: '/articoli-svizzera/motore-filo-epfl/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "EPFL sviluppa un motore a forma di filo",
+      "description": "## In breve - FiberMotor: diametro da 1 a 3 millimetri - Quattro motori sollevano una barretta da 46 grammi - Il prototipo è stato integrato in un paio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/apprendistato-e-formazione-canton-soletta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "FiberMotor e pantaloni robotici in un laboratorio di ricerca"
+      },
+      "datePublished": "2026-10-07T08:00:44+00:00",
+      "dateModified": "2026-10-07T08:00:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/motore-filo-epfl/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-india-accordi-bilaterali': {
+    title: 'Svizzera e India: nuovi accordi su migrazione e lavoro',
+    description: '## In breve - 5 ottobre 2026: Parmelin incontra i vertici indiani - Svizzera e India firmano due accordi - TEPA: un anno dall\'entrata in vigore con l\'AELS',
+    keywords: 'frontalieri, ticino, svizzera, italia, india, nuovi, accordi, migrazione',
+    ogTitle: 'Svizzera e India rafforzano legami su lavoro e commercio',
+    ogDescription: '## In breve - 5 ottobre 2026: Parmelin incontra i vertici indiani - Svizzera e India firmano due accordi - TEPA: un anno dall\'entrata in vigore con l\'AELS',
+    canonicalPath: '/articoli-svizzera/svizzera-india-accordi-bilaterali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera e India: nuovi accordi su migrazione e lavoro",
+      "description": "## In breve - 5 ottobre 2026: Parmelin incontra i vertici indiani - Svizzera e India firmano due accordi - TEPA: un anno dall'entrata in vigore con l'AELS",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-consiglio-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Federale a Berna, sede del governo svizzero"
+      },
+      "datePublished": "2026-10-07T08:55:12+00:00",
+      "dateModified": "2026-10-07T08:55:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-india-accordi-bilaterali/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

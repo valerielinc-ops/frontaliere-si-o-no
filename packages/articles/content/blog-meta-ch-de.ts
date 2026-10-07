@@ -7844,6 +7844,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziative-mps-giustizia-respinte.title': 'MPS-Initiativen zur Justiz vom Grossen Rat abgelehnt',
     'blog.article.iniziative-mps-giustizia-respinte.excerpt': 'Der Grosse Rat hat die beiden MPS-Initiativen abgelehnt: das Pensionsalter der Magistratinnen und Magistraten von 70 auf 65 Jahre zu senken (41 Gegenstimmen) und die Amtsenthebungen dem Parlament zu übertragen (61 Gegenstimmen).',
     'blog.article.iniziative-mps-giustizia-respinte.imageAlt': 'Saal des Grossen Rates in Bellinzona während einer Abstimmung über die MPS-Justizinitiativen',
+    'blog.article.raffineria-cressier-carburanti.title': 'Schweizer Diesel nähert sich 2,50 Franken: Alarm in Cressier',
+    'blog.article.raffineria-cressier-carburanti.excerpt': '## Auf einen Blick - Der Diesel in der Schweiz nähert sich 2,50 Franken pro Liter - Cressier deckt etwa 35% der nationalen Kraftstoffversorgung ab - Die europäische Raffination verfügt über Kapazitäten',
+    'blog.article.raffineria-cressier-carburanti.imageAlt': 'Dieselpumpe in der Schweiz mit einer Raffinerie im Hintergrund',
+    'blog.article.quattro-oggetti-urne-novembre.title': 'Abstimmung vom 29. November: Mehrwertsteuer, AHV und vier Objekte',
+    'blog.article.quattro-oggetti-urne-novembre.excerpt': 'Am 29. November wird über vier Themen abgestimmt: Mehrwertsteuererhöhung für die 13. AHV, zwei Volksinitiativen und Änderung des Kriegsmaterialgesetzes.',
+    'blog.article.quattro-oggetti-urne-novembre.imageAlt': 'Schweizer Wahlurne und Stimmzettel für die Abstimmung am 29. November',
+    'blog.article.auto-elettrica-come-risparmiare-fino-al-50.title': 'Elektroautos: So sparen Sie bis zu 50 %',
+    'blog.article.auto-elettrica-come-risparmiare-fino-al-50.excerpt': '## Kurz gesagt: TCS vergleicht die Preise von 19.000 Schweizer Ladepunkten – 50 kWh kosten zwischen 23 und 46 Franken – 5 % der Ladevorgänge finden an Schnellladestationen statt.',
+    'blog.article.auto-elettrica-come-risparmiare-fino-al-50.imageAlt': 'Redaktionelles Bild zu: Auto elettrica: come risparmiare fino al 50%',
+    'blog.article.motore-filo-epfl.title': 'EPFL entwickelt einen fadenförmigen Motor',
+    'blog.article.motore-filo-epfl.excerpt': '## Auf einen Blick - FiberMotor: Durchmesser von 1 bis 3 Millimetern - Vier Motoren heben einen 46 Gramm schweren Riegel - Der Prototyp wurde in ein Paar',
+    'blog.article.motore-filo-epfl.imageAlt': 'FiberMotor und Roboterhose in einem Forschungslabor',
+    'blog.article.svizzera-india-accordi-bilaterali.title': 'Schweiz und Indien: neue Abkommen zu Migration und Arbeit',
+    'blog.article.svizzera-india-accordi-bilaterali.excerpt': '## Auf einen Blick - 5. Oktober 2026: Parmelin trifft indische Spitzenvertreter - Schweiz und Indien unterzeichnen zwei Abkommen - TEPA: ein Jahr seit dem Inkrafttreten mit der EFTA',
+    'blog.article.svizzera-india-accordi-bilaterali.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung',
 };
 
 export default blogMetaChDe;
