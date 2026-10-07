@@ -95,7 +95,7 @@ export default function AssistedApplicationOffer({
         aria-modal="true"
         aria-labelledby="assisted-application-offer-title"
         aria-describedby="assisted-application-offer-description"
-        className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem)] sm:p-6"
+        className="relative my-auto max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem,calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px)))] sm:p-6"
         style={adClearance.cardStyle}
       >
         <div className="space-y-5">
@@ -139,7 +139,15 @@ export default function AssistedApplicationOffer({
             </div>
           </div>
 
-          <div className="space-y-3">
+          {/* Pinned to the card's bottom while the card scrolls: with the room
+              Google's anchor ad leaves (adClearance) the card can be shorter
+              than its content, and the free path was below the fold (live
+              2026-10-07, 717 px viewport: card 550 px, content 724 px). */}
+          <div
+            className="sticky bottom-0 z-10 -mx-4 space-y-3 border-t border-edge bg-surface px-4 pb-2 pt-3 sm:-mx-6 sm:px-6"
+            data-testid="assisted-application-offer-actions"
+          >
+            {error && <p role="alert" aria-live="assertive" className="text-sm leading-relaxed text-danger">{error}</p>}
             <button
               type="button"
               onClick={() => { void onChoosePaid(); }}
@@ -167,7 +175,6 @@ export default function AssistedApplicationOffer({
           <p className="text-xs leading-relaxed text-muted">
             {t('jobBoard.assisted.disclaimer')} <AssistedApplicationLegalLinks />
           </p>
-          {error && <p role="alert" aria-live="assertive" className="text-sm leading-relaxed text-danger">{error}</p>}
         </div>
       </div>
     </div>

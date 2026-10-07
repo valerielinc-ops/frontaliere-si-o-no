@@ -187,6 +187,32 @@ describe('stale PR-body findings require a current textual citation', () => {
     expect(result.blocking).toBe(true);
     expect(result.staleBodyDeclassified).toHaveLength(0);
   });
+
+  it('non confonde i caratteri Markdown letterali nel confronto stale-body', () => {
+    const result = classifyReview(
+      STALE_BODY_FINDING.replace('testo rimosso dal body corrente', 'field_name'),
+      {
+        ...files,
+        prBody: `${CURRENT_BODY_WITHOUT_CITATION}\n- fieldname`,
+      },
+    );
+
+    expect(result.blocking).toBe(false);
+    expect(result.staleBodyDeclassified).toHaveLength(1);
+  });
+
+  it('mantiene la citazione quando la destinazione Markdown contiene parentesi', () => {
+    const result = classifyReview(
+      STALE_BODY_FINDING.replace('testo rimosso dal body corrente', '[guida](https://example.test/a_(b))'),
+      {
+        ...files,
+        prBody: `${CURRENT_BODY_WITHOUT_CITATION}\n- guida`,
+      },
+    );
+
+    expect(result.blocking).toBe(true);
+    expect(result.staleBodyDeclassified).toHaveLength(0);
+  });
 });
 
 describe('tests.yml hands the verdict to the reviewer and to the gate', () => {
