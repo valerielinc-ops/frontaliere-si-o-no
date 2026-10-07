@@ -42,6 +42,16 @@ const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
 const WHATSAPP_APPLICATION_RE = /^https:\/\/([a-z0-9-]+\.)*pastahr\.(com|io)\//i;
 const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
 
+/**
+ * A draft whose channel the portal runner works: its planner (the Codex broker of the run) is then part of
+ * the run. Without it submitApplication hands the portal over, as it does where no runner is set up; in a
+ * run of the agent that is a broker that did not start, and agent.mjs asks for another run instead.
+ */
+export function portalNeedsPlanner(draft) {
+  const channel = draft?.channel || {};
+  return WAVE1_CHANNELS.has(channel.type) && Boolean(channel.applyUrl || draft?.job?.applyUrl);
+}
+
 /** Open required questions block the submission, whatever the channel. */
 export function openRequiredQuestions(draft, answers = {}) {
   return (draft?.questions || []).filter((question) => question.required && !String(answers?.[question.id] ?? '').trim());

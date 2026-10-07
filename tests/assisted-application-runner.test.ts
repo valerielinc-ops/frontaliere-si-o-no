@@ -12,9 +12,9 @@ import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draf
 import { classifyLiveness, classifyWorkdayLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { checkPostingLiveness } from '../scripts/assisted-application/lib/posting-liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
-import { openRequiredQuestions, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
+import { openRequiredQuestions, portalNeedsPlanner, submitApplication } from '../scripts/assisted-application/lib/submit.mjs';
 import { submissionGuard } from '../functions/src/assistedApplicationSubmissionGuard.js';
-import { evaluateRedFlags, factCheckAcknowledged } from '../functions/src/assistedApplicationFlow.js';
+import { evaluateRedFlags, factCheckAcknowledged, isTransientRunError } from '../functions/src/assistedApplicationFlow.js';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { PNG_1X1, pdfPaintsImage } from './helpers/pdfImages';
 import { safeErrorCode, takeFactCheck, writeDraft } from '../scripts/assisted-application/agent.mjs';
@@ -962,6 +962,19 @@ describe('submit mode', () => {
       cvBuffer: cvPdf(), cvType: 'pdf', bucket: fakeBucket(), runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
     });
     expect(handoff).toEqual({ type: 'submit_handoff', reason: 'portal_needs_candidate' });
+  });
+
+  // 2026-10-07: the Codex CLI's sandbox set-up failed in one run of the agent, the broker never started, the
+  // portal was skipped and the order went to the owner. The agent now asks for another run when the draft's
+  // channel is one the runner works; the error it reports is transient for the flow.
+  it('knows which drafts need the planner, and the flow retries a run whose broker did not start', () => {
+    expect(portalNeedsPlanner({ channel: { type: 'workday', applyUrl: 'https://acme.wd3.myworkdayjobs.com/Careers/job/Lugano/X_R1' } })).toBe(true);
+    expect(portalNeedsPlanner({ channel: { type: 'employer_site' }, job: { applyUrl: 'https://careers.example/apply/1' } })).toBe(true);
+    expect(portalNeedsPlanner({ channel: { type: 'workday' } })).toBe(false);
+    expect(portalNeedsPlanner({ channel: { type: 'email', email: 'hr@example.ch' } })).toBe(false);
+    expect(portalNeedsPlanner({ channel: { type: 'linkedin', applyUrl: 'https://www.linkedin.com/jobs/view/1' } })).toBe(false);
+    expect(portalNeedsPlanner(null)).toBe(false);
+    expect(isTransientRunError('codex_broker_unavailable')).toBe(true);
   });
 });
 

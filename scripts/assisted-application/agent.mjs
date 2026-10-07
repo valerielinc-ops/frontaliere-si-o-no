@@ -26,7 +26,7 @@ import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs'
 import { readPortalQuestions } from './lib/portal/portal.mjs';
 import { questionTopic } from './lib/portal/plan.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
-import { submitApplication } from './lib/submit.mjs';
+import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { factCheckTokens } from '../../functions/src/assistedApplicationFlow.js';
@@ -194,6 +194,13 @@ async function main() {
 
   if (!previousDraft || previousDraft.status !== 'ready' || Number(previousDraft.round) !== round) {
     await report({ type: 'submit_failed', error: 'draft_missing_for_round' });
+    return;
+  }
+  // The planner's broker did not start in this run (2026-10-07: the sandbox set-up of its CLI failed after
+  // 94 s): the portal would be skipped and the order handed to the owner as if the robot had not got through
+  // it. Another run instead: a «broker» error is transient for the flow (assistedApplicationFlow.js).
+  if (!process.env.CODEX_AUTH_BROKER_SOCKET && portalNeedsPlanner(previousDraft)) {
+    await report({ type: 'submit_failed', error: 'codex_broker_unavailable' });
     return;
   }
   try {
