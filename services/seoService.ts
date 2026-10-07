@@ -7,7 +7,7 @@ import { localizeArticlePageIdentity } from './seo/article-page-identity';
  * Manages SEO metadata for different sections of the app
  */
 
-import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, type Locale } from './i18n';
+import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, loadArticleBody, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
@@ -41,6 +41,7 @@ import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescription } from '../build-plugins/shared/borderCrossingTitle';
 import { buildOggiPath, type BorderCrossingSlug } from '../build-plugins/borderWaitData';
 import { BLOG_SEO_SHARD_IDS, type BlogSeoShardId } from '../build-plugins/shared/blogSeoShards';
+import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -1800,6 +1801,31 @@ export async function updateMetaTags(section: string): Promise<void> {
  const isJobDetailPage = section.startsWith('jobboard-') && Boolean(route.jobSlug);
  const isBlogArticle = section.startsWith('blog-');
  const blogArticleId = isBlogArticle ? section.slice(5) : '';
+ let articleBodyHasPromptPlaceholder = false;
+ let articleBodyLoadFailed = false;
+ const existingArticleRobots = isBlogArticle
+ ? document.querySelector('meta[name="robots"]')?.getAttribute('content') || ''
+ : '';
+ if (isBlogArticle && blogArticleId) {
+ const articleSection = route.blogSection === 'svizzera' ? 'svizzera' : 'frontaliere';
+ try {
+ // The article component loads the same body promise, so this is a
+ // single-flight read when hydration and SEO update race. Without waiting
+ // here, the runtime pass can overwrite the static noindex head before the
+ // body chunk arrives.
+ await loadArticleBody(blogArticleId, articleSection);
+ } catch {
+ // Keep the static decision if the body chunk is unavailable. A failed
+ // source read must not turn a quarantined article back into indexable copy.
+ articleBodyLoadFailed = true;
+ }
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
+ articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder({
+ body1: t(`blog.article.${blogArticleId}.body1`),
+ body2: t(`blog.article.${blogArticleId}.body2`),
+ body3: t(`blog.article.${blogArticleId}.body3`),
+ });
+ }
  const jobSeo = isJobDetailPage && route.jobSlug
  ? await resolveJobSeoBySlug(route.jobSlug, locale, canonicalLocalePath)
  : null;
@@ -1957,7 +1983,10 @@ export async function updateMetaTags(section: string): Promise<void> {
  return false;
  }
  })();
+ const preserveStaticArticleNoindex = isBlogArticle && articleBodyLoadFailed && /\bnoindex\b/i.test(existingArticleRobots);
  const robotsDirective = hasFilterQuery || route.activeTab === 'newsletter-preferences'
+ ? 'noindex, follow'
+ : articleBodyHasPromptPlaceholder || preserveStaticArticleNoindex
  ? 'noindex, follow'
  : pharmacyMetadata?.robots ?? ROBOTS_INDEX_ENHANCED_CONTENT;
  updateOrCreateMetaTag('name', 'robots', robotsDirective);
