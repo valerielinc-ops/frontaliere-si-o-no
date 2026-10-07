@@ -1972,10 +1972,10 @@ jobs:
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
         env:
-          BASE_REF: ${{ github.base_ref || 'main' }}
+          TESTS_GUARD_REF: ${{ github.base_ref || 'main' }}
         run: |
-          base_ref="${BASE_REF:?BASE_REF is required}"
-          git fetch --no-tags origin "+refs/heads/${base_ref}:refs/remotes/origin/${base_ref}" || true
+          tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
+          git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -1993,8 +1993,10 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         env:
-          BASE_REF: ${{ github.base_ref || 'main' }}
-        run: node scripts/audit-article-factuality.mjs --changed "origin/${BASE_REF:?BASE_REF is required}"
+          FACTUALITY_REF: ${{ github.base_ref || 'main' }}
+        run: |
+          factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
+          node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
