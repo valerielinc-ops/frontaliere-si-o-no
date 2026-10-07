@@ -353,6 +353,46 @@ describe('plate-auction Firestore pipeline: a preserved loss converges instead o
   });
 });
 
+describe('plate-auction Firestore pipeline: timed card turnover', () => {
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const cardPage = (now: Date, ids: number[]) => {
+    const end = new Date(now.getTime() + 7 * 24 * HOUR);
+    const date = [end.getUTCDate(), end.getUTCMonth() + 1, end.getUTCFullYear()]
+      .map((part, index) => index < 2 ? String(part).padStart(2, '0') : String(part))
+      .join('.');
+    return `<div class="auction-grid"><div class="auctions">
+      <div>Auktionsende am ${date}</div>
+      ${ids.map((id) => `<a href="/de/auction/${id}" class="auction-element-link">
+        <figure title="TG ${id}"><figcaption>TG ${id}</figcaption></figure>
+        <div class="auction-current-bid">CHF&nbsp;600</div>
+        <div class="auction-element-text"><div class="auction-number-bids">1 Gebot</div>
+          <div class="auction-ends-at-text">Endet am:</div><div>19:00:00</div>
+        </div>
+      </a>`).join('')}
+    </div></div>`;
+  };
+  const refresh = (firestore: ReturnType<typeof statefulFirestore>, now: Date, ids: number[]) => refreshPlateAuctions({
+    db: firestore.db as never,
+    fetcher: async (url: string) => (url.includes('auktion.tg.ch') ? cardPage(now, ids) : ''),
+    now,
+  });
+
+  it('keeps TG active and preserves cards that rolled off the board', async () => {
+    const firestore = statefulFirestore();
+    const allIds = Array.from({ length: 40 }, (_unused, index) => 1000 + index);
+    await refresh(firestore, at(-6), allIds);
+    const result = await refresh(firestore, at(0), allIds.slice(8));
+
+    expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 32 });
+    const missing = [...firestore.current.values()].filter((row) => row.sourceKey === 'TG' && row.missingSince !== undefined);
+    expect(missing).toHaveLength(8);
+    expect([...firestore.history.values()].filter((row) => row.sourceKey === 'TG' && row.disappearedFromCatalogue)).toEqual([]);
+    expect(firestore.sources.get('tg')).toMatchObject({ status: 'active', errorCode: null });
+  });
+});
+
 describe('plate-auction Firestore pipeline: an eCari page that says no auction is running', () => {
   const HOUR = 60 * 60 * 1000;
   const base = new Date();
