@@ -606,9 +606,9 @@
     },
     {
       "id": "spital-nidwalden-bf731ddce759",
-      "slug": "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege",
+      "slug": "apprendistato-come-esperto-certificato-in-infermieristica-d-emergenza-nds-hf-con-inizio-della-formazione-a-settembre",
       "slugByLocale": {
-        "it": "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege",
+        "it": "apprendistato-come-esperto-certificato-in-infermieristica-d-emergenza-nds-hf-con-inizio-della-formazione-a-settembre",
         "en": "traineeship-for-dipl-expert-emergency-care-nds-hf-for-dipl-emergency-care-experts-nds-hf-with-training-start-in",
         "de": "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege",
         "fr": "stage-pour-dipl-expert-emergency-care-nds-hf-pour-dipl-experts-en-soins-d-urgence-nds-hf-avec-la-formation-commence-en"
@@ -668,13 +668,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-zur-dipl-expertin-notfallpflege-nds-hf-zum-dipl-experten-notfallpflege"
+      ]
     },
     {
       "id": "spital-nidwalden-8776538f377d",
-      "slug": "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans",
+      "slug": "segretaria-di-reparto-nella-sala-parto-e-nel-reparto-madre-figlio-50-spital-nidwalden-stans",
       "slugByLocale": {
-        "it": "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans",
+        "it": "segretaria-di-reparto-nella-sala-parto-e-nel-reparto-madre-figlio-50-spital-nidwalden-stans",
         "en": "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
         "de": "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
         "fr": "secretaire-de-service-en-salle-d-accouchement-et-service-mere-enfant-50-spital-nidwalden-stans"
@@ -723,11 +731,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans"
+        "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
+        "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans"
+          "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans",
+          "stationssekretar-in-gebarsaal-e-mutter-kind-station-50-spital-nidwalden-stans"
         ],
         "fr": [
           "stationssekretar-in-gebarsaal-und-mutter-kind-station-50-spital-nidwalden-stans"

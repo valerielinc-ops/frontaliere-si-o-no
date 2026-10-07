@@ -13858,9 +13858,9 @@
       "slug": "oberarzt-oberarztin-m-w-d-per-kinderophthalmologie-e-strabologie-per-la-augenklinik-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "oberarzt-oberarztin-m-w-d-per-kinderophthalmologie-e-strabologie-per-la-augenklinik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80",
+        "en": "senior-physician-m-f-d-for-paediatric-ophthalmology-and-strabology-for-the-eye-clinic-80-100-universitatsspital-zurich",
         "de": "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80",
-        "fr": "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80"
+        "fr": "medecin-principal-h-f-d-pour-l-ophtalmologie-pediatrique-et-la-stratologie-pour-la-clinique-oculaire-80-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -13908,6 +13908,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80"
+        ],
+        "en": [
+          "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80"
+        ],
+        "fr": [
           "oberarzt-oberarztin-w-m-d-fur-kinderophthalmologie-und-strabologie-fur-die-augenklinik-80"
         ]
       },
@@ -14628,7 +14634,7 @@
       "slug": "collaboratore-trice-administration-klinik-per-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-administration-klinik-per-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich",
-        "en": "associate-administration-klinik-fur-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich",
+        "en": "employee-administration-clinic-for-neuroradiology-40-100-universitatsspital-zurich-usz-zurich",
         "de": "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch",
         "fr": "collaborateur-trice-administration-klinik-fur-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich"
       },
@@ -14674,14 +14680,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch"
+        "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch",
+        "associate-administration-klinik-fur-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch"
         ],
         "en": [
-          "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch"
+          "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch",
+          "associate-administration-klinik-fur-neuroradiologie-40-100-universitatsspital-zurich-usz-zurich"
         ],
         "fr": [
           "mitarbeiter-in-administration-klinik-fur-neuroradiologie-40-100-usz-ch"
@@ -15167,9 +15175,9 @@
     },
     {
       "id": "usz-c89ea92fa04c",
-      "slug": "disponent-in-im-ambulatorium-klinik-per-pneumologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "centralista-nella-clinica-ambulatoriale-clinica-per-pneumologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "disponent-in-im-ambulatorium-klinik-per-pneumologie-80-100-universitatsspital-zurich-usz-zurich",
+        "it": "centralista-nella-clinica-ambulatoriale-clinica-per-pneumologia-80-100-universitatsspital-zurich-usz-zurich",
         "en": "dispatcherin-the-outpatient-clinic-clinic-for-pneumology-80-100-universitatsspital-zurich-usz-zurich",
         "de": "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch",
         "fr": "distributeur-triceen-ambulatoire-clinique-de-pneumologie-80-100-universitatsspital-zurich-usz-zurich"
@@ -15216,11 +15224,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch"
+        "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch",
+        "disponent-in-im-ambulatorium-klinik-per-pneumologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch"
+          "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch",
+          "disponent-in-im-ambulatorium-klinik-per-pneumologie-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "disponent-in-im-ambulatorium-klinik-fur-pneumologie-80-100-usz-ch"
@@ -17484,12 +17494,12 @@
     },
     {
       "id": "usz-5b155cd448fe",
-      "slug": "praktikum-come-fachfrau-fachmann-betreuung-kind-m-w-d-2027-con-option-auf-eine-apprendistato-universitatsspital-zurich-usz-zurich",
+      "slug": "tirocinio-come-specialista-assistente-figlio-m-f-d-2027-con-possibilita-di-apprendistato-universitatsspital-zurich-usz",
       "slugByLocale": {
         "de": "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle",
-        "it": "praktikum-come-fachfrau-fachmann-betreuung-kind-m-w-d-2027-con-option-auf-eine-apprendistato-universitatsspital-zurich-usz-zurich",
-        "en": "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle",
-        "fr": "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle"
+        "it": "tirocinio-come-specialista-assistente-figlio-m-f-d-2027-con-possibilita-di-apprendistato-universitatsspital-zurich-usz",
+        "en": "internship-as-a-specialist-specialist-supervision-child-m-f-d-2027-with-an-option-for-an-apprenticeship",
+        "fr": "stage-en-tant-que-specialiste-specialiste-supervision-enfant-h-f-d-2027-avec-une-option-pour-un-apprentissage"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17536,11 +17546,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle",
+          "praktikum-come-fachfrau-fachmann-betreuung-kind-m-w-d-2027-con-option-auf-eine-apprendistato-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle"
+        ],
+        "fr": [
           "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle"
         ]
       },
       "previousSlugs": [
-        "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle"
+        "praktikum-als-fachfrau-fachmann-betreuung-kind-w-m-d-2027-mit-option-auf-eine-lehrstelle",
+        "praktikum-come-fachfrau-fachmann-betreuung-kind-m-w-d-2027-con-option-auf-eine-apprendistato-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -17711,8 +17729,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch",
         "it": "fachperson-gesundheit-per-la-kardiologische-bettenabteilung-70-100-universitatsspital-zurich-usz-zurich",
-        "en": "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch",
-        "fr": "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
+        "en": "health-specialist-for-the-cardiology-bed-department-70-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-de-la-sante-pour-le-departement-de-cardiologie-70-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17760,6 +17778,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
+        ],
+        "fr": [
           "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
         ]
       },

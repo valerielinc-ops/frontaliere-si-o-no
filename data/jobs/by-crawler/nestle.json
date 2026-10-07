@@ -4737,7 +4737,7 @@
         "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
         "de": "rechtswidrige-handlungen-nestle-vevey",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4780,7 +4780,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-paralegal-nestle-ch",
-        "societe-parajuridique-nestle-vevey",
         "corporate-paralegal-nestle-vevey"
       ],
       "previousSlugsByLocale": {
@@ -4791,7 +4790,6 @@
           "corporate-paralegal-nestle-ch"
         ],
         "fr": [
-          "societe-parajuridique-nestle-vevey",
           "corporate-paralegal-nestle-vevey"
         ]
       },
@@ -7986,12 +7984,12 @@
     },
     {
       "id": "nestle-1444841133",
-      "slug": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
+      "slug": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
       "slugByLocale": {
         "en": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "it": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
+        "it": "responsabile-del-progetto-per-i-sistemi-di-bevande-fuori-casa-nestle-orbe",
         "de": "project-manager-for-out-of-home-beverage-systems-nestle-ch",
-        "fr": "project-manager-for-out-of-home-beverage-systems-nestle-ch"
+        "fr": "gestionnaire-de-projet-pour-les-systemes-de-boissons-hors-maison-nestle-orbe"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -8049,7 +8047,18 @@
       },
       "postalCode": "1350",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:49:42.304Z"
+      "firstSeenAt": "2026-10-07T09:49:42.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-for-out-of-home-beverage-systems-nestle-ch"
+        ],
+        "fr": [
+          "project-manager-for-out-of-home-beverage-systems-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-for-out-of-home-beverage-systems-nestle-ch"
+      ]
     }
   ]
 }

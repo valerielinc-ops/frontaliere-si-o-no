@@ -3812,7 +3812,7 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
+        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3882,7 +3882,6 @@
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
         ],
         "fr": [
-          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
           "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
@@ -4268,7 +4267,7 @@
         "it": "junior-analyst-in-fixed-income-im-asset-management-vz-vermogenszentrum-zug",
         "en": "junior-analyst-in-fixed-income-im-asset-management-vz-vermogenszentrum-zug",
         "de": "junior-analyst-in-fixed-income-im-asset-management-vz-vermoegenszentrum-ch",
-        "fr": "junior-analyst-in-fixed-income-im-asset-management-vz-vermogenszentrum-zug"
+        "fr": "analyste-junior-en-revenu-fixe-dans-la-gestion-d-actifs-vz-vermogenszentrum-zug-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4740,12 +4739,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-69e6bf652a7f",
-      "slug": "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz",
+      "slug": "sostegno-temporaneo-alla-gestione-e-al-supporto-del-portale-1-dicembre-31-dicembre-marzo-vz-vermogenszentrum-zurich",
       "slugByLocale": {
         "de": "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz",
-        "it": "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz",
-        "en": "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz",
-        "fr": "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz"
+        "it": "sostegno-temporaneo-alla-gestione-e-al-supporto-del-portale-1-dicembre-31-dicembre-marzo-vz-vermogenszentrum-zurich",
+        "en": "temporary-support-in-portal-management-support-1-december-31-december-march-vz-vermogenszentrum-zurich-zurich",
+        "fr": "soutien-temporaire-dans-la-gestion-et-le-support-du-portail-1er-31-decembre-mars-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4813,7 +4812,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:21:55.829Z"
+      "firstSeenAt": "2026-10-07T09:21:55.829Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz"
+        ],
+        "en": [
+          "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz"
+        ],
+        "fr": [
+          "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz"
+        ]
+      },
+      "previousSlugs": [
+        "temporare-unterstutzung-im-portalmanagement-support-1-dezember-31-marz-vz"
+      ]
     }
   ]
 }

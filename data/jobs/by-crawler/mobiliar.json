@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch",
         "it": "leiter-schaden-agenzia-generale-bern-ost-m-w-d-die-mobiliar-ostermundigen",
-        "en": "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch",
-        "fr": "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch"
+        "en": "head-of-damage-general-agency-bern-ost-m-f-d-die-mobiliar-ostermundigen",
+        "fr": "chef-de-l-agence-generale-bern-ost-h-f-d-die-mobiliar-ostermundigen"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -75,6 +75,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "leiter-schaden-generalagentur-bern-ost-w-m-d-mobiliar-ch"
         ]
       },
@@ -192,12 +198,12 @@
     },
     {
       "id": "mobiliar-65b6d2da64d3",
-      "slug": "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch",
+      "slug": "collaboratore-collaboratore-del-supporto-vendite-presso-l-agenzia-generale-di-la-cote-die-mobiliar-nyon",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch",
-        "it": "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch",
-        "en": "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch",
-        "de": "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch"
+        "it": "collaboratore-collaboratore-del-supporto-vendite-presso-l-agenzia-generale-di-la-cote-die-mobiliar-nyon",
+        "en": "collaborator-collaborator-of-sales-support-at-the-general-agency-of-la-cote-die-mobiliar-nyon",
+        "de": "mitarbeiter-mitarbeiter-der-verkaufsunterstutzung-bei-der-generalagentur-von-la-cote-die-mobiliar-nyon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -257,7 +263,21 @@
       },
       "postalCode": "1260",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:16:57.955Z"
+      "firstSeenAt": "2026-10-07T09:16:57.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-du-support-vente-a-l-agence-generale-de-la-cote-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-1ab7225e3af2",
@@ -265,7 +285,7 @@
       "slugByLocale": {
         "de": "data-and-ai-specialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
         "it": "data-and-ai-specialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
-        "en": "data-and-ai-specialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch",
+        "en": "data-and-ai-specialist-geoanalysis-natural-risks-m-f-d-die-mobiliar-bern",
         "fr": "data-and-ai-specialist-geoanalyse-naturrisiken-w-m-d-mobiliar-ch"
       },
       "company": "die Mobiliar",
@@ -5516,9 +5536,9 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-        "en": "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "en": "m-d-generalagentur-biel-die-mobiliar-biel",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "fr": "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
+        "fr": "m-d-generalagentur-biel-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5563,7 +5583,6 @@
       "sfJobId": "1164039955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "m-d-generalagentur-biel-die-mobiliar-biel",
         "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
         "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
       ],
@@ -5572,11 +5591,9 @@
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch"
         ],
         "en": [
-          "m-d-generalagentur-biel-die-mobiliar-biel",
           "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel"
         ],
         "fr": [
-          "m-d-generalagentur-biel-die-mobiliar-biel",
           "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ]
       },
@@ -6220,9 +6237,9 @@
       "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
       "slugByLocale": {
         "it": "schadenmitarbeiter-m-w-d-agenzia-generale-lenzburg-die-mobiliar-lenzburg",
-        "en": "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
+        "en": "projektleiter-m-d-die-mobiliar-lenzburg",
         "de": "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "fr": "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
+        "fr": "projektleiter-m-d-die-mobiliar-lenzburg"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6286,7 +6303,6 @@
       "sfJobId": "1164762355",
       "previousSlugs": [
         "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-lenzburg",
         "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg",
         "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
       ],
@@ -6296,12 +6312,10 @@
         ],
         "en": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-lenzburg",
           "claims-employee-m-w-d-general-agency-lenzburg-die-mobiliar-lenzburg"
         ],
         "fr": [
           "schadenmitarbeiter-w-m-d-generalagentur-lenzburg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-lenzburg",
           "employe-des-reclamations-m-w-d-agence-generale-lenzburg-die-mobiliar-lenzburg"
         ]
       },
@@ -6326,9 +6340,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -6392,7 +6406,6 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil",
         "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
         "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
@@ -6402,12 +6415,10 @@
         ],
         "en": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-wil",
           "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-          "projektleiter-m-d-die-mobiliar-wil",
           "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
