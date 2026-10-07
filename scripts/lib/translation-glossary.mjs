@@ -653,10 +653,15 @@ const PLACEHOLDER_WORD =
   + '|UNTERNEHMEN|FIRMA|ARBEITGEBER|ENTREPRISE|EMPLOYER|EMPLOYEUR|CLIENT|CLIENTE|KUNDE|CUSTOMER'
   + '|LOCATION|LUOGO|ORT|LIEU|CITY|CITT[AÀ]|STADT|VILLE|POSITION|POSIZIONE|TITLE|TITOLO|TITEL'
   + '|TITRE|JOB|NAME|NOME|NOM|PLACEHOLDER|SEGNAPOSTO|PLATZHALTER|TBD|TODO|XXX+)';
+const PLACEHOLDER_PHRASE = `${PLACEHOLDER_WORD}(?:[ _\\-/]{1,2}${PLACEHOLDER_WORD}){0,2}`;
 const placeholderVocabRe = () => new RegExp(
-  `[([{<]{1,2}\\s*${PLACEHOLDER_WORD}(?:[ _\\-/]{1,2}${PLACEHOLDER_WORD}){0,2}\\s*[)\\]}>]{1,2}`,
+  `[([{<]{1,2}\\s*${PLACEHOLDER_PHRASE}\\s*[)\\]}>]{1,2}`,
   'g',
 );
+// The brackets of a Markdown link label delimit it exactly as the brackets of
+// `[COMPANY]` do: a label that is nothing but a vocabulary phrase is that
+// bracketed placeholder, though the same words in prose are left alone.
+const LABEL_PLACEHOLDER_RE = new RegExp(`^\\s*${PLACEHOLDER_PHRASE}\\s*$`);
 const templatePlaceholderRe = () => new RegExp(
   [
     String.raw`\{\{\s*[\w. -]{1,40}\s*\}\}`,
@@ -682,7 +687,10 @@ function tidySpacing(value = '') {
     // the punctuation pass, whose `[ \t]+` would otherwise retry a long run
     // from each of its characters (quadratic on `[] [] [] …`).
     .replace(/[ \t]{2,}/g, ' ')
-    .replace(/[ \t]+([,;:.!?])/g, '$1')
+    // `![` opens an image: the blank in front of it is not a blank before
+    // an exclamation mark. While the strip runs, the link stands behind its
+    // slot marker (U+0001), and the same holds there.
+    .replace(/[ \t]+([,;:.?]|!(?![[\u0001]))/g, '$1')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/(^|[ \t])[-–—|,/]+[ \t]*$/gm, '$1')
     .replace(/[ \t]+$/gm, '')
@@ -1226,7 +1234,22 @@ function findOpaqueSpans(text) {
     if (character === ']' && text[index + 1] === '(') {
       const end = scanMarkdownLink(context, index);
       if (end > 0) {
-        spans.push({ start: index, end });
+        // The whole link is one opaque span and its label is stripped as a
+        // text of its own (see `stripLinkLabel`).
+        const open = matchingOpenBracket(text, index);
+        let outside = spans.length;
+        while (open >= 0 && outside > 0 && spans[outside - 1].start > open) outside -= 1;
+        if (open >= 0 && (outside === 0 || spans[outside - 1].end <= open)) {
+          // What was found inside the label so far is handed over to its pass.
+          spans.length = outside;
+          spans.push({ start: open, end, labelEnd: index });
+        } else {
+          // The opening bracket is out of reach, or inside a span already
+          // protected: the label stays in the outer pass with everything
+          // found in it, and its closing bracket goes with the destination,
+          // so no placeholder can take it.
+          spans.push({ start: index, end });
+        }
         index = end;
         continue;
       }
@@ -1276,26 +1299,87 @@ function createOpaqueSlotPrefix(input) {
 }
 
 function maskOpaqueSpans(input, spans) {
-  if (!spans.length) return { masked: input, slots: [], prefix: '' };
+  if (!spans.length) return { masked: input, slots: [], prefix: '', labelStripped: false };
   const prefix = createOpaqueSlotPrefix(input);
   const slots = [];
+  let labelStripped = false;
   let cursor = 0;
   let masked = '';
   for (const span of spans) {
     if (span.start < cursor) continue;
     masked += input.slice(cursor, span.start);
-    const marker = `${prefix}${slots.length}\u0001`;
-    slots.push(input.slice(span.start, span.end));
-    masked += marker;
+    let slot = input.slice(span.start, span.end);
+    if (span.labelEnd !== undefined) {
+      const label = input.slice(span.start + 1, span.labelEnd);
+      const stripped = stripLinkLabel(label);
+      if (stripped !== label) {
+        slot = `[${stripped}]${input.slice(span.labelEnd + 1, span.end)}`;
+        labelStripped = true;
+      }
+    }
+    masked += `${prefix}${slots.length}\u0001`;
+    slots.push(slot);
     cursor = span.end;
   }
-  return { masked: masked + input.slice(cursor), slots, prefix };
+  return { masked: masked + input.slice(cursor), slots, prefix, labelStripped };
 }
 
 function restoreOpaqueSlots(value, slots, prefix) {
   if (!slots.length) return value;
   const slotRe = new RegExp(`${escapeRegExp(prefix)}(\\d+)\\u0001`, 'g');
   return value.replace(slotRe, (_match, index) => slots[Number(index)] ?? '');
+}
+
+/** A bracket behind an odd run of backslashes is literal text, not a delimiter. */
+function isEscapedAt(text, index, floor) {
+  let backslashes = 0;
+  for (let cursor = index - 1; cursor >= floor && text[cursor] === '\\'; cursor -= 1) backslashes += 1;
+  return backslashes % 2 === 1;
+}
+
+/**
+ * Opening bracket of the label that `closeIndex` closes, or -1. The walk goes
+ * backwards, stays on the line and stops after MAX_LINK_PART_LENGTH
+ * characters: a label longer than the cap of every other link part is not
+ * handled as a label, and a line of thousands of links stays linear (each
+ * backslash is counted for one bracket only).
+ */
+function matchingOpenBracket(text, closeIndex) {
+  const floor = Math.max(0, closeIndex - MAX_LINK_PART_LENGTH);
+  if (isEscapedAt(text, closeIndex, floor)) return -1;
+  let depth = 0;
+  for (let index = closeIndex; index >= floor && text[index] !== '\n'; index -= 1) {
+    const character = text[index];
+    if (character !== ']' && character !== '[') continue;
+    if (isEscapedAt(text, index, floor)) continue;
+    if (character === ']') depth += 1;
+    else {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+/**
+ * A link label is stripped as a text of its own. The outer pass never sees it:
+ * no placeholder can take a bracket of the link with it, and whatever stands
+ * in front of the link — the `!` of an image, a blank, nothing — is left as it
+ * was, so a link cannot turn into an image or the other way round. The
+ * destination is never dropped: a URL must come back intact.
+ *
+ * - label no placeholder touches: returned identical, to the byte;
+ * - label that keeps text: loses the placeholder and the blanks it left;
+ * - label emptied: the link keeps an empty label (`[COMPANY](…)` → `[](…)`,
+ *   `![COMPANY](…)` → `![](…)`), which is what a template placeholder in a
+ *   label has always produced. The empty brackets live in the opaque slot,
+ *   out of reach of the spacing pass that removes empty brackets.
+ */
+function stripLinkLabel(label) {
+  if (LABEL_PLACEHOLDER_RE.test(label)) return '';
+  // Every placeholder shape opens with one of these characters.
+  if (!/[{%[(<_$]/.test(label)) return label;
+  return stripPlaceholderTokens(label);
 }
 
 /** Remove template/placeholder tokens (see the design note above). */
@@ -1306,7 +1390,7 @@ export function stripPlaceholderTokens(text = '') {
   const out = maskedSpans.masked
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');
-  if (out === maskedSpans.masked) return input;
+  if (out === maskedSpans.masked && !maskedSpans.labelStripped) return input;
   return restoreOpaqueSlots(tidySpacing(out), maskedSpans.slots, maskedSpans.prefix);
 }
 

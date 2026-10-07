@@ -1048,8 +1048,16 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
 function runPrep(env: Record<string, string>): { code: number; stdout: string } {
   const dir = mkdtempSync(join(tmpdir(), 'prep-'));
-  mkdirSync(join(dir, 'dist'), { recursive: true });
-  writeFileSync(join(dir, 'dist', 'index.html'), '<!doctype html><title>t</title>');
+  // Since #12150 the CDN push fails closed unless dist carries the GA4
+  // producer pair (stable alias + the one content-addressed file the HTML
+  // names), so the smallest dist that reaches the push section has both.
+  mkdirSync(join(dir, 'dist', 'assets'), { recursive: true });
+  writeFileSync(
+    join(dir, 'dist', 'index.html'),
+    '<!doctype html><title>t</title><script src="/assets/gtag-init-0a1b2c3d.js"></script>',
+  );
+  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init.js'), '');
+  writeFileSync(join(dir, 'dist', 'assets', 'gtag-init-0a1b2c3d.js'), '');
   try {
     const stdout = execFileSync('bash', [PREP_SH], {
       cwd: dir,
