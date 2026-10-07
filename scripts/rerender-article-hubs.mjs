@@ -483,8 +483,12 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     // A fast-published article can legitimately reach the live registry before
     // the corpus sync PR lands on this repository. That is not permission to
     // render or publish this checkout: doing so would remove the newer live
-    // article. It is a safe, observable defer. A mixed mismatch remains a
-    // hard failure because it cannot be classified as a one-way upstream lag.
+    // article. It is a safe, observable defer. A bounded one-for-one swap is
+    // the same transit state in both directions: the published manifest and
+    // this render have the same count, but the source registry moved between
+    // snapshots. The corpus sync owns the retirement/addition decision; this
+    // renderer must keep its bytes untouched until that decision converges.
+    // Unbounded or one-sided drift remains a hard failure.
     if (
       missingIds.length > 0
       && missingIds.length <= MAX_ARTICLES_BEHIND
@@ -496,6 +500,20 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
         note:
           `${section}: published article registry is ahead of this checkout (${mismatchDetails}); ` +
           `deferring hub rerender until the corpus sync converges (bounded to ${MAX_ARTICLES_BEHIND} IDs)`,
+      };
+    }
+    if (
+      missingIds.length > 0
+      && missingIds.length === unpublishedIds.length
+      && missingIds.length <= MAX_ARTICLES_BEHIND
+      && published === itemCount
+    ) {
+      return {
+        ok: false,
+        deferred: true,
+        note:
+          `${section}: published and local article registries have bounded one-for-one drift (${mismatchDetails}); ` +
+          `deferring hub rerender until the corpus sync converges (no bytes published, tolerance ${MAX_ARTICLES_BEHIND} IDs)`,
       };
     }
     return {
@@ -658,10 +676,11 @@ async function main() {
     process.exit(1);
   }
 
-  // A one-way published-ahead mismatch is an expected handoff between the
-  // fast publisher and the corpus-sync PR. Preserve the strict no-publish
-  // decision above, but report it to the workflow as a successful defer so it
-  // does not open a duplicate failure issue while the sync is converging.
+  // A published-ahead or bounded one-for-one registry mismatch is an expected
+  // handoff between the fast publisher and the corpus-sync PR. Preserve the
+  // strict no-publish decision above, but report it to the workflow as a
+  // successful defer so it does not open a duplicate failure issue while the
+  // sync is converging.
   if (deferred) {
     if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
     console.log(`${LOG} freshness deferred — nothing pushed`);
