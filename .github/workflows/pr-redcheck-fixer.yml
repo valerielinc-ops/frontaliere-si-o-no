@@ -488,6 +488,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/prefetch-review-diff.mjs \
             scripts/ci/review-test-policy.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
@@ -525,14 +526,17 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
+      # `continue-on-error` sul claim serve solo a lasciare eseguire questo
+      # guard esplicito. Un import error avviene prima degli output: in quel
+      # caso l'outcome dello step, non un output mancante, è la prova di errore.
       - name: Fail closed when redcheck claim is unreadable
-        if: steps.claim.outputs.claim_error == 'true'
+        if: steps.claim.outcome != 'success' || (steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_allowed != 'false') || steps.claim.outputs.claim_error != 'false'
         run: |
-          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile o non verificabile → nessun fixer Claude."
+          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile, con output invalido o bootstrap fallito → nessun fixer Claude."
           exit 1
 
       - name: Skip already-consumed redcheck failure (zero-Claude)
-        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
 
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
@@ -1479,6 +1483,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \

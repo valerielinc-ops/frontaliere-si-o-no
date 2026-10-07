@@ -705,6 +705,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
@@ -828,6 +829,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
@@ -913,14 +915,17 @@ jobs:
           echo "::error::Claim redflag non più coerente con PR+HEAD+body revision+review id (${CLAIM_REASON:-motivo non riportato}) → nessun fixer Claude."
           exit 1
 
+      # `continue-on-error` sul claim serve solo a lasciare eseguire questo
+      # guard esplicito. Un import error avviene prima degli output: in quel
+      # caso l'outcome dello step, non un output mancante, è la prova di errore.
       - name: Fail closed when redflag claim is unreadable
-        if: steps.claim.outputs.claim_error == 'true'
+        if: steps.admission.outputs.actionable == 'true' && (steps.claim.outcome != 'success' || (steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_allowed != 'false') || steps.claim.outputs.claim_error != 'false')
         run: |
-          echo "::error::Claim redflag PR+HEAD+verdict illeggibile o non verificabile → nessun fixer Claude."
+          echo "::error::Claim redflag PR+HEAD+verdict illeggibile, con output invalido o bootstrap fallito → nessun fixer Claude."
           exit 1
 
       - name: Skip already-consumed redflag verdict (zero-Claude)
-        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Verdetto 🔴 già acquisito per questa PR+HEAD → nessun secondo round Claude."
 
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
@@ -1458,6 +1463,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
@@ -2117,6 +2123,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \
