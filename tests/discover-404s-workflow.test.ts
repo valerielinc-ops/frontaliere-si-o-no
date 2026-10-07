@@ -36,7 +36,7 @@ describe('404 discovery workflows publish protected data through PRs', () => {
   it('uses the repository bot identity for generated data commits', () => {
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
 
-    expect(publisher).toContain('git add --sparse -A -- "${PATHS[@]}"');
+    expect(publisher).toContain('git add --sparse -A --');
     expect(publisher).toContain('frontaliere-automation[bot]');
     expect(publisher).toContain('296434481+frontaliere-automation[bot]@users.noreply.github.com');
   });
