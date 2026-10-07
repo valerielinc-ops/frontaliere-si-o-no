@@ -108,6 +108,53 @@ const FAMILY_COPYRIGHT_NOTICE = Object.freeze({
 export const UNKNOWN_AUTHOR_NAME = 'Unknown author';
 
 const COMMONS_FILE_PAGE_PREFIX = 'https://commons.wikimedia.org/wiki/File:';
+const IMAGE_CREATOR_ID_PREFIX = 'https://frontaliereticino.ch/#image-creator-';
+
+/**
+ * Produce a compact, deterministic fragment for a name-only image creator.
+ *
+ * Wikimedia's attribution text often contains a real display name but no
+ * profile URL. Those records are still repeated entities in every article
+ * that reuses the photographer's cover. A site-scoped graph id lets crawlers
+ * join those occurrences without pretending that an unverified Commons
+ * profile exists. Keep a hash of the complete seed beside the readable slug
+ * so names that share a prefix cannot collide after truncation or slugging.
+ *
+ * The hash is deliberately local and browser-safe; this module is imported by
+ * the SPA as well as by the Node build.
+ * @param {string} seed
+ * @returns {string}
+ */
+function imageCreatorKey(seed) {
+  const normalized = String(seed).normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase();
+  const readable = normalized.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 64) || 'unknown';
+  let hash = 0x811c9dc5;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash = Math.imul(hash ^ seed.charCodeAt(index), 0x01000193);
+  }
+  return `${readable}-${(hash >>> 0).toString(16).padStart(8, '0')}`;
+}
+
+/**
+ * Resolve the graph identity for the creator projected into an ImageObject.
+ *
+ * A verified profile URL remains the strongest identity and is emitted as-is.
+ * Named records without one receive a stable id derived from type + name, so
+ * repeated cover credits do not remain anonymous. An unknown author is not a
+ * real shared entity: scope its fallback to the Commons file (or cover) so
+ * separate unknown photographers are never merged under one placeholder.
+ *
+ * @param {ImageCreditRecord} record
+ * @returns {string}
+ */
+function imageCreatorId(record) {
+  const author = record.author;
+  if (author.name && author.url) return author.url;
+  const seed = author.name
+    ? `${author.type}:${author.name}`
+    : `${author.type}:${record.commons?.pageUrl ?? record.cover}`;
+  return `${IMAGE_CREATOR_ID_PREFIX}${imageCreatorKey(seed)}`;
+}
 
 /** Display-length guards: a value longer than this is a description, not a name. */
 const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255, licenceName: 80 });
@@ -861,10 +908,10 @@ export function imageObjectCreditFields(record) {
   const fields = {
     creator: {
       '@type': record.author.type,
-      // The profile URL is the only stable identity available for a credited
-      // Wikimedia author. Emit it as @id as well as url so crawlers do not
-      // merge the same Person by name while omitting its identity.
-      ...(authorName && record.author.url ? { '@id': record.author.url } : {}),
+      // A verified profile URL is used as the canonical identity. Name-only
+      // records receive a deterministic site-scoped id; otherwise every
+      // repeated Commons credit is an anonymous Person/Organization node.
+      '@id': imageCreatorId(record),
       name: authorName ?? UNKNOWN_AUTHOR_NAME,
       ...(authorName && record.author.url ? { url: record.author.url } : {}),
     },
