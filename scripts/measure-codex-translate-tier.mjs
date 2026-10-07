@@ -9,8 +9,10 @@ import { realpathSync } from 'node:fs';
  *
  * BEFORE is the tier as it was, one request per text and one at a time:
  * FREE_TRANSLATE_CODEX_LANES=1 and FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=1 (the
- * rollback lever). AFTER is the default (2 lanes, groups of up to 5). LANES
- * ONLY keeps one text per request, to show what the lanes alone give.
+ * rollback lever). AFTER is the default (2 lanes, groups of up to 5). The
+ * translatePending mode reproduces the workflow's explicit 3-lane/batch-10
+ * configuration, including its short collection window. LANES ONLY keeps one
+ * text per request, to show what the lanes alone give.
  *
  * The simulated Codex follows a local measure on gpt-5.6-luna at effort max
  * with the function profile (2026-09-29): one short text 7.1 s, five texts in
@@ -43,6 +45,7 @@ export const MODES = Object.freeze({
   before: { FREE_TRANSLATE_CODEX_LANES: '1', FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '1' },
   lanesOnly: { FREE_TRANSLATE_CODEX_LANES: '2', FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '1' },
   after: { FREE_TRANSLATE_CODEX_LANES: '', FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '' },
+  translatePending: { FREE_TRANSLATE_CODEX_LANES: '3', FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10' },
 });
 
 /** Configurazioni richieste per la misura reale della riserva translate-pending. */
@@ -64,6 +67,12 @@ export const SCENARIOS = Object.freeze([
   { id: 'article-10-fields-x-3-languages', concurrent: true, texts: ['en', 'de', 'fr'].flatMap((lang) => Array.from({ length: 10 }, (_, n) => ({ text: text(n, lang), targetLang: lang }))) },
   { id: 'faq-8-texts', concurrent: true, texts: Array.from({ length: 8 }, (_, n) => ({ text: text(n, 'en'), targetLang: 'en' })) },
   { id: 'one-text-at-a-time-10', concurrent: false, texts: Array.from({ length: 10 }, (_, n) => ({ text: text(n, 'en'), targetLang: 'en' })) },
+  {
+    id: 'translate-pending-sequential-structured-20',
+    concurrent: false,
+    structured: true,
+    texts: Array.from({ length: 20 }, (_, n) => ({ text: text(n, 'en'), targetLang: 'en', fieldType: 'description' })),
+  },
 ]);
 
 async function loadTier({ real = false } = {}) {
@@ -72,7 +81,8 @@ async function loadTier({ real = false } = {}) {
   fs.writeFileSync(socket, '');
   for (const key of ['DEEPL_API_KEY_2', 'AZURE_TRANSLATOR_KEY_2', 'GOOGLE_APPLICATION_CREDENTIALS', 'GSC_CLIENT_ID', 'GSC_CLIENT_SECRET', 'GSC_REFRESH_TOKEN',
     'HF_TOKEN', 'HUGGINGFACE_API_KEY', 'LIBRETRANSLATE_SELF_HOSTED_URL', 'MT_LOCAL_OPUSMT', 'ENABLE_CODEX_ARTICLE_FALLBACK',
-    'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_TIER']) process.env[key] = '';
+    'AI_MODELS_PREFER', 'AI_MODELS_FORCE_CHAIN', 'FREE_TRANSLATE_CODEX_MAX_MS', 'FREE_TRANSLATE_CODEX_TIER',
+    'FREE_TRANSLATE_CODEX_LANES', 'FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', 'FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS']) process.env[key] = '';
   process.env.DEEPL_API_KEY = 'deepl-finta';
   process.env.AZURE_TRANSLATOR_KEY = 'azure-finta';
   process.env.CODEX_AUTH_BROKER_SOCKET = socket;
@@ -265,6 +275,30 @@ function isEcho(value, source) {
   return normalize(value).toLowerCase() === normalize(source).toLowerCase();
 }
 
+const STRUCTURED_INPUT_PREFIX_RE = /^\s*(?:[-*•]\s+|\d+[.)]\s+)/u;
+const EXPECTED_INVARIANT_LINE_RE = /^(?:sede|luogo|location|standort|lieu|nome|name|azienda|company|società|employer|codice|code|sigla|acronimo|brand|marchio)\s*:/iu;
+
+function structuredInputScenario(texts) {
+  if (texts.length !== 1 || texts[0].fieldType !== 'description') return null;
+  const item = texts[0];
+  const lines = item.text.split(/\r?\n/u)
+    .map((line) => line.replace(STRUCTURED_INPUT_PREFIX_RE, '').trim())
+    .filter(Boolean);
+  if (lines.length < 2 || !texts[0].text.split(/\r?\n/u).some((line) => STRUCTURED_INPUT_PREFIX_RE.test(line))) return null;
+  return {
+    id: 'real-structured-sequential',
+    concurrent: false,
+    structured: true,
+    allowInvariantEchoes: true,
+    texts: lines.map((line) => ({
+      text: line,
+      sourceLang: item.sourceLang,
+      targetLang: item.targetLang,
+      fieldType: item.fieldType,
+    })),
+  };
+}
+
 async function runScenario(ft, scenario, mode, { real = false, modes = real ? REAL_MODES : MODES } = {}) {
   const modeSet = modes;
   for (const [key, value] of Object.entries(modeSet[mode])) process.env[key] = value;
@@ -277,7 +311,15 @@ async function runScenario(ft, scenario, mode, { real = false, modes = real ? RE
   const t0 = Date.now();
   let out;
   try {
-    if (scenario.concurrent) {
+    if (scenario.structured) {
+      const first = scenario.texts[0];
+      const body = scenario.texts.map(({ text: source }) => `- ${source}`).join('\n');
+      const translatedBody = await translate({ ...first, text: body });
+      const lines = String(translatedBody || '').split('\n');
+      out = scenario.texts.map((_, index) => lines[index]
+        ?.replace(/^\s*(?:[-*•]\s+|\d+[.)]\s+)/u, '')
+        .trim() || '');
+    } else if (scenario.concurrent) {
       out = await Promise.all(scenario.texts.map(translate));
     } else {
       out = [];
@@ -288,6 +330,11 @@ async function runScenario(ft, scenario, mode, { real = false, modes = real ? RE
   }
   const translated = out.filter((value, i) => value && !isEcho(value, scenario.texts[i].text)).length;
   const echoes = out.filter((value, i) => value && isEcho(value, scenario.texts[i].text)).length;
+  const expectedEchoes = scenario.allowInvariantEchoes
+    ? scenario.texts.filter(({ text: source }) => !/\p{L}/u.test(source) || EXPECTED_INVARIANT_LINE_RE.test(source)
+      || /^[\p{Lu}\p{N}&./+_-]+$/u.test(source)).length
+    : 0;
+  const unexpectedEchoes = Math.max(0, echoes - expectedEchoes);
   const elapsedSeconds = (Date.now() - t0) / 1000;
   return {
     requests: stats.requests,
@@ -298,9 +345,11 @@ async function runScenario(ft, scenario, mode, { real = false, modes = real ? RE
     textsTranslated: translated,
     textsPerMinute: Number((translated / Math.max(elapsedSeconds / 60, 0.001)).toFixed(2)),
     echoes,
+    expectedEchoes,
+    unexpectedEchoes,
     refusals: stats.refusals,
-    rejected: scenario.texts.length - translated,
-    qualityOk: echoes === 0 && stats.refusals === 0 && translated === scenario.texts.length,
+    rejected: Math.max(0, scenario.texts.length - translated - echoes),
+    qualityOk: unexpectedEchoes === 0 && stats.refusals === 0 && translated + echoes === scenario.texts.length,
     inputTokens: stats.inputTokens,
     translated,
   };
@@ -325,7 +374,7 @@ export async function measureCodexTranslateTier() {
     return results;
   } finally {
     ft.setCodexTranslateCallForTests(null);
-    for (const key of Object.keys(MODES.after)) process.env[key] = '';
+    for (const key of Object.keys(MODES.translatePending)) process.env[key] = '';
     cleanup();
   }
 }
@@ -338,15 +387,15 @@ export async function measureRealCodexTranslateTier(texts, { real = true, modes 
     const quiet = console.log;
     console.log = () => {};
     try { await ft.freeTranslate({ text: IT, sourceLang: 'it', targetLang: 'en', fieldType: 'description' }); } finally { console.log = quiet; }
-    const scenario = { id: 'real-ad-slice', concurrent: true, texts };
+    const scenario = structuredInputScenario(texts) || { id: 'real-ad-slice', concurrent: true, texts };
     const rows = [];
-    for (const mode of Object.keys(modes)) rows.push({ mode, ...(await runScenario(ft, scenario, mode, { real, modes })) });
+    for (const mode of Object.keys(modes)) rows.push({ scenario: scenario.id, mode, ...(await runScenario(ft, scenario, mode, { real, modes })) });
     return {
       measuredAt: new Date().toISOString(),
       transport: real ? 'codex-cli' : 'simulated',
       model: REAL_CODEX_MODEL,
       effort: REAL_CODEX_EFFORT,
-      texts: texts.length,
+      texts: scenario.texts.length,
       rows,
     };
   } finally {
@@ -378,11 +427,11 @@ if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process
     if (process.argv.includes('--json')) {
       console.log(JSON.stringify(results, null, 2));
     } else {
-      console.log('| scenario | texts | BEFORE: requests, s, input tokens | LANES ONLY: requests, s, input tokens | AFTER: requests, s, input tokens |');
-      console.log('|---|---|---|---|---|');
+      console.log('| scenario | texts | BEFORE: requests, s, input tokens | LANES ONLY: requests, s, input tokens | AFTER: requests, s, input tokens | TRANSLATE-PENDING: requests, s, input tokens |');
+      console.log('|---|---|---|---|---|---|');
       for (const r of results) {
         const cell = (m) => `${m.requests}, ${m.simulatedSeconds}, ${m.inputTokens}`;
-        console.log(`| ${r.scenario} | ${r.texts} | ${cell(r.before)} | ${cell(r.lanesOnly)} | ${cell(r.after)} |`);
+        console.log(`| ${r.scenario} | ${r.texts} | ${cell(r.before)} | ${cell(r.lanesOnly)} | ${cell(r.after)} | ${cell(r.translatePending)} |`);
       }
     }
   }

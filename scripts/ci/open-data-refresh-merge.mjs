@@ -3,6 +3,7 @@ const TELEGRAM_LEDGER_PATHS = new Set([
   'data/telegram-posted-announcements.json',
 ]);
 const INSPECTION_STATE_PATH = 'data/inspection-state.json';
+const PHARMACY_ENRICHMENT_PATH = 'data/pharmacy-enrichment.json';
 const LEDGER_TRIM_LIMIT = 1000;
 export const EVENT_CACHE_PATHS = new Set([
   'data/events-geocode-cache.json',
@@ -142,10 +143,51 @@ function mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw)
   }, null, 2)}\n`;
 }
 
+function validPharmacyUsage(value) {
+  const month = String(value?.month || '');
+  const requests = value?.googlePlaces?.requests;
+  if (!/^\d{4}-(?:0[1-9]|1[0-2])$/u.test(month) || !Number.isInteger(requests) || requests < 0) {
+    return null;
+  }
+  return {
+    ...value,
+    month,
+    googlePlaces: { ...value.googlePlaces, requests },
+  };
+}
+
+function mergePharmacyEnrichment(remoteRaw, refreshRaw) {
+  const remote = parseObject(remoteRaw, `${PHARMACY_ENRICHMENT_PATH} stable branch`);
+  const refresh = parseObject(refreshRaw, `${PHARMACY_ENRICHMENT_PATH} current refresh`);
+  const remoteUsage = validPharmacyUsage(remote.providerUsage);
+  const refreshUsage = validPharmacyUsage(refresh.providerUsage);
+  let providerUsage = refreshUsage || remoteUsage;
+
+  if (remoteUsage && refreshUsage) {
+    if (remoteUsage.month === refreshUsage.month) {
+      providerUsage = {
+        ...refreshUsage,
+        googlePlaces: {
+          ...refreshUsage.googlePlaces,
+          requests: Math.max(remoteUsage.googlePlaces.requests, refreshUsage.googlePlaces.requests),
+        },
+      };
+    } else if (remoteUsage.month > refreshUsage.month) {
+      providerUsage = remoteUsage;
+    }
+  }
+
+  return `${JSON.stringify({
+    ...refresh,
+    ...(providerUsage ? { providerUsage } : {}),
+  }, null, 2)}\n`;
+}
+
 function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
   if (file === 'data/events-description-rewrites.json') {
     return mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw);
   }
+  if (file === PHARMACY_ENRICHMENT_PATH) return mergePharmacyEnrichment(remoteRaw, refreshRaw);
   if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);
   if (TELEGRAM_LEDGER_PATHS.has(file)) return mergePostedLedger(remoteRaw, refreshRaw, file);
