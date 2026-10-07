@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvp-poschiavo",
-  "assembledAt": "2026-10-07T09:42:26.667Z",
+  "assembledAt": "2026-10-07T21:29:01.401Z",
   "jobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -28,12 +28,13 @@
         "de": "Faszinierend und interessiert, gemeinsam mit uns konkret zur Kontinuität und Entwicklung der Familienmedizin in einer peripheren Region beizutragen. Kenntnisse der italienischen Sprache sind notwendig. Die Bewerbung ist per E-Mail im PDF-Format zu senden an: info@cmvp.ch Via S. Sisto 6H 7742 Poschiavo Vor allem in peripheren Regionen bedeutet Nähe zu Menschen, Vertrauen und Relatio-ni, die über die Zeit anhalten. Das Valposchiavo Medical Center (CMVP), ein aus 3 Hausärzten bestehendes Unternehmen, bietet in enger Zusammenarbeit mit dem Valposchiavo Health Center – Hospital, Spitex und Casa Anziani – ein Modell moderner, innovativer und nachhaltiger Medizin an. CMVP-Ärzte sind für die ambulante Medizin verantwortlich und sind für die Hilfe von Patienten, die in das San Sisto Hospital eingeliefert werden, und für das Management von Dringlichkeiten im Tal verantwortlich. Dieses inspirierende Modell verbindet eine hohe Verantwortung mit einer breiten fachlichen Autonomie. Familienmedizin ist das Herzstück eines effizienten Gesundheitssystems. Hausarzt, FMH-Spezialist für allgemeine Innere Medizin Um unser Team zu vervollständigen, stimmen wir sofort oder am Tag zu, ein\n\nWeitere Informationen:\n\nDr. med. Cristian Raselli 081 839 01 80 / cristian.raselli@cmvp.ch Medizinisches Zentrum Valposchiavo: www.cmvp.ch Gesundheitszentrum Valposchiavo: www.csvp.ch In Valposchiavo finden Sie ein anregendes professionelles Umfeld, eine einladende Gemeinschaft und eine hohe Lebensqualität, eingebettet in eine suggestive südalpine Landschaft. Das Tal bietet auch einen kulturell lebendigen Kontext, in dem sich die Schweizer Tradition mit einem mediterranen Lebensstil verbindet.",
         "fr": "Intriguant et intéressé à contribuer concrètement, avec nous, à la continuité et au développement de la médecine familiale dans une région périphérique. La connaissance de la langue italienne est nécessaire. La demande doit être envoyée par e-mail au format PDF à: info@cmvp.ch Via S. Sisto 6H 7742 Poschiavo Par-dessus tout dans les régions périphériques, on entend la proximité des personnes, la confiance et le relatio- ni qui durent au fil du temps. Le Centre médical de Valposchiavo (CMVP), une société composée de 3 médecins de famille, offre en étroite collaboration avec le Centre de santé de Valposchiavo – hôpital, Spitex et Casa Anziani – un modèle de médecine moderne, innovante et durable. Les médecins du CMVP sont responsables de la médecine ambulatoire et de l'assistance des patients admis à l'hôpital de San Sisto et de la gestion des urgences dans la vallée. Ce modèle inspirant associe une haute responsabilité à une large autonomie professionnelle. La médecine familiale est au cœur d'un système de santé efficace. Médecin de famille, FMH spécialiste en médecine interne générale Pour compléter notre équipe, nous sommes immédiatement ou à la date d'accord, un\n\nPour en savoir plus:\n\nDr. med. Cristian Raselli 081 839 01 80 / Cristian.raselli@cmvp.ch Centre médical Valposchiavo: www.cmvp.ch Centre de santé Valposchiavo: www.csvp.ch À Valposchiavo, vous trouverez un environnement professionnel stimulant, une communauté accueillante et une qualité de vie élevée, immergé dans un paysage suggestif alpin sud. La vallée offre également un contexte culturellement vivant, où la tradition suisse s'entrelace avec un style de vie méditerranéen."
       },
+      "needsRetranslation": false,
       "location": "Poschiavo",
       "canton": "GR",
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-07T09:42:22.201Z",
+      "crawledAt": "2026-10-07T21:28:56.093Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -51,9 +52,8 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-07T09:42:22.201Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -66,8 +66,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-07T09:42:22.201Z"
+      }
     }
   ]
 }
