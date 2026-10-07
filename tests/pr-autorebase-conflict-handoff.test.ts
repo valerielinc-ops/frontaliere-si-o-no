@@ -262,7 +262,15 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const calls = processPr.match(/handOffConflictToFixer\([^)]*\)/g) || [];
     expect(calls.length).toBe(4);
-    for (const call of calls) expect(call).toBe('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned })');
+    for (const call of calls) {
+      // Gli argomenti di posizione sono sempre gli stessi; le opzioni portano
+      // `agentOwned` come proprieta' a se', con o senza l'esito della
+      // rigenerazione tentata prima dell'hand-off.
+      const normalized = call.replace(/\s+/g, ' ');
+      expect(normalized).toMatch(
+        /^handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned(?:, generatedResolution: [\w.]+,?)? \}\)$/,
+      );
+    }
     expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels, branch);');
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: false, alreadyHandedOff: false })).toBe(false);
   });

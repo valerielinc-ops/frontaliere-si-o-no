@@ -28,7 +28,7 @@ function postReviewSparsePatterns(): string[] {
     (candidate) => candidate.name === 'Checkout trusted main for autorebase and token minting',
   );
   expect(step?.uses, `checkout sparse del job post-review non trovato in ${WORKFLOW}`).toMatch(/^actions\/checkout@/u);
-  expect(typeof step?.with?.['sparse-checkout'], `sparse-checkout del job post-review non trovato in ${WORKFLOW}`).toBe(true);
+  expect(typeof step?.with?.['sparse-checkout'], `sparse-checkout del job post-review non trovato in ${WORKFLOW}`).toBe('string');
   return String(step!.with!['sparse-checkout'])
     .split('\n')
     .map((line) => line.trim())
