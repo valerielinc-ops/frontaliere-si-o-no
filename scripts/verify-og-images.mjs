@@ -20,18 +20,19 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
-function walkHtml(root) {
-  const files = [];
-  const visit = (dir) => {
-    if (!fs.existsSync(dir)) return;
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const filePath = path.join(dir, entry.name);
-      if (entry.isDirectory()) visit(filePath);
-      else if (entry.isFile() && /\.html?$/i.test(entry.name)) files.push(filePath);
-    }
-  };
-  visit(root);
-  return files.sort();
+// Generator on purpose: the full dist holds millions of HTML files, and an
+// in-memory sorted list of every path was part of what pushed the gate past
+// the heap limit. Entries are sorted per directory to keep the walk (and so
+// the representative sample) deterministic.
+function* walkHtml(root) {
+  if (!fs.existsSync(root)) return;
+  const entries = fs.readdirSync(root, { withFileTypes: true })
+    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  for (const entry of entries) {
+    const filePath = path.join(root, entry.name);
+    if (entry.isDirectory()) yield* walkHtml(filePath);
+    else if (entry.isFile() && /\.html?$/i.test(entry.name)) yield filePath;
+  }
 }
 
 function decodeHtml(value) {
@@ -69,17 +70,25 @@ export function extractOgImageUrls(html, pageUrl = SITE_ORIGIN) {
   return urls;
 }
 
+/**
+ * Streams the dist and keeps one row per distinct og:image URL (the first page
+ * that references it), plus the total number of references seen. The gate only
+ * samples distinct URLs, so retaining a `{ file, url }` row for every page made
+ * memory grow with the page count and aborted on the full production dist.
+ */
 export function collectOgImageReferences(distDir) {
-  const references = [];
+  const unique = new Map();
+  let total = 0;
   for (const filePath of walkHtml(distDir)) {
     const relative = path.relative(distDir, filePath).split(path.sep).join('/');
     const pageUrl = new URL(relative, `${SITE_ORIGIN}/`).href;
     const html = fs.readFileSync(filePath, 'utf8');
     for (const url of extractOgImageUrls(html, pageUrl)) {
-      references.push({ file: relative, url });
+      total += 1;
+      if (!unique.has(url)) unique.set(url, { file: relative, url });
     }
   }
-  return references;
+  return { references: [...unique.values()], total };
 }
 
 function familyFor(url) {
@@ -146,14 +155,14 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const sampleSize = Number(argValue(argv, '--sample-size', '3')) || 3;
   const requireFamilies = !argv.includes('--allow-missing-families');
   const policy = loadPublishedImagePolicy({ root });
-  const references = collectOgImageReferences(distDir);
+  const { references, total } = collectOgImageReferences(distDir);
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies });
   if (policy.registryErrors.length > 0) {
     result.valid = false;
     result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
   }
 
-  console.log(`og:image references: ${references.length}; sample events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
+  console.log(`og:image references: ${total} (${references.length} distinct); sample events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
   for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);
   if (!result.valid) {
     for (const error of result.errors) console.error(`::error::og-image gate: ${error}`);

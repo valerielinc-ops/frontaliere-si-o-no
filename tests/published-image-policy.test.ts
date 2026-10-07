@@ -11,7 +11,11 @@ import {
   checkPublishedImageUrl,
   loadPublishedImagePolicy,
 } from '../scripts/lib/published-image-policy.mjs';
-import { run as runOgImageGate, verifyOgImageReferences } from '../scripts/verify-og-images.mjs';
+import {
+  collectOgImageReferences,
+  run as runOgImageGate,
+  verifyOgImageReferences,
+} from '../scripts/verify-og-images.mjs';
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -121,6 +125,37 @@ describe('published image policy', () => {
     expect(result.valid).toBe(true);
     expect(result.counts).toEqual({ events: 1, articles: 1, static: 1 });
     expect(result.errors).toEqual([]);
+  });
+
+  it('keeps one row per distinct OG image however many pages share it', () => {
+    // The full dist has millions of pages sharing a handful of cards: a row
+    // per page exhausted the heap (run 37571743923, validate:og-images rc=134).
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-collect-'));
+    try {
+      const shared = `${SITE_ORIGIN}/og-image.png`;
+      for (let i = 0; i < 40; i += 1) {
+        const dir = path.join(dist, 'jobs', `job-${String(i).padStart(2, '0')}`);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'index.html'), `<meta property="og:image" content="${shared}">`, 'utf8');
+      }
+      fs.mkdirSync(path.join(dist, 'articles', 'a'), { recursive: true });
+      fs.writeFileSync(
+        path.join(dist, 'articles', 'a', 'index.html'),
+        `<meta property="og:image" content="${IMAGE_CDN_ORIGIN}/images/blog/a.webp">`,
+        'utf8',
+      );
+      fs.writeFileSync(path.join(dist, 'notes.txt'), `<meta property="og:image" content="${SITE_ORIGIN}/ignored.png">`, 'utf8');
+
+      const { references, total } = collectOgImageReferences(dist);
+
+      expect(total).toBe(41);
+      expect(references).toEqual([
+        { file: 'articles/a/index.html', url: `${IMAGE_CDN_ORIGIN}/images/blog/a.webp` },
+        { file: 'jobs/job-00/index.html', url: shared },
+      ]);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
   });
 
   it('fails closed when a local registry is malformed', () => {
