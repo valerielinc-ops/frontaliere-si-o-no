@@ -15,6 +15,7 @@ import {
   reviewIsApproved,
   reviewHasZeroFindings,
   isTransientGithubReadError,
+  isRetryablePrFileSnapshot,
   withTransientGithubReadRetry,
   isRetryableNativeAutoMergeMutationError,
   withNativeAutoMergeMutationRetry,
@@ -908,6 +909,40 @@ describe('native auto-merge gate (#8512)', () => {
     expect(sleeps).toEqual([250, 750]);
     expect(isTransientGithubReadError(transient)).toBe(true);
     expect(isTransientGithubReadError(permanent)).toBe(false);
+  });
+
+  it('retries a transient incomplete PR file snapshot but keeps hard limits fail-closed', () => {
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'short-of-oracle' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'graphql-cap' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'list-fetch-failed' })).toBe(true);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'rest-hard-limit' })).toBe(false);
+    expect(isRetryablePrFileSnapshot({ complete: false, reason: 'unknown' })).toBe(false);
+    expect(isRetryablePrFileSnapshot({ complete: true, reason: 'complete' })).toBe(false);
+
+    const snapshots = [
+      { complete: false, reason: 'short-of-oracle' },
+      { complete: false, reason: 'graphql-cap' },
+      { complete: true, reason: 'complete', files: ['scripts/ci/native-automerge-gate.mjs'] },
+    ];
+    const sleeps: number[] = [];
+    let attempts = 0;
+    const result = withTransientGithubReadRetry(() => snapshots[attempts++], {
+      delaysMs: [11, 22],
+      sleep: (delay: number) => sleeps.push(delay),
+      shouldRetryResult: isRetryablePrFileSnapshot,
+    });
+
+    expect(result.complete).toBe(true);
+    expect(attempts).toBe(3);
+    expect(sleeps).toEqual([11, 22]);
+
+    let hardLimitAttempts = 0;
+    const hardLimit = withTransientGithubReadRetry(() => {
+      hardLimitAttempts += 1;
+      return { complete: false, reason: 'rest-hard-limit' };
+    }, { sleep: () => undefined, shouldRetryResult: isRetryablePrFileSnapshot });
+    expect(hardLimit).toMatchObject({ complete: false, reason: 'rest-hard-limit' });
+    expect(hardLimitAttempts).toBe(1);
   });
 
   it('keeps a permanent GitHub read failure fail-closed without retrying it', () => {

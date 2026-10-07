@@ -65,6 +65,11 @@ const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
+const TRANSIENT_PR_FILE_SNAPSHOT_REASONS = new Set([
+  'list-fetch-failed',
+  'graphql-cap',
+  'short-of-oracle',
+]);
 // `gh pr merge --auto` can reach the immediate merge mutation when all
 // requirements are already green. A concurrent merge on `main` then makes
 // GitHub reject that otherwise valid, same-HEAD request with a base-branch
@@ -743,11 +748,17 @@ export function isTransientGithubReadError(error) {
   return TRANSIENT_GH_READ_ERROR_RE.test(transientGithubErrorText(error));
 }
 
-/** Retry only idempotent GitHub reads; mutations remain single-attempt and fail closed. */
+export function isRetryablePrFileSnapshot(snapshot) {
+  return snapshot?.complete !== true
+    && TRANSIENT_PR_FILE_SNAPSHOT_REASONS.has(snapshot?.reason);
+}
+
+/** Retry only idempotent GitHub reads and known transient incomplete snapshots; mutations remain single-attempt and fail closed. */
 export function withTransientGithubReadRetry(operation, {
   attemptLimit = MAX_TRANSIENT_GH_READ_ATTEMPTS,
   delaysMs = TRANSIENT_GH_READ_RETRY_DELAYS_MS,
   sleep = sleepForTransientReadRetry,
+  shouldRetryResult = () => false,
 } = {}) {
   if (typeof operation !== 'function') throw new TypeError('read retry operation must be a function');
   const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
@@ -755,10 +766,14 @@ export function withTransientGithubReadRetry(operation, {
     : MAX_TRANSIENT_GH_READ_ATTEMPTS;
   const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_READ_RETRY_DELAYS_MS;
   const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+  const retryResult = typeof shouldRetryResult === 'function' ? shouldRetryResult : () => false;
 
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
-      return operation();
+      const result = operation();
+      if (attempt + 1 >= attempts || !retryResult(result)) return result;
+      const delayMs = Number(delays[attempt]);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
     } catch (error) {
       if (attempt + 1 >= attempts || !isTransientGithubReadError(error)) throw error;
       const delayMs = Number(delays[attempt]);
@@ -798,7 +813,10 @@ function loadVerifiedTestOnlyReview(repo, pr, head, reviews, reviewRevision) {
 }
 
 function loadChangedFiles(repo, pr) {
-  const snapshot = fetchPrFiles(pr, ghForTestOnlyReview, repo);
+  const snapshot = withTransientGithubReadRetry(
+    () => fetchPrFiles(pr, ghForTestOnlyReview, repo),
+    { shouldRetryResult: isRetryablePrFileSnapshot },
+  );
   if (!snapshot.complete) {
     throw new Error(`elenco file PR non completo (${snapshot.reason})`);
   }
