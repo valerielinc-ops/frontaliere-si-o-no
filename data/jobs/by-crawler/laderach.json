@@ -237,8 +237,8 @@
       "slugByLocale": {
         "fr": "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel",
         "it": "adjoint-au-gerant-de-chocolaterie-biel-m-w-d-laderach-schweiz-ag-biel",
-        "en": "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel",
-        "de": "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel"
+        "en": "assistant-to-chocolate-manager-biel-m-f-d-laderach-schweiz-ag-biel",
+        "de": "assistent-von-chocolate-manager-biel-m-w-d-laderach-schweiz-ag-biel"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -279,6 +279,12 @@
       "crawledAt": "2026-10-06T21:23:12.462Z",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel"
+        ],
+        "en": [
+          "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel"
+        ],
+        "de": [
           "adjoint-au-gerant-de-chocolaterie-biel-f-h-d-laderach-biel"
         ]
       },

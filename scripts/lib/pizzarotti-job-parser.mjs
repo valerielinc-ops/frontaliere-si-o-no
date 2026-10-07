@@ -59,6 +59,28 @@ function htmlFragmentToMarkdown(html = '') {
   return parts.join('\n\n').trim();
 }
 
+// One Pizzarotti card currently omits the structured `Sede` span and puts the
+// workplace in the source teaser instead (`con sede a Campomorone (GE). ...`).
+// The parenthesized Italian province code is deliberately removed here: `GE`
+// is also the Swiss canton code for Genève, so passing `Campomorone (GE)` to
+// the generic Swiss resolver would publish an Italian vacancy as Swiss. An
+// unrecognised teaser remains empty and therefore stays fail-closed.
+const PIZZAROTTI_TEASER_REGION_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+(.+?)\s+\([A-Z]{2}\)(?=\s*(?:[.!?]|$))/i;
+const PIZZAROTTI_TEASER_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+((?:St\.\s+)?[^.!?]+?)(?=\s*[.!?]|$)/i;
+const PIZZAROTTI_COUNTRY_SUFFIX_RE = /\s*,\s*(?:in\s+)?(?:italia|italy|italien|italie|svizzera|switzerland|schweiz|suisse)\s*$/i;
+
+function extractPizzarottiTeaserLocation(teaser = '') {
+  const normalizedTeaser = normalizeSpace(teaser);
+  const match = normalizedTeaser.match(PIZZAROTTI_TEASER_REGION_LOCATION_RE)
+    || normalizedTeaser.match(PIZZAROTTI_TEASER_LOCATION_RE);
+  if (!match) return '';
+  return normalizeSpace(match[1])
+    .replace(PIZZAROTTI_COUNTRY_SUFFIX_RE, '')
+    .replace(/\s+\([A-Z]{2}\)\s*$/i, '')
+    .replace(/[,:;]+$/, '')
+    .trim();
+}
+
 /**
  * Parse InRecruiting "large" view listing page (Pizzarotti theme).
  * Each card is a `div.vacancy__render`.
@@ -76,9 +98,10 @@ export function parsePizzarottiListings(html = '') {
         || card.querySelector('.subtitle__informations[title="Profession/Fonction"]')
         || card.querySelector('.subtitle__informations[title="Profession/Function"]');
 
-      const location = normalizeSpace(locationSpan?.textContent || '');
-      const category = normalizeSpace(categorySpan?.textContent || '');
       const teaser = normalizeSpace(card.querySelector('.vacancy__description')?.textContent || '');
+      const location = normalizeSpace(locationSpan?.textContent || '')
+        || extractPizzarottiTeaserLocation(teaser);
+      const category = normalizeSpace(categorySpan?.textContent || '');
 
       return { href, title, teaser, location, category };
     })
@@ -129,6 +152,7 @@ export function parsePizzarottiPageCount(html = '') {
  */
 export function isPizzarottiSwissLocation(raw = '') {
   const location = normalizeSpace(raw);
+  if (isLocationExplicitlyForeign(location) || isExplicitlyOutsideTarget(location)) return false;
   return isTargetSwissLocation(location) || isSwissLocationText(location);
 }
 

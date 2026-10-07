@@ -62,6 +62,55 @@ describe('Pizzarotti listing classification', () => {
     expect(result.authoritativeEmptySnapshot).toBe(true);
   });
 
+  it('recovers a missing Sede from the Pizzarotti teaser without treating an Italian province code as Swiss', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/aspp-ctg">ASPP - CTG</a></h3></div>
+        <div class="vacancy__description">L'Impresa Pizzarotti ricerca un* ASPP con sede a Campomorone (GE). Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('Campomorone');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('preserves periods inside Swiss teaser locations', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/st-gallen">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager con sede a St. Gallen (SG). Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('St. Gallen');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('St. Gallen');
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
+  it('preserves the St. abbreviation when the teaser omits the region code', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/st-gallen-no-region">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager con sede a St. Gallen. Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('St. Gallen');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('St. Gallen');
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
   it('does not prove an empty target slice when a location is unknown', () => {
     const result = classifyPizzarottiListings([
       { href: '/jobs/unknown', title: 'Unknown role', location: 'A newly added place' },

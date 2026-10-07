@@ -100,12 +100,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-986e422c743f",
-      "slug": "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "revisioni-e-conversioni-del-team-leader-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
         "de": "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "revisioni-e-conversioni-del-team-leader-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "en": "team-leader-revisions-conversions-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "fr": "revisions-et-conversions-du-chef-d-equipe-h-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -182,7 +182,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-06T21:28:43.949Z"
+      "firstSeenAt": "2026-10-06T21:28:43.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-revisionen-umbauten-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
@@ -293,8 +307,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
         "it": "collaboratore-trice-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen",
-        "en": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen",
-        "fr": "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
+        "en": "employees-track-construction-maintenance-m-f-d-matterhorn-gotthard-bahn-herbriggen",
+        "fr": "les-employes-suivent-la-construction-et-l-entretien-m-f-d-matterhorn-gotthard-bahn-herbriggen"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -363,16 +377,15 @@
           "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
-          "employees-track-construction-maintenance-m-f-d-matterhorn-gotthard-bahn-herbriggen"
+          "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
         ],
         "fr": [
-          "les-employes-suivent-la-construction-et-l-entretien-m-f-d-matterhorn-gotthard-bahn-herbriggen"
+          "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "employees-track-construction-maintenance-m-f-d-matterhorn-gotthard-bahn-herbriggen",
-        "les-employes-suivent-la-construction-et-l-entretien-m-f-d-matterhorn-gotthard-bahn-herbriggen"
+        "mitarbeiter-gleisbau-instandhaltung-m-w-d-matterhorn-gotthard-bahn-herbriggen"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -891,9 +904,9 @@
       "slug": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "fr": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
+        "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
+        "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -959,20 +972,16 @@
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
-        ],
-        "en": [
-          "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig"
-        ],
-        "fr": [
-          "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
+          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
+          "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
-        "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
+        "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig",
+        "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -994,7 +1003,7 @@
       "id": "matterhorn-gotthard-bahn-e957ff653084",
       "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
-        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
@@ -1063,14 +1072,12 @@
       },
       "previousSlugs": [
         "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
         ]
       },
       "needsRetranslation": true,

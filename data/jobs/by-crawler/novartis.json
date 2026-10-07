@@ -1700,7 +1700,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
+        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1743,7 +1743,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
         "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
@@ -1755,7 +1754,6 @@
         ],
         "fr": [
           "legal-counsel-global-procurement-dd-it-novartis-ch",
-          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
           "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
@@ -2299,8 +2297,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "qc-analyst-ii-novartis-basel-land",
-          "qc-analyst-ii-novartis-ch"
+          "qc-analyst-ii-novartis-basel-land"
         ],
         "it": [
           "qc-analyst-ii-novartis-ch"
@@ -2724,7 +2721,7 @@
         "it": "direttore-international-value-access-immunology-novartis-basel-city",
         "en": "director-international-value-access-immunology-novartis-ch",
         "de": "direktor-international-value-access-immunology-novartis-basel-city",
-        "fr": "director-international-value-access-immunology-novartis-basel-city"
+        "fr": "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2767,7 +2764,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-international-value-access-immunology-novartis-ch",
-        "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
         "director-international-value-access-immunology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
@@ -2778,7 +2774,6 @@
           "director-international-value-access-immunology-novartis-ch"
         ],
         "fr": [
-          "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
           "director-international-value-access-immunology-novartis-basel-city"
         ]
       },
@@ -2870,12 +2865,12 @@
     },
     {
       "id": "novartis-2223a27da72b",
-      "slug": "senior-patent-paralegal-novartis-ch",
+      "slug": "paralegale-del-brevetto-senior-novartis-basel-city",
       "slugByLocale": {
         "en": "senior-patent-paralegal-novartis-ch",
-        "it": "senior-patent-paralegal-novartis-ch",
-        "de": "senior-patent-paralegal-novartis-ch",
-        "fr": "senior-patent-paralegal-novartis-ch"
+        "it": "paralegale-del-brevetto-senior-novartis-basel-city",
+        "de": "rechtswidriges-alteres-patent-novartis-basel-city",
+        "fr": "parajuriste-principal-en-brevets-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2933,7 +2928,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-06T21:25:32.275Z"
+      "firstSeenAt": "2026-10-06T21:25:32.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-patent-paralegal-novartis-ch"
+        ],
+        "de": [
+          "senior-patent-paralegal-novartis-ch"
+        ],
+        "fr": [
+          "senior-patent-paralegal-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-patent-paralegal-novartis-ch"
+      ]
     }
   ]
 }
