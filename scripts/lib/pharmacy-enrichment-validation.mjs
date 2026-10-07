@@ -16,7 +16,7 @@ export const SOURCE_TYPES = new Set([
   'facebook',
 ]);
 export const SOURCE_KINDS = new Set(['html', 'pdf']);
-export const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail']);
+export const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail', 'vatNumber']);
 export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = 10_000;
 
 export function safeHttpsUrl(value) {
@@ -78,6 +78,7 @@ export function validatePharmacyEnrichmentSnapshot(snapshot) {
   for (const [id, record] of Object.entries(snapshot?.records || {})) {
     if (!record?.checkedAt || !Number.isFinite(Date.parse(record.checkedAt))) errors.push(`${id}: checkedAt is invalid`);
     if (record?.googlePlaceId !== undefined && !/^[A-Za-z0-9_-]+$/.test(String(record.googlePlaceId))) errors.push(`${id}: googlePlaceId is invalid`);
+    if (record?.vatNumber !== undefined && !/^\d{11}$/.test(String(record.vatNumber))) errors.push(`${id}: vatNumber is invalid`);
     for (const [field, source] of Object.entries(record?.fieldSources || {})) {
       if (!FIELDS.has(field)) errors.push(`${id}: invalid field ${field}`);
       if (!safeHttpsUrl(source?.url)) errors.push(`${id}.${field}: source URL must be HTTPS`);

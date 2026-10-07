@@ -69,7 +69,7 @@ export function mergePharmacyEnrichment(
     ...(pharmacy.externalSources ? { externalSources: [...pharmacy.externalSources] } : {}),
   };
 
-  const fields = ['phone', 'website', 'openingHours', 'services', 'contactEmail'] as const;
+  const fields = ['phone', 'website', 'openingHours', 'services', 'contactEmail', 'vatNumber'] as const;
   for (const field of fields) {
     const incomingValue = enrichment[field];
     const incomingSource = enrichment.fieldSources?.[field];
