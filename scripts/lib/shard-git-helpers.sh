@@ -1070,6 +1070,44 @@ shard_https_push_url() {
   esac
 }
 
+# shard_github_repo_owner <shard_repo>
+# Extracts the canonical owner already present in a GitHub remote URL. This is
+# deliberately URL-based: the owner map is the source of truth, and probing a
+# repository path or inferring ownership from a redirect is unsafe after a
+# repository transfer.
+shard_github_repo_owner() {
+  local repo="$1" url path
+  url="$(shard_https_push_url "$repo")" || return 1
+  path="${url#https://github.com/}"
+  case "$path" in
+    */*) printf '%s' "${path%%/*}" ;;
+    *) return 1 ;;
+  esac
+}
+
+# shard_push_token_for_repo <shard_repo>
+# Selects the HTTPS fallback credential for the remote's canonical owner.
+# SHARD_PUSH_PAT remains an explicit operator override. Shards transferred to
+# nanakokyobashi-rgb need the owner-specific PAT loaded from Remote Config;
+# using the site's GITHUB_PAT there produces GitHub's "denied to
+# valerielinc-ops" refusal even though the PAT itself is healthy.
+shard_push_token_for_repo() {
+  local repo="$1" owner=''
+  if [ -n "${SHARD_PUSH_PAT:-}" ]; then
+    printf '%s' "$SHARD_PUSH_PAT"
+    return 0
+  fi
+  if owner="$(shard_github_repo_owner "$repo")"; then
+    case "$owner" in
+      nanakokyobashi-rgb)
+        printf '%s' "${GITHUB_PAT_NANAKO:-${GITHUB_PAT:-}}"
+        return 0
+        ;;
+    esac
+  fi
+  printf '%s' "${GITHUB_PAT:-}"
+}
+
 # shard_push_error_is_auth <logfile>
 # True when <logfile> holds a git-push failure that authentication/authorization
 # caused — i.e. one that is NOT transient and that retrying the SAME credential
@@ -1121,16 +1159,15 @@ shard_push_failure_reason() {
 }
 
 # shard_pat_push <push_dir> <shard_repo> <refspec> [label] [force] [reason]
-# Last-resort force-push over HTTPS authenticated with a PAT
-# ($SHARD_PUSH_PAT, else $GITHUB_PAT — the latter is hydrated from Firebase
-# Remote Config by scripts/load-rc-env.mjs in every deploy job). Exists because
-# a per-shard deploy key is a single point of failure with no operational
-# safety net: there are 90+ of them, each one revocable/read-only/rotatable
-# independently, and each one lives in a secret that can be silently shadowed
-# (repo-level vs `shard-secrets-overflow` environment — see
-# scripts/ci/check-shard-secret-shadowing.mjs). The PAT is account-wide and has
-# write on every shard repo (both owners), so it recovers ALL of those failure
-# modes without touching a single secret. Returns 0 on success, 1 otherwise.
+# Last-resort force-push over HTTPS authenticated with a PAT selected by
+# shard_push_token_for_repo ($SHARD_PUSH_PAT override, then the owner-specific
+# PAT hydrated from Firebase Remote Config by scripts/load-rc-env.mjs). Exists
+# because a per-shard deploy key is a single point of failure with no
+# operational safety net: there are 90+ of them, each one
+# revocable/read-only/rotatable independently, and each one lives in a secret
+# that can be silently shadowed (repo-level vs `shard-secrets-overflow`
+# environment — see scripts/ci/check-shard-secret-shadowing.mjs). Returns 0 on
+# success, 1 otherwise.
 # [force] defaults to 1 (force-push, what every full-replace shard push does).
 # Pass 0 from a caller whose whole concurrency model depends on a non-fast-
 # forward being an ERROR rather than something to overwrite — that is
@@ -1147,9 +1184,9 @@ shard_pat_push() {
   local url out rc force_flag='' pat_delay pat_try
   pat_delay="$(shard_pat_retry_delay)"
   if [ "$force" = 1 ]; then force_flag='-f'; fi
-  SHARD_PUSH_TOKEN="${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}"
+  SHARD_PUSH_TOKEN="$(shard_push_token_for_repo "$repo")"
   if [ -z "$SHARD_PUSH_TOKEN" ]; then
-    echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment — cannot fall back to an HTTPS token push"
+    echo "::warning::$label: no SHARD_PUSH_PAT/GITHUB_PAT in the environment (or GITHUB_PAT_NANAKO for nanakokyobashi-rgb) — cannot fall back to an HTTPS token push"
     return 1
   fi
   if ! url="$(shard_https_push_url "$repo")"; then

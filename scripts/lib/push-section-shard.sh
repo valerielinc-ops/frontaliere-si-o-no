@@ -47,10 +47,13 @@
 #   SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY  — e.g. SHARD_TICINO_IT_DEPLOY_KEY. The
 #                              write deploy key for frontaliere-<section>-<loc>.
 #                              Read via indirect expansion. Missing → use
-#                              SHARD_PUSH_PAT/GITHUB_PAT for a complete full
-#                              publish; if both are absent, fail closed.
-#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token (GITHUB_PAT is hydrated
-#                                from Remote Config in the deploy workflow).
+#                              an owner-aware PAT fallback for a complete full
+#                              publish; if no matching token is available, fail
+#                              closed.
+#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token. For shards owned by
+#                                nanakokyobashi-rgb, GITHUB_PAT_NANAKO is
+#                                selected instead (all are hydrated from
+#                                Remote Config in the deploy workflow).
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
 #   SHARD_PUSH_MODE — `full` (default, current byte-identical path) or `delta`.
@@ -163,15 +166,16 @@ offload_delta_stage() {
 }
 
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key fallback_token
   LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
   # Per-section-per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
   key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
   key_val="${!key_var:-}"
   missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    if [ -z "${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}" ]; then
-      echo "::error::no $key_var secret and no SHARD_PUSH_PAT/GITHUB_PAT — cannot publish $loc $section shard" >&2
+    fallback_token="$(shard_push_token_for_repo "$SHARD_REPO")"
+    if [ -z "$fallback_token" ]; then
+      echo "::error::no $key_var secret and no PAT for $SHARD_REPO — cannot publish $loc $section shard" >&2
       return 1
     fi
     missing_deploy_key=1

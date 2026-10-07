@@ -431,6 +431,17 @@ describe('shard-git-helpers.sh (runtime, temp git fixtures)', () => {
       ]);
     });
 
+    it('selects the PAT for the canonical shard owner, with an explicit override first', () => {
+      const out = runHelperScript(
+        'GITHUB_PAT=site-token GITHUB_PAT_NANAKO=nanako-token; ' +
+          'echo "$(shard_push_token_for_repo "git@github.com:nanakokyobashi-rgb/frontaliere-uri-en.git")"; ' +
+          'echo "$(shard_push_token_for_repo "https://github.com/valerielinc-ops/frontaliere-uri-en.git")"; ' +
+          'SHARD_PUSH_PAT=explicit-token; ' +
+          'echo "$(shard_push_token_for_repo "git@github.com:nanakokyobashi-rgb/frontaliere-uri-en.git")"',
+      );
+      expect(out.split('\n')).toEqual(['nanako-token', 'site-token', 'explicit-token']);
+    });
+
     it('classifies the real uri-it refusal as auth and a torn connection as transient', () => {
       // Fixtures written from Node, not bash: the helper runner wraps its
       // statements in single quotes, so a quoted printf inside would be mangled.
