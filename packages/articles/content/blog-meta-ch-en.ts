@@ -7874,6 +7874,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lista-sanzioni-sesam-svizzera.title': 'UN sanctions: SESAM database updated in Switzerland',
     'blog.article.lista-sanzioni-sesam-svizzera.excerpt': '## TL;DR - The communication was published on October 7, 2026. - The UN sanctions committee modified the list. - The SESAM database was',
     'blog.article.lista-sanzioni-sesam-svizzera.imageAlt': 'Swiss administrative document about UN sanctions',
+    'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.title': 'Tamedia: 41 layoffs, 13 in Lausanne and Geneva',
+    'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.excerpt': '## TL;DR - Tamedia announced 41 layoffs in Switzerland - 13 positions concern Lausanne and Geneva - The French-speaking Swiss assembly voted unanimously against it',
+    'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.imageAlt': 'Editorial image related to: Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
 };
 
 export default blogMetaChEn;

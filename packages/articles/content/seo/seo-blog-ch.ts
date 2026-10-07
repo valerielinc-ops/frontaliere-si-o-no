@@ -99248,6 +99248,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tamedia-41-licenziamenti-13-a-losanna-e-ginevra': {
+    title: 'Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
+    description: '## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L\'assemblea romanda ha votato all\'unanimità contro',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, licenziamenti, losanna, ginevra',
+    ogTitle: 'Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
+    ogDescription: '## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L\'assemblea romanda ha votato all\'unanimità contro',
+    canonicalPath: '/articoli-svizzera/tamedia-41-licenziamenti-13-a-losanna-e-ginevra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra",
+      "description": "## In breve - Tamedia ha annunciato 41 licenziamenti in Svizzera - 13 posti riguardano Losanna e Ginevra - L'assemblea romanda ha votato all'unanimità contro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine editoriale relativa a: Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra"
+      },
+      "datePublished": "2026-10-07T19:46:58+00:00",
+      "dateModified": "2026-10-07T19:46:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-41-licenziamenti-13-a-losanna-e-ginevra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

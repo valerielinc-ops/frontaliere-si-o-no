@@ -26276,6 +26276,17 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tamedia-41-licenziamenti-13-a-losanna-e-ginevra',
+    category: 'novita',
+    date: '2026-10-07T19:46:58.761Z',
+    image: '/images/blog/article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra.webp',
+    hasCalculator: false,
+    articleType: 'news',
+    canton: ['GE', 'VD'],
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
