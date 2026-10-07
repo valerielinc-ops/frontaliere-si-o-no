@@ -51,7 +51,6 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2525/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:28:24.303Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -423,7 +422,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel"
@@ -655,7 +653,7 @@
       "id": "apleona-schweiz-ag-480f8fb65147",
       "slug": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
       "slugByLocale": {
-        "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
+        "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-kh0ug5",
         "it": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
         "en": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
         "fr": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
@@ -717,7 +715,15 @@
         }
       },
       "postalCode": "8304",
-      "firstSeenAt": "2026-09-28T21:25:51.028Z"
+      "firstSeenAt": "2026-09-28T21:25:51.028Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-1e3e59689efa",
@@ -799,7 +805,7 @@
       "id": "apleona-schweiz-ag-63d8c33be11b",
       "slug": "clienti-m-f-d-apleona-schweiz-ag-wallisellen",
       "slugByLocale": {
-        "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
+        "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-kh0ufb",
         "it": "clienti-m-f-d-apleona-schweiz-ag-wallisellen",
         "en": "customer-accountants-m-f-d-apleona-schweiz-ag-wallisellen",
         "fr": "comptables-clients-h-f-d-apleona-schweiz-ag-wallisellen"
@@ -855,6 +861,9 @@
           "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
         ],
         "fr": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "de": [
           "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
         ]
       },
@@ -998,7 +1007,6 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2573/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:29:26.545Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
