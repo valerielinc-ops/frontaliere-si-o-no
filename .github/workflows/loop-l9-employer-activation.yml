@@ -3,6 +3,25 @@ name: Loop L9 employer supply to paid activation
 on:
   schedule:
     - cron: '13 12 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - 'data/employer-profiles.json'
+      - 'data/employer-funnel-outcomes.json'
+      - 'data/loop-fleet/loop-registry.json'
+      - 'scripts/ci/loop-l9-employer-activation.mjs'
+      - 'scripts/ci/export-loop-outcomes.mjs'
+      - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
+      - 'scripts/lib/analytics-settled-window.mjs'
+      - 'scripts/ci/record-loop-fleet-evidence.mjs'
+      - 'scripts/lib/posthog-client.mjs'
+      - 'scripts/build-employer-profiles.mjs'
+      - 'scripts/lib/loop-fleet-contract.mjs'
+      - 'scripts/lib/loop-fleet-outcome.mjs'
+      - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
+      - '.github/workflows/loop-l9-employer-activation.yml'
   # The outcome export is current Firestore state, while the profile inventory
   # is refreshed on a separate cadence. Run after a successful profile refresh
   # so the two snapshots can satisfy the declared cross-source skew contract.
