@@ -31,9 +31,11 @@ jobs:
           sparse-checkout: |
             package.json
             scripts/ci/orchestrator-heartbeat.mjs
+            scripts/ci/loop-clock-health.mjs
             scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
             functions/src/lib/orchestratorSlot.js
+            functions/src/loopClockTable.js
           sparse-checkout-cone-mode: false
 
       - name: Check latest orchestrator cron slot
@@ -48,6 +50,13 @@ jobs:
           mkdir -p "$RUNNER_TEMP/orchestrator-heartbeat"
           node scripts/ci/orchestrator-heartbeat.mjs \
             --output "$RUNNER_TEMP/orchestrator-heartbeat/report.json"
+
+      - name: Check loop clock freshness
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/loop-clock-health.mjs
 
       - name: Publish heartbeat evidence
         if: always()

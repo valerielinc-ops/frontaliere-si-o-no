@@ -130,6 +130,7 @@ import { acceptsGzip, getCachedPublicPlateAuctionSnapshotBody, refreshPlateAucti
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from './src/gcpCostMonitorDispatch.js';
+import { LOOP_CLOCK_CLOUD_SCHEDULE, dispatchLoopClock as runLoopClock } from './src/loopClockDispatch.js';
 
 ensureAdminApp();
 
@@ -2686,5 +2687,31 @@ export const dispatchGcpCostMonitor = onSchedule(
  async (event) => {
   const result = await dispatchGcpCostMonitorWorkflow({ scheduledAt: event.scheduleTime });
   console.log('[dispatchGcpCostMonitor]', JSON.stringify(result));
+ },
+);
+
+// GitHub's scheduled-dispatch queue is best-effort (4-5 ticks/day on these
+// accounts). Cloud Scheduler owns one five-minute clock for the idempotent
+// loop table; every native workflow cron remains in place as an independent
+// safety net. The dispatcher has no Firestore claim and no Scheduler retry:
+// duplicated workflow_dispatch runs are safe by construction, while a failed
+// entry is reported after the other due entries have been attempted.
+export const dispatchLoopClock = onSchedule(
+ {
+  region: 'europe-west6',
+  schedule: LOOP_CLOCK_CLOUD_SCHEDULE,
+  timeZone: 'UTC',
+  retryCount: 0,
+ },
+ async (event) => {
+  try {
+   const result = await runLoopClock({ scheduledAt: event.scheduleTime });
+   console.log('[dispatchLoopClock]', JSON.stringify(result));
+  } catch (error) {
+   const message = error instanceof Error ? error.message : 'loop_clock_dispatch_failed';
+   console.error('[dispatchLoopClock]', message);
+   if (error?.report) console.log('[dispatchLoopClock]', JSON.stringify(error.report));
+   throw error;
+  }
  },
 );
