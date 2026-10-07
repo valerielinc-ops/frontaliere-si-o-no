@@ -20,6 +20,12 @@ test('workflow data PR body writes actual newlines', () => {
   assert.doesNotMatch(workflow, /\]\.join\("\\\\n"\);/u);
 });
 
+test('workflow publishes the site data PR with the site write credential', () => {
+  assert.match(workflow, /\$\{GITHUB_PAT:\?GITHUB_PAT was not loaded from Remote Config\}/u);
+  assert.match(workflow, /GH_TOKEN="\$GITHUB_PAT" bash scripts\/lib\/open-data-refresh-pr\.sh/u);
+  assert.doesNotMatch(workflow, /GITHUB_PAT_NANAKO/u);
+});
+
 test('workflow defaults stay linked to the planner defaults', () => {
   assert.match(workflow, new RegExp(`default: '${DEFAULT_SHARD_COUNT}'`));
   assert.match(workflow, new RegExp(`default: '${DEFAULT_EVENTS_PER_SHARD}'`));
