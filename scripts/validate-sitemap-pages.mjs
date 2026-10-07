@@ -948,6 +948,7 @@ async function main() {
     threshold: { metric: 'subCheckFailures', value: 0, comparator: '<=' },
     offenders,
     byFeature,
+    sampleRate: 1,
   });
 
   process.exit(anyFailed ? 1 : 0);
