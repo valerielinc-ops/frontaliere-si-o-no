@@ -12744,6 +12744,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pedemontana-falso-pedaggio-sms.title': 'Pedemontana: keine Mautzahlung per SMS oder E-Mail',
     'blog.article.pedemontana-falso-pedaggio-sms.excerpt': '## Auf einen Blick - Pedemontana warnt vor falschen Mautforderungen per E-Mail, SMS und WhatsApp - Die Nachrichten drohen mit einer Sperrung oder einer behördlichen Stilllegung - Etwaige Mautgebühren lassen sich',
     'blog.article.pedemontana-falso-pedaggio-sms.imageAlt': 'Blick auf den Luganer See mit Bergen und einem Smartphone, das eine verdächtige SMS auf der Windschutzscheibe eines Autos zeigt.',
+    'blog.article.aggressione-van-villa-olmo.title': 'Como, Touristen in einem Van beraubt und angegriffen: 21-Jähriger festgenommen',
+    'blog.article.aggressione-van-villa-olmo.excerpt': '## Auf einen Blick - In Como wurde ein 21-jähriger Ägypter festgenommen - Diebstahl aus einem Van in der Via per Cernobbio - Handgemenge in der Nähe des Lido di Villa Olmo - Gegenstände und Dokumente',
+    'blog.article.aggressione-van-villa-olmo.imageAlt': 'Nächtliche Seestraße mit einem geparkten Van',
 };
 
 export default blogMetaDe;

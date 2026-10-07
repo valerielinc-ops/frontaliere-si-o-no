@@ -12745,6 +12745,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pedemontana-falso-pedaggio-sms.title': 'Pedemontana: no toll payments via SMS or email',
     'blog.article.pedemontana-falso-pedaggio-sms.excerpt': '## TL;DR - Pedemontana reports fake toll charges via e-mail, SMS and WhatsApp - The messages threaten a block or administrative seizure - Any tolls are',
     'blog.article.pedemontana-falso-pedaggio-sms.imageAlt': 'View of Lake Lugano with mountains and a smartphone displaying a suspicious SMS on a car windshield.',
+    'blog.article.aggressione-van-villa-olmo.title': 'Como, tourists robbed and assaulted in the van: 21-year-old arrested',
+    'blog.article.aggressione-van-villa-olmo.excerpt': '## TL;DR - An Egyptian 21-year-old arrested in Como - Theft from a van on Via per Cernobbio - Scuffle near the Lido di Villa Olmo - Belongings and documents',
+    'blog.article.aggressione-van-villa-olmo.imageAlt': 'Quiet lakeside road at night with a parked van',
 };
 
 export default blogMetaEn;

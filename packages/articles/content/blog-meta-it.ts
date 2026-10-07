@@ -12746,6 +12746,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pedemontana-falso-pedaggio-sms.title': 'Pedemontana: nessun pagamento pedaggio via SMS o email',
     'blog.article.pedemontana-falso-pedaggio-sms.excerpt': '## In breve - Pedemontana segnala falsi pedaggi via e-mail, SMS e WhatsApp - I messaggi minacciano blocco o fermo amministrativo - Eventuali pedaggi si',
     'blog.article.pedemontana-falso-pedaggio-sms.imageAlt': 'Vista del lago di Lugano con le montagne e uno smartphone che mostra un SMS sospetto sul parabrezza di un\'auto.',
+    'blog.article.aggressione-van-villa-olmo.title': 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
+    'blog.article.aggressione-van-villa-olmo.excerpt': '## In breve - Arrestato a Como un 21enne egiziano - Furto in un van in via per Cernobbio - Colluttazione vicino al Lido di Villa Olmo - Beni e documenti',
+    'blog.article.aggressione-van-villa-olmo.imageAlt': 'Strada lacustre notturna con un van parcheggiato',
 };
 
 export default blogMetaIt;

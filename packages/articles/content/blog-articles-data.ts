@@ -42997,6 +42997,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aggressione-van-villa-olmo',
+ category: 'novita',
+ date: '2026-10-07T11:07:36.032Z',
+ image: '/images/blog/trenord-furto-di-cavi-sospesa-como-milano.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
