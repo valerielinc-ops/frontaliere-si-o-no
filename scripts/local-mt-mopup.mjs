@@ -466,7 +466,7 @@ export function finalizeMopupTranslation({
 }) {
   return finalizeTranslatedText({
     sourceText,
-    translatedText: balanceMarkdownMarkers(String(rawText ?? '')),
+    translatedText: balanceMarkdownMarkers(String(rawText ?? ''), { sourceText }),
     targetLang,
     fieldType,
     protectedTokens,
