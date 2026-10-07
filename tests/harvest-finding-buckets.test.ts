@@ -377,6 +377,22 @@ describe('bucketFinding — workflow-scope-creds conta capability, non ogni push
     expect(bucketFinding(line)).not.toBe('workflow-scope-creds');
   });
 
+  it('#10637 senza i due punti dopo la severità: i path citati restano fuori dal contesto', () => {
+    // Forma con ancora di posizione che il gate riconosce dalla PR 9339. Se il
+    // marker non viene trovato, la riga intera (path compresi) fa da contesto.
+    for (const marker of ['🔴 Important', '🔴 **Important**']) {
+      const line = 'PR body:L2; .github/workflows/auth-signup-subscriber-monitor.yml:L53; '
+        + ' .github/workflows/unsubscribe-credential-monitor.yml:L69: '
+        + `${marker} [contract] La PR dichiara che fetch-depth 50 elimina il timeout, `
+        + 'ma non fornisce una baseline pre/post misurata del checkout.';
+      expect(bucketFinding(line), marker).not.toBe('workflow-scope-creds');
+    }
+    // Il finding autentico resta nel bucket anche in questa forma.
+    expect(bucketFinding(
+      '.github/workflows/deploy.yml:L10: 🔴 Important il workflow usa `${{ github.token }}` per creare issue, ma serve un App/PAT con la capability richiesta.',
+    )).toBe('workflow-scope-creds');
+  });
+
   it('#10540: la credenziale account di un’app non è una credenziale GitHub Actions', () => {
     const line = 'scripts/assisted-application/lib/portal/portal.mjs:L250: '
       + '🔴 Important: The credential is persisted before registration is submitted '
