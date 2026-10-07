@@ -226,6 +226,70 @@ describe('pharmacy enrichment', () => {
     expect(result.warnings).toEqual([expect.stringContaining('no sufficiently certain place match')]);
   });
 
+  it('hard-stops Google requests at the configured monthly budget', async () => {
+    let requestCount = 0;
+    const config = localConfig({
+      providers: {
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id], maxAgeDays: 30, monthlyRequestLimit: 1 },
+        facebook: { enabled: false, pharmacyIds: [] },
+      },
+    });
+    const fetchJson = async () => {
+      requestCount += 1;
+      return { places: [] };
+    };
+    const first = await enrichPharmacyRecords([pharmacy], config, {
+      checkedAt,
+      googleApiKey: 'test-google-key',
+      fetchJson,
+    });
+
+    expect(requestCount).toBe(1);
+    expect(first.providerUsage).toEqual({ month: '2026-10', googlePlaces: { requests: 1 } });
+
+    const second = await enrichPharmacyRecords([pharmacy], config, {
+      previous: { records: first.records, providerUsage: first.providerUsage },
+      checkedAt,
+      googleApiKey: 'test-google-key',
+      fetchJson,
+    });
+
+    expect(requestCount).toBe(1);
+    expect(second.warnings).toEqual([expect.stringContaining('monthly request limit reached (1)')]);
+    expect(second.providerUsage.googlePlaces.requests).toBe(1);
+  });
+
+  it('fails closed on an exhausted or malformed Google usage ledger', async () => {
+    let requestCount = 0;
+    const config = localConfig({
+      providers: {
+        googlePlaces: { enabled: true, pharmacyIds: [pharmacy.id], monthlyRequestLimit: 10_001 },
+        facebook: { enabled: false, pharmacyIds: [] },
+      },
+    });
+
+    expect(validatePharmacyEnrichmentConfig(config)).toContain(
+      'googlePlaces: monthlyRequestLimit cannot exceed 10000',
+    );
+
+    const result = await enrichPharmacyRecords([pharmacy], config, {
+      previous: {
+        records: {},
+        providerUsage: { month: '2026-10', googlePlaces: { requests: 10_001 } },
+      },
+      checkedAt,
+      googleApiKey: 'test-google-key',
+      fetchJson: async () => {
+        requestCount += 1;
+        return { places: [] };
+      },
+    });
+
+    expect(requestCount).toBe(0);
+    expect(result.providerUsage).toEqual({ month: '2026-10', googlePlaces: { requests: 10_000 } });
+    expect(result.warnings).toEqual([expect.stringContaining('monthly request limit reached (10000)')]);
+  });
+
   it('uses Facebook only with an authorised page and publishes reusable facts, not reviews', async () => {
     const result = await enrichPharmacyRecords([pharmacy], localConfig({
       providers: {
