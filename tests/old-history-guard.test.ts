@@ -135,7 +135,7 @@ describe('old-history-guard', () => {
     expect(OLD_HISTORY_FIRST_CHANGED_COMMIT).toMatch(/^[0-9a-f]{40}$/);
   });
 
-  it('non completa il grafo quando il marker è già assente dall’head shallow', () => {
+  it('completa il grafo per un marker locale scollegato dall’head shallow', () => {
     const shallow = mkdtempSync(join(tmpdir(), 'old-history-guard-current-head-'));
     try {
       execFileSync('git', [
@@ -156,6 +156,11 @@ describe('old-history-guard', () => {
       const availableMarker = git(shallow, 'rev-parse', 'HEAD');
       git(shallow, 'switch', '--quiet', 'rewritten-main');
 
+      // This object is local but unrelated to the current head. A shallow
+      // merge-base false is still inconclusive, so the guard must complete
+      // the graph before retaining the pass result.
+      expect(() => git(shallow, 'cat-file', '-e', `${availableMarker}^{commit}`)).not.toThrow();
+
       expect(checkOldHistory({
         cwd: shallow,
         markerRef: availableMarker,
@@ -165,13 +170,41 @@ describe('old-history-guard', () => {
         remote: 'origin',
         branch: 'main',
       })).toEqual({ outcome: 'pass', reason: 'marker-not-in-head' });
+      expect(git(shallow, 'rev-parse', '--is-shallow-repository')).toBe('false');
+    } finally {
+      rmSync(shallow, { recursive: true, force: true });
+    }
+  });
+
+  it('mantiene il fast path quando il marker è già provato nel base shallow', () => {
+    const shallow = mkdtempSync(join(tmpdir(), 'old-history-guard-base-fast-path-'));
+    try {
+      execFileSync('git', [
+        'clone', '--quiet', '--depth', '3', '--branch', 'old-pr',
+        `file://${repo}`, shallow,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      git(shallow, 'fetch', '--quiet', '--depth', '3', 'origin', 'main:refs/remotes/origin/main');
+
+      expect(checkOldHistory({
+        cwd: shallow,
+        markerRef: marker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+      })).toEqual({ outcome: 'pass', reason: 'marker-in-base' });
       expect(git(shallow, 'rev-parse', '--is-shallow-repository')).toBe('true');
     } finally {
       rmSync(shallow, { recursive: true, force: true });
     }
   });
 
-  it('completa la storia prima di classificare il marker oltre il confine shallow', () => {
+  it('completa la storia per un marker locale oltre il confine shallow', () => {
     const root = mkdtempSync(join(tmpdir(), 'old-history-guard-shallow-'));
     const seed = join(root, 'seed');
     const remote = join(root, 'remote.git');
@@ -200,6 +233,11 @@ describe('old-history-guard', () => {
       });
       git(shallow, 'fetch', '--quiet', '--depth', '1', 'origin', 'main:refs/remotes/origin/main');
       expect(() => git(shallow, 'cat-file', '-e', `${shallowMarker}^{commit}`)).toThrow();
+      // Materialise the marker as a detached object without changing the
+      // shallow boundary. It is an ancestor of the checked-out old branch,
+      // but merge-base cannot prove that until the graph is completed.
+      git(shallow, 'fetch', '--quiet', '--no-tags', '--no-write-fetch-head', '--filter=tree:0', 'origin', shallowMarker);
+      expect(() => git(shallow, 'cat-file', '-e', `${shallowMarker}^{commit}`)).not.toThrow();
 
       expect(checkOldHistory({
         cwd: shallow,

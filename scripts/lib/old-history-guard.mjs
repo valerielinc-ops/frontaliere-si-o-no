@@ -220,18 +220,18 @@ export function checkOldHistory({
   branch = 'main',
 } = {}) {
   let result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
-  let markerFetched = false;
   if (result.reason === 'marker-unavailable' && refreshBase) {
-    markerFetched = withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef }));
+    const markerFetched = withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef }));
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
-  // A marker fetched as a detached object does not make a shallow
-  // `merge-base --is-ancestor` result of false conclusive: the marker may be
-  // beyond the shallow boundary. Complete that graph before classifying it;
-  // retain the fast path only when the marker was already available locally.
+  // Any available marker can produce an inconclusive false result from
+  // `merge-base --is-ancestor` when the repository is shallow: the marker may
+  // be beyond the shallow boundary, even when its object is already local.
+  // `marker-in-base` is the one conclusive fast path because both ancestry
+  // checks have already succeeded.
   const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
-    && (result.reason !== 'marker-not-in-head' || markerFetched);
+    && result.reason !== 'marker-in-base';
   if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
     withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
