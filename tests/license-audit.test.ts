@@ -64,6 +64,27 @@ describe('license audit A — event image sources', () => {
     expect(classifyEventImage({ event: licensedEvent }).valid).toBe(true);
   });
 
+  it('validates the governed library before inspecting removed-source prefixes', () => {
+    const libraryRecord = {
+      ...generatedFixture(),
+      assetId: 'audit-event-tio-agenda-old-item',
+      imageUrl: '/images/events/library/audit-event-tio-agenda-old-item.webp',
+    };
+    const result = classifyEventImage({
+      event: {
+        id: 'fixture:governed-legacy-name',
+        sourceKey: 'tio-agenda',
+        imageUrl: libraryRecord.imageUrl,
+      },
+      eventRegistryByUrl: new Map([[libraryRecord.imageUrl, {
+        record: libraryRecord,
+        valid: true,
+        errors: [],
+      }]]),
+    });
+    expect(result).toMatchObject({ status: 'ok', valid: true });
+  });
+
   it('fails an excluded source URL and a source slice that emits it', () => {
     const event = {
       id: 'fixture:removed',

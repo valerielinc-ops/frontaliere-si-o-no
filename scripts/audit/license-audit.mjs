@@ -208,16 +208,6 @@ export function classifyEventImage({
       reason: 'event has no image; no unlicensed bytes are published',
     };
   }
-  const removedSource = removedSourceInUrl(url);
-  if (removedSource) {
-    return {
-      status: 'licenza non ammessa',
-      valid: false,
-      autoRepairable: true,
-      nonRemediable: true,
-      reason: 'removed event-image source prefix: ' + removedSource,
-    };
-  }
   if (eventImageUrlIsLibrary(url)) {
     const entry = eventRegistryByUrl.get(url);
     if (entry?.valid) {
@@ -233,6 +223,16 @@ export function classifyEventImage({
       valid: false,
       autoRepairable: true,
       reason: entry ? 'invalid event-library record: ' + entry.errors.join('; ') : 'event-library record missing',
+    };
+  }
+  const removedSource = removedSourceInUrl(url);
+  if (removedSource) {
+    return {
+      status: 'licenza non ammessa',
+      valid: false,
+      autoRepairable: true,
+      nonRemediable: true,
+      reason: 'removed event-image source prefix: ' + removedSource,
     };
   }
   if (eventImageUrlIsAllowedSource(event, eventLicenses)) {
