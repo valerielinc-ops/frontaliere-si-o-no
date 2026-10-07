@@ -112,6 +112,36 @@ describe('Prospector Umantis detail boundary', () => {
     expect(umantisDetailFallbackUrl(detail)).toBe(`${detail}/Default?`);
   });
 
+  it('reads SGKB postal locality from the newer Umantis column-value row', () => {
+    const listing = `
+      <table>
+        <tr class="table-as-list__contentrow1">
+          <td>
+            <ul class="table-cell-content">
+              <li><h3><a href="/Vacancies/3801/Description/1">Leiter*in Niederlassung Buchs 80 – 100%</a></h3></li>
+              <li><span class="column-value" id="column_value_company">SGKB</span></li>
+              <li><span class="column-value" id="column_value_location">9471 Buchs</span></li>
+              <li><span class="column-value" id="column_value_type">Teilzeit</span></li>
+            </ul>
+          </td>
+        </tr>
+      </table>`;
+
+    expect(extractUmantisListingEvidence(listing, 'https://recruitingapp-1154.umantis.com/Jobs/1').get('3801'))
+      .toMatchObject({ location: 'Buchs', addressLocality: 'Buchs', postalCode: '9471' });
+  });
+
+  it('does not treat a postal/locality suffix in a generic metadata field as location evidence', () => {
+    const base = 'https://jobs.example/';
+    const make = (cell: string) => `<table><tr><td><a href="/Vacancies/1/Description/1">x</a></td>${cell}</tr></table>`;
+    const sizes = [
+      make('<span class="column-value">Recruiting 9000 St. Gallen</span>'),
+      make('<li>Recruiting 9000 St. Gallen</li>'),
+    ].map((html) => extractUmantisListingEvidence(html, base).size);
+
+    expect(sizes).toEqual([0, 0]);
+  });
+
   it('extracts German Humboldt content and Arbeitsort but runtime excludes it fail-closed', async () => {
     const detail = extractUmantisDetailFields(fixture('umantis-prospector-2649.html'));
     expect(detail.description).toContain('Ihre Aufgaben');

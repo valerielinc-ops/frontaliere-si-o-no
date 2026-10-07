@@ -338,6 +338,14 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
   const redcheck = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
   const claimSource = readFileSync(new URL('../scripts/ci/pr-fixer-claim.mjs', import.meta.url), 'utf8');
 
+  function claimTrustedPathLists(source: string): string[][] {
+    return [...source.matchAll(/for trusted_path in \\\n([\s\S]*?); do\n\s*download_main "\$trusted_path"/gu)]
+      .map(([, body]) => body
+        .split('\n')
+        .map((line) => line.trim().replace(/\\$/u, '').replace(/; do$/u, '').trim())
+        .filter((line) => /^[\w./-]+\.mjs$/u.test(line)));
+  }
+
   it('persists a redflag claim before the bounded fixer and finalizes it', () => {
     expect(redflag).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim');
     expect(redflag).toContain('CLAIM_KIND: redflag');
@@ -385,6 +393,30 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redcheck).toContain(
       'TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}\n          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}',
     );
+  });
+
+  it('scarica l’intero import cone del claim in ogni bootstrap/finalizer trusted', () => {
+    expect(claimSource).toContain("from '../lib/is-invoked-directly.mjs'");
+    for (const [name, source, expectedLists] of [
+      ['redflag', redflag, 4],
+      ['redcheck', redcheck, 2],
+    ] as const) {
+      const lists = claimTrustedPathLists(source).filter((paths) =>
+        paths.includes('scripts/ci/pr-fixer-claim.mjs'));
+      expect(lists, `${name}: trusted claim policy list count`).toHaveLength(expectedLists);
+      for (const paths of lists) {
+        expect(paths, `${name}: claim helper`).toContain('scripts/lib/is-invoked-directly.mjs');
+      }
+    }
+  });
+
+  it('non classifica come verdetto consumato un claim fallito prima degli output', () => {
+    const failClosed = "steps.claim.outcome != 'success' || (steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_allowed != 'false') || steps.claim.outputs.claim_error != 'false'";
+    const consumed = "steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'";
+    expect(redflag).toContain(`if: steps.admission.outputs.actionable == 'true' && (${failClosed})`);
+    expect(redflag).toContain(`if: ${consumed}`);
+    expect(redcheck).toContain(`if: ${failClosed}`);
+    expect(redcheck).toContain(`if: ${consumed}`);
   });
 
   it('serializes the redcheck failure set without comma ambiguity', () => {

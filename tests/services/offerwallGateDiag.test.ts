@@ -61,6 +61,7 @@ describe('offerwallGateDiag', () => {
     document.head.querySelectorAll('script[src*="fundingchoicesmessages"]').forEach((el) => el.remove());
     delete w.googlefc;
     delete (window as unknown as { __ftFcConsentBridge?: number }).__ftFcConsentBridge;
+    delete (window as unknown as { __tcfapi?: unknown }).__tcfapi;
     delete window.__ftOfferwallGate;
     if (navigationEntry) Object.defineProperty(window.performance, 'getEntriesByType', navigationEntry);
     else delete (window.performance as { getEntriesByType?: unknown }).getEntriesByType;
@@ -79,6 +80,12 @@ describe('offerwallGateDiag', () => {
 
     page('script');
     expect(readOfferwallGateAbsentDiag(window, notBot)).toMatchObject({ reason: 'fc_not_loaded', fc_loaded: 0 });
+    // Live 2026-10-07, Funding Choices script blocked: the page still has `googlefc` (our gate
+    // and bridge) and a `__tcfapi` stub from Google's ad script. Neither is Funding Choices.
+    w.googlefc = { __ftOfferwallGateInstalled: true };
+    (window as unknown as { __tcfapi?: unknown }).__tcfapi = () => undefined;
+    expect(readOfferwallGateAbsentDiag(window, notBot)).toMatchObject({ reason: 'fc_not_loaded', fc_loaded: 0 });
+    delete w.googlefc;
 
     page('api');
     expect(readOfferwallGateAbsentDiag(window, notBot)).toMatchObject({ reason: 'gate_not_installed', fc_loaded: 1 });

@@ -121,16 +121,21 @@ describe('index.tsx mount order', () => {
   const entry = readFileSync(resolve(ROOT, 'index.tsx'), 'utf-8');
   const mountApp = entry.slice(entry.indexOf('const mountApp = async'));
 
-  it('waits for the static first paint before adopting the fallback and before hiding #root', () => {
+  it('waits for the static first paint and JobBoard evaluation before the handoff hide', () => {
     const awaitAt = mountApp.indexOf('await staticFirstPaint');
     const startAt = mountApp.indexOf('waitForStaticFirstPaint()');
+    const warmAt = mountApp.indexOf("await import('@/components/community/JobBoard')");
     const adoptAt = mountApp.indexOf('adoptStaticFallbackIntoRoot(rootElement, fallback)');
     const hideAt = mountApp.indexOf('hideRootForCrossfade(rootElement)');
 
     expect(startAt).toBeGreaterThan(-1);
     expect(awaitAt).toBeGreaterThan(startAt);
+    expect(warmAt).toBeGreaterThan(awaitAt);
     expect(adoptAt).toBeGreaterThan(awaitAt);
+    expect(adoptAt).toBeGreaterThan(warmAt);
     expect(hideAt).toBeGreaterThan(awaitAt);
+    expect(hideAt).toBeGreaterThan(warmAt);
+    expect(mountApp.slice(awaitAt, adoptAt)).toContain("parsedRoute.activeTab === 'job-board'");
   });
 
   it('hides #root only through hideRootForCrossfade (no direct opacity 0 that skips the mark)', () => {

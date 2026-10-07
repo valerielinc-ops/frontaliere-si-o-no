@@ -251,10 +251,12 @@ function plainLength(markdown = '') {
 function parseAplusHtmlDetail(html = '', pageUrl = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('#description__vacancy-title')?.textContent || '');
-  const subtitleInfos = [
-    ...document.querySelectorAll('#description__subtitle .subtitle__informations'),
-  ].map((node) => normalizeSpace(node.textContent || ''));
-  const location = subtitleInfos[0] || '';
+  const subtitleNodes = [...document.querySelectorAll('#description__subtitle .subtitle__informations')];
+  const subtitleInfos = subtitleNodes.map((node) => normalizeSpace(node.textContent || ''));
+  const locationNode = subtitleNodes.find((node) => /^(?:Sede|Location|Localisation|Standort)$/i.test(
+    String(node.getAttribute('title') || '').trim(),
+  ));
+  const location = normalizeSpace(locationNode?.textContent || subtitleInfos[0] || '');
 
   const sections = [];
   const headings = [...document.querySelectorAll('#description__body .body__headings')];

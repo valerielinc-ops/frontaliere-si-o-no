@@ -168,6 +168,23 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 # intentionally uses `persist-credentials: false` in the protected refresh
 # workflows, so `origin` is not allowed to be the authentication boundary.
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
+OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
+
+check_old_history_ref() {
+  local head_ref="$1"
+  node "$OLD_HISTORY_GUARD_SCRIPT" \
+    --head "$head_ref" \
+    --base refs/remotes/origin/main \
+    --refresh-base \
+    --remote "$PUSH_URL" \
+    --branch main
+}
+
+# Prima di creare commit, worktree o branch remoto: se il checkout corrente
+# conserva la storia precedente e main è già riscritto, fermarsi qui evita di
+# pubblicare un PR dati che la reintroduca. Il fetch è treeless e non tocca il
+# worktree.
+check_old_history_ref HEAD
 
 # Read the lease before changing the local checkout. A stable branch may back
 # an open PR; its tree must be the base for this run instead of the workflow's
@@ -263,16 +280,18 @@ fi
 # earlier append-only/state records in an unmerged PR without changing the
 # workflow checkout for non-compat refreshes.
 if [ -n "$REMOTE_HEAD" ]; then
-  # The workflow checkout is intentionally shallow. Fetch only the stable
-  # branch tip for the non-compat reconciler; the compat path performs real
-  # Git merges and therefore needs the branch history and merge-base.
+  # The workflow checkout is intentionally shallow. Fetch the stable branch's
+  # commit graph without blobs: both reconciler paths and the history guard
+  # need reliable ancestry rather than a depth-1 tip.
   if [ "$RECONCILE_COMPAT" = true ]; then
     git fetch --no-tags "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
   else
-    git fetch --no-tags --depth=1 "$PUSH_URL" \
+    git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     # Reconcile in a separate, sparse checkout. A data branch may carry old
     # crawlers/helpers; selecting it in the workflow checkout would change the
     # code used by every later step, including after a best-effort failure.
@@ -417,6 +436,7 @@ while :; do
   if [ -n "$REMOTE_HEAD" ]; then
     git fetch --no-tags "$PUSH_URL" \
       "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
 
     if [ "$RECONCILE_COMPAT" = true ]; then

@@ -1170,8 +1170,9 @@ jobs:
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
 
       # CHECKOUT UNICO per tutte e quattro le famiglie del percorso ordinario;
-      # il ledger-only verificato sopra lo salta deliberatamente. Il perché di questo
-      # profilo esatto — albero pieno + storia profonda + `tree:0` — sta in
+      # anche il ledger-only lo esegue per il guard di storia precedente, ma
+      # continua a saltare npm/test/review costosi. Il perché di questo profilo
+      # esatto — albero pieno + storia profonda + `tree:0` — sta in
       # «Il checkout: uno solo» nella testata. In breve: i source guard del
       # contract diffano a tre punti e senza storia non hanno un merge-base
       # (`resolve-merge-base.mjs` andrebbe in blocking-skip, issue #5195, cioè
@@ -1199,7 +1200,7 @@ jobs:
       # esplicito con il refspec di destinazione (issue #6058). Quel fetch ora è
       # quasi gratis: i commit ci sono già, manca solo il NOME.
       - uses: actions/checkout@v7
-        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
         with:
           # Only the event ref is checked out. Body recovery re-runs an
           # already-created pull_request tests run; it never dispatches this
@@ -1358,6 +1359,22 @@ jobs:
             /REVIEW.md
             /AGENTS.md
           sparse-checkout-cone-mode: false
+
+      - name: Guard — storia precedente alla riscrittura
+        if: ${{ steps.body_contract.outcome != 'failure' && !cancelled() }}
+        env:
+          guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
+        run: |
+          set -euo pipefail
+          # Il checkout è tree:0 e conserva il grafo dei commit. Aggiorniamo il
+          # solo remote-tracking ref del base senza depth: il marker e ogni
+          # antenato necessario alla domanda restano risolvibili, senza scaricare
+          # blob storici.
+          git fetch --no-tags --filter=tree:0 origin \
+            "+refs/heads/${guard_base_ref}:refs/remotes/origin/${guard_base_ref}"
+          node scripts/lib/old-history-guard.mjs \
+            --head HEAD \
+            --base "refs/remotes/origin/${guard_base_ref}"
 
       # UNA sola invocazione (erano tre) nel percorso ordinario; il ledger-only
       # verificato sopra salta anche questa installazione. Niente `--ignore-scripts`: lo usava il

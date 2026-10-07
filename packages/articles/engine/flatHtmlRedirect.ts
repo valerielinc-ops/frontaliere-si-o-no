@@ -108,11 +108,16 @@ function isSelfClosingStartTag(html: string, nameEnd: number, end: number): bool
   return false;
 }
 
+// Sticky, so a tag name is read in place: slicing the rest of the document
+// for every `<` made the scan quadratic on a 30 KB page.
+const TAG_NAME_RX = /[A-Za-z][A-Za-z0-9:_-]*/y;
+
 function readTag(html: string, start: number): { closing: boolean; end: number; name: string; selfClosing: boolean } | null {
   if (html[start] !== '<') return null;
   const closing = html[start + 1] === '/';
   const nameStart = start + (closing ? 2 : 1);
-  const nameMatch = /^[A-Za-z][A-Za-z0-9:_-]*/.exec(html.slice(nameStart));
+  TAG_NAME_RX.lastIndex = nameStart;
+  const nameMatch = TAG_NAME_RX.exec(html);
   if (!nameMatch) return null;
   const nameEnd = nameStart + nameMatch[0].length;
   const boundary = html[nameEnd] ?? '';
@@ -134,8 +139,14 @@ function skipComment(html: string, start: number): number {
   return end < 0 ? -1 : end + 3;
 }
 
+const RAW_TEXT_CLOSING_RX = new Map<string, RegExp>();
+
 function skipRawTextElement(html: string, afterOpening: number, name: string): number {
-  const closing = new RegExp(`</${name}\\s*>`, 'ig');
+  let closing = RAW_TEXT_CLOSING_RX.get(name);
+  if (!closing) {
+    closing = new RegExp(`</${name}\\s*>`, 'ig');
+    RAW_TEXT_CLOSING_RX.set(name, closing);
+  }
   closing.lastIndex = afterOpening;
   const match = closing.exec(html);
   return match ? match.index + match[0].length : -1;
@@ -184,10 +195,16 @@ function skipTemplateElement(html: string, afterOpening: number): number {
  */
 function maskInactiveMarkup(html = '', options: { maskRcdata?: boolean } = {}) {
   const source = String(html || '');
-  const output = source.split('');
   const maskRcdata = options.maskRcdata === true;
+  // Blanked ranges only ever move forward, so the result is assembled from
+  // slices of the source. The previous one-entry-per-character array cost
+  // milliseconds per call, and this runs for every flat bridge of the build.
+  const parts: string[] = [];
+  let emitted = 0;
   const blank = (start: number, end: number) => {
-    for (let index = start; index < end; index += 1) output[index] = ' ';
+    if (end <= start) return;
+    parts.push(source.slice(emitted, start), ' '.repeat(end - start));
+    emitted = end;
   };
   let cursor = 0;
   while (cursor < source.length) {
@@ -225,7 +242,9 @@ function maskInactiveMarkup(html = '', options: { maskRcdata?: boolean } = {}) {
     }
     cursor = tag.end + 1;
   }
-  return output.join('');
+  if (emitted === 0) return source;
+  parts.push(source.slice(emitted));
+  return parts.join('');
 }
 
 /**
@@ -252,7 +271,11 @@ export function extractOgTags(indexHtml: string): string {
   // RCDATA is rendered as text, so a literal `<meta>` inside the page title
   // or a textarea is not active metadata. Title extraction below uses the
   // default mask and therefore still sees the real document title.
-  while ((match = metaRx.exec(maskInactiveMarkup(indexHtml, { maskRcdata: true })))) {
+  // Masked ONCE: with the call inside the loop condition the whole document
+  // was re-masked for every <meta> it contains (~40 per job page), which
+  // turned the ~300k flat bridges of a locale shard into hours of build.
+  const activeMarkup = maskInactiveMarkup(indexHtml, { maskRcdata: true });
+  while ((match = metaRx.exec(activeMarkup))) {
     const tag = match[0];
     attrRx.lastIndex = 0;
     const attrs: Record<string, string> = {};
