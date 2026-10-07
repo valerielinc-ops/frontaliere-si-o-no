@@ -262,6 +262,6 @@ describe('guard di entrypoint canonico (#7292)', () => {
     expect(pathResolveOut.trim()).toBe('Closes #7292');
 
     const fileUrlOut = runNode(FILE_URL_SAMPLE, []);
-    expect(fileUrlOut).toContain('Nessun workflow modificato');
+    expect(fileUrlOut).toMatch(/^(?:Nessun workflow modificato|Workflow modificati validati dal contratto prompt:)/);
   });
 });

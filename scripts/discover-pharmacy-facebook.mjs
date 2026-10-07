@@ -11,8 +11,9 @@
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
+import { realpathSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG_PATH = resolve(REPO_ROOT, 'data/pharmacy-enrichment-sources.json');
@@ -147,7 +148,7 @@ async function main() {
   for (const warning of result.warnings) console.warn(`[facebook-discovery] ${warning}`);
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[facebook-discovery] fatal: ${error?.stack || error}`);
     process.exitCode = 1;
