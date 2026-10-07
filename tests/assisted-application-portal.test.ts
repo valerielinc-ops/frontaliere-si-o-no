@@ -406,6 +406,15 @@ describe('portal runner helpers', () => {
       answers: { portal_qual_e_la_tua_via_e_il_tuo_numero_civico: 'Via Test 1' },
       portalQuestionsAnswered: [],
     }, 'Qual è la tua via e il numero civico?', 'Via Test 1')).toBe(true);
+
+    // Rolex/SuccessFactors exposes the same combined field in French as
+    // «Rue et numéro»; it must reuse the saved Italian portal answer.
+    expect(questionTopic('Rue et numéro')).toBe('address');
+    expect(candidateAnswerForField({
+      answers: { portal_qual_e_la_tua_via_e_il_numero_civico: 'Via Test 1' },
+      portalQuestionsAnswered: [],
+    }, { id: 'street-number', kind: 'text', label: 'Rue et numéro', required: true, options: [] }))
+      .toEqual({ value: 'Via Test 1', source: 'answers' });
   });
 
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {
