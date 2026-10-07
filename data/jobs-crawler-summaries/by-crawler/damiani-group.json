@@ -1,7 +1,7 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-06T21:20:30.103Z",
+  "generatedAt": "2026-10-07T09:18:20.536Z",
   "total": 8,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 6456,
-  "avgDurationMs": 6456,
+  "durationMs": 5201,
+  "avgDurationMs": 5201,
   "durationHistory": [
-    6456
+    5201
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -50,7 +50,7 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -62,6 +62,47 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Legal Senior Specialist",
+      "slug": "legal-senior-specialist-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Legal-Senior-Specialist/1367555455/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1367555455/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "damiani-group-855284947b4a",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-09-08T13:38:59.607Z",
+      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-legal-senior-specialist/1367555455",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
     {
       "title": "Finance & Accounting Integration Specialist",
       "slug": "finanza-accounting-integration-specialista-damiani-group-mendrisio",
@@ -308,48 +349,7 @@
         "translation": 25,
         "completeness": 23
       }
-    },
-    {
-      "title": "Legal Senior Specialist",
-      "slug": "legal-senior-specialist-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Legal-Senior-Specialist/1367555455/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1367555455/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "damiani-group-855284947b4a",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-09-08T13:38:59.607Z",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-legal-senior-specialist/1367555455",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 23
-      }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

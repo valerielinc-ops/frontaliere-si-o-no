@@ -1,6 +1,6 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-10-06T21:19:27.909Z",
+  "assembledAt": "2026-10-07T09:23:36.946Z",
   "jobs": [
     {
       "id": "chopard-5dded0f8e2fc",
@@ -33,7 +33,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:20.102Z",
+      "crawledAt": "2026-10-07T09:23:31.844Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -55,73 +55,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-10T22:09:12.285Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-34282272bd03",
-      "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "programmeur-cnc-h-f-d-chopard-fleurier",
-        "en": "cnc-programmer-m-f-d-chopard-fleurier",
-        "de": "cnc-programmierer-m-w-d-chopard-fleurier",
-        "fr": "programmeur-cnc-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Programmeur CNC (H/F/D)",
-      "titleByLocale": {
-        "it": "Programmeur CNC (f/m/d)",
-        "en": "CNC programmer (M/F/D)",
-        "de": "CNC-Programmierer (M/W/D)",
-        "fr": "Programmeur CNC (H/F/D)"
-      },
-      "description": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels.",
-      "descriptionByLocale": {
-        "it": "La vostra missione partecipa allo sviluppo e all'ottimizzazione dei processi di lavorazione programmando e migliorando i programmi CNC per garantire una produzione efficiente, affidabile e conforme alla qualità.\n• Le tue principali responsabilità Programmano nuove parti e ottimizzano continuamente i programmi CNC utilizzando il software FAO (CAM). Implementare e convalidare i programmi sui centri di lavoro CNC a 3 assi e a 5 assi. Analizzare e ottimizzare nuovi processi produttivi per garantire un funzionamento produttivo stabile ed efficiente. Partecipazione a miglioramenti tecnici e industrializzazione di nuovi prodotti. Fornire supporto tecnico a regolatori e operatori. Garantire il rispetto di qualità, produttività e standard di sicurezza. Programmi di documentazione, strategie di lavorazione e dati tecnici. Integrare i dati tecnici in Windchill in conformità con gli standard di designazione e il flusso di archivio. Monitorare lo sviluppo e garantire lo sviluppo dei postprocessori. Creare e mantenere: strumenti di taglio specifici e posate. strumenti di database. piani di fase. File DXF. volumi industriali.",
-        "en": "Your mission Participate in the development and optimization of machining processes by programming and improving CNC programs to ensure efficient, reliable and quality-compliant production.\n• Your major responsibilities Program new parts and continuously optimize CNC programs using FAO software (CAM). Implement and validate programs on 3-axis and 5-axis CNC machining centres. Analyse and optimize new manufacturing processes to ensure stable and efficient production operation. Participate in technical improvements and industrialisation of new products. Provide technical support to regulators and operators. Ensure compliance with quality, productivity and safety standards. Document programs, machining strategies and technical data. Integrate technical data into Windchill in accordance with designation standards and archive flow. Monitor development and ensure development of postprocessors. Create and maintain: specific cutting tools as well as posages. database tools. phase plans. DXF files. industrial volumes.",
-        "de": "Ihre Mission Beteiligen Sie sich an der Entwicklung und Optimierung von Bearbeitungsprozessen durch Programmierung und Verbesserung von CNC-Programmen, um eine effiziente, zuverlässige und qualitätskonforme Produktion zu gewährleisten.\n• Ihre Hauptverantwortung Programm neue Teile und kontinuierlich zu optimieren CNC-Programme mit FAO-Software (CAM). Implementieren und validieren Sie Programme auf 3-Achsen- und 5-Achsen-CNC-Bearbeitungszentren. Analysieren und optimieren Sie neue Fertigungsprozesse, um einen stabilen und effizienten Produktionsbetrieb zu gewährleisten. Beteiligen Sie sich an technischen Verbesserungen und der Industrialisierung neuer Produkte. Bereitstellung technischer Unterstützung für Regulierungsbehörden und Betreiber. Gewährleistung der Einhaltung von Qualitäts-, Produktivitäts- und Sicherheitsstandards. Dokumentation von Programmen, Bearbeitungsstrategien und technischen Daten. Integrieren Sie technische Daten in Windchill gemäß den Bezeichnungsstandards und dem Archivfluss. Überwachung der Entwicklung und Sicherstellung der Entwicklung von Postprozessoren. Erstellen und pflegen: spezifische Schneidwerkzeuge sowie Posagen. Datenbankwerkzeuge. Phasenpläne. DXF Dateien. Industrievolumen.",
-        "fr": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:20.096Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-16",
-      "postedDate": "2026-07-16",
-      "postingDateSource": "reported",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "jobReqId": "2572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:57:03.842Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -167,7 +100,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:20.090Z",
+      "crawledAt": "2026-10-07T09:23:31.841Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -234,7 +167,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:20.084Z",
+      "crawledAt": "2026-10-07T09:23:31.838Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -255,20 +188,9 @@
       "jobReqId": "2604",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T13:57:03.835Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "apprenti-hologer-h-f-chopard-fleurier"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-hologer-h-f-chopard-fleurier"
@@ -277,9 +199,20 @@
           "apprenti-hologer-h-f-chopard-fleurier"
         ]
       },
-      "previousSlugs": [
-        "apprenti-hologer-h-f-chopard-fleurier"
-      ]
+      "firstSeenAt": "2026-09-26T13:57:03.835Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "chopard-5918a2221e65",
@@ -312,7 +245,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:20.037Z",
+      "crawledAt": "2026-10-07T09:23:31.835Z",
       "addressLocality": "Fleurier",
       "addressRegion": "Genève",
       "streetAddress": "",
@@ -393,7 +326,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2233?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:19:19.982Z",
+      "crawledAt": "2026-10-07T09:23:31.813Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -474,7 +407,7 @@
       "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2607?c=chopard&lang=en-US",
       "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:19:19.972Z",
+      "crawledAt": "2026-10-07T09:23:31.810Z",
       "addressLocality": "Meyrin",
       "addressRegion": "Genève",
       "streetAddress": "Route de Veyrot 8",
@@ -522,6 +455,144 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "chopard-cc64eb02f9cf",
+      "slug": "constructeur-mouvements-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "fr": "constructeur-mouvements-h-f-d-chopard-fleurier",
+        "it": "constructeur-mouvements-h-f-d-chopard-fleurier",
+        "en": "constructeur-mouvements-h-f-d-chopard-fleurier",
+        "de": "constructeur-mouvements-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Constructeur Mouvements (H/F/D)",
+      "titleByLocale": {
+        "fr": "Constructeur Mouvements (H/F/D)",
+        "it": "Constructeur Mouvements (f/m/d)",
+        "en": "Constructeur Mouvements (H/F/D)",
+        "de": "Constructeur Mouvements (H/F/D)"
+      },
+      "description": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+        "it": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+        "en": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
+        "de": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:23:31.807Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06",
+      "postedDate": "2026-10-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2644?c=chopard&lang=en-US",
+      "jobReqId": "2644",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-07T09:23:31.807Z"
+    },
+    {
+      "id": "chopard-34282272bd03",
+      "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "programmeur-cnc-h-f-d-chopard-fleurier",
+        "en": "cnc-programmer-m-f-d-chopard-fleurier",
+        "de": "cnc-programmierer-m-w-d-chopard-fleurier",
+        "fr": "programmeur-cnc-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Programmeur CNC (H/F/D)",
+      "titleByLocale": {
+        "it": "Programmeur CNC (f/m/d)",
+        "en": "CNC programmer (M/F/D)",
+        "de": "CNC-Programmierer (M/W/D)",
+        "fr": "Programmeur CNC (H/F/D)"
+      },
+      "description": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité.\n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels.",
+      "descriptionByLocale": {
+        "it": "La vostra missione partecipa allo sviluppo e all'ottimizzazione dei processi di lavorazione programmando e migliorando i programmi CNC per garantire una produzione efficiente, affidabile e conforme alla qualità.\n• Le tue principali responsabilità Programmano nuove parti e ottimizzano continuamente i programmi CNC utilizzando il software FAO (CAM). Implementare e convalidare i programmi sui centri di lavoro CNC a 3 assi e a 5 assi. Analizzare e ottimizzare nuovi processi produttivi per garantire un funzionamento produttivo stabile ed efficiente. Partecipazione a miglioramenti tecnici e industrializzazione di nuovi prodotti. Fornire supporto tecnico a regolatori e operatori. Garantire il rispetto di qualità, produttività e standard di sicurezza. Programmi di documentazione, strategie di lavorazione e dati tecnici. Integrare i dati tecnici in Windchill in conformità con gli standard di designazione e il flusso di archivio. Monitorare lo sviluppo e garantire lo sviluppo dei postprocessori. Creare e mantenere: strumenti di taglio specifici e posate. strumenti di database. piani di fase. File DXF. volumi industriali.",
+        "en": "Your mission Participate in the development and optimization of machining processes by programming and improving CNC programs to ensure efficient, reliable and quality-compliant production.\n• Your major responsibilities Program new parts and continuously optimize CNC programs using FAO software (CAM). Implement and validate programs on 3-axis and 5-axis CNC machining centres. Analyse and optimize new manufacturing processes to ensure stable and efficient production operation. Participate in technical improvements and industrialisation of new products. Provide technical support to regulators and operators. Ensure compliance with quality, productivity and safety standards. Document programs, machining strategies and technical data. Integrate technical data into Windchill in accordance with designation standards and archive flow. Monitor development and ensure development of postprocessors. Create and maintain: specific cutting tools as well as posages. database tools. phase plans. DXF files. industrial volumes.",
+        "de": "Ihre Mission Beteiligen Sie sich an der Entwicklung und Optimierung von Bearbeitungsprozessen durch Programmierung und Verbesserung von CNC-Programmen, um eine effiziente, zuverlässige und qualitätskonforme Produktion zu gewährleisten.\n• Ihre Hauptverantwortung Programm neue Teile und kontinuierlich zu optimieren CNC-Programme mit FAO-Software (CAM). Implementieren und validieren Sie Programme auf 3-Achsen- und 5-Achsen-CNC-Bearbeitungszentren. Analysieren und optimieren Sie neue Fertigungsprozesse, um einen stabilen und effizienten Produktionsbetrieb zu gewährleisten. Beteiligen Sie sich an technischen Verbesserungen und der Industrialisierung neuer Produkte. Bereitstellung technischer Unterstützung für Regulierungsbehörden und Betreiber. Gewährleistung der Einhaltung von Qualitäts-, Produktivitäts- und Sicherheitsstandards. Dokumentation von Programmen, Bearbeitungsstrategien und technischen Daten. Integrieren Sie technische Daten in Windchill gemäß den Bezeichnungsstandards und dem Archivfluss. Überwachung der Entwicklung und Sicherstellung der Entwicklung von Postprozessoren. Erstellen und pflegen: spezifische Schneidwerkzeuge sowie Posagen. Datenbankwerkzeuge. Phasenpläne. DXF Dateien. Industrievolumen.",
+        "fr": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité.\n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-06T21:19:20.096Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-16",
+      "postedDate": "2026-07-16",
+      "postingDateSource": "reported",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
+      "jobReqId": "2572",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-26T13:57:03.842Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
