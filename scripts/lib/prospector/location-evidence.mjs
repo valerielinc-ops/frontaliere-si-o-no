@@ -162,7 +162,7 @@ function isSwissCountry(value) {
   return Boolean(country && [...SWISS_COUNTRY_LABELS].some((label) => hasToken(country, label)));
 }
 
-function isExplicitlyForeign(value, addressCountry = '') {
+export function isExplicitlyForeign(value, addressCountry = '') {
   const country = String(addressCountry || '').trim();
   if (country && !isSwissCountry(country)) return true;
   if (hasOnlyExplicitForeignCountry(value)) return true;

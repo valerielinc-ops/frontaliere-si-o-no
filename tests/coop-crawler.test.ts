@@ -29,6 +29,7 @@ import {
   applyCoopSourceDetailToJob,
   enrichCoopSourceBackedJobs,
   fetchCoopDetailPage,
+  resolveCoopJsonLdGeography,
   resolveCoopCantonCode,
   collapseRepublishedCoopVacancies,
   withoutRepublishedCoopVacancies,
@@ -918,6 +919,19 @@ describe('titleOverlap — Coop titles', () => {
 // ──────────────────────────────────────────────────────────────
 
 describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
+  it('rejects a location marker when JSON-LD explicitly declares a foreign country', () => {
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'DE',
+    })).toBeNull();
+
+    expect(resolveCoopJsonLdGeography({
+      location: 'Region Muri AG',
+      addressCountry: 'CH',
+      addressRegion: 'BS',
+    })).toMatchObject({ location: 'Region Muri AG', canton: 'AG' });
+  });
+
   it('updates location and addressLocality when JSON-LD has different locality', () => {
     const job = {
       title: 'Verkaufsberater:in',

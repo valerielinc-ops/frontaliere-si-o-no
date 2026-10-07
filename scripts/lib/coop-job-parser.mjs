@@ -8,7 +8,10 @@
 
 import { JSDOM } from 'jsdom';
 import { fetch as undiciFetch } from 'undici';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isExplicitlyForeign,
+  resolveSourceBackedSwissGeography,
+} from './prospector/location-evidence.mjs';
 import { inferAnyCanton, isCantonOnlyLabel, normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
 import { SWISS_CANTONS } from './crawler-location-config.mjs';
 import { MIN_SOURCE_BODY_WORDS, meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
@@ -876,15 +879,20 @@ function jsonLdAddressCandidates(jsonLd = {}) {
   });
 }
 
-function resolveCoopJsonLdGeography(candidate) {
+export function resolveCoopJsonLdGeography(candidate) {
   const location = normalizeSpace(candidate?.location || candidate?.addressLocality || '');
+  const addressCountry = normalizeSpace(
+    typeof candidate?.addressCountry === 'object'
+      ? candidate.addressCountry?.name || candidate.addressCountry?.['@id'] || ''
+      : candidate?.addressCountry || candidate?.country || '',
+  );
   const locationCanton = cantonNamedByLocation(location);
-  if (locationCanton) {
-    const addressCountry = normalizeSpace(
-      typeof candidate?.addressCountry === 'object'
-        ? candidate.addressCountry?.name || candidate.addressCountry?.['@id'] || ''
-        : candidate?.addressCountry || candidate?.country || '',
-    );
+  // Validate an explicit country before letting a source-owned marker win.
+  // Do not feed the marker back into the country-token heuristic: `AG` is both
+  // a canton code and an ISO country code, while wrappers such as `Region Muri
+  // AG` are intentionally not resolvable as ordinary municipalities.
+  const explicitForeignCountry = isExplicitlyForeign('', addressCountry);
+  if (locationCanton && !explicitForeignCountry) {
     return {
       location,
       canton: locationCanton,
