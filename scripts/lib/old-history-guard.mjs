@@ -13,7 +13,12 @@ import { withSingleFlightLock } from './single-flight-lock.mjs';
 export const OLD_HISTORY_FIRST_CHANGED_COMMIT = 'dab77221540a4e369440f762228be7e0be21155d';
 
 const DEFAULT_BASE_REF = 'refs/remotes/origin/main';
-const FETCH_TIMEOUT_MS = 30_000;
+// A shallow writer checkout may need to materialise the complete commit graph
+// before the marker can be classified. The previous 30s cap was shorter than
+// the observed treeless fetch on the site repository, turning a valid writer
+// run into a false workflow failure. Keep the operation bounded while leaving
+// enough budget for the graph fetch in the ten-minute monitor jobs.
+const FETCH_TIMEOUT_MS = 5 * 60_000;
 
 const OLD_HISTORY_REMEDIATION = [
   'Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:',
