@@ -1,0 +1,325 @@
+name: Recurring image licence audit
+
+on:
+  schedule:
+    - cron: '20 4 * * 3'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Generate governed replacements and open a data PR'
+        required: false
+        default: true
+        type: boolean
+      limit:
+        description: 'Maximum number of replacements (1–20)'
+        required: false
+        default: '20'
+        type: string
+      sections:
+        description: 'Audit sections: all or a comma-separated subset of A,B,C,D'
+        required: false
+        default: all
+        type: string
+
+concurrency:
+  group: license-audit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      APPLY_REQUESTED: ${{ github.event_name == 'schedule' && 'true' || inputs.apply || 'false' }}
+      AUDIT_LIMIT: ${{ inputs.limit || '20' }}
+      AUDIT_SECTIONS: ${{ inputs.sections || 'all' }}
+
+    steps:
+      - name: Checkout without the image archive
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # Allow-list: the audit enumerates public/images through git tree
+          # objects, so the 4.4 GB image archive must not be materialized.
+          sparse-checkout: |
+            /package.json
+            /package-lock.json
+            /.github/actions/setup-claude-haiku-fallback/
+            /scripts/
+            /packages/articles/engine/
+            /packages/articles/content/blog-articles-data.ts
+            /packages/articles/content/swiss-articles-data.ts
+            /packages/articles/content/image-credits/
+            /data/events.json
+            /data/events/
+            /data/event-image-library.json
+            /data/generated-image-registry.json
+            /data/blog-generated-image-registry.json
+            /data/blog-cover-ledger.json
+            /data/blog-cover-replacements.json
+            /data/image-credits-blog.json
+            /data/events-description-rewrites.json
+            /data/authors.ts
+            /data/company-logos-manifest.json
+            /data/canton-url-slugs.json
+            /data/municipalities.ts
+            /components/guide/FrontierGuide.tsx
+            /services/
+            /infra/cloudflare-worker/locale-router.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Validate audit inputs
+        run: |
+          case "$AUDIT_LIMIT" in
+            ''|*[!0-9]*) echo '::error::limit must be an integer from 1 to 20'; exit 2 ;;
+          esac
+          if [ "$AUDIT_LIMIT" -lt 1 ] || [ "$AUDIT_LIMIT" -gt 20 ]; then
+            echo '::error::limit must be an integer from 1 to 20'
+            exit 2
+          fi
+          case "$AUDIT_SECTIONS" in
+            all|A|B|C|D|A,B|A,C|A,D|B,C|B,D|C,D|A,B,C|A,B,D|A,C,D|B,C,D|A,B,C,D) ;;
+            *) echo '::error::sections must be all or a subset of A,B,C,D'; exit 2 ;;
+          esac
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load Remote Config'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo 'GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json' >> "$GITHUB_ENV"
+
+      - name: Load R2, Codex and PR credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Provision the existing R2 client for the inventory probe
+        run: |
+          # upload-cdn-file.sh installs the same pinned-by-convention rclone
+          # client used by the upload path into RUNNER_TEMP. The audit then
+          # reuses that binary for the prefix inventory instead of adding a
+          # second installer or logging credentials.
+          bash scripts/lib/upload-cdn-file.sh --check images/events/myswitzerland/license-audit-probe.webp </dev/null
+
+      - name: Fetch only main and open-PR refs for the history check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OLD_HISTORY_MARKER: dab77221540a4e369440f762228be7e0be21155d
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main --depth=1
+          git fetch --no-tags origin "$OLD_HISTORY_MARKER" --depth=1 || true
+          refs_file="$RUNNER_TEMP/license-audit-refs.txt"
+          printf '%s\n' origin/main > "$refs_file"
+          for number in $(gh pr list --repo "$GITHUB_REPOSITORY" --state open --limit 100 --json number --jq '.[].number'); do
+            if git fetch --no-tags --filter=blob:none origin "+refs/pull/$number/head:refs/audit/pr-$number"; then
+              printf 'refs/audit/pr-%s\n' "$number" >> "$refs_file"
+            fi
+          done
+
+      - name: Run read-only licence audit
+        id: read_audit
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/audit/license-audit.mjs \
+            --sections "$AUDIT_SECTIONS" \
+            --limit "$AUDIT_LIMIT" \
+            --main-ref origin/main \
+            --refs-file "$RUNNER_TEMP/license-audit-refs.txt" \
+            --probe-cdn \
+            --r2-list \
+            --json-out "$RUNNER_TEMP/license-audit-read.json" \
+            --markdown-out "$RUNNER_TEMP/license-audit-read.md" \
+            > "$RUNNER_TEMP/license-audit-read.stdout"
+          rc=$?
+          cat "$RUNNER_TEMP/license-audit-read.md" >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/license-audit-read.md"
+          exit "$rc"
+
+      - name: Setup Codex OAuth image lane
+        id: setup_codex
+        if: env.APPLY_REQUESTED == 'true'
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          codex_cli_version: '0.160.1'
+          broker_max_concurrency: '1'
+          broker_max_timeout_ms: '600000'
+
+      - name: Apply bounded governed replacements and re-audit
+        id: apply_audit
+        if: env.APPLY_REQUESTED == 'true'
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          set +e
+          node scripts/audit/license-audit.mjs \
+            --apply \
+            --sections "$AUDIT_SECTIONS" \
+            --limit "$AUDIT_LIMIT" \
+            --main-ref origin/main \
+            --refs-file "$RUNNER_TEMP/license-audit-refs.txt" \
+            --probe-cdn \
+            --r2-list \
+            --json-out "$RUNNER_TEMP/license-audit-final.json" \
+            --markdown-out "$RUNNER_TEMP/license-audit-final.md" \
+            > "$RUNNER_TEMP/license-audit-final.stdout"
+          rc=$?
+          if [ ! -f "$RUNNER_TEMP/license-audit-final.json" ]; then
+            cp "$RUNNER_TEMP/license-audit-read.json" "$RUNNER_TEMP/license-audit-final.json"
+            cp "$RUNNER_TEMP/license-audit-read.md" "$RUNNER_TEMP/license-audit-final.md"
+          fi
+          cat "$RUNNER_TEMP/license-audit-final.md" >> "$GITHUB_STEP_SUMMARY"
+          cat "$RUNNER_TEMP/license-audit-final.md"
+          exit "$rc"
+
+      - name: Keep the read-only report as the final report
+        if: env.APPLY_REQUESTED != 'true'
+        run: |
+          cp "$RUNNER_TEMP/license-audit-read.json" "$RUNNER_TEMP/license-audit-final.json"
+          cp "$RUNNER_TEMP/license-audit-read.md" "$RUNNER_TEMP/license-audit-final.md"
+
+      - name: Upload generated bytes and purge only replaced URLs
+        if: always() && env.APPLY_REQUESTED == 'true' && hashFiles('.cache/license-audit/**') != ''
+        env:
+          CDN_BASE: https://cdn.frontaliereticino.ch
+        run: |
+          set -euo pipefail
+          purge_urls=''
+          has_article=false
+          node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); for (const item of x.actions?.generated || []) console.log([item.scope,item.assetId,item.localFile,item.imageUrl].join('\t'));" "$RUNNER_TEMP/license-audit-final.json" > "$RUNNER_TEMP/license-audit-generated.tsv"
+          while IFS="$(printf '\t')" read -r -u 9 scope asset_id local_file image_url; do
+            [ -n "$asset_id" ] || continue
+            key="$(printf '%s' "$image_url" | sed 's#^/##')"
+            output="$(bash scripts/lib/upload-cdn-file.sh "$local_file" "$key" </dev/null)"
+            printf '%s\n' "$output"
+            printf '%s\n' "$output" | grep -q '✅ uploaded' || {
+              echo "::error::CDN upload did not succeed for $image_url"
+              exit 1
+            }
+            if [ -n "$purge_urls" ]; then purge_urls="$purge_urls,"; fi
+            purge_urls="$purge_urls$CDN_BASE/$key"
+            if [ "$scope" = 'article-hero' ]; then has_article=true; fi
+          done 9< "$RUNNER_TEMP/license-audit-generated.tsv"
+          if [ "$has_article" = true ]; then
+            output="$(bash scripts/lib/upload-cdn-file.sh data/image-credits-blog.json data/image-credits-blog.json)"
+            printf '%s\n' "$output"
+            printf '%s\n' "$output" | grep -q '✅ uploaded' || {
+              echo '::error::CDN upload did not succeed for data/image-credits-blog.json'
+              exit 1
+            }
+            if [ -n "$purge_urls" ]; then purge_urls="$purge_urls,"; fi
+            purge_urls="$purge_urls$CDN_BASE/data/image-credits-blog.json"
+          fi
+          if [ -n "$purge_urls" ]; then
+            node scripts/cf-purge-cache.mjs --files="$purge_urls"
+          fi
+
+      - name: Version the latest report
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/license-audit-final.json" ]; then
+            cp "$RUNNER_TEMP/license-audit-final.json" data/license-audit-latest.json
+          fi
+
+      - name: Open or update the single licence alarm issue
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          [ -f "$RUNNER_TEMP/license-audit-final.json" ] || exit 0
+          alarm="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log(x.alarm?.required ? 'true' : 'false');" "$RUNNER_TEMP/license-audit-final.json")"
+          export GH_TOKEN="${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
+          if [ "$alarm" = true ]; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title 'License audit: non-remediable publication violations' \
+              --description-file "$RUNNER_TEMP/license-audit-final.md" \
+              --priority 2 \
+              --label Bug \
+              --workflow 'Recurring image licence audit'
+          else
+            node scripts/lib/github-issue-creator.mjs \
+              --title 'License audit: non-remediable publication violations' \
+              --workflow 'Recurring image licence audit' \
+              --run-url "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" \
+              --resolve
+          fi
+
+      - name: Prepare the data PR body
+        if: always()
+        run: |
+          body="$RUNNER_TEMP/license-audit-pr-body.md"
+          generated="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.generated || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          reused="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log((x.actions?.reused || []).length);" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo 0)"
+          alarm="$(node --input-type=module -e "import fs from 'node:fs'; const x=JSON.parse(fs.readFileSync(process.argv[1])); console.log(x.alarm?.required ? 'true' : 'false');" "$RUNNER_TEMP/license-audit-final.json" 2>/dev/null || echo true)"
+          cat > "$body" <<EOF
+          ## Implementato
+          - L'audit deterministico in ".github/workflows/license-audit.yml" misura fonti eventi, immagini pubblicate, testi, copie residue e stato CDN con controlli stabili, soglie, esempi limitati e rapporto JSON versionato.
+          - Le violazioni riparabili usano esclusivamente il motore immagini governato, mantengono l'URL del contenuto, rispettano il tetto $AUDIT_LIMIT e vengono caricate con purge mirato.
+          - Questa esecuzione ha prodotto $generated sostituzioni generate e riusato $reused record già governati; la pubblicazione passa dal PR dati condiviso e non esegue push diretto su main.
+
+          ## Non implementato (ancora)
+          EOF
+          if [ "$alarm" = true ]; then
+            printf '%s\n' '- by construction: i fail non rimediabili vengono mantenuti come allarme nella issue stabile; loghi, asset publisher/social senza fonte e foto di autori reali non vengono rimpiazzati automaticamente. **Motivo:** queste superfici richiedono una fonte o una decisione editoriale non inferibile. **Prossimo passo:** la issue stabile raccoglie gli esempi per la correzione manuale.' >> "$body"
+          else
+            printf '%s\n' '- by construction: loghi, asset publisher/social senza fonte e foto di autori reali restano inventario e non vengono rimpiazzati automaticamente. **Motivo:** queste superfici richiedono una fonte o una decisione editoriale non inferibile. **Prossimo passo:** il rapporto versionato mantiene l inventario per la prossima verifica.' >> "$body"
+          fi
+
+      - name: Validate the data PR body
+        if: always()
+        run: node scripts/ci/pr-body-check-gate.mjs --body-file "$RUNNER_TEMP/license-audit-pr-body.md"
+
+      - name: Publish the audit report through the data PR helper
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          export GH_TOKEN="${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --path data/license-audit-latest.json \
+            --path data/events.json \
+            --path data/events/by-source/ \
+            --path data/event-image-library.json \
+            --path data/generated-image-registry.json \
+            --path data/blog-generated-image-registry.json \
+            --path data/blog-cover-ledger.json \
+            --path data/blog-cover-replacements.json \
+            --path data/image-credits-blog.json \
+            --path packages/articles/content/image-credits/blog/ \
+            --optional-path public/images/blog/ \
+            --optional-path public/images/places/ \
+            --optional-path public/images/authors/ \
+            --branch chore/license-audit \
+            --commit-message 'chore(licenses): recurring audit and governed replacements' \
+            --title 'chore(licenses): recurring audit and governed replacements' \
+            --body-file "$RUNNER_TEMP/license-audit-pr-body.md"
+
+      - name: Stop Codex broker
+        if: always() && steps.setup_codex.outputs.codex_auth_broker_socket != ''
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          node -e 'const net=require("node:net"); const s=net.createConnection(process.env.CODEX_AUTH_BROKER_SOCKET,()=>s.end(JSON.stringify({op:"cleanup"})+"\n")); s.on("error",()=>{});'
