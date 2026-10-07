@@ -84,6 +84,7 @@ export function mergeEventsIntoSlice({
   crawledAt,
   detailFailureIds = [],
   detailAttemptCount,
+  detailFailureStrategy = 'reuse-or-reject',
 }) {
   let existing = [];
   if (existsSync(slicePath)) {
@@ -117,16 +118,35 @@ export function mergeEventsIntoSlice({
       return { ...previous };
     },
   });
-  if (!detailReuse.canPublish) {
+  // MySwitzerland has an independently verified Algolia event row. When its
+  // detail transport stops on the 406 policy threshold, the caller may make
+  // that source-backed fallback explicit. It must still provide a fresh row
+  // for every failed identity; other sources keep the shared reject policy.
+  const freshEventIds = new Set(
+    safeFreshEvents.map((event) => (typeof event?.id === 'string' ? event.id.trim() : '')).filter(Boolean),
+  );
+  const canPublishSourceBackedIndex = sourceKey === 'myswitzerland'
+    && detailFailureStrategy === 'source-backed-index'
+    && detailReuse.detailFailureCount > 0
+    && detailReuse.invalidFailureIdentityCount === 0
+    && detailReuse.duplicateFailureIdentityCount === 0
+    && detailReuse.previousSnapshotIdentityCollisionCount === 0
+    && detailReuse.detailFailureIdentities.every((identity) => freshEventIds.has(identity));
+  if (!detailReuse.canPublish && !canPublishSourceBackedIndex) {
     throw new Error(
       `[${sourceKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
       + `${detailReuse.attemptedCount} attempted detail(s)`,
     );
   }
+  if (canPublishSourceBackedIndex) {
+    console.warn(
+      `[${sourceKey}] detail failure/reuse policy exceeded; publishing the explicit source-backed index fallback`,
+    );
+  }
   if (detailReuse.detailFailureCount > 0) {
     console.warn(
       `[${sourceKey}] detail failure/reuse accounting: ${detailReuse.detailFailureCount} failed, `
-      + `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`,
+      + `${canPublishSourceBackedIndex ? 'index-backed rows published' : `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`}`,
     );
   }
 
@@ -137,7 +157,8 @@ export function mergeEventsIntoSlice({
   );
   // Deliberately retain goneIds: source disappearance is a crawl observation,
   // not authorization to erase a public event URL.
-  for (const event of detailReuse.rows) {
+  const rowsToMerge = canPublishSourceBackedIndex ? safeFreshEvents : detailReuse.rows;
+  for (const event of rowsToMerge) {
     if (!event?.id) continue;
     const previous = byId.get(event.id);
     byId.set(
