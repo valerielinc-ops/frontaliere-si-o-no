@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * seed-job-alert-cadence.mjs — give every job-alert recipient a starting
  * cadence tier, read off the engagement history the ESP webhooks already wrote
@@ -32,8 +34,6 @@
  * Env: GOOGLE_APPLICATION_CREDENTIALS (Firebase SA).
  */
 
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import {
   JOB_ALERT_CADENCE_CEILING_DAYS,
@@ -202,7 +202,7 @@ async function main() {
   console.log(`✅ seeded ${plan.writes.length} recipients.`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ seed-job-alert-cadence.mjs failed:', error);
     process.exitCode = 1;

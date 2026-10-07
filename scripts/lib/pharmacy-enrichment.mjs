@@ -89,6 +89,11 @@ function digits(value) {
   return text(value).replace(/\D/g, '');
 }
 
+function vatNumber(value) {
+  const candidate = digits(value);
+  return /^\d{11}$/.test(candidate) ? candidate : undefined;
+}
+
 function normaliseTime(hour, minute) {
   const h = Number(hour);
   const m = Number(minute);
@@ -148,6 +153,16 @@ export function parseItalianHours(value) {
       }
     }
   }
+
+  // Preserve an explicitly published closed day instead of silently making
+  // the schedule look incomplete. The renderer and JSON-LD both know how to
+  // distinguish this marker from an opening interval.
+  const closedPattern = /\b(lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica|monday|tuesday|wednesday|thursday|friday|saturday|sunday)(?:\s+(?:a|al|ad|-)\s+(lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica|monday|tuesday|wednesday|thursday|friday|saturday|sunday))?\s*:?\s*(?:chius[oa]|closed)\b/gi;
+  for (const match of raw.matchAll(closedPattern)) {
+    const names = ITALIAN_DAYS.some((day) => normalize(day) === normalize(match[1])) ? ITALIAN_DAYS : ENGLISH_DAYS;
+    const dayText = match[2] ? `${match[1]} a ${match[2]}` : match[1];
+    for (const day of parseDayRange(dayText, names)) result.push({ dayOfWeek: day, opens: '', closes: '', isClosed: true });
+  }
   return dedupeHours(result);
 }
 
@@ -206,6 +221,44 @@ function pdfPhoneCandidate(pdfText, pharmacy) {
   return selected?.raw;
 }
 
+function pdfVatNumberCandidate(pdfText, pharmacy) {
+  const normalizedPdf = normalize(pdfText);
+  const nameToken = [...normalizedTokens(pharmacy.name)]
+    .filter((token) => token !== normalize(pharmacy.city))
+    .sort((left, right) => right.length - left.length)[0];
+  if (!nameToken) return undefined;
+  const nameAnchors = [...new Set([
+    normalize(pharmacy.name),
+    `farmacia ${nameToken}`,
+  ].filter(Boolean))].sort((left, right) => right.length - left.length);
+  const matches = [...normalizedPdf.matchAll(/(?:p\.?\s*iva|partita\s+iva|vat)\s*[:#-]?\s*((?:\d[\s./-]*){10}\d)/gi)];
+  const candidates = matches
+    .filter((match) => {
+      const vatIndex = match.index ?? -1;
+      if (vatIndex < 0) return false;
+      const beforeVat = normalizedPdf.slice(Math.max(0, vatIndex - 720), vatIndex);
+      const anchor = nameAnchors
+        .map((value) => ({ value, index: beforeVat.lastIndexOf(value) }))
+        .filter((candidate) => candidate.index >= 0)
+        .sort((left, right) => right.index - left.index)[0];
+      if (!anchor) return false;
+      const absoluteAnchorIndex = Math.max(0, vatIndex - 720) + anchor.index;
+      // A VAT is valid only inside the row that starts at this pharmacy's
+      // explicit name anchor. Stop before the next pharmacy heading so a
+      // document-wide "sole VAT" cannot leak into an adjacent row.
+      const rowUntilVat = normalizedPdf.slice(absoluteAnchorIndex, vatIndex + match[0].length);
+      const nextIdentityOffset = rowUntilVat.slice(anchor.value.length).search(/\b(?:farmacia|pharmacie|apotheke)\b/i);
+      const row = nextIdentityOffset >= 0
+        ? rowUntilVat.slice(0, anchor.value.length + nextIdentityOffset)
+        : rowUntilVat;
+      return pdfIdentityMatches(pharmacy, row);
+    })
+    .map((match) => vatNumber(match[1]))
+    .filter(Boolean);
+  const unique = [...new Set(candidates)];
+  return unique.length === 1 ? unique[0] : undefined;
+}
+
 /** Extract only allow-listed facts from an official PDF row/list. */
 export function extractPdfFacts(pdfText, pharmacy, source) {
   const sourceUpdatedAt = pdfSourceUpdatedAt(pdfText);
@@ -214,6 +267,10 @@ export function extractPdfFacts(pdfText, pharmacy, source) {
   if (new Set(source.fields || []).has('phone')) {
     const phone = pdfPhoneCandidate(pdfText, pharmacy);
     if (phone) facts.phone = phone;
+  }
+  if (new Set(source.fields || []).has('vatNumber')) {
+    const value = pdfVatNumberCandidate(pdfText, pharmacy);
+    if (value) facts.vatNumber = value;
   }
   return { facts, sourceUpdatedAt, matched: true };
 }
@@ -302,6 +359,27 @@ function addExternalSource(record, source, checkedAt, fields, sourceUpdatedAt) {
   ];
 }
 
+function sanitizePublicFacebookFacts(value) {
+  const facts = value && typeof value === 'object' ? value : {};
+  const sanitized = {};
+  const phone = text(facts.phone);
+  if (digits(phone).length >= 8 && digits(phone).length <= 15) sanitized.phone = phone;
+  const email = text(facts.contactEmail);
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) sanitized.contactEmail = email;
+  const website = safeHttpsUrl(facts.website);
+  if (website) sanitized.website = website;
+  if (Array.isArray(facts.openingHours)) {
+    const openingHours = facts.openingHours.flatMap((hour) => {
+      if (!hour || !DAYS.includes(hour.dayOfWeek)) return [];
+      if (hour.isClosed === true) return [{ dayOfWeek: hour.dayOfWeek, opens: '', closes: '', isClosed: true }];
+      if (!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(String(hour.opens || '')) || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(String(hour.closes || ''))) return [];
+      return [{ dayOfWeek: hour.dayOfWeek, opens: hour.opens, closes: hour.closes }];
+    });
+    if (openingHours.length) sanitized.openingHours = openingHours;
+  }
+  return sanitized;
+}
+
 function identityMatches(pharmacy, bodyText) {
   const body = normalize(bodyText);
   const city = normalize(pharmacy.city);
@@ -309,8 +387,33 @@ function identityMatches(pharmacy, bodyText) {
   const streetName = address.replace(/\b\d+[a-z]?\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
   const number = (address.match(/\b\d+[a-z]?\b/i) || [])[0];
   if (!city || !body.includes(city)) return false;
-  if (streetName && !body.includes(streetName)) return false;
-  if (number && !body.includes(number)) return false;
+  const streetTokens = [...normalizedTokens(streetName)]
+    .filter((token) => !['via', 'viale', 'piazza', 'corso', 'largo', 'strada', 'vicolo', 'contrada'].includes(token))
+    .filter((token) => token !== city && token.length >= 4);
+  const numberPattern = number
+    ? new RegExp(`(?:^|[^0-9])${escapeRegExp(number)}(?=$|[^0-9])`, 'i')
+    : null;
+  const civicNumberNear = (anchorIndex) => {
+    if (!numberPattern || anchorIndex < 0) return !numberPattern;
+    const windowStart = Math.max(0, anchorIndex - 24);
+    const windowEnd = Math.min(body.length, anchorIndex + streetName.length + 96);
+    return numberPattern.test(body.slice(windowStart, windowEnd));
+  };
+  const fullStreetIndex = streetName ? body.indexOf(streetName) : -1;
+  const fullStreetMatch = !streetName || (fullStreetIndex >= 0 && civicNumberNear(fullStreetIndex));
+  // Public registries may omit a middle street-name component (for example
+  // "Via Matteotti" versus the catalogue's "Via Giacomo Matteotti"). Keep a
+  // full normalized street-name + nearby civic-number match as the default;
+  // the abbreviated fallback still requires a non-city street token beside a
+  // street label and the same civic number.
+  const abbreviatedStreetMatch = streetTokens.some((token) => {
+    const tokenIndex = body.indexOf(token);
+    if (tokenIndex < 0 || !civicNumberNear(tokenIndex)) return false;
+    const prefix = body.slice(Math.max(0, tokenIndex - 80), tokenIndex);
+    return /\b(?:via|viale|piazza|corso|largo|strada|vicolo|contrada)\b/i.test(prefix);
+  });
+  const streetMatch = fullStreetMatch || abbreviatedStreetMatch;
+  if (!streetMatch) return false;
   const tokens = [...normalizedTokens(pharmacy.name)];
   return tokens.length === 0 || tokens.some((token) => body.includes(token));
 }
@@ -340,6 +443,12 @@ function extractHtmlFacts(html, pharmacy, source) {
     .map((link) => link.getAttribute('href')?.replace(/^mailto:/i, '').split('?')[0].trim())
     .find((value) => value && !/pec|privacy|noreply/i.test(value));
   if (wanted.has('contactEmail') && email) facts.contactEmail = email;
+
+  if (wanted.has('vatNumber')) {
+    const value = bodyText.match(/(?:p\.?\s*iva|partita\s+iva|vat)\s*[:#-]?\s*((?:\d[\s./-]*){10}\d)/i)?.[1];
+    const parsedVat = vatNumber(value);
+    if (parsedVat) facts.vatNumber = parsedVat;
+  }
 
   if (wanted.has('openingHours')) {
     const heading = [...document.querySelectorAll('h1,h2,h3,h4,strong')]
@@ -563,6 +672,42 @@ async function enrichFacebookProvider(records, pharmacies, provider, checkedAt, 
   }
 }
 
+/**
+ * Apply facts collected by the unauthenticated public-page discovery job.
+ * The discovery report is deliberately a separate input so that a search
+ * result can never become a site fact by itself: only a candidate with a
+ * strict identity match and an HTTPS Facebook page URL is accepted here.
+ */
+export function applyPublicFacebookDiscovery(records, pharmacies, discovery, checkedAt, warnings = []) {
+  const byId = new Map((pharmacies || []).map((pharmacy) => [pharmacy.id, pharmacy]));
+  const allowedFields = ['phone', 'website', 'openingHours', 'contactEmail'];
+  for (const candidate of discovery?.candidates || []) {
+    if (candidate?.status !== 'candidate_publicly_verified') continue;
+    const pharmacy = byId.get(candidate.pharmacyId);
+    const verified = candidate.verified;
+    const url = safeHttpsUrl(verified?.pageUrl);
+    let host = '';
+    try { host = url ? new URL(url).hostname.toLowerCase() : ''; } catch { /* validated below */ }
+    if (!pharmacy || !verified?.matched || !url || !/(^|\.)facebook\.com$/.test(host)) {
+      warnings.push(`facebook-public:${candidate?.pharmacyId || '<unknown>'}: invalid verified candidate; no facts published`);
+      continue;
+    }
+    const facts = sanitizePublicFacebookFacts(verified.facts);
+    const fields = allowedFields.filter((field) => hasFieldValue(facts[field]));
+    if (!fields.length) continue;
+    records[pharmacy.id] ||= { checkedAt };
+    const source = {
+      id: `facebook-public:${pharmacy.id}`,
+      url,
+      label: 'Facebook — pagina pubblica',
+      sourceType: 'facebook',
+      fields,
+    };
+    for (const field of fields) setFact(records[pharmacy.id], field, facts[field], source, checkedAt);
+    addExternalSource(records[pharmacy.id], source, checkedAt, fields);
+  }
+}
+
 export async function enrichPharmacyRecords(
   pharmacies,
   config,
@@ -575,6 +720,7 @@ export async function enrichPharmacyRecords(
     googleApiKey,
     facebookPageId,
     facebookAccessToken,
+    facebookPublicDiscovery,
   } = {},
 ) {
   const catalogueIds = new Set((pharmacies || []).map((pharmacy) => pharmacy.id));
@@ -618,6 +764,7 @@ export async function enrichPharmacyRecords(
   if (config?.providers?.facebook?.enabled && typeof fetchJson === 'function') {
     await enrichFacebookProvider(records, pharmacies, config.providers.facebook, checkedAt, fetchJson, facebookPageId, facebookAccessToken, warnings);
   }
+  applyPublicFacebookDiscovery(records, pharmacies, facebookPublicDiscovery, checkedAt, warnings);
   return { records, warnings, providerUsage };
 }
 

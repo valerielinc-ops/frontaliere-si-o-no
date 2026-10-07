@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Snapshot border-wait history from Firestore → data/border-wait-history/.
  *
@@ -236,7 +238,7 @@ async function main() {
 }
 
 // Only run main() when invoked as a CLI, not when imported.
-const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const invokedAsCli = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   main().catch((err) => {
     console.error('❌ snapshot-border-wait-history failed:', err);

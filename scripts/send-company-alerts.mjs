@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * CompanyAlert — IMMEDIATE sender (issue #5012, phase 2 of #5151).
  *
@@ -1783,7 +1785,7 @@ async function main() {
   console.log(`   📊 Delivery ledger finalized — accepted ${acceptedEmails}, ambiguous ${ambiguousEmails}, failed ${failedEmails}; ${updatedAlerts} alert(s) updated`);
 }
 
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('❌ send-company-alerts failed:', err);

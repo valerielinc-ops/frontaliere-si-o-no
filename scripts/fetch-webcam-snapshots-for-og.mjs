@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * fetch-webcam-snapshots-for-og.mjs — F8 Open-Graph image refresh
  *
@@ -251,7 +252,7 @@ async function main() {
 
 // Only run main() when invoked as a script, not when imported.
 const invokedDirectly =
-  import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('\x1b[31m[og-webcam]\x1b[0m fatal:', err);

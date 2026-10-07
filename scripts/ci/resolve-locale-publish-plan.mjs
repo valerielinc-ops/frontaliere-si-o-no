@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Resolve the safe per-locale admission plan for a completed deploy run.
  *
@@ -12,8 +14,7 @@
  * never publish admission.
  */
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   LOCALES,
   readLocalePublishProvenanceDirectory,
@@ -369,4 +370,4 @@ function main() {
   console.log(JSON.stringify(plan));
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

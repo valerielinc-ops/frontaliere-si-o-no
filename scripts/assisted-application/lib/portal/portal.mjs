@@ -27,7 +27,8 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { holdsValue, planPage } from './plan.mjs';
+import { holdsValue, planPage, questionTopic } from './plan.mjs';
+import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
@@ -138,17 +139,17 @@ export function slugId(text) {
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
 export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
-  const parts = String(identity.name || '').trim().split(/\s+/);
-  // The split the candidate chose on the review page, else the last word is the surname.
-  const chosen = typeof identity.firstName === 'string';
+  // The split the candidate chose on the review page, else the surname with its particles (splitName).
+  const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
+  const portalQuestionsAnswered = portalAnswersForQuestions(portalQuestions, answers);
   return {
     identity: {
       fullName: identity.name,
-      firstName: chosen ? identity.firstName : parts.length > 1 ? parts.slice(0, -1).join(' ') : parts[0] || '',
-      lastName: chosen ? identity.lastName : parts.length > 1 ? parts[parts.length - 1] : '',
+      firstName: names.firstName,
+      lastName: names.lastName,
       email: identity.email,
       phone: identity.phone,
       location: profile.location || '',
@@ -167,6 +168,13 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       languages: profile.languages || [],
       education: (profile.education || []).slice(0, 4)
         .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
+      currentEducation: {
+        degree: profile.currentEducation?.degree || '',
+        institution: profile.currentEducation?.institution || '',
+        start: profile.currentEducation?.start || '',
+        end: profile.currentEducation?.end || '',
+        grade: profile.currentEducation?.grade || '',
+      },
       // Nothing chosen: the CV's own words, never a permit to come nor «no permit» (lib/permitStatus.js).
       workPermit: status ? '' : printedPermitText(profile.workPermit),
       availability: profile.availability || '',
@@ -180,8 +188,7 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     swissStatus: status ? { code: status, statement: permitStatement(status, language) } : null,
     // The status chosen replaces the answer to the permit question: the statement says it.
     answers: status ? Object.fromEntries(Object.entries(answers).filter(([id]) => id !== 'work_permit')) : answers,
-    portalQuestionsAnswered: portalQuestions.filter((question) => String(answers[question.id] ?? '').trim())
-      .map((question) => ({ question: question.question, answer: answers[question.id] })),
+    portalQuestionsAnswered,
     texts: {
       motivationShort: motivation.motivationShort || '',
       whyCompany: motivation.whyCompany || '',
@@ -190,6 +197,29 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
     // The requested documents the candidate gave (assistedApplicationExtraDocuments.js), by form slot.
     documents: { cv: true, cover_letter: true, extra: extraDocuments.map(({ slot, label, kind }) => ({ slot, label, kind })) },
   };
+}
+
+/**
+ * Keep portal answers usable when an ATS changes a question's wording or
+ * regenerates its field id between account creation and the application form.
+ * Exact ids win; a canonical topic is only used for the small set of fields
+ * whose meaning is unambiguous (address, nationality, permit, birth date and
+ * current school).
+ */
+function portalAnswersForQuestions(questions, answers) {
+  const items = questions.map((question) => ({ question, answer: String(answers[question.id] ?? '').trim() }))
+    .filter((item) => item.answer);
+  const seen = new Map();
+  for (const item of items) {
+    const topic = questionTopic(item.question.question);
+    const key = topic || item.question.id;
+    const previous = seen.get(key);
+    // Prefer an answer stored under this exact question id over an alias found
+    // only by semantic topic.
+    const exact = String(answers[item.question.id] ?? '').trim();
+    if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
+  }
+  return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer }));
 }
 
 /** How an upload reads in the evidence: [CV], [lettera di presentazione], [documento: Bulletins scolaires]. */

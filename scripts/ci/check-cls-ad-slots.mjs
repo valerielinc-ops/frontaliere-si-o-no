@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-cls-ad-slots.mjs — zero-Claude, deterministic CI gate that forbids
  * hard-coded AdSense `<ins>` markup in build-plugin static HTML.
@@ -42,7 +44,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 
 const argv = process.argv.slice(2);
@@ -237,6 +239,6 @@ function main() {
 
 // Run only as a CLI entrypoint — importing the pure helpers (findViolations,
 // ALLOWED, AD_MARKER) for tests must not trigger the gate's process.exit.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

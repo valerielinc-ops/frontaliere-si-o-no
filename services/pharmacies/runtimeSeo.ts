@@ -267,12 +267,17 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
       closes: hour.closes,
     }));
   const descriptiveName = pharmacy.name.replace(/[.!?]+$/, '');
+  const identifiers = [
+    pharmacy.ministryId ? { '@type': 'PropertyValue', propertyID: 'Italian Ministry of Health pharmacy code', value: pharmacy.ministryId } : undefined,
+    pharmacy.vatNumber ? { '@type': 'PropertyValue', propertyID: 'Italian VAT number', value: pharmacy.vatNumber } : undefined,
+  ].filter(Boolean);
   return {
     '@context': 'https://schema.org',
     '@type': 'Pharmacy',
     name: pharmacy.name,
     url: `${BASE_URL}${buildPharmacyPath(path, locale)}`,
     description: `${descriptiveName}. ${pharmacy.address}, ${pharmacy.postalCode} ${pharmacy.city}.`,
+    ...(pharmacy.lastVerifiedAt ? { dateModified: pharmacy.lastVerifiedAt } : {}),
     address: {
       '@type': 'PostalAddress',
       streetAddress: pharmacy.address,
@@ -284,6 +289,7 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
     ...(pharmacy.contactEmail ? { email: pharmacy.contactEmail } : {}),
     ...(sameAs.length ? { sameAs: sameAs.length === 1 ? sameAs[0] : sameAs } : {}),
+    ...(identifiers.length ? { identifier: identifiers.length === 1 ? identifiers[0] : identifiers } : {}),
     ...(hasMap ? { hasMap } : {}),
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
       ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } }

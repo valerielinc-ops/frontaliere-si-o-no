@@ -12,6 +12,11 @@
 
 import { normalizeOrganizationIdentities } from '../../services/seo/organizationLd';
 
+export interface InlineScriptJsonOptions {
+  /** Keep name-only Organization nodes anonymous when the source is unverified. */
+  readonly allowNameOnlyOrganizationIds?: boolean;
+}
+
 /** Neutralise `<` in an ALREADY-serialized JSON/JSON-LD string so it is safe
  * inside an inline `<script>` (incl. `<script type="application/ld+json">`).
  * `<` → `<` is valid JSON and parses identically (Google accepts it). */
@@ -20,12 +25,14 @@ export function escapeInlineScript(json: string): string {
 }
 
 /** JSON-encode `value` and neutralise `<` so it is safe inside an inline <script>. */
-export function inlineScriptJson(value: unknown): string {
+export function inlineScriptJson(value: unknown, options: InlineScriptJsonOptions = {}): string {
   // Article-engine emitters use this host-provided serializer through the
   // SiteShellContract. Normalize only payloads that actually contain an
   // Organization node so arbitrary window data keeps its original shape.
   const normalized = containsOrganizationNode(value)
-    ? normalizeOrganizationIdentities(value)
+    ? normalizeOrganizationIdentities(value, {
+        allowNameOnlyFallback: options.allowNameOnlyOrganizationIds !== false,
+      })
     : value;
   return escapeInlineScript(JSON.stringify(normalized));
 }

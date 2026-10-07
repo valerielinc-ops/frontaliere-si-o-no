@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-quota-backoff.mjs — zero-Claude PRE-FLIGHT gate per issue-fix.yml.
  *
@@ -67,8 +69,7 @@
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
 import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import {
@@ -411,7 +412,7 @@ function main() {
 // The historical beacon remains proceed-safe when the optional floor is off.
 // A required floor is different: an unhandled read/mutation error must not
 // let a provider start without a reservation.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (e) {

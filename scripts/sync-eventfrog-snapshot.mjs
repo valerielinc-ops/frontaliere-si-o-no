@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Daily Eventfrog → private snapshot sync (Ticino). Run by crawl-events.yml.
  *
@@ -29,7 +31,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { fetchTicinoEventfrogRecords, createRequestPacer } from './lib/eventfrog.mjs';
 import {
   buildSnapshot,
@@ -169,7 +171,7 @@ export async function run(opts = {}) {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   run().then(
     (outcome) => process.exit(outcome.exitCode),

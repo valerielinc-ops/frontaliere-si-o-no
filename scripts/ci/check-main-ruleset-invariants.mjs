@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * check-main-ruleset-invariants.mjs — verifica che il Ruleset di `main` imponga
@@ -148,4 +150,4 @@ async function main() {
   process.exit(verdict.ok ? 0 : 1);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) await main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) await main();

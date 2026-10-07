@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Telegram broadcast poster for the free Bot API channel.
  *
@@ -225,7 +227,7 @@ async function main() {
   }
 }
 
-const isDirectInvocation = import.meta.url === `file://${process.argv[1]}`;
+const isDirectInvocation = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectInvocation) {
   main().then(
     () => process.exit(0),

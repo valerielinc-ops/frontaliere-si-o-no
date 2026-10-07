@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * backfill-saved-jobs-digest-optin.mjs — one-time activation of the weekly
  * saved-jobs digest for accounts that saved a listing before activation-on-save.
@@ -92,7 +93,7 @@ async function main() {
   console.log(apply ? `✅ Activated ${written} account(s).` : `🧪 Dry-run: ${counts.activate || 0} account(s) would be activated.`);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((e) => {
     console.error('❌ Backfill failed:', e?.stack || e?.message || e);
     process.exit(1);

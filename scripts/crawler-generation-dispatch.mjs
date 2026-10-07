@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
@@ -29,7 +31,6 @@ import {
 } from './lib/crawler-generation-group-ids.mjs';
 
 export const GITHUB_API_VERSION = CRAWLER_GENERATION_GITHUB_API_VERSION;
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const OBSERVER_WORKFLOW_FILE = 'crawler-generation-observer-shadow.yml';
 const OBSERVER_TARGET = `.github/workflows/${OBSERVER_WORKFLOW_FILE}`;
 const MAX_RESPONSE_BYTES = 1024 * 1024;
@@ -1515,7 +1516,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
   return outcome;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runCrawlerGenerationDispatchCli().catch((error) => {
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = 2;

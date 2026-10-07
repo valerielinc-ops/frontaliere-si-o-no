@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * audit-keyword-landing-coverage.mjs — dist/-level coverage gate for the GSC
  * keyword-landing family (build-plugins/jobsSeoPagesPlugin.ts, the
@@ -307,9 +308,8 @@ async function main() {
 // scripts/audit-orphan-pages-in-sitemaps.mjs.
 const invokedDirectly = (() => {
   try {
-    const thisFile = fileURLToPath(import.meta.url);
     const argv1 = process.argv[1] ? process.argv[1] : '';
-    return Boolean(argv1) && (argv1 === thisFile || argv1.endsWith('audit-keyword-landing-coverage.mjs'));
+    return Boolean(argv1) && ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })());
   } catch {
     return false;
   }

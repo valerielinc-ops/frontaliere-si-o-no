@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * slug-translation-audit.mjs — Workstream G.1
  *
@@ -262,8 +264,7 @@ function main() {
   console.log(`[slug-translation-audit] ${jobs.length} jobs → brand=${findings.brand.length} identical=${findings.identical.length} literal=${findings.literal.length}`);
 }
 
-const invokedDirectly = import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('slug-translation-audit.mjs');
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try {
     main();

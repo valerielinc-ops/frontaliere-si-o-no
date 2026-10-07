@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated PostFinance crawler runner.
  * Discovers PostFinance positions (CH-wide, all 26 cantons) via the
@@ -1380,7 +1382,7 @@ async function main() {
 
 // Only run the crawler pipeline when invoked directly from the CLI
 // (not when imported by tests or other modules that want helper exports).
-const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const _isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (_isMain) {
   main().catch((err) => exitCrawlerOnError(err, 'PostFinance'));
 }

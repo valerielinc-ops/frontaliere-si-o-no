@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-sibling-patterns.mjs — surface untouched sibling files that share the
  * code constructs your branch just changed (zero-Claude, deterministico).
@@ -119,7 +121,7 @@ import {
 } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import {
   astMatchLabels,
@@ -1461,7 +1463,7 @@ function main() {
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main();
 }

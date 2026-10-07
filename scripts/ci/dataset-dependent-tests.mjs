@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * dataset-dependent-tests.mjs — classifica i test in base al fatto che leggano
  * o meno gli OUTPUT di `scripts/assemble-jobs-dataset.mjs`.
@@ -796,7 +798,7 @@ export function shouldAssembleForRelatedTests({
   return { required: false, reason: 'related selection is dataset-independent' };
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const mode = process.argv.includes('--independent') ? 'independent' : 'dependent';
   const list = mode === 'independent' ? listDatasetIndependentTests() : listDatasetDependentTests();
   if (process.argv.includes('--count')) {

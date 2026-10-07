@@ -150,7 +150,7 @@ describe('identify-top-marquee-by-gsc.mjs — last-good wins on degradation', ()
   it('does not run main() on import', () => {
     // The module exports resolveServiceAccount for this file; an unguarded
     // main() would run a live GSC pull — and its process.exit — inside vitest.
-    expect(src).toMatch(/const invokedDirectly = import\.meta\.url === pathToFileURL/);
+    expect(src).toMatch(/const invokedDirectly = .*pathToFileURL\(realpathSync\(process\.argv\[1\]\)\)\.href/);
   });
 });
 

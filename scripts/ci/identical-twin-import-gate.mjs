@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * identical-twin-import-gate.mjs — cancello di PR: un gemello `identical` non
  * acquista un import relativo verso un file che il corpus non avra'.
@@ -278,7 +280,7 @@ export async function main(argv = process.argv.slice(2)) {
   return 0;
 }
 
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (invokedDirectly) {
   main().then(

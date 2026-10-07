@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Audit deterministico dell'intero inventario GitHub Actions.
  *
@@ -2490,7 +2492,7 @@ async function main() {
   if (argv.includes('--strict') && summary.error > 0 && !issuePersisted) process.exitCode = 1;
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) main().catch((error) => {
   console.error(error.stack || error.message);
   process.exitCode = 2;

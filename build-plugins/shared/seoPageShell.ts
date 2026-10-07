@@ -150,7 +150,9 @@ function normalizeWebPageIdentity(value: JsonLdRecord): boolean {
  */
 export function normalizeStaticJsonLdScripts(
   scripts: readonly string[] | undefined,
+  options: { readonly allowNameOnlyOrganizationIds?: boolean } = {},
 ): string[] {
+  const allowNameOnlyOrganizationIds = options.allowNameOnlyOrganizationIds !== false;
   return (scripts ?? []).map((raw) => {
     let parsed: unknown;
     try {
@@ -190,7 +192,9 @@ export function normalizeStaticJsonLdScripts(
       }
 
       if (hasSchemaType(record, 'Organization')) {
-        const stableId = stableOrganizationId(record);
+        const stableId = stableOrganizationId(record, {
+          allowNameOnlyFallback: allowNameOnlyOrganizationIds,
+        });
         if (stableId && record['@id'] !== stableId) {
           record['@id'] = stableId;
           changed = true;
@@ -317,6 +321,8 @@ export interface SeoPageShellOpts {
   bodyHtml: string;
   /** JSON-LD payloads as stringified JSON (one entry per `<script>` tag). */
   jsonLdScripts?: string[];
+  /** Whether name-only Organization nodes may receive a synthetic fallback ID. */
+  allowNameOnlyOrganizationIds?: boolean;
   /** Per-page og:image override. Defaults to site-wide og-image.png (1200×630). */
   ogImage?: string;
   ogImageWidth?: number;
@@ -422,6 +428,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     hreflangHtml,
     bodyHtml,
     jsonLdScripts,
+    allowNameOnlyOrganizationIds = true,
     extraHeadHtml,
     ogImage,
     ogImageWidth,
@@ -474,7 +481,7 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageType,
     ogImageAlt,
     extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
-    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts),
+    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts, { allowNameOnlyOrganizationIds }),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,

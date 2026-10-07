@@ -705,7 +705,6 @@ describe('contratto del gemello del corpus (generator/tests/conflict-handoff-rec
       './stale-claim-detector.mjs',
       'node:child_process',
       'node:fs',
-      'node:path',
       'node:url',
     ]);
   });

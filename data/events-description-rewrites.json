@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T00:37:19.457Z",
+  "generatedAt": "2026-10-07T18:00:07.860Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v1",
   "entries": {
@@ -200,6 +200,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:44:16.071Z"
     },
+    "ge-agenda:animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203::de51fc27f122334d172739c8e3bff2d342c61e893a936b3b21ddc8a9c5ccbbc2": {
+      "id": "ge-agenda:animations-conseils-autour-borne-reparation-velo-carrefour-aire-furet-1203",
+      "sourceDescriptionHash": "de51fc27f122334d172739c8e3bff2d342c61e893a936b3b21ddc8a9c5ccbbc2",
+      "description": "Alcuni venerdì di primavera e autunno prevedono la presenza, presso una stazione di riparazione, di una persona dell’officina bici del Pavillon Cayla. L’iniziativa ne illustra l’uso, offre accompagnamento e anima questo nuovo strumento.",
+      "descriptionByLocale": {
+        "it": "Alcuni venerdì di primavera e autunno prevedono la presenza, presso una stazione di riparazione, di una persona dell’officina bici del Pavillon Cayla. L’iniziativa ne illustra l’uso, offre accompagnamento e anima questo nuovo strumento.",
+        "en": "On some Fridays in spring and autumn, a person from the Pavillon Cayla bicycle workshop is present at a repair station in Geneva. The activity explains how to use the station, provides guidance and animates the new facility.",
+        "de": "An bestimmten Freitagen im Frühling und Herbst ist in Genf eine Person aus der Velowerkstatt des Pavillon Cayla bei einer Reparaturstation anwesend. Sie erklärt die Nutzung der Station, unterstützt bei ihrer Verwendung und belebt dieses neue Angebot.",
+        "fr": "À Genève, certains vendredis de printemps et d’automne, un membre de l’atelier vélo du Pavillon Cayla est présent autour d’une borne de réparation. Il en explique l’usage, apporte un accompagnement et anime ce nouvel équipement."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.406Z"
+    },
     "ge-agenda:archives-manquantes-combler-effacements-memoire-queer-soiree-ouverture-table-ronde::1c91efc30fe45ade0d8f49e197e24d0f156f9f3c78c4b4ab0b0c6ac1d2eb4e81": {
       "id": "ge-agenda:archives-manquantes-combler-effacements-memoire-queer-soiree-ouverture-table-ronde",
       "sourceDescriptionHash": "1c91efc30fe45ade0d8f49e197e24d0f156f9f3c78c4b4ab0b0c6ac1d2eb4e81",
@@ -283,6 +297,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:56:33.901Z"
+    },
+    "ge-agenda:avez-memes-38::312afb1ec819452d12efc42fbcc0b984680fe7c45f03ab782b7ed29f36841620": {
+      "id": "ge-agenda:avez-memes-38",
+      "sourceDescriptionHash": "312afb1ec819452d12efc42fbcc0b984680fe7c45f03ab782b7ed29f36841620",
+      "description": "Si tratta di uno spettacolo teatrale proposto a Ginevra. Il prezzo indicato è di 10 CHF.",
+      "descriptionByLocale": {
+        "it": "Si tratta di uno spettacolo teatrale proposto a Ginevra. Il prezzo indicato è di 10 CHF.",
+        "en": "This is a theatre performance in Geneva. The listed price is CHF 10.",
+        "de": "Die Veranstaltung ist eine Theateraufführung in Genf. Der angegebene Preis beträgt 10 CHF.",
+        "fr": "Il s’agit d’un spectacle théâtral à Genève. Le tarif indiqué est de 10 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.408Z"
     },
     "ge-agenda:bacchanales::19db13e0332074dc788b1b8300e770a86697bd709d9b20ebf8a3bf911efc9996": {
       "id": "ge-agenda:bacchanales",
@@ -549,6 +577,34 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-07T00:36:39.861Z"
+    },
+    "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis-0::5410e695f9b68166205349faf4595f9c702faeed5d5110cd28d049f72d6edeb7": {
+      "id": "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis-0",
+      "sourceDescriptionHash": "5410e695f9b68166205349faf4595f9c702faeed5d5110cd28d049f72d6edeb7",
+      "description": "Il ciclo comprende sei atelier di scrittura animati da Agnès Abécassis. Agnès Abécassis è autrice e conduce laboratori dedicati alla scrittura.",
+      "descriptionByLocale": {
+        "it": "Il ciclo comprende sei atelier di scrittura animati da Agnès Abécassis. Agnès Abécassis è autrice e conduce laboratori dedicati alla scrittura.",
+        "en": "The cycle comprises six writing workshops led by Agnès Abécassis. She is an author who also facilitates writing workshops.",
+        "de": "Der Zyklus umfasst sechs Schreibworkshops mit Agnès Abécassis. Sie ist als Autorin zugleich als Leiterin von Schreibworkshops tätig.",
+        "fr": "Le cycle comprend six ateliers d’écriture animés par Agnès Abécassis. Autrice, celle-ci intervient également comme animatrice d’ateliers d’écriture."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.410Z"
+    },
+    "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis::32c49b8d6a58c870321c63bcb16c46bff0dfca95fdd9f9764c9f9963096f7223": {
+      "id": "ge-agenda:cycle-ateliers-ecriture-agnes-abecassis",
+      "sourceDescriptionHash": "32c49b8d6a58c870321c63bcb16c46bff0dfca95fdd9f9764c9f9963096f7223",
+      "description": "Il ciclo comprende sei atelier di scrittura animati da Agnès Abécassis. Agnès Abécassis è autrice e conduce laboratori dedicati alla scrittura.",
+      "descriptionByLocale": {
+        "it": "Il ciclo comprende sei atelier di scrittura animati da Agnès Abécassis. Agnès Abécassis è autrice e conduce laboratori dedicati alla scrittura.",
+        "en": "The cycle comprises six writing workshops led by Agnès Abécassis. She is an author who also facilitates writing workshops.",
+        "de": "Der Zyklus umfasst sechs Schreibworkshops mit Agnès Abécassis. Sie ist als Autorin zugleich als Leiterin von Schreibworkshops tätig.",
+        "fr": "Le cycle comprend six ateliers d’écriture animés par Agnès Abécassis. Autrice, celle-ci intervient également comme animatrice d’ateliers d’écriture."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.409Z"
     },
     "ge-agenda:decide-lance-clarifier-motivations-affirmer-legitimite::cc61325e30f5a582b9ee6214a6a8671b7df8598b1eabd2064828ca2b7a709a15": {
       "id": "ge-agenda:decide-lance-clarifier-motivations-affirmer-legitimite",
@@ -3042,6 +3098,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T08:48:04.914Z"
     },
+    "tio-agenda:62822::5ba30acfdcaaaacfe54a7a87b7229728636f99d33494d00d4f4ead37fb76e6a3": {
+      "id": "tio-agenda:62822",
+      "sourceDescriptionHash": "5ba30acfdcaaaacfe54a7a87b7229728636f99d33494d00d4f4ead37fb76e6a3",
+      "description": "Al Castel Grande, la mostra di Ivo Soldini riunisce sculture monumentali collocate nel cortile interno, in relazione con le torri medievali e il panorama cittadino. Nella Sala Arsenale sono inoltre esposti più di sessanta dipinti inediti, che completano il percorso espositivo.",
+      "descriptionByLocale": {
+        "it": "Al Castel Grande, la mostra di Ivo Soldini riunisce sculture monumentali collocate nel cortile interno, in relazione con le torri medievali e il panorama cittadino. Nella Sala Arsenale sono inoltre esposti più di sessanta dipinti inediti, che completano il percorso espositivo.",
+        "en": "At Castel Grande, the exhibition of Ivo Soldini brings together monumental sculptures in the inner courtyard, set in relation to the medieval towers and the city panorama. The Sala Arsenale also contains more than sixty previously unseen paintings that complete the exhibition.",
+        "de": "Im Castel Grande vereint die Ausstellung von Ivo Soldini monumentale Skulpturen im Innenhof, die auf die mittelalterlichen Türme und das Stadtpanorama bezogen sind. In der Sala Arsenale ergänzen mehr als sechzig bisher nicht gezeigte Gemälde die Präsentation.",
+        "fr": "Au Castel Grande, l’exposition d’Ivo Soldini réunit des sculptures monumentales dans la cour intérieure, mises en relation avec les tours médiévales et le panorama urbain. La Sala Arsenale accueille également plus de soixante peintures inédites, qui complètent l’exposition."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.395Z"
+    },
     "tio-agenda:63037::840888dfef95fec4dd84fa7ecb856162e85adb23b7d7a6a4cab9427faa3c5c00": {
       "id": "tio-agenda:63037",
       "sourceDescriptionHash": "840888dfef95fec4dd84fa7ecb856162e85adb23b7d7a6a4cab9427faa3c5c00",
@@ -3209,6 +3279,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:30:56.158Z"
+    },
+    "tio-agenda:63679::145bd5579e5bc1555dc8b338d1cf834bddf9c2e07cd8277d920f13620bc90bd7": {
+      "id": "tio-agenda:63679",
+      "sourceDescriptionHash": "145bd5579e5bc1555dc8b338d1cf834bddf9c2e07cd8277d920f13620bc90bd7",
+      "description": "Al PalaCinema di Locarno, il progetto è dedicato alla videoarte contemporanea e agli artisti che lavorano con immagini in movimento. Il programma si apre con un’opera di Valentina Pini, accompagnata dal suono di Micha Seidenberg e dall’animazione di Marcin Jeż.",
+      "descriptionByLocale": {
+        "it": "Al PalaCinema di Locarno, il progetto è dedicato alla videoarte contemporanea e agli artisti che lavorano con immagini in movimento. Il programma si apre con un’opera di Valentina Pini, accompagnata dal suono di Micha Seidenberg e dall’animazione di Marcin Jeż.",
+        "en": "At PalaCinema Locarno, the project is devoted to contemporary video art and to artists working with moving images. The programme opens with a work by Valentina Pini, with sound by Micha Seidenberg and animation by Marcin Jeż.",
+        "de": "Im PalaCinema Locarno widmet sich das Projekt der zeitgenössischen Videokunst und den Kunstschaffenden, die mit bewegten Bildern arbeiten. Das Programm beginnt mit einer Arbeit von Valentina Pini, mit dem Ton von Micha Seidenberg und der Animation von Marcin Jeż.",
+        "fr": "Au PalaCinema de Locarno, le projet se consacre à la vidéo d’art contemporaine et aux artistes travaillant avec l’image en mouvement. Le programme s’ouvre sur une œuvre de Valentina Pini, avec une création sonore de Micha Seidenberg et une animation de Marcin Jeż."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.398Z"
     },
     "tio-agenda:63754::87a253f12c2b15b2789d888499a0060a9320445660489975949c95bc4ee5e679": {
       "id": "tio-agenda:63754",
@@ -3475,6 +3559,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:08:17.457Z"
+    },
+    "tio-agenda:64356::ac32dfcb8615f6547cd5a04a6bf7e6838c28a9171cd7fc3889221b237d1e4c78": {
+      "id": "tio-agenda:64356",
+      "sourceDescriptionHash": "ac32dfcb8615f6547cd5a04a6bf7e6838c28a9171cd7fc3889221b237d1e4c78",
+      "description": "La Galerie-Caslano presenta a Caslano una mostra personale di Elisabeth Hübscher, curata da Mariagrazia Poncia. Attraverso la tempera all’uovo, i dipinti osservano acqua, terra, cielo e vegetazione per conservarne l’atmosfera e suggerire il mutamento della natura.",
+      "descriptionByLocale": {
+        "it": "La Galerie-Caslano presenta a Caslano una mostra personale di Elisabeth Hübscher, curata da Mariagrazia Poncia. Attraverso la tempera all’uovo, i dipinti osservano acqua, terra, cielo e vegetazione per conservarne l’atmosfera e suggerire il mutamento della natura.",
+        "en": "In Caslano, La Galerie-Caslano presents a solo exhibition by Elisabeth Hübscher curated by Mariagrazia Poncia. Made with egg tempera, the paintings draw on water, earth, sky and vegetation to preserve the atmosphere of places and suggest nature’s change.",
+        "de": "In Caslano zeigt La Galerie-Caslano eine Einzelausstellung von Elisabeth Hübscher unter der Kuratierung von Mariagrazia Poncia. Die in Eitempera ausgeführten Bilder greifen Wasser, Erde, Himmel und Vegetation auf, um die Atmosphäre der Orte zu bewahren und den Wandel der Natur anzudeuten.",
+        "fr": "À Caslano, La Galerie-Caslano présente une exposition personnelle d’Elisabeth Hübscher, sous le commissariat de Mariagrazia Poncia. Réalisées à la tempera à l’œuf, les peintures s’inspirent de l’eau, de la terre, du ciel et de la végétation pour en préserver l’atmosphère et suggérer l’évolution de la nature."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T17:49:57.405Z"
     },
     "tio-agenda:64369::b02efbc76262b5d4dc9f6fe544bdc6ddea0b146faf0935c4b412a35d0d76c27c": {
       "id": "tio-agenda:64369",

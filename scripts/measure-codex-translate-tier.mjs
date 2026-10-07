@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Measure the Codex translation tier of scripts/lib/free-translate.mjs before
  * and after its lanes and adaptive grouping. The default scenarios use a
@@ -403,7 +405,7 @@ export async function measureRealCodexTranslateTier(texts, { real = true, modes 
   }
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const real = process.argv.includes('--real');
   if (real) {
     const inputIndex = process.argv.indexOf('--input');

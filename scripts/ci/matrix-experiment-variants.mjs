@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 export const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
@@ -141,7 +140,7 @@ function main() {
   process.stdout.write(`${JSON.stringify(matrix)}\n`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {
