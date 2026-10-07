@@ -108,6 +108,7 @@ import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-is
 import {
   GENERATED_FILE_REGISTRY,
   generatedConflictPlan,
+  generatedConflictWorktreePaths,
 } from './generated-files-registry.mjs';
 import {
   duplicateOldEnough,
@@ -525,6 +526,20 @@ export function resolveGeneratedConflictMerge({
       conflictPaths,
       unregistered: plan.unregistered,
     };
+  }
+
+  const sparseCheckout = runGit(['config', '--bool', 'core.sparseCheckout'], { allowFail: true });
+  if (String(sparseCheckout || '').trim() === 'true') {
+    const worktreePaths = generatedConflictWorktreePaths(plan);
+    if (worktreePaths.length > 0
+      && runGit(['sparse-checkout', 'add', ...worktreePaths], { allowFail: true }) === null) {
+      return {
+        status: 'failed',
+        conflictPaths,
+        reason: 'cannot materialize generator inputs: git sparse-checkout add failed',
+      };
+    }
+    // Il checkout del job e' usa e getta: non serve ripristinare i pattern aggiunti.
   }
 
   const sourceCommit = (runGit(['merge-base', 'origin/main', 'HEAD'], { allowFail: true }) || '').trim();
@@ -1939,7 +1954,15 @@ export function agentPrConflictNeedsHandOff({
  * Titolo e body della issue di hand-off. Puro: niente rete. Il titolo cambia
  * con il LGTM: la dedup si fa sulla PR di origine (`handoffIssuesForOrigin`).
  */
-export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true, closes = null }) {
+export function buildConflictHandoffIssue({
+  num,
+  branch,
+  head,
+  files,
+  lgtm = true,
+  closes = null,
+  generatedResolution = null,
+}) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
   // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
   // riapplicazione #10145 no, e #10082 sarebbe rimasta aperta a farsi rifare.
@@ -1955,8 +1978,16 @@ export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = tru
   const opening = lgtm
     ? `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`
     : `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) e' una PR del ciclo (\`agent:autofix\`) senza \`## LGTM\` ed e' in conflitto con \`main\`: con il conflitto GitHub non avvia review ne' 🔴-fixer, quindi nessun altro passo del ciclo la sblocca. I suoi 🔴 aperti tornano alla review della PR nuova.`;
+  const generatedFailure = generatedResolution?.status === 'failed'
+    ? [
+      '',
+      `Rigenerazione automatica tentata e fallita: ${generatedResolution.reason || 'motivo non disponibile'}`,
+      '<!-- GENERATED_RESOLUTION_FAILED -->',
+    ]
+    : [];
   const body = [
     opening,
+    ...generatedFailure,
     '',
     'File in conflitto:',
     '',
@@ -2297,7 +2328,13 @@ function releaseConflictResolutionLockIfNeeded(num, head, knownLabels) {
   return decision;
 }
 
-function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } = {}) {
+function handOffConflictToFixer(
+  num,
+  branch,
+  head,
+  lgtm,
+  { agentOwned = false, generatedResolution = null } = {},
+) {
   const lock = readConflictResolutionLock(num, head);
   if (lock.release) removeConflictResolutionLock(num, lock);
   if (lock.state === 'active' || lock.state === 'unreadable') {
@@ -2330,7 +2367,13 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
   const { title, body } = buildConflictHandoffIssue({
-    num, branch, head, files: verdict.files, lgtm, closes: prClosingIssueNumbers(num),
+    num,
+    branch,
+    head,
+    files: verdict.files,
+    lgtm,
+    closes: prClosingIssueNumbers(num),
+    generatedResolution,
   });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // La chiave e' la PR di ORIGINE, non il titolo (che cambia con il LGTM): una
@@ -2697,7 +2740,10 @@ async function processPR(pr) {
     if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })) {
       const generatedResolution = tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot);
       if (generatedResolution.status === 'handoff') {
-        handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: generatedResolution.generated,
+        });
       }
     }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
@@ -2782,7 +2828,10 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
-        handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: resolution.generated,
+        });
       }
       return;
     }
@@ -2982,7 +3031,10 @@ async function processPR(pr) {
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
-      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+      handOffConflictToFixer(num, branch, head, lgtm, {
+        agentOwned,
+        generatedResolution: resolution.generated,
+      });
       return;
     }
   }
