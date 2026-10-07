@@ -40,8 +40,9 @@ solo da fonti esplicitamente registrate in
   `chore/pharmacy-google-usage-reservation`. Se una prenotazione o una PR di
   refresh precedente è ancora pendente, il run successivo aggiorna gli altri
   dati ma disabilita Google Places: il ledger non può essere speso due volte
-  dallo stesso snapshot di `main`. Una prenotazione interrotta resta quindi
-  conservativa fino al merge o al cambio mese.
+  dallo stesso snapshot di `main`. L’importer riceve inoltre solo gli ID
+  contenuti nel lease, non l’intera allow-list configurata. Una prenotazione
+  interrotta resta quindi conservativa fino al merge o al cambio mese.
 - Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
   `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
   località devono corrispondere prima di accettare i dati; i post e le

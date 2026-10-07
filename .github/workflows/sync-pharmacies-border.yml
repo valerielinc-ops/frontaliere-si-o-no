@@ -80,6 +80,8 @@ jobs:
             --api-key-configured "$api_key_configured" \
             --github-output "$GITHUB_OUTPUT"
 
+          google_pharmacy_ids="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(JSON.stringify(plan.pharmacyIds || []));" "$plan_output")"
+          echo "PHARMACY_GOOGLE_PLACES_IDS_JSON=$google_pharmacy_ids" >> "$GITHUB_ENV"
           allow_google="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(plan.allowGoogle ? 'true' : 'false');" "$plan_output")"
           if [ "$allow_google" != 'true' ]; then
             echo "PHARMACY_SKIP_GOOGLE_PLACES=1" >> "$GITHUB_ENV"

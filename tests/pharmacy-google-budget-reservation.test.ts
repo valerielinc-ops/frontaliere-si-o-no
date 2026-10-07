@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { planGooglePlacesReservation } from '../scripts/ci/reserve-pharmacy-google-budget.mjs';
+import { enrichPharmacyRecords } from '../scripts/lib/pharmacy-enrichment.mjs';
 
 const checkedAt = '2026-10-07T12:00:00.000Z';
-const pharmacyIds = Array.from({ length: 10 }, (_, index) => `it-msal-${3907 + index}`);
+const pharmacyIds = Array.from({ length: 11 }, (_, index) => `it-msal-${3907 + index}`);
 const config = {
   providers: {
     googlePlaces: {
@@ -34,6 +35,30 @@ describe('serialized Google Places budget reservation', () => {
       requestCount: 10,
       reservedRequests: 10_000,
     });
+    expect(first.pharmacyIds).toHaveLength(10);
+
+    let requestCount = 0;
+    const enrichment = await enrichPharmacyRecords(
+      first.pharmacyIds!.map((id) => ({ id, name: id, address: 'Via Roma 1', city: 'Varese' })),
+      {
+        sources: [],
+        providers: {
+          googlePlaces: { ...config.providers.googlePlaces, pharmacyIds: first.pharmacyIds },
+          facebook: { enabled: false, pharmacyIds: [] },
+        },
+      },
+      {
+        checkedAt,
+        googleApiKey: 'test-google-key',
+        previous: { records: {}, providerUsage: baseSnapshot.providerUsage },
+        fetchJson: async () => {
+          requestCount += 1;
+          return { places: [] };
+        },
+      },
+    );
+    expect(requestCount).toBe(10);
+    expect(enrichment.providerUsage.googlePlaces.requests).toBe(10_000);
 
     const second = planGooglePlacesReservation({
       catalogues,
