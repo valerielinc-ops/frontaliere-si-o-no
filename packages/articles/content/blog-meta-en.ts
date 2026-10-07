@@ -12751,6 +12751,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furto-van-cernobbio-21enne.title': 'Como, tourists robbed in van: 21-year-old arrested',
     'blog.article.furto-van-cernobbio-21enne.excerpt': '## TL;DR - Arrested at Como, a 21-year-old Egyptian - Theft targeting tourists on via per Cernobbio - Scuffle near the Lido di Villa Olmo - Investigation',
     'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Como, a parked van on via per Cernobbio after tourists were robbed',
+    'blog.article.notte-bper-gallarate-bancomat.title': 'ATM blown up: overnight heist at Bper in Gallarate',
+    'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Another ATM was blown up at Bper in Gallarate during a nighttime robbery: the available report on the case.',
+    'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Bank building on a Swiss-Italian border street at night',
 };
 
 export default blogMetaEn;

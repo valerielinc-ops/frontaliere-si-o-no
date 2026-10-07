@@ -100911,6 +100911,41 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-notte-bper-gallarate-bancomat': {
+    title: 'Bancomat esploso: colpo notturno alla Bper di Gallarate',
+    description: 'Un altro bancomat è saltato in aria alla Bper di Gallarate in un colpo notturno. La fonte disponibile riporta il luogo e la dinamica essenziale della notizia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bancomat, esploso, colpo, notturno',
+    ogTitle: 'Colpo notturno alla Bper di Gallarate',
+    ogDescription: 'La cronaca riguarda un altro bancomat saltato in aria durante un colpo notturno alla Bper di Gallarate. Il materiale disponibile conferma il luogo e la dinamica essenziale, senza aggiungere cifre, nomi o conseguenze.',
+    canonicalPath: '/articoli-frontaliere/notte-bper-gallarate-bancomat/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bancomat esploso: colpo notturno alla Bper di Gallarate",
+      "description": "Un altro bancomat è saltato in aria alla Bper di Gallarate in un colpo notturno. La fonte disponibile riporta il luogo e la dinamica essenziale della notizia.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-locali-busto-arsizio-gallarate.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Banca in una strada del confine italo-svizzero durante la notte"
+      },
+      "datePublished": "2026-10-07T12:19:46+00:00",
+      "dateModified": "2026-10-07T12:19:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notte-bper-gallarate-bancomat/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

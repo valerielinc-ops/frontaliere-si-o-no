@@ -43017,6 +43017,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'notte-bper-gallarate-bancomat',
+ category: 'novita',
+ date: '2026-10-07T12:19:46.838Z',
+ image: '/images/blog/controlli-locali-busto-arsizio-gallarate.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

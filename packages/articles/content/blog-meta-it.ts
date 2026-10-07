@@ -12752,6 +12752,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furto-van-cernobbio-21enne.title': 'Como, turisti derubati nel van: arrestato un 21enne',
     'blog.article.furto-van-cernobbio-21enne.excerpt': '## In breve - Arrestato a Como un 21enne egiziano - Furto ai danni di turisti in via per Cernobbio - Colluttazione nei pressi del Lido di Villa Olmo - Indagini',
     'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Como, van parcheggiato in via per Cernobbio dopo il furto ai danni di una coppia di turisti',
+    'blog.article.notte-bper-gallarate-bancomat.title': 'Bancomat esploso: colpo notturno alla Bper di Gallarate',
+    'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Un altro bancomat è saltato in aria alla Bper di Gallarate durante un colpo notturno: la cronaca disponibile sul caso.',
+    'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Banca in una strada del confine italo-svizzero durante la notte',
 };
 
 export default blogMetaIt;

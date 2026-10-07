@@ -12750,6 +12750,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furto-van-cernobbio-21enne.title': 'Como, Touristen im Van ausgeraubt: 21-Jähriger verhaftet',
     'blog.article.furto-van-cernobbio-21enne.excerpt': '## Kurz gesagt - Ein 21-jähriger Ägypter wurde auf Como festgenommen - Diebstahl von Touristen auf dem Weg nach Cernobbio - Streit in der Nähe des Lido di Villa Olmo - Ermittlungen',
     'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Como: Geparkter Van in der Via per Cernobbio nach dem Diebstahl bei Touristen',
+    'blog.article.notte-bper-gallarate-bancomat.title': 'Geldautomat explodiert: nächtlicher Überfall bei der Bper in Gallarate',
+    'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Ein weiterer Geldautomat ist bei der Bper in Gallarate während eines nächtlichen Überfalls in die Luft geflogen: die verfügbare Berichterstattung zu dem Fall.',
+    'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Bankgebäude an einer italienisch-schweizerischen Grenzstrasse bei Nacht',
 };
 
 export default blogMetaDe;

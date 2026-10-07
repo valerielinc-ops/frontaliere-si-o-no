@@ -12753,6 +12753,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furto-van-cernobbio-21enne.title': 'Como, des touristes dépouillés dans le van : un jeune homme de 21 ans arrêté',
     'blog.article.furto-van-cernobbio-21enne.excerpt': '## En bref - Un Égyptien de 21 ans arrêté à Como - Vol au détriment de touristes via per Cernobbio - Rixe près du Lido di Villa Olmo - Enquête',
     'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Côme : van stationné via per Cernobbio après le vol subi par des touristes (Como)',
+    'blog.article.notte-bper-gallarate-bancomat.title': 'Distributeur automatique explosé : cambriolage nocturne à la Bper de Gallarate',
+    'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Un autre distributeur automatique de billets a explosé à la Bper de Gallarate lors d’un cambriolage nocturne : le compte rendu disponible sur l’affaire.',
+    'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Banque dans une rue de la frontière italo-suisse pendant la nuit',
 };
 
 export default blogMetaFr;
