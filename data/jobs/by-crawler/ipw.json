@@ -815,12 +815,12 @@
     },
     {
       "id": "ipw-41048dd04215",
-      "slug": "apprendista-fachfrau-hotellerie-hauswirtschaft-apprendista-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie",
+      "slug": "apprendista-specialista-settore-alberghiero-economia-domestica-apprendista-specialista-settore-alberghiero-economia",
       "slugByLocale": {
-        "it": "apprendista-fachfrau-hotellerie-hauswirtschaft-apprendista-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie",
-        "en": "apprentice-fachfrau-hotellerie-hauswirtschaft-apprentice-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie",
+        "it": "apprendista-specialista-settore-alberghiero-economia-domestica-apprendista-specialista-settore-alberghiero-economia",
+        "en": "apprentice-specialist-in-the-hotel-industry-housekeeping-apprentice-specialist-in-the-hotel-industry-housekeeping",
         "de": "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft",
-        "fr": "apprenti-e-fachfrau-hotellerie-hauswirtschaft-apprenti-e-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie"
+        "fr": "specialiste-en-formation-hotellerie-entrepreneur-specialiste-en-formation-hotellerie-entrepreneur-integrierte"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -868,17 +868,23 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft"
+        "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft",
+        "apprendista-fachfrau-hotellerie-hauswirtschaft-apprendista-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie",
+        "apprentice-fachfrau-hotellerie-hauswirtschaft-apprentice-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie",
+        "apprenti-e-fachfrau-hotellerie-hauswirtschaft-apprenti-e-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft"
+          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft",
+          "apprendista-fachfrau-hotellerie-hauswirtschaft-apprendista-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie"
         ],
         "en": [
-          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft"
+          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft",
+          "apprentice-fachfrau-hotellerie-hauswirtschaft-apprentice-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie"
         ],
         "fr": [
-          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft"
+          "lernende-fachfrau-hotellerie-hauswirtschaft-lernender-fachmann-hotellerie-hauswirtschaft",
+          "apprenti-e-fachfrau-hotellerie-hauswirtschaft-apprenti-e-fachmann-hotellerie-hauswirtschaft-integrierte-psychiatrie"
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:31.941Z",

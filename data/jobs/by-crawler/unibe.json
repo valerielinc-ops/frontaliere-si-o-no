@@ -732,7 +732,7 @@
       "slugByLocale": {
         "it": "assegnista-di-ricerca-universitat-bern-bern",
         "en": "post-doc-unibe-bern",
-        "de": "postdoc-universitat-bern-bern-a5xwgv",
+        "de": "postdoc-universitat-bern-bern",
         "fr": "apres-doc-universitat-bern-bern"
       },
       "company": "Universität Bern",
@@ -778,8 +778,7 @@
       "previousSlugs": [
         "post-doc-universitat-bern-bern",
         "postdoc-universitat-bern-bern-a5xwgv",
-        "post-doc-unibe-bern",
-        "postdoc-universitat-bern-bern"
+        "post-doc-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -789,8 +788,7 @@
           "post-doc-universitat-bern-bern"
         ],
         "de": [
-          "postdoc-universitat-bern-bern-a5xwgv",
-          "postdoc-universitat-bern-bern"
+          "postdoc-universitat-bern-bern-a5xwgv"
         ],
         "fr": [
           "post-doc-unibe-bern"
@@ -4580,9 +4578,9 @@
     },
     {
       "id": "unibe-8dbb33849a2f",
-      "slug": "doktorand-in-e-assistent-in-universitat-bern-bern",
+      "slug": "dottorando-e-assistente-universitat-bern-bern",
       "slugByLocale": {
-        "it": "doktorand-in-e-assistent-in-universitat-bern-bern",
+        "it": "dottorando-e-assistente-universitat-bern-bern",
         "en": "doctoral-student-and-assistant-universitat-bern-bern",
         "de": "doktorand-in-und-assistent-in-unibe-bern",
         "fr": "doctorant-e-et-assistant-e-universitat-bern-bern"
@@ -4630,11 +4628,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "doktorand-in-und-assistent-in-unibe-bern"
+        "doktorand-in-und-assistent-in-unibe-bern",
+        "doktorand-in-e-assistent-in-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "doktorand-in-und-assistent-in-unibe-bern"
+          "doktorand-in-und-assistent-in-unibe-bern",
+          "doktorand-in-e-assistent-in-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-02T13:53:47.363Z",

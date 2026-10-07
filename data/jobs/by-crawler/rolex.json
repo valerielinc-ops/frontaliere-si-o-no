@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "specialista-lavorazione-m-f-rolex-geneve",
         "en": "machining-specialist-m-f-rolex-geneve",
-        "de": "fabrikspezialist-m-w-d-rolex-geneve",
+        "de": "bearbeitungsspezialist-m-w-rolex-geneve",
         "fr": "specialiste-usinage-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -62,7 +62,6 @@
           "technicien-usinage-h-f-rolex-ch"
         ],
         "de": [
-          "bearbeitungsspezialist-m-w-rolex-geneve",
           "fabrikspezialist-m-w-d-rolex-geneve"
         ]
       },
@@ -70,7 +69,6 @@
         "ingenieur-usinage-h-f-rolex-ch",
         "specialiste-usinage-h-f-rolex-ch",
         "technicien-usinage-h-f-rolex-ch",
-        "bearbeitungsspezialist-m-w-rolex-geneve",
         "fabrikspezialist-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-24T22:41:09.445Z",
@@ -631,7 +629,7 @@
       "slugByLocale": {
         "it": "micromecanicista-h-f-rolex-bienne",
         "en": "micromechanic-m-f-rolex-bienne",
-        "de": "mikromechanische-m-w-d-rolex-bienne",
+        "de": "mikromechaniker-m-w-rolex-bienne",
         "fr": "micromecanicien-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -676,7 +674,6 @@
       "previousSlugs": [
         "micromecanicien-h-f-rolex-ch",
         "micromecanicien-m-w-d-rolex-bienne",
-        "mikromechaniker-m-w-rolex-bienne",
         "mikromechanische-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
@@ -688,7 +685,6 @@
         ],
         "de": [
           "micromecanicien-m-w-d-rolex-bienne",
-          "mikromechaniker-m-w-rolex-bienne",
           "mikromechanische-m-w-d-rolex-bienne"
         ]
       },
@@ -871,7 +867,7 @@
       "slug": "termine-h-f-rolex-geneve",
       "slugByLocale": {
         "it": "termine-h-f-rolex-geneve",
-        "en": "terminator-m-w-d-rolex-geneve",
+        "en": "finisher-m-f-rolex-geneve",
         "de": "termineur-h-f-rolex-geneve",
         "fr": "termineur-h-f-rolex-ch"
       },
@@ -926,7 +922,6 @@
         "termineur-sav-h-f-rolex-fribourg",
         "termineur-sav-h-f-rolex-ch",
         "termineur-h-f-rolex-ch-nuy03u",
-        "finisher-m-f-rolex-geneve",
         "terminator-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -934,7 +929,6 @@
           "termineur-h-f-rolex-ch"
         ],
         "en": [
-          "finisher-m-f-rolex-geneve",
           "terminator-m-w-d-rolex-geneve"
         ],
         "fr": [
@@ -1768,7 +1762,7 @@
       "slugByLocale": {
         "it": "responsabile-della-pianificazione-h-f-rolex-geneve",
         "en": "scheduling-manager-m-f-rolex-geneve",
-        "de": "m-w-d-scheduling-manager-rolex-geneve",
+        "de": "planungsmanager-m-w-rolex-geneve",
         "fr": "gestionnaire-d-ordonnancement-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -1814,7 +1808,6 @@
       "previousSlugs": [
         "gestionnaire-d-ordonnancement-h-f-rolex-ch",
         "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
-        "planungsmanager-m-w-rolex-geneve",
         "m-w-d-scheduling-manager-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -1826,7 +1819,6 @@
         ],
         "de": [
           "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
-          "planungsmanager-m-w-rolex-geneve",
           "m-w-d-scheduling-manager-rolex-geneve"
         ]
       },
@@ -2067,8 +2059,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-securite-h-f-rolex-ch",
-        "charge-de-securite-m-w-d-rolex-geneve",
-        "sicherheitsbeauftragter-m-w-rolex-geneve"
+        "charge-de-securite-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2078,7 +2069,6 @@
           "charge-de-securite-m-w-d-rolex-geneve"
         ],
         "de": [
-          "sicherheitsbeauftragter-m-w-rolex-geneve",
           "charge-de-securite-m-w-d-rolex-geneve"
         ]
       },
@@ -2516,8 +2506,8 @@
       "slug": "ingegnere-di-applicazione-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "ingegnere-di-applicazione-m-f-rolex-geneve",
-        "en": "business-analyst-m-w-d-rolex-geneve",
-        "de": "business-analytics-m-w-d-rolex-geneve",
+        "en": "application-engineer-m-f-rolex-geneve",
+        "de": "anwendungstechniker-m-w-rolex-geneve",
         "fr": "business-analyste-m-w-d-rolex-geneve"
       },
       "company": "Rolex",
@@ -2571,13 +2561,11 @@
         ],
         "en": [
           "ingenieur-d-application-h-f-rolex-ch",
-          "application-engineer-m-f-rolex-geneve",
           "business-analyst-m-w-d-rolex-geneve"
         ],
         "de": [
           "ingenieur-d-application-h-f-rolex-ch",
           "business-analyst-m-w-d-rolex-geneve",
-          "anwendungstechniker-m-w-rolex-geneve",
           "business-analytics-m-w-d-rolex-geneve"
         ]
       },
@@ -2585,8 +2573,6 @@
         "ingenieur-d-application-h-f-rolex-ch",
         "business-analyst-h-f-rolex-ch",
         "business-analyst-m-w-d-rolex-geneve",
-        "application-engineer-m-f-rolex-geneve",
-        "anwendungstechniker-m-w-rolex-geneve",
         "business-analytics-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-09-18T23:16:30.936Z",
@@ -2682,7 +2668,7 @@
       "slugByLocale": {
         "it": "project-manager-m-f-rolex-bienne",
         "en": "project-manager-h-f-rolex-bienne",
-        "de": "projektmanager-m-w-d-rolex-bienne",
+        "de": "projektleiter-h-f-rolex-bienne-2ee016",
         "fr": "charge-de-projets-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -2727,7 +2713,6 @@
       "previousSlugs": [
         "charge-de-projets-h-f-rolex-ch",
         "charge-de-projets-m-w-d-rolex-bienne",
-        "projektleiter-h-f-rolex-bienne-2ee016",
         "projektmanager-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
@@ -2736,7 +2721,6 @@
         ],
         "de": [
           "charge-de-projets-m-w-d-rolex-bienne",
-          "projektleiter-h-f-rolex-bienne-2ee016",
           "projektmanager-m-w-d-rolex-bienne"
         ]
       },
@@ -3113,7 +3097,7 @@
       "slugByLocale": {
         "it": "controller-di-qualita-m-f-rolex-geneve",
         "en": "quality-controller-m-f-rolex-geneve",
-        "de": "qualitatskontroller-m-w-d-rolex-geneve",
+        "de": "qualitatskontrolleur-m-w-rolex-geneve",
         "fr": "controleur-qualite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -3160,8 +3144,7 @@
         "controleur-qualite-h-f-rolex-ch",
         "controleur-qualite-h-f-rolex-geneve",
         "qualitatskontroller-m-w-d-rolex-geneve",
-        "controleur-qualite-m-w-d-rolex-geneve",
-        "qualitatskontrolleur-m-w-rolex-geneve"
+        "controleur-qualite-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3171,7 +3154,6 @@
         ],
         "de": [
           "controleur-qualite-m-w-d-rolex-geneve",
-          "qualitatskontrolleur-m-w-rolex-geneve",
           "qualitatskontroller-m-w-d-rolex-geneve"
         ]
       },
@@ -3196,7 +3178,7 @@
       "slugByLocale": {
         "it": "supporto-tecnico-per-la-produzione-h-f-rolex-geneve",
         "en": "manager-in-management-process-h-f-rolex-geneve",
-        "de": "manager-im-managementprozess-m-w-d-rolex-geneve",
+        "de": "produktionsunterstutzungstechniker-h-f-rolex-geneve",
         "fr": "technicien-support-production-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -3256,7 +3238,6 @@
         "de": [
           "technicien-support-production-h-f-rolex-ch",
           "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
-          "produktionsunterstutzungstechniker-h-f-rolex-geneve",
           "manager-im-managementprozess-m-w-d-rolex-geneve"
         ]
       },
@@ -3265,7 +3246,6 @@
         "animateur-en-processus-de-gestion-h-f-rolex-ch",
         "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
         "animateur-en-bonnes-pratiques-de-production-h-f-rolex-ch",
-        "produktionsunterstutzungstechniker-h-f-rolex-geneve",
         "manager-im-managementprozess-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-23T12:27:53.338Z",
@@ -4060,7 +4040,7 @@
       "slugByLocale": {
         "it": "tecnico-di-produzione-h-f-rolex-geneve",
         "en": "production-technician-m-f-rolex-geneve",
-        "de": "betriebstechniker-m-w-d-rolex-geneve",
+        "de": "produktionstechniker-m-w-rolex-geneve",
         "fr": "technicien-d-exploitation-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4106,7 +4086,6 @@
       "previousSlugs": [
         "technicien-d-exploitation-h-f-rolex-ch",
         "technicien-d-exploitation-m-w-d-rolex-geneve",
-        "produktionstechniker-m-w-rolex-geneve",
         "betriebstechniker-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -4118,7 +4097,6 @@
         ],
         "de": [
           "technicien-d-exploitation-m-w-d-rolex-geneve",
-          "produktionstechniker-m-w-rolex-geneve",
           "betriebstechniker-m-w-d-rolex-geneve"
         ]
       },
@@ -4442,8 +4420,8 @@
       "slug": "logistica-del-proprietario-del-prodotto-h-f-rolex-geneve",
       "slugByLocale": {
         "it": "logistica-del-proprietario-del-prodotto-h-f-rolex-geneve",
-        "en": "project-manager-m-w-d-rolex-geneve",
-        "de": "projektleiter-m-w-d-rolex-geneve",
+        "en": "product-owner-logistique-cdm-h-f-rolex-ch",
+        "de": "product-owner-logistik-cdm-m-f-rolex-geneve",
         "fr": "charge-de-projets-cdm-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4495,19 +4473,15 @@
           "charge-de-projets-evolution-numerique-logistique-h-f-rolex-ch"
         ],
         "en": [
-          "product-owner-logistique-cdm-h-f-rolex-ch",
           "project-manager-m-w-d-rolex-geneve"
         ],
         "de": [
-          "product-owner-logistik-cdm-m-f-rolex-geneve",
           "projektleiter-m-w-d-rolex-geneve"
         ]
       },
       "previousSlugs": [
         "charge-de-projets-cdm-h-f-rolex-ch",
         "charge-de-projets-evolution-numerique-logistique-h-f-rolex-ch",
-        "product-owner-logistique-cdm-h-f-rolex-ch",
-        "product-owner-logistik-cdm-m-f-rolex-geneve",
         "project-manager-m-w-d-rolex-geneve",
         "projektleiter-m-w-d-rolex-geneve"
       ],
@@ -4836,7 +4810,7 @@
       "slugByLocale": {
         "it": "tecnico-di-logistica-eventi-m-f-rolex-geneve",
         "en": "event-logistics-technician-m-f-rolex-geneve",
-        "de": "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve",
+        "de": "eventlogistiktechniker-m-w-rolex-geneve",
         "fr": "technicien-logistique-evenements-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4881,7 +4855,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-logistique-evenements-h-f-rolex-ch",
-        "eventlogistiktechniker-m-w-rolex-geneve",
         "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -4889,7 +4862,6 @@
           "technicien-logistique-evenements-h-f-rolex-ch"
         ],
         "de": [
-          "eventlogistiktechniker-m-w-rolex-geneve",
           "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
         ]
       },
@@ -5077,7 +5049,7 @@
       "slugByLocale": {
         "it": "prototipante-tecnico-m-f-quadrante-rolex-geneve",
         "en": "prototyping-technician-m-f-dial-rolex-geneve",
-        "de": "protot-technician-m-w-d-zifferblatt-rolex-geneve",
+        "de": "prototypentechniker-m-w-dial-rolex-geneve",
         "fr": "technicien-prototypiste-h-f-cadran-rolex-ch"
       },
       "company": "Rolex",
@@ -5122,7 +5094,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-prototypiste-h-f-cadran-rolex-ch",
-        "prototypentechniker-m-w-dial-rolex-geneve",
         "protot-technician-m-w-d-zifferblatt-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -5134,7 +5105,6 @@
         ],
         "de": [
           "technicien-prototypiste-h-f-cadran-rolex-ch",
-          "prototypentechniker-m-w-dial-rolex-geneve",
           "protot-technician-m-w-d-zifferblatt-rolex-geneve"
         ]
       },
@@ -7564,7 +7534,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-securite-h-f-rolex-ch",
-        "sicherheitsbeauftragter-m-w-rolex-geneve",
         "charge-de-securite-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -7572,7 +7541,6 @@
           "charge-de-securite-h-f-rolex-ch"
         ],
         "de": [
-          "sicherheitsbeauftragter-m-w-rolex-geneve",
           "charge-de-securite-m-w-d-rolex-geneve"
         ]
       },
@@ -9964,7 +9932,7 @@
       "slug": "group-manager-m-f-rolex-bienne",
       "slugByLocale": {
         "it": "group-manager-m-f-rolex-bienne",
-        "en": "group-manager-m-w-d-rolex-bienne",
+        "en": "responsable-de-groupe-h-f-rolex-ch-2",
         "de": "gruppenleiter-m-w-rolex-bienne",
         "fr": "responsable-de-groupe-h-f-rolex-ch"
       },
@@ -10009,7 +9977,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-de-groupe-h-f-rolex-ch",
-        "responsable-de-groupe-h-f-rolex-ch-2"
+        "responsable-de-groupe-h-f-rolex-ch-2",
+        "group-manager-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10020,7 +9989,7 @@
           "responsable-de-groupe-h-f-rolex-ch-2"
         ],
         "en": [
-          "responsable-de-groupe-h-f-rolex-ch-2"
+          "group-manager-m-w-d-rolex-bienne"
         ]
       },
       "needsRetranslation": true,
@@ -10433,7 +10402,7 @@
       "slugByLocale": {
         "it": "responsabile-del-laboratorio-m-f-rolex-geneve",
         "en": "workshop-manager-h-f-rolex-geneve",
-        "de": "workshop-manager-m-w-d-rolex-geneve",
+        "de": "werkstattleiter-m-w-rolex-geneve",
         "fr": "gestionnaire-d-atelier-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10478,7 +10447,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-d-atelier-h-f-rolex-ch",
-        "werkstattleiter-m-w-rolex-geneve",
         "workshop-manager-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -10486,7 +10454,6 @@
           "gestionnaire-d-atelier-h-f-rolex-ch"
         ],
         "de": [
-          "werkstattleiter-m-w-rolex-geneve",
           "workshop-manager-m-w-d-rolex-geneve"
         ]
       },
@@ -10588,8 +10555,8 @@
       "slug": "modellista-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "modellista-m-f-rolex-geneve",
-        "en": "modelist-m-w-d-rolex-geneve",
-        "de": "modelist-m-w-d-rolex-geneve",
+        "en": "pattern-maker-m-f-rolex-geneve",
+        "de": "schnittmacher-m-w-rolex-geneve",
         "fr": "modeliste-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10634,8 +10601,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "modeliste-h-f-rolex-ch",
-        "pattern-maker-m-f-rolex-geneve",
-        "schnittmacher-m-w-rolex-geneve",
         "modelist-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -10643,11 +10608,9 @@
           "modeliste-h-f-rolex-ch"
         ],
         "en": [
-          "pattern-maker-m-f-rolex-geneve",
           "modelist-m-w-d-rolex-geneve"
         ],
         "de": [
-          "schnittmacher-m-w-rolex-geneve",
           "modelist-m-w-d-rolex-geneve"
         ]
       },
