@@ -302,11 +302,11 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(optIn?.['continue-on-error']).toBe(true);
     expect(trustedCheckout?.['continue-on-error']).toBe(true);
     expect(validation?.['continue-on-error']).toBe(true);
-    expect(String(optIn?.run ?? '')).toContain('GH_TOKEN="$APP_TOKEN"');
-    expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN=(?!"\$APP_TOKEN")/u);
+    expect(String(optIn?.run ?? '')).toMatch(/GH_TOKEN="\$POST_REVIEW_TOKEN"/u);
+    expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN="\$APP_TOKEN"/u);
     expect(String(optIn?.run ?? '')).not.toContain('secrets.GITHUB_TOKEN');
     expect(optIn?.env?.GH_TOKEN).toBeUndefined();
-    expect(String(optIn?.run ?? '')).toMatch(/APP_TOKEN[\s\S]*exit 0/u);
+    expect(String(optIn?.run ?? '')).toMatch(/POST_REVIEW_TOKEN[\s\S]*exit 0/u);
     expect(testsWorkflow).not.toContain('load-rc-env.mjs');
   });
 
@@ -330,7 +330,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(run).toContain('"$RUNNER_TEMP/native-automerge-gate.log"');
     expect(run).not.toMatch(/tee\s+\/tmp\//u);
     // Nessun secondo uso del token per una lettura di conferma.
-    expect(run.match(/GH_TOKEN="\$APP_TOKEN"/gu) ?? []).toHaveLength(1);
+    expect(run.match(/GH_TOKEN="\$POST_REVIEW_TOKEN"/gu) ?? []).toHaveLength(1);
   });
 
   it('leaves the verdict-summary step last in the required job, with the decision before it', () => {

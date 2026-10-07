@@ -39,6 +39,8 @@ function fixture() {
   git(repo, ['init', '-q', '-b', 'main']);
   for (const file of [
     'scripts/lib/open-data-refresh-pr.sh',
+    'scripts/lib/old-history-guard.mjs',
+    'scripts/lib/single-flight-lock.mjs',
     'scripts/lib/git-add-resolved.mjs',
     'scripts/lib/resolve-git-add-path.mjs',
     'scripts/lib/read-git-blob.mjs',
@@ -56,6 +58,7 @@ function fixture() {
   write(repo, 'data/events-geocode-cache.json', '{"common":{"lat":1,"lng":2}}\n');
   write(repo, 'data/events-translation-cache.json', '{"title":{"en":"base"}}\n');
   write(repo, 'packages/articles/content/body.ts', 'export default "base";\n');
+  write(repo, 'packages/articles/content/image-credits/blog/cover.json', '{"source":"base"}\n');
   fs.mkdirSync(path.join(repo, 'services'));
   fs.symlinkSync('../packages/articles/content/body.ts', path.join(repo, 'services/body.ts'));
   git(repo, ['add', '-A']);
@@ -234,6 +237,25 @@ describe('optional refresh paths (sync run 37515283217)', () => {
 });
 
 describe('data publisher preserves its source checkout', () => {
+  it('carries destination-only image-credit records into a stable branch with old deletions', () => {
+    const setup = fixture();
+    // Simulate the failed historical refresh: the stable branch deleted a
+    // credit file that the current main snapshot still carries unchanged.
+    git(setup.repo, ['checkout', '-q', 'chore/refresh']);
+    fs.rmSync(path.join(setup.repo, 'packages/articles/content/image-credits'), { recursive: true });
+    git(setup.repo, ['add', '-A', 'packages/articles/content/image-credits']);
+    git(setup.repo, ['commit', '-q', '-m', 'old stable refresh deleted cover credits']);
+    git(setup.repo, ['push', '-q', 'origin', 'chore/refresh']);
+    git(setup.repo, ['checkout', '-q', 'main']);
+
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    const result = publish(setup, false, ['--path', 'packages/articles/content']);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(setup.remote, ['show', 'chore/refresh:packages/articles/content/image-credits/blog/cover.json']))
+      .toBe('{"source":"base"}');
+  });
+
   it('uses current helper dependencies and preserves source code across consecutive publishes', () => {
     const setup = fixture();
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
