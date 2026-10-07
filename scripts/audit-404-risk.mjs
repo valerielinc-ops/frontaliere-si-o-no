@@ -404,9 +404,11 @@ async function mapPool(items, limit, fn) {
 // Every shard push stamps the SOURCE repo's commit into its own commit
 // subject: push-section-shard.sh writes "<section>-<loc> shard <sha8> (run
 // <run_id>)" and push-locale-shard.sh writes "locale shard <loc> <sha8> (run
-// <run_id>)". The apex publishes the same commit as /commit-hash.txt. That
-// pair is what lets this audit tell "this URL has no page" apart from "these
-// two snapshots are from different deploys" — see resolveApexGeneration().
+// <run_id>)". Both scripts also write .shard-source, which forces a lightweight
+// commit when the served bytes are unchanged. The apex publishes the same
+// commit as /commit-hash.txt. That pair is what lets this audit tell "this URL
+// has no page" apart from "these two snapshots are from different deploys" —
+// see resolveApexGeneration().
 const SHA8_IN_SUBJECT = /\b([0-9a-f]{8})\b/;
 
 function shaFromSubject(subject) {
@@ -705,9 +707,10 @@ function splitByGeneration(paths, gen) {
 // in flight. A shard that has not been pushed for this long has stopped
 // publishing, and deferring its URLs forever would be exactly the silent skip
 // this classification must not become. Deploys run every ~2.5 h, so 24 h is
-// ~10 missed deploys. push-section-shard.sh only skips a push when the tree is
-// byte-identical to the remote, which for a job-board shard does not survive a
-// day. Overridable for a deliberately-frozen shard.
+// ~10 missed deploys. The publisher writes .shard-source even when the served
+// tree is byte-identical, so this age check now measures a missing publication
+// event rather than merely a low-activity shard. Overridable for a deliberately
+// frozen shard.
 const SHARD_MAX_AGE_H = Number(process.env.AUDIT_404_SHARD_MAX_AGE_H ?? 24);
 
 /** Flatten the per-shard generation table into a compact, reportable summary. */
