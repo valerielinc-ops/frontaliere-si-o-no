@@ -195,6 +195,16 @@ describe('pharmacy enrichment', () => {
     expect(result.records[pharmacy.id].fieldSources?.vatNumber).toMatchObject({ sourceType: 'official' });
   });
 
+  it('does not copy one PDF row VAT number to a different matched pharmacy row', () => {
+    const alpha = { ...pharmacy, name: 'Farmacia Alfa', city: 'Roma', address: 'Via Alfa 1', phone: '' };
+    const beta = { ...pharmacy, name: 'Farmacia Beta', city: 'Milano', address: 'Via Beta 2', phone: '' };
+    const source = { fields: ['vatNumber'] } as const;
+    const pdf = 'Farmacia Alfa Via Alfa 1 Roma P. IVA 12345678901; Farmacia Beta Via Beta 2 Milano';
+
+    expect(extractPdfFacts(pdf, alpha, source).facts.vatNumber).toBe('12345678901');
+    expect(extractPdfFacts(pdf, beta, source).facts.vatNumber).toBeUndefined();
+  });
+
   it('accepts a public directory address that abbreviates the official street name', async () => {
     const source = {
       id: 'casciago-atoka-legal-entity',
@@ -216,6 +226,26 @@ describe('pharmacy enrichment', () => {
       sourceType: 'directory',
       fields: ['vatNumber'],
     })]);
+  });
+
+  it('does not accept a city-only street token as an HTML identity match', async () => {
+    const cityStreetPharmacy = { ...pharmacy, id: 'it-test-roma', name: 'Farmacia Roma', city: 'Roma', address: 'Via Roma 1', phone: '' };
+    const source = {
+      pharmacyId: cityStreetPharmacy.id,
+      kind: 'html',
+      url: 'https://example.com/farmacia-roma',
+      label: 'Public directory',
+      sourceType: 'directory',
+      fields: ['phone'],
+      status: 'active',
+    } as const;
+    const result = await enrichPharmacyRecords([cityStreetPharmacy], localConfig({ sources: [source] }), {
+      checkedAt,
+      fetchDocument: async () => '<html><body><h1>Farmacia Roma</h1><p>Roma 1</p><a href="tel:+39000000000">+39 000 000000</a></body></html>',
+    });
+
+    expect(result.records[cityStreetPharmacy.id]).toEqual({ checkedAt });
+    expect(result.warnings).toEqual([expect.stringContaining('page did not match it-test-roma')]);
   });
 
   it('uses Google Places only through the authorised API adapter and excludes ratings', async () => {

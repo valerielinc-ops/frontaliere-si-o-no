@@ -221,8 +221,23 @@ function pdfPhoneCandidate(pdfText, pharmacy) {
   return selected?.raw;
 }
 
-function pdfVatNumberCandidate(pdfText) {
-  const candidates = [...String(pdfText || '').matchAll(/(?:p\.?\s*iva|partita\s+iva|vat)\s*[:#-]?\s*((?:\d[\s./-]*){10}\d)/gi)]
+function pdfVatNumberCandidate(pdfText, pharmacy) {
+  const normalizedPdf = normalize(pdfText);
+  const nameToken = [...normalizedTokens(pharmacy.name)]
+    .filter((token) => token !== normalize(pharmacy.city))
+    .sort((left, right) => right.length - left.length)[0];
+  if (!nameToken) return undefined;
+  const matches = [...normalizedPdf.matchAll(/(?:p\.?\s*iva|partita\s+iva|vat)\s*[:#-]?\s*((?:\d[\s./-]*){10}\d)/gi)];
+  const candidates = matches
+    .filter((match) => {
+      const vatIndex = match.index ?? -1;
+      if (vatIndex < 0) return false;
+      const beforeVat = normalizedPdf.slice(Math.max(0, vatIndex - 360), vatIndex);
+      const nameIndex = beforeVat.lastIndexOf(nameToken);
+      if (nameIndex < 0) return false;
+      const contextStart = Math.max(0, vatIndex - 360) + nameIndex;
+      return pdfIdentityMatches(pharmacy, normalizedPdf.slice(contextStart, vatIndex + match[0].length));
+    })
     .map((match) => vatNumber(match[1]))
     .filter(Boolean);
   const unique = [...new Set(candidates)];
@@ -239,7 +254,7 @@ export function extractPdfFacts(pdfText, pharmacy, source) {
     if (phone) facts.phone = phone;
   }
   if (new Set(source.fields || []).has('vatNumber')) {
-    const value = pdfVatNumberCandidate(pdfText);
+    const value = pdfVatNumberCandidate(pdfText, pharmacy);
     if (value) facts.vatNumber = value;
   }
   return { facts, sourceUpdatedAt, matched: true };
@@ -358,14 +373,32 @@ function identityMatches(pharmacy, bodyText) {
   const number = (address.match(/\b\d+[a-z]?\b/i) || [])[0];
   if (!city || !body.includes(city)) return false;
   const streetTokens = [...normalizedTokens(streetName)]
-    .filter((token) => !['via', 'viale', 'piazza', 'corso', 'largo', 'strada'].includes(token));
-  const streetMatch = !streetName || body.includes(streetName) || streetTokens.some((token) => token.length >= 4 && body.includes(token));
-  // Public registries often omit a middle street-name component (for example
-  // "Via Matteotti" versus the catalogue's "Via Giacomo Matteotti"). Keep
-  // the city + civic number + distinctive street/name anchors mandatory while
-  // accepting that harmless formatting difference.
+    .filter((token) => !['via', 'viale', 'piazza', 'corso', 'largo', 'strada', 'vicolo', 'contrada'].includes(token))
+    .filter((token) => token !== city && token.length >= 4);
+  const numberPattern = number
+    ? new RegExp(`(?:^|[^0-9])${escapeRegExp(number)}(?=$|[^0-9])`, 'i')
+    : null;
+  const civicNumberNear = (anchorIndex) => {
+    if (!numberPattern || anchorIndex < 0) return !numberPattern;
+    const windowStart = Math.max(0, anchorIndex - 24);
+    const windowEnd = Math.min(body.length, anchorIndex + streetName.length + 96);
+    return numberPattern.test(body.slice(windowStart, windowEnd));
+  };
+  const fullStreetIndex = streetName ? body.indexOf(streetName) : -1;
+  const fullStreetMatch = !streetName || (fullStreetIndex >= 0 && civicNumberNear(fullStreetIndex));
+  // Public registries may omit a middle street-name component (for example
+  // "Via Matteotti" versus the catalogue's "Via Giacomo Matteotti"). Keep a
+  // full normalized street-name + nearby civic-number match as the default;
+  // the abbreviated fallback still requires a non-city street token beside a
+  // street label and the same civic number.
+  const abbreviatedStreetMatch = streetTokens.some((token) => {
+    const tokenIndex = body.indexOf(token);
+    if (tokenIndex < 0 || !civicNumberNear(tokenIndex)) return false;
+    const prefix = body.slice(Math.max(0, tokenIndex - 80), tokenIndex);
+    return /\b(?:via|viale|piazza|corso|largo|strada|vicolo|contrada)\b/i.test(prefix);
+  });
+  const streetMatch = fullStreetMatch || abbreviatedStreetMatch;
   if (!streetMatch) return false;
-  if (number && !body.includes(number)) return false;
   const tokens = [...normalizedTokens(pharmacy.name)];
   return tokens.length === 0 || tokens.some((token) => body.includes(token));
 }
