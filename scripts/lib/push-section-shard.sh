@@ -396,6 +396,15 @@ push_section_shard() {
         # lazy-fetch cannot bypass SHARD_HISTORY_CAP.
         if ! dcount="$(shard_read_counter "$stage" .shard-deploys)" \
           || ! prev_n="$(shard_read_counter "$stage" .shard-filecount)"; then
+          # With a missing deploy key, an existing HEAD is the only
+          # trustworthy proof that this is not a first publish. Never turn an
+          # unreadable remote baseline into an orphan seed: the PAT fallback
+          # must fail closed before it can bypass the shrink guard.
+          if [ "$missing_deploy_key" = 1 ] \
+            && git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+            echo "::error::$section-$loc shard: remote HEAD has an unreadable bookkeeping marker — refusing PAT fallback without the remote shrink baseline" >&2
+            exit 1
+          fi
           echo "::warning::$section-$loc shard: marker lazy-fetch failed — flattening before full overlay"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"

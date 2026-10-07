@@ -181,6 +181,30 @@ function treeFiles(remote: string): string[] {
   return output ? output.split('\n') : [];
 }
 
+function makeRemoteMarkerUnreadable(scenario: Scenario, marker = '.shard-deploys'): string {
+  const head = git(['-C', scenario.remote, 'rev-parse', 'main']);
+  const entries = git(['-C', scenario.remote, 'ls-tree', head])
+    .split('\n')
+    .filter(Boolean)
+    .map((entry) => {
+      if (!entry.endsWith(`\t${marker}`)) return entry;
+      return entry.replace(/\b[0-9a-f]{40}\t/, `${'0'.repeat(40)}\t`);
+    })
+    .join('\n');
+  expect(entries).toContain(`\t${marker}`);
+  const tree = execFileSync('git', ['-C', scenario.remote, 'mktree', '--missing'], {
+    input: `${entries}\n`,
+    encoding: 'utf8',
+  }).trim();
+  const corruptHead = execFileSync(
+    'git',
+    ['-C', scenario.remote, 'commit-tree', tree, '-p', head, '-m', `corrupt ${marker}`],
+    { encoding: 'utf8' },
+  ).trim();
+  git(['-C', scenario.remote, 'update-ref', 'refs/heads/main', corruptHead]);
+  return corruptHead;
+}
+
 function blobSha(remote: string, path: string): string {
   const line = git(['-C', remote, 'ls-tree', '-r', 'main', '--', path]);
   return line.split(/\s+/)[2] || '';
@@ -693,6 +717,70 @@ describe('delta push degli shard', () => {
         expect(result.output).toContain('pushed via the PAT fallback after deploy-key missing');
         expect(treeFiles(scenario.remote)).toContain(testCase.path);
         assertContent(scenario.remote, testCase.path, testCase.content);
+      } finally {
+        rmSync(scenario.root, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('rifiuta il PAT se un remote HEAD esistente ha un marker illeggibile', () => {
+    const cases = [
+      {
+        name: 'locale-unreadable-marker',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-en.git',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        seed: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale baseline</html>',
+        }),
+        write: (scenario: Scenario) => writePayload(scenario, {
+          'pages/a': '<html>locale must not overwrite</html>',
+        }),
+      },
+      {
+        name: 'section-unreadable-marker',
+        fakeRepo: 'git@github.com:valerielinc-ops/frontaliere-ticino-en.git',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        seed: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section baseline</html>',
+        }),
+        write: (scenario: Scenario) => writeSectionPayload(scenario, {
+          'pages/a': '<html>section must not overwrite</html>',
+        }),
+      },
+    ];
+
+    for (const testCase of cases) {
+      const scenario = createScenario(testCase.name);
+      try {
+        testCase.seed(scenario);
+        expect(runPush(scenario, 'full', {}, testCase.target).status).toBe(0);
+        const corruptHead = makeRemoteMarkerUnreadable(scenario);
+        testCase.write(scenario);
+        const result = runPush(
+          scenario,
+          'full',
+          {
+            [testCase.target.deployKey]: '',
+            GITHUB_PAT: 'test-pat',
+            SHARD_REPO_OVERRIDE: testCase.fakeRepo,
+            GIT_CONFIG_GLOBAL: configureUrlRewrite(scenario, testCase.fakeRepo),
+          },
+          testCase.target,
+        );
+        expect(result.status).not.toBe(0);
+        expect(result.output).toContain('remote HEAD has an unreadable bookkeeping marker');
+        expect(result.output).not.toContain('pushed via the PAT fallback');
+        expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).toBe(corruptHead);
       } finally {
         rmSync(scenario.root, { recursive: true, force: true });
       }
