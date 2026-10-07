@@ -9,7 +9,7 @@
 
 export const ASTRA_ENDPOINTS = Object.freeze({
   overview:
-    "https://www.astra.admin.ch/astra/it/home/documentazione/dati-aperti/veicoli.html",
+    "https://www.astra.admin.ch/it/temi/veicoli.html",
   neuzu:
     "https://opendata.astra.admin.ch/ivzod/1000-Fahrzeuge_IVZ/1200-Neuzulassungen/1210-Datensaetze_monatlich/NEUZU.txt",
   weekly:
