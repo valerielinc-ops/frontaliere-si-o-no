@@ -15,6 +15,7 @@
  */
 
 import { describe, expect, it, vi } from 'vitest';
+import fs from 'node:fs';
 
 import {
   MAX_COMPANY_CITY_PAGES_PER_BUILD,
@@ -47,6 +48,11 @@ import {
   generateRelatedLinksBlock,
 } from '../build-plugins/shared/relatedLinks';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
+
+const WEEKLY_EMPLOYERS_PLUGIN_SOURCE = fs.readFileSync(
+  new URL('../build-plugins/weeklyEmployersPlugin.ts', import.meta.url),
+  'utf8',
+);
 
 // ── Fixture helpers ─────────────────────────────────────────────
 
@@ -505,6 +511,15 @@ describe('renderCompanyCityPage', () => {
     today: new Date('2026-04-20T12:00:00Z'),
     indexable: true,
   };
+
+  it('keeps both detail-page serializers in anonymous-employer mode', () => {
+    const rendererSource = WEEKLY_EMPLOYERS_PLUGIN_SOURCE.slice(
+      WEEKLY_EMPLOYERS_PLUGIN_SOURCE.indexOf('export function renderCompanyCityPage'),
+      WEEKLY_EMPLOYERS_PLUGIN_SOURCE.indexOf('export function injectSiblingLinks'),
+    );
+
+    expect(rendererSource.match(/WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS/g)).toHaveLength(2);
+  });
 
   it('emits ≥300 body words for the IT sample page', () => {
     const html = renderCompanyCityPage(fixture);

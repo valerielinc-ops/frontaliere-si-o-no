@@ -3710,7 +3710,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
             url: job.detailPath ? `${BASE_URL}${job.detailPath}` : `${BASE_URL}/`,
           };
     }),
-  });
+  }, WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS);
 
   const faqLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -3960,6 +3960,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     ogLocale: WEEKLY_EMPLOYERS_OG_LOCALE[locale],
     hreflangHtml,
     jsonLdScripts: [breadcrumbLd, webPageLd, itemListLd, faqLd],
+    ...WEEKLY_EMPLOYER_ORGANIZATION_SERIALIZER_OPTIONS,
     bodyHtml,
     distDir,
     hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
