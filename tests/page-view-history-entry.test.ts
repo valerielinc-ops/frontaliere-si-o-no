@@ -71,7 +71,7 @@ describe('page-view emission identity', () => {
     expect(emissionIdSource).not.toContain('pushState');
     expect(emissionIdSource).not.toContain('replaceState');
     expect(analyticsSource).toContain('emissionId === undefined');
-    expect(analyticsSource).toContain('staticPageViewEmissionId || createAnalyticsEmissionId()');
+    expect(analyticsSource).toContain('staticPageViewEmissionId || pageViewEmissionId');
   });
 
   it('returns distinct non-empty ids when Web Crypto is unavailable', () => {
