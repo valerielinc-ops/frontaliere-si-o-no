@@ -428,8 +428,8 @@ jobs:
               "",
               "## Non implementato (ancora)",
               "- Parametro Remote Config aggiuntivo: per scelta: rinviato per non toccare il loader del corpus in parallelo a un altro lavoro. Motivo: il loader è già oggetto di un lavoro concorrente nel corpus. Prossimo passo: mantenerlo fuori da questa PR e riesaminarlo solo dopo il riallineamento del loader.",
-            ].join("\\n");
-            writeFileSync(process.argv[2], `${body}\\n`);
+            ].join("\n");
+            writeFileSync(process.argv[2], `${body}\n`);
           ' "$stats" "$body"
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           GH_TOKEN="$GITHUB_PAT_NANAKO" bash scripts/lib/open-data-refresh-pr.sh \
