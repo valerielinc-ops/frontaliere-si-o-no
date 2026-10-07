@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-10-06T21:45:15.095Z",
+  "generatedAt": "2026-10-07T09:32:57.241Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13605,
-  "avgDurationMs": 13605,
+  "durationMs": 9431,
+  "avgDurationMs": 9431,
   "durationHistory": [
-    13605
+    9431
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:54.050Z",
+      "crawledAt": "2026-10-07T09:32:41.631Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -73,7 +73,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:54.461Z",
+      "crawledAt": "2026-10-07T09:32:41.903Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -116,7 +116,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:54.675Z",
+      "crawledAt": "2026-10-07T09:32:42.040Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -159,7 +159,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:54.903Z",
+      "crawledAt": "2026-10-07T09:32:42.212Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -205,7 +205,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:55.139Z",
+      "crawledAt": "2026-10-07T09:32:42.371Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -248,7 +248,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:55.351Z",
+      "crawledAt": "2026-10-07T09:32:42.518Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -291,7 +291,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:55.572Z",
+      "crawledAt": "2026-10-07T09:32:42.673Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -335,7 +335,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:55.836Z",
+      "crawledAt": "2026-10-07T09:32:42.854Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -378,7 +378,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:44:56.049Z",
+      "crawledAt": "2026-10-07T09:32:42.999Z",
       "source": "usi-drupal-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -439,7 +439,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -486,7 +486,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -496,5 +496,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
