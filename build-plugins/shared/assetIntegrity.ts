@@ -126,7 +126,7 @@ export function assetIntegrityManifestPlugin(rootDir: string): Plugin {
   return {
     name: 'asset-integrity-manifest',
     apply: 'build',
-    generateBundle(_options, bundle: OutputBundle) {
+    generateBundle(_options, bundle) {
       for (const [fileName, output] of Object.entries(bundle)) {
         if (!fileName.startsWith('assets/') || !isIntegrityEligibleAsset(fileName)) continue;
         registerAssetIntegrity(fileName, sourceForOutput(output));
