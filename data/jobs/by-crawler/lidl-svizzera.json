@@ -71,6 +71,8 @@
         "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
         "allrounder-verkauf-m-w-d-20-40-landquart-lidl-svizzera-landquart"
       ],
+      "salaryMin": 23000,
+      "salaryMax": 34800,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -86,9 +88,7 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "postalCode": "7302",
-      "needsRetranslation": true,
-      "salaryMin": 23000,
-      "salaryMax": 34800
+      "needsRetranslation": true
     },
     {
       "id": "company-g0v01a",
@@ -5451,7 +5451,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-        "en": "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon",
+        "en": "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z"
       },
@@ -5464,15 +5464,15 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-          "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
-          "all-rounder-sales-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
+          "all-rounder-sales-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
+          "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-        "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
-        "all-rounder-sales-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
+        "all-rounder-sales-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
+        "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11326,7 +11326,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -11339,15 +11339,15 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
-          "all-rounder-sales-m-f-d-20-40-brig-lidl-svizzera-brig"
+          "all-rounder-sales-m-f-d-20-40-brig-lidl-svizzera-brig",
+          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
-        "all-rounder-sales-m-f-d-20-40-brig-lidl-svizzera-brig"
+        "all-rounder-sales-m-f-d-20-40-brig-lidl-svizzera-brig",
+        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "salarySource": "estimated",
       "baseSalary": {

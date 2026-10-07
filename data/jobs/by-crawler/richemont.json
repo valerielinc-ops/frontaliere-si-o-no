@@ -6938,7 +6938,7 @@
       "slug": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
-        "en": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "en": "vocational-trainer-cartier-manufacture-le-cret-du-locle",
         "de": "berufsbildner-cartier-manufacture-le-cret-du-locle",
         "fr": "formateur-metiers-richemont-le-cret-du-locle"
       },
@@ -6985,14 +6985,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "formateur-metiers-richemont-le-cret-du-locle",
-        "business-trainer-cartier-manufacture-le-cret-du-locle"
+        "business-trainer-cartier-manufacture-le-cret-du-locle",
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "formateur-metiers-richemont-le-cret-du-locle"
         ],
         "en": [
-          "business-trainer-cartier-manufacture-le-cret-du-locle"
+          "business-trainer-cartier-manufacture-le-cret-du-locle",
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle"
@@ -9651,7 +9653,7 @@
         "it": "mouvements-constructeur-vacheron-constantin-le-brassus",
         "en": "constructeur-mouvements-richemont-le-brassus",
         "de": "konstrukteur-mouvements-vacheron-constantin-le-brassus",
-        "fr": "constructeur-mouvements-vacheron-constantin-le-brassus"
+        "fr": "constructeurmounts-vacheron-constantin-le-brassus"
       },
       "company": "Vacheron Constantin",
       "companyKey": "richemont",
@@ -9698,7 +9700,8 @@
         "constructeur-mouvements-richemont-le-brassus",
         "manufacturer-movements-vacheron-constantin-le-brassus",
         "movimenti-del-produttore-vacheron-constantin-le-brassus",
-        "herstellerbewegungen-vacheron-constantin-le-brassus"
+        "herstellerbewegungen-vacheron-constantin-le-brassus",
+        "constructeur-mouvements-vacheron-constantin-le-brassus"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9709,6 +9712,9 @@
         ],
         "de": [
           "constructeur-mouvements-richemont-le-brassus"
+        ],
+        "fr": [
+          "constructeur-mouvements-vacheron-constantin-le-brassus"
         ]
       },
       "firstSeenAt": "2026-09-26T14:07:23.365Z",

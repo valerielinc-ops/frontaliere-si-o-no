@@ -3923,7 +3923,7 @@
       "slug": "rettore-rettore-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "it": "rettore-rettore-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "en": "rektorin-rektor-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "en": "rector-rector-kantonale-verwaltung-basel-landschaft-munchenstein",
         "de": "rektorin-rektor-kanton-basel-landschaft-munchenstein",
         "fr": "recteur-recteur-kantonale-verwaltung-basel-landschaft-munchenstein"
       },
@@ -3971,16 +3971,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rektorin-rektor-kanton-basel-landschaft-munchenstein",
-        "rector-rector-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "rector-kantonale-verwaltung-basel-landschaft-munchenstein"
+        "rector-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "rektorin-rektor-kantonale-verwaltung-basel-landschaft-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rektorin-rektor-kanton-basel-landschaft-munchenstein"
         ],
         "en": [
-          "rector-rector-kantonale-verwaltung-basel-landschaft-munchenstein",
-          "rector-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "rector-kantonale-verwaltung-basel-landschaft-munchenstein",
+          "rektorin-rektor-kantonale-verwaltung-basel-landschaft-munchenstein"
         ],
         "fr": [
           "rektorin-rektor-kanton-basel-landschaft-munchenstein"
@@ -4855,12 +4855,12 @@
     },
     {
       "id": "kanton-basel-landschaft-daec4d9cbc3e",
-      "slug": "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen",
+      "slug": "specialista-in-manutenzione-aziendale-liceo-laufen-kantonale-verwaltung-basel-landschaft-laufen",
       "slugByLocale": {
-        "it": "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen",
+        "it": "specialista-in-manutenzione-aziendale-liceo-laufen-kantonale-verwaltung-basel-landschaft-laufen",
         "en": "specialist-fachmann-operating-maintenance-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen",
         "de": "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
-        "fr": "specialiste-fachmann-entretien-d-exploitation-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
+        "fr": "specialiste-de-l-entretien-de-l-entreprise-au-lycee-de-laufon-kantonale-verwaltung-basel-landschaft-laufen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -4906,17 +4906,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
+        "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
+        "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen",
+        "specialiste-fachmann-entretien-d-exploitation-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
+          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
+          "specialista-fachmann-manutenzione-operativa-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
         ],
         "en": [
           "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
         ],
         "fr": [
-          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen"
+          "fachfrau-fachmann-betriebsunterhalt-gymnasium-laufen-kanton-basel-landschaft-laufen",
+          "specialiste-fachmann-entretien-d-exploitation-gymnasium-laufen-kantonale-verwaltung-basel-landschaft-laufen"
         ]
       },
       "firstSeenAt": "2026-09-28T21:12:22.284Z",
