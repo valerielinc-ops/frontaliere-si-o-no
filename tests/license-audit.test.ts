@@ -12,12 +12,16 @@ import {
   auditRemovedCdnPrefixes,
   auditTextPublication,
   applyLicenseReplacements,
+  buildForcedReplacementCandidates,
   buildAlarmRequest,
   buildGenerationSpec,
   classifyEventImage,
   classifyPublishedImage,
+  parseFuelBrandLogoReferences,
+  parseReplacementUrls,
   planReplacements,
 } from '../scripts/audit/license-audit.mjs';
+import { syncCorpusBlogCovers } from '../scripts/audit/sync-corpus-blog-covers.mjs';
 
 const ROOT = process.cwd();
 const temporaryRoots: string[] = [];
@@ -177,9 +181,40 @@ describe('license audit B — published image records', () => {
       root: ROOT,
       publicFiles: ['public/images/brands/unregistered.svg'],
       registries: { shared: { assets: [] }, blog: { assets: [] } },
+      references: new Set(['/images/brands/unregistered.svg']),
     });
     expect(audit.controls.find((control) => control.id === 'B.logo-source-inventory')?.status).toBe('fail');
     expect(audit.candidates).toHaveLength(0);
+  });
+
+  it('teaches the logo inventory about dynamic fuel-station slugs and marks unused files as warnings', () => {
+    const dynamic = parseFuelBrandLogoReferences(ROOT);
+    expect(dynamic.references.size).toBe(18);
+    expect(dynamic.references).toContain('/images/brands/agipeni.svg');
+    expect(dynamic.references).toContain('/images/brands/cooppronto.svg');
+    expect(dynamic.evidence.get('/images/brands/agipeni.svg')).toContain('data fuel brand');
+
+    const audit = auditOtherImages({
+      root: ROOT,
+      publicFiles: [
+        'public/images/brands/agipeni.svg',
+        'public/images/brands/agip.svg',
+      ],
+      registries: { shared: { assets: [] }, blog: { assets: [] } },
+      references: new Set(['/images/brands/agipeni.svg']),
+      sourceRegisteredLogoPaths: new Set(['/images/brands/agipeni.svg']),
+      sourceRegisteredLogoEvidence: new Map([
+        ['/images/brands/agipeni.svg', dynamic.evidence.get('/images/brands/agipeni.svg')],
+      ]),
+    });
+    const used = audit.inventory.find((row) => row.url === '/images/brands/agipeni.svg');
+    const unused = audit.inventory.find((row) => row.url === '/images/brands/agip.svg');
+    expect(used).toMatchObject({ status: 'ok', reason: expect.stringContaining('dynamic fuel-station brand reference') });
+    expect(unused).toMatchObject({ status: 'inutilizzato', valid: true });
+    expect(audit.controls.find((control) => control.id === 'B.logo-source-inventory')).toMatchObject({
+      status: 'warn',
+      counts: { used: 1, registered: 1, unused: 1, withoutRegisteredSource: 0 },
+    });
   });
 });
 
@@ -258,6 +293,86 @@ describe('license audit B — og:image sample', () => {
 });
 
 describe('license audit replacement invariants', () => {
+  it('validates manual replacement paths, prioritises them, and protects real-author photos', () => {
+    const validUrl = '/images/blog/old-inferred-cover.webp';
+    expect(parseReplacementUrls(`${validUrl}\n/images/places/lugano-centro.webp`)).toEqual([
+      validUrl,
+      '/images/places/lugano-centro.webp',
+    ]);
+    expect(() => parseReplacementUrls('/images/publisher/logo-square-512.png')).toThrow(/invalid replacement URL/);
+    expect(() => parseReplacementUrls(`${validUrl},${validUrl}`)).toThrow(/duplicate replacement URL/);
+    expect(() => parseReplacementUrls(Array.from({ length: 6 }, (_, index) => `/images/blog/cover-${index + 10}.webp`))).toThrow(/at most 5/);
+
+    const forced = buildForcedReplacementCandidates({
+      replaceUrls: validUrl,
+      inventory: [{
+        family: 'blog',
+        url: validUrl,
+        referenced: true,
+        status: 'inferred',
+        autoRepairable: false,
+        priority: 1,
+      }],
+      ledger: { covers: { 'old-inferred-cover': { priority: 1 } } },
+    });
+    expect(forced).toHaveLength(1);
+    expect(forced[0]).toMatchObject({ imageUrl: validUrl, forced: true, autoRepairable: true });
+    expect(planReplacements([
+      { ...forced[0], priority: 1 },
+      { kind: 'article-hero', assetId: 'automatic', imageUrl: '/images/blog/automatic.webp', autoRepairable: true, priority: 9 },
+    ], 1).selected[0].forced).toBe(true);
+    expect(planReplacements([
+      { ...forced[0], priority: 1 },
+      { kind: 'article-hero', assetId: 'duplicate', imageUrl: validUrl, autoRepairable: true, priority: 9 },
+    ], 5).selected).toHaveLength(1);
+
+    expect(() => buildForcedReplacementCandidates({
+      replaceUrls: '/images/authors/samuele-valente.webp',
+      inventory: [{
+        family: 'authors',
+        url: '/images/authors/samuele-valente.webp',
+        referenced: true,
+        autoRepairable: false,
+        protectedRealAuthor: true,
+      }],
+      authorsByPath: new Map([['/images/authors/samuele-valente.webp', { kind: 'real-author' }]]),
+    })).toThrow(/real-author/);
+  });
+
+  it('copies an audited blog hero and thumbnail into the corpus with the same governed record', () => {
+    const siteRoot = tempRoot();
+    const corpusRoot = tempRoot();
+    const key = 'sync-fixture-cover';
+    const imageUrl = `/images/blog/${key}.webp`;
+    const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/blog-generated-image-registry.json'), 'utf8')).assets[0];
+    const record = { ...base, assetId: key, imageUrl };
+    fs.mkdirSync(path.join(siteRoot, 'data'), { recursive: true });
+    fs.mkdirSync(path.join(siteRoot, 'public/images/blog/thumbnails'), { recursive: true });
+    fs.writeFileSync(path.join(siteRoot, 'data/blog-generated-image-registry.json'), JSON.stringify({ schema: 1, assets: [record] }));
+    fs.writeFileSync(path.join(siteRoot, `public${imageUrl}`), 'new-hero-bytes');
+    fs.writeFileSync(path.join(siteRoot, `public/images/blog/thumbnails/${key}-480w.webp`), 'new-thumbnail-bytes');
+    fs.mkdirSync(path.join(corpusRoot, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(corpusRoot, 'data/generated-image-registry.json'), JSON.stringify({
+      schema: 1,
+      assetCount: 0,
+      assets: [],
+    }));
+
+    const result = syncCorpusBlogCovers({
+      report: { actions: { generated: [{ kind: 'article-hero', assetId: key, imageUrl }] } },
+      siteRoot,
+      corpusRoot,
+    });
+    expect(result.changed).toBe(true);
+    expect(result.items).toHaveLength(1);
+    expect(fs.readFileSync(path.join(corpusRoot, `public${imageUrl}`), 'utf8')).toBe('new-hero-bytes');
+    expect(fs.readFileSync(path.join(corpusRoot, `public/images/blog/thumbnails/${key}-480w.webp`), 'utf8')).toBe('new-thumbnail-bytes');
+    const registry = JSON.parse(fs.readFileSync(path.join(corpusRoot, 'data/generated-image-registry.json'), 'utf8'));
+    expect(registry.assetCount).toBe(1);
+    expect(registry.assets).toHaveLength(1);
+    expect(registry.assets[0]).toMatchObject({ assetId: key, imageUrl });
+  });
+
   it('preserves the assigned article URL and never repoints to another content item', () => {
     const candidate = {
       kind: 'article-hero',
@@ -357,6 +472,7 @@ describe('license audit replacement invariants', () => {
       ...base,
       assetId: candidate.assetId,
       imageUrl: candidate.imageUrl,
+      sha256: 'f'.repeat(64),
       category: candidate.category,
       area: candidate.area,
       season: candidate.season,
