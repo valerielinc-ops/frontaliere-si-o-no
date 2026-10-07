@@ -1,11 +1,16 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map, Baby, Award, Scale, Home, Mail, Handshake, Video, Sunrise, User as UserIcon, Gift, Hammer, BookA, BarChart3, Wrench, Users, Clock, Newspaper, Receipt, Banknote, Coins, Star } from 'lucide-react';
+import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map as MapIcon, Baby, Award, Scale, Home, Mail, Handshake, Video, Sunrise, User as UserIcon, Gift, Hammer, BookA, BarChart3, Wrench, Users, Clock, Newspaper, Receipt, Banknote, Coins, Star } from 'lucide-react';
 import { useTranslation, loadAllTranslations, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { resilientImport } from '@/services/resilientImport';
 import { ALL_GLOSSARY_TERM_IDS } from '@/services/router';
+import { learnRuntimeCantonSlugs } from '@/services/router';
 import type { GlossaryTermId, BlogArticleId } from '@/services/router';
+import type { ArticleSection } from '@/services/articleSections';
+import { loadLiveCantonArticleSections, localizeCantonArticleSections, type RuntimeCantonArticleSection } from '@/services/runtimeArticleSections';
+import { publishedSlugsForIds } from '@/services/runtimeArticleResolution';
+import { fetchArticleOverlay } from '@/services/articlesOverlay';
 
 interface SearchResult {
  id: string;
@@ -19,6 +24,10 @@ interface SearchResult {
  keywords: string[];
  /** Optional filter params to pass when navigating to job-board */
  _filterParams?: JobBoardFilterParams;
+ /** Runtime canton section for a corpus article result. */
+ blogSection?: ArticleSection;
+ /** Localized runtime slug, learned before the result is exposed. */
+ blogSlug?: string;
 }
 
 /** Filter params that SiteSearch can pass to the job board when navigating */
@@ -28,7 +37,13 @@ export interface JobBoardFilterParams {
 }
 
 interface SiteSearchProps {
- onNavigate: (tab: string, subTab?: string, jobBoardFilterParams?: JobBoardFilterParams) => void;
+ onNavigate: (
+  tab: string,
+  subTab?: string,
+  jobBoardFilterParams?: JobBoardFilterParams,
+  blogSection?: ArticleSection,
+  blogSlug?: string,
+ ) => void;
 }
 
 const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
@@ -40,6 +55,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
  // Lazy-load blog article IDs when search is opened
  const [blogArticleIds, setBlogArticleIds] = useState<BlogArticleId[]>([]);
+ const [cantonSearchResults, setCantonSearchResults] = useState<SearchResult[]>([]);
  useEffect(() => {
  if (!isOpen) return;
  // #4176: resilientImport so a transient CDN deploy-window failure on the
@@ -51,6 +67,51 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  // after resilientImport has exhausted its bounded stale-chunk recovery.
  });
  }, [isOpen]);
+
+ // Canton article sections are corpus-owned and therefore cannot be part of
+ // the static search bundle. When search opens, read the live registry and
+ // the current-locale indexes; the shared slug map is learned before results
+ // become clickable so localized article URLs remain canonical.
+ useEffect(() => {
+  if (!isOpen) return;
+  let cancelled = false;
+  const load = async () => {
+   const sections = localizeCantonArticleSections(await loadLiveCantonArticleSections(), locale);
+   const results = await Promise.all(sections.map(async (section: RuntimeCantonArticleSection) => {
+    try {
+     // The shared overlay helper upgrades to `-full.json` when the recent
+     // window is smaller than the corpus total, so search does not silently
+     // omit older canton articles.
+     const rows = await fetchArticleOverlay(section.section, locale, 0);
+     const slugPairs = await publishedSlugsForIds(section.section, rows.map((row) => row.id)).catch(() => []);
+     const slugById = new globalThis.Map(slugPairs);
+     for (const [id, slugs] of slugPairs) learnRuntimeCantonSlugs(section.section, id, slugs);
+     return rows.map((row) => ({
+      id: `blog-${section.section}-${row.id}`,
+      title: row.title,
+      description: row.excerpt || row.title,
+      section: section.displayName,
+      tab: 'blog',
+      subTab: row.id,
+      blogSection: section.section,
+      blogSlug: slugById.get(row.id)?.[locale] || row.id,
+      icon: Newspaper,
+      color: 'text-accent',
+      keywords: [section.displayName.toLowerCase(), ...row.id.split('-').filter((word) => word.length > 2)],
+     } satisfies SearchResult));
+    } catch {
+     return [] as SearchResult[];
+    }
+   }));
+   if (!cancelled) setCantonSearchResults(results.flat());
+  };
+  void load().catch(() => {
+   if (!cancelled) setCantonSearchResults([]);
+  });
+  return () => {
+   cancelled = true;
+  };
+ }, [isOpen, locale]);
 
  const popularQueries = useMemo(() => [
  { label: 'Stipendio netto 80.000 CHF', tab: 'calculator', subTab: undefined },
@@ -214,7 +275,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('nav.guida') || 'Guida',
  tab: 'guida',
  subTab: 'border-map',
- icon: Map,
+ icon: MapIcon,
  color: 'text-info',
  keywords: ['mappa', 'map', 'comuni', 'municipalities', 'interattiva', 'interactive', 'irpef', 'affitto', 'rent', 'distanza', 'karte', 'carte', 'confine', 'border', 'addizionale', 'tassa', 'confronto', 'impatto fiscale'],
  },
@@ -730,7 +791,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  description: 'Tutti gli strumenti e risorse per frontalieri in un\'unica pagina',
  section: t('sitemap.title') || 'Mappa del Sito',
  tab: 'sitemap',
- icon: Map,
+ icon: MapIcon,
  color: 'text-subtle',
  keywords: ['mappa', 'sito', 'sitemap', 'tutti', 'strumenti', 'indice', 'seitenplan', 'plan', 'site map', 'elenco'],
  },
@@ -1159,7 +1220,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  }, [t, blogArticleIds]);
 
  // Combined search index: static entries + dynamic entries
- const fullSearchIndex = useMemo(() => [...searchIndex, ...dynamicEntries], [searchIndex, dynamicEntries]);
+ const fullSearchIndex = useMemo(() => [...searchIndex, ...dynamicEntries, ...cantonSearchResults], [searchIndex, dynamicEntries, cantonSearchResults]);
 
  // Fuzzy search function
  const searchResults = useMemo(() => {
@@ -1300,7 +1361,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  setIsOpen(false);
  Analytics.trackSearch(query);
  setQuery('');
- onNavigate(result.tab, result.subTab, result._filterParams);
+ onNavigate(result.tab, result.subTab, result._filterParams, result.blogSection, result.blogSlug);
  }, [onNavigate, query]);
 
  // Handle keyboard navigation
