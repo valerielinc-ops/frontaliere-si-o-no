@@ -2646,6 +2646,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'riserve-valutarie-settembre-stabili': { it: 'riserve-valutarie-settembre-stabili', en: 'stable-currency-reserves-september', de: 'waehrungsreserven-september-stabil', fr: 'reserves-devises-septembre-stables' },
  'ffs-sportelli-chiusi-stazioni': { it: 'ffs-sportelli-chiusi-stazioni', en: 'ffs-ticket-counter-closures-stations', de: 'ffs-schalterschliessungen-bahnhoefe', fr: 'ffs-fermeture-guichets-gares' },
  'intelligenza-artificiale-diritti-umani': { it: 'intelligenza-artificiale-diritti-umani', en: 'artificial-intelligence-human-rights', de: 'kuenstliche-intelligenz-menschenrechte', fr: 'intelligence-artificiale-droits-humains' },
+ 'lista-sanzioni-sesam-svizzera': { it: 'lista-sanzioni-sesam-svizzera', en: 'switzerland-un-sanctions-sesam-list', de: 'schweiz-un-sanktionen-sesam-liste', fr: 'suisse-sanctions-onu-liste-sesam' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

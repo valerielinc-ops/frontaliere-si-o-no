@@ -7871,6 +7871,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.intelligenza-artificiale-diritti-umani.title': 'Artificial intelligence: impact on human rights',
     'blog.article.intelligenza-artificiale-diritti-umani.excerpt': '## TL;DR - 63rd session of the Human Rights Council in Geneva - Switzerland led a coalition on transitional justice - Privacy',
     'blog.article.intelligenza-artificiale-diritti-umani.imageAlt': 'Swiss office team using ethical AI for human resources and housing',
+    'blog.article.lista-sanzioni-sesam-svizzera.title': 'UN sanctions: SESAM database updated in Switzerland',
+    'blog.article.lista-sanzioni-sesam-svizzera.excerpt': '## TL;DR - The communication was published on October 7, 2026. - The UN sanctions committee modified the list. - The SESAM database was',
+    'blog.article.lista-sanzioni-sesam-svizzera.imageAlt': 'Swiss administrative document about UN sanctions',
 };
 
 export default blogMetaChEn;

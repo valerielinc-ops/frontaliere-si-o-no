@@ -99209,6 +99209,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lista-sanzioni-sesam-svizzera': {
+    title: 'Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera',
+    description: '## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell\'ONU ha modificato la lista. - La banca dati SESAM è stata',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, aggiornata, banca, dati',
+    ogTitle: 'Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera',
+    ogDescription: '## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell\'ONU ha modificato la lista. - La banca dati SESAM è stata',
+    canonicalPath: '/articoli-svizzera/lista-sanzioni-sesam-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni ONU: aggiornata la banca dati SESAM in Svizzera",
+      "description": "## In breve - Il 7 ottobre 2026 è stata pubblicata la comunicazione. - Il comitato di sanzioni dell'ONU ha modificato la lista. - La banca dati SESAM è stata",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-lista-sanzioni-sesam-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento amministrativo svizzero sul tema delle sanzioni ONU"
+      },
+      "datePublished": "2026-10-07T18:29:11+00:00",
+      "dateModified": "2026-10-07T18:29:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lista-sanzioni-sesam-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7871,6 +7871,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.intelligenza-artificiale-diritti-umani.title': 'Intelligence artificielle : impact sur les droits humains',
     'blog.article.intelligenza-artificiale-diritti-umani.excerpt': '## En bref - 63e session du Conseil des droits de l’homme à Genève - La Suisse a dirigé une coalition sur la justice transitionnelle - Vie privée',
     'blog.article.intelligenza-artificiale-diritti-umani.imageAlt': 'Bureau suisse avec équipe utilisant une IA éthique pour les ressources humaines et le logement',
+    'blog.article.lista-sanzioni-sesam-svizzera.title': 'Sanctions de l’ONU : la base de données SESAM a été mise à jour en Suisse',
+    'blog.article.lista-sanzioni-sesam-svizzera.excerpt': '## En bref - La communication a été publiée le 7 octobre 2026. - Le comité des sanctions de l’ONU a modifié la liste. - La base de données SESAM a été',
+    'blog.article.lista-sanzioni-sesam-svizzera.imageAlt': 'Document administratif suisse sur les sanctions de l\'ONU',
 };
 
 export default blogMetaChFr;
