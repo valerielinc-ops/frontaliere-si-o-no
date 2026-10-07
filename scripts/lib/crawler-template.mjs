@@ -382,6 +382,37 @@ export function normalizeDescriptionBullets(text) {
 }
 
 /**
+ * Drop the empty bold spans of ONE line (`** **`, `** : **`, `** - **`).
+ *
+ * Markers pair up left to right, so only the text BETWEEN an opening marker and
+ * its closing one is judged. The single regex this replaces matched ANY two
+ * markers with nothing but blanks or punctuation between them, which is also
+ * the gap between the end of one bold span and the start of the next:
+ * `**a**, **b**` became `**a b**`, and — `\s` crosses line breaks — a line
+ * ending in bold swallowed the bold-labelled line after it (a section title
+ * and its first bullet came out as one line in `data/jobs.json`). Same step as
+ * `dropEmptyBoldSpans` in `build-plugins/shared/jobDescription/parser.ts` and
+ * as `scripts/lib/free-translate.mjs`; this module cannot import TypeScript, so
+ * `tests/empty-bold-spans-parity.test.ts` holds the three together.
+ */
+function dropEmptyBoldSpansInLine(line) {
+  const parts = line.split('**');
+  if (parts.length < 3) return line;
+  let out = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const content = parts[index];
+    if (index + 1 >= parts.length) {
+      // Opening marker with no closing one on this line: step 1a decides.
+      out += `**${content}`;
+      break;
+    }
+    out += /^[\s:;,.\-–—]*$/u.test(content) ? ' ' : `**${content}**`;
+    out += parts[index + 1];
+  }
+  return out;
+}
+
+/**
  * Idempotent clean-up of crawler artifacts in job descriptions. Runs at
  * assemble-time (`scripts/assemble-jobs-dataset.mjs`) alongside
  * `normalizeDescriptionBullets`. Defensive against malformed input from
@@ -401,8 +432,9 @@ export function cleanCrawlerArtifacts(text) {
   if (!text || typeof text !== 'string') return text;
   let s = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
-  // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
-  s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **"),
+  // one line at a time: see `dropEmptyBoldSpansInLine`.
+  s = s.split('\n').map(dropEmptyBoldSpansInLine).join('\n');
   // 1a. Odd `**` count (source truncated the closing marker) survives the
   // pair-matching replace above untouched — same gap guarded in the runtime
   // parser (build-plugins/shared/jobDescription/parser.ts) and
