@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Measure the newsletter's AI phases (2: briefings, 3: subjects) before and
  * after the per-locale briefing, on the same input, against a simulated Codex
@@ -375,7 +377,7 @@ export async function measureNewsletterAiPhases({ cohortCount = 700 } = {}) {
   return results;
 }
 
-if (import.meta.url === `file://${process.argv[1]}` && process.argv.includes('--lanes')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })() && process.argv.includes('--lanes')) {
   const lanes = Number(process.argv[process.argv.indexOf('--lanes') + 1]) || 3;
   const results = await measureNewsletterAiLanes({ lanes });
   console.log(`| input (${lanes} lanes) | one after the other: s, calls, prompt chars | together: s, calls, prompt chars | saved s |`);
@@ -391,7 +393,7 @@ if (import.meta.url === `file://${process.argv[1]}` && process.argv.includes('--
   process.exit(0);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const results = await measureNewsletterAiPhases();
   if (process.argv.includes('--json')) {
     console.log(JSON.stringify(results, null, 2));

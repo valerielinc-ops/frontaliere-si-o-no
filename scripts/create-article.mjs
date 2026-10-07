@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * create-article.mjs — Generate a complete blog article using the site AI stack.
  *
@@ -11520,7 +11521,7 @@ export { normalizeItalianContentFromPayload, validateItalianPayload };
 // this module (to reuse registerArticleFiles/buildBodyFile) must NOT execute it.
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

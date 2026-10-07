@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scan-job-timeouts.mjs — zero-workflow-file-touch timeout reporter.
  *
@@ -1291,7 +1293,7 @@ export async function resolveScopedTimeoutIssues({ dryRun = DRY_RUN, nowMs = Dat
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('scan-job-timeouts.mjs') && RESOLVE_MODE) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })() && RESOLVE_MODE) {
   Promise.resolve()
     .then(() => resolveScopedTimeoutIssues())
     .catch((err) => {
@@ -1301,7 +1303,7 @@ if (process.argv[1]?.endsWith('scan-job-timeouts.mjs') && RESOLVE_MODE) {
       console.error(`[scan-job-timeouts] fatal: ${err.message}`);
       process.exit(1);
     });
-} else if (process.argv[1]?.endsWith('scan-job-timeouts.mjs')) {
+} else if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   Promise.resolve()
     .then(() => assertRunAgeHorizon())
     .then(() => main())

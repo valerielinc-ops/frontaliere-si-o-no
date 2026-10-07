@@ -1,49 +1,235 @@
 /**
  * Guard di entrypoint: identità del modulo, non suffisso del path (#7292).
  *
- * Il difetto: `if (process.argv[1]?.endsWith('followup-drainer.mjs')) main()`
- * non chiede «questo modulo è l'entrypoint?», chiede «il path dell'entrypoint
- * finisce con questa stringa?». Sono la stessa domanda solo finché il modulo ha
- * UN solo consumatore. Da quando `scripts/prospect-promote.mjs` importa il
- * drainer per `canPushWorkflows()`, il guard smette di essere teorico: un
- * entrypoint qualunque il cui `argv[1]` finisca con `followup-drainer.mjs`
- * (wrapper, copia, runner che risolve un altro path) fa partire un `main()` che
- * NON è read-only — scrive label e commenti su issue e PR reali.
- *
- * I due test qui sotto sono l'osservatore del comportamento, non della forma:
- *
- *   1. un entrypoint DIVERSO il cui basename coincide non deve eseguire il CLI
- *      (era il falso positivo del suffisso);
- *   2. l'invocazione via symlink deve continuare a eseguirlo — `argv[1]` è il
- *      link e `import.meta.url` il file reale, quindi il confronto canonico
- *      senza `realpathSync` avrebbe rotto un caso che il vecchio guard copriva.
- *
- * `classify-issue.mjs` fa da campione della famiglia: è un modulo con un CLI
- * corto e deterministico (stampa JSON su stdout), importato in produzione da
- * `triage-sweep.mjs` e da `followup-drainer.mjs`. Il terzo test tiene la
- * famiglia allineata su tutti i moduli che portavano un guard a suffisso, così
- * il prossimo che ne scrive uno viene fermato qui invece che da un `main()`
- * partito per sbaglio in CI.
+ * L'osservatore percorre tutte le radici di codice materializzate dal profilo
+ * sparse del checkout. Un nuovo guard ESM deve usare la forma canonica con
+ * realpath oppure l'helper condiviso `isInvokedDirectly(import.meta.url)`.
  */
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, symlinkSync, writeFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..');
-const SAMPLE = path.join(ROOT, 'scripts/lib/classify-issue.mjs');
+const CLASSIFY_SAMPLE = path.join(ROOT, 'scripts/lib/classify-issue.mjs');
+const PATH_RESOLVE_SAMPLE = path.join(ROOT, 'scripts/lib/pr-body-generator-contract.mjs');
+const FILE_URL_SAMPLE = path.join(ROOT, 'scripts/ci/validate-modified-workflows.mjs');
 
-const runNode = (entry: string, args: string[]) =>
-  execFileSync(process.execPath, [entry, ...args], { encoding: 'utf8' });
+const CENSUS_ROOTS = [
+  'scripts',
+  'build-plugins',
+  'packages/articles/engine',
+  'functions',
+  'infra',
+];
+const EXCLUDED_DIRECTORIES = new Set([
+  'node_modules',
+  '.git',
+  'dist',
+  'public',
+  'data',
+  '.cache',
+  'cache',
+  'fixtures',
+  '__fixtures__',
+  'fixture',
+]);
+const CODE_FILE_RE = /\.(mjs|js|ts|tsx)$/;
+const CANONICAL_GUARD_RE = /pathToFileURL\(\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\]\s*\)\s*\)\.href/;
+const HELPER_GUARD_RE = /isInvokedDirectly\(\s*import\.meta\.url\s*\)/;
+
+const runNode = (entry: string, args: string[], options: Record<string, unknown> = {}) =>
+  execFileSync(process.execPath, [entry, ...args], {
+    cwd: ROOT,
+    encoding: 'utf8',
+    ...options,
+  });
+
+function walkCodeFiles(dir: string, files: string[]) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (EXCLUDED_DIRECTORIES.has(entry.name)) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkCodeFiles(full, files);
+    else if (entry.isFile() && CODE_FILE_RE.test(entry.name)) files.push(full);
+  }
+}
+
+type GuardFacts = {
+  arg: boolean;
+  meta: boolean;
+  marker: boolean;
+  canonical: boolean;
+};
+
+function factsForSource(source: string): GuardFacts {
+  return {
+    arg: /process\.argv\s*\[\s*1\s*\]/.test(source),
+    meta: /import\.meta\.(?:url|filename)|fileURLToPath\(\s*import\.meta\.url|new\s+URL\(\s*import\.meta\.url/.test(source),
+    marker: /__filename|SCRIPT_PATH|endsWith\s*\(|basename\s*\(/.test(source),
+    canonical: CANONICAL_GUARD_RE.test(source),
+  };
+}
+
+function mergeFacts(target: GuardFacts, source: GuardFacts) {
+  target.arg ||= source.arg;
+  target.meta ||= source.meta;
+  target.marker ||= source.marker;
+  target.canonical ||= source.canonical;
+}
+
+type BabelNode = {
+  type: string;
+  start: number;
+  end: number;
+  loc?: { start: { line: number } };
+  [key: string]: any;
+};
+
+function babelChildren(node: BabelNode) {
+  const children: BabelNode[] = [];
+  for (const [key, value] of Object.entries(node)) {
+    if (['loc', 'start', 'end', 'extra', 'comments', 'leadingComments', 'trailingComments', 'innerComments'].includes(key)) continue;
+    if (Array.isArray(value)) {
+      for (const item of value) if (item && typeof item.type === 'string') children.push(item);
+    } else if (value && typeof value === 'object' && typeof value.type === 'string') {
+      children.push(value);
+    }
+  }
+  return children;
+}
+
+function censusFile(file: string, parse: (source: string) => { type: string; [key: string]: any }) {
+  const source = readFileSync(file, 'utf8');
+  if (HELPER_GUARD_RE.test(source)) return [];
+
+  const ast = parse(source) as BabelNode;
+  const bindings = new Map<string, Array<{ init: BabelNode; start: number }>>();
+  const nodes: BabelNode[] = [];
+  const nodeText = (node: BabelNode) => source.slice(node.start, node.end);
+
+  function collect(node: BabelNode) {
+    nodes.push(node);
+    if (node.type === 'VariableDeclarator' && node.id?.type === 'Identifier' && node.init) {
+      const current = bindings.get(node.id.name) ?? [];
+      current.push({ init: node.init, start: node.start });
+      bindings.set(node.id.name, current);
+    }
+    for (const child of babelChildren(node)) collect(child);
+  }
+  collect(ast);
+
+  function bindingFor(name: string, position: number) {
+    const candidates = bindings.get(name) ?? [];
+    let selected: { init: BabelNode; start: number } | undefined;
+    for (const candidate of candidates) {
+      if (candidate.start < position && (!selected || candidate.start > selected.start)) selected = candidate;
+    }
+    return selected;
+  }
+
+  const memo = new Map<string, GuardFacts>();
+  function facts(node: BabelNode, stack = new Set<string>(), position = node.start): GuardFacts {
+    if (node.type === 'Identifier') {
+      const binding = bindingFor(node.name, position);
+      if (binding) {
+        const key = `${node.name}:${binding.start}`;
+        if (!stack.has(key)) {
+          const cached = memo.get(key);
+          if (cached) return cached;
+          const next = new Set(stack);
+          next.add(key);
+          const resolved = facts(binding.init, next, binding.start);
+          memo.set(key, resolved);
+          return resolved;
+        }
+      }
+    }
+
+    const result = factsForSource(nodeText(node));
+    for (const child of babelChildren(node)) mergeFacts(result, facts(child, stack, child.start));
+    return result;
+  }
+
+  const identityNodes: BabelNode[] = [];
+  const suffixNodes: BabelNode[] = [];
+  for (const node of nodes) {
+    if (node.type === 'BinaryExpression' && ['===', '!==', '==', '!='].includes(node.operator)) {
+      const left = facts(node.left);
+      const right = facts(node.right);
+      const isIdentity = (left.arg && (right.meta || right.marker)) || (right.arg && (left.meta || left.marker));
+      if (isIdentity && !CANONICAL_GUARD_RE.test(nodeText(node))) identityNodes.push(node);
+    }
+    if ((node.type === 'CallExpression' || node.type === 'OptionalCallExpression') && /\.endsWith\s*\(/.test(nodeText(node))) {
+      const current = facts(node);
+      if (current.arg && (current.meta || current.marker) && !CANONICAL_GUARD_RE.test(nodeText(node))) suffixNodes.push(node);
+    }
+  }
+
+  const inside = (inner: BabelNode, outer: BabelNode) =>
+    inner.start >= outer.start
+    && inner.end <= outer.end
+    && (inner.start !== outer.start || inner.end !== outer.end);
+  const selected: BabelNode[] = [];
+  for (const node of nodes) {
+    if (node.type !== 'LogicalExpression' || node.operator !== '||') continue;
+    const currentText = nodeText(node);
+    if (!/endsWith\s*\(|basename\s*\(/.test(currentText)) continue;
+    const hasIdentity = identityNodes.some((candidate) => inside(candidate, node));
+    const hasSuffix = suffixNodes.some((candidate) => inside(candidate, node));
+    const current = facts(node);
+    if ((hasIdentity && hasSuffix || CANONICAL_GUARD_RE.test(currentText) && hasSuffix)
+      && current.arg && (current.meta || current.marker)) selected.push(node);
+  }
+  for (const node of identityNodes) if (!selected.some((outer) => inside(node, outer))) selected.push(node);
+  for (const node of suffixNodes) {
+    if (selected.some((outer) => inside(node, outer))) continue;
+    if (selected.some((outer) => outer.start === node.start && outer.end === node.end)) continue;
+    selected.push(node);
+  }
+
+  return selected.map((node) => `${path.relative(ROOT, file)}:${node.loc?.start.line ?? 0}`);
+}
+
+async function censusEntrypointGuards() {
+  const parserModule = await import('@babel/parser');
+  const parse = ((parserModule as any).parse ?? (parserModule as any).default?.parse) as (source: string, options: Record<string, unknown>) => BabelNode;
+  const roots = CENSUS_ROOTS
+    .map((relative) => path.join(ROOT, relative))
+    .filter((directory) => existsSync(directory) && statSync(directory).isDirectory());
+  const files: string[] = [];
+  for (const root of roots) walkCodeFiles(root, files);
+
+  const offenders: string[] = [];
+  for (const file of files) {
+    try {
+      offenders.push(...censusFile(file, (source) => parse(source, {
+        sourceType: 'module',
+        errorRecovery: true,
+        plugins: ['importMeta', 'topLevelAwait', 'jsx', 'typescript', 'classProperties', 'decorators-legacy'],
+      })));
+    } catch (error) {
+      offenders.push(`${path.relative(ROOT, file)}:parse-error:${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+
+  return { roots, files, offenders: [...new Set(offenders)] };
+}
 
 describe('guard di entrypoint canonico (#7292)', () => {
   it('non esegue il CLI da un entrypoint diverso col medesimo basename', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'entrypoint-guard-'));
-    // Stesso NOME FILE, path diverso: `endsWith('classify-issue.mjs')` è true,
-    // l'identità del modulo no.
+    // Stesso NOME FILE, path diverso: l'identità del modulo no.
     const impostor = path.join(dir, 'classify-issue.mjs');
-    writeFileSync(impostor, `import ${JSON.stringify(SAMPLE)};\n`);
+    writeFileSync(impostor, `import ${JSON.stringify(CLASSIFY_SAMPLE)};\n`);
 
     const out = runNode(impostor, ['crawler rotto', '[]']);
 
@@ -53,68 +239,29 @@ describe('guard di entrypoint canonico (#7292)', () => {
   it('esegue il CLI quando invocato attraverso un symlink al modulo', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'entrypoint-guard-'));
     const link = path.join(dir, 'classify-issue.mjs');
-    symlinkSync(SAMPLE, link);
+    symlinkSync(CLASSIFY_SAMPLE, link);
 
     const out = runNode(link, ['crawler rotto', '[]']);
 
-    // Il punto è che il CLI sia PARTITO: la categoria esatta la coprono i test
-    // di `classify-issue`, qui conta solo che il guard non l'abbia zittito.
     expect(out).not.toBe('');
     expect(JSON.parse(out)).toHaveProperty('category');
   });
 
-  it('nessun modulo della famiglia guarda il suffisso di argv[1]', () => {
-    // Ogni modulo che portava un guard di entrypoint a suffisso. I primi sono
-    // quelli con un secondo consumatore in-repo — lì il difetto è attivo oggi;
-    // gli altri sono i gemelli con lo stesso idioma, portati nello stesso giro
-    // perché la classe si chiude intera o non si chiude (AGENTS.md #6).
-    const family = [
-      'scripts/analyze-webcam-frame.mjs',
-      'scripts/audit-article-corpus-drift.mjs',
-      'scripts/audit-bfs-depth.mjs',
-      'scripts/audit-breadcrumb-coverage.mjs',
-      'scripts/audit-dist-multi.mjs',
-      'scripts/audit-duplicate-meta-description.mjs',
-      'scripts/audit-duplicate-structured-data.mjs',
-      'scripts/audit-faqpage-validity.mjs',
-      'scripts/audit-footer-root-presence.mjs',
-      'scripts/audit-h1-title-duplicates.mjs',
-      'scripts/audit-image-object-license.mjs',
-      'scripts/audit-jsonld-no-nested-scripts.mjs',
-      'scripts/audit-link-anchor-text.mjs',
-      'scripts/audit-no-literal-markdown.mjs',
-      'scripts/audit-page-weight.mjs',
-      'scripts/audit-salary-landing-template.mjs',
-      'scripts/audit-single-h1-per-page.mjs',
-      'scripts/audit-text-html-ratio.mjs',
-      'scripts/audit-title-length.mjs',
-      'scripts/audit-title-no-disambig-hash.mjs',
-      'scripts/build-austrian-border-municipalities.mjs',
-      'scripts/build-fiscal-municipalities.mjs',
-      'scripts/build-french-border-municipalities.mjs',
-      'scripts/build-german-border-municipalities.mjs',
-      'scripts/build-liechtenstein-municipalities.mjs',
-      'scripts/ci/assert-dist-complete.mjs',
-      'scripts/ci/auto-merge-eval.mjs',
-      'scripts/ci/followup-drainer.mjs',
-      'scripts/lib/classify-issue.mjs',
-      'scripts/lib/github-issue-creator.mjs',
-      'scripts/lib/pr-body-closes-check.mjs',
-      'scripts/lib/shared-jobs-crawler.mjs',
-      'scripts/notify-article-search-engines.mjs',
-      'scripts/publish-edge-files.mjs',
-      'scripts/reconcile-duplicate-stable-id-jobs.mjs',
-      'scripts/rerender-article-corpus.mjs',
-      'scripts/submit-indexnow-batch.mjs',
-    ];
+  it('censisce tutte le radici materializzate e rifiuta ogni guard non canonico', async () => {
+    const census = await censusEntrypointGuards();
 
-    const offenders = family.filter((rel) => {
-      const src = readFileSync(path.join(ROOT, rel), 'utf8');
-      const suffixGuard = /process\.argv\[1\][^\n]*\.endsWith\(|import\.meta\.url\.endsWith\(/;
-      const canonical = /import\.meta\.url === pathToFileURL\((?:fs\.)?realpathSync\(process\.argv\[1\]\)\)\.href/;
-      return suffixGuard.test(src) || !canonical.test(src);
+    expect(census.roots.length).toBeGreaterThan(0);
+    expect(census.files.length).toBeGreaterThan(0);
+    expect(census.offenders).toEqual([]);
+  });
+
+  it('mantiene i campioni di comportamento delle due famiglie convertite', () => {
+    const pathResolveOut = runNode(PATH_RESOLVE_SAMPLE, ['--closing-ref'], {
+      input: JSON.stringify({ number: 7292, title: 'guard', body: '' }),
     });
+    expect(pathResolveOut.trim()).toBe('Closes #7292');
 
-    expect(offenders).toEqual([]);
+    const fileUrlOut = runNode(FILE_URL_SAMPLE, []);
+    expect(fileUrlOut).toMatch(/^(?:Nessun workflow modificato|Workflow modificati validati dal contratto prompt:)/);
   });
 });

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Apply the crawler ownership guard to a slice immediately before it enters a
  * private commit tree.
@@ -12,7 +14,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   dropForeignOwnedVacancies,
   loadSourceHostOwnership,
@@ -118,4 +120,4 @@ function main() {
   process.stdout.write(JSON.stringify({ dropped }));
 }
 
-if (path.resolve(process.argv[1] ?? '') === fileURLToPath(import.meta.url)) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

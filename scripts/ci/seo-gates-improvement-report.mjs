@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * seo-gates-improvement-report.mjs — decide whether a cathedral SEO gate that
  * IMPROVED deserves an issue, or only a line in the job summary.
@@ -208,7 +210,7 @@ async function main() {
 }
 
 const invokedDirectly =
-  process.argv[1] !== undefined && path.resolve(process.argv[1]) === __filename;
+  process.argv[1] !== undefined && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   await main();
 }

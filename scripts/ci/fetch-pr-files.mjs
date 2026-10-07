@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * fetch-pr-files.mjs — CLI condiviso da `pr-redflag-fixer.yml` e
  * `pr-review-loop.yml` (issue #6233): entrambi reimplementavano in bash la
@@ -63,6 +65,6 @@ function main() {
   process.stdout.write(JSON.stringify({ expected: expected ?? 0, count: files.length, complete, reason, files }));
 }
 
-if (process.argv[1]?.endsWith('fetch-pr-files.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

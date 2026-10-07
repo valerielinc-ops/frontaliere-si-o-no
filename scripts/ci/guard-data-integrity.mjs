@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * guard-data-integrity.mjs — catch-all contro il troncamento catastrofico dei
  * file-dati accumulatori committati su main (zero-Claude, deterministico).
@@ -180,6 +182,6 @@ export function main() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare git).
-if (process.argv[1]?.endsWith('guard-data-integrity.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

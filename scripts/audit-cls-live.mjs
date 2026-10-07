@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * audit-cls-live.mjs
  *
@@ -824,7 +825,7 @@ async function run() {
 // test che pinna il contratto era lo stesso che innescava il gate.
 // `verify-cls-fix.mjs` lancia questo file come PROCESSO (non lo importa),
 // quindi per lui il guard e' trasparente.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   run().catch((e) => {
     console.error('audit-cls-live: fatal:', e?.stack || e);
     process.exit(1);

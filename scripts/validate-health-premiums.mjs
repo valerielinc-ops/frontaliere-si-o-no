@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Validate the four health-premiums mirrors after the canonical producer ran.
  *
@@ -56,7 +57,7 @@ export async function validateHealthPremiumsSnapshots() {
   return { year: CURRENT_YEAR, paths: SNAPSHOT_PATHS };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   validateHealthPremiumsSnapshots()
     .then(({ year, paths }) => {
       console.log(`✅ Health-premiums snapshot ${year} valid and identical across ${paths.length} mirrors.`);

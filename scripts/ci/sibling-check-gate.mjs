@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * sibling-check-gate.mjs — PreToolUse hook: blocks `gh pr create` when
  * check-sibling-patterns.mjs finds uncovered sibling files that have NOT been
@@ -46,8 +48,8 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readHookStdin } from './lib/hook-stdin.mjs';
-import { fileURLToPath } from 'node:url';
-import { basename, relative, resolve, sep } from 'node:path';
+
+import { basename, relative, sep } from 'node:path';
 import { extractPrBody, describePrBodySource } from './pr-body-check-gate.mjs';
 import { commandVariables, findPrBodyWriteCommand } from './lib/hook-command-parser.mjs';
 import { FALSE_POSITIVE_DECLARATION_RE } from './lib/false-positive-declaration.mjs';
@@ -515,7 +517,7 @@ async function main() {
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.
-const isMain = process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   main();
 }

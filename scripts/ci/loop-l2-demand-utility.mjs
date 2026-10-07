@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /** L2 — Demand → Utility. */
 import fs from 'node:fs';
@@ -643,7 +644,7 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L2] fatal: ${error.message}`);
     process.exitCode = 1;

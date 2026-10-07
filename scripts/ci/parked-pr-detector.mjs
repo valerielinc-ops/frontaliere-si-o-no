@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * parked-pr-detector.mjs — segnala le PR che NESSUN processo automatico
  * toccherà mai più (zero-Claude, deterministico).
@@ -163,6 +165,6 @@ function main() {
   console.log('parked scan completo.');
 }
 
-if (process.argv[1]?.endsWith('parked-pr-detector.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

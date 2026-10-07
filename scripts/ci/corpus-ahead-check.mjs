@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * corpus-ahead-check.mjs — il RICEVITORE che mancava al lato sito.
  *
@@ -704,7 +706,7 @@ async function main() {
 
 // `import.meta.main` non esiste su Node 20; il confronto sul path e' la forma
 // che questo repo usa altrove per "eseguito, non importato".
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (invokedDirectly) {
   main().then(

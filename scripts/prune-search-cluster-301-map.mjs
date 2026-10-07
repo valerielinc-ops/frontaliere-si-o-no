@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Prune stale entries from data/search-cluster-301-map.json.
  *
@@ -32,8 +34,7 @@
  *   node scripts/prune-search-cluster-301-map.mjs --live-file <path> # offline
  */
 import { readFileSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   OUT,
   LOCALES,
@@ -43,8 +44,6 @@ import {
   loadLiveFromFile,
 } from './build-search-cluster-301-map.mjs';
 import { AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
-
-const __filename = fileURLToPath(import.meta.url);
 
 // A "specific" target is the national cluster hub page for a role+city body
 // (e.g. it: /cerca-lavoro-svizzera/ricerca-<body>/) — the only target type
@@ -152,7 +151,7 @@ async function main() {
 }
 
 // Run only when executed directly, not when imported by tests.
-const isMainModule = process.argv[1] && resolve(process.argv[1]) === __filename;
+const isMainModule = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) {
   main().catch((err) => {
     console.error('[prune-search-cluster-301-map] unexpected error:', err);

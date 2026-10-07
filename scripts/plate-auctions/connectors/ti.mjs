@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Ticino eCari connector. The institutional page points to this public portal. */
 import {
   buildEcariDetailUrl,
@@ -64,7 +66,7 @@ export async function fetchTiPlateAuctions({ fetchPage = fetchHtml, now = new Da
   });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchTiPlateAuctions()
     .then((auctions) => {
       console.log(JSON.stringify(auctions, null, 2));

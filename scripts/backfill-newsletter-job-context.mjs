@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Backfill missing job context fields on newsletter_subscribers/{email}.
  *
@@ -413,7 +415,7 @@ async function main() {
   if (!args.apply) console.log('\nRe-run with --apply to commit.');
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('Fatal error:', err);
     process.exit(1);

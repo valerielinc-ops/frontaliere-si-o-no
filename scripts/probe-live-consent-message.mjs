@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * probe-live-consent-message.mjs
  *
@@ -195,7 +196,7 @@ async function main() {
   if (!json) console.log(`✅ [consent-probe] no page suppresses the consent message (${results.length} page(s) probed)`);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`::error::[consent-probe] probe crashed: ${error?.stack || error}`);
     process.exit(1);

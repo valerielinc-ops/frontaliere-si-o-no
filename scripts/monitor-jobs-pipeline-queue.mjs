@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * monitor-jobs-pipeline-queue.mjs — observability for the `jobs-data-pipeline`
  * concurrency group's `queue: max` behaviour (PR #7035, follow-up items 3+4 of
@@ -428,7 +430,7 @@ export async function main() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('monitor-jobs-pipeline-queue.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[monitor-jobs-pipeline-queue] fatal: ${err.message}`);
     process.exit(1);

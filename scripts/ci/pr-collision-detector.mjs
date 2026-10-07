@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-collision-detector.mjs — rileva PR aperte che toccano gli stessi file
  * funnel-critical (zero-Claude, deterministico).
@@ -454,6 +456,6 @@ function main() {
   console.log('collision scan completo.');
 }
 
-if (process.argv[1]?.endsWith('pr-collision-detector.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

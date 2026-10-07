@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * One-shot, idempotent migration of the retired `im-bethesda-spital` slice
  * into the canonical `bethesda-spital` slice (issue 5253).
@@ -186,4 +188,4 @@ async function main() {
   console.log('applied');
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) await main();

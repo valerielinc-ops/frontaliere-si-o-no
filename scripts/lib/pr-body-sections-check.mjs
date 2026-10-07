@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-body-sections-check.mjs — Deterministic validator for PR body SECTION
  * CONTENT quality. ZERO Claude (pure regex+string). Companion to
@@ -835,10 +837,8 @@ export function checkPrBodySections(body = '', {
 // ---------------------------------------------------------------------------
 // CLI entrypoint (guard: only when invoked directly, not when imported)
 // ---------------------------------------------------------------------------
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const argv = process.argv.slice(2);
   const JSON_OUT = argv.includes('--json');
   const bodyArg = argv.filter((a) => !a.startsWith('--'))[0];

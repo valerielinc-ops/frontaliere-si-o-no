@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * adsense-prereview-audit.mjs — AdSense pre-review checklist.
  *
@@ -912,7 +914,7 @@ async function main() {
 }
 
 // Allow the pure helpers above to be imported by tests without running the audit.
-const invokedDirectly = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`❌ audit crashed: ${err?.stack || err}`);

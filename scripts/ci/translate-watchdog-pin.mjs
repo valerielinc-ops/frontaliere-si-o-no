@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Pin del watchdog translate nel trasporto dei workflow crawler.
@@ -26,7 +28,6 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export const WATCHDOG_RUNTIME_PATH = 'scripts/ci/translate-queue-recovery.mjs';
 export const TRANSLATE_WORKFLOW_PATH = '.github/workflows/translate-pending.yml';
@@ -458,7 +459,7 @@ function readOptional(filePath) {
   return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : undefined;
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   const [command, ...rest] = process.argv.slice(2);
   if (command === '--assert-artifact') {

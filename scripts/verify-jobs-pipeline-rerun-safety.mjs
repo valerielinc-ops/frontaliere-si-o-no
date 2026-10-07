@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Failure injection NON PRODUTTIVA per il gruppo di concorrenza
  * `jobs-data-pipeline` (issue #7163, follow-up di PR #7035).
@@ -163,7 +165,7 @@ export function verifyRerunSafety({ workflowsDir = WORKFLOWS_DIR } = {}) {
   return { ok, workflowsChecked: workflows.length, scenariosChecked: results.length, results };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const { ok, workflowsChecked, scenariosChecked, results } = verifyRerunSafety();
   console.log(`gruppo "${TARGET_GROUP}": ${workflowsChecked} workflow, ${scenariosChecked} scenari di cancellazione simulati\n`);
   for (const r of results) {

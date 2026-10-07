@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
 /**
  * Verify that the build whose artifacts are about to drive post-deploy
  * side-effects is still the build serving the live site.
@@ -11,7 +12,7 @@
 
 import { appendFile, readFile } from 'node:fs/promises';
 import { realpathSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+
 import { fetchLiveBuildId } from '../wait-for-pages-propagation.mjs';
 
 export const DEFAULT_LIVE_BUILD_ID_URL = 'https://frontaliereticino.ch/build-id.txt';
@@ -191,7 +192,7 @@ async function main() {
 
 const isEntryPoint = (() => {
   try {
-    return process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

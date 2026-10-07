@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Grigioni eAuction/eCari connector. */
 import {
   buildEcariDetailUrl,
@@ -39,7 +41,7 @@ export async function fetchGrPlateAuctions() {
   return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchGrPlateAuctions()
     .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
     .catch((error) => {

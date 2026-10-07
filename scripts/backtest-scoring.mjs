@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // scripts/backtest-scoring.mjs
 //
 // Phase 2 backtest harness — replays historical headlines through the
@@ -235,7 +237,7 @@ async function main() {
 
 const isDirect = (() => {
   try {
-    return resolve(process.argv[1] || '') === resolve(new URL(import.meta.url).pathname);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

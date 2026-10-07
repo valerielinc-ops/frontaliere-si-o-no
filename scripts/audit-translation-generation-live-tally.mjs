@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Verify the live translation-scheduler generation series.
@@ -15,7 +17,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 
 import {
   createGitHubActionsReadClient,
@@ -36,7 +38,6 @@ import {
   digestTranslationDocumentV2,
 } from './lib/translation-unit-identity-v2.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPORT_MAX_BYTES = 512 * 1024;
 const ARTIFACT_MAX_BYTES = 1024 * 1024;
 const ARTIFACT_SET_MAX = 100;
@@ -673,7 +674,7 @@ async function main(argv) {
   if (tally.status === 'invalid' || tally.status === 'error') process.exitCode = 1;
 }
 
-if (SCRIPT_PATH === path.resolve(process.argv[1] || '')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main(process.argv.slice(2)).catch((error) => {
     process.stderr.write(`${error?.message || error}\n`);
     process.exitCode = 1;

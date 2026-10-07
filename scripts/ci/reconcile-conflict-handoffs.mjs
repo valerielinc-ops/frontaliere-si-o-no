@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import fs, { realpathSync } from 'node:fs';
 /**
  * reconcile-conflict-handoffs.mjs — chiude gli hand-off di conflitto il cui
  * lavoro e' gia' fatto (zero-Claude).
@@ -45,9 +47,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   conflictClearedAfter,
   conflictHandoffExpectedHead,
@@ -759,7 +759,7 @@ function main() {
 }
 
 // Best-effort: un errore non deve mai far fallire il drain che segue.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

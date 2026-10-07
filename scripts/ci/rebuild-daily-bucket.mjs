@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * rebuild-daily-bucket.mjs — rigenera titolo e corpo CANONICI di un bucket
  * follow-up giornaliero riscritto fuori formato, passando da `rebuildDailyBody`
@@ -35,7 +37,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   FOLLOWUP_ITEM_ID_SINGLE_RE,
   dailyBucketInfo,
@@ -249,7 +251,7 @@ function main() {
   console.log(`#${args.issue}: scritto.`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (e) {
