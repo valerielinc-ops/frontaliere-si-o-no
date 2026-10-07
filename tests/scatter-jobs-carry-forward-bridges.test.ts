@@ -79,6 +79,35 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     });
   });
 
+  it('accepts a partial assembled locale projection when the slice preserves its value', () => {
+    const assembled = [{
+      url: 'https://example.test/jobs/42',
+      slugByLocale: { it: 'new', en: '' },
+    }];
+    const slices = [{
+      jobs: [{
+        url: 'https://example.test/jobs/42',
+        slugByLocale: { it: 'new', en: 'existing' },
+      }],
+    }];
+
+    expect(verifyScatterParity(assembled, slices)).toMatchObject({
+      pendingWrites: 0,
+      activeSlugMismatches: 0,
+      passed: true,
+    });
+  });
+
+  it('rejects a URL hit when the slice id resolves to another assembled job', () => {
+    const assembled = [
+      { id: 'A', url: 'https://example.test/jobs/42' },
+      { id: 'B', url: 'https://example.test/jobs/43' },
+    ];
+    const index = buildAssembledJobIndex(assembled);
+
+    expect(matchAssembledJob({ id: 'B', url: 'https://example.test/jobs/42' }, index)).toBeNull();
+  });
+
   it('fails parity when two distinct slices match the same assembled job by URL', () => {
     const assembled = { id: 'assembled', url: 'https://example.test/jobs/42' };
     const sliceEntries = [{

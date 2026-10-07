@@ -93,11 +93,19 @@ export function buildAssembledJobIndex(assembledJobs) {
 export function matchAssembledJob(sliceJob, index) {
   const sliceUrl = normalizedJobUrl(sliceJob);
   const exact = uniqueIndexEntry(index?.byUrl, sliceUrl);
-  if (exact.found) return exact.job;
+  if (exact.found) {
+    const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+    if (!exact.job || (byDiffKey.found && byDiffKey.job !== exact.job)) return null;
+    return exact.job;
+  }
 
   const stableUrl = extractStableJobId(sliceUrl);
   const stable = uniqueIndexEntry(index?.byStableUrl, stableUrl);
-  if (stable.found) return stable.job;
+  if (stable.found) {
+    const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+    if (!stable.job || (byDiffKey.found && byDiffKey.job !== stable.job)) return null;
+    return stable.job;
+  }
 
   const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
   if (!byDiffKey.found || !byDiffKey.job) return null;
@@ -169,13 +177,8 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
       missingBridges += collectMissingAssembledBridges(sliceJob, assembled).length;
       if (applyAssembledToSliceJob(sliceJob, assembled).changed) pendingWrites++;
 
-      const assembledSlugs = assembled.slugByLocale || {};
-      const sliceSlugs = sliceJob.slugByLocale || {};
-      for (const locale of new Set([...Object.keys(assembledSlugs), ...Object.keys(sliceSlugs)])) {
-        if (String(assembledSlugs[locale] || '') !== String(sliceSlugs[locale] || '')) {
-          activeSlugMismatches++;
-        }
-      }
+      const effectiveSlugs = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+      if (!localeMapsEqual(effectiveSlugs, sliceJob.slugByLocale)) activeSlugMismatches++;
     }
   }
 
@@ -365,17 +368,19 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // independent of this list's headroom accuracy.
   const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled).length > 0;
 
-  // Compare locale fields — only update if they changed. Field-by-field via
-  // `localeMapsEqual`, NOT `JSON.stringify` (follow-up #7492): the assembled
-  // side and the slice side build their locale maps independently, so the same
-  // it/en/de/fr pairs can serialise in a different key order and a raw string
-  // comparison then reports a change that isn't one — a rewrite of every job in
-  // the slice, and a `changed` flag that contradicts the per-locale rename loop
-  // below, which compares values one locale at a time.
+  // Compare the effective locale projection — only update if the assembled
+  // values would change what the slice serves. `mergeLocaleMap()` deliberately
+  // keeps a non-empty slice value when the assembled value is empty, so compare
+  // after that defensive merge rather than treating a preserved value as drift.
+  // Field-by-field via `localeMapsEqual`, NOT `JSON.stringify` (follow-up
+  // #7492): the two sides can build maps in different key orders.
+  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
+  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
+  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
   const changed =
-    !localeMapsEqual(assembled.titleByLocale, sliceJob.titleByLocale) ||
-    !localeMapsEqual(assembled.descriptionByLocale, sliceJob.descriptionByLocale) ||
-    !localeMapsEqual(assembled.slugByLocale, sliceJob.slugByLocale) ||
+    !localeMapsEqual(mergedTitle, sliceJob.titleByLocale) ||
+    !localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale) ||
+    !localeMapsEqual(mergedSlug, sliceJob.slugByLocale) ||
     hasMissingBridgesPreRename;
 
   if (!changed) return { job: sliceJob, changed: false };
@@ -383,10 +388,6 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // Defensive merge: never overwrite a non-empty locale value with an empty one.
   // The assembled data may have had locales stripped by ensureLocaleFields when
   // AI translation failed — the per-crawler file is the source of truth.
-  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
-  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
-  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
-
   // Track slug changes: preserve old slug values in previousSlugsByLocale so the build
   // plugin can generate bridge/redirect pages for SEO continuity (prevents 404s
   // for URLs that Google/Bing may have already indexed).
