@@ -677,7 +677,11 @@ describe('loop scripts go through loop-fleet-issue', () => {
       if (source.includes("- 'scripts/lib/github-issue-creator.mjs'")) {
         const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
         const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-        expect(pushPaths, `${name} push paths`).toContain(`- '${library}'`);
+        const hasPushTrigger = source.includes('\n  push:\n');
+        const runsAfterProfileRefresh = source.includes('workflow_run:')
+          && source.includes('Refresh Employer Profiles');
+        if (hasPushTrigger) expect(pushPaths, `${name} push paths`).toContain(`- '${library}'`);
+        else expect(runsAfterProfileRefresh, `${name} trigger`).toBe(true);
         expect(pullRequestPaths, `${name} pull_request paths`).toContain(`- '${library}'`);
       }
     }

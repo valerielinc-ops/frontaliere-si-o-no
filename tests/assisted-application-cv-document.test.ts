@@ -298,6 +298,14 @@ describe('personal data the candidate gave', () => {
 });
 
 describe('richer profile', () => {
+  it('keeps an explicitly current school separate from completed education', () => {
+    const profile = sanitizeProfile({
+      education: [{ degree: 'Diploma', institution: 'Scuola precedente', start: '2018', end: '2021' }],
+      currentEducation: { degree: 'Bachelor', institution: 'UNIVERSITÉ ECAMPUS', start: '2024', end: '' },
+    });
+    expect(profile.currentEducation).toEqual({ degree: 'Bachelor', institution: 'UNIVERSITÉ ECAMPUS', start: '2024', end: '', grade: '' });
+  });
+
   it('keeps the new Swiss fields and defaults an unknown experience kind to a job', () => {
     const profile = sanitizeProfile({ experience: [{ role: 'X', kind: 'astronaut' }], drivingLicence: 'Kat. B', interests: ['Gitarre'], aptitudeTests: [{ name: 'Basic-Check', results: '75 %' }] });
     expect(profile.experience[0].kind).toBe('job');

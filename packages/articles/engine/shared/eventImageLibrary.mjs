@@ -9,6 +9,7 @@
 import {
   GENERATED_IMAGE_CREDIT,
   GENERATED_IMAGE_LICENSE,
+  isLicensedPhotoRecord,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
 
@@ -41,6 +42,7 @@ export const EVENT_IMAGE_LIBRARY_SEASONS = Object.freeze([
   'primavera-estate',
   'autunno-inverno',
 ]);
+export const EVENT_IMAGE_LIBRARY_MAX_VARIANTS = 3;
 
 const CATEGORY_KEYWORDS = Object.freeze([
   ['musica', ['musica', 'music', 'jazz', 'pop', 'rock', 'concerto', 'concerti', 'classica', 'opera', 'danza']],
@@ -151,24 +153,34 @@ export function stableEventImageHash(value) {
   return hash >>> 0;
 }
 
-export function eventImageLibrarySlots() {
+export function eventImageLibrarySlots({ variants = 1 } = {}) {
   const slots = [];
+  const variantCount = Math.max(1, Math.min(EVENT_IMAGE_LIBRARY_MAX_VARIANTS, Number(variants) || 1));
   for (const category of EVENT_IMAGE_LIBRARY_CATEGORIES) {
     for (const area of EVENT_IMAGE_LIBRARY_AREAS) {
       for (const season of EVENT_IMAGE_LIBRARY_SEASONS) {
-        slots.push({
-          assetId: `event-${category}-${area}-${season}`,
-          category,
-          area,
-          season,
-          variant: '01',
-          subject: eventImageCategoryLabel(category),
-          areaLabel: AREA_LABELS[area],
-        });
+        for (let variantIndex = 1; variantIndex <= variantCount; variantIndex += 1) {
+          const variant = String(variantIndex).padStart(2, '0');
+          slots.push({
+            assetId: variantIndex === 1
+              ? `event-${category}-${area}-${season}`
+              : `event-${category}-${area}-${season}-v${variant}`,
+            category,
+            area,
+            season,
+            variant,
+            subject: eventImageCategoryLabel(category),
+            areaLabel: AREA_LABELS[area],
+          });
+        }
       }
     }
   }
   return slots;
+}
+
+export function eventImageLibraryVariantSlots() {
+  return eventImageLibrarySlots({ variants: EVENT_IMAGE_LIBRARY_MAX_VARIANTS });
 }
 
 function recordsFrom(value) {
@@ -181,6 +193,7 @@ export function selectEventImageAsset(event, registry) {
   const records = recordsFrom(registry).filter((record) => record?.scope === 'event-library'
     && record?.imageUrl?.startsWith(EVENT_IMAGE_LIBRARY_PREFIX)
     && record?.assetId
+    && (record?.license === GENERATED_IMAGE_LICENSE || isLicensedPhotoRecord(record))
     && validateGeneratedImageRecord(record).valid);
   if (!records.length) return null;
   const category = normalizeEventImageCategory(event);
@@ -223,17 +236,28 @@ export function assignEventImageAsset(event, registry, { sourceImageAllowed } = 
       imageLicenseUrl: _imageLicenseUrl,
       imageCredit: _imageCredit,
       imageProvider: _imageProvider,
+      imageAuthor: _imageAuthor,
+      imageSourcePageUrl: _imageSourcePageUrl,
+      imageCopyrightNotice: _imageCopyrightNotice,
+      imageAcquireLicensePage: _imageAcquireLicensePage,
       ...withoutImage
     } = event;
     return withoutImage;
   }
+  const licensedPhoto = isLicensedPhotoRecord(selected);
   return {
     ...event,
     imageUrl: selected.imageUrl,
     imageAssetId: selected.assetId,
-    imageLicense: GENERATED_IMAGE_LICENSE,
+    imageLicense: licensedPhoto ? selected.license : GENERATED_IMAGE_LICENSE,
     imageLicenseUrl: selected.licenseUrl,
-    imageCredit: GENERATED_IMAGE_CREDIT,
+    imageCredit: licensedPhoto ? selected.credit : GENERATED_IMAGE_CREDIT,
     imageProvider: selected.provider,
+    ...(licensedPhoto ? {
+      imageAuthor: selected.author,
+      imageSourcePageUrl: selected.sourcePageUrl || selected.pageUrl,
+      imageCopyrightNotice: selected.copyrightNotice,
+      imageAcquireLicensePage: selected.acquireLicensePage,
+    } : {}),
   };
 }
