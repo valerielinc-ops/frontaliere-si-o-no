@@ -89,6 +89,16 @@
  *      and a hardcoded editorial-slugs list across all 4 locales.
  *      hasJobPostingSchema = `"JobPosting"` or `'JobPosting'` substring.
  *
+ * Historical reassembled-corpus mode
+ *    post-deploy-validate-dist sets AUDIT_REASSEMBLED_CORPUS=1 because its
+ *    dist/ can combine pages emitted by multiple source vintages. In that
+ *    mode only the measured cross-page/missing-or-noindex emission families
+ *    use data/sitemap-pages-historical-ratchet.json as a descending rate
+ *    ceiling. Missing canonicals, thin bridge pages, thin content and the
+ *    soft-404 check remain zero-tolerance. The ledger is fail-closed and the
+ *    observed rate is printed on every measured run. Local/source callers do
+ *    not set the opt-in and retain the original per-offender verdict.
+ *
  * Run AFTER `npm run build` so dist/ is fresh.
  *
  * Usage:
