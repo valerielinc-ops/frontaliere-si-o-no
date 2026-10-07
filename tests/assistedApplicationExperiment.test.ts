@@ -14,6 +14,7 @@ vi.mock('../services/analytics', () => ({
 import { getConfigValue } from '@/services/firebase';
 
 import {
+  ASSISTED_APPLICATION_EVENT_NAMES,
   ASSISTED_APPLICATION_EXPERIMENT_ID,
   ASSISTED_APPLICATION_EXPERIMENT_RC_KEY,
   ASSISTED_APPLICATION_OFFERWALL_FALLBACK_RC_KEY,
@@ -105,6 +106,10 @@ describe('assisted application Remote Config assignment', () => {
 });
 
 describe('assisted application funnel events', () => {
+  it('keeps the post-auth checkout resume as a first-class funnel event', () => {
+    expect(ASSISTED_APPLICATION_EVENT_NAMES).toContain('checkout_resumed');
+  });
+
   it('suppresses events for crawler visitors even when the caller bypasses JobBoard', () => {
     const originalUserAgent = navigator.userAgent;
     Object.defineProperty(navigator, 'userAgent', {
