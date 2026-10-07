@@ -1,21 +1,24 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-06T21:11:56.048Z",
+  "generatedAt": "2026-10-07T09:17:18.398Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 2223,
-  "avgDurationMs": 2223,
+  "unchangedCount": 10,
+  "durationMs": 3165,
+  "avgDurationMs": 3165,
   "durationHistory": [
-    2223
+    3165
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Area Manager Jewellery",
-      "slug": "area-manager-jewellery-guess-europe-sagl-bioggio-switzerland",
+      "slug": "area-manager-gioielli-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/6E6AA05D9F/",
       "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/6E6AA05D9F/apply/",
       "company": "Guess Europe Sagl",
@@ -45,25 +48,20 @@
         "Discount on our products both online and in stores"
       ],
       "id": "guess-europe-f4effaf71c89",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6934",
       "firstSeenAt": "2026-10-06T21:11:45.282Z",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Content Production Intern",
       "slug": "content-production-tirocinante-guess-europe-sagl-bioggio",
@@ -469,5 +467,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
