@@ -12,6 +12,7 @@ import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 function readJson(file, fallback = null) {
   try {
@@ -153,7 +154,7 @@ function parseArgs(argv) {
   return args;
 }
 
-if (import.meta.url === new URL(`file://${process.argv[1]}`).href) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     const args = parseArgs(process.argv.slice(2));
     if (!args) process.exit(0);
