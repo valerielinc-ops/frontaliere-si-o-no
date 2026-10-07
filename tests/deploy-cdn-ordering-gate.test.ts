@@ -76,6 +76,11 @@ describe('deploy.yml — the IT CDN push runs BEFORE anything publishes (#5251)'
     expect(s, 'early step must pass DEPLOY_BUILD_ID (the marker value)').toMatch(/DEPLOY_BUILD_ID:/);
   });
 
+  it('the IT section fan-out is admitted only after the early CDN handshake succeeds', () => {
+    const sections = step('Push section shards (IT → frontaliere-<section>-it)');
+    expect(sections).toMatch(/if: matrix\.locale == 'it' && steps\.cdn-push-early\.outcome == 'success'/);
+  });
+
   it('the #2569 invariant itself is unchanged: the shard publish is still gated on the marker', () => {
     const push = step('Push locale shard');
     expect(
@@ -1066,14 +1071,14 @@ function runPrep(env: Record<string, string>): { code: number; stdout: string } 
 }
 
 describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and nothing else', () => {
-  it('with the flag: the early phase returns after the CDN push, without touching the rest of the prep', () => {
+  it('with the flag: a missing early CDN payload is a failed handshake, without touching the rest of the prep', () => {
     const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
-    expect(r.code, 'the early phase must never fail the leg').toBe(0);
+    expect(r.code, 'the early phase must expose the missing payload to the section gate').toBe(1);
     expect(r.stdout, 'must run the CDN push section').toMatch(/no offloadable assets present|skipping CDN push|CDN payload/);
     // The full prep's terminal marker must NOT appear: the tar pack, the byte
     // audit and url-first-seen all still belong to the later step.
     expect(r.stdout, 'the early phase must not run the whole prep').not.toMatch(/deploy-it-pages-prep complete/);
-    expect(r.stdout).toMatch(/early CDN push/);
+    expect(r.stdout).toMatch(/early CDN push did not publish/);
   });
 
   it('NEGATIVE CASE — without the flag the SAME invocation goes on past the CDN push', () => {

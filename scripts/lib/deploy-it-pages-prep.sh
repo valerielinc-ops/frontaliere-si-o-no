@@ -1104,9 +1104,11 @@ main() {
     if [ -n "${CDN_BASE:-}" ]; then
       echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
     else
-      # NOT an error: the full prep below still performs the push at its
-      # original position, exactly as before this phase existed.
-      echo "::warning::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — the full prep will retry it at its original position"
+      # The full prep still retries at its original position, but the caller
+      # must see a non-zero outcome so section shards do not publish HTML that
+      # points at this build's not-yet-published global assets in the gap.
+      echo "::error::[deploy-it-pages-prep] early CDN push did not publish (CDN_BASE unset) — section shard publication must wait for the full retry"
+      return 1
     fi
     return 0
   fi
