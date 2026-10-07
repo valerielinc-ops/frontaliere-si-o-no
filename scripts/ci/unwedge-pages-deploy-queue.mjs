@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * unwedge-pages-deploy-queue.mjs — free the `pages-deploy` concurrency group
  * when a publish run is wedged at the `github-pages` environment gate.
@@ -319,7 +320,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     // ::error:: rather than a silent exit: the caller is continue-on-error, so

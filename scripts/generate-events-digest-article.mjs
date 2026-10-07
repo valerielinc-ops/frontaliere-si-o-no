@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Register / refresh the EVERGREEN "weekend events in Ticino" digest blog article
  * (chained feature on issue #2963).
@@ -126,7 +127,7 @@ async function main() {
 
 const invokedDirectly = (() => {
   try {
-    return import.meta.url === pathToFileURL(process.argv[1] || '').href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

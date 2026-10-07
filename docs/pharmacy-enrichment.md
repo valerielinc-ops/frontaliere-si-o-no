@@ -5,6 +5,8 @@ dati facoltativi — telefono, email, orari, servizi e sito — vengono raccolti
 solo da fonti esplicitamente registrate in
 `data/pharmacy-enrichment-sources.json` e conservati in
 `data/pharmacy-enrichment.json` con provenienza per campo e data di controllo.
+La stessa regola vale per gli identificativi legali pubblici, come la Partita
+IVA: un valore entra nella scheda solo quando la fonte è identity-matched.
 
 ## Fonti supportate
 
@@ -54,11 +56,22 @@ solo da fonti esplicitamente registrate in
   sostituisce il fatto selezionato.
 - Il workflow settimanale `discover-pharmacy-facebook.yml` cerca le farmacie
   esplicitamente elencate in `discoveryPharmacyIds` nella ricerca pubblica di
-  Facebook e salva solo un report artifact con eventuali URL candidati. Non
-  pubblica fatti dai risultati di ricerca: Facebook spesso risponde con login o
-  checkpoint. I candidati pubblici passano prima da un controllo di identità;
-  un eventuale controllo Graph è facoltativo e il workflow non aggira mai un
-  login o un checkpoint.
+  Facebook, apre solo gli URL candidati pubblicamente accessibili e salva un
+  report artifact. Quando la pagina espone nome/località e un indirizzo
+  coerente oppure il numero di catalogo esatto, il report contiene solo
+  telefono, email, sito e orari pubblici identity-matched. Non contiene post,
+  recensioni, rating, follower o testo di ricerca non verificato. Facebook
+  spesso risponde con login o checkpoint: il workflow li registra e si ferma,
+  senza aggirare il blocco. L’artifact è un report di ingestione; la pubblicazione
+  nella snapshot passa sempre dalla stessa revisione allow-listata e
+  provenance-aware usata dalle altre fonti. Il refresh giornaliero del catalogo
+  legge il report e apre la normale PR dati solo se esistono fatti identity-matched;
+  con `public_search_blocked` non cambia nulla.
+
+Le pagine Google/AI non vengono trattate come un’API dati: i risultati possono
+cambiare, duplicare directory o sintetizzare informazioni senza una provenienza
+stabile. La pipeline usa invece gli URL pubblici che quei risultati rendono
+scopribili, con identity match, priorità per campo e link di fonte nella scheda.
 
 I segreti arrivano da Firebase Remote Config tramite
 `scripts/load-rc-env.mjs`; non devono essere inseriti nel JSON o nei log. Se
@@ -68,11 +81,13 @@ il dato precedente e registra un warning invece di inventare valori.
 ## Pubblicazione SEO/AI
 
 La build applica lo snapshot alle schede e rende i fatti verificati in HTML semantico:
-indirizzo, telefono, email, sito, mappa, orari, servizi, fonte e data del
+indirizzo, telefono, email, sito, mappa, orari, giorni chiusi, servizi,
+identificativo ministeriale, Partita IVA quando verificata, fonte e data del
 controllo. Il JSON-LD `Pharmacy` ripete solo i fatti verificati e aggiunge
-`sameAs`, `OpeningHoursSpecification`, `amenityFeature` e coordinate quando
-disponibili. Il titolo usa il nome leggibile dell'entità, mentre il nome
-legale completo resta nell'H1, nel corpo e nello schema.
+`sameAs`, `identifier`, `dateModified`, `OpeningHoursSpecification`,
+`amenityFeature` e coordinate quando disponibili. Il titolo usa il nome
+leggibile dell’entità, mentre il nome legale completo resta nell’H1, nel corpo
+e nello schema; le FAQ e i blocchi di risposta restano testo HTML estraibile.
 
 Per aggiornare i dati:
 

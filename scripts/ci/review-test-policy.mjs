@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /** Owner policy: tests run in CI, but are excluded from model review. */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
@@ -629,7 +630,7 @@ export function postLedgerOnlyReview({ repo, pr, head, ghFn = gh }) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   if (process.argv[2] === 'filter') {
     const names = readFileSync(0, 'utf8').split(/\r?\n/).filter(name => name && !isReviewTestPath(name));
     process.stdout.write(names.length ? names.join('\n') + '\n' : '');

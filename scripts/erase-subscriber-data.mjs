@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Manual operator tool only.
  *
@@ -20,7 +21,7 @@
  *   eval "$(node scripts/load-rc-env.mjs)"
  */
 
-import path from 'node:path';
+
 import { pathToFileURL } from 'node:url';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import {
@@ -103,9 +104,6 @@ async function main() {
   }
 }
 
-const invokedPath = process.argv[1]
-  ? pathToFileURL(path.resolve(process.argv[1])).href
-  : null;
-if (invokedPath === import.meta.url) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   void main();
 }

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Build-time download of the private Eventfrog snapshot (deploy.yml, before
  * the build of every locale shard).
@@ -16,7 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   EVENTFROG_SNAPSHOT_CACHE_PATH,
   downloadSnapshot,
@@ -54,7 +56,7 @@ export async function run(opts = {}) {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   run().then(() => process.exit(0), () => process.exit(0));
 }

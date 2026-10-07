@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * check-border-data-health.mjs — Watchdog for LIVE border data integrity.
  *
@@ -704,7 +705,7 @@ async function main() {
 }
 
 // Run only when invoked directly (not when imported by the test).
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error(`[check-border-data-health] Fatal: ${err.stack || err.message}`);

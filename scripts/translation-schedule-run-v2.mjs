@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Runtime entrypoint for the translation scheduler v2 shadow lane.
@@ -972,7 +974,7 @@ function parseCli(argv) {
   return options;
 }
 
-if (path.resolve(process.argv[1] || '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runTranslationScheduleV2(parseCli(process.argv.slice(2))).catch((error) => {
     console.error(`translation scheduler v2 shadow failed: ${error?.message || error}`);
     process.exitCode = 1;

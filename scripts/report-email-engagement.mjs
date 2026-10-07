@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * report-email-engagement.mjs — weekly open/click rates per provider and per
@@ -538,7 +540,7 @@ async function main() {
   if (FAIL_ON_REGRESSION && regressions.length) process.exitCode = 1;
 }
 
-const invokedDirectly = process.argv[1] && process.argv[1].endsWith('report-email-engagement.mjs');
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((e) => {
     console.error('❌ report-email-engagement failed:', e?.stack || e);

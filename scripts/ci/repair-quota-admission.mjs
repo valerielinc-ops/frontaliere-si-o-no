@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * repair-quota-admission.mjs — zero-Claude allocation floor for the two PR
  * repair workflows.
@@ -19,8 +21,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   acquireQuotaFloorLease,
   quotaFloorLeaseDecision,
@@ -414,7 +415,7 @@ export function main({
   return emit({ admit: false, held: true, reason: decision.reason }, env);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

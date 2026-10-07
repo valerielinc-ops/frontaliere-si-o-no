@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * monitor-telegram-member-count.mjs — daily check for a silently-stalled
  * Telegram channel. Before this script, `getChatMemberCount` had no caller
@@ -255,7 +257,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((e) => {
     console.error('[monitor-telegram-member-count] failed:', e.message);

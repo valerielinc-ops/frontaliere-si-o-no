@@ -1,10 +1,11 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /** Aggregate deterministic full-tree crawler reports into a backlog report. */
 
 import { readdirSync, readFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import {
   CRAWLER_SCHEMA_VERSION,
@@ -610,7 +611,7 @@ async function main() {
 }
 
 const invokedDirectly = process.argv[1]
-  && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   try { await main(); }
   catch (error) { console.error(error?.stack || error); process.exitCode = 1; }

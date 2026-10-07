@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * argos-reject-audit.mjs — ONE-SHOT research tool. NOT part of any pipeline.
  *
@@ -996,7 +998,7 @@ function judge() {
   console.log(`\n📄 ${reportPath}`);
 }
 
-const invokedDirectly = process.argv[1] && import.meta.url.endsWith(path.basename(process.argv[1]));
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   if (opt('--judge')) judge();
   else generate().catch((error) => {

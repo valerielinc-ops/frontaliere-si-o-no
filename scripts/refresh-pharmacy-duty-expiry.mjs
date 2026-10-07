@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Request a static rebuild when a verified duty interval crosses a boundary.
  *
@@ -81,7 +82,7 @@ function main() {
   return 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     process.exitCode = main();
   } catch (error) {

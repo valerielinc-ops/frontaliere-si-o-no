@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 import { haversineKm } from './lib/haversine.mjs';
@@ -677,7 +679,7 @@ async function main() {
 }
 
 // Only run main() when invoked as a CLI, not when imported (e.g. by tests).
-const invokedAsCli = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+const invokedAsCli = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedAsCli) {
   main().catch((error) => {
     console.error(error);

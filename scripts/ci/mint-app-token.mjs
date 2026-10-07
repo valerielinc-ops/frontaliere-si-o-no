@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * mint-app-token.mjs — mint a short-lived GitHub App installation token (zero-dep).
  *
@@ -235,6 +237,6 @@ async function main() {
 }
 
 // CLI-only (so buildAppJwt stays unit-testable in isolation).
-if (process.argv[1] && process.argv[1].endsWith('mint-app-token.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((e) => warnExit(`unexpected error (${String(e?.message || e).slice(0, 80)})`));
 }

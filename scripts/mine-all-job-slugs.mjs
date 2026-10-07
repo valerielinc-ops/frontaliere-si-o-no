@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * mine-all-job-slugs.mjs
  *
@@ -862,7 +864,7 @@ function main() {
 // `tests/mine-all-job-slugs.test.ts`) without executing the real,
 // data-mutating pipeline as a side effect of import — established
 // convention, see `scripts/assemble-jobs-dataset.mjs`'s CLI entry point.
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }
 

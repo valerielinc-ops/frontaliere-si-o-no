@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * FRO-333: Send Job Alert emails to subscribed users.
  *
@@ -3260,7 +3262,7 @@ async function main() {
 // Only run main() when executed directly (not when imported by tests).
 const isEntryPoint = (() => {
   try {
-    return process.argv[1] && fs.realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

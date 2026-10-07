@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-issue-already-resolved.mjs — zero-Claude PRE-FLIGHT gate for issue-fix.yml.
  *
@@ -58,8 +60,7 @@
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   AGGREGATE_ITEM_COUNT_RE,
   AGGREGATE_KEYWORD_RE,
@@ -722,7 +723,7 @@ ${OUTCOME}`;
 // stranded labeled-but-undispatched (the very failure mode this gate exists to prevent). So
 // any uncaught error is swallowed → emit `already_resolved=false` and exit 0 → the normal
 // fixer runs unchanged. A throw can NEVER strand the issue.
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (e) {

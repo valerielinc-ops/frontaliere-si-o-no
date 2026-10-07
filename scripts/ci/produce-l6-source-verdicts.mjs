@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 
 /**
  * L6 producer: daily automated source-check verdicts for the most recent news
@@ -414,7 +415,7 @@ export async function main({ argv = process.argv.slice(2), stdout = process.stdo
   return result;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`[L6] producer fatal: ${error?.stack || error}`);
     process.exitCode = 1;

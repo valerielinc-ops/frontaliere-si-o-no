@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Audit generated static HTML pages for duplicate body content within a locale.
  *
@@ -15,7 +17,7 @@
 import { readFile, stat } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
@@ -257,9 +259,7 @@ async function standalone() {
   process.exit(result.passed ? 0 : 1);
 }
 
-const invokedPath = process.argv[1] ? process.argv[1] : '';
-const thisPath = fileURLToPath(import.meta.url);
-if (invokedPath === thisPath) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   standalone().catch((err) => {
     console.error('[audit-content-duplicates] crashed:', err);
     process.exit(2);

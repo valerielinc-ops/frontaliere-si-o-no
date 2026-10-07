@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Validate the small, trusted source tree used by the native auto-merge
  * workflows.
@@ -200,7 +201,7 @@ function main() {
   console.log(`Native auto-merge source validated from main checkout (${head}); profile=${profile}; ${validated.files.length} files ready.`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

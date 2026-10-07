@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-daily-brief-cadence.mjs — the daily brief's own numbers (issue #5415 §3.10).
  *
@@ -163,7 +165,7 @@ async function main() {
   fs.appendFileSync(HISTORY, `${JSON.stringify(report)}\n`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ report-daily-brief-cadence.mjs failed:', error);
     process.exitCode = 1;

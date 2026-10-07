@@ -1,4 +1,6 @@
 #!/usr/bin/env -S npx tsx
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * monitor-sector-coverage.mjs — Post-deploy check for job-matching coverage
  * gaps across every canton×profession page family, not just Ticino.
@@ -911,7 +913,7 @@ async function main() {
 // (buildGapState, parseGapState, diffGapState, buildGapArtifact) e i test le
 // importano — senza questa guardia l'import farebbe partire il check post-deploy.
 // Stesso pattern di scripts/lib/classify-issue.mjs.
-if (process.argv[1] && process.argv[1].endsWith('monitor-sector-coverage.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('[monitor-sector-coverage] unexpected error (non-blocking):', err);
   });

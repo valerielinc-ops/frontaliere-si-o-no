@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Valida i mirror del dataset fiscale per cantone dopo il producer
  * (`fetch-canton-tax-data.mjs`), prima del commit del workflow.
@@ -56,7 +57,7 @@ export function validateCantonTaxData({ root = ROOT, now = new Date() } = {}) {
   return { year, paths };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     const { year, paths } = validateCantonTaxData();
     console.log(`✅ canton-tax ${year}: ${paths.length} mirror validi e identici`);

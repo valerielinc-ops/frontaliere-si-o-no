@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * alert-pat-down.mjs — inline alert deterministico (zero-Claude) per il
  * degrado "GITHUB_PAT non caricato da Remote Config".
@@ -63,7 +65,7 @@ export function buildPatDownAlert({ workflow, runUrl = '' }) {
   };
 }
 
-if (process.argv[1]?.endsWith('alert-pat-down.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const workflow = opt('--workflow') || 'unknown-workflow';
   const runUrl = opt('--run-url') || '';
   const { description, signals } = buildPatDownAlert({ workflow, runUrl });

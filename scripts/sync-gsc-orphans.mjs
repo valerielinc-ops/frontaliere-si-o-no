@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * sync-gsc-orphans.mjs
  *
@@ -1628,7 +1630,7 @@ async function main() {
 // real, data-mutating pipeline as a side effect of import. Same established
 // convention as scripts/mine-all-job-slugs.mjs (#4593) and
 // scripts/assemble-jobs-dataset.mjs.
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('❌ Fatal error:', err);
     process.exit(1);

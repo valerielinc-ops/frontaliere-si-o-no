@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Ginevra: lista ufficiale OCV dei numeri all'asta (PDF su ge.ch), con la
  * finestra della sessione e nessun prezzo. Parser e scoperta della lista sono
@@ -20,7 +22,7 @@ export async function fetchGePlateAuctions({ now = new Date(), injectedFetcher, 
   return fetchGeAuctionList({ fetchedAt: now.toISOString(), now, injectedFetcher, extraListDocumentUrls });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchGePlateAuctions()
     .then((auctions) => {
       console.log(JSON.stringify(auctions, null, 2));

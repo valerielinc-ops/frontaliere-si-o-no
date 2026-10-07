@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Read-only report. Load credentials with the workspace bin/rc-env.sh.
  * node scripts/adsense-manual-slot-report.mjs --start YYYY-MM-DD --end YYYY-MM-DD --json
  * Default: settled seven-day window; no tracked file is written. */
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
 import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
@@ -19,6 +20,6 @@ export async function runManualSlotReport(args = process.argv.slice(2)) {
   const metadata = await response.json();
   return fetchManualSlotReport({ token, account, start: value('--start') || window.start, end: value('--end') || window.end, accountTimeZone: metadata.timeZone?.id || null });
 }
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runManualSlotReport().then((report) => console.log(process.argv.includes('--json') ? JSON.stringify(report, null, 2) : renderManualSlotReport(report))).catch((error) => { console.error(error.message); process.exitCode = 1; });
 }

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Read-only discovery pass for the 26 official canton candidates.
  *
@@ -405,7 +407,7 @@ async function main() {
   }, null, 2));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('Plate-auction source discovery failed:', error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

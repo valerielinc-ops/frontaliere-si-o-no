@@ -1,0 +1,46 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "incremental": true,
+    "tsBuildInfoFile": ".cache/tsc/interactive.tsbuildinfo",
+    "noEmit": true
+  },
+  "include": [
+    "*.ts",
+    "*.tsx",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "contexts/**/*.ts",
+    "contexts/**/*.tsx",
+    "hooks/**/*.ts",
+    "hooks/**/*.tsx",
+    "lib/**/*.ts",
+    "lib/**/*.tsx",
+    "services/**/*.ts",
+    "services/**/*.tsx",
+    "build-plugins/**/*.ts",
+    "build-plugins/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "data/**/*.ts",
+    "data/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "public",
+    "tests",
+    "scripts",
+    "functions",
+    "packages/articles/content",
+    "packages/articles/index.ts",
+    "services/locales/blog-meta-*.ts",
+    "services/locales/blog-body",
+    "services/locales/blog-body-ch",
+    ".cache",
+    ".claude",
+    ".codex",
+    ".git"
+  ]
+}

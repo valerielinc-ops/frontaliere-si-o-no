@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Guardiano delle slot di orchestrate-crawlers.
@@ -27,7 +29,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import { readBoundedResponseBytes } from '../lib/bounded-response-body.mjs';
 import { normalizeOrchestratorSlot } from '../../functions/src/lib/orchestratorSlot.js';
@@ -334,7 +336,7 @@ async function main() {
 }
 
 const isDirectRun = process.argv[1]
-  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isDirectRun) main().catch((error) => {
   console.error(`[orchestrator-heartbeat] ${error.message}`);
   process.exitCode = 1;

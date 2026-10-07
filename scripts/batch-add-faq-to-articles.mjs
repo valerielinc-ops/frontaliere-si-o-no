@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * batch-add-faq-to-articles.mjs — Add AI-generated FAQ to existing blog articles.
  *
@@ -1344,7 +1346,7 @@ async function main() {
 // batch-add-faq-to-articles.mjs`) — NOT when it's imported elsewhere just to
 // reuse `generateFaqIT` (e.g. publish-journalist-article.mjs), which would
 // otherwise trigger the entire batch scan as an import side effect.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   installSigtermCheckpoint();
   main().catch(async (err) => {
     // Il flush allo step 6 di main() copre solo il ramo riuscito: qui

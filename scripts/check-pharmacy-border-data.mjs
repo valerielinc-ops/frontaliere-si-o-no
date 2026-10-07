@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Fail-closed integrity check for the cross-border pharmacy snapshots.
  *
@@ -186,4 +187,4 @@ export function main() {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) process.exitCode = main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) process.exitCode = main();

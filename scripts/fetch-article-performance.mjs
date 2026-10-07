@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * fetch-article-performance.mjs
  *
@@ -441,7 +443,7 @@ async function main() {
 }
 
 // Entry-point gate (so tests can `import` the module without side effects).
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     // We deliberately do NOT exit 1 on top-level failure: the contract is
     // "always succeed, write a partial file". But fingerprint+aggregate

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Build the bounded evidence packet consumed by crawler-data-quality-audit.yml.
  *
@@ -659,7 +661,7 @@ function main() {
 
 const isMain = (() => {
   try {
-    return import.meta.url === new URL(`file://${process.argv[1]}`).href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

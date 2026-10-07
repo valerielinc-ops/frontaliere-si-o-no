@@ -621,9 +621,9 @@ jobs:
           # Checkout 769-1379s su 3 run: il massimo è il 57% di un cap da 40min,
           # e il lavoro qui è un run Claude (costoso da buttare). Blobless partial
           # clone come issue-fix #4189, che è l'altro job Claude-driven con la
-          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e fa
-          # `git merge origin/main` — servono i blob dei file toccati, non la
-          # storia dei blob.
+          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e verifica
+          # solo il workflow di review contro main — servono i blob dei file
+          # toccati, non la storia dei blob.
           filter: blob:none
         # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
         timeout-minutes: 15
@@ -634,39 +634,34 @@ jobs:
       # re-review (ri-triggerata dal push del fix sotto) fallirebbe `401 Workflow
       # validation failed`, review vuota, niente `## LGTM`, niente auto-merge — e il
       # 🔴-fix risulterebbe RED senza colpa propria (osservato 2× nel campione 7gg).
-      # Allineare i workflow PRIMA: `merge origin/main` no-op se già fresh; il merge
-      # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
-      # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
-      - name: Align review workflows (merge origin/main, anti-401 drift)
+      # Verificare il workflow PRIMA senza riscrivere la branch: il push del fix
+      # viaggia solo sulla HEAD originale della PR. Drift, fetch fallito o
+      # confronto non leggibile sono errori bloccanti, perché il push altrimenti
+      # riattiverebbe una review invalida (401) o consumerebbe un round su una
+      # baseline non verificata.
+      - name: Check review workflows (anti-401 drift, no local merge)
         id: align
         run: |
-          set -uo pipefail
+          set -euo pipefail
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
-          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
-          # Il merge locale sottostante è intenzionale per allineare i workflow,
-          # ma non è un push del fixer. Conserva la baseline del branch remoto
-          # prima del merge per non classificarla poi come writer esterno.
           echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-          if git merge --no-edit -m "$(printf 'Merge origin/main into the PR branch (redflag-fixer align)\n\nFixer: redflag-align')" origin/main; then
-            echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
-          else
-            echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
-            git merge --abort || true
-            # Prima del fix del refspec (#6074) `origin/main` non si risolveva mai
-            # ("unknown revision"), quindi questo `--abort` era sempre un no-op su un
-            # merge mai iniziato: il path di un conflitto GENUINO (MERGE_HEAD reale,
-            # marker di conflitto nel worktree) non è mai stato esercitato in
-            # produzione (#6089). `git merge --abort` è affidabile, ma qui non ci
-            # affidiamo alla sua riuscita silenziosa: verifichiamo esplicitamente che
-            # il worktree sia tornato pulito prima che gli step successivi (npm ci,
-            # l'agent Claude) lo usino, e forziamo il reset se non lo è.
-            if [ -n "$(git status --porcelain)" ]; then
-              echo "::warning::worktree non pulito dopo merge --abort, forzo reset a HEAD."
-              git reset --hard HEAD
-              git clean -fd
-            fi
+          if ! git fetch --no-tags origin "+refs/heads/main:refs/remotes/origin/main" -q; then
+            echo "::error::fetch di origin/main fallito: anti-drift del workflow di review non verificabile → stop fail-closed."
+            exit 1
           fi
+          diff_status=0
+          git diff --quiet origin/main -- .github/workflows/pr-review-loop.yml || diff_status=$?
+          if [ "$diff_status" -ne 0 ]; then
+            if [ "$diff_status" -eq 1 ]; then
+              echo "::error::workflow-validation drift: .github/workflows/pr-review-loop.yml diverge da origin/main → nessun fixer e nessuna mutazione della PR."
+              git diff --name-status origin/main -- .github/workflows/pr-review-loop.yml
+            else
+              echo "::error::confronto di .github/workflows/pr-review-loop.yml con origin/main illeggibile (git diff=$diff_status) → stop fail-closed."
+            fi
+            exit 1
+          fi
+          echo "✓ .github/workflows/pr-review-loop.yml è byte-identico a origin/main; branch invariato."
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -1264,7 +1259,7 @@ jobs:
           done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
           git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
 
-      # SHA di partenza (post-merge origin/main, pre-Codex): il classify finale lo
+      # SHA di partenza (HEAD della PR, pre-Codex): il classify finale lo
       # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
       # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
       # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel

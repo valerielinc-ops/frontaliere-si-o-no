@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Refresh data/indexed-cluster-urls.json — the union of related-search cluster
  * URL paths that any traffic source reports as still active under a NON-canonical
@@ -342,7 +344,7 @@ async function main() {
 }
 
 const invokedDirectly = process.argv[1]
-  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('[indexed-cluster-urls] Fatal:', err.message);

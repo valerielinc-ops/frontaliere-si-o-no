@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * translate-repair-lane-gate.mjs — decide, BEFORE the Codex auth broker starts,
  * whether the Phase 2d/2e repair lanes of translate-pending still have a useful
@@ -34,8 +36,7 @@
  *   REPAIR_LANE_MIN_REMAINING_MS  — minimum budget left for the lanes to start.
  */
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 
 export const DEFAULT_REPAIR_LANE_DEADLINE_MS = 210 * 60 * 1000;
@@ -91,5 +92,5 @@ function main() {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) main();

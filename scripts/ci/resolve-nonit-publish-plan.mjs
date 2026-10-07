@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Admit the complete non-IT shard tail completed by deploy-publish.yml.
  *
@@ -9,8 +11,7 @@
  * snapshot: the resulting cross-locale hreflang graph would be incomplete.
  */
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import {
   LOCALES,
   readLocalePublishProvenanceDirectory,
@@ -173,4 +174,4 @@ function main() {
   console.log(JSON.stringify(plan));
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

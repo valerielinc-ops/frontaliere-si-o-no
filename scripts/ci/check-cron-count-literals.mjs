@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * check-cron-count-literals.mjs — gate zero-Claude: un test non fissa un
  * CONTEGGIO LETTERALE su un file che un cron riscrive da solo su `main`.
@@ -999,4 +1001,4 @@ function main() {
   process.exitCode = violations.length ? 1 : 0;
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

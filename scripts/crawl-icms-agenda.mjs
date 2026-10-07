@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — cantonal/municipal agendas on the iCMS platform (P9a), one
  * source per run, on the shared `createAgendaCrawler` factory:
@@ -64,7 +65,7 @@ async function main() {
   if (dryRun) console.log(JSON.stringify(result.events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[icms-agenda] crawl failed: ${err?.message || err}`);
     process.exit(1);

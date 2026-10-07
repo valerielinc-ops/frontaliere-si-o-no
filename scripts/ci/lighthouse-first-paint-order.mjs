@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Lighthouse CI check: on the SPA-takeover pages the static HTML must paint
  * BEFORE the SPA mount hides it (issue 11666).
@@ -96,6 +97,6 @@ function main(argv) {
   return 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   process.exitCode = main(process.argv.slice(2));
 }

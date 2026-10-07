@@ -16,7 +16,7 @@
  */
 
 import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { detectClaudeRateLimit } from './claude-rate-limit.mjs';
 import {
   CODEX_ALLOWED_EFFORTS,
@@ -251,7 +251,7 @@ function main() {
 
 const invokedDirectly = (() => {
   try {
-    return fs.realpathSync(fileURLToPath(import.meta.url)) === fs.realpathSync(process.argv[1] || '');
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
   } catch {
     return false;
   }

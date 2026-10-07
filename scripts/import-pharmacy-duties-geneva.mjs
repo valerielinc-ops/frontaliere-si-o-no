@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import { mkdir, readFile, rename, unlink, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
@@ -241,4 +243,4 @@ async function main() {
   if (result.release.state !== 'fresh') process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) await main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) await main();

@@ -485,10 +485,12 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     // render or publish this checkout: doing so would remove the newer live
     // article. It is a safe, observable defer. A bounded one-for-one swap is
     // the same transit state in both directions: the published manifest and
-    // this render have the same count, but the source registry moved between
-    // snapshots. The corpus sync owns the retirement/addition decision; this
-    // renderer must keep its bytes untouched until that decision converges.
-    // Unbounded or one-sided drift remains a hard failure.
+    // this render may have moved by a few records while the source registry
+    // changed between snapshots. The corpus sync owns the retirement/addition
+    // decision; this renderer must keep its bytes untouched until that
+    // decision converges. Unbounded drift, and a purely local-only snapshot
+    // with no evidence that the published snapshot moved, remain hard
+    // failures.
     if (
       missingIds.length > 0
       && missingIds.length <= MAX_ARTICLES_BEHIND
@@ -504,16 +506,18 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     }
     if (
       missingIds.length > 0
-      && missingIds.length === unpublishedIds.length
+      && unpublishedIds.length > 0
       && missingIds.length <= MAX_ARTICLES_BEHIND
-      && published === itemCount
+      && unpublishedIds.length <= MAX_ARTICLES_BEHIND
+      && Math.abs(behind) <= MAX_ARTICLES_BEHIND
     ) {
       return {
         ok: false,
         deferred: true,
         note:
-          `${section}: published and local article registries have bounded one-for-one drift (${mismatchDetails}); ` +
-          `deferring hub rerender until the corpus sync converges (no bytes published, tolerance ${MAX_ARTICLES_BEHIND} IDs)`,
+          `${section}: published and local article registries have bounded mixed drift (${mismatchDetails}; ` +
+          `manifest delta ${behind}); deferring hub rerender until the corpus sync converges ` +
+          `(no bytes published, tolerance ${MAX_ARTICLES_BEHIND} IDs per side)`,
       };
     }
     return {

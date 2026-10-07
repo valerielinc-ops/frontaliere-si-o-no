@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * fetch-canton-tax-data.mjs — dataset fiscale per cantone (pipeline D11 «fisco»).
  *
@@ -390,7 +391,7 @@ export async function main(argv = process.argv.slice(2)) {
   return { year, changed };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`❌ ${err.message}`);
     process.exit(1);

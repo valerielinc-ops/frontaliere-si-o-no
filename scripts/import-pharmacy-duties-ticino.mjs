@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Polite daily importer for the server-rendered Ticino duty tables.
  * Locarnese rows are emitted only after a unique match to the current Ticino
@@ -243,7 +244,7 @@ async function main() {
   if (errors.length > 0) process.exitCode = 2;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('[import-pharmacy-duties-ticino] fatal:', error);
     process.exitCode = 1;
