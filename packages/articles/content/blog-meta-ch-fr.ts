@@ -7877,6 +7877,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.title': 'Tamedia : 41 licenciements, 13 à Lausanne et Genève',
     'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.excerpt': '## En bref - Tamedia a annoncé 41 licenciements en Suisse - 13 postes concernent Lausanne et Genève - L\'assemblée romande a voté à l\'unanimité contre',
     'blog.article.tamedia-41-licenziamenti-13-a-losanna-e-ginevra.imageAlt': 'Image éditoriale relative à: Tamedia: 41 licenziamenti, 13 a Losanna e Ginevra',
+    'blog.article.marcel-salathe-ia-commento.title': 'L’intelligence artificielle ne nous tuera pas tous',
+    'blog.article.marcel-salathe-ia-commento.excerpt': '## En bref - Salathé juge les scénarios apocalyptiques exagérés. - Il est professeur à l’École polytechnique fédérale de Lausanne. - Les big tech se préparent à entrer',
+    'blog.article.marcel-salathe-ia-commento.imageAlt': 'Vue du lac de Lugano avec les montagnes en arrière-plan, représentant le contexte suisse du débat sur l\'intelligenza artificiale.',
 };
 
 export default blogMetaChFr;

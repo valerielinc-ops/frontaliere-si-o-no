@@ -2648,6 +2648,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'intelligenza-artificiale-diritti-umani': { it: 'intelligenza-artificiale-diritti-umani', en: 'artificial-intelligence-human-rights', de: 'kuenstliche-intelligenz-menschenrechte', fr: 'intelligence-artificiale-droits-humains' },
  'lista-sanzioni-sesam-svizzera': { it: 'lista-sanzioni-sesam-svizzera', en: 'switzerland-un-sanctions-sesam-list', de: 'schweiz-un-sanktionen-sesam-liste', fr: 'suisse-sanctions-onu-liste-sesam' },
  'tamedia-41-licenziamenti-13-a-losanna-e-ginevra': { it: 'tamedia-41-licenziamenti-13-a-losanna-e-ginevra', en: 'tamedia-41-layoffs-13-in-lausanne-and-geneva', de: 'tamedia-41-entlassungen-13-in-lausanne-und-genf', fr: 'tamedia-41-licenciements-13-a-lausanne-et-geneve' },
+ 'marcel-salathe-ia-commento': { it: 'marcel-salathe-ia-commento', en: 'artificial-intelligence-will-not-kill-us-all', de: 'kunstliche-intelligenz-wird-uns-nicht-alle-toten', fr: 'l-intelligence-artificielle-ne-nous-tuera-pas-tous' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

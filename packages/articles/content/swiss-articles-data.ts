@@ -26287,6 +26287,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'marcel-salathe-ia-commento',
+    category: 'novita',
+    date: '2026-10-07T20:39:09.410Z',
+    image: '/images/blog/article-marcel-salathe-ia-commento.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
