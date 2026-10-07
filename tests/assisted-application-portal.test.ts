@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { SENSITIVE, answeredByCandidate, candidateAnswerForField, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
@@ -312,7 +312,13 @@ describe('portal runner helpers', () => {
     const school = { id: 'school', kind: 'select', label: 'In quale scuola sei attualmente?', required: true, options: [{ label: 'Ecole de Commerce' }, { label: 'Autre' }] };
     expect(questionTopic('Qual è la tua via e il numero civico?')).toBe('address');
     expect(questionTopic('Qual è il tuo codice postale?')).toBe('');
+    expect(questionTopic('Street address')).toBe('address_street');
+    expect(questionTopic('Hausnummer')).toBe('address_house_number');
+    expect(candidateAnswerForQuestion({ portalQuestionsAnswered: [{ question: 'Street address', answer: 'Via Roma' }] }, 'Hausnummer')).toBe('');
+    expect(questionTopic('Which Swiss work permit do you hold?')).toBe('permit');
+    expect(questionTopic('Will you need a work permit?')).toBe('');
     expect(questionTopic('In quale scuola sei attualmente?')).toBe('current_school');
+    expect(questionTopic('What did you study?')).toBe('');
     expect(answeredByCandidate(candidate, address.label, 'Via Test 1')).toBe(true);
     expect(candidateAnswerForField(candidate, address)).toEqual({ value: 'Via Test 1', source: 'answers' });
     expect(candidateAnswerForField(candidate, school)).toEqual({ value: 'Autre', source: 'profile' });

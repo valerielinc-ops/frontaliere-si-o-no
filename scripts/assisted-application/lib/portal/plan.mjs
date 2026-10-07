@@ -214,18 +214,28 @@ export function questionFromLabel(label) {
   return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
 }
 
-const ADDRESS_QUESTION_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street|civico|hausnummer)\b/i;
+const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
+const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
-const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|attual(?:e|mente)?|actuellement|en ce moment|derzeit|zurzeit|gegenwärtig|maintenant|present(?:ly)?|frequent(?:a|e|ano|ing)?|attend(?:s|ing)?|besuch(?:e|t|en|st)?|stud(?:y|ying|io|ia|iano|i))\b/i;
+const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
+
+function addressQuestionTopic(text) {
+  const street = STREET_ADDRESS_RE.test(text);
+  const houseNumber = HOUSE_NUMBER_RE.test(text);
+  if (!street && !houseNumber) return '';
+  if (street && houseNumber) return 'address';
+  return houseNumber ? 'address_house_number' : 'address_street';
+}
 
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label) {
   const text = questionFromLabel(label);
   if (isNationalityField(text)) return 'nationality';
-  if (isPermitField(text)) return 'permit';
+  if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
-  if (ADDRESS_QUESTION_RE.test(text)) return 'address';
+  const addressTopic = addressQuestionTopic(text);
+  if (addressTopic) return addressTopic;
   if (EDUCATION_QUESTION_RE.test(text) && CURRENT_EDUCATION_RE.test(text)) return 'current_school';
   return '';
 }
