@@ -58,6 +58,7 @@ jobs:
             /package-lock.json
             /.github/actions/setup-claude-haiku-fallback/
             /scripts/
+            /build-plugins/shared/brandSlugData.mjs
             /packages/articles/engine/
             /packages/articles/content/blog-articles-data.ts
             /packages/articles/content/swiss-articles-data.ts
