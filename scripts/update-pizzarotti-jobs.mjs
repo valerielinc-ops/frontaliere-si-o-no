@@ -35,6 +35,7 @@ import {
   parsePizzarottiPageCount,
   classifyPizzarottiListings,
   isPizzarottiClassifiableLocation,
+  resolvePizzarottiDetailUrl,
   inferPizzarottiCanton,
   parsePizzarottiJobDetail,
   resolvePizzarottiLocation,
@@ -95,7 +96,8 @@ async function resolveUnclassifiedPizzarottiListing(listing) {
   if (isPizzarottiClassifiableLocation(listing.location)) return listing;
 
   try {
-    const detailHtml = await fetchText(listing.href);
+    const detailUrl = resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL);
+    const detailHtml = await fetchText(detailUrl);
     const detail = parsePizzarottiJobDetail(detailHtml);
     const location = resolvePizzarottiLocation(listing, detail);
     if (!location || location === listing.location) return listing;
@@ -205,7 +207,8 @@ async function fetchPizzarottiListings(summaryCounts = null) {
 }
 
 async function buildPizzarottiJob(listing) {
-  const html = listing.detailHtml || await fetchText(listing.href);
+  const detailUrl = resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL);
+  const html = listing.detailHtml || await fetchText(detailUrl);
   const detail = parsePizzarottiJobDetail(html);
   const location = resolvePizzarottiLocation(listing, detail);
   const canton = inferPizzarottiCanton(location);
