@@ -47,6 +47,12 @@ import {
 } from './lib/crawler-quarantine.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { checkRunApiPath } from './ci/close-recovered-failure-issues.mjs';
+import {
+  isTransientGithubMutationError,
+  withTransientGithubMutationRetry,
+} from './lib/github-transient-retry.mjs';
+
+export { isTransientGithubMutationError, withTransientGithubMutationRetry } from './lib/github-transient-retry.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
@@ -56,9 +62,6 @@ const DEFAULT_CORPUS_REPO = 'nanakokyobashi-rgb/frontaliere-articles';
 const DEFAULT_SITE_REPO = 'valerielinc-ops/frontaliere-si-o-no';
 const PR_BRANCH_PREFIX = 'crawler-quarantine/';
 const DEFAULT_WAVE_LIMIT = 30;
-const MAX_TRANSIENT_GH_MUTATION_ATTEMPTS = 3;
-const TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS = Object.freeze([750, 2000]);
-const TRANSIENT_GH_MUTATION_ERROR_RE = /(?:GraphQL:\s*Something went wrong|\b(?:HTTP\s*)?50[23]\b|bad gateway|service unavailable|timeout|timed?\s*out|ETIMEDOUT|ECONNRESET|EAI_AGAIN|socket hang up)/iu;
 
 function parseArgs(argv) {
   const args = { apply: false, openPr: false, wavesJson: null, now: null, limit: DEFAULT_WAVE_LIMIT, corpusRepo: DEFAULT_CORPUS_REPO };
@@ -82,60 +85,6 @@ function gh(args) {
 
 function ghJson(args) {
   return JSON.parse(gh(args));
-}
-
-function sleepForGithubMutationRetry(delayMs) {
-  if (!Number.isFinite(delayMs) || delayMs <= 0) return;
-  const wait = new Int32Array(new SharedArrayBuffer(4));
-  Atomics.wait(wait, 0, 0, delayMs);
-}
-
-function capturedGithubErrorOutput(error) {
-  if (typeof error === 'string') return error;
-  return [error?.message, error?.stderr, error?.stdout, error?.status]
-    .map((value) => Buffer.isBuffer(value) ? value.toString('utf8') : String(value ?? ''))
-    .filter(Boolean)
-    .join('\n');
-}
-
-export function isTransientGithubMutationError(error) {
-  return TRANSIENT_GH_MUTATION_ERROR_RE.test(capturedGithubErrorOutput(error));
-}
-
-/**
- * Retry a side-effecting gh mutation only after checking whether another
- * writer already completed it. This makes a lost response from `gh pr
- * create` idempotent without blindly submitting the mutation twice.
- */
-export function withTransientGithubMutationRetry(operation, {
-  findExisting = () => null,
-  attemptLimit = MAX_TRANSIENT_GH_MUTATION_ATTEMPTS,
-  delaysMs = TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS,
-  sleep = sleepForGithubMutationRetry,
-  onRetry = () => {},
-} = {}) {
-  if (typeof operation !== 'function') throw new TypeError('GitHub mutation retry operation must be a function');
-  if (typeof findExisting !== 'function') throw new TypeError('GitHub mutation existence lookup must be a function');
-  const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
-    ? attemptLimit
-    : MAX_TRANSIENT_GH_MUTATION_ATTEMPTS;
-  const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_MUTATION_RETRY_DELAYS_MS;
-  const wait = typeof sleep === 'function' ? sleep : sleepForGithubMutationRetry;
-  const notify = typeof onRetry === 'function' ? onRetry : () => {};
-
-  for (let attempt = 0; attempt < attempts; attempt += 1) {
-    try {
-      return { reused: false, value: operation(), attempts: attempt + 1 };
-    } catch (error) {
-      if (attempt + 1 >= attempts || !isTransientGithubMutationError(error)) throw error;
-      const existing = findExisting();
-      if (existing) return { reused: true, value: existing, attempts: attempt + 1 };
-      const delayMs = Number(delays[attempt]);
-      notify(attempt + 2, attempts, delayMs);
-      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
-    }
-  }
-  throw new Error('GitHub mutation retry exhausted without an attempt');
 }
 
 /** Completed runs of the quarantine group, newest first, turned into waves. */

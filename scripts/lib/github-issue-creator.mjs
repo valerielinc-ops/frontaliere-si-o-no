@@ -50,6 +50,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import { withTransientGithubMutationRetry } from './github-transient-retry.mjs';
 
 const PRIORITY_LABEL = {
   1: 'priority:urgent',
@@ -165,6 +166,26 @@ function gh(args, { allowFailure = false } = {}) {
   } catch (err) {
     if (allowFailure) return null;
     throw err;
+  }
+}
+
+/**
+ * Run a GitHub call whose stderr must be inspected for a bounded transient
+ * retry. The normal `gh()` helper inherits stderr for legacy best-effort calls;
+ * this variant captures it on failure so GraphQL/5xx/network errors are
+ * distinguishable from permission and validation failures.
+ */
+function ghMutation(args) {
+  try {
+    return execFileSync(ghBin(), args, {
+      encoding: 'utf8',
+      maxBuffer: 50 * 1024 * 1024,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }).trim();
+  } catch (error) {
+    const stderr = error?.stderr;
+    if (stderr) process.stderr.write(Buffer.isBuffer(stderr) ? stderr : String(stderr));
+    throw error;
   }
 }
 
@@ -929,17 +950,32 @@ function setIssuePriorityLabel(issueNumber, targetPriorityLabel, extraAdd = []) 
  * True only when `gh issue view` proves the issue is CLOSED. Unreadable
  * output is not a close: a refused or silent failure must stay visible.
  */
-function issueViewIsClosed(number) {
-  const out = gh(
+function issueViewState(number, { retryTransient = false } = {}) {
+  const read = () => ghMutation(
     ['issue', 'view', String(number), '--json', 'state', ...repoFlag()],
-    { allowFailure: true },
   );
-  if (typeof out !== 'string' || !out) return false;
+  let out;
   try {
-    return String(JSON.parse(out)?.state || '').toUpperCase() === 'CLOSED';
+    out = retryTransient
+      ? withTransientGithubMutationRetry(read, {
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue state read transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      }).value
+      : read();
   } catch {
-    return String(out).toUpperCase() === 'CLOSED';
+    return null;
   }
+  if (typeof out !== 'string' || !out) return null;
+  try {
+    return String(JSON.parse(out)?.state || '').toUpperCase();
+  } catch {
+    return String(out).toUpperCase();
+  }
+}
+
+function issueViewIsClosed(number, options = {}) {
+  return issueViewState(number, options) === 'CLOSED';
 }
 
 /** Close reasons `resolveGithubIssue` and `resolveGithubIssueByNumber` accept (`--reason` on the CLI). */
@@ -984,11 +1020,22 @@ function resolveCloseText(reason, { workflow, runUrl } = {}) {
 function closeGithubIssueByNumber(number, { title, url, workflow, runUrl, reason = 'completed' }) {
   const { note, ghReason } = resolveCloseText(reason, { workflow, runUrl });
   gh(['issue', 'comment', String(number), '--body', note, ...repoFlag()], { allowFailure: true });
-  const closed = gh(
-    ['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()],
-    { allowFailure: true },
-  );
-  if (issueViewIsClosed(number)) {
+  let closed = null;
+  try {
+    closed = withTransientGithubMutationRetry(
+      () => ghMutation(['issue', 'close', String(number), '--reason', ghReason, ...repoFlag()]),
+      {
+        findExisting: () => issueViewIsClosed(number),
+        onRetry: (nextAttempt, attempts, delayMs) => {
+          console.warn(`::warning::GitHub issue close transient; retry ${nextAttempt}/${attempts} in ${delayMs}ms`);
+        },
+      },
+    ).value;
+  } catch {
+    // Preserve the existing fail-closed contract below: a non-transient
+    // rejection (or an exhausted transient budget) is not a successful close.
+  }
+  if (issueViewIsClosed(number, { retryTransient: true })) {
     console.log(`[github-issue-creator] resolve: closed #${number} — ${title}`);
     return {
       number,
