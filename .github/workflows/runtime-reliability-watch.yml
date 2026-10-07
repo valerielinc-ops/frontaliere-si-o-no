@@ -308,6 +308,7 @@ jobs:
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail when runtime remains degraded
+        id: runtime_degraded_verdict
         if: steps.verify.outputs.exit_code != '0'
         run: |
           echo "::error::Runtime reliability watchdog remains degraded after safe targeted repair attempt"
