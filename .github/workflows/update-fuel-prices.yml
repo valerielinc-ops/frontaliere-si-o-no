@@ -116,11 +116,11 @@ jobs:
         run: node scripts/snapshot-fuel-history.mjs
 
       # P9b: one official BFS/UST national CH average per URL canton group,
-      # plus FR/AT/IT and optional DE overlays. The Italian hand-off above is
-      # useful when present but no longer gates the Swiss baseline. Its own
-      # failure must not cost the main fuel cache its PR, so the step is
-      # non-blocking here and reported below; a refused dataset writes nothing
-      # and the published file stays.
+      # plus FR/AT/IT and the optional DE Tankerkönig overlay. The Italian
+      # hand-off above is useful when present but no longer gates the Swiss
+      # baseline. Foreign-source failures, including a missing/rejected DE
+      # key, are failure-isolated and emitted as a warning by the builder; a
+      # genuinely invalid dataset writes nothing and the published file stays.
       - name: Build cantonal fuel dataset (P9b)
         id: fuel_cantons
         if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'

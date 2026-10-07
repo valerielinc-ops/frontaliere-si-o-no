@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T12:49:44.631Z",
+  "generatedAt": "2026-10-06T23:45:44.805Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v1",
   "entries": {
@@ -536,6 +536,34 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:07:12.038Z"
     },
+    "ge-agenda:fredz-lenaig::256f35f93878591ada85ca5e48bb789e6a37d941a9ecd7eb0c7464d6b8ab40fe": {
+      "id": "ge-agenda:fredz-lenaig",
+      "sourceDescriptionHash": "256f35f93878591ada85ca5e48bb789e6a37d941a9ecd7eb0c7464d6b8ab40fe",
+      "description": "Fredz e Lenaïg sono in programma per un concerto all'Alhambra. L'evento si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Fredz e Lenaïg sono in programma per un concerto all'Alhambra. L'evento si svolge a Ginevra.",
+        "en": "Fredz and Lenaïg appear on the programme for a concert at Alhambra. The event takes place in Geneva.",
+        "de": "Fredz und Lenaïg stehen für ein Konzert im Alhambra auf dem Programm. Die Veranstaltung findet in Genf statt.",
+        "fr": "Le programme réunit Fredz et Lenaïg pour un concert à l’Alhambra. Il se déroule à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:39:44.048Z"
+    },
+    "ge-agenda:fredz::5c57b0e3d08e958a3dd14687bd7076725d6579a51c1e946c6d7a4d991920571d": {
+      "id": "ge-agenda:fredz",
+      "sourceDescriptionHash": "5c57b0e3d08e958a3dd14687bd7076725d6579a51c1e946c6d7a4d991920571d",
+      "description": "Il concerto di Fredz si tiene all'Alhambra. L'evento è programmato a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto di Fredz si tiene all'Alhambra. L'evento è programmato a Ginevra.",
+        "en": "A concert by Fredz takes place at Alhambra. It is scheduled in Geneva.",
+        "de": "Das Konzert von Fredz findet im Alhambra statt. Die Veranstaltung ist in Genf angesetzt.",
+        "fr": "Le concert de Fredz se tient à l’Alhambra. L’événement est programmé à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:39:44.047Z"
+    },
     "ge-agenda:fruits-farfelus-graines-rigolotes::56608a96cb7ee44129fb51faf5374e46edffeeb54ba29d6f89fe72a7cc09a2a1": {
       "id": "ge-agenda:fruits-farfelus-graines-rigolotes",
       "sourceDescriptionHash": "56608a96cb7ee44129fb51faf5374e46edffeeb54ba29d6f89fe72a7cc09a2a1",
@@ -549,6 +577,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:09:58.122Z"
+    },
+    "ge-agenda:intersexes-histoire-encre-invisible-conference-discussion::6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6": {
+      "id": "ge-agenda:intersexes-histoire-encre-invisible-conference-discussion",
+      "sourceDescriptionHash": "6c008dd7089e96c9590066ebe41adac8d7ca430b02cadf62cf8fdb39c97e81a6",
+      "description": "Il tema della conferenza-discussione è la storia delle persone intersessuali, nel contesto del mese della storia LGBTIQ+. La programmazione di ottobre comprende incontri e laboratori.",
+      "descriptionByLocale": {
+        "it": "Il tema della conferenza-discussione è la storia delle persone intersessuali, nel contesto del mese della storia LGBTIQ+. La programmazione di ottobre comprende incontri e laboratori.",
+        "en": "This discussion-based conference looks at the history of intersex people as part of the LGBTIQ+ history month programme. The October programme includes meetings and workshops.",
+        "de": "Im Mittelpunkt der Gesprächskonferenz steht die Geschichte intergeschlechtlicher Menschen im Rahmen des Monats der LGBTIQ+-Geschichte. Das Oktoberprogramm umfasst Begegnungen und Workshops.",
+        "fr": "Cette conférence-discussion porte sur l’histoire des personnes intersexes et s’inscrit dans le mois de l’histoire LGBTIQ+. Le programme d’octobre comprend des rencontres et des ateliers."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:42:03.284Z"
     },
     "ge-agenda:maria-suarez-chachi-inescalables-alpes-buscando-currito::b1a86d403ff3ef195fcd6a01c7f460e8ab7dfb5726bd7b9125a746e9874237bd": {
       "id": "ge-agenda:maria-suarez-chachi-inescalables-alpes-buscando-currito",
@@ -676,6 +718,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:22:53.416Z"
     },
+    "ge-agenda:rien::42f86b38255ff53569782e399c2fc85fbee785d29006940e4281423fbb664c63": {
+      "id": "ge-agenda:rien",
+      "sourceDescriptionHash": "42f86b38255ff53569782e399c2fc85fbee785d29006940e4281423fbb664c63",
+      "description": "Lo spettacolo teatrale sviluppa un'epopea che prende il nulla come punto di partenza. L'evento è programmato a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo teatrale sviluppa un'epopea che prende il nulla come punto di partenza. L'evento è programmato a Ginevra.",
+        "en": "The theatre piece follows an epic narrative that starts from nothing. It is scheduled in Geneva.",
+        "de": "Das Theaterstück entwickelt eine epische Geschichte aus dem Nichts. Die Veranstaltung findet in Genf statt.",
+        "fr": "La pièce de théâtre développe une épopée qui naît du rien. Elle est programmée à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:39:44.050Z"
+    },
     "ge-agenda:seance-information-filieres-bachelor-haute-ecole-sante-geneve::21c06f52e01a60e8f5ef95eeef3fe7432861afabe045609ee56f3df6aeed1a63": {
       "id": "ge-agenda:seance-information-filieres-bachelor-haute-ecole-sante-geneve",
       "sourceDescriptionHash": "21c06f52e01a60e8f5ef95eeef3fe7432861afabe045609ee56f3df6aeed1a63",
@@ -717,6 +773,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:18:40.303Z"
+    },
+    "ge-agenda:seniors-conferences-informatiques-intelligence-artificielle-genie-grille-pain::40cc3906fe909138491fdbe74eeb6afa1892f0cef1c017cadaad42ff28540256": {
+      "id": "ge-agenda:seniors-conferences-informatiques-intelligence-artificielle-genie-grille-pain",
+      "sourceDescriptionHash": "40cc3906fe909138491fdbe74eeb6afa1892f0cef1c017cadaad42ff28540256",
+      "description": "La conferenza di Francois Epars illustra l'intelligenza artificiale attraverso esempi concreti. È rivolta alle persone senior e si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "La conferenza di Francois Epars illustra l'intelligenza artificiale attraverso esempi concreti. È rivolta alle persone senior e si svolge a Ginevra.",
+        "en": "The conference by Francois Epars explains artificial intelligence through concrete examples. It is intended for seniors and takes place in Geneva.",
+        "de": "Die Konferenz von Francois Epars macht künstliche Intelligenz anhand konkreter Beispiele verständlicher. Sie richtet sich an Seniorinnen und Senioren und findet in Genf statt.",
+        "fr": "La conférence de Francois Epars présente l’intelligence artificielle à l’aide d’exemples concrets. Elle s’adresse aux seniors et a lieu à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:39:44.051Z"
     },
     "ge-agenda:sortir-participation-citoyenne-tiroirs-grace::5beb79afc0509a14623d6af280915c486af0a25d33f85939179c66fba4472493": {
       "id": "ge-agenda:sortir-participation-citoyenne-tiroirs-grace",
@@ -1362,6 +1432,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:37:51.479Z"
     },
+    "myswitzerland:1c67816682ef4d7dab08dac10dee8d67::24602bad4956b8876aa2cb4d5a080346248fcfb63ca932bee18afde117545236": {
+      "id": "myswitzerland:1c67816682ef4d7dab08dac10dee8d67",
+      "sourceDescriptionHash": "24602bad4956b8876aa2cb4d5a080346248fcfb63ca932bee18afde117545236",
+      "description": "Il trio riunisce Marcol Savoy alla batteria e Bugge Wesseltoft al pianoforte. L’appuntamento appartiene all’ambito del jazz elettronico e si svolge al Centre des Musiques Actuelles di Genève.",
+      "descriptionByLocale": {
+        "it": "Il trio riunisce Marcol Savoy alla batteria e Bugge Wesseltoft al pianoforte. L’appuntamento appartiene all’ambito del jazz elettronico e si svolge al Centre des Musiques Actuelles di Genève.",
+        "en": "The trio features Marcol Savoy on drums and Bugge Wesseltoft on piano. The event is associated with electronic jazz and takes place at Centre des Musiques Actuelles in Genève.",
+        "de": "Das Trio vereint Marcol Savoy am Schlagzeug und Bugge Wesseltoft am Klavier. Die Veranstaltung ist dem elektronischen Jazz zugeordnet und findet im Centre des Musiques Actuelles in Genève statt.",
+        "fr": "Le trio réunit Marcol Savoy à la batterie et Bugge Wesseltoft au piano. Le rendez-vous relève du jazz électronique et se déroule au Centre des Musiques Actuelles à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:45:44.799Z"
+    },
     "myswitzerland:1dcae362ecd347538e355dc3231be9b2::4a2f3de6ee798554aa6ba0096be8c15e418bf7c94da16fe1771e3a4a4caf3538": {
       "id": "myswitzerland:1dcae362ecd347538e355dc3231be9b2",
       "sourceDescriptionHash": "4a2f3de6ee798554aa6ba0096be8c15e418bf7c94da16fe1771e3a4a4caf3538",
@@ -1432,6 +1516,34 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:39:50.229Z"
     },
+    "myswitzerland:2dfda7158c0a4d6abe2f9d3a7909878b::fcf463ca67b274916a129f9b39fdfa93b46fd5e6f14d42391ef288dfced9dc4b": {
+      "id": "myswitzerland:2dfda7158c0a4d6abe2f9d3a7909878b",
+      "sourceDescriptionHash": "fcf463ca67b274916a129f9b39fdfa93b46fd5e6f14d42391ef288dfced9dc4b",
+      "description": "L’evento ricorrente si svolge presso Muri AG, nel comune di Alle. Il suo tema è mantenersi in forma durante l’inverno.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente si svolge presso Muri AG, nel comune di Alle. Il suo tema è mantenersi in forma durante l’inverno.",
+        "en": "This recurring event is held at Muri AG in Alle. It focuses on staying fit during the winter.",
+        "de": "Die wiederkehrende Veranstaltung findet bei Muri AG in Alle statt. Inhaltlich geht es darum, im Winter fit zu bleiben.",
+        "fr": "Cet événement récurrent se déroule à Muri AG, à Alle. Il porte sur le maintien de la forme physique pendant l’hiver."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:44:47.268Z"
+    },
+    "myswitzerland:31e5bede24c1452ca57ac2dc10fa8a02::256797e0d4658a3098655480ef54783d56e433d19d6815c088265d71d2dd8cc4": {
+      "id": "myswitzerland:31e5bede24c1452ca57ac2dc10fa8a02",
+      "sourceDescriptionHash": "256797e0d4658a3098655480ef54783d56e433d19d6815c088265d71d2dd8cc4",
+      "description": "Quasi dieci anni dopo il loro nuovo incontro a Parigi, Jesse e Céline sono sposati e hanno due figlie. L’appuntamento teatrale ricorrente si svolge alla Cinémathèque suisse di Lausanne.",
+      "descriptionByLocale": {
+        "it": "Quasi dieci anni dopo il loro nuovo incontro a Parigi, Jesse e Céline sono sposati e hanno due figlie. L’appuntamento teatrale ricorrente si svolge alla Cinémathèque suisse di Lausanne.",
+        "en": "Nearly ten years after Jesse and Céline met again in Paris, they are married and have two daughters. The recurring theatre event is held at the Cinémathèque suisse in Lausanne.",
+        "de": "Fast zehn Jahre nach ihrem Wiedersehen in Paris sind Jesse und Céline verheiratet und haben zwei Töchter. Die wiederkehrende Theaterveranstaltung findet in der Cinémathèque suisse in Lausanne statt.",
+        "fr": "Près de dix ans après leurs retrouvailles à Paris, Jesse et Céline sont mariés et ont deux filles. Cette manifestation théâtrale récurrente se tient à la Cinémathèque suisse, à Lausanne."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:43:15.073Z"
+    },
     "myswitzerland:35146e0b3d3e475eb5b8d00f8e747220::2a3d4b333f6b69b89a277f70e700c5286684d705d2eb3501593c66af0f1d1a0c": {
       "id": "myswitzerland:35146e0b3d3e475eb5b8d00f8e747220",
       "sourceDescriptionHash": "2a3d4b333f6b69b89a277f70e700c5286684d705d2eb3501593c66af0f1d1a0c",
@@ -1459,6 +1571,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:42:46.936Z"
+    },
+    "myswitzerland:3710b115327e40ad8fb6b603a9128495::85af974e7745ed2bea5d11ec3030d616cfe3c89efe810fb9f1b068341d492b1d": {
+      "id": "myswitzerland:3710b115327e40ad8fb6b603a9128495",
+      "sourceDescriptionHash": "85af974e7745ed2bea5d11ec3030d616cfe3c89efe810fb9f1b068341d492b1d",
+      "description": "La manifestazione ricorrente è una Metzgete e si svolge a Littau, nel comune di Luzern. È associata a Thorenberg.",
+      "descriptionByLocale": {
+        "it": "La manifestazione ricorrente è una Metzgete e si svolge a Littau, nel comune di Luzern. È associata a Thorenberg.",
+        "en": "A recurring Metzgete is held in Littau, in Luzern. The event is linked to Thorenberg.",
+        "de": "In Littau, im Gemeindegebiet von Luzern, findet wiederkehrend eine Metzgete statt. Der Anlass ist mit Thorenberg verbunden.",
+        "fr": "Cet événement récurrent est une Metzgete organisée à Littau, dans la commune de Luzern. Il est associé à Thorenberg."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:44:47.269Z"
     },
     "myswitzerland:371ab2b666fc4eefbfdba35afa6884d1::7efef512c913ebd0da02c9d380e0b3873168cd9d2e1f7dea727d10b324c71dcf": {
       "id": "myswitzerland:371ab2b666fc4eefbfdba35afa6884d1",
@@ -1613,6 +1739,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:15:13.033Z"
+    },
+    "myswitzerland:49cfa9be8efb442d8191e688e2b25d47::b88393c7ca6c3b690de3799ef9d41fed5a913cee17410b9cea4112631f3f392b": {
+      "id": "myswitzerland:49cfa9be8efb442d8191e688e2b25d47",
+      "sourceDescriptionHash": "b88393c7ca6c3b690de3799ef9d41fed5a913cee17410b9cea4112631f3f392b",
+      "description": "Una giuria specializzata esamina numerose capre tipiche di Appenzell. Al termine, vengono premiate le capre considerate più belle del cantone Appenzell Innerrhoden.",
+      "descriptionByLocale": {
+        "it": "Una giuria specializzata esamina numerose capre tipiche di Appenzell. Al termine, vengono premiate le capre considerate più belle del cantone Appenzell Innerrhoden.",
+        "en": "A specialist jury assesses numerous typical Appenzeller goats in Appenzell. The event concludes by recognizing the goats judged most beautiful in the canton of Appenzell Innerrhoden.",
+        "de": "Eine Fachjury begutachtet in Appenzell zahlreiche typische Appenzeller Ziegen. Zum Abschluss werden die als schönste bewerteten Ziegen des Kantons Appenzell Innerrhoden ausgezeichnet.",
+        "fr": "À Appenzell, un jury spécialisé examine de nombreuses chèvres de type Appenzeller. À la fin, les chèvres jugées les plus belles du canton d’Appenzell Innerrhoden sont distinguées."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:45:44.801Z"
     },
     "myswitzerland:4aa7f313829049eba27cfbcbda4384ab::f98b7c8f3601fc7b33524c603fc9203a1aab7092425f9fe10ce0deef01693167": {
       "id": "myswitzerland:4aa7f313829049eba27cfbcbda4384ab",
@@ -1824,6 +1964,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:16:44.891Z"
     },
+    "myswitzerland:81c29c9d3e7e42b3bbc775d9c5f387b9::cdea2429ec1c7b36e4b11e587b40e176012c9011a528b95ef3352b688f08e81b": {
+      "id": "myswitzerland:81c29c9d3e7e42b3bbc775d9c5f387b9",
+      "sourceDescriptionHash": "cdea2429ec1c7b36e4b11e587b40e176012c9011a528b95ef3352b688f08e81b",
+      "description": "L’evento ricorrente ruota attorno a giochi e intrattenimento al Landvogteischloss. Il luogo indicato è l’Historisches Museum Baden.",
+      "descriptionByLocale": {
+        "it": "L’evento ricorrente ruota attorno a giochi e intrattenimento al Landvogteischloss. Il luogo indicato è l’Historisches Museum Baden.",
+        "en": "The recurring event centres on games and entertainment at the Landvogteischloss. Its listed venue is the Historisches Museum Baden.",
+        "de": "Im Landvogteischloss dreht sich die wiederkehrende Veranstaltung um Spiele und Unterhaltung. Der angegebene Veranstaltungsort ist Historisches Museum Baden.",
+        "fr": "Au Landvogteischloss, l’événement récurrent associe activités ludiques et divertissement. Le lieu indiqué est Historisches Museum Baden."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:44:47.274Z"
+    },
     "myswitzerland:8551ac6b4f14473e9855c7970bdbfd8b::c12f875b3a2c0bef4eb876e6e45b0e15c7fdf9e1c1072b9203ab5c4b8b5a356a": {
       "id": "myswitzerland:8551ac6b4f14473e9855c7970bdbfd8b",
       "sourceDescriptionHash": "c12f875b3a2c0bef4eb876e6e45b0e15c7fdf9e1c1072b9203ab5c4b8b5a356a",
@@ -1851,6 +2005,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:09:03.141Z"
+    },
+    "myswitzerland:88c2556b6dc5407cb9bffae7381a232a::0d5b0d03c76d8cd20bdd5887472bfe56b64b08ed0d1d194cd91c5232e1911a82": {
+      "id": "myswitzerland:88c2556b6dc5407cb9bffae7381a232a",
+      "sourceDescriptionHash": "0d5b0d03c76d8cd20bdd5887472bfe56b64b08ed0d1d194cd91c5232e1911a82",
+      "description": "Si tratta di un mercato tradizionale. L’evento si svolge a Wattenwil.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un mercato tradizionale. L’evento si svolge a Wattenwil.",
+        "en": "This event is a traditional market. It takes place in Wattenwil.",
+        "de": "Die Veranstaltung ist ein traditioneller Markt. Sie findet in Wattenwil statt.",
+        "fr": "Il s’agit d’un marché traditionnel. L’événement se tient à Wattenwil."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:45:44.804Z"
     },
     "myswitzerland:8e56c896ed344846a98839b6c66ca973::54856dcbcf12de0b542ed898d39ceddec6b3b4a537f3e8fd18203c304fc04473": {
       "id": "myswitzerland:8e56c896ed344846a98839b6c66ca973",
@@ -2229,6 +2397,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:14:46.194Z"
+    },
+    "myswitzerland:ccb1546b1a3648379231eadea190a5c8::5d8aca3ee096af9b0c62e862052b41cea96236ff7bea9981f134edd1548f64ab": {
+      "id": "myswitzerland:ccb1546b1a3648379231eadea190a5c8",
+      "sourceDescriptionHash": "5d8aca3ee096af9b0c62e862052b41cea96236ff7bea9981f134edd1548f64ab",
+      "description": "Si tratta di un concerto d’organo con brani di epoche diverse. Kristofer Kiesel, musicista della chiesa, li presenta sull’organo Kuhn.",
+      "descriptionByLocale": {
+        "it": "Si tratta di un concerto d’organo con brani di epoche diverse. Kristofer Kiesel, musicista della chiesa, li presenta sull’organo Kuhn.",
+        "en": "The event takes the form of an organ concert featuring works from different periods. Church musician Kristofer Kiesel presents them on the Kuhn organ.",
+        "de": "Auf dem Programm stehen Orgelwerke aus verschiedenen Epochen. Kirchenmusiker Kristofer Kiesel stellt sie an der Kuhn-Orgel vor.",
+        "fr": "Le rendez-vous prend la forme d’un concert d’orgue consacré à des œuvres de différentes époques. Le musicien d’église Kristofer Kiesel les présente sur l’orgue Kuhn."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:31:19.537Z"
     },
     "myswitzerland:cdf6635f885244cbb226dd4c4f410a76::33240beb8030e56a8287a0b77a08db6c0d6ce7cf26822ae96ad367f2e2f226de": {
       "id": "myswitzerland:cdf6635f885244cbb226dd4c4f410a76",
@@ -2719,6 +2901,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:27:15.502Z"
+    },
+    "tio-agenda:63581::24433ba4832bfce9ada08241f837654ec4ec70aea730d2a90828c93e2a81d6a5": {
+      "id": "tio-agenda:63581",
+      "sourceDescriptionHash": "24433ba4832bfce9ada08241f837654ec4ec70aea730d2a90828c93e2a81d6a5",
+      "description": "La retrospettiva riunisce opere di Kaari Upson realizzate attraverso scultura, video, disegno e installazione. I lavori affrontano temi legati a identità, corpo, relazioni, malattia e perdita, e comprendono le serie del Larry Project e un’installazione di grandi dimensioni.",
+      "descriptionByLocale": {
+        "it": "La retrospettiva riunisce opere di Kaari Upson realizzate attraverso scultura, video, disegno e installazione. I lavori affrontano temi legati a identità, corpo, relazioni, malattia e perdita, e comprendono le serie del Larry Project e un’installazione di grandi dimensioni.",
+        "en": "The retrospective brings together works by Kaari Upson in sculpture, video, drawing and installation. It addresses identity, the body, relationships, illness and loss, and includes series connected with the Larry Project as well as a large-scale installation.",
+        "de": "Die Retrospektive versammelt Werke von Kaari Upson in Form von Skulpturen, Videos, Zeichnungen und Installationen. Sie widmet sich Identität, Körper, Beziehungen, Krankheit und Verlust und umfasst auch Serien im Zusammenhang mit dem Larry Project sowie eine grossformatige Installation.",
+        "fr": "La rétrospective rassemble des œuvres de Kaari Upson en sculpture, vidéo, dessin et installation. Elle aborde l’identité, le corps, les relations, la maladie et la perte, avec notamment des séries liées au Larry Project et une installation de grande dimension."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-06T23:31:19.530Z"
     },
     "tio-agenda:63618::2dd36dce5563d2c4a069baee0db2f29d611d033eefede8ccf9a48ddc2b6e5d95": {
       "id": "tio-agenda:63618",
