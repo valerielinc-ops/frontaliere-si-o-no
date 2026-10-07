@@ -24,7 +24,7 @@ describe('published editorial and place image registry', () => {
         expect(isPrivateGrantImageRecord(record)).toBe(true);
         expect(record?.license).toBe('private-grant');
         expect(record?.provider).toBe('site-owned');
-        expect(record?.note).toBe('ritratto fornito dall\'autore; consenso da confermare dal proprietario');
+        expect(record?.note).toBe('ritratto, CV e LinkedIn forniti dall\'autore; consenso confermato dal proprietario il 2026-10-06');
       } else {
         expect(record?.license).toBe('generated-provider');
         expect(record?.provider).toBe('openai-codex');
