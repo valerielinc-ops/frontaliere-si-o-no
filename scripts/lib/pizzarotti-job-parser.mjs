@@ -65,11 +65,14 @@ function htmlFragmentToMarkdown(html = '') {
 // is also the Swiss canton code for Genève, so passing `Campomorone (GE)` to
 // the generic Swiss resolver would publish an Italian vacancy as Swiss. An
 // unrecognised teaser remains empty and therefore stays fail-closed.
+const PIZZAROTTI_TEASER_REGION_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+(.+?)\s+\([A-Z]{2}\)(?=\s*(?:[.!?]|$))/i;
 const PIZZAROTTI_TEASER_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+([^.!?]+?)(?=\s*[.!?]|$)/i;
 const PIZZAROTTI_COUNTRY_SUFFIX_RE = /\s*,\s*(?:in\s+)?(?:italia|italy|italien|italie|svizzera|switzerland|schweiz|suisse)\s*$/i;
 
 function extractPizzarottiTeaserLocation(teaser = '') {
-  const match = normalizeSpace(teaser).match(PIZZAROTTI_TEASER_LOCATION_RE);
+  const normalizedTeaser = normalizeSpace(teaser);
+  const match = normalizedTeaser.match(PIZZAROTTI_TEASER_REGION_LOCATION_RE)
+    || normalizedTeaser.match(PIZZAROTTI_TEASER_LOCATION_RE);
   if (!match) return '';
   return normalizeSpace(match[1])
     .replace(PIZZAROTTI_COUNTRY_SUFFIX_RE, '')
