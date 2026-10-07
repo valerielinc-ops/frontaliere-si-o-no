@@ -1,8 +1,10 @@
 name: "Codex Luna Max primary"
 description: >-
-  Runs exactly one ephemeral Codex CLI attempt with ChatGPT subscription auth.
-  A failure after a possible local or remote side effect stops without
-  retrying the prompt. The action has no API-key mode and no alternate agent.
+  Runs an ephemeral Codex CLI attempt with ChatGPT subscription auth. A
+  failure after a possible local or remote side effect stops without
+  retrying the prompt; a provider-capacity failure gets one retry only when
+  delivery state is unchanged. The action has no API-key mode and no
+  alternate agent.
 
 inputs:
   preflight_blocked:
@@ -450,7 +452,7 @@ runs:
         # secret itself never does. The runner is ephemeral, so a refresh is
         # not expected to persist to the next run.
 
-    - name: Run Codex primary (one subscription attempt)
+    - name: Run Codex primary (bounded capacity retry)
       id: codex
       if: steps.repair_quota.outputs.admit == 'true' && steps.trusted_node.outcome == 'success' && steps.codex_cli.outcome == 'success' && steps.sandbox_setup.outcome == 'success' && steps.codex_auth.outcome == 'success'
       continue-on-error: true
@@ -1217,28 +1219,56 @@ runs:
         # complete before the auth grep below. With both tees as unwaited
         # process substitutions, a fast refresh-token rejection could be
         # grepped before it was flushed and skip the "Codex auth down" alert.
-        printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
-          --signal=TERM \
-          --kill-after="${codex_exec_kill_grace_seconds}s" \
-          "${codex_exec_timeout_seconds}s" "$codex_bin" exec \
-          --ephemeral \
-          --strict-config \
-          --ignore-user-config \
-          --model gpt-5.6-luna \
-          -c 'default_permissions="codex-fallback"' \
-          -c 'permissions.codex-fallback.extends=":workspace"' \
-          -c 'permissions.codex-fallback.network.enabled=false' \
-          -c "permissions.codex-fallback.filesystem=$codex_filesystem" \
-          -c "model_reasoning_effort=$codex_reasoning_effort" \
-          -c shell_environment_policy.ignore_default_excludes=false \
-          -c "shell_environment_policy.include_only=$codex_env_patterns" \
-          --output-last-message "$CODEX_OUTPUT" \
-          - 2> >(/usr/bin/tee "$codex_stderr") | /usr/bin/tee "$codex_log"
-        codex_status=${PIPESTATUS[1]}
+        run_codex_once() {
+          printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
+            --signal=TERM \
+            --kill-after="${codex_exec_kill_grace_seconds}s" \
+            "${codex_exec_timeout_seconds}s" "$codex_bin" exec \
+            --ephemeral \
+            --strict-config \
+            --ignore-user-config \
+            --model gpt-5.6-luna \
+            -c 'default_permissions="codex-fallback"' \
+            -c 'permissions.codex-fallback.extends=":workspace"' \
+            -c 'permissions.codex-fallback.network.enabled=false' \
+            -c "permissions.codex-fallback.filesystem=$codex_filesystem" \
+            -c "model_reasoning_effort=$codex_reasoning_effort" \
+            -c shell_environment_policy.ignore_default_excludes=false \
+            -c "shell_environment_policy.include_only=$codex_env_patterns" \
+            --output-last-message "$CODEX_OUTPUT" \
+            - 2> >(/usr/bin/tee -a "$codex_stderr") | /usr/bin/tee -a "$codex_log"
+          codex_status=${PIPESTATUS[1]}
+        }
+
         codex_timed_out=false
+        run_codex_once
         if [ "$codex_status" -eq 124 ]; then
           codex_timed_out=true
           echo "::error::Codex primary exceeded its ${codex_exec_timeout_minutes}-minute internal watchdog."
+        fi
+        # A provider-capacity response is transient, but retrying a fixer after
+        # any uncertain work would be able to duplicate a push or PR. The
+        # bridge marker plus an exact local Git snapshot make this the only
+        # retryable failure class. Keep the retry bounded to one same-model
+        # attempt; auth failures, timeouts, and all other errors remain one-shot.
+        codex_capacity_retry_eligible=false
+        if [ "$codex_status" -ne 0 ] \
+          && [ "$codex_timed_out" != true ] \
+          && grep -Fxq 'ERROR: Selected model is at capacity. Please try a different model.' "$codex_stderr" \
+          && [ ! -s "$codex_side_effect_file" ] \
+          && snapshot_git_delivery_state "$codex_state_after" \
+          && cmp -s -- "$codex_state_before" "$codex_state_after"; then
+          codex_capacity_retry_eligible=true
+        fi
+        if [ "$codex_capacity_retry_eligible" = true ]; then
+          echo '::warning::Codex primary hit transient provider capacity; retrying once because delivery state is unchanged.'
+          sleep 5
+          codex_timed_out=false
+          run_codex_once
+          if [ "$codex_status" -eq 124 ]; then
+            codex_timed_out=true
+            echo "::error::Codex capacity retry exceeded its ${codex_exec_timeout_minutes}-minute internal watchdog."
+          fi
         fi
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
