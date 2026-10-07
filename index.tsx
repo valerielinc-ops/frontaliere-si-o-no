@@ -174,10 +174,23 @@ const mountApp = async () => {
 
  try {
    const { parsePath } = await import('./services/router');
-   if (!parsePath(window.location.pathname).route.staticOverlay
+   const parsedRoute = parsePath(window.location.pathname).route;
+   if (!parsedRoute.staticOverlay
      && !hasPlateAuctionStaticFallback()) {
      const fallback = document.querySelector<HTMLElement>('main.seo-static-content, main.cluster-seo-prose');
      if (fallback && !rootElement.contains(fallback)) {
+       // Modulepreload fetches JobBoard, but does not wait for its evaluation.
+       // Keep the already-painted fallback visible until the interactive job
+       // board can render immediately after the handoff; otherwise the lazy
+       // module gap becomes the mobile LCP on slow connections.
+       if (parsedRoute.activeTab === 'job-board') {
+         try {
+           await import('@/components/community/JobBoard');
+         } catch {
+           // App's lazy boundary remains the final recovery path for a chunk
+           // that cannot be evaluated; do not hide the fallback indefinitely.
+         }
+       }
        fallback.style.removeProperty('display');
        // This move is what destroys — rather than merely hides — the article
        // page of anything published since the last deploy: the SPA cannot
