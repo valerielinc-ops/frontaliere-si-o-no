@@ -764,6 +764,7 @@ async function main() {
   } else {
     modelQueue.push(...selectedQueue);
   }
+  if (!options.dryRun && stats.acceptedByFallback > 0) writeCache(options.cache, cache);
   const { batches, inputBudgetSkipped } = buildBatches(modelQueue, options);
   stats.inputBudgetSkipped += inputBudgetSkipped.length;
   if (inputBudgetSkipped.length) rejectRecords(stats, inputBudgetSkipped, 'input-budget');
