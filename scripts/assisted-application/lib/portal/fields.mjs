@@ -263,7 +263,10 @@ export function extractFieldsInPage() {
       // opened. A select by another name: its options are read (extractFields).
       field.ownedList = clean(element.getAttribute('aria-owns') || element.getAttribute('aria-controls') || '');
       field.selectLike = Boolean(field.ownedList)
-        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
+        // SuccessFactors localises its empty value too: Rolex's French form
+        // says «Aucune sélection», not «Sélectionnez». It is still the same
+        // owned picklist, not a free-text combobox.
+        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
@@ -419,8 +422,8 @@ export function extractFieldsInPage() {
 }
 /* eslint-enable no-undef */
 
-// What a list shows before anything is chosen: «Select One», «Bitte auswählen», «Seleziona».
-export const LIST_PROMPT_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i;
+// What a list shows before anything is chosen: «Select One», «Bitte auswählen», «Seleziona», «Aucune sélection».
+export const LIST_PROMPT_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
 
 /** Open a listbox button, read its options, close it again. */
 export async function readListboxOptions(frame, aaId) {

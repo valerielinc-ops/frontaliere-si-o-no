@@ -650,12 +650,32 @@ export function sendsApplication(snapshot) {
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
+  const seen = new Set();
   for (const item of missingRequired) {
     const id = `portal_${slugId(item.question)}`;
-    if (questions.some((question) => question.id === id)) continue; // Greenhouse repeats a question in two controls
+    const key = questionTopic(item.question) || id;
+    if (seen.has(key)) continue; // Greenhouse repeats a question in two controls; ATS labels can also be reworded.
+    seen.add(key);
     questions.push({ id, question: item.question, why: item.why || '', type: item.type, options: item.options || [], required: true, validation: sanitizeValidation(item.validation, { type: item.type }), source: 'portal' });
   }
   return questions;
+}
+
+/**
+ * Remove portal questions that mean the same thing after an ATS changes its
+ * wording or language. Keep the first record: its answer id is already in the
+ * flow, while candidateAnswerForQuestion() can reuse it for the new label.
+ * Questions from the draft/match rules are deliberately untouched.
+ */
+export function dedupePortalQuestions(questions = []) {
+  const seen = new Set();
+  return (Array.isArray(questions) ? questions : []).filter((question) => {
+    if (question?.source !== 'portal') return true;
+    const key = questionTopic(question.question) || question.id;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 /** Presses the first control one of the patterns names; false when there is none, else how it was found. */

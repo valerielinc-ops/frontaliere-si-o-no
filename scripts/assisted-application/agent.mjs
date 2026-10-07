@@ -23,7 +23,7 @@ import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
-import { readPortalQuestions } from './lib/portal/portal.mjs';
+import { dedupePortalQuestions, readPortalQuestions } from './lib/portal/portal.mjs';
 import { questionTopic } from './lib/portal/plan.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
@@ -203,11 +203,22 @@ async function main() {
     await report({ type: 'submit_failed', error: 'codex_broker_unavailable' });
     return;
   }
+  // A portal may have asked the same semantic question twice after changing
+  // its wording («Qual è la tua via e il numero civico?» / «Qual è la via e
+  // il numero civico?»). Clean the review list before building the candidate
+  // context, so an old duplicate is not shown or answered again on retry.
+  const normalizedQuestions = dedupePortalQuestions(previousDraft.questions || []);
+  const submitDraft = normalizedQuestions.length === (previousDraft.questions || []).length
+    ? previousDraft
+    : { ...previousDraft, questions: normalizedQuestions };
+  if (!dryRun && submitDraft !== previousDraft) {
+    await orderRef.collection('ai_drafts').doc('current').set({ questions: normalizedQuestions }, { merge: true });
+  }
   try {
     const { sendEmailCascade } = await import('../../functions/src/emailCascade.js');
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
-      order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
+      order, orderId, flow, draft: submitDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
       dryRun,
       submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
@@ -263,10 +274,13 @@ async function main() {
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
-      const known = new Set((previousDraft.questions || []).map((question) => questionTopic(question.question) || question.id));
-      const added = event.questions.filter((question) => !known.has(questionTopic(question.question) || question.id));
-      await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });
-      event.questions = event.questions.map((question) => ({ id: question.id }));
+      const existing = dedupePortalQuestions(submitDraft.questions || []);
+      const known = new Set(existing.map((question) => questionTopic(question.question) || question.id));
+      const incoming = dedupePortalQuestions(event.questions);
+      const added = incoming.filter((question) => !known.has(questionTopic(question.question) || question.id));
+      const questions = dedupePortalQuestions([...existing, ...added]);
+      await orderRef.collection('ai_drafts').doc('current').set({ questions }, { merge: true });
+      event.questions = added.map((question) => ({ id: question.id }));
     }
     await report(event);
   } catch (error) {
