@@ -7,6 +7,9 @@ import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const actionPath = path.resolve(process.cwd(), '.github/actions/setup-claude-haiku-fallback/action.yml');
+const sandboxActionPath = path.resolve(process.cwd(), '.github/actions/setup-codex-sandbox/action.yml');
+const eventRewriteWorkflowPath = path.resolve(process.cwd(), '.github/workflows/event-description-rewrite.yml');
+const bashPath = fs.existsSync('/opt/homebrew/bin/bash') ? '/opt/homebrew/bin/bash' : '/bin/bash';
 
 function brokerStepScript() {
   const document = YAML.parse(fs.readFileSync(actionPath, 'utf8')) as {
@@ -25,7 +28,7 @@ function brokerStepScript() {
 function runBrokerStep(runnerTemp: string, nodeBin: string, nodeSha256 = sha256(nodeBin)) {
   const outputFile = path.join(runnerTemp, 'github-output');
   fs.writeFileSync(outputFile, '');
-  const result = spawnSync('/bin/bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', brokerStepScript()], {
+  const result = spawnSync(bashPath, ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', brokerStepScript()], {
     encoding: 'utf8',
     timeout: 20_000,
     env: {
@@ -98,6 +101,64 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(install).not.toContain('CLAUDE_CODE_OAUTH_TOKEN');
   });
 
+  it('keeps every sandbox prerequisite bounded and fail-closed', () => {
+    const action = fs.readFileSync(actionPath, 'utf8');
+    const sandbox = fs.readFileSync(sandboxActionPath, 'utf8');
+    const actionDocument = YAML.parse(action) as {
+      runs?: { steps?: Array<{ id?: string; uses?: string; 'continue-on-error'?: boolean }> };
+    };
+    const sandboxDocument = YAML.parse(sandbox) as {
+      runs?: { steps?: Array<{ name?: string; run?: string }> };
+    };
+    const sandboxStep = actionDocument.runs?.steps?.find((step) => step.id === 'setup_codex_sandbox');
+    const sandboxRun = sandboxDocument.runs?.steps?.find((step) => step.name === 'Prepare Linux sandbox prerequisites')?.run ?? '';
+    expect(sandboxStep?.uses).toBe('./.github/actions/setup-codex-sandbox');
+    expect(sandboxStep?.['continue-on-error']).toBe(true);
+    expect(sandboxRun).toContain('--signal=TERM');
+    expect(sandboxRun).toContain('--kill-after=3s');
+    expect(sandboxRun).toContain('::error::${label} timed out after ${seconds} seconds');
+    expect(sandboxRun).toContain('Acquire::http::Timeout=15');
+    expect(sandboxRun).toContain('Acquire::https::Timeout=15');
+    expect(sandboxRun).toContain('Acquire::Retries=1');
+    expect(sandboxRun).toContain('DPkg::Lock::Timeout=10');
+    expect(sandboxRun).toContain('267s (4m27s), below five minutes');
+    expect(sandboxRun).toContain('Never disable AppArmor globally or retry the agent without a sandbox.');
+    expect(sandboxRun).toMatch(/run_retried 'apt-get update'/u);
+    expect(sandboxRun).toMatch(/run_retried 'apt-get install'/u);
+    expect(sandboxRun).toMatch(/run_retried 'apparmor_parser'/u);
+
+    const unboundedLines: string[] = [];
+    let boundedCommand = false;
+    for (const line of sandboxRun.split('\n')) {
+      const trimmed = line.trim();
+      if (trimmed.includes('run_retried') || trimmed.includes('run_bounded')) boundedCommand = true;
+      if (/(apt-get|apparmor_parser)/u.test(trimmed)
+        && !trimmed.startsWith('#')
+        && !boundedCommand) {
+        unboundedLines.push(line);
+      }
+      if (boundedCommand && !trimmed.endsWith('\\')) boundedCommand = false;
+    }
+    expect(unboundedLines).toEqual([]);
+  });
+
+  it('ferma il rewrite eventi se il broker Codex non produce un socket', () => {
+    const workflow = YAML.parse(fs.readFileSync(eventRewriteWorkflowPath, 'utf8')) as {
+      jobs?: { rewrite?: { steps?: Array<{ id?: string; name?: string; if?: string; run?: string }> } };
+    };
+    const steps = workflow.jobs?.rewrite?.steps ?? [];
+    const setupIndex = steps.findIndex((step) => step.id === 'setup_codex');
+    const guard = steps[setupIndex + 1];
+    const rewrite = steps.find((step) => step.id === 'rewrite');
+    expect(setupIndex).toBeGreaterThanOrEqual(0);
+    expect(guard?.name).toBe('Require Codex Luna Max broker for event rewrite');
+    expect(guard?.if).toContain('always()');
+    expect(guard?.if).toContain("steps.setup_codex.outputs.codex_auth_broker_socket == ''");
+    expect(guard?.run).toContain('::error::Codex Luna Max broker unavailable');
+    expect(guard?.run).toContain('exit 1');
+    expect(rewrite?.if).toContain("steps.setup_codex.outputs.codex_auth_broker_socket != ''");
+  });
+
   it('keeps credentials inside the broker bootstrap boundary', () => {
     const action = fs.readFileSync(actionPath, 'utf8');
     expect(action).toContain('mkfifo "$auth_fifo"');
@@ -137,7 +198,7 @@ describe('Codex Luna Max article lane setup action', () => {
       try {
         const githubEnv = path.join(root, 'github-env');
         fs.writeFileSync(githubEnv, '');
-        const result = spawnSync('/bin/bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', gateScript()], {
+        const result = spawnSync(bashPath, ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', gateScript()], {
           encoding: 'utf8',
           env: { PATH: '/usr/bin:/bin', GITHUB_ENV: githubEnv, ...env },
         });

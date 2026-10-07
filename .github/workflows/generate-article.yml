@@ -281,8 +281,32 @@ jobs:
           LOCAL_MODEL: ${{ vars.ARTICLE_LOCAL_MODEL || 'qwen2.5:7b' }}
         run: |
           set -e
+          timeout_bin=/usr/bin/timeout
+          [ -x "$timeout_bin" ] || {
+            echo '::error::Trusted timeout utility is unavailable; refusing to run an unbounded Ollama setup.'
+            exit 1
+          }
+          run_bounded() {
+            local label="$1" seconds="$2" status
+            shift 2
+            echo "Starting ${label} (timeout ${seconds}s)"
+            set +e
+            "$timeout_bin" --signal=TERM --kill-after=5s "${seconds}s" "$@"
+            status=$?
+            set -e
+            if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+              echo "::error::${label} timed out after ${seconds} seconds"
+              return 124
+            fi
+            if [ "$status" -ne 0 ]; then
+              echo "::error::${label} failed with exit ${status}"
+              return "$status"
+            fi
+            echo "Completed ${label}"
+          }
           if ! command -v ollama >/dev/null 2>&1; then
-            curl -fsSL https://ollama.com/install.sh | sh
+            run_bounded 'Ollama installer download and execution' 300 \
+              /bin/bash -o pipefail -c '/usr/bin/curl --fail --silent --show-error --location --proto "=https" --tlsv1.2 --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 https://ollama.com/install.sh | /bin/sh'
             # install.sh auto-detects systemd (present on GH-hosted full-VM
             # ubuntu runners) and starts its OWN "ollama.service" — as a
             # dedicated system user whose home is NOT $HOME — before this
@@ -314,11 +338,11 @@ jobs:
           # each fallback attempt pays inference time only, not a reload.
           OLLAMA_HOST=127.0.0.1:11434 OLLAMA_KEEP_ALIVE=30m nohup ollama serve >/tmp/ollama.log 2>&1 &
           for _ in $(seq 1 30); do
-            if curl -sf http://127.0.0.1:11434/api/version >/dev/null; then break; fi
+            if curl -sf --connect-timeout 2 --max-time 5 http://127.0.0.1:11434/api/version >/dev/null; then break; fi
             sleep 2
           done
           # Pull the model (no-op if restored from cache).
-          ollama pull "$LOCAL_MODEL"
+          run_bounded "ollama pull ${LOCAL_MODEL}" 1800 ollama pull "$LOCAL_MODEL"
           # Warm the model into RAM so the first real generate call spends its
           # budget on inference, not the one-off model load.
           ollama run "$LOCAL_MODEL" "ok" >/dev/null 2>&1 || true
