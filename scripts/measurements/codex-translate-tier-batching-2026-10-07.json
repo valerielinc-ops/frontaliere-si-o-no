@@ -1,0 +1,118 @@
+{
+  "_what": "Misura del batching Codex Luna Max richiesto da translate-pending e della protezione delle righe invarianti in una descrizione strutturata: 20 righe IT -> EN, di cui 2 invarianti e 18 traducibili.",
+  "_how": "La misura reale usa il trasporto locale codex-cli con gpt-5.6-luna ed effort max. DeepL e Azure sono stub falliti per portare ogni riga al tier Codex. Il profilo senza batching lascia invariati i default; translatePending riproduce FREE_TRANSLATE_CODEX_LANES=3 e FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS=10. La metrica expectedEchoes è il numero massimo di echi ammessi fra le righe invarianti; rejected conta solo output mancanti oltre agli echi effettivi.",
+  "command": "node --input-type=module -e 'const lines=[\"Sede: Lugano\",\"ABC-123\",...Array.from({length:18},(_,i)=>\"Il permesso G si rinnova ogni cinque anni presso l\\u0027ufficio della migrazione del Cantone Ticino. Numero \"+(i+1)+\".\")]; process.stdout.write(JSON.stringify([{text:lines.map(line=>\"- \"+line).join(\"\\n\"),sourceLang:\"it\",targetLang:\"en\",fieldType:\"description\"}]));' | env -u GOOGLE_APPLICATION_CREDENTIALS node scripts/measure-codex-translate-tier.mjs --real --input - --json",
+  "measuredAt": "2026-10-07T12:09:02.466Z",
+  "transport": "codex-cli",
+  "model": "gpt-5.6-luna",
+  "effort": "max",
+  "texts": 20,
+  "structuredInput": {
+    "sourceLang": "it",
+    "targetLang": "en",
+    "invariantLines": ["Sede: Lugano", "ABC-123"],
+    "translatableLines": 18
+  },
+  "simulatedSequential2b": {
+    "scenario": "translate-pending-sequential-structured-20",
+    "command": "node scripts/measure-codex-translate-tier.mjs --json",
+    "before": {
+      "requests": 20,
+      "requestSizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "inputTokens": 124500,
+      "qualityOk": true
+    },
+    "translatePending": {
+      "requests": 5,
+      "requestSizes": [7, 5, 3, 2, 3],
+      "inputTokens": 31665,
+      "qualityOk": true
+    }
+  },
+  "realStructured": {
+    "scenario": "real-structured-sequential",
+    "qualityDefinition": "zero unexpected echoes, zero refusals, zero missing outputs; invariant echoes are allowed",
+    "rows": [
+      {
+        "mode": "oneLaneOneText",
+        "lanes": 1,
+        "batchMaxTexts": 1,
+        "requests": 20,
+        "requestSizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        "wallSeconds": 173.3,
+        "textsTranslated": 19,
+        "textsPerMinute": 6.58,
+        "echoes": 1,
+        "expectedEchoes": 2,
+        "unexpectedEchoes": 0,
+        "refusals": 0,
+        "rejected": 0,
+        "qualityOk": true
+      },
+      {
+        "mode": "twoLanes",
+        "lanes": 2,
+        "batchMaxTexts": 1,
+        "requests": 20,
+        "requestSizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        "wallSeconds": 182.9,
+        "textsTranslated": 19,
+        "textsPerMinute": 6.23,
+        "echoes": 1,
+        "expectedEchoes": 2,
+        "unexpectedEchoes": 0,
+        "refusals": 0,
+        "rejected": 0,
+        "qualityOk": true
+      },
+      {
+        "mode": "threeLanes",
+        "lanes": 3,
+        "batchMaxTexts": 1,
+        "requests": 20,
+        "requestSizes": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+        "wallSeconds": 143.3,
+        "textsTranslated": 19,
+        "textsPerMinute": 7.95,
+        "echoes": 1,
+        "expectedEchoes": 2,
+        "unexpectedEchoes": 0,
+        "refusals": 0,
+        "rejected": 0,
+        "qualityOk": true
+      },
+      {
+        "mode": "threeLanesBatch5",
+        "lanes": 3,
+        "batchMaxTexts": 5,
+        "requests": 5,
+        "requestSizes": [5, 5, 3, 2, 3],
+        "wallSeconds": 15.2,
+        "textsTranslated": 18,
+        "textsPerMinute": 71.21,
+        "echoes": 2,
+        "expectedEchoes": 2,
+        "unexpectedEchoes": 0,
+        "refusals": 0,
+        "rejected": 0,
+        "qualityOk": true
+      },
+      {
+        "mode": "threeLanesBatch10",
+        "lanes": 3,
+        "batchMaxTexts": 10,
+        "requests": 5,
+        "requestSizes": [6, 4, 3, 2, 3],
+        "wallSeconds": 17.2,
+        "textsTranslated": 18,
+        "textsPerMinute": 62.7,
+        "echoes": 2,
+        "expectedEchoes": 2,
+        "unexpectedEchoes": 0,
+        "refusals": 0,
+        "rejected": 0,
+        "qualityOk": true
+      }
+    ]
+  }
+}
