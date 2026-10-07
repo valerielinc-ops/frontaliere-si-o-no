@@ -9,6 +9,7 @@ import {
   resolveCompanyWebsiteHost,
   truncateJobSlug,
 } from '@/services/jobDataNormalization';
+import { resolveBrandLogoUrl } from '@/build-plugins/shared/seoContentTokens';
 
 describe('jobDataNormalization', () => {
   it('normalizes noisy category labels into canonical categories', () => {
@@ -82,6 +83,8 @@ describe('jobDataNormalization', () => {
         url: `https://${key}.example.com/jobs/1`,
       })).toBe(url);
     }
+
+    expect(resolveBrandLogoUrl(process.cwd(), 'mediamarkt')).toBe(expected.mediamarkt);
   });
 
   it('detects non-geographic multi-location strings', () => {

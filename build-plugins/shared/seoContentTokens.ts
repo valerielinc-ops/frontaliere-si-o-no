@@ -15,8 +15,8 @@ import { CRAWLED_COMPANY_LOGOS, CURATED_EXTERNAL_LOGO_KEYS } from '../../service
 const _brandLogoCache = new Map<string, string | null>();
 
 /**
- * Return the public URL for a self-hosted company logo if one exists on disk,
- * or `null` otherwise. Memoises per slug.
+ * Return the public URL for a curated company logo (self-hosted or a verified
+ * external source), or `null` otherwise. Memoises per slug.
  *
  * Lookup order:
  *   1. Curated external overrides from the shared job-logo registry. These
