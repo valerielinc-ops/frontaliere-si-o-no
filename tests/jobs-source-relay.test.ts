@@ -300,6 +300,51 @@ describe('source relay crawler client', () => {
     });
   });
 
+  it('accepts the pipelines GitHub OIDC request host', async () => {
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input).startsWith('https://pipelines.actions.githubusercontent.com/')) {
+        return new Response(JSON.stringify({ value: 'github-oidc-token' }), {
+          status: 200,
+          headers: { 'content-type': 'application/json' },
+        });
+      }
+      return new Response('relayed source', {
+        status: 200,
+        headers: { 'content-type': 'text/html' },
+      });
+    });
+    const response = await fetchSourceViaRelay(CHUR_URL, {
+      relayUrl: 'https://europe-west6-frontaliere.cloudfunctions.net/jobsSourceRelay',
+      fetchImpl,
+      env: {
+        ...RELAY_ENV,
+        ACTIONS_ID_TOKEN_REQUEST_URL: 'https://pipelines.actions.githubusercontent.com/request',
+      },
+    });
+
+    expect(response?.status).toBe(200);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(String(fetchImpl.mock.calls[0][0])).toContain('pipelines.actions.githubusercontent.com');
+  });
+
+  it.each([
+    ['an unrelated host', 'https://evil.example/request'],
+    ['a lookalike subdomain', 'https://evil.pipelines.actions.githubusercontent.com/request'],
+    ['a non-HTTPS URL', 'http://pipelines.actions.githubusercontent.com/request'],
+    ['an explicit port', 'https://pipelines.actions.githubusercontent.com:443/request'],
+    ['userinfo', 'https://user@pipelines.actions.githubusercontent.com/request'],
+  ])('rejects OIDC request URLs with %s', async (_description, requestUrl) => {
+    const fetchImpl = vi.fn();
+    const response = await fetchSourceViaRelay(CHUR_URL, {
+      relayUrl: 'https://europe-west6-frontaliere.cloudfunctions.net/jobsSourceRelay',
+      fetchImpl,
+      env: { ...RELAY_ENV, ACTIONS_ID_TOKEN_REQUEST_URL: requestUrl },
+    });
+
+    expect(response).toBeNull();
+    expect(fetchImpl).not.toHaveBeenCalled();
+  });
+
   it('bounds an OIDC fetch that never settles with the shared relay deadline', async () => {
     let signal: AbortSignal | undefined;
     const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => {
