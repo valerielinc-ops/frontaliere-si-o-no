@@ -207,6 +207,7 @@ function hasAllowedMirroredSourceImage(ev) {
 export function stripUnauthorizedEventImage(ev) {
   const hasImageFields = ev && [
     'imageUrl', 'imageCredit', 'imageLicense', 'imageLicenseUrl', 'imageAssetId', 'imageProvider',
+    'imageAuthor', 'imageSourcePageUrl', 'imageCopyrightNotice', 'imageAcquireLicensePage',
   ].some((field) => Object.prototype.hasOwnProperty.call(ev, field));
   const licensedSourceImage = ev
     && (hasOpenAgendaImageEvidence(ev) || hasAllowedMirroredSourceImage(ev));
@@ -218,6 +219,10 @@ export function stripUnauthorizedEventImage(ev) {
     imageLicenseUrl: _imageLicenseUrl,
     imageAssetId: _imageAssetId,
     imageProvider: _imageProvider,
+    imageAuthor: _imageAuthor,
+    imageSourcePageUrl: _imageSourcePageUrl,
+    imageCopyrightNotice: _imageCopyrightNotice,
+    imageAcquireLicensePage: _imageAcquireLicensePage,
     ...withoutImage
   } = ev;
   return withoutImage;

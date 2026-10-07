@@ -102,19 +102,29 @@ compatibility re-export:
   directory to the requested workspace output. Without the broker, the local
   CLI uses the same command and resolves the image under
   `$CODEX_HOME/generated_images/<thread-id>/`.
-- The bounded fallback is Gemini `gemini-3.1-flash-image` via `GEMINI_API_KEY`.
-  Secrets are loaded by Remote Config and never belong in the registry or PR.
-- Every result is converted to 1200×675 WebP (≤220 KiB), marked with
-  `trainedAlgorithmicMedia` plus the site credit, vision-checked and returned
-  with its registry record. A record is the permission to publish the bytes.
-- Provider attempts are bounded to three per asset and the event-library
-  process has a hard 150-attempt budget; callers may still choose a lower
-  `maxAttempts` for article, place or OG work.
+- Generated imagery follows the governed chain `openai-codex` (`gpt-image-2.5`),
+  `gemini` (`gemini-3.1-flash-image`), `fal` (FLUX), `together` (FLUX) and
+  `pollinations` (Flux). Codex is always first by default; missing credentials
+  are skipped with a redacted diagnostic and callers may provide an explicit
+  provider or comma-separated chain.
+- A real-photo request (`kind: 'photo'`) tries Wikimedia Commons, Pexels and
+  Pixabay first, then falls back to that generated chain. Wikimedia accepts
+  only verified CC0, public-domain, CC BY or CC BY-SA `extmetadata`; Pexels and
+  Pixabay records carry the photographer, source page and provider license.
+- Every result is converted to 1200×675 WebP (≤220 KiB), vision-checked and
+  returned with its registry record. Generated records carry the
+  `trainedAlgorithmicMedia` XMP marker; licensed-photo records carry author,
+  source and license metadata without that marker. A record is the permission
+  to publish the bytes.
+- Provider attempts follow the requested chain and the event-library process
+  has a hard 150-attempt budget; callers may still choose a lower `maxAttempts`
+  for article, place or OG work.
 
 The event-library CLI is:
 
 ```bash
 node scripts/generate-event-image-library.mjs --limit 20
+node scripts/generate-event-image-library.mjs --limit 3 --provider wikimedia --kind photo
 node scripts/upload-event-image-library-cdn.mjs --before-registry /tmp/previous.json
 node scripts/verify-event-images.mjs
 ```
@@ -124,7 +134,9 @@ workflow deliberately clamps it to 20 per run.
 
 The first command writes local bytes to `.cache/event-image-library/` and the
 versioned registry to `data/event-image-library.json`; the uploader publishes
-only `images/events/library/<assetId>.webp` to R2. When `--before-registry` is
+only `images/events/library/<assetId>.webp` to R2. `--provider auto` uses the
+generated chain; `--provider` or `--chain` can pin a provider for a reproducible
+population run. When `--before-registry` is
 provided, unchanged records are retained only after an R2 existence check, so
 a deleted object is scheduled for repair. The weekly workflow uses the same
 interface with the OAuth broker and opens a data PR. The site article generator
@@ -177,8 +189,9 @@ a generated article-hero record.
 `scripts/lib/published-image-policy.mjs` is the Node-side publication gate. A
 third-party uploader must use `checkPublishedImageUrl(..., { requireCdn: true })`:
 only CDN `/images/blog/`, `/images/events/library/` and `/images/generated/`
-URLs with a valid generated-image registry record or an `imageCredits` record
-whose status is `ok` pass. A CDN host or a file extension is not a licence.
+URLs with a valid generated-image registry record (including a verified licensed
+photo record) or an `imageCredits` record whose status is `ok` pass. A CDN host
+or a file extension is not a licence.
 
 The `og:image` build gate (`scripts/verify-og-images.mjs`) additionally permits
 only the documented site-owned exceptions: `/og-image.png`, generated
