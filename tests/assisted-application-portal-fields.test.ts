@@ -181,10 +181,12 @@ describe('portal field extraction', () => {
   it('reads SuccessFactors’ picklists as selects and its UI5 birth date as a date field', () => {
     const page = extract(`
       <input aria-label="Anrede" type="text" placeholder="Bitte auswählen" role="combobox" aria-owns="63:_listSelect" aria-required="true" class="rcmpaginatedselectinput">
+      <input aria-label="Nationalité" type="text" placeholder="Aucune sélection" role="combobox" aria-owns="64:_listSelect" aria-required="true">
       <input aria-label="Suche" type="text" role="combobox" aria-controls="results">
       <div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div>`);
     const anrede = page.fields.find((field: any) => field.label === 'Anrede');
     expect(anrede).toMatchObject({ kind: 'combobox', required: true, selectLike: true, ownedList: '63:_listSelect' });
+    expect(page.fields.find((field: any) => field.label === 'Nationalité')).toMatchObject({ selectLike: true, ownedList: '64:_listSelect' });
     // A search box is no select, even with a list of its own.
     expect(page.fields.find((field: any) => field.label === 'Suche')).toMatchObject({ kind: 'combobox', selectLike: false });
     expect(page.fields.find((field: any) => field.label === 'Geburtsdatum')).toMatchObject({ kind: 'text', inputType: 'date', widget: 'ui5-date', datePattern: 'dd.MM.yyyy', required: true });
