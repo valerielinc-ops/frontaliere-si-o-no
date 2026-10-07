@@ -306,7 +306,7 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(String(optIn?.run ?? '')).not.toMatch(/GH_TOKEN="\$APP_TOKEN"/u);
     expect(String(optIn?.run ?? '')).not.toContain('secrets.GITHUB_TOKEN');
     expect(optIn?.env?.GH_TOKEN).toBeUndefined();
-    expect(String(optIn?.run ?? '')).toMatch(/APP_TOKEN[\s\S]*exit 0/u);
+    expect(String(optIn?.run ?? '')).toMatch(/POST_REVIEW_TOKEN[\s\S]*exit 0/u);
     expect(testsWorkflow).not.toContain('load-rc-env.mjs');
   });
 
