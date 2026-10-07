@@ -1,18 +1,63 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-07T09:09:54.468Z",
-  "total": 9,
-  "newCount": 0,
-  "updatedCount": 2,
+  "generatedAt": "2026-10-07T21:10:39.076Z",
+  "total": 10,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 8351,
-  "avgDurationMs": 8351,
+  "unchangedCount": 8,
+  "durationMs": 11177,
+  "avgDurationMs": 11177,
   "durationHistory": [
-    8351
+    11177
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
+      "title": "Spontaneous application - Couvet Site (Neuchâtel)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Couvet",
+      "canton": "NE",
+      "country": "CH",
+      "addressLocality": "Couvet",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "postalCode": "2108",
+      "streetAddress": "Rue de l'Ecluse 28",
+      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
+      "category": "general",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-07T21:10:22.110Z",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "NE",
+        "location": "Couvet"
+      },
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "id": "sintetica-4302b766b847",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-07T21:10:22.110Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
@@ -33,7 +78,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:40.489Z",
+      "crawledAt": "2026-10-07T21:10:21.125Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -56,7 +101,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
@@ -76,7 +124,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:40.463Z",
+      "crawledAt": "2026-10-07T21:10:21.089Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -100,10 +148,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -123,7 +168,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:40.393Z",
+      "crawledAt": "2026-10-07T21:10:21.046Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -166,7 +211,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:40.363Z",
+      "crawledAt": "2026-10-07T21:10:21.010Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -209,7 +254,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:39.320Z",
+      "crawledAt": "2026-10-07T21:10:20.019Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -252,7 +297,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:38.772Z",
+      "crawledAt": "2026-10-07T21:10:19.080Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -295,7 +340,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:37.832Z",
+      "crawledAt": "2026-10-07T21:10:17.986Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -338,7 +383,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:37.002Z",
+      "crawledAt": "2026-10-07T21:10:17.037Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -381,7 +426,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-07T09:09:36.201Z",
+      "crawledAt": "2026-10-07T21:10:15.944Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -406,5 +451,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }
