@@ -89,6 +89,16 @@
  *      and a hardcoded editorial-slugs list across all 4 locales.
  *      hasJobPostingSchema = `"JobPosting"` or `'JobPosting'` substring.
  *
+ * Historical reassembled-corpus mode
+ *    post-deploy-validate-dist sets AUDIT_REASSEMBLED_CORPUS=1 because its
+ *    dist/ can combine pages emitted by multiple source vintages. In that
+ *    mode only the measured cross-page/missing-or-noindex emission families
+ *    use data/sitemap-pages-historical-ratchet.json as a descending rate
+ *    ceiling. Missing canonicals, thin bridge pages, thin content and the
+ *    soft-404 check remain zero-tolerance. The ledger is fail-closed and the
+ *    observed rate is printed on every measured run. Local/source callers do
+ *    not set the opt-in and retain the original per-offender verdict.
+ *
  * Run AFTER `npm run build` so dist/ is fresh.
  *
  * Usage:
@@ -109,6 +119,10 @@ import {
   isLegitLegacyAliasCanonicalization,
   isLegitJobCanonicalConsolidation,
 } from './lib/canonicalExemptions.mjs';
+import {
+  evaluateHistoricalCorpusRate,
+  readHistoricalCorpusLedgerOrNull,
+} from './lib/historicalCorpusRate.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -120,6 +134,14 @@ const BASE_URL_TRAILING = HOST + '/';
 const MIN_TEXT_CHARS = 800;       // validate-soft404
 const CRITICAL_TEXT_CHARS = 400;  // validate-soft404
 const MIN_WORDS = 50;             // validate-content-quality
+
+// post-deploy-validate-dist rehydrates a mixed-vintage published corpus and
+// sets this opt-in for the whole validation pool. Local/source runs do not set
+// it and therefore keep every blocking sub-check at zero tolerance.
+const HISTORICAL_CORPUS = process.env.AUDIT_REASSEMBLED_CORPUS === '1';
+const HISTORICAL_LEDGER = HISTORICAL_CORPUS
+  ? readHistoricalCorpusLedgerOrNull()
+  : null;
 
 // ── Shared helpers ─────────────────────────────────────────────────────────
 
@@ -432,17 +454,57 @@ function readHtml(filePath) {
 // ── Check runners ──────────────────────────────────────────────────────────
 
 const checks = {
-  sitemapCanonicals: { name: 'audit:sitemap-canonicals', pass: true, summary: '', details: '' },
-  canonical:         { name: 'validate:canonical',        pass: true, summary: '', details: '' },
-  soft404:           { name: 'validate:soft-404',         pass: true, summary: '', details: '' },
-  contentQuality:    { name: 'validate:content-quality',  pass: true, summary: '', details: '' },
+  sitemapCanonicals: { name: 'audit:sitemap-canonicals', pass: true, summary: '', details: '', historical: null },
+  canonical:         { name: 'validate:canonical',        pass: true, summary: '', details: '', historical: null },
+  soft404:           { name: 'validate:soft-404',         pass: true, summary: '', details: '', historical: null },
+  contentQuality:    { name: 'validate:content-quality',  pass: true, summary: '', details: '', historical: null },
 };
+
+/** Judge a blocking sub-check without changing its strict source behavior. */
+function judgeHistoricalCheck(name, offenders, filesScanned) {
+  const check = Object.values(checks).find((candidate) => candidate.name === name);
+  if (!check) throw new Error(`validate-sitemap-pages: unknown check ${name}`);
+  const verdict = evaluateHistoricalCorpusRate({
+    check: name,
+    offenders,
+    filesScanned,
+    historicalCorpus: HISTORICAL_CORPUS,
+    ledger: HISTORICAL_LEDGER,
+  });
+  check.historical = verdict;
+  return verdict;
+}
+
+function historicalCheckPassed(verdict) {
+  return HISTORICAL_CORPUS
+    ? Boolean(verdict?.historicalCorpus && verdict?.measured && verdict?.passed)
+    : Boolean(verdict?.passed);
+}
+
+function historicalMeasurementInvalid(verdict) {
+  return HISTORICAL_CORPUS
+    && !(verdict?.historicalCorpus && verdict?.measured);
+}
+
+function appendHistoricalSummary(out, verdict) {
+  if (!HISTORICAL_CORPUS || !verdict) return;
+  if (verdict.historicalCorpus) {
+    out.push(`\n⚠️  ${verdict.humanSummary}.\n`);
+  } else {
+    out.push(`\n❌ ${verdict.humanSummary}.\n`);
+  }
+}
 
 // ── 1) audit-sitemap-canonicals ────────────────────────────────────────────
 function runAuditSitemapCanonicals() {
   const out = [];
   let { sitemapFiles, urls } = loadAuditSitemapCanonicalsUrls();
   if (sitemapFiles.length === 0) {
+    checks.sitemapCanonicals.historical = judgeHistoricalCheck(
+      'audit:sitemap-canonicals',
+      1,
+      0,
+    );
     checks.sitemapCanonicals.pass = false;
     checks.sitemapCanonicals.summary =
       'audit-sitemap-canonicals: no dist/sitemap-*.xml files matched.\n';
@@ -529,6 +591,16 @@ function runAuditSitemapCanonicals() {
 
   const hardFailers = offenders.filter(o => o.category !== 'missing-html');
   const warners = offenders.filter(o => o.category === 'missing-html');
+  // A missing canonical is a document-correctness failure and remains strict
+  // even on the mixed-vintage corpus. Only a cross-page mismatch measures the
+  // stale emitter/routing family covered by the historical exception.
+  const historicalOffenders = hardFailers.filter((o) => o.category === 'mismatch').length;
+  const strictOffenders = hardFailers.length - historicalOffenders;
+  const historical = judgeHistoricalCheck(
+    'audit:sitemap-canonicals',
+    historicalOffenders,
+    totalChecked,
+  );
 
   if (warners.length > 0) {
     out.push(
@@ -540,12 +612,25 @@ function runAuditSitemapCanonicals() {
     if (warners.length > slice.length) out.push(`… ${warners.length - slice.length} more\n`);
   }
 
-  if (hardFailers.length === 0) {
+  if (hardFailers.length === 0 && historicalCheckPassed(historical)) {
+    checks.sitemapCanonicals.pass = true;
+    appendHistoricalSummary(out, historical);
+    checks.sitemapCanonicals.summary = out.join('');
+    return;
+  }
+
+  if (strictOffenders === 0 && historicalCheckPassed(historical)) {
+    out.push(
+      `\nHistorical corpus measurement retained ${historicalOffenders} ` +
+      'cross-page mismatch(es) as a non-regressing emission rate; missing canonicals remain strict.\n',
+    );
+    appendHistoricalSummary(out, historical);
     checks.sitemapCanonicals.pass = true;
     checks.sitemapCanonicals.summary = out.join('');
     return;
   }
 
+  appendHistoricalSummary(out, historical);
   out.push(
     `\nFAIL: sitemap canonical integrity gate found ${hardFailers.length} offender(s).\n` +
     `Sitemap <loc> URLs MUST self-canonicalize. See CLAUDE.md SEO rules.\n\n`
@@ -585,6 +670,7 @@ function runValidateCanonical() {
   const errors = [];
   const warnings = [];
   let bridgeSkipped = 0;
+  let filesScanned = 0;
 
   for (const url of sitemapUrls) {
     const htmlFile = findHtmlFile_vc(url);
@@ -592,12 +678,14 @@ function runValidateCanonical() {
 
     const fullContent = readHtml(htmlFile);
     if (fullContent === null) continue;
+    filesScanned += 1;
     const content = fullContent.slice(0, 8000);
 
     if (content.includes('Versione canonica disponibile')) {
       errors.push({
         url,
         issue: 'Sitemap URL is a thin "Versione canonica" bridge page — will be flagged by Google as redirect',
+        historicalEligible: false,
       });
       continue;
     }
@@ -624,21 +712,46 @@ function runValidateCanonical() {
           bridgeSkipped++;
         } else {
           // flatString: a multi-substitution template literal is a ConsString
-        // that keeps `canonical` — a capture into the page HTML — alive, so
-        // `errors` would pin one full document per mismatch, at the same
-        // boundary and for the same reason as check 1's `offenders` above.
-        errors.push({ url, issue: flatString(`Canonical mismatch: canonical → ${canonical} (different page)`) });
+          // that keeps `canonical` — a capture into the page HTML — alive, so
+          // `errors` would pin one full document per mismatch, at the same
+          // boundary and for the same reason as check 1's `offenders` above.
+          errors.push({
+            url,
+            issue: flatString(`Canonical mismatch: canonical → ${canonical} (different page)`),
+            historicalEligible: true,
+          });
         }
       }
     }
   }
 
-  if (errors.length > 0) {
+  // Bridge pages are thin indexed documents and therefore remain strict. A
+  // cross-page canonical mismatch is the historical emitter/routing defect
+  // this reassembled-corpus exception is allowed to measure as a rate.
+  const historicalErrors = errors.filter((e) => e.historicalEligible !== false);
+  const strictErrors = errors.filter((e) => e.historicalEligible === false);
+  const historical = judgeHistoricalCheck(
+    'validate:canonical',
+    historicalErrors.length,
+    filesScanned,
+  );
+
+  const historicalPass = historicalCheckPassed(historical);
+  const historicalPopulationInvalid = historicalMeasurementInvalid(historical);
+  if (historicalPopulationInvalid) {
+    out.push('❌ Historical corpus canonical check had no measurable sitemap population; refusing a vacuous pass.\n');
+  }
+  if (strictErrors.length > 0 || historicalPopulationInvalid || (historicalErrors.length > 0 && !historicalPass)) {
     out.push(`❌ ${errors.length} blocking error(s):\n\n`);
     for (const e of errors.slice(0, 20)) {
       out.push(`  ❌ ${e.url}\n     ${e.issue}\n`);
     }
     if (errors.length > 20) out.push(`  ... and ${errors.length - 20} more\n`);
+  } else if (historicalErrors.length > 0) {
+    out.push(
+      `⚠️  ${historicalErrors.length} historical canonical mismatch(es) measured ` +
+      'without treating the mixed-vintage corpus as a source regression.\n',
+    );
   }
   if (warnings.length > 0) {
     out.push(`\n⚠️  ${warnings.length} warning(s):\n\n`);
@@ -653,8 +766,9 @@ function runValidateCanonical() {
   if (bridgeSkipped > 0) {
     out.push(`ℹ️  ${bridgeSkipped} previousSlug bridge page(s) skipped (canonical → current slug is correct).\n`);
   }
+  appendHistoricalSummary(out, historical);
 
-  if (errors.length === 0) {
+  if (strictErrors.length === 0 && !historicalPopulationInvalid && (historicalErrors.length === 0 || historicalPass)) {
     out.push('\n✅ No blocking canonical errors.\n');
     checks.canonical.pass = true;
   } else {
@@ -797,7 +911,7 @@ function runValidateContentQuality() {
   const thinContent = [];
   const jobsNoSchema = [];
   const noindexInSitemap = [];
-  let errors = 0;
+  let eligibleUrls = 0;
 
   let externallyServed = 0;
   for (const { sitemap, url, path } of urls) {
@@ -807,11 +921,11 @@ function runValidateContentQuality() {
     // apex while absent from this dist/. Counting them as missing is what
     // blocked deploy-publish for the whole site.
     if (isExternallyServedPath(path.startsWith('/') ? path : `/${path}`)) { externallyServed++; continue; }
+    eligibleUrls++;
     const filePath = urlToFile_vcq(path);
     const html = readHtml(filePath);
     if (html === null) {
       missing.push({ sitemap, path });
-      errors++;
       continue;
     }
     const hasExt = extname(path).length > 0;
@@ -821,7 +935,6 @@ function runValidateContentQuality() {
 
     if (hasNoindex(html)) {
       noindexInSitemap.push({ sitemap, path });
-      errors++;
       continue;
     }
 
@@ -834,7 +947,6 @@ function runValidateContentQuality() {
 
     if (words < MIN_WORDS) {
       thinContent.push({ sitemap, path, words });
-      errors++;
     }
     if (isIndividualJobPage(path) && !hasJobPostingSchema(html) && words >= MIN_WORDS) {
       jobsNoSchema.push({ sitemap, path, words });
@@ -845,7 +957,24 @@ function runValidateContentQuality() {
     out.push(`ℹ️  ${externallyServed} sitemap URL(s) skipped — served from the article shard repos, not from this build\n`);
   }
 
-  if (missing.length > 0) {
+  // Thin content is an indexed-document correctness failure and remains
+  // zero-tolerance. The historical rate covers only stale missing/noindex
+  // entries in the riassembled corpus, whose pages were emitted by older
+  // sitemap/indexation code and are not re-emitted by the current source.
+  const historicalOffenders = missing.length + noindexInSitemap.length;
+  const historical = judgeHistoricalCheck(
+    'validate:content-quality',
+    historicalOffenders,
+    eligibleUrls,
+  );
+  const historicalPass = historicalCheckPassed(historical);
+  const historicalPopulationInvalid = historicalMeasurementInvalid(historical);
+  appendHistoricalSummary(out, historical);
+  if (historicalPopulationInvalid) {
+    out.push('❌ Historical corpus content-quality check had no eligible sitemap population; refusing a vacuous pass.\n');
+  }
+
+  if (missing.length > 0 && !historicalPass) {
     out.push(`❌ ${missing.length} sitemap URL(s) have NO file in dist/ (BLOCKING):\n`);
     for (const { sitemap, path } of missing.slice(0, 20)) {
       out.push(`   [${sitemap}] /${path}\n`);
@@ -853,7 +982,7 @@ function runValidateContentQuality() {
     if (missing.length > 20) out.push(`   ... and ${missing.length - 20} more\n`);
     out.push('\n');
   }
-  if (noindexInSitemap.length > 0) {
+  if (noindexInSitemap.length > 0 && !historicalPass) {
     out.push(`❌ ${noindexInSitemap.length} sitemap URL(s) have noindex tag (BLOCKING):\n`);
     out.push(`   Pages with noindex must NOT be in sitemaps — wastes crawl budget.\n`);
     for (const { sitemap, path } of noindexInSitemap.slice(0, 20)) {
@@ -879,12 +1008,19 @@ function runValidateContentQuality() {
     out.push('\n');
   }
 
-  if (errors > 0) {
-    out.push(`\n❌ BLOCKING: ${errors} error(s) found. Fix before deploying.\n`);
+  const blockingErrors = (historicalPopulationInvalid ? 1 : 0)
+    + thinContent.length
+    + (historicalPopulationInvalid || historicalPass ? 0 : Math.max(1, historicalOffenders));
+  if (blockingErrors > 0) {
+    out.push(`\n❌ BLOCKING: ${blockingErrors} error(s) found. Fix before deploying.\n`);
     checks.contentQuality.pass = false;
   } else {
     const warningsCount = jobsNoSchema.length;
-    if (warningsCount > 0) {
+    if (historicalPass && historicalOffenders > 0 && warningsCount > 0) {
+      out.push(`✅ No blocking errors. Historical stale-entry rate is within its ceiling; ${warningsCount} warning(s).\n`);
+    } else if (historicalPass && historicalOffenders > 0) {
+      out.push('✅ No blocking errors. Historical stale-entry rate is within its ceiling.\n');
+    } else if (warningsCount > 0) {
       out.push(`✅ No blocking errors. ${warningsCount} warning(s).\n`);
     } else {
       out.push(`✅ All ${urls.length} sitemap URLs have files with adequate content (>=${MIN_WORDS} words).\n`);
@@ -942,13 +1078,26 @@ async function main() {
       });
     }
   }
+  const historicalChecks = Object.fromEntries(
+    sections
+      .filter((key) => checks[key].historical)
+      .map((key) => [checks[key].name, checks[key].historical]),
+  );
+  const historicalModeActive = HISTORICAL_CORPUS && Boolean(HISTORICAL_LEDGER);
   await writeAuditReport({
     audit: 'validate-sitemap-pages',
     passed: !anyFailed,
-    threshold: { metric: 'subCheckFailures', value: 0, comparator: '<=' },
+    threshold: historicalModeActive
+      ? { metric: 'historicalRateRegressions', value: 0, comparator: '<=' }
+      : { metric: 'subCheckFailures', value: 0, comparator: '<=' },
     offenders,
     byFeature,
     sampleRate: 1,
+    extra: {
+      historicalCorpus: HISTORICAL_CORPUS,
+      historicalLedgerLoaded: Boolean(HISTORICAL_LEDGER),
+      historicalChecks,
+    },
   });
 
   process.exit(anyFailed ? 1 : 0);

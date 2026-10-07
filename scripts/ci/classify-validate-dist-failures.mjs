@@ -99,6 +99,15 @@ export function classifyFailures(failedGates) {
 }
 
 /**
+ * True for a row that names no gate: a workflow sentinel or the unexpanded
+ * `audit:all` bundle. These mean "could not determine" and fail closed.
+ * @param {string} gate
+ */
+export function isUndeterminedMarker(gate) {
+  return gate.startsWith('__') || gate === 'audit:all';
+}
+
+/**
  * `publish` may run when nothing deploy-invalidating failed.
  *
  * `failedGates === null` means "could not determine" (a job crashed before
@@ -114,16 +123,46 @@ export function evaluateIntegrity(failedGates) {
       integrityOk: false,
       blocking: [],
       quality: [],
+      unclassified: [],
       reason: 'gate results unavailable — failing closed',
     };
   }
-  const { blocking, quality } = classifyFailures(failedGates);
+  // Owner decision, 2026-10-07: «nessun gate blocca» — extended from the
+  // classified SEO gates to every NAMED gate. `deploy` runs in parallel with
+  // validate-dist and nothing rolls it back, so a red gate never un-publishes
+  // the site: withholding IndexNow/GSC only hides pages that are already live
+  // (runs 37543977878 and 37571743923, sequestered by validate:og-images).
+  // A gate outside seo-gate-classes.mjs is reported as `unclassified` so it
+  // can be given a class, but it no longer closes `publish`. The only
+  // fail-closed case left is the one above: results we could not read.
+  //
+  // What still blocks is not a gate but a marker that the verdict is unknown:
+  // the `__…__` sentinels the workflow writes when a job died before its gate
+  // step or the classifier never ran, and the opaque `audit:all` bundle name
+  // (its sub-auditor rows were not expanded, so we cannot tell what failed).
+  const named = classifyFailures(failedGates);
+  const quality = named.quality;
+  const blocking = named.blocking.filter(isUndeterminedMarker);
+  const unclassified = named.blocking.filter((gate) => !isUndeterminedMarker(gate));
   if (blocking.length > 0) {
     return {
       integrityOk: false,
       blocking,
       quality,
-      reason: `deploy-invalidating gate(s) failed: ${blocking.join(', ')}`,
+      unclassified,
+      reason: `gate results undetermined (${blocking.join(', ')}) — failing closed`,
+    };
+  }
+  if (unclassified.length > 0) {
+    return {
+      integrityOk: true,
+      blocking,
+      quality,
+      unclassified,
+      reason:
+        `gate(s) failed: ${[...unclassified, ...quality].join(', ')} — publish proceeds ` +
+        `(owner decision 2026-10-07). Unclassified: ${unclassified.join(', ')}. ` +
+        'validate-dist stays RED and the failure is tracked.',
     };
   }
   if (quality.length > 0) {
@@ -131,12 +170,13 @@ export function evaluateIntegrity(failedGates) {
       integrityOk: true,
       blocking,
       quality,
+      unclassified,
       reason:
         `only quality gate(s) failed: ${quality.join(', ')} — dist is valid, ` +
         `publish proceeds. validate-dist stays RED and the failure is tracked.`,
     };
   }
-  return { integrityOk: true, blocking, quality, reason: 'no gate failures' };
+  return { integrityOk: true, blocking, quality, unclassified, reason: 'no gate failures' };
 }
 
 /**
@@ -154,9 +194,21 @@ export function formatIntegrityAnnotation(verdict) {
       ? ` Quality gate(s) also failed: ${verdict.quality.join(', ')}.`
       : '';
     return (
-      '::error::validate-dist blocked publish because deploy-invalidating ' +
-      `gate(s) failed: ${verdict.blocking.join(', ')}.${qualitySuffix} ` +
-      'Fix the blocking gate(s); do not widen the classifier.'
+      '::error::validate-dist blocked publish because the gate results are ' +
+      `undetermined: ${verdict.blocking.join(', ')}.${qualitySuffix} ` +
+      'Find why the verdict is missing; do not widen the classifier.'
+    );
+  }
+  if ((verdict.unclassified || []).length > 0) {
+    const qualitySuffix = verdict.quality.length > 0
+      ? ` Classified gate(s) also failed: ${verdict.quality.join(', ')}.`
+      : '';
+    return (
+      '::warning::validate-dist failed on unclassified gate(s) ' +
+      `${verdict.unclassified.join(', ')}.${qualitySuffix} Publish is not ` +
+      'sequestered (owner decision 2026-10-07: no gate blocks publish). The ' +
+      'validate-dist job stays RED and its failure issue still opens — fix ' +
+      'the gate and give it a class in scripts/ci/lib/seo-gate-classes.mjs.'
     );
   }
   if (verdict.quality.length > 0) {
@@ -223,6 +275,7 @@ async function main() {
   console.log(`  reason:   ${verdict.reason}`);
   console.log(`  blocking: ${verdict.blocking.join(', ') || '(none)'}`);
   console.log(`  quality:  ${verdict.quality.join(', ') || '(none)'}`);
+  console.log(`  unclassified (reported, not blocking): ${(verdict.unclassified || []).join(', ') || '(none)'}`);
   console.log('─'.repeat(70));
   const annotation = formatIntegrityAnnotation(verdict);
   if (annotation) console.log(annotation);
@@ -232,7 +285,8 @@ async function main() {
       process.env.GITHUB_OUTPUT,
       `integrity_ok=${verdict.integrityOk ? 'true' : 'false'}\n` +
         `blocking_gates=${verdict.blocking.join(',')}\n` +
-        `quality_gates=${verdict.quality.join(',')}\n`,
+        `quality_gates=${verdict.quality.join(',')}\n` +
+        `unclassified_gates=${(verdict.unclassified || []).join(',')}\n`,
     );
   }
   // Always 0: the verdict travels as an output, never as an exit code, so a

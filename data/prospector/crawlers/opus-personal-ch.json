@@ -1,6 +1,6 @@
 {
   "companyKey": "opus-personal-ch",
-  "companyName": "Opus Personal AG, Zweigniederlassung Zofingen",
+  "companyName": "OPUS Personal",
   "companyHost": "opus-personal.ch",
   "platform": "",
   "mode": "template",
@@ -10,15 +10,15 @@
   "detailTemplate": "/aktuelle-jobs/job.aspx/*/f-op/",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
-  "sampleVacancyCount": 382,
+  "sampleVacancyCount": 378,
   "sampleTitles": [
-    "Maschinist 100 %",
-    "Heizungsinstallateur EFZ (a) - Temporäreinsatz 80-100 %",
-    "Stellvertretende Leitung Finanzen (a) 100 %",
-    "Polier Strassenbau (a) 100 %",
-    "HR Business Partner (a) 80-100 %"
+    "Netzmonteur EFZ 80-100 %",
+    "Sanitärinstallateur (m/w/d)",
+    "Idraulico",
+    "Heizungsmonteur (m/w/d)",
+    "Tecnico termoidraulico"
   ],
-  "canton": "AG",
+  "canton": "BE",
   "sourceLang": "de",
-  "learnedAt": "2026-10-01T07:46:54.311Z"
+  "learnedAt": "2026-10-07T12:17:17.593Z"
 }
