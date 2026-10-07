@@ -12,7 +12,7 @@
  */
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import {
@@ -122,6 +122,60 @@ function detectEmploymentType(text = '') {
 const GREENHOUSE_BOARD_TOKEN =
   extractGreenhouseBoardToken(CAREER_URL) || PROTON_KEY;
 const GREENHOUSE_LOCATION_CONTAINS = ['Geneva', 'Genève', 'Switzerland'];
+const GREENHOUSE_LOCATION_PART_SPLIT_RE = /\s*(?:[,;|/])\s*/;
+const SWISS_COUNTRY_PART_RE = /^(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i;
+
+/**
+ * Greenhouse's `location.name` is an office list for some Proton postings,
+ * not one address. The shared resolver deliberately preserves that source
+ * string, but this parser must publish only one Swiss office: the feed is
+ * filtered for Geneva/Switzerland and can otherwise attach a foreign office
+ * to the Swiss canton returned by the same row.
+ *
+ * Reduce the value only when the source contains exactly one independently
+ * resolvable Swiss part and every other part is explicitly foreign. Unknown
+ * or multiply-Swiss values stay rejected; this avoids choosing a first match
+ * from an ambiguous multi-office listing.
+ */
+function resolveProtonSourceGeography(rawLocation = '') {
+  const location = normalizeSpace(rawLocation);
+  const direct = resolveSourceBackedSwissGeography(location);
+  if (!direct) return null;
+  if (!isLocationExplicitlyForeign(location)) return direct;
+
+  const parts = location.split(GREENHOUSE_LOCATION_PART_SPLIT_RE).filter(Boolean);
+  const swissCandidates = [];
+
+  for (let index = 0; index < parts.length; index += 1) {
+    const part = parts[index];
+    const nextPart = parts[index + 1] || '';
+    const hasSwissCountryContext = SWISS_COUNTRY_PART_RE.test(nextPart);
+    const sourcePart = hasSwissCountryContext ? `${part}, ${nextPart}` : part;
+    const geography = resolveSourceBackedSwissGeography(sourcePart);
+
+    if (geography) {
+      const locality = normalizeSpace(part)
+        .replace(/\s+(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i, '')
+        .trim();
+      if (!locality) return null;
+      swissCandidates.push({ location: locality, canton: geography.canton });
+      if (hasSwissCountryContext) index += 1;
+      continue;
+    }
+
+    // A part that is neither source-backed Swiss nor explicitly foreign is
+    // ambiguous. Do not let a nearby Geneva token hide it.
+    if (!isLocationExplicitlyForeign(part)) return null;
+  }
+
+  const uniqueCandidates = new Map(
+    swissCandidates.map((candidate) => [
+      `${candidate.location.toLowerCase()}\u0000${candidate.canton}`,
+      candidate,
+    ]),
+  );
+  return uniqueCandidates.size === 1 ? [...uniqueCandidates.values()][0] : null;
+}
 
 async function fetchJobListings() {
   const jobs = await fetchGreenhouseJobs(GREENHOUSE_BOARD_TOKEN, {
@@ -165,7 +219,7 @@ export async function fetchAllProtonJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = resolveProtonSourceGeography(listing.location);
     if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';

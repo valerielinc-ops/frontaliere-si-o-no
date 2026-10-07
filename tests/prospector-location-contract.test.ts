@@ -654,6 +654,47 @@ describe('prospector location and identity contract', () => {
     expect(job.id).toBe(`proton-${createHash('sha1').update(applyUrl).digest('hex').slice(0, 12)}`);
   });
 
+  it('keeps only one source-backed Swiss office from explicit mixed Greenhouse locations', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Swiss office with foreign office',
+        location: 'Geneva, Switzerland, Paris, France',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/4',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Swiss office with UK office',
+        location: 'London UK, Geneva CH',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/5',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Ambiguous Swiss offices',
+        location: 'Geneva, Switzerland, Zürich, Switzerland, Paris, France',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/6',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Foreign offices only',
+        location: 'Paris, France, London, England',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/7',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    const jobs = await fetchAllProtonJobs();
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map(({ location, addressLocality, canton }) => ({
+      location,
+      addressLocality,
+      canton,
+    }))).toEqual([
+      { location: 'Geneva', addressLocality: 'Geneva', canton: 'GE' },
+      { location: 'Geneva', addressLocality: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
   it('drops Mabetex rows instead of substituting its Lugano headquarters', async () => {
     fetchHtml.mockResolvedValue(
       `<div class="et_pb_text_inner">Job offers ${'role '.repeat(50)}` +
