@@ -208,8 +208,12 @@ function buildParsedJobFromSf(normalized) {
   if (!title || title.length < 3) return null;
 
   const locationText = normalizeSpace(normalized?.location || '');
+  // `location` is a dedicated field from the SuccessFactors detail parser,
+  // not free-form prose. Preserve that source-field boundary when passing it
+  // to the conservative geography resolver: bare scalar values intentionally
+  // remain fail-closed for callers that have no structured source context.
   const geography = locationText && !isLocationExplicitlyForeign(locationText)
-    ? resolveSourceBackedSwissGeography(locationText)
+    ? resolveSourceBackedSwissGeography({ location: locationText })
     : null;
   if (!geography) {
     console.log(`  ⏭️  Skipped non-Swiss or unresolved location: ${locationText || '(none)'} — ${title}`);

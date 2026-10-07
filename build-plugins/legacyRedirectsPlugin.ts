@@ -274,6 +274,27 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/en/cross-border-articles/living-tovo-di-sant-agata-working-grisons/': '/en/cross-border-articles/living-in-tovo-di-sant-agata-and-working-in-grigioni-as-a-border-worker/',
  '/de/grenzgaenger-artikel/leben-tovo-di-sant-agata-arbeiten-graubuenden/': '/de/grenzgaenger-artikel/leben-in-tovo-di-sant-agata-und-arbeiten-in-grigioni-als-grenzarbeiter/',
  '/fr/articles-frontalier/vivre-tovo-di-sant-agata-travailler-grisons/': '/fr/articles-frontalier/vivre-a-tovo-di-sant-agata-et-travailler-a-grigioni-comme-travailleur-frontalier/',
+ // ── Upstream-aborted articles (2026-10-07) — three records, 12 URLs ──
+ // The corpus removed these explicit abort records after rejecting their
+ // topics: Pré-Saint-Didier is outside the relevant cross-border area,
+ // Saint-Nicolas is not a valid daily-frontier-worker case, and the Trump
+ // health story has no Swiss relevance. None has a surviving article to
+ // receive a redirect, so the section-root targets below are paired with
+ // EDGE_RETIRED_PATHS 410s. Keeping the bridges here is what lets
+ // pull-articles-corpus.mjs distinguish a declared retirement from an
+ // undeclared upstream data loss.
+ '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/': '/articoli-frontaliere/',
+ '/en/cross-border-articles/living-pre-saint-didier-working-valais/': '/en/cross-border-articles/',
+ '/de/grenzgaenger-artikel/leben-pre-saint-didier-arbeiten-wallis/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/vivre-pre-saint-didier-travailler-valais/': '/fr/articles-frontalier/',
+ '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/': '/articoli-frontaliere/',
+ '/en/cross-border-articles/moving-to-saint-nicolas-as-a-cross-border-worker-pros-and-cons/': '/en/cross-border-articles/',
+ '/de/grenzgaenger-artikel/umzug-nach-saint-nicolas-als-grenzgaenger-vor-und-nachteile/': '/de/grenzgaenger-artikel/',
+ '/fr/articles-frontalier/demenager-a-saint-nicolas-en-tant-que-frontalier-avantages-et-inconvenients/': '/fr/articles-frontalier/',
+ '/articoli-svizzera/abort-topical-relevance-trump-health/': '/articoli-svizzera/',
+ '/en/swiss-articles/news-not-relevant/': '/en/swiss-articles/',
+ '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': '/de/schweiz-artikel/',
+ '/fr/articles-suisse/information-non-pertinente/': '/fr/articles-suisse/',
  // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
  // IT: category or slug renames
  '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',

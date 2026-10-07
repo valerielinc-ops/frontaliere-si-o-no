@@ -240,6 +240,48 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
     }
   });
 
+  it('does not recreate an active target as a self-canonical bridge', async () => {
+    const { processFiles } = await import('../scripts/decontaminate-prev-slugs.mjs');
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'decontaminate-active-target-'));
+    const claimantFile = path.join(tmpDir, 'a-claimant.json');
+    const ownerFile = path.join(tmpDir, 'z-owner.json');
+    const owner = {
+      id: 'owner',
+      url: 'https://owner.example/jobs/owner',
+      slug: '',
+      slugByLocale: {},
+      previousSlugs: [],
+    };
+    const ownerSlug = `owner-route-${stableSlugHash(owner)}`;
+    owner.slug = ownerSlug;
+    owner.slugByLocale.en = ownerSlug;
+    owner.previousSlugs = [ownerSlug];
+    owner.previousSlugsByLocale = { en: [ownerSlug] };
+    const claimant = {
+      id: 'claimant',
+      url: 'https://claimant.example/jobs/claimant',
+      previousSlugs: [ownerSlug],
+      previousSlugsByLocale: { en: [ownerSlug] },
+    };
+    fs.writeFileSync(claimantFile, JSON.stringify({ jobs: [claimant] }));
+    fs.writeFileSync(ownerFile, JSON.stringify({ jobs: [owner] }));
+
+    try {
+      const result = processFiles([claimantFile, ownerFile], { apply: true });
+      expect(result.moved).toBe(2);
+
+      const writtenClaimant = JSON.parse(fs.readFileSync(claimantFile, 'utf8')).jobs[0];
+      const writtenOwner = JSON.parse(fs.readFileSync(ownerFile, 'utf8')).jobs[0];
+      expect(writtenClaimant.previousSlugs).toEqual([]);
+      expect(writtenClaimant.previousSlugsByLocale).toBeUndefined();
+      expect(writtenOwner.previousSlugs).toBeUndefined();
+      expect(writtenOwner.previousSlugsByLocale).toBeUndefined();
+      expect(processFiles([claimantFile, ownerFile], { apply: false }).affected).toEqual([]);
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
   it('skips malformed jobs while building the fleet ownership index', async () => {
     const { decontaminateEntries } = await import('../scripts/decontaminate-prev-slugs.mjs');
     const validJob = {

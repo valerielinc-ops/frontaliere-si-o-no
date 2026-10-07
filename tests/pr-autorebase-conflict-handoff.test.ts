@@ -10,6 +10,8 @@ import {
   CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
   decideConflictResolutionLock,
   handoffIssuesForOrigin,
+  handoffIssuesForOriginAndHead,
+  handoffEvidenceMatchesHead,
   createHandoffIssueIndex,
   planConflictHandoff,
 } from '../scripts/ci/pr-autorebase.mjs';
@@ -107,7 +109,7 @@ describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
     const create = fn.indexOf("'issue', 'create'");
     const invalidate = fn.indexOf('handoffIssueIndex.invalidate();', create);
     const reread = fn.indexOf('const after = handoffIssueIndex.forOrigin(num);', invalidate);
-    const dedupe = fn.indexOf('closeDuplicateHandoffIssues(after, num)', reread);
+    const dedupe = fn.indexOf('closeDuplicateHandoffIssues(after, num, head)', reread);
     const routed = fn.indexOf("'--add-label', 'agent:fix'", dedupe);
     expect(create).toBeGreaterThan(0);
     expect(invalidate).toBeGreaterThan(create);
@@ -115,11 +117,11 @@ describe('pr-autorebase — hand-off fail-closed (review #1620)', () => {
     expect(dedupe).toBeGreaterThan(reread);
     expect(routed).toBeGreaterThan(dedupe);
     // Anche una duplicata lasciata da un tick precedente si chiude al riuso.
-    expect(fn).toContain('closeDuplicateHandoffIssues(existing, num)');
+    expect(fn).toContain('closeDuplicateHandoffIssues(existing, num, head)');
   });
 });
 
-describe('handoffIssuesForOrigin — chiave = PR di origine, ordine crescente, fail-closed', () => {
+describe('handoffIssuesForOrigin — chiave = PR di origine + HEAD, ordine crescente, fail-closed', () => {
   const title = 'Conflitto con main: riapplicare la PR #10569 su main';
   const lgtmTitle = 'Conflitto con main dopo LGTM: riapplicare la PR #10569 su main';
   const line = (n: number, t: string, labels: string[] = [], body = '') => JSON.stringify([n, t, body, labels, '2026-10-03T15:00:00Z']);
@@ -139,6 +141,21 @@ describe('handoffIssuesForOrigin — chiave = PR di origine, ordine crescente, f
   it('una riga illeggibile rende l\'elenco inaffidabile', () => {
     expect(handoffIssuesForOrigin(`${line(1, title)}\n{not json`, 10569)).toBeNull();
     expect(handoffIssuesForOrigin(JSON.stringify({ number: 1, title }), 10569)).toBeNull();
+  });
+
+  it('separa le evidenze della stessa origine per HEAD e non riusa un body senza HEAD', () => {
+    const oldHead = 'b'.repeat(40);
+    const current = buildConflictHandoffIssue({ num: 10569, branch: 'b', head: HEAD, files: ['current.ts'] });
+    const old = buildConflictHandoffIssue({ num: 10569, branch: 'b', head: oldHead, files: ['old.ts'] });
+    const rows = [
+      line(10587, current.title, ['agent:fix'], current.body),
+      line(10588, old.title, ['agent:fix'], old.body),
+      line(10589, title, ['agent:triaged']),
+    ].join('\n');
+    expect(handoffIssuesForOriginAndHead(rows, 10569, HEAD).map((i) => i.number)).toEqual([10587]);
+    expect(handoffIssuesForOriginAndHead(rows, 10569, oldHead).map((i) => i.number)).toEqual([10588]);
+    expect(handoffEvidenceMatchesHead({ body: '' }, HEAD)).toBe(false);
+    expect(handoffIssuesForOriginAndHead(rows, 10569, 'c'.repeat(40))).toEqual([]);
   });
 });
 
@@ -160,6 +177,9 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
       issue = 11151 + store.length * 3;
       store.push({ number: issue, title, body, labels: ['agent:triaged'], created_at: '2026-10-03T15:12:24Z' });
       writes.push(`create #${issue}`);
+    } else if (plan.action === 'reuse') {
+      const { body } = buildConflictHandoffIssue({ num, branch: 'fix/issue-11095', head: HEAD, files: ['a.ts'], lgtm });
+      store.find((i) => i.number === issue)!.body = body;
     }
     writes.push(`edit #${issue} +agent:fix`);
     if (routingSucceeds) store.find((i) => i.number === issue)!.labels.push('agent:fix');
@@ -187,16 +207,29 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
     }
   });
 
-  it('stessa origine ma HEAD nuova, o issue non instradata → si riusa e si instrada di nuovo', () => {
+  it('stessa origine ma HEAD nuova → crea una nuova evidenza; issue non instradata sulla stessa HEAD → si riusa', () => {
     const { title, body } = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: HEAD, files: [], lgtm: true });
     const routed = [{ number: 11157, title, body, labels: ['agent:fix'], created_at: null }];
-    expect(planConflictHandoff({ existing: routed, num: 11147, head: 'c'.repeat(40) })).toEqual({ action: 'reuse', issue: 11157 });
+    expect(planConflictHandoff({ existing: routed, num: 11147, head: 'c'.repeat(40) })).toEqual({ action: 'create' });
     expect(planConflictHandoff({ existing: [{ ...routed[0], labels: ['agent:triaged'] }], num: 11147, head: HEAD })).toEqual({ action: 'reuse', issue: 11157 });
     expect(planConflictHandoff({ existing: [{ ...routed[0], labels: ['agent:in-progress'] }], num: 11147, head: HEAD }))
       .toEqual({ action: 'already-handed-off', issue: 11157 });
-    // Corpo senza HEAD leggibile: non si dimostra la stessa HEAD → si riusa.
-    expect(planConflictHandoff({ existing: [{ ...routed[0], body: '' }], num: 11147, head: HEAD })).toEqual({ action: 'reuse', issue: 11157 });
+    // Corpo senza HEAD leggibile: non si dimostra la stessa HEAD → si crea evidenza nuova.
+    expect(planConflictHandoff({ existing: [{ ...routed[0], body: '' }], num: 11147, head: HEAD })).toEqual({ action: 'create' });
     expect(planConflictHandoff({ existing: [], num: 11147, head: HEAD })).toEqual({ action: 'create' });
+  });
+
+  it('fra HEAD vecchia e corrente elegge solo la corrente', () => {
+    const old = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: 'b'.repeat(40), files: ['old.ts'] });
+    const current = buildConflictHandoffIssue({ num: 11147, branch: 'b', head: HEAD, files: ['current.ts'] });
+    expect(planConflictHandoff({
+      existing: [
+        { number: 11150, title: old.title, body: old.body, labels: ['agent:fix'], created_at: null },
+        { number: 11151, title: current.title, body: current.body, labels: ['agent:triaged'], created_at: null },
+      ],
+      num: 11147,
+      head: HEAD,
+    })).toEqual({ action: 'reuse', issue: 11151 });
   });
 
   it('fra più issue della stessa origine si riusa quella instradata, non la più vecchia (stessa elezione del riconciliatore)', () => {
@@ -230,11 +263,14 @@ describe('REPLAY #11147 — un solo hand-off per PR di origine, anche se il LGTM
     expect(fn).toContain('planConflictHandoff({ existing, num, head })');
     expect(fn.indexOf("if (plan.action === 'already-handed-off')")).toBeLessThan(fn.indexOf("'issue', 'create'"));
     const dedupe = SOURCE.slice(SOURCE.indexOf('function closeDuplicateHandoffIssues('), SOURCE.indexOf('function handOffConflictToFixer('));
-    expect(dedupe).toContain('electHandoffKeeper(members, num, [])');
+    expect(dedupe).toContain('electHandoffKeeper(currentHead, num, [])');
     expect(dedupe).toContain('duplicateOldEnough(member, now)');
     // Un duplicato reclamato dal fixer non si chiude qui (come planDuplicateClosures del riconciliatore).
     expect(dedupe).toContain('handoffBusy(member, num, [])');
     expect(dedupe.indexOf('handoffBusy(member, num, [])')).toBeLessThan(dedupe.indexOf("'issue', 'close'"));
+    expect(fn).toContain('closeDuplicateHandoffIssues(existing, num, head)');
+    expect(fn).toContain('refreshHandoffEvidence(evidence, body, num)');
+    expect(fn.indexOf('refreshHandoffEvidence(evidence, body, num)')).toBeLessThan(fn.indexOf("'--add-label', 'agent:fix'"));
   });
 });
 
