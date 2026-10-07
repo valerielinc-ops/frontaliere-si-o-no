@@ -23,6 +23,7 @@ export const GENERATED_IMAGE_SCOPES = Object.freeze([
   'article-hero',
   'place',
   'og',
+  'publisher',
 ]);
 
 export const GENERATED_IMAGE_PROVIDERS = Object.freeze([
@@ -205,6 +206,7 @@ export function generatedImagePrefixForScope(scope) {
   if (scope === 'editorial-profile') return '/images/authors/';
   if (scope === 'article-hero') return '/images/blog/';
   if (scope === 'place') return '/images/places/';
+  if (scope === 'publisher') return '/images/publisher/';
   return '/images/generated/';
 }
 
@@ -296,7 +298,8 @@ export function generatedImagePromptInput(spec, options) {
 }
 
 export function isGeneratedImagePath(value) {
-  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|blog|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|blog|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value)
+    || typeof value === 'string' && /^\/images\/publisher\/[a-z0-9][a-z0-9._-]{2,127}\.(?:png|webp)$/.test(value);
 }
 
 export function isPrivateGrantImageRecord(record) {
@@ -305,7 +308,12 @@ export function isPrivateGrantImageRecord(record) {
 
 export function generatedImageAssetIdFromPath(value) {
   if (!isGeneratedImagePath(value)) return null;
-  return value.slice(value.lastIndexOf('/') + 1, -'.webp'.length);
+  const file = value.slice(value.lastIndexOf('/') + 1);
+  const extension = file.slice(file.lastIndexOf('.') + 1).toLowerCase();
+  const stem = file.slice(0, file.lastIndexOf('.'));
+  return value.startsWith('/images/publisher/')
+    ? `publisher-${stem}-${extension}`
+    : stem;
 }
 
 /**
@@ -382,8 +390,14 @@ export function validateGeneratedImageRecord(record) {
     if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
   }
   if (!positiveInteger(record.width) || !positiveInteger(record.height)) errors.push('width/height must be positive integers');
-  if (record.format !== 'webp') errors.push('format must be webp');
-  if (!positiveInteger(record.bytes) || record.bytes > GENERATED_IMAGE_MAX_BYTES) errors.push('bytes exceed the WebP limit');
+  const isPublisherAsset = record.scope === 'publisher';
+  if (isPublisherAsset) {
+    if (!isPrivateGrant) errors.push('publisher records must use private-grant');
+    if (!['png', 'webp'].includes(record.format)) errors.push('publisher format must be png or webp');
+  } else if (record.format !== 'webp') {
+    errors.push('format must be webp');
+  }
+  if (!positiveInteger(record.bytes) || record.bytes > GENERATED_IMAGE_MAX_BYTES) errors.push('bytes exceed the image limit');
   if (!SHA256_RE.test(String(record.sha256 || ''))) errors.push('sha256 must be present');
   if (!isPrivateGrant && !isoDate(record.generatedAt)) errors.push('generatedAt must be an ISO UTC timestamp');
   if (!isPrivateGrant && !isoDate(record.verifiedAt)) errors.push('verifiedAt must be an ISO UTC timestamp');
@@ -392,6 +406,9 @@ export function validateGeneratedImageRecord(record) {
     for (const field of ['category', 'area', 'season', 'variant']) {
       if (!nonEmpty(record[field])) errors.push(`event-library ${field} is required`);
     }
+  }
+  if (record.scope === 'publisher' && !isPrivateGrant) {
+    errors.push('publisher records must be site-owned private assets');
   }
   if (!isPrivateGrant && !isPhoto && (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
     errors.push('restrictions do not contain the mandatory generated-image policy');
@@ -414,7 +431,9 @@ export function validateGeneratedImageRecord(record) {
   if (record.imageUrl && !record.imageUrl.startsWith(expectedPrefix)) errors.push('imageUrl does not match scope');
   if (record.imageUrl && generatedImageAssetIdFromPath(record.imageUrl) !== record.assetId) errors.push('imageUrl assetId mismatch');
   const ratio = record.width / record.height;
-  const ratioValid = record.scope === 'editorial-profile'
+  const ratioValid = record.scope === 'publisher'
+    ? Number.isFinite(ratio) && ratio > 0
+    : record.scope === 'editorial-profile'
     ? ratio >= 0.8 && ratio <= 1.25
     : ratio >= 1.6 && ratio <= 1.9;
   if (!ratioValid) errors.push('image aspect ratio is outside the editorial range');
