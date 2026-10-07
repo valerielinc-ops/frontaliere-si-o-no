@@ -29,6 +29,7 @@ import {
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 import { BING_TEMPLATE_TABLE, templateIndexFor } from '../../scripts/seo/bing-template-inventory.mjs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -169,6 +170,85 @@ describe('Bing-compatible full-tree crawler', () => {
       const frontier = classifyDocument({ url: `${BASE}/frontier-status-${status}/`, status, scope: 'discovered-frontier', finalUrl: `${BASE}/target/` });
       expect(sitemap.findings[0].code).toBe(status === 301 ? 'redirect' : 'http-error');
       expect(frontier.findings[0].code).toBe(status === 301 ? BING_FRONTIER_REDIRECT : BING_FRONTIER_HTTP_ERROR);
+    }
+  });
+
+  it('recognizes localized below-floor search bridges only in the frontier scope', () => {
+    const bridgeHtml = (canonical: string) => `${REDIRECT_STUB_MARKER}<title>Bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare il bridge di ricerca nel controllo SEO completo del sito e mantenere il contratto di crawling.">`;
+    const cases = [
+      {
+        url: `${BASE}/cerca-lavoro-svizzera/ricerca-migros-otelfingen/`,
+        canonical: `${BASE}/cerca-lavoro-svizzera/`,
+      },
+      {
+        url: `${BASE}/en/find-jobs-switzerland/search-migros-otelfingen/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/`,
+      },
+      {
+        url: `${BASE}/de/jobs-in-schweiz/suche-migros-otelfingen/`,
+        canonical: `${BASE}/de/jobs-in-schweiz/`,
+      },
+      {
+        url: `${BASE}/fr/trouver-emploi-suisse/recherche-migros-otelfingen/`,
+        canonical: `${BASE}/fr/trouver-emploi-suisse/`,
+      },
+    ];
+
+    for (const { url, canonical } of cases) {
+      const frontier = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: bridgeHtml(canonical),
+      });
+      expect(frontier.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+        BING_FRONTIER_NOINDEX_BRIDGE,
+        BING_FRONTIER_CANONICAL_EXPECTED,
+      ]));
+      expect(frontier.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_NOINDEX);
+      expect(frontier.findings.map((item) => item.code)).not.toContain(BING_FRONTIER_CANONICAL_DRIFT);
+
+      const sitemap = classifyDocument({ url, status: 200, scope: 'sitemap', html: bridgeHtml(canonical) });
+      expect(sitemap.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+        'noindex-in-sitemap',
+        'canonical-drift',
+      ]));
+    }
+  });
+
+  it('does not infer a search bridge from a loose slug or canonical shape', () => {
+    const bridgeMarkerHtml = (canonical: string) => `${REDIRECT_STUB_MARKER}<title>Bridge</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${canonical}">`;
+    const cases = [
+      {
+        url: `${BASE}/en/find-jobs-switzerland/ricerca-migros/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/`,
+        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-switzerland/`),
+      },
+      {
+        url: `${BASE}/en/find-jobs-switzerland/search-migros/details/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/`,
+        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-switzerland/`),
+      },
+      {
+        url: `${BASE}/en/find-jobs-switzerland/search-migros/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/other/`,
+        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-switzerland/other/`),
+      },
+      {
+        url: `${BASE}/en/find-jobs-switzerland/search-migros/`,
+        canonical: `${BASE}/en/find-jobs-switzerland/`,
+        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-switzerland/`),
+        scope: 'sitemap',
+      },
+    ];
+
+    for (const { url, canonical, html, scope = 'discovered-frontier' } of cases) {
+      const result = classifyDocument({ url, status: 200, scope, html });
+      const codes = result.findings.map((item) => item.code);
+      expect(codes).toContain(scope === 'sitemap' ? 'noindex-in-sitemap' : BING_FRONTIER_NOINDEX);
+      expect(codes).toContain(scope === 'sitemap' ? 'canonical-drift' : BING_FRONTIER_CANONICAL_DRIFT);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_CANONICAL_EXPECTED);
     }
   });
 
