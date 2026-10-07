@@ -389,7 +389,7 @@ function runOrphansOnly() {
       skip('non scaduto (commit e reflog non entrambi vecchi)');
       continue;
     }
-    planned.push({ branch, head, ahead, snapshot: ahead > 0 });
+    planned.push({ branch, head, ahead, snapshot: ahead > 0, expiryActivityMs: activityMs });
   }
   console.log(`[orphans-only] base=${mainRef} | mode=${APPLY ? 'APPLY' : 'dry-run'} | soglia=${EXPIRY_DAYS} giorni`);
   console.log(`[orphans-only] candidati scaduti: ${planned.length}; saltati: ${[...skipped.values()].reduce((a, b) => a + b, 0)}`);
@@ -406,10 +406,22 @@ function runOrphansOnly() {
   }
   let removed = 0;
   for (const entry of planned) {
+    const beforeDelete = expiryBranchRecheck(entry);
+    if (!beforeDelete.ok) {
+      skip(beforeDelete.reason);
+      console.log(`⚠️  SALTATO ${entry.branch}: ${beforeDelete.reason} — branch lasciato intatto`);
+      continue;
+    }
     if (entry.snapshot && !snapshotExpiryBeforeDelete(entry.branch, entry.head)) {
       skippedSnapshotFailures++;
       skip('snapshot remoto fallito');
       console.log(`⚠️  FALLITO snapshot ${entry.branch} — branch lasciato intatto`);
+      continue;
+    }
+    const afterSnapshot = expiryBranchRecheck(entry);
+    if (!afterSnapshot.ok) {
+      skip(afterSnapshot.reason);
+      console.log(`⚠️  SALTATO ${entry.branch}: ${afterSnapshot.reason} — branch lasciato intatto`);
       continue;
     }
     if (gitOk(['branch', '-D', entry.branch])) {
@@ -1303,6 +1315,43 @@ function branchActivityMs(branch) {
   return Number.isFinite(ct) ? ct * 1000 : 0;
 }
 
+function expiryBranchRecheck(entry) {
+  const currentHead = headOfLocalBranch(entry.branch);
+  if (!currentHead || currentHead !== entry.head) {
+    return { ok: false, reason: 'HEAD cambiato durante lo sweep' };
+  }
+  const currentActivityMs = branchActivityMs(entry.branch);
+  if (!Number.isFinite(entry.expiryActivityMs) || currentActivityMs !== entry.expiryActivityMs) {
+    return { ok: false, reason: 'attività del branch cambiata durante lo sweep' };
+  }
+  if (!expirySignalsAreOld(commitTimestampMs(currentHead), currentActivityMs)) {
+    return { ok: false, reason: 'branch non più scaduto' };
+  }
+  return { ok: true };
+}
+
+function expiryWorktreeRecheck(entry, currentHead) {
+  const observedHead = currentHead ?? (entry.branch
+    ? headOfLocalBranch(entry.branch)
+    : gitOut(['-C', entry.path, 'rev-parse', '--verify', 'HEAD'], { allowFail: true }));
+  if (!observedHead || observedHead !== entry.head) {
+    return { ok: false, reason: 'HEAD cambiato durante lo sweep' };
+  }
+  const classification = classifyDirty(entry.path, { prExists: false });
+  if (classification.error || classification.significant.length > 0) {
+    return { ok: false, reason: 'worktree diventato sporco durante lo sweep' };
+  }
+  const adminDir = adminDirOf(entry.path);
+  const currentActivityMs = adminDir ? lastActivityMs(entry.path, adminDir) : 0;
+  if (!Number.isFinite(entry.expiryActivityMs) || currentActivityMs !== entry.expiryActivityMs) {
+    return { ok: false, reason: 'attività del worktree cambiata durante lo sweep' };
+  }
+  if (!expirySignalsAreOld(commitTimestampMs(observedHead), currentActivityMs)) {
+    return { ok: false, reason: 'worktree non più scaduto' };
+  }
+  return { ok: true };
+}
+
 const wtPorcelain = sh('git worktree list --porcelain');
 const worktrees = [];
 let cur = null;
@@ -1428,6 +1477,7 @@ for (const wt of worktrees) {
       expiry: true,
       expirySnapshot: expiryAhead > 0,
       expirySnapshotBranch: wt.branch,
+      expiryActivityMs: activity,
       reason: `nessuna PR aperta, worktree pulito e fermo da ${days} giorni (soglia ${EXPIRY_DAYS}), ahead=${expiryAhead}`,
     });
     continue;
@@ -1462,7 +1512,8 @@ for (const wt of worktrees) {
     }
     const expiryAhead = wt.branch ? aheadOfMain(wt.branch) : aheadOfMain(head);
     if (!statusError
-      && !dirtyNow
+      && !expiryClassification.error
+      && expiryClassification.significant.length === 0
       && openPrListComplete
       && ghOk
       && busySnapshot.known
@@ -1475,6 +1526,7 @@ for (const wt of worktrees) {
         expiry: true,
         expirySnapshot: expiryAhead > 0,
         expirySnapshotBranch: wt.branch || `detached-${head.slice(0, 12)}`,
+        expiryActivityMs: activity,
         reason: `${reason.replace(/ — REPORT-ONLY$/, '')}; scadenza ${EXPIRY_DAYS} giorni superata, ahead=${expiryAhead}`,
         expiryDays: days,
       });
@@ -1813,6 +1865,8 @@ function branchProofOrReport(b, head, state, reason) {
       expiry: true,
       expirySnapshot: ahead > 0,
       expirySnapshotBranch: b,
+      head,
+      expiryActivityMs: activityMs,
       reason: `${reason.replace(/ — REPORT-ONLY$/, '')}; scadenza ${EXPIRY_DAYS} giorni superata, ahead=${ahead}`,
       expiryDays: days,
     });
@@ -1843,6 +1897,8 @@ for (const b of allLocal) {
       expiry: true,
       expirySnapshot: aheadBeforePr > 0,
       expirySnapshotBranch: b,
+      head,
+      expiryActivityMs: activityMs,
       reason: `nessuna PR aperta, branch pulito e fermo da ${days} giorni (soglia ${EXPIRY_DAYS}), ahead=${aheadBeforePr}`,
       expiryDays: days,
     });
@@ -1999,6 +2055,14 @@ for (const w of removeWt) {
     console.log(`⚠️  SALTATO worktree ${w.path}: HEAD cambiato durante lo sweep — lasciato intatto`);
     continue;
   }
+  if (w.expiry) {
+    const beforeDelete = expiryWorktreeRecheck(w, currentHead);
+    if (!beforeDelete.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO worktree ${w.path}: ${beforeDelete.reason} — lasciato intatto`);
+      continue;
+    }
+  }
   const worktreeBytes = pathBytes(w.path);
   const snapshotOk = w.expiry
     ? (!w.expirySnapshot || snapshotExpiryBeforeDelete(w.expirySnapshotBranch || w.branch, w.head))
@@ -2008,6 +2072,14 @@ for (const w of removeWt) {
     skippedSnapshotFailures++;
     console.log(`⚠️  FALLITO snapshot ${w.branch || w.head} — worktree lasciato intatto`);
     continue;
+  }
+  if (w.expiry) {
+    const afterSnapshot = expiryWorktreeRecheck(w);
+    if (!afterSnapshot.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO worktree ${w.path}: ${afterSnapshot.reason} — lasciato intatto`);
+      continue;
+    }
   }
   // Il symlink `node_modules` non tracciato si toglie prima, senza seguirlo:
   // `git worktree remove` non deve mai attraversarlo.
@@ -2028,14 +2100,30 @@ for (const w of removeWt) {
   console.log(`removed worktree ${w.path}`);
 }
 for (const b of delBranch) {
+  if (b.expiry) {
+    const beforeDelete = expiryBranchRecheck(b);
+    if (!beforeDelete.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO branch ${b.name}: ${beforeDelete.reason} — lasciato intatto`);
+      continue;
+    }
+  }
   const snapshotOk = b.expiry
-    ? (!b.expirySnapshot || snapshotExpiryBeforeDelete(b.expirySnapshotBranch || b.name, headOfLocalBranch(b.name)))
+    ? (!b.expirySnapshot || snapshotExpiryBeforeDelete(b.expirySnapshotBranch || b.name, b.head))
     : snapshotBeforeDelete(b.name, b.snapshot);
   if (!snapshotOk) {
     failed++;
     skippedSnapshotFailures++;
     console.log(`⚠️  FALLITO snapshot ${b.name} — branch lasciato intatto`);
     continue;
+  }
+  if (b.expiry) {
+    const afterSnapshot = expiryBranchRecheck(b);
+    if (!afterSnapshot.ok) {
+      failed++;
+      console.log(`⚠️  SALTATO branch ${b.name}: ${afterSnapshot.reason} — lasciato intatto`);
+      continue;
+    }
   }
   if (shOk(`git branch -D "${b.name}"`)) {
     done++;

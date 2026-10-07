@@ -23,6 +23,8 @@ let orphanDryRun = '';
 let orphanApplyRun = '';
 let oldAheadHead = '';
 let zeroWorktree = '';
+let scratchWorktree = '';
+let raceWorktree = '';
 
 function git(cwd: string, args: string[], extraEnv: NodeJS.ProcessEnv = {}): string {
   return execFileSync('git', args, {
@@ -126,6 +128,18 @@ beforeAll(() => {
 
   oldAheadHead = makeBranch('fix/issue-123-old', 'old.txt', 'old\n');
   makeBranch('recent-work', 'recent.txt', 'recent\n', 2);
+  makeBranch('fix/issue-129-scratch', 'scratch.txt', 'scratch\n');
+  scratchWorktree = worktreePath('scratch-worktree');
+  addWorktree('scratch-worktree', 'fix/issue-129-scratch');
+  write(scratchWorktree, '.pr-body-prune-expiry.md', 'draft\n');
+  fs.utimesSync(path.join(scratchWorktree, '.pr-body-prune-expiry.md'), OLD, OLD);
+  ageWorktree('scratch-worktree');
+  ageBranch('fix/issue-129-scratch');
+  makeBranch('fix/issue-130-race', 'race.txt', 'base\n');
+  raceWorktree = worktreePath('race-worktree');
+  addWorktree('race-worktree', 'fix/issue-130-race');
+  ageWorktree('race-worktree');
+  ageBranch('fix/issue-130-race');
   makeBranch('dirty-worktree', 'dirty-base.txt', 'base\n');
   makeBranch('busy-worktree', 'busy.txt', 'busy\n');
   const openHead = makeBranch('open-worktree', 'open.txt', 'open\n');
@@ -190,6 +204,21 @@ exit 0
   expect(dryRun).toContain('snapshot prima della rimozione');
   expect(dryTags).toBe('');
 
+  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  fs.writeFileSync(path.join(bin, 'git'), `#!/usr/bin/env node
+const fs = require('node:fs');
+const { spawnSync } = require('node:child_process');
+const args = process.argv.slice(2);
+if (args[0] === 'push' && args.some((arg) => arg.includes('/fix/issue-130-race')) && !fs.existsSync(process.env.PRUNE_RACE_MARKER)) {
+  fs.writeFileSync(process.env.PRUNE_RACE_MARKER, 'mutated\\n');
+  fs.writeFileSync(process.env.PRUNE_RACE_FILE, 'race changed during apply\\n');
+}
+const result = spawnSync(process.env.PRUNE_REAL_GIT, args, { stdio: 'inherit' });
+process.exit(result.status ?? 1);
+`, { mode: 0o755 });
+  env.PRUNE_REAL_GIT = realGit;
+  env.PRUNE_RACE_FILE = path.join(raceWorktree, 'race.txt');
+  env.PRUNE_RACE_MARKER = path.join(root, 'race-marker');
   applyRun = runScript(['--apply']);
 
   makeBranch('fix/issue-126-push-fail', 'fail.txt', 'fail\n');
@@ -217,8 +246,8 @@ afterAll(() => {
 
 describe('scadenza con snapshot per worktree e branch', () => {
   it('il dry-run non modifica worktree, branch, tag o inventario', () => {
-    expect(dryRun).toMatch(/worktree da rimuovere \(2\)/);
-    expect(dryRun).toContain('riassunto: snapshot da creare 1');
+    expect(dryRun).toMatch(/worktree da rimuovere \(3\)/);
+    expect(dryRun).toContain('riassunto: snapshot da creare 2');
   });
 
   it('crea e verifica il tag remoto prima di rimuovere il lavoro scaduto', () => {
@@ -229,17 +258,25 @@ describe('scadenza con snapshot per worktree e branch', () => {
     expect(tags.some((line) => line.startsWith(`${oldAheadHead} refs/tags/`))).toBe(true);
     expect(tags.some((line) => line.includes('/fix/issue-123-old'))).toBe(true);
     expect(tags.some((line) => line.includes(`/${zeroWorktree}`))).toBe(false);
-    expect(applyRun).toContain('snapshot creati 1');
+    expect(applyRun).toContain('snapshot creati 2');
   });
 
   it('rimuove 0-ahead senza snapshot e conserva le esclusioni', () => {
     expect(fs.existsSync(worktreePath(zeroWorktree))).toBe(false);
     expect(fs.existsSync(worktreePath('recent-work'))).toBe(true);
+    expect(fs.existsSync(scratchWorktree)).toBe(true);
     expect(fs.existsSync(worktreePath('dirty-worktree'))).toBe(true);
     expect(fs.existsSync(worktreePath('busy-worktree'))).toBe(true);
     expect(fs.existsSync(worktreePath('open-worktree'))).toBe(true);
     expect(fs.existsSync(worktreePath('hooks-main'))).toBe(true);
     expect(fs.existsSync(worktreePath('push-fail'))).toBe(true);
+    expect(refExists('refs/heads/fix/issue-129-scratch')).toBe(true);
+  });
+
+  it('lascia il worktree se diventa sporco tra snapshot e rimozione', () => {
+    expect(applyRun).toContain('worktree diventato sporco durante lo sweep');
+    expect(fs.existsSync(raceWorktree)).toBe(true);
+    expect(refExists('refs/heads/fix/issue-130-race')).toBe(true);
   });
 
   it('non rimuove nulla se il push dello snapshot fallisce', () => {
