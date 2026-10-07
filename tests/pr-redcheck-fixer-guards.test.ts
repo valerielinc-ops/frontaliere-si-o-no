@@ -21,6 +21,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
+import YAML from 'yaml';
 
 const WF = path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redcheck-fixer.yml');
 const src = readFileSync(WF, 'utf-8');
@@ -28,6 +29,11 @@ const TWIN = readFileSync(
   path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redflag-fixer.yml'), 'utf-8');
 const TESTS = readFileSync(
   path.resolve(__dirname, '..', '.github', 'workflows', 'tests.yml'), 'utf-8');
+const parsedTests = YAML.parse(TESTS) as any;
+const redcheckProducer = parsedTests.jobs['post-review'].steps.find(
+  (step: { name?: string }) => step.name === 'redcheck admission (trusted failure signal)',
+);
+const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 
 describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
   it('ammette solo il dispatch esplicito o il segnale trusted del produttore', () => {
@@ -37,8 +43,47 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(TESTS).toContain('name: redcheck admission (trusted failure signal)');
     expect(TESTS).toContain("needs.vitest.result == 'failure'");
     expect(TESTS).toContain("github.event_name == 'pull_request'");
+    expect(TESTS).toContain("github.event_name == 'workflow_dispatch'");
     expect(TESTS).toContain("workflow_id: 'pr-redcheck-fixer.yml'");
     expect(TESTS).toContain("ref: 'main'");
+  });
+
+  it('un workflow_dispatch eleggibile passa al fixer la run tests esatta', async () => {
+    const headSha = '0123456789abcdef0123456789abcdef01234567';
+    const dispatches: Array<Record<string, unknown>> = [];
+    const currentPr = {
+      state: 'open', draft: false, base: { ref: 'main' },
+      head: { ref: 'fix/redcheck-test', sha: headSha, repo: { full_name: 'owner/repo' } },
+      user: { type: 'Bot' }, labels: [],
+    };
+    const github = {
+      paginate: async (fn: (args: unknown) => Promise<unknown>, args: unknown) => fn(args),
+      rest: {
+        pulls: { get: async () => ({ data: currentPr }) },
+        actions: {
+          listJobsForWorkflowRun: async () => [{
+            name: 'vitest (unit + integration)', status: 'completed', conclusion: 'failure',
+            steps: [{ name: 'vitest related (PR diff)', conclusion: 'failure' }],
+          }],
+          createWorkflowDispatch: async (input: Record<string, unknown>) => { dispatches.push(input); },
+        },
+      },
+    };
+    const failures: string[] = [];
+    const core = { setFailed: (message: string) => failures.push(message), notice: () => undefined };
+    const context = {
+      eventName: 'workflow_dispatch', runId: 456, sha: headSha,
+      payload: { inputs: { pr: '42' } }, repo: { owner: 'owner', repo: 'repo' },
+    };
+
+    await new AsyncFunction('github', 'context', 'core', redcheckProducer.with.script)(github, context, core);
+
+    expect(failures).toEqual([]);
+    expect(dispatches).toHaveLength(1);
+    expect(dispatches[0]).toMatchObject({
+      workflow_id: 'pr-redcheck-fixer.yml', ref: 'main',
+      inputs: { pr: '42', run_id: '456' },
+    });
   });
 
   it('il produttore esclude i failure di body/review e tratta API illeggibili come errore', () => {
@@ -70,13 +115,11 @@ describe('scope — non tocca ciò che non è suo', () => {
     expect(src).toMatch(/\[ "\$draft" = "true" \]/);
   });
 
-  it('lega la run fallita alla HEAD corrente prima del preflight', () => {
-    // Il dispatch non porta una fotografia della run: risolve la HEAD della PR
-    // e cerca il failure per quello SHA, così un rosso precedente non viene
-    // riparato come se fosse ancora attuale.
-    expect(src).toContain('HEAD_SHA=$(gh_bounded gh api');
-    expect(src).toContain('runs?head_sha=$HEAD_SHA&status=failure');
-    expect(src).not.toContain('$RUN_SHA');
+  it('lega la run esatta alla HEAD corrente prima del preflight', () => {
+    expect(src).toContain('DISPATCH_RUN_ID: ${{ github.event.inputs.run_id }}');
+    expect(src).toContain('repos/$REPO/actions/runs/$RUN_ID');
+    expect(src).toContain('run_head_sha');
+    expect(src).toContain('[ "$run_head_sha" != "$head_sha" ]');
   });
 
   it('ri-verifica che la CI sia rossa ADESSO, non solo al trigger', () => {
