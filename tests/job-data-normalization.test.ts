@@ -65,6 +65,25 @@ describe('jobDataNormalization', () => {
     expect(logo).toBe(CRAWLED_COMPANY_LOGOS['medacta-international']);
   });
 
+  it('keeps the four #6504 residual companies on curated logo sources', () => {
+    const expected = {
+      'edmond-de-rothschild': 'https://commons.wikimedia.org/wiki/Special:FilePath/Rothschild_Edmond_Transparent.png',
+      imerys: 'https://commons.wikimedia.org/wiki/Special:FilePath/Imerys_logo.png',
+      'farmacia-internazionale-dr-merloni': 'https://static.wixstatic.com/media/f027ed155a8a4874b856344a5b970a4b.jpg',
+      mediamarkt: 'https://commons.wikimedia.org/wiki/Special:FilePath/Media_Markt_logo.svg',
+    } as const;
+
+    for (const [key, url] of Object.entries(expected)) {
+      expect(CRAWLED_COMPANY_LOGOS[key], `${key} must keep its curated source`).toBe(url);
+      expect(resolveCompanyLogoUrl({
+        company: key,
+        companyKey: key,
+        companyDomain: `${key}.example.com`,
+        url: `https://${key}.example.com/jobs/1`,
+      })).toBe(url);
+    }
+  });
+
   it('detects non-geographic multi-location strings', () => {
     expect(isMultiLocation('Schweiz und Ausland (abhängig von Funktion und Einsatzort)')).toBe(true);
     expect(isMultiLocation('Schweiz und Ausland')).toBe(true);
