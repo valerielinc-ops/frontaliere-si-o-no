@@ -5793,12 +5793,12 @@
     },
     {
       "id": "kanton-aargau-21b2dd000b7f",
-      "slug": "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch",
+      "slug": "specialista-specialista-klima-50-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch"
+        "it": "specialista-specialista-klima-50-kanton-aargau-aarau",
+        "en": "specialist-specialist-klima-50-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-klima-50-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5859,7 +5859,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:38:37.879Z"
+      "firstSeenAt": "2026-10-07T09:38:37.879Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-klima-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-f944f4e8f5f1",
@@ -5939,12 +5953,12 @@
     },
     {
       "id": "kanton-aargau-0f841a58983f",
-      "slug": "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch",
+      "slug": "supporto-ict-supporto-ict-60-80-kanton-aargau-stein-ag",
       "slugByLocale": {
         "de": "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch",
-        "it": "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch",
+        "it": "supporto-ict-supporto-ict-60-80-kanton-aargau-stein-ag",
         "en": "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch",
-        "fr": "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch"
+        "fr": "supporteur-tic-supporteur-tic-60-80-kanton-aargau-stein-ag"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -6005,7 +6019,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:38:36.687Z"
+      "firstSeenAt": "2026-10-07T09:38:36.687Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporterin-ict-supporter-60-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-e6bad268ebe8",

@@ -287,8 +287,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeute-entre-40-et-50-rsbj-sainte-croix",
-        "ergotherapist-between-40-and-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
-        "ergotherapeute-entre-40-et-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
+        "ergotherapist-between-40-and-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -296,8 +295,7 @@
         ],
         "en": [
           "ergotherapeute-entre-40-et-50-rsbj-sainte-croix",
-          "ergotherapist-between-40-and-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
-          "ergotherapeute-entre-40-et-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
+          "ergotherapist-between-40-and-50-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix"
         ],
         "de": [
           "ergotherapeute-entre-40-et-50-rsbj-sainte-croix"
@@ -320,11 +318,11 @@
     },
     {
       "id": "rsbj-4672e7b20b51",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix",
+      "slug": "community-health-and-care-assistant-chs-cdd-di-6-mesi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix",
-        "it": "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix",
-        "en": "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix",
+        "it": "community-health-and-care-assistant-chs-cdd-di-6-mesi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
+        "en": "community-health-and-care-assistant-chs-6-month-cdd-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "de": "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix"
       },
       "company": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
@@ -383,7 +381,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:41:24.249Z"
+      "firstSeenAt": "2026-10-07T09:41:24.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-cdd-de-6-mois-rsbj-sainte-croix"
+      ]
     }
   ]
 }

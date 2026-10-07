@@ -70,7 +70,6 @@
       },
       "postalCode": "8305",
       "streetAddress": "Industriestrasse 34",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-dietlikon"
@@ -2692,7 +2691,6 @@
       },
       "postalCode": "9000",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-haag"
@@ -3803,7 +3801,6 @@
       },
       "postalCode": "7130",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-ilanz"
@@ -4102,7 +4099,6 @@
       },
       "postalCode": "8645",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-jona"
@@ -4390,7 +4386,6 @@
       },
       "postalCode": "",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-netstal-wiggispark"
@@ -8783,7 +8778,6 @@
       },
       "postalCode": "8001",
       "streetAddress": "",
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-volkiland-maximo"
@@ -10175,7 +10169,7 @@
       "id": "jumbo-eb925fca-c40",
       "slug": "consulente-commerciale-do-it-jumbo-kusnacht",
       "slugByLocale": {
-        "de": "verkaufsberater-in-do-it-jumbo-kusnacht",
+        "de": "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
         "it": "consulente-commerciale-do-it-jumbo-kusnacht",
         "en": "sales-consultant-do-it-jumbo-kusnacht",
         "fr": "consultant-en-ventes-do-it-jumbo-kusnacht"
@@ -10239,8 +10233,7 @@
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-kusnacht",
-        "consulente-commerciale-in-do-it-jumbo-kusnacht",
-        "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
+        "consulente-commerciale-in-do-it-jumbo-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10254,7 +10247,8 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
+          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
+          "verkaufsberater-in-do-it-jumbo-kusnacht"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.114Z",
@@ -10374,7 +10368,7 @@
       "id": "jumbo-586efcde-106",
       "slug": "vendite-advisor-garden-jumbo-kusnacht",
       "slugByLocale": {
-        "de": "verkaufsberater-in-garden-jumbo-kusnacht",
+        "de": "verkaufsberater-in-garden-jumbo-kusnacht-5ilynz",
         "it": "vendite-advisor-garden-jumbo-kusnacht",
         "en": "sales-advisor-garden-jumbo-kusnacht",
         "fr": "conseiller-en-ventes-jardin-jumbo-kusnacht"
@@ -10437,8 +10431,7 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-garden-jumbo-kusnacht",
-        "verkaufsberater-in-garden-jumbo-kusnacht-5ilynz"
+        "verkaufsberater-in-garden-jumbo-kusnacht"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10451,7 +10444,8 @@
           "verkaufsberater-in-garden-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-garden-jumbo-kusnacht-5ilynz"
+          "verkaufsberater-in-garden-jumbo-kusnacht-5ilynz",
+          "verkaufsberater-in-garden-jumbo-kusnacht"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.107Z",
@@ -11934,14 +11928,6 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2523,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garten-jumbo-laupen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen"
-      ],
       "needsRetranslation": true
     },
     {
@@ -12415,14 +12401,6 @@
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2180,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-kusnacht"
-      ],
       "needsRetranslation": true
     },
     {
@@ -14316,7 +14294,7 @@
       "id": "jumbo-64ce681a-c01",
       "slug": "consulente-di-vendita-deco-jumbo-chur",
       "slugByLocale": {
-        "de": "verkaufsberater-in-deco-jumbo-chur",
+        "de": "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
         "it": "consulente-di-vendita-deco-jumbo-chur",
         "en": "sales-consultant-deco-jumbo-chur",
         "fr": "consultant-commercial-deco-jumbo-chur"
@@ -14379,15 +14357,15 @@
       },
       "_enrichedFromDetail": true,
       "previousSlugs": [
-        "verkaufsberater-in-deco-jumbo-chur",
-        "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
+        "verkaufsberater-in-deco-jumbo-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
+          "verkaufsberater-in-deco-jumbo-chur"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -18756,12 +18734,12 @@
     },
     {
       "id": "jumbo-a07d1298-6f1",
-      "slug": "verkaufer-in-kassen-services-jumbo-kusnacht",
+      "slug": "vendita-cassetti-servizi-jumbo-kusnacht",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-kusnacht",
-        "it": "verkaufer-in-kassen-services-jumbo-kusnacht",
+        "it": "vendita-cassetti-servizi-jumbo-kusnacht",
         "en": "verkaufer-in-kassen-services-jumbo-kusnacht",
-        "fr": "verkaufer-in-kassen-services-jumbo-kusnacht"
+        "fr": "caisses-enregistreuses-services-du-vendeur-jumbo-kusnacht"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18833,15 +18811,26 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-kusnacht"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-kusnacht"
+      ]
     },
     {
       "id": "jumbo-426f60fd-55e",
-      "slug": "verkaufer-in-food-jumbo-thalwil",
+      "slug": "vendita-prodotti-alimentari-jumbo-thalwil",
       "slugByLocale": {
         "de": "verkaufer-in-food-jumbo-thalwil",
-        "it": "verkaufer-in-food-jumbo-thalwil",
-        "en": "verkaufer-in-food-jumbo-thalwil",
+        "it": "vendita-prodotti-alimentari-jumbo-thalwil",
+        "en": "seller-food-jumbo-thalwil",
         "fr": "verkaufer-in-food-jumbo-thalwil"
       },
       "company": "JUMBO",
@@ -18916,7 +18905,18 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-jumbo-thalwil"
+        ],
+        "en": [
+          "verkaufer-in-food-jumbo-thalwil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-jumbo-thalwil"
+      ]
     },
     {
       "id": "jumbo-696ed077-e3e",
@@ -19066,7 +19066,6 @@
           "• Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugsByLocale": {
         "it": [
@@ -19093,12 +19092,12 @@
     },
     {
       "id": "jumbo-b4b9e5b2-9a0",
-      "slug": "leiter-warenflusssteuerung-jumbo-dietlikon",
+      "slug": "capo-della-gestione-dei-flussi-di-merci-jumbo-dietlikon",
       "slugByLocale": {
         "de": "leiter-warenflusssteuerung-jumbo-dietlikon",
-        "it": "leiter-warenflusssteuerung-jumbo-dietlikon",
-        "en": "leiter-warenflusssteuerung-jumbo-dietlikon",
-        "fr": "leiter-warenflusssteuerung-jumbo-dietlikon"
+        "it": "capo-della-gestione-dei-flussi-di-merci-jumbo-dietlikon",
+        "en": "head-of-goods-flow-management-jumbo-dietlikon",
+        "fr": "responsable-de-la-gestion-des-flux-de-marchandises-jumbo-dietlikon"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -19171,7 +19170,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:18:41.015Z"
+      "firstSeenAt": "2026-10-07T09:18:41.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-warenflusssteuerung-jumbo-dietlikon"
+        ],
+        "en": [
+          "leiter-warenflusssteuerung-jumbo-dietlikon"
+        ],
+        "fr": [
+          "leiter-warenflusssteuerung-jumbo-dietlikon"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-warenflusssteuerung-jumbo-dietlikon"
+      ]
     }
   ]
 }

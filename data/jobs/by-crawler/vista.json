@@ -781,7 +781,7 @@
       "id": "vista-f918df99f03c",
       "slug": "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun",
       "slugByLocale": {
-        "it": "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun",
+        "it": "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun",
         "en": "dipl-professional-operating-technique-hf-or-ota-toa-80-vista-augenpraxen-kliniken-thun",
         "de": "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun",
         "fr": "dipl-technique-d-exploitation-professionnelle-hf-ou-ota-toa-80-vista-augenpraxen-kliniken-thun"
@@ -836,24 +836,21 @@
         "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun",
         "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun",
         "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun",
-        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun",
-        "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun"
+        "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-tecnica-operativa-professionale-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun",
           "dipl-fachfrau-mann-operationstechnik-hf-o-ota-toa-80-vista-augenpraxen-kliniken-thun",
           "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun",
-          "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun",
-          "dipl-fachfrau-mann-operationstechnik-hf-o-toa-80-vista-augenpraxen-kliniken-thun"
+          "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun"
         ],
         "en": [
           "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun",
           "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun"
         ],
         "de": [
-          "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun",
-          "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun"
+          "dipl-fachfrau-mann-operationstechnik-hf-oder-ota-toa-80-vista-thun"
         ],
         "fr": [
           "dipl-fachfrau-mann-operationstechnik-hf-oder-toa-80-vista-thun",
@@ -873,8 +870,7 @@
           "maxValue": 93200,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

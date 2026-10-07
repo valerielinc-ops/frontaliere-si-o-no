@@ -664,6 +664,62 @@ describe('delta push degli shard', () => {
     }
   });
 
+  it('pubblica la provenienza anche quando il payload servito resta identico', () => {
+    const sourceV1 = 'a'.repeat(40);
+    const sourceV2 = 'b'.repeat(40);
+    const cases = [
+      {
+        name: 'locale',
+        target: {
+          script: PUSH_LOCALE,
+          args: (current: Scenario) => ['en', current.dist],
+          deployKey: 'SHARD_EN_DEPLOY_KEY',
+          label: 'locale',
+        },
+        write: (scenario: Scenario) => {
+          writePayload(scenario, { 'pages/stable': '<html>stable</html>' });
+          writeManifest(scenario, ['pages/stable'], 'stable');
+        },
+      },
+      {
+        name: 'section',
+        target: {
+          script: PUSH_SECTION,
+          args: (current: Scenario) => ['ticino', 'en', current.dist],
+          deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+          label: 'section',
+        },
+        write: (scenario: Scenario) => {
+          writeSectionPayload(scenario, { 'pages/stable': '<html>stable</html>' });
+          writeManifest(scenario, ['pages/stable'], 'stable', 'en/find-jobs-ticino');
+        },
+      },
+    ];
+
+    for (const testCase of cases) {
+      for (const mode of ['full', 'delta'] as const) {
+        const scenario = createScenario(`source-stamp-${testCase.name}-${mode}`);
+        try {
+          testCase.write(scenario);
+          expect(runPush(scenario, mode, { GITHUB_SHA: sourceV1 }, testCase.target).status).toBe(0);
+          const firstHead = git(['-C', scenario.remote, 'rev-parse', 'main']);
+
+          // The second build has identical served bytes but a new apex source
+          // SHA. It must still leave a commit the audit can match.
+          testCase.write(scenario);
+          const result = runPush(scenario, mode, { GITHUB_SHA: sourceV2 }, testCase.target);
+          expect(result.status).toBe(0);
+          expect(result.output).not.toContain('no content changes vs remote');
+          expect(git(['-C', scenario.remote, 'rev-parse', 'main'])).not.toBe(firstHead);
+          expect(git(['-C', scenario.remote, 'show', 'main:.shard-source'])).toBe(sourceV2);
+          expect(git(['-C', scenario.remote, 'log', '-1', '--format=%s'])).toContain(sourceV2.slice(0, 8));
+        } finally {
+          rmSync(scenario.root, { recursive: true, force: true });
+        }
+      }
+    }
+  });
+
   it('usa il PAT per pubblicare quando manca la deploy key, senza saltare lo shard', () => {
     const cases = [
       {

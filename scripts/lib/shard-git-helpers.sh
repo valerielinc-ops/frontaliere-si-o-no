@@ -61,6 +61,13 @@ shard_read_counter() {
   printf '%s' "$val"
 }
 
+# The apex records the source build SHA in the shard commit subject. Keep a
+# matching tree marker so a build that emits the same served bytes still has a
+# real, auditable publication event instead of looking stale forever.
+shard_source_stamp() {
+  printf '%s' "${GITHUB_SHA:-local}"
+}
+
 # shard_delta_manifest_sidecar <locale>
 # The build manifest lives outside dist/. Delta mode carries a filtered,
 # per-shard snapshot in the published tree so the next push has an atomic

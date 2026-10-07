@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-health-safety-80-ricola-ch",
-        "responsabile-health-safety-80-ricola-laufen"
+        "head-of-health-safety-80-ricola-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-health-safety-80-ricola-ch",
-          "responsabile-health-safety-80-ricola-laufen"
+          "head-of-health-safety-80-ricola-ch"
         ],
         "de": [
           "head-of-health-safety-80-ricola-ch"
@@ -136,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-controlling-100-ricola-ch",
-        "responsabile-controlling-100-ricola-laufen"
+        "head-of-controlling-100-ricola-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-controlling-100-ricola-ch",
-          "responsabile-controlling-100-ricola-laufen"
+          "head-of-controlling-100-ricola-ch"
         ],
         "de": [
           "head-of-controlling-100-ricola-ch"
@@ -168,12 +164,12 @@
     },
     {
       "id": "ricola-27641e5cd373",
-      "slug": "application-technologist-sweet-confectionery-100-ricola-ch",
+      "slug": "applicazione-technologist-dolci-confetture-100-ricola-laufen",
       "slugByLocale": {
         "en": "application-technologist-sweet-confectionery-100-ricola-ch",
-        "it": "application-technologist-sweet-confectionery-100-ricola-ch",
-        "de": "application-technologist-sweet-confectionery-100-ricola-ch",
-        "fr": "application-technologist-sweet-confectionery-100-ricola-ch"
+        "it": "applicazione-technologist-dolci-confetture-100-ricola-laufen",
+        "de": "anwendungstechniker-su-waren-100-ricola-laufen",
+        "fr": "technologue-d-application-confiserie-sucree-100-ricola-laufen"
       },
       "company": "Ricola",
       "companyKey": "ricola",
@@ -232,7 +228,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:50:39.573Z"
+      "firstSeenAt": "2026-10-07T09:50:39.573Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-technologist-sweet-confectionery-100-ricola-ch"
+        ],
+        "de": [
+          "application-technologist-sweet-confectionery-100-ricola-ch"
+        ],
+        "fr": [
+          "application-technologist-sweet-confectionery-100-ricola-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-technologist-sweet-confectionery-100-ricola-ch"
+      ]
     }
   ]
 }

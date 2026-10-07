@@ -553,6 +553,178 @@ describe('translation glossary — customs-role veto on the frontalieri rule', (
 describe('translation glossary — placeholder strip leaves links alone', () => {
   const RSI = 'https://www.rsi.ch/info/dialogo/Perch%C3%A9-sviluppare-nuovi-farmaci-costa-sempre-di-pi%C3%B9--4071262.html';
 
+  const OPAQUE_SPAN_CASES = [
+    {
+      name: 'Markdown destination with a double-quoted title',
+      input: 'Prima [città](/wiki/Perch%C3%A9 "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima [città](/wiki/Perch%C3%A9 "titolo") dopo e basta.',
+    },
+    {
+      name: 'Markdown destination with a single-quoted title',
+      input: "Prima [città](/wiki/Perch%C3%A9 'titolo') dopo %COMPANY% e basta.",
+      expected: "Prima [città](/wiki/Perch%C3%A9 'titolo') dopo e basta.",
+    },
+    {
+      name: 'Markdown destination with a parenthesized title',
+      input: 'Prima [città](/wiki/Perch%C3%A9 (titolo)) dopo %COMPANY% e basta.',
+      expected: 'Prima [città](/wiki/Perch%C3%A9 (titolo)) dopo e basta.',
+    },
+    {
+      name: 'angle-bracket Markdown destination with a title',
+      input: 'Prima [città](</wiki/Perch%C3%A9> "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima [città](</wiki/Perch%C3%A9> "titolo") dopo e basta.',
+    },
+    {
+      name: 'Markdown image destination',
+      input: 'Prima immagine:![mappa](/img/Perch%C3%A9.png "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima immagine:![mappa](/img/Perch%C3%A9.png "titolo") dopo e basta.',
+    },
+    {
+      name: 'reference definition with a title',
+      input: 'Prima\n[id]: /wiki/Perch%C3%A9 "titolo" %COMPANY%\nDopo.',
+      expected: 'Prima\n[id]: /wiki/Perch%C3%A9 "titolo"\nDopo.',
+    },
+    {
+      name: 'protocol-relative naked URL',
+      input: 'Prima //host/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima //host/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'absolute naked URL',
+      input: 'Prima https://example.test/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima https://example.test/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'www naked URL',
+      input: 'Prima www.example.test/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima www.example.test/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'relative naked path with an encoded byte',
+      input: 'Prima /wiki/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima /wiki/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'double-quoted href attribute',
+      input: 'Prima <a href="/wiki/Perch%C3%A9">link</a> dopo %COMPANY% e basta.',
+      expected: 'Prima <a href="/wiki/Perch%C3%A9">link</a> dopo e basta.',
+    },
+    {
+      name: 'single-quoted src attribute',
+      input: "Prima <img src='/img/Perch%C3%A9.png'> dopo %COMPANY% e basta.",
+      expected: "Prima <img src='/img/Perch%C3%A9.png'> dopo e basta.",
+    },
+    {
+      name: 'unquoted src attribute',
+      input: 'Prima <img src=/img/Perch%C3%A9.png> dopo %COMPANY% e basta.',
+      expected: 'Prima <img src=/img/Perch%C3%A9.png> dopo e basta.',
+    },
+    {
+      name: 'schema autolink',
+      input: 'Prima <https://example.test/Perch%C3%A9> dopo %COMPANY% e basta.',
+      expected: 'Prima <https://example.test/Perch%C3%A9> dopo e basta.',
+    },
+    {
+      name: 'more than one balanced parenthesis level',
+      input: 'Prima [x](https://example.test/a(b(c))/Perch%C3%A9) dopo %COMPANY% e basta.',
+      expected: 'Prima [x](https://example.test/a(b(c))/Perch%C3%A9) dopo e basta.',
+    },
+    // `{ID}` rides in every URL below: the percent-encoded bytes alone would be
+    // spared by the placeholder pattern even where the scanner missed the URL.
+    {
+      name: 'reference destination with a backslash-escaped ")"',
+      input: 'Prima\n[id]: https://example.test/a\\)b/{ID}/Perch%C3%A9 %COMPANY%\nDopo.',
+      expected: 'Prima\n[id]: https://example.test/a\\)b/{ID}/Perch%C3%A9\nDopo.',
+    },
+    {
+      name: 'reference destination with a stray ")"',
+      input: 'Prima\n[id]: https://example.test/a)b/{ID}/Perch%C3%A9 %COMPANY%\nDopo.',
+      expected: 'Prima\n[id]: https://example.test/a)b/{ID}/Perch%C3%A9\nDopo.',
+    },
+    {
+      name: 'reference definition after a lone carriage return',
+      input: 'Prima\r[id]: docs/{ID}/Perch%C3%A9.html %COMPANY%\rDopo.',
+      expected: 'Prima\r[id]: docs/{ID}/Perch%C3%A9.html\rDopo.',
+    },
+    {
+      name: 'URL inside the label of a reference definition',
+      input: '[vedi https://example.test/{ID}/x]: /dest %COMPANY%',
+      expected: '[vedi https://example.test/{ID}/x]: /dest',
+    },
+    {
+      name: 'URL inside a title attribute, next to text that is stripped',
+      input: 'Prima <a href="/x" title="Vedi https://example.test/{ID}/Perch%C3%A9 di {COMPANY}">link</a> dopo.',
+      expected: 'Prima <a href="/x" title="Vedi https://example.test/{ID}/Perch%C3%A9 di ">link</a> dopo.',
+    },
+    {
+      name: 'relative URL with an encoded byte inside a data attribute',
+      input: 'Prima <div data-url="/wiki/{ID}/Perch%C3%A9">x</div> dopo %COMPANY% e basta.',
+      expected: 'Prima <div data-url="/wiki/{ID}/Perch%C3%A9">x</div> dopo e basta.',
+    },
+    {
+      name: 'absolute URL glued to a relative path without encoded bytes',
+      input: 'Vai su /go?u=https://example.test/{ID}/x oggi %COMPANY% e basta.',
+      expected: 'Vai su /go?u=https://example.test/{ID}/x oggi e basta.',
+    },
+    {
+      name: 'www URL after a comma inside a relative token',
+      input: 'Vai su /redirect,www.example.test/a{ID} oggi %COMPANY% e basta.',
+      expected: 'Vai su /redirect,www.example.test/a{ID} oggi e basta.',
+    },
+    {
+      name: 'unclosed link whose URL runs past a balanced ")"',
+      input: 'Vedi [x](https://example.test/a_(b)/{ID}/c dopo %COMPANY% e basta.',
+      expected: 'Vedi [x](https://example.test/a_(b)/{ID}/c dopo e basta.',
+    },
+    {
+      name: 'unclosed link with a URL in the middle of its destination',
+      input: 'Vedi [x](u=https://example.test/a_(b)/{ID}/c dopo %COMPANY% e basta.',
+      expected: 'Vedi [x](u=https://example.test/a_(b)/{ID}/c dopo e basta.',
+    },
+    {
+      name: 'a backslash does not carry a destination across a blank',
+      input: 'Vedi [x](a\\ https://example.test/a_(b)/{ID}/c dopo %COMPANY% e basta.',
+      expected: 'Vedi [x](a\\ https://example.test/a_(b)/{ID}/c dopo e basta.',
+    },
+    {
+      name: 'a link nested in the destination of one whose title never closes',
+      input: 'Vedi x](a](/rel/{ID}/y) (titolo %COMPANY% e basta.',
+      expected: 'Vedi x](a](/rel/{ID}/y) (titolo e basta.',
+    },
+  ] as const;
+
+  it.each(OPAQUE_SPAN_CASES)('preserves the opaque destination: $name', ({ input, expected }) => {
+    expect(stripPlaceholderTokens(input)).toBe(expected);
+  });
+
+  it('keeps an escaped close parenthesis inside a reference destination', () => {
+    const input = '[id]: https://example.test/a\\)b/Perch%C3%A9';
+    expect(stripPlaceholderTokens(input)).toBe(input);
+  });
+
+  // The scanner protects the URL syntax it recognises; the pattern itself must
+  // not read percent-encoded bytes as a token where no syntax can be recognised.
+  const ENCODED_OUTSIDE_URL_CASES = [
+    ['a path of prose without a leading slash', 'Scarica docs/Perch%C3%A9.html oggi'],
+    ['a three-byte character in a file name', 'Tema: l%E2%80%99UE e la Svizzera'],
+    ['a four-byte character', 'File a%F0%9F%98%80b.png allegato'],
+    ['a lower-case second byte', 'File Perch%C3%a9.pdf allegato'],
+    ['the tail of a bare URL cut short by a stray ")"', 'Vedi https://example.test/a)b/Perch%C3%A9 oggi'],
+  ] as const;
+
+  it.each(ENCODED_OUTSIDE_URL_CASES)('never reads percent-encoded bytes as a placeholder: %s', (_name, text) => {
+    expect(stripPlaceholderTokens(text)).toBe(text);
+    expect(stripPlaceholderTokens(`${text} %COMPANY%`)).toBe(text);
+  });
+
+  it('still strips a percent token that is not URL encoding', () => {
+    expect(stripPlaceholderTokens('Lavora per %COMPANY% oggi')).toBe('Lavora per oggi');
+    // A two-letter name is a token unless another encoded byte follows it.
+    expect(stripPlaceholderTokens('Codice %AB% valido')).toBe('Codice valido');
+    expect(stripPlaceholderTokens('Da %NOME%da domani')).toBe('Da da domani');
+    expect(stripPlaceholderTokens('Sigla %AB%CD intatta')).toBe('Sigla %AB%CD intatta');
+  });
+
   it('keeps percent-encoded bytes inside a Markdown link target', () => {
     const text = `*Fonte: [rsi.ch](${RSI})*`;
     expect(stripPlaceholderTokens(text)).toBe(text);
@@ -609,5 +781,194 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
         fieldType: 'description',
       }),
     ).toBe(`*Quelle: [rsi.ch](${RSI})*`);
+  });
+
+  it('preserves ordinary slash prose and keeps the placeholder vocabulary case-sensitive', () => {
+    expect(stripPlaceholderTokens('e/o km/h 24/7 (AZIENDA) (azienda) %COMPANY%')).toBe('e/o km/h 24/7 (azienda)');
+  });
+
+  const NUL = '\u0000';
+  const EXISTING_SLOT_SHAPED_NUL = `${NUL}7${NUL}`;
+  const NUL_CASES = [
+    {
+      name: 'NUL without a link or placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL}dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL}dopo`,
+    },
+    {
+      name: 'NUL with a placeholder but no link',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} %COMPANY% dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} dopo`,
+    },
+    {
+      name: 'NUL with a link but no placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+    },
+    {
+      name: 'NUL with a link and a placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) %COMPANY% dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+    },
+  ] as const;
+
+  it.each(NUL_CASES)('restores only its own slots: $name', ({ input, expected }) => {
+    const output = stripPlaceholderTokens(input);
+    expect(output).toBe(expected);
+    expect(output).not.toContain('undefined');
+  });
+
+  it('scans 200 KB of unclosed parentheses and quotes within the linearity budget', () => {
+    const pathological = `[x](${`(`.repeat(100_000)}\n<a href="${'x'.repeat(100_000)} %COMPANY%`;
+    const startedAt = performance.now();
+    const output = stripPlaceholderTokens(pathological);
+    const elapsedMs = performance.now() - startedAt;
+
+    expect(output).not.toContain('%COMPANY%');
+    expect(output).not.toContain('undefined');
+    expect(elapsedMs).toBeLessThan(1000);
+  });
+
+  // A scan that fails must not make the scanner skip text: the first version
+  // of the scanner resumed at the end of the text (or at the next `>`) after
+  // an unterminated title or a `<` of prose, and every URL after that point
+  // lost its protection — `/wiki/Perch A9` again, a regression against the
+  // regular expression it replaced.
+  const RELATIVE = '/wiki/Perch%C3%A9';
+  const ABSOLUTE = 'https://it.wikipedia.org/wiki/Citt%C3%A0_(Svizzera)';
+  const AFTER_MALFORMED_CASES = [
+    {
+      name: 'a link title whose quote never closes, links two lines below',
+      input: `Vedi [a](/x "titolo non chiuso\n\nSegnaposto %COMPANY% qui.\n\nPoi [città](${RELATIVE}) e ${ABSOLUTE} fine.`,
+    },
+    {
+      name: 'a "<" of prose with no ">" on its line, links two lines below',
+      input: `Soglia <CHF 3.000 al mese %COMPANY%.\n\nPoi [città](${RELATIVE}) e ${ABSOLUTE} fine.`,
+    },
+    {
+      name: 'a "<" of prose with a ">" further on the same line',
+      input: `Se x <y allora [città](${RELATIVE}) e z> w %COMPANY% fine.`,
+    },
+    {
+      name: 'an angle destination that never closes, link below',
+      input: `Vedi [a](</x non chiusa %COMPANY%\n\nPoi [città](${RELATIVE}) fine.`,
+    },
+    {
+      name: 'a valid link on the same line, after the malformed one',
+      input: `Vedi [a](/x "non chiuso e poi [città](${RELATIVE}) %COMPANY% fine.`,
+    },
+    {
+      name: 'the destination of a malformed link is itself a bare URL',
+      input: `Vedi [a](${ABSOLUTE} "titolo" extra) %COMPANY% fine.`,
+    },
+    {
+      name: 'an unquoted attribute soup that is not a tag',
+      input: `Prezzo <b [non un tag] %COMPANY% e poi ${ABSOLUTE} > fine.`,
+    },
+  ];
+
+  it.each(AFTER_MALFORMED_CASES)('keeps protecting what follows $name', ({ input }) => {
+    const output = stripPlaceholderTokens(input);
+    expect(output).not.toContain('%COMPANY%');
+    for (const url of [RELATIVE, ABSOLUTE]) {
+      if (input.includes(url)) expect(output).toContain(url);
+    }
+  });
+
+  // The property behind the cases above, checked on generated text instead of
+  // on the shapes someone thought of: whatever precedes or follows it, a URL
+  // delimited by blanks comes back byte for byte. Each URL carries a placeholder
+  // shape other than encoded bytes, which the pattern would spare even where
+  // the scanner missed the URL. Deterministic: the generator is seeded.
+  // Measured on 400,000 texts when this was written: 160,271 URLs lost by the
+  // regular expression this scanner replaced, 1,292 by its first version.
+  it('returns a blank-delimited URL intact after any generated text', () => {
+    const FRAGMENTS = [
+      '](', '(', ')', '"', "'", '<', '>', '<a ', '</a>', 'x=', 'href=', 'title=', '[', ']', ']:', '[id]: ',
+      '/', './', '//', 'http://', 'https://h.test/p', 'www.', ' ', '\t', '\\', '%C3%', '%NOME%', '{ID}', 'a', 'b/c',
+      ',', '.', '=', '!', '`',
+    ];
+    const URLS = [
+      'https://example.test/{ID}/x__AB__',
+      'https://example.test/Perch%C3%A9_(x)/%COMPANY%',
+      '/wiki/Perch%C3%A9/{ID}',
+      'www.example.test/%COMPANY%/a',
+      '//cdn.example.test/[[slot]]/a',
+    ];
+    let seed = 0x9e3779b9;
+    const random = () => {
+      seed = (seed + 0x6d2b79f5) | 0;
+      let mixed = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      mixed = (mixed + Math.imul(mixed ^ (mixed >>> 7), 61 | mixed)) ^ mixed;
+      return ((mixed ^ (mixed >>> 14)) >>> 0) / 4294967296;
+    };
+    const pick = (list: readonly string[]) => list[Math.floor(random() * list.length)];
+    const generated = () => {
+      let text = '';
+      const length = Math.floor(random() * 26);
+      for (let index = 0; index < length; index += 1) text += random() < 0.06 ? '\n' : pick(FRAGMENTS);
+      return text;
+    };
+
+    const lost: string[] = [];
+    for (let iteration = 0; iteration < 20_000; iteration += 1) {
+      const url = pick(URLS);
+      const before = pick([' ', '\n', '\t', '\r\n']);
+      const after = pick([' ', '\n', '\t', '\r\n', '']);
+      const text = `${generated()}${before}${url}${after}${after ? generated() : ''}`;
+      if (!stripPlaceholderTokens(text).includes(url)) lost.push(JSON.stringify(text));
+    }
+    expect(lost.slice(0, 3)).toEqual([]);
+  });
+
+  it('still reads a real HTML tag: href/src values are opaque, other attributes stay text', () => {
+    const input = `<a class="(AZIENDA)" href="/x/(AZIENDA)/y" title=ok>link</a> <img src='/i/(AZIENDA).png'/> %COMPANY%`;
+    const output = stripPlaceholderTokens(input);
+    expect(output).toContain('href="/x/(AZIENDA)/y"');
+    expect(output).toContain("src='/i/(AZIENDA).png'");
+    expect(output).not.toContain('class="(AZIENDA)"');
+    expect(output).not.toContain('%COMPANY%');
+  });
+
+  it('protects a destination longer than the scan cap as a bare URL', () => {
+    const absolute = `https://example.org/${'a'.repeat(700)}/Perch%C3%A9?x=${'b'.repeat(300)}`;
+    const relative = `/wiki/${'a'.repeat(700)}/Perch%C3%A9`;
+    const output = stripPlaceholderTokens(`Vedi [qui](${absolute}) e [qua](${relative}) %COMPANY% fine.`);
+    expect(output).toContain(absolute);
+    expect(output).toContain(relative);
+    expect(output).not.toContain('%COMPANY%');
+  });
+
+  // Linearity without skipping: each shape below made a naive "retry from the
+  // next character" scanner quadratic, and made the regular expression it
+  // replaced take tens of seconds.
+  const PATHOLOGICAL_SHAPES = [
+    ['unbalanced openers after "]("', `[x](${'('.repeat(200_000)}`],
+    ['"](" repeated with no closer at all', '](a'.repeat(66_000)],
+    ['"](" repeated, one closer at the very end', `${']('.repeat(100_000)})`],
+    // The worst shape: closers everywhere, never one that balances. No
+    // per-line memory can answer it in advance; the length cap bounds it.
+    ['closers that never balance from any start', `${']('.repeat(499)}))`.repeat(200)],
+    ['"<a " repeated with no ">"', '<a '.repeat(66_000)],
+    ['a title quote that never closes, repeated', '](a "b '.repeat(28_000)],
+    ['a parenthesized title that never balances', `${'](a (('.repeat(33_000)})`],
+    ['an attribute value whose quote never closes', '<a href="x '.repeat(18_000)],
+    // Review of 12095: 22.8 s on 195 KB before the tag scan had a cap.
+    ['unquoted attributes that never reach a ">"', '<a x='.repeat(40_000)],
+    ['unquoted attributes ending in an unclosed quote and a ">"', `${'<a x='.repeat(40_000)}<a y="aperta >`],
+    ['relative paths nested in one token', `/${'./'.repeat(100_000)}`],
+    ['a title opener after the last ")" of the line', `${'](a'.repeat(30_000)}) (${'x'.repeat(100_000)}`],
+    // Not the scanner: the spacing tidy-up after the strip, quadratic on main.
+    ['emptied brackets side by side', '[] '.repeat(66_000)],
+  ] as const;
+
+  it.each(PATHOLOGICAL_SHAPES)('stays within the linearity budget on %s', (_name, shape) => {
+    const input = `${shape} %COMPANY% ${ABSOLUTE}`;
+    const startedAt = performance.now();
+    const output = stripPlaceholderTokens(input);
+    const elapsedMs = performance.now() - startedAt;
+    expect(output).not.toContain('%COMPANY%');
+    expect(output).toContain(ABSOLUTE);
+    expect(elapsedMs).toBeLessThan(1000);
   });
 });
