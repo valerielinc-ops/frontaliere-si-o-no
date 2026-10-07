@@ -1108,8 +1108,8 @@
       "slug": "preventivo-e-coordinatore-post-vendita-bkw-marly",
       "slugByLocale": {
         "it": "preventivo-e-coordinatore-post-vendita-bkw-marly",
-        "en": "assistant-to-the-quantity-quote-manager-bkw-marly",
-        "de": "assistent-du-responsable-chiffrage-bkw-marly",
+        "en": "estimator-after-sales-coordinator-bkw-marly",
+        "de": "kalkulator-und-after-sales-koordinator-bkw-marly",
         "fr": "assistant-du-responsable-chiffrage-bkw-marly"
       },
       "company": "BKW",
@@ -1156,8 +1156,6 @@
       "previousSlugs": [
         "assistant-du-responsable-chiffrage-bkw-ch",
         "assistant-du-responsable-chiffrage-bkw-marly",
-        "estimator-after-sales-coordinator-bkw-marly",
-        "kalkulator-und-after-sales-koordinator-bkw-marly",
         "assistant-to-the-quantity-quote-manager-bkw-marly",
         "assistent-du-responsable-chiffrage-bkw-marly"
       ],
@@ -1167,11 +1165,9 @@
         ],
         "en": [
           "assistant-du-responsable-chiffrage-bkw-marly",
-          "estimator-after-sales-coordinator-bkw-marly",
           "assistant-to-the-quantity-quote-manager-bkw-marly"
         ],
         "de": [
-          "kalkulator-und-after-sales-koordinator-bkw-marly",
           "assistent-du-responsable-chiffrage-bkw-marly"
         ],
         "fr": [
@@ -19708,7 +19704,7 @@
       "slug": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
       "slugByLocale": {
         "it": "specialista-nella-protezione-antincendio-tutti-bkw-chur",
-        "en": "brandschutzfachmann-frau-alle-bkw-chur",
+        "en": "fire-protection-specialist-woman-all-bkw-chur",
         "de": "brandschutzfachmann-frau-alle-bkw-ch",
         "fr": "specialiste-de-la-protection-incendie-tous-bkw-chur"
       },
@@ -19756,8 +19752,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brandschutzfachmann-frau-alle-bkw-ch",
-        "brandschutzfachmann-frau-alle-bkw-chur",
-        "fire-protection-specialist-woman-all-bkw-chur"
+        "brandschutzfachmann-frau-alle-bkw-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19766,7 +19761,6 @@
         ],
         "en": [
           "brandschutzfachmann-frau-alle-bkw-ch",
-          "fire-protection-specialist-woman-all-bkw-chur",
           "brandschutzfachmann-frau-alle-bkw-chur"
         ],
         "fr": [
@@ -20471,7 +20465,7 @@
       "slug": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
       "slugByLocale": {
         "it": "distretto-del-laboratorio-di-prova-delle-corde-tutti-bkw-bern",
-        "en": "employee-cable-inspectorate-all-bkw-bern",
+        "en": "associate-seilprufstelle-alle-bkw-bern",
         "de": "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "fr": "employe-du-laboratoire-d-essai-de-cordes-tous-bkw-bern"
       },
@@ -20520,7 +20514,6 @@
       "previousSlugs": [
         "mitarbeiter-in-seilprufstelle-alle-bkw-ch",
         "rope-testing-laboratory-employee-all-bkw-bern",
-        "associate-seilprufstelle-alle-bkw-bern",
         "employee-cable-inspectorate-all-bkw-bern"
       ],
       "previousSlugsByLocale": {
@@ -20529,7 +20522,6 @@
         ],
         "en": [
           "rope-testing-laboratory-employee-all-bkw-bern",
-          "associate-seilprufstelle-alle-bkw-bern",
           "employee-cable-inspectorate-all-bkw-bern"
         ]
       },
@@ -23012,7 +23004,7 @@
         "it": "senior-hr-business-partner-alle-bkw-ch-2",
         "en": "senior-hr-business-partner-alle-bkw-ch-2",
         "de": "senior-hr-business-partner-alle-bkw-ch",
-        "fr": "senior-hr-business-partner-alle-bkw-bulle"
+        "fr": "partenaire-principal-des-rh-tous-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -23058,7 +23050,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-hr-business-partner-alle-bkw-ch",
-        "partenaire-principal-des-rh-tous-bkw-bulle",
         "senior-hr-business-partner-alle-bkw-bulle"
       ],
       "previousSlugsByLocale": {
@@ -23066,7 +23057,6 @@
           "senior-hr-business-partner-alle-bkw-ch"
         ],
         "fr": [
-          "partenaire-principal-des-rh-tous-bkw-bulle",
           "senior-hr-business-partner-alle-bkw-bulle"
         ]
       },
@@ -26501,12 +26491,12 @@
     },
     {
       "id": "bkw-d4bc6a4b3c25",
-      "slug": "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-bern",
+      "slug": "responsabile-ingegneria-tecnologia-e-operazione-bess-tutti-bkw-bern",
       "slugByLocale": {
         "de": "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch",
-        "it": "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-bern",
-        "en": "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch",
-        "fr": "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch"
+        "it": "responsabile-ingegneria-tecnologia-e-operazione-bess-tutti-bkw-bern",
+        "en": "head-of-in-house-engineering-technology-operation-bess-all-bkw-bern",
+        "fr": "chef-de-l-ingenierie-interne-de-la-technologie-et-de-l-operation-bess-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26554,11 +26544,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch",
+          "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-bern"
+        ],
+        "en": [
+          "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch"
+        ],
+        "fr": [
           "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch"
+        "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-ch",
+        "leiter-in-house-engineering-technologie-operation-bess-alle-bkw-bern"
       ],
       "salaryMin": 105500,
       "salaryMax": 160000,
@@ -26729,8 +26727,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-heizung-alle-bkw-ch",
         "it": "responsabile-di-progetto-heizung-alle-bkw-kriens",
-        "en": "projektleiter-in-heizung-alle-bkw-ch",
-        "fr": "projektleiter-in-heizung-alle-bkw-ch"
+        "en": "heating-project-manager-all-bkw-kriens",
+        "fr": "chef-de-projet-chauffage-tous-bkw-kriens"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26779,6 +26777,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-heizung-alle-bkw-ch"
+        ],
+        "en": [
+          "projektleiter-in-heizung-alle-bkw-ch"
+        ],
+        "fr": [
           "projektleiter-in-heizung-alle-bkw-ch"
         ]
       },
@@ -26880,8 +26884,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-gebaudeautomation-alle-bkw-ch",
         "it": "responsabile-di-progetto-gebaudeautomation-alle-bkw-oberkirch",
-        "en": "projektleiter-in-gebaudeautomation-alle-bkw-ch-3",
-        "fr": "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
+        "en": "building-automation-project-manager-all-bkw-oberkirch",
+        "fr": "chef-de-projet-en-automatisation-du-batiment-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26930,6 +26934,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
+        ],
+        "en": [
+          "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
+        ],
+        "fr": [
           "projektleiter-in-gebaudeautomation-alle-bkw-ch-3"
         ]
       },

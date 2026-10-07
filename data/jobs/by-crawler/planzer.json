@@ -706,8 +706,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach",
         "it": "collaboratore-trice-unterhalt-e-fuhrpark-m-w-d-planzer-kallnach",
-        "en": "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach",
-        "fr": "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
+        "en": "employees-maintenance-and-fleet-m-f-d-planzer-kallnach",
+        "fr": "employes-entretien-et-flotte-h-f-d-planzer-kallnach"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -757,6 +757,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
+        ],
+        "en": [
+          "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
+        ],
+        "fr": [
           "mitarbeiter-unterhalt-und-fuhrpark-m-w-d-planzer-kallnach"
         ]
       },
