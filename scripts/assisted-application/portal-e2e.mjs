@@ -44,7 +44,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, dropped: 0, registrations: 0, logins: 0 };
+  const workday = { accounts: new Map(), silent: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0 };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -197,7 +197,17 @@ function fakePortal() {
   // after the click, without loading a document; its real submit is hidden (aria-hidden, tabindex -2)
   // under a «click_filter» overlay, and only a click on the overlay counts («NoCaptcha»); a honeypot a
   // hundredth of a pixel tall («beecatcher») must stay empty. A click that fails either test does nothing.
-  const workdayAccountPage = () => page('Careers', `
+  // Above the page, the site's header has a «Sign In» of its own: it opens a dialog over everything, and
+  // comes first in the document (dry run of 2026-10-07: the runner pressed it instead of the form's link).
+  // The form's link draws the other form a moment later, in place.
+  const workdayAccountPage = () => `<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Careers</title></head><body>
+    <header><button id="util" type="button">Sign In</button></header>
+    <div id="popup" role="dialog" aria-modal="true" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:50;background:#fff">
+      <label for="pe">Email Address *</label><input id="pe" type="text">
+      <label for="pp">Password *</label><input id="pp" type="password">
+      <button type="button">Close</button>
+    </div>
+    <main>
     <h2 id="title">Create Account</h2>
     <form id="auth">
       <div id="notice"></div>
@@ -228,7 +238,8 @@ function fakePortal() {
         el('p2').required = next === 'create';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
-      el('swap').onclick = () => show(view === 'create' ? 'sign_in' : 'create', '');
+      el('swap').onclick = () => setTimeout(() => show(view === 'create' ? 'sign_in' : 'create', ''), 700);
+      el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
       el('auth').onsubmit = (event) => {
         event.preventDefault();
@@ -242,7 +253,7 @@ function fakePortal() {
           else show('sign_in', answer.message);
         }, 1500);
       };
-    </script>`);
+    </script></main></body></html>`;
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
     const send = (html) => { res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' }); res.end(html); };
@@ -368,8 +379,8 @@ function fakePortal() {
     }
     if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/apply') : send(workdayAccountPage());
-    if (route === 'POST /wd/dropped') {
-      workday.dropped += 1;
+    if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
+      workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
       res.writeHead(204);
       return res.end();
     }
@@ -639,6 +650,9 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   state.sessions.clear();
   const again = await run();
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
+  // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
+  // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  check('Workday: the «Sign In» link of the form is the one pressed, never the one in the site header', workday.headerSignIns === 0 && /create:ok/.test(authOf(again)) && /sign_in:ok/.test(authOf(again)));
   // The portal says no (the address is taken): its message is read, and no password is kept.
   saved.clear();
   state.sessions.clear();

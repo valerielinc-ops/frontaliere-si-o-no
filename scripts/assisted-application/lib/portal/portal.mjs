@@ -57,6 +57,9 @@ const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
 const AUTH_OUTCOME_POLL_MS = 500;
+// How long the link between the two account pages («Sign In» under the registration form, «Create Account»
+// under the sign-in one) gets to draw the other page.
+const AUTH_VIEW_TIMEOUT_MS = 8_000;
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -869,11 +872,6 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
 }
 
 /**
- * One login page (account.mjs): sign in with the order's account, or create
- * it on the alias, or verify it. Returns the next page, a handoff reason,
- * questions for the candidate, or `dryRun` (a dry run never creates an account).
- */
-/**
  * The page a registration or a sign-in leads to, once the portal has answered its click: another kind of
  * page, or the same form with its messages. A page application answers without loading a new document, so
  * «network idle» is long past and the page read at once is still the form: a real order of 2026-10-07
@@ -898,6 +896,31 @@ async function awaitAuthOutcome(page, before, shown = []) {
   return after || extractFields(page);
 }
 
+/**
+ * The other account page, once the link to it has drawn it. Such a link changes the page in place: read at
+ * once (0.2 s after the click, dry run of 2026-10-07 on Workday) it was still the page with the link, which
+ * was pressed again.
+ * @param {object} before the page the link was pressed on
+ */
+async function awaitAuthView(page, before) {
+  await settle(page);
+  const read = () => extractFields(page).catch(() => null);
+  const labels = (view) => view.fields.map((field) => field.label).join('|');
+  const same = (after) => !after || (authPageKind(after) === authPageKind(before) && labels(after) === labels(before));
+  const deadline = Date.now() + AUTH_VIEW_TIMEOUT_MS;
+  let after = await read();
+  while (same(after) && Date.now() < deadline) {
+    await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
+    after = await read();
+  }
+  return after || extractFields(page);
+}
+
+/**
+ * One login page (account.mjs): sign in with the order's account, or create
+ * it on the alias, or verify it. Returns the next page, a handoff reason,
+ * questions for the candidate, or `dryRun` (a dry run never creates an account).
+ */
 async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false, diagnostics = null, recreated = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
@@ -905,8 +928,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
 
   if (kind === 'sign_in' && !account) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
-    await settle(page);
-    return { snapshot: await extractFields(page) };
+    return { snapshot: await awaitAuthView(page, snapshot) };
   }
 
   // With SuccessFactors' OTP verification the candidate is not an account
@@ -918,8 +940,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   // second one.
   if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account_verification' };
-    await settle(page);
-    const registration = await extractFields(page);
+    const registration = await awaitAuthView(page, snapshot);
     if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
     return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true, diagnostics });
   }
@@ -945,8 +966,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
       if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed' };
       await ctx.accounts.discard(host, 'never_created');
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return { handoff: 'account_sign_in_failed' };
-      await settle(page);
-      const registration = await extractFields(page);
+      const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return { handoff: 'account_sign_in_failed' };
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
@@ -959,8 +979,7 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: sign in instead.
     if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
-    await settle(page);
-    return { snapshot: await extractFields(page) };
+    return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
   const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
@@ -1416,7 +1435,17 @@ export async function submitViaPortal(ctx) {
       if (ownAccount && !ctx.accounts) return await handoff('account');
       if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
-        const auth = await handleAuth({ page, snapshot, ctx, diagnostics });
+        let auth;
+        try {
+          auth = await handleAuth({ page, snapshot, ctx, diagnostics });
+        } catch (error) {
+          // A control of the account page that could not be pressed or typed into (covered by a dialog,
+          // redrawn away): another run finds the same page. Thrown, it ended the run with no page kept
+          // and, read as a timeout, the run was started again twice; the owner gets the page instead.
+          if (!/^locator\./.test(String(error?.message || ''))) throw error;
+          evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error', error: String(error.message).split('\n')[0].slice(0, 160) };
+          return await handoff('account');
+        }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),

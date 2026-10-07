@@ -428,7 +428,12 @@ export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatur
 // SuccessFactors (Coop, 2026-10-03): «Bitte korrigieren Sie die folgenden Fehler.», «Anrede ist erforderlich».
 export const VALIDATION_RE = /(this field is required|required field|is required|pflichtfeld|bitte (füllen|geben|korrigieren) sie|ist erforderlich|campo (obbligatorio|richiesto)|è obbligatori[oa]|correggi gli errori|champ (obligatoire|requis)|est (obligatoire|requis)|corrigez les erreurs|please (fill|complete|enter|correct))/i;
 
-/** First enabled button matching the pattern (a disabled one is returned only when asked). */
+/**
+ * First enabled button matching the pattern (a disabled one is returned only when asked). One of the page's
+ * own before one of the site's header, navigation or footer (`chrome`, fields.mjs): of two «Sign In» the
+ * form's link is the one meant, and the header's is pressed only when it is the only one.
+ */
 export function findButton(buttons, pattern, { includeDisabled = false } = {}) {
-  return buttons.find((button) => pattern.test(button.text) && (includeDisabled || !button.disabled)) || null;
+  const matching = buttons.filter((button) => pattern.test(button.text) && (includeDisabled || !button.disabled));
+  return matching.find((button) => !button.chrome) || matching[0] || null;
 }

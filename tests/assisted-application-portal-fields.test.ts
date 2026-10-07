@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
 /** Runs the in-page extractor on `html` as Playwright would, with every element laid out (data-size: its side in px, default 20). */
@@ -239,6 +240,33 @@ describe('portal field extraction', () => {
       <div aria-hidden="true"><button type="button" aria-label="Behind a dialog">Behind a dialog</button></div><button type="button" aria-label="Next">Next</button>`);
     expect(widgets.fields.map((field: any) => field.name)).toEqual(['privacy', 'cv']);
     expect(widgets.buttons.map((button: any) => button.text)).toEqual(['Next']);
+  });
+
+  // Dry run of 2026-10-07 (Workday): two «Sign In» on the account page, the site header's first in the
+  // document (it opens a dialog over the page) and the form's own link.
+  it('tells a control of the site’s header, navigation or footer from one of the page', () => {
+    const page = extract(`
+      <header><div><button type="button" aria-label="Sign In">Sign In</button></div></header>
+      <nav><a role="button" aria-label="Jobs">Jobs</a></nav>
+      <main>
+        <form>
+          <label for="e">Email Address*</label><input id="e" type="text" required>
+          <label for="p1">Password*</label><input id="p1" type="password" required>
+          <button type="button" aria-label="Sign In">Sign In</button>
+          <footer><button type="submit" aria-label="Create Account">Create Account</button></footer>
+        </form>
+        <section><header><button type="button" aria-label="Edit">Edit</button></header></section>
+      </main>
+      <div role="dialog"><footer><button type="button" aria-label="Accept">Accept</button></footer></div>
+      <footer><button type="button" aria-label="Cookie settings">Cookie settings</button></footer>
+      <div role="contentinfo"><button type="button" aria-label="Imprint">Imprint</button></div>`);
+    // A <footer> or a <header> inside the form, a section or a dialog belongs to the page, not to the site.
+    expect(page.buttons.map((button: any) => `${button.text}${button.chrome ? ' (site)' : ''}`)).toEqual([
+      'Sign In (site)', 'Jobs (site)', 'Sign In', 'Create Account', 'Edit', 'Accept', 'Cookie settings (site)', 'Imprint (site)',
+    ]);
+    // Of the two «Sign In» the form's is the one to press; the header's only where it is the only one.
+    expect(findButton(page.buttons, /^sign in$/i).chrome).toBeUndefined();
+    expect(findButton(page.buttons, /^jobs$/i).text).toBe('Jobs');
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {

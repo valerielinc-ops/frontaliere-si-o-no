@@ -46,6 +46,15 @@
     const dialogId = dialogIdFor(element);
     return { dialog: Boolean(dialogId), dialogId };
   };
+  // The site's own header, navigation and footer, around the page: a «Sign In» up there is the site's (on
+  // Workday it opens a dialog over the page), not the link of the form below. A <footer> or a <header>
+  // inside the form, a dialog or the page's main part belongs to it.
+  const SITE_CHROME = 'header, nav, footer, [role="banner"], [role="navigation"], [role="contentinfo"]';
+  const PAGE_CONTENT = 'main, [role="main"], form, dialog, [role="dialog"], article, section';
+  const inSiteChrome = (element) => {
+    const chrome = element.closest(SITE_CHROME);
+    return Boolean(chrome) && !chrome.closest(PAGE_CONTENT);
+  };
   const textOf = (id) => {
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
@@ -334,6 +343,7 @@
       text: clean(element.innerText || element.value || element.getAttribute('aria-label') || ''),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
+      ...(inSiteChrome(element) ? { chrome: true } : {}),
     }))
     .filter((button) => button.text)
     .slice(0, 60);
