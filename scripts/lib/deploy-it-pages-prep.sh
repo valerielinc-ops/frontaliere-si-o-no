@@ -683,13 +683,15 @@ step_push_cdn() {
   # HTML alive during cache convergence. Fail closed if either side is absent:
   # publishing only a legacy or only an unversioned producer can recreate the
   # D18 untagged page_view gap.
-  if [ -d "$stage/assets" ]; then
-    local gtag_versioned_asset
-    gtag_versioned_asset="$(find "$stage/assets" -maxdepth 1 -type f -name 'gtag-init-*.js' -print -quit)"
-    if [ ! -f "$stage/assets/gtag-init.js" ] || [ -z "$gtag_versioned_asset" ]; then
-      echo "::error::CDN asset stage must contain gtag-init.js and a content-addressed gtag-init-<hash>.js" >&2
-      return 1
-    fi
+  if [ ! -d "$stage/assets" ]; then
+    echo "::error::CDN asset stage is missing dist/assets and cannot publish the GA4 producer" >&2
+    return 1
+  fi
+  local gtag_versioned_asset
+  gtag_versioned_asset="$(find "$stage/assets" -maxdepth 1 -type f -name 'gtag-init-*.js' -print -quit)"
+  if [ ! -f "$stage/assets/gtag-init.js" ] || [ -z "$gtag_versioned_asset" ]; then
+    echo "::error::CDN asset stage must contain gtag-init.js and a content-addressed gtag-init-<hash>.js" >&2
+    return 1
   fi
   # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
   # 400 shards): runtime-fetch only (public/404.html + the Worker), no static

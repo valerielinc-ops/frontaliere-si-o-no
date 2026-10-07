@@ -1339,10 +1339,13 @@ export const Analytics = {
   generatedPageViewEmissionId ??= createAnalyticsEmissionIdSource();
   return generatedPageViewEmissionId;
  };
- const pageViewEmissionId = emissionId === undefined || emissionId === null
+ const requestedPageViewEmissionId = typeof emissionId === 'string' && emissionId.trim().length > 0
+  ? emissionId
+  : undefined;
+ const pageViewEmissionId = requestedPageViewEmissionId === undefined
   ? createAnalyticsEmissionId()
-  : emissionId;
- const resolvedPageViewEmissionId = emissionId === undefined || emissionId === null
+  : requestedPageViewEmissionId;
+ const resolvedPageViewEmissionId = requestedPageViewEmissionId === undefined
   ? staticPageViewEmissionId || pageViewEmissionId
   : pageViewEmissionId;
  const now = Date.now();

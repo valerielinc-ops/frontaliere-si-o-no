@@ -50,6 +50,12 @@ function r2SyncLine(prefix: string): string {
 }
 
 describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
+  it('fails closed unless both GA4 bootstrap paths are staged', () => {
+    expect(PREP).toContain('CDN asset stage is missing dist/assets and cannot publish the GA4 producer');
+    expect(PREP).toContain("-f \"$stage/assets/gtag-init.js\"");
+    expect(PREP).toContain("-name 'gtag-init-*.js'");
+  });
+
   it('never publishes /assets/ as immutable (filenames are stable, bytes are not)', () => {
     expect(r2SyncLine('assets')).not.toMatch(/immutable/);
   });

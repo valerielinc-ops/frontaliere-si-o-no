@@ -521,7 +521,8 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * gtag library is blocked.
  */
 /**
- * Plain JS body for the gtag init — written to dist/assets/gtag-init.js by
+ * Plain JS body for the gtag init — written to both the content-addressed
+ * dist/assets/gtag-init-<hash>.js and the legacy dist/assets/gtag-init.js by
  * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
  * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
  */

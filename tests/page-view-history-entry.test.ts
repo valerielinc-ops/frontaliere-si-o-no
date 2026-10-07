@@ -194,9 +194,9 @@ describe('page-view emission identity', () => {
     })))).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
   });
 
-  it('coins an identity when the caller cannot provide one', async () => {
+  it.each([null, '', '   '])('coins an identity when the caller cannot provide %j', async (missingEmissionId) => {
     const { Analytics } = await loadAnalytics();
-    const emissionId = Analytics.trackPageView('/non-determinabile/', undefined, null, null);
+    const emissionId = Analytics.trackPageView('/non-determinabile/', undefined, null, missingEmissionId);
 
     expect(emissionId).toEqual(expect.any(String));
     await waitForProviders(1);
