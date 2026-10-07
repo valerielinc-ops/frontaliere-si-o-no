@@ -15,8 +15,8 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
@@ -398,7 +398,7 @@ async function main() {
   if (report.errors > 0) process.exitCode = 1;
 }
 
-if (process.argv[1] && path.resolve(fileURLToPath(import.meta.url)) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(() => {
     console.error('[loop-clock-health] observer failed');
     process.exitCode = 1;

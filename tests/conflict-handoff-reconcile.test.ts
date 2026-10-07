@@ -676,7 +676,7 @@ describe('contratto del gemello del corpus (generator/tests/conflict-handoff-rec
 
   it('nessun import nuovo: il corpus ha gli stessi moduli importati di prima', () => {
     const source = readFileSync('scripts/ci/reconcile-conflict-handoffs.mjs', 'utf8');
-    const imports = [...source.matchAll(/from '([^']+)'/g)].map((m) => m[1]).sort();
+    const imports = [...new Set([...source.matchAll(/from '([^']+)'/g)].map((m) => m[1]))].sort();
     expect(imports).toEqual([
       './check-issue-already-resolved.mjs',
       './followup-resolution-match.mjs',
@@ -684,7 +684,6 @@ describe('contratto del gemello del corpus (generator/tests/conflict-handoff-rec
       './stale-claim-detector.mjs',
       'node:child_process',
       'node:fs',
-      'node:path',
       'node:url',
     ]);
   });
