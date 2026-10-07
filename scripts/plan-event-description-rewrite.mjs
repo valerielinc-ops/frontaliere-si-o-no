@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { existsSync, writeFileSync } from 'node:fs';
+import { appendFileSync, existsSync, writeFileSync } from 'node:fs';
 import {
   CIRCUIT_BREAKER_THRESHOLD,
   DEFAULT_EVENTS_PER_SHARD,
@@ -19,8 +19,24 @@ function argument(name, fallback = '') {
 
 function writeOutput(pathname, values) {
   if (!pathname) return;
-  const lines = Object.entries(values).map(([key, value]) => `${key}=${typeof value === 'string' ? value : JSON.stringify(value)}`);
-  writeFileSync(pathname, `${lines.join('\n')}\n`);
+  // Keep the output contract statically visible to the workflow audit. The
+  // planner still accepts a single values object, but the map written to
+  // GITHUB_OUTPUT is declared at the sink so every exported key is provable.
+  const lines = {
+    effective_shards: values.effectiveShards,
+    events_per_shard: values.eventsPerShard,
+    quota_error_threshold: values.quotaErrorThreshold,
+    circuit_breaker_threshold: values.circuitBreakerThreshold,
+    shard_matrix: values.shardMatrix,
+    direction: values.direction,
+    reason: values.reason,
+  };
+  appendFileSync(
+    pathname,
+    `${Object.entries(lines)
+      .map(([key, value]) => `${key}=${typeof value === 'string' ? value : JSON.stringify(value)}`)
+      .join('\n')}\n`,
+  );
 }
 
 const requestedShards = normalizeShardCount(argument('--requested-shards', DEFAULT_SHARD_COUNT));
@@ -48,13 +64,5 @@ const output = {
 
 const planOutput = argument('--plan-output');
 if (planOutput) writeFileSync(planOutput, `${JSON.stringify(output, null, 2)}\n`, { mode: 0o600 });
-writeOutput(argument('--github-output'), {
-  effective_shards: output.effectiveShards,
-  events_per_shard: output.eventsPerShard,
-  quota_error_threshold: output.quotaErrorThreshold,
-  circuit_breaker_threshold: output.circuitBreakerThreshold,
-  shard_matrix: output.shardMatrix,
-  direction: output.direction,
-  reason: output.reason,
-});
+writeOutput(argument('--github-output'), output);
 console.log(JSON.stringify(output));
