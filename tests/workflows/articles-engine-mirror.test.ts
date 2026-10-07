@@ -33,10 +33,10 @@ import {
  * absent — measured on production, and the reason audit:footer-root-presence
  * went from 23 offenders to 3608.
  *
- * mirror-articles-engine.yml restores the direction by carrying `engine/` alone.
- * That split is the entire safety argument, so it is the thing tested here: the
+ * mirror-articles-engine.yml restores the direction by carrying `engine/` plus
+ * the action-owned image-lane patch. That split is the entire safety argument, so it is the thing tested here: the
  * old mirror's destructive behaviour was all about `content/`, and an
- * engine-only mirror that cannot name `content/` is safe to fire on `push` —
+ * engine/image-lane mirror that cannot name `content/` is safe to fire on `push` —
  * which is what makes it automatic, which is what makes the drift stop being
  * invisible.
  *
@@ -117,7 +117,7 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     ).toBe(false);
   });
 
-  it('fails closed on any staged path outside the engine', () => {
+  it('fails closed on any staged path outside the engine/image-broker allowlist', () => {
     // A guard that only warns is a guard that ships the bad diff. The run must
     // stop, so assert both the allowlist and a non-zero exit next to it.
     expect(
@@ -126,8 +126,8 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     ).toBe(true);
 
     expect(
-      /grep -vE '\^\(engine\//.test(live),
-      'the staged-path allowlist must be anchored on engine/',
+      /grep -vE '\^\(\\\.github\/actions\/setup-claude-haiku-fallback\/codex-auth-broker\\\.mjs\|engine\//.test(live),
+      'the staged-path allowlist must include the action-owned image broker and engine/',
     ).toBe(true);
 
     // Scope to the allowlist branch itself. Slicing a fixed window from the
@@ -181,6 +181,25 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
           'it would never trigger the mirror',
       ).toContain(`packages/articles/${f}`);
     }
+  });
+
+  it('watches and applies the adapted action-owned image broker', () => {
+    const paths: string[] = on.push.paths ?? [];
+    const broker = '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs';
+    const patcher = 'scripts/ci/apply-corpus-image-broker-patch.mjs';
+
+    expect(paths, 'the broker is consumed but no push path watches it').toContain(broker);
+    expect(paths, 'the patcher is consumed but no push path watches it').toContain(patcher);
+    expect(src, 'the sparse checkout must materialise the broker').toContain(`/${broker}`);
+    expect(src, 'the sparse checkout must materialise the patcher').toContain(`/${patcher}`);
+    expect(
+      live,
+      'the mirror must apply the patcher to the corpus broker',
+    ).toContain(`node "$GITHUB_WORKSPACE/${patcher}"`);
+    expect(
+      live,
+      'the mirror must attest the adapted broker after patching',
+    ).toContain('broker_target_sha="$(sha256sum "$broker_target" | cut -d\' \' -f1)"');
   });
 
   it('checks the sparse checkout actually produced an engine', () => {
