@@ -697,6 +697,11 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     expect(stripPlaceholderTokens(input)).toBe(expected);
   });
 
+  it('keeps an escaped close parenthesis inside a reference destination', () => {
+    const input = '[id]: https://example.test/a\\)b/Perch%C3%A9';
+    expect(stripPlaceholderTokens(input)).toBe(input);
+  });
+
   // The scanner protects the URL syntax it recognises; the pattern itself must
   // not read percent-encoded bytes as a token where no syntax can be recognised.
   const ENCODED_OUTSIDE_URL_CASES = [
