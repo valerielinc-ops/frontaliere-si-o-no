@@ -10,6 +10,7 @@ import { readAttr, readMetaContent, scanHtmlTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
 
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const POSTAL_LOCALITY_LINE_RX = /\b([1-9]\d{3})\s+([\p{Lu}][\p{L}.'’\-]*(?:\s+[\p{L}.'’\-]+){0,5})\s*$/u;
 
 /** @param {string} raw */
 function classTokens(raw) {
@@ -79,6 +80,20 @@ function cleanLocation(value = '') {
     .trim();
 }
 
+/**
+ * Read the postal/locality pair used by Umantis' newer `column-value` rows.
+ * This deliberately accepts a complete metadata value only: a four-digit
+ * number in arbitrary row text is not enough to become workplace evidence.
+ * @param {string} value
+ * @returns {string}
+ */
+function postalLocalityValue(value = '') {
+  const text = cleanLocation(value).replace(/^\s*\|\s*/, '').trim();
+  if (!text || /(?:online seit|art|befristung|berufsgruppe|unternehmensbereich)\s*:/i.test(text)) return '';
+  const match = POSTAL_LOCALITY_LINE_RX.exec(text);
+  return match ? `${match[1]} ${match[2].trim()}` : '';
+}
+
 /** @param {string} value */
 function locationCandidate(value = '') {
   const location = cleanLocation(value);
@@ -111,9 +126,10 @@ export function umantisVacancyIdentity(url = '') {
 }
 
 /**
- * Read row-scoped listing location evidence. Older Umantis tenants commonly
- * publish the authoritative postal locality beside the vacancy link, while
- * the detail page contains only prose.
+ * Read row-scoped listing location evidence. Umantis tenants publish the
+ * authoritative postal locality beside the vacancy link, while the detail
+ * page often contains only prose. Both the older pipe-style span and the
+ * newer `column-value` metadata value are supported.
  * @param {string} html
  * @param {string} baseUrl
  * @returns {Map<string, ReturnType<typeof locationCandidate>>}
@@ -142,6 +158,31 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '') {
         || classes.some((token) => token === 'tableaslist_element_26476')) {
         rawLocation = value.replace(/^\s*\|\s*/, '');
         if (rawLocation) break;
+      }
+      // The newer Umantis table keeps row metadata in generic `column-value`
+      // spans. A postal/locality pair is the source's workplace field here;
+      // accept it only from that metadata element, never from arbitrary row
+      // prose or a neighbouring vacancy.
+      if (classes.includes('column-value')) {
+        const postalValue = postalLocalityValue(value);
+        if (postalValue) {
+          rawLocation = postalValue;
+          break;
+        }
+      }
+    }
+    if (!rawLocation) {
+      // Some Umantis themes put the value directly in a list item while the
+      // nested span has no stable class. The item is still row-scoped and the
+      // complete postal/locality shape keeps employer/title text out.
+      for (const item of rowIndex.tags.filter((tag) => tag.name === 'li')) {
+        const bound = rowIndex.bounds.get(item.index);
+        if (!bound) continue;
+        const postalValue = postalLocalityValue(structuredText(row.slice(item.end, bound.contentEnd)));
+        if (postalValue) {
+          rawLocation = postalValue;
+          break;
+        }
       }
     }
     if (!rawLocation) {
