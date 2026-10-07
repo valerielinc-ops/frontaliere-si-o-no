@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -51,6 +51,13 @@ describe('portal link clicks', () => {
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {
+  it('recognises French ATS upload controls and maps nationality aliases to the portal catalogue', () => {
+    expect(CV_UPLOAD_RE.test('Charger un CV')).toBe(true);
+    expect(COVER_LETTER_UPLOAD_RE.test('Joindre une lettre de motivation')).toBe(true);
+    expect(nationalityOptionLabel('italiana', ['allemande', 'italienne', 'suisse'])).toBe('italienne');
+    expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
+  });
+
   it('drops invented sensitive answers and turns the required ones into questions', () => {
     const guarded = guardPlan({
       actions: [

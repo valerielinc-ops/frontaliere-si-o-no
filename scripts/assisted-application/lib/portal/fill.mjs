@@ -1,3 +1,5 @@
+import { isNationalityField, nationalityOf } from '../../../../functions/src/lib/permitStatus.js';
+
 /**
  * Deterministic filler of the portal runner. Techniques, no code taken, from
  * OfferOS (Apache-2.0, apps/extension/src/lib/autofill/dom-fill.ts, aria-driver.ts)
@@ -83,6 +85,22 @@ async function choiceRegistered(locator, kind, label) {
   }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
 }
 
+const normalizedChoice = (value) => String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+
+/**
+ * SuccessFactors sometimes gives a nationality picklist a country name in
+ * the form language while the planner used the candidate's wording (for
+ * example «italiana» vs «italienne»). This is safe only for nationality
+ * fields: the shared catalogue maps both labels to the same country code.
+ */
+export function nationalityOptionLabel(value, options) {
+  const wanted = nationalityOf(value)?.code;
+  if (!wanted) return '';
+  const matches = [...new Set((options || []).map((option) => String(option || '').replace(/\s+/g, ' ').trim()))]
+    .filter((option) => nationalityOf(option)?.code === wanted);
+  return matches.length === 1 ? matches[0] : '';
+}
+
 /** The option's own element, or (after a re-render dropped our id) the radio with that label. */
 async function radioLocator(page, field, option) {
   const byId = locatorFor(page, field, option.aaId);
@@ -150,27 +168,46 @@ async function fillCombobox(page, field, locator, value) {
 /** SuccessFactors' picklist: open it, wait for its options to load, click the one named. */
 async function chooseInOwnedList(page, field, locator, value) {
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  await locator.click({ timeout: ACTION_TIMEOUT_MS });
-  const option = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`).getByRole('option', { name: value, exact: true }).first();
-  try {
-    await option.waitFor({ state: 'visible', timeout: 10_000 });
-  } catch {
-    await locator.press('Escape').catch(() => {});
-    throw new Error('option_not_found');
+  const list = frame.locator(`[id="${String(field.ownedList).replace(/["\\]/g, '\\$&')}"]`);
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    if (attempt) {
+      await locator.press('Escape').catch(() => {});
+      await page.waitForTimeout(250);
+    }
+    await locator.click({ timeout: ACTION_TIMEOUT_MS });
+    const options = list.getByRole('option');
+    try {
+      await options.first().waitFor({ state: 'visible', timeout: 10_000 });
+    } catch {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
+    const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(value));
+    const selectedLabel = exact || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    if (!selectedLabel) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    const index = labels.findIndex((label) => normalizedChoice(label) === normalizedChoice(selectedLabel));
+    if (index < 0) {
+      await locator.press('Escape').catch(() => {});
+      throw new Error('option_not_found');
+    }
+    await options.nth(index).click({ timeout: ACTION_TIMEOUT_MS });
+    // SuccessFactors writes the choice into the input a moment after the
+    // click (Coop, 2026-10-03: «Nein» was there, the check had looked too
+    // early). A Rolex picklist can also re-render once before committing the
+    // choice, so give it one bounded retry instead of reporting a false
+    // choice_not_registered and submitting a blank nationality.
+    const deadline = Date.now() + 5000;
+    for (;;) {
+      if (await choiceRegistered(locator, field.kind, selectedLabel)) return selectedLabel;
+      if (Date.now() >= deadline) break;
+      await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
+    }
   }
-  await option.click({ timeout: ACTION_TIMEOUT_MS });
-  // SuccessFactors writes the choice into the input a moment after the click
-  // (Coop, 2026-10-03: «Nein» was there, the check had looked too early): up
-  // to 3 s, looked at once more when they are over (review of #11061).
-  const deadline = Date.now() + 3000;
-  for (;;) {
-    const shown = await locator.evaluate((element, label) => {
-      const same = String(element.value || '').replace(/\s+/g, ' ').trim().toLowerCase() === String(label).replace(/\s+/g, ' ').trim().toLowerCase();
-      return same && element.getAttribute('aria-expanded') !== 'true';
-    }, value).catch(() => false);
-    if (shown || Date.now() >= deadline) return;
-    await page.waitForTimeout(Math.min(200, Math.max(0, deadline - Date.now())));
-  }
+  throw new Error('choice_not_registered');
 }
 
 /** SAP UI5's date picker: its own input, in its shadow root, in the pattern it states. */
@@ -380,20 +417,24 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         if (!option) throw new Error('radio_option_missing');
         await setChoice(await radioLocator(page, field, option), true);
       } else if (['select', 'listbox', 'combobox'].includes(field.kind)) {
+        let selectedLabel = action.value;
         if (field.kind === 'select') {
-          await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
+          const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
+          selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label)) : '');
+          if (!selectedLabel) throw new Error('option_not_found');
+          await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {
           // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
         } else if (field.selectLike) {
-          await chooseInOwnedList(page, field, locator, action.value);
+          selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
         } else {
           await fillCombobox(page, field, locator, action.value);
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
-        if (!await choiceRegistered(locator, field.kind, action.value)) throw new Error('choice_not_registered');
+        if (!await choiceRegistered(locator, field.kind, selectedLabel)) throw new Error('choice_not_registered');
       } else if (field.kind === 'date') {
         await fillDatePicker(page, field, locator, action.value);
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
