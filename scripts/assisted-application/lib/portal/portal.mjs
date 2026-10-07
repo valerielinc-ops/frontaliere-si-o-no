@@ -23,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -542,7 +542,12 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
     await settle(page);
   }
-  const after = await extractFields(page);
+  let after = await extractFields(page);
+  const outcomeDeadline = Date.now() + OUTCOME_TIMEOUT_MS;
+  while (verificationIsPending(after) && Date.now() < outcomeDeadline) {
+    await page.waitForTimeout(Math.min(1000, outcomeDeadline - Date.now()));
+    after = await extractFields(page);
+  }
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
   const outcome = verificationOutcome(after);
