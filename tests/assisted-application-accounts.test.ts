@@ -142,6 +142,9 @@ describe('what the portal answers', () => {
     expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('accepted');
     expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: true }] })).toBe('unconfirmed');
     expect(verificationOutcome({ text: '', fields: [field('c', 'text', 'Bestätigungscode')], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('rejected');
+    expect(verificationOutcome({ text: 'Check your email to verify your account', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('unconfirmed');
+    expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: ' ', label: 'Connexion', disabled: false }] })).toBe('accepted');
+    expect(verificationOutcome({ text: '', fields: [field('e', 'email', 'E-Mail'), field('p1', 'password', 'Kennwort'), field('p2', 'password', 'Kennwort bestätigen')], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('unconfirmed');
     expect(verificationOutcome(page('Bewerbung', [field('v', 'text', 'Vorname'), { ...field('cv', 'file', 'Lebenslauf'), kind: 'file' }]))).toBe('accepted');
     expect(verificationOutcome(page('Fehler: Ungültiger Link'))).toBe('rejected');
     expect(verificationOutcome(page('This link has expired. Request a new one.'))).toBe('rejected');
