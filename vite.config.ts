@@ -13,6 +13,7 @@ import { buildIdPlugin } from './build-plugins/buildIdPlugin';
 import { seoBlogShardIndexPlugin, RESOLVED_SEO_BLOG_SHARD_INDEX_ID } from './build-plugins/seoBlogShardIndexPlugin';
 import { newsTickerDataPlugin } from './build-plugins/newsTickerDataPlugin';
 import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
+import { assetIntegrityManifestPlugin } from './build-plugins/shared/assetIntegrity';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { minifyCriticalIndexCssPlugin } from './build-plugins/minifyCriticalIndexCss';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
@@ -180,6 +181,7 @@ export default defineConfig(({ mode }) => {
  // To re-enable: restore the bootstrap+finalize plugins below and the
  // `Cache content-hash manifest` step in .github/workflows/deploy.yml.
  buildIdPlugin(__dirname),
+ assetIntegrityManifestPlugin(__dirname),
  staticScriptsPlugin(__dirname),
  asyncCssPlugin(),
  // Slim homepage news-ticker payload (5 latest articles, per-locale title+slug)
