@@ -1219,6 +1219,20 @@ export const EDGE_RETIRED_PATHS = {
   '/de/grenzgaenger-artikel/schweizer-immobilienpreise-steigen/': null,
   '/fr/articles-frontalier/prix-immobilier-suisse-augmentent/': null,
 
+  // ── 410 — upstream-aborted articles with no substitute (12 URLs).
+  '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/': null,
+  '/en/cross-border-articles/living-pre-saint-didier-working-valais/': null,
+  '/de/grenzgaenger-artikel/leben-pre-saint-didier-arbeiten-wallis/': null,
+  '/fr/articles-frontalier/vivre-pre-saint-didier-travailler-valais/': null,
+  '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/': null,
+  '/en/cross-border-articles/moving-to-saint-nicolas-as-a-cross-border-worker-pros-and-cons/': null,
+  '/de/grenzgaenger-artikel/umzug-nach-saint-nicolas-als-grenzgaenger-vor-und-nachteile/': null,
+  '/fr/articles-frontalier/demenager-a-saint-nicolas-en-tant-que-frontalier-avantages-et-inconvenients/': null,
+  '/articoli-svizzera/abort-topical-relevance-trump-health/': null,
+  '/en/swiss-articles/news-not-relevant/': null,
+  '/de/schweiz-artikel/nicht-zutreffende-nachrichten/': null,
+  '/fr/articles-suisse/information-non-pertinente/': null,
+
   // ── 410 — alias orphans (20 URLs).
   '/de/grenzgaenger-artikel/banken-gewerkschaften-plattform-vereinbarung/': null,
   '/articoli-frontaliere/addiofrontalierelongo/': null,
