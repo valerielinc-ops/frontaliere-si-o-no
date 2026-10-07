@@ -18,7 +18,11 @@
  *     Google's entitlement cookie is there (Funding Choices shows no
  *     Offerwall to a visitor it already entitled);
  *   - `ad_path`, `fc_loaded`, `adsbygoogle_loaded`, `ad_blocked`: as in
- *     `ad_page_diag` (services/adPageDiag.ts), read at the click;
+ *     `ad_page_diag` (services/adPageDiag.ts), read at the click.
+ *     `fc_loaded` is Funding Choices' own API: until 2026-10-07 it also
+ *     counted `__tcfapi`, which Google's ad script stubs by itself, so with
+ *     the Funding Choices script blocked the stage came out as
+ *     `cmf_not_called` instead of `fc_not_loaded` (live);
  *   - `shown_ms`: milliseconds from the page load to the decision.
  * `rewarded_offerwall_gate_late`, OFFERWALL_GATE_LATE_CHECK_MS later:
  *   - `reason` and `gate_status`: the gate status then. `held` means the
