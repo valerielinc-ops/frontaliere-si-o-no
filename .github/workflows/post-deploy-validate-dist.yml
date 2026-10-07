@@ -429,10 +429,15 @@ jobs:
           # running when it merged (publish run 37543977878: validate:og-images,
           # added by #11924 two hours after the build's commit). Only "missing
           # in this build AND present on origin/main" is a skip; a script
-          # missing from both is a real bug and still fails. `|| true`: if the
-          # fetch fails nothing is skipped.
-          git fetch --depth=1 origin main -q 2>/dev/null || true
-          git show origin/main:package.json > /tmp/pkg-main-src.json 2>/dev/null || true
+          # missing from both is a real bug and still fails. main's package.json
+          # is read ONLY from the FETCH_HEAD of a fetch that succeeded in this
+          # invocation: a stale `origin/main` ref left by the checkout must not
+          # be able to turn a missing script into a skip. Fetch or read failed →
+          # the file is absent and nothing is skipped.
+          rm -f /tmp/pkg-main-src.json
+          if git fetch --depth=1 origin main -q 2>/dev/null; then
+            git show FETCH_HEAD:package.json > /tmp/pkg-main-src.json 2>/dev/null || rm -f /tmp/pkg-main-src.json
+          fi
           npm_script_drifted() {
             node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$1" 2>/dev/null && return 1
             [ -s /tmp/pkg-main-src.json ] || return 1
@@ -791,8 +796,13 @@ jobs:
           # skip must do. The true state ("skip", not "ran and passed") is
           # preserved in the per-gate log file instead, exactly like those
           # siblings preserve their real rc in the log after hard-coding 0.
-          git fetch --depth=1 origin main -q 2>/dev/null || true
-          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
+          # main's package.json only from the FETCH_HEAD of a fetch that succeeded
+          # in THIS invocation: a stale `origin/main` ref (or a file left by an
+          # earlier step) must not turn a missing script into a skip.
+          rm -f /tmp/pkg-main.json
+          if git fetch --depth=1 origin main -q 2>/dev/null; then
+            git show FETCH_HEAD:package.json > /tmp/pkg-main.json 2>/dev/null || rm -f /tmp/pkg-main.json
+          fi
 
           spawn_capped() {
             local name=$1; local logfile=$2; shift 2
@@ -1513,8 +1523,13 @@ jobs:
           # instead of a real gate result. Same guard as spawn_capped: skip
           # (rc=0, not fail) only when the script is confirmed missing here
           # but present on origin/main.
-          git fetch --depth=1 origin main -q 2>/dev/null || true
-          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
+          # main's package.json only from the FETCH_HEAD of a fetch that succeeded
+          # in THIS invocation: a stale `origin/main` ref (or a file left by an
+          # earlier step) must not turn a missing script into a skip.
+          rm -f /tmp/pkg-main.json
+          if git fetch --depth=1 origin main -q 2>/dev/null; then
+            git show FETCH_HEAD:package.json > /tmp/pkg-main.json 2>/dev/null || rm -f /tmp/pkg-main.json
+          fi
           for chain_step in \
             "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
             "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
