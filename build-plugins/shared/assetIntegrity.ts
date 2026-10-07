@@ -1,8 +1,17 @@
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import type { OutputAsset, OutputBundle, OutputChunk } from 'rollup';
 import type { Plugin } from 'vite';
+
+type OutputAssetLike = {
+  readonly type: 'asset';
+  readonly source: string | Uint8Array;
+};
+
+type OutputChunkLike = {
+  readonly type: 'chunk';
+  readonly code: string;
+};
 
 /**
  * Build-time Subresource Integrity registry for assets served from the CDN.
@@ -70,7 +79,7 @@ export function integrityAttributeForAsset(value: string): string {
   return integrity ? ` integrity="${integrity}"` : '';
 }
 
-function sourceForOutput(output: OutputAsset | OutputChunk): string | Uint8Array {
+function sourceForOutput(output: OutputAssetLike | OutputChunkLike): string | Uint8Array {
   return output.type === 'asset' ? output.source : output.code;
 }
 
