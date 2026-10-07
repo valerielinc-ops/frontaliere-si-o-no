@@ -23,7 +23,10 @@ import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
 } from './review-test-policy.mjs';
-import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import {
+  fetchPrFiles,
+  isRetryablePrFileSnapshot,
+} from './lib/fetchPrFiles.mjs';
 import {
   classifyAutomationRisk,
 } from './lib/automation-risk-policy.mjs';
@@ -743,11 +746,14 @@ export function isTransientGithubReadError(error) {
   return TRANSIENT_GH_READ_ERROR_RE.test(transientGithubErrorText(error));
 }
 
-/** Retry only idempotent GitHub reads; mutations remain single-attempt and fail closed. */
+export { isRetryablePrFileSnapshot } from './lib/fetchPrFiles.mjs';
+
+/** Retry only idempotent GitHub reads and known transient incomplete snapshots; mutations remain single-attempt and fail closed. */
 export function withTransientGithubReadRetry(operation, {
   attemptLimit = MAX_TRANSIENT_GH_READ_ATTEMPTS,
   delaysMs = TRANSIENT_GH_READ_RETRY_DELAYS_MS,
   sleep = sleepForTransientReadRetry,
+  shouldRetryResult = () => false,
 } = {}) {
   if (typeof operation !== 'function') throw new TypeError('read retry operation must be a function');
   const attempts = Number.isSafeInteger(attemptLimit) && attemptLimit > 0
@@ -755,10 +761,14 @@ export function withTransientGithubReadRetry(operation, {
     : MAX_TRANSIENT_GH_READ_ATTEMPTS;
   const delays = Array.isArray(delaysMs) ? delaysMs : TRANSIENT_GH_READ_RETRY_DELAYS_MS;
   const wait = typeof sleep === 'function' ? sleep : sleepForTransientReadRetry;
+  const retryResult = typeof shouldRetryResult === 'function' ? shouldRetryResult : () => false;
 
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
-      return operation();
+      const result = operation();
+      if (attempt + 1 >= attempts || !retryResult(result)) return result;
+      const delayMs = Number(delays[attempt]);
+      if (Number.isFinite(delayMs) && delayMs > 0) wait(delayMs);
     } catch (error) {
       if (attempt + 1 >= attempts || !isTransientGithubReadError(error)) throw error;
       const delayMs = Number(delays[attempt]);
@@ -798,7 +808,10 @@ function loadVerifiedTestOnlyReview(repo, pr, head, reviews, reviewRevision) {
 }
 
 function loadChangedFiles(repo, pr) {
-  const snapshot = fetchPrFiles(pr, ghForTestOnlyReview, repo);
+  const snapshot = withTransientGithubReadRetry(
+    () => fetchPrFiles(pr, ghForTestOnlyReview, repo),
+    { shouldRetryResult: isRetryablePrFileSnapshot },
+  );
   if (!snapshot.complete) {
     throw new Error(`elenco file PR non completo (${snapshot.reason})`);
   }

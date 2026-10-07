@@ -22,6 +22,7 @@ import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
+const LINKEDIN_JOB_URL_RE = /^https?:\/\/(?:[a-z-]+\.)?linkedin\.com\/jobs\/view\/[^/?#]+(?:[/?#]|$)/i;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -53,6 +54,19 @@ function slugify(value = '') {
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * A short career-card summary is not a source body. It may stay in the
+ * parser's intermediate result only when the card points at the authorized
+ * LinkedIn job detail that the runner can fetch and validate separately.
+ */
+export function isArtificialyLinkedInJobUrl(rawUrl = '') {
+  return LINKEDIN_JOB_URL_RE.test(String(rawUrl || '').trim());
+}
+
+function isSourceBodyCandidate(item = {}) {
+  return meetsSourceBodyFloor(item.description || '') || isArtificialyLinkedInJobUrl(item.applyUrl);
 }
 
 /**
@@ -287,10 +301,14 @@ export function parseArtificialyCareerPage(html = '') {
 
   if (!html || html.length < 200) return { items: [] };
 
-  // Try strategies in order of reliability
-  let items = extractJsonLdJobs(html);
-  if (items.length === 0) items = extractHtmlJobCards(html);
-  if (items.length === 0) items = extractLinkBasedJobs(html);
+  // Try strategies in order of reliability, but do not let a short JSON-LD
+  // teaser prevent a richer HTML/card source from being considered. A short
+  // card is retained only when its authorized LinkedIn detail URL gives the
+  // runner a source-backed enrichment path; the runner applies the hard floor
+  // again after that detail fetch.
+  let items = extractJsonLdJobs(html).filter(isSourceBodyCandidate);
+  if (items.length === 0) items = extractHtmlJobCards(html).filter(isSourceBodyCandidate);
+  if (items.length === 0) items = extractLinkBasedJobs(html).filter(isSourceBodyCandidate);
 
   // Deduplicate by title
   const seen = new Set();
