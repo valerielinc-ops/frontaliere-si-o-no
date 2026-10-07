@@ -6,6 +6,7 @@ import {
   classifyAplusListings,
   isAplusClassifiableLocation,
   isAplusEmptyListingPage,
+  parseAplusJobDetail,
   parseAplusListings,
 } from '../scripts/lib/a-plus-plus-job-parser.mjs';
 
@@ -66,6 +67,38 @@ describe('A++ listing classification', () => {
     expect(result.unclassifiedLocationCount).toBe(1);
     expect(result.lastFetchOutcome).toBe('filtered_empty');
     expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('can classify a missing listing location from the detail page', () => {
+    const listings = parseAplusListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/a2plus/jobs/lugano">Architect</a></h3></div>
+      </div>
+    `);
+    const detail = parseAplusJobDetail(`
+      <script type="application/ld+json">
+        {"@type":"JobPosting","title":"Architect","jobLocation":{"address":{"addressLocality":"Lugano","addressRegion":"TI","addressCountry":"CH"}}}
+      </script>
+    `);
+    const result = classifyAplusListings([{ ...listings[0], location: detail.location }]);
+
+    expect(detail.location).toBe('Lugano');
+    expect(result.listings).toHaveLength(1);
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(APLUS_UPDATER).toContain('resolveUnclassifiedAplusListings');
+    expect(APLUS_UPDATER).toContain('listing.detailHtml || await fetchText(detailUrl)');
+  });
+
+  it('reads the detail location by label when the company subtitle comes first', () => {
+    const detail = parseAplusJobDetail(`
+      <div id="description__vacancy-title">Architect</div>
+      <div id="description__subtitle">
+        <span class="subtitle__informations" title="Azienda">A++ Group</span>
+        <span class="subtitle__informations" title="Location">Massagno, Switzerland</span>
+      </div>
+    `);
+
+    expect(detail.location).toBe('Massagno, Switzerland');
   });
 
   it('lets an explicit foreign country override a Swiss city name', () => {
