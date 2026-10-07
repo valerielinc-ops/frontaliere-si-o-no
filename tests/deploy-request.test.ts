@@ -4,7 +4,9 @@ import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideLatestDeploy,
+  changedFilesRequiringDeploy,
   DEFAULT_MAX_BUILDS_PER_SHA,
+  MAX_DURABLE_RETRY_ATTEMPTS,
 } from '../scripts/ci/request-latest-deploy.mjs';
 
 const HEAD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
@@ -53,6 +55,24 @@ describe('decideLatestDeploy', () => {
     });
     expect(DEFAULT_MAX_BUILDS_PER_SHA).toBe(2);
   });
+
+  it('re-applies the push denylist to workflow_run compare paths', () => {
+    const ignored = [
+      'data/border-wait-current.json',
+      'data/translation-stats-history.json',
+      'docs/operations.md',
+    ];
+    expect(changedFilesRequiringDeploy(ignored, [
+      'data/border-wait-current.json',
+      'data/translation-stats-history.json',
+      'docs/**',
+    ])).toEqual([]);
+    expect(changedFilesRequiringDeploy([...ignored, 'components/App.tsx'], [
+      'data/border-wait-current.json',
+      'data/translation-stats-history.json',
+      'docs/**',
+    ])).toEqual(['components/App.tsx']);
+  });
 });
 
 describe('deploy-request.yml contract', () => {
@@ -78,6 +98,19 @@ describe('deploy-request.yml contract', () => {
     expect(request).toContain('/functions/src/githubApiHeaders.js');
     expect(request).toContain('APP_TOKEN_ACTIONS:-false');
     expect(request).toMatch(/actions:\s*write/);
+    expect(request).toContain("cron: '*/5 * * * *'");
+    expect(request).toContain('retry_head_sha');
+    expect(request).toContain('DEPLOY_BUILT_SHA');
+    expect(request).toContain('scripts/check-pages-publish-lag.mjs');
+  });
+
+  it('keeps durable self-retries bounded and visible when an API mutation fails', () => {
+    const source = readFileSync(resolve('scripts/ci/request-latest-deploy.mjs'), 'utf8');
+    expect(MAX_DURABLE_RETRY_ATTEMPTS).toBe(3);
+    expect(source).toContain('queueDurableRetry');
+    expect(source).toContain('deploy-queue-read-failed');
+    expect(source).toContain('deploy-dispatch-failed');
+    expect(source).toContain('return 1;');
   });
 
   it('does not introduce a second production build lock', () => {

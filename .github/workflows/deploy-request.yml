@@ -4,18 +4,38 @@ name: Queue latest GitHub Pages deploy
 # build directly: the dispatcher starts deploy.yml only when its build lock is
 # free. workflow_run is the second edge, so the latest main tip is picked up
 # immediately after the current build finishes even if every push arrived while
-# that build was running.
+# that build was running. The schedule is an independent reconciler for an API
+# outage that prevents the failed request from self-dispatching its retry.
 
 on:
   workflow_dispatch:
+    inputs:
+      retry_head_sha:
+        description: 'Head SHA retained by a durable dispatcher retry'
+        required: false
+        type: string
+        default: ''
+      retry_attempt:
+        description: 'Bounded self-dispatch retry number'
+        required: false
+        type: string
+        default: '0'
+      retry_reason:
+        description: 'Reason for the durable retry'
+        required: false
+        type: string
+        default: ''
+  schedule:
+    - cron: '*/5 * * * *'
   push:
     branches:
       - main
     # Keep the previous denylist here, where it now controls the cheap request
     # workflow rather than the production build. A mixed push remains eligible
     # by GitHub's normal paths-ignore semantics. This filter applies only to
-    # push: manual request/recovery and workflow_run completion events remain
-    # eligible by design.
+    # push; manual request/recovery, the schedule, and workflow_run completion
+    # events remain eligible by design. The script re-applies these exact globs
+    # to the compare range for workflow_run.
     #
     # The list is deliberately conservative: files that can feed Vite or an
     # assemble/build plugin stay deploy-bound. A forgotten path therefore
@@ -69,10 +89,12 @@ jobs:
         with:
           sparse-checkout: |
             /scripts/ci/request-latest-deploy.mjs
+            /scripts/check-pages-publish-lag.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/is-invoked-directly.mjs
             /scripts/ci/mint-app-token.mjs
             /scripts/lib/githubApiHeaders.mjs
+            /scripts/lib/int-from-env.mjs
             /functions/src/githubApiHeaders.js
           sparse-checkout-cone-mode: false
 
@@ -93,6 +115,11 @@ jobs:
           DEPLOY_BRANCH: main
           DEPLOY_WORKFLOW: deploy.yml
           DEPLOY_MAX_BUILDS_PER_SHA: '2'
+          DEPLOY_EVENT_NAME: ${{ github.event_name }}
+          DEPLOY_EVENT_HEAD_SHA: ${{ github.event_name == 'push' && github.event.after || github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || inputs.retry_head_sha }}
+          DEPLOY_BUILT_SHA: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
+          DEPLOY_RETRY_ATTEMPT: ${{ inputs.retry_attempt || '0' }}
+          DEPLOY_RETRY_REASON: ${{ inputs.retry_reason || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           set -euo pipefail
