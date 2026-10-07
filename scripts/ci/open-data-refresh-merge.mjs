@@ -7,6 +7,7 @@ const LEDGER_TRIM_LIMIT = 1000;
 export const EVENT_CACHE_PATHS = new Set([
   'data/events-geocode-cache.json',
   'data/events-translation-cache.json',
+  'data/events-description-rewrites.json',
 ]);
 
 function parseObject(raw, label) {
@@ -116,7 +117,26 @@ function mergeEventCache(file, baseRaw, remoteRaw, refreshRaw) {
   return `${JSON.stringify(merged, null, 2)}\n`;
 }
 
+function mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw) {
+  const base = parseObject(baseRaw ?? '{}', `${file} merge base`);
+  const remote = parseObject(remoteRaw, `${file} other branch`);
+  const refresh = parseObject(refreshRaw, `${file} current refresh`);
+  const mergedEntries = Object.fromEntries(Object.entries(mergeCacheEntries(
+    base.entries ?? {},
+    remote.entries ?? {},
+    refresh.entries ?? {},
+  )).sort(([left], [right]) => left.localeCompare(right)));
+  return `${JSON.stringify({
+    ...remote,
+    ...refresh,
+    entries: mergedEntries,
+  }, null, 2)}\n`;
+}
+
 function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
+  if (file === 'data/events-description-rewrites.json') {
+    return mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw);
+  }
   if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);
   if (TELEGRAM_LEDGER_PATHS.has(file)) return mergePostedLedger(remoteRaw, refreshRaw, file);
