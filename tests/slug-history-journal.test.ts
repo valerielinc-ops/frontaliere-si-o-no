@@ -214,7 +214,7 @@ describe('slug-history-journal', () => {
     expect(active[0].previousSlugs).toContain('associate-designer-medacta-castel-san-pietro');
   });
 
-  it('routes the incident aliases to their stable URL owner across writer reorder', () => {
+  it('does not recreate incident aliases as self-bridges across writer reorder', () => {
     const cases = [
       {
         source: {
@@ -273,8 +273,10 @@ describe('slug-history-journal', () => {
         const rightfulOwner = jobs.find((job) => job.url === owner.url);
         expect(claimant?.previousSlugs).not.toContain(previousSlug);
         expect(claimant?.previousSlugsByLocale?.it || []).not.toContain(previousSlug);
-        expect(rightfulOwner?.previousSlugs).toContain(previousSlug);
-        expect(rightfulOwner?.previousSlugsByLocale?.it).toContain(previousSlug);
+        // The alias is already the owner's active canonical route. Keeping it
+        // in history would emit a self-canonical bridge instead of a redirect.
+        expect(rightfulOwner?.previousSlugs || []).not.toContain(previousSlug);
+        expect(rightfulOwner?.previousSlugsByLocale?.it || []).not.toContain(previousSlug);
       }
     }
 

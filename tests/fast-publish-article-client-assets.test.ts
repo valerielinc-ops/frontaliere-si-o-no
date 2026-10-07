@@ -156,6 +156,45 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('defers a bounded one-for-one registry drift while preserving the no-publish guard', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 2 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({
+            swiss: {
+              kept: { it: 'kept' },
+              publishedReplacement: { it: 'published-replacement' },
+            },
+          }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: {
+          kept: { it: 'kept' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).toBe(true);
+      expect(verdict.note).toContain('publishedReplacement');
+      expect(verdict.note).toContain('staleLocalOnly');
+      expect(verdict.note).toContain('no bytes published');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects local article IDs absent from the published registry', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {

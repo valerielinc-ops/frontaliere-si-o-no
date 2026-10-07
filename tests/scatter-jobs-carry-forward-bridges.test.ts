@@ -21,7 +21,10 @@
 import { describe, it, expect } from 'vitest';
 import {
   applyAssembledToSliceJob,
+  buildAssembledJobIndex,
   collectMissingAssembledBridges,
+  matchAssembledJob,
+  verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
 import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -38,6 +41,105 @@ const baseSlice = () => ({
 });
 
 describe('scatter carry-forward of assembled previousSlugs bridges', () => {
+  it('matches an assembly-stamped id-less slice job by URL, not synthetic id', () => {
+    const sliceJob = { ...baseSlice() };
+    delete sliceJob.id;
+    const assembled = { ...sliceJob, id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+
+    expect(matchAssembledJob(sliceJob, index)).toBe(assembled);
+  });
+
+  it('rejects a stable-key collision when the URLs identify different postings', () => {
+    const assembled = { ...baseSlice(), id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+    const sibling = {
+      ...baseSlice(),
+      url: 'https://example.test/another-posting',
+      id: 'company-synthetic-id',
+    };
+
+    expect(matchAssembledJob(sibling, index)).toBeNull();
+  });
+
+  it('reports job, active-slug, and bridge parity after the URL-first join', () => {
+    const sliceJob = { ...baseSlice() };
+    delete sliceJob.id;
+    const assembled = { ...sliceJob, id: 'company-synthetic-id' };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      assembledJobs: 1,
+      uniqueAssembledJobs: 1,
+      matchedAssembledJobs: 1,
+      missingAssembledJobs: 0,
+      missingBridges: 0,
+      pendingWrites: 0,
+      activeSlugMismatches: 0,
+      passed: true,
+    });
+  });
+
+  it('accepts a partial assembled locale projection when the slice preserves its value', () => {
+    const assembled = [{
+      url: 'https://example.test/jobs/42',
+      slugByLocale: { it: 'new', en: '' },
+    }];
+    const slices = [{
+      jobs: [{
+        url: 'https://example.test/jobs/42',
+        slugByLocale: { it: 'new', en: 'existing' },
+      }],
+    }];
+
+    expect(verifyScatterParity(assembled, slices)).toMatchObject({
+      pendingWrites: 0,
+      activeSlugMismatches: 0,
+      passed: true,
+    });
+  });
+
+  it('rejects a URL hit when the slice id resolves to another assembled job', () => {
+    const assembled = [
+      { id: 'A', url: 'https://example.test/jobs/42' },
+      { id: 'B', url: 'https://example.test/jobs/43' },
+    ];
+    const index = buildAssembledJobIndex(assembled);
+
+    expect(matchAssembledJob({ id: 'B', url: 'https://example.test/jobs/42' }, index)).toBeNull();
+  });
+
+  it('fails parity when two distinct slices match the same assembled job by URL', () => {
+    const assembled = { id: 'assembled', url: 'https://example.test/jobs/42' };
+    const sliceEntries = [{
+      jobs: [
+        { id: 'slice-a', url: 'https://example.test/jobs/42' },
+        { id: 'slice-b', url: 'https://example.test/jobs/42' },
+      ],
+    }];
+
+    expect(verifyScatterParity([assembled], sliceEntries)).toMatchObject({
+      duplicateAssembledMatches: 1,
+      missingAssembledJobs: 0,
+      passed: false,
+    });
+  });
+
+  it('fails parity when an assembled bridge is absent from the slice', () => {
+    const sliceJob = { ...baseSlice() };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: ['bridge-missing-from-slice'],
+      previousSlugsByLocale: { en: ['bridge-missing-from-slice'] },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      missingAssembledJobs: 0,
+      missingBridges: 1,
+      pendingWrites: 1,
+      passed: false,
+    });
+  });
+
   it('does not turn another job canonical into claimant history after collision disambiguation (#6784)', () => {
     const owner = {
       id: 'company-owner',
@@ -166,6 +268,30 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       previousSlugsByLocale: { en: ['brand-new-bridge'] },
     };
     expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
+  });
+
+  it('does not rotate a full locale bucket when the flat union still has room', () => {
+    const fullIt = Array.from({ length: 20 }, (_, i) => `it-bridge-${i}`);
+    const sliceJob = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt],
+      previousSlugsByLocale: { it: [...fullIt] },
+    };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: [...fullIt, 'it-new-bridge'],
+      previousSlugsByLocale: { it: [...fullIt.slice(1), 'it-new-bridge'] },
+    };
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: null, slug: 'it-new-bridge' },
+    ]);
+    const result = applyAssembledToSliceJob(sliceJob, assembled);
+    expect(result.changed).toBe(true);
+    expect(result.job.previousSlugs).toContain('it-new-bridge');
+    expect(result.job.previousSlugsByLocale.it).toEqual(fullIt);
+    expect(result.job.previousSlugsByLocale.it).not.toContain('it-new-bridge');
+    expect(applyAssembledToSliceJob(result.job, assembled).changed).toBe(false);
   });
 
   // #4208 (post-merge review of #4200): collectMissingAssembledBridges was
