@@ -43021,7 +43021,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'cantello-teatro-dialettale-ottobre-2026',
  category: 'novita',
  date: '2026-10-07T16:05:11.490Z',
- image: '/images/blog/sindacati-miazzina-diritti-9-ottobre.webp',
+ image: '/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',

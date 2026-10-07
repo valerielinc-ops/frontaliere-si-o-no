@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5034
+      "6": 5035
     },
-    "publishedCovers": 6746,
+    "publishedCovers": 6747,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179414,6 +179414,33 @@
           "id": "marcel-salathe-ia-commento",
           "category": "novita",
           "date": "2026-10-07T20:39:09.410Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-vendemmia-mendrisiotto-lavoratori-terra": {
+      "cover": "/images/blog/article-vendemmia-mendrisiotto-lavoratori-terra.webp",
+      "hash": "60cc324ad18e77889859857b4b795d34a379eb4acd04834f4393c112591f487b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "vendemmia-mendrisiotto-lavoratori-terra",
+          "category": "pratico",
+          "date": "2026-10-07T21:11:35.309Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
