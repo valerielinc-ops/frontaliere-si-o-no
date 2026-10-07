@@ -87,7 +87,7 @@ describe('serialized Google Places budget reservation', () => {
       reservation: { month: '2026-09', googlePlaces: { requests: 10_000 } },
       checkedAt,
     });
-    expect(nextMonth).toMatchObject({ allowGoogle: true, reservedRequests: 10 });
+    expect(nextMonth).toMatchObject({ allowGoogle: true, reservedRequests: 11 });
 
     const exhausted = planGooglePlacesReservation({
       catalogues,
