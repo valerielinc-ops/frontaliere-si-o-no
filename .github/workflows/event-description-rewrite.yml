@@ -1,5 +1,7 @@
 name: Rewrite event descriptions (Codex Luna Max)
 
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Rewrite event descriptions (Codex Luna Max) [loop-clock {0}]', inputs.loop_clock) || 'Rewrite event descriptions (Codex Luna Max)' }}
+
 # The source prose is consumed only from a private Firebase backlog or a
 # short-lived, encrypted Actions artifact emitted by crawl-events. It is never
 # staged, committed, copied to public/data or uploaded by the shard jobs. The
@@ -25,8 +27,15 @@ on:
         required: false
         default: '40'
         type: string
+      loop_clock:
+        description: 'Opaque slot marker supplied by the external loop clock.'
+        required: false
+        default: ''
+        type: string
 
 concurrency:
+  # GitHub keeps one active and one pending run for this group. New clock ticks
+  # replace the pending run; admission below also stops overlap with the data PR.
   group: event-description-rewrite
   cancel-in-progress: false
 
@@ -48,9 +57,13 @@ jobs:
       shard_matrix: ${{ steps.plan.outputs.shard_matrix }}
       direction: ${{ steps.plan.outputs.direction }}
       reason: ${{ steps.plan.outputs.reason }}
+      admitted: ${{ steps.admission.outputs.admitted }}
+      admission_reason: ${{ steps.admission.outputs.admission_reason }}
+      admission_detail: ${{ steps.admission.outputs.admission_detail }}
     env:
       REQUESTED_SHARDS: ${{ inputs.shards || '3' }}
       REQUESTED_EVENTS_PER_SHARD: ${{ inputs.events_per_shard || '40' }}
+      DATA_PR_BRANCH: chore/event-description-rewrite
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -82,7 +95,42 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      - name: Check rewrite admission
+        id: admission
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh run list \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow event-description-rewrite.yml \
+            --limit 50 \
+            --json databaseId,status > "$RUNNER_TEMP/event-description-runs.json"
+          gh pr list \
+            --repo "$GITHUB_REPOSITORY" \
+            --state open \
+            --head "$DATA_PR_BRANCH" \
+            --base main \
+            --limit 20 \
+            --json number,state,headRefName,baseRefName > "$RUNNER_TEMP/event-description-data-prs.json"
+          node scripts/ci/check-event-description-admission.mjs \
+            --current-run-id "$GITHUB_RUN_ID" \
+            --runs-file "$RUNNER_TEMP/event-description-runs.json" \
+            --pull-requests-file "$RUNNER_TEMP/event-description-data-prs.json" \
+            --branch "$DATA_PR_BRANCH" \
+            --github-output "$GITHUB_OUTPUT"
+
+      - name: Report admission skip
+        if: steps.admission.outputs.admitted != 'true'
+        run: |
+          detail="${{ steps.admission.outputs.admission_detail }}"
+          reason="${{ steps.admission.outputs.admission_reason }}"
+          echo "Rewrite skipped before planning: $reason ($detail)."
+          echo "## Event description rewrite admission" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Esito: saltata prima del plan; motivo: `$reason` (`$detail`)." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Read previous run state
+        if: steps.admission.outputs.admitted == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -123,6 +171,7 @@ jobs:
 
       - name: Compute adaptive shard plan
         id: plan
+        if: steps.admission.outputs.admitted == 'true'
         run: |
           node scripts/plan-event-description-rewrite.mjs \
             --requested-shards "$REQUESTED_SHARDS" \
@@ -133,7 +182,7 @@ jobs:
 
   rewrite:
     needs: plan
-    if: ${{ needs.plan.result == 'success' }}
+    if: ${{ needs.plan.result == 'success' && needs.plan.outputs.admitted == 'true' }}
     strategy:
       fail-fast: false
       matrix:
@@ -335,7 +384,7 @@ jobs:
 
   merge:
     needs: [plan, rewrite]
-    if: ${{ always() && needs.plan.result == 'success' && needs.rewrite.result == 'success' }}
+    if: ${{ always() && needs.plan.result == 'success' && needs.plan.outputs.admitted == 'true' && needs.rewrite.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -369,6 +418,35 @@ jobs:
           path: ${{ runner.temp }}/event-description-shards
           merge-multiple: false
 
+      - name: Download recent successful run state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          recent_dir="$RUNNER_TEMP/event-description-recent-states"
+          mkdir -p "$recent_dir"
+          gh run list \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow event-description-rewrite.yml \
+            --status success \
+            --limit 30 \
+            --json databaseId,createdAt > "$RUNNER_TEMP/event-description-recent-runs.json"
+          node --input-type=module -e '
+            import { readFileSync, writeFileSync } from "node:fs";
+            const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+            const runs = JSON.parse(readFileSync(process.argv[1], "utf8"));
+            const ids = runs.filter((run) => Date.parse(run.createdAt || "") >= cutoff).map((run) => run.databaseId);
+            writeFileSync(process.argv[2], `${ids.join("\\n")}\\n`);
+          ' "$RUNNER_TEMP/event-description-recent-runs.json" "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          while IFS= read -r -u 9 run_id; do
+            [ -n "$run_id" ] || continue
+            gh run download "$run_id" \
+              --repo "$GITHUB_REPOSITORY" \
+              --name "event-description-run-state-${run_id}" \
+              --dir "$recent_dir/$run_id" \
+              >/dev/null 2>&1 || true
+          done 9< "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+
       - name: Write run plan metadata
         env:
           PLAN_PATH: ${{ runner.temp }}/throughput-plan.json
@@ -388,9 +466,12 @@ jobs:
             --output data/events-description-rewrites.json \
             --dataset data/events.json \
             --plan "$PLAN_PATH" \
+            --recent-stats-dir "$RUNNER_TEMP/event-description-recent-states" \
             --stats-output "$RUNNER_TEMP/event-description-rewrite-stats.json"
           accepted="$(node -e "console.log(require(process.argv[1]).accepted)" "$RUNNER_TEMP/event-description-rewrite-stats.json")"
+          changed="$(node -e "console.log(require(process.argv[1]).cacheChanged ? 'true' : 'false')" "$RUNNER_TEMP/event-description-rewrite-stats.json")"
           echo "accepted=$accepted" >> "$GITHUB_OUTPUT"
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
 
       - name: Assemble and validate public data
         env:
@@ -414,13 +495,14 @@ jobs:
               const s = JSON.parse(readFileSync(process.argv[1], "utf8"));
               const duration = (Number(s.durationMs || 0) / 1000).toFixed(1);
               const rejectionCodes = Object.entries(s.rejectionCodes || {}).map(([code, count]) => `${code}: ${count}`).join(", ") || "nessuno";
+              const rejectionDetails = Object.entries(s.rejectionDetails || {}).map(([detail, count]) => `${detail}: ${count}`).join(", ") || "nessuno";
               const days = s.estimatedDaysRemaining == null ? "n/d (nessuna accettazione)" : `${s.estimatedDaysRemaining}`;
-              appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Event description throughput\n\n- Piano: ${s.effectiveShards} shard × ${s.eventsPerShard} eventi/shard (${s.direction}: ${s.planReason})\n- Accettate: ${s.accepted} (fallback fattuale: ${s.acceptedByFallback || 0})\n- Rifiuti: ${s.rejected} (${rejectionCodes})\n- Chiamate: ${s.calls}; retry: ${s.retries}; tentativi evento medi: ${s.eventAttemptsPerSelected || 0}; timeout broker: ${s.timeoutErrors}; circuit breaker: ${s.circuitBreakerTrips}\n- Durata: ${duration}s; millisecondi osservati per accettata: ${s.observedMsPerAccepted || 0}\n- Coda residua stimata: ${s.queueRemaining}; giorni residui stimati a ${s.acceptedPerDay}/giorno: ${days}\n`);
+              appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Event description throughput\n\n- Piano: ${s.effectiveShards} shard × ${s.eventsPerShard} eventi/shard (${s.direction}: ${s.planReason})\n- Selezionati: ${s.selected} (mai tentati: ${s.selectedNeverAttempted || 0}; ritentati: ${s.selectedRetries || 0})\n- Accettate: ${s.accepted} (nuove: ${s.acceptedNeverAttempted || 0}; retry: ${s.acceptedRetries || 0}; fallback parcheggiati: ${s.acceptedByFallback || 0})\n- Rifiuti: ${s.rejected} (nuovi: ${s.rejectedNeverAttempted || 0}; retry: ${s.rejectedRetries || 0}; ${rejectionCodes})\n- Classi diagnostiche sicure: ${rejectionDetails}\n- Stato coda: da tentare ${s.toAttempt || 0}; in attesa ${s.waitingRetry || 0}; parcheggiati ${s.parked || 0}; lavorabili ${s.queueRemaining || 0}; invariati dopo fallback ${s.parkedUnchanged || 0}\n- Run riuscite nelle ultime 24 ore: ${s.recentSuccessfulRuns || 0}; accettate/giorno osservate: ${s.acceptedPerDay || 0}; giorni residui: ${days}\n- Chiamate: ${s.calls}; retry: ${s.retries}; tentativi evento medi: ${s.eventAttemptsPerSelected || 0}; timeout broker: ${s.timeoutErrors}; circuit breaker: ${s.circuitBreakerTrips}\n- Durata: ${duration}s; millisecondi osservati per accettata: ${s.observedMsPerAccepted || 0}\n`);
             ' "$RUNNER_TEMP/event-description-rewrite-stats.json"
           fi
 
       - name: Prepare Firebase credentials for data PR
-        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.changed == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -433,11 +515,11 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load data-PR credentials from Remote Config
-        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.changed == 'true'
         run: node scripts/load-rc-env.mjs
 
       - name: Publish one reconciled data PR
-        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.changed == 'true'
         env:
           ACCEPTED: ${{ steps.merge.outputs.accepted }}
         run: |
@@ -451,27 +533,31 @@ jobs:
             const s = JSON.parse(readFileSync(process.argv[1], "utf8"));
             const duration = (Number(s.durationMs || 0) / 1000).toFixed(1);
             const rejectionCodes = Object.entries(s.rejectionCodes || {}).map(([code, count]) => `${code}: ${count}`).join(", ") || "nessuno";
+            const rejectionDetails = Object.entries(s.rejectionDetails || {}).map(([detail, count]) => `${detail}: ${count}`).join(", ") || "nessuno";
             const days = s.estimatedDaysRemaining == null ? "non calcolabile" : s.estimatedDaysRemaining;
             const body = [
               `Auto-generated by [workflow run ${process.env.GITHUB_RUN_ID}](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}).`,
               "",
               "## Implementato",
-              `- Cadenza oraria con ${s.effectiveShards} shard paralleli effettivi e tetto ${s.eventsPerShard} eventi per shard; gli eventi sono partizionati in modo disgiunto ed esaustivo per hash stabile dell\u0027id, mantenendo l\u0027ordinamento per prossimità temporale e priorità TI/GR/VS/ZH.`,
-              `- Ogni shard usa il proprio broker Codex seriale e pubblica solo un delta di cache nell\u0027artifact privato; il job finale unisce i delta in modo deterministico e idempotente, riassembla il dataset, esegue validate:event-descriptions e apre una sola PR dati.`,
-              `- Il broker riconosce quota/rate-limit, timeout e indisponibilità transitoria: applica backoff esponenziale, apre il circuit breaker per shard al superamento della soglia quota o dopo errori transienti ripetuti e chiude verde conservando quanto prodotto; il piano successivo scende dopo errori quota e risale gradualmente senza errori.`,
-              `- Run reale: ${s.accepted} accettate (${s.acceptedByFallback || 0} fallback fattuali), ${s.rejected} rifiuti (${rejectionCodes}), ${s.calls} chiamate, ${s.retries} retry, tentativi evento medi ${s.eventAttemptsPerSelected || 0}, ${s.quotaErrors} errori quota, durata ${duration}s; coda residua ${s.queueRemaining}, stima ${days} giorni a ${s.acceptedPerDay}/giorno.`,
+              `- La memoria versionata registra soltanto id, hash della fonte, codice, conteggio dei rifiuti, ultimo tentativo e versioni policy/prompt; le voci accettate e quelle di rifiuto dello stesso evento sono risolte in modo deterministico.`,
+              `- La selezione mette i mai tentati davanti ai retry, applica attesa esponenziale e parcheggia dopo il massimo; il fallback fattuale richiede almeno 50 parole, due fatti distinti e resta limitato ai campi strutturati.`,
+              `- L’ammissione evita sovrapposizioni con una run attiva o con la PR dati aperta; con il gruppo concurrency GitHub resta al massimo una run attiva e una pending, mentre il tick più recente sostituisce la pending precedente.`,
+              `- Il loop clock dispaccia questo workflow ogni 60 minuti tramite loop_clock e il run-name marcato; il cron nativo resta una rete di sicurezza.`,
+              `- Run: ${s.selected} selezionati (mai tentati ${s.selectedNeverAttempted || 0}, retry ${s.selectedRetries || 0}), ${s.accepted} accettate (nuove ${s.acceptedNeverAttempted || 0}, retry ${s.acceptedRetries || 0}, fallback ${s.acceptedByFallback || 0}), ${s.rejected} rifiuti (${rejectionCodes}; classi ${rejectionDetails}), ${s.calls} chiamate, ${s.retries} retry, durata ${duration}s; lavorabili ${s.queueRemaining}, stima ${days} giorni a ${s.acceptedPerDay}/giorno osservate su ${s.recentSuccessfulRuns || 0} run riuscite nelle ultime 24 ore.`,
               "",
               "## Non implementato (ancora)",
-              "- Parametro Remote Config aggiuntivo: per scelta: rinviato per non toccare il loader del corpus in parallelo a un altro lavoro. Motivo: il loader è già oggetto di un lavoro concorrente nel corpus. Prossimo passo: mantenerlo fuori da questa PR e riesaminarlo solo dopo il riallineamento del loader.",
+              "- Nessuno: in questa PR sono implementati memoria dei rifiuti, selezione con attesa/parcheggio, fallback, stima su run reali, ammissione, cadenza e gate.",
             ].join("\n");
             writeFileSync(process.argv[2], `${body}\n`);
           ' "$stats" "$body"
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          paths=(--path data/events-description-rewrites.json)
+          if [ "$ACCEPTED" != '0' ]; then
+            paths+=(--path data/events.json --path public/data/events.json)
+          fi
           GH_TOKEN="$GITHUB_PAT" bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \
-            --path data/events-description-rewrites.json \
-            --path data/events.json \
-            --path public/data/events.json \
+            "${paths[@]}" \
             --branch chore/event-description-rewrite \
             --commit-message "chore(events): increase description rewrite throughput" \
             --title "chore(data): increase event description rewrite throughput" \

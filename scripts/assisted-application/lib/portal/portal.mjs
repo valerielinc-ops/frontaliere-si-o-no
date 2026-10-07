@@ -851,7 +851,8 @@ export async function acceptPrivacyStatement(page, snapshot) {
 // pressed on it only meets the portal's validation. Its CV goes in through
 // «Lebenslauf hochladen», a dialog whose file input exists only once open.
 export const EXPAND_ALL_RE = /^(alle abschnitte einblenden|alle einblenden|expand all( sections)?|show all( sections)?|mostra tutte le sezioni|espandi tutt[eo]( le sezioni)?|afficher toutes les sections|tout afficher|développer tout)$/i;
-export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|télécharger|joindre|importer)|(upload|carica|caricare|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+export const CV_UPLOAD_RE = /((lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé)\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(lebenslauf|curriculum( vitae)?|\bcv\b|resume|résumé))/i;
+export const COVER_LETTER_UPLOAD_RE = /((cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione))\s+(hochladen|upload(en)?|caricare|carica|charger|télécharger|joindre|importer)|(upload|carica|caricare|charger|télécharger|joindre|importer|hochladen)\s+(your |il tuo |il |le |la |un |une |votre |deinen |deine |ihren |ihre )?(cover\s+letter|motivation(?:s|al)?\s+(?:letter|schreiben)|anschreiben|motivationsschreiben|lettre\s+de\s+motivation|lettera\s+di\s+(?:motivazione|presentazione)))/i;
 
 // Tries per page and action in one run: a click a portal drops is tried again
 // at once, a page that never opens does not hold the run (review of #11022).
@@ -913,7 +914,21 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
     // A file that went in, confirmed or not, never goes in twice.
     if (cv !== 'unavailable') done.add(cvKey);
   }
-  return cv ? { snapshot: current, cv } : { snapshot: current };
+  const coverLetterFile = Array.isArray(files.cover_letter) ? files.cover_letter[0] : files.cover_letter;
+  const coverLetterKey = `cover-letter|${where}`;
+  let coverLetter;
+  while (coverLetterFile && !done.has(coverLetterKey) && attempt(coverLetterKey)) {
+    const trigger = page.getByRole('button', { name: COVER_LETTER_UPLOAD_RE }).first();
+    if (!await trigger.isVisible().catch(() => false)) break;
+    coverLetter = await uploadThroughDialog(page, trigger, coverLetterFile);
+    current = await extractFields(page);
+    if (coverLetter !== 'unavailable') done.add(coverLetterKey);
+  }
+  return {
+    snapshot: current,
+    ...(cv ? { cv } : {}),
+    ...(coverLetter ? { coverLetter } : {}),
+  };
 }
 
 /**
@@ -1477,6 +1492,10 @@ export async function submitViaPortal(ctx) {
             record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
             noteUpload('cv');
           }
+        }
+        if (opened.coverLetter) {
+          evidence.steps.at(-1).coverLetter = opened.coverLetter;
+          if (opened.coverLetter !== 'unavailable') noteUpload('cover_letter');
         }
       };
       // A password page whose button sends an application may be the form with its

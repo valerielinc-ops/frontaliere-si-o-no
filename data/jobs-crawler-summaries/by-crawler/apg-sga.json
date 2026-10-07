@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-10-07T09:37:49.624Z",
+  "generatedAt": "2026-10-07T21:26:37.889Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 7523,
-  "avgDurationMs": 7523,
+  "unchangedCount": 4,
+  "durationMs": 7290,
+  "avgDurationMs": 7290,
   "durationHistory": [
-    7523
+    7290
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "apg-sga-8e5baee3415c",
       "slug": "responsabile-prodotto-80-100-zurigo-apg-sga-zurich",
@@ -37,7 +35,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:37:40.075Z",
+      "crawledAt": "2026-10-07T21:26:29.469Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,8 +52,8 @@
       "postedDate": "2026-09-17",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:23:28.802Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -66,7 +64,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "apg-sga-544f5b63bef4",
       "slug": "servizio-esterno-partnermanager-100-sion-apg-sga-sion",
@@ -79,7 +80,7 @@
       "url": "https://jobs.apgsga.ch/publication/partnermanager-service-externe-sion/ro7drhalaoifp78qx52b60twhe2ctbngfz68t0syhkaarf3zdlrpqnsexare5b7t",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:37:39.591Z",
+      "crawledAt": "2026-10-07T21:26:28.978Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -121,7 +122,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:37:39.067Z",
+      "crawledAt": "2026-10-07T21:26:28.459Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +164,7 @@
       "url": "https://jobs.apgsga.ch/publication/ict-system-engineer-zuerich/dhljbvsspmii1fzf2yst7lgksh96vsy4cwwbcurwopxpl33e6v7ohypl2770brry",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:37:38.582Z",
+      "crawledAt": "2026-10-07T21:26:27.960Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,7 +206,7 @@
       "url": "https://jobs.apgsga.ch/publication/workplace-engineer-zuerich/8otxkreaeaq5rehjtboe2lg3bmaex5nfq3d56j1bvr1ftd8ti2kbzgrnafy633z0",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:37:38.080Z",
+      "crawledAt": "2026-10-07T21:26:27.433Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -236,5 +237,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

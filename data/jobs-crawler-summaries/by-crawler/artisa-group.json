@@ -1,20 +1,62 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-10-07T09:21:05.815Z",
-  "total": 1,
+  "generatedAt": "2026-10-07T21:41:00.439Z",
+  "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2427,
-  "avgDurationMs": 2427,
+  "durationMs": 3323,
+  "avgDurationMs": 3323,
   "durationHistory": [
-    2427
+    3323
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Calcolatore / Preventivista Impresa Totale",
+      "slug": "calcolatore-preventivista-impresa-totale-artisa-group-lugano",
+      "url": "https://artisagroup.com/carriera#calcolatore-preventivista-impresa-totale",
+      "applyUrl": "https://app.smartsheet.com/b/form/01a116504f117c6ea4c0d698e60d745e",
+      "company": "Artisa Group",
+      "companyKey": "artisa-group",
+      "companyDomain": "artisagroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Immobiliare & Architettura",
+      "source": "artisa-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "artisa-group-ce53cb93ea60",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Nassa 5",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-10-07T21:40:39.703Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -60,5 +102,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

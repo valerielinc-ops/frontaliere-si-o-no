@@ -20,6 +20,7 @@ const entries = [
     everyMinutes: 60,
     introducedAt: '2026-10-07T16:50:03Z',
   },
+  { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
   // (one Actions call per scheduled workflow) is budgeted once a day on the
   // native cron of that workflow, not once an hour.
@@ -28,6 +29,19 @@ const entries = [
   { id: 'corpus-triage-sweep', repo: 'corpus', workflow: 'issue-triage.yml', everyMinutes: 240 },
   { id: 'corpus-closer', repo: 'corpus', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
   { id: 'site-loop-clock-observer', repo: 'site', workflow: 'orchestrator-heartbeat.yml', everyMinutes: 30 },
+  // Walks every CDN script and stylesheet the live pages reference. Its native
+  // `*/15` cron delivers a handful of runs a day and its deploy triggers are
+  // skipped whenever a deploy is superseded: on 2026-10-07 it did not run once
+  // in the five hours in which every re-rendered article page loaded a 404
+  // (#12270). `introducedAt` is set ahead of the merge: the entry starts when
+  // this function is deployed, and the observer must not call it stale before.
+  {
+    id: 'site-runtime-reliability-watch',
+    repo: 'site',
+    workflow: 'runtime-reliability-watch.yml',
+    everyMinutes: 30,
+    introducedAt: '2026-10-08T06:00:00Z',
+  },
 ];
 
 export const LOOP_CLOCK_ENTRIES = Object.freeze(

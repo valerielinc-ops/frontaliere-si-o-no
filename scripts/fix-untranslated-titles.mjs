@@ -35,6 +35,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats as getCodexTierStatsDefault, logCascadeSummary } from './lib/free-translate.mjs';
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { isTitleRepairQueueVerdict } from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
@@ -406,7 +407,7 @@ async function main() {
   logCascadeSummary();
 }
 
-const IS_MAIN = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+const IS_MAIN = isInvokedDirectly(import.meta.url);
 if (IS_MAIN) {
   installCodexReserveReport('2d-titles', () => ({ codex: getCodexTierStatsDefault(), cascade: getCascadeStats() }));
   main().catch(err => { console.error('❌', err.message); process.exit(1); });

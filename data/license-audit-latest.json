@@ -1,18 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T20:56:08.780Z",
-  "commit": "5e8c0ec78016a7b6abd9673fe6519ddce6b3b8e7",
+  "generatedAt": "2026-10-07T23:13:08.934Z",
+  "commit": "3a20b499d17c8b5e90b3d3e0e1905a2f8057299a",
   "mainRef": "origin/main",
   "refsInspected": [
     "origin/main",
-    "refs/audit/pr-12266",
-    "refs/audit/pr-12264",
-    "refs/audit/pr-12263",
-    "refs/audit/pr-12255",
+    "refs/audit/pr-12287",
+    "refs/audit/pr-12286",
+    "refs/audit/pr-12281",
+    "refs/audit/pr-12277",
     "refs/audit/pr-12251",
-    "refs/audit/pr-12235",
-    "refs/audit/pr-12214",
-    "refs/audit/pr-12200"
+    "refs/audit/pr-12214"
   ],
   "sections": [
     "A",
@@ -20,11 +18,11 @@
     "C",
     "D"
   ],
-  "overall": "fail",
+  "overall": "warn",
   "summary": {
     "pass": 10,
-    "warn": 3,
-    "fail": 2
+    "warn": 5,
+    "fail": 0
   },
   "controls": [
     {
@@ -79,67 +77,20 @@
       "section": "B",
       "title": "Immagini pubblicate: record di licenza ammesso o record generativo valido",
       "threshold": "published missing/unlicensed images = 0 after bounded repair",
-      "status": "fail",
+      "status": "warn",
       "counts": {
         "files": 11268,
-        "published": 11094,
-        "ok": 3429,
+        "published": 11112,
+        "ok": 3453,
         "inferred": 7659,
-        "withoutRecord": 6,
+        "withoutRecord": 0,
         "unlicensed": 0,
-        "orphan": 174,
+        "orphan": 137,
         "autoRepairable": 0,
-        "nonRemediable": 6
+        "nonRemediable": 0,
+        "unusedLogos": 19
       },
       "examples": [
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-rect-400.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-rect-400.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-1000.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-1000.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-512.png",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
-        {
-          "family": "publisher",
-          "imageUrl": "/images/publisher/logo-square-512.webp",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
-        },
         {
           "family": "blog",
           "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
@@ -159,9 +110,39 @@
           "family": "blog",
           "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
           "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/142-violenza-ticino-2026.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/1maggio-eremo-monastero-legge-varese.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/20mila-firme-autostrada-pedaggio.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/25-centimetri-lago-maggiore-frontalieri.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/300-persone-pasto-vegetale-lugano-2026.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/a13-chiusure-mappo-minusio-2026.webp",
+          "status": "inferred"
         }
       ],
-      "alarm": true,
+      "alarm": false,
       "remediation": "article-hero/place/editorial-profile; logos are inventory-only"
     },
     {
@@ -169,65 +150,77 @@
       "section": "B",
       "title": "Loghi: file presenti e fonte registrata, senza sostituzione automatica",
       "threshold": "unregistered logo file = 0",
-      "status": "fail",
+      "status": "warn",
       "counts": {
         "inventory": 711,
-        "registered": 674,
-        "withoutRegisteredSource": 37
+        "used": 692,
+        "registered": 692,
+        "unused": 19,
+        "withoutRegisteredSource": 0
       },
       "examples": [
         {
           "family": "brands",
           "imageUrl": "/images/brands/agip.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/agipeni.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/agrola.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/api-ip.svg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         },
         {
           "family": "brands",
           "imageUrl": "/images/brands/aral.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/avia.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/bp.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/carrefour.svg",
-          "reason": "file has no current content reference"
-        },
-        {
-          "family": "brands",
-          "imageUrl": "/images/brands/cooppronto.svg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         },
         {
           "family": "brands",
           "imageUrl": "/images/brands/efg-international.jpg",
-          "reason": "file has no current content reference"
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/eni.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ip.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/jet.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oil.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/oilexpress.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/ok.svg",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/prada.png",
+          "status": "inutilizzato",
+          "reason": "logo has no current content reference; owner review required"
         }
       ],
-      "alarm": true,
+      "alarm": false,
       "remediation": "none; source registration is human-owned"
     },
     {
@@ -363,7 +356,7 @@
       "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
       "status": "pass",
       "counts": {
-        "refsInspected": 9,
+        "refsInspected": 7,
         "refsContainingMarker": 0,
         "markerObjectUnavailable": 0
       },
@@ -401,12 +394,13 @@
     "images": {
       "inventory": 11268,
       "statusCounts": {
-        "ok": 3429,
+        "ok": 3453,
         "inferred": 7659,
-        "orfano": 174,
-        "senza record": 6
+        "orfano": 137,
+        "inutilizzato": 19
       },
-      "orphanRecords": 0
+      "orphanRecords": 0,
+      "forcedReplacementUrls": []
     },
     "text": {
       "gate": {
@@ -414,7 +408,8 @@
         "datasets": 1,
         "events": 11970,
         "rewritten": 328,
-        "cacheEntries": 329
+        "cacheEntries": 329,
+        "rejectionMemoryEntries": 0
       }
     },
     "history": {
@@ -424,92 +419,13 @@
   "remediation": {
     "candidateCount": 0,
     "autoRepairableCount": 0,
-    "nonRemediableCount": 6,
+    "nonRemediableCount": 0,
     "candidates": []
   },
   "alarm": {
-    "required": true,
+    "required": false,
     "title": "License audit: non-remediable publication violations",
-    "nonRemediableFailures": [
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-rect-400.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-rect-400.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-1000.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-1000.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-512.png",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "publisher",
-        "imageUrl": "/images/publisher/logo-square-512.webp",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "blog",
-        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-        "status": "inferred"
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "blog",
-        "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
-        "status": "inferred"
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "blog",
-        "imageUrl": "/images/blog/142-linea-aiuto-vittime-violenza-ticino.webp",
-        "status": "inferred"
-      },
-      {
-        "control": "B.published-image-records",
-        "family": "blog",
-        "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
-        "status": "inferred"
-      }
-    ]
+    "nonRemediableFailures": []
   },
   "actions": {
     "requested": false,

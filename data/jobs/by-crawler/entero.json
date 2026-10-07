@@ -1,6 +1,6 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-10-07T09:30:30.028Z",
+  "assembledAt": "2026-10-07T21:39:21.489Z",
   "jobs": [
     {
       "id": "entero-7b3d8ee4978b",
@@ -34,7 +34,7 @@
       "url": "https://www.entero.ch/de/karriere/psychologin-oder-psychologe-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:24.720Z",
+      "crawledAt": "2026-10-07T21:39:15.973Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:24.089Z",
+      "crawledAt": "2026-10-07T21:39:15.351Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -205,7 +205,7 @@
       "url": "https://www.entero.ch/de/karriere/verantwortliche-r-qualitaetsmanagement-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:23.457Z",
+      "crawledAt": "2026-10-07T21:39:14.725Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:22.822Z",
+      "crawledAt": "2026-10-07T21:39:14.106Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -304,6 +304,14 @@
       "applyUrl": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:23:50.353Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -317,15 +325,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
-        ]
-      },
-      "previousSlugs": [
-        "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
-      ]
+      }
     },
     {
       "id": "entero-f3595012c94c",
@@ -359,7 +359,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:30:22.184Z",
+      "crawledAt": "2026-10-07T21:39:13.487Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -378,6 +378,14 @@
       "applyUrl": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:23:49.732Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -391,15 +399,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
-        ]
-      },
-      "previousSlugs": [
-        "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
-      ]
+      }
     }
   ]
 }

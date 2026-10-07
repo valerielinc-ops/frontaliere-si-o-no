@@ -223,6 +223,11 @@ export function questionFromLabel(label) {
 
 const STREET_ADDRESS_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street)\b/i;
 const HOUSE_NUMBER_RE = /\b(house\s*(?:number|no)|street\s*(?:number|no)|numero\s+civico|num(?:ero)?\s+civico|civico|hausnummer|num[eé]ro\s+(?:civique|de la rue))\b/i;
+// SuccessFactors (Rolex, 2026-10-07) labels the combined field «Rue et numéro».
+// Its wording is one address question even though «numéro» is not followed by
+// «civique» or «de la rue». Keep the conjunction bounded so a phone number or
+// another unrelated number in a longer label cannot become an address alias.
+const STREET_NUMBER_PAIR_RE = /\b(?:address|adresse|indirizzo|via|rue|strasse|straße|street)\b\s*(?:and|et|e|und|&|\/)\s*(?:(?:house|street)\s*)?(?:number|no\.?|n[°ºo]?|numero|numéro|nummer)(?=\s|$|[?.,;:)])/i;
 const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
 const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|now|ongoing|enrolled|attualmente|in questo momento|ora|actuellement|en ce moment|maintenant|derzeit|zurzeit|gegenwärtig|jetzt|present(?:ly)?)\b/i;
 const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
@@ -230,8 +235,9 @@ const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sons
 function addressQuestionTopic(text) {
   const street = STREET_ADDRESS_RE.test(text);
   const houseNumber = HOUSE_NUMBER_RE.test(text);
+  const streetNumberPair = STREET_NUMBER_PAIR_RE.test(text);
   if (!street && !houseNumber) return '';
-  if (street && houseNumber) return 'address';
+  if ((street && houseNumber) || streetNumberPair) return 'address';
   return houseNumber ? 'address_house_number' : 'address_street';
 }
 

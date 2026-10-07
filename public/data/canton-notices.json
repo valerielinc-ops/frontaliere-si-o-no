@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T12:01:21.787Z",
+  "generatedAt": "2026-10-07T22:16:34.831Z",
   "sourcesRegistry": {
     "schemaVersion": 1,
     "curatedAt": "2026-10-05",
@@ -19,7 +19,7 @@
     "eventi",
     "carburanti"
   ],
-  "totalNotices": 1107,
+  "totalNotices": 1115,
   "sources": {
     "ag-aargauverkehr-773aef": {
       "canton": "AG",
@@ -3097,6 +3097,17 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
+      "id": "ae672750a60ab9e0",
+      "canton": "FR",
+      "category": "mobilita",
+      "title": "Ein Meilenstein für das Velofahren im Alltag: Der neue kantonale Velowegnetzplan liegt vor",
+      "url": "https://www.fr.ch/de/rimu/news/ein-meilenstein-fuer-das-velofahren-im-alltag-der-neue-kantonale-velowegnetzplan-liegt-vor",
+      "publishedAt": "2026-10-07T13:45:16.000Z",
+      "source": "fr-fr-909a7c",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
       "id": "c72407418f0bed1c",
       "canton": "FR",
       "category": "mobilita",
@@ -3810,6 +3821,17 @@
       "source": "fr-ecasfr-fedba1",
       "language": "fr",
       "observedAt": "2026-10-05T12:58:51.254Z"
+    },
+    {
+      "id": "2e4f747cbe57eb54",
+      "canton": "FR",
+      "category": "servizi",
+      "title": "Demandes de permis de construire et de démolir",
+      "url": "https://www.ville-fribourg.ch/actualites/demandes-de-permis-de-construire-et-de-demolir-269",
+      "publishedAt": "2026-10-07T14:28:03.000Z",
+      "source": "fr-ville-fribourg-dcacdf",
+      "language": "fr",
+      "observedAt": "2026-10-07T22:16:34.831Z"
     },
     {
       "id": "3c98aaf0c2ef0f0c",
@@ -4948,7 +4970,7 @@
       "id": "00f0f8bb65d0943e",
       "canton": "GE",
       "category": "servizi",
-      "title": "Grippe et Covid-19 : nouvelle campagne de vaccination conjointe cet automne",
+      "title": "Grippe et Covid-19 : une nouvelle campagne de vaccination conjointe cet automne",
       "url": "https://www.service-public.gouv.fr/particuliers/actualites/A17729",
       "publishedAt": "2026-10-01",
       "source": "ge-service-public-cfb75c",
@@ -9708,6 +9730,17 @@
       "observedAt": "2026-10-07T12:01:21.787Z"
     },
     {
+      "id": "abdd87b6f20881e9",
+      "canton": "TG",
+      "category": "eventi",
+      "title": "Erste «Messe 60 Plus» trifft einen Nerv",
+      "url": "https://www.kreuzlingen.ch/aktuelles/erste-messe-60-plus-trifft-einen-nerv",
+      "publishedAt": "2026-10-07T14:43:16.000Z",
+      "source": "tg-kreuzlingen-d1b90c",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
       "id": "af47ba08ba4f3dc7",
       "canton": "TG",
       "category": "fisco",
@@ -10918,6 +10951,17 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
+      "id": "b979c08cf70956b2",
+      "canton": "VD",
+      "category": "mobilita",
+      "title": "Réfection de la chaussée de la route Aloys-Fauquez",
+      "url": "https://www.lausanne.ch/apps/actualites/index.php?actu_id=90550",
+      "publishedAt": "2026-10-07T12:00:00.000Z",
+      "source": "vd-lausanne-fc4711",
+      "language": "fr",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
       "id": "057a764475e779ca",
       "canton": "VD",
       "category": "mobilita",
@@ -11389,6 +11433,28 @@
       "source": "vs-vs-953ff9",
       "language": "fr",
       "observedAt": "2026-10-05T12:58:51.254Z"
+    },
+    {
+      "id": "3f7b8c77592aa183",
+      "canton": "VS",
+      "category": "mobilita",
+      "title": "Ferrovia, la linea del Sempione continua a perdere merci",
+      "url": "https://www.ossolanews.it/2026/10/07/leggi-notizia/argomenti/viabilita-e-trasporti-8/articolo/ferrovia-la-linea-del-sempione-continua-a-perdere-merci.html",
+      "publishedAt": "2026-10-07T17:00:00.000Z",
+      "source": "vs-ossolanews-dd4171",
+      "language": "it",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
+      "id": "8bbfda88f7e87c3a",
+      "canton": "VS",
+      "category": "mobilita",
+      "title": "Lavori sulla Statale 33 del Sempione, senso unico alternato nelle gallerie Iselle e Paglino",
+      "url": "https://www.ossolanews.it/2026/10/07/leggi-notizia/argomenti/viabilita-e-trasporti-8/articolo/lavori-sulla-statale-33-del-sempione-senso-unico-alternato-nelle-gallerie-iselle-e-paglino.html",
+      "publishedAt": "2026-10-07T12:18:29.000Z",
+      "source": "vs-ossolanews-dd4171",
+      "language": "it",
+      "observedAt": "2026-10-07T22:16:34.831Z"
     },
     {
       "id": "b3ea0a5be3f5fce5",
@@ -12733,6 +12799,28 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
+      "id": "036577374044c482",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "Selbstbehauptungskurs für Kinder",
+      "url": "https://zg.ch/de/news/2026/July/selbstbehauptungskurs-fuer-kinder",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
+      "id": "1d1358ad8f929406",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "Polysportives Wochenende in Tenero: Starkes Netzwerk für Zuger Familien",
+      "url": "https://zg.ch/de/news/2026/March/polysportives-wochenende-in-tenero-starkes-netzwerk-fuer-zuger-familien",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
       "id": "26516834de23b584",
       "canton": "ZG",
       "category": "servizi",
@@ -12766,17 +12854,6 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
-      "id": "49c6febdd0ba84c4",
-      "canton": "ZG",
-      "category": "servizi",
-      "title": "Zuger Geschichte(n) aus erster Quelle",
-      "url": "https://zg.ch/de/news/2026/March/zuger-geschichte-n-aus-erster-quelle",
-      "publishedAt": null,
-      "source": "zg-zg-d14c5a",
-      "language": "de",
-      "observedAt": "2026-10-07T12:01:21.787Z"
-    },
-    {
       "id": "4ee88790c9106c39",
       "canton": "ZG",
       "category": "servizi",
@@ -12788,17 +12865,6 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
-      "id": "5c8494d1d860a888",
-      "canton": "ZG",
-      "category": "servizi",
-      "title": "Infos des Regierungsrats",
-      "url": "https://zg.ch/de/news/2026/September/2026-09-30-infos-des-regierungsrats",
-      "publishedAt": null,
-      "source": "zg-zg-d14c5a",
-      "language": "de",
-      "observedAt": "2026-10-07T12:01:21.787Z"
-    },
-    {
       "id": "66c81aeaa615f761",
       "canton": "ZG",
       "category": "servizi",
@@ -12808,6 +12874,17 @@
       "source": "zg-zg-62b18c",
       "language": "de",
       "observedAt": "2026-10-05T12:58:51.254Z"
+    },
+    {
+      "id": "7aa1d553c9a4fa3d",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "befreelance-Contest 2026: Jugendliche setzen Präventionsbotschaften wirkungsvoll um",
+      "url": "https://zg.ch/de/news/2026/March/befreelance-contest-2026-jugendliche-setzen-praeventionsbotschaften-wirkungsvoll-um",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
     },
     {
       "id": "9363b476852f06ae",
@@ -12832,17 +12909,6 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
-      "id": "a4cadd31b123ca3c",
-      "canton": "ZG",
-      "category": "servizi",
-      "title": "Vertiefungsanalyse des Mandatszentrums liegt vor",
-      "url": "https://zg.ch/de/news/2026/September/weiterentwicklung-des-kindes--und-erwachsenenschutzes-vertiefungsanalyse-des-mandatszentrums-liegt-vor",
-      "publishedAt": null,
-      "source": "zg-zg-d14c5a",
-      "language": "de",
-      "observedAt": "2026-10-07T12:01:21.787Z"
-    },
-    {
       "id": "a5a9034cd70a6ac1",
       "canton": "ZG",
       "category": "servizi",
@@ -12865,17 +12931,6 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
-      "id": "b6bdeb7a2e48395f",
-      "canton": "ZG",
-      "category": "servizi",
-      "title": "Elternbildung stärkt Familien und damit Kinder und Jugendliche",
-      "url": "https://zg.ch/de/news/2026/September/elternbildung-staerkt-familien-und-damit-kinder-und-jugendliche",
-      "publishedAt": null,
-      "source": "zg-zg-d14c5a",
-      "language": "de",
-      "observedAt": "2026-10-07T12:01:21.787Z"
-    },
-    {
       "id": "c8847f1fa06636b8",
       "canton": "ZG",
       "category": "servizi",
@@ -12885,6 +12940,17 @@
       "source": "zg-zg-a8fd12",
       "language": "de",
       "observedAt": "2026-10-05T12:58:51.254Z"
+    },
+    {
+      "id": "ca6257668912c37b",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "Zuger Bevölkerung wächst weiter – eine Gemeinde sticht heraus",
+      "url": "https://zg.ch/de/news/2026/April/zuger-bevoelkerung-waechst-weiter-eine-gemeinde-sticht-heraus",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
     },
     {
       "id": "d7815c800c9f4695",
@@ -12909,6 +12975,17 @@
       "observedAt": "2026-10-05T12:58:51.254Z"
     },
     {
+      "id": "dcc1c049f9f4e371",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "Online Workshop für Eltern von übermässig gamenden Jugendlichen",
+      "url": "https://zg.ch/de/news/2026/July/online-workshop-fuer-eltern-von-uebermaessig-gamenden-jugendlichen",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
+    },
+    {
       "id": "e7b41e435fe04100",
       "canton": "ZG",
       "category": "servizi",
@@ -12918,6 +12995,17 @@
       "source": "zg-zg-a8fd12",
       "language": "de",
       "observedAt": "2026-10-05T12:58:51.254Z"
+    },
+    {
+      "id": "e8e177cf443728f6",
+      "canton": "ZG",
+      "category": "servizi",
+      "title": "Eingeschränkte Kostenübernahme bei Spitalbehandlungen ausserhalb Europas",
+      "url": "https://zg.ch/de/news/2026/March/eingeschraenkte-kostenuebernahme-bei-spitalbehandlungen-ausserhalb-europas",
+      "publishedAt": null,
+      "source": "zg-zg-d14c5a",
+      "language": "de",
+      "observedAt": "2026-10-07T22:16:34.831Z"
     },
     {
       "id": "ebf58f7d30c2e03e",
@@ -13427,7 +13515,7 @@
     }
   ],
   "health": {
-    "generatedAt": "2026-10-07T12:01:21.787Z",
+    "generatedAt": "2026-10-07T22:16:34.831Z",
     "summary": {
       "sources": 175,
       "attempted": 175,
@@ -13450,15 +13538,15 @@
         "ur-ur-04465f"
       ],
       "patternMiss": [],
-      "notices": 1107,
-      "dated": 845,
+      "notices": 1115,
+      "dated": 851,
       "cantons": 24,
       "byCanton": {
         "AG": 26,
         "APPENZELLO": 45,
         "BASILEA": 31,
         "BE": 46,
-        "FR": 133,
+        "FR": 135,
         "GE": 124,
         "GL": 24,
         "GR": 21,
@@ -13471,18 +13559,18 @@
         "SH": 10,
         "SO": 20,
         "SZ": 34,
-        "TG": 63,
+        "TG": 64,
         "TI": 24,
         "UR": 21,
-        "VD": 39,
-        "VS": 77,
-        "ZG": 69,
+        "VD": 40,
+        "VS": 79,
+        "ZG": 71,
         "ZH": 45
       },
       "byCategory": {
-        "eventi": 43,
-        "mobilita": 335,
-        "servizi": 414,
+        "eventi": 44,
+        "mobilita": 339,
+        "servizi": 417,
         "fisco": 123,
         "pensioni": 192
       }
@@ -13495,7 +13583,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ag-landkreis-waldshut-7f54be": {
         "canton": "AG",
@@ -13505,7 +13593,7 @@
         "notices": 4,
         "unclassified": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ag-baden-b851b9": {
         "canton": "AG",
@@ -13515,7 +13603,7 @@
         "notices": 1,
         "unclassified": 29,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ag-aarau-0d0328": {
         "canton": "AG",
@@ -13525,7 +13613,7 @@
         "notices": 3,
         "unclassified": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ag-kantonsspitalbaden-6d3821": {
         "canton": "AG",
@@ -13534,7 +13622,7 @@
         "items": 15,
         "notices": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ar-7605d9": {
         "canton": "APPENZELLO",
@@ -13543,7 +13631,7 @@
         "items": 2,
         "notices": 2,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-appenzellerbahnen-ef18df": {
         "canton": "APPENZELLO",
@@ -13552,7 +13640,7 @@
         "items": 40,
         "notices": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ai-179ebf": {
         "canton": "APPENZELLO",
@@ -13561,7 +13649,7 @@
         "items": 12,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ar-e2a80a": {
         "canton": "APPENZELLO",
@@ -13570,7 +13658,7 @@
         "items": 5,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-pkar-f09a46": {
         "canton": "APPENZELLO",
@@ -13579,7 +13667,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ai-82cf1c": {
         "canton": "APPENZELLO",
@@ -13589,7 +13677,7 @@
         "notices": 4,
         "unclassified": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ai-7fad06": {
         "canton": "APPENZELLO",
@@ -13599,7 +13687,7 @@
         "notices": 7,
         "unclassified": 30,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ar-c74741": {
         "canton": "APPENZELLO",
@@ -13609,7 +13697,7 @@
         "notices": 5,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ar-34e443": {
         "canton": "APPENZELLO",
@@ -13619,7 +13707,7 @@
         "notices": 5,
         "unclassified": 5,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "appenzello-ar-824ec5": {
         "canton": "APPENZELLO",
@@ -13629,7 +13717,7 @@
         "notices": 4,
         "unclassified": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-bernmobil-aa4f83": {
         "canton": "BE",
@@ -13638,7 +13726,7 @@
         "items": 7,
         "notices": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-bls-49781c": {
         "canton": "BE",
@@ -13647,7 +13735,7 @@
         "items": 40,
         "notices": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-akbern-2ee65b": {
         "canton": "BE",
@@ -13656,7 +13744,7 @@
         "items": 9,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-blvk-92fa11": {
         "canton": "BE",
@@ -13665,7 +13753,7 @@
         "items": 4,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-bern-c73c67": {
         "canton": "BE",
@@ -13675,7 +13763,7 @@
         "notices": 10,
         "unclassified": 30,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "be-api-news-apps-be-27bcd0": {
         "canton": "BE",
@@ -13683,7 +13771,7 @@
         "httpStatus": 500,
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "HTTP 500",
         "failing": true
@@ -13695,7 +13783,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-bs-7a7823": {
         "canton": "BASILEA",
@@ -13704,7 +13792,7 @@
         "items": 6,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-blpk-8c4cd8": {
         "canton": "BASILEA",
@@ -13713,7 +13801,7 @@
         "items": 9,
         "notices": 2,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-pkbs-2017ec": {
         "canton": "BASILEA",
@@ -13722,7 +13810,7 @@
         "items": 6,
         "notices": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-bs-1b9e93": {
         "canton": "BASILEA",
@@ -13732,7 +13820,7 @@
         "notices": 8,
         "unclassified": 32,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-bs-b20ba3": {
         "canton": "BASILEA",
@@ -13742,7 +13830,7 @@
         "notices": 0,
         "unclassified": 17,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "basilea-bs-0612de": {
         "canton": "BASILEA",
@@ -13752,7 +13840,7 @@
         "notices": 1,
         "unclassified": 22,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-6d9241": {
         "canton": "FR",
@@ -13761,7 +13849,7 @@
         "items": 40,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-0e2c2b": {
         "canton": "FR",
@@ -13770,7 +13858,7 @@
         "items": 40,
         "notices": 25,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-e4b7d1": {
         "canton": "FR",
@@ -13779,7 +13867,7 @@
         "items": 40,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-a8850c": {
         "canton": "FR",
@@ -13788,7 +13876,7 @@
         "items": 40,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-3eda64": {
         "canton": "FR",
@@ -13797,7 +13885,7 @@
         "items": 6,
         "notices": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-138dc3": {
         "canton": "FR",
@@ -13806,7 +13894,7 @@
         "items": 40,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-ecasfr-fedba1": {
         "canton": "FR",
@@ -13815,7 +13903,7 @@
         "items": 12,
         "notices": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-cpef-b53b30": {
         "canton": "FR",
@@ -13824,7 +13912,7 @@
         "items": 11,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-9ce548": {
         "canton": "FR",
@@ -13834,17 +13922,17 @@
         "notices": 3,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-909a7c": {
         "canton": "FR",
         "status": "ok",
         "httpStatus": 200,
         "items": 10,
-        "notices": 4,
-        "unclassified": 9,
+        "notices": 5,
+        "unclassified": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-df6411": {
         "canton": "FR",
@@ -13854,7 +13942,7 @@
         "notices": 5,
         "unclassified": 35,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-61830f": {
         "canton": "FR",
@@ -13863,7 +13951,7 @@
         "items": 40,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-51dd9b": {
         "canton": "FR",
@@ -13872,7 +13960,7 @@
         "items": 40,
         "notices": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-fr-0912a7": {
         "canton": "FR",
@@ -13882,17 +13970,17 @@
         "notices": 0,
         "unclassified": 40,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-ville-fribourg-dcacdf": {
         "canton": "FR",
         "status": "ok",
         "httpStatus": 200,
         "items": 20,
-        "notices": 12,
+        "notices": 13,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-h-fr-57c1e0": {
         "canton": "FR",
@@ -13901,7 +13989,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "fr-rfsm-8f24a7": {
         "canton": "FR",
@@ -13910,7 +13998,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-lemanexpress-851ba3": {
         "canton": "GE",
@@ -13919,7 +14007,7 @@
         "items": 10,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-eb55ac": {
         "canton": "GE",
@@ -13928,7 +14016,7 @@
         "items": 15,
         "notices": 18,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-cpeg-27626e": {
         "canton": "GE",
@@ -13937,7 +14025,7 @@
         "items": 7,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-cc8606": {
         "canton": "GE",
@@ -13947,7 +14035,7 @@
         "notices": 0,
         "unclassified": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-13d03c": {
         "canton": "GE",
@@ -13956,7 +14044,7 @@
         "items": 15,
         "notices": 17,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-bae61c": {
         "canton": "GE",
@@ -13965,7 +14053,7 @@
         "items": 15,
         "notices": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-398dc9": {
         "canton": "GE",
@@ -13975,7 +14063,7 @@
         "notices": 17,
         "unclassified": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-6ae8d7": {
         "canton": "GE",
@@ -13985,7 +14073,7 @@
         "notices": 3,
         "unclassified": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-statistique-ge-d20a4e": {
         "canton": "GE",
@@ -13995,7 +14083,7 @@
         "notices": 3,
         "unclassified": 17,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-hug-119f32": {
         "canton": "GE",
@@ -14004,7 +14092,7 @@
         "items": 14,
         "notices": 14,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-crfginfo-86646a": {
         "canton": "GE",
@@ -14014,7 +14102,7 @@
         "notices": 2,
         "unclassified": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-service-public-cfb75c": {
         "canton": "GE",
@@ -14024,7 +14112,7 @@
         "notices": 2,
         "unclassified": 20,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-grand-geneve-63e4c6": {
         "canton": "GE",
@@ -14034,7 +14122,7 @@
         "notices": 2,
         "unclassified": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-5f04c6": {
         "canton": "GE",
@@ -14044,7 +14132,7 @@
         "notices": 2,
         "unclassified": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-b2b683": {
         "canton": "GE",
@@ -14053,7 +14141,7 @@
         "items": 15,
         "notices": 17,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-ge-bcb404": {
         "canton": "GE",
@@ -14063,7 +14151,7 @@
         "notices": 0,
         "unclassified": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ge-annemasse-agglo-148715": {
         "canton": "GE",
@@ -14073,7 +14161,7 @@
         "notices": 2,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gl-gl-fa653e": {
         "canton": "GL",
@@ -14082,7 +14170,7 @@
         "items": 1,
         "notices": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gl-gl-6f338b": {
         "canton": "GL",
@@ -14092,17 +14180,17 @@
         "notices": 16,
         "unclassified": 27,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gl-glarus-nord-2b7bfe": {
         "canton": "GL",
         "status": "ok",
         "httpStatus": 200,
-        "items": 13,
+        "items": 14,
         "notices": 3,
-        "unclassified": 10,
+        "unclassified": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gl-glarus-sued-6d37d3": {
         "canton": "GL",
@@ -14112,7 +14200,7 @@
         "notices": 0,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gl-glarus-550800": {
         "canton": "GL",
@@ -14122,7 +14210,7 @@
         "notices": 4,
         "unclassified": 36,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gr-rhb-487c8c": {
         "canton": "GR",
@@ -14131,7 +14219,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gr-gr-11a005": {
         "canton": "GR",
@@ -14140,7 +14228,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gr-gr-7fa971": {
         "canton": "GR",
@@ -14150,7 +14238,7 @@
         "notices": 5,
         "unclassified": 20,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "gr-ksgr-10b682": {
         "canton": "GR",
@@ -14159,7 +14247,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ju-les-cj-fee1cd": {
         "canton": "JU",
@@ -14168,7 +14256,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ju-ecasjura-8114b1": {
         "canton": "JU",
@@ -14177,7 +14265,7 @@
         "items": 12,
         "notices": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ju-jura-3b2957": {
         "canton": "JU",
@@ -14187,7 +14275,7 @@
         "notices": 2,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ju-h-ju-023771": {
         "canton": "JU",
@@ -14196,7 +14284,7 @@
         "items": 10,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ju-delemont-52edb2": {
         "canton": "JU",
@@ -14206,7 +14294,7 @@
         "notices": 3,
         "unclassified": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "lu-stadtluzern-010fa8": {
         "canton": "LU",
@@ -14215,7 +14303,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "lu-vvl-c9f3e4": {
         "canton": "LU",
@@ -14224,7 +14312,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "lu-steuern-lu-5c0697": {
         "canton": "LU",
@@ -14233,7 +14321,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "lu-lupk-22f8ca": {
         "canton": "LU",
@@ -14242,7 +14330,7 @@
         "items": 19,
         "notices": 19,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "lu-lups-38bd59": {
         "canton": "LU",
@@ -14251,7 +14339,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-7431ce": {
         "canton": "NE",
@@ -14260,7 +14348,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-3b2cc3": {
         "canton": "NE",
@@ -14269,7 +14357,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-cpcn-1e3cbd": {
         "canton": "NE",
@@ -14278,7 +14366,7 @@
         "items": 10,
         "notices": 2,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-d65ea4": {
         "canton": "NE",
@@ -14288,7 +14376,7 @@
         "notices": 2,
         "unclassified": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-c3e734": {
         "canton": "NE",
@@ -14297,7 +14385,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-a509e6": {
         "canton": "NE",
@@ -14306,7 +14394,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-7b91d3": {
         "canton": "NE",
@@ -14316,7 +14404,7 @@
         "notices": 0,
         "unclassified": 5,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-56def7": {
         "canton": "NE",
@@ -14325,7 +14413,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-32e8b5": {
         "canton": "NE",
@@ -14334,7 +14422,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-ne-869e66": {
         "canton": "NE",
@@ -14344,7 +14432,7 @@
         "notices": 5,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-neuchatelville-914b34": {
         "canton": "NE",
@@ -14354,7 +14442,7 @@
         "notices": 4,
         "unclassified": 5,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ne-morteau-4ade9b": {
         "canton": "NE",
@@ -14364,7 +14452,7 @@
         "notices": 0,
         "unclassified": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "nw-steuern-nw-6df33c": {
         "canton": "NW",
@@ -14373,14 +14461,14 @@
         "items": 10,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "nw-nw-2d7d83": {
         "canton": "NW",
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14390,7 +14478,7 @@
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14403,14 +14491,14 @@
         "notices": 19,
         "unclassified": 21,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "nw-ennetbuergen-5f5667": {
         "canton": "NW",
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14420,7 +14508,7 @@
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14433,7 +14521,7 @@
         "notices": 1,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ow-ow-8d36d7": {
         "canton": "OW",
@@ -14443,7 +14531,7 @@
         "notices": 7,
         "unclassified": 33,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-sg-f01750": {
         "canton": "SG",
@@ -14452,7 +14540,7 @@
         "items": 15,
         "notices": 14,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-ostwind-f7ffaf": {
         "canton": "SG",
@@ -14461,7 +14549,7 @@
         "items": 14,
         "notices": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-sg-0580b6": {
         "canton": "SG",
@@ -14470,7 +14558,7 @@
         "items": 15,
         "notices": 19,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-svasg-221059": {
         "canton": "SG",
@@ -14479,7 +14567,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-sg-dd43c9": {
         "canton": "SG",
@@ -14489,7 +14577,7 @@
         "notices": 2,
         "unclassified": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-sg-01f52e": {
         "canton": "SG",
@@ -14499,7 +14587,7 @@
         "notices": 1,
         "unclassified": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-sg-b1d8c5": {
         "canton": "SG",
@@ -14508,7 +14596,7 @@
         "items": 15,
         "notices": 2,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-stadt-sg-c64bec": {
         "canton": "SG",
@@ -14518,7 +14606,7 @@
         "notices": 0,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-h-och-d4f22d": {
         "canton": "SG",
@@ -14527,7 +14615,7 @@
         "items": 40,
         "notices": 25,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-presse-vorarlberg-a3fdbf": {
         "canton": "SG",
@@ -14537,7 +14625,7 @@
         "notices": 5,
         "unclassified": 36,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sg-regierung-1cf10f": {
         "canton": "SG",
@@ -14547,7 +14635,7 @@
         "notices": 6,
         "unclassified": 36,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-tiefbau-sh-9a50c2": {
         "canton": "SH",
@@ -14556,7 +14644,7 @@
         "items": 5,
         "notices": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-svash-d525f2": {
         "canton": "SH",
@@ -14565,7 +14653,7 @@
         "items": 10,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-pksh-01a2c7": {
         "canton": "SH",
@@ -14574,14 +14662,14 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-stadt-schaffhausen-e24d63": {
         "canton": "SH",
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14592,9 +14680,9 @@
         "httpStatus": 200,
         "items": 15,
         "notices": 3,
-        "unclassified": 12,
+        "unclassified": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-singen-59c5c0": {
         "canton": "SH",
@@ -14604,7 +14692,7 @@
         "notices": 0,
         "unclassified": 5,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sh-shpower-be41d9": {
         "canton": "SH",
@@ -14612,7 +14700,7 @@
         "httpStatus": 403,
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "HTTP 403",
         "failing": true
@@ -14624,7 +14712,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "so-pkso-d9f05a": {
         "canton": "SO",
@@ -14633,7 +14721,7 @@
         "items": 9,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "so-so-84043e": {
         "canton": "SO",
@@ -14643,7 +14731,7 @@
         "notices": 4,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "so-so-87a6e9": {
         "canton": "SO",
@@ -14653,7 +14741,7 @@
         "notices": 0,
         "unclassified": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "so-so-0ed99d": {
         "canton": "SO",
@@ -14662,7 +14750,7 @@
         "items": 3,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sz-sz-20063e": {
         "canton": "SZ",
@@ -14672,7 +14760,7 @@
         "notices": 7,
         "unclassified": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sz-spital-schwyz-2d7347": {
         "canton": "SZ",
@@ -14681,7 +14769,7 @@
         "items": 26,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sz-spital-lachen-56b3e0": {
         "canton": "SZ",
@@ -14690,7 +14778,7 @@
         "items": 6,
         "notices": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "sz-ameos-f934e6": {
         "canton": "SZ",
@@ -14699,7 +14787,7 @@
         "items": 10,
         "notices": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-thurbo-f0c6e9": {
         "canton": "TG",
@@ -14708,7 +14796,7 @@
         "items": 5,
         "notices": 5,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-ostwind-bf90b1": {
         "canton": "TG",
@@ -14717,7 +14805,7 @@
         "items": 14,
         "notices": 14,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-steuerverwaltung-tg-7c9ebf": {
         "canton": "TG",
@@ -14726,7 +14814,7 @@
         "items": 3,
         "notices": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-svztg-30e550": {
         "canton": "TG",
@@ -14735,7 +14823,7 @@
         "items": 12,
         "notices": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-pktg-159bf4": {
         "canton": "TG",
@@ -14744,7 +14832,7 @@
         "items": 7,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-tg-4c22c7": {
         "canton": "TG",
@@ -14754,7 +14842,7 @@
         "notices": 5,
         "unclassified": 3,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-awa-tg-22f3fc": {
         "canton": "TG",
@@ -14763,27 +14851,27 @@
         "items": 1,
         "notices": 2,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-kreuzlingen-d1b90c": {
         "canton": "TG",
         "status": "ok",
         "httpStatus": 200,
         "items": 20,
-        "notices": 1,
-        "unclassified": 19,
+        "notices": 2,
+        "unclassified": 18,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-frauenfeld-c1a129": {
         "canton": "TG",
         "status": "ok",
         "httpStatus": 200,
-        "items": 20,
+        "items": 19,
         "notices": 4,
         "unclassified": 16,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "tg-stgag-68a148": {
         "canton": "TG",
@@ -14792,7 +14880,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ti-tilo-cd8001": {
         "canton": "TI",
@@ -14801,7 +14889,7 @@
         "items": 13,
         "notices": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ti-eoc-033f05": {
         "canton": "TI",
@@ -14810,7 +14898,7 @@
         "items": 9,
         "notices": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ur-gotthardtunnel-9d63fb": {
         "canton": "UR",
@@ -14819,14 +14907,14 @@
         "items": 40,
         "notices": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "ur-ur-b16d08": {
         "canton": "UR",
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14836,7 +14924,7 @@
         "status": "robots-unreachable",
         "items": 0,
         "notices": 0,
-        "consecutiveFailures": 5,
+        "consecutiveFailures": 6,
         "lastOkAt": null,
         "lastError": "robots.txt non raggiungibile (UND_ERR_CONNECT_TIMEOUT)",
         "failing": true
@@ -14848,7 +14936,7 @@
         "items": 34,
         "notices": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-mobilis-vaud-865d15": {
         "canton": "VD",
@@ -14857,7 +14945,7 @@
         "items": 30,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-cpev-e49755": {
         "canton": "VD",
@@ -14866,7 +14954,7 @@
         "items": 9,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-vd-923552": {
         "canton": "VD",
@@ -14876,7 +14964,7 @@
         "notices": 3,
         "unclassified": 27,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-vd-7dc60e": {
         "canton": "VD",
@@ -14886,7 +14974,7 @@
         "notices": 4,
         "unclassified": 17,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-vd-ce413a": {
         "canton": "VD",
@@ -14895,17 +14983,17 @@
         "items": 30,
         "notices": 15,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vd-lausanne-fc4711": {
         "canton": "VD",
         "status": "ok",
         "httpStatus": 200,
         "items": 40,
-        "notices": 4,
-        "unclassified": 36,
+        "notices": 5,
+        "unclassified": 35,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-vs-26ea8e": {
         "canton": "VS",
@@ -14914,16 +15002,16 @@
         "items": 21,
         "notices": 13,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-ossolanews-dd4171": {
         "canton": "VS",
         "status": "ok",
         "httpStatus": 200,
         "items": 20,
-        "notices": 23,
+        "notices": 25,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-vs-953ff9": {
         "canton": "VS",
@@ -14932,7 +15020,7 @@
         "items": 6,
         "notices": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-avsvalais-ad05d0": {
         "canton": "VS",
@@ -14941,7 +15029,7 @@
         "items": 12,
         "notices": 12,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-cpval-7cb1ba": {
         "canton": "VS",
@@ -14950,7 +15038,7 @@
         "items": 8,
         "notices": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-vs-f8ee94": {
         "canton": "VS",
@@ -14960,7 +15048,7 @@
         "notices": 0,
         "unclassified": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-vs-a4cd32": {
         "canton": "VS",
@@ -14970,7 +15058,7 @@
         "notices": 3,
         "unclassified": 1,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-vs-6b8642": {
         "canton": "VS",
@@ -14979,7 +15067,7 @@
         "items": 9,
         "notices": 4,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "vs-hopitalduvalais-90da6d": {
         "canton": "VS",
@@ -14988,7 +15076,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zvb-69f9c1": {
         "canton": "ZG",
@@ -14997,7 +15085,7 @@
         "items": 10,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-0eb597": {
         "canton": "ZG",
@@ -15006,7 +15094,7 @@
         "items": 10,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zugerpk-b80ec3": {
         "canton": "ZG",
@@ -15015,7 +15103,7 @@
         "items": 7,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-9bf6e1": {
         "canton": "ZG",
@@ -15025,7 +15113,7 @@
         "notices": 2,
         "unclassified": 6,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-e84ad3": {
         "canton": "ZG",
@@ -15034,7 +15122,7 @@
         "items": 10,
         "notices": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-a8fd12": {
         "canton": "ZG",
@@ -15043,16 +15131,16 @@
         "items": 10,
         "notices": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-d14c5a": {
         "canton": "ZG",
         "status": "ok",
         "httpStatus": 200,
-        "items": 8,
-        "notices": 8,
+        "items": 10,
+        "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zg-62b18c": {
         "canton": "ZG",
@@ -15061,7 +15149,7 @@
         "items": 10,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-stadtzug-3304f0": {
         "canton": "ZG",
@@ -15071,7 +15159,7 @@
         "notices": 2,
         "unclassified": 8,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zg-zgks-a2c6cf": {
         "canton": "ZG",
@@ -15080,7 +15168,7 @@
         "items": 10,
         "notices": 10,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-bvk-cf8887": {
         "canton": "ZH",
@@ -15089,7 +15177,7 @@
         "items": 14,
         "notices": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-svazurich-7dc099": {
         "canton": "ZH",
@@ -15098,7 +15186,7 @@
         "items": 40,
         "notices": 22,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-zh-c2037c": {
         "canton": "ZH",
@@ -15108,7 +15196,7 @@
         "notices": 2,
         "unclassified": 14,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-stadt-zuerich-979399": {
         "canton": "ZH",
@@ -15116,9 +15204,9 @@
         "httpStatus": 200,
         "items": 10,
         "notices": 3,
-        "unclassified": 8,
+        "unclassified": 7,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-stadt-winterthur-76cb6d": {
         "canton": "ZH",
@@ -15128,7 +15216,7 @@
         "notices": 0,
         "unclassified": 9,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       },
       "zh-usz-52cb91": {
         "canton": "ZH",
@@ -15137,7 +15225,7 @@
         "items": 10,
         "notices": 11,
         "consecutiveFailures": 0,
-        "lastOkAt": "2026-10-07T12:01:21.787Z"
+        "lastOkAt": "2026-10-07T22:16:34.831Z"
       }
     }
   }

@@ -1,18 +1,19 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-10-07T09:42:12.134Z",
+  "generatedAt": "2026-10-07T21:46:24.909Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9735,
-  "avgDurationMs": 9735,
+  "durationMs": 10759,
+  "avgDurationMs": 10759,
   "durationHistory": [
-    9735
+    10759
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "alpiq-8c3f3cfb0219",
       "slug": "third-party-bess-flex-asset-optimiser-alpiq-lausanne",
@@ -39,22 +40,20 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=138&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:41:55.800Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-07T21:46:11.092Z",
+      "firstSeenAt": "2026-10-07T09:41:55.800Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-07T09:41:55.800Z",
-      "_qualityScore": 72,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -83,7 +82,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:41:55.787Z",
+      "crawledAt": "2026-10-07T21:46:11.076Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -122,20 +121,16 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:41:55.798Z",
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3000,
-      "retranslationAttempts": 3,
+      "crawledAt": "2026-10-07T21:46:11.090Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 17,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -165,7 +160,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=125&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:41:55.799Z",
+      "crawledAt": "2026-10-07T21:46:11.091Z",
       "firstSeenAt": "2026-10-05T09:28:37.523Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -204,7 +199,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:41:55.801Z",
+      "crawledAt": "2026-10-07T21:46:11.093Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -243,7 +238,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:41:55.805Z",
+      "crawledAt": "2026-10-07T21:46:11.096Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -258,5 +253,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }
