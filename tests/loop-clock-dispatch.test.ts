@@ -63,6 +63,16 @@ describe('loop clock table and cadence', () => {
     });
   });
 
+  it('keeps the runtime reliability watchdog on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-runtime-reliability-watch',
+      repo: 'site',
+      workflow: 'runtime-reliability-watch.yml',
+      everyMinutes: 30,
+      introducedAt: '2026-10-08T06:00:00Z',
+    });
+  });
+
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
     const observed = new Set<string>();
     const longestCadence = Math.max(...LOOP_CLOCK_ENTRIES.map((entry) => entry.everyMinutes));
