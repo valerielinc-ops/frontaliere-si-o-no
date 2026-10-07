@@ -1,6 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { buildPdfBackedDescription } from '../scripts/lib/pdf-job-content.mjs';
-import { buildAilDescriptionFields, dropAilFabricatedText } from '../scripts/update-ail-jobs.mjs';
+import {
+  buildAilDescriptionFields,
+  classifyAilListingHtml,
+  dropAilFabricatedText,
+  parseListingPage,
+} from '../scripts/update-ail-jobs.mjs';
 
 // ──────────────────────────────────────────────────────────────
 // Inline the title extraction + overlap functions (mirrors crawler)
@@ -159,5 +164,62 @@ describe('buildPdfBackedDescription — generic fallback', () => {
     });
 
     expect(desc).toContain('Consultare il bando');
+  });
+});
+
+describe('AIL crawler listing classification', () => {
+  it('accepts the official no-openings marker as a complete empty snapshot', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Al momento non ci sono posizioni aperte</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('ok');
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('keeps an unrecognised zero fail-closed', () => {
+    const result = classifyAilListingHtml(
+      '<div class="inner-title">Le posizioni saranno aggiornate a breve</div>',
+    );
+
+    expect(result.listings).toEqual([]);
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('requires the official empty marker context, not just matching words', () => {
+    const result = classifyAilListingHtml(
+      '<script>const message = "Al momento non ci sono posizioni aperte";</script>',
+    );
+
+    expect(result.fetchOutcome).toBe('selector_miss');
+    expect(result.authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('requires an exact class attribute and class token', () => {
+    for (const html of [
+      '<div data-class="inner-title">Al momento non ci sono posizioni aperte</div>',
+      '<div class="not-inner-title">Al momento non ci sono posizioni aperte</div>',
+    ]) {
+      const result = classifyAilListingHtml(html);
+      expect(result.fetchOutcome).toBe('selector_miss');
+      expect(result.authoritativeEmptySnapshot).toBe(false);
+    }
+  });
+
+  it('recognises a job article as a successful non-empty response', () => {
+    const html = [
+      '<article class="job-position">',
+      '<h4>Operatore rete</h4>',
+      '<a href="/downloadJobPosition?uuid=abc123-def456">Bando PDF</a>',
+      '</article>',
+    ].join('');
+
+    expect(parseListingPage(html)).toHaveLength(1);
+    expect(classifyAilListingHtml(html)).toMatchObject({
+      fetchOutcome: 'ok',
+      authoritativeEmptySnapshot: false,
+    });
   });
 });
