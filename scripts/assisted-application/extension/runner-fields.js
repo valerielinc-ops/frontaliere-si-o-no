@@ -4,6 +4,7 @@
   'use strict';
   root.CompilaRunnerFields = function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
+  const EMPTY_PICKLIST_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i;
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
   // Ids a framework generates, which say nothing to the planner: React's
@@ -257,7 +258,9 @@
         // SuccessFactors localises its empty value too: Rolex's French form
         // says «Aucune sélection», not «Sélectionnez». It is still the same
         // owned picklist, not a free-text combobox.
-        && (/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez)|aucune\s+(?:sélection|selection)(?:née|nee)?|keine\s+auswahl|no\s+selection|nothing\s+selected)\b/i.test(element.getAttribute('placeholder') || '') || /paginatedselect/i.test(String(element.className || '')));
+        && (EMPTY_PICKLIST_RE.test(element.getAttribute('placeholder') || '')
+          || EMPTY_PICKLIST_RE.test(element.value || '')
+          || /paginatedselect/i.test(String(element.className || '')));
     }
     if (type === 'checkbox') field.checked = element.checked;
     fields.push(field);
