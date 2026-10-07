@@ -100923,10 +100923,10 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sindacati-miazzina-diritti-9-ottobre.webp`,
+        "url": `${BASE_URL}/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp`,
         "width": 1200,
         "height": 675,
-        "caption": "Locandina dello spettacolo dialettale “Quei giargianes da giappunes” al Teatro Pax di Cantello con la compagnia Tutti in Scena"
+        "caption": "Illustrazione editoriale del teatro dialettale al Teatro Pax di Cantello"
       },
       "datePublished": "2026-10-07T16:05:11+00:00",
       "dateModified": "2026-10-07T16:05:11+00:00",
