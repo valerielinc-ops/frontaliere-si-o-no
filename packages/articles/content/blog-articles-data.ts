@@ -57,9 +57,10 @@ export interface Article {
  /**
   * A2 — author registry slug (`marco-ferrari`, `laura-bianchi`, `redazione`).
   * When present, the byline links to `/autori/{authorSlug}/` and the
-  * NewsArticle JSON-LD uses a Person `@type` for that author. Optional for
-  * backward compatibility with pre-A2 articles; the byline component falls
-  * back to "Redazione Frontaliere Ticino" when missing.
+  * NewsArticle JSON-LD uses a Person `@type` for a real author and an
+  * Organization `@type` for an editorial profile. Optional for backward
+  * compatibility with pre-A2 articles; the byline component falls back to
+  * "Redazione Frontaliere Ticino" when missing.
   */
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
