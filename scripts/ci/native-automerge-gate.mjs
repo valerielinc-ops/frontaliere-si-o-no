@@ -23,7 +23,10 @@ import {
   findTestOnlyApproval,
   TEST_REVIEW_MARKER,
 } from './review-test-policy.mjs';
-import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import {
+  fetchPrFiles,
+  isRetryablePrFileSnapshot,
+} from './lib/fetchPrFiles.mjs';
 import {
   classifyAutomationRisk,
 } from './lib/automation-risk-policy.mjs';
@@ -65,11 +68,6 @@ const CALLER_RUN_ID_ENV = 'GITHUB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
-const TRANSIENT_PR_FILE_SNAPSHOT_REASONS = new Set([
-  'list-fetch-failed',
-  'graphql-cap',
-  'short-of-oracle',
-]);
 // `gh pr merge --auto` can reach the immediate merge mutation when all
 // requirements are already green. A concurrent merge on `main` then makes
 // GitHub reject that otherwise valid, same-HEAD request with a base-branch
@@ -748,10 +746,7 @@ export function isTransientGithubReadError(error) {
   return TRANSIENT_GH_READ_ERROR_RE.test(transientGithubErrorText(error));
 }
 
-export function isRetryablePrFileSnapshot(snapshot) {
-  return snapshot?.complete !== true
-    && TRANSIENT_PR_FILE_SNAPSHOT_REASONS.has(snapshot?.reason);
-}
+export { isRetryablePrFileSnapshot } from './lib/fetchPrFiles.mjs';
 
 /** Retry only idempotent GitHub reads and known transient incomplete snapshots; mutations remain single-attempt and fail closed. */
 export function withTransientGithubReadRetry(operation, {
