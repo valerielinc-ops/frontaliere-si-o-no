@@ -40,7 +40,65 @@ import {
 // it). `endsOnWordBoundary`/`truncateClauseAware` above were covered; this
 // wasn't, which is exactly how the mid-word-cut half of #5452 shipped behind a
 // green suite after #5474 fixed only the overshoot half.
-import { truncateToClause, truncateToClauseNonEmpty } from '../build-plugins/shared/clauseTail.mjs';
+import {
+  TRAILING_STOPWORDS,
+  truncateToClause,
+  truncateToClauseNonEmpty,
+} from '../build-plugins/shared/clauseTail.mjs';
+
+const ITALIAN_ARTICLES = ['il', 'lo', 'la', 'i', 'gli', 'le'] as const;
+const ITALIAN_PREPOSITION_ARTICLE_TABLE = {
+  di: ['del', 'dello', 'della', 'dei', 'degli', 'delle'],
+  a: ['al', 'allo', 'alla', 'ai', 'agli', 'alle'],
+  da: ['dal', 'dallo', 'dalla', 'dai', 'dagli', 'dalle'],
+  in: ['nel', 'nello', 'nella', 'nei', 'negli', 'nelle'],
+  su: ['sul', 'sullo', 'sulla', 'sui', 'sugli', 'sulle'],
+} as const;
+const ITALIAN_CLOSED_CLASS = new Set([
+  'e', 'ed', 'o', 'od', 'a', 'ad', 'di', 'da', 'in', 'con', 'per', 'tra', 'fra', 'su', 'verso',
+  ...ITALIAN_ARTICLES,
+  'un', 'uno', 'una',
+  ...Object.values(ITALIAN_PREPOSITION_ARTICLE_TABLE).flat(),
+  'col', 'coi',
+]);
+
+function lastWord(value: string): string {
+  return value.trim().split(/\s+/u).at(-1)?.toLocaleLowerCase('it-CH') ?? '';
+}
+
+describe('TRAILING_STOPWORDS — classe italiana chiusa derivata', () => {
+  it('contiene semplici preposizioni, articoli e tutte le forme articolate della tabella', () => {
+    const missing = [...ITALIAN_CLOSED_CLASS].filter((word) => !TRAILING_STOPWORDS.has(word));
+    expect(missing, 'parole funzionali italiane mancanti').toEqual([]);
+  });
+
+  it('non lascia le quattro code live dopo un taglio a 60 caratteri', () => {
+    const samples = [
+      'Ticino sospende esportazioni di materiale bellico verso gli USA',
+      'Tassa di transito in Ticino: cosa cambia per gli automobilisti stranieri',
+      'Parmelin firma accordo con Bahrein per proteggere gli investimenti',
+      'Nuova tassa sui frontalieri: 3% in più per finanziare gli stipendi dei medici',
+    ];
+
+    for (const sample of samples) {
+      const truncated = truncateToClauseNonEmpty(sample, 60);
+      expect(ITALIAN_CLOSED_CLASS.has(lastWord(truncated)), `coda funzionale in «${truncated}»`).toBe(false);
+    }
+  });
+
+  it('copre anche le tre code non italiane realmente monche misurate nel corpus', () => {
+    const samples = [
+      'Grenzgänger Meldungen im Tessin: -16% im 2025, aber',
+      'La présidente du collège judiciaire a décidé le renvoi pour d\'autres procès à célébrer avant',
+      'Notifications frontalier Ticino: -16% en 2025, mais',
+    ];
+
+    for (const sample of samples) {
+      const repaired = peelDanglingClauseTail(sample);
+      expect(TRAILING_STOPWORDS.has(lastWord(repaired)), `coda funzionale in «${repaired}»`).toBe(false);
+    }
+  });
+});
 
 /** Function words that must never end a SERP string. Kept small on purpose — the
  *  authoritative list lives in titleSuffix.ts; this is an independent spot-check. */
