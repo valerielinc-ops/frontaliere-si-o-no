@@ -220,7 +220,14 @@ export function checkOldHistory({
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
-  if (refreshBase && result.reason !== 'marker-unavailable' && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
+  // A marker fetched from the remote is not by itself evidence that the
+  // current head carries the legacy history. When ancestry already proved
+  // `marker-not-in-head`, completing the whole shallow graph only adds a
+  // potentially expensive fetch; keep the guard fail-closed for the cases
+  // where ancestry is still ambiguous or the marker is in the head.
+  const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
+    && result.reason !== 'marker-not-in-head';
+  if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
     withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }

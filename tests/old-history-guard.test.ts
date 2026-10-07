@@ -135,6 +135,42 @@ describe('old-history-guard', () => {
     expect(OLD_HISTORY_FIRST_CHANGED_COMMIT).toMatch(/^[0-9a-f]{40}$/);
   });
 
+  it('non completa il grafo quando il marker è già assente dall’head shallow', () => {
+    const shallow = mkdtempSync(join(tmpdir(), 'old-history-guard-current-head-'));
+    try {
+      execFileSync('git', [
+        'clone', '--quiet', '--depth', '1', '--branch', 'rewritten-main',
+        `file://${repo}`, shallow,
+      ], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      // Keep an available marker in a separate, disconnected ref without
+      // asking the guard to fetch it by object id; the current head remains a
+      // separate shallow history.
+      git(shallow, 'switch', '--quiet', '--orphan', 'available-marker');
+      writeFileSync(join(shallow, 'available-marker.txt'), 'legacy marker\n');
+      git(shallow, 'add', 'available-marker.txt');
+      commit(shallow, 'available marker');
+      const availableMarker = git(shallow, 'rev-parse', 'HEAD');
+      git(shallow, 'switch', '--quiet', 'rewritten-main');
+
+      expect(checkOldHistory({
+        cwd: shallow,
+        markerRef: availableMarker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/rewritten-main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+      })).toEqual({ outcome: 'pass', reason: 'marker-not-in-head' });
+      expect(git(shallow, 'rev-parse', '--is-shallow-repository')).toBe('true');
+    } finally {
+      rmSync(shallow, { recursive: true, force: true });
+    }
+  });
+
   it('completa la storia prima di classificare il marker oltre il confine shallow', () => {
     const root = mkdtempSync(join(tmpdir(), 'old-history-guard-shallow-'));
     const seed = join(root, 'seed');
