@@ -1300,6 +1300,20 @@ export function isHandledExpectedFailure({ source, jobs } = {}) {
 
   return gateFailed && !anotherStepFailed && reporterSkipped;
 }
+
+/**
+ * Il guard del reporter interno è una deduplica secondaria per workflow che
+ * non hanno un owner registrato. Per i workflow in `VERDICT_STEPS` la prova
+ * più forte è invece separata: il monitor deve aver davvero persistito la
+ * propria issue. Se quella prova manca, non lasciare che la sola forma dei
+ * job trasformi un verdetto non consegnato in silenzio.
+ *
+ * @param {{ workflowPath?: string|null, ownerPersisted?: boolean }} run
+ */
+function maySuppressHandledExpectedFailure(run) {
+  return !VERDICT_STEPS[String(run?.workflowPath ?? '')]
+    || run?.ownerPersisted === true;
+}
 /** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
 const runJobsMemo = new Map();
 
@@ -1582,7 +1596,8 @@ export async function scanFailures() {
       //      segnalato. Il caso 2 è la sola cosa che poteva romperlo.
       const stale = isCoveredIssueStale(already.updatedAt);
       const { jobs: coveredJobs } = readRunJobs(run.id);
-      if (isHandledExpectedFailure({ source: run.workflowSource, jobs: coveredJobs })) {
+      if (maySuppressHandledExpectedFailure(run)
+        && isHandledExpectedFailure({ source: run.workflowSource, jobs: coveredJobs })) {
         tally.active += 1;
         console.log(
           `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
@@ -1725,7 +1740,8 @@ export async function scanFailures() {
     }
 
     const { jobs, readable: jobsReadable } = readRunJobs(run.id);
-    if (isHandledExpectedFailure({ source: run.workflowSource, jobs })) {
+    if (maySuppressHandledExpectedFailure(run)
+      && isHandledExpectedFailure({ source: run.workflowSource, jobs })) {
       tally.active += 1;
       console.log(
         `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
