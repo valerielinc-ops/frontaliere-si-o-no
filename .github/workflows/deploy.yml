@@ -1198,9 +1198,10 @@ jobs:
       # section would itself exceed the cap. Runs BEFORE the IT offload
       # (inside deploy-it-pages-prep) so each push-section-shard.sh invocation
       # offloads its own staged copy exactly once. Push gates on the deploy
-      # key; strip additionally gates on <SECTION>_SHARD_LIVE + the push
-      # ok-marker (populate-then-strip) → a full no-op until the owner
-      # provisions + flips a given section's split. See
+      # key (with the Remote-Config PAT as a safety-net when a key is missing);
+      # strip additionally gates on <SECTION>_SHARD_LIVE + the push ok-marker
+      # (populate-then-strip) → a full no-op until the owner flips a given
+      # section's split. See
       # docs/TICINO-SHARD-RUNBOOK.md for the mechanism (written for the first
       # section, ticino; svizzera/zurigo reuse it via
       # scripts/lib/section-shard-slugs.json).

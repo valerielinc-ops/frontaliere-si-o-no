@@ -344,8 +344,9 @@ jobs:
       # push-section-shard.sh stages the RAW subtree and offloads its own
       # copy exactly once; then strip it so the locale shard drops below the
       # 10 GB Pages cap. One repo PER (section, locale) (frontaliere-<section>-<loc>).
-      # Push gates on the deploy key; strip on <SECTION>_SHARD_LIVE + the push
-      # ok-marker.
+      # Push uses the deploy key, with the Remote-Config PAT as a safety-net
+      # when a key is missing; strip still gates on <SECTION>_SHARD_LIVE + the
+      # push ok-marker.
       - name: Push section shards (non-IT → frontaliere-<section>-<loc>)
         id: push-section-shards-nonit
         if: matrix.locale != 'it'
@@ -1055,8 +1056,9 @@ jobs:
       # YAML: 18 URLs (9 paths × apex+origin) against the 30 cap, 40% headroom.
       #
       # Gated on the ok-marker, not on the step outcome: push-locale-shard.sh
-      # exits 0 when it SKIPS (no deploy key, no dist subtree), and purging after
-      # a skip would spend the call on bytes that never moved.
+      # exits 0 when it SKIPS (no dist subtree; a missing deploy key uses the
+      # PAT fallback when available), and purging after a skip would spend the
+      # call on bytes that never moved.
       - name: Purge the edge for the pushed locale shard (apex AND origin)
         if: matrix.locale != 'it' && steps.push-shard.outcome == 'success'
         continue-on-error: true
