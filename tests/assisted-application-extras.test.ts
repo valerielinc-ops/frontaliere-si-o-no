@@ -260,6 +260,59 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     }
   });
 
+  it('keeps the whole sweep inside its time: a follow-up it has no time to draft stays due for the next sweep', async () => {
+    // The scheduled function has 540 s for every follow-up due (review of #12244): five slow ones, each with
+    // its repair, would take four times that.
+    const ids = ['order_SWEEP1', 'order_SWEEP2', 'order_SWEEP3', 'order_SWEEP4', 'order_SWEEP5'];
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const sweep = async (firstMs: number, repairMs: number) => {
+      const seed: Record<string, any> = {};
+      for (const id of ids) {
+        const path = `assisted_applications/${id}`;
+        seed[path] = { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale' };
+        seed[`${path}/ai_drafts/current`] = {
+          language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' }, applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },
+          matches: [], factSources: { text: CV_TEXT, posting: 'Ospedale cerca infermiera', order: 'Infermiera\nOspedale\nMaria Rossi', answers: '' },
+        };
+        seed[`${path}/automation/flow`] = { answers: {} };
+      }
+      const store = createMemoryFirestore(seed);
+      for (const id of ids) await scheduleFollowups(store.db, id, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: `<aa-${id}@candidature.frontaliereticino.ch>`, sentAt: T0 });
+      // The time the sweep takes is the time its calls take: a clock of the test's own.
+      let elapsed = 0;
+      const requests: any[] = [];
+      const codex = vi.fn(async (request: any) => {
+        requests.push(request);
+        elapsed += request.userText.includes('"factCheckFindings"') ? repairMs : firstMs;
+        return { body: invented };
+      });
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      const summary = await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS, clock: () => elapsed });
+      return { summary, elapsed, requests, followup: (id: string) => store.read(`assisted_applications/${id}/automation/followup`), order: (id: string) => store.read(`assisted_applications/${id}`) };
+    };
+
+    // Five follow-ups due, 179 s for each first writing and 120 s for each repair: one fits, four stay due.
+    const slow = await sweep(179_000, 120_000);
+    expect(slow.elapsed).toBe(299_000);
+    expect(slow.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slow.summary.results.map((result: any) => result.deferred || 'drafted')).toEqual(['drafted', 'sweep_budget', 'sweep_budget', 'sweep_budget', 'sweep_budget']);
+    expect(slow.followup(ids[0])).toMatchObject({ state: 'stopped', stopReason: 'fact_check' });
+    for (const id of ids.slice(1)) {
+      expect(slow.followup(id)).toMatchObject({ state: 'scheduled' });
+      expect(slow.order(id).followupDueAt).toBeLessThanOrEqual(T0 + 7 * DAY_MS);
+    }
+    // Quick ones all fit: four with their repair, the fifth while the sweep still has the time for it.
+    const quick = await sweep(20_000, 20_000);
+    expect(quick.summary.results.every((result: any) => !result.deferred)).toBe(true);
+    expect(quick.elapsed).toBe(200_000);
+    // A first writing that takes almost all the sweep has gets no repair, and never more time than is left.
+    const slowest = await sweep(400_000, 120_000);
+    expect(slowest.requests).toHaveLength(1);
+    expect(slowest.requests[0].timeoutMs).toBeLessThanOrEqual(420_000);
+    expect(slowest.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slowest.summary.results.slice(1).every((result: any) => result.deferred === 'sweep_budget')).toBe(true);
+  });
+
   it('drafts on day 7, sends after the 12 hours, then the day-14 one, then stops', async () => {
     const store = followupStore();
     await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });

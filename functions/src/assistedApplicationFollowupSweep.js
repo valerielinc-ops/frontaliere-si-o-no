@@ -80,12 +80,18 @@ async function stop(db, orderId, followup, reason, nowMs) {
 }
 
 const FOLLOWUP_TIMEOUT_MS = 420_000;
-// The one repair of a follow-up the fact gate stops: shorter, and only after a first writing this quick.
+// The one repair of a follow-up the fact gate stops: shorter than a first writing.
 const REPAIR_TIMEOUT_MS = 120_000;
-const REPAIR_WITHIN_MS = 180_000;
+// The scheduled function has 540 s for the whole sweep (functions/index.js), whatever the number of
+// follow-ups due. A follow-up is drafted only while the sweep has the time for a first writing and its
+// repair; a call never gets more time than the sweep has left; what is written and sent after it has its
+// margin. A follow-up that is not started stays due: the next sweep, 30 minutes later, takes it.
+export const SWEEP_BUDGET_MS = 510_000;
+const DRAFT_NEEDS_MS = 300_000;
+const WRITE_MARGIN_MS = 15_000;
 
 /** Codex drafts follow-up n; the candidate gets it with the 12-hour clock. */
-async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret }) {
+async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret, timeLeft = () => Infinity }) {
   const { order, followup, draft, flow } = context;
   const n = Number(followup.sent || 0) + 1;
   const language = draft.language || 'it';
@@ -119,12 +125,11 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
     const written = sanitizeFollowup(raw, { n });
     return { ...written, facts: checkDraftFacts({ followup: written.body }, sources) };
   };
-  const started = Date.now();
-  let { body, violations, facts } = await write();
+  let { body, violations, facts } = await write([], Math.min(FOLLOWUP_TIMEOUT_MS, Math.max(1000, timeLeft() - WRITE_MARGIN_MS)));
   // Self-repair (2026-10-07, as scripts/assisted-application/lib/draft.mjs does for the letter): a follow-up
   // the fact gate stops is written once more, the model told what the gate did not find, and kept only when
-  // the gate passes it. Only when the first writing left the time: the sweep has 540 s for all its orders.
-  if (!violations.length && !facts.ok && Date.now() - started < REPAIR_WITHIN_MS) {
+  // the gate passes it. Only while the sweep has the time for it (SWEEP_BUDGET_MS).
+  if (!violations.length && !facts.ok && timeLeft() >= REPAIR_TIMEOUT_MS + WRITE_MARGIN_MS) {
     const findings = facts.unsupported.slice(0, 12).map(({ kind, token, context }) => ({ kind, token, context }));
     const again = await write(findings, REPAIR_TIMEOUT_MS).catch(() => null);
     if (again && !again.violations.length && again.facts.ok) ({ body, violations, facts } = again);
@@ -256,7 +261,7 @@ export function followupReviewPayload({ order, draft, followup, n }) {
   };
 }
 
-async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecret }) {
+async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecret, timeLeft = () => Infinity }) {
   const context = await loadContext(db, orderId);
   const { order, followup } = context;
   if (!followup || ['done', 'stopped'].includes(followup.state)) {
@@ -274,7 +279,11 @@ async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecr
     await orderRefFor(db, orderId).set({ followupDueAt: nowMs + UNCLASSIFIED_WAIT_MS }, { merge: true });
     return { ok: true, waiting: 'inbox_unclassified' };
   }
-  if (followup.state === 'scheduled') return draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret });
+  if (followup.state === 'scheduled') {
+    // No time left for a first writing and its repair: nothing is written, the follow-up stays due.
+    if (timeLeft() < DRAFT_NEEDS_MS) return { ok: true, deferred: 'sweep_budget' };
+    return draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, getSecret, timeLeft });
+  }
   if (followup.state === 'awaiting_candidate') return sendFollowup({ db, orderId, nowMs, sendCascade, by: 'deadline' });
   if (followup.state === 'sending' && nowMs - Number(followup.sendingSince || 0) > SENDING_STALE_MS) {
     // A send interrupted half-way has an unknown outcome: never sent twice.
@@ -285,15 +294,19 @@ async function processFollowup({ db, orderId, nowMs, codex, sendCascade, getSecr
 
 /**
  * Scheduled every 30 minutes (functions/index.js), behind the automation flag.
- * @param {{db, nowMs?:number, codex:Function, sendCascade:Function, getSecret?:Function, isEnabled?:Function, limit?:number}} deps
+ * @param {{db, nowMs?:number, codex:Function, sendCascade:Function, getSecret?:Function, isEnabled?:Function, limit?:number,
+ *   clock?:()=>number, budgetMs?:number}} deps clock: the time that passes while the sweep runs (tests pass
+ *   their own); budgetMs: what the sweep may take in all
  */
-export async function runFollowupSweep({ db, nowMs = Date.now(), codex, sendCascade, getSecret = getReviewTokenSecret, isEnabled = isAutomationEnabled, limit = 5 }) {
+export async function runFollowupSweep({ db, nowMs = Date.now(), codex, sendCascade, getSecret = getReviewTokenSecret, isEnabled = isAutomationEnabled, limit = 5, clock = Date.now, budgetMs = SWEEP_BUDGET_MS }) {
   if (!(await isEnabled())) return { skipped: 'flag_off' };
+  const deadline = clock() + budgetMs;
+  const timeLeft = () => deadline - clock();
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION).where('followupDueAt', '<=', nowMs).limit(limit).get();
   const results = [];
   for (const doc of snapshot.docs || []) {
     try {
-      results.push({ orderId: doc.id, ...(await processFollowup({ db, orderId: doc.id, nowMs, codex, sendCascade, getSecret })) });
+      results.push({ orderId: doc.id, ...(await processFollowup({ db, orderId: doc.id, nowMs, codex, sendCascade, getSecret, timeLeft })) });
     } catch (error) {
       console.warn('[followupSweep]', doc.id, error instanceof Error ? error.message.slice(0, 120) : String(error));
       results.push({ orderId: doc.id, ok: false, error: 'exception' });

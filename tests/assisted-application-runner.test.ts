@@ -307,6 +307,60 @@ describe('draft mode', () => {
     }
   });
 
+  it('stays inside the job’s 120 minutes when every Codex call takes all the time it is given, both repairs included', async () => {
+    // The capacity of a draft run (review of #12244), measured on a clock of the test's own: a call ends when
+    // its timeout does, calls made together run together, and the clock moves on only while the draft waits.
+    const slowest = (answers: (request: any) => Promise<any>) => {
+      let now = 0;
+      let pump: ReturnType<typeof setTimeout> | null = null;
+      const waiting: Array<{ end: number; done: () => void }> = [];
+      const next = () => {
+        if (pump) clearTimeout(pump);
+        pump = setTimeout(() => {
+          pump = null;
+          if (!waiting.length) return;
+          waiting.sort((first, second) => first.end - second.end);
+          const call = waiting.shift()!;
+          now = call.end;
+          call.done();
+          next();
+        }, 25);
+      };
+      const codex = vi.fn(async (request: any) => {
+        const answer = await answers(request);
+        await new Promise<void>((done) => { waiting.push({ end: now + request.timeoutMs, done }); next(); });
+        return answer;
+      });
+      return { codex, elapsedMs: () => now };
+    };
+    const run = async (repairs: boolean) => {
+      const base = fakeCodex();
+      const clock = slowest(async (request: any) => {
+        const answer = await base(request);
+        // Without repairs: a letter the gate passes. With: a letter and a tailored CV it stops, twice each.
+        if (!repairs && request.schema === DOCUMENTS_SCHEMA) return { ...answer, coverLetter: { ...answer.coverLetter, paragraphs: [answer.coverLetter.paragraphs[0]] } };
+        if (repairs && request.schema === TAILORED_CV_SCHEMA) return { ...answer, summary: 'Infermiera che si candida presso Clinica Inventata.' };
+        return answer;
+      });
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex: clock.codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      return { draft, elapsedMs: clock.elapsedMs(), calls: clock.codex.mock.calls.length };
+    };
+    const MINUTE = 60_000;
+    // Profile ∥ requirements, match ∥ tailored CV, documents: three half hours in a row, as before the repairs.
+    const baseline = await run(false);
+    expect(baseline.draft.factRepair).toBeUndefined();
+    expect(baseline).toMatchObject({ calls: 5, elapsedMs: 90 * MINUTE });
+    // Both repairs asked for, and both in vain: ten minutes more, never the two in a row.
+    const worst = await run(true);
+    expect(worst.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(worst.draft.tailoredCv.status).toBe('fact_check_failed');
+    expect(worst).toMatchObject({ calls: 7, elapsedMs: 100 * MINUTE });
+    expect(worst.elapsedMs).toBeLessThanOrEqual(120 * MINUTE);
+  });
+
   it('does not stop at the owner a seasonal job on Workday that is open: its age is no ghost sign', async () => {
     // A real order of 2026-10-07: «Weihnachtsaushilfe», published two months before, a generic text, and a page
     // read «expired» (Workday's empty shell). «Suspicious» held the draft at the owner with no clock.
