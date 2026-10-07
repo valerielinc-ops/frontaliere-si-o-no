@@ -95,16 +95,20 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
     expect(v.blocking).toEqual([]);
   });
 
-  it('un gate A non blocca ma ha la issue più pesante; un gate fuori tabella blocca ancora', () => {
+  it('un gate A non blocca ma ha la issue più pesante; fuori tabella blocca solo ciò che non è un gate', () => {
     for (const key of Object.keys(SEO_GATE_CLASSES).filter((k) => SEO_GATE_CLASSES[k].class === 'A')) {
       expect(effectiveMode(key), key).toBe('issue-on-failure');
       expect(MODE_ISSUE_PRIORITY[effectiveMode(key) as keyof typeof MODE_ISSUE_PRIORITY], key).toBe(1);
     }
-    // Default-deny invariato: il validatore non SEO e il bundle opaco audit:all.
+    // Dal 2026-10-07 («nessun gate blocca») il validatore non SEO è segnalato
+    // come non classificato e non blocca; il bundle opaco audit:all non è un
+    // gate ma un verdetto indeterminato, e chiude ancora publish.
     const v = evaluateIntegrity(['gate:seo-source', 'validate:third-party-secrets', 'audit:all']);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['validate:third-party-secrets', 'audit:all']);
+    expect(v.blocking).toEqual(['audit:all']);
+    expect(v.unclassified).toEqual(['validate:third-party-secrets']);
     expect(v.quality).toEqual(['gate:seo-source']);
+    expect(evaluateIntegrity(['gate:seo-source', 'validate:third-party-secrets']).integrityOk).toBe(true);
   });
 });
 

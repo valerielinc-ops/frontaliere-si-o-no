@@ -47,30 +47,37 @@ describe('validate-dist failure classification', () => {
     // They used to: publish submits the sitemap URL set verbatim to IndexNow
     // + Indexing API. The owner chose to let publish run and have the P1
     // issue drive the fix (scripts/ci/lib/seo-gate-classes.mjs). A sitemap
-    // gate that is NOT classified there still blocks by default-deny.
+    // gate that is NOT classified there is reported as unclassified and,
+    // since the owner decision of 2026-10-07 («nessun gate blocca»), does not
+    // block either.
     for (const gate of ['validate:sitemap-pages', 'validate:sitemap-links']) {
       const v = evaluateIntegrity([gate]);
       expect(v.integrityOk, `${gate} is class A, issue-only`).toBe(true);
       expect(v.quality).toEqual([gate]);
     }
     const unclassified = evaluateIntegrity(['audit:sitemap-canonicals']);
-    expect(unclassified.integrityOk).toBe(false);
-    expect(unclassified.blocking).toEqual(['audit:sitemap-canonicals']);
+    expect(unclassified.integrityOk).toBe(true);
+    expect(unclassified.blocking).toEqual([]);
+    expect(unclassified.unclassified).toEqual(['audit:sitemap-canonicals']);
   });
 
-  it('blocks when an unclassified gate fails alongside a classified one', () => {
+  it('reports an unclassified gate apart from a classified one, without blocking', () => {
     const v = evaluateIntegrity(['audit:all/title-length', 'validate:crawler-summaries']);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['validate:crawler-summaries']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.unclassified).toEqual(['validate:crawler-summaries']);
     expect(v.quality).toEqual(['audit:all/title-length']);
   });
 
-  it('DEFAULT-DENY: an unclassified gate blocks', () => {
-    // The property that keeps this from becoming a blanket bypass: a gate
-    // added to the workflow tomorrow blocks until someone classifies it.
+  it('owner decision 2026-10-07: an unclassified gate no longer blocks, it is flagged', () => {
+    // Was DEFAULT-DENY. `deploy` runs in parallel and is never rolled back,
+    // so a gate added tomorrow cannot un-publish anything: blocking it only
+    // withheld IndexNow/GSC for pages already live (validate:og-images, runs
+    // 37543977878 and 37571743923). It stays visible as `unclassified`.
     const v = evaluateIntegrity(['audit:some-gate-invented-next-quarter']);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:some-gate-invented-next-quarter']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.unclassified).toEqual(['audit:some-gate-invented-next-quarter']);
   });
 
   it('FAIL-CLOSED: an unavailable result set blocks', () => {
@@ -140,10 +147,9 @@ describe('validate-dist failure classification', () => {
     }
   });
 
-  it('keeps the non-SEO validators and unclassified gates out of the allowlist', () => {
-    // The class A sitemap and dist-integrity gates left this list on
-    // 2026-10-03 (owner decision: issue P1, publish runs). What remains
-    // blocking is everything the SEO classification does not own.
+  it('keeps the non-SEO validators out of the SEO allowlist, flagged as unclassified', () => {
+    // They are not SEO gates, so they stay out of the classification; since
+    // 2026-10-07 («nessun gate blocca») they are reported, not blocking.
     const MUST_BLOCK = [
       'audit:sitemap-canonicals',
       'validate:keyword-landing-coverage',
@@ -153,7 +159,9 @@ describe('validate-dist failure classification', () => {
     ];
     for (const gate of MUST_BLOCK) {
       expect(QUALITY_GATES, `${gate} must never be allowlisted`).not.toHaveProperty(gate);
-      expect(evaluateIntegrity([gate]).integrityOk).toBe(false);
+      const v = evaluateIntegrity([gate]);
+      expect(v.integrityOk, gate).toBe(true);
+      expect(v.unclassified, gate).toEqual([gate]);
     }
   });
 });
@@ -204,13 +212,14 @@ describe('audit:all bundle expansion (#4828)', () => {
     }
   });
 
-  it('NEGATIVE CASE: an unclassified sub-auditor overrides many classified ones', () => {
+  it('an unclassified sub-auditor is flagged next to many classified ones', () => {
     const v = evaluateIntegrity([
       ...RUN_31077435060_SUB_AUDITS,
       'audit:all/auditor-added-next-quarter',
     ]);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:all/auditor-added-next-quarter']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.unclassified).toEqual(['audit:all/auditor-added-next-quarter']);
     expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
   });
 
@@ -224,26 +233,26 @@ describe('audit:all bundle expansion (#4828)', () => {
     expect(v.quality).toEqual(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
   });
 
-  it('DEFAULT-DENY survives inside the namespace', () => {
+  it('the namespace prefix is not a wildcard: a new sub-auditor is unclassified', () => {
     // A 13th auditor registered in scripts/audit-all.mjs tomorrow arrives as
-    // `audit:all/<new>` and must block until someone classifies it. The
-    // prefix is not a wildcard.
+    // `audit:all/<new>`: not classified by its prefix, so it is flagged; it
+    // does not block (owner decision 2026-10-07).
     const v = evaluateIntegrity(['audit:all/auditor-added-next-quarter']);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:all/auditor-added-next-quarter']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.quality).toEqual([]);
+    expect(v.unclassified).toEqual(['audit:all/auditor-added-next-quarter']);
   });
 
-  it('NEGATIVE CASE: expansion does not rescue an unclassified validator', () => {
+  it('expansion does not classify a non-SEO validator: it stays flagged', () => {
     // Run 31077435060's sub-audits plus a red non-SEO validator: the expanded
-    // sub-audits are classified, the validator is not, and publish stays
-    // blocked by default-deny. (`validate:sitemap-pages`, red in that run, is
-    // class A and issue-only since 2026-10-03.)
+    // sub-audits are classified, the validator is not. Since 2026-10-07 it is
+    // reported as unclassified and publish proceeds.
     const v = evaluateIntegrity([
       'validate:translation-completeness',
       ...RUN_31077435060_SUB_AUDITS,
     ]);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['validate:translation-completeness']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.unclassified).toEqual(['validate:translation-completeness']);
   });
 });
 
