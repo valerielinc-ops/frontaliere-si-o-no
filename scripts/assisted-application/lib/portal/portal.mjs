@@ -60,6 +60,9 @@ const AUTH_OUTCOME_POLL_MS = 500;
 // How long the link between the two account pages («Sign In» under the registration form, «Create Account»
 // under the sign-in one) gets to draw the other page.
 const AUTH_VIEW_TIMEOUT_MS = 8_000;
+// Between the last field typed and the reading that checks it is still there: a form drawn anew meanwhile
+// shows by then, and Workday counts a click in the first half second of its form as a robot's.
+const AUTH_TYPED_WAIT_MS = 600;
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -281,20 +284,43 @@ async function settle(page) {
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
 }
 
+/**
+ * The control a snapshot named, found again in a fresh reading of the page: the same name in the same place
+ * (the page or the site's header, a dialog or not).
+ */
+async function sameControl(page, button) {
+  const fresh = await extractFields(page, NAVIGATION).catch(() => null);
+  return fresh?.buttons.find((candidate) => candidate.text === button.text && !candidate.disabled
+    && Boolean(candidate.chrome) === Boolean(button.chrome) && Boolean(candidate.dialog) === Boolean(button.dialog)
+    && (candidate.frame || 0) === (button.frame || 0)) || null;
+}
+
+/** Presses a control of a snapshot; says how it was found (`id`, `again`, `text`, `href`). */
 async function clickButton(page, button) {
   const frame = page.frames()[button.frame || 0] || page.mainFrame();
   try {
     await frame.locator(`[data-aa-id="${button.id}"]`).first().click({ timeout: 6_000 });
+    return 'id';
   } catch (error) {
-    // Workday animates its apply modal and re-renders the links, dropping our
-    // data-aa-id: the same control is found again by its visible text.
+    // Workday animates its apply modal and re-renders its forms, dropping our data-aa-id: the same control
+    // is found again in a fresh reading, by its name and its place. Its visible text alone finds the first
+    // thing on the page that says so: for the form's «Sign In» on Workday that is the header's, which opens
+    // a dialog over the form (dry run of 2026-10-07). A control found again that still cannot be pressed
+    // is covered by something: nothing else is pressed in its place.
     if (!button.text) throw error;
+    const again = await sameControl(page, button);
+    if (again) {
+      await frame.locator(`[data-aa-id="${again.id}"]`).first().click({ timeout: 6_000 });
+      return 'again';
+    }
     try {
       await frame.getByText(button.text, { exact: true }).first().click({ timeout: 6_000 });
+      return 'text';
     } catch (textError) {
       // A link that never settles is followed by its address.
       if (!button.href) throw textError;
       await page.goto(button.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      return 'href';
     }
   }
 }
@@ -570,18 +596,16 @@ function questionsFrom(missingRequired) {
   return questions;
 }
 
+/** Presses the first control one of the patterns names; false when there is none, else how it was found. */
 async function clickFirst(page, snapshot, patterns) {
   for (const pattern of patterns) {
     const button = findButton(snapshot.buttons, pattern);
-    if (button) {
-      await clickButton(page, button);
-      return true;
-    }
+    if (button) return clickButton(page, button);
     const link = page.getByRole('link', { name: pattern }).first();
     const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
     if (linkVisible) {
       await clickPortalLink(page, link);
-      return true;
+      return 'link';
     }
   }
   return false;
@@ -946,32 +970,49 @@ async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = fal
   }
 
   if (kind === 'sign_in') {
-    const { email, password } = loginFields(snapshot);
-    if (!email || !password) return { handoff: 'account' };
-    await applyActions(page, snapshot.fields, [
-      { fieldId: email.id, action: 'fill', value: account.email },
-      { fieldId: password.id, action: 'fill', value: account.password },
-    ], {});
-    const shown = (await extractFields(page, NAVIGATION).catch(() => null))?.errors || [];
+    // Typed, then read again: a form the portal draws anew meanwhile (Workday, when what it loads for the
+    // page arrives late) has lost what was typed and its button is another element. It is typed once more,
+    // and the button pressed is the one of the reading made right before the click.
+    let form = snapshot;
+    let typed = false;
+    for (let attempt = 0; attempt < 2 && !typed; attempt += 1) {
+      const { email, password } = loginFields(form);
+      if (!email || !password) return { handoff: 'account' };
+      await applyActions(page, form.fields, [
+        { fieldId: email.id, action: 'fill', value: account.email },
+        { fieldId: password.id, action: 'fill', value: account.password },
+      ], {});
+      await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
+      form = await extractFields(page, NAVIGATION);
+      const now = loginFields(form);
+      typed = Boolean(now.email?.value) && Boolean(now.password?.value);
+    }
+    if (!typed) return { handoff: 'account' };
+    const shown = form.errors || [];
     diagnostics?.beforeClick('account');
-    if (!await clickFirst(page, snapshot, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE])) return { handoff: 'account' };
+    const pressed = await clickFirst(page, form, [SIGN_IN_RE, SUBMIT_RE, NEXT_RE]);
+    if (!pressed) return { handoff: 'account' };
     const after = await awaitAuthOutcome(page, 'sign_in', shown);
     diagnostics?.afterClick();
     if (!account.verifiedAt && (VERIFY_PAGE_RE.test(after.text) || codeField(after))) {
-      return verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after });
+      return { ...await verifyAccount({ page, host, sinceMs: account.createdAt || 0, ctx, snapshot: after }), pressed };
     }
+    // Two password fields after a sign-in are no account's home either (a dialog opened over the form).
+    if (authPageKind(after) === 'create') return { handoff: 'account_sign_in_failed', pressed };
     if (authPageKind(after) === 'sign_in') {
       // A registration the portal never answered (status `unanswered`): the account was not created after
       // all. It is created now, once; any other account that cannot sign in is the owner's to look at.
-      if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed' };
+      if (account.status !== 'unanswered' || recreated) return { handoff: 'account_sign_in_failed', pressed };
       await ctx.accounts.discard(host, 'never_created');
       if (!await clickFirst(page, after, [CREATE_ACCOUNT_RE])) return { handoff: 'account_sign_in_failed' };
       const registration = await awaitAuthView(page, after);
       if (authPageKind(registration) !== 'create') return { handoff: 'account_sign_in_failed' };
       return handleAuth({ page, snapshot: registration, ctx, diagnostics, recreated: true });
     }
-    await ctx.accounts.mark(host, { lastSignInAt: Date.now() });
-    return { snapshot: after, reopen: true };
+    // Signed in: the account exists, whatever its registration left on record (`unanswered`, `pending`). A
+    // later sign-in that fails is then no reason to create it again.
+    await ctx.accounts.mark(host, { status: 'created', lastSignInAt: Date.now() });
+    return { snapshot: after, reopen: true, pressed };
   }
 
   // Create-account page.
@@ -1444,12 +1485,20 @@ export async function submitViaPortal(ctx) {
           // and, read as a timeout, the run was started again twice; the owner gets the page instead.
           if (!/^locator\./.test(String(error?.message || ''))) throw error;
           evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: 'control_error', error: String(error.message).split('\n')[0].slice(0, 160) };
+          // A registration whose password was stored and whose button then could not be pressed: whether the
+          // account exists is not known. Left `pending`, the next run would sign in, fail and stop there;
+          // as `unanswered` it signs in and, when that fails, creates the account.
+          const authHost = new URL(page.url()).hostname;
+          const stored = await ctx.accounts.load(authHost).catch(() => null);
+          if (stored?.status === 'pending') await ctx.accounts.mark(authHost, { status: 'unanswered' }).catch(() => {});
           return await handoff('account');
         }
         evidence.steps.at(-1).auth = {
           kind: authPageKind(snapshot),
           outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
           ...(auth.privacy ? { privacy: auth.privacy } : {}),
+          // How the sign-in button was found (clickButton): by its id, again after a redraw, or by its text.
+          ...(auth.pressed ? { pressed: auth.pressed } : {}),
         };
         if (auth.handoff) return await handoff(auth.handoff);
         if (auth.questions) return { event: { type: 'submit_needs_candidate', questions: auth.questions }, evidence };

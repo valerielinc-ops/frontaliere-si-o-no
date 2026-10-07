@@ -208,7 +208,7 @@ describe('portal field extraction', () => {
   });
 
   // A real order of 2026-10-07 (Workday): the «Create Account» page as its own code draws it.
-  it('never reads a honeypot as a field of the form, nor a button hidden from people as one to press', () => {
+  it('never reads a honeypot as a field of the form, nor the submit Workday hides under its click filter as one to press', () => {
     const account = extract(`
       <form>
         <label for="e">Email Address*</label><input id="e" type="text" autocomplete="email" required>
@@ -221,8 +221,8 @@ describe('portal field extraction', () => {
         <button type="button" aria-label="Sign In">Sign In</button>
       </form>`);
     expect(account.fields.map((field: any) => field.label)).toEqual(['Email Address*', 'Password*', 'Verify New Password*']);
-    // The overlay people click is the one «Create Account»; the real submit under it is hidden from them.
-    // (jsdom has no innerText: the buttons of this file are read by their aria-label.)
+    // The overlay people click is the one «Create Account»; the real submit next to it is hidden from them
+    // and out of the tab order. (jsdom has no innerText: the buttons of this file are read by their aria-label.)
     expect(account.buttons.map((button: any) => button.text)).toEqual(['Create Account', 'Sign In']);
     // A trap is one by what its label says or by its size alone, whichever it shows.
     const traps = extract(`
@@ -236,10 +236,33 @@ describe('portal field extraction', () => {
     // visible label, a file input behind its button.
     const widgets = extract(`
       <label for="k"><input id="k" type="checkbox" name="privacy" data-size="1"> I accept</label>
-      <label for="f">CV</label><input id="f" type="file" name="cv" data-size="1">
-      <div aria-hidden="true"><button type="button" aria-label="Behind a dialog">Behind a dialog</button></div><button type="button" aria-label="Next">Next</button>`);
+      <label for="f">CV</label><input id="f" type="file" name="cv" data-size="1">`);
     expect(widgets.fields.map((field: any) => field.name)).toEqual(['privacy', 'cv']);
-    expect(widgets.buttons.map((button: any) => button.text)).toEqual(['Next']);
+  });
+
+  // Review of #12255: aria-hidden is a flag of the accessibility tree, not a sign that nothing is drawn.
+  it('keeps a drawn button that is only aria-hidden, and leaves out what lies under an open modal dialog', () => {
+    // A submit some portal marks aria-hidden with no overlay next to it is still the one to press: alone, out
+    // of the tab order or not, and next to a control of another name.
+    const drawn = extract(`
+      <form>
+        <button type="submit" aria-hidden="true" aria-label="Send application">Send application</button>
+        <div><button type="button" tabindex="-1" aria-hidden="true" aria-label="Next">Next</button><div role="button" tabindex="0" aria-label="Back">Back</div></div>
+        <div aria-hidden="true"><button type="button" aria-label="Save draft">Save draft</button></div>
+      </form>`);
+    expect(drawn.buttons.map((button: any) => button.text)).toEqual(['Send application', 'Next', 'Back', 'Save draft']);
+    // Workday's pair: the same name on a visible overlay next to the hidden, unfocusable submit.
+    const filtered = extract(`
+      <div><div role="button" tabindex="0" aria-label="Sign In" data-automation-id="click_filter"></div>
+        <button type="submit" tabindex="-2" aria-hidden="true" aria-label="Sign In">Sign In</button></div>`);
+    expect(filtered.buttons).toHaveLength(1);
+    expect(filtered.buttons[0].text).toBe('Sign In');
+    // What a page hides while its modal dialog is open is under that dialog; the dialog's own buttons count.
+    const modal = extract(`
+      <div aria-hidden="true"><header><button type="button" aria-label="Sign In">Sign In</button></header>
+        <main><button type="button" aria-label="Create Account">Create Account</button></main></div>
+      <div role="dialog" aria-modal="true"><button type="button" aria-label="Close">Close</button><button type="button" aria-label="Sign In">Sign In</button></div>`);
+    expect(modal.buttons.map((button: any) => `${button.text}${button.dialog ? ' (dialog)' : ''}`)).toEqual(['Close (dialog)', 'Sign In (dialog)']);
   });
 
   // Dry run of 2026-10-07 (Workday): two «Sign In» on the account page, the site header's first in the

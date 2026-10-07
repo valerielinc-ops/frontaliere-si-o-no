@@ -342,14 +342,27 @@ export function extractFieldsInPage() {
       invalid: element.getAttribute('aria-invalid') === 'true',
     });
   }
-  const buttons = [...document.querySelectorAll('button, input[type="submit"], a[role="button"], [role="button"]')]
-    // A button hidden from people (aria-hidden) is not one to press: Workday keeps its real submit under a
-    // «click_filter» overlay with the same name, and reads a click on the hidden one as a robot's.
-    .filter((element) => visible(element) && !element.closest('[aria-hidden="true"]') && element.getAttribute('aria-haspopup') !== 'listbox')
+  // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to
+  // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
+  // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides
+  // while a modal dialog is open lies under that dialog.
+  const BUTTONS = 'button, input[type="submit"], a[role="button"], [role="button"]';
+  const buttonName = (element) => clean(element.innerText || element.value || element.getAttribute('aria-label') || '');
+  const hiddenFromPeople = (element) => Boolean(element.closest('[aria-hidden="true"]'));
+  const underClickFilter = (element) => {
+    if (!hiddenFromPeople(element) || !(Number(element.getAttribute('tabindex')) < 0)) return false;
+    const name = buttonName(element);
+    return Boolean(name) && [...(element.parentElement?.querySelectorAll(BUTTONS) || [])]
+      .some((other) => other !== element && !hiddenFromPeople(other) && visible(other) && buttonName(other) === name);
+  };
+  const openModal = [...document.querySelectorAll('[aria-modal="true"]')].find(visible) || null;
+  const behindModal = (element) => Boolean(openModal) && !openModal.contains(element) && hiddenFromPeople(element);
+  const buttons = [...document.querySelectorAll(BUTTONS)]
+    .filter((element) => visible(element) && !underClickFilter(element) && !behindModal(element) && element.getAttribute('aria-haspopup') !== 'listbox')
     .map((element) => ({
       id: idFor(element),
       ...dialogMeta(element),
-      text: clean(element.innerText || element.value || element.getAttribute('aria-label') || ''),
+      text: buttonName(element),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',
       ...(inSiteChrome(element) ? { chrome: true } : {}),
