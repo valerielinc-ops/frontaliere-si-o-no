@@ -173,6 +173,17 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('runs L9 on relevant main pushes, on schedule, or after a successful profile refresh', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
+    expect(source).toMatch(/\n  push:\n/u);
+    expect(source).toContain('workflow_run:');
+    expect(source).toContain('Refresh Employer Profiles');
+    expect(source).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(source).toContain("github.event.workflow_run.head_branch == 'main'");
+    expect(source).toContain("github.event_name == 'workflow_run' && 'main'");
+    expect(source).toContain("github.event_name == 'schedule' || github.event_name == 'workflow_run'");
+  });
+
   it('starts every loop with explicit operational telemetry declarations', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
@@ -216,9 +227,12 @@ describe('loop fleet workflow contract', () => {
       const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
       const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
       const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
+      const usesWorkflowRunTrigger = /\n  workflow_run:\n/u.test(source);
 
       for (const dependency of dependencies) {
-        expect(pushPaths, `${name} push paths`).toContain(`- '${dependency}'`);
+        if (!usesWorkflowRunTrigger) {
+          expect(pushPaths, `${name} push paths`).toContain(`- '${dependency}'`);
+        }
         expect(pullRequestPaths, `${name} pull_request paths`).toContain(`- '${dependency}'`);
         expect(sparseCheckout, `${name} sparse checkout`).toContain(`/${dependency}`);
       }
