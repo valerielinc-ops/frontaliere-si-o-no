@@ -175,9 +175,10 @@ function normalizedIdentityValue(value) {
 /**
  * Prove that two records are the same source posting under different URLs.
  * The proof is deliberately narrower than a title/company duplicate: it needs
- * the same source host, employer identity, full store address, title, place,
- * and body. That is the evidence used by the Coop repost collapse; without it
- * a target-side write followed by a claimant-write failure must still retry.
+ * the same non-empty source reference, source host, employer identity, full
+ * store address, title, place, and body. That is the evidence used by the Coop
+ * repost collapse; without it a target-side write followed by a claimant-write
+ * failure must still retry.
  */
 function jobsShareRepublishedIdentity(left, right) {
   let leftHost = '';
@@ -185,6 +186,10 @@ function jobsShareRepublishedIdentity(left, right) {
   try { leftHost = new URL(String(left?.url || '')).hostname.toLowerCase(); } catch { /* no strong URL identity */ }
   try { rightHost = new URL(String(right?.url || '')).hostname.toLowerCase(); } catch { /* no strong URL identity */ }
   if (!leftHost || leftHost !== rightHost) return false;
+
+  const leftSourceReference = normalizedIdentityValue(left?.sourceReference);
+  const rightSourceReference = normalizedIdentityValue(right?.sourceReference);
+  if (!leftSourceReference || leftSourceReference !== rightSourceReference) return false;
 
   const leftCompanyKey = normalizedIdentityValue(left?.companyKey);
   const rightCompanyKey = normalizedIdentityValue(right?.companyKey);

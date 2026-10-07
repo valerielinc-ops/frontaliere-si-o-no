@@ -48,6 +48,7 @@ describe('resolveRecoveryTarget', () => {
       location: 'Gossau',
       company: 'Coop Genossenschaft',
       companyKey: 'coop-ticino',
+      sourceReference: '155808',
       postalCode: '9200',
       streetAddress: 'Industriestrasse 109',
     };
@@ -73,6 +74,41 @@ describe('resolveRecoveryTarget', () => {
 
     expect(result.redirected).toBe(false);
     expect(result.targetJob).toBe(claimant);
+  });
+
+  it('redirects identical same-host records with different source references', () => {
+    const repost = {
+      title: 'Transportdisponent:in',
+      description: 'Touren planen und Transporte am Standort koordinieren.',
+      location: 'Gossau',
+      company: 'Coop Genossenschaft',
+      companyKey: 'coop-ticino',
+      postalCode: '9200',
+      streetAddress: 'Industriestrasse 109',
+    };
+    const claimant = {
+      ...zurich,
+      ...repost,
+      sourceReference: '155808',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/old',
+    };
+    const ownerRecord = {
+      ...basel,
+      ...repost,
+      sourceReference: '155809',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/new',
+      previousSlugs: [],
+    };
+    const bySuffixHash = new Map([
+      [stableSlugHash(claimant), claimant],
+      [stableSlugHash(ownerRecord), ownerRecord],
+    ]);
+    const route = `transportdisponent-in-coop-gossau-${stableSlugHash(ownerRecord)}`;
+    ownerRecord.previousSlugs = [route];
+
+    const result = resolveRecoveryTarget(claimant, route, bySuffixHash);
+
+    expect(result).toEqual({ targetJob: ownerRecord, skip: false, redirected: true });
   });
 
   it('trusts a slug whose tail matches the resolved job\'s own hash', () => {
