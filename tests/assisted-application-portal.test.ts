@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import { SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -338,6 +338,64 @@ describe('portal runner helpers', () => {
       expect.objectContaining({ fieldId: school.id, action: 'select', value: 'Autre', source: 'profile' }),
     ]));
     expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('derives an age threshold only from the explicit date of birth', () => {
+    const question = 'Hai meno di 26 anni?';
+    const field = { id: 'age', kind: 'select', label: question, required: true, options: [{ label: 'Sì' }, { label: 'No' }] };
+    const candidate = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      profile: { dateOfBirth: '2002-01-01' },
+    });
+    expect(ageAt('13/11/2001', new Date('2026-10-07T00:00:00Z'))).toBe(24);
+    expect(ageAt('07.10.2000', new Date('2026-10-07T00:00:00Z'))).toBe(26);
+    expect(questionTopic(question)).toBe('age_under_26');
+    expect(questionTopic('Hai meno di 26 anni di esperienza?')).toBe('');
+    expect(candidateAnswerForField(candidate, field)).toEqual({ value: 'Sì', source: 'profile' });
+    expect(autoAnswersForPortalQuestions({
+      questions: [{ id: 'age', source: 'portal', question, required: true, type: 'choice', options: ['Sì', 'No'] }],
+      candidate,
+      answers: {},
+    })).toEqual({ age: 'Sì' });
+    const oldAddress = { id: 'portal_qual_e_la_tua_via_e_il_numero_civico', source: 'portal', question: 'Qual è la tua via e il numero civico?', required: true, type: 'text', options: [] };
+    const renamedAddress = { id: 'portal_qual_e_la_via_e_il_numero_civico', source: 'portal', question: 'Qual è la via e il numero civico?', required: true, type: 'text', options: [] };
+    const addressCandidate = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      answers: { [oldAddress.id]: 'Via Test 1' },
+      portalQuestions: [oldAddress, renamedAddress],
+    });
+    expect(autoAnswersForPortalQuestions({
+      questions: [oldAddress, renamedAddress],
+      candidate: addressCandidate,
+      answers: { [oldAddress.id]: 'Via Test 1' },
+    })).toEqual({ [renamedAddress.id]: 'Via Test 1' });
+    expect(candidateAnswerForField(candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      profile: { dateOfBirth: '1990-01-01' },
+    }), field)).toEqual({ value: 'No', source: 'profile' });
+    expect(candidateAnswerForField(candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch', phone: '' },
+      profile: {},
+    }), field)).toBeNull();
+
+    const guarded = guardPlan({ actions: [], missingRequired: [] }, [field], candidate);
+    expect(guarded.actions).toEqual([expect.objectContaining({ fieldId: 'age', value: 'Sì', source: 'profile' })]);
+    expect(guarded.missingRequired).toEqual([]);
+  });
+
+  it('reuses a saved semantic answer when the portal changes the question id', () => {
+    const out = autoAnswersForPortalQuestions({
+      questions: [{ id: 'new-age', source: 'portal', required: true, type: 'yes_no', question: 'Meno di 26 anni?', options: ['Sì', 'No'] }],
+      candidate: { profile: {}, portalQuestionsAnswered: [{ question: 'Are you under 26?', answer: 'Yes' }] },
+      answers: {},
+    });
+    expect(out).toEqual({ 'new-age': 'Sì' });
+
+    const field = { id: 'new-address', kind: 'text', label: 'Qual è la via e il numero civico?', required: true, options: [] };
+    expect(candidateAnswerForField({
+      profile: {},
+      portalQuestionsAnswered: [{ question: 'Qual è la tua via e il numero civico?', answer: 'Via Test 1' }],
+    }, field)).toEqual({ value: 'Via Test 1', source: 'answers' });
   });
 
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {
