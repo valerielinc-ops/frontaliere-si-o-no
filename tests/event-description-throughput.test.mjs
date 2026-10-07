@@ -17,6 +17,7 @@ import {
   recordRejectionMemory,
   rejectionStatus,
   selectShardQueue,
+  shouldPersistRejectionMemory,
   summarizeRewriteQueue,
 } from '../scripts/lib/event-description-throughput.mjs';
 import {
@@ -133,6 +134,12 @@ test('rejection memory contains only safe fields and follows cooldown and parkin
   }), 'retryable');
   assert.equal(third.policyVersion, EVENT_DESCRIPTION_POLICY_VERSION);
   assert.equal(third.promptVersion, EVENT_DESCRIPTION_PROMPT_VERSION);
+});
+
+test('input-budget skips do not consume definitive rejection memory', () => {
+  assert.equal(shouldPersistRejectionMemory({ definitive: true, code: 'input-budget' }), false);
+  assert.equal(shouldPersistRejectionMemory({ definitive: true, code: 'new-name' }), true);
+  assert.equal(shouldPersistRejectionMemory({ definitive: false, code: 'new-name' }), false);
 });
 
 test('selection ranks never-attempted events ahead of retries and reports queue states', () => {

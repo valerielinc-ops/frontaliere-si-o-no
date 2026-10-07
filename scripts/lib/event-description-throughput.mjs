@@ -130,6 +130,11 @@ export function rejectionStatus(
   return nowMs >= lastAttemptMs + rejectionWaitMs(entry.rejectedRuns) ? 'retryable' : 'waiting';
 }
 
+/** Input-budget skips never reached the provider and must not consume retry memory. */
+export function shouldPersistRejectionMemory({ definitive = false, code = '' } = {}) {
+  return Boolean(definitive) && code !== 'input-budget';
+}
+
 /** Add one run-level rejection using only the public-safe memory fields. */
 export function recordRejectionMemory(
   memory,

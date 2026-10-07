@@ -32,6 +32,7 @@ import {
   normalizeShardCount,
   recordRejectionMemory,
   queueStateForEvent,
+  shouldPersistRejectionMemory,
   selectShardQueue,
   summarizeRewriteQueue,
 } from './lib/event-description-throughput.mjs';
@@ -465,7 +466,7 @@ function rejectRecords(
   for (const record of records) {
     if (record?.selectionClass === 'new') stats.rejectedNeverAttempted += 1;
     if (record?.selectionClass === 'retryable') stats.rejectedRetries += 1;
-    if (!definitive || !rejectionMemory || !rejectionEntries || !record?.id) continue;
+    if (!shouldPersistRejectionMemory({ definitive, code }) || !rejectionMemory || !rejectionEntries || !record?.id) continue;
     stats._rejectionKeys ||= new Set();
     const key = rewriteCacheKey(record.id, record.sourceDescriptionHash);
     if (stats._rejectionKeys.has(key)) continue;
@@ -504,10 +505,12 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, rejec
     if (prompt.length > options.maxInputChars) {
       const skipped = work.length + group.length;
       stats.inputBudgetSkipped += skipped;
+      // No record in this branch reached the provider; keep existing retry
+      // memory unchanged so a cumulative budget skip cannot park fresh work.
       rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget', {
         rejectionMemory: cache.rejections,
         rejectionEntries,
-        definitive: true,
+        definitive: false,
       });
       break;
     }
@@ -517,7 +520,7 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, rejec
       rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget', {
         rejectionMemory: cache.rejections,
         rejectionEntries,
-        definitive: true,
+        definitive: false,
       });
       break;
     }
@@ -791,7 +794,7 @@ async function main() {
   if (inputBudgetSkipped.length) rejectRecords(stats, inputBudgetSkipped, 'input-budget', {
     rejectionMemory: cache.rejections,
     rejectionEntries,
-    definitive: true,
+    definitive: false,
   });
   const breaker = { failureStreak: 0, open: false, reason: '' };
   if (!options.dryRun) {
