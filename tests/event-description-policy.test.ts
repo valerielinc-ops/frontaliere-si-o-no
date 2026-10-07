@@ -81,6 +81,25 @@ describe('event description publication policy', () => {
     expect(applyDescriptionRewrite(EVENT, { entries: { [rewriteCacheKey(EVENT.id, 'wrong')]: entry } }).description).toBeUndefined();
   });
 
+  it('keeps a v1 cache entry valid across the prompt-only policy upgrade', () => {
+    const hash = sourceDescriptionHash(EVENT)!;
+    const entry = {
+      id: EVENT.id,
+      sourceDescriptionHash: hash,
+      description: 'La mostra riunisce opere locali. L\'appuntamento si tiene al museo civico.',
+      descriptionByLocale: {
+        it: 'La mostra riunisce opere locali. L\'appuntamento si tiene al museo civico.',
+        en: 'The exhibition brings together local works. The event takes place at the civic museum.',
+        de: 'Die Ausstellung versammelt lokale Werke. Der Anlass findet im Stadtmuseum statt.',
+        fr: 'L’exposition réunit des œuvres locales. Le rendez-vous a lieu au musée civique.',
+      },
+      model: EVENT_DESCRIPTION_REWRITE_MODEL,
+      promptVersion: 'event-description-rewrite-v1',
+      rewrittenAt: '2026-10-06T08:00:00.000Z',
+    };
+    expect(isValidRewriteCacheEntry(entry, { id: EVENT.id, sourceHash: hash })).toBe(true);
+  });
+
   it('removes description-derived translation entries but keeps title translations', () => {
     const cache = {
       'description::it::testo privato': { en: 'private' },

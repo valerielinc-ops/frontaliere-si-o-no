@@ -8,6 +8,10 @@ export const EVENT_DESCRIPTION_PROMPT_VERSION = 'event-description-rewrite-v2';
 export const EVENT_DESCRIPTION_CACHE_SCHEMA_VERSION = 1;
 export const EVENT_DESCRIPTION_MIN_SHARED_NGRAM = 8;
 export const EVENT_DESCRIPTION_MIN_CHARS = 30;
+const ACCEPTED_CACHE_PROMPT_VERSIONS = new Set([
+  'event-description-rewrite-v1',
+  EVENT_DESCRIPTION_PROMPT_VERSION,
+]);
 const MODULE_REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..');
 
 export function isValidSourceDescriptionHash(value) {
@@ -390,7 +394,10 @@ function cacheEntryDescriptions(entry) {
 
 export function isValidRewriteCacheEntry(entry, { id, sourceHash } = {}) {
   if (!entry || entry.id !== id || !isValidSourceDescriptionHash(sourceHash) || entry.sourceDescriptionHash !== sourceHash) return false;
-  if (entry.model !== EVENT_DESCRIPTION_REWRITE_MODEL || entry.promptVersion !== EVENT_DESCRIPTION_PROMPT_VERSION) return false;
+  // Prompt v2 changes generation and retry guidance, not the source hash or
+  // either safety invariant. Keep already-published v1 entries usable until
+  // their source changes; new entries are written with the current version.
+  if (entry.model !== EVENT_DESCRIPTION_REWRITE_MODEL || !ACCEPTED_CACHE_PROMPT_VERSIONS.has(entry.promptVersion)) return false;
   if (!usableText(entry.rewrittenAt) || Number.isNaN(Date.parse(entry.rewrittenAt))) return false;
   const descriptions = cacheEntryDescriptions(entry);
   if (!descriptions || normalizeDescriptionText(entry.description) !== descriptions.it) return false;
@@ -579,7 +586,14 @@ function weekdayNumbers(value) {
 }
 
 function numericValues(value) {
-  return new Set([...numericTokens(value), ...monthNumbers(value), ...numberWordValues(value)]);
+  // Time expressions are checked separately by structuredFactSignatures. Do
+  // not compare their surface hour as a standalone number (`6:30 pm` vs
+  // `18:30`), or an equivalent 12/24-hour rendering becomes a false new fact.
+  const withoutTimes = normalizeDescriptionText(value)
+    .replace(/\b\d{1,2}[:.]\d{2}\s*(?:am|pm)\b/giu, ' ')
+    .replace(/\b\d{1,2}\s*(?:h|uhr)\s*\d{2}\b/giu, ' ')
+    .replace(/\b\d{1,2}[:.]\d{2}\b/gu, ' ');
+  return new Set([...numericTokens(withoutTimes), ...monthNumbers(value), ...numberWordValues(value)]);
 }
 
 function numberWordValues(value) {
