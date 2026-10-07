@@ -154,6 +154,7 @@ if (missingCount > 0) {
       distPath: m.distPath,
     })),
     byFeature: _byFeatureForReport,
+    sampleRate: 1,
     extra: { totalUrls, sitemapFiles: sitemapFiles.length },
   });
   process.exit(1);
@@ -165,5 +166,6 @@ await writeAuditReport({
   passed: true,
   threshold: { metric: 'count', value: 0, comparator: '<=' },
   offenders: [],
+  sampleRate: 1,
   extra: { totalUrls, sitemapFiles: sitemapFiles.length },
 });

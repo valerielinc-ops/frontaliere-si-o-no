@@ -6,7 +6,9 @@ name: Publish to GitHub Pages (deploy + validate)
 # finishes. This workflow runs the rest — deploy to Pages + validate + publish —
 # triggered by a completed build run via `workflow_run`. It carries its own
 # stage-specific locks so a new build can proceed while the previous build's
-# validation and post-deploy tail run here independently.
+# validation and post-deploy tail run here independently. Publish admission
+# remains all-locale: a new IT snapshot must not be paired with an older
+# non-IT shard because the pages emit one cross-locale hreflang graph.
 #
 # Cross-run handoff: every artifact the deploy/validate/publish steps need was
 # produced by the BUILD run (`github.event.workflow_run.id`). The reusable
@@ -48,11 +50,11 @@ permissions:
 jobs:
   # ───────────────────────────────────────────────────────────────────────
   # resolve-publish-plan: turn the completed matrix into an explicit,
-  # fail-closed locale admission plan. The aggregate workflow_run conclusion is
-  # not enough: a cancelled/failed non-IT leg may coexist with successful,
-  # provenance-backed locales. IT remains mandatory because it owns the Pages
-  # artifact and the shared CDN payload; every other non-admitted locale keeps
-  # its last-known-good shard and is reported stale.
+  # fail-closed locale handoff plan. The aggregate workflow_run conclusion and
+  # a successful IT leg are not enough: every locale source artifact must be
+  # proven before the deferred shard tail can start. A cancelled/failed leg is
+  # reported stale for recovery, but it blocks this snapshot rather than being
+  # mixed with a new locale's SEO output.
   # ───────────────────────────────────────────────────────────────────────
   resolve-publish-plan:
     name: Resolve per-locale publish plan
@@ -1305,8 +1307,8 @@ jobs:
           retention-days: 8
           if-no-files-found: error
   # Resolve the second half of the handoff. A source-ready receipt is not a
-  # live publish; only a complete post-build receipt from this workflow run can
-  # move a non-IT locale into the healthy set consumed by validation/live.
+  # live publish; only complete post-build receipts for every non-IT locale
+  # from this workflow run can move the snapshot into validation/live.
   resolve-nonit-publish:
     name: Resolve non-IT shard tail
     needs: [resolve-publish-plan, publish-nonit-shards]
@@ -1388,11 +1390,16 @@ jobs:
   # publish still run.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
-    # Publish when the explicit plan has a provenance-backed IT artifact. A
-    # failed/cancelled non-IT leg is allowed to remain stale; a missing or
-    # skewed IT receipt blocks all Pages/CDN side effects.
-    needs: resolve-publish-plan
-    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
+    # Publish only after the explicit source and post-build plans prove every
+    # locale. A missing, stale, or skewed locale blocks all Pages/CDN side
+    # effects so the live hreflang graph remains snapshot-consistent.
+    needs: [resolve-publish-plan, resolve-nonit-publish]
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' }}
     runs-on: ubuntu-latest
     # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
     # publish tail explicit at that maximum so a future default change cannot
@@ -1400,9 +1407,9 @@ jobs:
     timeout-minutes: 360
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
-    # Keep the completed workflow_run guard explicit: failure/cancelled source
-    # runs may enter only when resolve-publish-plan has admitted a proven IT
-    # payload for a partial publish; every other no-op gets a run-unique group.
+    # Keep the completed workflow_run guard explicit: only a complete source
+    # and post-build plan may enter the shared Pages group; every other no-op
+    # gets a run-unique group.
     concurrency:
       group: >-
         ${{ (github.event.workflow_run.conclusion == 'success' ||
@@ -1775,7 +1782,11 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
     needs: [resolve-publish-plan, resolve-nonit-publish]
-    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' }}
+    if: >-
+      ${{ needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' }}
     # This is intentionally a different lock from pages-deploy. The complete
     # logical-dist rehydrate can use the full five-hour validator budget; it
     # must not serialize the Pages upload that already completed for its run.
@@ -1800,7 +1811,13 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   validate-live:
     needs: [resolve-publish-plan, resolve-nonit-publish, deploy]
-    if: ${{ !cancelled() && needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' && needs.deploy.result == 'success' }}
+    if: >-
+      ${{ !cancelled() &&
+          needs.resolve-publish-plan.result == 'success' &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.deploy.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
@@ -1854,7 +1871,14 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   publish:
     needs: [resolve-publish-plan, resolve-nonit-publish, deploy, validate-dist, validate-live]
-    if: ${{ !cancelled() && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-nonit-publish.result == 'success' && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    if: >-
+      ${{ !cancelled() &&
+          needs.resolve-publish-plan.outputs.allowed == 'true' &&
+          needs.resolve-nonit-publish.result == 'success' &&
+          needs.resolve-nonit-publish.outputs.allowed == 'true' &&
+          needs.deploy.result == 'success' &&
+          needs.validate-live.result == 'success' &&
+          needs.validate-dist.outputs.integrity_ok == 'true' }}
     # Keep irreversible post-deploy side-effects serialized, but do not let
     # their validator wait hold the Pages upload lock. Since tails can now
     # complete out of order, deploy-registry.mjs also refuses to move
