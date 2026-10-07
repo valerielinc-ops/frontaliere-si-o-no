@@ -89,6 +89,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
     expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
     expect(helper).toContain('git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"');
+    expect(helper).toContain('local_article_image_credit_path="${local_article_content_path}/image-credits"');
     expect(helper.match(/REFRESH_COMMIT="\$\(git rev-parse HEAD\)"/g)).toHaveLength(1);
     expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).toContain('--resolve-symlinks');

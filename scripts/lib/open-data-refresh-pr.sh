@@ -305,6 +305,18 @@ if [ -n "$REMOTE_HEAD" ]; then
     git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
     cd "$REFRESH_PUBLISH_WORKTREE"
     if [ "${#PUBLISH_PATHS[@]}" -gt 0 ]; then
+      # The article content refresh keeps destination-only cover-credit files
+      # in the source checkout. Include that generated subtree in the
+      # stable-branch reconciliation even when this run did not modify a
+      # credit file itself, so an older stable deletion cannot win again.
+      local_article_content_path='packages/articles/content'
+      local_article_image_credit_path="${local_article_content_path}/image-credits"
+      for refresh_path in "${PATHS[@]}"; do
+        if [ "$refresh_path" = "$local_article_content_path" ]; then
+          PUBLISH_PATHS+=("$local_article_image_credit_path")
+          break
+        fi
+      done
       printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
       PATHS=("${PUBLISH_PATHS[@]}")
     else
