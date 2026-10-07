@@ -18,7 +18,7 @@ import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRu
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 import { BIRTH_FIELD_RE, NATIONALITY_FIELD_RE, PERMIT_FIELD_RE } from '../../../../functions/src/lib/permitStatus.js';
 import { NEXT_RE, SUBMIT_RE, chooseFiles, documentPaths } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateAnswerForQuestion, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, ownStatusAnswer, questionFromLabel, questionTopic } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -167,7 +167,8 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     ...answered.map(topicOf).filter((topic) => topic >= 0),
     ...answered.map(questionTopic).filter(Boolean),
   ]);
-  const isAnswered = (question) => answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
+  const isAnswered = (question) => Boolean(candidateAnswerForQuestion(candidate, question))
+    || answered.some((text) => questionFromLabel(text).toLowerCase() === questionFromLabel(question).toLowerCase())
     || answeredTopics.has(topicOf(question))
     || (questionTopic(question) && answeredTopics.has(questionTopic(question)));
   const questions = [];

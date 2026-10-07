@@ -106,6 +106,12 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(asked).toMatchObject({ status: 'stuck', questions: [] });
   });
 
+  it('does not reopen a late address alias when only its saved portal answer key remains', () => {
+    const answered = { answers: { portal_qual_e_la_tua_via_e_il_tuo_numero_civico: 'Via Test 1' }, profile: {}, portalQuestionsAnswered: [] };
+    const asked = guardAgentStep(turn('needs_candidate', [], [{ question: 'Qual è la via e il tuo numero civico?', why: '', type: 'text', options: [] }]), answered);
+    expect(asked).toMatchObject({ status: 'stuck', questions: [] });
+  });
+
   it('turns an empty act into done and drops malformed refs', () => {
     expect(guardAgentStep(turn('act', [act({ ref: 'button#send' })]), null)).toMatchObject({ status: 'done', actions: [] });
     expect(guardAgentStep({ ...turn('done'), advanceRef: 'e9' }, null).advanceRef).toBe('e9');
