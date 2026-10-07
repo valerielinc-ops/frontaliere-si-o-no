@@ -8678,16 +8678,6 @@ const RAW_SWISS_ARTICLES_CHUNK_04: Article[] = [
     authorName: 'Redazione Frontaliere Ticino',
    },
    {
-    id: 'abort-topical-relevance-trump-health',
-    category: 'pratico',
-    date: '2026-08-14T01:37:12.368Z',
-    image: '/images/blog/abort-topical-relevance-trump-health.webp',
-    hasCalculator: true,
-    articleType: 'news',
-    authorSlug: 'redazione',
-    authorName: 'Redazione Frontaliere Ticino',
-   },
-   {
     id: 'imposte-cantonali-canton-lucerna-aliquote',
     category: 'fiscale',
     date: '2026-08-14T01:47:31.544Z',
@@ -9976,9 +9966,6 @@ const RAW_SWISS_ARTICLES_CHUNK_04: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_05: Article[] = [
    {
     id: 'avs-e-prestazioni-complementari-nidvaldo',
     category: 'pensione',
@@ -9989,6 +9976,9 @@ const RAW_SWISS_ARTICLES_CHUNK_05: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_05: Article[] = [
    {
     id: 'comprare-casa-canton-nidvaldo-prezzi-e-mutuo-ipotecario',
     category: 'pratico',
@@ -12478,9 +12468,6 @@ const RAW_SWISS_ARTICLES_CHUNK_05: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_06: Article[] = [
    {
     id: 'cherosene-sintetico-aviazione',
     category: 'novita',
@@ -12491,6 +12478,9 @@ const RAW_SWISS_ARTICLES_CHUNK_06: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_06: Article[] = [
    {
     id: 'asilo-maghreb-reati-80-percento',
     category: 'novita',
@@ -14982,9 +14972,6 @@ const RAW_SWISS_ARTICLES_CHUNK_06: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_07: Article[] = [
    {
     id: 'kremlin-voto-neutralita-svizzera',
     category: 'novita',
@@ -14995,6 +14982,9 @@ const RAW_SWISS_ARTICLES_CHUNK_07: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_07: Article[] = [
    {
     id: 'vignetta-autostradale-non-subito',
     category: 'novita',
@@ -17495,9 +17485,6 @@ const RAW_SWISS_ARTICLES_CHUNK_07: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_08: Article[] = [
    {
     id: 'avs-prestazioni-complementari-lacune-contributive',
     category: 'pensione',
@@ -17507,6 +17494,9 @@ const RAW_SWISS_ARTICLES_CHUNK_08: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_08: Article[] = [
    {
     id: 'assegni-familiari-lucerna-guida',
     category: 'pratico',
@@ -20008,9 +19998,6 @@ const RAW_SWISS_ARTICLES_CHUNK_08: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_09: Article[] = [
    {
     id: 'sistema-scolastico-canton-ginevra-iscrizione-cicli',
     category: 'pratico',
@@ -20021,6 +20008,9 @@ const RAW_SWISS_ARTICLES_CHUNK_09: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_09: Article[] = [
    {
     id: 'apprendistato-formazione-professionale-ginevra',
     category: 'pratico',
@@ -22528,9 +22518,6 @@ const RAW_SWISS_ARTICLES_CHUNK_09: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_10: Article[] = [
    {
     id: 'bns-inflazione-pil-previsioni-2026',
     category: 'novita',
@@ -22541,6 +22528,9 @@ const RAW_SWISS_ARTICLES_CHUNK_10: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_10: Article[] = [
    {
     id: 'valutazione-universitaria-intelligenza-artificiale',
     category: 'novita',
@@ -25058,9 +25048,6 @@ const RAW_SWISS_ARTICLES_CHUNK_10: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
-];
-
-const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
    {
     id: 'otto-progetti-ricostruzione-ucraina',
     category: 'novita',
@@ -25071,6 +25058,9 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+];
+
+const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
    {
     id: 'piloti-swiss-lettera-aperta',
     category: 'novita',
@@ -26242,6 +26232,36 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     date: '2026-10-07T12:04:10.925Z',
     image: '/images/blog/article-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.webp',
     hasCalculator: false,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'riserve-valutarie-settembre-stabili',
+    category: 'novita',
+    date: '2026-10-07T12:36:56.447Z',
+    image: '/images/blog/article-riserve-valutarie-settembre-stabili.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'ffs-sportelli-chiusi-stazioni',
+    category: 'novita',
+    date: '2026-10-07T14:55:42.967Z',
+    image: '/images/blog/article-ffs-sportelli-chiusi-stazioni.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'intelligenza-artificiale-diritti-umani',
+    category: 'novita',
+    date: '2026-10-07T15:29:13.411Z',
+    image: '/images/blog/article-intelligenza-artificiale-diritti-umani.webp',
+    hasCalculator: true,
     articleType: 'news',
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',

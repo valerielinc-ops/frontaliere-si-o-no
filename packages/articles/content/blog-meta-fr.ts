@@ -9689,9 +9689,6 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-doues-lavorare-vallese.title': 'Vivre à Doues et travailler en Valais comme frontalier',
     'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Guide des déplacements entre Doues et le Valais : règles fiscales, prévoyance et gestion du travail transfrontalier dans le respect des accords en vigueur.',
     'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Paysage de montagne entre Doues et la frontière suisse',
-    'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Vivre à Pré-Saint-Didier et travailler en Valais',
-    'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analyse de la résidence à Pré-Saint-Didier pour les travailleurs en Suisse et des contraintes géographiques liées au statut de frontalier.',
-    'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Paysage alpin à la frontière suisse',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Courmayeur : travailler en Valais en vivant dans la Vallée d’Aoste',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Comment évaluer le trajet transfrontalier entre Courmayeur et le Valais, le logement et les vérifications avant d’accepter un emploi.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier envisage la région de Courmayeur et Vallese pour son travail et son logement.',
@@ -9722,9 +9719,6 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Vivre à Oyace et travailler en Valais comme frontalier',
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Guide pratique des déplacements entre Oyace et le Valais : règles fiscales, nouvel accord et gestion des revenus entre la Suisse et l\'Italie.',
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Paysage de montagne entre Oyace et le Valais',
-    'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Déménager à Saint-Nicolas en frontalier : les faits',
-    'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analyse de la faisabilité du frontalier vers le canton du Tessin à partir de la commune de Saint-Nicolas.',
-    'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Vue panoramique d\'un village alpin suisse',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Vivre à Saint-Pierre et travailler en Valais comme frontalier',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Les données clés sur la vie d\'un frontalier travaillant en Valais et résidant à Saint-Pierre.',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Un travailleur frontalier qui vit à Saint-Pierre et travaille en Valais.',
@@ -12756,6 +12750,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.notte-bper-gallarate-bancomat.title': 'Distributeur automatique explosé : cambriolage nocturne à la Bper de Gallarate',
     'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Un autre distributeur automatique de billets a explosé à la Bper de Gallarate lors d’un cambriolage nocturne : le compte rendu disponible sur l’affaire.',
     'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Banque dans une rue de la frontière italo-suisse pendant la nuit',
+    'blog.article.caduta-scala-locate-varesino.title': 'Locate Varesino, chute d\'une échelle : un homme de 79 ans est grièvement blessé',
+    'blog.article.caduta-scala-locate-varesino.excerpt': '## En bref - Chute d\'une échelle via Madonnetta - Un homme de 79 ans est tombé dans une exploitation agricole - Secours déclenchés en code rouge',
+    'blog.article.caduta-scala-locate-varesino.imageAlt': 'Cadre rural d\'une exploitation agricole',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'À Cantello, le théâtre dialectal revient avec « Quei giargianes da giappunes »',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## En bref - Deux dates : le 10 octobre à 21 h et le 18 octobre à 15 h - Version dialectale d’Alessandro Campi - Sur scène, la compagnie amateur Tutti in Scena',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Affiche de la pièce dialectale «Quei giargianes da giappunes» au Teatro Pax de Cantello avec la compagnie Tutti in Scena',
 };
 
 export default blogMetaFr;

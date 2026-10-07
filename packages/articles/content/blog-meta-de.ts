@@ -9686,9 +9686,6 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-doues-lavorare-vallese.title': 'Wohnen in Doues und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-doues-lavorare-vallese.excerpt': 'Leitfaden für den Pendelverkehr zwischen Doues und Wallis: Steuervorschriften, Vorsorge und grenzüberschreitendes Arbeitsmanagement in Übereinstimmung mit den geltenden Vereinbarungen.',
     'blog.article.vivere-doues-lavorare-vallese.imageAlt': 'Berglandschaft zwischen Doues und der Schweizer Grenze',
-    'blog.article.abort-topical-relevance-pre-saint-didier.title': 'Wohnen in Pré-Saint-Didier und Arbeiten im Wallis',
-    'blog.article.abort-topical-relevance-pre-saint-didier.excerpt': 'Analyse des Wohnsitzes in Pré-Saint-Didier für Arbeitnehmer in der Schweiz und der geografischen Einschränkungen im Zusammenhang mit dem Grenzgängerstatus.',
-    'blog.article.abort-topical-relevance-pre-saint-didier.imageAlt': 'Alpenlandschaft an der Schweizer Grenze',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.title': 'Courmayeur: Im Wallis arbeiten und im Aostatal leben',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.excerpt': 'Wie Sie das Pendeln zwischen Courmayeur und dem Wallis prüfen: Strecke, Wohnsitz und wichtige Abklärungen vor einer Zusage.',
     'blog.article.vivere-courmayeur-e-lavorare-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger erwägt die Region Courmayeur und Vallese für Arbeit und Wohnen.',
@@ -9719,9 +9716,6 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.title': 'Wohnen in Oyace und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.excerpt': 'Praktischer Leitfaden zum Pendeln zwischen Oyace und dem Wallis: Steuerregeln, neues Abkommen und Einkommensmanagement zwischen der Schweiz und Italien.',
     'blog.article.vivere-oyace-lavorare-vallese-frontaliere.imageAlt': 'Berglandschaft zwischen Oyace und Wallis',
-    'blog.article.abort-saint-nicolas-non-frontaliero.title': 'Umzug nach Saint-Nicolas als Grenzgänger: Die Fakten',
-    'blog.article.abort-saint-nicolas-non-frontaliero.excerpt': 'Analyse der Machbarkeit des Grenzverlaufs zum Kanton Tessin ausgehend von der Gemeinde Saint-Nicolas.',
-    'blog.article.abort-saint-nicolas-non-frontaliero.imageAlt': 'Panoramablick auf ein Schweizer Bergdorf',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.title': 'Wohnen in Saint-Pierre und Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.excerpt': 'Die Eckdaten zum Leben eines Grenzgängers, der im Wallis arbeitet und in Saint-Pierre wohnt.',
     'blog.article.vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere.imageAlt': 'Ein Grenzgänger, der in Saint-Pierre lebt und in Valais arbeitet.',
@@ -12753,6 +12747,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.notte-bper-gallarate-bancomat.title': 'Geldautomat explodiert: nächtlicher Überfall bei der Bper in Gallarate',
     'blog.article.notte-bper-gallarate-bancomat.excerpt': 'Ein weiterer Geldautomat ist bei der Bper in Gallarate während eines nächtlichen Überfalls in die Luft geflogen: die verfügbare Berichterstattung zu dem Fall.',
     'blog.article.notte-bper-gallarate-bancomat.imageAlt': 'Bankgebäude an einer italienisch-schweizerischen Grenzstrasse bei Nacht',
+    'blog.article.caduta-scala-locate-varesino.title': 'Locate Varesino, fällt von einer Treppe: schwer ein 79-jähriger',
+    'blog.article.caduta-scala-locate-varesino.excerpt': '## In Kürze - Sturz von einer Treppe in der Via Madonnetta - Ein 79-jähriger Mann stürzte auf einen Bauernhof - Hilfe in rotem Code aktiviert',
+    'blog.article.caduta-scala-locate-varesino.imageAlt': 'Ländliche Umgebung eines Landwirtschaftsbetriebs',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'In Cantello kehrt das Dialekttheater „Quei giargianes da giappunes“ zurück',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## Auf einen Blick - Zwei Termine: 10. Oktober um 21 Uhr und 18. Oktober um 15 Uhr - Dialektfassung von Alessandro Campi - Auf der Bühne die Amateurtheatergruppe Tutti in Scena',
+    'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Plakat für das Dialektstück “Quei giargianes da giappunes” im Teatro Pax von Cantello mit der Gruppe Tutti in Scena',
 };
 
 export default blogMetaDe;

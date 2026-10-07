@@ -63397,44 +63397,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-abort-topical-relevance-pre-saint-didier': {
-    title: 'Vivere a Pré-Saint-Didier e lavorare in Vallese',
-    description: 'Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026',
-    keywords: 'frontalieri, ticino, svizzera, italia, vivere, pré-saint-didier, lavorare, vallese',
-    ogTitle: 'Vivere a Pré-Saint-Didier e lavorare in Vallese da frontaliere',
-    ogDescription: 'Analisi sulle norme per i frontalieri e il requisito della residenza nei comuni entro 20 km dal confine svizzero per chi vive a Pré-Saint-Didier.',
-    canonicalPath: '/articoli-frontaliere/abort-topical-relevance-pre-saint-didier',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Vivere a Pré-Saint-Didier e lavorare in Vallese",
-      "description": "Scopri i vincoli geografici per lavorare in Svizzera da frontaliere e le implicazioni fiscali legate alla residenza a Pré-Saint-Didier. Dati aggiornati 2026",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/abort-topical-relevance-pre-saint-didier.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Paesaggio alpino al confine svizzero"
-      },
-      "datePublished": "2026-08-11T12:07:52+00:00",
-      "dateModified": "2026-08-11T12:07:52+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-topical-relevance-pre-saint-didier/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
     title: 'Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta',
@@ -63817,44 +63779,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-abort-saint-nicolas-non-frontaliero': {
-    title: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
-    description: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.',
-    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, saint-nicolas, fatti, analisi',
-    ogTitle: 'Trasferirsi a Saint-Nicolas da frontaliere: i fatti',
-    ogDescription: 'Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo per i lavoratori.',
-    canonicalPath: '/articoli-frontaliere/abort-saint-nicolas-non-frontaliero',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Trasferirsi a Saint-Nicolas da frontaliere: i fatti",
-      "description": "Analisi sulla fattibilità del frontalierato verso il Canton Ticino dal comune di Saint-Nicolas. Scopri perché la distanza geografica è un ostacolo.",
-      "image": {
-        "@type": "ImageObject",
-        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
-        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
-        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
-        "creditText": "Frontaliere Ticino",
-        "url": `${BASE_URL}/images/blog/abort-saint-nicolas-non-frontaliero.webp`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Veduta panoramica di un villaggio alpino svizzero"
-      },
-      "datePublished": "2026-08-11T16:40:10+00:00",
-      "dateModified": "2026-08-11T16:40:10+00:00",
-      "inLanguage": "it",
-      "author": {
-        "@type": "Person",
-        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
-        "name": "Marco Ferrari",
-        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
-      },
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abort-saint-nicolas-non-frontaliero/`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere': {
     title: 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
@@ -100942,6 +100866,79 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notte-bper-gallarate-bancomat/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-caduta-scala-locate-varesino': {
+    title: 'Locate Varesino, cade da una scala: grave un 79enne',
+    description: '## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un\'azienda agricola - Soccorsi attivati in codice rosso',
+    keywords: 'frontalieri, ticino, svizzera, italia, locate, varesino, cade, scala',
+    ogTitle: 'Caduta da una scala a Locate Varesino: 79enne grave',
+    ogDescription: '## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un\'azienda agricola - Soccorsi attivati in codice rosso',
+    canonicalPath: '/articoli-frontaliere/caduta-scala-locate-varesino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Locate Varesino, cade da una scala: grave un 79enne",
+      "description": "## In breve - Caduta da una scala in via Madonnetta - Un uomo di 79 anni è precipitato in un'azienda agricola - Soccorsi attivati in codice rosso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-caduta-scala-locate-varesino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contesto rurale di un'azienda agricola"
+      },
+      "datePublished": "2026-10-07T12:57:53+00:00",
+      "dateModified": "2026-10-07T12:57:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caduta-scala-locate-varesino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantello-teatro-dialettale-ottobre-2026': {
+    title: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
+    description: '## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantello, torna, teatro, dialettale',
+    ogTitle: 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
+    ogDescription: '## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena',
+    canonicalPath: '/articoli-frontaliere/cantello-teatro-dialettale-ottobre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantello torna il teatro dialettale “Quei giargianes da giappunes”",
+      "description": "## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sindacati-miazzina-diritti-9-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locandina dello spettacolo dialettale “Quei giargianes da giappunes” al Teatro Pax di Cantello con la compagnia Tutti in Scena"
+      },
+      "datePublished": "2026-10-07T16:05:11+00:00",
+      "dateModified": "2026-10-07T16:05:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantello-teatro-dialettale-ottobre-2026/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

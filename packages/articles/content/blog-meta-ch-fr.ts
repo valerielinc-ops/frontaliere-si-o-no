@@ -2620,9 +2620,6 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Nouvelle notification de cessation des enquêtes (aviation) du SISI',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'La notification de cessation des investigations (aviation) du SISI a été publiée sur le site internet du Service d\'enquête suisse sur la sécurité.',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Publication d\'une nouvelle notification de cessation des enquêtes (aviation) du SISI',
-    'blog.article.abort-topical-relevance-trump-health.title': 'Information non pertinente',
-    'blog.article.abort-topical-relevance-trump-health.excerpt': 'La source traitée ne présente pas de lien réel avec la vie de ceux qui vivent ou travaillent en Suisse.',
-    'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Salle de redaction economique en Suisse',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Impôts cantonaux canton de Lucerne : taux et déductions',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Guide des impôts cantonaux et communaux dans le canton de Lucerne avec taux, tranches, déductions et portail officiel de l\'administration fiscale.',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Impôts cantonaux du canton de Lucerne déductions et barèmes',
@@ -7865,6 +7862,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.title': 'Rendements des titres suisses en hausse, BNS à 0%',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.excerpt': '## En bref - Les titres de la Confédération à dix ans rapportent 0,58% - La BNS maintient le taux directeur à 0% - Le rendement est passé de 0,18% à 0,69%',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.imageAlt': 'Image éditoriale relative à: Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    'blog.article.riserve-valutarie-settembre-stabili.title': 'Réserves de devises de la BNS stables en septembre',
+    'blog.article.riserve-valutarie-settembre-stabili.excerpt': '## En bref - BNS : réserves de devises à 771 milliards - En septembre, +0,4 milliard par rapport à août - Euro +0,9 %, dollar +3 % ; ensemble environ 80 % ## Faits clés',
+    'blog.article.riserve-valutarie-settembre-stabili.imageAlt': 'Scène urbaine suisse liée aux données sur les réserves de devises',
+    'blog.article.ffs-sportelli-chiusi-stazioni.title': 'FFS ferme les guichets dans 13 gares à partir du 1er janvier',
+    'blog.article.ffs-sportelli-chiusi-stazioni.excerpt': '## En bref - À partir du 1er janvier, les guichets ferment dans 13 gares. - Les points de vente avec personnel passeront de 115 à 102. - 97 % des titres passent par les canaux',
+    'blog.article.ffs-sportelli-chiusi-stazioni.imageAlt': 'Gare suisse avec guichet fermé et machines en libre-service au premier plan',
+    'blog.article.intelligenza-artificiale-diritti-umani.title': 'Intelligence artificielle : impact sur les droits humains',
+    'blog.article.intelligenza-artificiale-diritti-umani.excerpt': '## En bref - 63e session du Conseil des droits de l’homme à Genève - La Suisse a dirigé une coalition sur la justice transitionnelle - Vie privée',
+    'blog.article.intelligenza-artificiale-diritti-umani.imageAlt': 'Bureau suisse avec équipe utilisant une IA éthique pour les ressources humaines et le logement',
 };
 
 export default blogMetaChFr;

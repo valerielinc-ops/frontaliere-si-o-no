@@ -2620,9 +2620,6 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'New notifications of termination of investigations (aviation) of SISI',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'SISI\'s termination notices (aviation) were published on the website of the Swiss Security Investigation Service.',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Publication of a new notice of cessation of investigations (aviation) of the SISI',
-    'blog.article.abort-topical-relevance-trump-health.title': 'News not relevant',
-    'blog.article.abort-topical-relevance-trump-health.excerpt': 'The source treated does not have a real link with the life of those who live or work in Switzerland.',
-    'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Economic news newsroom in Switzerland',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Cantonal taxes canton Lucerne: rates and deductions',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Guide to cantonal and municipal taxes in the Canton of Lucerne with rates, brackets, deductions and official portal of the tax administration.',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Canton Lucerne cantonal taxes and deductions',
@@ -7865,6 +7862,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.title': 'Swiss bond yields rise, SNB at 0%',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.excerpt': '## TL;DR - Ten-year Confederation bonds yield 0,58% - The SNB keeps the key rate at 0% - The yield rose from 0,18% to 0,69%',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.imageAlt': 'Editorial image related to: Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    'blog.article.riserve-valutarie-settembre-stabili.title': 'BNS foreign exchange reserves stable in September',
+    'blog.article.riserve-valutarie-settembre-stabili.excerpt': '## TL;DR - BNS: foreign currency reserves at 771 billion - In September, +0,4 billion compared with August - Euro +0,9%, dollar +3%; together about 80% ## Key facts',
+    'blog.article.riserve-valutarie-settembre-stabili.imageAlt': 'Swiss urban scene linked to foreign-currency reserve data',
+    'blog.article.ffs-sportelli-chiusi-stazioni.title': 'FFS to close ticket counters at 13 stations from January 1',
+    'blog.article.ffs-sportelli-chiusi-stazioni.excerpt': '## TL;DR - From January 1, ticket offices will close at 13 stations. - Staffed points will decrease from 115 to 102. - 97% of tickets pass through channels',
+    'blog.article.ffs-sportelli-chiusi-stazioni.imageAlt': 'Swiss railway station with closed ticket counter and self-service machines in the foreground',
+    'blog.article.intelligenza-artificiale-diritti-umani.title': 'Artificial intelligence: impact on human rights',
+    'blog.article.intelligenza-artificiale-diritti-umani.excerpt': '## TL;DR - 63rd session of the Human Rights Council in Geneva - Switzerland led a coalition on transitional justice - Privacy',
+    'blog.article.intelligenza-artificiale-diritti-umani.imageAlt': 'Swiss office team using ethical AI for human resources and housing',
 };
 
 export default blogMetaChEn;

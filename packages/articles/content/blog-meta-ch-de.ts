@@ -2620,9 +2620,6 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.title': 'Neue Benachrichtigungen über die Einstellung der Anfragen (Luftfahrt) der SISI',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.excerpt': 'Die Meldungen über die Einstellung der Untersuchungen (Luftfahrt) der SISI wurden auf der Website der Schweizerischen Sicherheitsuntersuchungsstelle veröffentlicht.',
     'blog.article.nuova-notifiche-di-cessazione-delle-inquieste-del-sisi.imageAlt': 'Veröffentlichung einer neuen Benachrichtigung über die Einstellung der Ermittlungen (Luftfahrt) des SISI',
-    'blog.article.abort-topical-relevance-trump-health.title': 'Nicht zutreffende Nachrichten',
-    'blog.article.abort-topical-relevance-trump-health.excerpt': 'Die verarbeitete Quelle hat keinen wirklichen Zusammenhang mit dem Leben derer, die in der Schweiz leben oder arbeiten.',
-    'blog.article.abort-topical-relevance-trump-health.imageAlt': 'Wirtschaftsredaktion in der Schweiz',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.title': 'Kantonale Steuern Kanton Luzern: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.excerpt': 'Leitfaden zu den Kantons- und Gemeindesteuern im Kanton Luzern mit Steuersätzen, Staffelungen, Abzügen und dem offiziellen Portal der Steuerverwaltung.',
     'blog.article.imposte-cantonali-canton-lucerna-aliquote.imageAlt': 'Kantonssteuern im Kanton Luzern Abzüge und Sätze',
@@ -7865,6 +7862,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.title': 'Renditen Schweizer Anleihen steigen, SNB bei 0%',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.excerpt': '## Auf einen Blick - Zehnjährige Anleihen der Eidgenossenschaft rentieren 0,58% - Die SNB belässt den Leitzins bei 0% - Die Rendite ist von 0,18% auf 0,69% gestiegen',
     'blog.article.rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.imageAlt': 'Redaktionelles Bild zu: Rendimenti titoli svizzeri in rialzo, BNS allo 0%',
+    'blog.article.riserve-valutarie-settembre-stabili.title': 'Devisenreserven der BNS im September stabil',
+    'blog.article.riserve-valutarie-settembre-stabili.excerpt': '## Auf einen Blick - BNS: Devisenreserven bei 771 Milliarden - Im September +0,4 Milliarden gegenüber August - Euro +0,9%, Dollar +3%; zusammen etwa 80% ## Wichtige Fakten',
+    'blog.article.riserve-valutarie-settembre-stabili.imageAlt': 'Schweizer Stadtszene zu Daten über Währungsreserven',
+    'blog.article.ffs-sportelli-chiusi-stazioni.title': 'SBB schließt die Schalter in 13 Bahnhöfen ab 1. Januar',
+    'blog.article.ffs-sportelli-chiusi-stazioni.excerpt': '## Kurz gesagt - Ab dem 1. Januar schließen sie an 13 Stationen die Türen. - Die Personalpunkte werden von 115 auf 102 erhöht. - 97% der Titel werden von den Kanälen übertragen',
+    'blog.article.ffs-sportelli-chiusi-stazioni.imageAlt': 'Schweizer Bahnhof mit geschlossenem Schalter und Selbstbedienungsgeräten im Vordergrund',
+    'blog.article.intelligenza-artificiale-diritti-umani.title': 'Künstliche Intelligenz: Auswirkungen auf die Menschenrechte',
+    'blog.article.intelligenza-artificiale-diritti-umani.excerpt': '## Auf einen Blick - 63. Tagung des Menschenrechtsrats in Genf - Die Schweiz leitete eine Koalition zur Übergangsjustiz - Privatsphäre',
+    'blog.article.intelligenza-artificiale-diritti-umani.imageAlt': 'Schweizer Büro mit Team, das ethische KI für Personalwesen und Wohnraum nutzt',
 };
 
 export default blogMetaChDe;

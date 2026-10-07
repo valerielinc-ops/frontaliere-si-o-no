@@ -32989,17 +32989,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  authorName: 'Redazione Frontaliere Ticino',
  },
  {
- id: 'abort-topical-relevance-pre-saint-didier',
- category: 'fiscale',
- date: '2026-08-11T12:07:52.581Z',
- updatedAt: '2026-09-25',
- image: '/images/blog/abort-topical-relevance-pre-saint-didier.webp',
- hasCalculator: true,
- canton: ['VS'],
- authorSlug: 'marco-ferrari',
- authorName: 'Marco Ferrari',
- },
- {
  id: 'vivere-courmayeur-e-lavorare-vallese-da-frontaliere',
  category: 'pratico',
  date: '2026-08-11T12:58:53.991Z',
@@ -33098,15 +33087,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  image: '/images/blog/vivere-oyace-lavorare-vallese-frontaliere.webp',
  hasCalculator: true,
  canton: ['VS'],
- authorSlug: 'marco-ferrari',
- authorName: 'Marco Ferrari',
- },
- {
- id: 'abort-saint-nicolas-non-frontaliero',
- category: 'fiscale',
- date: '2026-08-11T16:40:10.447Z',
- image: '/images/blog/abort-saint-nicolas-non-frontaliero.webp',
- hasCalculator: true,
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
@@ -33265,9 +33245,6 @@ const RAW_ARTICLES_CHUNK_13: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_14: Article[] = [
  {
  id: 'quadro-rw-conto-corrente-svizzero',
  category: 'fiscale',
@@ -33286,6 +33263,9 @@ const RAW_ARTICLES_CHUNK_14: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+];
+
+const RAW_ARTICLES_CHUNK_14: Article[] = [
  {
  id: 'bollettino-frontaliere-2026-08-12',
  category: 'novita',
@@ -35805,9 +35785,6 @@ const RAW_ARTICLES_CHUNK_14: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_15: Article[] = [
  {
  id: 'carate-urio-frontaliere-ticino',
  category: 'fiscale',
@@ -35830,6 +35807,9 @@ const RAW_ARTICLES_CHUNK_15: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_15: Article[] = [
  {
  id: 'vivere-grantola-lavorare-ticino',
  category: 'pratico',
@@ -38336,9 +38316,6 @@ const RAW_ARTICLES_CHUNK_15: Article[] = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
-];
-
-const RAW_ARTICLES_CHUNK_16: Article[] = [
  {
  id: 'costo-vita-lugano-milano-scelta',
  category: 'pratico',
@@ -38360,6 +38337,9 @@ const RAW_ARTICLES_CHUNK_16: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_16: Article[] = [
  {
  id: 'como-export-svizzera-2026',
  category: 'novita',
@@ -40881,9 +40861,6 @@ const RAW_ARTICLES_CHUNK_16: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
-];
-
-const RAW_ARTICLES_CHUNK_17: Article[] = [
  {
  id: 'trenta-viaggiatori-gallarate-malpensa',
  category: 'pratico',
@@ -40905,6 +40882,9 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+];
+
+const RAW_ARTICLES_CHUNK_17: Article[] = [
  {
  id: 'cannobio-caserma-spagnulo',
  category: 'novita',
@@ -43022,6 +43002,26 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  category: 'novita',
  date: '2026-10-07T12:19:46.838Z',
  image: '/images/blog/controlli-locali-busto-arsizio-gallarate.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'caduta-scala-locate-varesino',
+ category: 'novita',
+ date: '2026-10-07T12:57:53.001Z',
+ image: '/images/blog/article-caduta-scala-locate-varesino.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cantello-teatro-dialettale-ottobre-2026',
+ category: 'novita',
+ date: '2026-10-07T16:05:11.490Z',
+ image: '/images/blog/sindacati-miazzina-diritti-9-ottobre.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',
