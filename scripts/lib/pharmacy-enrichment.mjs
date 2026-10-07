@@ -12,6 +12,7 @@
 
 import { JSDOM } from 'jsdom';
 import {
+  MAX_GOOGLE_PLACES_MONTHLY_REQUESTS,
   safeHttpsUrl,
   validatePharmacyEnrichmentConfig,
   validatePharmacyEnrichmentSnapshot,
@@ -36,6 +37,36 @@ const SOURCE_RANK = Object.freeze({
   facebook: 25,
   directory: 10,
 });
+
+function monthKey(value) {
+  const parsed = new Date(value);
+  if (!Number.isFinite(parsed.getTime())) return '';
+  return `${parsed.getUTCFullYear()}-${String(parsed.getUTCMonth() + 1).padStart(2, '0')}`;
+}
+
+function providerUsageFor(previous, checkedAt) {
+  const month = monthKey(checkedAt);
+  const previousUsage = previous?.providerUsage;
+  const previousRequests = previousUsage?.month === month
+    ? Number(previousUsage?.googlePlaces?.requests)
+    : 0;
+  return {
+    month,
+    googlePlaces: {
+      // A malformed or already-exhausted ledger fails closed: it can never
+      // authorize a request above the hard monthly ceiling.
+      requests: Number.isInteger(previousRequests)
+        ? Math.min(Math.max(previousRequests, 0), MAX_GOOGLE_PLACES_MONTHLY_REQUESTS)
+        : MAX_GOOGLE_PLACES_MONTHLY_REQUESTS,
+    },
+  };
+}
+
+function googleMonthlyLimit(provider) {
+  const configured = Number(provider?.monthlyRequestLimit);
+  if (!Number.isInteger(configured) || configured <= 0) return MAX_GOOGLE_PLACES_MONTHLY_REQUESTS;
+  return Math.min(configured, MAX_GOOGLE_PLACES_MONTHLY_REQUESTS);
+}
 
 function text(value) {
   return String(value ?? '').replace(/\s+/g, ' ').trim();
@@ -429,7 +460,7 @@ async function enrichPdfSource(record, pharmacy, source, checkedAt, fetchPdfText
   }
 }
 
-async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fetchJson, apiKey, warnings) {
+async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fetchJson, apiKey, warnings, providerUsage) {
   const ids = idsForProvider(provider, new Set(pharmacies.map((pharmacy) => pharmacy.id)));
   if (!ids.length) return;
   if (!apiKey) {
@@ -440,8 +471,16 @@ async function enrichGoogleProvider(records, pharmacies, provider, checkedAt, fe
   // pre-fetching/caching the returned place content. Display name and address
   // are requested transiently only to prove the match before storing the ID.
   const fieldMask = 'places.id,places.displayName,places.formattedAddress';
+  const monthlyLimit = googleMonthlyLimit(provider);
   for (const pharmacy of pharmacies.filter((candidate) => ids.includes(candidate.id))) {
     if (providerSourceIsFresh(records[pharmacy.id], 'google_business_profile', checkedAt, provider.maxAgeDays)) continue;
+    if (providerUsage.googlePlaces.requests >= monthlyLimit) {
+      warnings.push(`googlePlaces: monthly request limit reached (${monthlyLimit}); remaining pharmacies were skipped`);
+      return;
+    }
+    // Reserve before the request. Failed responses are counted too: a retry
+    // cannot turn a transient error into a quota overrun in the same month.
+    providerUsage.googlePlaces.requests += 1;
     try {
       const payload = await fetchJson('https://places.googleapis.com/v1/places:searchText', {
         method: 'POST',
@@ -545,6 +584,7 @@ export async function enrichPharmacyRecords(
       .map(([id, record]) => [id, cloneRecord(record)]),
   );
   const warnings = [];
+  const providerUsage = providerUsageFor(previous, checkedAt);
   const configuredIds = new Set([
     ...(config?.sources || []).map((source) => source.pharmacyId),
     ...(config?.providers?.googlePlaces?.pharmacyIds || []),
@@ -573,12 +613,12 @@ export async function enrichPharmacyRecords(
     }
   }
   if (config?.providers?.googlePlaces?.enabled && typeof fetchJson === 'function') {
-    await enrichGoogleProvider(records, pharmacies, config.providers.googlePlaces, checkedAt, fetchJson, googleApiKey, warnings);
+    await enrichGoogleProvider(records, pharmacies, config.providers.googlePlaces, checkedAt, fetchJson, googleApiKey, warnings, providerUsage);
   }
   if (config?.providers?.facebook?.enabled && typeof fetchJson === 'function') {
     await enrichFacebookProvider(records, pharmacies, config.providers.facebook, checkedAt, fetchJson, facebookPageId, facebookAccessToken, warnings);
   }
-  return { records, warnings };
+  return { records, warnings, providerUsage };
 }
 
 export function buildPharmacyEnrichmentSnapshot(previous, result, generatedAt = new Date().toISOString()) {
@@ -587,5 +627,8 @@ export function buildPharmacyEnrichmentSnapshot(previous, result, generatedAt = 
     generatedAt,
     records: result?.records || previous?.records || {},
     warnings: result?.warnings || [],
+    ...(result?.providerUsage || previous?.providerUsage
+      ? { providerUsage: result?.providerUsage || previous?.providerUsage }
+      : {}),
   };
 }

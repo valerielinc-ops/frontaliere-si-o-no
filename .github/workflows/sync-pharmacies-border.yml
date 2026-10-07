@@ -48,6 +48,59 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load publishing credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+      - name: Reserve serialized Google Places monthly budget
+        id: google_budget
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RESERVATION_BRANCH: chore/pharmacy-google-usage-reservation
+        run: |
+          set -euo pipefail
+          reservation_path="data/pharmacy-google-usage-reservation.json"
+          reservation_input="$RUNNER_TEMP/pharmacy-google-usage-reservation.json"
+          reservation_output="$RUNNER_TEMP/pharmacy-google-usage-reservation-next.json"
+          plan_output="$RUNNER_TEMP/pharmacy-google-budget-plan.json"
+          remote_url="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          remote_head="$(git ls-remote "$remote_url" "refs/heads/${RESERVATION_BRANCH}" | awk 'NR == 1 { print $1 }')"
+          if [ -n "$remote_head" ]; then
+            git fetch --no-tags --depth=1 "$remote_url" \
+              "+refs/heads/${RESERVATION_BRANCH}:refs/remotes/reservation/${RESERVATION_BRANCH}"
+            git show "refs/remotes/reservation/${RESERVATION_BRANCH}:${reservation_path}" > "$reservation_input"
+          fi
+
+          api_key_configured=false
+          if [ -n "${GOOGLE_MAPS_API_KEY:-}" ]; then api_key_configured=true; fi
+          node scripts/ci/reserve-pharmacy-google-budget.mjs \
+            --config data/pharmacy-enrichment-sources.json \
+            --snapshot data/pharmacy-enrichment.json \
+            --ticino-catalogue data/pharmacies-ticino-complete.json \
+            --italy-catalogue data/pharmacies-italy-border.json \
+            --plan-output "$plan_output" \
+            --reservation "$reservation_input" \
+            --reservation-output "$reservation_output" \
+            --api-key-configured "$api_key_configured" \
+            --github-output "$GITHUB_OUTPUT"
+
+          google_pharmacy_ids="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(JSON.stringify(plan.pharmacyIds || []));" "$plan_output")"
+          echo "PHARMACY_GOOGLE_PLACES_IDS_JSON=$google_pharmacy_ids" >> "$GITHUB_ENV"
+          allow_google="$(node -e "const fs=require('node:fs'); const plan=JSON.parse(fs.readFileSync(process.argv[1], 'utf8')); process.stdout.write(plan.allowGoogle ? 'true' : 'false');" "$plan_output")"
+          if [ "$allow_google" != 'true' ]; then
+            echo "PHARMACY_SKIP_GOOGLE_PLACES=1" >> "$GITHUB_ENV"
+            echo "Google Places skipped: the serialized reservation is pending, exhausted, unnecessary, or unavailable."
+            exit 0
+          fi
+
+          cp "$reservation_output" "$reservation_path"
+          git add -- "$reservation_path"
+          git config user.name "frontaliere-automation[bot]"
+          git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
+          git commit -m "chore(pharmacy): reserve Google Places monthly budget"
+          if [ -n "$remote_head" ]; then
+            git -c http.https://github.com/.extraheader= push \
+              --force-with-lease="refs/heads/${RESERVATION_BRANCH}:${remote_head}" \
+              "$remote_url" "HEAD:${RESERVATION_BRANCH}"
+          else
+            git -c http.https://github.com/.extraheader= push "$remote_url" "HEAD:${RESERVATION_BRANCH}"
+          fi
       - name: Fetch and stage Ticino duties for atomic finalization
         continue-on-error: true
         env:

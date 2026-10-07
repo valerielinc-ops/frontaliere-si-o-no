@@ -624,16 +624,16 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
 
   'blog-militari-treni-ticino-20-euro': {
     title: 'Militari sui treni Trenord: 20 euro | Frontaliere Ticino',
-    description: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    description: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza',
     keywords: 'frontalieri, ticino, svizzera, italia, militari, treni, trenord, euro',
     ogTitle: 'Militari sui treni Trenord: 20 euro all\'anno per maggiore',
-    ogDescription: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    ogDescription: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza',
     canonicalPath: '/articoli-frontaliere/militari-treni-ticino-20-euro/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Militari sui treni Trenord: 20 euro all'anno per maggiore sicurezza",
-      "description": "Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui",
+      "description": "Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/militari-treni-ticino-20-euro.webp`,
         "width": 1200,
@@ -1099,7 +1099,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-bellinzona-calcio-licenza-negata-finanze': {
-    title: 'Calcio Dnb: licenza negata al Bellinzona per dubbi sulle',
+    title: 'Calcio Dnb: licenza negata al Bellinzona per dubbi',
     description: 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, calcio, licenza, negata, bellinzona',
     ogTitle: 'Bellinzona: licenza negata, dubbi sulle finanze |',
@@ -5783,7 +5783,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-incidenti-mortali-lavoro-svizzera-2026': {
-    title: 'SUVA: incidenti mortali sul lavoro in Svizzera -80% dagli',
+    title: 'SUVA: incidenti mortali sul lavoro in Svizzera -80%',
     description: 'Dati SUVA: infortuni mortali sul lavoro ridotti dell\'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.',
     keywords: 'frontalieri, ticino, svizzera, italia, suva, incidenti, mortali, lavoro',
     ogTitle: 'SUVA: incidenti mortali sul lavoro -80% | Frontaliere Ticino',
@@ -6791,7 +6791,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
   },
 
   'blog-svizzeri-contributo-clima-acquisti-online-2026': {
-    title: 'Sempre meno svizzeri pagano il contributo clima sugli',
+    title: 'Sempre meno svizzeri pagano il contributo clima',
     description: 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
     keywords: 'frontalieri, ticino, svizzera, italia, sempre, meno, svizzeri, pagano',
     ogTitle: 'Contributo clima online | Frontaliere Ticino',
@@ -6932,16 +6932,16 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
 
   'blog-carburanti-tpl-ticino-2026': {
     title: 'Caro carburanti, rischio stop trasporto | Frontaliere Ticino',
-    description: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    description: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto',
     keywords: 'frontalieri, ticino, svizzera, italia, caro, carburanti, rischio, stop',
     ogTitle: 'Caro carburanti, rischio stop trasporto pubblico in Ticino',
-    ogDescription: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    ogDescription: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto',
     canonicalPath: '/articoli-frontaliere/carburanti-tpl-ticino-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Caro carburanti, rischio stop trasporto pubblico in Ticino",
-      "description": "Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l'impatto sui",
+      "description": "Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l'impatto",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carburanti-tpl-ticino-2026.webp`,
         "width": 1200,

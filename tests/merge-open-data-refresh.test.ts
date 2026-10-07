@@ -124,6 +124,39 @@ describe('merge-open-data-refresh', () => {
       'event:remote::hash',
     ]);
   });
+
+  it('never lowers the persisted Google Places usage when a refresh PR is pending', () => {
+    const base = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-07T01:00:00.000Z',
+      records: {},
+      warnings: [],
+      providerUsage: { month: '2026-10', googlePlaces: { requests: 2 } },
+    });
+    const remote = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-07T02:00:00.000Z',
+      records: { remote: { checkedAt: '2026-10-07T02:00:00.000Z' } },
+      warnings: [],
+      providerUsage: { month: '2026-10', googlePlaces: { requests: 7 } },
+    });
+    const refresh = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-07T03:00:00.000Z',
+      records: { refresh: { checkedAt: '2026-10-07T03:00:00.000Z' } },
+      warnings: [],
+      providerUsage: { month: '2026-10', googlePlaces: { requests: 3 } },
+    });
+    const merged = JSON.parse(mergeRefreshContent(
+      'data/pharmacy-enrichment.json',
+      base,
+      remote,
+      refresh,
+    ) as string);
+
+    expect(merged.records).toEqual({ refresh: { checkedAt: '2026-10-07T03:00:00.000Z' } });
+    expect(merged.providerUsage).toEqual({ month: '2026-10', googlePlaces: { requests: 7 } });
+  });
 });
 
 // crawl-events.yml publishes article surfaces through their historical
