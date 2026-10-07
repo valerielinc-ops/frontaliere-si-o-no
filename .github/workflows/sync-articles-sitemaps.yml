@@ -344,6 +344,33 @@ jobs:
             --gate-window-hours 36 \
             --workflow "${{ github.workflow }}"
 
+      # A persistent shrink/lag is an upstream publisher condition, not a
+      # reason to weaken the consumer guard. Once github-issue-creator has
+      # opened the stable issue (the third skip), request one rebuild of the
+      # publisher's public surface. The helper finds the issue again, so the
+      # first two ledger-only failures do nothing, and its 36h marker prevents
+      # a stuck publisher from being hammered by every retry. This does not
+      # dispatch the consumer workflow or admit an unverified event: the
+      # publisher's manual rebuild is only a nudge, while the normal attested
+      # push dispatch or the schedule remains the path that consumes the
+      # rebuilt surface.
+      - name: Request bounded publisher recovery after persistent skip
+        if: steps.gate.outputs.skipped == 'true' && github.event_name != 'workflow_dispatch'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GATE_REASON: ${{ steps.gate.outputs.skip-reason }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO missing from Remote Config — cannot request publish-api recovery"
+            exit 1
+          fi
+          PUBLISHER_GH_TOKEN="$GITHUB_PAT_NANAKO" \
+            node scripts/ci/request-article-publisher-replay.mjs
+
       - name: Clear the skip escalation
         if: steps.gate.outputs.skipped != 'true'
         continue-on-error: true
