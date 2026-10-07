@@ -548,7 +548,7 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(validator);
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
       expect(source, name).toContain('for attempt in 1 2 3 4 5 6 7 8 9 10');
-      expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"');
+      expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/');
       expect(source, name).toContain('ledger_dir="$ledger_worktree/data/loop-fleet/ledger"');
@@ -564,6 +564,16 @@ describe('loop fleet workflow contract', () => {
         expect(source, `${name}: ${forbidden}`).not.toContain(forbidden);
       }
     }
+  });
+
+  it('ships a reproducible depth-1 fixture for measuring the bounded push', () => {
+    const measurement = fs.readFileSync(path.resolve('scripts/ci/measure-loop-fleet-shallow-push.mjs'), 'utf8');
+    expect(measurement).toContain('--depth=1');
+    expect(measurement).toContain('pack.window=0');
+    expect(measurement).toContain('pack.threads=1');
+    expect(measurement).toContain('push --no-thin');
+    expect(measurement).toContain('measureLoopFleetShallowPush');
+    expect(measurement).toContain('shallow: baseline.shallow && noThin.shallow');
   });
 
   it('removes the obsolete epoch policy and all workflow references to it', () => {

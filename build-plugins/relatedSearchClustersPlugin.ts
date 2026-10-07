@@ -1779,20 +1779,6 @@ export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry
 }
 
 /**
- * A capped probe needs a full rebuild only after it proves the indexability
- * floor. Keep the shared floor predicate outside `closeBundle`: the sitemap
- * producers must continue to derive their noindex decision exclusively from
- * `decideClusterEmission`.
- */
-function shouldExpandClusterMatchProbe(
-  ctx: ClusterContext,
-  enriched: EnrichedEntry | undefined,
-): boolean {
-  return !isClusterBelowFloor(ctx, enriched)
-    && ctx.matchingJobs.length >= MIN_JOBS_FOR_INDEXABLE_CLUSTER;
-}
-
-/**
  * Select the "Ricerche correlate" anchors without linking to a below-floor
  * cluster that this same build will emit as a noindex bridge. The floor check
  * deliberately goes through isClusterBelowFloor: the link selector and the
@@ -4829,20 +4815,18 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tContextBuild = profileStart();
       const contextStartedAt = Date.now();
       let processedContexts = 0;
-      const floorProbeOptions = {
-        maxJobs: MIN_JOBS_FOR_INDEXABLE_CLUSTER,
-        stopWhenAtLeast: MIN_JOBS_FOR_INDEXABLE_CLUSTER,
-      } as const;
       for (const cand of candidates) {
-        // Most candidates are below the indexability floor. Probe only until
-        // that floor is proven; a probe that stays below it is already the
-        // complete match set, while a probe that reaches it is rebuilt once
-        // with the normal n=30 cap so ordering and rendered HTML stay exact.
-        let ctx = buildClusterContext(cand, tokenIndex, jobs, floorProbeOptions);
-        if (ctx && shouldExpandClusterMatchProbe(ctx, enriched[`${cand.locale}::${cand.slug}`])) {
-          const fullContext = buildClusterContext(cand, tokenIndex, jobs);
-          if (fullContext) ctx = fullContext;
-        }
+        // Single pass, on purpose. #11971 probed each candidate up to the
+        // indexability floor and rebuilt the ones that reached it, assuming
+        // most stay below. In production the phase doubled instead: on the FR
+        // shard, 349,397 contexts took 3,969 s in run 37543459577 (before) and
+        // were at 7,771 s with 29k still to go in run 37623979411 (after), same
+        // corpus and heap. A candidate above the floor is matched twice, and
+        // the probe runs the occupation filter on every OR hit rather than on
+        // the top-scored ones. The probe API stays (covered by
+        // tests/related-search-cluster-probe-equivalence.test.ts) for whoever
+        // re-measures it against a full shard before wiring it back.
+        const ctx = buildClusterContext(cand, tokenIndex, jobs);
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);

@@ -7,6 +7,11 @@ import {
   LOOP_CLOCK_INPUT,
   loopClockInputValue,
 } from './loopClockTable.js';
+import {
+  LOOP_CLOCK_ISSUES_MAX_PAGES,
+  LOOP_CLOCK_ISSUES_PAGE_SIZE,
+  summarizeUntriagedIssues,
+} from './loopClockIssueCondition.js';
 
 export { LOOP_CLOCK_ENTRIES } from './loopClockTable.js';
 
@@ -122,17 +127,21 @@ function makeResult(entry, fields = {}) {
   return { id: entry.id, repo: entry.repo, workflow: entry.workflow, ...fields };
 }
 
-async function searchUntriagedIssues({ owner, repo, token, fetchImpl }) {
-  const query = `repo:${owner}/${repo} is:issue is:open -label:agent:triaged`;
-  const url = `${GITHUB_API}/search/issues?q=${encodeURIComponent(query)}`;
-  const response = await fetchImpl(url, {
-    method: 'GET',
-    headers: githubApiHeaders(token),
-  });
-  if (!response.ok) throw new Error('condition_lookup_failed');
-  const body = await response.json().catch(() => null);
-  if (!body || !Number.isFinite(Number(body.total_count))) throw new Error('condition_lookup_invalid');
-  return Number(body.total_count);
+async function listUntriagedIssues({ owner, repo, token, fetchImpl }) {
+  const issues = [];
+  for (let page = 1; page <= LOOP_CLOCK_ISSUES_MAX_PAGES; page += 1) {
+    const url = `${GITHUB_API}/repos/${owner}/${repo}/issues?state=open&sort=created&direction=asc&per_page=${LOOP_CLOCK_ISSUES_PAGE_SIZE}&page=${page}`;
+    const response = await fetchImpl(url, {
+      method: 'GET',
+      headers: githubApiHeaders(token),
+    });
+    if (!response.ok) throw new Error('condition_lookup_failed');
+    const body = await response.json().catch(() => null);
+    if (!Array.isArray(body)) throw new Error('condition_lookup_invalid');
+    issues.push(...body);
+    if (body.length < LOOP_CLOCK_ISSUES_PAGE_SIZE) return summarizeUntriagedIssues(issues);
+  }
+  throw new Error('condition_lookup_too_large');
 }
 
 async function dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup }) {
@@ -143,8 +152,8 @@ async function dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup 
   let conditionState;
   if (entry.condition === 'untriaged-issues') {
     try {
-      const count = await conditionLookup(context.owner, context.repo, context.pat);
-      if (count === 0) {
+      const condition = await conditionLookup(context.owner, context.repo, context.pat);
+      if (condition.count === 0) {
         return makeResult(entry, { dispatched: false, reason: 'condition_no_untriaged_issues' });
       }
       conditionState = 'condition_untriaged_issues';
@@ -239,7 +248,7 @@ export async function dispatchLoopClock({
   const conditionLookup = (owner, repo, token) => {
     const key = `${owner}/${repo}`;
     if (!conditionCache.has(key)) {
-      conditionCache.set(key, searchUntriagedIssues({ owner, repo, token, fetchImpl }));
+      conditionCache.set(key, listUntriagedIssues({ owner, repo, token, fetchImpl }));
     }
     return conditionCache.get(key);
   };

@@ -106,6 +106,12 @@ jobs:
         env:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: node scripts/sync-pharmacy-duties.mjs
+      - name: Discover public Facebook pharmacy pages
+        env:
+          PHARMACY_FACEBOOK_DISCOVERY_PATH: ${{ runner.temp }}/pharmacy-facebook-discovery.json
+        run: |
+          node scripts/discover-pharmacy-facebook.mjs --output "$PHARMACY_FACEBOOK_DISCOVERY_PATH"
+          echo "PHARMACY_FACEBOOK_DISCOVERY_PATH=$PHARMACY_FACEBOOK_DISCOVERY_PATH" >> "$GITHUB_ENV"
       - name: Fetch Geneva duty release
         id: geneva
         continue-on-error: true

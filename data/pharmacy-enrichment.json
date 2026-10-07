@@ -48,6 +48,7 @@
         "Accesso senza barriere"
       ],
       "contactEmail": "farmaciadicasciago@enterpoint.it",
+      "vatNumber": "04109170128",
       "fieldSources": {
         "phone": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
@@ -68,6 +69,11 @@
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
           "checkedAt": "2026-10-07T11:15:12.341Z"
+        },
+        "vatNumber": {
+          "url": "https://www.strutturapnrr.gov.it/media/2ilmk4mv/260310-decreto-n-32-2026-di-erogazione-fr25-ddg-40-n-01-signed.pdf",
+          "sourceType": "official",
+          "checkedAt": "2026-10-07T15:50:04.000Z"
         }
       },
       "externalSources": [
@@ -93,6 +99,22 @@
           "fields": [
             "phone"
           ],
+          "status": "verified"
+        },
+        {
+          "url": "https://www.strutturapnrr.gov.it/media/2ilmk4mv/260310-decreto-n-32-2026-di-erogazione-fr25-ddg-40-n-01-signed.pdf",
+          "label": "Struttura di missione PNRR — decreto 32/2026",
+          "sourceType": "official",
+          "checkedAt": "2026-10-07T15:50:04.000Z",
+          "fields": ["vatNumber"],
+          "status": "verified"
+        },
+        {
+          "url": "https://atoka.io/public/it/azienda/farmacia-internazionale-di-casciago-del-dott-massimo-de-bernardi-c-sas/7601ad2f09a8",
+          "label": "Atoka — scheda impresa pubblica",
+          "sourceType": "directory",
+          "checkedAt": "2026-10-07T15:50:04.000Z",
+          "fields": ["vatNumber"],
           "status": "verified"
         }
       ]
