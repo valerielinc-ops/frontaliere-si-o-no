@@ -28,6 +28,7 @@ import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage, questionTopic } from './plan.mjs';
+import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
@@ -138,9 +139,8 @@ export function slugId(text) {
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
 export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
-  const parts = String(identity.name || '').trim().split(/\s+/);
-  // The split the candidate chose on the review page, else the last word is the surname.
-  const chosen = typeof identity.firstName === 'string';
+  // The split the candidate chose on the review page, else the surname with its particles (splitName).
+  const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
   const motivation = Object.fromEntries((draft.formAnswers || []).map((field) => [field.key, field.value]));
   const status = profile.permitStatus || '';
@@ -148,8 +148,8 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
   return {
     identity: {
       fullName: identity.name,
-      firstName: chosen ? identity.firstName : parts.length > 1 ? parts.slice(0, -1).join(' ') : parts[0] || '',
-      lastName: chosen ? identity.lastName : parts.length > 1 ? parts[parts.length - 1] : '',
+      firstName: names.firstName,
+      lastName: names.lastName,
       email: identity.email,
       phone: identity.phone,
       location: profile.location || '',

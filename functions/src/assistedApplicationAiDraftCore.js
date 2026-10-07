@@ -328,10 +328,21 @@ export function candidateIdentity(order, profile) {
   return { name, email, phone };
 }
 
+/**
+ * Given names and surname of a full name, as an application form asks them.
+ * The surname is the last word with the particles that open it («De Luca»,
+ * «von Arx», «van der Berg», «El Amrani», «Ben Ali»): a real order of
+ * 2026-10-07 had the particle of the surname typed in the form's first-name
+ * field, and «Maria De Luca» was «Maria De» + «Luca». Never the whole name:
+ * the first word stays a given name («Ben Smith»). The candidate corrects the
+ * split on the review page when it is another (formOverrides).
+ */
 export function splitName(fullName) {
   const parts = clean(fullName, 200).split(' ').filter(Boolean);
   if (parts.length < 2) return { firstName: parts[0] || '', lastName: '' };
-  return { firstName: parts.slice(0, -1).join(' '), lastName: parts[parts.length - 1] };
+  let start = parts.length - 1;
+  while (start > 1 && SURNAME_OPENERS.has(parts[start - 1].toLowerCase())) start -= 1;
+  return { firstName: parts.slice(0, start).join(' '), lastName: parts.slice(start).join(' ') };
 }
 
 export function letterText(letter) {
@@ -445,6 +456,10 @@ const TITLE_PART = /^\p{Ll}[\p{L}.]*\.$/u;
 // Degrees after the name («Anna Muster PhD»).
 const DEGREE = /^(?:phd|ph\.d\.|mba|msc|m\.sc\.|bsc|b\.sc\.|llm|ll\.m\.)$/i;
 const SURNAME_PARTICLES = new Set(['de', 'di', 'da', 'del', 'della', 'dal', 'dalla', 'von', 'van', 'der', 'den', 'du', 'des', 'le', 'la', 'lo', 'dos', 'das']);
+// The words that open a surname in a candidate's full name (splitName): the particles above and the ones
+// that are a given name too («Ben», «Al»), which splitName reads as a particle only after a given name. A
+// contact person's name is read without that guard, so they stay out of SURNAME_PARTICLES.
+const SURNAME_OPENERS = new Set([...SURNAME_PARTICLES, 'el', 'al', 'ben', 'bin', 'ibn', 'abu', 'bou', 'ait', 'ter', 'ten', 'te', 'zu', 'zur', 'zum', 'vom']);
 // A department or a function where a person is expected.
 const DEPARTMENT = /(?<![\p{L}])(?:hr|rh|team|abteilung|personal\p{L}*|personale|personnel|ressources|risorse|human|recruit\p{L}*|rekrut\p{L}*|recrutement|reclutamento|talent\p{L}*|ufficio|service|servizio|dienst|d[ée]partement|department|dipartimento|direzione|direction|sekretariat|secr[ée]tariat|segreteria|gesch[äa]ftsleitung|leitung|administration|amministrazione|verwaltung|bewerbung\p{L}*|candidature|karriere|careers?|hiring)(?![\p{L}])/iu;
 // A function next to a name («Leiter Logistik», «Geschäftsführer», «Responsabile vendite», «Head Finance»);
