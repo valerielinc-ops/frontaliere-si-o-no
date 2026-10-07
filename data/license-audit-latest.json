@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-07T17:51:52.667Z",
+  "commit": "35274f81ce79380574d5917457f63f9ebcb5bc29",
+  "mainRef": "origin/main",
+  "refsInspected": [
+    "origin/main"
+  ],
+  "sections": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "overall": "fail",
+  "summary": {
+    "pass": 10,
+    "warn": 3,
+    "fail": 2
+  },
+  "controls": [
+    {
+      "id": "A.event-source-slices",
+      "section": "A",
+      "title": "Slice eventi: nessuna immagine da fonte esclusa prima dell’assemblaggio",
+      "threshold": "invalid imageUrl in source slices = 0",
+      "status": "pass",
+      "counts": {
+        "slices": 9,
+        "images": 0,
+        "invalid": 0,
+        "excludedSourceImages": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "crawler policy and event-library"
+    },
+    {
+      "id": "A.events-published-images",
+      "section": "A",
+      "title": "Eventi pubblicati: immagini governate o fonte con licenza ammessa",
+      "threshold": "invalid imageUrl = 0",
+      "status": "pass",
+      "counts": {
+        "events": 11970,
+        "images": 11970,
+        "governedLibrary": 11970,
+        "licensedSources": 0,
+        "invalid": 0,
+        "noImage": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "event-library"
+    },
+    {
+      "id": "A.crawler-image-policy",
+      "section": "A",
+      "title": "Crawler eventi: nessun emettitore bypassa il gate immagini",
+      "threshold": "unguarded excluded-source image calls = 0",
+      "status": "pass",
+      "counts": {
+        "findings": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "B.published-image-records",
+      "section": "B",
+      "title": "Immagini pubblicate: record di licenza ammesso o record generativo valido",
+      "threshold": "published missing/unlicensed images = 0 after bounded repair",
+      "status": "fail",
+      "counts": {
+        "files": 11268,
+        "published": 11107,
+        "ok": 3429,
+        "inferred": 7659,
+        "withoutRecord": 19,
+        "unlicensed": 0,
+        "orphan": 174,
+        "autoRepairable": 0,
+        "nonRemediable": 19
+      },
+      "examples": [
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-rect-400.png",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-rect-400.webp",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-square-1000.png",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-square-1000.webp",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-square-512.png",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "publisher",
+          "imageUrl": "/images/publisher/logo-square-512.webp",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "social",
+          "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "social",
+          "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "social",
+          "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        },
+        {
+          "family": "social",
+          "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
+          "status": "senza record",
+          "reason": "no valid image record",
+          "autoRepairable": false,
+          "protectedRealAuthor": false
+        }
+      ],
+      "alarm": true,
+      "remediation": "article-hero/place/editorial-profile; logos are inventory-only"
+    },
+    {
+      "id": "B.logo-source-inventory",
+      "section": "B",
+      "title": "Loghi: file presenti e fonte registrata, senza sostituzione automatica",
+      "threshold": "unregistered logo file = 0",
+      "status": "fail",
+      "counts": {
+        "inventory": 711,
+        "registered": 674,
+        "withoutRegisteredSource": 37
+      },
+      "examples": [
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/agip.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/agipeni.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/agrola.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/api-ip.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/aral.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/avia.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/bp.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/carrefour.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/cooppronto.svg",
+          "reason": "file has no current content reference"
+        },
+        {
+          "family": "brands",
+          "imageUrl": "/images/brands/efg-international.jpg",
+          "reason": "file has no current content reference"
+        }
+      ],
+      "alarm": true,
+      "remediation": "none; source registration is human-owned"
+    },
+    {
+      "id": "B.real-author-protection",
+      "section": "B",
+      "title": "Foto di autori reali: mai rimpiazzate dal motore",
+      "threshold": "protected real-author assets are never auto-selected",
+      "status": "pass",
+      "counts": {
+        "realAuthorFiles": 1,
+        "protectedCandidates": 1
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "alarm only for real authors"
+    },
+    {
+      "id": "B.og-image-sample",
+      "section": "B",
+      "title": "Campione og:image del build pubblicato",
+      "threshold": "sampled og:image values must be registered or site-owned",
+      "status": "warn",
+      "counts": {
+        "available": 0,
+        "files": 0,
+        "images": 0,
+        "invalid": 0
+      },
+      "examples": [
+        {
+          "reason": "dist sample unavailable; build/deploy gate will provide it"
+        }
+      ],
+      "alarm": false,
+      "remediation": "validate:og-images"
+    },
+    {
+      "id": "C.event-description-publication",
+      "section": "C",
+      "title": "Nessun testo di fonte nei dati eventi versionati",
+      "threshold": "existing gate errors = 0",
+      "status": "pass",
+      "counts": {
+        "gateOk": 1,
+        "gateErrors": 0,
+        "events": 11970
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none; reuse scripts/ci/check-event-description-publication.mjs"
+    },
+    {
+      "id": "C.events-without-rewritten-description",
+      "section": "C",
+      "title": "Eventi senza descrizione riscritta",
+      "threshold": "reported for remediation queue; does not block image repair",
+      "status": "warn",
+      "counts": {
+        "events": 11970,
+        "withoutDescription": 11722,
+        "rewritten": 248
+      },
+      "examples": [
+        {
+          "count": 11722
+        }
+      ],
+      "alarm": false,
+      "remediation": "description queue"
+    },
+    {
+      "id": "C.description-rewrite-queue",
+      "section": "C",
+      "title": "Coda residua delle riscritture eventi",
+      "threshold": "entries without complete rewrite = 0",
+      "status": "pass",
+      "counts": {
+        "entries": 249,
+        "residual": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none; separate rewrite workflow"
+    },
+    {
+      "id": "C.article-anti-copy-metrics",
+      "section": "C",
+      "title": "Metriche anti-copia articoli, se esposte",
+      "threshold": "when available: violations = 0; unavailable is non-blocking",
+      "status": "warn",
+      "counts": {
+        "available": 0,
+        "violations": 0
+      },
+      "examples": [
+        {
+          "reason": "metrics not exposed by the repository"
+        }
+      ],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "C.job-announcements-excluded",
+      "section": "C",
+      "title": "Annunci di lavoro esclusi dalla licenza testi per scelta del proprietario",
+      "threshold": "explicit owner choice",
+      "status": "pass",
+      "counts": {
+        "excluded": true
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "by choice"
+    },
+    {
+      "id": "D.origin-main-event-path",
+      "section": "D",
+      "title": "origin/main non contiene il vecchio public/images/events",
+      "threshold": "tracked paths under public/images/events = 0",
+      "status": "pass",
+      "counts": {
+        "paths": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "D.history-marker",
+      "section": "D",
+      "title": "Il commit marcatore non è raggiungibile dai ref ispezionati",
+      "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
+      "status": "pass",
+      "counts": {
+        "refsInspected": 1,
+        "refsContainingMarker": 0,
+        "markerObjectUnavailable": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    },
+    {
+      "id": "D.removed-cdn-prefixes",
+      "section": "D",
+      "title": "Prefissi CDN delle fonti rimosse",
+      "threshold": "live HTTP/R2 objects under removed prefixes = 0",
+      "status": "pass",
+      "counts": {
+        "prefixes": 8,
+        "httpProbes": 8,
+        "httpLive": 0,
+        "r2Keys": 0,
+        "r2Available": 0
+      },
+      "examples": [],
+      "alarm": false,
+      "remediation": "none"
+    }
+  ],
+  "details": {
+    "events": {
+      "total": 11970,
+      "rows": 11970,
+      "sourceSliceImages": 0,
+      "statusCounts": {
+        "ok": 11970
+      }
+    },
+    "images": {
+      "inventory": 11281,
+      "statusCounts": {
+        "ok": 3429,
+        "inferred": 7659,
+        "orfano": 174,
+        "senza record": 19
+      },
+      "orphanRecords": 0
+    },
+    "text": {
+      "gate": {
+        "ok": true,
+        "datasets": 1,
+        "events": 11970,
+        "rewritten": 248,
+        "cacheEntries": 249
+      }
+    },
+    "history": {
+      "markerRows": []
+    }
+  },
+  "remediation": {
+    "candidateCount": 0,
+    "autoRepairableCount": 0,
+    "nonRemediableCount": 19,
+    "candidates": []
+  },
+  "alarm": {
+    "required": true,
+    "title": "License audit: non-remediable publication violations",
+    "nonRemediableFailures": [
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-rect-400.png",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-rect-400.webp",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-square-1000.png",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-square-1000.webp",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-square-512.png",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "publisher",
+        "imageUrl": "/images/publisher/logo-square-512.webp",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "social",
+        "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "social",
+        "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "social",
+        "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      },
+      {
+        "control": "B.published-image-records",
+        "family": "social",
+        "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
+        "status": "senza record",
+        "reason": "no valid image record",
+        "autoRepairable": false,
+        "protectedRealAuthor": false
+      }
+    ]
+  },
+  "actions": {
+    "requested": false,
+    "generated": [],
+    "failures": [],
+    "selected": 0,
+    "deferred": 0
+  }
+}
