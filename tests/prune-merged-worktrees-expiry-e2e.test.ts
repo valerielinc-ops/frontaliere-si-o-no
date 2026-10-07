@@ -27,7 +27,13 @@ let scratchWorktree = '';
 let raceWorktree = '';
 
 function git(cwd: string, args: string[], extraEnv: NodeJS.ProcessEnv = {}): string {
-  return execFileSync('git', args, {
+  // Dopo la configurazione dello shim usato per simulare la race, il fixture
+  // continua a creare branch/worktree: usa il binario reale per non far
+  // dipendere lo stato iniziale del fixture dal wrapper del processo sotto
+  // test. `runScript()` mantiene invece PATH con lo shim, come richiesto dalla
+  // prova di mutazione tra snapshot e rimozione.
+  const gitBinary = env.PRUNE_REAL_GIT || 'git';
+  return execFileSync(gitBinary, args, {
     cwd,
     env: { ...env, ...extraEnv },
     encoding: 'utf8',
