@@ -1458,7 +1458,7 @@ function BlogArticles({
  // failure behavior) instead of blocking the whole blog render.
  isCanton ? Promise.resolve() : preloadBlogData().catch(() => {}),
  articleDataPromise,
- ]).then(([, , payload]) => {
+ ]).then(async ([, , payload]) => {
  const { data, overlay } = payload;
  // Articles the router already resolved at runtime (issue #4974 item 3).
  // This component mounts only AFTER that resolution — the article page
@@ -1480,25 +1480,29 @@ function BlogArticles({
  const listArticles = isCanton && cantonCode
   ? mergeArticleRecords(seededArticles, ARTICLES.filter(article => article.canton?.includes(cantonCode)))
   : seededArticles;
- if (isCanton) setCantonRuntimeIds(new Set(seededArticles.map(article => article.id)));
- setArticles(listArticles);
- setBlogReady(true);
 
  if (isCanton) {
   // The canton index is already the complete runtime list for this section.
-  // Learn localized slugs once so all cards and language switches remain
-  // canonical, then let the shared list/detail UI continue unchanged.
-  const knownIds = new Set(seededArticles.map(article => article.id));
-  const needSlug = overlay.filter(entry => knownIds.has(entry.id) && !entry.slug).map(entry => entry.id);
+  // Resolve every localized slug pair before exposing the cards: learning only
+  // `entry.slug` would cover the current index locale but leave an immediate
+  // locale switch with an id fallback, which is not a published canton URL.
+  const knownIds = [...new Set(seededArticles.map(article => article.id))];
   const locale = getLocale();
   for (const entry of overlay) {
    if (entry.slug) learnRuntimeCantonSlugs(section, entry.id, { [locale]: entry.slug });
   }
-  void publishedSlugsForIds(section, needSlug).then((pairs) => {
-   for (const [id, slugs] of pairs) learnRuntimeCantonSlugs(section, id, slugs);
-  }).catch(() => {});
+  const pairs = await publishedSlugsForIds(section, knownIds).catch(() => []);
+  for (const [id, slugs] of pairs) {
+   learnRuntimeCantonSlugs(section, id, slugs);
+  }
+  setCantonRuntimeIds(new Set(seededArticles.map(article => article.id)));
+  setArticles(listArticles);
+  setBlogReady(true);
   return;
  }
+
+ setArticles(listArticles);
+ setBlogReady(true);
 
  // Articles published since this bundle was built (issue #4974 item 3).
  // The registry above is compiled in, so anything the articles repo has
