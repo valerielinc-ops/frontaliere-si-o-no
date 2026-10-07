@@ -3876,7 +3876,7 @@ ${hreflangHtml}
  <!-- jobs-seo-reuse:job-posting:start -->${jobLd ? `<script type="application/ld+json">${jobLd}</script>` : ''}<!-- jobs-seo-reuse:job-posting:end -->
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${jobFaqLd}</script>
- <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
+ <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',name:localizedTitle,url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
  <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>
  ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
  ${seedScript}
@@ -4996,6 +4996,7 @@ ${staticAnalyticsHtml}
  const webPageLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'WebPage',
+ name: title,
  url: canonicalUrl,
  inLanguage: locale,
  isPartOf: {

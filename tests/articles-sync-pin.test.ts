@@ -414,6 +414,7 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
 
   it('treats only corpus-generated image-credit files as count-only churn', () => {
     const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    expect(script).toContain('isPreservedTreePath,');
     const countIndex = script.indexOf('const churnOnlyDestinationFiles = destinationOnlyPaths');
     const shrinkIndex = script.indexOf('if (comparableDstN > 0 && srcN < comparableDstN)');
     const mirrorIndex = script.indexOf('mirrorTree(src, DEST');
@@ -426,6 +427,7 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
       path.join(ROOT, 'scripts', 'lib', 'corpus-local-preserve.mjs'),
       'utf-8',
     )).toContain("'image-credits/'");
+    expect(script).toContain('preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles)');
   });
 
   it('does not pull the published surface once the corpus pull has given up', () => {

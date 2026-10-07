@@ -16,6 +16,7 @@ import {
   isCantonCorpusPath,
   mirrorTree,
 } from '../scripts/lib/corpus-canton-exclusion.mjs';
+import { destinationOnlyPaths, isPreservedTreePath } from '../scripts/lib/corpus-local-preserve.mjs';
 import { CANTON_ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs';
 import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 
@@ -134,6 +135,24 @@ describe('mirrorTree / countFiles with the canton exclusion', () => {
     mirrorTree(src, dst);
 
     expect(fs.existsSync(path.join(dst, 'image-credits/blog/retired.json'))).toBe(false);
+    expect(fs.readFileSync(path.join(dst, 'routerBlogData.ts'), 'utf-8')).toBe('new');
+  });
+
+  it('preserves approved destination-only image credits while deleting unrelated stale files', () => {
+    const src = path.join(tmp, 'src');
+    const dst = path.join(tmp, 'dst');
+    write(src, 'routerBlogData.ts', 'new');
+    write(dst, 'routerBlogData.ts', 'old');
+    write(dst, 'image-credits/blog/legacy.json', 'needed by current cover ledger');
+    write(dst, 'blog-body/it/stale.ts', 'must be removed');
+
+    const preserved = destinationOnlyPaths({ src, dest: dst });
+    mirrorTree(src, dst, {
+      preserve: (rel) => isPreservedTreePath(rel, preserved),
+    });
+
+    expect(fs.existsSync(path.join(dst, 'image-credits/blog/legacy.json'))).toBe(true);
+    expect(fs.existsSync(path.join(dst, 'blog-body/it/stale.ts'))).toBe(false);
     expect(fs.readFileSync(path.join(dst, 'routerBlogData.ts'), 'utf-8')).toBe('new');
   });
 });

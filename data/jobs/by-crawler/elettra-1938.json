@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-10-06T21:32:39.490Z",
+  "assembledAt": "2026-10-07T09:31:54.350Z",
   "jobs": [
     {
       "id": "elettra-1938-ef6f82493666",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:34.892Z",
+      "crawledAt": "2026-10-07T09:31:49.806Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -98,7 +98,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:33.568Z",
+      "crawledAt": "2026-10-07T09:31:48.268Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -116,9 +116,8 @@
       "postingDateSource": "reported",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:06:24.656Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -131,8 +130,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-07-08T22:06:24.656Z"
+      }
     },
     {
       "id": "elettra-1938-6cd11cbbc30b",
@@ -165,7 +163,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:31.897Z",
+      "crawledAt": "2026-10-07T09:31:46.881Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",

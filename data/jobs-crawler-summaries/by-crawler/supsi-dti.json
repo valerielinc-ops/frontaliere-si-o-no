@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-10-06T21:34:08.078Z",
-  "total": 9,
+  "generatedAt": "2026-10-07T09:46:05.195Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 81634,
-  "avgDurationMs": 81634,
+  "durationMs": 92459,
+  "avgDurationMs": 92459,
   "durationHistory": [
-    81634
+    92459
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -51,11 +51,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
-        "translation": 16,
+        "richness": 21,
+        "translation": 18,
         "completeness": 23
       }
     },
@@ -81,7 +81,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -125,7 +125,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-10-03T09:31:58.588Z",
       "country": "CH",
       "sourceLang": "it",
@@ -170,7 +170,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -185,11 +185,11 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
-        "translation": 21,
+        "richness": 21,
+        "translation": 23,
         "completeness": 23
       }
     },
@@ -215,7 +215,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-09-30T21:26:44.470Z",
       "country": "CH",
       "sourceLang": "it",
@@ -259,7 +259,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "country": "CH",
       "sourceLang": "it",
@@ -307,7 +307,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-10-05T09:36:12.464Z",
       "country": "CH",
       "sourceLang": "it",
@@ -352,7 +352,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-10-06T21:33:48.714Z",
+      "crawledAt": "2026-10-07T09:45:39.503Z",
       "firstSeenAt": "2026-10-06T09:37:44.141Z",
       "country": "CH",
       "sourceLang": "it",
@@ -372,7 +372,9 @@
         "translation": 21,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "company-l4s84w",
       "slug": "docente-professionista-in-ergoterapia-supsi-dti-manno",
@@ -410,17 +412,15 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

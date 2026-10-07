@@ -20,8 +20,9 @@ import path from 'node:path';
  * Image-credit records are corpus-owned, but their generated file set can
  * churn between the site checkout and an older API-pinned snapshot. The pull
  * guard excludes only destination-only files under this prefix from its coarse
- * file-count comparison; mirrorTree still converges the files to the pinned
- * corpus state.
+ * file-count comparison. The pull keeps those destination-only records until
+ * the pinned corpus carries them, because the current site's cover ledger can
+ * still reference them; source files win normally when they are present.
  */
 export const CORPUS_GENERATED_CHURN_PREFIXES = Object.freeze([
   'image-credits/',
@@ -58,7 +59,8 @@ function hasPathPrefix(rel, prefixes) {
  * Return destination-only files whose generated surface is allowed to churn.
  * The corpus registry/manifest gates remain responsible for article safety;
  * this set only keeps generated image-credit churn from tripping the coarse
- * file-count shrink alarm. The mirror still deletes or replaces these paths.
+ * file-count shrink alarm. The mirror preserves these local records until the
+ * source carries them, so the site's cover ledger does not lose valid data.
  */
 export function destinationOnlyPaths({
   src,
@@ -70,6 +72,18 @@ export function destinationOnlyPaths({
   return new Set(
     [...destFiles].filter((rel) => !srcFiles.has(rel) && hasPathPrefix(rel, prefixes)),
   );
+}
+
+/**
+ * Whether a path is a preserved file or contains one. mirrorTree visits
+ * directories while deciding what to delete, so retaining the parent path is
+ * necessary when a destination-only image-credit subtree is absent upstream.
+ */
+export function isPreservedTreePath(rel, preservedPaths) {
+  for (const preserved of preservedPaths ?? []) {
+    if (preserved === rel || preserved.startsWith(`${rel}/`)) return true;
+  }
+  return false;
 }
 
 /**
