@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
-import { realpathSync } from 'node:fs';
+import fs, { realpathSync } from 'node:fs';
 /**
  * reconcile-conflict-handoffs.mjs — chiude gli hand-off di conflitto il cui
  * lavoro e' gia' fatto (zero-Claude).
@@ -47,7 +47,6 @@ import { realpathSync } from 'node:fs';
  */
 
 import { execFileSync } from 'node:child_process';
-import fs from 'node:fs';
 
 import {
   conflictClearedAfter,
