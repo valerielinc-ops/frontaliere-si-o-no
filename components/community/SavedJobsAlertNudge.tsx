@@ -221,7 +221,7 @@ export default function SavedJobsAlertNudge({
                 locale={locale}
                 consentKey="communicationsOptIn"
                 className="mt-2"
-                noticeClassName="text-[10px] text-muted leading-tight block"
+                noticeClassName="text-xs text-muted leading-relaxed"
               />
             ) : (status === 'idle' || status === 'error') ? (
               // The notice links the action to the terms-based communication

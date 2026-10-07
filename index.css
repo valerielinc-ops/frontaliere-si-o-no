@@ -565,322 +565,406 @@ body:has(.seo-footer-block):not(:has(
   min-height: 100vh;
 }
 
-/* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
-   Substantive prerendered content injected as sibling of #root so React
-   hydration leaves it untouched. Sits below the footer; presented as a
-   minimal collapsible "Approfondimenti" panel via native <details>/<summary>
-   so the visual footprint stays small while the content remains fully
-   indexable by search engines. Colors use design-token CSS vars so the
-   block auto-adapts to dark mode. */
-aside.seo-footer-block {
-  max-width: 1100px;
-  margin: 24px auto 56px;
-  padding: 0 20px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: var(--color-body);
-  line-height: 1.65;
+/* ── Pre-footer statico (home / calcolatore / job-board) ────────────────────
+   Due famiglie di blocchi che il build emette DOPO #root, fuori dalla
+   riconciliazione React, perche' restino leggibili senza JavaScript:
+     · i rail di discovery (`.homepage-discovery`, `.hp-discovery-block`,
+       `.homepage-locale-main-nav`): la directory di link interni;
+     · il pannello SEO (`aside.seo-footer-block`): prosa lunga a scomparsa.
+   `StaticPrefooterSlot` li adotta sopra il footer; senza JavaScript restano
+   dove nascono, in coda al documento, con gli stessi stili.
+
+   Queste regole vivono QUI e non in `public/assets/seo-static.css`: la home e'
+   l'`index.html` di Vite e carica soltanto questo foglio. Finche' i rail erano
+   stilati la' uscivano con i default del browser (misurato in produzione il
+   2026-10-07: `display: inline` su ogni link). Ogni pagina statica carica
+   comunque anche questo foglio, quindi una sola copia basta per tutte.
+
+   Solo token semantici: il blocco segue da solo il tema scuro. */
+.static-prefooter {
+  background: var(--color-surface);
   border-top: 1px solid var(--color-edge);
-  padding-top: 24px;
-}
-aside.seo-footer-block .seo-fb-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--color-heading);
-  margin: 0 0 10px;
-}
-aside.seo-footer-block .seo-fb-intro {
-  font-size: 14px;
-  color: var(--color-subtle);
-  margin: 0 0 16px;
-  max-width: 70ch;
-}
-aside.seo-footer-block details {
-  border-top: 1px solid var(--color-edge);
-}
-aside.seo-footer-block details:first-of-type {
-  border-top: none;
-}
-aside.seo-footer-block summary {
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-heading);
-  list-style: none;
-  padding: 12px 32px 12px 0;
-  position: relative;
-  user-select: none;
-}
-aside.seo-footer-block summary::-webkit-details-marker { display: none; }
-aside.seo-footer-block summary::after {
-  content: "+";
-  position: absolute;
-  right: 4px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--color-subtle);
-}
-aside.seo-footer-block details[open] summary::after { content: "−"; }
-aside.seo-footer-block summary:hover { color: var(--color-link); }
-aside.seo-footer-block summary:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
-aside.seo-footer-block .seo-fb-section-body {
-  padding: 4px 0 18px;
-  color: var(--color-body);
-}
-aside.seo-footer-block .seo-fb-section-body p {
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.65;
-  color: var(--color-body);
-}
-aside.seo-footer-block .seo-fb-section-body p:last-child { margin-bottom: 0; }
-aside.seo-footer-block .seo-fb-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  margin: 0 0 14px;
-}
-aside.seo-footer-block .seo-fb-card {
-  background: var(--color-surface-alt);
-  border: 1px solid var(--color-edge);
-  border-radius: 12px;
-  padding: 14px;
-}
-aside.seo-footer-block .seo-fb-card h3 {
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0 0 6px;
-  color: var(--color-heading);
-}
-aside.seo-footer-block .seo-fb-card p {
-  margin: 0;
-  font-size: 13px;
-  color: var(--color-body);
-  line-height: 1.5;
-}
-aside.seo-footer-block dl { margin: 0; }
-aside.seo-footer-block dt {
-  font-weight: 600;
-  color: var(--color-heading);
-  margin: 12px 0 4px;
-  font-size: 14px;
-}
-aside.seo-footer-block dt:first-child { margin-top: 0; }
-aside.seo-footer-block dd {
-  margin: 0 0 12px;
-  color: var(--color-body);
-  font-size: 14px;
-  line-height: 1.65;
-}
-aside.seo-footer-block .seo-fb-disclaimer {
-  margin: 18px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--color-edge);
-  font-size: 12px;
-  color: var(--color-subtle);
-  font-style: italic;
-}
-/* Underline inline prose links inside the SEO footer aside.
-   Squirrel a11y/link-in-text-block flags un-underlined links that share
-   color contrast with surrounding body text. Scope is limited to <p>/<dd>
-   bodies so structural pills/CTAs elsewhere keep their pill chrome. */
-aside.seo-footer-block p a,
-aside.seo-footer-block dd a,
-aside.seo-footer-block .seo-fb-section-body a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 1px;
-}
-aside.seo-footer-block p a:hover,
-aside.seo-footer-block dd a:hover,
-aside.seo-footer-block .seo-fb-section-body a:hover {
-  text-decoration-thickness: 2px;
 }
 
-/* Homepage SEO knowledge panel: give the long-form block a calm editorial
-   container and a clearer reading rhythm after the discovery rails. */
-aside.seo-footer-block {
-  margin: clamp(28px, 5vw, 56px) auto 64px;
-  padding: clamp(24px, 4vw, 40px) clamp(16px, 4vw, 32px) 0;
-  border: 1px solid var(--color-edge);
-  border-radius: 16px;
-  background: var(--color-surface-alt);
+.homepage-discovery,
+aside.seo-footer-block,
+body > .hp-discovery-block,
+.static-prefooter > .hp-discovery-block,
+.homepage-locale-main-nav {
+  box-sizing: border-box;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding-inline: 16px;
+  color: var(--color-body);
   font-family: inherit;
+}
+
+/* ── Rail di discovery: una directory a colonne, non una nuvola di pill ── */
+.homepage-discovery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px clamp(32px, 5vw, 72px);
+  padding-block: clamp(40px, 6vw, 64px) 32px;
+}
+.homepage-discovery > .hp-discovery-block {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.homepage-discovery > .hp-discovery-block--guides {
+  flex: 2.4 1 440px;
+}
+body > .hp-discovery-block,
+.static-prefooter > .hp-discovery-block {
+  padding-block: 40px 32px;
+}
+.hp-discovery-heading {
+  margin: 0 0 8px;
+  color: var(--color-heading);
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+.hp-discovery-links,
+.hp-cross-hub-links,
+.hp-canton-links,
+.homepage-locale-main-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  column-gap: 24px;
+}
+.hp-discovery-block--guides .hp-discovery-links {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  column-gap: 32px;
+}
+.hp-canton-links {
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  column-gap: 16px;
+  padding-bottom: 8px;
+}
+.homepage-locale-main-nav {
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  padding-block: 24px 40px;
+}
+.hp-discovery-pill,
+.hp-cross-hub-link,
+.hp-canton-link {
+  display: flex;
+  align-items: flex-start;
+  min-height: 44px;
+  padding: 12px 0;
+  color: var(--color-body);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  text-decoration: underline transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color 0.18s cubic-bezier(0.16, 1, 0.3, 1), text-decoration-color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hp-discovery-pill--nav {
+  font-weight: 500;
+}
+.hp-discovery-pill:hover,
+.hp-cross-hub-link:hover,
+.hp-canton-link:hover {
+  color: var(--color-link);
+  text-decoration-color: currentColor;
+}
+.hp-language-option:focus-visible,
+.hp-discovery-pill:focus-visible,
+.hp-cross-hub-link:focus-visible,
+.hp-canton-link:focus-visible,
+.hp-canton-summary:focus-visible,
+aside.seo-footer-block summary:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Cantoni: 25 link, chiusi di default perche' la colonna resti corta. */
+.hp-canton-details {
+  margin-top: 8px;
+  border-top: 1px solid var(--color-edge);
+}
+.hp-canton-summary,
+aside.seo-footer-block summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--color-heading);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.hp-canton-summary::-webkit-details-marker,
+aside.seo-footer-block summary::-webkit-details-marker {
+  display: none;
+}
+.hp-canton-summary {
+  min-height: 48px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.hp-canton-summary::after,
+aside.seo-footer-block summary::after {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 1.5px solid var(--color-subtle);
+  border-bottom: 1.5px solid var(--color-subtle);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.18s ease-out;
+}
+.hp-canton-details[open] > .hp-canton-summary::after,
+aside.seo-footer-block details[open] > summary::after {
+  border-color: var(--color-accent);
+  transform: translateY(2px) rotate(225deg);
+}
+.hp-canton-summary:hover,
+aside.seo-footer-block summary:hover {
+  color: var(--color-link);
+}
+
+/* Lingue: ultima riga della directory, dove un visitatore le cerca. */
+.homepage-language-switch {
+  display: flex;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  order: 9;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-edge);
+}
+.hp-language-option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px 12px;
+  border-radius: 6px;
+  color: var(--color-subtle);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.18s ease-out, color 0.18s ease-out;
+}
+.hp-language-option:first-child {
+  margin-left: -12px;
+}
+.hp-language-option:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-link);
+}
+.hp-language-option--current {
+  color: var(--color-heading);
+  font-weight: 600;
+}
+
+/* ── Pannello SEO: titolo e intro a sinistra, sezioni a scomparsa a destra ── */
+aside.seo-footer-block {
+  padding-block: 0 clamp(40px, 6vw, 64px);
   line-height: 1.7;
 }
+/* Il filetto di separazione e' un elemento a se', cosi' resta allineato al
+   testo invece di sporgere nel padding laterale del contenitore. */
+aside.seo-footer-block::before {
+  content: "";
+  display: block;
+  grid-column: 1 / -1;
+  margin-bottom: clamp(40px, 6vw, 72px);
+  border-top: 1px solid var(--color-edge);
+}
 aside.seo-footer-block .seo-fb-title {
-  max-width: 24ch;
-  margin: 0 0 12px;
+  max-width: 18ch;
+  margin: 0 0 16px;
   color: var(--color-heading);
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 2.6vw, 2.25rem);
+  font-weight: 500;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.12;
+  text-wrap: balance;
 }
 aside.seo-footer-block .seo-fb-intro {
-  max-width: 72ch;
-  margin: 0 0 28px;
+  max-width: 68ch;
+  margin: 0 0 24px;
   color: var(--color-body);
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
+/* Auto Ads puo' inserire un annuncio come figlio diretto del pannello: gli si
+   riserva l'intera riga, cosi' non rompe la griglia a due colonne. */
 aside.seo-footer-block > .google-auto-placed {
+  grid-column: 1 / -1;
   max-width: 100%;
   margin: 0 0 24px !important;
 }
 aside.seo-footer-block details {
-  margin: 0;
   border-top: 1px solid var(--color-edge);
 }
-aside.seo-footer-block details:first-of-type {
-  border-top: 1px solid var(--color-edge);
-}
-aside.seo-footer-block details[open] {
-  margin: 8px 0;
-  padding: 0 16px;
-  border: 1px solid var(--color-accent-border);
-  border-radius: 12px;
-  background: var(--color-surface);
+aside.seo-footer-block .seo-fb-sections > details:last-of-type,
+aside.seo-footer-block > details:last-of-type {
+  border-bottom: 1px solid var(--color-edge);
 }
 aside.seo-footer-block summary {
-  display: flex;
-  align-items: center;
-  min-height: 56px;
-  padding: 15px 40px 15px 0;
-  color: var(--color-heading);
-  font-size: 15px;
+  min-height: 60px;
+  padding: 12px 0;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.35;
 }
-aside.seo-footer-block details[open] summary {
-  color: var(--color-link);
-}
-aside.seo-footer-block summary::after {
-  content: "";
-  right: 8px;
-  width: 8px;
-  height: 8px;
-  border-right: 1.5px solid var(--color-subtle);
-  border-bottom: 1.5px solid var(--color-subtle);
-  transform: translateY(-35%) rotate(45deg);
-}
-aside.seo-footer-block details[open] summary::after {
-  border-color: var(--color-accent);
-  transform: translateY(15%) rotate(225deg);
-}
-aside.seo-footer-block summary:hover {
-  color: var(--color-link);
-}
 aside.seo-footer-block .seo-fb-section-body {
-  max-width: 74ch;
-  padding: 0 0 24px;
+  max-width: 68ch;
+  padding: 4px 0 28px;
+}
+aside.seo-footer-block details[open] > .seo-fb-section-body {
+  animation: seo-fb-reveal 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes seo-fb-reveal {
+  from {
+    opacity: 0.4;
+    transform: translateY(-6px);
+  }
 }
 aside.seo-footer-block .seo-fb-section-body p {
   margin: 0 0 14px;
   color: var(--color-body);
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
 aside.seo-footer-block .seo-fb-section-body p:last-child {
   margin-bottom: 0;
 }
+/* I quattro strumenti: un elenco a due colonne, niente riquadri dentro una
+   sezione che e' gia' un contenitore. */
 aside.seo-footer-block .seo-fb-cards {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 24px 32px;
   margin: 0;
 }
 aside.seo-footer-block .seo-fb-card {
   min-width: 0;
-  padding: 16px 18px;
-  border: 1px solid var(--color-edge);
-  border-radius: 10px;
-  background: var(--color-surface);
 }
 aside.seo-footer-block .seo-fb-card h3 {
-  margin: 0 0 7px;
+  margin: 0 0 4px;
   color: var(--color-heading);
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.35;
 }
 aside.seo-footer-block .seo-fb-card p {
   margin: 0;
-  color: var(--color-body);
-  font-size: 13px;
+  color: var(--color-subtle);
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 aside.seo-footer-block dl {
-  max-width: 74ch;
+  margin: 0;
 }
 aside.seo-footer-block dt {
-  margin: 20px 0 6px;
-  padding-top: 16px;
-  border-top: 1px solid var(--color-edge);
+  margin: 24px 0 6px;
   color: var(--color-heading);
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.45;
 }
 aside.seo-footer-block dt:first-child {
   margin-top: 0;
-  padding-top: 0;
-  border-top: 0;
 }
 aside.seo-footer-block dd {
   margin: 0;
   color: var(--color-body);
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.7;
 }
 aside.seo-footer-block .seo-fb-disclaimer {
-  max-width: 74ch;
-  margin: 24px 0 0;
-  padding: 18px 0 24px;
-  border-top: 1px solid var(--color-edge);
+  max-width: 78ch;
+  margin: 32px 0 0;
   color: var(--color-subtle);
-  font-size: 12.5px;
+  font-size: 0.8125rem;
   font-style: normal;
   line-height: 1.65;
 }
+/* Link nella prosa sottolineati: Squirrel a11y/link-in-text-block segnala i
+   link distinguibili dal testo intorno solo per colore. */
 aside.seo-footer-block p a,
 aside.seo-footer-block dd a,
 aside.seo-footer-block .seo-fb-section-body a {
   color: var(--color-link);
-  text-underline-offset: 0.18em;
+  text-decoration: underline;
   text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+aside.seo-footer-block p a:hover,
+aside.seo-footer-block dd a:hover,
+aside.seo-footer-block .seo-fb-section-body a:hover {
+  text-decoration-thickness: 0.14em;
+}
+
+/* Due colonne solo quando il markup porta i due contenitori: un artefatto
+   incrementale piu' vecchio, senza `.seo-fb-head`, resta a colonna singola. */
+@media (min-width: 900px) {
+  aside.seo-footer-block:has(> .seo-fb-head) {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(40px, 6vw, 96px);
+    align-items: start;
+  }
+  aside.seo-footer-block > .seo-fb-head {
+    position: sticky;
+    top: 104px;
+  }
+  aside.seo-footer-block > .seo-fb-head .seo-fb-intro {
+    margin-bottom: 0;
+  }
+  aside.seo-footer-block > .seo-fb-disclaimer {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Puntatore fine: righe piu' compatte. Il minimo di 44px resta la regola di
+   base, quella che vale al tocco. */
+@media (hover: hover) and (pointer: fine) {
+  .hp-discovery-pill,
+  .hp-cross-hub-link,
+  .hp-canton-link {
+    min-height: 34px;
+    padding-block: 7px;
+  }
+  .hp-language-option {
+    min-height: 36px;
+  }
 }
 
 @media (max-width: 640px) {
-  aside.seo-footer-block {
-    margin: 24px 12px 48px;
-    padding: 22px 16px 0;
-    border-radius: 14px;
-  }
-  aside.seo-footer-block .seo-fb-title {
-    max-width: 20ch;
-    font-size: 1.5rem;
-  }
-  aside.seo-footer-block .seo-fb-intro,
-  aside.seo-footer-block .seo-fb-section-body p,
-  aside.seo-footer-block dd {
-    font-size: 14px;
-  }
-  aside.seo-footer-block summary {
-    min-height: 52px;
-    padding: 14px 36px 14px 0;
-    font-size: 14.5px;
-  }
-  aside.seo-footer-block details[open] {
-    padding-inline: 12px;
+  .homepage-discovery {
+    gap: 28px;
   }
   aside.seo-footer-block .seo-fb-cards {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-discovery-pill,
+  .hp-cross-hub-link,
+  .hp-canton-link,
+  .hp-language-option,
+  .hp-canton-summary::after,
+  aside.seo-footer-block summary::after {
+    transition: none;
+  }
+  aside.seo-footer-block details[open] > .seo-fb-section-body {
+    animation: none;
   }
 }
 

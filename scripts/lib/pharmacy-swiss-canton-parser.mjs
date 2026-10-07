@@ -111,6 +111,7 @@ const AJOIE_IDENTITIES = Object.freeze({
   // its street name. Keep the source alias on the canonical record instead of
   // treating the address-qualified label as a new pharmacy.
   'AMAVITA - MALVOISINS 1': AJOIE_AMAVITA_PORRENTRUY,
+  'AMAVITA PORRENTRUY': AJOIE_AMAVITA_PORRENTRUY,
   'MILLIET VILLE': { id: 'ju-ajoie-milliet-ville', name: 'Amavita Milliet Ville', city: 'Porrentruy' },
   BENU: { id: 'ju-ajoie-benu-porrentruy', name: 'Benu Porrentruy', city: 'Porrentruy' },
   ERARD: { id: 'ju-ajoie-erard-alle', name: 'Pharmacie Erard', city: 'Alle' },

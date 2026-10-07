@@ -109,13 +109,42 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * Arsanté's board also exposes open vacancies whose detail page contains no
+ * workplace. The generated consumer already drops those rows through the
+ * source-backed Swiss geography gate; they are an intentional source filter,
+ * not a failed detail fetch. Keep that distinction explicit so the shared
+ * completeness guard still fails closed on transport, tenant or description
+ * failures and only this known downstream filter is excluded from its ratio.
+ */
+export function isGmoExpectedDetailFilter({ reason, detail, decision, descriptionSufficient } = {}) {
+  const locationEvidence = [
+    ...(Array.isArray(detail?.workplaceLabels) ? detail.workplaceLabels : []),
+    ...(Array.isArray(detail?.locationCandidates) ? detail.locationCandidates : []),
+  ].some((candidate) => hasAnyLocationEvidence(candidate));
+  return reason === 'geography'
+    && !decision?.geography
+    && decision?.explicitlyForeign !== true
+    && detail?.hasStructuredVacancy === true
+    && !locationEvidence
+    && descriptionSufficient === true;
+}
+
+function hasAnyLocationEvidence(value) {
+  if (Array.isArray(value)) return value.some((entry) => hasAnyLocationEvidence(entry));
+  if (value && typeof value === 'object') {
+    return Object.values(value).some((entry) => hasAnyLocationEvidence(entry));
+  }
+  return String(value || '').trim().length > 0;
+}
+
 /* ── Fetcher guidato dalla spec ───────────────────────────────
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings() {
   const spec = loadSpec(GMO_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, { isExpectedDetailFilter: isGmoExpectedDetailFilter });
 }
 
 /**
