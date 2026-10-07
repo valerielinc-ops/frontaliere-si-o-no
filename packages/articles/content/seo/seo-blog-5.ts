@@ -100737,6 +100737,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-biasca-17enne-arrestato-accoltellamento': {
+    title: 'Biasca: arrestato 17enne per accoltellamento vicino alla stazione',
+    description: '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
+    keywords: 'frontalieri, ticino, svizzera, italia, biasca, arrestato, 17enne, accoltellamento',
+    ogTitle: 'Biasca: 17enne arrestato per accoltellamento vicino alla stazione',
+    ogDescription: '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
+    canonicalPath: '/articoli-frontaliere/biasca-17enne-arrestato-accoltellamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Biasca: arrestato 17enne per accoltellamento vicino alla stazione",
+      "description": "## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/biasca-accoltellamento-21enne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nastro della polizia e luci lampeggianti vicino alla stazione di Biasca al tramonto"
+      },
+      "datePublished": "2026-10-07T10:19:58+00:00",
+      "dateModified": "2026-10-07T10:19:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/biasca-17enne-arrestato-accoltellamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

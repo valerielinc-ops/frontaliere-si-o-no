@@ -12737,6 +12737,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.treno-foliage-locarno-domodossola.title': 'Treno del Foliage: Locarno-Domodossola dal 10 ottobre',
     'blog.article.treno-foliage-locarno-domodossola.excerpt': '## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni',
     'blog.article.treno-foliage-locarno-domodossola.imageAlt': 'Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola',
+    'blog.article.biasca-17enne-arrestato-accoltellamento.title': 'Biasca: arrestato 17enne per accoltellamento vicino alla stazione',
+    'blog.article.biasca-17enne-arrestato-accoltellamento.excerpt': '## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio',
+    'blog.article.biasca-17enne-arrestato-accoltellamento.imageAlt': 'Nastro della polizia e luci lampeggianti vicino alla stazione di Biasca al tramonto',
 };
 
 export default blogMetaIt;

@@ -42965,6 +42965,17 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'biasca-17enne-arrestato-accoltellamento',
+ category: 'novita',
+ date: '2026-10-07T10:19:58.619Z',
+ image: '/images/blog/biasca-accoltellamento-21enne.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
