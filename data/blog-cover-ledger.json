@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5036
+      "6": 5037
     },
-    "publishedCovers": 6748,
+    "publishedCovers": 6749,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179468,6 +179468,33 @@
           "id": "lifestyle-innovation-hub-chiasso",
           "category": "novita",
           "date": "2026-10-07T21:45:03.951Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-coda-a8-castronno-solbiate": {
+      "cover": "/images/blog/article-coda-a8-castronno-solbiate.webp",
+      "hash": "a7b5ca136c89207d3ac271ac9e680c4ab8d1aa3e2ad759b252123374b3a1ebec",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "coda-a8-castronno-solbiate",
+          "category": "novita",
+          "date": "2026-10-07T22:16:34.106Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
