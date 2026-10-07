@@ -333,9 +333,10 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
   // Prefer the job's explicit workplace over the generic listing location and canton.
   const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
   const location = workplaceCity || apiCity || attr30 || cantonLabel(attrCanton || fallbackCanton);
-  const canton = preferLocationEncodedCanton(location, attrCanton || fallbackCanton)
-    || attrCanton
-    || fallbackCanton;
+  // The source location is more specific than the feed's attr-30 stamp. Keep
+  // that precedence in the parser helper so regional wrappers such as
+  // "Region Muri AG" cannot enter the shared crawler with a stale canton.
+  const canton = resolveCoopCantonCode(attr30, location, fallbackCanton);
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
   const sourceReference = normalizeSpace(String(job?.szas?.sza_reference_code || '').trim());
