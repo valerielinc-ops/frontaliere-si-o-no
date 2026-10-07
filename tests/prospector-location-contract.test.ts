@@ -695,6 +695,40 @@ describe('prospector location and identity contract', () => {
     ]);
   });
 
+  it('classifies every Proton composite before accepting its Swiss office', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Terminal ISO foreign office',
+        location: 'Geneva, Switzerland, Berlin, DE',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/8',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Two Swiss offices',
+        location: 'Geneva, Switzerland, Lausanne, Switzerland',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/9',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Unqualified foreign office',
+        location: 'Geneva, Switzerland, Belgrade',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/10',
+        descriptionHtml: DESCRIPTION,
+      },
+      {
+        title: 'Named country foreign office',
+        location: 'Geneva, Switzerland, Berlin, Germany',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/11',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toMatchObject([
+      { title: 'Terminal ISO foreign office', location: 'Geneva', canton: 'GE' },
+      { title: 'Named country foreign office', location: 'Geneva', canton: 'GE' },
+    ]);
+  });
+
   it('drops Mabetex rows instead of substituting its Lugano headquarters', async () => {
     fetchHtml.mockResolvedValue(
       `<div class="et_pb_text_inner">Job offers ${'role '.repeat(50)}` +

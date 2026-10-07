@@ -12,7 +12,7 @@
  */
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { detectLang, hasExplicitForeignCountrySignal } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import {
@@ -145,18 +145,21 @@ function stripSwissCountryPart(value = '') {
  */
 function resolveProtonSourceGeography(rawLocation = '') {
   const location = normalizeSpace(rawLocation);
-  const direct = resolveSourceBackedSwissGeography(location);
-  if (!direct) return null;
-  if (!isLocationExplicitlyForeign(location)) return direct;
-
   const parts = location.split(GREENHOUSE_LOCATION_PART_SPLIT_RE).filter(Boolean);
+  const direct = resolveSourceBackedSwissGeography(location);
+  if (parts.length < 2) return direct;
+
   const swissCandidates = [];
+  let hasForeignOffice = false;
 
   for (let index = 0; index < parts.length; index += 1) {
     const part = parts[index];
     const nextPart = parts[index + 1] || '';
     const hasSwissCountryContext = SWISS_COUNTRY_PART_RE.test(nextPart);
-    const sourcePart = hasSwissCountryContext ? `${part}, ${nextPart}` : part;
+    const hasForeignCountryContext = hasExplicitForeignCountrySignal(nextPart);
+    const sourcePart = hasSwissCountryContext || hasForeignCountryContext
+      ? `${part}, ${nextPart}`
+      : part;
     const geography = resolveSourceBackedSwissGeography(sourcePart);
 
     if (geography) {
@@ -167,9 +170,14 @@ function resolveProtonSourceGeography(rawLocation = '') {
       continue;
     }
 
-    // A part that is neither source-backed Swiss nor explicitly foreign is
-    // ambiguous. Do not let a nearby Geneva token hide it.
-    if (!isLocationExplicitlyForeign(part)) return null;
+    // A component without an explicit country label/code is ambiguous. A
+    // bare known foreign city (for example, "Belgrade") is not enough to
+    // prove that it is an office rather than an unclassified source token.
+    const partHasForeignCountry = hasExplicitForeignCountrySignal(part);
+    const nextPartHasForeignCountry = hasExplicitForeignCountrySignal(nextPart);
+    if (!partHasForeignCountry && !nextPartHasForeignCountry) return null;
+    hasForeignOffice = true;
+    if (!partHasForeignCountry && nextPartHasForeignCountry) index += 1;
   }
 
   const uniqueCandidates = new Map(
@@ -178,7 +186,8 @@ function resolveProtonSourceGeography(rawLocation = '') {
       candidate,
     ]),
   );
-  return uniqueCandidates.size === 1 ? [...uniqueCandidates.values()][0] : null;
+  if (uniqueCandidates.size !== 1) return null;
+  return !hasForeignOffice && direct ? direct : [...uniqueCandidates.values()][0];
 }
 
 async function fetchJobListings() {
