@@ -231,10 +231,38 @@ export const PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE = Object.freeze({
   ai: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.8 }),
 });
 
+/**
+ * Card platforms publish rolling timed-auction boards. A card can disappear
+ * during a board refresh even while the next board is complete; the shared
+ * deadline is not enough to call that a truncated fetch. The 2026-10-07 TG
+ * run measured 9 missing cards out of 44 while the fetch returned 50. Keep a
+ * 25% / 75% band for this platform family: it accepts that observed turnover,
+ * but still rejects a feed that comes back materially short.
+ *
+ * This is deliberately separate from sale recognition. A timed card has no
+ * evidence of a sale, so the collectors preserve it with `missingSince` rather
+ * than closing it or assigning a final price.
+ */
+export const PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE = Object.freeze({
+  ag: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  be: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  sh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  tg: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  vd: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+  zh: Object.freeze({ maxVanishedRatio: 0.25, minFetchedRatio: 0.75 }),
+});
+
 /** The calibration for one source: its override on top of the global knob. */
 export function saleRecognitionPolicy(sourceKey) {
   const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
   return { ...PLATE_AUCTION_SALE_RECOGNITION, ...(PLATE_AUCTION_SALE_RECOGNITION_BY_SOURCE[key] || {}) };
+}
+
+/** The timed-card turnover calibration, or null for non-card sources. */
+export function timedCataloguePolicy(sourceKey) {
+  const key = typeof sourceKey === 'string' ? sourceKey.toLowerCase() : '';
+  const override = PLATE_AUCTION_TIMED_CATALOGUE_BY_SOURCE[key];
+  return override ? { ...PLATE_AUCTION_SALE_RECOGNITION, ...override } : null;
 }
 
 /**
@@ -255,8 +283,7 @@ export const PLATE_AUCTION_MISSING_GRACE_MS = 72 * 60 * 60 * 1000;
  * which is the right direction, because a truncated PDF read as sales would
  * stamp hundreds of plates with a fabricated sale date and price.
  */
-export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
-  const policy = saleRecognitionPolicy(sourceKey);
+function recognizeCatalogueShape({ policy, previousCount, fetchedCount, vanishedCount }) {
   const cap = Math.max(
     policy.minVanishedCap,
     Math.ceil(policy.maxVanishedRatio * previousCount),
@@ -268,6 +295,26 @@ export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount
     ...(withinCap ? [] : ['cap']),
   ];
   return { recognized: withinBand && withinCap, cap, blockedBy };
+}
+
+export function recognizeCatalogueSales({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
+  return recognizeCatalogueShape({
+    policy: saleRecognitionPolicy(sourceKey),
+    previousCount,
+    fetchedCount,
+    vanishedCount,
+  });
+}
+
+/**
+ * Decide whether a timed card catalogue has the shape of a healthy board
+ * refresh. The returned decision is null for sources without this contract.
+ */
+export function recognizeTimedCatalogueTurnover({ sourceKey, previousCount, fetchedCount, vanishedCount }) {
+  const policy = timedCataloguePolicy(sourceKey);
+  return policy
+    ? recognizeCatalogueShape({ policy, previousCount, fetchedCount, vanishedCount })
+    : null;
 }
 
 /**

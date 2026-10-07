@@ -1,5 +1,8 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { createAssistedApplicationCheckout } from '../services/assistedApplicationCheckout';
+import {
+  createAssistedApplicationCheckout,
+  getAssistedApplicationCheckoutErrorCode,
+} from '../services/assistedApplicationCheckout';
 
 const fetchMock = vi.fn(async () => ({
   ok: true,
@@ -68,5 +71,30 @@ describe('assisted application checkout client idempotency', () => {
     }, user);
 
     expect(requestBodyAt(1).requestKey).toBe(requestBodyAt(0).requestKey);
+  });
+
+  it('keeps function and HTTP diagnostics bounded without exposing response text', async () => {
+    fetchMock.mockImplementationOnce(async () => ({
+      ok: false,
+      status: 409,
+      json: async () => ({
+        ok: false,
+        error: 'assisted_application_request_conflict',
+        message: 'free text with sensitive content should never be tracked',
+      }),
+    }));
+
+    const pending = createAssistedApplicationCheckout(input, {
+      uid: 'user-client-error',
+      getIdToken: vi.fn(async () => 'good-token'),
+    });
+    await expect(pending).rejects.toMatchObject({
+      code: 'assisted_application_request_conflict',
+      status: 409,
+    });
+    await expect(pending).rejects.not.toHaveProperty('message', expect.stringContaining('sensitive content'));
+    expect(getAssistedApplicationCheckoutErrorCode({ message: 'free text with sensitive content' })).toBe('unknown');
+    expect(getAssistedApplicationCheckoutErrorCode({ code: 'auth/network-request-failed' })).toBe('auth/network-request-failed');
+    expect(getAssistedApplicationCheckoutErrorCode({ status: 503 })).toBe('http_503');
   });
 });
