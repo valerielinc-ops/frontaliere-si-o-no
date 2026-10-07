@@ -36,8 +36,8 @@ import { realpathSync } from 'node:fs';
  *      what "kept the backlog looping forever" — the same guard
  *      mark-locale-mismatched-jobs.mjs and assemble-jobs-dataset.mjs apply.
  *   3. A hard per-run cap (`--max-marks`, env `TITLE_MISTRANSLATION_MARK_CAP`)
- *      plus a queue ceiling (`TITLE_MISTRANSLATION_QUEUE_CEILING`) — see
- *      THROUGHPUT below.
+ *      plus description-lane backpressure (`TITLE_MISTRANSLATION_QUEUE_CEILING`)
+ *      — see THROUGHPUT below.
  *   4. Slices are only rewritten when a value actually changed, and no flag is
  *      ever cleared — the marking is monotone, so it converges instead of
  *      oscillating.
@@ -68,19 +68,18 @@ import { realpathSync } from 'node:fs';
  *     quota-bound:
  *     `--max-jobs` defaults to 100/run in translate-pending.yml, and the
  *     workflow's own notes record the premium tiers as chronically exhausted.
- * So the ceiling on real DESCRIPTION repair is ~100 jobs/run (titles now drain
- * through the free, unlimited tier instead — see above). `DEFAULT_MARK_CAP`
- * still matches the cascade number rather than the backlog: marking
- * descriptions faster than the cascade drains would build a queue that only
- * ever grows, which is worse than no queue (it also starves the
- * genuinely-incomplete jobs competing for the same 100 slots — flagged jobs
- * sort FIRST in that queue). Raising the shared cap specifically for titles is
- * a separate throughput change, not made here.
- * `DEFAULT_QUEUE_CEILING` is the backpressure: when the existing
- * `needsRetranslation` backlog is already at the ceiling, this script marks
- * NOTHING and says so, so a stalled cascade (quota exhausted for days) cannot
- * be compounded by five more marking runs a day. Raise either env var for a
- * deliberate owner-driven backfill.
+ * So the ceiling on real DESCRIPTION repair is ~100 jobs/run. Titles drain
+ * through the free, unlimited local-MT tier instead — see above — so a full
+ * description queue must not suppress title detections. `DEFAULT_MARK_CAP`
+ * still bounds the number of jobs admitted in one run: marking descriptions
+ * faster than the cascade drains would build a queue that only ever grows,
+ * while title marks remain bounded and are consumed by the separate local-MT
+ * lane.
+ * `DEFAULT_QUEUE_CEILING` is therefore backpressure for the description lane:
+ * when the existing `needsRetranslation` backlog is already at the ceiling,
+ * description-only detections are held, but wrong-language title detections
+ * continue through the local repair path. This prevents a quota-bound
+ * description backlog from starving the title repair that can already drain.
  *
  * Usage:
  *   node scripts/mark-mistranslated-jobs.mjs [--dry-run] [--no-titles]
@@ -112,7 +111,7 @@ const LOCALES = DEFAULT_JOB_LOCALES;
 /** Matches translate-pending.yml's `max_jobs` default for the AI cascade — the
  *  only step that can repair a partially-translated title. See THROUGHPUT. */
 export const DEFAULT_MARK_CAP = 100;
-/** Stop marking entirely once this many jobs already await retranslation. */
+/** Hold description-only marking once this many jobs already await retranslation. */
 export const DEFAULT_QUEUE_CEILING = 2000;
 const MIN_DESCRIPTION_CHARS = 120;
 const DESCRIPTION_CONFIDENCE = 0.65;
@@ -235,7 +234,7 @@ export function genderFormTargetResidual(job) {
  * @returns {{slugs: Set<string>, hits: Array<{slug: string, detail: string}>,
  *            titleHits: number, descriptionHits: number, genderFormHits: number, eligible: number,
  *            remaining: number, capped: boolean, throttled: boolean,
- *            queueDepth: number}}
+ *            descriptionThrottled: boolean, queueDepth: number}}
  */
 export function selectMistranslatedJobs(
   jobs,
@@ -256,18 +255,12 @@ export function selectMistranslatedJobs(
   let eligible = 0;
   let matched = 0;
 
-  // Backpressure: the AI cascade is the only step that can repair a partially
-  // translated title and it moves ~100 jobs/run. If its queue is already at the
-  // ceiling it is not keeping up (quota exhaustion is routine here), and adding
-  // more would grow a queue that is not draining. Measured before anything is
-  // scanned so the check is cheap and the log is honest.
+  // Backpressure applies to the quota-bound description lane only. The title
+  // lane is consumed by local-mt-mopup.mjs (free and bounded separately), so a
+  // large description backlog must not prevent a wrong-language title from
+  // entering that path (issue #10388).
   const queueDepth = list.filter((job) => job && job.needsRetranslation).length;
-  if (queueCeiling > 0 && queueDepth >= queueCeiling) {
-    return {
-      slugs, hits, titleHits, descriptionHits, genderFormHits,
-      eligible: 0, remaining: 0, capped: false, throttled: true, queueDepth,
-    };
-  }
+  const descriptionThrottled = queueCeiling > 0 && queueDepth >= queueCeiling;
 
   for (const job of list) {
     if (!job || typeof job !== 'object') continue;
@@ -282,8 +275,12 @@ export function selectMistranslatedJobs(
     // fires (measured 2026-08-10 on 26,605 jobs: 13,250 title-flagged vs 60
     // description-flagged), so short-circuiting on it skips most of the cost.
     const titleHit = titles ? titleOffence(job) : null;
-    const descriptionHit = !titleHit && descriptions ? descriptionOffence(job) : null;
-    const genderFormHit = !titleHit && !descriptionHit && genderForms ? genderFormOffence(job) : null;
+    const descriptionHit = !titleHit && !descriptionThrottled && descriptions
+      ? descriptionOffence(job)
+      : null;
+    const genderFormHit = !titleHit && !descriptionHit && genderForms
+      ? genderFormOffence(job)
+      : null;
     const offence = titleHit || descriptionHit || genderFormHit;
     if (!offence) continue;
     matched += 1;
@@ -307,7 +304,11 @@ export function selectMistranslatedJobs(
     eligible,
     remaining: Math.max(0, matched - slugs.size),
     capped: cap > 0 && matched > slugs.size,
-    throttled: false,
+    // Keep the legacy `throttled` signal for the main() early return when no
+    // title work can proceed. A queue at the ceiling with title hits is a
+    // partial throttle: those hits must still be persisted below.
+    throttled: descriptionThrottled && slugs.size === 0,
+    descriptionThrottled,
     queueDepth,
   };
 }
@@ -351,6 +352,13 @@ function main() {
         + ' Raise TITLE_MISTRANSLATION_QUEUE_CEILING for a deliberate backfill.'
     );
     return;
+  }
+  if (selection.descriptionThrottled) {
+    const titleLaneHits = selection.titleHits + selection.genderFormHits;
+    console.log(
+      `⏸️  Backpressure: ${selection.queueDepth} jobs already await retranslation (ceiling ${opts.queueCeiling}).`
+        + ` Holding description-only detections; ${titleLaneHits} title-lane repair job(s) remain eligible for local MT.`
+    );
   }
   console.log(
     `Offending jobs: ${selection.slugs.size} (titles ${selection.titleHits}, descriptions ${selection.descriptionHits}, gender forms ${selection.genderFormHits})`
