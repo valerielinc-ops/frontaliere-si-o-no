@@ -261,7 +261,7 @@ jobs:
 
       - name: Publish private shard artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: event-description-shard-${{ github.run_id }}-${{ matrix.shard }}
           path: ${{ runner.temp }}/event-description-shard
@@ -304,7 +304,7 @@ jobs:
         run: npm ci --no-audit --no-fund --ignore-scripts
 
       - name: Download private shard artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: event-description-shard-${{ github.run_id }}-*
           path: ${{ runner.temp }}/event-description-shards
@@ -420,7 +420,7 @@ jobs:
 
       - name: Publish machine-readable run state
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: event-description-run-state-${{ github.run_id }}
           path: ${{ runner.temp }}/event-description-rewrite-stats.json
