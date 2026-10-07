@@ -17,6 +17,10 @@ const registryPath = argument('--registry', 'data/event-image-library.json');
 const outputDir = argument('--output-dir', '.cache/event-image-library');
 const provider = argument('--provider', 'auto');
 const chain = argument('--chain', '');
+const replace = argument('--replace', '')
+  .split(/[;,\s]+/)
+  .map((assetId) => assetId.trim())
+  .filter(Boolean);
 const requestedProviders = chain || provider;
 const kind = argument('--kind', ['wikimedia', 'pexels', 'pixabay'].includes(requestedProviders.split(/[,\s]+/)[0]) ? 'photo' : 'generated');
 
@@ -28,6 +32,7 @@ try {
     provider,
     chain: chain || undefined,
     kind,
+    replaceAssetIds: replace,
     onAssetGenerated: ({ record, generatedCount, providerCounts, providerFailures }) => {
       console.error(`Verified ${generatedCount} asset(s): ${record.assetId} ← ${record.provider}/${record.model}; attempts ${JSON.stringify(providerCounts)}.`);
     },

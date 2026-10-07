@@ -80,6 +80,91 @@ const AREA_LABELS = Object.freeze({
   laghi: 'rive dei laghi e piccoli centri lacustri',
 });
 
+/** English search vocabulary shared by Wikimedia, Pexels and Pixabay. */
+export const EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS = Object.freeze({
+  musica: Object.freeze(['live music concert', 'music stage', 'musical instruments']),
+  'teatro-spettacolo': Object.freeze(['theatre stage performance', 'performing arts', 'theater interior']),
+  'mostra-museo': Object.freeze(['museum exhibition', 'art gallery interior', 'cultural exhibition']),
+  cinema: Object.freeze(['cinema theater', 'movie theater interior', 'film screening']),
+  'festa-sagra-tradizione': Object.freeze(['Swiss traditional festival', 'local cultural festival', 'Swiss celebration']),
+  'mercato-natale': Object.freeze(['Christmas market', 'Swiss market stalls', 'winter market']),
+  gastronomia: Object.freeze(['Swiss food market', 'local cuisine', 'food festival']),
+  sport: Object.freeze(['outdoor sports', 'sports activity', 'Swiss sports landscape']),
+  'natura-escursione': Object.freeze(['hiking trail', 'nature landscape', 'outdoor excursion']),
+  'famiglia-bambini': Object.freeze(['family park', 'children playground', 'family outdoor activity']),
+  'conferenza-formazione': Object.freeze(['conference hall', 'lecture auditorium', 'education workshop']),
+  generico: Object.freeze(['Swiss local event', 'cultural event', 'Swiss gathering']),
+});
+
+export const EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS = Object.freeze({
+  'ticino-confine': Object.freeze([
+    'Lugano Ticino Switzerland',
+    'Locarno Ticino Switzerland',
+    'Bellinzona Ticino Switzerland',
+    'Mendrisio Ticino Switzerland',
+    'Como Italy Switzerland border',
+    'Varese Italy Switzerland border',
+  ]),
+  'svizzera-urbana': Object.freeze([
+    'Zurich Switzerland',
+    'Bern Switzerland',
+    'Basel Switzerland',
+    'Geneva Switzerland',
+    'Lausanne Switzerland',
+    'Lucerne Switzerland',
+    'St Gallen Switzerland',
+  ]),
+  'alpi-montagna': Object.freeze([
+    'Swiss Alps',
+    'Zermatt Switzerland',
+    'Engadin Switzerland',
+    'Valais Switzerland',
+    'Graubunden Switzerland',
+    'Davos Switzerland',
+  ]),
+  laghi: Object.freeze([
+    'Lake Lugano Switzerland',
+    'Lake Maggiore Switzerland',
+    'Lake Geneva Switzerland',
+    'Lake Zurich Switzerland',
+    'Lake Lucerne Switzerland',
+    'Lake Neuchatel Switzerland',
+  ]),
+});
+
+export const EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS = Object.freeze({
+  'primavera-estate': Object.freeze(['spring summer']),
+  'autunno-inverno': Object.freeze(['autumn winter']),
+});
+
+function searchTermKey(value, terms, fallback, labels = {}) {
+  const folded = fold(value);
+  if (terms[folded]) return folded;
+  return Object.keys(terms).find((key) => folded.includes(fold(key)) || folded === fold(labels[key])) || fallback;
+}
+
+/** Build a stable, most-specific-first query set for all licensed photo APIs. */
+export function eventImagePhotoSearchQueries({ category, area, season } = {}) {
+  const categoryKey = searchTermKey(category, EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS, 'generico');
+  const areaKey = searchTermKey(area, EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS, 'ticino-confine', AREA_LABELS);
+  const seasonKey = searchTermKey(season, EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS, 'primavera-estate');
+  const categoryTerms = EVENT_IMAGE_LIBRARY_CATEGORY_SEARCH_TERMS[categoryKey];
+  const areaTerms = EVENT_IMAGE_LIBRARY_AREA_SEARCH_TERMS[areaKey];
+  const seasonTerm = EVENT_IMAGE_LIBRARY_SEASON_SEARCH_TERMS[seasonKey][0];
+  const primaryCategory = categoryTerms[0];
+  const primaryArea = areaTerms[0];
+  return [...new Set([
+    ...areaTerms.slice(0, 4).map((place) => `${primaryCategory} ${place} ${seasonTerm}`),
+    `${categoryTerms[1] || primaryCategory} ${primaryArea} ${seasonTerm}`,
+    `${primaryCategory} ${primaryArea} ${seasonTerm} photograph`,
+    `${primaryArea} ${seasonTerm} landscape photograph`,
+    `${primaryCategory} ${primaryArea}`,
+    `${primaryCategory} Switzerland ${seasonTerm}`,
+    `${primaryArea} Switzerland landscape photograph`,
+    `Switzerland ${seasonTerm} landscape photograph`,
+  ])];
+}
+
 const URBAN_CANTONS = new Set(['ZH', 'GE', 'BS', 'BL', 'VD', 'BE', 'AG', 'SG', 'LU', 'ZG', 'SO']);
 const ALPINE_CANTONS = new Set(['GR', 'VS', 'UR', 'OW', 'NW', 'GL', 'AI', 'AR']);
 const LAKE_CANTONS = new Set(['SZ', 'TG', 'NE', 'FR', 'JU', 'SH']);
@@ -240,6 +325,7 @@ export function assignEventImageAsset(event, registry, { sourceImageAllowed } = 
       imageSourcePageUrl: _imageSourcePageUrl,
       imageCopyrightNotice: _imageCopyrightNotice,
       imageAcquireLicensePage: _imageAcquireLicensePage,
+      imageModifications: _imageModifications,
       ...withoutImage
     } = event;
     return withoutImage;
@@ -258,6 +344,7 @@ export function assignEventImageAsset(event, registry, { sourceImageAllowed } = 
       imageSourcePageUrl: selected.sourcePageUrl || selected.pageUrl,
       imageCopyrightNotice: selected.copyrightNotice,
       imageAcquireLicensePage: selected.acquireLicensePage,
+      ...(selected.modifications ? { imageModifications: selected.modifications } : {}),
     } : {}),
   };
 }

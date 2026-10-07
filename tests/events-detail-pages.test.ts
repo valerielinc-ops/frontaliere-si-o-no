@@ -536,9 +536,10 @@ describe('renderEventDetailPage', () => {
       imageSourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
       imageCopyrightNotice: '© Ada Wikimedia',
       imageAcquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+      imageModifications: ['cropped', 'resized', 'converted-to-webp'],
     };
     const ld = eventLd(photoEvent as never, 'it') as Record<string, any>;
-    expect(ld.image.creditText).toBe(photoEvent.imageCredit);
+    expect(ld.image.creditText).toBe(`${photoEvent.imageCredit} · cropped, resized and converted to WebP`);
     expect(ld.image.license).toBe(photoEvent.imageLicenseUrl);
     expect(ld.image.copyrightNotice).toBe(photoEvent.imageCopyrightNotice);
     expect(ld.image.acquireLicensePage).toBe(photoEvent.imageAcquireLicensePage);
@@ -556,6 +557,7 @@ describe('renderEventDetailPage', () => {
     expect(photoPage.html).toMatch(/data-event-image-credit(?:="|=)licensed/);
     expect(photoPage.html).toContain('Ada Wikimedia');
     expect(photoPage.html).toContain('https://creativecommons.org/licenses/by-sa/4.0/');
+    expect(photoPage.html).toContain('ritagliata, ridimensionata e convertita in WebP');
     expect(photoPage.html).not.toContain('Immagine illustrativa generata con IA');
   });
 
