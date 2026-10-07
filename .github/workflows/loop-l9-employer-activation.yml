@@ -156,6 +156,9 @@ jobs:
           elif [ "$run_code" -ne 0 ] \
             && jq -e '(.ok == false and (.quality == "partial" or .quality == "stale") and .issued == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
             echo 'L9 quality finding persisted; paid activation remains unmeasurable and only the verified safe draft-only contract is active.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ] \
+            && jq -e '(.ok == false and .quality == "zero" and .issueCount == 0 and .issued == false and .outcomeLedgerMissing == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
+            echo 'L9 employer sample is still empty; paid activation remains unmeasurable while awaiting the first eligible account.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi

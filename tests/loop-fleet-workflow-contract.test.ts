@@ -184,6 +184,17 @@ describe('loop fleet workflow contract', () => {
     expect(source).toContain("github.event_name == 'schedule' || github.event_name == 'workflow_run'");
   });
 
+  it('treats an empty but valid L9 sample as awaiting-sample, not an unreported failure', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l9-employer-activation.yml'), 'utf8');
+    const auditStep = source.match(/- name: Audit employer activation\n([\s\S]*?)(?=\n      - name: Validate runner-local L9 outcome export)/u)?.[0] ?? '';
+
+    expect(auditStep).toContain('.quality == "zero"');
+    expect(auditStep).toContain('.issueCount == 0');
+    expect(auditStep).toContain('.outcomeLedgerMissing == false');
+    expect(auditStep).toContain('.profileInventoryComplete == true');
+    expect(auditStep).toContain('awaiting the first eligible account');
+  });
+
   it('starts every loop with explicit operational telemetry declarations', () => {
     for (const name of loopWorkflows) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
