@@ -22,9 +22,17 @@ import fs from 'node:fs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
+import { resolveCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
+import {
+  assertSlugRegenerationPostRun,
+  createSlugRegenerationProof,
+  snapshotSlugCorpus,
+} from './lib/slug-regeneration-proof.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
+const ROOT = path.resolve(__dirname, '..');
+const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 import {
@@ -53,6 +61,8 @@ function readJson(filePath) {
 
 async function main() {
   const files = listSliceFileNames(BY_CRAWLER_DIR).sort();
+  const slicePaths = files.map((file) => path.join(BY_CRAWLER_DIR, file));
+  const beforeSnapshot = snapshotSlugCorpus(slicePaths, { root: ROOT });
   console.log(`🔗 Regenerating slugByLocale across ${files.length} per-crawler slices...\n`);
 
   // ── Pre-pass: cross-job slug uniqueness map ────────────────────────────
@@ -309,6 +319,35 @@ async function main() {
     console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
   }
 
+  // The ownership pass is a writer too. A second dry-run is the convergence
+  // proof: if it still finds a redirect or an empty bucket, the bytes that
+  // would be committed are not canonical yet and the phase must fail closed.
+  const residualOwnership = decontaminateSliceDirectory(BY_CRAWLER_DIR, { apply: false });
+  const afterSnapshot = snapshotSlugCorpus(slicePaths, { root: ROOT });
+  const verification = assertSlugRegenerationPostRun({
+    before: beforeSnapshot,
+    after: afterSnapshot,
+    ownership: residualOwnership,
+  });
+
+  const proofPath = process.env.SLUG_REGENERATION_PROOF_PATH
+    || (process.env.RUNNER_TEMP
+      ? path.join(process.env.RUNNER_TEMP, 'slug-regeneration-proof.json')
+      : null);
+  if (proofPath) {
+    const generationToken = resolveCrawlerGenerationToken();
+    if (!generationToken) {
+      throw new Error('Slug regeneration proof requires CRAWLER_GENERATION_TOKEN or GitHub run coordinates');
+    }
+    writeJson(proofPath, createSlugRegenerationProof({
+      generationToken,
+      before: beforeSnapshot,
+      after: afterSnapshot,
+      verification,
+    }));
+    console.log(`🧾 Slug regeneration proof: ${path.basename(proofPath)} (${generationToken})`);
+  }
+
   console.log(`\n📊 Slug regeneration complete: ${totalFixed} locale slugs fixed across ${slicesChanged} slices (${totalJobs} total jobs)`);
   if (totalRelabelled > 0) {
     console.log(`🏷️  Brand relabel: ${totalRelabelled} record riallineati all'etichetta dichiarata dal parser`);
@@ -324,7 +363,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('❌ Slug regeneration failed:', err?.message || err);
-  process.exit(1);
-});
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch(err => {
+    console.error('❌ Slug regeneration failed:', err?.message || err);
+    process.exit(1);
+  });
+}

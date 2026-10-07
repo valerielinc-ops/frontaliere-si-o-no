@@ -15,6 +15,16 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * InRecruiting may emit either absolute or tenant-relative detail links.
+ * Resolve the latter before handing the URL to the crawler's fetch layer.
+ */
+export function resolvePizzarottiDetailUrl(raw = '', baseUrl = '') {
+  const href = normalizeSpace(raw);
+  if (!href || /^https?:\/\//i.test(href)) return href;
+  return new URL(href, baseUrl).toString();
+}
+
 function slugify(value = '') {
   return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
