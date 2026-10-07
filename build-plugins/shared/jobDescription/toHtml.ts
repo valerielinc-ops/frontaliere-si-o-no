@@ -5,7 +5,7 @@
  */
 
 import type { Block, Inline } from './parser';
-import { parseJobDescription, parseInline } from './parser';
+import { parseJobDescription, parseInline, dropEmptyBoldSpans } from './parser';
 import { sanitizeJobDescriptionHtml } from './sanitizeHtml';
 
 function esc(s: string): string {
@@ -175,7 +175,7 @@ function computeJobDescriptionTextToHtml(rawText: string): string {
     //     never matched. `inlineTextToHtml` below already strips
     //     unconditionally; mirrored here for consistency (same
     //     SEPARATOR_RUN_RE threshold as scripts/audit-no-literal-markdown.mjs).
-    let s = text.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+    let s = dropEmptyBoldSpans(text);
     const doubleStars = (s.match(/\*\*/g) || []).length;
     if (doubleStars % 2 !== 0) {
       s = s.replace(/\*\*/g, '');
@@ -256,7 +256,7 @@ export function inlineTextToHtml(text: string): string {
     // too — same as computeJobDescriptionTextToHtml's structural-tag
     // branch above — or it leaks into <main> and trips
     // audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
-    let stripped = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+    let stripped = dropEmptyBoldSpans(s);
     // Odd `**` count (source truncated the closing marker) survives the
     // pair-matching replace above untouched — same gap fixed in
     // computeJobDescriptionTextToHtml (#4593), mirrored here (#4553).
