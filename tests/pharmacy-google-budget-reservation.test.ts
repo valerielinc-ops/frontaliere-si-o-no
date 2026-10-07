@@ -17,7 +17,7 @@ const config = {
 const catalogues = [{ pharmacies: pharmacyIds.map((id) => ({ id })) }];
 
 describe('serialized Google Places budget reservation', () => {
-  it('allows one branch to reserve the remaining quota and blocks a second branch from the same base', () => {
+  it('allows one branch to reserve the remaining quota and blocks a second branch from the same base', async () => {
     const baseSnapshot = {
       records: {},
       providerUsage: { month: '2026-10', googlePlaces: { requests: 9_990 } },
