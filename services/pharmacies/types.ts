@@ -110,6 +110,7 @@ export interface PharmacyDataAvailability {
   openingHours?: PharmacyFieldStatus;
   services?: PharmacyFieldStatus;
   contactEmail?: PharmacyFieldStatus;
+  vatNumber?: PharmacyFieldStatus;
 }
 
 export type PharmacyEnrichmentField =
@@ -118,7 +119,8 @@ export type PharmacyEnrichmentField =
   | 'website'
   | 'openingHours'
   | 'services'
-  | 'contactEmail';
+  | 'contactEmail'
+  | 'vatNumber';
 
 export type PharmacyExternalSourceStatus = 'verified' | 'unavailable' | 'not_found';
 
@@ -145,6 +147,8 @@ export interface PharmacyEnrichmentRecord {
   openingHours?: OpeningHours[];
   services?: string[];
   contactEmail?: string;
+  /** Public legal identifier accepted only from a matched source. */
+  vatNumber?: string;
   /** Google Places exception: retain the stable place ID, not place content. */
   googlePlaceId?: string;
   fieldSources?: Partial<Record<PharmacyEnrichmentField, PharmacyFieldSource>>;
@@ -195,9 +199,11 @@ export interface Pharmacy {
   sourceType: PharmacySourceType;
   lastVerifiedAt: string;
   /** Provenance for optional fields enriched from a second public source. */
-  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services' | 'contactEmail', PharmacyFieldSource>>;
+  fieldSources?: Partial<Record<'address' | 'phone' | 'website' | 'coordinates' | 'openingHours' | 'services' | 'contactEmail' | 'vatNumber', PharmacyFieldSource>>;
   dataAvailability?: PharmacyDataAvailability;
   contactEmail?: string;
+  /** Italian VAT number, when a public source identifies the legal entity. */
+  vatNumber?: string;
   /** Stable Google Places ID; no Google place content is stored in the catalogue. */
   googlePlaceId?: string;
   externalSources?: PharmacyExternalSource[];

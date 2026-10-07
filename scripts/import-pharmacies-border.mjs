@@ -55,6 +55,9 @@ const TICINO_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-ticino-complete.json');
 const ITALY_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacies-italy-border.json');
 const ENRICHMENT_OUTPUT_PATH = resolve(DATA_DIR, 'pharmacy-enrichment.json');
 const ENRICHMENT_SOURCES_PATH = resolve(DATA_DIR, 'pharmacy-enrichment-sources.json');
+const FACEBOOK_DISCOVERY_PATH = process.env.PHARMACY_FACEBOOK_DISCOVERY_PATH
+  ? resolve(process.env.PHARMACY_FACEBOOK_DISCOVERY_PATH)
+  : null;
 const DUTIES_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino.json');
 const DUTIES_STATUS_PATH = resolve(DATA_DIR, 'pharmacy-duties-ticino-status.json');
 const DUTY_STAGE_DIR = process.env.PHARMACY_DUTY_STAGE_DIR ? resolve(process.env.PHARMACY_DUTY_STAGE_DIR) : null;
@@ -524,7 +527,7 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
 }
 
 async function main() {
-  const [italy, osm, ticinoInput, previous, previousAtomicCatalogue, previousItaly, stagedStatus, enrichmentSources, previousEnrichment] = await Promise.all([
+  const [italy, osm, ticinoInput, previous, previousAtomicCatalogue, previousItaly, stagedStatus, enrichmentSources, previousEnrichment, facebookDiscovery] = await Promise.all([
     readItalyInput(),
     readOsmInput(),
     readTicinoPdfText(),
@@ -534,6 +537,7 @@ async function main() {
     readOptionalJsonFile(DUTIES_STATUS_INPUT_PATH, null),
     readJsonFile(ENRICHMENT_SOURCES_PATH),
     readPreviousPharmacyEnrichment(),
+    FACEBOOK_DISCOVERY_PATH ? readOptionalJsonFile(FACEBOOK_DISCOVERY_PATH, null) : Promise.resolve(null),
   ]);
   const enrichmentConfigErrors = validatePharmacyEnrichmentConfig(enrichmentSources);
   if (enrichmentConfigErrors.length > 0) throw new Error(`Invalid pharmacy enrichment source registry:\n${enrichmentConfigErrors.join('\n')}`);
@@ -645,6 +649,7 @@ async function main() {
         : process.env.GOOGLE_MAPS_API_KEY,
       facebookPageId: process.env.PHARMACY_FACEBOOK_PAGE_ID,
       facebookAccessToken: process.env.PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN,
+      facebookPublicDiscovery: facebookDiscovery,
     },
   );
   const enrichmentOutput = buildPharmacyEnrichmentSnapshot(previousEnrichment, enrichmentResult, fetchedAt);

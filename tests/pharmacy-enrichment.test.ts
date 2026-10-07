@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import enrichmentConfig from '../data/pharmacy-enrichment-sources.json';
 import enrichmentSnapshot from '../data/pharmacy-enrichment.json';
-import { buildPharmacyEnrichmentSnapshot, enrichPharmacyRecords, extractPdfFacts, parseItalianHours, validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from '../scripts/lib/pharmacy-enrichment.mjs';
+import { applyPublicFacebookDiscovery, buildPharmacyEnrichmentSnapshot, enrichPharmacyRecords, extractPdfFacts, parseItalianHours, validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from '../scripts/lib/pharmacy-enrichment.mjs';
 import { validatePharmacyEnrichmentConfig as validateDependencyFreeConfig, validatePharmacyEnrichmentSnapshot as validateDependencyFreeSnapshot } from '../scripts/lib/pharmacy-enrichment-validation.mjs';
 import { mergePharmacyEnrichment } from '../services/pharmacies/enrichment';
 import { pharmacyById } from '../services/pharmacies/data';
@@ -33,6 +33,21 @@ const atsPdfText = `
   VIA MATTEOTTI, 43 0332227362 VARESE
 `;
 
+const pnrrPdfText = `
+  Decreto di erogazione FR25 — domanda FR-2025-0218
+  FARMACIA INTERNAZIONALE DI CASCIAGO DEL DOTT. MASSIMO DE BERNARDI & C. S.A.S.
+  Via Giacomo Matteotti, 43 — 21020 Casciago (VA)
+  P.IVA 04109170128
+`;
+
+const atokaLegalEntityHtml = `
+  <html><body>
+    <h1>Farmacia Internazionale Di Casciago Del Dott. Massimo De Bernardi &amp; C. S.a.s.</h1>
+    <p>Sede legale: Via Matteotti, 43, 21020, Casciago (VA)</p>
+    <p>P.IVA: 04109170128 47.73.10: Commercio al dettaglio di medicinali</p>
+  </body></html>
+`;
+
 function localConfig(overrides: Record<string, unknown> = {}) {
   return {
     schemaVersion: 1,
@@ -55,11 +70,15 @@ describe('pharmacy enrichment', () => {
       phone: '+39 0332 227362',
       contactEmail: 'farmaciadicasciago@enterpoint.it',
       services: ['Consegna a domicilio', 'Accesso senza barriere'],
+      vatNumber: '04109170128',
     });
   });
 
   it('parses the official municipal page with field-level provenance', async () => {
-    expect(parseItalianHours('Orario continuato da lunedì a sabato: 8.30-20.00')).toHaveLength(6);
+    expect(parseItalianHours('Orario continuato da lunedì a sabato: 8.30-20.00; domenica chiuso')).toEqual(expect.arrayContaining([
+      { dayOfWeek: 'monday', opens: '08:30', closes: '20:00' },
+      { dayOfWeek: 'sunday', opens: '', closes: '', isClosed: true },
+    ]));
     const result = await enrichPharmacyRecords([pharmacy], localConfig({
       sources: [{ ...enrichmentConfig.sources[0] }],
     }), {
@@ -149,6 +168,54 @@ describe('pharmacy enrichment', () => {
     });
     expect(result.records[pharmacy.id]).toEqual({ checkedAt });
     expect(result.warnings).toEqual([expect.stringContaining('PDF did not match it-msal-3907')]);
+  });
+
+  it('extracts a matched VAT number from a public legal-entity document', async () => {
+    const source = {
+      id: 'casciago-pnrr-2026-0218',
+      pharmacyId: pharmacy.id,
+      kind: 'pdf',
+      url: 'https://www.strutturapnrr.gov.it/media/2ilmk4mv/260310-decreto-n-32-2026-di-erogazione-fr25-ddg-40-n-01-signed.pdf',
+      label: 'Struttura di missione PNRR',
+      sourceType: 'official',
+      fields: ['vatNumber'],
+      status: 'active',
+    } as const;
+    expect(extractPdfFacts(pnrrPdfText, pharmacy, source)).toMatchObject({
+      matched: true,
+      facts: { vatNumber: '04109170128' },
+    });
+
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({ sources: [source] }), {
+      checkedAt,
+      fetchPdfText: async () => pnrrPdfText,
+    });
+    expect(result.warnings).toEqual([]);
+    expect(result.records[pharmacy.id]).toMatchObject({ vatNumber: '04109170128' });
+    expect(result.records[pharmacy.id].fieldSources?.vatNumber).toMatchObject({ sourceType: 'official' });
+  });
+
+  it('accepts a public directory address that abbreviates the official street name', async () => {
+    const source = {
+      id: 'casciago-atoka-legal-entity',
+      pharmacyId: pharmacy.id,
+      kind: 'html',
+      url: 'https://atoka.io/public/it/azienda/farmacia-internazionale-di-casciago-del-dott-massimo-de-bernardi-c-sas/7601ad2f09a8',
+      label: 'Atoka — scheda impresa pubblica',
+      sourceType: 'directory',
+      fields: ['vatNumber'],
+      status: 'active',
+    } as const;
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({ sources: [source] }), {
+      checkedAt,
+      fetchDocument: async () => atokaLegalEntityHtml,
+    });
+    expect(result.warnings).toEqual([]);
+    expect(result.records[pharmacy.id]).toMatchObject({ vatNumber: '04109170128' });
+    expect(result.records[pharmacy.id].externalSources).toEqual([expect.objectContaining({
+      sourceType: 'directory',
+      fields: ['vatNumber'],
+    })]);
   });
 
   it('uses Google Places only through the authorised API adapter and excludes ratings', async () => {
@@ -374,6 +441,58 @@ describe('pharmacy enrichment', () => {
         url: 'https://www.facebook.com/farmaciainternazionaledicasciago',
       }),
     ]));
+  });
+
+  it('imports only identity-matched public Facebook facts into the enrichment snapshot', () => {
+    const records: Record<string, any> = { [pharmacy.id]: { checkedAt } };
+    const warnings: string[] = [];
+    applyPublicFacebookDiscovery(records, [pharmacy], {
+      candidates: [{
+        pharmacyId: pharmacy.id,
+        status: 'candidate_publicly_verified',
+        verified: {
+          matched: true,
+          pageUrl: 'https://www.facebook.com/farmacia-internazionale-casciago',
+          facts: {
+            phone: '+39 0332 227362',
+            openingHours: [{ dayOfWeek: 'monday', opens: '08:30', closes: '20:00' }],
+            rating: 5,
+          },
+        },
+      }],
+    }, checkedAt, warnings);
+
+    expect(warnings).toEqual([]);
+    expect(records[pharmacy.id]).toMatchObject({ phone: '+39 0332 227362' });
+    expect(records[pharmacy.id].openingHours).toEqual([{ dayOfWeek: 'monday', opens: '08:30', closes: '20:00' }]);
+    expect(JSON.stringify(records[pharmacy.id])).not.toContain('rating');
+    expect(records[pharmacy.id].externalSources).toEqual([expect.objectContaining({
+      sourceType: 'facebook',
+      url: 'https://www.facebook.com/farmacia-internazionale-casciago',
+    })]);
+  });
+
+  it('sanitizes untrusted public Facebook facts before storing them', () => {
+    const records: Record<string, any> = { [pharmacy.id]: { checkedAt } };
+    const warnings: string[] = [];
+    applyPublicFacebookDiscovery(records, [pharmacy], {
+      candidates: [{
+        pharmacyId: pharmacy.id,
+        status: 'candidate_publicly_verified',
+        verified: {
+          matched: true,
+          pageUrl: 'https://www.facebook.com/farmacia-internazionale-casciago',
+          facts: {
+            website: 'javascript:alert(1)',
+            contactEmail: 'not-an-email',
+            openingHours: [{ dayOfWeek: 'monday', opens: '25:00', closes: '20:00' }],
+          },
+        },
+      }],
+    }, checkedAt, warnings);
+
+    expect(warnings).toEqual([]);
+    expect(records[pharmacy.id]).toEqual({ checkedAt });
   });
 
   it('allows an official enrichment to replace a directory value, but not the reverse', () => {
