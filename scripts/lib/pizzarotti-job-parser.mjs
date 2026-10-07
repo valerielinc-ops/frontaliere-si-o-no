@@ -68,6 +68,8 @@ function htmlFragmentToMarkdown(html = '') {
 const PIZZAROTTI_TEASER_REGION_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+(.+?)\s+\([A-Z]{2}\)(?=\s*(?:[.!?]|$))/i;
 const PIZZAROTTI_TEASER_LOCATION_RE = /\b(?:con\s+)?sede\s+a\s+((?:St\.\s+)?[^.!?]+?)(?=\s*[.!?]|$)/i;
 const PIZZAROTTI_COUNTRY_SUFFIX_RE = /\s*,\s*(?:in\s+)?(?:italia|italy|italien|italie|svizzera|switzerland|schweiz|suisse)\s*$/i;
+const PIZZAROTTI_DETAIL_WORKPLACE_RE = /(?:luogo\s+di\s+lavoro|sede\s+di\s+lavoro|lieu\s+de\s+travail|place\s+of\s+work|workplace|arbeitsort)\s*:\s*((?:St\.\s+)?[^.!?\n]+?(?:\s+\([^)]+\))?)(?=\s*(?:[.!?]|\n|$))/iu;
+const PIZZAROTTI_COUNTRY_ONLY_RE = /^(?:italia|italy|italien|italie|svizzera|switzerland|schweiz|suisse|france|francia|germany|deutschland|germania|spain|espana|spagna)\.?$/iu;
 
 function extractPizzarottiTeaserLocation(teaser = '') {
   const normalizedTeaser = normalizeSpace(teaser);
@@ -79,6 +81,36 @@ function extractPizzarottiTeaserLocation(teaser = '') {
     .replace(/\s+\([A-Z]{2}\)\s*$/i, '')
     .replace(/[,:;]+$/, '')
     .trim();
+}
+
+function extractPizzarottiDetailWorkplace(description = '') {
+  const match = String(description || '').match(PIZZAROTTI_DETAIL_WORKPLACE_RE);
+  return match ? normalizeSpace(match[1]).replace(/[,:;]+$/, '') : '';
+}
+
+function isPizzarottiCountryOnlyLocation(location = '') {
+  return PIZZAROTTI_COUNTRY_ONLY_RE.test(normalizeSpace(location));
+}
+
+/**
+ * Prefer the detail page's explicit workplace over a listing teaser, while
+ * retaining a more specific listing location when the detail subtitle only
+ * says e.g. `Italia`. The latter is common for Pizzarotti's CTG postings:
+ * the detail body contains `Luogo di lavoro: Campomorone (GE)` even though
+ * the portal subtitle only exposes the country.
+ */
+export function resolvePizzarottiLocation(listing = {}, detail = {}) {
+  const listingLocation = normalizeSpace(listing.location || '');
+  const detailLocation = normalizeSpace(detail.location || '');
+  if (!detailLocation) return listingLocation;
+  if (
+    listingLocation
+    && isPizzarottiCountryOnlyLocation(detailLocation)
+    && !isPizzarottiCountryOnlyLocation(listingLocation)
+  ) {
+    return listingLocation;
+  }
+  return detailLocation;
 }
 
 /**
@@ -183,11 +215,16 @@ export function inferPizzarottiCanton(raw = '') {
 export function parsePizzarottiJobDetail(html = '') {
   const document = new JSDOM(html).window.document;
   const title = normalizeSpace(document.querySelector('#description__vacancy-title')?.textContent || '');
-  const subtitleInfos = [...document.querySelectorAll('#description__subtitle .subtitle__informations')].map((node) =>
-    normalizeSpace(node.textContent || '')
-  );
-  const location = subtitleInfos[0] || '';
-  const category = subtitleInfos[1] || '';
+  const subtitleNodes = [...document.querySelectorAll('#description__subtitle .subtitle__informations')];
+  const subtitleInfos = subtitleNodes.map((node) => normalizeSpace(node.textContent || ''));
+  const locationNode = subtitleNodes.find((node) => /^(?:Sede|Location|Localisation|Standort)$/i.test(
+    String(node.getAttribute('title') || '').trim(),
+  ));
+  const categoryNode = subtitleNodes.find((node) => /^(?:Professione\/Funzione|Profession\/Fonction|Profession\/Function|Functional Area)$/i.test(
+    String(node.getAttribute('title') || '').trim(),
+  ));
+  const subtitleLocation = normalizeSpace(locationNode?.textContent || subtitleInfos[0] || '');
+  const category = normalizeSpace(categoryNode?.textContent || subtitleInfos[1] || '');
 
   const sections = [];
   const headings = [...document.querySelectorAll('#description__body .body__headings')];
@@ -201,12 +238,13 @@ export function parsePizzarottiJobDetail(html = '') {
   }
 
   const shareUrl = normalizeSpace(document.querySelector('.share__hidden')?.textContent || '');
+  const detailDescription = sections.join('\n\n').trim();
   return {
     title,
-    location,
+    location: extractPizzarottiDetailWorkplace(detailDescription) || subtitleLocation,
     category,
     shareUrl,
-    description: sections.join('\n\n').trim(),
+    description: detailDescription,
   };
 }
 

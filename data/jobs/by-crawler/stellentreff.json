@@ -138,7 +138,6 @@
           "zimmermann-zimmerin-fur-schalungsbau-und-betonvorfabrikation-sursee-luzern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.605Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -2432,9 +2431,9 @@
     },
     {
       "id": "stellentreff-a01823bef141",
-      "slug": "falegname-con-tecnologia-cnc-stellentreff-ag-luzern",
+      "slug": "falegname-con-tecnologia-cnc-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
-        "it": "falegname-con-tecnologia-cnc-stellentreff-ag-luzern",
+        "it": "falegname-con-tecnologia-cnc-stellentreff-ag-luzern-luzern",
         "en": "carpenter-with-cnc-machine-technology-stellentreff-ag-luzern-luzern",
         "de": "schreiner-in-mit-cnc-maschinentechnologie-luzern-luzern-stellentreff-ch",
         "fr": "charpentier-avec-technologie-cnc-stellentreff-ag-luzern-luzern"
@@ -2481,14 +2480,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.574Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-mit-cnc-maschinentechnologie-luzern-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "schreiner-in-mit-cnc-maschinentechnologie-luzern-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2502,7 +2493,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "schreiner-in-mit-cnc-maschinentechnologie-luzern-luzern-stellentreff-ch",
+          "falegname-con-tecnologia-cnc-stellentreff-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "schreiner-in-mit-cnc-maschinentechnologie-luzern-luzern-stellentreff-ch",
+        "falegname-con-tecnologia-cnc-stellentreff-ag-luzern"
+      ]
     },
     {
       "id": "stellentreff-5f781dd57104",
@@ -6750,9 +6751,9 @@
     },
     {
       "id": "stellentreff-187d615b8951",
-      "slug": "idraulico-con-servizio-clienti-stellentreff-ag-sursee",
+      "slug": "idraulico-con-servizio-clienti-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "idraulico-con-servizio-clienti-stellentreff-ag-sursee",
+        "it": "idraulico-con-servizio-clienti-stellentreff-ag-sursee-luzern",
         "en": "plumber-with-customer-service-stellentreff-ag-sursee-luzern",
         "de": "sanitarinstallateur-in-mit-kundenservice-sursee-luzern-stellentreff-ch",
         "fr": "plombier-avec-service-client-stellentreff-ag-sursee-luzern"
@@ -6799,14 +6800,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.531Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-kundenservice-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-kundenservice-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -6820,13 +6813,23 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-mit-kundenservice-sursee-luzern-stellentreff-ch",
+          "idraulico-con-servizio-clienti-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-kundenservice-sursee-luzern-stellentreff-ch",
+        "idraulico-con-servizio-clienti-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-a6d0f18938d6",
-      "slug": "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern",
+      "slug": "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
-        "it": "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern",
+        "it": "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern-luzern",
         "en": "plumber-with-service-assignments-stellentreff-ag-luzern-luzern",
         "de": "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
         "fr": "plombier-avec-missions-de-service-stellentreff-ag-luzern-luzern"
@@ -6873,14 +6876,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.532Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -6894,7 +6889,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
+          "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-serviceeinsatzen-luzern-luzern-stellentreff-ch",
+        "idraulico-con-incarichi-di-assistenza-stellentreff-ag-luzern"
+      ]
     },
     {
       "id": "stellentreff-18707a3f9f24",
@@ -7192,9 +7197,9 @@
     },
     {
       "id": "stellentreff-2f356cb2e9dd",
-      "slug": "idraulico-con-responsabilita-personale-stellentreff-ag-sursee",
+      "slug": "idraulico-con-responsabilita-personale-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "idraulico-con-responsabilita-personale-stellentreff-ag-sursee",
+        "it": "idraulico-con-responsabilita-personale-stellentreff-ag-sursee-luzern",
         "en": "plumber-with-personal-responsibility-stellentreff-ag-sursee-luzern",
         "de": "sanitarinstallateur-in-mit-eigenverantwortung-sursee-luzern-stellentreff-ch",
         "fr": "plombier-a-responsabilite-personnelle-stellentreff-ag-sursee-luzern"
@@ -7241,14 +7246,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.527Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-eigenverantwortung-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-eigenverantwortung-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -7262,7 +7259,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-mit-eigenverantwortung-sursee-luzern-stellentreff-ch",
+          "idraulico-con-responsabilita-personale-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-eigenverantwortung-sursee-luzern-stellentreff-ch",
+        "idraulico-con-responsabilita-personale-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-313137c49245",
@@ -7327,7 +7334,6 @@
           "sanitarinstallateur-in-mit-firmenfahrzeug-und-flexiblem-arbeitspensum-luzern-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.528Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -10909,9 +10915,9 @@
     },
     {
       "id": "stellentreff-ce19eeabd85c",
-      "slug": "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen",
+      "slug": "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen",
+        "it": "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen-schaffhausen",
         "en": "polymechanic-with-process-optimization-stellentreff-ag-schaffhausen-schaffhausen",
         "de": "polymechaniker-in-mit-prozessoptimierung-schaffhausen-schaffhausen-stellentreff-ch",
         "fr": "polymecanique-avec-optimisation-des-procedes-stellentreff-ag-schaffhausen-schaffhausen"
@@ -10958,14 +10964,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.499Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-mit-prozessoptimierung-schaffhausen-schaffhausen-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-mit-prozessoptimierung-schaffhausen-schaffhausen-stellentreff-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10979,7 +10977,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-mit-prozessoptimierung-schaffhausen-schaffhausen-stellentreff-ch",
+          "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-mit-prozessoptimierung-schaffhausen-schaffhausen-stellentreff-ch",
+        "polimeccanica-con-ottimizzazione-dei-processi-stellentreff-ag-schaffhausen"
+      ]
     },
     {
       "id": "stellentreff-371a92f27a74",
@@ -11374,9 +11382,9 @@
     },
     {
       "id": "stellentreff-c0cec6180167",
-      "slug": "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau",
+      "slug": "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
-        "it": "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau",
+        "it": "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau-luzern",
         "en": "polymechanic-with-heidenhain-programming-skills-stellentreff-ag-willisau-luzern",
         "de": "polymechaniker-in-mit-heidenhain-programmierkenntnissen-willisau-luzern-stellentreff-ch",
         "fr": "polymecanique-avec-competences-en-programmation-heidenhain-stellentreff-ag-willisau-luzern"
@@ -11423,14 +11431,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.496Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-mit-heidenhain-programmierkenntnissen-willisau-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-mit-heidenhain-programmierkenntnissen-willisau-luzern-stellentreff-ch"
-      ],
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -11444,7 +11444,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6130"
+      "postalCode": "6130",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-mit-heidenhain-programmierkenntnissen-willisau-luzern-stellentreff-ch",
+          "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-mit-heidenhain-programmierkenntnissen-willisau-luzern-stellentreff-ch",
+        "polimeccanico-con-competenze-di-programmazione-heidenhain-stellentreff-ag-willisau"
+      ]
     },
     {
       "id": "stellentreff-4bee7ba80fd4",
@@ -13655,9 +13665,9 @@
     },
     {
       "id": "stellentreff-e18320c2ef3d",
-      "slug": "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern",
+      "slug": "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
-        "it": "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern",
+        "it": "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern-luzern",
         "en": "polymechanic-cnc-programming-with-a-medtech-focus-stellentreff-ag-luzern-luzern",
         "de": "polymechaniker-in-cnc-programmierung-mit-medtech-fokus-luzern-luzern-stellentreff-ch",
         "fr": "programmation-cnc-polymecanique-avec-une-specialisation-medtech-stellentreff-ag-luzern-luzern"
@@ -13704,14 +13714,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.479Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-cnc-programmierung-mit-medtech-fokus-luzern-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-cnc-programmierung-mit-medtech-fokus-luzern-luzern-stellentreff-ch"
-      ],
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -13725,7 +13727,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-programmierung-mit-medtech-fokus-luzern-luzern-stellentreff-ch",
+          "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-programmierung-mit-medtech-fokus-luzern-luzern-stellentreff-ch",
+        "programmazione-cnc-polimeccanica-con-un-focus-medtech-stellentreff-ag-luzern"
+      ]
     },
     {
       "id": "stellentreff-56776bc99b01",
@@ -15029,9 +15041,9 @@
     },
     {
       "id": "stellentreff-e88cb5f54445",
-      "slug": "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell",
+      "slug": "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell-appenzell-innerrhoden",
       "slugByLocale": {
-        "it": "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell",
+        "it": "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell-appenzell-innerrhoden",
         "en": "polymechanic-maintenance-with-efficient-working-methods-stellentreff-ag-appenzell-appenzell-innerrhoden",
         "de": "polymechaniker-in-instandhaltung-mit-effizienter-arbeitsweise-appenzell-appenzell",
         "fr": "polymecanique-entretien-avec-methodes-de-travail-efficaces-stellentreff-ag-appenzell-appenzell-innerrhoden"
@@ -15078,14 +15090,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.464Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-instandhaltung-mit-effizienter-arbeitsweise-appenzell-appenzell"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-instandhaltung-mit-effizienter-arbeitsweise-appenzell-appenzell"
-      ],
       "salaryMin": 65000,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -15099,7 +15103,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9050"
+      "postalCode": "9050",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-instandhaltung-mit-effizienter-arbeitsweise-appenzell-appenzell",
+          "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-instandhaltung-mit-effizienter-arbeitsweise-appenzell-appenzell",
+        "polimeccanico-manutenzione-con-metodi-di-lavoro-efficienti-stellentreff-ag-appenzell"
+      ]
     },
     {
       "id": "stellentreff-1d447791c783",
@@ -15860,9 +15874,9 @@
     },
     {
       "id": "stellentreff-ea43668fdebf",
-      "slug": "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster",
+      "slug": "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster-zurich",
       "slugByLocale": {
-        "it": "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster",
+        "it": "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster-zurich",
         "en": "polymechanic-cnc-manufacturing-with-process-optimization-stellentreff-ag-uster-zurich",
         "de": "polymechaniker-in-cnc-fertigung-mit-prozessoptimierung-uster-zurich-stellentreff-ch",
         "fr": "polymecanique-fabrication-cnc-avec-optimisation-des-procedes-stellentreff-ag-uster-zurich"
@@ -15909,14 +15923,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.456Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-cnc-fertigung-mit-prozessoptimierung-uster-zurich-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-mit-prozessoptimierung-uster-zurich-stellentreff-ch"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -15930,7 +15936,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8610"
+      "postalCode": "8610",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-mit-prozessoptimierung-uster-zurich-stellentreff-ch",
+          "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-prozessoptimierung-uster-zurich-stellentreff-ch",
+        "polimeccanica-produzione-cnc-con-ottimizzazione-dei-processi-stellentreff-ag-uster"
+      ]
     },
     {
       "id": "stellentreff-68af33fc044e",
@@ -16236,9 +16252,9 @@
     },
     {
       "id": "stellentreff-3e8deda20507",
-      "slug": "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach",
+      "slug": "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach-st-gallen",
       "slugByLocale": {
-        "it": "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach",
+        "it": "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach-st-gallen",
         "en": "polymechanic-cnc-manufacturing-with-fanuc-control-stellentreff-ag-rorschach-st-gallen",
         "de": "polymechaniker-in-cnc-fertigung-mit-fanuc-steuerung-rorschach-st-gallen-stellentreff-ch",
         "fr": "polymecanique-fabrication-cnc-avec-controle-de-fanuc-stellentreff-ag-rorschach-st-gallen"
@@ -16285,14 +16301,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.453Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-cnc-fertigung-mit-fanuc-steuerung-rorschach-st-gallen-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-mit-fanuc-steuerung-rorschach-st-gallen-stellentreff-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -16306,7 +16314,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9400"
+      "postalCode": "9400",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-mit-fanuc-steuerung-rorschach-st-gallen-stellentreff-ch",
+          "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-fanuc-steuerung-rorschach-st-gallen-stellentreff-ch",
+        "polimeccanica-produzione-cnc-con-controllo-fanuc-stellentreff-ag-rorschach"
+      ]
     },
     {
       "id": "stellentreff-d4feb2d1184a",
@@ -16386,9 +16404,9 @@
     },
     {
       "id": "stellentreff-cb102d6930c1",
-      "slug": "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee",
+      "slug": "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee",
+        "it": "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee-luzern",
         "en": "polymechanic-cnc-manufacturing-with-cam-programming-stellentreff-ag-sursee-luzern",
         "de": "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sursee-luzern-stellentreff-ch",
         "fr": "polymecanique-fabrication-cnc-avec-programmation-fao-stellentreff-ag-sursee-luzern"
@@ -16435,14 +16453,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.450Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -16456,7 +16466,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sursee-luzern-stellentreff-ch",
+          "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-cnc-fertigung-mit-cam-programmierung-sursee-luzern-stellentreff-ch",
+        "polimeccanica-produzione-cnc-con-programmazione-cam-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-4ed9d0f5340a",
@@ -19455,7 +19475,6 @@
           "metallbauer-in-fur-spezialfahrzeuge-und-gfk-kuhlaufbauten-langenthal-bern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.421Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21547,9 +21566,9 @@
     },
     {
       "id": "stellentreff-caa9f2d6e9af",
-      "slug": "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee",
+      "slug": "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee",
+        "it": "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee-luzern",
         "en": "bricklayer-with-experience-in-concrete-production-stellentreff-ag-sursee-luzern",
         "de": "maurer-in-mit-erfahrung-in-betonfertigung-sursee-luzern-stellentreff-ch",
         "fr": "macon-experimente-dans-la-production-de-beton-stellentreff-ag-sursee-luzern"
@@ -21596,14 +21615,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.394Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "maurer-in-mit-erfahrung-in-betonfertigung-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "maurer-in-mit-erfahrung-in-betonfertigung-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -21617,7 +21628,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "maurer-in-mit-erfahrung-in-betonfertigung-sursee-luzern-stellentreff-ch",
+          "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "maurer-in-mit-erfahrung-in-betonfertigung-sursee-luzern-stellentreff-ch",
+        "muratore-con-esperienza-nella-produzione-di-calcestruzzo-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-a8d0440d22d8",
@@ -25919,9 +25940,9 @@
     },
     {
       "id": "stellentreff-c575c88dfd09",
-      "slug": "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee",
+      "slug": "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee",
+        "it": "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee-luzern",
         "en": "heating-installer-with-project-coordination-stellentreff-ag-sursee-luzern",
         "de": "heizungsinstallateur-in-mit-projektkoordination-sursee-luzern-stellentreff-ch",
         "fr": "installateur-de-chauffage-avec-coordination-de-projet-stellentreff-ag-sursee-luzern"
@@ -25968,14 +25989,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.340Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "heizungsinstallateur-in-mit-projektkoordination-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "heizungsinstallateur-in-mit-projektkoordination-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -25989,7 +26002,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-in-mit-projektkoordination-sursee-luzern-stellentreff-ch",
+          "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-in-mit-projektkoordination-sursee-luzern-stellentreff-ch",
+        "installatore-trice-di-impianti-di-riscaldamento-con-coordinamento-del-progetto-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-eb244eb605d6",
@@ -26864,9 +26887,9 @@
     },
     {
       "id": "stellentreff-b851cf184c24",
-      "slug": "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern",
+      "slug": "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern-luzern",
       "slugByLocale": {
-        "it": "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern",
+        "it": "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern-luzern",
         "en": "gardener-foreman-with-management-responsibility-stellentreff-ag-luzern-luzern",
         "de": "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-luzern-luzern-stellentreff-ch",
         "fr": "jardinier-contremaitre-avec-la-responsabilite-de-la-gestion-stellentreff-ag-luzern-luzern"
@@ -26913,14 +26936,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.320Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-luzern-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-luzern-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -26934,7 +26949,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003"
+      "postalCode": "6003",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-luzern-luzern-stellentreff-ch",
+          "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-in-vorarbeiter-in-mit-fuhrungsverantwortung-luzern-luzern-stellentreff-ch",
+        "giardiniere-a-caposquadra-con-responsabilita-dirigenziale-stellentreff-ag-luzern"
+      ]
     },
     {
       "id": "stellentreff-5bc27720c1ae",
@@ -28351,7 +28376,6 @@
           "gartner-in-garten-und-landschaftsbau-fur-abwechslungsreiche-gartenprojekte-sursee-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.306Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -28720,7 +28744,6 @@
           "fahrzeugschlosser-in-fur-spezialaufbauten-und-gfk-kuhlaufbauten-langenthal-bern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.300Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -28742,9 +28765,9 @@
       "slug": "progettista-elettrico-a-in-o-zeichner-per-spannende-projekte-stellentreff-ag-luzern",
       "slugByLocale": {
         "it": "progettista-elettrico-a-in-o-zeichner-per-spannende-projekte-stellentreff-ag-luzern",
-        "en": "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch",
+        "en": "electrical-planner-or-draughtsman-for-exciting-projects-stellentreff-ag-luzern-luzern",
         "de": "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch",
-        "fr": "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch"
+        "fr": "planificateur-electricien-ou-dessinateur-pour-des-projets-passionnants-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -28791,6 +28814,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch"
+        ],
+        "en": [
+          "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "elektroplaner-in-oder-zeichner-fur-spannende-projekte-luzern-luzern-stellentreff-ch"
         ]
       },
@@ -32181,7 +32210,6 @@
           "betriebsmitarbeiter-in-fur-industrielle-produktion-luzern-luzern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.262Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -32274,9 +32302,9 @@
     },
     {
       "id": "stellentreff-663e4a7adfd7",
-      "slug": "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag",
+      "slug": "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag-aargau",
       "slugByLocale": {
-        "it": "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag",
+        "it": "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag-aargau",
         "en": "construction-machinery-mechanic-with-hydraulic-knowledge-stellentreff-ag-muri-ag-aargau",
         "de": "baumaschinenmechaniker-in-mit-hydraulikkenntnissen-muri-ag-aargau-stellentreff-ch",
         "fr": "mecanicien-de-construction-avec-connaissances-hydrauliques-stellentreff-ag-muri-ag-aargau"
@@ -32323,14 +32351,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.261Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenmechaniker-in-mit-hydraulikkenntnissen-muri-ag-aargau-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinenmechaniker-in-mit-hydraulikkenntnissen-muri-ag-aargau-stellentreff-ch"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -32344,13 +32364,23 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-mit-hydraulikkenntnissen-muri-ag-aargau-stellentreff-ch",
+          "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-mit-hydraulikkenntnissen-muri-ag-aargau-stellentreff-ch",
+        "meccanico-di-macchine-edili-con-conoscenze-idrauliche-stellentreff-ag-muri-ag"
+      ]
     },
     {
       "id": "stellentreff-6f6ddda21a52",
-      "slug": "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau",
+      "slug": "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau-luzern",
       "slugByLocale": {
-        "it": "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau",
+        "it": "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau-luzern",
         "en": "construction-machinery-mechanic-with-a-focus-on-pump-service-stellentreff-ag-willisau-luzern",
         "de": "baumaschinenmechaniker-in-mit-schwerpunkt-pumpenservice-willisau-luzern-stellentreff-ch",
         "fr": "mecanicien-de-construction-specialise-dans-le-service-des-pompes-stellentreff-ag-willisau-luzern"
@@ -32397,14 +32427,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.262Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenmechaniker-in-mit-schwerpunkt-pumpenservice-willisau-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinenmechaniker-in-mit-schwerpunkt-pumpenservice-willisau-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -32418,7 +32440,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6130"
+      "postalCode": "6130",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-mit-schwerpunkt-pumpenservice-willisau-luzern-stellentreff-ch",
+          "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-mit-schwerpunkt-pumpenservice-willisau-luzern-stellentreff-ch",
+        "meccanico-di-macchine-edili-specializzato-nell-assistenza-alle-pompe-stellentreff-ag-willisau"
+      ]
     },
     {
       "id": "stellentreff-67c0ca7f8af2",
@@ -41497,7 +41529,6 @@
           "gipser-in-fur-renovations-und-sanierungsprojekte-munchwilen-tg-thurgau-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.034Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -42601,9 +42632,9 @@
     },
     {
       "id": "stellentreff-3a2ca5d803aa",
-      "slug": "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur",
+      "slug": "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur-zurich",
       "slugByLocale": {
-        "it": "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur",
+        "it": "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur-zurich",
         "en": "plumber-with-driver-s-license-cat-b-stellentreff-ag-winterthur-zurich",
         "de": "sanitarinstallateur-in-mit-fuhrerschein-kat-b-winterthur-zurich-stellentreff-ch",
         "fr": "plombier-avec-permis-de-conduire-cat-b-stellentreff-ag-winterthur-zurich"
@@ -42650,14 +42681,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.053Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sanitarinstallateur-in-mit-fuhrerschein-kat-b-winterthur-zurich-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sanitarinstallateur-in-mit-fuhrerschein-kat-b-winterthur-zurich-stellentreff-ch"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -42671,7 +42694,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarinstallateur-in-mit-fuhrerschein-kat-b-winterthur-zurich-stellentreff-ch",
+          "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "sanitarinstallateur-in-mit-fuhrerschein-kat-b-winterthur-zurich-stellentreff-ch",
+        "idraulico-a-con-patente-di-guida-cat-b-stellentreff-ag-winterthur"
+      ]
     },
     {
       "id": "stellentreff-02ee7127d9bd",
@@ -45268,9 +45301,9 @@
     },
     {
       "id": "stellentreff-1c6cc610c5a3",
-      "slug": "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur",
+      "slug": "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur-zurich",
       "slugByLocale": {
-        "it": "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur",
+        "it": "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur-zurich",
         "en": "industrial-painter-with-sandblasting-experience-stellentreff-ag-winterthur-zurich",
         "de": "industrielackierer-in-mit-sandstrahlerfahrung-winterthur-zurich-stellentreff-ch",
         "fr": "peintre-industriel-avec-une-experience-en-sablage-stellentreff-ag-winterthur-zurich"
@@ -45334,11 +45367,13 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "it": [
-          "industrielackierer-in-mit-sandstrahlerfahrung-winterthur-zurich-stellentreff-ch"
+          "industrielackierer-in-mit-sandstrahlerfahrung-winterthur-zurich-stellentreff-ch",
+          "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur"
         ]
       },
       "previousSlugs": [
-        "industrielackierer-in-mit-sandstrahlerfahrung-winterthur-zurich-stellentreff-ch"
+        "industrielackierer-in-mit-sandstrahlerfahrung-winterthur-zurich-stellentreff-ch",
+        "verniciatore-industriale-con-esperienza-di-sabbiatura-stellentreff-ag-winterthur"
       ]
     },
     {
@@ -46364,9 +46399,9 @@
     },
     {
       "id": "stellentreff-07939191e1ab",
-      "slug": "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen",
+      "slug": "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
-        "it": "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen",
+        "it": "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen-obwalden",
         "en": "metal-worker-with-a-focus-on-steel-construction-stellentreff-ag-sarnen-obwalden",
         "de": "metallbauer-in-mit-schwerpunkt-stahlbau-sarnen-obwalden-stellentreff-ch",
         "fr": "metallurgiste-avec-un-accent-particulier-sur-la-construction-en-acier-stellentreff-ag-sarnen-obwalden"
@@ -46413,14 +46448,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.205Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "metallbauer-in-mit-schwerpunkt-stahlbau-sarnen-obwalden-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "metallbauer-in-mit-schwerpunkt-stahlbau-sarnen-obwalden-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -46434,7 +46461,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6060"
+      "postalCode": "6060",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-in-mit-schwerpunkt-stahlbau-sarnen-obwalden-stellentreff-ch",
+          "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-in-mit-schwerpunkt-stahlbau-sarnen-obwalden-stellentreff-ch",
+        "metalmeccanico-a-specializzato-a-in-carpenteria-metallica-stellentreff-ag-sarnen"
+      ]
     },
     {
       "id": "stellentreff-29a20325d76d",
@@ -46833,9 +46870,9 @@
     },
     {
       "id": "stellentreff-7af2606d4d36",
-      "slug": "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen",
+      "slug": "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen",
+        "it": "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen-schaffhausen",
         "en": "automation-technician-with-service-assignments-stellentreff-ag-schaffhausen-schaffhausen",
         "de": "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-stellentreff-ch",
         "fr": "technicien-en-automatisation-avec-affectations-de-service-stellentreff-ag-schaffhausen-schaffhausen"
@@ -46882,14 +46919,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.136Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-stellentreff-ch"
-      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -46903,7 +46932,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-stellentreff-ch",
+          "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-mit-serviceeinsatzen-schaffhausen-schaffhausen-stellentreff-ch",
+        "operatore-trice-automatico-a-con-interventi-di-assistenza-stellentreff-ag-schaffhausen"
+      ]
     },
     {
       "id": "stellentreff-f67ba1a53c6e",
@@ -48464,9 +48503,9 @@
     },
     {
       "id": "stellentreff-5d6bfa836cb0",
-      "slug": "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden",
+      "slug": "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden-thurgau",
       "slugByLocale": {
-        "it": "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden",
+        "it": "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden-thurgau",
         "en": "automatic-fitter-with-quality-awareness-stellentreff-ag-weinfelden-thurgau",
         "de": "automatikmonteur-in-mit-qualitatsbewusstsein-weinfelden-thurgau-stellentreff-ch",
         "fr": "ajusteur-automatique-avec-une-sensibilite-a-la-qualite-stellentreff-ag-weinfelden-thurgau"
@@ -48530,11 +48569,13 @@
       "crawlerMissStreak": 2,
       "previousSlugsByLocale": {
         "it": [
-          "automatikmonteur-in-mit-qualitatsbewusstsein-weinfelden-thurgau-stellentreff-ch"
+          "automatikmonteur-in-mit-qualitatsbewusstsein-weinfelden-thurgau-stellentreff-ch",
+          "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden"
         ]
       },
       "previousSlugs": [
-        "automatikmonteur-in-mit-qualitatsbewusstsein-weinfelden-thurgau-stellentreff-ch"
+        "automatikmonteur-in-mit-qualitatsbewusstsein-weinfelden-thurgau-stellentreff-ch",
+        "installatore-trice-automatico-a-attento-a-alla-qualita-stellentreff-ag-weinfelden"
       ]
     },
     {
@@ -50032,7 +50073,6 @@
           "schreiner-in-fur-bankarbeiten-hochwertige-mobel-winterthur-zurich-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.193Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -54125,7 +54165,6 @@
           "anlagen-und-apparatebauer-in-hilfsarbeiter-in-fur-interne-pumpenmontage-willisau-luzern"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:59:14.396Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -55753,14 +55792,6 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/malerpraktiker-in-herisau-temporaer-116856/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "malerpraktiker-in-mit-vielseitigem-einsatz-herisau-appenzell-ausserrhoden-stellentreff-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "malerpraktiker-in-mit-vielseitigem-einsatz-herisau-appenzell-ausserrhoden-stellentreff-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-24T14:28:14.179Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -55775,7 +55806,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9100"
+      "postalCode": "9100",
+      "previousSlugsByLocale": {
+        "it": [
+          "malerpraktiker-in-mit-vielseitigem-einsatz-herisau-appenzell-ausserrhoden-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "malerpraktiker-in-mit-vielseitigem-einsatz-herisau-appenzell-ausserrhoden-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-7a42beb3ae69",
@@ -55994,7 +56033,6 @@
           "maler-in-fur-kundenmalerei-und-renovationen-stellentreff-ag-zurich"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.099Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -58614,7 +58652,6 @@
           "gartner-in-garten-und-landschaftsbau-gruppenleiter-unterhalt-frauenfeld-thurgau"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.082Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -62032,7 +62069,6 @@
           "automatikmonteur-in-fur-den-schaltschrankbau-herisau-appenzell-ausserrhoden-stellentreff"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.251Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
@@ -62368,9 +62404,9 @@
     },
     {
       "id": "stellentreff-7af83c79dde4",
-      "slug": "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee",
+      "slug": "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee",
+        "it": "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee-luzern",
         "en": "automation-technician-with-wiring-of-switchgear-stellentreff-ag-sursee-luzern",
         "de": "automatiker-in-mit-verdrahtung-von-schaltanlagen-sursee-luzern-stellentreff-ch",
         "fr": "technicien-en-automatisation-avec-le-cablage-des-equipements-de-commutation-stellentreff-ag-sursee-luzern"
@@ -62417,14 +62453,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:42:32.249Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-in-mit-verdrahtung-von-schaltanlagen-sursee-luzern-stellentreff-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-in-mit-verdrahtung-von-schaltanlagen-sursee-luzern-stellentreff-ch"
-      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -62438,7 +62466,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6210"
+      "postalCode": "6210",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-mit-verdrahtung-von-schaltanlagen-sursee-luzern-stellentreff-ch",
+          "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-mit-verdrahtung-von-schaltanlagen-sursee-luzern-stellentreff-ch",
+        "operatore-trice-automatico-a-con-cablaggio-di-quadri-elettrici-stellentreff-ag-sursee"
+      ]
     },
     {
       "id": "stellentreff-002abaf0a6e9",
@@ -63124,7 +63162,6 @@
           "metallbauer-in-hilfsarbeiter-in-fur-montageeinsatze-luzern-luzern-stellentreff-ch"
         ]
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:59:14.394Z",
       "salaryMin": 69500,
       "salaryMax": 106000,

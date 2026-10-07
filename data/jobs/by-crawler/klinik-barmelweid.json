@@ -2718,17 +2718,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-28T21:15:03.553Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
-        ],
-        "fr": [
-          "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
-        ]
-      },
-      "previousSlugs": [
-        "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
-      ],
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -2741,7 +2730,18 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
+        ],
+        "fr": [
+          "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "hr-projektverantwortung-mit-zahlenaffinitat-a-klinik-barmelweid-barmelweid"
+      ]
     },
     {
       "id": "klinik-barmelweid-c19293577897",

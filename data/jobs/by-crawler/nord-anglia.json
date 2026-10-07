@@ -569,9 +569,9 @@
     },
     {
       "id": "nord-anglia-5672a6eab92f",
-      "slug": "infermiere-reperibile-nord-anglia-education-switzerland-geneva",
+      "slug": "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
-        "it": "infermiere-reperibile-nord-anglia-education-switzerland-geneva",
+        "it": "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva",
         "en": "nurse-on-call-nord-anglia-geneva",
         "de": "krankenschwester-auf-abruf-nord-anglia-education-switzerland-geneva",
         "fr": "infirmiere-de-garde-nord-anglia-education-switzerland-geneva"
@@ -581,7 +581,7 @@
       "companyDomain": "nordangliaeducation.com",
       "title": "Nurse on-call",
       "titleByLocale": {
-        "it": "Nurse on-call",
+        "it": "Infermiera su chiamata",
         "en": "Nurse on-call",
         "de": "Krankenschwester auf Abruf",
         "fr": "Infirmière de garde"
@@ -622,13 +622,13 @@
       "previousSlugs": [
         "nurse-on-call-nord-anglia-geneva",
         "nurse-on-call-nord-anglia-education-switzerland-geneve",
-        "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
+        "infermiere-reperibile-nord-anglia-education-switzerland-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nurse-on-call-nord-anglia-geneva",
           "nurse-on-call-nord-anglia-education-switzerland-geneve",
-          "infermiera-su-chiamata-nord-anglia-education-switzerland-geneva"
+          "infermiere-reperibile-nord-anglia-education-switzerland-geneva"
         ],
         "de": [
           "nurse-on-call-nord-anglia-geneva"
@@ -638,7 +638,6 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:22:49.309Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
