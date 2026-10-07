@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5026
+      "6": 5032
     },
-    "publishedCovers": 6738,
+    "publishedCovers": 6744,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179198,6 +179198,168 @@
           "id": "zurigo-suicidio-assistito",
           "category": "novita",
           "date": "2026-09-27T20:26:34.846Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-caduta-scala-locate-varesino": {
+      "cover": "/images/blog/article-caduta-scala-locate-varesino.webp",
+      "hash": "aa5f36394ca701e622b3b8707a26ab1e1e53b388b66ddd1612886f7fc5424d86",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "caduta-scala-locate-varesino",
+          "category": "novita",
+          "date": "2026-10-07T12:57:53.001Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-ffs-sportelli-chiusi-stazioni": {
+      "cover": "/images/blog/article-ffs-sportelli-chiusi-stazioni.webp",
+      "hash": "c6cb86ab93be372bf9dc5b67149b3666cf64d7bc57c3c9b4431a3c1327845ed5",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "ffs-sportelli-chiusi-stazioni",
+          "category": "novita",
+          "date": "2026-10-07T14:55:42.967Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-intelligenza-artificiale-diritti-umani": {
+      "cover": "/images/blog/article-intelligenza-artificiale-diritti-umani.webp",
+      "hash": "e09aeb52b20950974c9784f8b4c149eea9178b54cd363d0fe61867ef0fa6a5af",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "intelligenza-artificiale-diritti-umani",
+          "category": "novita",
+          "date": "2026-10-07T15:29:13.411Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lista-sanzioni-sesam-svizzera": {
+      "cover": "/images/blog/article-lista-sanzioni-sesam-svizzera.webp",
+      "hash": "d936640ee18672b8e43b2199cd55356a7da77d3d901d2c0c07f4e59c36d25766",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lista-sanzioni-sesam-svizzera",
+          "category": "novita",
+          "date": "2026-10-07T18:29:11.427Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-riserve-valutarie-settembre-stabili": {
+      "cover": "/images/blog/article-riserve-valutarie-settembre-stabili.webp",
+      "hash": "fef50fa9d79eaa02ddc9d9952f4657415a04d265595930585e48d4c21027a7f2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "riserve-valutarie-settembre-stabili",
+          "category": "novita",
+          "date": "2026-10-07T12:36:56.447Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra": {
+      "cover": "/images/blog/article-tamedia-41-licenziamenti-13-a-losanna-e-ginevra.webp",
+      "hash": "8a46c2d25de0aadef9a8fda12a8627fd6437efd0fb873dd6805d3940b40c3dc4",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "tamedia-41-licenziamenti-13-a-losanna-e-ginevra",
+          "category": "novita",
+          "date": "2026-10-07T19:46:58.761Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
