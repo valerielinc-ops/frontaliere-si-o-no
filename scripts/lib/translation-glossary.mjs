@@ -963,7 +963,16 @@ function scanMarkdownLink(context, start) {
  */
 function scanReferenceDestination(text, start, lineEnd) {
   let index = start;
-  while (index < lineEnd && !isHorizontalWhitespace(text[index])) index += 1;
+  while (index < lineEnd) {
+    if (isHorizontalWhitespace(text[index])) break;
+    // A backslash escapes a delimiter, never a blank: the destination still
+    // ends at the next space.
+    if (text[index] === '\\' && index + 1 < lineEnd && !isHorizontalWhitespace(text[index + 1])) {
+      index += 2;
+      continue;
+    }
+    index += 1;
+  }
   return index > start ? index : -1;
 }
 
