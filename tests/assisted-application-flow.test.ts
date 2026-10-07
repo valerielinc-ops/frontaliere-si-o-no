@@ -13,6 +13,7 @@ const {
   evaluateRedFlags,
   isTransientRunError,
   transition,
+  roundWasSent,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
 
@@ -352,6 +353,37 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'whatsapp' }]);
   });
 
+  // A real order of 2026-10-07: taken over while in the owner's review, «Riprova l'invio automatico» sent
+  // its draft to the employer's portal, never seen by the candidate.
+  it('lets the robot send again only a round that reached its sending, never a draft the candidate has not approved', () => {
+    const roundDraft = { ...cleanDraft, round: 2 };
+    const retry = (flow: Record<string, unknown>) => transition(flow, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
+    // Taken over from the owner's review: the last run asked for was the draft.
+    const paused = transition({ state: 'owner_review', round: 2 }, { type: 'owner_takeover' }, { draft: roundDraft, nowMs: T0 });
+    expect(paused.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['owner'] });
+    const drafted = { mode: 'draft', round: 2, attempts: 1 };
+    expect(retry({ ...paused.flow, dispatch: drafted })).toMatchObject({ ignored: 'not_approved', effects: [] });
+    // Rejected for the third time, or handed to the candidate from there: still no approval.
+    expect(retry({ state: 'owner_takeover', round: 2, heldBy: ['max_rounds'], dispatch: drafted }).ignored).toBe('not_approved');
+    expect(retry({ state: 'candidate_handoff', round: 2, heldBy: ['owner_handoff'], dispatch: drafted }).ignored).toBe('not_approved');
+    // The sending of an earlier round approves nothing of this one; a flow without any dispatch neither.
+    expect(retry({ state: 'owner_takeover', round: 2, heldBy: ['owner'], dispatch: { mode: 'submit', round: 1, attempts: 1 } }).ignored).toBe('not_approved');
+    expect(retry({ state: 'owner_takeover', round: 2, heldBy: ['owner'] }).ignored).toBe('not_approved');
+    // The round the candidate approved, stopped at the portal: the robot may try again.
+    const sent = retry({ state: 'owner_takeover', round: 2, heldBy: ['portal:account'], dispatch: { mode: 'submit', round: 2, attempts: 1 } });
+    expect(sent.flow.state).toBe('submitting');
+    expect(sent.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+    // What the queue is told (roundSent): the same rule; a dispatch written before its round was is the current one's.
+    expect(roundWasSent({ round: 2, dispatch: { mode: 'submit', round: 2 } })).toBe(true);
+    expect(roundWasSent({ round: 2, dispatch: { mode: 'submit' } })).toBe(true);
+    expect(roundWasSent({ round: 2, dispatch: drafted })).toBe(false);
+    expect(roundWasSent({ round: 2, dispatch: { mode: 'submit', round: 1 } })).toBe(false);
+    expect(roundWasSent({ round: 1 })).toBe(false);
+    expect(roundWasSent(null)).toBe(false);
+    // The way on for a round that was not approved: back to the review, where the clocks and the candidate decide.
+    expect(transition({ ...paused.flow, dispatch: drafted }, { type: 'owner_resume' }, { draft: roundDraft, nowMs: T0 }).flow).toMatchObject({ state: 'owner_review', deadlineAt: T0 + 60 * 60_000 });
+  });
+
   // Owner decision 2026-10-01 (giro di prova su JOIN): the candidate paid not to apply by hand.
   it('sends a portal the robot could not finish to Valerie, who retries it or chooses to hand it over', () => {
     const roundDraft = { ...cleanDraft, round: 1 };
@@ -359,11 +391,14 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
     expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], reminderAt: null });
     expect(step.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha', stage: 'submit', attempts: 1 }]);
 
-    const retried = transition(step.flow, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
+    // The stored flow keeps the dispatch of its sending (assistedApplicationAutomation.js merges every transition
+    // into it): that is what says the candidate approved the round.
+    const stopped = { ...step.flow, dispatch: { mode: 'submit', attempts: 1 } };
+    const retried = transition(stopped, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
     expect(retried.flow.state).toBe('submitting');
     expect(retried.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
     // Never without the approved draft of the round.
-    expect(transition(step.flow, { type: 'owner_retry_submit' }, { draft: { ...cleanDraft, round: 0 }, nowMs: T0 }).ignored).toBe('no_approved_draft');
+    expect(transition(stopped, { type: 'owner_retry_submit' }, { draft: { ...cleanDraft, round: 0 }, nowMs: T0 }).ignored).toBe('no_approved_draft');
 
     step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['owner_handoff'], reminderAt: T0 + 24 * 60 * 60_000 });

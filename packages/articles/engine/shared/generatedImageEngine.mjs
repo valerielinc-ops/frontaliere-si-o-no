@@ -22,23 +22,59 @@ import {
   normalizeGeneratedImageSpec,
   GENERATED_IMAGE_CREDIT,
   GENERATED_IMAGE_DEFAULT_FORMAT,
+  GENERATED_IMAGE_KIND,
   GENERATED_IMAGE_LICENSE,
   GENERATED_IMAGE_LICENSE_URLS,
   GENERATED_IMAGE_MAX_BYTES,
   GENERATED_IMAGE_POLICY,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  LICENSED_PHOTO_KIND,
+  LICENSED_PHOTO_LICENSES,
+  LICENSED_PHOTO_LICENSE_URLS,
+  LICENSED_PHOTO_PROVIDERS,
+  LICENSED_PHOTO_RESTRICTIONS,
+  IMAGE_PROVIDERS,
   generatedImagePathForScope,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
-import { eventImageLibrarySlots } from './eventImageLibrary.mjs';
+import { eventImageLibrarySlots, EVENT_IMAGE_LIBRARY_MAX_VARIANTS } from './eventImageLibrary.mjs';
 
 export const CODEX_IMAGE_MODEL = 'gpt-image-2.5';
 export const CODEX_IMAGE_EXECUTOR_MODEL = process.env.CODEX_IMAGE_EXECUTOR_MODEL || 'gpt-5.6-luna';
 export const GEMINI_IMAGE_MODEL = 'gemini-3.1-flash-image';
+export const FAL_IMAGE_MODEL = 'fal-ai/flux/schnell';
+export const TOGETHER_IMAGE_MODEL = 'black-forest-labs/FLUX.1-schnell-Free';
+export const POLLINATIONS_IMAGE_MODEL = 'flux';
+export const DEFAULT_GENERATION_PROVIDER_CHAIN = Object.freeze([
+  'openai-codex',
+  'gemini',
+  'fal',
+  'together',
+  'pollinations',
+]);
+export const DEFAULT_PHOTO_PROVIDER_CHAIN = Object.freeze([
+  'wikimedia',
+  'pexels',
+  'pixabay',
+  ...DEFAULT_GENERATION_PROVIDER_CHAIN,
+]);
 export const OPENAI_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS['openai-codex'];
 export const GEMINI_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.gemini;
+export const FAL_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.fal;
+export const TOGETHER_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.together;
+export const POLLINATIONS_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.pollinations;
 export const DEFAULT_IMAGE_TIMEOUT_MS = 10 * 60 * 1000;
+export const DEFAULT_PROVIDER_TIMEOUTS = Object.freeze({
+  'openai-codex': DEFAULT_IMAGE_TIMEOUT_MS,
+  gemini: 120_000,
+  fal: 120_000,
+  together: 120_000,
+  pollinations: 120_000,
+  wikimedia: 45_000,
+  pexels: 45_000,
+  pixabay: 45_000,
+});
 export const MAX_LIBRARY_GENERATIONS = 150;
 
 function deadlineExpired(deadlineAt) {
@@ -134,13 +170,42 @@ export function extractGeminiImageData(response) {
   return String(imageData).replace(/^data:[^;]+;base64,/i, '');
 }
 
-/** CI's broker lane is an optional capability; do not spend a second long
- * image request when its attested runner cannot produce an image. Direct
- * local/host execution keeps the historical Codex retry. */
-export function imageProviderSequence({ broker = Boolean(process.env.CODEX_AUTH_BROKER_SOCKET) } = {}) {
-  return broker
-    ? ['openai-codex', 'gemini']
-    : ['openai-codex', 'openai-codex', 'gemini'];
+function normalizeProviderList(value) {
+  const values = Array.isArray(value) ? value : String(value || '').split(/[,\s]+/);
+  return [...new Set(values.map((item) => String(item).trim().toLowerCase()).filter((item) => IMAGE_PROVIDERS.includes(item)))];
+}
+
+/** Return the one deterministic chain used by every caller. An explicit
+ * provider or chain is still bounded to the allowlisted providers; `auto`
+ * uses real photos first only when the caller asks for `kind: photo`. */
+export function imageProviderSequence({ kind = GENERATED_IMAGE_KIND, provider = 'auto', chain, providers } = {}) {
+  const requested = providers || chain || (provider !== 'auto' ? provider : '');
+  const explicit = normalizeProviderList(requested);
+  if (explicit.length) return explicit;
+  return [...(kind === LICENSED_PHOTO_KIND ? DEFAULT_PHOTO_PROVIDER_CHAIN : DEFAULT_GENERATION_PROVIDER_CHAIN)];
+}
+
+export function providerConfiguration(provider, env = process.env) {
+  const keyByProvider = {
+    gemini: 'GEMINI_API_KEY',
+    fal: 'FAL_KEY',
+    together: 'TOGETHER_API_KEY',
+    pollinations: 'POLLINATIONS_API_KEY',
+    pexels: 'PEXELS_API_KEY',
+    pixabay: 'PIXABAY_API_KEY',
+  };
+  const key = keyByProvider[provider];
+  if (!key) return { configured: true, reason: '' };
+  return String(env[key] || '').trim()
+    ? { configured: true, reason: '' }
+    : { configured: false, reason: `missing-key:${key}` };
+}
+
+export function providerTimeoutMs(provider, override) {
+  const value = typeof override === 'object' ? override?.[provider] : override;
+  const parsed = Number(value);
+  if (Number.isFinite(parsed) && parsed > 0) return Math.floor(parsed);
+  return DEFAULT_PROVIDER_TIMEOUTS[provider] || DEFAULT_IMAGE_TIMEOUT_MS;
 }
 
 function parseThreadId(jsonl) {
@@ -345,19 +410,337 @@ async function runGeminiImage(prompt, destination, { timeoutMs = 120_000 } = {})
   }
 }
 
-async function runGeminiVision(filePath, { timeoutMs = 120_000 } = {}) {
+export function extractTogetherImageData(response) {
+  const item = Array.isArray(response?.data) ? response.data[0] : null;
+  const encoded = item?.b64_json || item?.base64 || response?.b64_json;
+  if (typeof encoded === 'string' && encoded.trim()) return encoded.replace(/^data:[^;]+;base64,/i, '');
+  return null;
+}
+
+export function extractFalImageData(response) {
+  const item = Array.isArray(response?.images) ? response.images[0] : null;
+  const encoded = item?.b64_json || item?.base64 || response?.data?.[0]?.b64_json;
+  if (typeof encoded === 'string' && encoded.trim()) return encoded.replace(/^data:[^;]+;base64,/i, '');
+  const url = item?.url || response?.data?.[0]?.url;
+  if (typeof url !== 'string' || !url.trim()) return null;
+  return url.replace(/^data:[^;]+;base64,/i, '');
+}
+
+async function downloadImageToFile(url, destination, { provider, timeoutMs, headers = {} } = {}) {
+  const response = await fetch(url, {
+    headers,
+    redirect: 'follow',
+    signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))),
+  });
+  if (!response.ok) throw new Error(formatProviderHttpError(provider, response.status, await response.text()));
+  const contentType = String(response.headers.get('content-type') || '').toLowerCase();
+  if (!contentType.startsWith('image/')) throw new Error(`${provider} returned a non-image response (${contentType || 'unknown content type'})`);
+  fs.writeFileSync(destination, Buffer.from(await response.arrayBuffer()), { mode: 0o600 });
+  return { imagePath: destination, contentType };
+}
+
+async function runTogetherImage(prompt, destination, { timeoutMs = 120_000 } = {}) {
+  const apiKey = String(process.env.TOGETHER_API_KEY || '').trim();
+  if (!apiKey) throw new Error('TOGETHER_API_KEY is not configured');
+  const response = await fetch('https://api.together.xyz/v1/images/generations', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))),
+    body: JSON.stringify({
+      model: TOGETHER_IMAGE_MODEL,
+      prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
+      width: 1280,
+      height: 720,
+      steps: 4,
+      n: 1,
+      response_format: 'b64_json',
+    }),
+  });
+  if (!response.ok) throw new Error(formatProviderHttpError('Together', response.status, await response.text()));
+  const json = await response.json();
+  const encoded = extractTogetherImageData(json);
+  if (encoded) {
+    fs.writeFileSync(destination, Buffer.from(encoded, 'base64'), { mode: 0o600 });
+    return { imagePath: destination, model: TOGETHER_IMAGE_MODEL };
+  }
+  const url = json?.data?.[0]?.url;
+  if (url) return downloadImageToFile(url, destination, { provider: 'Together', timeoutMs });
+  throw new Error('Together returned no image data');
+}
+
+async function runFalImage(prompt, destination, { timeoutMs = 120_000 } = {}) {
+  const apiKey = String(process.env.FAL_KEY || '').trim();
+  if (!apiKey) throw new Error('FAL_KEY is not configured');
+  const response = await fetch('https://fal.run/fal-ai/flux/schnell', {
+    method: 'POST',
+    headers: { Authorization: `Key ${apiKey}`, 'Content-Type': 'application/json' },
+    signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))),
+    body: JSON.stringify({
+      prompt: prompt.replace(/\n/g, ' ').slice(0, 800),
+      image_size: 'landscape_16_9',
+      num_inference_steps: 4,
+      num_images: 1,
+    }),
+  });
+  if (!response.ok) throw new Error(formatProviderHttpError('Fal', response.status, await response.text()));
+  const json = await response.json();
+  const image = extractFalImageData(json);
+  if (!image) throw new Error('Fal returned no image data');
+  if (/^https:\/\//i.test(image)) return downloadImageToFile(image, destination, { provider: 'Fal', timeoutMs });
+  fs.writeFileSync(destination, Buffer.from(image, 'base64'), { mode: 0o600 });
+  return { imagePath: destination, model: FAL_IMAGE_MODEL };
+}
+
+async function runPollinationsImage(prompt, destination, { timeoutMs = 120_000, seed = 1 } = {}) {
+  const encodedPrompt = encodeURIComponent(prompt.replace(/\n/g, ' ').slice(0, 800));
+  const url = `https://gen.pollinations.ai/image/${encodedPrompt}?width=1280&height=720&model=${POLLINATIONS_IMAGE_MODEL}&nologo=true&seed=${Math.abs(Number(seed) || 1)}`;
+  const apiKey = String(process.env.POLLINATIONS_API_KEY || '').trim();
+  if (!apiKey) throw new Error('POLLINATIONS_API_KEY is not configured');
+  const result = await downloadImageToFile(url, destination, {
+    provider: 'Pollinations',
+    timeoutMs,
+    headers: { Authorization: `Bearer ${apiKey}` },
+  });
+  return { ...result, model: POLLINATIONS_IMAGE_MODEL };
+}
+
+function stripMarkup(value) {
+  return String(value || '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, '$2')
+    .replace(/\[\[([^\]]+)\]\]/g, '$1')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function positiveDimension(value) {
+  const parsed = Number(value);
+  return Number.isInteger(parsed) && parsed > 0 ? parsed : null;
+}
+
+function canonicalPhotoLicense(provider, licenseText, licenseUrl) {
+  const text = stripMarkup(licenseText);
+  const lower = text.toLowerCase();
+  if (provider === 'wikimedia') {
+    if (/cc0|creative commons zero/.test(lower)) {
+      return { name: 'CC0', family: 'cc0', url: /^https:\/\//i.test(licenseUrl) ? licenseUrl : 'https://creativecommons.org/publicdomain/zero/1.0/' };
+    }
+    if (/public\s*domain|publicdomain/.test(lower)) {
+      return { name: 'Public domain', family: 'pd', url: /^https:\/\//i.test(licenseUrl) ? licenseUrl : 'https://creativecommons.org/publicdomain/mark/1.0/' };
+    }
+    if (/cc\s*by-sa\b/.test(lower) && !/\b(?:nc|nd)\b/.test(lower)) {
+      return { name: text || 'CC BY-SA', family: 'cc-by-sa', url: /^https:\/\//i.test(licenseUrl) ? licenseUrl : 'https://creativecommons.org/licenses/by-sa/4.0/' };
+    }
+    if (/cc\s*by\b/.test(lower) && !/\b(?:nc|nd)\b/.test(lower)) {
+      return { name: text || 'CC BY', family: 'cc-by', url: /^https:\/\//i.test(licenseUrl) ? licenseUrl : 'https://creativecommons.org/licenses/by/4.0/' };
+    }
+    return null;
+  }
+  if (provider === 'pexels') return { name: 'Pexels License', family: 'pexels', url: LICENSED_PHOTO_LICENSE_URLS.pexels };
+  if (provider === 'pixabay') return { name: 'Pixabay Content License', family: 'pixabay', url: LICENSED_PHOTO_LICENSE_URLS.pixabay };
+  return null;
+}
+
+/** Verify Wikimedia's extmetadata instead of trusting a search result title. */
+export function verifyWikimediaExtmetadata(page) {
+  const info = page?.imageinfo?.[0];
+  const metadata = info?.extmetadata;
+  if (!info || !metadata || typeof metadata !== 'object') return null;
+  const title = String(page.title || '');
+  const derivedPageUrl = title
+    ? `https://commons.wikimedia.org/wiki/${encodeURIComponent(title.replace(/\s+/g, '_')).replace(/%3A/gi, ':')}`
+    : '';
+  const pageUrl = String(page.fullurl || derivedPageUrl);
+  const sourceImageUrl = String(info.thumburl || info.url || '');
+  if (!/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(pageUrl)) return null;
+  if (!/^https:\/\//i.test(sourceImageUrl)) return null;
+  const mime = String(info.mime || '').toLowerCase();
+  if (!['image/jpeg', 'image/png', 'image/webp'].includes(mime)) return null;
+  const license = canonicalPhotoLicense(
+    'wikimedia',
+    metadata.LicenseShortName?.value || metadata.UsageTerms?.value,
+    metadata.LicenseUrl?.value,
+  );
+  const author = stripMarkup(metadata.Artist?.value || metadata.Credit?.value);
+  if (!license || !author) return null;
+  const authorUrl = /^https:\/\//i.test(String(metadata.Artist?.source || '')) ? metadata.Artist.source : undefined;
+  return {
+    license: license.name,
+    licenseFamily: license.family,
+    licenseUrl: license.url,
+    author: { name: author, ...(authorUrl ? { url: authorUrl } : {}) },
+    sourcePageUrl: pageUrl,
+    sourceImageUrl,
+    width: positiveDimension(info.width),
+    height: positiveDimension(info.height),
+    copyrightNotice: license.family === 'pd' || license.family === 'cc0' ? license.name : `© ${author}`,
+    acquireLicensePage: pageUrl,
+    credit: `${author} · ${license.name}`,
+  };
+}
+
+export function extractPexelsPhoto(response) {
+  const photo = Array.isArray(response?.photos) ? response.photos[0] : null;
+  if (!photo?.photographer || !photo?.url) return null;
+  const imageUrl = photo.src?.large2x || photo.src?.large || photo.src?.original;
+  if (!imageUrl) return null;
+  return {
+    license: 'Pexels License',
+    licenseFamily: 'pexels',
+    licenseUrl: LICENSED_PHOTO_LICENSE_URLS.pexels,
+    author: { name: String(photo.photographer), ...(photo.photographer_url ? { url: photo.photographer_url } : {}) },
+    sourcePageUrl: String(photo.url),
+    sourceImageUrl: String(imageUrl),
+    width: positiveDimension(photo.width),
+    height: positiveDimension(photo.height),
+    copyrightNotice: `© ${photo.photographer}`,
+    acquireLicensePage: String(photo.url),
+    credit: `${photo.photographer} · Pexels`,
+  };
+}
+
+export function pixabayAuthorProfileUrl(photo) {
+  const user = typeof photo?.user === 'string' ? photo.user.trim() : '';
+  const userId = Number(photo?.user_id);
+  if (!user || !Number.isInteger(userId) || userId <= 0) return undefined;
+  return `https://pixabay.com/users/${encodeURIComponent(user)}-${userId}/`;
+}
+
+export function extractPixabayPhoto(response) {
+  const photo = Array.isArray(response?.hits) ? response.hits[0] : null;
+  const imageUrl = photo?.largeImageURL || photo?.webformatURL;
+  if (!photo?.user || !photo?.pageURL || !imageUrl) return null;
+  const authorUrl = pixabayAuthorProfileUrl(photo);
+  return {
+    license: 'Pixabay Content License',
+    licenseFamily: 'pixabay',
+    licenseUrl: LICENSED_PHOTO_LICENSE_URLS.pixabay,
+    author: { name: String(photo.user), ...(authorUrl ? { url: authorUrl } : {}) },
+    sourcePageUrl: String(photo.pageURL),
+    sourceImageUrl: String(imageUrl),
+    width: positiveDimension(photo.imageWidth),
+    height: positiveDimension(photo.imageHeight),
+    copyrightNotice: `© ${photo.user}`,
+    acquireLicensePage: String(photo.pageURL),
+    credit: `${photo.user} · Pixabay`,
+  };
+}
+
+function photoQuery(spec) {
+  const area = String(spec.area || '').toLowerCase();
+  const placeQuery = area.includes('lagh') || area.includes('lake') || area.includes('lago')
+    ? 'Lake Lugano Switzerland landscape'
+    : area.includes('alp') || area.includes('montagn')
+      ? 'Swiss Alps mountain landscape'
+      : area.includes('urban') || area.includes('urbana') || area.includes('citt')
+        ? 'Lugano city view'
+        : area.includes('ticino') || area.includes('confine') || area.includes('lugan')
+          ? 'Lugano Ticino Switzerland landscape'
+          : '';
+  return placeQuery || 'Ticino Switzerland landscape';
+}
+
+function wikimediaSearchQueries(spec) {
+  const area = String(spec.area || '').toLowerCase();
+  const fallback = area.includes('lagh') || area.includes('lake') || area.includes('lago')
+    ? 'Lugano lake Switzerland'
+    : area.includes('alp') || area.includes('montagn')
+      ? 'Swiss Alps landscape'
+      : area.includes('urban') || area.includes('urbana') || area.includes('citt')
+        ? 'Lugano city view'
+        : 'Lugano Ticino Switzerland';
+  return [...new Set([photoQuery(spec), fallback, 'Lugano'].filter(Boolean))];
+}
+
+async function runWikimediaPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+  const userAgent = { 'User-Agent': 'FrontaliereImageEngine/1.0 (https://frontaliereticino.ch/)' };
+  const providerDeadline = Date.now() + Math.max(1, Math.floor(timeoutMs));
+  const remainingTimeout = () => Math.max(1, providerDeadline - Date.now());
+  let lastError = '';
+  for (const search of wikimediaSearchQueries(spec)) {
+    const query = encodeURIComponent(search);
+    const endpoint = `https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrsearch=${query}&gsrnamespace=6&gsrlimit=12&prop=imageinfo&inprop=url&iiprop=url|size|mime|extmetadata&iiurlwidth=1600&format=json`;
+    const response = await fetch(endpoint, {
+      headers: userAgent,
+      signal: AbortSignal.timeout(remainingTimeout()),
+    });
+    if (!response.ok) throw new Error(formatProviderHttpError('Wikimedia', response.status, await response.text()));
+    const json = await response.json();
+    if (json?.error) {
+      lastError = `Wikimedia API error: ${String(json.error.info || json.error.code || 'unknown error')}`;
+      continue;
+    }
+    const pages = Object.values(json?.query?.pages || {})
+      .sort((a, b) => Number(a.pageid || 0) - Number(b.pageid || 0));
+    for (const page of pages) {
+      const metadata = verifyWikimediaExtmetadata(page);
+      if (!metadata) continue;
+      try {
+        await downloadImageToFile(metadata.sourceImageUrl, destination, {
+          provider: 'Wikimedia',
+          timeoutMs: remainingTimeout(),
+          headers: userAgent,
+        });
+        return { imagePath: destination, model: 'Wikimedia Commons file mirror', photo: metadata };
+      } catch (error) {
+        // A licensed metadata hit with a broken CDN URL is not a usable record;
+        // continue to the next verified file rather than downgrading the gate.
+        lastError = summarizeProviderErrorBody(error?.message || error);
+      }
+    }
+  }
+  throw new Error(lastError || 'Wikimedia returned no image with a verified CC0/public-domain/CC BY/CC BY-SA licence');
+}
+
+async function runPexelsPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+  const apiKey = String(process.env.PEXELS_API_KEY || '').trim();
+  if (!apiKey) throw new Error('PEXELS_API_KEY is not configured');
+  const endpoint = `https://api.pexels.com/v1/search?query=${encodeURIComponent(photoQuery(spec))}&orientation=landscape&size=large&per_page=20`;
+  const response = await fetch(endpoint, {
+    headers: { Authorization: apiKey },
+    signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))),
+  });
+  if (!response.ok) throw new Error(formatProviderHttpError('Pexels', response.status, await response.text()));
+  const json = await response.json();
+  const photo = extractPexelsPhoto(json);
+  if (!photo) throw new Error('Pexels returned no photo with photographer and source page');
+  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pexels', timeoutMs });
+  return { imagePath: destination, model: 'Pexels photo search', photo };
+}
+
+async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000 } = {}) {
+  const apiKey = String(process.env.PIXABAY_API_KEY || '').trim();
+  if (!apiKey) throw new Error('PIXABAY_API_KEY is not configured');
+  const endpoint = `https://pixabay.com/api/?key=${encodeURIComponent(apiKey)}&q=${encodeURIComponent(photoQuery(spec))}&image_type=photo&orientation=horizontal&per_page=20&min_width=1280&safesearch=true`;
+  const response = await fetch(endpoint, { signal: AbortSignal.timeout(Math.max(1, Math.floor(timeoutMs))) });
+  if (!response.ok) throw new Error(formatProviderHttpError('Pixabay', response.status, await response.text()));
+  const json = await response.json();
+  const photo = extractPixabayPhoto(json);
+  if (!photo) throw new Error('Pixabay returned no photo with author and source page');
+  await downloadImageToFile(photo.sourceImageUrl, destination, { provider: 'Pixabay', timeoutMs });
+  return { imagePath: destination, model: 'Pixabay photo search', photo };
+}
+
+async function runGeminiVision(filePath, { timeoutMs = 120_000, kind = GENERATED_IMAGE_KIND } = {}) {
   const apiKey = String(process.env.GEMINI_API_KEY || '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY is not configured for the vision fallback');
   const image = fs.readFileSync(filePath).toString('base64');
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
     'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, looks_like_specific_real_event and notes.',
-    'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
-    'Mark any readable or decorative lettering, signage, watermark or signature as contains_text=true.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'This is a real licensed photo candidate; a real place is allowed, but reject recognizable people in the foreground and logos or brands.'
+      : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'Mark contains_text only when present; it is not by itself a rejection for a licensed photo.'
+      : 'Mark any readable or decorative lettering, signage, watermark or signature as contains_text=true.',
     'Mark any logo, brand or trademark as contains_logo=true.',
     'Mark any recognizable human face or public figure as contains_recognizable_face=true.',
     'Mark a documentary/news image of a specific real event as looks_like_specific_real_event=true.',
-    `Policy: ${GENERATED_IMAGE_POLICY.join(' ')}`,
+    `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), Math.max(1, Math.floor(timeoutMs)));
@@ -391,9 +774,13 @@ async function runGeminiVision(filePath, { timeoutMs = 120_000 } = {}) {
   }
 }
 
-function xmpFor({ title, provider, model }) {
+function xmpFor({ title, provider, model, kind = GENERATED_IMAGE_KIND, licenseUrl = '', credit = '', author, sourcePageUrl = '' }) {
   const digitalSourceType = 'http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia';
   const escapeXml = (value) => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  if (kind === LICENSED_PHOTO_KIND) {
+    const authorName = author?.name || credit;
+    return `<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?>\n<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="frontaliereticino image engine">\n <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">\n  <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:xmpRights="http://ns.adobe.com/xap/1.0/rights/" photoshop:Credit="${escapeXml(credit)}" photoshop:Source="${escapeXml(sourcePageUrl)}" xmpRights:WebStatement="${escapeXml(licenseUrl)}">\n   <dc:title><rdf:Alt><rdf:li xml:lang="x-default">${escapeXml(title)}</rdf:li></rdf:Alt></dc:title>\n   <dc:creator><rdf:Seq><rdf:li>${escapeXml(authorName)}</rdf:li></rdf:Seq></dc:creator>\n   <dc:rights><rdf:Alt><rdf:li xml:lang="x-default">${escapeXml(licenseUrl)}</rdf:li></rdf:Alt></dc:rights>\n  </rdf:Description>\n </rdf:RDF>\n</x:xmpmeta>\n<?xpacket end="w"?>`;
+  }
   return `<?xpacket begin="\ufeff" id="W5M0MpCehiHzreSzNTczkc9d"?>\n<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="frontaliereticino image engine">\n <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">\n  <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:Iptc4xmpExt="http://iptc.org/std/Iptc4xmpExt/2008-02-29/" photoshop:Credit="${escapeXml(GENERATED_IMAGE_CREDIT)}" photoshop:Source="${escapeXml(provider)}" Iptc4xmpExt:DigitalSourceType="${digitalSourceType}">\n   <dc:title><rdf:Alt><rdf:li xml:lang="x-default">${escapeXml(title)}</rdf:li></rdf:Alt></dc:title>\n   <dc:creator><rdf:Seq><rdf:li>${escapeXml(GENERATED_IMAGE_CREDIT)}</rdf:li></rdf:Seq></dc:creator>\n   <dc:rights><rdf:Alt><rdf:li xml:lang="x-default">Generated media; ${escapeXml(model)}; provider terms apply.</rdf:li></rdf:Alt></dc:rights>\n  </rdf:Description>\n </rdf:RDF>\n</x:xmpmeta>\n<?xpacket end="w"?>`;
 }
 
@@ -405,7 +792,7 @@ async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
     const buffer = await sharp(rawPath, { failOn: 'none' })
       .rotate()
       .resize({ width: format.width, height: format.height, fit: 'cover', position: 'attention' })
-      .withXmp(xmpFor(metadata))
+      .withXmp(xmpFor({ ...metadata, kind: spec.kind }))
       .webp({ quality, effort: 6 })
       .toBuffer();
     lastBuffer = buffer;
@@ -417,17 +804,21 @@ async function normalizeToWebp(rawPath, outputPath, spec, metadata) {
   throw new Error(`WebP output remains above ${format.maxBytes} bytes (${lastBuffer?.byteLength || 0})`);
 }
 
-async function inspectWebp(filePath, expected) {
+async function inspectWebp(filePath, expected, xmpMetadata = {}) {
   const buffer = fs.readFileSync(filePath);
-  const metadata = await sharp(buffer).metadata();
-  if (metadata.format !== 'webp') throw new Error('normalized image is not WebP');
-  if (metadata.width !== expected.width || metadata.height !== expected.height) throw new Error('normalized image dimensions mismatch');
+  const imageMetadata = await sharp(buffer).metadata();
+  if (imageMetadata.format !== 'webp') throw new Error('normalized image is not WebP');
+  if (imageMetadata.width !== expected.width || imageMetadata.height !== expected.height) throw new Error('normalized image dimensions mismatch');
   if (buffer.byteLength > expected.maxBytes) throw new Error('normalized image exceeds byte limit');
   const bytes = buffer.toString('utf8');
-  if (!bytes.includes('trainedAlgorithmicMedia') || !bytes.includes(GENERATED_IMAGE_CREDIT)) {
+  if (expected.kind === LICENSED_PHOTO_KIND) {
+    if (!bytes.includes(String(xmpMetadata.licenseUrl || '')) || !bytes.includes(String(xmpMetadata.credit || '')) || bytes.includes('trainedAlgorithmicMedia')) {
+      throw new Error('XMP/IPTC licensed-photo marker is missing or contains a generated-media marker');
+    }
+  } else if (!bytes.includes('trainedAlgorithmicMedia') || !bytes.includes(GENERATED_IMAGE_CREDIT)) {
     throw new Error('XMP/IPTC generated-media marker is missing');
   }
-  return { buffer, metadata };
+  return { buffer, metadata: imageMetadata };
 }
 
 function parseVisionResult(text) {
@@ -440,16 +831,20 @@ function parseVisionResult(text) {
   throw new Error('vision verifier returned no JSON result');
 }
 
-export async function verifyGeneratedImage(filePath, { deadlineAt } = {}) {
+export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERATED_IMAGE_KIND } = {}) {
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
     'Return only the requested JSON object.',
-    'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
-    'contains_text is true for any readable or decorative lettering, signage, watermark or signature.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'This is a real licensed photo candidate; a real place is allowed, but recognizable foreground people and logos or brands are forbidden.'
+      : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
+    kind === LICENSED_PHOTO_KIND
+      ? 'contains_text may be true for a real photo and is not alone a rejection.'
+      : 'contains_text is true for any readable or decorative lettering, signage, watermark or signature.',
     'contains_logo is true for any logo, brand or trademark.',
     'contains_recognizable_face is true for any recognizable human face or public figure.',
     'looks_like_specific_real_event is true for a documentary/news photograph of a specific real event.',
-    `Policy: ${GENERATED_IMAGE_POLICY.join(' ')}`,
+    `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   let verdict;
   try {
@@ -467,27 +862,41 @@ export async function verifyGeneratedImage(filePath, { deadlineAt } = {}) {
     if (!String(process.env.GEMINI_API_KEY || '').trim()) throw codexError;
     verdict = await runGeminiVision(filePath, {
       timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
+      kind,
     });
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
-  if (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event) {
+  const rejected = kind === LICENSED_PHOTO_KIND
+    ? (!verdict.ok || verdict.contains_logo || verdict.contains_recognizable_face)
+    : (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event);
+  if (rejected) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
   }
   return verdict;
 }
 
 function providerRecordFields(provider) {
-  return provider === 'openai-codex'
-    ? { model: CODEX_IMAGE_MODEL, executorModel: CODEX_IMAGE_EXECUTOR_MODEL, licenseUrl: OPENAI_TERMS_URL }
-    : { model: GEMINI_IMAGE_MODEL, executorModel: GEMINI_IMAGE_MODEL, licenseUrl: GEMINI_TERMS_URL };
+  const generated = {
+    'openai-codex': { model: CODEX_IMAGE_MODEL, executorModel: CODEX_IMAGE_EXECUTOR_MODEL, licenseUrl: OPENAI_TERMS_URL },
+    gemini: { model: GEMINI_IMAGE_MODEL, executorModel: GEMINI_IMAGE_MODEL, licenseUrl: GEMINI_TERMS_URL },
+    fal: { model: FAL_IMAGE_MODEL, executorModel: FAL_IMAGE_MODEL, licenseUrl: FAL_TERMS_URL },
+    together: { model: TOGETHER_IMAGE_MODEL, executorModel: TOGETHER_IMAGE_MODEL, licenseUrl: TOGETHER_TERMS_URL },
+    pollinations: { model: POLLINATIONS_IMAGE_MODEL, executorModel: POLLINATIONS_IMAGE_MODEL, licenseUrl: POLLINATIONS_TERMS_URL },
+  };
+  return generated[provider] || null;
 }
 
 /** Generate, verify, convert and return `{ filePath, record }`. */
 export async function generateImageFromSpec(spec, {
   outputDir,
   assetId,
-  maxAttempts = 3,
+  maxAttempts,
   publishedImageUrl,
+  provider = 'auto',
+  chain,
+  providers,
+  providerTimeouts,
+  verifyImage = verifyGeneratedImage,
   onProviderAttempt,
   now = () => new Date(),
   deadlineAt,
@@ -498,57 +907,113 @@ export async function generateImageFromSpec(spec, {
   fs.mkdirSync(destinationDir, { recursive: true, mode: 0o700 });
   const finalPath = path.join(destinationDir, `${finalAssetId}.webp`);
   const variationBase = normalized.variant ? `variant ${normalized.variant}` : 'balanced composition';
-  const providers = imageProviderSequence();
+  const sequence = imageProviderSequence({ kind: normalized.kind, provider, chain, providers });
   const attemptLimit = Number.isInteger(maxAttempts) && maxAttempts > 0
-    ? Math.min(maxAttempts, providers.length)
-    : providers.length;
+    ? Math.min(maxAttempts, sequence.length)
+    : sequence.length;
   let lastError;
+  const failures = [];
   for (let attempt = 0; attempt < attemptLimit; attempt++) {
     assertBeforeDeadline(deadlineAt, 'image generation');
-    const provider = providers[attempt];
+    const selectedProvider = sequence[attempt];
+    const availability = providerConfiguration(selectedProvider);
+    if (!availability.configured) {
+      onProviderAttempt?.({ provider: selectedProvider, attempt: attempt + 1, assetId: finalAssetId, status: 'skipped', reason: availability.reason });
+      failures.push({ provider: selectedProvider, reason: availability.reason });
+      continue;
+    }
+    const isPhotoProvider = LICENSED_PHOTO_PROVIDERS.includes(selectedProvider);
+    const recordKind = isPhotoProvider ? LICENSED_PHOTO_KIND : GENERATED_IMAGE_KIND;
     const variation = attempt === 0 ? variationBase : `${variationBase}; safety revision ${attempt}`;
-    const prompt = buildGeneratedImagePrompt(normalized, { variation });
-    const promptHash = sha256(prompt);
+    const prompt = recordKind === GENERATED_IMAGE_KIND
+      ? buildGeneratedImagePrompt({ ...normalized, kind: GENERATED_IMAGE_KIND }, { variation })
+      : null;
+    const promptHash = prompt ? sha256(prompt) : undefined;
     const rawPath = path.join(destinationDir, `.${finalAssetId}.${attempt}.raw`);
-    onProviderAttempt?.({ provider, attempt: attempt + 1, assetId: finalAssetId });
+    onProviderAttempt?.({ provider: selectedProvider, attempt: attempt + 1, assetId: finalAssetId, status: 'started', kind: recordKind });
     try {
-      const providerInfo = providerRecordFields(provider);
-      if (provider === 'openai-codex') {
+      const timeoutMs = timeoutForDeadline(deadlineAt, providerTimeoutMs(selectedProvider, providerTimeouts));
+      let providerResult;
+      if (selectedProvider === 'openai-codex') {
         await runCodex({
           prompt,
           generate: true,
           imageOutputPath: rawPath,
-          timeoutMs: timeoutForDeadline(deadlineAt, DEFAULT_IMAGE_TIMEOUT_MS),
+          timeoutMs,
           deadlineAt,
         });
-      } else {
+        providerResult = { imagePath: rawPath, model: CODEX_IMAGE_MODEL };
+      } else if (selectedProvider === 'gemini') {
         await runGeminiImage(prompt, rawPath, {
-          timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
+          timeoutMs,
         });
+        providerResult = { imagePath: rawPath, model: GEMINI_IMAGE_MODEL };
+      } else if (selectedProvider === 'fal') {
+        providerResult = await runFalImage(prompt, rawPath, { timeoutMs });
+      } else if (selectedProvider === 'together') {
+        providerResult = await runTogetherImage(prompt, rawPath, { timeoutMs });
+      } else if (selectedProvider === 'pollinations') {
+        providerResult = await runPollinationsImage(prompt, rawPath, {
+          timeoutMs,
+          seed: sha256(`${finalAssetId}:${attempt}`).slice(0, 8),
+        });
+      } else if (selectedProvider === 'wikimedia') {
+        providerResult = await runWikimediaPhoto(normalized, rawPath, { timeoutMs });
+      } else if (selectedProvider === 'pexels') {
+        providerResult = await runPexelsPhoto(normalized, rawPath, { timeoutMs });
+      } else if (selectedProvider === 'pixabay') {
+        providerResult = await runPixabayPhoto(normalized, rawPath, { timeoutMs });
+      } else {
+        throw new Error(`Unsupported image provider: ${selectedProvider}`);
       }
       const generatedAt = now().toISOString();
       assertBeforeDeadline(deadlineAt, 'image normalization');
-      await normalizeToWebp(rawPath, finalPath, normalized, {
+      const photo = providerResult.photo || null;
+      const providerInfo = providerRecordFields(selectedProvider) || {
+        model: providerResult.model,
+        executorModel: providerResult.model,
+        licenseUrl: photo?.licenseUrl,
+      };
+      const normalizedForProvider = { ...normalized, kind: recordKind };
+      const xmpMetadata = {
         title: normalized.subject,
-        provider,
+        provider: selectedProvider,
         model: providerInfo.model,
-      });
-      const inspected = await inspectWebp(finalPath, normalized.format);
+        licenseUrl: photo?.licenseUrl || providerInfo.licenseUrl,
+        credit: photo?.credit || GENERATED_IMAGE_CREDIT,
+        author: photo?.author,
+        sourcePageUrl: photo?.sourcePageUrl,
+      };
+      await normalizeToWebp(rawPath, finalPath, normalizedForProvider, xmpMetadata);
+      const inspected = await inspectWebp(finalPath, { ...normalized.format, kind: recordKind }, xmpMetadata);
       assertBeforeDeadline(deadlineAt, 'image vision verification');
-      const vision = await verifyGeneratedImage(finalPath, { deadlineAt });
+      const vision = await verifyImage(finalPath, { deadlineAt, kind: recordKind });
       assertBeforeDeadline(deadlineAt, 'image record finalization');
       const verifiedAt = now().toISOString();
       const record = {
         schema: 1,
         assetId: finalAssetId,
-        provider,
+        kind: recordKind,
+        provider: selectedProvider,
         model: providerInfo.model,
         executorModel: providerInfo.executorModel,
-        promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
-        promptHash,
-        license: GENERATED_IMAGE_LICENSE,
-        licenseUrl: providerInfo.licenseUrl,
-        credit: GENERATED_IMAGE_CREDIT,
+        ...(recordKind === GENERATED_IMAGE_KIND ? {
+          promptVersion: GENERATED_IMAGE_PROMPT_VERSION,
+          promptHash,
+          license: GENERATED_IMAGE_LICENSE,
+          licenseUrl: providerInfo.licenseUrl,
+          credit: GENERATED_IMAGE_CREDIT,
+        } : {
+          license: photo.license,
+          licenseFamily: photo.licenseFamily,
+          licenseUrl: photo.licenseUrl,
+          credit: photo.credit,
+          author: photo.author,
+          sourcePageUrl: photo.sourcePageUrl,
+          sourceImageUrl: photo.sourceImageUrl,
+          copyrightNotice: photo.copyrightNotice,
+          acquireLicensePage: photo.acquireLicensePage,
+        }),
         sha256: sha256(inspected.buffer),
         bytes: inspected.buffer.byteLength,
         width: inspected.metadata.width,
@@ -556,7 +1021,7 @@ export async function generateImageFromSpec(spec, {
         format: 'webp',
         generatedAt,
         verifiedAt,
-        restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
+        restrictions: [...(recordKind === GENERATED_IMAGE_KIND ? GENERATED_IMAGE_RESTRICTIONS : LICENSED_PHOTO_RESTRICTIONS)],
         scope: normalized.scope,
         imageUrl: publishedImageUrl || generatedImagePathForScope(normalized.scope, finalAssetId),
         category: normalized.category,
@@ -571,12 +1036,15 @@ export async function generateImageFromSpec(spec, {
       return { filePath: finalPath, record, prompt };
     } catch (error) {
       lastError = error;
+      failures.push({ provider: selectedProvider, reason: summarizeProviderErrorBody(error?.message || error) });
       fs.rmSync(rawPath, { force: true });
       fs.rmSync(finalPath, { force: true });
       if (deadlineExpired(deadlineAt)) break;
     }
   }
-  throw new Error(`All image providers failed for ${finalAssetId}: ${lastError?.message || 'unknown error'}`);
+  const error = new Error(`All image providers failed for ${finalAssetId}: ${failures.map((item) => `${item.provider} (${item.reason})`).join('; ') || lastError?.message || 'unknown error'}`);
+  error.failures = failures;
+  throw error;
 }
 
 function readRegistry(registryPath) {
@@ -585,15 +1053,34 @@ function readRegistry(registryPath) {
   return { ...parsed, assets: Array.isArray(parsed.assets) ? parsed.assets : [] };
 }
 
-export async function generateEventImageLibrary({ registryPath, outputDir, limit = 20, onAssetGenerated } = {}) {
+export async function generateEventImageLibrary({
+  registryPath,
+  outputDir,
+  limit = 20,
+  provider = 'auto',
+  chain,
+  kind,
+  variants = EVENT_IMAGE_LIBRARY_MAX_VARIANTS,
+  onAssetGenerated,
+} = {}) {
   const boundedLimit = Math.min(MAX_LIBRARY_GENERATIONS, Math.max(0, Number(limit) || 0));
   const resolvedRegistryPath = path.resolve(registryPath || 'data/event-image-library.json');
   const resolvedOutputDir = path.resolve(outputDir || '.cache/event-image-library');
+  const firstRequestedProvider = String(chain || provider || '').split(/[,\s]+/)[0].trim().toLowerCase();
+  const resolvedKind = kind || (LICENSED_PHOTO_PROVIDERS.includes(firstRequestedProvider) ? LICENSED_PHOTO_KIND : GENERATED_IMAGE_KIND);
   const registry = readRegistry(resolvedRegistryPath);
   const assetsById = new Map(registry.assets.map((record) => [record.assetId, record]));
   const generated = [];
   let generationCalls = 0;
-  const providerCounts = { 'openai-codex': 0, gemini: 0 };
+  const providerCounts = Object.fromEntries(IMAGE_PROVIDERS.map((name) => [name, 0]));
+  const providerFailures = {};
+  const explicitProviderRequest = provider !== 'auto' || Boolean(chain);
+  const addProviderFailure = (providerName, reason) => {
+    providerFailures[providerName] = providerFailures[providerName] || [];
+    const entries = providerFailures[providerName];
+    const diagnostic = String(reason || 'provider failure');
+    if (!entries.includes(diagnostic) && entries.length < 5) entries.push(diagnostic);
+  };
   const persist = () => {
     if (registryPath === null) return;
     const partialAssets = [...assetsById.values()].sort((a, b) => String(a.assetId).localeCompare(String(b.assetId)));
@@ -608,40 +1095,66 @@ export async function generateEventImageLibrary({ registryPath, outputDir, limit
     fs.mkdirSync(path.dirname(resolvedRegistryPath), { recursive: true });
     fs.writeFileSync(resolvedRegistryPath, `${JSON.stringify(partial, null, 2)}\n`, 'utf8');
   };
-  for (const slot of eventImageLibrarySlots()) {
+  for (const slot of eventImageLibrarySlots({ variants })) {
     if (generated.length >= boundedLimit) break;
     const existing = assetsById.get(slot.assetId);
     // The registry is the source of truth for already-published slots. CI
     // deliberately starts with an empty local cache, so requiring a local
     // byte here would regenerate the first N assets on every weekly run.
     if (existing && validateGeneratedImageRecord(existing).valid) continue;
-    const result = await generateImageFromSpec({
-      scope: 'event-library',
-      subject: slot.subject,
-      area: slot.areaLabel,
-      season: slot.season,
-      category: slot.category,
-      variant: slot.variant,
-      assetId: slot.assetId,
-      format: GENERATED_IMAGE_DEFAULT_FORMAT,
-    }, {
-      outputDir: resolvedOutputDir,
-      assetId: slot.assetId,
-      onProviderAttempt: ({ provider }) => {
-        if (generationCalls >= MAX_LIBRARY_GENERATIONS) {
-          throw new Error(`event image generation budget exhausted at ${MAX_LIBRARY_GENERATIONS} provider attempts`);
-        }
-        generationCalls += 1;
-        providerCounts[provider] += 1;
-      },
-    });
-    // The prompt gets a human-readable area label; the registry keeps the
-    // canonical taxonomy key used by the deterministic selector.
-    result.record.area = slot.area;
-    assetsById.set(slot.assetId, result.record);
-    generated.push(result);
-    persist();
-    onAssetGenerated?.({ record: result.record, generatedCount: generated.length, providerCounts: { ...providerCounts } });
+    try {
+      const result = await generateImageFromSpec({
+        scope: 'event-library',
+        subject: slot.subject,
+        area: slot.areaLabel,
+        season: slot.season,
+        category: slot.category,
+        variant: slot.variant,
+        assetId: slot.assetId,
+        kind: resolvedKind,
+        format: GENERATED_IMAGE_DEFAULT_FORMAT,
+      }, {
+        outputDir: resolvedOutputDir,
+        assetId: slot.assetId,
+        provider,
+        chain,
+        onProviderAttempt: ({ provider: attemptedProvider, status = 'started', reason }) => {
+          if (status === 'skipped') {
+            addProviderFailure(attemptedProvider, reason || 'not configured');
+            return;
+          }
+          if (generationCalls >= MAX_LIBRARY_GENERATIONS) {
+            throw new Error(`event image generation budget exhausted at ${MAX_LIBRARY_GENERATIONS} provider attempts`);
+          }
+          generationCalls += 1;
+          providerCounts[attemptedProvider] += 1;
+        },
+      });
+      // The prompt gets a human-readable area label; the registry keeps the
+      // canonical taxonomy key used by the deterministic selector.
+      result.record.area = slot.area;
+      assetsById.set(slot.assetId, result.record);
+      generated.push(result);
+      persist();
+      onAssetGenerated?.({
+        record: result.record,
+        generatedCount: generated.length,
+        providerCounts: { ...providerCounts },
+        providerFailures: { ...providerFailures },
+      });
+    } catch (error) {
+      const failures = Array.isArray(error?.failures) && error.failures.length
+        ? error.failures
+        : [{ provider: firstRequestedProvider || 'auto', reason: summarizeProviderErrorBody(error?.message || error) }];
+      for (const failure of failures) {
+        const failureProvider = String(failure.provider || firstRequestedProvider || 'auto');
+        addProviderFailure(failureProvider, summarizeProviderErrorBody(failure.reason || error?.message || error));
+      }
+      // A provider outage must not prevent the remaining chain or other
+      // provider-specific runs from filling later slots.
+      if (String(error?.message || '').includes('generation budget exhausted')) break;
+      if (explicitProviderRequest) break;
+    }
   }
   const assets = [...assetsById.values()].sort((a, b) => String(a.assetId).localeCompare(String(b.assetId)));
   const output = {
@@ -653,5 +1166,5 @@ export async function generateEventImageLibrary({ registryPath, outputDir, limit
     assets,
   };
   persist();
-  return { registry: output, generated, generationCalls, providerCounts };
+  return { registry: output, generated, generationCalls, providerCounts, providerFailures };
 }

@@ -72,7 +72,16 @@ import { isSectionPagePath, parseSectionPagePath } from '../build-plugins/sectio
 import { isFiscalHubPath, parseFiscalHubPath, parseFiscalMunicipalityPath } from '../build-plugins/fiscalMunicipalityData';
 import { buildPharmacyPath, parsePharmacyRoute, type PharmacyPath } from './pharmacies/routePaths';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from './plateAuctions/paths';
-import { documentOwnedByCorpus, isCantonArticlePath } from './cantonArticlePaths';
+import {
+  documentOwnedByCorpus,
+  isCantonArticlePath,
+  parseCantonArticlePath,
+} from './cantonArticlePaths';
+import {
+  cantonSectionConfig,
+  isCantonArticleSection,
+  isLiveCantonArticleSectionCached,
+} from './runtimeArticleSections';
 import type { PlateVehicleType } from './plateAuctions/types';
 import {
   isFrenchBorderMunicipalityHubPath,
@@ -839,6 +848,7 @@ export const ALL_STRUMENTI_SUBTABS: string[] = ['car-cost', 'permit-compare'];
  * (#4974 item 3). Importers of this module are unaffected.
  */
 import type { BlogArticleId } from './blogArticleIds';
+import type { ArticleSection } from './articleSections';
 export type { BlogArticleId };
 
 export interface AppRoute {
@@ -861,7 +871,7 @@ export interface AppRoute {
  plateAuctionPage?: number;
  plateAuctionPlate?: string;
  plateAuctionVehicleType?: PlateVehicleType;
- blogArticle?: BlogArticleId;
+ blogArticle?: string;
  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
  blogSlug?: string;
  /**
@@ -870,11 +880,19 @@ export interface AppRoute {
   * mirror. Drives the sub-tab toggle, the index slug and the registry the
   * shared component reads. See `services/articleSections.ts`.
   */
- blogSection?: 'frontaliere' | 'svizzera';
+ blogSection?: ArticleSection;
  /** Selected svizzera-section article id (loosely typed; validated via REVERSE_SWISS). */
  swissArticle?: string;
  /** Unresolved svizzera article slug when swiss data hasn't loaded yet. */
  swissSlug?: string;
+ /** Selected canton-section article id (resolved from the corpus at runtime). */
+ cantonArticle?: string;
+ /** Unresolved canton article slug while the corpus map is loading. */
+ cantonSlug?: string;
+  /** One-based canton archive page; page 1 is the archive root. */
+  blogPage?: number;
+  /** True when the canton route is the `/tutti/` archive rather than landing. */
+  blogArchive?: boolean;
  /** SEO landing identifier for long-tail routes (e.g. /calcola-stipendio/stipendio-netto-80000-chf). */
  seoLanding?: SeoLandingId;
  /** Glossary term deep-link (e.g. /glossario/imposta-alla-fonte). */
@@ -1510,6 +1528,8 @@ const _runtimeReverseBlog: Partial<Record<Locale, Record<string, string>>> = {};
 const _runtimeBlogSlugs: Record<string, Partial<Record<Locale, string>>> = {};
 const _runtimeReverseSwiss: Partial<Record<Locale, Record<string, string>>> = {};
 const _runtimeSwissSlugs: Record<string, Partial<Record<Locale, string>>> = {};
+const _runtimeReverseCanton: Record<string, Partial<Record<Locale, Record<string, string>>>> = {};
+const _runtimeCantonSlugs: Record<string, Record<string, Partial<Record<Locale, string>>>> = {};
 
 function learnSlugs(
  reverse: Partial<Record<Locale, Record<string, string>>>,
@@ -1545,6 +1565,17 @@ export function learnRuntimeSwissSlugs(id: string, slugs: Partial<Record<Locale,
  learnSlugs(_runtimeReverseSwiss, _runtimeSwissSlugs, id, slugs);
 }
 
+/** Register an id ↔ localized slug pair for one corpus-owned canton section. */
+export function learnRuntimeCantonSlugs(
+ section: ArticleSection,
+ id: string,
+ slugs: Partial<Record<Locale, string>>,
+): void {
+ const reverse = _runtimeReverseCanton[section] ?? (_runtimeReverseCanton[section] = {});
+ const forward = _runtimeCantonSlugs[section] ?? (_runtimeCantonSlugs[section] = {});
+ learnSlugs(reverse, forward, id, slugs);
+}
+
 /** Resolve a blog slug to an article ID (returns undefined if data not loaded or slug unknown). */
 export function resolveBlogSlug(slug: string, locale: Locale): BlogArticleId | undefined {
  return (_reverseBlog?.[locale]?.[slug]
@@ -1571,6 +1602,11 @@ export function preloadSwissData(): Promise<void> {
 /** Resolve a svizzera article slug to its id (undefined if data not loaded or slug unknown). */
 export function resolveSwissSlug(slug: string, locale: Locale): string | undefined {
  return _reverseSwiss?.[locale]?.[slug] ?? _runtimeReverseSwiss[locale]?.[slug];
+}
+
+/** Resolve a runtime canton slug after the section's corpus map has loaded. */
+export function resolveCantonSlug(section: ArticleSection, slug: string, locale: Locale): string | undefined {
+ return _runtimeReverseCanton[section]?.[locale]?.[slug];
 }
 
 const REVERSE_CALCOLATORE = buildLocaleReverses(CALCOLATORE_SUB_TO_SLUG);
@@ -2668,16 +2704,31 @@ export function parsePath(pathname: string): ParseResult {
  // shorter: `/articoli-frontaliere/argomenti/` reads as `blogSlug:
  // 'argomenti'` exactly, so without this the page would 404 into the SPA's
  // deferred-article view after hydration even though the static HTML is there.
- // Canton article sections (piano «sezioni articoli per cantone», S2): pages
- // served by the CORPUS from R2, with no React view. Same slug trap as the
- // topic hubs below — the blog parser would read `/articoli-<cantone>/<x>/` as an
- // article slug or fall to notFoundPath, hiding the static HTML. Claimed only
- // when the booted document is corpus-owned (route-owner meta): a section that
- // is not live yet 404s, the 404 page restores the path on the homepage
- // document, and that must keep resolving to notFoundPath as before.
- if (isCantonArticlePath(pathname) && documentOwnedByCorpus()) {
-   return { route: { activeTab: 'blog', staticOverlay: true }, locale };
- }
+ // Canton article sections (piano «sezioni articoli per cantone», S2): the
+ // corpus still serves the initial HTML from R2, but landing/archive/article
+ // paths are hydrated into the shared React blog view. Topic hubs remain
+ // corpus-owned static overlays. A section that is not live yet 404s; the 404
+ // page restores the path on the homepage document, and that must keep
+ // resolving to notFoundPath as before.
+  const cantonPath = isCantonArticlePath(pathname) ? parseCantonArticlePath(pathname) : null;
+  if (cantonPath && (documentOwnedByCorpus() || isLiveCantonArticleSectionCached(cantonPath.section))) {
+    if (cantonPath.kind === 'topic') {
+      return {
+        route: { activeTab: 'blog', blogSection: cantonPath.section, staticOverlay: true },
+        locale,
+      };
+    }
+    return {
+      route: {
+       activeTab: 'blog',
+       blogSection: cantonPath.section,
+       ...(cantonPath.kind === 'article' && cantonPath.slug ? { cantonSlug: cantonPath.slug } : {}),
+       ...(cantonPath.kind === 'archive' ? { blogArchive: true } : {}),
+       ...(cantonPath.kind === 'archive' && cantonPath.page ? { blogPage: cantonPath.page } : {}),
+      },
+      locale,
+    };
+  }
 
  if (isTopicClusterHubPath(pathname) || isTopicIndexPath(pathname)) {
    const section =
@@ -3760,6 +3811,31 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  case 'morning':
  return finish(`${prefix}/${table.morning}${hashSuffix}`);
  case 'blog': {
+ // Canton sections are corpus-owned at build time but use this same SPA
+ // contract after hydration. The section core supplies localized hub/archive
+ // slugs; the runtime registry supplies which sections are live and the
+ // runtime slug map supplies per-article localized slugs.
+ if (route.blogSection && isCantonArticleSection(route.blogSection)) {
+  const cantonConfig = cantonSectionConfig(route.blogSection);
+  if (cantonConfig) {
+   const cantonHub = cantonConfig.indexSlug[lang];
+   const cantonBase = `${prefix}/${cantonHub}`;
+   if (route.cantonArticle) {
+    const slug = _runtimeCantonSlugs[route.blogSection]?.[route.cantonArticle]?.[lang] ?? route.cantonArticle;
+    return finish(`${cantonBase}/${slug}${hashSuffix}`);
+   }
+   if (route.cantonSlug) return finish(`${cantonBase}/${route.cantonSlug}${hashSuffix}`);
+   // Pagination from the live React landing promotes page 2+ to the
+   // corpus-owned `/tutti/page-N/` contract. A direct archive URL carries
+   // `blogArchive`; a soft navigation only needs the page number.
+   if (route.blogArchive || (route.blogPage && route.blogPage > 1)) {
+    const archiveSlug = ({ it: 'tutti', en: 'all', de: 'alle', fr: 'tous' } as const)[lang];
+    const page = route.blogPage && route.blogPage > 1 ? `/page-${route.blogPage}` : '';
+    return finish(`${cantonBase}/${archiveSlug}${page}${hashSuffix}`);
+   }
+   return finish(`${cantonBase}${hashSuffix}`);
+  }
+ }
  // Switzerland-wide (svizzera) mirror section.
  if (route.blogSection === 'svizzera') {
  const swissId = route.swissArticle;
@@ -3899,6 +3975,9 @@ export function getSeoSection(route: AppRoute): string {
  case 'profile':
  return 'dashboard';
  case 'blog':
+ if (route.blogSection && isCantonArticleSection(route.blogSection)) {
+  return route.cantonArticle ? `blog-${route.cantonArticle}` : 'blog';
+ }
  if (route.blogSection === 'svizzera') {
  return route.swissArticle ? `blog-${route.swissArticle}` : 'blog';
  }

@@ -135,8 +135,9 @@ describe('draft mode', () => {
       order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
       codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
-    // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras).
-    expect(codex).toHaveBeenCalledTimes(5);
+    // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras), and the one repair
+    // of the letter: the gate stops «7 anni» (below), so the texts are asked once more.
+    expect(codex).toHaveBeenCalledTimes(6);
     expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
     expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
     expect(draft.ats.original.structural.grade).toBeTruthy();
@@ -213,16 +214,151 @@ describe('draft mode', () => {
     const { draft: first } = await run(null);
     const reused = await run({ ...first, profile: { ...first.profile, fullName: '  Maria   Rossi  ' } });
     // Match, documents and tailored CV only: profile and requirements are reused.
-    expect(reused.calls).toBe(3);
+    // …and the one repair of the letter the gate stops («7 anni»), in every run of this fake.
+    expect(reused.calls).toBe(4);
     expect(reused.draft.profile.fullName).toBe('Maria Rossi');
     const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
     const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
-    expect(reread.calls).toBe(5);
+    expect(reread.calls).toBe(6);
     // A CV text read before a fix of the reading (2026-10-07: the boxes of a PDF glued together) is read again.
     expect(first.cvTextVersion).toBe(CV_TEXT_VERSION);
     const { cvTextVersion, ...unversioned } = first;
-    expect((await run(unversioned)).calls).toBe(5);
-    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(5);
+    expect((await run(unversioned)).calls).toBe(6);
+    expect((await run({ ...first, cvTextVersion: CV_TEXT_VERSION - 1 })).calls).toBe(6);
+  });
+
+  it('writes once more the texts the fact gate stops, told what the gate did not find, and keeps only a better version', async () => {
+    // A real order of 2026-10-07: every warning stopped the draft at the owner with no clock, and most were a
+    // rule of the prompt the model had missed (a job title translated). The gate stays as strict.
+    const LETTER = { salutation: 'Gentili Signore e Signori,', closing: 'Cordiali saluti' };
+    const documents = (paragraphs: string[]) => ({
+      coverLetter: { ...LETTER, paragraphs }, emailSubject: 'Candidatura infermiera', emailBody: 'in allegato CV e lettera.',
+      motivationShort: 'Mi motiva il lavoro di reparto.', whyCompany: 'Ospedale di riferimento.',
+    });
+    const backed = 'Dal 2018 al 2023 ho lavorato in un reparto da 24 letti e ridotto gli errori del 15%.';
+    const draftWith = async (repair: (request: any) => any) => {
+      const base = fakeCodex();
+      const codex = vi.fn(async (request: any) => (request.schema === DOCUMENTS_SCHEMA && request.prompt.includes('"factCheckFindings"') ? repair(request) : base(request)));
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      return { draft, letters: (codex.mock.calls as any[]).map(([request]) => request).filter((request) => request.schema === DOCUMENTS_SCHEMA) };
+    };
+
+    // The repair leaves the invented figure out: the draft no longer stops at the owner.
+    const fixed = await draftWith(() => documents([backed]));
+    expect(fixed.draft.factCheck).toMatchObject({ ok: true, unsupported: [] });
+    expect(fixed.draft.factRepair).toEqual({ before: 1, after: 0 });
+    expect(fixed.draft.coverLetter.text).not.toContain('7 anni');
+    expect(evaluateRedFlags(fixed.draft).owner).not.toContain('fact_check');
+    // Asked once, with the gate's own finding and a shorter time than a first writing; the first call has none.
+    expect(fixed.letters).toHaveLength(2);
+    expect(fixed.letters[0].prompt).not.toContain('"factCheckFindings"');
+    expect(fixed.letters[1].prompt).toContain('"factCheckFindings":[{"field":"coverLetter","kind":"number","token":"7"');
+    expect(fixed.letters[1].timeoutMs).toBeLessThan(fixed.letters[0].timeoutMs);
+    // The findings are no words of the candidate: they back no fact (flow.feedback would).
+    expect(fixed.draft.factSources.answers).not.toContain('7');
+
+    // A repair that is no better (the same figure, or one more) leaves the first version and its warning.
+    const same = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza.']));
+    expect(same.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(same.draft.factCheck.unsupported.map((item: any) => item.token)).toEqual(['7']);
+    const worse = await draftWith(() => documents([backed, 'Ho 7 anni di esperienza con 99 colleghi.']));
+    expect(worse.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(worse.draft.coverLetter.text).not.toContain('99 colleghi');
+    expect(evaluateRedFlags(worse.draft).owner).toContain('fact_check');
+    // A repair that does not come (the broker, an empty answer) never fails the draft.
+    const lost = await draftWith(() => { throw new Error('broker timed out'); });
+    expect(lost.draft).toMatchObject({ status: 'ready', factRepair: { before: 1, after: 1 } });
+    const empty = await draftWith(() => documents([]));
+    expect(empty.draft).toMatchObject({ status: 'ready', factRepair: { before: 1, after: 1 } });
+  });
+
+  it('writes the tailored CV once more when its gate stops it, instead of dropping it for the original', async () => {
+    // A real draft of 2026-10-07: the summary named the posting's company, the gate read it as an employer the
+    // candidate never had, and the whole tailored CV was dropped.
+    const draftWith = async (repairSummary: string | Error) => {
+      const base = fakeCodex();
+      const codex = vi.fn(async (request: any) => {
+        if (request.schema !== TAILORED_CV_SCHEMA) return base(request);
+        const answer = await base(request);
+        if (!request.prompt.includes('"factCheckFindings"')) return { ...answer, summary: 'Infermiera che si candida al ruolo presso Clinica Inventata.' };
+        if (repairSummary instanceof Error) throw repairSummary;
+        return { ...answer, summary: repairSummary };
+      });
+      const bucket = fakeBucket();
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      return { draft, bucket, cvs: (codex.mock.calls as any[]).map(([request]) => request).filter((request) => request.schema === TAILORED_CV_SCHEMA) };
+    };
+    const fixed = await draftWith('Infermiera con esperienza in reparto.');
+    expect(fixed.draft.tailoredCv).toMatchObject({ status: 'ready', repaired: true });
+    expect(fixed.bucket.files.has(fixed.draft.tailoredCv.pdfKey)).toBe(true);
+    expect(fixed.cvs).toHaveLength(2);
+    expect(fixed.cvs[1].prompt).toContain('"factCheckFindings":[{"field":"tailoredCv","kind":"employer","token":"Clinica Inventata"');
+    // A repair the gate still stops, or that does not come: the original CV is sent, as before.
+    for (const repair of ['Infermiera che si candida presso Clinica Inventata.', new Error('broker timed out')]) {
+      const dropped = await draftWith(repair);
+      expect(dropped.draft.tailoredCv).toMatchObject({ status: 'fact_check_failed', unsupported: [expect.objectContaining({ kind: 'employer', token: 'Clinica Inventata' })] });
+      expect(dropped.draft.status).toBe('ready');
+    }
+  });
+
+  it('stays inside the job’s 120 minutes when every Codex call takes all the time it is given, both repairs included', async () => {
+    // The capacity of a draft run (review of #12244), measured on a clock of the test's own: a call ends when
+    // its timeout does, calls made together run together, and the clock moves on only while the draft waits.
+    const slowest = (answers: (request: any) => Promise<any>) => {
+      let now = 0;
+      let pump: ReturnType<typeof setTimeout> | null = null;
+      const waiting: Array<{ end: number; done: () => void }> = [];
+      const next = () => {
+        if (pump) clearTimeout(pump);
+        pump = setTimeout(() => {
+          pump = null;
+          if (!waiting.length) return;
+          waiting.sort((first, second) => first.end - second.end);
+          const call = waiting.shift()!;
+          now = call.end;
+          call.done();
+          next();
+        }, 25);
+      };
+      const codex = vi.fn(async (request: any) => {
+        const answer = await answers(request);
+        await new Promise<void>((done) => { waiting.push({ end: now + request.timeoutMs, done }); next(); });
+        return answer;
+      });
+      return { codex, elapsedMs: () => now };
+    };
+    const run = async (repairs: boolean) => {
+      const base = fakeCodex();
+      const clock = slowest(async (request: any) => {
+        const answer = await base(request);
+        // Without repairs: a letter the gate passes. With: a letter and a tailored CV it stops, twice each.
+        if (!repairs && request.schema === DOCUMENTS_SCHEMA) return { ...answer, coverLetter: { ...answer.coverLetter, paragraphs: [answer.coverLetter.paragraphs[0]] } };
+        if (repairs && request.schema === TAILORED_CV_SCHEMA) return { ...answer, summary: 'Infermiera che si candida presso Clinica Inventata.' };
+        return answer;
+      });
+      const draft = await buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex: clock.codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      });
+      return { draft, elapsedMs: clock.elapsedMs(), calls: clock.codex.mock.calls.length };
+    };
+    const MINUTE = 60_000;
+    // Profile ∥ requirements, match ∥ tailored CV, documents: three half hours in a row, as before the repairs.
+    const baseline = await run(false);
+    expect(baseline.draft.factRepair).toBeUndefined();
+    expect(baseline).toMatchObject({ calls: 5, elapsedMs: 90 * MINUTE });
+    // Both repairs asked for, and both in vain: ten minutes more, never the two in a row.
+    const worst = await run(true);
+    expect(worst.draft.factRepair).toEqual({ before: 1, after: 1 });
+    expect(worst.draft.tailoredCv.status).toBe('fact_check_failed');
+    expect(worst).toMatchObject({ calls: 7, elapsedMs: 100 * MINUTE });
+    expect(worst.elapsedMs).toBeLessThanOrEqual(120 * MINUTE);
   });
 
   it('does not stop at the owner a seasonal job on Workday that is open: its age is no ghost sign', async () => {
@@ -430,6 +566,26 @@ describe('submit mode', () => {
     const [[ctx]] = runner.mock.calls as any;
     expect(ctx.candidate.identity).toMatchObject({ fullName: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' });
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
+  });
+
+  it('resolves a required portal age question from the CV before the submit gate', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = {
+      ...baseDraft,
+      profile: { ...baseDraft.profile, dateOfBirth: '13.11.2001' },
+      questions: [{ id: 'portal_hai_meno_di_26_anni', source: 'portal', question: 'Hai meno di 26 anni?', required: true, type: 'choice', options: ['Sì', 'No'] }],
+      channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' },
+    };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    const [[ctx]] = runner.mock.calls as any;
+    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì' }]);
   });
 
   // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.

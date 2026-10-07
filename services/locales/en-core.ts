@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3987.title': "Articles by canton, with the same full experience",
+ 'whatsNew.v3987.cantonArticles.title': "Read and discover canton articles",
+ 'whatsNew.v3987.cantonArticles.desc': "Live canton sections now use the same interactive article view as cross-border and Switzerland-wide articles: archives, reading tools, related stories, sharing and navigation without a reload.",
  "whatsNew.v3973.title": "Job listing previews",
  "whatsNew.v3973.jobPreview.title": "Full description after sign-in",
  "whatsNew.v3973.jobPreview.desc": "Job listings show a short preview. Sign in free to read the full description and requirements.",
@@ -947,6 +950,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Yes",
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Save answers",
+ 'jobBoard.assisted.review.checkingAnswers': "Checking answers…",
  'jobBoard.assisted.review.answersSaved': "Answers saved.",
  'jobBoard.assisted.review.answersStillOpen': "Answers saved, but a required answer (*) is still missing.",
  'jobBoard.assisted.review.edit': "Edit",

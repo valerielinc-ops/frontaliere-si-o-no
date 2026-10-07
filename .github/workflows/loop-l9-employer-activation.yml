@@ -22,6 +22,13 @@ on:
       - 'scripts/lib/github-issue-creator.mjs'
       - 'scripts/lib/loop-fleet-issue.mjs'
       - '.github/workflows/loop-l9-employer-activation.yml'
+  # The outcome export is current Firestore state, while the profile inventory
+  # is refreshed on a separate cadence. Run after a successful profile refresh
+  # so the two snapshots can satisfy the declared cross-source skew contract.
+  workflow_run:
+    workflows:
+      - Refresh Employer Profiles
+    types: [completed]
   pull_request:
     paths:
       - 'data/employer-profiles.json'
@@ -58,12 +65,16 @@ concurrency:
 
 jobs:
   audit:
+    if: github.event_name != 'workflow_run' || (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event != 'pull_request')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Checkout employer inputs
         uses: actions/checkout@v7
         with:
+          # A refresh workflow commits directly to main after its run starts;
+          # workflow_run.head_sha can therefore predate the refreshed dataset.
+          ref: ${{ github.event_name == 'workflow_run' && 'main' || github.ref }}
           fetch-depth: 1
           sparse-checkout: |
             /data/employer-profiles.json
@@ -121,7 +132,7 @@ jobs:
       - name: Audit employer activation
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'push' || inputs.issue == true }}
+          ISSUE_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.issue == true }}
           REPORT_DIR: ${{ runner.temp }}/loop-fleet-l9
         run: |
           set -o pipefail
@@ -145,6 +156,9 @@ jobs:
           elif [ "$run_code" -ne 0 ] \
             && jq -e '(.ok == false and (.quality == "partial" or .quality == "stale") and .issued == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
             echo 'L9 quality finding persisted; paid activation remains unmeasurable and only the verified safe draft-only contract is active.' | tee -a "$GITHUB_STEP_SUMMARY"
+          elif [ "$run_code" -ne 0 ] \
+            && jq -e '(.ok == false and .quality == "zero" and .issueCount == 0 and .issued == false and .outcomeLedgerMissing == false and .safeDraftOnly == true and .profileInventoryComplete == true and .realOutreachSent == false and .inventoryUntouched == true and .subscriptionStateUntouched == true and .pricesUntouched == true)' "$REPORT_DIR/l9-result.json" >/dev/null 2>&1; then
+            echo 'L9 employer sample is still empty; paid activation remains unmeasurable while awaiting the first eligible account.' | tee -a "$GITHUB_STEP_SUMMARY"
           elif [ "$run_code" -ne 0 ]; then
             exit "$run_code"
           fi

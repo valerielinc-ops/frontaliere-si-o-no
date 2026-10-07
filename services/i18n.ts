@@ -5,6 +5,8 @@
  */
 
 export type Locale = 'it' | 'en' | 'de' | 'fr';
+import type { ArticleSection, HistoricalArticleSection } from './articleSections';
+import { articlesApiBase } from './articlesApiBase';
 
 type TranslationKey = string;
 type Translations = Record<TranslationKey, string>;
@@ -114,9 +116,16 @@ function swallowBackgroundLoadError(_err: unknown): void {
 // ─── Blog Translations (2-tier: meta + per-article body) ─────
 
 // Tier 1: Blog meta (titles, excerpts, imageAlt) — per article section
-type ArticleSectionName = 'frontaliere' | 'svizzera';
+type ArticleSectionName = ArticleSection;
 
-const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{ default: Translations }>>> = {
+// Keep this leaf predicate local. i18n is imported by a few Vite build-plugin
+// type graphs; pulling the runtime registry into that graph would make the
+// build config try to resolve browser-only aliases before Vite is configured.
+function isCantonSection(section: ArticleSectionName): boolean {
+ return section.startsWith('canton-');
+}
+
+const blogMetaLoaders: Record<HistoricalArticleSection, Record<Locale, () => Promise<{ default: Translations }>>> = {
  frontaliere: {
  it: () => import('./locales/blog-meta-it'),
  en: () => import('./locales/blog-meta-en'),
@@ -135,6 +144,26 @@ const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{
 const blogMetaLoaded = new Set<string>();
 const blogMetaLoadingPromises = new Map<string, Promise<void>>();
 
+const cantonMetaPromises = new Map<Locale, Promise<Translations>>();
+
+async function loadCantonMeta(locale: Locale): Promise<Translations> {
+ const cached = cantonMetaPromises.get(locale);
+ if (cached) return cached;
+ const promise = fetch(`${articlesApiBase()}/meta-canton-${locale}.json`)
+   .then(async response => {
+    if (!response.ok) return {};
+    const raw = await response.json() as unknown;
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+    return Object.fromEntries(
+      Object.entries(raw as Record<string, unknown>)
+        .filter(([, value]) => typeof value === 'string'),
+    ) as Translations;
+   })
+   .catch(() => ({} as Translations));
+ cantonMetaPromises.set(locale, promise);
+ return promise;
+}
+
 // Tier 2: Per-article body (bodyN) — loaded on demand
 const loadedArticleBodies = new Set<string>(); // "locale:articleId"
 const articleBodyPromises = new Map<string, Promise<void>>();
@@ -145,7 +174,32 @@ const articleBodyPromises = new Map<string, Promise<void>>();
  * Safe to call multiple times — subsequent calls are no-ops.
  */
 export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'): Promise<void> {
- const loaders = blogMetaLoaders[section];
+ if (isCantonSection(section)) {
+  const key = `${section}:${currentLocale}`;
+  if (blogMetaLoaded.has(key)) return;
+  const existing = blogMetaLoadingPromises.get(key);
+  if (existing) {
+   await existing;
+   return;
+  }
+  const promise = (async () => {
+   const itMeta = await loadCantonMeta('it');
+   mergeLocaleTranslations('it', itMeta);
+   blogMetaLoaded.add(`${section}:it`);
+   if (currentLocale !== 'it') {
+    const localeMeta = await loadCantonMeta(currentLocale);
+    mergeLocaleTranslations(currentLocale, localeMeta);
+    blogMetaLoaded.add(key);
+   }
+   localeTick++;
+   listeners.forEach(fn => fn(currentLocale));
+  })();
+  blogMetaLoadingPromises.set(key, promise);
+  await promise;
+  return;
+ }
+ const loaders = blogMetaLoaders[section as HistoricalArticleSection];
+ if (!loaders) return;
  const key = `${section}:${currentLocale}`;
  if (blogMetaLoaded.has(key)) return;
  const existing = blogMetaLoadingPromises.get(key);
@@ -175,6 +229,12 @@ export async function loadBlogMeta(section: ArticleSectionName = 'frontaliere'):
  * Called when the user opens a specific article. ~3-7 KB per article.
  */
 export async function loadArticleBody(articleId: string, section: ArticleSectionName = 'frontaliere'): Promise<void> {
+ if (isCantonSection(section)) {
+  // Canton bodies are intentionally recovered from the corpus-owned static
+  // article HTML by runtimeArticleResolution. They are not bundled in the
+  // site, so importing a guessed Vite chunk would create a false empty body.
+  return;
+ }
  const locale = currentLocale;
  const key = `${section}:${locale}:${articleId}`;
  const itKey = `${section}:it:${articleId}`;
@@ -243,14 +303,20 @@ export async function loadBlogTranslations(): Promise<void> {
  await loadBlogMeta();
 }
 
+async function refreshLoadedBlogSections(): Promise<void> {
+ const sections = new Set<ArticleSection>();
+ for (const marker of blogMetaLoaded) {
+  const section = marker.split(':')[0] as ArticleSection;
+  sections.add(section);
+ }
+ await Promise.all([...sections].map(section => loadBlogMeta(section)));
+}
+
 export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  if (locale === 'it') {
  // IT translations are loaded eagerly via itReady; wait for them
  await itReady;
- if (blogMetaLoaded.size > 0 && !loadedLocales['it']?.['blog.article.stipendio-netto-2026.title']) {
- const itMeta = await blogMetaLoaders.frontaliere['it']();
- loadedLocales['it'] = { ...loadedLocales['it'], ...itMeta.default };
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
  return;
  }
 
@@ -260,10 +326,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
 
  // If core+calculator already loaded, just wait for any in-flight loading
  if (loadedLocaleChunks[locale].has('core')) {
- if (blogMetaLoaded.size > 0 && !loadedLocales[locale]?.['blog.article.stipendio-netto-2026.title']) {
- const localeMeta = await blogMetaLoaders.frontaliere[locale]();
- mergeLocaleTranslations(locale, localeMeta.default);
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
  return;
  }
 
@@ -295,15 +358,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
  loadedLocaleChunks[locale].add('seo-links');
 
  // If blog meta was already loaded, merge meta keys for this locale too
- if (blogMetaLoaded.size > 0) {
- const localeMeta = await blogMetaLoaders.frontaliere[locale]();
- mergeLocaleTranslations(locale, localeMeta.default);
- // Also top up svizzera meta for this locale if that section was loaded.
- if (blogMetaLoaded.has(`svizzera:${locale}`) || blogMetaLoaded.has('svizzera:it')) {
- const chMeta = await blogMetaLoaders.svizzera[locale]();
- mergeLocaleTranslations(locale, chMeta.default);
- }
- }
+ if (blogMetaLoaded.size > 0) await refreshLoadedBlogSections();
 
  // Background-load remaining page chunks
  const loadRemaining = () => {

@@ -18424,7 +18424,7 @@
       "id": "hirslanden-b9a12275eb48",
       "slug": "il-tuo-raggio-d-azione-hirslanden-klinik-search-6115b2",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100-lplg3p",
+        "de": "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100",
         "en": "your-scope-hirslanden-klinik-search-6115b2",
         "fr": "votre-domaine-d-action-hirslanden-klinik-search-6115b2",
         "it": "il-tuo-raggio-d-azione-hirslanden-klinik-search-6115b2"
@@ -18471,15 +18471,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100"
+        "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100",
+        "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100-lplg3p"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100-lplg3p",
-          "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100"
+          "dipl-pflegefachfrau-pflegefachmann-mit-berufsbildungsfunktion-gemischte-chirurgie-a-80-100-lplg3p"
         ]
       },
       "firstSeenAt": "2026-06-10T12:19:00.418Z",
@@ -21342,10 +21342,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3472,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 3472
     },
     {
       "id": "hirslanden-a3f7f6aace31",
@@ -22562,10 +22561,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2076,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 2076
     },
     {
       "id": "hirslanden-59a8661e3fcf",
@@ -23374,7 +23372,7 @@
       "requirementsByLocale": {},
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1885,
-      "retranslationAttempts": 6,
+      "retranslationAttempts": 7,
       "firstSeenAt": "2026-09-01T08:53:05.937Z",
       "salaryMin": 79000,
       "salaryMax": 110500,
@@ -23388,8 +23386,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "hirslanden-d5e3a4933ae1",
@@ -24371,10 +24368,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 3,
+      "retranslationAttempts": 4,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2908,
-      "needsRetranslation": true
+      "localeMismatchSuppressedLen": 2908
     },
     {
       "id": "hirslanden-757287311675",

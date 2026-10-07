@@ -2,15 +2,16 @@
  * SPA routing of the canton article sections (piano «sezioni articoli per
  * cantone», S2): `services/cantonArticlePaths.ts` + the `parsePath` branch.
  *
- * The pages are corpus HTML on R2 with no React view, so the router must keep
- * them on screen (`staticOverlay`) — but ONLY on a document the corpus served.
+ * The corpus still owns the initial HTML, but live landing/archive/article
+ * paths are now handed to the same React blog view as the historical hubs.
+ * Topic hubs remain corpus-owned static pages in this site-only change.
  * A canton URL that is not live yet answers 404 and its SPA fallback restores
  * the path on the homepage document: there the result must stay what it was
  * before the canton sections existed (notFoundPath).
  */
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { parsePath } from '../services/router';
-import { documentOwnedByCorpus, isCantonArticlePath } from '../services/cantonArticlePaths';
+import { buildPath, parsePath } from '../services/router';
+import { documentOwnedByCorpus, isCantonArticlePath, parseCantonArticlePath } from '../services/cantonArticlePaths';
 import { CANTON_ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs';
 import {
   CORPUS_ROUTE_OWNER_META_TAG,
@@ -69,7 +70,7 @@ describe('documentOwnedByCorpus', () => {
 });
 
 describe('parsePath on canton article sections', () => {
-  const samples = ['/articoli-ticino/', '/en/ticino-articles/fuel/', '/de/tessin-artikel/ein-artikel/', '/fr/articles-bale/'];
+  const samples = ['/articoli-ticino/', '/en/ticino-articles/mappa-affitti-ticino/', '/de/tessin-artikel/ein-artikel/', '/fr/articles-bale/'];
 
   it('WITHOUT the corpus meta (not live / 404 fallback on the homepage) → notFoundPath, as before', () => {
     vi.stubGlobal('document', fakeDocument(null));
@@ -80,15 +81,78 @@ describe('parsePath on canton article sections', () => {
     }
   });
 
-  it('on a corpus-served document → blog tab in staticOverlay, locale from the path', () => {
+  it('on a corpus-served document → real blog route, locale and article slug from the path', () => {
     vi.stubGlobal('document', fakeDocument('corpus'));
-    const expected = { '/articoli-ticino/': 'it', '/en/ticino-articles/fuel/': 'en', '/de/tessin-artikel/ein-artikel/': 'de', '/fr/articles-bale/': 'fr' } as const;
+    const expected = { '/articoli-ticino/': 'it', '/en/ticino-articles/mappa-affitti-ticino/': 'en', '/de/tessin-artikel/ein-artikel/': 'de', '/fr/articles-bale/': 'fr' } as const;
     for (const p of samples) {
       const r = parsePath(p);
-      expect(r.route, p).toEqual({ activeTab: 'blog', staticOverlay: true });
+      expect(r.route.activeTab, p).toBe('blog');
+      expect(r.route.blogSection, p).toMatch(/^canton-/);
+      expect(r.route.staticOverlay, p).toBeFalsy();
       expect(r.notFoundPath, p).toBeUndefined();
       expect(r.locale, p).toBe(expected[p as keyof typeof expected]);
+      if (p.includes('/mappa-affitti-ticino/') || p.includes('/ein-artikel/')) {
+        expect(r.route.cantonSlug, p).toBe(p.includes('/mappa-affitti-ticino/') ? 'mappa-affitti-ticino' : 'ein-artikel');
+      }
     }
+  });
+
+  it('recognizes the localized archive root and paginated archive without taking over topic hubs', () => {
+    vi.stubGlobal('document', fakeDocument('corpus'));
+    expect(parsePath('/articoli-zurigo/tutti/').route).toMatchObject({
+      activeTab: 'blog',
+      blogSection: 'canton-zh',
+      blogArchive: true,
+    });
+    expect(parsePath('/en/zurich-articles/all/page-3/').route).toMatchObject({
+      activeTab: 'blog',
+      blogSection: 'canton-zh',
+      blogArchive: true,
+      blogPage: 3,
+    });
+    expect(parsePath('/articoli-zurigo/carburanti/').route).toEqual({
+      activeTab: 'blog',
+      blogSection: 'canton-zh',
+      staticOverlay: true,
+    });
+  });
+
+  it('routes every one of the 96 closed prefixes to a canton blog section on corpus HTML', () => {
+    vi.stubGlobal('document', fakeDocument('corpus'));
+    expect(prefixes).toHaveLength(96);
+    for (const prefix of prefixes) {
+      const r = parsePath(`${prefix}/`);
+      expect(r.notFoundPath, prefix).toBeUndefined();
+      expect(r.route.activeTab, prefix).toBe('blog');
+      expect(r.route.blogSection, prefix).toMatch(/^canton-/);
+      expect(r.route.staticOverlay, prefix).toBeFalsy();
+    }
+  });
+
+  it('keeps the generated core and localized SPA builder in parity for all 24×4 landings', () => {
+    for (const entry of Object.values(CANTON_ARTICLE_SECTION_CORE)) {
+      for (const locale of LOCALES) {
+        const section = entry.section as `canton-${string}`;
+        const path = buildPath({ activeTab: 'blog', blogSection: section }, locale);
+        const expected = locale === 'it' ? `/${entry.indexSlug.it}/` : `/${locale}/${entry.indexSlug[locale]}/`;
+        expect(path, `${section}:${locale}`).toBe(expected);
+
+        vi.stubGlobal('document', fakeDocument('corpus'));
+        expect(parsePath(path).route.blogSection, `${section}:${locale}`).toBe(section);
+      }
+    }
+  });
+
+  it('builds localized canton archives and preserves pagination', () => {
+    expect(buildPath({ activeTab: 'blog', blogSection: 'canton-zh', blogArchive: true }, 'it'))
+      .toBe('/articoli-zurigo/tutti/');
+    expect(buildPath({ activeTab: 'blog', blogSection: 'canton-zh', blogArchive: true, blogPage: 3 }, 'en'))
+      .toBe('/en/zurich-articles/all/page-3/');
+  });
+
+  it('parses the path contract independently of document ownership', () => {
+    const match = parseCantonArticlePath('/de/tessin-artikel/alle/page-2/');
+    expect(match).toEqual({ section: 'canton-ti', locale: 'de', kind: 'archive', page: 2 });
   });
 
   it('never changes the historical article sections or the job sections, meta or not', () => {

@@ -151758,9 +151758,9 @@
     },
     {
       "id": "fachkraft-d71ba9772539",
-      "slug": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
+      "slug": "operatore-trice-automatico-a-con-possibilita-di-sviluppo-fachkraft-ch-gmbh-luzern-luzern",
       "slugByLocale": {
-        "it": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
+        "it": "operatore-trice-automatico-a-con-possibilita-di-sviluppo-fachkraft-ch-gmbh-luzern-luzern",
         "en": "automation-engineer-with-development-opportunities-fachkraft-ch-gmbh-luzern-luzern",
         "de": "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch",
         "fr": "automaticien-ne-avec-possibilites-de-developpement-fachkraft-ch-gmbh-luzern-luzern"
@@ -151820,7 +151820,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-mit-entwicklungsmoglichkeiten-luzern-luzern-fachkraft-ch"
+      ]
     },
     {
       "id": "fachkraft-92638beb72f8",
@@ -229661,7 +229669,6 @@
           "maler-in-fur-kundenmalerei-rorschach-st-gallen-fachkraft-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-02T22:14:19.860Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

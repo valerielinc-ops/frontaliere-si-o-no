@@ -51,6 +51,73 @@ function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean
     || (!author?.kind && Boolean(author?.uid || author?.cvPath || author?.social?.linkedin));
 }
 
+/** Strip the publisher suffix before title equality/collision checks and HTML output. */
+export function normalizeArticleTitle(raw: string): string {
+ return raw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+}
+
+/** Resolve the visible article title while keeping the social title as fallback. */
+export function resolveArticleTitle(
+ title: string | undefined,
+ ogTitle: string,
+ useOgTitle = false,
+): string {
+ return normalizeArticleTitle(useOgTitle || !title ? ogTitle : title);
+}
+
+/**
+ * Count how many DISTINCT articles share each title key.
+ *
+ * The unit is the article, not the SEO entry: a section's seo files are
+ * concatenated verbatim (frontaliere reads seo-blog.ts + seo-blog-2..10.ts)
+ * and an id listed in two chunks is still ONE page at ONE URL. Counting
+ * entries made every such article collide with itself — 983 of the 4 165
+ * frontaliere ids on 2026-10-07 — which would hand a spurious disambiguator
+ * to an Event page and deny the real headline to an Italian one.
+ */
+export function countArticlesByTitleKey<T extends { articleId: string }>(
+ entries: readonly T[],
+ titleKey: (entry: T) => string,
+): Map<string, number> {
+ const articleIdsByKey = new Map<string, Set<string>>();
+ for (const entry of entries) {
+  const key = titleKey(entry);
+  const ids = articleIdsByKey.get(key);
+  if (ids) ids.add(entry.articleId);
+  else articleIdsByKey.set(key, new Set([entry.articleId]));
+ }
+ const counts = new Map<string, number>();
+ for (const [key, ids] of articleIdsByKey) counts.set(key, ids.size);
+ return counts;
+}
+
+/**
+ * Build the resolver of the headline a page shows in one locale, before brand
+ * and disambiguator. ONE formula: html() and the title-collision map both call
+ * the resolver, so they cannot drift apart.
+ *
+ * `requireUniqueHeadline` (Italian): the real headline is shown only when no
+ * other article of the section carries it. Two articles that share a headline
+ * each keep their own ogTitle, so moving <title>/H1/headline from ogTitle to
+ * the real headline can never hand two pages the same <title>. The other
+ * locales predate the rule and keep showing their localized headline as it is.
+ */
+export function createArticleTitleResolver<T extends { articleId: string; ogT: string }>(
+ entries: readonly T[],
+ headlineOf: (entry: T) => string | undefined,
+ requireUniqueHeadline: boolean,
+): (entry: T) => string {
+ const articlesByHeadline = requireUniqueHeadline
+  ? countArticlesByTitleKey(entries, (entry) => normalizeArticleTitle(headlineOf(entry) || entry.ogT))
+  : null;
+ return (entry) => {
+  const headline = headlineOf(entry);
+  const sharedHeadline = Boolean(headline)
+   && (articlesByHeadline?.get(normalizeArticleTitle(headline as string)) || 0) > 1;
+  return resolveArticleTitle(headline, entry.ogT, sharedHeadline);
+ };
+}
+
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
  *
@@ -815,7 +882,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const unescapeTsStringRaw = (value: string): string =>
  decodeTsStringEscapes(value, { newlineAs: '\n' });
 
- const parseBlogMetaLocale = (locale: 'en' | 'de' | 'fr') => {
+ const parseBlogMetaLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
  let src = '';
@@ -895,23 +962,31 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  const blogMetaByLocale = {
+ it: parseBlogMetaLocale('it'),
  en: parseBlogMetaLocale('en'),
  de: parseBlogMetaLocale('de'),
  fr: parseBlogMetaLocale('fr'),
  } as const;
 
- // Populate the title-collision map now that locale meta is available.
- // Mirror the title formula used inside html(): localizedTitle stripped of
- // the publisher suffix, then re-joined with the canonical brand suffix.
- for (const en of entries) {
-  for (const locale of ['it', 'en', 'de', 'fr'] as const) {
-   const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
-   const titleRaw = localeMeta?.title || en.ogT;
-   const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
-   const baseT = buildTitleWithBrand(titlePure);
-   const m = articleTitleCollisions[locale];
-   m.set(baseT, (m.get(baseT) || 0) + 1);
-  }
+ // Headline shown per locale. Italian reads its real headline from
+ // blog-meta-it like the other three locales read theirs (owner decision,
+ // 2026-10-07, corpus issue 2281), but only where that headline is unique.
+ const articleTitleFor = {
+  it: createArticleTitleResolver(entries, (article) => blogMetaByLocale.it[article.articleId]?.title, true),
+  en: createArticleTitleResolver(entries, (article) => blogMetaByLocale.en[article.articleId]?.title, false),
+  de: createArticleTitleResolver(entries, (article) => blogMetaByLocale.de[article.articleId]?.title, false),
+  fr: createArticleTitleResolver(entries, (article) => blogMetaByLocale.fr[article.articleId]?.title, false),
+ } as const;
+
+ // Populate the title-collision map now that locale meta is available. It is
+ // keyed by the headline html() actually shows (same resolver), re-joined with
+ // the canonical brand suffix, and it counts ARTICLES, not SEO entries — see
+ // countArticlesByTitleKey.
+ for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+  articleTitleCollisions[locale] = countArticlesByTitleKey(
+   entries,
+   (article) => buildTitleWithBrand(articleTitleFor[locale](article)),
+  );
  }
 
  const blogBodyByLocale = {
@@ -1167,14 +1242,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  };
 
  const html = (locale: string, urlPath: string) => {
+ const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localeForMeta: 'en' | 'de' | 'fr' | null =
  (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
  const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
- const localizedTitleRaw = localizedMeta?.title || en.ogT;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
  // Headline VERBATIM — no truncation. Brand applied conditionally below.
- const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
+ // Same resolver the title-collision map is keyed by.
+ const localizedTitle = articleTitleFor[articleLocale](en);
  // Repair descriptions the corpus generator already amputated mid-clause
  // BEFORE they reach this render layer. `scripts/create-article.mjs` cut the
  // stored excerpt to a fixed budget without peeling the tail, so 2 936 entries
@@ -1191,7 +1267,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // headline as the floor so the attribute is never empty: an <img> without an
  // accessible name fails the repo's own accessibility contract, and a decorative
  // alt="" would tell Discover this image is not about the article.
- const heroAlt = localizedMeta?.imageAlt || localizedTitle;
+ const socialTitle = articleLocale === 'it' ? normalizeArticleTitle(en.ogT) : localizedTitle;
+ const heroAlt = localizedMeta?.imageAlt || socialTitle;
  // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
  const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
  en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
@@ -1226,7 +1303,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
  // brand first (it's "nice-to-have", not a ranking signal) before resorting
  // to mid-headline truncation.
- const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const isEvent = en.sdType === 'Event';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
@@ -1662,13 +1738,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
- <meta property="og:title" content="${esc(localizedTitle)}">
+ <meta property="og:title" content="${esc(socialTitle)}">
  <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
  <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
- <meta property="og:image:alt" content="${esc(localizedTitle)}">
+ <meta property="og:image:alt" content="${esc(socialTitle)}">
  <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_CH'}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta name="robots" content="${articleBodyHasPromptPlaceholder ? 'noindex,follow' : ARTICLE_ROBOTS_INDEX_ENHANCED}">${SECTION.kind === 'canton' ? `\n ${CORPUS_ROUTE_OWNER_META_TAG}` : ''}

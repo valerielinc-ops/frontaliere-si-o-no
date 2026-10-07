@@ -333,7 +333,6 @@
           "wir-suchen-per-sofort-eine-zwei-lehrperson-en-als-fels-in-der-brandung-schule-jegenstorf-40392"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:27:21.273Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -14959,9 +14958,9 @@
     },
     {
       "id": "ksml-8303a4cc8b3b",
-      "slug": "du-uberlegst-dir-einen-stellenwechsel-aufs-neue-semester-kommst-von-einem-urlaub-zuruck-40290",
+      "slug": "stai-pensando-di-cambiare-lavoro-per-un-altro-semestre-di-tornare-da-una-vacanza-o-semplicemente-vorresti-prendere-40290",
       "slugByLocale": {
-        "it": "du-uberlegst-dir-einen-stellenwechsel-aufs-neue-semester-kommst-von-einem-urlaub-zuruck-40290",
+        "it": "stai-pensando-di-cambiare-lavoro-per-un-altro-semestre-di-tornare-da-una-vacanza-o-semplicemente-vorresti-prendere-40290",
         "en": "you-are-considering-a-job-change-for-the-new-semester-come-back-from-a-holiday-or-would-just-like-to-take-a-great-40290",
         "de": "du-uberlegst-dir-einen-stellenwechsel-aufs-neue-semester-kommst-von-einem-urlaub-zuruck-40290",
         "fr": "vous-envisagez-un-changement-d-emploi-pour-le-nouveau-semestre-revenir-d-un-jour-ferie-ou-juste-prendre-une-grande-40290"
@@ -15009,7 +15008,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40290",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:27:21.241Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
@@ -15023,7 +15021,15 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "du-uberlegst-dir-einen-stellenwechsel-aufs-neue-semester-kommst-von-einem-urlaub-zuruck-40290"
+        ]
+      },
+      "previousSlugs": [
+        "du-uberlegst-dir-einen-stellenwechsel-aufs-neue-semester-kommst-von-einem-urlaub-zuruck-40290"
+      ]
     },
     {
       "id": "ksml-b3c97ee2cdbc",

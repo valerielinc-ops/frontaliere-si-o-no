@@ -14,6 +14,8 @@ export const PRIVATE_GRANT_PROVIDER = 'site-owned';
 export const GENERATED_IMAGE_CREDIT = 'frontaliereticino.ch';
 export const GENERATED_IMAGE_PROMPT_VERSION = 'frontaliereticino.generated-image-policy.v1';
 export const GENERATED_IMAGE_MAX_BYTES = 220 * 1024;
+export const GENERATED_IMAGE_KIND = 'generated';
+export const LICENSED_PHOTO_KIND = 'photo';
 
 export const GENERATED_IMAGE_SCOPES = Object.freeze([
   'event-library',
@@ -26,11 +28,41 @@ export const GENERATED_IMAGE_SCOPES = Object.freeze([
 export const GENERATED_IMAGE_PROVIDERS = Object.freeze([
   'openai-codex',
   'gemini',
+  'fal',
+  'together',
+  'pollinations',
+]);
+export const LICENSED_PHOTO_PROVIDERS = Object.freeze([
+  'wikimedia',
+  'pexels',
+  'pixabay',
+]);
+export const IMAGE_PROVIDERS = Object.freeze([
+  ...GENERATED_IMAGE_PROVIDERS,
+  ...LICENSED_PHOTO_PROVIDERS,
 ]);
 export const GENERATED_IMAGE_LICENSE_URLS = Object.freeze({
   'openai-codex': 'https://openai.com/policies/terms-of-use/',
   gemini: 'https://ai.google.dev/gemini-api/terms',
+  fal: 'https://fal.ai/terms',
+  together: 'https://www.together.ai/terms-of-service',
+  pollinations: 'https://pollinations.ai/terms',
 });
+export const LICENSED_PHOTO_LICENSE_URLS = Object.freeze({
+  wikimedia: 'https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia',
+  pexels: 'https://www.pexels.com/license/',
+  pixabay: 'https://pixabay.com/service/license-summary/',
+});
+export const LICENSED_PHOTO_LICENSES = Object.freeze({
+  wikimedia: Object.freeze(['CC0', 'Public domain', 'CC BY', 'CC BY-SA']),
+  pexels: Object.freeze(['Pexels License']),
+  pixabay: Object.freeze(['Pixabay Content License']),
+});
+export const LICENSED_PHOTO_RESTRICTIONS = Object.freeze([
+  'licensed-source',
+  'no-recognizable-foreground-person',
+  'no-logo-brand-or-trademark',
+]);
 
 export const GENERATED_IMAGE_POLICY = Object.freeze([
   'Illustrative editorial scene, never a documentary or journalistic photograph of a specific real event.',
@@ -56,9 +88,20 @@ export const GENERATED_IMAGE_DEFAULT_FORMAT = Object.freeze({
   maxBytes: GENERATED_IMAGE_MAX_BYTES,
 });
 
+export function isLicensedPhotoRecord(record) {
+  return isRecord(record)
+    && record.kind === LICENSED_PHOTO_KIND
+    && LICENSED_PHOTO_PROVIDERS.includes(record.provider);
+}
+
 const DATE_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
 const SHA256_RE = /^[a-f0-9]{64}$/;
 const ASSET_ID_RE = /^[a-z0-9][a-z0-9._-]{2,127}$/;
+const PHOTO_AUTHOR_IMAGE_PATH_RE = /\.(?:jpe?g|png|webp|gif|avif|svg)$/i;
+const PHOTO_AUTHOR_HOSTS = Object.freeze({
+  pexels: Object.freeze(['pexels.com', 'www.pexels.com']),
+  pixabay: Object.freeze(['pixabay.com', 'www.pixabay.com']),
+});
 
 function isRecord(value) {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -66,6 +109,72 @@ function isRecord(value) {
 
 function nonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
+}
+
+function normalizedPhotoLicenseFamily(record) {
+  const family = normalizeText(record?.licenseFamily).toLowerCase();
+  if (['cc0', 'pd', 'cc-by', 'cc-by-sa', 'pexels', 'pixabay'].includes(family)) return family;
+  const license = normalizeText(record?.license).toLowerCase();
+  if (/^cc0(?:\s|$)|creative commons zero/.test(license)) return 'cc0';
+  if (/public\s*domain|publicdomain/.test(license)) return 'pd';
+  if (/^cc\s*by-sa(?:\s|$)/.test(license)) return 'cc-by-sa';
+  if (/^cc\s*by(?:\s|$)/.test(license)) return 'cc-by';
+  return family;
+}
+
+function allowedPhotoLicense(record) {
+  if (!isLicensedPhotoRecord(record)) return false;
+  if (!nonEmpty(record.license)) return false;
+  if (record.provider === 'pexels') return record.license === 'Pexels License';
+  if (record.provider === 'pixabay') return record.license === 'Pixabay Content License';
+  const family = normalizedPhotoLicenseFamily(record);
+  const license = normalizeText(record.license).toLowerCase();
+  if (family === 'cc0') return /^cc0(?:\s|$)|creative commons zero/.test(license);
+  if (family === 'pd') return /public\s*domain|publicdomain/.test(license);
+  if (family === 'cc-by') return /^cc\s*by(?:\s|$)/.test(license) && !/^cc\s*by-sa/.test(license);
+  if (family === 'cc-by-sa') return /^cc\s*by-sa(?:\s|$)/.test(license);
+  return false;
+}
+
+function allowedPhotoLicenseUrl(record) {
+  if (!/^https:\/\//i.test(String(record?.licenseUrl || ''))) return false;
+  if (record.provider === 'pexels') return record.licenseUrl === LICENSED_PHOTO_LICENSE_URLS.pexels;
+  if (record.provider === 'pixabay') return record.licenseUrl === LICENSED_PHOTO_LICENSE_URLS.pixabay;
+  const family = normalizedPhotoLicenseFamily(record);
+  const url = String(record.licenseUrl);
+  if (url === LICENSED_PHOTO_LICENSE_URLS.wikimedia) return true;
+  if (!/^https:\/\/creativecommons\.org\//i.test(url)) return false;
+  if (family === 'cc0') return /\/publicdomain\/zero\//i.test(url);
+  if (family === 'pd') return /\/publicdomain\/mark\//i.test(url);
+  if (family === 'cc-by') return /\/licenses\/by(?:\/|$)/i.test(url);
+  if (family === 'cc-by-sa') return /\/licenses\/by-sa(?:\/|$)/i.test(url);
+  return false;
+}
+
+function photoAuthorUrlErrors(record) {
+  const authorUrl = record.author?.url;
+  if (authorUrl === undefined || authorUrl === null) return [];
+  if (typeof authorUrl !== 'string' || !authorUrl.trim()) {
+    return ['photo author.url must be a non-empty https URL'];
+  }
+
+  let parsed;
+  try {
+    parsed = new URL(authorUrl);
+  } catch {
+    return ['photo author.url must be a valid https URL'];
+  }
+  if (parsed.protocol !== 'https:') return ['photo author.url must be https'];
+
+  const errors = [];
+  if (PHOTO_AUTHOR_IMAGE_PATH_RE.test(parsed.pathname)) {
+    errors.push('photo author.url must not point to an image file');
+  }
+  const allowedHosts = PHOTO_AUTHOR_HOSTS[record.provider];
+  if (allowedHosts && !allowedHosts.includes(parsed.hostname.toLowerCase())) {
+    errors.push(`${record.provider} author.url must use the ${record.provider} domain`);
+  }
+  return errors;
 }
 
 function positiveInteger(value) {
@@ -107,6 +216,10 @@ export function normalizeGeneratedImageSpec(spec = {}) {
   if (!GENERATED_IMAGE_SCOPES.includes(scope)) {
     throw new Error(`Unsupported generated-image scope: ${scope || '<empty>'}`);
   }
+  const kind = normalizeText(spec.kind || GENERATED_IMAGE_KIND).toLowerCase();
+  if (![GENERATED_IMAGE_KIND, LICENSED_PHOTO_KIND].includes(kind)) {
+    throw new Error(`Unsupported image kind: ${kind || '<empty>'}`);
+  }
   const subject = normalizeText(spec.subject);
   if (!subject) throw new Error('Generated-image subject is required');
   const area = normalizeText(spec.area || 'Swiss border region');
@@ -127,6 +240,7 @@ export function normalizeGeneratedImageSpec(spec = {}) {
   if (assetId && !ASSET_ID_RE.test(assetId)) throw new Error('Generated-image assetId is invalid');
   return Object.freeze({
     scope,
+    kind,
     subject,
     area,
     season,
@@ -199,6 +313,10 @@ export function validateGeneratedImageRecord(record) {
   if (record.schema !== GENERATED_IMAGE_SCHEMA_VERSION) errors.push('schema must be 1');
   if (!ASSET_ID_RE.test(String(record.assetId || ''))) errors.push('assetId is invalid');
   const isPrivateGrant = record.license === PRIVATE_GRANT_LICENSE;
+  const isPhoto = isLicensedPhotoRecord(record);
+  if (record.kind !== undefined && ![GENERATED_IMAGE_KIND, LICENSED_PHOTO_KIND].includes(record.kind)) {
+    errors.push('kind is not allowed');
+  }
   if (isPrivateGrant) {
     if (record.provider !== PRIVATE_GRANT_PROVIDER) errors.push('private-grant provider must be site-owned');
     if (!nonEmpty(record.note)) errors.push('private-grant note is required');
@@ -206,7 +324,37 @@ export function validateGeneratedImageRecord(record) {
     for (const field of ['model', 'executorModel', 'promptVersion', 'promptHash', 'licenseUrl', 'generatedAt', 'verifiedAt', 'restrictions', 'vision']) {
       if (record[field] !== undefined) errors.push(`private-grant must not declare generated field ${field}`);
     }
+  } else if (isPhoto) {
+    if (record.kind !== LICENSED_PHOTO_KIND) errors.push('licensed photo kind must be photo');
+    if (!allowedPhotoLicense(record)) {
+      errors.push('photo license is not allowed for the provider');
+    }
+    if (!allowedPhotoLicenseUrl(record)) errors.push('photo licenseUrl is not an allowed provider licence URL');
+    if (record.provider === 'wikimedia' && !nonEmpty(record.licenseFamily)) {
+      errors.push('wikimedia licenseFamily is required');
+    }
+    const pageUrl = record.sourcePageUrl || record.pageUrl;
+    if (!/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(String(pageUrl || ''))
+      && record.provider === 'wikimedia') {
+      errors.push('wikimedia sourcePageUrl must be a Commons file page');
+    }
+    if (record.provider === 'pexels' && !/^https:\/\/www\.pexels\.com\/photo\//i.test(String(pageUrl || ''))) {
+      errors.push('pexels sourcePageUrl must be a Pexels photo page');
+    }
+    if (record.provider === 'pixabay' && !/^https:\/\/pixabay\.com\/(?:photos|users)\//i.test(String(pageUrl || ''))) {
+      errors.push('pixabay sourcePageUrl must be a Pixabay page');
+    }
+    if (!/^https:\/\//i.test(String(pageUrl || ''))) errors.push('photo sourcePageUrl must be https');
+    if (!isRecord(record.author) || !nonEmpty(record.author.name)) errors.push('photo author.name is required');
+    errors.push(...photoAuthorUrlErrors(record));
+    if (!nonEmpty(record.credit)) errors.push('photo credit is required');
+    if (!nonEmpty(record.copyrightNotice)) errors.push('photo copyrightNotice is required');
+    if (!/^https:\/\//i.test(String(record.acquireLicensePage || ''))) errors.push('photo acquireLicensePage must be https');
+    if (record.sourceImageUrl !== undefined && !/^https:\/\//i.test(String(record.sourceImageUrl))) {
+      errors.push('photo sourceImageUrl must be https');
+    }
   } else {
+    if (record.kind !== undefined && record.kind !== GENERATED_IMAGE_KIND) errors.push('generated record kind must be generated');
     if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
     if (!nonEmpty(record.model)) errors.push('model is required');
     if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
@@ -230,17 +378,20 @@ export function validateGeneratedImageRecord(record) {
       if (!nonEmpty(record[field])) errors.push(`event-library ${field} is required`);
     }
   }
-  if (!isPrivateGrant && (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
-    errors.push('restrictions do not contain the mandatory policy');
+  if (!isPrivateGrant && !isPhoto && (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
+    errors.push('restrictions do not contain the mandatory generated-image policy');
+  }
+  if (!isPrivateGrant && isPhoto && (!Array.isArray(record.restrictions) || !LICENSED_PHOTO_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
+    errors.push('restrictions do not contain the mandatory licensed-photo policy');
   }
   if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
-    || record.vision.contains_text !== false
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
-    || record.vision.looks_like_specific_real_event !== false
+    || (isPhoto ? typeof record.vision.contains_text !== 'boolean' : record.vision.contains_text !== false)
+    || (isPhoto ? typeof record.vision.looks_like_specific_real_event !== 'boolean' : record.vision.looks_like_specific_real_event !== false)
     || !nonEmpty(record.vision.notes))) {
-    errors.push('vision gate verdict is missing or rejected');
+    errors.push(isPhoto ? 'licensed-photo vision gate verdict is missing or rejected' : 'vision gate verdict is missing or rejected');
   }
   if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a registered WebP path');
   const expectedPrefix = generatedImagePrefixForScope(record.scope);
@@ -290,7 +441,7 @@ export function validateGeneratedImageRegistry(registry, { scope } = {}) {
 /**
  * Gate an assembled event set. OpenAgenda remains the only source-image
  * exception and must carry its own per-image licence fields; every library
- * image must point to one valid generated record.
+ * image must point to one valid generated or licensed-photo record.
  */
 export function verifyPublishedEventImages(events, records) {
   const assets = Array.isArray(records) ? records : Array.isArray(records?.assets) ? records.assets : [];
@@ -319,6 +470,19 @@ export function verifyPublishedEventImages(events, records) {
       const eventScopeError = record && (record.scope !== 'event-library' || !imageUrl.startsWith('/images/events/library/'))
         ? ['event image must use event-library scope and prefix']
         : [];
+      const eventKindError = record
+        && record.license !== GENERATED_IMAGE_LICENSE
+        && !isLicensedPhotoRecord(record)
+        ? ['event image must be generated or a licensed photo']
+        : [];
+      const photoPropagationErrors = record && isLicensedPhotoRecord(record)
+        ? [
+          event.imageAuthor?.name !== record.author?.name ? 'imageAuthor does not match registry' : '',
+          event.imageSourcePageUrl !== (record.sourcePageUrl || record.pageUrl) ? 'imageSourcePageUrl does not match registry' : '',
+          event.imageCopyrightNotice !== record.copyrightNotice ? 'imageCopyrightNotice does not match registry' : '',
+          event.imageAcquireLicensePage !== record.acquireLicensePage ? 'imageAcquireLicensePage does not match registry' : '',
+        ].filter(Boolean)
+        : [];
       const propagationErrors = record
         ? [
           event.imageAssetId !== record.assetId ? 'imageAssetId does not match registry' : '',
@@ -326,10 +490,11 @@ export function verifyPublishedEventImages(events, records) {
           event.imageLicenseUrl !== record.licenseUrl ? 'imageLicenseUrl does not match registry' : '',
           event.imageCredit !== record.credit ? 'imageCredit does not match registry' : '',
           event.imageProvider !== record.provider ? 'imageProvider does not match registry' : '',
+          ...photoPropagationErrors,
         ].filter(Boolean)
         : [];
-      if (!record || eventScopeError.length || !validation.valid || propagationErrors.length) {
-        errors.push(`${event.id || '<event>'}: generated image has no valid record (${[...(validation.errors || ['missing']), ...eventScopeError, ...propagationErrors].join(', ')})`);
+      if (!record || eventScopeError.length || eventKindError.length || !validation.valid || propagationErrors.length) {
+        errors.push(`${event.id || '<event>'}: generated image has no valid record (${[...(validation.errors || ['missing']), ...eventScopeError, ...eventKindError, ...propagationErrors].join(', ')})`);
       }
       continue;
     }
@@ -338,8 +503,7 @@ export function verifyPublishedEventImages(events, records) {
       && nonEmpty(event.imageCredit)
       && /^https:\/\//i.test(String(event.imageLicenseUrl || ''))
       && nonEmpty(event.imageLicense);
-    const catalog = imageUrl.startsWith('/images/events/catalog/');
-    if (!openAgenda && !catalog) {
+    if (!openAgenda) {
       errors.push(`${event.id || '<event>'}: image URL is outside the allowed source set`);
     }
   }

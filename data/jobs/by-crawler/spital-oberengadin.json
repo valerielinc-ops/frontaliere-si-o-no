@@ -143,14 +143,12 @@
       "pensum": "40 - 100%",
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan",
-        "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+        "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan",
-          "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan",
-          "dipl-infermieristica-professionale-hf-fh-possibile-stagione-spital-oberengadin-samedan"
+          "dipl-pflegefachfrau-mann-hf-fh-spital-oberengadin-samedan"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-fh-saison-moglich-spital-oberengadin-samedan"
@@ -231,13 +229,11 @@
       "pensumMax": 80,
       "pensum": "50 - 80%",
       "previousSlugs": [
-        "hebamme-spital-oberengadin-samedan",
-        "mutua-spital-oberengadin-samedan"
+        "hebamme-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hebamme-spital-oberengadin-samedan",
-          "mutua-spital-oberengadin-samedan"
+          "hebamme-spital-oberengadin-samedan"
         ],
         "en": [
           "hebamme-spital-oberengadin-samedan"
@@ -317,13 +313,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
-        "direttore-della-stazione-stazione-spital-oberengadin-samedan"
+        "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsleiterin-stationsleiter-spital-oberengadin-samedan",
-          "direttore-della-stazione-stazione-spital-oberengadin-samedan"
+          "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
         ],
         "en": [
           "stationsleiterin-stationsleiter-spital-oberengadin-samedan"
@@ -404,14 +398,12 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit-nachweisbarer",
-        "dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan",
-        "dipl-expert-expert-nds-emergency-care-o-dipl-infermiera-con-comprovata-esperienza-nell-assistenza-di-emergenza-spital"
+        "dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit-nachweisbarer",
-          "dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan",
-          "dipl-expert-expert-nds-emergency-care-o-dipl-infermiera-con-comprovata-esperienza-nell-assistenza-di-emergenza-spital"
+          "dipl-expertin-experte-nds-notfallpflege-o-dipl-pflegefachperson-con-nachweisbarer-erfahrung-in-notfallpflege-spital-oberengadin-samedan"
         ],
         "en": [
           "dipl-expertin-experte-nds-notfallpflege-oder-dipl-pflegefachperson-mit-nachweisbarer"
@@ -440,9 +432,9 @@
       "slug": "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan",
       "slugByLocale": {
         "it": "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
+        "en": "apprenticeship-as-a-businesswoman-businessman-efz-spital-oberengadin-samedan",
         "de": "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+        "fr": "place-d-apprentissage-employee-de-commerce-cfc-spital-oberengadin-samedan"
       },
       "company": "Spital Oberengadin",
       "companyKey": "spital-oberengadin",
@@ -491,13 +483,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
-        "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan"
+        "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan",
-          "apprendistato-kauffrau-kaufmann-cfc-spital-oberengadin-samedan"
+          "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+        ],
+        "en": [
+          "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
+        ],
+        "fr": [
+          "lehrstelle-kauffrau-kaufmann-efz-spital-oberengadin-samedan"
         ]
       },
       "firstSeenAt": "2026-10-03T09:19:43.010Z",

@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ 'whatsNew.v3987.title': "Articoli per cantone nella stessa esperienza",
+ 'whatsNew.v3987.cantonArticles.title': "Leggi e scopri gli articoli dei cantoni",
+ 'whatsNew.v3987.cantonArticles.desc': "Le sezioni cantonali live ora usano la stessa vista interattiva degli articoli frontalieri e svizzeri: archivio, lettura, correlati, condivisione e navigazione senza ricaricare la pagina.",
  "whatsNew.v3973.title": "Anteprime delle offerte",
  "whatsNew.v3973.jobPreview.title": "Descrizione completa dopo l’accesso",
  "whatsNew.v3973.jobPreview.desc": "Le offerte mostrano un’anteprima breve. Accedi gratis per leggere descrizione e requisiti completi.",
@@ -986,6 +989,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Sì",
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Salva le risposte",
+ 'jobBoard.assisted.review.checkingAnswers': "Controllo le risposte…",
  'jobBoard.assisted.review.answersSaved': "Risposte salvate.",
  'jobBoard.assisted.review.answersStillOpen': "Risposte salvate, ma manca ancora una risposta obbligatoria (*).",
  'jobBoard.assisted.review.edit': "Modifica",

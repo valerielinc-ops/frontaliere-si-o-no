@@ -280,20 +280,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-        "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        "infermiere-diplomato-infermiere-diplomato-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
-          "infermiere-diplomato-infermiere-diplomato-spital-sts-thun",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+          "infermiere-diplomato-infermiere-diplomato-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-10-03T09:19:32.112Z",
@@ -313,9 +305,9 @@
     },
     {
       "id": "spital-sts-66c6323510a7",
-      "slug": "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
+      "slug": "assistente-di-reparto-economia-domestica-incl-servizio-e-contatto-con-il-paziente-spital-sts-thun",
       "slugByLocale": {
-        "it": "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun",
+        "it": "assistente-di-reparto-economia-domestica-incl-servizio-e-contatto-con-il-paziente-spital-sts-thun",
         "en": "ward-assistant-housekeeping-incl-service-and-patient-contact-spital-sts-thun",
         "de": "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
         "fr": "assistant-e-de-service-d-entretien-menager-service-et-contact-avec-les-patients-inclus-spital-sts-thun"
@@ -363,11 +355,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
+        "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
+        "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"
+          "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun",
+          "stationsassistent-in-hauswirtschaft-inkl-service-e-patientenkontakt-spital-sts-thun"
         ],
         "en": [
           "stationsassistent-in-hauswirtschaft-inkl-service-und-patientenkontakt-spital-sts-thun"

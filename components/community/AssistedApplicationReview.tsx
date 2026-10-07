@@ -545,7 +545,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             ))}
             <button type="submit" disabled={Boolean(busy)} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent hover:bg-accent-subtle disabled:opacity-60">
               {busy === 'answers' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
-              {t('jobBoard.assisted.review.saveAnswers')}
+              {busy === 'answers' ? t('jobBoard.assisted.review.checkingAnswers') : t('jobBoard.assisted.review.saveAnswers')}
             </button>
             {done === 'answers' && (openRequired.length
               ? <p className="text-xs text-warning" role="status">{t('jobBoard.assisted.review.answersStillOpen')}</p>

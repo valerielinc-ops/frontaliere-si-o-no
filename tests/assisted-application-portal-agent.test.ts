@@ -54,6 +54,19 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     expect(day.actions).toHaveLength(1);
   });
 
+  it('grounds an age-threshold answer in the explicit date of birth', () => {
+    const candidate = { answers: {}, profile: { dateOfBirth: '13.11.2001' }, portalQuestionsAnswered: [] };
+    const question = 'Hai meno di 26 anni?';
+    const grounded = guardAgentStep(turn('act', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), candidate);
+    expect(grounded).toMatchObject({ status: 'act', questions: [] });
+    expect(grounded.actions).toHaveLength(1);
+
+    const wrong = guardAgentStep(turn('act', [act({ action: 'select', value: 'No', answer: 'No', question, source: 'profile' })]), candidate);
+    expect(wrong).toMatchObject({ status: 'needs_candidate', actions: [], questions: [expect.objectContaining({ question })] });
+    const absent = guardAgentStep(turn('act', [act({ action: 'select', value: 'Sì', answer: 'Sì', question, source: 'profile' })]), { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(absent).toMatchObject({ status: 'needs_candidate', questions: [expect.objectContaining({ question })] });
+  });
+
   it('presses an unusual step button only when its name says next step', () => {
     expect(advanceName('Salva e prosegui')).toBe(true);
     expect(advanceName('Vai al passo successivo')).toBe(true);

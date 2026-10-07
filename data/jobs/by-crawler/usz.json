@@ -16027,9 +16027,9 @@
       "slug": "collaboratore-trice-textil-e-kleiderservice-80-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-textil-e-kleiderservice-80-universitatsspital-zurich-usz-zurich",
-        "en": "associate-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich",
+        "en": "textile-and-clothing-service-associate-80-universitatsspital-zurich-usz-zurich",
         "de": "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch",
-        "fr": "collaborateur-trice-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich"
+        "fr": "employe-dans-le-service-textile-et-habillement-80-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16073,17 +16073,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch"
+        "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch",
+        "associate-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich",
+        "collaborateur-trice-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch"
         ],
         "en": [
-          "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch"
+          "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch",
+          "associate-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich"
         ],
         "fr": [
-          "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch"
+          "mitarbeiter-in-textil-und-kleiderservice-80-usz-ch",
+          "collaborateur-trice-textil-und-kleiderservice-80-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -16104,9 +16108,9 @@
     },
     {
       "id": "usz-11aeafd332a0",
-      "slug": "pflegefachperson-per-la-interdisziplinare-privatabteilung-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-per-il-reparto-privato-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "pflegefachperson-per-la-interdisziplinare-privatabteilung-80-100-universitatsspital-zurich-usz-zurich",
+        "it": "infermiere-per-il-reparto-privato-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
         "en": "nurse-for-the-interdisciplinary-private-department-80-100-universitatsspital-zurich-usz-zurich",
         "de": "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch",
         "fr": "infirmiere-du-departement-interdisciplinaire-prive-80-100-universitatsspital-zurich-usz-zurich"
@@ -16153,11 +16157,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch"
+        "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch",
+        "pflegefachperson-per-la-interdisziplinare-privatabteilung-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch"
+          "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch",
+          "pflegefachperson-per-la-interdisziplinare-privatabteilung-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "pflegefachperson-fur-die-interdisziplinare-privatabteilung-80-100-usz-ch"
@@ -18343,9 +18349,9 @@
     },
     {
       "id": "usz-3e44150653b8",
-      "slug": "tumordokumentarin-mit-schwerpunkt-datenmanagement-70-usz-ch",
+      "slug": "documentatrice-sui-tumori-con-particolare-attenzione-alla-gestione-dei-dati-70-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "tumordokumentarin-mit-schwerpunkt-datenmanagement-70-usz-ch",
+        "it": "documentatrice-sui-tumori-con-particolare-attenzione-alla-gestione-dei-dati-70-universitatsspital-zurich-usz-zurich",
         "en": "tumor-documentary-with-focus-on-data-management-70-universitatsspital-zurich-usz-zurich",
         "de": "tumordokumentarin-mit-schwerpunkt-datenmanagement-70-usz-ch",
         "fr": "tumor-documentaire-avec-l-accent-sur-la-gestion-des-donnees-70-universitatsspital-zurich-usz-zurich"
@@ -18392,11 +18398,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "documentaire-tumoral-axe-sur-la-gestion-des-donnees-70-universitatsspital-zurich-usz-zurich"
+        "documentaire-tumoral-axe-sur-la-gestion-des-donnees-70-universitatsspital-zurich-usz-zurich",
+        "tumordokumentarin-mit-schwerpunkt-datenmanagement-70-usz-ch"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "documentaire-tumoral-axe-sur-la-gestion-des-donnees-70-universitatsspital-zurich-usz-zurich"
+        ],
+        "it": [
+          "tumordokumentarin-mit-schwerpunkt-datenmanagement-70-usz-ch"
         ]
       },
       "needsRetranslation": true,

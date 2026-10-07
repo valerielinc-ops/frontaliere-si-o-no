@@ -2754,9 +2754,9 @@
     },
     {
       "id": "css-versicherung-98816f18728d",
-      "slug": "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid",
+      "slug": "infermiere-a-come-specialista-a-medico-a-esame-delle-prestazioni-lca-80-100-css-versicherung-luzern-hybrid",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid",
+        "it": "infermiere-a-come-specialista-a-medico-a-esame-delle-prestazioni-lca-80-100-css-versicherung-luzern-hybrid",
         "en": "nursing-specialist-as-a-medical-specialist-performance-test-vvg-80-100-css-versicherung-luzern-hybrid",
         "de": "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css",
         "fr": "infirmiere-infirmier-en-tant-que-specialiste-medical-examen-des-performances-lca-80-100-css-versicherung-luzern-hybrid"
@@ -2804,11 +2804,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
+        "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css",
+        "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
+          "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css",
+          "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid"
         ],
         "en": [
           "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
@@ -2817,7 +2819,6 @@
           "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:24:41.738Z",
       "salaryMin": 74500,
       "salaryMax": 123500,

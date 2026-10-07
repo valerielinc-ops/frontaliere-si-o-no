@@ -245,9 +245,6 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // ══════════════════════════════════════════════════════════════════════
   { file: "tests/apleona-schweiz-ag-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/article-author-source-parity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
-  // The rendered-section parity test intentionally reads the assembled article
-  // package; keep it in the post-merge live-data partition, not the PR gate.
-  { file: "tests/site-rendered-article-sections.test.ts", roots: ["packages/articles/"], since: "2026-10-06", evidence: "review", runtime: true },
   // The organization-entity regression also inspects generated static blog
   // SEO modules. Its corpus reads are intentional, but the runtime/source
   // inventory must keep it out of the blocking PR partition.
@@ -405,6 +402,13 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     ['tests/newsletter-title-neutrality.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
     ['tests/signup-prompt-funnel.test.ts', ['services/locales/'], 'legge i quattro chunk {locale}-core.ts (traccia: 4 letture, tutte chunk di interfaccia), mai blog-meta o blog-body'],
   ].map(([file, roots, reason]) => ({ file, roots, reason, since: '2026-10-03', evidence: 'trace' })),
+  {
+    file: 'tests/site-rendered-article-sections.test.ts',
+    roots: ['packages/articles/'],
+    since: '2026-10-06',
+    evidence: 'trace',
+    reason: 'legge solo moduli sorgente sotto packages/articles/engine/ per verificare il contratto delle sezioni; la scansione generalizza quel prefisso alla radice packages/articles/, ma il test non apre packages/articles/content/ né altri dati rigenerati',
+  },
   {
     file: 'tests/ci-vitest-check-name.test.ts',
     roots: ['data/jobs/'],

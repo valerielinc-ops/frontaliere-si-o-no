@@ -204,6 +204,20 @@ function roundDraftMissing(current, draft) {
   return Number(draft?.round) !== Number(current.round);
 }
 
+/**
+ * The round reached its sending: the candidate approved it, or let its 12 hours
+ * pass, and the last run asked for it was the sending (`dispatch`, written
+ * with every dispatch by assistedApplicationAutomation.js). A round stopped
+ * before that (Valerie took it over while it was in review, its draft failed,
+ * the candidate rejected it for the third time) was never approved: its draft
+ * exists, and is no application to send. A dispatch without its round (written
+ * before the round was recorded) is read as the current one's.
+ */
+export function roundWasSent(flow, round = Number(flow?.round) || 1) {
+  const dispatch = flow?.dispatch;
+  return dispatch?.mode === 'submit' && (dispatch.round === undefined || dispatch.round === null || Number(dispatch.round) === Number(round));
+}
+
 /** The round's draft is written again, in the same round. */
 function redraftSameRound(next, reason) {
   next.state = 'regenerating';
@@ -385,6 +399,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // own draft, which the candidate approved.
       if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_retryable');
       if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      // The robot sends only what the candidate approved. A real order of 2026-10-07 was taken over while
+      // in the owner's review, and «retry» sent its draft to the portal, never seen by the candidate.
+      if (!roundWasSent(flow, current.round)) return ignore('not_approved');
       effects = enterSubmitting(next, 'owner_retry');
       break;
     case 'owner_handoff':

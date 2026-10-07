@@ -3,6 +3,7 @@ import {
   buildGeneratedImagePrompt,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  LICENSED_PHOTO_RESTRICTIONS,
   validateGeneratedImageRegistry,
   validateGeneratedImageRecord,
   verifyPublishedEventImages,
@@ -59,6 +60,37 @@ const ARTICLE_RECORD = {
   imageUrl: '/images/blog/historical-article-hero.webp',
 };
 
+const PHOTO_RECORD = {
+  ...RECORD,
+  assetId: 'event-lago-laghi-primavera-v02',
+  kind: 'photo',
+  provider: 'wikimedia',
+  model: 'Wikimedia Commons file mirror',
+  license: 'CC BY-SA 4.0',
+  licenseFamily: 'cc-by-sa',
+  licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+  credit: 'Ada Wikimedia · CC BY-SA 4.0',
+  author: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
+  sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+  sourceImageUrl: 'https://upload.wikimedia.org/lago.jpg',
+  copyrightNotice: '© Ada Wikimedia',
+  acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+  restrictions: [...LICENSED_PHOTO_RESTRICTIONS],
+  vision: {
+    ok: true,
+    contains_text: true,
+    contains_logo: false,
+    contains_recognizable_face: false,
+    looks_like_specific_real_event: false,
+    notes: 'safe licensed landscape fixture',
+  },
+  imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
+  category: 'generico',
+  area: 'laghi',
+  season: 'primavera-estate',
+  variant: '02',
+};
+
 describe('generated event image policy', () => {
   it('keeps the forbidden-content policy in the canonical prompt', () => {
     const prompt = buildGeneratedImagePrompt({
@@ -80,6 +112,62 @@ describe('generated event image policy', () => {
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);
   });
+
+  it('validates licensed photo metadata and rejects a missing licence', () => {
+    expect(validateGeneratedImageRecord(PHOTO_RECORD).valid).toBe(true);
+    expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, license: '' }).valid).toBe(false);
+    expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, author: undefined }).valid).toBe(false);
+    const imageAuthorUrl = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      author: { name: 'Ada Wikimedia', url: 'https://cdn.example.test/ada.jpeg' },
+    });
+    expect(imageAuthorUrl.valid).toBe(false);
+    expect(imageAuthorUrl.errors).toContain('photo author.url must not point to an image file');
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      vision: { ...PHOTO_RECORD.vision, contains_recognizable_face: true },
+    }).valid).toBe(false);
+
+    const pexelsRecord = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pexels',
+      license: 'Pexels License',
+      licenseFamily: 'pexels',
+      licenseUrl: 'https://www.pexels.com/license/',
+      author: { name: 'Ada Pexels', url: 'https://www.pexels.com/@ada' },
+      sourcePageUrl: 'https://www.pexels.com/photo/lago-123/',
+    });
+    expect(pexelsRecord.valid).toBe(true);
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pexels',
+      license: 'Pexels License',
+      licenseFamily: 'pexels',
+      licenseUrl: 'https://www.pexels.com/license/',
+      author: { name: 'Ada Pexels', url: 'https://example.test/@ada' },
+      sourcePageUrl: 'https://www.pexels.com/photo/lago-123/',
+    }).errors).toContain('pexels author.url must use the pexels domain');
+
+    const pixabayRecord = validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pixabay',
+      license: 'Pixabay Content License',
+      licenseFamily: 'pixabay',
+      licenseUrl: 'https://pixabay.com/service/license-summary/',
+      author: { name: 'Ada Pixabay', url: 'https://pixabay.com/users/Ada-42/' },
+      sourcePageUrl: 'https://pixabay.com/photos/lago-123/',
+    });
+    expect(pixabayRecord.valid).toBe(true);
+    expect(validateGeneratedImageRecord({
+      ...PHOTO_RECORD,
+      provider: 'pixabay',
+      license: 'Pixabay Content License',
+      licenseFamily: 'pixabay',
+      licenseUrl: 'https://pixabay.com/service/license-summary/',
+      author: { name: 'Ada Pixabay', url: 'https://cdn.pixabay.com/user/avatar' },
+      sourcePageUrl: 'https://pixabay.com/photos/lago-123/',
+    }).errors).toContain('pixabay author.url must use the pixabay domain');
+  });
 });
 
 describe('event image library taxonomy and assignment', () => {
@@ -87,6 +175,8 @@ describe('event image library taxonomy and assignment', () => {
     const slots = eventImageLibrarySlots();
     expect(slots).toHaveLength(96);
     expect(new Set(slots.map((slot) => slot.assetId)).size).toBe(96);
+    expect(eventImageLibrarySlots({ variants: 3 })).toHaveLength(288);
+    expect(eventImageLibrarySlots({ variants: 3 })[1].assetId).toContain('-v02');
   });
 
   it('normalizes dirty categories and maps cantons to macro-areas', () => {
@@ -152,6 +242,24 @@ describe('published event image gate', () => {
       },
     ], [RECORD]);
     expect(result).toEqual({ valid: true, errors: [] });
+  });
+
+  it('accepts a registered licensed photo only when attribution is propagated', () => {
+    const event = {
+      id: 'event:photo',
+      imageUrl: PHOTO_RECORD.imageUrl,
+      imageAssetId: PHOTO_RECORD.assetId,
+      imageLicense: PHOTO_RECORD.license,
+      imageLicenseUrl: PHOTO_RECORD.licenseUrl,
+      imageCredit: PHOTO_RECORD.credit,
+      imageProvider: PHOTO_RECORD.provider,
+      imageAuthor: PHOTO_RECORD.author,
+      imageSourcePageUrl: PHOTO_RECORD.sourcePageUrl,
+      imageCopyrightNotice: PHOTO_RECORD.copyrightNotice,
+      imageAcquireLicensePage: PHOTO_RECORD.acquireLicensePage,
+    };
+    expect(verifyPublishedEventImages([event], [PHOTO_RECORD])).toEqual({ valid: true, errors: [] });
+    expect(verifyPublishedEventImages([{ ...event, imageLicense: 'generated-provider' }], [PHOTO_RECORD]).valid).toBe(false);
   });
 
   it('rejects generated event fields that drift from the registry record', () => {
