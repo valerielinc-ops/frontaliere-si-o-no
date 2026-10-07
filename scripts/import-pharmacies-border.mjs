@@ -612,7 +612,12 @@ async function main() {
       fetchDocument: (url) => fetchText(url, { accept: 'text/html' }),
       fetchPdfText: async (url) => extractPharmacyPdfText(await fetchBuffer(url)),
       fetchJson,
-      googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
+      // A pending reservation owned by another serialized refresh run must
+      // not spend that run's quota from the same main snapshot. The workflow
+      // leaves all other pharmacy duties running and only disables Places.
+      googleApiKey: process.env.PHARMACY_SKIP_GOOGLE_PLACES === '1'
+        ? undefined
+        : process.env.GOOGLE_MAPS_API_KEY,
       facebookPageId: process.env.PHARMACY_FACEBOOK_PAGE_ID,
       facebookAccessToken: process.env.PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN,
     },

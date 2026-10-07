@@ -35,6 +35,13 @@ solo da fonti esplicitamente registrate in
   così un retry non può superare il tetto nello stesso mese. Il registro si
   azzera sul mese UTC successivo e `maxAgeDays: 30` evita richieste ripetute per
   una sede già verificata.
+- Il workflow `sync-pharmacies-border` prenota la quota prevista prima della
+  prima chiamata in un branch tecnico serializzato,
+  `chore/pharmacy-google-usage-reservation`. Se una prenotazione o una PR di
+  refresh precedente è ancora pendente, il run successivo aggiorna gli altri
+  dati ma disabilita Google Places: il ledger non può essere speso due volte
+  dallo stesso snapshot di `main`. Una prenotazione interrotta resta quindi
+  conservativa fino al merge o al cambio mese.
 - Facebook Graph API, soltanto con un `PHARMACY_FACEBOOK_PAGE_ID` e un
   `PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN` autorizzati. Anche qui il nome e la
   località devono corrispondere prima di accettare i dati; i post e le
