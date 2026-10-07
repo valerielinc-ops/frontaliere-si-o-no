@@ -1190,20 +1190,136 @@ jobs:
         if: steps.publish_replay_chunks.outcome == 'success' && steps.verify_replay_chunk_lock_after_publish.outcome == 'success'
         run: |
           set -euo pipefail
-          SOURCE_SHA="$(git rev-parse HEAD)"
-          git fetch --no-tags --depth=1 origin main
-          MAIN_SHA="$(git rev-parse origin/main)"
-          if [ "$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")" != "true" ]; then
-            echo "::error::main advanced during client publication; refusing to publish stale edge surfaces"
-            exit 1
-          fi
+          MAX_REFRESH_ROUNDS=2
+          DIFF_PATHS="$RUNNER_TEMP/replay-main-diff.txt"
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          REFRESH_ROUNDS=0
+
+          verify_replay_lock() {
+            if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+              cat "$LOCK_RENEW_FAILURE_FILE" >&2
+              cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+              return 1
+            fi
+            kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+          }
+
+          write_verdict() {
+            local verdict="$1"
+            local source_sha="$2"
+            local main_sha="$3"
+            {
+              echo '### Post-merge replay source freshness'
+              echo "- Verdict: \`$verdict\`"
+              echo "- Source SHA: \`$source_sha\`"
+              echo "- main SHA: \`$main_sha\`"
+              echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+              echo '- Edge publication: allowed only for `current` or `unrelated-advance`.'
+            } >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "verdict=$verdict"
+              echo "source_sha=$source_sha"
+              echo "main_sha=$main_sha"
+              echo 'edge_publish=true'
+            } >> "$GITHUB_OUTPUT"
+          }
+
+          write_diff_failure() {
+            local source_sha="$1"
+            local main_sha="$2"
+            echo '### Post-merge replay source freshness' >> "$GITHUB_STEP_SUMMARY"
+            echo "- Verdict: \`unavailable\` (diff failed; publication refused)" >> "$GITHUB_STEP_SUMMARY"
+            echo "- Source SHA: \`$source_sha\`" >> "$GITHUB_STEP_SUMMARY"
+            echo "- main SHA: \`$main_sha\`" >> "$GITHUB_STEP_SUMMARY"
+            echo 'verdict=unavailable' >> "$GITHUB_OUTPUT"
+            echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+          }
+
+          write_lock_failure() {
+            local source_verdict="$1"
+            local source_sha="$2"
+            local main_sha="$3"
+            {
+              echo '### Post-merge replay source freshness'
+              echo "- Verdict: \`lock-lost\` (source was \`$source_verdict\`, but the section lock was no longer held; publication refused)"
+              echo "- Source SHA: \`$source_sha\`"
+              echo "- main SHA: \`$main_sha\`"
+              echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo 'verdict=lock-lost' >> "$GITHUB_OUTPUT"
+            echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+          }
+
+          while :; do
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            git fetch --no-tags --depth=1 origin main
+            MAIN_SHA="$(git rev-parse origin/main)"
+            if ! git diff --name-only "$SOURCE_SHA" "$MAIN_SHA" > "$DIFF_PATHS"; then
+              echo "::error::cannot calculate the diff from $SOURCE_SHA to $MAIN_SHA; refusing edge publication"
+              write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+              exit 1
+            fi
+            if ! VERDICT="$(node scripts/lib/article-chunk-publish-freshness.mjs \
+              --source-sha "$SOURCE_SHA" \
+              --main-sha "$MAIN_SHA" \
+              --changed-paths-file "$DIFF_PATHS")"; then
+              echo "::error::replay source freshness verdict failed for $SOURCE_SHA to $MAIN_SHA; refusing edge publication"
+              write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+              exit 1
+            fi
+
+            case "$VERDICT" in
+              current|unrelated-advance)
+                # The fetch and the diff above took time. The verdict below is
+                # what lets the edge step publish, so the lease must still be
+                # held here: a renewer that failed meanwhile means another
+                # writer may already own the section.
+                if ! verify_replay_lock; then
+                  echo "::error::article chunk section lock was lost before the replay source verdict ($VERDICT); refusing edge publication"
+                  write_lock_failure "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
+                  exit 1
+                fi
+                echo "::notice::Replay source verdict $VERDICT from $SOURCE_SHA to $MAIN_SHA; no article surface or publisher code changed"
+                write_verdict "$VERDICT" "$SOURCE_SHA" "$MAIN_SHA"
+                break
+                ;;
+              superseded)
+                if [ "$REFRESH_ROUNDS" -ge "$MAX_REFRESH_ROUNDS" ]; then
+                  echo "::error::replay source is superseded from $SOURCE_SHA to $MAIN_SHA after $MAX_REFRESH_ROUNDS limited refresh rounds; refusing stale edge publication"
+                  {
+                    echo '### Post-merge replay source freshness'
+                    echo '- Verdict: `superseded` (refresh ceiling reached; publication refused)'
+                    echo "- Source SHA: \`$SOURCE_SHA\`"
+                    echo "- main SHA: \`$MAIN_SHA\`"
+                    echo "- Limited refresh rounds: $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS"
+                  } >> "$GITHUB_STEP_SUMMARY"
+                  echo "verdict=superseded" >> "$GITHUB_OUTPUT"
+                  echo 'edge_publish=false' >> "$GITHUB_OUTPUT"
+                  exit 1
+                fi
+                REFRESH_ROUNDS=$((REFRESH_ROUNDS + 1))
+                echo "::notice::Article surface changed from $SOURCE_SHA to $MAIN_SHA; refreshing origin/main and republishing client chunks (round $REFRESH_ROUNDS/$MAX_REFRESH_ROUNDS)"
+                git checkout --detach --force origin/main
+                verify_replay_lock
+                npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+                verify_replay_lock
+                ;;
+              *)
+                echo "::error::unknown replay source freshness verdict '$VERDICT'; refusing edge publication"
+                write_diff_failure "$SOURCE_SHA" "$MAIN_SHA"
+                exit 1
+                ;;
+            esac
+          done
 
       # publish-edge-files.mjs intentionally remains best-effort for its other
       # callers. This replay is the delivery mechanism for the four surfaces
       # skipped by the PR path, so count its upload confirmations and fail closed
       # if any requested edge object was not actually PUT.
       - name: Replay article sitemap, RSS and ticker surfaces
-        if: steps.recheck_replay_source_before_edge.outcome == 'success'
+        if: steps.recheck_replay_source_before_edge.outcome == 'success' && (steps.recheck_replay_source_before_edge.outputs.verdict == 'current' || steps.recheck_replay_source_before_edge.outputs.verdict == 'unrelated-advance') && steps.recheck_replay_source_before_edge.outputs.edge_publish == 'true'
         run: |
           set -euo pipefail
 

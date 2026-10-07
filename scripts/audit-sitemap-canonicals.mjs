@@ -377,6 +377,7 @@ async function main() {
       threshold: { metric: 'count', value: 0, comparator: '<=' },
       offenders: _structuredOffenders,
       byFeature: _byFeatureForReport,
+      sampleRate: 1,
       extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length, exempt: { ...exempt } },
     });
     process.exit(0);
@@ -414,6 +415,7 @@ async function main() {
     threshold: { metric: 'count', value: 0, comparator: '<=' },
     offenders: _structuredOffenders,
     byFeature: _byFeatureForReport,
+    sampleRate: 1,
     extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length, exempt: { ...exempt } },
   });
   process.exit(1);

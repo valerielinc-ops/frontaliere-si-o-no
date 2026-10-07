@@ -3308,7 +3308,6 @@
         "location": "Lausanne"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T12:36:19.941Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3324,6 +3323,7 @@
           "unitText": "YEAR"
         }
       },
+      "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "it": [
           "montchoisi-motionlab-swiss-medical-network"
@@ -3331,7 +3331,9 @@
       },
       "previousSlugs": [
         "montchoisi-motionlab-swiss-medical-network"
-      ]
+      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4298
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139931805-medecin-angiologue-h-f-",
@@ -3510,7 +3512,6 @@
         "location": "Echandens"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:56:03.166Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -3526,6 +3527,7 @@
           "unitText": "YEAR"
         }
       },
+      "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "it": [
           "it-business-analyst-healthcare-swiss-medical-network"
@@ -3533,7 +3535,9 @@
       },
       "previousSlugs": [
         "it-business-analyst-healthcare-swiss-medical-network"
-      ]
+      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3861
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139058930-gynakologe-in-und-geburtshelfer-in",
