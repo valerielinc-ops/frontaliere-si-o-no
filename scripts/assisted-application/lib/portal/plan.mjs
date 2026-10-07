@@ -352,7 +352,14 @@ function equivalentAnswer(question, left, right) {
 
 /** The candidate already answered this question, including a wording/ID variant. */
 export function candidateAnswerForQuestion(candidate, question) {
-  const items = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  // A portal can discover a new question while submitting, after the draft's
+  // question list was built. Keep the semantic fallback usable in that path
+  // too: the answer id still carries the portal question's wording as a slug.
+  const fromAnswerIds = Object.entries(candidate?.answers || {})
+    .filter(([id, answer]) => /^portal_/i.test(id) && String(answer || '').trim())
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+  const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
   const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();

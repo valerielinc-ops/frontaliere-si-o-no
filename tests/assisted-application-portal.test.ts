@@ -396,6 +396,12 @@ describe('portal runner helpers', () => {
       profile: {},
       portalQuestionsAnswered: [{ question: 'Qual è la tua via e il numero civico?', answer: 'Via Test 1' }],
     }, field)).toEqual({ value: 'Via Test 1', source: 'answers' });
+
+    expect(candidateAnswerForField({
+      profile: {},
+      answers: { portal_qual_e_la_via_e_il_numero_civico: 'Via Test 1' },
+    }, { ...field, id: 'portal_qual_e_la_tua_via_e_il_tuo_numero_civico', label: 'Qual è la tua via e il tuo numero civico?' }))
+      .toEqual({ value: 'Via Test 1', source: 'answers' });
   });
 
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {
