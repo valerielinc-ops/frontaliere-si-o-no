@@ -34,9 +34,9 @@ import {
  * went from 23 offenders to 3608.
  *
  * mirror-articles-engine.yml restores the direction by carrying `engine/` plus
- * the action-owned image broker. That split is the entire safety argument, so it is the thing tested here: the
+ * the action-owned image-lane patch. That split is the entire safety argument, so it is the thing tested here: the
  * old mirror's destructive behaviour was all about `content/`, and an
- * engine-only mirror that cannot name `content/` is safe to fire on `push` —
+ * engine/image-lane mirror that cannot name `content/` is safe to fire on `push` —
  * which is what makes it automatic, which is what makes the drift stop being
  * invisible.
  *
@@ -183,20 +183,23 @@ describe('the articles engine has an automatic transport to the corpus (#4974)',
     }
   });
 
-  it('watches and copies the action-owned image broker', () => {
+  it('watches and applies the adapted action-owned image broker', () => {
     const paths: string[] = on.push.paths ?? [];
     const broker = '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs';
+    const patcher = 'scripts/ci/apply-corpus-image-broker-patch.mjs';
 
-    expect(paths, 'the broker is copied but no push path watches it').toContain(broker);
+    expect(paths, 'the broker is consumed but no push path watches it').toContain(broker);
+    expect(paths, 'the patcher is consumed but no push path watches it').toContain(patcher);
     expect(src, 'the sparse checkout must materialise the broker').toContain(`/${broker}`);
+    expect(src, 'the sparse checkout must materialise the patcher').toContain(`/${patcher}`);
     expect(
       live,
-      'the mirror must copy the broker into the corpus action path',
-    ).toContain(`cp "$broker_source" "$work/${broker}"`);
+      'the mirror must apply the patcher to the corpus broker',
+    ).toContain(`node "$GITHUB_WORKSPACE/${patcher}"`);
     expect(
       live,
-      'the mirror must verify the broker copy before staging it',
-    ).toContain(`cmp -s "$broker_source" "$work/${broker}"`);
+      'the mirror must attest the adapted broker after patching',
+    ).toContain('broker_target_sha="$(sha256sum "$broker_target" | cut -d\' \' -f1)"');
   });
 
   it('checks the sparse checkout actually produced an engine', () => {

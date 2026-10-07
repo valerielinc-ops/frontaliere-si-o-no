@@ -1,6 +1,7 @@
 /**
- * corpus-local-preserve.mjs — snapshot shared files before pull-articles-corpus.mjs's
- * mirror step overwrites them, so locally-only article ids can be merged back in.
+ * corpus-local-preserve.mjs — helpers for pull-articles-corpus.mjs's mirror
+ * safety: snapshot shared files before overwrite, and classify known generated
+ * destination-only churn separately from article-tree shrinkage.
  *
  * Extracted out of pull-articles-corpus.mjs (2026-08-15) so the snapshot step can be
  * exercised in a test without running the rest of the script — the clone, the manifest
@@ -14,6 +15,18 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+
+/**
+ * Image-credit records are corpus-owned, but their generated file set can
+ * churn between the site checkout and an older API-pinned snapshot. The pull
+ * guard excludes only destination-only files under this prefix from its coarse
+ * file-count comparison. The pull keeps those destination-only records until
+ * the pinned corpus carries them, because the current site's cover ledger can
+ * still reference them; source files win normally when they are present.
+ */
+export const CORPUS_GENERATED_CHURN_PREFIXES = Object.freeze([
+  'image-credits/',
+]);
 
 /**
  * Every file under `dir`, as a Set of POSIX-style paths relative to `dir`
@@ -33,6 +46,44 @@ export function listRelFiles(dir) {
   };
   walk(dir, '');
   return out;
+}
+
+function hasPathPrefix(rel, prefixes) {
+  return [...prefixes].some((prefix) => {
+    const normalized = String(prefix).replace(/\/+$/, '');
+    return rel === normalized || rel.startsWith(`${normalized}/`);
+  });
+}
+
+/**
+ * Return destination-only files whose generated surface is allowed to churn.
+ * The corpus registry/manifest gates remain responsible for article safety;
+ * this set only keeps generated image-credit churn from tripping the coarse
+ * file-count shrink alarm. The mirror preserves these local records until the
+ * source carries them, so the site's cover ledger does not lose valid data.
+ */
+export function destinationOnlyPaths({
+  src,
+  dest,
+  prefixes = CORPUS_GENERATED_CHURN_PREFIXES,
+}) {
+  const srcFiles = listRelFiles(src);
+  const destFiles = listRelFiles(dest);
+  return new Set(
+    [...destFiles].filter((rel) => !srcFiles.has(rel) && hasPathPrefix(rel, prefixes)),
+  );
+}
+
+/**
+ * Whether a path is a preserved file or contains one. mirrorTree visits
+ * directories while deciding what to delete, so retaining the parent path is
+ * necessary when a destination-only image-credit subtree is absent upstream.
+ */
+export function isPreservedTreePath(rel, preservedPaths) {
+  for (const preserved of preservedPaths ?? []) {
+    if (preserved === rel || preserved.startsWith(`${rel}/`)) return true;
+  }
+  return false;
 }
 
 /**

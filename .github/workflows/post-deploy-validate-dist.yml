@@ -111,11 +111,23 @@ jobs:
           set -euo pipefail
           cat > "$RUNNER_TEMP/deploy-ref-skew-guard.sh" <<'GUARD'
           build_skew_guard_main_package="$RUNNER_TEMP/deploy-ref-skew-guard-main-package.json"
+          build_skew_guard_main_commit="$RUNNER_TEMP/deploy-ref-skew-guard-main-commit"
 
+          # main is read ONLY from a fetch that succeeded in this invocation
+          # (commit pinned by sha, package.json taken from it): a stale
+          # origin/main ref left by the checkout, or a file left by an earlier
+          # step, must not be able to turn a missing script into a skip. Fetch
+          # or read failed: both files are absent and nothing is skipped.
           build_skew_guard_init() {
-            rm -f "$build_skew_guard_main_package"
-            git fetch --depth=1 origin main -q 2>/dev/null || true
-            git show origin/main:package.json > "$build_skew_guard_main_package" 2>/dev/null || true
+            rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            if git fetch --depth=1 origin main -q 2>/dev/null; then
+              if git rev-parse --verify -q 'FETCH_HEAD^{commit}' > "$build_skew_guard_main_commit" 2>/dev/null \
+                && git show "$(cat "$build_skew_guard_main_commit"):package.json" > "$build_skew_guard_main_package" 2>/dev/null; then
+                return 0
+              fi
+              rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            fi
+            return 0
           }
 
           build_skew_guard_should_skip() {
@@ -133,7 +145,7 @@ jobs:
                 if [ -f "$target" ]; then
                   return 1
                 fi
-                if git cat-file -e "origin/main:$target" 2>/dev/null; then
+                if [ -s "$build_skew_guard_main_commit" ] && git cat-file -e "$(cat "$build_skew_guard_main_commit"):$target" 2>/dev/null; then
                   return 0
                 fi
                 ;;

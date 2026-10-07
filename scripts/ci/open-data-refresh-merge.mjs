@@ -10,6 +10,15 @@ export const EVENT_CACHE_PATHS = new Set([
   'data/events-description-rewrites.json',
 ]);
 
+// The article sync keeps destination-only cover-credit records when the
+// published API snapshot lags the site checkout. A stable refresh branch made
+// by an older run may already have deleted those files; when the current
+// refresh leaves a base record unchanged, restore the current refresh's copy
+// instead of carrying that stale deletion forward. Keep this exception scoped
+// to the generated image-credit tree so ordinary snapshot deletions retain
+// their existing precedence.
+const REFRESH_PRESERVED_IMAGE_CREDIT_RE = /^packages\/articles\/content\/image-credits\//u;
+
 function parseObject(raw, label) {
   let parsed;
   try {
@@ -191,6 +200,14 @@ export function mergeRefreshContent(file, baseRaw, remoteRaw, refreshRaw) {
   const remoteChanged = !sameContent(remoteRaw, baseRaw);
   const refreshChanged = !sameContent(refreshRaw, baseRaw);
 
+  if (
+    !refreshChanged
+    && remoteRaw === null
+    && refreshRaw !== null
+    && REFRESH_PRESERVED_IMAGE_CREDIT_RE.test(file)
+  ) {
+    return refreshRaw;
+  }
   if (!refreshChanged) return remoteRaw;
   if (!remoteChanged) return refreshRaw;
   if (remoteRaw === null) return refreshRaw;

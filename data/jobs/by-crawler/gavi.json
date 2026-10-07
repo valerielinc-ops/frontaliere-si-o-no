@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-10-06T21:13:56.073Z",
+  "assembledAt": "2026-10-07T09:18:31.834Z",
   "jobs": [
     {
       "id": "gavi-779c03b3dd09",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:13:50.717Z",
+      "crawledAt": "2026-10-07T09:18:26.950Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -54,7 +54,19 @@
       "jobReqId": "VN2509",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-manager-grants-design-gavi-le-grand-saconnex"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-grants-design-gavi-le-grand-saconnex"
+        ],
+        "de": [
+          "senior-manager-grants-design-gavi-le-grand-saconnex"
+        ]
+      },
       "firstSeenAt": "2026-10-05T21:26:05.940Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -67,18 +79,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-grants-design-gavi-le-grand-saconnex"
-        ],
-        "de": [
-          "senior-manager-grants-design-gavi-le-grand-saconnex"
-        ]
-      },
-      "previousSlugs": [
-        "senior-manager-grants-design-gavi-le-grand-saconnex"
-      ]
+      }
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rolex",
-  "assembledAt": "2026-10-06T21:16:21.921Z",
+  "assembledAt": "2026-10-07T09:17:45.248Z",
   "jobs": [
     {
       "id": "rolex-4bbd10175b6d",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "specialista-lavorazione-m-f-rolex-geneve",
         "en": "machining-specialist-m-f-rolex-geneve",
-        "de": "bearbeitungsspezialist-m-w-rolex-geneve",
+        "de": "fabrikspezialist-m-w-d-rolex-geneve",
         "fr": "specialiste-usinage-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -33,7 +33,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-Usinage-%28HF%29-Gen%C3%A8/1116342701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:15.020Z",
+      "crawledAt": "2026-10-07T09:14:59.200Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -62,6 +62,7 @@
           "technicien-usinage-h-f-rolex-ch"
         ],
         "de": [
+          "bearbeitungsspezialist-m-w-rolex-geneve",
           "fabrikspezialist-m-w-d-rolex-geneve"
         ]
       },
@@ -69,6 +70,7 @@
         "ingenieur-usinage-h-f-rolex-ch",
         "specialiste-usinage-h-f-rolex-ch",
         "technicien-usinage-h-f-rolex-ch",
+        "bearbeitungsspezialist-m-w-rolex-geneve",
         "fabrikspezialist-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-24T22:41:09.445Z",
@@ -101,7 +103,7 @@
       "title": "Manager du service Industrialisation (H/F)",
       "titleByLocale": {
         "it": "Gestione del servizio di industrializzazione (H/F)",
-        "en": "Manager of Industrialization Service (M/F)",
+        "en": "Manager du service Industrialisation (H/F)",
         "de": "Industrialisierung Service Manager (H/F)",
         "fr": "Manager du service Industrialisation (H/F)"
       },
@@ -117,7 +119,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-du-service-Industrialisation-%28HF%29-Gen%C3%A8/1012831801/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:13.983Z",
+      "crawledAt": "2026-10-07T09:15:00.215Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -147,6 +149,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:11.437Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -192,7 +195,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Communication-&-Image-Design-Gen%C3%A8/1414190233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:12.957Z",
+      "crawledAt": "2026-10-07T09:17:38.744Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -267,7 +270,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Gestion-de-production-Logistique-Supply-chain-Gen%C3%A8/1414219433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:11.918Z",
+      "crawledAt": "2026-10-07T09:17:37.709Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -342,7 +345,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Technicien-de-maintenance-%28HF%29-Bien/1029187501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:10.905Z",
+      "crawledAt": "2026-10-07T09:17:35.651Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -418,7 +421,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-qualiticien%E2%88%99ne-en-microtechnique-CFC-Bien/1425110233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:09.551Z",
+      "crawledAt": "2026-10-07T09:17:36.677Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -498,7 +501,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Syst%C3%A8mes-d'information-Data-Science-Gen%C3%A8/1414220133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:08.539Z",
+      "crawledAt": "2026-10-07T09:17:34.641Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -576,7 +579,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-M%C3%A9canicien-r%C3%A9gleur-robotique-%28HF%29-Gen%C3%A8/1425249633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:07.588Z",
+      "crawledAt": "2026-10-07T09:17:33.537Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -629,7 +632,7 @@
       "slugByLocale": {
         "it": "micromecanicista-h-f-rolex-bienne",
         "en": "micromechanic-m-f-rolex-bienne",
-        "de": "mikromechaniker-m-w-rolex-bienne",
+        "de": "mikromechanische-m-w-d-rolex-bienne",
         "fr": "micromecanicien-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -654,7 +657,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Microm%C3%A9canicien-%28HF%29-Bien/1384945633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:06.557Z",
+      "crawledAt": "2026-10-07T09:17:32.505Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -674,6 +677,7 @@
       "previousSlugs": [
         "micromecanicien-h-f-rolex-ch",
         "micromecanicien-m-w-d-rolex-bienne",
+        "mikromechaniker-m-w-rolex-bienne",
         "mikromechanische-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
@@ -685,6 +689,7 @@
         ],
         "de": [
           "micromecanicien-m-w-d-rolex-bienne",
+          "mikromechaniker-m-w-rolex-bienne",
           "mikromechanische-m-w-d-rolex-bienne"
         ]
       },
@@ -720,7 +725,7 @@
       "titleByLocale": {
         "it": "Electroplast (M/F)",
         "en": "Electroplast (M/F)",
-        "de": "Elektroplastik (M/W)",
+        "de": "Electroplaste (H/F)",
         "fr": "Electroplaste (H/F)"
       },
       "description": "Introduction\n\nPour notre secteur Fournitures , nous recherchons un Electroplaste (H/F) dont la mission principale sera de superviser les équipements de galvanoplastie.\n\nResponsabilités\n\n• Préparer et effectuer les changements de série\n\n• Intervenir auprès des opérateurs pour résoudre des problèmes techniques\n\n• Soutenir la gestion, l'amélioration et la résolution de problèmes\n\n• Former, soutenir et remplacer les opérateurs de production\n\n• Soutenir le formateur des apprentis électroplaste et le seconder au besoin\n\nProfil\n\n• CFC d'électroplaste\n\n• Très bonne connaissance et maîtrise des équipements de production\n\n• Connaissance des outils de base de résolution de problèmes\n\n• Maîtrise des outils de bureautique\n\n• Leadership, force de proposition et méthodique\n\n• Entregent et bon relationnel\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -735,7 +740,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Electroplaste-%28HF%29-Bien/1265782001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:05.555Z",
+      "crawledAt": "2026-10-07T09:17:29.449Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -765,6 +770,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.983Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -811,7 +817,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-d%C3%A9couverte-apprentissage-Gen%C3%A8/1414675133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:04.537Z",
+      "crawledAt": "2026-10-07T09:17:28.413Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -867,7 +873,7 @@
       "slug": "termine-h-f-rolex-geneve",
       "slugByLocale": {
         "it": "termine-h-f-rolex-geneve",
-        "en": "finisher-m-f-rolex-geneve",
+        "en": "terminator-m-w-d-rolex-geneve",
         "de": "termineur-h-f-rolex-geneve",
         "fr": "termineur-h-f-rolex-ch"
       },
@@ -878,7 +884,7 @@
       "titleByLocale": {
         "it": "Terminator (H/F)",
         "en": "Terminator (H/F)",
-        "de": "Terminator (M/W)",
+        "de": "Termineur (H/F)",
         "fr": "Termineur (H/F)"
       },
       "description": "Introduction\n\nPour notre division Production , nous recherchons un Termineur (H/F) dont le rôle principal sera de participer activement à l'activité de terminaison des composants brins et fermoirs.\n\nResponsabilités\n\n• Assurer les opérations de polissage et de terminaison sur l’ensemble de la gamme de produit ;\n\n• Garantir une production journalière conforme aux attentes (qualité et quantité) selon les objectifs fixés ;\n\n• Effectuer l’auto-contrôle des pièces produites.\n\nProfil\n\n• CFC de termineur et/ou expérience significative dans le domaine de la terminaison ;\n\n• Maîtrise des techniques de polissage : émerisage, feutrage, lapidage, polissage, satinage, avivage sur des brins et fermoirs ;\n\n• Compétences avérées en lecture de plans et en contrôle dimensionnel ;\n\n• Connaissance d'un système informatique relatif au métier ;\n\n• Fort esprit d'équipe, polyvalence et flexibilité ;\n\n• Rigueur, sens de l'organisation, constance et assiduité.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -893,7 +899,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Termineur-%28HF%29-Gen%C3%A8/893140301/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:03.524Z",
+      "crawledAt": "2026-10-07T09:17:30.473Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -922,6 +928,7 @@
         "termineur-sav-h-f-rolex-fribourg",
         "termineur-sav-h-f-rolex-ch",
         "termineur-h-f-rolex-ch-nuy03u",
+        "finisher-m-f-rolex-geneve",
         "terminator-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -929,6 +936,7 @@
           "termineur-h-f-rolex-ch"
         ],
         "en": [
+          "finisher-m-f-rolex-geneve",
           "terminator-m-w-d-rolex-geneve"
         ],
         "fr": [
@@ -936,6 +944,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:56.351Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -981,7 +990,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-R%C3%A9pondant-m%C3%A9thodes-assemblage-%28HF%29-Bien/1414763233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:02.503Z",
+      "crawledAt": "2026-10-07T09:17:31.481Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1060,7 +1069,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-de-maintenance-%28HF%29-Frib/1415099433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:01.483Z",
+      "crawledAt": "2026-10-07T09:17:27.403Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1121,7 +1130,7 @@
       "companyDomain": "rolex.com",
       "title": "Space planner (H/F)",
       "titleByLocale": {
-        "it": "Pianificatore spaziale (M/F)",
+        "it": "Space planner (H/F)",
         "en": "Space planner (M/F)",
         "de": "Raumplaner (M/W)",
         "fr": "Space planner (H/F)"
@@ -1138,7 +1147,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Space-planner-%28HF%29-Gen%C3%A8/1415271433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:16:00.463Z",
+      "crawledAt": "2026-10-07T09:17:26.396Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1179,6 +1188,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:20.822Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1208,7 +1218,7 @@
       "title": "Cadranographe (H/F) - Assemblage Prototypes Cadran",
       "titleByLocale": {
         "it": "R&D Technician - Assembly Prototypes Dial",
-        "en": "(M/F) scanner - Assembly Prototypes Dial",
+        "en": "Cadranographe (H/F) - Assemblage Prototypes Cadran",
         "de": "R&D Techniker - Montage Prototypen Dial",
         "fr": "Cadranographe (H/F) - Assemblage Prototypes Cadran"
       },
@@ -1224,7 +1234,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Cadranographe-%28HF%29-Assemblage-Prototypes-Cadran-Gen%C3%A8/1415416833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:59.418Z",
+      "crawledAt": "2026-10-07T09:17:25.390Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1277,6 +1287,7 @@
         "cadranographe-h-f-assemblage-prototypes-cadran-rolex-ch"
       ],
       "firstSeenAt": "2026-07-16T11:07:56.134Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1322,7 +1333,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/718066601/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:58.048Z",
+      "crawledAt": "2026-10-07T09:17:24.380Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1401,7 +1412,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-D%C3%A9veloppeur-CAOFAO-%28HF%29-Gen%C3%A8/1415589333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:57.039Z",
+      "crawledAt": "2026-10-07T09:17:23.374Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1479,7 +1490,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-Projets-PMO-Industrialisation-%28HF%29-Gen%C3%A8/1287266501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:56.037Z",
+      "crawledAt": "2026-10-07T09:17:22.352Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1556,7 +1567,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-en-horlogerie-AFP-Bien/1415832133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:54.977Z",
+      "crawledAt": "2026-10-07T09:17:20.343Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1628,7 +1639,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-laborantin%E2%88%99e-en-chimie-CFC-Bien/1415831333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:53.969Z",
+      "crawledAt": "2026-10-07T09:17:21.349Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1708,7 +1719,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-qualit%C3%A9-%28HF%29-Gen%C3%A8/804855901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:52.905Z",
+      "crawledAt": "2026-10-07T09:17:19.332Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1762,7 +1773,7 @@
       "slugByLocale": {
         "it": "responsabile-della-pianificazione-h-f-rolex-geneve",
         "en": "scheduling-manager-m-f-rolex-geneve",
-        "de": "planungsmanager-m-w-rolex-geneve",
+        "de": "m-w-d-scheduling-manager-rolex-geneve",
         "fr": "gestionnaire-d-ordonnancement-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -1787,7 +1798,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'ordonnancement-%28HF%29-Gen%C3%A8/1208553901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:51.853Z",
+      "crawledAt": "2026-10-07T09:17:17.263Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1808,6 +1819,7 @@
       "previousSlugs": [
         "gestionnaire-d-ordonnancement-h-f-rolex-ch",
         "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
+        "planungsmanager-m-w-rolex-geneve",
         "m-w-d-scheduling-manager-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -1819,6 +1831,7 @@
         ],
         "de": [
           "gestionnaire-d-ordonnancement-m-w-d-rolex-geneve",
+          "planungsmanager-m-w-rolex-geneve",
           "m-w-d-scheduling-manager-rolex-geneve"
         ]
       },
@@ -1868,7 +1881,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-M%C3%A9thodes-%28HF%29-Gen%C3%A8/1395387933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:50.809Z",
+      "crawledAt": "2026-10-07T09:17:18.288Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -1945,7 +1958,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Planificateur-de-Production-Gen%C3%A8/1217429701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:49.816Z",
+      "crawledAt": "2026-10-07T09:17:16.238Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2014,7 +2027,7 @@
       "slugByLocale": {
         "it": "agente-di-sicurezza-m-f-rolex-geneve",
         "en": "security-officer-m-f-rolex-geneve",
-        "de": "sicherheitsbeauftragter-m-w-rolex-geneve",
+        "de": "charge-de-securite-m-w-d-rolex-geneve",
         "fr": "charge-de-securite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -2024,7 +2037,7 @@
       "titleByLocale": {
         "it": "Agente di sicurezza (M/F)",
         "en": "Security Officer (M/F)",
-        "de": "Sicherheitsbeauftragter (M/W)",
+        "de": "Chargé de sécurité (H/F)",
         "fr": "Chargé de sécurité (H/F)"
       },
       "description": "Introduction\n\nPour notre division Achats, Soutien et Infrastructure , nous recherchons un Chargé de sécurité (H/F) dont la mission principale sera d’assurer la sécurité des équipements des divers sites.\n\nResponsabilités\n\n• Assister l’ingénieur de sécurité et le suppléer sur les aspects techniques liés à la sécurité.\n\n• Garantir la prise en compte des exigences de sécurité lors de l’acquisition et de la mise à disposition de nouveaux équipements, de l’élaboration du cahier des charges jusqu’à leur réception sur site\n\n• Veiller à l’application des règles et procédures de sécurité par les services techniques\n\n• Réaliser et assurer le suivi des analyses de risques générales et spécifiques, notamment liées au travail isolé\n\n• Assurer la coordination avec les acteurs concernés : maintenance, bâtiment et infrastructure\n\n• Participer à la rédaction des cahiers des charges techniques et des exigences de sécurité pour les nouveaux équipements\n\n• Analyser la conformité et les risques liés aux équipements avant leur mise en service ; participer aux réceptions techniques\n\n• Assurer le suivi sécurité des chantiers et intervenir auprès des prestataires si nécessaire\n\n• Animer un réseau technique avec les équipes de maintenance, bâtiment et infrastructure\n\n• Réaliser des évaluations et analyses de risques, proposer des mesures de prévention et suivre leur mise en œuvre\n\n• Rédiger des rapports, procédures, consignes et supports de sensibilisation ou de formation\n\n• Informer, conseiller et sensibiliser les équipes techniques aux règles de sécurité.\n\nProfil\n\n• Formation initiale à orientation technique, idéalement en maintenance, électromécanique ou domaine équivalent. Une formation complémentaire en sécurité et santé au travail constitue un atout\n\n• Bonnes connaissances techniques du fonctionnement des machines et équipements\n\n• Maîtrise des principes d’analyse et d’évaluation des risques professionnels\n\n• Capacité à identifier les exigences de sécurité applicables aux équipements, chantiers et installations techniques\n\n• Capacité à rédiger des cahiers des charges, procédures, rapports et consignes de sécurité clairs et structurés\n\n• Maîtrise des outils informatiques courants et aisance rédactionnelle\n\n• Capacité à concevoir et mettre en place des actions de sensibilisation ou des formations adaptées\n\n• Rigueur dans l’analyse, la synthèse et le suivi des actions\n\n• Bonnes capacités de communication, d’écoute et de vulgarisation\n\n• Aisance relationnelle et capacité à collaborer avec des interlocuteurs variés\n\n• Diplomatie, respect et sens du service\n\n• Rigueur, sens de l’organisation et fiabilité\n\n• Esprit d’analyse, proactivité et capacité à proposer des solutions pragmatiques\n\n• Capacité à faire appliquer les règles de sécurité avec pédagogie et assertivité.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).\n\n#LI-Hybrid",
@@ -2039,7 +2052,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Gen%C3%A8/1436684733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:48.775Z",
+      "crawledAt": "2026-10-07T09:17:15.235Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2059,7 +2072,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-securite-h-f-rolex-ch",
-        "charge-de-securite-m-w-d-rolex-geneve"
+        "charge-de-securite-m-w-d-rolex-geneve",
+        "sicherheitsbeauftragter-m-w-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2069,10 +2083,12 @@
           "charge-de-securite-m-w-d-rolex-geneve"
         ],
         "de": [
+          "sicherheitsbeauftragter-m-w-rolex-geneve",
           "charge-de-securite-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2118,7 +2134,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Ing%C3%A9nieur-Microfabrication-Silicium-Bien/1218320201/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:47.762Z",
+      "crawledAt": "2026-10-07T09:17:14.223Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2193,7 +2209,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-Planification-&-Ordonnancement-%28HF%29-Gen%C3%A8/1199831101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:46.733Z",
+      "crawledAt": "2026-10-07T09:17:13.224Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2265,7 +2281,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Acheteur-%28HF%29-Gen%C3%A8/1427458533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:45.738Z",
+      "crawledAt": "2026-10-07T09:17:12.220Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2347,7 +2363,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Assistant-confirm%C3%A9-%28HF%29-Gen%C3%A8/1416642933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:44.717Z",
+      "crawledAt": "2026-10-07T09:17:11.203Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2438,7 +2454,7 @@
       "title": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)",
       "titleByLocale": {
         "it": "Community Manager - Sicurezza e Ambiente (M/F)",
-        "en": "Community Manager - Safety, Security & Environment (M/F)",
+        "en": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)",
         "de": "Community Manager - Sicherheit & Umwelt (M/W)",
         "fr": "Manager de proximité - Sûreté, Sécurité & Environnement (H/F)"
       },
@@ -2454,7 +2470,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-proximit%C3%A9-S%C3%BBret%C3%A9%2C-S%C3%A9curit%C3%A9-&-Environnement-%28HF%29-Gen%C3%A8/1438108833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:43.679Z",
+      "crawledAt": "2026-10-07T09:17:09.142Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2487,6 +2503,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:16:29.913Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2506,8 +2523,8 @@
       "slug": "ingegnere-di-applicazione-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "ingegnere-di-applicazione-m-f-rolex-geneve",
-        "en": "application-engineer-m-f-rolex-geneve",
-        "de": "anwendungstechniker-m-w-rolex-geneve",
+        "en": "business-analyst-m-w-d-rolex-geneve",
+        "de": "business-analytics-m-w-d-rolex-geneve",
         "fr": "business-analyste-m-w-d-rolex-geneve"
       },
       "company": "Rolex",
@@ -2532,7 +2549,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-%28HF%29-Gen%C3%A8/1438032533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:42.663Z",
+      "crawledAt": "2026-10-07T09:17:10.183Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2561,11 +2578,13 @@
         ],
         "en": [
           "ingenieur-d-application-h-f-rolex-ch",
+          "application-engineer-m-f-rolex-geneve",
           "business-analyst-m-w-d-rolex-geneve"
         ],
         "de": [
           "ingenieur-d-application-h-f-rolex-ch",
           "business-analyst-m-w-d-rolex-geneve",
+          "anwendungstechniker-m-w-rolex-geneve",
           "business-analytics-m-w-d-rolex-geneve"
         ]
       },
@@ -2573,6 +2592,8 @@
         "ingenieur-d-application-h-f-rolex-ch",
         "business-analyst-h-f-rolex-ch",
         "business-analyst-m-w-d-rolex-geneve",
+        "application-engineer-m-f-rolex-geneve",
+        "anwendungstechniker-m-w-rolex-geneve",
         "business-analytics-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-09-18T23:16:30.936Z",
@@ -2621,7 +2642,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Planificateur-PDP-Gen%C3%A8/1064279101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:41.666Z",
+      "crawledAt": "2026-10-07T09:17:07.017Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2668,7 +2689,7 @@
       "slugByLocale": {
         "it": "project-manager-m-f-rolex-bienne",
         "en": "project-manager-h-f-rolex-bienne",
-        "de": "projektleiter-h-f-rolex-bienne-2ee016",
+        "de": "projektmanager-m-w-d-rolex-bienne",
         "fr": "charge-de-projets-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -2693,7 +2714,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1406899533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:40.655Z",
+      "crawledAt": "2026-10-07T09:17:08.028Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2713,6 +2734,7 @@
       "previousSlugs": [
         "charge-de-projets-h-f-rolex-ch",
         "charge-de-projets-m-w-d-rolex-bienne",
+        "projektleiter-h-f-rolex-bienne-2ee016",
         "projektmanager-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
@@ -2721,6 +2743,7 @@
         ],
         "de": [
           "charge-de-projets-m-w-d-rolex-bienne",
+          "projektleiter-h-f-rolex-bienne-2ee016",
           "projektmanager-m-w-d-rolex-bienne"
         ]
       },
@@ -2755,7 +2778,7 @@
       "title": "Manager de Production (H/F)",
       "titleByLocale": {
         "it": "Responsabile di Produzione (H/F)",
-        "en": "Production Manager (M/F)",
+        "en": "Manager de Production (H/F)",
         "de": "Produktionsleiter (m/w)",
         "fr": "Manager de Production (H/F)"
       },
@@ -2771,7 +2794,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-Production-%28HF%29-Gen%C3%A8/921320401/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:39.658Z",
+      "crawledAt": "2026-10-07T09:17:05.925Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -2846,6 +2869,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:12.749Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2875,7 +2899,7 @@
       "title": "Graduate program - Manager junior (H/F)",
       "titleByLocale": {
         "it": "programma di laurea - Junior Manager (M/F)",
-        "en": "Graduate program - Junior Manager (M/F)",
+        "en": "Graduate program - Manager junior (H/F)",
         "de": "Graduiertenprogramm - Junior Manager (M/W)",
         "fr": "Graduate program - Manager junior (H/F)"
       },
@@ -2891,7 +2915,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Graduate-program-Manager-junior-%28HF%29-Gen%C3%A8/903716101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:38.642Z",
+      "crawledAt": "2026-10-07T09:17:04.895Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3011,7 +3035,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-56e918a114b2",
@@ -3044,7 +3069,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-Constructeur-Outillages-%28HF%29-Gen%C3%A8/1438289633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:36.613Z",
+      "crawledAt": "2026-10-07T09:17:03.872Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3097,7 +3122,7 @@
       "slugByLocale": {
         "it": "controller-di-qualita-m-f-rolex-geneve",
         "en": "quality-controller-m-f-rolex-geneve",
-        "de": "qualitatskontrolleur-m-w-rolex-geneve",
+        "de": "qualitatskontroller-m-w-d-rolex-geneve",
         "fr": "controleur-qualite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -3122,7 +3147,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Contr%C3%B4leur-Qualit%C3%A9-%28HF%29-Gen%C3%A8/824357901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:35.519Z",
+      "crawledAt": "2026-10-07T09:17:00.744Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3144,7 +3169,8 @@
         "controleur-qualite-h-f-rolex-ch",
         "controleur-qualite-h-f-rolex-geneve",
         "qualitatskontroller-m-w-d-rolex-geneve",
-        "controleur-qualite-m-w-d-rolex-geneve"
+        "controleur-qualite-m-w-d-rolex-geneve",
+        "qualitatskontrolleur-m-w-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3154,6 +3180,7 @@
         ],
         "de": [
           "controleur-qualite-m-w-d-rolex-geneve",
+          "qualitatskontrolleur-m-w-rolex-geneve",
           "qualitatskontroller-m-w-d-rolex-geneve"
         ]
       },
@@ -3178,7 +3205,7 @@
       "slugByLocale": {
         "it": "supporto-tecnico-per-la-produzione-h-f-rolex-geneve",
         "en": "manager-in-management-process-h-f-rolex-geneve",
-        "de": "produktionsunterstutzungstechniker-h-f-rolex-geneve",
+        "de": "manager-im-managementprozess-m-w-d-rolex-geneve",
         "fr": "technicien-support-production-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -3203,7 +3230,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Animateur-en-bonnes-pratiques-de-production-%28HF%29-Gen%C3%A8/1407365233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:34.526Z",
+      "crawledAt": "2026-10-07T09:16:58.710Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3238,6 +3265,7 @@
         "de": [
           "technicien-support-production-h-f-rolex-ch",
           "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
+          "produktionsunterstutzungstechniker-h-f-rolex-geneve",
           "manager-im-managementprozess-m-w-d-rolex-geneve"
         ]
       },
@@ -3246,6 +3274,7 @@
         "animateur-en-processus-de-gestion-h-f-rolex-ch",
         "animateur-en-processus-de-gestion-m-w-d-rolex-geneve",
         "animateur-en-bonnes-pratiques-de-production-h-f-rolex-ch",
+        "produktionsunterstutzungstechniker-h-f-rolex-geneve",
         "manager-im-managementprozess-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-23T12:27:53.338Z",
@@ -3294,7 +3323,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-Garnissage-%28HF%29-Bien/1407275833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:33.502Z",
+      "crawledAt": "2026-10-07T09:17:01.794Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3366,7 +3395,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-M%C3%A9thodes-Constructeur-Outillages-%28HF%29-Gen%C3%A8/1236878101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:32.513Z",
+      "crawledAt": "2026-10-07T09:17:02.804Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3438,7 +3467,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Infirmier-d'entreprise-%28HF%29-Gen%C3%A8/1256519601/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:31.505Z",
+      "crawledAt": "2026-10-07T09:16:59.727Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3510,7 +3539,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-Solutions-de-Pr%C3%A9vision-et-Planification-%28HF%29-Gen%C3%A8/1428673833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:30.493Z",
+      "crawledAt": "2026-10-07T09:16:52.524Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3603,7 +3632,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-m%C3%A9trologie-%28HF%29-Gen%C3%A8/1397201933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:29.459Z",
+      "crawledAt": "2026-10-07T09:16:57.705Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3666,7 +3695,7 @@
       "title": "Manager Solutions Authentification Produit & Traçabilité (H/F)",
       "titleByLocale": {
         "it": "Soluzioni di autenticazione e tracciabilità del Manager (H/F)",
-        "en": "Manager Solutions Product Authentication & Traceability (M/F)",
+        "en": "Manager Solutions Authentification Produit & Traçabilité (H/F)",
         "de": "Manager Authentication & Traceability Solutions (H/F)",
         "fr": "Manager Solutions Authentification Produit & Traçabilité (H/F)"
       },
@@ -3682,7 +3711,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-Solutions-Authentification-Produit-&-Tra%C3%A7abilit%C3%A9-%28HF%29-Gen%C3%A8/1418354633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:28.453Z",
+      "crawledAt": "2026-10-07T09:16:55.652Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3714,6 +3743,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:56.051Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3759,7 +3789,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Int%C3%A9grateur-SI-Industriel-%28HF%29-Gen%C3%A8/1418355033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:27.444Z",
+      "crawledAt": "2026-10-07T09:16:56.676Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3822,7 +3852,7 @@
       "titleByLocale": {
         "it": "Terminator (M/F)",
         "en": "Terminator (M/F)",
-        "de": "Terminator (M/W)",
+        "de": "Termineur (H/F)",
         "fr": "Termineur (H/F)"
       },
       "description": "Introduction\n\nPour notre division Commerciale , nous recherchons un Termineur (H/F) dont la mission principale sera d'assurer les activités de terminaison au sein de l'atelier rhabillage sur des boîtiers, fonds, lunettes, bracelets et fermoirs.\n\nResponsabilités\n\n• Préparer les pièces avant traitement, notamment par le désassemblage des composants\n\n• Réaliser les opérations de polissage, satinage, ébavurage, lissage et reprises de finition selon les consignes techniques et les gammes définies\n\n• Garantir la qualité esthétique, la précision et la conformité des pièces traitées, dans le respect des exigences de finesse et de finition propres à l'horlogerie\n\n• Contrôler l’état de surface et détecter les défauts éventuels\n\n• Effectuer les retouches, reprises ou corrections nécessaires pour assurer un rendu final parfait\n\n• Respecter scrupuleusement les règles de sécurité et les standards de qualité en vigueur dans l'atelier\n\n• Utiliser des outils manuels, des machines de polissage ainsi que les consommables adaptés aux différents matériaux horlogers (acier, or, argent, titane et autres alliages)\n\n• Traiter des pièces en acier, or, argent, titane, ou autres alliages\n\n• Contrôler visuellement et au toucher l'état de surface des pièces afin de détecter tout défaut, rayure, marque ou déformation.\n\nProfil\n\n• CFC de polisseur ou titre équivalent, complété par une formation spécifique en terminaison horlogère\n\n• Minimum 5 ans dans le polissage horloger, avec une maîtrise confirmée des techniques de finition (polissage, satinage, ébavurage) et une solide connaissance des exigences de qualité haut de gamme et des états de surface\n\n• Utilisation experte d'outils manuels et de machines de finition adaptées aux pièces horlogères\n\n• Manipulation précise de composants fins, fragiles ou de petite dimension\n\n• Détection fine des défauts visuels et tactiles\n\n• Lecture et application rigoureuse de consignes techniques, tolérances et procédures qualité\n\n• Application stricte des règles de sécurité et de propreté\n\n• Qualités personnelles : grande minutie, rigueur, patience, dextérité et sens du détail, associés à une bonne capacité de concentration et de calme. Autonomie, discrétion et esprit d'équipe complètent ce profil.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).\n\n#LI-Hybrid",
@@ -3837,7 +3867,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Termineur-%28HF%29-Gen%C3%A8/1418343033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:26.423Z",
+      "crawledAt": "2026-10-07T09:16:53.543Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3864,6 +3894,7 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:40:56.351Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3909,7 +3940,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Responsable-fonctionnel-PIM-Akeneo-%28HF%29-Gen%C3%A8/1418348233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:25.235Z",
+      "crawledAt": "2026-10-07T09:16:54.621Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -3987,7 +4018,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-de-maintenance-%28HF%29-Gen%C3%A8/1418656933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:24.200Z",
+      "crawledAt": "2026-10-07T09:16:49.401Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4040,7 +4071,7 @@
       "slugByLocale": {
         "it": "tecnico-di-produzione-h-f-rolex-geneve",
         "en": "production-technician-m-f-rolex-geneve",
-        "de": "produktionstechniker-m-w-rolex-geneve",
+        "de": "betriebstechniker-m-w-d-rolex-geneve",
         "fr": "technicien-d-exploitation-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4065,7 +4096,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/1365301133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:23.195Z",
+      "crawledAt": "2026-10-07T09:16:51.484Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4086,6 +4117,7 @@
       "previousSlugs": [
         "technicien-d-exploitation-h-f-rolex-ch",
         "technicien-d-exploitation-m-w-d-rolex-geneve",
+        "produktionstechniker-m-w-rolex-geneve",
         "betriebstechniker-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -4097,6 +4129,7 @@
         ],
         "de": [
           "technicien-d-exploitation-m-w-d-rolex-geneve",
+          "produktionstechniker-m-w-rolex-geneve",
           "betriebstechniker-m-w-d-rolex-geneve"
         ]
       },
@@ -4146,7 +4179,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Participer-%C3%A0-l'%C3%A9volution-du-Services-Desk-Bien/1418766033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:22.170Z",
+      "crawledAt": "2026-10-07T09:16:48.374Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4224,7 +4257,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-Projets-M%C3%A9thodes-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1168239501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:21.134Z",
+      "crawledAt": "2026-10-07T09:16:50.431Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4281,7 +4314,7 @@
       "titleByLocale": {
         "it": "Terminale VAS (H/F)",
         "en": "VAS terminal (H/F)",
-        "de": "SAV-Anschluss (M/W)",
+        "de": "Termineur SAV (H/F)",
         "fr": "Termineur SAV (H/F)"
       },
       "description": "Introduction\n\nPour notre division Commercial , nous recherchons un Termineur SAV (H/F) dont la mission principale sera de réaliser avec précision toutes les opérations de terminaison sur les composants au sein de notre atelier SAV moderne situé à Villaz-St-Pierre.\n\nResponsabilités\n\n• Assurer le polissage et le satinage de l'ensemble du boîtier ainsi que du bracelet des montres retournées en SAV, selon la finition d’origine\n\n• Effectuer des autocontrôles rigoureux et des inspections précises pour garantir une qualité sans compromis selon les critères définis\n\n• Mener les opérations de lavage et de nettoyage des différents composants, préservant ainsi l'éclat et la durabilité des matériaux\n\n• Contribuer activement à l'amélioration continue de nos indicateurs de performance\n\nProfil\n\n• CFC de Termineur en habillage horloger ou équivalent\n\n• Expérience confirmée sur une fonction similaire idéalement dans un atelier SAV\n\n• Maîtrise d'un système informatique lié au métier\n\n• Habileté manuelle, précision, minutie, finesse et dextérité lors de l'exécution des tâches\n\n• Bon sens de l’analyse et capacité à travailler de manière indépendante\n\n• Orientation client, sens de l’écoute, ouverture d’esprit, rigueur et sens de l’organisation\n\n• Constance, assiduité, autonomie, avec un fort esprit d’équipe, polyvalence et flexibilité\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -4296,7 +4329,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Termineur-SAV-%28HF%29-Frib/1286745001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:20.139Z",
+      "crawledAt": "2026-10-07T09:16:45.257Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -4322,6 +4355,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:05:13.589Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4368,7 +4402,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-de-Production-%28HF%29-Gen%C3%A8/1116342001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:19.122Z",
+      "crawledAt": "2026-10-07T09:16:46.280Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4420,8 +4454,8 @@
       "slug": "logistica-del-proprietario-del-prodotto-h-f-rolex-geneve",
       "slugByLocale": {
         "it": "logistica-del-proprietario-del-prodotto-h-f-rolex-geneve",
-        "en": "product-owner-logistique-cdm-h-f-rolex-ch",
-        "de": "product-owner-logistik-cdm-m-f-rolex-geneve",
+        "en": "project-manager-m-w-d-rolex-geneve",
+        "de": "projektleiter-m-w-d-rolex-geneve",
         "fr": "charge-de-projets-cdm-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4446,7 +4480,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Evolution-Num%C3%A9rique-Logistique-%28HF%29-Gen%C3%A8/1379344833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:18.100Z",
+      "crawledAt": "2026-10-07T09:16:47.310Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4473,15 +4507,19 @@
           "charge-de-projets-evolution-numerique-logistique-h-f-rolex-ch"
         ],
         "en": [
+          "product-owner-logistique-cdm-h-f-rolex-ch",
           "project-manager-m-w-d-rolex-geneve"
         ],
         "de": [
+          "product-owner-logistik-cdm-m-f-rolex-geneve",
           "projektleiter-m-w-d-rolex-geneve"
         ]
       },
       "previousSlugs": [
         "charge-de-projets-cdm-h-f-rolex-ch",
         "charge-de-projets-evolution-numerique-logistique-h-f-rolex-ch",
+        "product-owner-logistique-cdm-h-f-rolex-ch",
+        "product-owner-logistik-cdm-m-f-rolex-geneve",
         "project-manager-m-w-d-rolex-geneve",
         "projektleiter-m-w-d-rolex-geneve"
       ],
@@ -4531,7 +4569,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-Analyst-MES-%28HF%29-Gen%C3%A8/1440031633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:17.073Z",
+      "crawledAt": "2026-10-07T09:16:44.254Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4603,7 +4641,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Horloger-restaurateur-%28HF%29-Gen%C3%A8/1429291833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:16.001Z",
+      "crawledAt": "2026-10-07T09:16:40.169Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4685,7 +4723,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-Cloud-D365-%28HF%29-Gen%C3%A8/1369395233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:14.950Z",
+      "crawledAt": "2026-10-07T09:16:41.184Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4757,7 +4795,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Employ%C3%A9-CVC-%28HF%29-Gen%C3%A8/1429325233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:13.953Z",
+      "crawledAt": "2026-10-07T09:16:43.246Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4810,7 +4848,7 @@
       "slugByLocale": {
         "it": "tecnico-di-logistica-eventi-m-f-rolex-geneve",
         "en": "event-logistics-technician-m-f-rolex-geneve",
-        "de": "eventlogistiktechniker-m-w-rolex-geneve",
+        "de": "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve",
         "fr": "technicien-logistique-evenements-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -4835,7 +4873,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-logistique-%C3%A9v%C3%A9nements-%28HF%29-Gen%C3%A8/1369436433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:12.931Z",
+      "crawledAt": "2026-10-07T09:16:42.216Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -4855,6 +4893,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-logistique-evenements-h-f-rolex-ch",
+        "eventlogistiktechniker-m-w-rolex-geneve",
         "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -4862,6 +4901,7 @@
           "technicien-logistique-evenements-h-f-rolex-ch"
         ],
         "de": [
+          "eventlogistiktechniker-m-w-rolex-geneve",
           "logistiktechniker-veranstaltungen-m-w-d-rolex-geneve"
         ]
       },
@@ -4901,9 +4941,9 @@
       },
       "description": "Introduction\n\nPour notre département Ressources Humaines , nous recherchons un·e Stagiaire dont la mission principale sera de suivre les prestations de restauration fournies par nos prestataires et de soutenir l'organisation d'événements internes.\n\nResponsabilités\n\n• Suivre les prestations F&B dans les points de vente et leurs adaptations\n\n• Participer à l’organisation de différents événements internes\n\n• Concevoir des messages et supports de communication\n\n• Réaliser des audits sur les prestations de restauration, les infrastructures et les éléments de communication associés\n\n• Soutenir l'équipe dans les activités diverses\n\nProfil\n\n• Actuellement en Bachelor d'Ecole Hôtelière ou jugé équivalent\n\n• Disponible pour une durée de 6 mois à 100%, dès février ou mars 2027\n\n• Expérience en hôtellerie restauration et/ou en événementiel\n\n• Rigueur et sens des priorités\n\n• Proactivité, autonomie, sens du service et esprit d'équipe\n\nConclusion\n\nS’immerger enfin dans la pratique, assumer ses premières responsabilités, participer à des projets novateurs, mettre au profit de l’entreprise son enthousiasme et ses compétences fraîchement acquises : voilà les défis que Rolex vous aidera à relever.\n\nL’idée de rejoindre une manufacture de renom, ayant conscience de l’importance d’accompagner et de former ses collaborateurs par des professionnels du métier, vous réjouit ? Alors, rejoignez-nous.",
       "descriptionByLocale": {
-        "it": "Introduction\n\nPour notre département Ressources Humaines , nous recherchons un·e Stagiaire dont la mission principale sera de suivre les prestations de restauration fournies par nos prestataires et de soutenir l'organisation d'événements internes.\n\nResponsabilités\n\n• Suivre les prestations F&B dans les points de vente et leurs adaptations\n\n• Participer à l’organisation de différents événements internes\n\n• Concevoir des messages et supports de communication\n\n• Réaliser des audits sur les prestations de restauration, les infrastructures et les éléments de communication associés\n\n• Soutenir l'équipe dans les activités diverses\n\nProfil\n\n• Actuellement en Bachelor d'Ecole Hôtelière ou jugé équivalent\n\n• Disponible pour une durée de 6 mois à 100%, dès février ou mars 2027\n\n• Expérience en hôtellerie restauration et/ou en événementiel\n\n• Rigueur et sens des priorités\n\n• Proactivité, autonomie, sens du service et esprit d'équipe\n\nConclusion\n\nS’immerger enfin dans la pratique, assumer ses premières responsabilités, participer à des projets novateurs, mettre au profit de l’entreprise son enthousiasme et ses compétences fraîchement acquises : voilà les défis que Rolex vous aidera à relever.\n\nL’idée de rejoindre une manufacture de renom, ayant conscience de l’importance d’accompagner et de former ses collaborateurs par des professionnels du métier, vous réjouit ? Alors, rejoignez-nous.",
-        "en": "Introduction\n\nPour notre département Ressources Humaines , nous recherchons un·e Stagiaire dont la mission principale sera de suivre les prestations de restauration fournies par nos prestataires et de soutenir l'organisation d'événements internes.\n\nResponsabilités\n\n• Suivre les prestations F&B dans les points de vente et leurs adaptations\n\n• Participer à l’organisation de différents événements internes\n\n• Concevoir des messages et supports de communication\n\n• Réaliser des audits sur les prestations de restauration, les infrastructures et les éléments de communication associés\n\n• Soutenir l'équipe dans les activités diverses\n\nProfil\n\n• Actuellement en Bachelor d'Ecole Hôtelière ou jugé équivalent\n\n• Disponible pour une durée de 6 mois à 100%, dès février ou mars 2027\n\n• Expérience en hôtellerie restauration et/ou en événementiel\n\n• Rigueur et sens des priorités\n\n• Proactivité, autonomie, sens du service et esprit d'équipe\n\nConclusion\n\nS’immerger enfin dans la pratique, assumer ses premières responsabilités, participer à des projets novateurs, mettre au profit de l’entreprise son enthousiasme et ses compétences fraîchement acquises : voilà les défis que Rolex vous aidera à relever.\n\nL’idée de rejoindre une manufacture de renom, ayant conscience de l’importance d’accompagner et de former ses collaborateurs par des professionnels du métier, vous réjouit ? Alors, rejoignez-nous.",
-        "de": "Introduction\n\nPour notre département Ressources Humaines , nous recherchons un·e Stagiaire dont la mission principale sera de suivre les prestations de restauration fournies par nos prestataires et de soutenir l'organisation d'événements internes.\n\nResponsabilités\n\n• Suivre les prestations F&B dans les points de vente et leurs adaptations\n\n• Participer à l’organisation de différents événements internes\n\n• Concevoir des messages et supports de communication\n\n• Réaliser des audits sur les prestations de restauration, les infrastructures et les éléments de communication associés\n\n• Soutenir l'équipe dans les activités diverses\n\nProfil\n\n• Actuellement en Bachelor d'Ecole Hôtelière ou jugé équivalent\n\n• Disponible pour une durée de 6 mois à 100%, dès février ou mars 2027\n\n• Expérience en hôtellerie restauration et/ou en événementiel\n\n• Rigueur et sens des priorités\n\n• Proactivité, autonomie, sens du service et esprit d'équipe\n\nConclusion\n\nS’immerger enfin dans la pratique, assumer ses premières responsabilités, participer à des projets novateurs, mettre au profit de l’entreprise son enthousiasme et ses compétences fraîchement acquises : voilà les défis que Rolex vous aidera à relever.\n\nL’idée de rejoindre une manufacture de renom, ayant conscience de l’importance d’accompagner et de former ses collaborateurs par des professionnels du métier, vous réjouit ? Alors, rejoignez-nous.",
+        "it": "Introduzione\n\nPer il nostro reparto Risorse Umane, stiamo cercando un tirocinante la cui missione principale sarà quella di monitorare i servizi di catering forniti dai nostri fornitori e di sostenere l'organizzazione di eventi interni.\n\nresponsabilità\n\n• Seguire i servizi F&B al punto vendita e i loro adattamenti\n\n• Partecipare all'organizzazione di vari eventi interni\n\n• Progettazione di messaggi e mezzi di comunicazione\n\n• Condurre audit sui servizi di restauro, infrastrutture e elementi di comunicazione associati\n\n• Sostenere il team in varie attività\n\nProfilo\n\n• Attualmente in Bachelor of Hotel School o considerato equivalente\n\n• Disponibile per 6 mesi al 100%, da febbraio o marzo 2027\n\n• Esperienza nella ristorazione e/o negli hotel\n\n• Rigor e direzione delle priorità\n\n• Proattività, autonomia, senso di servizio e lavoro di squadra\n\nConclusioni\n\nInfine, immergetevi nella pratica, assumete le sue prime responsabilità, partecipate a progetti innovativi, mettete il suo entusiasmo e le nuove competenze acquisite a beneficio dell'azienda: queste sono le sfide che Rolex vi aiuterà a soddisfare.\n\nL'idea di unire una rinomata fabbrica, consapevole dell'importanza di accompagnare e formare i propri dipendenti da professionisti del commercio, per favore? Allora unisciti a noi.",
+        "en": "Introduction\n\nFor our Human Resources department, we are looking for a trainee whose main mission will be to monitor the catering services provided by our providers and to support the organization of internal events.\n\nResponsibilities\n\n• Follow the F&B services at point of sale and their adaptations\n\n• Participate in the organization of various internal events\n\n• Designing messages and communication media\n\n• Conduct audits on restoration services, infrastructure and associated communication elements\n\n• Supporting the team in various activities\n\nProfile\n\n• Currently in Bachelor of Hotel School or deemed equivalent\n\n• Available for 6 months at 100%, from February or March 2027\n\n• Experience in catering and/or event hotels\n\n• Rigor and direction of priorities\n\n• Proactivity, autonomy, sense of service and teamwork\n\nConclusion\n\nFinally, Immerse yourself in practice, assume its first responsibilities, participate in innovative projects, put its enthusiasm and newly acquired skills to the benefit of the company: these are the challenges that Rolex will help you meet.\n\nThe idea of joining a renowned factory, aware of the importance of accompanying and training its employees by professionals of the trade, please? Then join us.",
+        "de": "Einleitung\n\nFür unsere Personalabteilung suchen wir einen Trainee, dessen Hauptaufgabe darin besteht, die von unseren Anbietern angebotenen Catering-Services zu überwachen und die Organisation interner Veranstaltungen zu unterstützen.\n\nZuständigkeiten\n\n• Befolgen Sie die F & B-Dienste am Point of Sale und ihre Anpassungen\n\n• Beteiligen Sie sich an der Organisation verschiedener interner Veranstaltungen\n\n• Gestaltung von Nachrichten und Kommunikationsmedien\n\n• Durchführung von Audits zu Wiederherstellungsdiensten, Infrastruktur und zugehörigen Kommunikationselementen\n\n• Unterstützung des Teams bei verschiedenen Aktivitäten\n\nProfil\n\n• Derzeit im Bachelor of Hotel School oder als gleichwertig angesehen\n\n• Verfügbar für 6 Monate bei 100%, ab Februar oder März 2027\n\n• Erfahrung in Catering- und/oder Eventhotels\n\n• Strenge und Ausrichtung der Prioritäten\n\n• Proaktivität, Autonomie, Service und Teamwork\n\nSchlussfolgerung\n\nTauchen Sie schließlich in die Praxis ein, übernehmen Sie erste Aufgaben, beteiligen Sie sich an innovativen Projekten, setzen Sie Ihre Begeisterung und neu erworbenen Fähigkeiten zum Wohle des Unternehmens ein: Dies sind die Herausforderungen, die Rolex Ihnen helfen wird.\n\nDie Idee, einer renommierten Fabrik beizutreten, die sich der Bedeutung der Begleitung und Ausbildung ihrer Mitarbeiter durch Fachleute des Handels bewusst ist, bitte? Dann kommen Sie zu uns.",
         "fr": "Introduction\n\nPour notre département Ressources Humaines , nous recherchons un·e Stagiaire dont la mission principale sera de suivre les prestations de restauration fournies par nos prestataires et de soutenir l'organisation d'événements internes.\n\nResponsabilités\n\n• Suivre les prestations F&B dans les points de vente et leurs adaptations\n\n• Participer à l’organisation de différents événements internes\n\n• Concevoir des messages et supports de communication\n\n• Réaliser des audits sur les prestations de restauration, les infrastructures et les éléments de communication associés\n\n• Soutenir l'équipe dans les activités diverses\n\nProfil\n\n• Actuellement en Bachelor d'Ecole Hôtelière ou jugé équivalent\n\n• Disponible pour une durée de 6 mois à 100%, dès février ou mars 2027\n\n• Expérience en hôtellerie restauration et/ou en événementiel\n\n• Rigueur et sens des priorités\n\n• Proactivité, autonomie, sens du service et esprit d'équipe\n\nConclusion\n\nS’immerger enfin dans la pratique, assumer ses premières responsabilités, participer à des projets novateurs, mettre au profit de l’entreprise son enthousiasme et ses compétences fraîchement acquises : voilà les défis que Rolex vous aidera à relever.\n\nL’idée de rejoindre une manufacture de renom, ayant conscience de l’importance d’accompagner et de former ses collaborateurs par des professionnels du métier, vous réjouit ? Alors, rejoignez-nous."
       },
       "location": "Bienne",
@@ -4911,7 +4951,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Soutenir-les-activit%C3%A9s-de-restauration-Bien/1440642333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:11.914Z",
+      "crawledAt": "2026-10-07T09:16:39.099Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4950,7 +4990,6 @@
           "phase-unterstutzung-der-restaurierung-rolex-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:57:28.813Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4998,7 +5037,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Administrateur-postes-clients-%28HF%29-Bien/1269820701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:10.892Z",
+      "crawledAt": "2026-10-07T09:16:38.090Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5049,7 +5088,7 @@
       "slugByLocale": {
         "it": "prototipante-tecnico-m-f-quadrante-rolex-geneve",
         "en": "prototyping-technician-m-f-dial-rolex-geneve",
-        "de": "prototypentechniker-m-w-dial-rolex-geneve",
+        "de": "protot-technician-m-w-d-zifferblatt-rolex-geneve",
         "fr": "technicien-prototypiste-h-f-cadran-rolex-ch"
       },
       "company": "Rolex",
@@ -5074,7 +5113,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-Prototypiste-%28HF%29-Cadran-Gen%C3%A8/1289996101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:09.839Z",
+      "crawledAt": "2026-10-07T09:16:36.060Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5094,6 +5133,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technicien-prototypiste-h-f-cadran-rolex-ch",
+        "prototypentechniker-m-w-dial-rolex-geneve",
         "protot-technician-m-w-d-zifferblatt-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -5105,6 +5145,7 @@
         ],
         "de": [
           "technicien-prototypiste-h-f-cadran-rolex-ch",
+          "prototypentechniker-m-w-dial-rolex-geneve",
           "protot-technician-m-w-d-zifferblatt-rolex-geneve"
         ]
       },
@@ -5154,7 +5195,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-D%C3%A9velopper-la-simulation-d'empilements-de-couches-minces-Bien/1374989333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:08.840Z",
+      "crawledAt": "2026-10-07T09:16:37.069Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5226,7 +5267,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Employ%C3%A9-intendance-%28HF%29-Gen%C3%A8/1429540133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:07.843Z",
+      "crawledAt": "2026-10-07T09:16:35.051Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5319,7 +5360,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Technicien-automation-b%C3%A2timents-%28HF%29-Bien/1440975633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:06.848Z",
+      "crawledAt": "2026-10-07T09:16:34.021Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5397,7 +5438,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-dessinateur%C2%B7trice-constructeur%C2%B7trice-industriel%C2%B7le-CFC-Gen%C3%A8/1429969133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:05.840Z",
+      "crawledAt": "2026-10-07T09:16:17.541Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5479,7 +5520,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'horloger%C2%B7%C3%A8re-CFC-Gen%C3%A8/1429967333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:04.785Z",
+      "crawledAt": "2026-10-07T09:16:20.649Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5561,7 +5602,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'employ%C3%A9%C2%B7e-de-commerce-CFC-Gen%C3%A8/1429967233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:03.778Z",
+      "crawledAt": "2026-10-07T09:16:19.633Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5643,7 +5684,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Responsable-de-Production-%28HF%29-Gen%C3%A8/919583201/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:02.753Z",
+      "crawledAt": "2026-10-07T09:16:31.918Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5719,7 +5760,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'agent%C2%B7e-d'exploitation-CFC-Gen%C3%A8/1429966933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:15:01.685Z",
+      "crawledAt": "2026-10-07T09:16:27.816Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5845,7 +5886,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-5675b155caec",
@@ -5878,7 +5920,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-menuisier%C2%B7%C3%A8re-CFC-Gen%C3%A8/1429970133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:59.610Z",
+      "crawledAt": "2026-10-07T09:16:23.727Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -5958,7 +6000,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-termineur%C2%B7euse-en-habillage-horloger-CFC-Gen%C3%A8/1429972033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:58.611Z",
+      "crawledAt": "2026-10-07T09:16:30.886Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6038,7 +6080,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-informatique-CFC-Gen%C3%A8/1429968733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:57.572Z",
+      "crawledAt": "2026-10-07T09:16:15.488Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6120,7 +6162,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'%C3%A9lectroplaste-CFC-Gen%C3%A8/1429968833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:56.540Z",
+      "crawledAt": "2026-10-07T09:16:16.521Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6199,7 +6241,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-sertisseur%C2%B7euse-de-pierres-pr%C3%A9cieuses-CFC-Gen%C3%A8/1429971733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:55.533Z",
+      "crawledAt": "2026-10-07T09:16:29.858Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6279,7 +6321,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-praticien%C2%B7ne-en-m%C3%A9canique-AFP-Gen%C3%A8/1429971233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:54.535Z",
+      "crawledAt": "2026-10-07T09:16:26.783Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6361,7 +6403,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-horlogerie-AFP-Gen%C3%A8/1429968333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:53.524Z",
+      "crawledAt": "2026-10-07T09:16:18.547Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6441,7 +6483,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'horloger%C2%B7%C3%A8re-de-production-CFC-Gen%C3%A8/1429967633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:52.497Z",
+      "crawledAt": "2026-10-07T09:16:21.682Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6523,7 +6565,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-m%C3%A9canicien%C2%B7ne-de-production-CFC-Gen%C3%A8/1429970433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:51.481Z",
+      "crawledAt": "2026-10-07T09:16:33.010Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6605,7 +6647,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'informaticien%C2%B7ne-CFC-Gen%C3%A8/1429967733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:50.425Z",
+      "crawledAt": "2026-10-07T09:16:22.726Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6685,7 +6727,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-polym%C3%A9canicien%C2%B7ne-CFC-Gen%C3%A8/1429971133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:49.433Z",
+      "crawledAt": "2026-10-07T09:16:25.780Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6814,7 +6856,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-8040935c5770",
@@ -6847,7 +6890,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-polisseur%C2%B7euse-AFP-Gen%C3%A8/1429970933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:47.380Z",
+      "crawledAt": "2026-10-07T09:16:24.761Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -6927,7 +6970,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-de-machines-automatis%C3%A9es-CFC-Gen%C3%A8/1429968033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:46.330Z",
+      "crawledAt": "2026-10-07T09:16:12.996Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7018,7 +7061,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'automaticien%C2%B7ne-CFC-Gen%C3%A8/1429967033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:45.292Z",
+      "crawledAt": "2026-10-07T09:16:14.013Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7100,7 +7143,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-qualiticien%C2%B7ne-en-microtechnique-CFC-Gen%C3%A8/1429971633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:44.244Z",
+      "crawledAt": "2026-10-07T09:16:28.839Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7182,7 +7225,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-au-travail-%28HF%29-Gen%C3%A8/1441486533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:43.201Z",
+      "crawledAt": "2026-10-07T09:16:11.988Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7260,7 +7303,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Stage-d%C3%A9couverte-apprentissage-Frib/1441464333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:42.147Z",
+      "crawledAt": "2026-10-07T09:16:10.966Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -7340,7 +7383,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/820554301/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:41.142Z",
+      "crawledAt": "2026-10-07T09:16:09.961Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7412,7 +7455,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-PMO-%28HF%29-Gen%C3%A8/1379491033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:40.078Z",
+      "crawledAt": "2026-10-07T09:16:09.013Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7489,7 +7532,7 @@
       "slugByLocale": {
         "it": "agente-di-sicurezza-m-f-rolex-geneve-d4d4ee",
         "en": "security-officer-m-f-rolex-geneve-d4d4ee",
-        "de": "sicherheitsbeauftragter-m-w-rolex-geneve",
+        "de": "charge-de-securite-m-w-d-rolex-geneve",
         "fr": "charge-de-securite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -7499,7 +7542,7 @@
       "titleByLocale": {
         "it": "Agente di sicurezza (M/F)",
         "en": "Security Officer (M/F)",
-        "de": "Sicherheitsbeauftragter (M/W)",
+        "de": "Chargé de sécurité (H/F)",
         "fr": "Chargé de sécurité (H/F)"
       },
       "description": "Introduction\n\nPour notre division Achats, Soutien & Infrastructures, nous recherchons un Chargé de sécurité (H/F) dont la mission principale sera d'assurer la mise en oeuvre et le suivi des mesures de sûreté et prévention incendie.\n\nResponsabilités\n\n• Assurer l’opérationnalité des systèmes de protection incendie et de sûreté sur l’un de nos sites du canton de Genève\n\n• Contrôler et ordonner les mesures correctives nécessaires au maintien des installations\n\n• Coordonner avec les représentants de notre mandataire les missions et tâches de surveillance\n\n• Assurer le suivi et la formation du personnel d’intervention en cas d’incendie et d’évacuation\n\n• Développer les bonnes pratiques en matière de sûreté et prévention incendie\n\n• Favoriser la mise en œuvre des règles et des normes de sécurité dans les projets d’implantation et d’aménagement\n\n• Élaborer un cahier des charges d'exploitation et/ou fonctionnel dans le cadre d'un nouveau projet\n\n• Assurer la gestion des mises en passe bâtiments (clefs-cylindres)\n\n• Participer au service de piquet\n\nProfil\n\n• Diplôme en prévention incendie AEAI\n\n• Expérience de minimum 5 ans dans le domaine de la protection incendie et de la sûreté\n\n• Bonne maîtrise du français parlé et écrit\n\n• Expérience de pompier volontaire serait un plus\n\n• Connaissance des installations techniques de sûreté et de protection incendie\n\n• Très bonne maîtrise des outils informatiques usuels\n\n• Discret, grande confidentialité et capacité à s'adapter à des situations d'urgence\n\n• Responsable, rigoureux et excellente gestion des priorités\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -7514,7 +7557,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Gen%C3%A8/1429325933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:39.019Z",
+      "crawledAt": "2026-10-07T09:16:07.978Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -7534,6 +7577,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-securite-h-f-rolex-ch",
+        "sicherheitsbeauftragter-m-w-rolex-geneve",
         "charge-de-securite-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -7541,10 +7585,12 @@
           "charge-de-securite-h-f-rolex-ch"
         ],
         "de": [
+          "sicherheitsbeauftragter-m-w-rolex-geneve",
           "charge-de-securite-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -7590,7 +7636,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Agent-d'exploitation-HF-avec-sp%C3%A9cialisation-en-menuiserie-Bien/1431044833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:38.027Z",
+      "crawledAt": "2026-10-07T09:16:06.953Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7668,7 +7714,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'informaticien%E2%88%99ne-CFC-Bien/1420759633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:37.018Z",
+      "crawledAt": "2026-10-07T09:16:01.798Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7748,7 +7794,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-en-informatique-CFC-Bien/1420760033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:35.976Z",
+      "crawledAt": "2026-10-07T09:15:59.746Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7828,7 +7874,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-polym%C3%A9canicien%E2%88%99ne-CFC-Bien/1420792033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:34.962Z",
+      "crawledAt": "2026-10-07T09:16:03.874Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7908,7 +7954,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-de-machines-automatis%C3%A9es-CFC-Bien/1420759833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:33.936Z",
+      "crawledAt": "2026-10-07T09:16:00.773Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7988,7 +8034,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-CAI-%28HF%29-Gen%C3%A8/1420664333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:32.927Z",
+      "crawledAt": "2026-10-07T09:15:56.728Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -8075,7 +8121,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-m%C3%A9canicien%E2%88%99ne-de-production-CFC-Bien/1420770033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:31.911Z",
+      "crawledAt": "2026-10-07T09:15:55.696Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8155,7 +8201,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'assistant%E2%88%99e-en-traitement-de-surface-AFP-Bien/1420758133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:30.903Z",
+      "crawledAt": "2026-10-07T09:15:57.740Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8235,7 +8281,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-praticien%E2%88%99ne-en-m%C3%A9canique-AFP-Bien/1420792333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:29.871Z",
+      "crawledAt": "2026-10-07T09:16:05.923Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8315,7 +8361,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Anlagenf%C3%BChrer%E2%88%99in-EFZ-Bien/1420792733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:28.867Z",
+      "crawledAt": "2026-10-07T09:15:58.745Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8387,7 +8433,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'%C3%A9lectroplaste-CFC-Bien/1420760633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:27.864Z",
+      "crawledAt": "2026-10-07T09:16:02.845Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8467,7 +8513,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-logisticien%E2%88%99ne-CFC-Bien/1420762933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:26.834Z",
+      "crawledAt": "2026-10-07T09:15:54.678Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8547,7 +8593,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Qualit%C3%A4tsfachmann%E2%88%99frau-in-Mikrotechnik-EFZ-Bien/1421203933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:25.813Z",
+      "crawledAt": "2026-10-07T09:15:53.672Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8579,6 +8625,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:18.327Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8625,7 +8672,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Mechanikpraktiker%E2%88%99in-EBA-Bien/1421202633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:24.804Z",
+      "crawledAt": "2026-10-07T09:15:49.552Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8703,7 +8750,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Produktionsmechaniker%E2%88%99in-EFZ-Bien/1421203833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:23.783Z",
+      "crawledAt": "2026-10-07T09:15:51.601Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8781,7 +8828,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Logistiker%E2%88%99in-EFZ-Bien/1421202533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:22.771Z",
+      "crawledAt": "2026-10-07T09:15:50.563Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8813,6 +8860,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:19.332Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8859,7 +8907,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-d%C3%A9couverte-apprentissage-Bien/1421206633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:21.753Z",
+      "crawledAt": "2026-10-07T09:15:47.521Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8938,7 +8986,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Oberfl%C3%A4chenpratiker%E2%88%99in-EBA-Bien/1421203133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:20.751Z",
+      "crawledAt": "2026-10-07T09:15:48.543Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9016,7 +9064,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Oberfl%C3%A4chenbeschichter%E2%88%99in-EFZ-Bien/1421202933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:19.708Z",
+      "crawledAt": "2026-10-07T09:15:46.498Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9048,6 +9096,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:20.390Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -9094,7 +9143,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Polymechaniker%E2%88%99in-EFZ-Bien/1421203433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:14:18.696Z",
+      "crawledAt": "2026-10-07T09:15:52.612Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9172,7 +9221,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-R&D-%28HF%29-Construction-Habillement-Gen%C3%A8/1386855233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:17.673Z",
+      "crawledAt": "2026-10-07T09:15:43.455Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9265,7 +9314,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Optimiser-des-mod%C3%A8les-de-simulation-de-flux-Bien/1429813233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:16.655Z",
+      "crawledAt": "2026-10-07T09:15:44.478Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9343,7 +9392,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Evaluer-des-mod%C3%A8les-auto-supervis%C3%A9s-pour-la-d%C3%A9tection-visuelle-Bien/1429811133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:15.639Z",
+      "crawledAt": "2026-10-07T09:15:45.482Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9421,7 +9470,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-R%C3%A9dacteur-%28HF%29-Gen%C3%A8/1442168133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:14.628Z",
+      "crawledAt": "2026-10-07T09:15:42.438Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9499,7 +9548,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-communication-SI-%28HF%29-Gen%C3%A8/1442173133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:13.585Z",
+      "crawledAt": "2026-10-07T09:15:38.225Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9577,7 +9626,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-de-prix-de-revient-%28HF%29-Gen%C3%A8/1442474433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:12.571Z",
+      "crawledAt": "2026-10-07T09:15:39.358Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9657,7 +9706,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-en-m%C3%A9trologie-%28HF%29-Frib/1442259733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:11.518Z",
+      "crawledAt": "2026-10-07T09:15:41.414Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -9735,7 +9784,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Portfolio-Management-Officer-%28HF%29-Gen%C3%A8/1442220833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:10.450Z",
+      "crawledAt": "2026-10-07T09:15:40.398Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9754,6 +9803,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T09:14:05.771Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -9799,7 +9849,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-R&D-%28HF%29-Mat%C3%A9riaux-Gen%C3%A8/1431821133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:09.412Z",
+      "crawledAt": "2026-10-07T09:15:37.215Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -9877,7 +9927,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Business-Analyst-CAI-%28HF%29-Bien/1371878233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:08.385Z",
+      "crawledAt": "2026-10-07T09:15:36.197Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9926,7 +9976,7 @@
       "slug": "group-manager-m-f-rolex-bienne",
       "slugByLocale": {
         "it": "group-manager-m-f-rolex-bienne",
-        "en": "responsable-de-groupe-h-f-rolex-ch-2",
+        "en": "group-manager-m-w-d-rolex-bienne",
         "de": "gruppenleiter-m-w-rolex-bienne",
         "fr": "responsable-de-groupe-h-f-rolex-ch"
       },
@@ -9942,9 +9992,9 @@
       },
       "description": "Introduction\n\nPour notre secteur Fournitures dans notre ligne « barillets », nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de dimensionner les ressources et piloter les activités d'une équipe de plus de 35 personnes.\n\nResponsabilités\n\n• Fédérer et développer une équipe de 35 personnes\n\n• Garantir l’atteinte des objectifs de qualité, délais, coûts, productivité et sécurité\n\n• Définir les ressources et analyser les indicateurs de performance\n\n• Elaborer et piloter le budget de fonctionnement du groupe\n\n• Garantir l’application des règles de sécurité et autres standards de l’entreprise\n\n• Collaborer étroitement avec les équipes transverses\n\n• Promouvoir et challenger l'amélioration continue\n\n• Participer à la définition de la stratégie de son périmètre\n\nProfil\n\n• Ingénieur HES, Technicien ES en processus d’entreprise ou titre jugé équivalent\n\n• Expérience confirmée dans un environnement de production\n\n• Capacité à fédérer et motiver une équipe pluridisciplinaire et multiculturelle\n\n• Leadership naturel, force de proposition et autonome dans la prise de décision\n\n• Sens de la communication, écoute et empathie\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
       "descriptionByLocale": {
-        "it": "Introduction\n\nPour notre secteur Fournitures dans notre ligne « barillets », nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de dimensionner les ressources et piloter les activités d'une équipe de plus de 35 personnes.\n\nResponsabilités\n\n• Fédérer et développer une équipe de 35 personnes\n\n• Garantir l’atteinte des objectifs de qualité, délais, coûts, productivité et sécurité\n\n• Définir les ressources et analyser les indicateurs de performance\n\n• Elaborer et piloter le budget de fonctionnement du groupe\n\n• Garantir l’application des règles de sécurité et autres standards de l’entreprise\n\n• Collaborer étroitement avec les équipes transverses\n\n• Promouvoir et challenger l'amélioration continue\n\n• Participer à la définition de la stratégie de son périmètre\n\nProfil\n\n• Ingénieur HES, Technicien ES en processus d’entreprise ou titre jugé équivalent\n\n• Expérience confirmée dans un environnement de production\n\n• Capacité à fédérer et motiver une équipe pluridisciplinaire et multiculturelle\n\n• Leadership naturel, force de proposition et autonome dans la prise de décision\n\n• Sens de la communication, écoute et empathie\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-        "en": "Introduction\n\nPour notre secteur Fournitures dans notre ligne « barillets », nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de dimensionner les ressources et piloter les activités d'une équipe de plus de 35 personnes.\n\nResponsabilités\n\n• Fédérer et développer une équipe de 35 personnes\n\n• Garantir l’atteinte des objectifs de qualité, délais, coûts, productivité et sécurité\n\n• Définir les ressources et analyser les indicateurs de performance\n\n• Elaborer et piloter le budget de fonctionnement du groupe\n\n• Garantir l’application des règles de sécurité et autres standards de l’entreprise\n\n• Collaborer étroitement avec les équipes transverses\n\n• Promouvoir et challenger l'amélioration continue\n\n• Participer à la définition de la stratégie de son périmètre\n\nProfil\n\n• Ingénieur HES, Technicien ES en processus d’entreprise ou titre jugé équivalent\n\n• Expérience confirmée dans un environnement de production\n\n• Capacité à fédérer et motiver une équipe pluridisciplinaire et multiculturelle\n\n• Leadership naturel, force de proposition et autonome dans la prise de décision\n\n• Sens de la communication, écoute et empathie\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
-        "de": "Introduction\n\nPour notre secteur Fournitures dans notre ligne « barillets », nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de dimensionner les ressources et piloter les activités d'une équipe de plus de 35 personnes.\n\nResponsabilités\n\n• Fédérer et développer une équipe de 35 personnes\n\n• Garantir l’atteinte des objectifs de qualité, délais, coûts, productivité et sécurité\n\n• Définir les ressources et analyser les indicateurs de performance\n\n• Elaborer et piloter le budget de fonctionnement du groupe\n\n• Garantir l’application des règles de sécurité et autres standards de l’entreprise\n\n• Collaborer étroitement avec les équipes transverses\n\n• Promouvoir et challenger l'amélioration continue\n\n• Participer à la définition de la stratégie de son périmètre\n\nProfil\n\n• Ingénieur HES, Technicien ES en processus d’entreprise ou titre jugé équivalent\n\n• Expérience confirmée dans un environnement de production\n\n• Capacité à fédérer et motiver une équipe pluridisciplinaire et multiculturelle\n\n• Leadership naturel, force de proposition et autonome dans la prise de décision\n\n• Sens de la communication, écoute et empathie\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
+        "it": "Introduzione\n\nPer la nostra sezione Forniture nella nostra linea \"barlets\", stiamo cercando un Group Manager (M/F) la cui missione principale sarà di dimensionare le risorse e gestire le attività di un team di oltre 35 persone.\n\nresponsabilità\n\n• Federare e sviluppare un team di 35 persone\n\n• Garantire il raggiungimento degli obiettivi di qualità, tempestività, costi, produttività e sicurezza\n\n• Definire le risorse e analizzare gli indicatori di performance\n\n• Sviluppare e gestire il bilancio operativo del gruppo\n\n• Garantire il rispetto della sicurezza e degli altri standard aziendali\n\n• Lavorare a stretto contatto con le squadre trasversale\n\n• Promuovere e sfidare il miglioramento continuo\n\n• Partecipare alla definizione della sua strategia perimetrale\n\nProfilo\n\n• ingegnere HES, tecnico ES nel processo aziendale o equivalente\n\n• Esperienza confermata in un ambiente di produzione\n\n• Capacità di federazione e motivare un team multidisciplinare e multiculturale\n\n• leadership naturale, potere di proposta e autonomia nel processo decisionale\n\n• Comunicazione, ascolto ed empatia\n\nConclusioni\n\nVi offriamo un ambiente stimolante, eccellenti condizioni di lavoro, soluzioni flessibili per il tempo di lavoro e migliori vantaggi sociali.\n\nGrazie per l'invio di un pacchetto completo di candidatura (CV, lettera di copertura, certificati e diplomi).",
+        "en": "Introduction\n\nFor our Supplies section in our \"barlets\" line, we are looking for a (M/F) Group Manager whose main mission will be to size resources and manage the activities of a team of more than 35 people.\n\nResponsibilities\n\n• Federate and develop a team of 35 people\n\n• Ensuring the achievement of quality, timeliness, cost, productivity and safety objectives\n\n• Define resources and analyse performance indicators\n\n• Develop and manage the group's operating budget\n\n• Ensure compliance with safety and other company standards\n\n• Work closely with transversal teams\n\n• Promoting and challenging continuous improvement\n\n• Participate in defining its perimeter strategy\n\nProfile\n\n• HES engineer, ES technician in business process or equivalent\n\n• Experience confirmed in a production environment\n\n• Ability to federate and motivate a multidisciplinary and multicultural team\n\n• Natural leadership, power of proposal and autonomy in decision-making\n\n• Communication, listening and empathy\n\nConclusion\n\nWe offer you a stimulating environment, excellent working conditions, flexible working time solutions and top social benefits.\n\nThank you for sending a complete application package (CV, cover letter, certificates and diplomas).",
+        "de": "Einleitung\n\nFür unseren Supplies-Bereich in unserer Linie \"Barlets\" suchen wir einen (M/W) Group Manager, dessen Hauptaufgabe darin besteht, Ressourcen zu sortieren und die Aktivitäten eines Teams von mehr als 35 Personen zu verwalten.\n\nZuständigkeiten\n\n• Föderieren und entwickeln Sie ein Team von 35 Personen\n\n• Gewährleistung der Erreichung von Qualitäts-, Pünktlichkeits-, Kosten-, Produktivitäts- und Sicherheitszielen\n\n• Ressourcen definieren und Leistungsindikatoren analysieren\n\n• Entwicklung und Verwaltung des operativen Budgets der Gruppe\n\n• Gewährleistung der Einhaltung von Sicherheits- und anderen Unternehmensstandards\n\n• Enge Zusammenarbeit mit transversalen Teams\n\n• Förderung und Herausforderung kontinuierlicher Verbesserung\n\n• Beteiligen Sie sich an der Definition ihrer Perimeter-Strategie\n\nProfil\n\n• HES-Ingenieur, ES-Ingenieur im Geschäftsprozess oder gleichwertig\n\n• Erfahrung bestätigt in einer Produktionsumgebung\n\n• Fähigkeit, ein multidisziplinäres und multikulturelles Team zu vereinen und zu motivieren\n\n• Natürliche Führung, Vorschlagsmacht und Autonomie bei der Entscheidungsfindung\n\n• Kommunikation, Zuhören und Empathie\n\nSchlussfolgerung\n\nWir bieten Ihnen ein anregendes Umfeld, hervorragende Arbeitsbedingungen, flexible Arbeitszeitlösungen und Top-Sozialleistungen.\n\nVielen Dank für die Zusendung eines vollständigen Bewerbungspakets (Lebenslauf, Anschreiben, Zertifikate und Diplome).",
         "fr": "Introduction\n\nPour notre secteur Fournitures dans notre ligne « barillets », nous recherchons un Responsable de groupe (H/F) dont la mission principale sera de dimensionner les ressources et piloter les activités d'une équipe de plus de 35 personnes.\n\nResponsabilités\n\n• Fédérer et développer une équipe de 35 personnes\n\n• Garantir l’atteinte des objectifs de qualité, délais, coûts, productivité et sécurité\n\n• Définir les ressources et analyser les indicateurs de performance\n\n• Elaborer et piloter le budget de fonctionnement du groupe\n\n• Garantir l’application des règles de sécurité et autres standards de l’entreprise\n\n• Collaborer étroitement avec les équipes transverses\n\n• Promouvoir et challenger l'amélioration continue\n\n• Participer à la définition de la stratégie de son périmètre\n\nProfil\n\n• Ingénieur HES, Technicien ES en processus d’entreprise ou titre jugé équivalent\n\n• Expérience confirmée dans un environnement de production\n\n• Capacité à fédérer et motiver une équipe pluridisciplinaire et multiculturelle\n\n• Leadership naturel, force de proposition et autonome dans la prise de décision\n\n• Sens de la communication, écoute et empathie\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
       },
       "location": "Bienne",
@@ -9952,7 +10002,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-%28HF%29-Bien/1442759333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:07.373Z",
+      "crawledAt": "2026-10-07T09:15:35.177Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9979,14 +10029,14 @@
           "responsable-de-groupe-h-f-rolex-ch",
           "responsable-de-groupe-h-f-rolex-ch-2"
         ],
+        "en": [
+          "responsable-de-groupe-h-f-rolex-ch-2",
+          "group-manager-m-w-d-rolex-bienne"
+        ],
         "de": [
           "responsable-de-groupe-h-f-rolex-ch-2"
-        ],
-        "en": [
-          "group-manager-m-w-d-rolex-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:57:59.272Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -10034,7 +10084,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-implantation-%28HF%29-Bien/1442710933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:06.295Z",
+      "crawledAt": "2026-10-07T09:15:33.132Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10112,7 +10162,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ma%C3%AEtre-d'apprentissage-horlogerie-%28HF%29-Gen%C3%A8/1442834633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:05.297Z",
+      "crawledAt": "2026-10-07T09:15:34.166Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10192,7 +10242,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-PMO-Bien/1110919501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:04.298Z",
+      "crawledAt": "2026-10-07T09:15:32.114Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10264,7 +10314,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-en-gestion-de-donn%C3%A9es-industrielles-%28HF%29-Gen%C3%A8/1422074833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:03.245Z",
+      "crawledAt": "2026-10-07T09:15:31.095Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10342,7 +10392,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-proximit%C3%A9-Logistique-Produit-%28HF%29-Gen%C3%A8/1443111033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:02.231Z",
+      "crawledAt": "2026-10-07T09:15:30.085Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10374,8 +10424,8 @@
           "manager-de-proximite-logistique-produit-h-f-rolex-ch"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:14:14.200Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:14:14.200Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -10396,7 +10446,7 @@
       "slugByLocale": {
         "it": "responsabile-del-laboratorio-m-f-rolex-geneve",
         "en": "workshop-manager-h-f-rolex-geneve",
-        "de": "werkstattleiter-m-w-rolex-geneve",
+        "de": "workshop-manager-m-w-d-rolex-geneve",
         "fr": "gestionnaire-d-atelier-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10421,7 +10471,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/1391839333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:01.212Z",
+      "crawledAt": "2026-10-07T09:15:29.066Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10441,6 +10491,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gestionnaire-d-atelier-h-f-rolex-ch",
+        "werkstattleiter-m-w-rolex-geneve",
         "workshop-manager-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -10448,6 +10499,7 @@
           "gestionnaire-d-atelier-h-f-rolex-ch"
         ],
         "de": [
+          "werkstattleiter-m-w-rolex-geneve",
           "workshop-manager-m-w-d-rolex-geneve"
         ]
       },
@@ -10497,7 +10549,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Ressources-Humaines-Ev%C3%A9nements-Formation-Gen%C3%A8/1411307833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:14:00.166Z",
+      "crawledAt": "2026-10-07T09:15:28.034Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10549,8 +10601,8 @@
       "slug": "modellista-m-f-rolex-geneve",
       "slugByLocale": {
         "it": "modellista-m-f-rolex-geneve",
-        "en": "pattern-maker-m-f-rolex-geneve",
-        "de": "schnittmacher-m-w-rolex-geneve",
+        "en": "modelist-m-w-d-rolex-geneve",
+        "de": "modelist-m-w-d-rolex-geneve",
         "fr": "modeliste-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -10558,7 +10610,7 @@
       "companyDomain": "rolex.com",
       "title": "Modéliste (H/F)",
       "titleByLocale": {
-        "it": "ModalitÃ (M/F)",
+        "it": "Modéliste (H/F)",
         "en": "Modelist (H/F)",
         "de": "Modelist (H/F)",
         "fr": "Modéliste (H/F)"
@@ -10575,7 +10627,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Mod%C3%A9liste-%28HF%29-Gen%C3%A8/1382328833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:59.158Z",
+      "crawledAt": "2026-10-07T09:15:25.986Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10595,6 +10647,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "modeliste-h-f-rolex-ch",
+        "pattern-maker-m-f-rolex-geneve",
+        "schnittmacher-m-w-rolex-geneve",
         "modelist-m-w-d-rolex-geneve"
       ],
       "previousSlugsByLocale": {
@@ -10602,13 +10656,16 @@
           "modeliste-h-f-rolex-ch"
         ],
         "en": [
+          "pattern-maker-m-f-rolex-geneve",
           "modelist-m-w-d-rolex-geneve"
         ],
         "de": [
+          "schnittmacher-m-w-rolex-geneve",
           "modelist-m-w-d-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:48.989Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -10654,7 +10711,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Ing%C3%A9nierie-Sciences-Qualit%C3%A9-Gen%C3%A8/1411372933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:58.152Z",
+      "crawledAt": "2026-10-07T09:15:27.028Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10732,7 +10789,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-s%C3%A9curit%C3%A9-et-environnement-%28HF%29-Bien/1432764433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:57.106Z",
+      "crawledAt": "2026-10-07T09:15:24.956Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10810,7 +10867,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Gestion-d'entreprise-Management-Achats-Gen%C3%A8/1412115033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:56.098Z",
+      "crawledAt": "2026-10-07T09:15:21.875Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -10946,7 +11003,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-ca55be12609f",
@@ -10979,7 +11037,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Environnement-Durabilit%C3%A9-Gen%C3%A8/1412085033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:54.074Z",
+      "crawledAt": "2026-10-07T09:15:20.850Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -11057,7 +11115,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-R%C3%A9f%C3%A9rent-PLM-&-Donn%C3%A9es-Industrielles-Gen%C3%A8/1373589133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:53.039Z",
+      "crawledAt": "2026-10-07T09:15:23.918Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -11134,7 +11192,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Employ%C3%A9-intendance-%28HF%29-Frib/1401645033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:52.030Z",
+      "crawledAt": "2026-10-07T09:15:22.893Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11225,7 +11283,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1433282033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:51.013Z",
+      "crawledAt": "2026-10-07T09:15:19.841Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11292,7 +11350,7 @@
       "titleByLocale": {
         "it": "Agente di sicurezza (M/F)",
         "en": "Security Officer (M/F)",
-        "de": "Sicherheitsbeauftragter (M/W)",
+        "de": "Chargé de sécurité (H/F)",
         "fr": "Chargé de sécurité (H/F)"
       },
       "description": "Introduction\n\nPour notre département Qualité & Durabilité , nous recherchons un Chargé de sécurité (H/F) dont la mission principale sera de contribuer activement à la prévention des risques professionnels et à la protection de la santé des collaborateurs/trices, en assurant la gestion, la planification et le suivi des mesures d'hygiène du travail (qualité de l'air, expositions chimiques, bruit, rayonnements, etc.) au sein de nos ateliers et postes de travail.\n\nResponsabilités\n\n• Planifier, organiser et réaliser ou faire réaliser des mesures en atelier et aux postes de travail (poussières, COV, bruit, lumière, rayonnements optiques/ionisants, métaux lourds et autres expositions)\n\n• Analyser les résultats de mesures et rédiger/évaluer les rapports associés\n\n• En collaboration avec le service Gestion de la Santé en Entreprise, proposer des recommandations et suivre les actions correctives et préventives\n\n• Assurer le suivi des sondes de gaz et contribuer au support en chimie (produits, ventilation, stockage, substitution, bonnes pratiques)\n\n• Collaborer à l'identification, l'évaluation et la maîtrise des risques liés aux procédés, substances, installations et postes de travail\n\n• Participer au contrôle des plans et des projets d'installations, ainsi qu'au suivi de la radioprotection, du laser, des rayonnements, des poussières et des COV\n\n• Préparer et animer des actions de sensibilisation et de formation interne\n\n• Contribuer au maintien et à l'amélioration du système de management intégré (SMI) : procédures, analyses de risques, indicateurs, plans d'action, audits\n\n• Encadrer ponctuellement des aides temporaires\n\n• Gérer la documentation, les équipements de mesure, les données et le reporting\n\n• Assurer une présence régulière sur le terrain\n\nProfil\n\n• Diplôme d’hygiéniste du travail ou formation équivalente dans le domaine de l’hygiène industrielle ou de la sécurité/santé au travail (expert ou spécialiste STPS)\n\n• Formation d’ingénieur/e ou formation supérieure scientifique/technique, idéalement en chimie, biologie, génie des procédés, ou domaine apparenté\n\n• Plus de 5 ans d’expérience dans le domaine de la santé/sécurité au travail en milieu industriel, grande et moyenne entreprise et dans un environnement ISO\n\n• Capacité à identifier, évaluer et prioriser les risques liés aux activités industrielles, en particulier dans les domaines chimiques et physiques\n\n• Connaissances en chimie, toxicologie de base, ventilation, exposition professionnelle et interprétation de valeurs limites d’exposition\n\n• Aptitude à utiliser ou à apprendre à utiliser des appareils de mesure et outils de métrologie liés à l’hygiène du travail\n\n• Compétences à gérer des thématiques transverses et collaborer avec des interlocuteurs variés : médecin du travail, production, prestataires externes, etc.\n\n• Capacité à analyser des résultats, rédiger des rapports clairs et proposer des mesures de prévention adaptées et pragmatiques\n\n• Maîtrise du français indispensable ; des connaissances en anglais et/ou en allemand constituent un avantage\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -11307,7 +11365,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Bien/1423820433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:50.004Z",
+      "crawledAt": "2026-10-07T09:15:14.646Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11342,6 +11400,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -11388,7 +11447,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-de-polisseur%C2%B7euse-AFP-Frib/1423949233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:48.992Z",
+      "crawledAt": "2026-10-07T09:15:15.687Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11468,7 +11527,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'ordonnancement-%28HF%29-Gen%C3%A8/1423992233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:47.981Z",
+      "crawledAt": "2026-10-07T09:15:18.789Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -11534,7 +11593,7 @@
       "title": "Data Scientist (H/F)",
       "titleByLocale": {
         "it": "Data Scientist (M/F)",
-        "en": "Data Scientist (M/F)",
+        "en": "Data Scientist (H/F)",
         "de": "Datenwissenschaftler (M/W)",
         "fr": "Data Scientist (H/F)"
       },
@@ -11550,7 +11609,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Data-Scientist-%28HF%29-Gen%C3%A8/1426438233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:46.985Z",
+      "crawledAt": "2026-10-07T09:15:13.541Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -11580,6 +11639,7 @@
           "data-scientist-m-w-d-rolex-geneve"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -11625,7 +11685,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-de-m%C3%A9canicien%C2%B7ne-de-production-CFC-Frib/1423950033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:45.977Z",
+      "crawledAt": "2026-10-07T09:15:16.701Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11707,7 +11767,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-horlogerie-AFP-Frib/1423950633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:44.970Z",
+      "crawledAt": "2026-10-07T09:15:17.736Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11787,7 +11847,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-d'automaticien%C2%B7ne-CFC-Frib/1423951633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:43.937Z",
+      "crawledAt": "2026-10-07T09:15:12.523Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11869,7 +11929,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Chemielaborant%E2%88%99in-EFZ-Bien/1424410833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:42.901Z",
+      "crawledAt": "2026-10-07T09:15:09.368Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11947,7 +12007,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Uhrenarbeiter%E2%88%99in-EBA-Bien/1424411333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:41.893Z",
+      "crawledAt": "2026-10-07T09:15:10.381Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12025,7 +12085,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Synth%C3%A9tiser-des-additifs-pour-des-lubrifiants-Bien/1413425733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:40.881Z",
+      "crawledAt": "2026-10-07T09:15:11.500Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12101,7 +12161,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-Technique-de-S%C3%BBret%C3%A9-%28HF%29-Gen%C3%A8/1444215933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:39.890Z",
+      "crawledAt": "2026-10-07T09:15:06.286Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -12179,7 +12239,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Tech-Lead-d%C3%A9veloppement-digital-%28HF%29-Gen%C3%A8/1444187033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:38.853Z",
+      "crawledAt": "2026-10-07T09:15:08.363Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -12236,7 +12296,7 @@
       "titleByLocale": {
         "it": "Elettroplasta (M/F)",
         "en": "Electroplast (M/F)",
-        "de": "Elektroplastik (M/W)",
+        "de": "Electroplaste (H/F)",
         "fr": "Electroplaste (H/F)"
       },
       "description": "Introduction\n\nPour notre division Production , nous recherchons un Electroplaste (H/F) dont la mission principale sera d'analyser, traiter et protéger les surfaces des pièces en utilisant des procédés galvanotechniques.\n\nResponsabilités\n\n• Préparer, analyser et contrôler les bains électrolytiques\n\n• Conduire et surveiller le fonctionnement automatisé des installations de traitement galvanique\n\n• Procéder aux travaux de lavage post-traitement, aux finissages des surfaces\n\n• Déterminer les composants principaux des électrolytes et calculer les quantités de produits chimiques nécessaires\n\n• Ajuster et étalonner les équipements, appareils et machines\n\n• Entretenir les installations techniques et contrôler leur bon fonctionnement\n\n• Calculer et déterminer des données relatives aux traitements de surfaces : prétraitement, densité de courant, durée de déposition, surface des cadrans\n\n• Examiner les cadrans traités, déceler les anomalies et prendre les mesures pour y remédier\n\n• Gérer des stocks et des déchets de produits chimiques.\n\nProfil\n\n• CFC Electroplaste ou équivalent\n\n• Expérience dans les traitements de surface en milieu industriel, un atout\n\n• Connaissances dans la sécurité liée aux produits chimiques\n\n• Sens des responsabilités, soigneux, rigoureux, organisé et méthodique\n\n• Bonnes aptitudes relationnelles, disponibilité et esprit d'équipe\n\n• Autonomie et orientation qualité.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
@@ -12251,7 +12311,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Electroplaste-%28HF%29-Gen%C3%A8/1444266233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:37.833Z",
+      "crawledAt": "2026-10-07T09:15:07.355Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -12281,6 +12341,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:27.983Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -12326,7 +12387,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Industrialisation-%28HF%29-Gen%C3%A8/1065577901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:36.812Z",
+      "crawledAt": "2026-10-07T09:15:04.255Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -12415,7 +12476,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1434490333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:35.790Z",
+      "crawledAt": "2026-10-07T09:15:01.223Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12495,7 +12556,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Op%C3%A9rateur-polyvalent-terminaison-%28HF%29-Frib/1272827501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:34.784Z",
+      "crawledAt": "2026-10-07T09:15:03.256Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -12573,7 +12634,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Op%C3%A9rateur-polyvalent-d'usinage-%28HF%29-Frib/1282797101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:33.774Z",
+      "crawledAt": "2026-10-07T09:15:05.275Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -12662,7 +12723,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-M%C3%A9thodes-R%C3%A9pondant-Maintenance-%C3%A0-l'investissement-%28HF%29-Gen%C3%A8/1402421333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T21:13:32.693Z",
+      "crawledAt": "2026-10-07T09:15:02.244Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "Genève",
@@ -12779,7 +12840,7 @@
         }
       },
       "postalCode": "1700",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "rolex-11d8803ece34",
@@ -12812,7 +12873,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'employ%C3%A9%E2%88%99e-de-commerce-CFC-Bien/1420758833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:15:04.258Z",
+      "crawledAt": "2026-10-07T09:16:04.916Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12859,8 +12920,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "crawlerMissStreak": 1
+      "postalCode": "3001"
     }
   ]
 }

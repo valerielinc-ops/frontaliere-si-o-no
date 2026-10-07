@@ -1,7 +1,7 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-10-06T21:41:32.486Z",
+  "generatedAt": "2026-10-07T09:43:39.354Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 3435,
-  "avgDurationMs": 3435,
+  "durationMs": 5472,
+  "avgDurationMs": 5472,
   "durationHistory": [
-    3435
+    5472
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:41:18.408Z",
+      "crawledAt": "2026-10-07T09:43:17.041Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -80,7 +80,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:41:18.747Z",
+      "crawledAt": "2026-10-07T09:43:17.484Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -121,7 +121,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:41:18.598Z",
+      "crawledAt": "2026-10-07T09:43:17.327Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -162,7 +162,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:41:18.564Z",
+      "crawledAt": "2026-10-07T09:43:17.180Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -179,19 +179,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:04:35.177Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

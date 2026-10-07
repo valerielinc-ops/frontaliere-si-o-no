@@ -177,6 +177,30 @@ const GLOSSARY_SECTION_SLUGS = new Set([
 const GLOSSARY_SOURCE_HUB_PATH = '/glossario-frontaliere/';
 const JSON_LD_SCRIPT_SEPARATOR = '</script>\n <script type="application/ld+json">';
 
+const FOX_TOWN_SOURCE_PATH = '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/';
+const FOX_TOWN_LOCALE_COPY: Record<'en' | 'de' | 'fr', { title: string; description: string }> = {
+ en: {
+  title: 'Fox Town Outlet Mendrisio in Ticino',
+  description: 'Fox Town Outlet Mendrisio: opening hours, brands, discounts, parking and travel from Como and Varese for cross-border visitors.',
+ },
+ de: {
+  title: 'Fox Town Outlet Mendrisio im Tessin',
+  description: 'Fox Town Outlet Mendrisio: Öffnungszeiten, Marken, Rabatte, Parkplätze und Anreise aus Como und Varese für Grenzgänger.',
+ },
+ fr: {
+  title: 'Fox Town Outlet Mendrisio au Tessin',
+  description: 'Fox Town Outlet Mendrisio : horaires, marques, réductions, parking et accès depuis Côme et Varèse pour les travailleurs frontaliers.',
+ },
+};
+
+/** Return the localized head for the one static Fox Town source page. */
+export function resolveFoxTownLocaleSeo(locale: string): { title: string; desc: string; ogT: string; ogD: string } | undefined {
+ if (locale !== 'en' && locale !== 'de' && locale !== 'fr') return undefined;
+ const copy = FOX_TOWN_LOCALE_COPY[locale];
+ const title = buildTitleWithBrand(copy.title);
+ return { title, desc: copy.description, ogT: title, ogD: copy.description };
+}
+
 /**
  * The JSON-LD ImageObject of a hand-written article page, moved onto the page
  * hero: its URL and the dimensions measured from the file (#5001 punto 3).
@@ -2443,6 +2467,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (!firstSeg) return '';
 
  const tags: string[] = [];
+ // The first two article cards are marked fetchpriority="high" by the
+ // shared hub renderer because they are the likely LCP candidates. A
+ // high-priority <img> is still discovered only after the body is parsed;
+ // matching image preloads let the browser start those same requests while
+ // it is parsing the head. Keep this capped at the two cards marked high so
+ // the hub does not turn every card into an eager request.
+ const addHubCardPreloads = (articles: readonly StaticArticle[], excludeUrl = ''): void => {
+ for (const article of articles.slice(0, 2)) {
+ if (article.image === excludeUrl) continue;
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${article.image}">`);
+ }
+ };
  const componentPrefixes = routeAwarePreloadChunksFor(urlPath, sectionChunks[firstSeg]);
  if (componentPrefixes) {
  for (const prefix of componentPrefixes) {
@@ -2473,6 +2509,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || sectionHero;
  if (preloadHero) {
  tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
+ }
+ if (!isDetail) {
+ addHubCardPreloads(isSwissSection ? swissArticlesStatic : blogArticlesStatic, preloadHero);
  }
  }
  // Generated SEO cards (glossary and its translated route family) are emitted
@@ -3042,6 +3081,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const copy = METHODOLOGY_COPY[locale as MethodologyLocale];
  const title = `${copy.title} | Frontaliere Ticino`;
  return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
+ }
+
+ // Fox Town has one Italian source page but three translated routes. The
+ // generic slug fallback used the same English title for DE and EN, which
+ // made the two locale pages duplicate the `<title>` value. Keep the venue
+ // name stable while adding a language-specific location phrase.
+ if (sourceCanonicalPath === FOX_TOWN_SOURCE_PATH) {
+  const localized = resolveFoxTownLocaleSeo(locale);
+  if (localized) return { ...localized, sd: italianSeo.sd };
  }
 
  // The German article archive has a translated route but no separate SEO-map

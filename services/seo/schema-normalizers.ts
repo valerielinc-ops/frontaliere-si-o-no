@@ -57,6 +57,10 @@ function normalizeArticleNode(record: Record<string, any>): Record<string, any> 
   && record.datePublished.trim().length > 0;
  if (!hasEditorialPublicationDate) record['@type'] = 'WebPage';
 
+ // The type conversion above happens after the generic pass, so run the
+ // WebPage identity completion once more for legacy evergreen Article nodes.
+ normalizeWebPageIdentity(record);
+
  // Static SEO pages are standalone documents. A bare #organization pointer is
  // resolvable in the SPA graph but not by a page-local crawler, so expand it to
  // the same named entities used by the rest of the site.
@@ -110,6 +114,47 @@ function isSchemaType(record: Record<string, any>, expected: string): boolean {
  return Array.isArray(typeValue) && typeValue.includes(expected);
 }
 
+/**
+ * Return a usable page URL from a schema reference.  A few legacy emitters
+ * identify the page only through `mainEntityOfPage` or an `@id` ending in a
+ * fragment (`#article`, `#page`, ...).  Schema validators inspect nested
+ * WebPage nodes as well as the top-level node, so keeping the canonical URL
+ * on the node itself avoids a validator having to resolve those references.
+ */
+function schemaReferenceUrl(value: unknown): string | undefined {
+ const candidate = typeof value === 'string'
+  ? value
+  : isRecord(value)
+    ? (typeof value.url === 'string' ? value.url : value['@id'])
+    : undefined;
+ if (typeof candidate !== 'string' || !candidate.trim()) return undefined;
+ const withoutFragment = candidate.split('#', 1)[0];
+ return withoutFragment || undefined;
+}
+
+/**
+ * Complete the two required identity fields for WebPage nodes when the
+ * emitter already supplied an equivalent page identity.  This is deliberately
+ * conservative: a page with no headline and no resolvable URL remains
+ * unchanged rather than receiving fabricated metadata.
+ */
+function normalizeWebPageIdentity(record: Record<string, any>): void {
+ if (!isSchemaType(record, 'WebPage')) return;
+ if (!record.name) {
+  const fallbackName = typeof record.headline === 'string'
+    ? record.headline
+    : typeof record.title === 'string'
+      ? record.title
+      : undefined;
+  if (fallbackName) record.name = fallbackName;
+ }
+ if (!record.url) {
+  const referenceUrl = schemaReferenceUrl(record.mainEntityOfPage)
+    ?? schemaReferenceUrl(record['@id']);
+  if (referenceUrl) record.url = referenceUrl;
+ }
+}
+
 function isSiteWebSite(record: Record<string, any>): boolean {
  return isSchemaType(record, 'WebSite')
   && (record['@id'] === WEBSITE_ID
@@ -122,6 +167,8 @@ function isAppSchema(record: Record<string, any>): boolean {
 }
 
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
+ normalizeWebPageIdentity(record);
+
  // Every static SEO generator describes the same site WebSite. Give it one
  // graph identity so crawlers do not retain thousands of anonymous copies.
  if (isSiteWebSite(record)) record['@id'] = WEBSITE_ID;

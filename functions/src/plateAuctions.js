@@ -25,6 +25,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
+import { GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -32,6 +33,7 @@ import {
   observeCatalogueDisappearance,
   PLATE_AUCTION_MISSING_GRACE_MS,
   recognizeCatalogueSales,
+  recognizeTimedCatalogueTurnover,
 } from './plateAuctionQualityCore.js';
 
 export const PLATE_AUCTION_COLLECTION = 'plate_auctions_current';
@@ -164,7 +166,7 @@ const CONNECTORS = {
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
-    url: 'https://eauktion.gr.ch/',
+    url: GR_ECARI_CATALOGUE_URL,
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
       const tabs = [
@@ -176,12 +178,12 @@ const CONNECTORS = {
       return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Grigioni',
         plateCode: 'GR',
-        officialAuctionUrl: 'https://eauktion.gr.ch/',
+        officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
         fetchedAt,
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
       })), html, tabs.map(([tab]) => tab));
     },
   },
@@ -900,12 +902,21 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         fetchedCount: rows.length,
         vanishedCount: saleCandidates.length,
       });
+      const timedTurnoverDecision = recognizeTimedCatalogueTurnover({
+        sourceKey: key,
+        previousCount: previousLiveCount,
+        fetchedCount: rows.length,
+        vanishedCount: newlyMissing.length,
+      });
+      // The card-platform contract measures the whole timed-card turnover;
+      // fixed-price sources continue to use saleDecision only.
+      const healthyFetchDecision = timedTurnoverDecision || saleDecision;
       // A stamped row still absent after the grace window is recorded, but
       // only by a fetch that is itself healthy (non-empty, band and cap passed
       // on the new losses): a run that may be truncated is no evidence an
       // older absence is final, and an explicitly empty eCari page lists
       // nothing to measure against. Same rule as ingest.
-      const expiredMissingIds = new Set(rows.length > 0 && saleDecision.recognized
+      const expiredMissingIds = new Set(rows.length > 0 && healthyFetchDecision.recognized
         ? knownMissing
           .filter(([, old]) => now.getTime() - missingSinceOf(old) >= PLATE_AUCTION_MISSING_GRACE_MS)
           .map(([id]) => id)
@@ -914,7 +925,11 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
         + `known-missing=${knownMissing.length} expired-missing=${expiredMissingIds.size} `
-        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+        + (timedTurnoverDecision
+          ? (timedTurnoverDecision.recognized
+            ? `decision=timed-turnover accepted vanished=${newlyMissing.length}`
+            : `decision=timed-turnover preserve-as-live blocked-by=${timedTurnoverDecision.blockedBy.join('+')}`)
+          : (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`)),
       );
       const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
       for (const [id, old] of vanished) {
@@ -955,19 +970,21 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         }
         await batch.commit();
       }
-      // Same rule as ingest's sourceStatus(): recognized fixed-price sales
-      // leave `sourceDisappeared` true, so deriving the patch from that raw
-      // flag kept a healthy source `degraded` and could hide its active rows
-      // from consumers that require an active source. A single protected row
-      // still means an upstream anomaly, so it must NOT be laundered into
-      // `active` by one recognized sale.
-      const allLossesAreSales = saleDecision.recognized
+      // Same rule as ingest's sourceStatus(): recognized fixed-price sales and
+      // measured timed-card turnover leave `sourceDisappeared` true, so
+      // deriving the patch from that raw flag would keep a healthy source
+      // `degraded`. Card rows are still preserved with `missingSince`; the
+      // turnover decision only says that the replacement-shaped fetch is
+      // healthy. For fixed-price sources, a protected row still means an
+      // upstream anomaly and must not be laundered by one recognized sale.
+      const healthyDespiteDisappearance = (saleDecision.recognized
         && protectedVanished.length === 0
-        && recognizedSaleIds.size > 0;
+        && recognizedSaleIds.size > 0)
+        || timedTurnoverDecision?.recognized === true;
       // The raw `sourceDisappeared` flag still guards the delete block above;
       // the source's health is judged on the NEW losses only, because a
       // stamped row was reported by the run that first missed it.
-      const sourcePatch = newlyMissing.length > 0 && !allLossesAreSales
+      const sourcePatch = newlyMissing.length > 0 && !healthyDespiteDisappearance
         ? { status: 'degraded', rowCount: rows.length, errorCode: 'source_disappeared' }
         : { status: 'active', rowCount: rows.length, lastSuccessAt: fetchedAt, errorCode: null };
       await sourceRef.set(sourceDocument(key, config, fetchedAt, sourcePatch), { merge: true });

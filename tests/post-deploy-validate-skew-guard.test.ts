@@ -202,8 +202,11 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
     expect(new Set(blocks).size, 'guard copies in different jobs must be byte-identical').toBe(1);
 
     const guard = blocks[0];
-    expect(guard).toContain('git show origin/main:package.json');
-    expect(guard).toContain('git cat-file -e "origin/main:$target"');
+    // main is read only from the commit a successful fetch of THIS invocation
+    // returned, never from whatever origin/main ref the checkout left behind.
+    expect(guard).toContain('if git fetch --depth=1 origin main -q 2>/dev/null; then');
+    expect(guard).toContain("git rev-parse --verify -q 'FETCH_HEAD^{commit}'");
+    expect(guard).not.toMatch(/origin\/main:/);
     expect(guard).toContain('skipped-deploy_ref-drift');
 
     const sourceStep = workflow.jobs?.['validate-dist-postbuild']?.steps?.find(
@@ -262,6 +265,17 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         mainReadable: false,
         expected: { rc: 7, skipped: false, ran: true },
       },
+      {
+        // The fetch fails, but the checkout still carries an origin/main ref
+        // that has the script: a stale ref must not become a skip.
+        name: 'fetch fails while a stale origin/main ref has the script',
+        buildPackage: { scripts: {} },
+        mainPackage: { scripts: { 'validate:test': 'true' } },
+        target: 'validate:test',
+        mainReadable: false,
+        staleOriginRef: true,
+        expected: { rc: 7, skipped: false, ran: true },
+      },
     ];
 
     for (const scenario of scenarios) {
@@ -271,6 +285,7 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         buildPackage: scenario.buildPackage,
         mainPackage: scenario.mainPackage,
         mainReadable: scenario.mainReadable,
+        staleOriginRef: (scenario as { staleOriginRef?: boolean }).staleOriginRef,
         commandExit: scenario.expected.rc === 0 ? 0 : 7,
       });
       expect(result.rc, scenario.name).toBe(scenario.expected.rc);
@@ -314,6 +329,14 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         mainReadable: false,
         expected: { rc: 7, skipped: false, ran: true },
       },
+      {
+        name: 'fetch fails while a stale origin/main ref has the file',
+        buildFiles: {},
+        mainFiles: { [target]: 'export {};\n' },
+        mainReadable: false,
+        staleOriginRef: true,
+        expected: { rc: 7, skipped: false, ran: true },
+      },
     ];
 
     for (const scenario of scenarios) {
@@ -325,6 +348,7 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
         buildFiles: scenario.buildFiles,
         mainFiles: scenario.mainFiles,
         mainReadable: scenario.mainReadable,
+        staleOriginRef: (scenario as { staleOriginRef?: boolean }).staleOriginRef,
         commandExit: scenario.expected.rc === 0 ? 0 : 7,
       });
       expect(result.rc, scenario.name).toBe(scenario.expected.rc);
@@ -346,6 +370,8 @@ type GuardScenario = {
   buildFiles?: Record<string, string>;
   mainFiles?: Record<string, string>;
   mainReadable: boolean;
+  /** Leave an origin/main ref behind, then make the remote unreachable. */
+  staleOriginRef?: boolean;
   commandExit: number;
 };
 
@@ -355,31 +381,40 @@ function runGuardScenario(scenario: GuardScenario): {
   ran: boolean;
   stdout: string;
 } {
-  const work = mkdtempSync(join(tmpdir(), 'post-deploy-skew-guard-'));
-  const runnerTemp = join(work, 'runner-temp');
-  const marker = join(work, 'command-ran');
+  const root = mkdtempSync(join(tmpdir(), 'post-deploy-skew-guard-'));
+  const mainRepo = join(root, 'main-remote');
+  const work = join(root, 'build');
+  const runnerTemp = join(root, 'runner-temp');
+  const marker = join(root, 'command-ran');
   mkdirSync(runnerTemp);
+  mkdirSync(mainRepo);
+  mkdirSync(work);
 
   try {
-    writeJson(join(work, 'package.json'), scenario.mainPackage);
+    // The remote the guard fetches: main as it is today.
+    writeJson(join(mainRepo, 'package.json'), scenario.mainPackage);
     for (const [path, content] of Object.entries(scenario.mainFiles ?? {})) {
-      writeFile(join(work, path), content);
+      writeFile(join(mainRepo, path), content);
     }
-    git(work, ['init', '-q']);
-    git(work, ['config', 'user.email', 'test@example.invalid']);
-    git(work, ['config', 'user.name', 'skew-guard-test']);
-    git(work, ['add', '.']);
-    git(work, ['commit', '-qm', 'main fixture']);
-    git(work, ['update-ref', 'refs/remotes/origin/main', 'HEAD']);
+    git(mainRepo, ['init', '-q', '-b', 'main']);
+    git(mainRepo, ['config', 'user.email', 'test@example.invalid']);
+    git(mainRepo, ['config', 'user.name', 'skew-guard-test']);
+    git(mainRepo, ['add', '.']);
+    git(mainRepo, ['commit', '-qm', 'main fixture']);
 
+    // The checkout the job validates: the build, with origin pointing at main.
     writeJson(join(work, 'package.json'), scenario.buildPackage);
-    for (const path of Object.keys(scenario.mainFiles ?? {})) {
-      if (!scenario.buildFiles?.[path]) rmSync(join(work, path), { force: true });
-    }
     for (const [path, content] of Object.entries(scenario.buildFiles ?? {})) {
       writeFile(join(work, path), content);
     }
-    if (!scenario.mainReadable) git(work, ['update-ref', '-d', 'refs/remotes/origin/main']);
+    git(work, ['init', '-q', '-b', 'build']);
+    git(work, ['config', 'user.email', 'test@example.invalid']);
+    git(work, ['config', 'user.name', 'skew-guard-test']);
+    git(work, ['add', '.']);
+    git(work, ['commit', '-qm', 'build fixture']);
+    git(work, ['remote', 'add', 'origin', `file://${mainRepo}`]);
+    if (scenario.staleOriginRef) git(work, ['fetch', '-q', 'origin', 'main:refs/remotes/origin/main']);
+    if (!scenario.mainReadable) git(work, ['remote', 'set-url', 'origin', `file://${join(root, 'gone')}`]);
 
     const guard = extractGuardSource();
     const guardPath = join(runnerTemp, 'deploy-ref-skew-guard.sh');
@@ -419,7 +454,7 @@ function runGuardScenario(scenario: GuardScenario): {
       stdout: output,
     };
   } finally {
-    rmSync(work, { recursive: true, force: true });
+    rmSync(root, { recursive: true, force: true });
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-10-06T21:32:46.391Z",
+  "generatedAt": "2026-10-07T09:32:01.253Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,16 +12,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 8707,
-  "avgDurationMs": 8707,
+  "unchangedCount": 1,
+  "durationMs": 8318,
+  "avgDurationMs": 8318,
   "durationHistory": [
-    8707
+    8318
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "elettra-1938-d0486177ffd8",
       "slug": "manutentore-elettromeccanico-elettra-1938-ch",
@@ -34,7 +35,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:33.568Z",
+      "crawledAt": "2026-10-07T09:31:48.268Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -51,21 +52,60 @@
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/manutentore-elettromeccanico-729764/it/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:06:24.656Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-07-08T22:06:24.656Z",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "elettra-1938-6cd11cbbc30b",
+      "slug": "hw-engineer-elettra-1938-ch",
+      "company": "Elettra 1938",
+      "companyKey": "elettra-1938",
+      "companyDomain": "elettra1938.ch",
+      "title": "HW ENGINEER",
+      "location": "Sede Stabio Svizzera",
+      "canton": "TI",
+      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
+      "source": "Elettra 1938 Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-07T09:31:46.881Z",
+      "addressLocality": "Sede Stabio Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6855",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica / Automazione",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-25",
+      "postedDate": "2026-09-25",
+      "postingDateSource": "reported",
+      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
+      "firstSeenAt": "2026-09-25T14:55:35.445Z",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -80,7 +120,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:34.892Z",
+      "crawledAt": "2026-10-07T09:31:49.806Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -108,49 +148,7 @@
         "translation": 25,
         "completeness": 22
       }
-    },
-    {
-      "id": "elettra-1938-6cd11cbbc30b",
-      "slug": "hw-engineer-elettra-1938-ch",
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "HW ENGINEER",
-      "location": "Sede Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:32:31.897Z",
-      "addressLocality": "Sede Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6855",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-25",
-      "postedDate": "2026-09-25",
-      "postingDateSource": "reported",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-25T14:55:35.445Z",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 22
-      }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
