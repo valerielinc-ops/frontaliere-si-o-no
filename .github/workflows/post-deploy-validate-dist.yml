@@ -84,11 +84,27 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      # This file is deliberately materialized by the workflow YAML itself.
-      # The checkout is the BUILD pinned by deploy_ref, so a helper committed
-      # in the repository could be absent in exactly the skew window this
-      # guard has to cover. All validator phases in this job source this one
-      # copy; the main ref and its package manifest are read once here.
+      # DEPLOY_REF/WORKFLOW SKEW GUARD (issues 5833 and 12051). This YAML is
+      # loaded from main at workflow_run time, while the job checks out the
+      # BUILD pinned by deploy_ref: a gate added here together with its npm
+      # script (or its file) meets builds dispatched just before that merge,
+      # and fails with "Missing script" on a page that has nothing wrong.
+      # Measured twice: run 31765361020 (validate:keyword-landing-coverage)
+      # and run 37543977878 (validate:og-images), the second because the
+      # guard existed in two runners and was missing from the third.
+      #
+      # One definition, every runner. Skip only what is absent from this
+      # build AND present on origin/main; absent from both is a real bug
+      # (wrong name, or a deletion) and still runs and fails; an unreadable
+      # origin/main never widens the skip. The skip row carries a literal
+      # rc=0 because the timings parser greps rc=[0-9]+$ and counts anything
+      # else as a failure; the true state stays in the per-gate log.
+      #
+      # The file is materialized by the workflow YAML itself, never read from
+      # the checkout: a helper committed in the repository could be absent in
+      # exactly the window this guard has to cover. (The input is named
+      # without its prefix on purpose: check-workflow-input-injection.mjs
+      # counts references in comments too, and fails closed.)
       - name: Prepare deploy-ref skew guard
         shell: bash
         run: |
@@ -1547,12 +1563,15 @@ jobs:
           set +e
           source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           for chain_step in \
-            "audit:max-bfs-depth|/tmp/g19.log|--json" \
-            "audit:orphan-sitemap-pages|/tmp/g9.log|--gate=baseline" \
+            "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
+            "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
           ; do
-            IFS='|' read -r step_name step_log step_arg <<<"$chain_step"
+            # The command stays a literal string on purpose: the tests that
+            # prove every audit:* script is reachable from this workflow, and
+            # that the memory-heavy ones carry an explicit heap, read it here.
+            IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
             start=$(date +%s.%N)
-            build_skew_guard_run npm "$step_name" env NODE_OPTIONS='--max-old-space-size=8192' npm run "$step_name" -- "$step_arg" > "$step_log" 2>&1
+            build_skew_guard_run npm "$step_name" eval "$step_cmd" > "$step_log" 2>&1
             rc=$?
             skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)

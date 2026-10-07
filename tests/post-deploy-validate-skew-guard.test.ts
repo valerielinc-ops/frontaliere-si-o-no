@@ -90,8 +90,8 @@ function directCalls(jobName: string, step: Step): DirectCall[] {
   if (typeof step.run !== 'string') return [];
   const calls: DirectCall[] = [];
   for (const { line, text } of executableCommands(step.run)) {
-    for (const match of text.matchAll(/\bnpm\s+run\s+("\$step_name"|[a-z0-9:_-]+)/g)) {
-      const target = match[1] === '"$step_name"' ? '$step_name' : match[1];
+    for (const match of text.matchAll(/\bnpm\s+run\s+([a-z0-9:_-]+)/g)) {
+      const target = match[1];
       calls.push({
         job: jobName,
         step: step.name ?? '(unnamed)',
@@ -134,6 +134,21 @@ function callUsesGuard(call: DirectCall, step: Step): boolean {
     call.text.startsWith('spawn_capped ') &&
     loadsWorkflowGuard &&
     /spawn_capped\(\)[\s\S]*build_skew_guard_run/.test(step.run)
+  ) {
+    return true;
+  }
+  // A chain table entry `"<script>|<log>|<command>"` is run by the loop below
+  // it through `eval "$step_cmd"`. The command stays a literal string because
+  // other tests read it there (audit reachability, explicit heap). It is
+  // guarded when that loop runs under the guard AND the entry is keyed by the
+  // very script it invokes: the guard looks up `$step_name`, so a mismatched
+  // key would guard the wrong name.
+  if (
+    call.kind === 'npm' &&
+    call.text.startsWith('for chain_step in ') &&
+    call.text.includes(`"${call.target}|`) &&
+    loadsWorkflowGuard &&
+    step.run.includes('build_skew_guard_run npm "$step_name" eval "$step_cmd"')
   ) {
     return true;
   }
@@ -317,7 +332,7 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
       expect(result.ran, scenario.name).toBe(scenario.expected.ran);
       if (scenario.expected.skipped) {
         expect(result.stdout, scenario.name).toContain('(skipped-deploy_ref-drift)');
-        expect(result.stdout, scenario.name).toContain(`${scenario.target}(skipped-deploy_ref-drift)`);
+        expect(result.stdout, scenario.name).toContain(`${target}(skipped-deploy_ref-drift)`);
       }
     }
   });
