@@ -18,10 +18,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
+import { addPreviousSlugForLocale, promotePreviousSlugToLegacy, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
-import { decontaminateJobs, decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
+import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
+import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -30,6 +31,22 @@ const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 
 function normalizedJobUrl(job) {
   return String(job?.url || '').trim().toLowerCase();
+}
+
+function stableUrlIndexKey(url) {
+  const stableUrl = extractStableJobId(url);
+  if (!stableUrl) return '';
+
+  // The stable token is intentionally generic (for example `num:106683`),
+  // so it is not a cross-site identity. STA and Stellenpartner can expose
+  // different postings with the same numeric suffix. Keep the token useful
+  // for path/slug changes, but namespace it by the URL host first.
+  try {
+    const host = new URL(url).host.toLowerCase();
+    return `${host}|${stableUrl}`;
+  } catch {
+    return `|${stableUrl}`;
+  }
 }
 
 function addToIndex(index, key, job) {
@@ -45,6 +62,96 @@ function uniqueIndexEntry(index, key) {
   return { found: true, job: entries.length === 1 ? entries[0] : null };
 }
 
+function sliceEntryJobs(entry) {
+  if (Array.isArray(entry?.jobs)) return entry.jobs;
+  if (Array.isArray(entry?.slice?.jobs)) return entry.slice.jobs;
+  return [];
+}
+
+function buildSliceOwnershipIndex(sliceEntries) {
+  const entries = (Array.isArray(sliceEntries) ? sliceEntries : [])
+    .filter((entry) => sliceEntryJobs(entry).length > 0);
+  const globalOwners = new Map();
+  for (const entry of entries) {
+    for (const job of sliceEntryJobs(entry)) {
+      const hash = stableSlugHash(job);
+      if (!hash) continue;
+      if (!globalOwners.has(hash)) globalOwners.set(hash, []);
+      globalOwners.get(hash).push(job);
+    }
+  }
+
+  const globallyUnique = new Map(
+    [...globalOwners]
+      .filter(([, jobs]) => jobs.length === 1)
+      .map(([hash, jobs]) => [hash, jobs[0]]),
+  );
+  const ownersByEntry = new Map();
+  for (const entry of entries) {
+    const owners = new Map(globallyUnique);
+    const sameSliceOwners = new Map();
+    const sameSliceAmbiguous = new Set();
+    for (const job of sliceEntryJobs(entry)) {
+      const hash = stableSlugHash(job);
+      if (!hash || sameSliceAmbiguous.has(hash)) continue;
+      if (sameSliceOwners.has(hash)) {
+        sameSliceOwners.delete(hash);
+        sameSliceAmbiguous.add(hash);
+        continue;
+      }
+      sameSliceOwners.set(hash, job);
+    }
+    for (const [hash, job] of sameSliceOwners) owners.set(hash, job);
+    ownersByEntry.set(entry, owners);
+  }
+  return { entries, ownersByEntry };
+}
+
+function targetAlreadyServesBridge(job, assembled, slug) {
+  const value = String(slug || '');
+  if (!value || !job || typeof job !== 'object') return false;
+  if (String(job.slug || '') === value) return true;
+  if (Object.values(job.slugByLocale || {}).some((active) => String(active || '') === value)) return true;
+
+  const attributedLocales = Object.entries(assembled?.previousSlugsByLocale || {})
+    .filter(([, slugs]) => (Array.isArray(slugs) ? slugs : []).includes(value))
+    .map(([locale]) => locale);
+  if (attributedLocales.length > 0) {
+    return (Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value)
+      && attributedLocales.every((locale) => (
+        Array.isArray(job.previousSlugsByLocale?.[locale])
+        && job.previousSlugsByLocale[locale].includes(value)
+      ));
+  }
+  return (Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value);
+}
+
+function assembledBridgeSlugs(assembled) {
+  const slugs = new Set();
+  for (const slug of (Array.isArray(assembled?.previousSlugs) ? assembled.previousSlugs : [])) {
+    const value = String(slug || '');
+    if (value) slugs.add(value);
+  }
+  for (const values of Object.values(assembled?.previousSlugsByLocale || {})) {
+    for (const slug of (Array.isArray(values) ? values : [])) {
+      const value = String(slug || '');
+      if (value) slugs.add(value);
+    }
+  }
+  return slugs;
+}
+
+function bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership) {
+  const owners = ownership?.ownersByEntry?.get(entry);
+  if (!owners) return new Set();
+  const owned = new Set();
+  for (const slug of assembledBridgeSlugs(assembled)) {
+    const { targetJob, redirected } = resolveRecoveryTarget(sliceJob, slug, owners);
+    if (redirected && targetJob !== sliceJob && targetAlreadyServesBridge(targetJob, assembled, slug)) owned.add(slug);
+  }
+  return owned;
+}
+
 /**
  * Build the assembled-job indexes used by the assembled→slice writer.
  *
@@ -53,7 +160,7 @@ function uniqueIndexEntry(index, key) {
  * `resolveJobDiffKey()` therefore misses the same record on the slice side:
  * the assembled record resolves to its synthetic id while the slice resolves
  * to its URL. URL identity is the strongest join key here, followed by the
- * stable URL token and only then the generic diff key. Every index retains
+ * host-scoped stable URL token and only then the generic diff key. Every index retains
  * ambiguity instead of silently choosing a sibling.
  *
  * @param {Array<object>} assembledJobs
@@ -69,7 +176,7 @@ export function buildAssembledJobIndex(assembledJobs) {
     const url = normalizedJobUrl(job);
     if (url) {
       addToIndex(index.byUrl, url, job);
-      const stableUrl = extractStableJobId(url);
+      const stableUrl = stableUrlIndexKey(url);
       if (stableUrl) addToIndex(index.byStableUrl, stableUrl, job);
     }
     addToIndex(index.byDiffKey, resolveJobDiffKey(job), job);
@@ -99,7 +206,7 @@ export function matchAssembledJob(sliceJob, index) {
     return exact.job;
   }
 
-  const stableUrl = extractStableJobId(sliceUrl);
+  const stableUrl = stableUrlIndexKey(sliceUrl);
   const stable = uniqueIndexEntry(index?.byStableUrl, stableUrl);
   if (stable.found) {
     const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
@@ -112,7 +219,7 @@ export function matchAssembledJob(sliceJob, index) {
 
   const assembledUrl = normalizedJobUrl(byDiffKey.job);
   if (sliceUrl && assembledUrl) {
-    const assembledStableUrl = extractStableJobId(assembledUrl);
+    const assembledStableUrl = stableUrlIndexKey(assembledUrl);
     if (sliceUrl !== assembledUrl && (!stableUrl || stableUrl !== assembledStableUrl)) return null;
   }
   return byDiffKey.job;
@@ -124,8 +231,10 @@ export function matchAssembledJob(sliceJob, index) {
  * The assembled dataset is the population that must be represented in the
  * committed active slices. Slice-only records are allowed because assembly
  * may deduplicate or filter them, but an assembled record that cannot be
- * matched, an ambiguous slice identity, a missing bridge, an active-locale
- * slug mismatch, or a second pending write is a real parity failure.
+ * matched, an ambiguous slice identity, a genuinely missing bridge, an
+ * active-locale slug mismatch, or a second pending write is a real parity
+ * failure. A bridge already served by the unique owner selected by the slice
+ * decontamination rules is not genuinely missing from the projection.
  *
  * @param {Array<object>} assembledJobs
  * @param {Array<{file?: string, jobs: Array<object>}>} sliceEntries
@@ -134,6 +243,7 @@ export function matchAssembledJob(sliceJob, index) {
 export function verifyScatterParity(assembledJobs, sliceEntries) {
   const jobs = Array.isArray(assembledJobs) ? assembledJobs : [];
   const index = buildAssembledJobIndex(jobs);
+  const ownership = buildSliceOwnershipIndex(sliceEntries);
   const assembledKeys = new Set();
   let duplicateAssembledKeys = 0;
   let unkeyedAssembledJobs = 0;
@@ -159,7 +269,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   let activeSlugMismatches = 0;
 
   for (const entry of Array.isArray(sliceEntries) ? sliceEntries : []) {
-    for (const sliceJob of Array.isArray(entry?.jobs) ? entry.jobs : []) {
+    for (const sliceJob of sliceEntryJobs(entry)) {
       sliceJobs++;
       const sliceKey = resolveJobDiffKey(sliceJob);
       if (sliceKey && sliceKeys.has(sliceKey)) duplicateSliceKeys++;
@@ -174,8 +284,9 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
       assembledMatchCounts.set(assembled, matchCount);
       if (matchCount > 1) duplicateAssembledMatches++;
       matchedKeys.add(resolveJobDiffKey(assembled));
-      missingBridges += collectMissingAssembledBridges(sliceJob, assembled).length;
-      if (applyAssembledToSliceJob(sliceJob, assembled).changed) pendingWrites++;
+      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
+      missingBridges += collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length;
+      if (applyAssembledToSliceJob(sliceJob, assembled, { skipBridges }).changed) pendingWrites++;
 
       const effectiveSlugs = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
       if (!localeMapsEqual(effectiveSlugs, sliceJob.slugByLocale)) activeSlugMismatches++;
@@ -208,10 +319,11 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   return report;
 }
 
-function readSliceEntries(directory) {
+function readSliceFileEntries(directory) {
   return listSliceFileNames(directory).flatMap((file) => {
-    const slice = readJson(path.join(directory, file), null);
-    return slice && Array.isArray(slice.jobs) ? [{ file, jobs: slice.jobs }] : [];
+    const filePath = path.join(directory, file);
+    const slice = readJson(filePath, null);
+    return slice && Array.isArray(slice.jobs) ? [{ file, filePath, slice }] : [];
   });
 }
 
@@ -270,9 +382,10 @@ export function mergeLocaleMap(sliceMap, assembledMap) {
  * over unattributed flat-only ones when headroom is scarce, since correct
  * locale attribution drives which prefix the bridge page is emitted under.
  *
+ * @param {{skipBridges?: Set<string>}} [options]
  * @returns {Array<{ locale: string|null, slug: string }>} ordered add-list
  */
-export function collectMissingAssembledBridges(sliceJob, assembled) {
+export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridges = new Set() } = {}) {
   const known = new Set();
   if (sliceJob.slug) known.add(String(sliceJob.slug));
   for (const s of Object.values(sliceJob.slugByLocale || {})) if (s) known.add(String(s));
@@ -315,7 +428,7 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
       const bucket = Array.isArray(existingByLocale[locale]) ? existingByLocale[locale] : [];
       for (const s of arr) {
         const v = String(s || '');
-        if (!v || bucket.includes(v)) continue;
+        if (!v || bucket.includes(v) || skipBridges.has(v)) continue;
         const dedupKey = `${locale} ${v}`;
         if (seen.has(dedupKey)) continue;
         const consumesHeadroom = !known.has(v);
@@ -334,7 +447,7 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
   // legacy field rather than rotating a committed locale bucket.
   for (const s of (Array.isArray(assembled.previousSlugs) ? assembled.previousSlugs : [])) {
     const v = String(s || '');
-    if (!v || known.has(v)) continue;
+    if (!v || known.has(v) || skipBridges.has(v)) continue;
     if (adds.filter((a) => !a._free).length >= headroom) break;
     known.add(v);
     const hasItRoom = (localeHeadroom.get('it') || 0) > 0;
@@ -351,9 +464,10 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
  *
  * @param {object} sliceJob  the per-crawler slice job (source of truth)
  * @param {object} assembled the matching assembled data/jobs.json entry
+ * @param {{skipBridges?: Set<string>}} [options]
  * @returns {{ job: object, changed: boolean }}
  */
-export function applyAssembledToSliceJob(sliceJob, assembled) {
+export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = new Set() } = {}) {
   // SEO bridge slugs the assembled job captured (trackSlugHistoryDrift /
   // ensureLocaleFields) but the slice is still missing.
   // Computed up front (on the PRE-rename sliceJob) purely to decide whether a
@@ -366,7 +480,7 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // gate here because whenever THIS call also renames a slug, `changed`
   // already flips true via the slugByLocale diff check two lines down,
   // independent of this list's headroom accuracy.
-  const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled).length > 0;
+  const hasMissingBridgesPreRename = collectMissingAssembledBridges(sliceJob, assembled, { skipBridges }).length > 0;
 
   // Compare the effective locale projection — only update if the assembled
   // values would change what the slice serves. `mergeLocaleMap()` deliberately
@@ -458,7 +572,7 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   // this loop more "missing" bridges than the cap truly has room for after
   // the rename — recomputing on the POST-rename state keeps headroom
   // accurate to what's actually left.
-  const missingBridges = collectMissingAssembledBridges(updatedJob, assembled);
+  const missingBridges = collectMissingAssembledBridges(updatedJob, assembled, { skipBridges });
   for (const { locale, slug } of missingBridges) {
     if (locale) {
       addPreviousSlugForLocale(updatedJob, locale, slug, DEFAULT_PREV_SLUG_CAP, `scatter-jobs-to-slices/carry-forward-${locale === 'it' ? 'flat' : 'locale'}`);
@@ -468,6 +582,64 @@ export function applyAssembledToSliceJob(sliceJob, assembled) {
   }
 
   return { job: updatedJob, changed: true };
+}
+
+/**
+ * Project an assembled snapshot onto all active slices in memory, then run the
+ * same ownership pass that the on-disk writer uses. Keeping both operations in
+ * one projection prevents a bridge from being added to a claimant and moved
+ * only after the claimant file has already been written. The owner-aware skip
+ * also makes the second projection a true no-op after the first one moved the
+ * bridge to its legitimate slice-only owner.
+ *
+ * @param {Array<object>} assembledJobs
+ * @param {Array<{file?: string, filePath?: string, slice: {jobs: object[]}}>} sliceEntries
+ * @returns {{entries: Array<object>, updatedJobs: number, updatedSlices: number, changedEntries: Array<object>, ownership: object}}
+ */
+export function scatterAssembledIntoSliceEntries(assembledJobs, sliceEntries) {
+  const entries = Array.isArray(sliceEntries) ? sliceEntries : [];
+  const index = buildAssembledJobIndex(assembledJobs);
+  const ownershipBefore = buildSliceOwnershipIndex(entries);
+  const scatterChangedEntries = new Set();
+  let updatedJobs = 0;
+
+  for (const entry of entries) {
+    if (!entry?.slice || !Array.isArray(entry.slice.jobs)) continue;
+    let sliceChanged = false;
+    const updatedSliceJobs = entry.slice.jobs.map((sliceJob) => {
+      const assembled = matchAssembledJob(sliceJob, index);
+      if (!assembled) return sliceJob;
+
+      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownershipBefore);
+      const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled, { skipBridges });
+      if (changed) {
+        sliceChanged = true;
+        updatedJobs++;
+      }
+      return job;
+    });
+    if (sliceChanged) {
+      entry.slice = { ...entry.slice, jobs: updatedSliceJobs };
+      scatterChangedEntries.add(entry);
+    }
+  }
+
+  // The assembled bridge may have been carried by a job whose current slice
+  // is not its final owner. Normalize the complete prospective fleet before
+  // persisting anything, so the final state is what parity verifies.
+  const ownership = decontaminateEntries(entries, { apply: false });
+  const ownershipChangedPaths = new Set(ownership.affected.map((entry) => entry.filePath));
+  const changedEntries = entries.filter((entry) => (
+    scatterChangedEntries.has(entry) || ownershipChangedPaths.has(entry.filePath)
+  ));
+
+  return {
+    entries,
+    updatedJobs,
+    updatedSlices: changedEntries.length,
+    changedEntries,
+    ownership,
+  };
 }
 
 function main() {
@@ -487,65 +659,32 @@ function main() {
     console.log(`🧭 assembled prev-slug ownership: redirected ${assembledOwnership.moved} slug(s), pruned ${assembledOwnership.emptyLocaleBucketsPruned} empty locale bucket(s) in memory.`);
   }
 
-  // URL-first matching is required because assembly stamps synthetic ids on
-  // records that were id-less in their crawler slice. The identity guard also
-  // prevents a colliding id/slug from assigning one job's bridges to another.
-  const jobIndex = buildAssembledJobIndex(jobs);
-
-  // Read each slice, update jobs with matching slugs, write back if changed
-  const sliceFiles = fs.existsSync(SLICES_DIR)
-    ? listSliceFileNames(SLICES_DIR)
+  // Read every slice, project the assembled data and ownership normalization in
+  // memory, then persist the final state once per changed file. This keeps a
+  // decontamination move in the same transaction as the assembled projection.
+  const sliceEntries = fs.existsSync(SLICES_DIR)
+    ? readSliceFileEntries(SLICES_DIR)
     : [];
+  const projection = scatterAssembledIntoSliceEntries(jobs, sliceEntries);
 
-  let updatedSlices = 0;
-  let updatedJobs = 0;
-
-  for (const file of sliceFiles) {
-    const slicePath = path.join(SLICES_DIR, file);
-    const slice = readJson(slicePath, null);
-    if (!slice || !Array.isArray(slice.jobs)) continue;
-
-    let sliceChanged = false;
-    const updatedSliceJobs = slice.jobs.map((sliceJob) => {
-      const assembled = matchAssembledJob(sliceJob, jobIndex);
-      if (!assembled) return sliceJob;
-
-      const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
-      if (changed) {
-        sliceChanged = true;
-        updatedJobs++;
-      }
-      return job;
-    });
-
-    if (sliceChanged) {
-      // Preserve the original assembledAt timestamp from the crawler.
-      // Scatter only propagates locale changes from the assembled dataset — it
-      // does not represent a new crawl run, so bumping assembledAt would cause
-      // unnecessary git churn across 90+ files when only a single company was
-      // actually translated.
-      const envelope = { ...slice, jobs: updatedSliceJobs };
-      writeJson(slicePath, envelope);
-      updatedSlices++;
-    }
+  for (const entry of projection.changedEntries.sort((a, b) => a.filePath.localeCompare(b.filePath))) {
+    // Preserve the original assembledAt timestamp from the crawler. Scatter
+    // only propagates locale/SEO changes from the assembled dataset.
+    writeJson(entry.filePath, { ...entry.slice, jobs: entry.slice.jobs });
   }
 
-  if (updatedSlices > 0) {
-    console.log(`✅ Scattered ${updatedJobs} updated jobs across ${updatedSlices} per-crawler slices.`);
+  if (projection.updatedJobs > 0) {
+    console.log(`✅ Scattered ${projection.updatedJobs} updated jobs across ${projection.updatedSlices} per-crawler slices.`);
   } else {
     console.log('ℹ️  No changes to scatter back to per-crawler slices.');
   }
 
-  // Scatter writes slices directly after relocalize-pending-jobs has updated
-  // the assembled dataset. Re-index the complete active fleet now, before the
-  // translation workflow commits it, so a bridge captured by that pipeline
-  // cannot remain attached to a sibling job in another crawler slice.
-  const ownership = decontaminateSliceDirectory(SLICES_DIR, { apply: true });
+  const ownership = projection.ownership;
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
   }
 
-  const parity = verifyScatterParity(jobs, readSliceEntries(SLICES_DIR));
+  const parity = verifyScatterParity(jobs, projection.entries.map(({ file, slice }) => ({ file, jobs: slice.jobs })));
   console.log(`🔎 SCATTER_PARITY ${JSON.stringify(parity)}`);
   if (!parity.passed) {
     console.error('❌ Scatter parity failed — refusing to publish an unverified assembled→slice projection.');

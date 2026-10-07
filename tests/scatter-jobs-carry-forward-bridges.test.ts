@@ -24,10 +24,11 @@ import {
   buildAssembledJobIndex,
   collectMissingAssembledBridges,
   matchAssembledJob,
+  scatterAssembledIntoSliceEntries,
   verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
-import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { LEGACY_PREV_SLUGS_CAP, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const baseSlice = () => ({
   id: 'company-abc',
@@ -60,6 +61,44 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     };
 
     expect(matchAssembledJob(sibling, index)).toBeNull();
+  });
+
+  it('does not join the same numeric posting token across different job-board hosts', () => {
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const stellenpartner = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+    };
+    const index = buildAssembledJobIndex([assembled]);
+
+    expect(matchAssembledJob(stellenpartner, index)).toBeNull();
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [assembled, stellenpartner] }])).toMatchObject({
+      duplicateAssembledMatches: 0,
+      unmatchedSliceJobs: 1,
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+  });
+
+  it('keeps a stable-token join when only the path changes on the same host', () => {
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-assembled-id',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const renamedSlice = {
+      ...baseSlice(),
+      id: 'sta-slice-id',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-106683/?source=feed',
+    };
+
+    expect(matchAssembledJob(renamedSlice, buildAssembledJobIndex([assembled]))).toBe(assembled);
   });
 
   it('reports job, active-slug, and bridge parity after the URL-first join', () => {
@@ -138,6 +177,56 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       pendingWrites: 1,
       passed: false,
     });
+  });
+
+  it('projects a bridge to its decontamination owner and is idempotent across a second scatter', () => {
+    // Reduced from the real STA/Stellenpartner slice records seen in the
+    // production collision sample: the bridge tail is the target job's
+    // stableSlugHash, while the claimant is the assembled STA record.
+    const source = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+      title: 'Zimmermann/Zimmerin für Servicearbeiten und Innenausbau',
+      company: 'STA Personal AG',
+      location: 'Bremgarten, Aargau',
+      source: 'STA Personal AG Dedicated Parser',
+    };
+    const target = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+      title: 'Metallbauer/in für mechanische Montage',
+      company: 'Stellenpartner AG',
+      location: 'Stans, Nidwalden',
+      source: 'Stellenpartner AG Dedicated Parser',
+    };
+    const bridge = `old-source-${stableSlugHash(target)}`;
+    const assembled = [{
+      ...source,
+      previousSlugs: [bridge],
+      previousSlugsByLocale: { it: [bridge] },
+    }];
+    const entries = [
+      { filePath: 'source.json', file: 'source.json', slice: { jobs: [source] } },
+      { filePath: 'target.json', file: 'target.json', slice: { jobs: [target] } },
+    ];
+
+    const first = scatterAssembledIntoSliceEntries(assembled, entries);
+    expect(first.updatedJobs).toBe(1);
+    expect(entries[0].slice.jobs[0].previousSlugs || []).not.toContain(bridge);
+    expect(entries[1].slice.jobs[0].previousSlugs || []).toContain(bridge);
+    expect(verifyScatterParity(assembled, entries.map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+      missingBridges: 0,
+      pendingWrites: 0,
+      passed: true,
+    });
+
+    const second = scatterAssembledIntoSliceEntries(assembled, entries);
+    expect(second.updatedJobs).toBe(0);
+    expect(second.ownership.moved).toBe(0);
+    expect(second.changedEntries).toHaveLength(0);
+    expect(verifyScatterParity(assembled, entries.map(({ file, slice }) => ({ file, jobs: slice.jobs }))).passed).toBe(true);
   });
 
   it('does not turn another job canonical into claimant history after collision disambiguation (#6784)', () => {
