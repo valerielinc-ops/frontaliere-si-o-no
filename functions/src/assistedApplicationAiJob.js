@@ -182,7 +182,10 @@ export async function fetchWorkdayPosting(fetchImpl, postingUrl, resolve = looku
   const response = await fetchPublicPage(fetchImpl, api, resolve, { accept: 'application/json' });
   if (!response) return null;
   const body = await response.json().catch(() => null);
-  if (response.status === 200 && body?.jobPostingInfo && typeof body.jobPostingInfo === 'object') return { gone: false, info: body.jobPostingInfo };
+  if (response.status === 200 && body?.jobPostingInfo && typeof body.jobPostingInfo === 'object') {
+    // `organization`: the employer as Workday names it for this posting (its legal entity), where the page shows a brand.
+    return { gone: false, info: body.jobPostingInfo, organization: clean(body.hiringOrganization?.name, 200) };
+  }
   if (response.status === 404 && /Job_Posting_Anchor_ID/.test(String(body?.message || ''))) return { gone: true, info: null };
   return null;
 }

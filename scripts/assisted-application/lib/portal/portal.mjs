@@ -507,7 +507,28 @@ const FORM_VOCABULARY = new Set([
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
   'opportunity', 'opportunities', 'opportunite', 'opportunites', 'opportunita', 'karrierechancen', 'chancen',
+  // Workday keeps the title of its account page on every step of the form behind it («Create Account» over
+  // «My Information», 2026-10-07): an account page's own words name no employer either.
+  'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
+  'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
+// A country or a region in a company's name says which branch it is, not which company: «Rituals Cosmetics
+// Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities.
+const BRANCH_WORDS = new Set([
+  'schweiz', 'suisse', 'svizzera', 'switzerland', 'swiss', 'deutschland', 'germany', 'allemagne', 'germania', 'italia', 'italy', 'italien',
+  'italie', 'france', 'frankreich', 'francia', 'osterreich', 'austria', 'autriche', 'liechtenstein', 'europe', 'europa', 'international',
+  'nederland', 'netherlands', 'benelux', 'dach',
+]);
+
+/**
+ * Two names of one employer: the same words once the legal form and the country of the branch are left out,
+ * and at least one word that is a name (never two «Hotel Schweiz» and «Hotel Deutschland» of anybody).
+ */
+export function sameEmployerFamily(one, other) {
+  const core = (name) => nameWords(name).filter((word) => !BRANCH_WORDS.has(word));
+  const first = core(one);
+  return first.some((word) => !EMPLOYER_KIND_WORDS.has(word) && !FORM_VOCABULARY.has(word)) && first.join(' ') === core(other).join(' ');
+}
 // The kind of employer, alone in a title, names nobody: «Hotel application» is a hotel's form, whoever
 // the hotel is (review of #11064). Next to a word of the order's company it is a name, though:
 // «Esempio Resort» is not «Grand Hotel Esempio» (the neighbour rule does not take these for neutral).
@@ -547,7 +568,8 @@ const PHRASE_END_RE = /[\n\r—–|·•:;,.()\/]|\s-\s/;
  * here: it is postingMatch's direct match.
  */
 export function namesAnotherEmployer(formText, job = {}) {
-  const ours = new Set(nameWords(job.company));
+  // With the name the posting's own data gives the employer (`organization`), when it is the same employer's.
+  const ours = new Set([...nameWords(job.company), ...(sameEmployerFamily(job.organization, job.company) ? nameWords(job.organization) : [])]);
   if (!ours.size) return false;
   const neutral = new Set([...ours, ...nameWords(job.title), ...FORM_VOCABULARY]);
   const text = String(formText || '');
@@ -556,7 +578,9 @@ export function namesAnotherEmployer(formText, job = {}) {
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
-      if (!ours.has(word)) continue;
+      // The branch's country is on any form as a country («Country Switzerland»): what stands next to it
+      // says nothing about the employer.
+      if (!ours.has(word) || BRANCH_WORDS.has(word)) continue;
       for (const step of [-1, 1]) {
         let at = index + step;
         while (words[at] !== undefined && filler(words[at])) at += step;
@@ -932,29 +956,42 @@ async function awaitAuthOutcome(page, before, shown = []) {
   const read = () => extractFields(page).catch(() => null); // a page that is reloading cannot be read yet
   const told = JSON.stringify(shown || []);
   const unanswered = (after) => !after || (authPageKind(after) === before && JSON.stringify(after.errors || []) === told);
-  const deadline = Date.now() + AUTH_OUTCOME_TIMEOUT_MS;
+  const started = Date.now();
+  const deadline = started + AUTH_OUTCOME_TIMEOUT_MS;
   let after = await read();
-  while (unanswered(after) && Date.now() < deadline) {
+  let seen = '';
+  // The answer is a page read twice the same, with something to fill: between the sign-in form and the form
+  // behind it Workday shows a page with nothing on it for a second or two (measured 2026-10-07). A page that
+  // stays empty that long is the answer (a «check your e-mail», an account's home).
+  const settled = (view) => !unanswered(view) && authViewSignature(view) === seen
+    && (view.fields.length > 0 || Date.now() - started > AUTH_VIEW_TIMEOUT_MS);
+  while (!settled(after) && Date.now() < deadline) {
+    seen = after ? authViewSignature(after) : '';
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
   return after || extractFields(page);
 }
 
+/** What tells one account page from another, and a page from the same one read a moment later. */
+const authViewSignature = (view) => `${authPageKind(view)}|${view.fields.map((field) => field.label).join('|')}|${(view.errors || []).join('|')}`;
+
 /**
  * The other account page, once the link to it has drawn it. Such a link changes the page in place: read at
  * once (0.2 s after the click, dry run of 2026-10-07 on Workday) it was still the page with the link, which
- * was pressed again.
+ * was pressed again; read between the two (0.8 s after, the next dry run) it had no field at all, and was
+ * taken for the form. So: another page than before, with fields, read twice the same.
  * @param {object} before the page the link was pressed on
  */
 async function awaitAuthView(page, before) {
   await settle(page);
   const read = () => extractFields(page).catch(() => null);
-  const labels = (view) => view.fields.map((field) => field.label).join('|');
-  const same = (after) => !after || (authPageKind(after) === authPageKind(before) && labels(after) === labels(before));
+  const drawn = (after) => Boolean(after) && after.fields.length > 0 && authViewSignature(after) !== authViewSignature(before);
   const deadline = Date.now() + AUTH_VIEW_TIMEOUT_MS;
   let after = await read();
-  while (same(after) && Date.now() < deadline) {
+  let seen = '';
+  while ((!drawn(after) || authViewSignature(after) !== seen) && Date.now() < deadline) {
+    seen = after ? authViewSignature(after) : '';
     await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
     after = await read();
   }
@@ -1341,7 +1378,13 @@ export async function submitViaPortal(ctx) {
     // The posting itself, before its apply button: where the company is read
     // when the form behind the button names only the role (formPostingMatch).
     const postingUrl = page.url();
-    const postingNamed = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`, ctx.job) === 'match';
+    const postingSeen = `${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`;
+    // The posting's own data (its ATS's answer for this very address, posting-liveness.mjs) may name the
+    // employer where the page shows only a brand: Workday's page for «Rituals Cosmetics Switzerland» says
+    // «Rituals», its data «Rituals Cosmetics Germany GmbH». One employer's two entities, and the role on
+    // the page: the posting is the order's.
+    const namedByItsData = sameEmployerFamily(ctx.job?.organization, ctx.job?.company) && postingMatch(postingSeen, { title: ctx.job.title }) === 'match';
+    const postingNamed = postingMatch(postingSeen, ctx.job) === 'match' || namedByItsData;
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
@@ -1350,8 +1393,8 @@ export async function submitViaPortal(ctx) {
     const formMatch = async () => {
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
       const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
-      // Said in the evidence: the company was read on the posting, the form names only the role.
-      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
+      // Said in the evidence: the company was read on the posting (or in its data), the form names only the role.
+      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = namedByItsData ? 'posting_data' : 'posting_page';
       return result;
     };
     const pendingOtpAccount = async (current) => {

@@ -292,6 +292,17 @@ describe('portal field extraction', () => {
     expect(findButton(page.buttons, /^jobs$/i).text).toBe('Jobs');
   });
 
+  // Workday's «settingsSelectorButton» (the language of the site, in its header) was read as a field of
+  // every page of the form (2026-10-07): a menu of the site is no question of the application.
+  it('leaves the menus of the site’s header out of the fields, and keeps the form’s own', () => {
+    const page = extract(`
+      <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button></header>
+      <main><form>
+        <label id="c">Country*</label><button type="button" aria-haspopup="listbox" aria-labelledby="c" aria-label="Country*">Switzerland</button>
+      </form></main>`);
+    expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (listbox)']);
+  });
+
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>

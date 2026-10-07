@@ -419,7 +419,8 @@ export async function submitApplication(ctx) {
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
-        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '' },
+        // `organization`: the employer as the posting's own data names it (posting-liveness.mjs), next to the order's name for it.
+        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '', organization: liveness.organization || '' },
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',

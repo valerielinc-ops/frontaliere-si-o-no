@@ -8,6 +8,7 @@ import {
   COOKIE_REJECT_RE,
   formPostingMatch,
   namesAnotherEmployer,
+  sameEmployerFamily,
   ownAccountForm,
   sendsApplication,
   privacyConsentControls,
@@ -97,6 +98,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(namesAnotherEmployer('Concierge at the Hotel Splendide', job)).toBe(true);
     // Review of #11064: the kind of employer is the page's vocabulary too, whatever the order's company is called.
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
+    // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
+    // every step of the form behind it (2026-10-07).
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+      expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
+    }
+    expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);
     expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
     expect(formPostingMatch('Concierge — Other Hotel', palace, { postingMatched: true })).toBe('mismatch');
@@ -388,5 +395,41 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       submitted: { coverLetter: 'Gentili Signori, …', portalAnswers: [{ question: 'Disponibilità', answer: 'Dal 1° dicembre', source: 'answers' }] },
     });
     expect(JSON.parse(text).submitted).toEqual({ coverLetter: 'Gentili Signori, …', portalAnswers: [{ question: 'Disponibilità', answer: 'Dal 1° dicembre' }] });
+  });
+});
+
+// A real order of 2026-10-07 (Workday): the order names «Rituals Cosmetics Switzerland», the posting's page only
+// the brand, and the posting's own data (Workday's answer for that address) «Rituals Cosmetics Germany GmbH».
+describe('portal: one employer under two names', () => {
+  it('takes two national entities of one company for the same employer, and nothing looser', () => {
+    expect(sameEmployerFamily('Rituals Cosmetics Germany GmbH', 'Rituals Cosmetics Switzerland')).toBe(true);
+    expect(sameEmployerFamily('Muster Elektro (Schweiz) AG', 'Muster Elektro Deutschland GmbH')).toBe(true);
+    expect(sameEmployerFamily('Muster Elektro AG', 'Muster Elektro AG')).toBe(true);
+    // Another company, a longer or a shorter name, or nothing that is a name once the country is gone.
+    expect(sameEmployerFamily('Rituals Cosmetics Germany GmbH', 'Lush Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily('Rituals Germany GmbH', 'Rituals Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily('Muster Elektro Service AG', 'Muster Elektro AG')).toBe(false);
+    expect(sameEmployerFamily('Hotel Deutschland GmbH', 'Hotel Schweiz AG')).toBe(false);
+    expect(sameEmployerFamily('Schweiz AG', 'Deutschland GmbH')).toBe(false);
+    expect(sameEmployerFamily('', 'Rituals Cosmetics Switzerland')).toBe(false);
+    expect(sameEmployerFamily(undefined as any, undefined as any)).toBe(false);
+  });
+
+  it('does not read the branch country on a form as the employer, nor the other entity as someone else', () => {
+    const job = { title: 'Weihnachtsaushilfe (m/w/d)', company: 'Rituals Cosmetics Switzerland', organization: 'Rituals Cosmetics Germany GmbH' };
+    // Workday's first step: the stale title, the brand next to the page's own word, the country as a country.
+    const form = 'Create Account\nRituals Careers\nCandidate Home\nWeihnachtsaushilfe (m/w/d)\nMy Information\nCountry Switzerland\nPhone Device Type Mobile\nSave and Continue';
+    expect(namesAnotherEmployer(form, job)).toBe(false);
+    expect(formPostingMatch(form, job, { postingMatched: true })).toBe('match');
+    // Without the posting having named the employer the form alone is still no match, and another role never is.
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    expect(formPostingMatch(form, { ...job, title: 'Store Manager' }, { postingMatched: true })).toBe('mismatch');
+    // The other entity's own words are the employer's: «Rituals Cosmetics Germany» on the form is nobody else.
+    expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, job)).toBe(false);
+    expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, { ...job, organization: '' })).toBe(true);
+    // Another employer next to the brand is still a stop; a data name of another company makes none of its
+    // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).
+    expect(namesAnotherEmployer(`${form}\nRituals Franchise Partner AG`, job)).toBe(true);
+    expect(namesAnotherEmployer(`${form}\nRituals Retail`, { ...job, organization: 'Lush Retail GmbH' })).toBe(true);
   });
 });

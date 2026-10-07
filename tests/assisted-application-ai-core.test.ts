@@ -457,10 +457,12 @@ describe('job posting fetch', () => {
       calls.push([url, init.headers?.Accept]);
       return url === api ? answer() : new Response('<html><body><div id="root"></div></body></html>', { status: 200, headers: { 'content-type': 'text/html' } });
     };
-    const open = fetchImpl(() => new Response(JSON.stringify({ jobPostingInfo: info }), { status: 200 }));
-    await expect(fetchWorkdayPosting(open, posting, resolve)).resolves.toEqual({ gone: false, info });
+    // With the employer as Workday names it for the posting (its legal entity), '' when it names none.
+    const open = fetchImpl(() => new Response(JSON.stringify({ jobPostingInfo: info, hiringOrganization: { name: ' Acme Retail  Germany GmbH ', url: '' } }), { status: 200 }));
+    await expect(fetchWorkdayPosting(open, posting, resolve)).resolves.toEqual({ gone: false, info, organization: 'Acme Retail Germany GmbH' });
     // Workday answers 406 to anything but JSON.
     expect(calls).toEqual([[api, 'application/json']]);
+    await expect(fetchWorkdayPosting(fetchImpl(() => new Response(JSON.stringify({ jobPostingInfo: info }), { status: 200 })), posting, resolve)).resolves.toEqual({ gone: false, info, organization: '' });
     // The posting is gone: Workday's own error, never any other 404 (an address this code derived badly).
     const gone = fetchImpl(() => new Response(JSON.stringify({ errorCode: 'S21', httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 }));
     await expect(fetchWorkdayPosting(gone, posting, resolve)).resolves.toEqual({ gone: true, info: null });

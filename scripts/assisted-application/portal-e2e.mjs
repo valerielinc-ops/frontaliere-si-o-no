@@ -241,7 +241,9 @@ function fakePortal() {
         el('p2').required = next === 'create';
         el('notice').innerHTML = notice ? '<p role="alert">' + notice + '</p>' : '';
       };
-      el('swap').onclick = () => setTimeout(() => show(view === 'create' ? 'sign_in' : 'create', ''), 700);
+      // Between two pages nothing is drawn for a moment (in Actions the real page was read right then).
+      const blank = (ms, then) => { el('auth').style.display = 'none'; setTimeout(() => { then(); el('auth').style.display = ''; }, ms); };
+      el('swap').onclick = () => blank(700, () => show(view === 'create' ? 'sign_in' : 'create', ''));
       el('util').onclick = () => { fetch('/wd/header', { method: 'POST' }); setTimeout(() => { el('popup').style.display = 'block'; }, 800); };
       el('filter').onclick = () => { human = true; el('go').dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true })); };
       let redrawn = false;
@@ -265,7 +267,7 @@ function fakePortal() {
           const answer = await (await fetch(view === 'create' ? '/wd/register' : '/wd/login', { method: 'POST', body })).json();
           if (answer.silent) return;
           if (view === 'create') show(answer.ok ? 'sign_in' : 'create', answer.message);
-          else if (answer.ok) window.location.href = '/apply';
+          else if (answer.ok) { el('auth').style.display = 'none'; setTimeout(() => { window.location.href = '/wd/form'; }, 1200); }
           else show('sign_in', answer.message);
         }, 1500);
       };
@@ -393,8 +395,16 @@ function fakePortal() {
       coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '', anrede: body.get('anrede'), birth: body.get('birth'), agency: body.get('agency') });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
-    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
-    if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/apply') : send(workdayAccountPage());
+    // The posting names the brand, never the company the order names; the form behind the account keeps
+    // the account page's title, and the site's language menu sits in its header (Workday, 2026-10-07).
+    if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
+    if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
+    if (route === 'GET /wd/form') {
+      if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
+      return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
+        <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
+        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>${form('/apply', '<label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>', true)}</main></body></html>`);
+    }
     if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
       workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
       res.writeHead(204);
@@ -641,8 +651,10 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
     async discard(hostname) { saved.delete(hostname); },
     async waitForVerification() { return null; },
   };
-  const run = () => submitViaPortal({
-    applyUrl: `${base}/wd/job`, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
+  // The order's name for the employer and the one the posting's own data gives it: two entities of one company.
+  const job = { title: 'Verkaufsberater/in', company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH' };
+  const run = (order = job) => submitViaPortal({
+    applyUrl: `${base}/wd/job`, job: order, language: 'en', candidateLocale: 'it', candidate: { identity: { email: ALIAS } }, files, codex: fakeCodex, accounts,
     launch: () => launchChromium({ headless: true, executablePath }),
   });
   const authOf = (result) => result.evidence.steps.filter((step) => step.auth).map((step) => `${step.auth.kind}:${step.auth.outcome}`).join(',');
@@ -670,6 +682,14 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   check('Workday: a later run signs in with the stored account', again.event.type === 'submit_succeeded' && workday.registrations === 2 && state.applications.length === applications + 2);
   // With an account stored the runner lands on «Create Account» and must take the form's own «Sign In»
   // link, then wait for the sign-in form it draws: never the site header's, which opens a dialog over the page.
+  // The posting's page says only the brand: the employer is the order's by the posting's own data, and the
+  // form behind the account (whose title is still the account page's) is the posting's by its role.
+  check('Workday: the form is the posting’s by the employer its data names, another entity of the order’s company',
+    again.evidence.postingMatch === 'match' && again.evidence.postingMatchVia === 'posting_data');
+  state.sessions.clear();
+  const stranger = await run({ ...job, organization: 'Other Retail GmbH' });
+  check('Workday: with another company in the posting’s data the form is not the order’s',
+    stranger.event.type === 'submit_handoff' && stranger.event.reason === 'posting_mismatch' && state.applications.length === applications + 2);
   check('Workday: the «Sign In» link of the form is the one pressed, never the one in the site header', workday.headerSignIns === 0 && /create:ok/.test(authOf(again)) && /sign_in:ok/.test(authOf(again)));
   // The portal says no (the address is taken): its message is read, and no password is kept.
   saved.clear();

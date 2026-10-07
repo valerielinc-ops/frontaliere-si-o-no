@@ -1011,7 +1011,10 @@ describe('career-ops liveness', () => {
     const check = (fetchImpl: any) => checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl }, posting: { applyUrl: jobUrl }, fetchImpl, resolve: publicDns });
     const open = () => new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true } }), { status: 200 });
     const gone = () => new Response(JSON.stringify({ httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 });
-    expect(await check(workday(open))).toMatchObject({ page: { result: 'active', code: 'ats_api_open' }, closed: false });
+    expect(await check(workday(open))).toMatchObject({ page: { result: 'active', code: 'ats_api_open' }, closed: false, organization: '' });
+    // The employer the posting's own data names goes with the result, for the runner's check of the form.
+    const named = () => new Response(JSON.stringify({ jobPostingInfo: { canApply: true, posted: true }, hiringOrganization: { name: 'Acme Retail Germany GmbH' } }), { status: 200 });
+    expect(await check(workday(named))).toMatchObject({ page: { code: 'ats_api_open' }, organization: 'Acme Retail Germany GmbH' });
     // The same career site under Workday's other name, myworkdaysite.com.
     for (const siteUrl of ['https://wd502.myworkdaysite.com/de-CH/recruiting/acme/Careers/job/Lugano/Verkaufsberater_R15163', 'https://acme.myworkdaysite.com/Careers/job/Lugano/Verkaufsberater_R15163']) {
       expect(await checkPostingLiveness({ order: { jobId: 'acme-1', jobUrl: siteUrl }, posting: { applyUrl: siteUrl }, fetchImpl: workday(open), resolve: publicDns }))
