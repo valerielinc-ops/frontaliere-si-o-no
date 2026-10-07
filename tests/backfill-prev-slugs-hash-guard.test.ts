@@ -76,7 +76,7 @@ describe('resolveRecoveryTarget', () => {
     expect(result.targetJob).toBe(claimant);
   });
 
-  it('redirects identical same-host records with different source references', () => {
+  it('redirects identical same-host records with source references that are not exact matches', () => {
     const repost = {
       title: 'Transportdisponent:in',
       description: 'Touren planen und Transporte am Standort koordinieren.',
@@ -89,13 +89,13 @@ describe('resolveRecoveryTarget', () => {
     const claimant = {
       ...zurich,
       ...repost,
-      sourceReference: '155808',
+      sourceReference: 'COOP-155808',
       url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/old',
     };
     const ownerRecord = {
       ...basel,
       ...repost,
-      sourceReference: '155809',
+      sourceReference: 'coop-155808',
       url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/new',
       previousSlugs: [],
     };

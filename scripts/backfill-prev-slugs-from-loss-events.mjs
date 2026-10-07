@@ -187,9 +187,11 @@ function jobsShareRepublishedIdentity(left, right) {
   try { rightHost = new URL(String(right?.url || '')).hostname.toLowerCase(); } catch { /* no strong URL identity */ }
   if (!leftHost || leftHost !== rightHost) return false;
 
-  const leftSourceReference = normalizedIdentityValue(left?.sourceReference);
-  const rightSourceReference = normalizedIdentityValue(right?.sourceReference);
-  if (!leftSourceReference || leftSourceReference !== rightSourceReference) return false;
+  const leftSourceReference = left?.sourceReference;
+  const rightSourceReference = right?.sourceReference;
+  if (typeof leftSourceReference !== 'string'
+    || leftSourceReference.trim() === ''
+    || leftSourceReference !== rightSourceReference) return false;
 
   const leftCompanyKey = normalizedIdentityValue(left?.companyKey);
   const rightCompanyKey = normalizedIdentityValue(right?.companyKey);
