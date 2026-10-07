@@ -89,6 +89,11 @@ const FAMILIES = ['events', 'articles', 'static'];
 // family is held in full and the sample is exact; beyond it the stride doubles
 // and only the middle pick becomes approximate (first and last stay exact).
 const FAMILY_BUFFER_CAP = 1024;
+// Distinct URLs remembered for de-duplication. Past it a URL that was not
+// remembered counts as new each time it shows up, so the distinct counts become
+// upper bounds (flagged in the log); the walk stays deterministic and memory
+// stops growing with the corpus.
+const SEEN_URL_CAP = 100_000;
 
 /**
  * Streams the dist and returns the representative rows of each family (first,
@@ -96,14 +101,15 @@ const FAMILY_BUFFER_CAP = 1024;
  * family has at most `sampleSize` of them), the distinct count per family and
  * the total number of references seen.
  *
- * Nothing is retained per page: the first version kept a `{ file, url }` row
- * for every og:image tag and aborted on the full production dist. What still
- * grows is the set of distinct URL strings needed to de-duplicate; rows are
- * bounded by FAMILY_BUFFER_CAP per family. Each row names the first page that
+ * Memory is bounded whatever the corpus looks like: the first version kept a
+ * `{ file, url }` row for every og:image tag and aborted on the full
+ * production dist. Rows are capped by FAMILY_BUFFER_CAP per family and the
+ * de-duplication set by `seenCap`. Each row names the first page that
  * references its URL.
  */
-export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
+export function collectOgImageReferences(distDir, { sampleSize = 3, seenCap = SEEN_URL_CAP } = {}) {
   const seen = new Set();
+  let distinctCapped = false;
   const state = new Map(FAMILIES.map((family) => [family, { count: 0, stride: 1, buffer: [], last: null }]));
   let total = 0;
   for (const filePath of walkHtml(distDir)) {
@@ -113,7 +119,8 @@ export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
     for (const url of extractOgImageUrls(html, pageUrl)) {
       total += 1;
       if (seen.has(url)) continue;
-      seen.add(url);
+      if (seen.size < seenCap) seen.add(url);
+      else distinctCapped = true;
       const family = state.get(familyFor(url));
       const row = { file: relative, url };
       // buffer[i] always holds the row with ordinal i * stride.
@@ -143,7 +150,7 @@ export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
     const middle = family.buffer[Math.floor(Math.floor((family.count - 1) / 2) / family.stride)];
     references.push(...new Set([family.buffer[0], middle, family.last]));
   }
-  return { references, total, counts };
+  return { references, total, counts, distinctCapped };
 }
 
 function representative(rows, sampleSize) {
@@ -202,14 +209,14 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const sampleSize = Number(argValue(argv, '--sample-size', '3')) || 3;
   const requireFamilies = !argv.includes('--allow-missing-families');
   const policy = loadPublishedImagePolicy({ root });
-  const { references, total, counts } = collectOgImageReferences(distDir, { sampleSize });
+  const { references, total, counts, distinctCapped } = collectOgImageReferences(distDir, { sampleSize });
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
   if (policy.registryErrors.length > 0) {
     result.valid = false;
     result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
   }
 
-  console.log(`og:image references: ${total}; distinct events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
+  console.log(`og:image references: ${total}; distinct${distinctCapped ? ' (upper bound, de-duplication cap reached)' : ''} events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
   for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);
   if (!result.valid) {
     for (const error of result.errors) console.error(`::error::og-image gate: ${error}`);

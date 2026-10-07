@@ -182,6 +182,29 @@ describe('published image policy', () => {
     }
   });
 
+  it('stops remembering URLs past the de-duplication cap', () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-seen-cap-'));
+    try {
+      const metas = Array.from({ length: 30 }, (_, i) => `<meta property="og:image" content="${SITE_ORIGIN}/cards/${i}.png">`);
+      // Every URL appears twice: the 10 remembered ones are de-duplicated, the
+      // other 20 count again, so the distinct count is an upper bound.
+      fs.writeFileSync(path.join(dist, 'index.html'), [...metas, ...metas].join('\n'), 'utf8');
+
+      const capped = collectOgImageReferences(dist, { seenCap: 10 });
+      expect(capped.total).toBe(60);
+      expect(capped.distinctCapped).toBe(true);
+      expect(capped.counts.static).toBe(50);
+      expect(capped.references).toHaveLength(3);
+      expect(capped.references[0].url).toBe(`${SITE_ORIGIN}/cards/0.png`);
+
+      const exact = collectOgImageReferences(dist);
+      expect(exact.distinctCapped).toBe(false);
+      expect(exact.counts.static).toBe(30);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+
   it('walks the dist in the order of a global path sort', () => {
     // `a.html` sorts before `a/z.html` in a sort over full paths; a naive
     // per-directory name sort visits the directory first and would let a bad
