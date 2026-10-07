@@ -7,7 +7,7 @@
       "slug": "interno-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "interno-in-stiftung-solina-standortubergreifend",
-        "en": "trainee-stiftung-solina-standortubergreifend",
+        "en": "intern-in-stiftung-solina-standortubergreifend",
         "de": "praktikant-in-solina-standortubergreifend",
         "fr": "stagiaire-in-stiftung-solina-standortubergreifend"
       },
@@ -61,7 +61,6 @@
         "praktikantin-praktikant-solina-standortubergreifend",
         "stagiaire-stagiaire-stiftung-solina-spiez",
         "praktikantin-praktikant-solina-spiez",
-        "intern-in-stiftung-solina-standortubergreifend",
         "trainee-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
@@ -77,7 +76,6 @@
         "en": [
           "praktikant-in-stiftung-solina-standortubergreifend",
           "intern-intern-stiftung-solina-spiez",
-          "intern-in-stiftung-solina-standortubergreifend",
           "trainee-stiftung-solina-standortubergreifend"
         ],
         "de": [
@@ -1520,7 +1518,7 @@
         "it": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
         "en": "deputy-residential-areamanager-stiftung-solina-steffisburg-ziegelei",
         "de": "stv-wohnbereichsleiter-in-solina-steffisburg-ziegelei",
-        "fr": "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
+        "fr": "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -1566,13 +1564,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
-        "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei",
         "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "stv-wohnbereichsleiter-in-stiftung-solina-steffisburg-ziegelei",
-          "directeur-de-la-zone-d-habitation-in-stiftung-solina-steffisburg-ziegelei",
           "responsable-adjoint-du-secteur-residentiel-stiftung-solina-steffisburg-ziegelei"
         ]
       },
@@ -2067,9 +2063,9 @@
       "slug": "dipl-fisioterapista-in-stiftung-solina-standortubergreifend",
       "slugByLocale": {
         "it": "dipl-fisioterapista-in-stiftung-solina-standortubergreifend",
-        "en": "dipl-physiotherapist-in-stiftung-solina-standortubergreifend",
+        "en": "certified-physiotherapist-stiftung-solina-standortubergreifend",
         "de": "dipl-physiotherapeut-in-solina-standortubergreifend",
-        "fr": "dipl-physiotherapeute-in-stiftung-solina-standortubergreifend"
+        "fr": "physiotherapeute-diplome-e-stiftung-solina-standortubergreifend"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -2114,17 +2110,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-physiotherapeut-in-solina-standortubergreifend"
+        "dipl-physiotherapeut-in-solina-standortubergreifend",
+        "dipl-physiotherapist-in-stiftung-solina-standortubergreifend",
+        "dipl-physiotherapeute-in-stiftung-solina-standortubergreifend"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-physiotherapeut-in-solina-standortubergreifend"
         ],
         "en": [
-          "dipl-physiotherapeut-in-solina-standortubergreifend"
+          "dipl-physiotherapeut-in-solina-standortubergreifend",
+          "dipl-physiotherapist-in-stiftung-solina-standortubergreifend"
         ],
         "fr": [
-          "dipl-physiotherapeut-in-solina-standortubergreifend"
+          "dipl-physiotherapeut-in-solina-standortubergreifend",
+          "dipl-physiotherapeute-in-stiftung-solina-standortubergreifend"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:51.295Z",

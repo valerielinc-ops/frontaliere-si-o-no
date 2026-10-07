@@ -1056,7 +1056,7 @@
         "it": "consulente-nutrizionale-w-m-d-a-ore-triaplus-ag-oberwil",
         "en": "nutrition-consultant-w-m-d-hourly-triaplus-ag-oberwil",
         "de": "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
-        "fr": "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
+        "fr": "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1128,7 +1128,6 @@
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil",
         "ernahrungsberaterin-hf-w-m-d-triaplus-ernaehrungsberaterin-w-m-d-im-stundenlohn",
-        "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil",
         "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
@@ -1140,7 +1139,6 @@
           "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil"
         ],
         "fr": [
-          "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil",
           "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
         ]
       },
@@ -1597,7 +1595,7 @@
         "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
         "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1642,7 +1640,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau",
         "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
       ],
       "previousSlugsByLocale": {
@@ -1654,7 +1651,6 @@
         ],
         "fr": [
           "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-          "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau",
           "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
         ]
       },
@@ -1757,9 +1753,9 @@
     },
     {
       "id": "triaplus-05dc2da3d066",
-      "slug": "praktikum-in-sozialarbeit-stationar-per-ein-jahr-o-ein-semester-triaplus-ag-oberwil",
+      "slug": "tirocinio-in-lavoro-sociale-stazionario-per-un-anno-o-un-semestre-triaplus-ag-oberwil",
       "slugByLocale": {
-        "it": "praktikum-in-sozialarbeit-stationar-per-ein-jahr-o-ein-semester-triaplus-ag-oberwil",
+        "it": "tirocinio-in-lavoro-sociale-stazionario-per-un-anno-o-un-semestre-triaplus-ag-oberwil",
         "en": "internship-in-social-work-stationary-for-one-year-or-one-semester-triaplus-ag-oberwil",
         "de": "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in",
         "fr": "stage-en-travail-social-stationnaire-pendant-un-an-ou-un-semestre-triaplus-ag-oberwil"
@@ -1806,11 +1802,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in"
+        "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in",
+        "praktikum-in-sozialarbeit-stationar-per-ein-jahr-o-ein-semester-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in"
+          "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in",
+          "praktikum-in-sozialarbeit-stationar-per-ein-jahr-o-ein-semester-triaplus-ag-oberwil"
         ],
         "en": [
           "praktikum-in-sozialarbeit-stationar-fur-ein-jahr-oder-ein-semester-triaplus-praktikum-in"

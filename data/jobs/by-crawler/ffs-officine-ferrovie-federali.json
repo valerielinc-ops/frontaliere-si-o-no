@@ -11268,9 +11268,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11341,8 +11341,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -11352,12 +11350,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -12847,7 +12843,7 @@
         "it": "senior-social-media-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
         "en": "senior-social-media-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
         "de": "senior-social-media-manager-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "fr": "senior-social-media-manager-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "fr": "directeur-principal-des-medias-sociaux-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13047,7 +13043,7 @@
         "it": "sap-consultant-treasury-e-risk-management-m-w-d-ffs-officine-ferrovie-federali-bern",
         "en": "sap-consultant-treasury-e-risk-management-m-w-d-ffs-officine-ferrovie-federali-bern",
         "de": "sap-consultant-treasury-e-risk-management-m-w-d-ffs-officine-ferrovie-federali-bern",
-        "fr": "sap-consultant-treasury-e-risk-management-m-w-d-ffs-officine-ferrovie-federali-bern"
+        "fr": "sap-consultant-gestion-des-risques-et-tresorerie-h-f-d-ffs-officine-ferrovie-federali-bern"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -13467,7 +13463,7 @@
       "slugByLocale": {
         "it": "responsabile-dei-lavori-ffs-officine-ferrovie-federali-renens-vd",
         "en": "works-manager-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "werksleiter-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -13545,6 +13541,9 @@
         ],
         "en": [
           "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "de": [
+          "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "previousSlugs": [
@@ -13573,8 +13572,8 @@
       "slug": "responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
       "slugByLocale": {
         "it": "responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
-        "en": "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
-        "de": "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
+        "en": "head-m-f-d-land-acquisition-and-land-activities-east-region-ffs-officine-ferrovie-federali-altstetten",
+        "de": "leiter-m-w-d-region-landerwerb-und-landaktivitaten-ost-ffs-officine-ferrovie-federali-altstetten",
         "fr": "chef-h-f-d-acquisition-des-terres-et-activites-foncieres-de-la-region-est-ffs-officine-ferrovie-federali-altstetten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -13668,7 +13667,19 @@
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/responsabile-m-f-d-acquisizione-terreni-e-attivita-fondiarie-regione-est/0991bae2-62c5-4c78-942c-cfe2d5dc80c7",
-      "firstSeenAt": "2026-10-06T21:40:02.523Z"
+      "firstSeenAt": "2026-10-06T21:40:02.523Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
+        ],
+        "de": [
+          "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
+        ]
+      },
+      "previousSlugs": [
+        "manager-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten",
+        "verantwortlicher-m-w-d-acquisizione-terreni-e-attivita-fondiarie-regione-est-ffs-officine-ferrovie-federali-altstetten"
+      ]
     },
     {
       "id": "sbb-d0e12f679231",
@@ -14012,7 +14023,7 @@
         "it": "caposquadra-di-turno-nella-verniciatura-ffs-officine-ferrovie-federali-olten",
         "en": "shift-supervisor-in-the-paint-shop-ffs-officine-ferrovie-federali-olten",
         "de": "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
-        "fr": "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
+        "fr": "superviseur-de-quart-dans-l-atelier-de-peinture-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14092,11 +14103,13 @@
           "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
         ],
         "fr": [
-          "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
+          "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
+          "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
+        "schichtleiter-in-in-der-lackiererei-ffs-officine-ferrovie-federali-olten",
+        "chef-d-equipe-in-der-lackiererei-ffs-officine-ferrovie-federali-olten"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -14124,7 +14137,7 @@
         "it": "pulizia-del-supervisore-del-turno-ffs-officine-ferrovie-federali-chur",
         "en": "shift-supervisor-cleaning-ffs-officine-ferrovie-federali-chur",
         "de": "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
-        "fr": "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
+        "fr": "nettoyage-du-superviseur-de-quart-ffs-officine-ferrovie-federali-chur"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14208,11 +14221,13 @@
           "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur"
         ],
         "fr": [
-          "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur"
+          "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
+          "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur"
+        "schichtleiter-in-cleaning-ffs-officine-ferrovie-federali-chur",
+        "chef-d-equipe-cleaning-ffs-officine-ferrovie-federali-chur"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -14239,7 +14254,7 @@
       "slugByLocale": {
         "it": "tecnico-di-messa-in-servizio-e-risoluzione-dei-problemi-di-locomotive-ffs-officine-ferrovie-federali-yverdon-les-bains",
         "en": "locomotive-commissioning-and-troubleshooting-technician-ffs-officine-ferrovie-federali-yverdon-les-bains",
-        "de": "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains",
+        "de": "techniker-fur-inbetriebnahme-und-fehlerbehebung-von-lokomotiven-ffs-officine-ferrovie-federali-yverdon-les-bains",
         "fr": "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -14311,6 +14326,9 @@
           "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
         ],
         "en": [
+          "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
+        ],
+        "de": [
           "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
         ]
       },
@@ -14573,7 +14591,7 @@
       "slugByLocale": {
         "it": "specialista-in-sistemi-di-drenaggio-e-responsabile-stradale-di-collegamento-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
         "en": "specialist-in-drainage-systems-and-connection-road-manager-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
-        "de": "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
+        "de": "spezialist-fur-entwasserungssysteme-und-verbindungsstra-enmanager-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
         "fr": "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -14660,7 +14678,8 @@
           "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
         ],
         "de": [
-          "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd"
+          "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-h-f-d-ffs-officine-ferrovie-federali-renens-vd",
+          "specialiste-installations-d-evacuation-des-eaux-et-gestionnaire-de-voies-de-raccordement-m-w-d-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "previousSlugs": [
@@ -14811,9 +14830,9 @@
       "slug": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
         "it": "dipendente-della-cabina-di-segnalazione-olten-ffs-officine-ferrovie-federali-olten",
-        "en": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
+        "en": "signal-box-employee-olten-ffs-officine-ferrovie-federali-olten",
         "de": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten",
-        "fr": "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten"
+        "fr": "employe-du-poste-de-signalisation-olten-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -14886,6 +14905,12 @@
       "crawledAt": "2026-10-06T21:40:19.991Z",
       "previousSlugsByLocale": {
         "it": [
+          "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
           "stellwerkangestellte-r-olten-ffs-officine-ferrovie-federali-olten"
         ]
       },

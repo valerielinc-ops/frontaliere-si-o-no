@@ -443,7 +443,7 @@
         "it": "direttore-compliance-michael-page-geneva-switzerland-7005ae53",
         "en": "chief-compliance-officer-michael-page-geneva-switzerland-7005ae53",
         "de": "leitender-compliance-beauftragter-michael-page-geneva-switzerland-7005ae53",
-        "fr": "chief-compliance-officer-michael-page-geneva-7005ae53"
+        "fr": "directeur-general-de-la-conformite-michael-page-geneva-switzerland-7005ae53"
       },
       "slugDisambiguator": "7005ae53",
       "company": "Michael Page",
@@ -488,8 +488,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chief-compliance-officer-michael-page-geneva-switzerland-7005ae53",
-        "directeur-general-de-la-conformite-michael-page-geneva-switzerland-7005ae53",
-        "responsable-de-la-conformite-michael-page-geneva-switzerland-7005ae53"
+        "responsable-de-la-conformite-michael-page-geneva-switzerland-7005ae53",
+        "chief-compliance-officer-michael-page-geneva-7005ae53"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -500,8 +500,8 @@
         ],
         "fr": [
           "chief-compliance-officer-michael-page-geneva-switzerland-7005ae53",
-          "directeur-general-de-la-conformite-michael-page-geneva-switzerland-7005ae53",
-          "responsable-de-la-conformite-michael-page-geneva-switzerland-7005ae53"
+          "responsable-de-la-conformite-michael-page-geneva-switzerland-7005ae53",
+          "chief-compliance-officer-michael-page-geneva-7005ae53"
         ]
       },
       "firstSeenAt": "2026-09-19T23:12:29.317Z",
@@ -930,12 +930,12 @@
     },
     {
       "id": "michaelpage-461044c9c29a",
-      "slug": "secretary-general-michael-page-lausanne-vaud-461044c9",
+      "slug": "segretario-generale-michael-page-lausanne-vaud-461044c9",
       "slugByLocale": {
         "en": "secretary-general-michael-page-lausanne-vaud-461044c9",
-        "it": "secretary-general-michael-page-lausanne-vaud-461044c9",
-        "de": "secretary-general-michael-page-lausanne-vaud-461044c9",
-        "fr": "secretary-general-michael-page-lausanne-vaud-461044c9"
+        "it": "segretario-generale-michael-page-lausanne-vaud-461044c9",
+        "de": "generalsekretar-michael-page-lausanne-vaud-461044c9",
+        "fr": "secretaire-general-michael-page-lausanne-vaud-461044c9"
       },
       "slugDisambiguator": "461044c9",
       "company": "Michael Page",
@@ -994,7 +994,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-10-06T21:41:39.900Z"
+      "firstSeenAt": "2026-10-06T21:41:39.900Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretary-general-michael-page-lausanne-vaud-461044c9"
+        ],
+        "de": [
+          "secretary-general-michael-page-lausanne-vaud-461044c9"
+        ],
+        "fr": [
+          "secretary-general-michael-page-lausanne-vaud-461044c9"
+        ]
+      },
+      "previousSlugs": [
+        "secretary-general-michael-page-lausanne-vaud-461044c9"
+      ]
     }
   ]
 }

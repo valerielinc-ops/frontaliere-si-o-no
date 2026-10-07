@@ -3282,7 +3282,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
-        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
+        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "fr": "greffier-ere-etat-de-vaud-yverdon-les-bains"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3329,7 +3329,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-yverdon-les-bains",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
         "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
@@ -3341,7 +3340,6 @@
         ],
         "de": [
           "greffier-ere-etat-de-vaud-yverdon-les-bains",
-          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains",
           "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ]
       },
@@ -3849,12 +3847,12 @@
     },
     {
       "id": "etat-de-vaud-5983",
-      "slug": "secretaire-d-unite-etat-de-vaud-lausanne",
+      "slug": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "it": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "en": "secretaire-d-unite-etat-de-vaud-lausanne",
-        "de": "secretaire-d-unite-etat-de-vaud-lausanne"
+        "it": "segretario-dell-unita-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "secretary-of-unit-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "referatssekretar-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -3913,7 +3911,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "secretaire-d-unite-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-d-unite-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5905",

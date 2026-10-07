@@ -6187,7 +6187,7 @@
       "slug": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
+        "en": "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
         "de": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "fr": "psychologue-psychologue-60-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -6234,8 +6234,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
-        "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
-        "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen"
+        "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
+        "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6243,8 +6243,8 @@
         ],
         "en": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
-          "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
-          "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen"
+          "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
+          "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen"
@@ -11448,9 +11448,9 @@
     },
     {
       "id": "hoch-health-51e7884766ab",
-      "slug": "oberarztin-arzt-infektionspravention-e-antimicrobial-diagnostic-stewardship-80-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "primario-a-prevenzione-delle-infezioni-e-gestione-antimicrobica-diagnostica-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "oberarztin-arzt-infektionspravention-e-antimicrobial-diagnostic-stewardship-80-100-hoch-health-ostschweiz-st-gallen",
+        "it": "primario-a-prevenzione-delle-infezioni-e-gestione-antimicrobica-diagnostica-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "senior-physician-infection-prevention-and-antimicrobial-diagnostic-stewardship-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch",
         "fr": "prevention-des-infections-par-un-medecin-principal-et-gerance-antimicrobienne-diagnostic-80-100-hoch-health-ostschweiz"
@@ -11497,11 +11497,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch"
+        "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch",
+        "oberarztin-arzt-infektionspravention-e-antimicrobial-diagnostic-stewardship-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch"
+          "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch",
+          "oberarztin-arzt-infektionspravention-e-antimicrobial-diagnostic-stewardship-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
           "oberarztin-arzt-infektionspravention-und-antimicrobial-diagnostic-stewardship-80-100-hoch"
@@ -14215,9 +14217,9 @@
       "slug": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
-        "en": "employee-60-80-hoch-health-ostschweiz-grabs",
+        "en": "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
         "de": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "fr": "employe-60-80-hoch-health-ostschweiz-grabs"
+        "fr": "responsable-60-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -14263,8 +14265,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
-        "responsable-60-80-hoch-health-ostschweiz-grabs",
         "employee-60-80-hoch-health-ostschweiz-grabs",
         "employe-60-80-hoch-health-ostschweiz-grabs"
       ],
@@ -14274,12 +14274,10 @@
         ],
         "en": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-          "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
           "employee-60-80-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-          "responsable-60-80-hoch-health-ostschweiz-grabs",
           "employe-60-80-hoch-health-ostschweiz-grabs"
         ]
       },
@@ -16022,7 +16020,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -16074,7 +16072,6 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
@@ -16083,7 +16080,6 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
           "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
@@ -18553,7 +18549,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -18602,7 +18598,6 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -18611,7 +18606,6 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
           "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [

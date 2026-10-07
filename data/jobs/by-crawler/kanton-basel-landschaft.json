@@ -2718,7 +2718,7 @@
       "slug": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
       "slugByLocale": {
         "it": "maestro-2a-classe-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "en": "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "en": "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
         "de": "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
         "fr": "enseignant-2e-classe-kantonale-verwaltung-basel-landschaft-munchenstein"
       },
@@ -2766,16 +2766,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein",
-        "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
-        "2nd-grade-teacher-kantonale-verwaltung-basel-landschaft-munchenstein"
+        "2nd-grade-teacher-kantonale-verwaltung-basel-landschaft-munchenstein",
+        "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
         ],
         "en": [
-          "teacher-2nd-class-kantonale-verwaltung-basel-landschaft-munchenstein",
-          "2nd-grade-teacher-kantonale-verwaltung-basel-landschaft-munchenstein"
+          "2nd-grade-teacher-kantonale-verwaltung-basel-landschaft-munchenstein",
+          "lehrperson-2-klasse-kantonale-verwaltung-basel-landschaft-munchenstein"
         ],
         "fr": [
           "lehrperson-2-klasse-kanton-basel-landschaft-munchenstein"
@@ -4149,9 +4149,9 @@
     },
     {
       "id": "kanton-basel-landschaft-7ca3be1a209f",
-      "slug": "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
+      "slug": "educatrice-educatore-sociale-per-l-integrazione-individuale-scuola-materna-kantonale-verwaltung-basel-landschaft",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
+        "it": "educatrice-educatore-sociale-per-l-integrazione-individuale-scuola-materna-kantonale-verwaltung-basel-landschaft",
         "en": "social-pedagogue-social-pedagogue-for-individual-integration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
         "de": "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft",
         "fr": "pedagogue-sociale-pedagogue-sociale-pour-l-integration-individuelle-kantonale-verwaltung-basel-landschaft-ettingen"
@@ -4201,11 +4201,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft",
-        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
+        "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen",
+        "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft"
+          "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kanton-basel-landschaft",
+          "sozialpadagogin-sozialpadagoge-per-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"
         ],
         "en": [
           "sozialpadagogin-sozialpadagoge-fur-einzelintegration-kindergarten-kantonale-verwaltung-basel-landschaft-ettingen"

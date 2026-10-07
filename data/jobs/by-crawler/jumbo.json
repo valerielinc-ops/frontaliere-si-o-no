@@ -10271,8 +10271,7 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7",
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
+          "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
         ]
       },
       "firstSeenAt": "2026-09-08T23:25:12.114Z",
@@ -11951,14 +11950,6 @@
         }
       },
       "retranslationAttempts": 3,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-garten-jumbo-laupen"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-garten-jumbo-laupen"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2523
     },
@@ -12431,14 +12422,6 @@
         }
       },
       "retranslationAttempts": 3,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-kusnacht"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2180
     },
@@ -14403,8 +14386,7 @@
           "verkaufsberater-in-deco-jumbo-chur"
         ],
         "de": [
-          "verkaufsberater-in-deco-jumbo-chur-t2oe1t",
-          "verkaufsberater-in-deco-jumbo-chur"
+          "verkaufsberater-in-deco-jumbo-chur-t2oe1t"
         ]
       },
       "firstSeenAt": "2026-09-23T23:42:44.350Z",
@@ -18564,10 +18546,10 @@
     },
     {
       "id": "jumbo-3fc90936-66c",
-      "slug": "verkaufer-in-kassen-services-jumbo-stans",
+      "slug": "vendita-cassetti-servizi-jumbo-stans",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-stans",
-        "it": "verkaufer-in-kassen-services-jumbo-stans",
+        "it": "vendita-cassetti-servizi-jumbo-stans",
         "en": "verkaufer-in-kassen-services-jumbo-stans",
         "fr": "verkaufer-in-kassen-services-jumbo-stans"
       },
@@ -18641,7 +18623,15 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-stans"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-stans"
+      ]
     },
     {
       "id": "jumbo-bfcb996b-385",
@@ -18649,8 +18639,8 @@
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-kusnacht",
         "it": "verkaufsberater-in-garden-jumbo-kusnacht",
-        "en": "verkaufsberater-in-garden-jumbo-kusnacht",
-        "fr": "verkaufsberater-in-garden-jumbo-kusnacht"
+        "en": "garden-sales-consultant-jumbo-kusnacht",
+        "fr": "conseiller-de-vente-a-garden-jumbo-kusnacht"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",

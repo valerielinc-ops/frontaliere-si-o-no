@@ -795,9 +795,9 @@
       "slug": "parto-in-seconda-posizione-spital-bulach-bulach",
       "slugByLocale": {
         "it": "parto-in-seconda-posizione-spital-bulach-bulach",
-        "en": "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
+        "en": "two-themed-birthplace-spital-bulach-bulach",
         "de": "zweithebamme-geburtshaus-spital-buelach-bulach",
-        "fr": "maison-de-naissance-spital-bulach"
+        "fr": "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -874,12 +874,10 @@
           "zweithebamme-geburtshaus-spital-bulach-bulach",
           "zweithebamme-geburtshaus-spital-bulach",
           "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-          "two-themed-birthplace-spital-bulach-bulach",
           "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach"
         ],
         "fr": [
           "maison-de-naissance-spital-bulach-bulach",
-          "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach",
           "maison-de-naissance-spital-bulach"
         ]
       },
@@ -891,8 +889,6 @@
         "zweithebamme-geburtshaus-spital-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-buelach-bulach",
         "hebamme-pflegefachfrau-als-zweite-fachperson-im-geburtshaus-spital-bulach",
-        "two-themed-birthplace-spital-bulach-bulach",
-        "sage-femme-de-garde-pour-accouchements-secondaires-spital-bulach-bulach",
         "midwife-nurse-as-second-specialist-in-the-birth-centre-spital-bulach",
         "maison-de-naissance-spital-bulach"
       ],
@@ -1758,10 +1754,10 @@
       "id": "spital-buelach-b83414e4d472",
       "slug": "elettricisti-commerciali-spital-bulach",
       "slugByLocale": {
-        "it": "elettricisti-commerciali-spital-bulach",
+        "it": "elettricista-in-business-elettricista-in-spital-bulach-bulach",
         "en": "electrician-in-business-electrician-in-spital-bulach-bulach",
         "de": "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "fr": "electriciens-d-affaires-spital-bulach"
+        "fr": "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -1807,21 +1803,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-        "elettricista-in-business-elettricista-in-spital-bulach-bulach",
-        "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach",
         "electriciens-d-affaires-spital-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "elettricista-in-business-elettricista-in-spital-bulach-bulach"
+          "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "en": [
           "elektriker-in-betriebselektriker-in-spital-buelach-bulach"
         ],
         "fr": [
           "elektriker-in-betriebselektriker-in-spital-buelach-bulach",
-          "electricien-dans-entreprise-electricien-dans-spital-bulach-bulach",
           "electriciens-d-affaires-spital-bulach"
         ]
       },
@@ -4978,8 +4970,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-restauration-spital-buelach-bulach",
         "it": "collaboratore-trice-restauration-spital-bulach",
-        "en": "mitarbeiter-in-restauration-spital-buelach-bulach",
-        "fr": "mitarbeiter-in-restauration-spital-buelach-bulach"
+        "en": "associate-restauration-spital-bulach-bulach",
+        "fr": "collaborateur-trice-restauration-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5027,6 +5019,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-restauration-spital-buelach-bulach"
+        ],
+        "en": [
+          "mitarbeiter-in-restauration-spital-buelach-bulach"
+        ],
+        "fr": [
           "mitarbeiter-in-restauration-spital-buelach-bulach"
         ]
       },
@@ -5119,12 +5117,12 @@
     },
     {
       "id": "spital-buelach-8493bea999fb",
-      "slug": "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach",
+      "slug": "mpa-fage-segretario-medico-endocrinologia-diabetologia-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach",
-        "it": "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach",
-        "en": "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach",
-        "fr": "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach"
+        "it": "mpa-fage-segretario-medico-endocrinologia-diabetologia-spital-bulach-bulach",
+        "en": "mpa-fage-medical-secretary-endocrinology-diabetology-spital-bulach-bulach",
+        "fr": "mpa-fage-secretaire-medical-endocrinologie-diabeteologie-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -5183,7 +5181,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:39:14.608Z"
+      "firstSeenAt": "2026-10-06T21:39:14.608Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach"
+        ],
+        "en": [
+          "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-fage-arztsekretarin-endokrinologie-diabetologie-spital-buelach-bulach"
+      ]
     }
   ]
 }

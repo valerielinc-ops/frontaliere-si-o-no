@@ -22507,9 +22507,9 @@
     },
     {
       "id": "bkw-dc3d86a99b83",
-      "slug": "apprendistato-kauffrau-kauffmann-cfc-alle-bkw-urdorf",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-tutti-bkw-urdorf",
       "slugByLocale": {
-        "it": "apprendistato-kauffrau-kauffmann-cfc-alle-bkw-urdorf",
+        "it": "apprendistato-impiegato-a-di-commercio-afc-tutti-bkw-urdorf",
         "en": "kauffmann-efz-all-bkw-urdorf",
         "de": "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch",
         "fr": "kauffmann-efz-tous-bkw-urdorf"
@@ -22557,11 +22557,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch"
+        "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch",
+        "apprendistato-kauffrau-kauffmann-cfc-alle-bkw-urdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch"
+          "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch",
+          "apprendistato-kauffrau-kauffmann-cfc-alle-bkw-urdorf"
         ],
         "en": [
           "lehrstelle-kauffrau-kauffmann-efz-alle-bkw-ch"
@@ -22587,9 +22589,9 @@
     },
     {
       "id": "bkw-66d4e4cc5883",
-      "slug": "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-tutti-bkw-winterthur",
       "slugByLocale": {
-        "it": "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur",
+        "it": "apprendistato-impiegato-a-di-commercio-afc-tutti-bkw-winterthur",
         "en": "apprenticeship-as-a-commercial-clerk-efz-all-bkw-winterthur",
         "de": "lehrstelle-kauffrau-mann-efz-alle-bkw-ch",
         "fr": "apprentissage-en-tant-que-commis-commercial-efz-tous-bkw-winterthur"
@@ -22637,11 +22639,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-kauffrau-mann-efz-alle-bkw-ch"
+        "lehrstelle-kauffrau-mann-efz-alle-bkw-ch",
+        "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kauffrau-mann-efz-alle-bkw-ch"
+          "lehrstelle-kauffrau-mann-efz-alle-bkw-ch",
+          "apprendistato-kauffrau-mann-cfc-alle-bkw-winterthur"
         ],
         "en": [
           "lehrstelle-kauffrau-mann-efz-alle-bkw-ch"
@@ -23323,7 +23327,7 @@
       "slug": "electrician-net-source-m-f-bkw-delemont",
       "slugByLocale": {
         "it": "electrician-net-source-m-f-bkw-delemont",
-        "en": "electricien-ne-de-reseau-f-h-bkw-ch",
+        "en": "electrician-grid-no-m-f-bkw-delemont",
         "de": "elektriker-netzquelle-m-w-bkw-delemont",
         "fr": "electricien-ne-de-reseau-f-h-bkw-ch"
       },
@@ -23377,6 +23381,9 @@
           "electricien-ne-de-reseau-f-h-bkw-ch"
         ],
         "de": [
+          "electricien-ne-de-reseau-f-h-bkw-ch"
+        ],
+        "en": [
           "electricien-ne-de-reseau-f-h-bkw-ch"
         ]
       },

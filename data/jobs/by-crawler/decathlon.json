@@ -4243,8 +4243,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch",
         "it": "collaboratore-trice-per-la-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-basel",
-        "en": "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch",
-        "fr": "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch"
+        "en": "employee-for-order-preparation-salary-contract-50-basel-decathlon-basel",
+        "fr": "employe-pour-la-preparation-de-la-commande-contrat-salarial-50-basel-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4291,6 +4291,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch"
+        ],
+        "en": [
+          "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch"
+        ],
+        "fr": [
           "mitarbeiter-fur-die-bestellungsvorbereitung-lohnvertrag-50-basel-decathlon-ch"
         ]
       },

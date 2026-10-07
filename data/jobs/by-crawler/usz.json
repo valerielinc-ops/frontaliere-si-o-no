@@ -6877,9 +6877,9 @@
     },
     {
       "id": "usz-65dc6fb518ec",
-      "slug": "laboratorio-di-immunoematologia-bma-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "laboratorio-di-immunoematologia-bma-80-100-universitatsspital-zurich-usz-zurich",
+        "it": "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-zurich",
         "en": "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-campus",
         "de": "bma-immunhamatologielabor-80-100-usz-ch",
         "fr": "laboratoire-d-immunohematologie-bma-80-100-universitatsspital-zurich-usz-campus"
@@ -6927,12 +6927,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bma-immunhamatologielabor-80-100-usz-ch",
-        "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-campus"
+        "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-campus",
+        "laboratorio-di-immunoematologia-bma-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bma-immunhamatologielabor-80-100-usz-ch",
-          "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-campus"
+          "bma-immunohematology-laboratory-80-100-universitatsspital-zurich-usz-campus",
+          "laboratorio-di-immunoematologia-bma-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "bma-immunhamatologielabor-80-100-usz-ch"
@@ -16999,7 +17001,7 @@
         "it": "senior-system-ingegnere-architetto-fokus-oneidentity-e-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz-zurich",
         "en": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
         "de": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
-        "fr": "senior-system-ingenieur-architecte-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz"
+        "fr": "senior-system-engineer-architect-focus-oneidentity-et-architecture-globale-iam-80-100-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17043,14 +17045,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+        "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
+        "senior-system-ingenieur-architecte-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
         ],
         "fr": [
-          "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+          "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
+          "senior-system-ingenieur-architecte-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:10.375Z",
@@ -17929,9 +17933,9 @@
     },
     {
       "id": "usz-e1c46d37e295",
-      "slug": "pflegefachperson-per-la-imc-neonatologie-40-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-per-imc-neonatologia-40-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "pflegefachperson-per-la-imc-neonatologie-40-100-universitatsspital-zurich-usz-zurich",
+        "it": "infermiere-per-imc-neonatologia-40-100-universitatsspital-zurich-usz-zurich",
         "en": "nursing-specialist-for-imc-neonatology-40-100-universitatsspital-zurich-usz-zurich",
         "de": "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch",
         "fr": "infirmiere-en-neonatologie-imc-40-100-universitatsspital-zurich-usz-zurich"
@@ -17978,11 +17982,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch"
+        "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch",
+        "pflegefachperson-per-la-imc-neonatologie-40-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch"
+          "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch",
+          "pflegefachperson-per-la-imc-neonatologie-40-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "pflegefachperson-fur-die-imc-neonatologie-40-100-usz-ch"
@@ -18012,8 +18018,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
         "it": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
-        "en": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch",
-        "fr": "sachbearbeiter-in-kostensicherung-standard-80-100-usz-ch"
+        "en": "cost-assurance-clerk-standard-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "responsable-en-assurance-des-couts-standard-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",

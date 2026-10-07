@@ -3278,16 +3278,14 @@
         "economiste-etat-de-fribourg-ch",
         "economiste-etat-de-fribourg-fribourg",
         "economista-etat-de-fribourg-fribourg",
-        "economista-etat-de-fribourg-fribourg-78c340",
-        "economiste-etat-de-fribourg"
+        "economista-etat-de-fribourg-fribourg-78c340"
       ],
       "previousSlugsByLocale": {
         "it": [
           "economiste-etat-de-fribourg-ch",
           "economiste-etat-de-fribourg-fribourg",
           "economista-etat-de-fribourg-fribourg",
-          "economista-etat-de-fribourg-fribourg-78c340",
-          "economiste-etat-de-fribourg"
+          "economista-etat-de-fribourg-fribourg-78c340"
         ],
         "en": [
           "economiste-etat-de-fribourg-ch"
@@ -3875,9 +3873,9 @@
     },
     {
       "id": "etat-de-fribourg-a2f728f7c391",
-      "slug": "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg",
+      "slug": "vicepresidente-della-commissione-d-appello-per-la-raccolta-e-il-rinnovo-iniziale-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg",
+        "it": "vicepresidente-della-commissione-d-appello-per-la-raccolta-e-il-rinnovo-iniziale-etat-de-fribourg-fribourg",
         "en": "vice-president-of-the-appeals-committee-for-initial-survey-and-renewal-etat-de-fribourg-fribourg",
         "de": "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
         "fr": "vice-president-de-la-commission-de-recours-pour-le-premier-releve-et-le-renouvellement-etat-de-fribourg-fribourg"
@@ -3924,11 +3922,13 @@
       "requirementsByLocale": {},
       "department": "Justizrat",
       "previousSlugs": [
-        "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
+        "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
+        "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
+          "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg",
+          "vizeprasident-in-der-rekurskommission-per-la-ersterhebung-e-erneuerung-etat-de-fribourg"
         ],
         "en": [
           "vizeprasident-in-der-rekurskommission-fur-die-ersterhebung-und-erneuerung-etat-de-fribourg"
@@ -5545,8 +5545,7 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "fachlaborant-in-etat-de-fribourg-ch",
-        "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez",
-        "fachlaborant-in-etat-de-fribourg-givisiez"
+        "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5556,8 +5555,7 @@
           "fachlaborant-in-etat-de-fribourg-ch"
         ],
         "fr": [
-          "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez",
-          "fachlaborant-in-etat-de-fribourg-givisiez"
+          "laborantine-laborantine-specialisee-etat-de-fribourg-givisiez"
         ]
       },
       "needsRetranslation": true,
@@ -6682,7 +6680,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6729,15 +6727,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "needsRetranslation": true,
@@ -7799,10 +7793,10 @@
     },
     {
       "id": "etat-de-fribourg-bb74ae9d2bb8",
-      "slug": "stagiaire-juriste-post-master-etat-de-fribourg-ch",
+      "slug": "postmaster-legal-internship-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "stagiaire-juriste-post-master-etat-de-fribourg-ch",
-        "it": "stagiaire-juriste-post-master-etat-de-fribourg-ch",
+        "it": "postmaster-legal-internship-etat-de-fribourg-fribourg",
         "en": "stagiaire-juriste-post-master-etat-de-fribourg-ch",
         "de": "stagiaire-juriste-post-master-etat-de-fribourg-ch"
       },
@@ -7867,7 +7861,15 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-06T21:46:12.307Z"
+      "firstSeenAt": "2026-10-06T21:46:12.307Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-juriste-post-master-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-580fd9d156ff",

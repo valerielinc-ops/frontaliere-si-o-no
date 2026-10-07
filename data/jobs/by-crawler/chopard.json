@@ -205,10 +205,10 @@
     },
     {
       "id": "chopard-c5cb572704b6",
-      "slug": "apprenti-hologer-h-f-chopard-fleurier",
+      "slug": "apprendista-hologer-m-f-chopard-fleurier",
       "slugByLocale": {
-        "it": "apprenti-hologer-h-f-chopard-fleurier",
-        "en": "apprenti-hologer-h-f-chopard-fleurier",
+        "it": "apprendista-hologer-m-f-chopard-fleurier",
+        "en": "apprentice-hologer-m-f-chopard-fleurier",
         "de": "auszubildender-hologer-m-w-chopard-fleurier",
         "fr": "apprenti-hologer-h-f-chopard-fleurier"
       },
@@ -268,7 +268,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-hologer-h-f-chopard-fleurier"
+        ],
+        "en": [
+          "apprenti-hologer-h-f-chopard-fleurier"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-hologer-h-f-chopard-fleurier"
+      ]
     },
     {
       "id": "chopard-5918a2221e65",
@@ -323,13 +334,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "apprentice-micromechanic-m-f-d-chopard-fleurier"
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-          "apprentice-micromechanic-m-f-d-chopard-fleurier"
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
         ],
         "en": [
           "apprenti-micromecanicien-h-f-d-chopard-fleurier"
@@ -406,13 +415,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-of-crm-chopard-meyrin",
-        "global-responsabile-crm-chopard-meyrin"
+        "global-head-of-crm-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-crm-chopard-meyrin",
-          "global-responsabile-crm-chopard-meyrin"
+          "global-head-of-crm-chopard-meyrin"
         ],
         "de": [
           "global-head-of-crm-chopard-meyrin"
@@ -490,14 +497,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "communication-executive-assistant-h-f-chopard-meyrin",
-        "communication-executive-assistant-h-f-50-chopard-meyrin",
-        "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
+        "communication-executive-assistant-h-f-50-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
           "communication-executive-assistant-h-f-chopard-meyrin",
-          "communication-executive-assistant-h-f-50-chopard-meyrin",
-          "assistente-esecutivo-di-comunicazione-m-f-chopard-meyrin"
+          "communication-executive-assistant-h-f-50-chopard-meyrin"
         ],
         "de": [
           "communication-executive-assistant-h-f-chopard-meyrin"

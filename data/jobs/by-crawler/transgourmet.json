@@ -917,9 +917,9 @@
       "slug": "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-winterthur-80-100-transgourmet-winterthur",
       "slugByLocale": {
         "it": "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-winterthur-80-100-transgourmet-winterthur",
-        "en": "mitarbeiterin-sales-associate-frischeprodukte-winterthur-80-100-transgourmet-winterthur",
+        "en": "employee-sales-fresh-products-winterthur-80-100-transgourmet-winterthur",
         "de": "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
-        "fr": "mitarbeiterin-vendeur-se-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
+        "fr": "collaboratrice-collaborateur-vente-produits-frais-winterthour-80-100-transgourmet-winterthur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -981,17 +981,21 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
+        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
+        "mitarbeiterin-sales-associate-frischeprodukte-winterthur-80-100-transgourmet-winterthur",
+        "mitarbeiterin-vendeur-se-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
+          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
+          "mitarbeiterin-sales-associate-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
+          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
+          "mitarbeiterin-vendeur-se-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -1012,9 +1016,9 @@
     },
     {
       "id": "transgourmet-8aee16ae-388",
-      "slug": "abteilungsleiterin-abteilungsleiter-fruchte-e-gemuse-transgourmet-dietikon",
+      "slug": "caporeparto-caporeparto-frutta-e-verdura-transgourmet-dietikon",
       "slugByLocale": {
-        "it": "abteilungsleiterin-abteilungsleiter-fruchte-e-gemuse-transgourmet-dietikon",
+        "it": "caporeparto-caporeparto-frutta-e-verdura-transgourmet-dietikon",
         "en": "head-of-department-head-of-department-fruit-and-vegetables-transgourmet-dietikon",
         "de": "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon",
         "fr": "chef-de-departement-chef-de-departement-fruits-et-legumes-transgourmet-dietikon"
@@ -1079,11 +1083,13 @@
         ]
       },
       "previousSlugs": [
-        "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon"
+        "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon",
+        "abteilungsleiterin-abteilungsleiter-fruchte-e-gemuse-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon"
+          "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon",
+          "abteilungsleiterin-abteilungsleiter-fruchte-e-gemuse-transgourmet-dietikon"
         ],
         "en": [
           "abteilungsleiterin-abteilungsleiter-fruchte-und-gemuse-transgourmet-dietikon"

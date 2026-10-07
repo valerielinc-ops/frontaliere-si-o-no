@@ -1613,7 +1613,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1659,15 +1659,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve",
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
@@ -3225,12 +3223,12 @@
     },
     {
       "id": "hug-2f24fff89245",
-      "slug": "stage-en-ingenierie-biomedicale-100-hug-geneve",
+      "slug": "stage-in-ingegneria-biomedica-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-en-ingenierie-biomedicale-100-hug-geneve",
-        "it": "stage-en-ingenierie-biomedicale-100-hug-geneve",
-        "en": "stage-en-ingenierie-biomedicale-100-hug-geneve",
-        "de": "stage-en-ingenierie-biomedicale-100-hug-geneve"
+        "it": "stage-in-ingegneria-biomedica-100-hug-geneve",
+        "en": "internship-in-biomedical-engineering-100-hug-geneve",
+        "de": "praktikum-in-biomedizintechnik-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3289,7 +3287,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-06T21:21:36.885Z"
+      "firstSeenAt": "2026-10-06T21:21:36.885Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-en-ingenierie-biomedicale-100-hug-geneve"
+        ],
+        "en": [
+          "stage-en-ingenierie-biomedicale-100-hug-geneve"
+        ],
+        "de": [
+          "stage-en-ingenierie-biomedicale-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-en-ingenierie-biomedicale-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-99ed006408b5",
@@ -3370,12 +3382,12 @@
     },
     {
       "id": "hug-6383bdf38742",
-      "slug": "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve",
+      "slug": "stage-in-ingegneria-biomedica-e-qualita-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve",
-        "it": "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve",
-        "en": "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve",
-        "de": "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve"
+        "it": "stage-in-ingegneria-biomedica-e-qualita-100-hug-geneve",
+        "en": "internship-in-biomedical-engineering-and-quality-100-hug-geneve",
+        "de": "praktikum-in-biomedizintechnik-und-qualitat-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3434,7 +3446,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-06T21:21:36.881Z"
+      "firstSeenAt": "2026-10-06T21:21:36.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve"
+        ],
+        "en": [
+          "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve"
+        ],
+        "de": [
+          "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-en-ingenierie-biomedicale-et-qualite-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-a47ff9ba0438",
@@ -3512,12 +3538,12 @@
     },
     {
       "id": "hug-9530b0ed51fd",
-      "slug": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation",
+      "slug": "capo-o-capo-di-clinica-con-specialita-in-medicina-fisica-e-riabilitazione-ortopedica-80-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation",
-        "it": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation",
-        "en": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation",
-        "de": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation"
+        "it": "capo-o-capo-di-clinica-con-specialita-in-medicina-fisica-e-riabilitazione-ortopedica-80-hug-geneve",
+        "en": "chief-or-head-of-clinic-with-specialty-in-physical-medicine-and-orthopedic-rehabilitation-80-hug-geneve",
+        "de": "chef-oder-leiter-der-klinik-mit-spezialisierung-in-physikalischer-medizin-und-orthopadischer-rehabilitation-80-hug"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3575,7 +3601,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation"
+      ]
     },
     {
       "id": "hug-e84b09ec6a12",

@@ -1448,7 +1448,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -1504,7 +1504,6 @@
           "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
           "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
@@ -1514,7 +1513,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
@@ -2673,9 +2671,9 @@
     },
     {
       "id": "kispi-a0b2b8415424",
-      "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+      "slug": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+        "it": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
         "en": "disponentine-m-f-70-universitats-kinderspital-zurich-zurich",
         "de": "disponentin-m-w-70-kispi-zurich",
         "fr": "depontine-h-f-70-universitats-kinderspital-zurich-zurich"
@@ -2725,14 +2723,12 @@
       "previousSlugs": [
         "disponentin-m-w-70-kispi-zurich",
         "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
-        "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
         "disponentin-m-w-d-70-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-m-w-70-kispi-zurich",
           "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
-          "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
           "disponentin-m-w-d-70-universitats-kinderspital-zurich"
         ],
         "en": [
@@ -3771,9 +3767,9 @@
     },
     {
       "id": "kispi-f066c1c7b544",
-      "slug": "medizinische-praxisangestellte-mpa-m-w-30-50-notfallpraxis-im-kinderspital-zurich-betrieb",
+      "slug": "impiegata-di-ambulatorio-medico-mpa-m-f-30-50-ambulatorio-di-emergenza-presso-l-ospedale-pediatrico-di-zurigo",
       "slugByLocale": {
-        "it": "medizinische-praxisangestellte-mpa-m-w-30-50-notfallpraxis-im-kinderspital-zurich-betrieb",
+        "it": "impiegata-di-ambulatorio-medico-mpa-m-f-30-50-ambulatorio-di-emergenza-presso-l-ospedale-pediatrico-di-zurigo",
         "en": "medical-practice-employee-mpa-m-f-30-50-emergency-practice-in-the-children-s-hospital-zurich-operation-365-days-in-shift",
         "de": "medizinische-praxisangestellte-mpa-m-w-30-50-notfallpraxis-im-kinderspital-zurich-betrieb",
         "fr": "employe-de-medecine-mpa-h-f-30-50-pratique-d-urgence-a-l-hopital-pour-enfants-zurich-operation-365-jours-de-travail"
@@ -3833,7 +3829,15 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisangestellte-mpa-m-w-30-50-notfallpraxis-im-kinderspital-zurich-betrieb"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisangestellte-mpa-m-w-30-50-notfallpraxis-im-kinderspital-zurich-betrieb"
+      ]
     },
     {
       "id": "kispi-d77ff92a0700",
@@ -4178,8 +4182,8 @@
       "slugByLocale": {
         "de": "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme",
         "it": "disponentin-ikm-planung-m-w-d-80-100-im-ikm-werden-bettenplanung-op-programme-personaleinsatz-e-datenprognosen-intelligent-miteinander-vernetzt-um-unsere-patientinnen-e-patienten-z",
-        "en": "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme",
-        "fr": "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
+        "en": "m-f-80-100-in-the-ikm-bed-planning-surgical-programs-personnel-deployment-and-data-forecasts-are-intelligently-networked",
+        "fr": "h-f-80-100-dans-l-ikm-la-planification-du-lit-les-programmes-chirurgicaux-le-deploiement-du-personnel-et-les-previsions"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4229,6 +4233,12 @@
       "previousSlugsByLocale": {
         "it": [
           "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
+        ],
+        "en": [
+          "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
+        ],
+        "fr": [
+          "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
         ]
       },
       "previousSlugs": [
@@ -4251,12 +4261,12 @@
     },
     {
       "id": "kispi-ff2627532671",
-      "slug": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
+      "slug": "maestro-m-f-80-scuola-di-ospedale-della-stazione-di-terapia-psichiatrica-psicologica-universitats-kinderspital-zurich",
       "slugByLocale": {
         "de": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi",
-        "it": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
-        "en": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
-        "fr": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
+        "it": "maestro-m-f-80-scuola-di-ospedale-della-stazione-di-terapia-psichiatrica-psicologica-universitats-kinderspital-zurich",
+        "en": "teacher-m-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich",
+        "fr": "enseignant-h-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4304,11 +4314,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi"
+          "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi",
+          "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
+        ],
+        "fr": [
+          "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi"
+        "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi",
+        "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,

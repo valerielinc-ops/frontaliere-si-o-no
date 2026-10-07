@@ -90,7 +90,7 @@
       "slugByLocale": {
         "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne",
         "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-referent-m-w-d-fondation-soins-lausanne",
+        "de": "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
         "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -155,7 +155,6 @@
         "de": [
           "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
           "pflegefachkraft-m-w-fondation-soins-lausanne-lausanne",
-          "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
           "infirmier-referent-m-w-d-fondation-soins-lausanne"
         ]
       },
@@ -264,7 +263,7 @@
       "slug": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "it": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapeute-m-w-d-fondation-soins-lausanne",
+        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne",
         "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
       },
@@ -313,7 +312,6 @@
       "previousSlugs": [
         "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
         "occupational-therapist-m-f-fondation-soins-lausanne-lausanne",
-        "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "ergotherapeute-m-w-d-fondation-soins-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -323,7 +321,6 @@
         "en": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
           "occupational-therapist-m-f-fondation-soins-lausanne-lausanne",
-          "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
           "ergotherapeute-m-w-d-fondation-soins-lausanne"
         ],
         "de": [
@@ -434,7 +431,7 @@
       "slugByLocale": {
         "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
         "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-terrain-m-w-d-fondation-soins-lausanne",
+        "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
         "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -499,7 +496,6 @@
         "de": [
           "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
           "feldkrankenschwester-m-w-fondation-soins-lausanne-lausanne",
-          "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
           "infirmier-terrain-m-w-d-fondation-soins-lausanne"
         ]
       },

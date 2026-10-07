@@ -136,9 +136,9 @@
     },
     {
       "id": "klinik-schloss-mammern-dd56b797e595",
-      "slug": "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern",
+      "slug": "posto-di-formazione-cuoca-cuoca-afc-klinik-schloss-mammern-mammern",
       "slugByLocale": {
-        "it": "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern",
+        "it": "posto-di-formazione-cuoca-cuoca-afc-klinik-schloss-mammern-mammern",
         "en": "training-place-cook-cook-efz-klinik-schloss-mammern-mammern",
         "de": "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern",
         "fr": "lieu-de-formation-cuisinier-cuisinier-efz-klinik-schloss-mammern-mammern"
@@ -197,7 +197,15 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern"
+      ]
     },
     {
       "id": "klinik-schloss-mammern-d0bf62fbbfe7",
