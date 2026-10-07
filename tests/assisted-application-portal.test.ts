@@ -3,6 +3,7 @@ import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystem
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -314,8 +315,12 @@ describe('portal runner helpers', () => {
       fields: [{ id: 'otp', kind: 'text', inputType: 'text', label: '*Code confidentiel:', required: true }],
       buttons: [{ id: 'continue', text: 'Continuer' }],
       text: '',
+      errors: ['Chargement en cours…'],
     };
     expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    // The field and button remain while SuccessFactors checks the code; the
+    // loading live-region is not a rejected verification.
+    expect(verificationOutcome(otpPage)).toBe('pending');
     expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: 1 })).toBe(false);
     expect(isOtpVerificationPage(otpPage, 'sunrise.wd3.myworkdayjobs.com', { verifiedAt: null })).toBe(false);
     expect(isOtpVerificationPage({ ...otpPage, buttons: [] }, 'career5.successfactors.eu', { verifiedAt: null })).toBe(false);

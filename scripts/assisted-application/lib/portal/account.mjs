@@ -40,6 +40,10 @@ const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:ver
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
+// SuccessFactors keeps the code field visible while the verification request
+// is in flight. Its live-region message is surfaced as a form error by the
+// snapshot, but it is not a rejection (career5, 2026-10-07).
+const VERIFY_LOADING_RE = /^(?:loading|chargement en cours|caricamento in corso|wird geladen|cargando|please wait)(?:\s*[.…]+)?$/i;
 
 /**
  * What the page after the "create account" click says: `refused` (still the
@@ -56,12 +60,18 @@ export function registrationOutcome(after) {
 /**
  * What the page after the verification link or code says. Only a positive
  * state counts as `accepted`: a confirmation, the sign-in page or the
- * application form. An expired or wrong token is `rejected`; anything else
+ * application form. An expired or wrong token is `rejected`; `pending` is the
+ * portal's bounded loading state after an OTP click; anything else is
  * `unconfirmed`, and neither is recorded as verified.
  */
 export function verificationOutcome(after) {
-  if (after.errors?.length || VERIFY_FAILED_RE.test(after.text) || codeField(after)) return 'rejected';
+  const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
+  const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
+  const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(after.text);
+  if (rejected) return 'rejected';
   if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
+  if (loading) return 'pending';
+  if (codeField(after)) return 'rejected';
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';

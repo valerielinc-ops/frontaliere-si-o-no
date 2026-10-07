@@ -46,6 +46,8 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
+const VERIFICATION_OUTCOME_TIMEOUT_MS = 20_000;
+const VERIFICATION_OUTCOME_POLL_MS = 500;
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
 // «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
@@ -507,6 +509,19 @@ async function clickFirst(page, snapshot, patterns) {
   return false;
 }
 
+/** SuccessFactors leaves the OTP field and a loading live-region in place while the code is checked. */
+async function waitForVerificationOutcome(page) {
+  let after = await extractFields(page);
+  let outcome = verificationOutcome(after);
+  const deadline = Date.now() + VERIFICATION_OUTCOME_TIMEOUT_MS;
+  while (outcome === 'pending' && Date.now() < deadline) {
+    await page.waitForTimeout(Math.min(VERIFICATION_OUTCOME_POLL_MS, deadline - Date.now()));
+    after = await extractFields(page);
+    outcome = verificationOutcome(after);
+  }
+  return { after, outcome };
+}
+
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   let current = snapshot || await extractFields(page);
@@ -542,10 +557,9 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
     if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
     await settle(page);
   }
-  const after = await extractFields(page);
+  const { after, outcome } = await waitForVerificationOutcome(page);
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
-  const outcome = verificationOutcome(after);
   if (outcome !== 'accepted') return { handoff: `account_verification_${outcome}` };
   await ctx.accounts.mark(host, { verifiedAt: Date.now() });
   return { snapshot: after, reopen: true };
