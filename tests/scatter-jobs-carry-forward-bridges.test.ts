@@ -18,6 +18,9 @@
  * journal-backed helper (addPreviousSlugForLocale), bounded to the flat
  * legacy cap headroom so it can NEVER evict a bridge the slice already had.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   applyAssembledToSliceJob,
@@ -84,6 +87,89 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       pendingWrites: 0,
       passed: true,
     });
+  });
+
+  it('does not join a stable token when the URL has no parsable host', () => {
+    // Protocol-relative URLs make `new URL()` throw: without a host the
+    // numeric token is not an identity and must not join two job boards.
+    const assembled = {
+      ...baseSlice(),
+      id: 'sta-dd501421b406',
+      url: '//www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+    };
+    const stellenpartner = {
+      ...baseSlice(),
+      id: 'stellenpartner-0db951531005',
+      url: '//www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+    };
+
+    expect(matchAssembledJob(stellenpartner, buildAssembledJobIndex([assembled]))).toBeNull();
+  });
+
+  it('persists an ownership move so the claimant slice on disk no longer serves the bridge', () => {
+    // The guarded writer re-captures any slug the on-disk slice still serves.
+    // A claimant that hands a foreign bridge to its owner must therefore be
+    // written by the ownership pass (guard off, owner first), or the bridge
+    // comes back on disk and every later run moves it again.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-persist-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const target = {
+        ...baseSlice(),
+        id: 'stellenpartner-0db951531005',
+        url: 'https://www.stellenpartner.ch/stellen/metallbauer-in-stans-dauerstelle-106683/',
+        title: 'Metallbauer/in für mechanische Montage',
+        company: 'Stellenpartner AG',
+        location: 'Stans, Nidwalden',
+        source: 'Stellenpartner AG Dedicated Parser',
+      };
+      const bridge = `old-source-${stableSlugHash(target)}`;
+      const source = {
+        ...baseSlice(),
+        id: 'sta-dd501421b406',
+        url: 'https://www.sta.jobs/stellen/zimmermann-zimmerin-bremgarten-dauerstelle-106683/',
+        title: 'Zimmermann/Zimmerin für Servicearbeiten und Innenausbau',
+        company: 'STA Personal AG',
+        location: 'Bremgarten, Aargau',
+        source: 'STA Personal AG Dedicated Parser',
+        previousSlugs: [bridge],
+        previousSlugsByLocale: { it: [bridge] },
+      };
+      const sourcePath = path.join(dir, 'source.json');
+      const targetPath = path.join(dir, 'target.json');
+      fs.writeFileSync(sourcePath, `${JSON.stringify({ jobs: [source] }, null, 2)}\n`);
+      fs.writeFileSync(targetPath, `${JSON.stringify({ jobs: [target] }, null, 2)}\n`);
+      const read = () => [sourcePath, targetPath].map((filePath) => ({
+        file: path.basename(filePath),
+        filePath,
+        slice: JSON.parse(fs.readFileSync(filePath, 'utf8')),
+      }));
+      const assembled = [structuredClone(source)];
+
+      const first = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      expect(first.ownership.moved).toBeGreaterThan(0);
+      expect(first.changedEntries.map((entry) => path.basename(entry.filePath)).sort()).toEqual(['source.json', 'target.json']);
+
+      const [sourceOnDisk, targetOnDisk] = read();
+      const served = (job: { previousSlugs?: string[]; previousSlugsByLocale?: Record<string, string[]> }) => [
+        ...(job.previousSlugs || []),
+        ...Object.values(job.previousSlugsByLocale || {}).flat(),
+      ];
+      expect(served(sourceOnDisk.slice.jobs[0])).not.toContain(bridge);
+      expect(served(targetOnDisk.slice.jobs[0])).toContain(bridge);
+
+      const second = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      expect(second.updatedJobs).toBe(0);
+      expect(second.ownership.moved).toBe(0);
+      expect(verifyScatterParity(assembled, read().map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('keeps a stable-token join when only the path changes on the same host', () => {

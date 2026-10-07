@@ -41,11 +41,14 @@ function stableUrlIndexKey(url) {
   // so it is not a cross-site identity. STA and Stellenpartner can expose
   // different postings with the same numeric suffix. Keep the token useful
   // for path/slug changes, but namespace it by the URL host first.
+  // An input `new URL()` rejects (protocol-relative, malformed) has no host to
+  // scope the token with: return no stable key instead of an unscoped one, so
+  // the match falls through to the exact-URL and diff-key checks.
   try {
     const host = new URL(url).host.toLowerCase();
-    return `${host}|${stableUrl}`;
+    return host ? `${host}|${stableUrl}` : '';
   } catch {
-    return `|${stableUrl}`;
+    return '';
   }
 }
 
@@ -596,7 +599,7 @@ export function applyAssembledToSliceJob(sliceJob, assembled, { skipBridges = ne
  * @param {Array<{file?: string, filePath?: string, slice: {jobs: object[]}}>} sliceEntries
  * @returns {{entries: Array<object>, updatedJobs: number, updatedSlices: number, changedEntries: Array<object>, ownership: object}}
  */
-export function scatterAssembledIntoSliceEntries(assembledJobs, sliceEntries) {
+export function scatterAssembledIntoSliceEntries(assembledJobs, sliceEntries, { persist = false, writeSlice = writeJson } = {}) {
   const entries = Array.isArray(sliceEntries) ? sliceEntries : [];
   const index = buildAssembledJobIndex(assembledJobs);
   const ownershipBefore = buildSliceOwnershipIndex(entries);
@@ -627,7 +630,22 @@ export function scatterAssembledIntoSliceEntries(assembledJobs, sliceEntries) {
   // The assembled bridge may have been carried by a job whose current slice
   // is not its final owner. Normalize the complete prospective fleet before
   // persisting anything, so the final state is what parity verifies.
-  const ownership = decontaminateEntries(entries, { apply: false });
+  //
+  // With `persist`, the projected slices are written here, in the only order
+  // that is safe for the slug-preservation guard of `writeJsonAtomic`: first
+  // the scatter result under the normal guard, then the ownership pass with
+  // the decontaminator's own writer (owners first, claimants last with the
+  // guard off). Writing a claimant through the guarded writer would re-capture
+  // the bridge it just handed over, because the on-disk version still serves
+  // it, and the next run would move it again.
+  if (persist) {
+    for (const entry of [...scatterChangedEntries].sort((a, b) => String(a.filePath).localeCompare(String(b.filePath)))) {
+      // Preserve the original assembledAt timestamp from the crawler. Scatter
+      // only propagates locale/SEO changes from the assembled dataset.
+      writeSlice(entry.filePath, entry.slice);
+    }
+  }
+  const ownership = decontaminateEntries(entries, { apply: persist, writeSlice });
   const ownershipChangedPaths = new Set(ownership.affected.map((entry) => entry.filePath));
   const changedEntries = entries.filter((entry) => (
     scatterChangedEntries.has(entry) || ownershipChangedPaths.has(entry.filePath)
@@ -659,19 +677,13 @@ function main() {
     console.log(`🧭 assembled prev-slug ownership: redirected ${assembledOwnership.moved} slug(s), pruned ${assembledOwnership.emptyLocaleBucketsPruned} empty locale bucket(s) in memory.`);
   }
 
-  // Read every slice, project the assembled data and ownership normalization in
-  // memory, then persist the final state once per changed file. This keeps a
-  // decontamination move in the same transaction as the assembled projection.
+  // Read every slice once and project the assembled data and the ownership
+  // normalization on the same in-memory fleet, so the ownership pass sees the
+  // bridges this run carried forward.
   const sliceEntries = fs.existsSync(SLICES_DIR)
     ? readSliceFileEntries(SLICES_DIR)
     : [];
-  const projection = scatterAssembledIntoSliceEntries(jobs, sliceEntries);
-
-  for (const entry of projection.changedEntries.sort((a, b) => a.filePath.localeCompare(b.filePath))) {
-    // Preserve the original assembledAt timestamp from the crawler. Scatter
-    // only propagates locale/SEO changes from the assembled dataset.
-    writeJson(entry.filePath, { ...entry.slice, jobs: entry.slice.jobs });
-  }
+  const projection = scatterAssembledIntoSliceEntries(jobs, sliceEntries, { persist: true });
 
   if (projection.updatedJobs > 0) {
     console.log(`✅ Scattered ${projection.updatedJobs} updated jobs across ${projection.updatedSlices} per-crawler slices.`);
@@ -684,7 +696,10 @@ function main() {
     console.log(`🧭 prev-slug ownership: redirected ${ownership.moved} slug(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s) across ${ownership.affected.length} slice(s).`);
   }
 
-  const parity = verifyScatterParity(jobs, projection.entries.map(({ file, slice }) => ({ file, jobs: slice.jobs })));
+  // Verify what was actually persisted, not the in-memory projection: the
+  // writer applies the slug-preservation guard, so only a re-read proves the
+  // committed slices match the assembled snapshot.
+  const parity = verifyScatterParity(jobs, readSliceFileEntries(SLICES_DIR).map(({ file, slice }) => ({ file, jobs: slice.jobs })));
   console.log(`🔎 SCATTER_PARITY ${JSON.stringify(parity)}`);
   if (!parity.passed) {
     console.error('❌ Scatter parity failed — refusing to publish an unverified assembled→slice projection.');
