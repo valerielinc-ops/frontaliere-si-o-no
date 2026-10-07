@@ -25,7 +25,7 @@ const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'pulls-api-unavailable' | 'failed-runs-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'failed-runs-unavailable';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -57,12 +57,9 @@ const DISPATCH_HEAD = '0123456789abcdef0123456789abcdef01234567';
 function runPreflight(
   mode: Mode,
   {
-    openPrs = '42',
-    dispatch = false,
+    dispatch = true,
     failedRuns = '123',
-    runHeadRepo = 'owner/repo',
-    runBranch = 'fix/redcheck-test',
-  }: { openPrs?: string; dispatch?: boolean; failedRuns?: string; runHeadRepo?: string; runBranch?: string } = {},
+  }: { dispatch?: boolean; failedRuns?: string } = {},
 ) {
   const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
@@ -152,16 +149,11 @@ exit 1
       PATH: `${bin}:${process.env.PATH ?? ''}`,
       GITHUB_OUTPUT: output,
       REPO: 'owner/repo',
-      EVENT_NAME: dispatch ? 'workflow_dispatch' : 'workflow_run',
       DISPATCH_PR: dispatch ? '42' : '',
-      RUN_ID: dispatch ? '' : '123',
-      RUN_SHA: dispatch ? '' : 'headsha',
       PR_HEAD_SHA: prHead,
       FAILED_RUNS: failedRuns,
-      RUN_BRANCH: runBranch,
-      RUN_HEAD_REPO: runHeadRepo,
-      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'pulls-api-unavailable' ? 'pulls' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
-      OPEN_PRS: openPrs,
+      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
+      OPEN_PRS: '42',
       JOBS_JSON: jobs,
     },
   });
@@ -224,47 +216,13 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
     expect(githubOutput).not.toContain('actionable=true');
   });
-  it('resolves the PR with the server-side head filter and no pagination', () => {
+  it('resolves the failure through the PR head SHA, without branch discovery', () => {
     const { result, githubOutput, ghCalls } = runPreflight('test');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
-    const listCall = ghCalls.split('\n').find((line) => line.endsWith('/pulls --method GET -f state=open -f head=owner:fix/redcheck-test -f per_page=100 --jq .[].number')) ?? '';
-    expect(listCall).toContain('/pulls --method GET');
-    expect(listCall).toContain('-f head=owner:fix/redcheck-test');
-    expect(listCall).not.toContain('--paginate');
-    expect(listCall).not.toContain('--slurp');
+    expect(ghCalls).toContain(`pulls/42`);
+    expect(ghCalls).toContain(`actions/workflows/tests.yml/runs?head_sha=${DISPATCH_HEAD}&status=failure`);
+    expect(ghCalls).not.toContain('/pulls --method GET');
     expect(githubOutput).toContain('actionable=true');
-  });
-
-  it('takes the first open PR when the filtered response emits several lines', () => {
-    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '42\n77' });
-    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
-    expect(ghCalls).toMatch(/pulls\/42$/m);
-    expect(ghCalls).not.toMatch(/pulls\/77/);
-    expect(githubOutput).toContain('actionable=true');
-  });
-
-  it('skips as a no-op when no open PR has the run branch', () => {
-    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '' });
-    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
-    expect(`${result.stdout}`).toContain('Nessuna PR aperta');
-    expect(githubOutput).not.toContain('actionable=true');
-  });
-
-  it('fails closed instead of reporting «no PR» when the open-PR list is unreadable', () => {
-    const { result, githubOutput, ghCalls } = runPreflight('pulls-api-unavailable');
-    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
-    expect(`${result.stdout}${result.stderr}`).toContain('Ricerca PR aperta');
-    expect(githubOutput).not.toContain('actionable=true');
-  });
-  it.each([
-    ['missing', ''],
-    ['malformed', 'owner'],
-  ] as const)('fails closed before the pulls API when the run head repository is %s', (_label, runHeadRepo) => {
-    const { result, githubOutput, ghCalls } = runPreflight('test', { runHeadRepo, runBranch: 'fix/x' });
-    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
-    expect(`${result.stdout}${result.stderr}`).toContain('Repository sorgente della run');
-    expect(ghCalls).not.toContain('repos/owner/repo/pulls');
-    expect(githubOutput).not.toContain('actionable=true');
   });
   it('dispatch: trova la run rossa per head_sha anche quando e\' fuori dalle ultime run del repo (#9695)', () => {
     const { result, githubOutput, ghCalls } = runPreflight('test', { dispatch: true });

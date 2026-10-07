@@ -26,54 +26,34 @@ const WF = path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redcheck-fi
 const src = readFileSync(WF, 'utf-8');
 const TWIN = readFileSync(
   path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redflag-fixer.yml'), 'utf-8');
+const TESTS = readFileSync(
+  path.resolve(__dirname, '..', '.github', 'workflows', 'tests.yml'), 'utf-8');
 
 describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
-  it('si attiva sul completamento di `tests`, non su ogni evento', () => {
-    expect(src).toMatch(/workflow_run:\s*\n\s*workflows: \['tests'\]/);
-    expect(src).toMatch(/types: \[completed\]/);
+  it('ammette solo il dispatch esplicito o il segnale trusted del produttore', () => {
+    expect(src).toMatch(/on:\s*\n\s*workflow_dispatch:/);
+    expect(src).not.toMatch(/^\s*workflow_run:/m);
+    expect(src).toContain('manuale o segnale trusted da tests');
+    expect(TESTS).toContain('name: redcheck admission (trusted failure signal)');
+    expect(TESTS).toContain("needs.vitest.result == 'failure'");
+    expect(TESTS).toContain("github.event_name == 'pull_request'");
+    expect(TESTS).toContain("workflow_id: 'pr-redcheck-fixer.yml'");
+    expect(TESTS).toContain("ref: 'main'");
   });
 
-  it('il gate richiede conclusion=failure, ed esclude i push su main', () => {
-    // Senza il secondo termine il workflow partirebbe anche sui fallimenti di
-    // `tests` su main — dove non c'è nessuna PR da riparare e il fixer
-    // girerebbe a vuoto bruciando quota.
-    expect(src).toContain("github.event.workflow_run.conclusion == 'failure'");
-    expect(src).toContain("github.event.workflow_run.event != 'push'");
+  it('il produttore esclude i failure di body/review e tratta API illeggibili come errore', () => {
+    expect(TESTS).toContain('bodyContractSteps');
+    expect(TESTS).toContain('reviewSteps');
+    expect(TESTS).toContain('core.setFailed');
+    expect(TESTS).toContain('failure was limited to body/review process steps');
+    expect(TESTS).toContain('headRepo !== repository');
+    expect(TESTS).toContain("headRef.startsWith('fix/')");
+    expect(TESTS).toContain("headRef.startsWith('automerge-')");
+    expect(TESTS).toContain("label?.name === 'agent:autofix'");
   });
 
-  it('non crea run sui `tests` di main: filtro sul branch nel trigger', () => {
-    // Il gate del job le rendeva `skipped`, ma la run nasceva comunque:
-    // 64 run skipped su 86 in 4 ore il 2026-09-19.
-    const trigger = src.match(/\n  workflow_run:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-    expect(trigger).toMatch(/^    branches-ignore: \[main\]$/mu);
-    expect(trigger).not.toMatch(/^    branches:/mu);
-  });
-
-  it('filtra la head sul server e mantiene bounded la discovery del workflow run', () => {
-    const start = src.indexOf('PR_MATCHES=$(gh api');
-    expect(start).toBe(-1);
-    const boundedStart = src.indexOf('PR_MATCHES=$(gh_bounded gh api');
-    expect(boundedStart).toBeGreaterThan(-1);
-    const discovery = src.slice(boundedStart, src.indexOf('\n            fi', boundedStart));
-    expect(discovery).toContain('--method GET');
-    expect(discovery).toContain('-f head=');
-    expect(discovery).not.toContain('--paginate');
-    expect(src).toContain('GH_CALL_TIMEOUT_SECONDS=30');
-    expect(src).toContain('timeout --kill-after=');
-  });
-
-  it('NON si restringe a `pull_request`: le head rebasate arrivano da dispatch', () => {
-    // `pr-autorebase.yml` ri-testa una head rebasata con un `workflow_dispatch`
-    // di `tests`, perché un push con PAT non ri-triggera affidabilmente i
-    // workflow `pull_request`. Gatare sul solo `pull_request` lascerebbe fuori
-    // proprio quei rossi. Il preflight resta la guardia vera: cerca una PR
-    // APERTA con quel head branch, e su main non ne trova nessuna.
-    expect(src).not.toContain("workflow_run.event == 'pull_request'");
-    expect(src).toContain('Nessuna PR aperta per il branch');
-  });
-
-  it('serializza i body writer e cancella il precedente prima del nuovo CAS', () => {
-    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.workflow_run\.head_branch/);
+  it('serializza i body writer per PR e cancella il precedente prima del nuovo CAS', () => {
+    expect(src).toMatch(/group: body-revision-\$\{\{ github\.event\.inputs\.pr \}\}/);
     expect(src).toMatch(/cancel-in-progress: true/);
   });
 });
@@ -90,11 +70,13 @@ describe('scope — non tocca ciò che non è suo', () => {
     expect(src).toMatch(/\[ "\$draft" = "true" \]/);
   });
 
-  it('salta un rosso STANTIO: il fallimento deve essere della HEAD corrente', () => {
-    // Un rosso su uno SHA superato è già stato risolto da un push successivo.
-    // Fixarlo significherebbe lavorare su una diagnosi vecchia.
-    expect(src).toContain('rosso stantio');
-    expect(src).toMatch(/\[ "\$RUN_SHA" != "\$head_sha" \]/);
+  it('lega la run fallita alla HEAD corrente prima del preflight', () => {
+    // Il dispatch non porta una fotografia della run: risolve la HEAD della PR
+    // e cerca il failure per quello SHA, così un rosso precedente non viene
+    // riparato come se fosse ancora attuale.
+    expect(src).toContain('HEAD_SHA=$(gh_bounded gh api');
+    expect(src).toContain('runs?head_sha=$HEAD_SHA&status=failure');
+    expect(src).not.toContain('$RUN_SHA');
   });
 
   it('ri-verifica che la CI sia rossa ADESSO, non solo al trigger', () => {
