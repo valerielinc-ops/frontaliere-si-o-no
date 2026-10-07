@@ -39,6 +39,8 @@ function fixture() {
   git(repo, ['init', '-q', '-b', 'main']);
   for (const file of [
     'scripts/lib/open-data-refresh-pr.sh',
+    'scripts/lib/old-history-guard.mjs',
+    'scripts/lib/single-flight-lock.mjs',
     'scripts/lib/git-add-resolved.mjs',
     'scripts/lib/resolve-git-add-path.mjs',
     'scripts/lib/read-git-blob.mjs',

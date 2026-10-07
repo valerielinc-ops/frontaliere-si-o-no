@@ -53,6 +53,7 @@ import {
   unescapeTsString as sharedUnescapeTsString,
   tsStringEscapesWithNewlineAs,
 } from './lib/unescape-ts-string.mjs';
+import { assertOldHistorySafe, isOldHistoryBlockedError } from './lib/old-history-guard.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -359,12 +360,18 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
   }
   const COMMIT_BATCH = parseInt(process.env.BACKFILL_COMMIT_BATCH || '25', 10);
   const AUTO_PUSH = process.env.BACKFILL_AUTO_PUSH !== '0';
+  const MAIN_PUSH_HELPER = path.join(ROOT, 'scripts/lib/git-push-with-retry.sh');
   const { execSync } = await import('node:child_process');
   const safeExec = (cmd) => {
     try { return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim(); }
     catch (err) { return `__ERR__:${(err.stderr || err.message || '').toString().trim().slice(0, 200)}`; }
   };
   const commitBatch = (count, total) => {
+    if (AUTO_PUSH) {
+      // Check before staging/committing: --no-verify must not let this writer
+      // pull or push a checkout that still belongs to the old history.
+      assertOldHistorySafe({ cwd: ROOT, refreshBase: true });
+    }
     const status = safeExec(`git status --porcelain ${relDir}/`);
     if (!status || status.startsWith('__ERR__:')) return;
     const lines = status.split('\n').filter(Boolean);
@@ -374,12 +381,10 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
     const r = safeExec(`git commit --no-verify -m ${JSON.stringify(msg)}`);
     if (r.startsWith('__ERR__:')) return;
     if (AUTO_PUSH) {
-      const pr = safeExec('git pull --rebase --autostash origin main 2>&1');
-      if (!pr.startsWith('__ERR__:')) safeExec('git push --no-verify origin main 2>&1');
-      // A conflicting rebase leaves an in-progress state that wedges later batches on
-      // the same runner; abort it so the next commitBatch isn't blocked (mirrors the
-      // `git rebase --abort` recovery added to the bash loops in #2721).
-      else safeExec('git rebase --abort 2>&1');
+      // The shared wrapper repeats the guard before any retry rebase and owns
+      // the authenticated main push; this path must not use --no-verify.
+      const pushResult = safeExec(`bash ${JSON.stringify(MAIN_PUSH_HELPER)} --max-attempts 3 2>&1`);
+      if (isOldHistoryBlockedError(pushResult)) throw new Error(pushResult);
     }
     process.stdout.write(`💾 [${locale}] committed batch (${lines.length} files)\n`);
   };
