@@ -346,28 +346,27 @@ ricontrollato dopo il deploy.
 
 La ricorrenza di `it:/vivere-in-francia-lavorare-in-svizzera/` partiva da una
 mediana del **5,6 %**: la tabella mostrava dati utili, ma la maschera dell'audit
-trasforma le cifre in `#` e lascia soprattutto il guscio condiviso. Non era un
-errore di emissione. Il plugin `frenchBorderMunicipalityPagesPlugin.ts` ora
-mantiene la tabella geografica e aggiunge, usando
-`shared/peerCohortComparison.ts`, due frasi calcolate per comune: posizione tra
-i vicini sul canone indicativo e sulla popolazione, con i comuni nominati e la
-provenienza delle osservazioni DGALN/DHUP. Il dipartimento entra anche nel
-badge geografico, così la localizzazione resta leggibile oltre al solo valico.
+trasforma le cifre in `#` e lascia soprattutto il guscio condiviso. La prima
+fix manteneva la tabella geografica e aggiungeva, usando
+`shared/peerCohortComparison.ts`, posizione tra i sei vicini sul canone
+indicativo e sulla popolazione; la coorte si era fermata al **22,1 %**.
 
-La misura pre-merge del 2026-09-25, su tutte le 20 pagine above-floor emesse dal
-plugin, porta la coorte italiana più grande al **22,1 %** (da 5,6 %) e lascia
-**0 pagine a gain zero**. Le quattro localizzazioni hanno coorti più grandi
-comprese tra **21,6 % e 22,1 %**. Il test osservatore è
+La fix completa mantiene quel blocco e aggiunge relazioni calcolate sui dati
+già pubblicati: ranking sull'intero corridoio per popolazione, distanza
+stradale e canone; gli stessi tre ranking nel dipartimento; comuni serviti dallo
+stesso valico; e l'insieme dei valichi raggiunti dai sei vicini. I comuni sono
+nominati nelle frasi, mentre le cifre restano dati e continuano a essere
+mascherate dalla metrica. Il collegamento dipartimento–cantone–valico viene
+esplicitato come fatto geografico, senza trasformarlo in una determinazione
+del regime fiscale, che resta legata al cantone di lavoro.
+
+Il replay pre-merge del 2026-10-07, su tutte le 20 pagine above-floor emesse dal
+plugin, porta la coorte italiana più grande a **40,6 %** (da 22,1 %) e lascia
+**0 pagine a gain zero**. Le coorti strutturali più piccole restano osservabili
+separatamente e non vengono unite artificialmente. Il test osservatore è
 `tests/information-gain-families-floor.test.ts`; il comando live resta quello
 ufficiale `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
-ricontrollato dopo il deploy.
-
-Il target del 40 % resta un obiettivo informativo, non una soglia da falsare:
-il dataset contiene già popolazione, distanza stradale, valico, dipartimento,
-regime indicativo e canone comunale, e questa fix espone le relazioni utili tra
-questi fatti. Per andare oltre senza ripetere il payload servirebbe un fatto
-autoritativo nuovo per comune — per esempio tempi/modalità di pendolarismo o
-offerta abitativa osservata — che il dataset attuale non contiene.
+ricontrollato dopo il deploy. Il floor generale del gate non cambia.
 
 ## #11039 — Germania: il profilo relazionale del comune
 
