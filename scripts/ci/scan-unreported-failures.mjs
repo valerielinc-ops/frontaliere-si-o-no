@@ -852,11 +852,13 @@ export function ownerSignalPersisted(entry, openIssues, run) {
  * Prova che un owner di dominio chiuso abbia coperto la run osservata.
  *
  * Una issue chiusa non può coprire un crash generico: questa funzione viene
- * chiamata solo per una voce di `VERDICT_STEPS`, e richiede che l'issue abbia
- * intersecato la run (`createdAt <= run.updated_at` e `closedAt >=
- * run.created_at`). Il limite superiore evita di usare una issue nata dopo la
- * run; il limite inferiore conserva l'evidenza quando la run sana successiva
- * ha già chiuso l'owner prima della scansione del rosso storico.
+ * chiamata solo per una voce di `VERDICT_STEPS`, e richiede che l'evento che
+ * ha scritto l'owner sia riferibile alla run osservata. Per il listing REST
+ * l'unico evento owner verificabile è la creazione dell'issue durante la run
+ * (`run.created_at <= createdAt <= run.updated_at`); una issue già esistente
+ * che viene chiusa durante o dopo la run non è prova del suo verdetto. La
+ * chiusura deve inoltre seguire la creazione, anche quando la scansione legge
+ * il rosso storico dopo una run sana.
  *
  * @param {{ owner?: string }|null} entry la voce di `VERDICT_STEPS`
  * @param {Array<{ title?: string, createdAt?: string, closedAt?: string }>|null} closedIssues
@@ -873,7 +875,7 @@ export function closedOwnerSignalPersisted(entry, closedIssues, run) {
     const createdAt = Date.parse(issue.createdAt ?? '');
     const closedAt = Date.parse(issue.closedAt ?? '');
     return Number.isFinite(createdAt) && Number.isFinite(closedAt)
-      && createdAt <= finishedAt && closedAt >= startedAt;
+      && createdAt >= startedAt && createdAt <= finishedAt && closedAt >= createdAt;
   });
 }
 

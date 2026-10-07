@@ -678,6 +678,21 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
       closedAt: '2026-10-07T06:01:26Z',
     }], run)).toBe(false);
   });
+
+  it('closedOwnerSignalPersisted rifiuta un owner preesistente chiuso dopo l\'avvio della run', () => {
+    expect(closedOwnerSignalPersisted(
+      { owner: 'TG' },
+      [{
+        title: 'TG source degraded',
+        createdAt: '2026-09-01T00:00:00Z',
+        closedAt: '2026-10-07T01:00:00Z',
+      }],
+      {
+        created_at: '2026-10-07T00:00:00Z',
+        updated_at: '2026-10-07T00:05:00Z',
+      },
+    )).toBe(false);
+  });
 });
 
 describe('lint del registro contro i YAML veri', () => {
