@@ -12754,6 +12754,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'Dialect theatre returns to Cantello: “Those Japanese strangers”',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## TL;DR - Two dates: October 10 at 21 and October 18 at 15 - Dialect version by Alessandro Campi - On stage, the amateur company Tutti in Scena',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Poster for the dialect play “Quei giargianes da giappunes” at Teatro Pax in Cantello, performed by Tutti in Scena',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Cross-border grape harvest workers: 15 francs an hour',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## TL;DR - Around 50 cross-border commuters bring the grape harvest to life in Mendrisiotto - They come mainly from the province of Varese - Pay is around 15 net francs',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Frontier workers harvest grapes on the Mendrisiotto hills during the grape harvest',
 };
 
 export default blogMetaEn;

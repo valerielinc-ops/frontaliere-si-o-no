@@ -12753,6 +12753,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'In Cantello kehrt das Dialekttheater „Quei giargianes da giappunes“ zurück',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## Auf einen Blick - Zwei Termine: 10. Oktober um 21 Uhr und 18. Oktober um 15 Uhr - Dialektfassung von Alessandro Campi - Auf der Bühne die Amateurtheatergruppe Tutti in Scena',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Plakat für das Dialektstück “Quei giargianes da giappunes” im Teatro Pax von Cantello mit der Gruppe Tutti in Scena',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Grenzgänger bei der Weinlese: 15 Franken pro Stunde',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## Auf einen Blick - Rund 50 Grenzgänger beleben die Weinlese im Mendrisiotto - Sie kommen hauptsächlich aus der Provinz Varese - Der Lohn beträgt etwa 15 Franken netto',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Grenzgänger bei der Weinlese in den Hügeln des Mendrisiotto',
 };
 
 export default blogMetaDe;

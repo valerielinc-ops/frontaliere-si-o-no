@@ -12756,6 +12756,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'À Cantello, le théâtre dialectal revient avec « Quei giargianes da giappunes »',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## En bref - Deux dates : le 10 octobre à 21 h et le 18 octobre à 15 h - Version dialectale d’Alessandro Campi - Sur scène, la compagnie amateur Tutti in Scena',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Affiche de la pièce dialectale «Quei giargianes da giappunes» au Teatro Pax de Cantello avec la compagnie Tutti in Scena',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Frontaliers des vendanges : 15 francs de l\'heure',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## En bref - Environ 50 frontaliers animent les vendanges dans le Mendrisiotto - Ils viennent principalement de la province de Varese - Le salaire est d\'environ 15 francs nets',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Des travailleurs frontaliers vendangent sur les collines du Mendrisiotto',
 };
 
 export default blogMetaFr;

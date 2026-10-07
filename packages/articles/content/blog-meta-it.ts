@@ -12755,6 +12755,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantello-teatro-dialettale-ottobre-2026.title': 'Cantello torna il teatro dialettale “Quei giargianes da giappunes”',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.excerpt': '## In breve - Due date: 10 ottobre alle 21 e 18 ottobre alle 15 - Versione dialettale di Alessandro Campi - Sul palco la compagnia amatoriale Tutti in Scena',
     'blog.article.cantello-teatro-dialettale-ottobre-2026.imageAlt': 'Locandina dello spettacolo dialettale “Quei giargianes da giappunes” al Teatro Pax di Cantello con la compagnia Tutti in Scena',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Frontalieri della vendemmia: 15 franchi l\'ora',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## In breve - Circa 50 frontalieri animano la vendemmia nel Mendrisiotto - Arrivano soprattutto dalla provincia di Varese - La paga è di circa 15 franchi netti',
+    'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Lavoratori frontalieri raccolgono uva sui colli del Mendrisiotto durante la vendemmia',
 };
 
 export default blogMetaIt;
