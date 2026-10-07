@@ -27,7 +27,7 @@ import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, 
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
-import { holdsValue, planPage, questionTopic } from './plan.mjs';
+import { candidateAnswerForField, holdsValue, planPage, questionTopic } from './plan.mjs';
 import { splitName } from '../../../../functions/src/assistedApplicationAiDraftCore.js';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
@@ -220,6 +220,27 @@ function portalAnswersForQuestions(questions, answers) {
     if (!previous || exact || !String(answers[previous.question.id] ?? '').trim()) seen.set(key, item);
   }
   return [...seen.values()].map(({ question, answer }) => ({ question: question.question, answer }));
+}
+
+/** Resolve required portal questions from the candidate data before the submit gate. */
+export function autoAnswersForPortalQuestions({ questions = [], candidate, answers = {} } = {}) {
+  const out = {};
+  for (const question of questions) {
+    if (question?.source !== 'portal' || !question.required || String(answers?.[question.id] ?? '').trim()) continue;
+    const options = (Array.isArray(question.options) ? question.options : [])
+      .map((option) => typeof option === 'string' ? { label: option } : option)
+      .filter((option) => option && String(option.label || '').trim());
+    const field = {
+      id: question.id,
+      kind: options.length || ['choice', 'yes_no'].includes(question.type) ? 'select' : 'text',
+      label: question.question,
+      required: true,
+      options,
+    };
+    const answer = candidateAnswerForField(candidate, field);
+    if (answer?.value) out[question.id] = answer.value;
+  }
+  return out;
 }
 
 /** How an upload reads in the evidence: [CV], [lettera di presentazione], [documento: Bulletins scolaires]. */

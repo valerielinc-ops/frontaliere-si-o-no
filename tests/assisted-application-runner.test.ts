@@ -432,6 +432,26 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
+  it('resolves a required portal age question from the CV before the submit gate', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = {
+      ...baseDraft,
+      profile: { ...baseDraft.profile, dateOfBirth: '13.11.2001' },
+      questions: [{ id: 'portal_hai_meno_di_26_anni', source: 'portal', question: 'Hai meno di 26 anni?', required: true, type: 'choice', options: ['Sì', 'No'] }],
+      channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' },
+    };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(event).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
+    const [[ctx]] = runner.mock.calls as any;
+    expect(ctx.candidate.portalQuestionsAnswered).toEqual([{ question: 'Hai meno di 26 anni?', answer: 'Sì' }]);
+  });
+
   // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.
   it('starts Coop on SuccessFactors and checks the posting, not the ATS sign-in, for liveness', async () => {
     const bucket = fakeBucket();
