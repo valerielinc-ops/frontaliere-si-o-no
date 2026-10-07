@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5037
+      "6": 5038
     },
-    "publishedCovers": 6749,
+    "publishedCovers": 6750,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179495,6 +179495,33 @@
           "id": "coda-a8-castronno-solbiate",
           "category": "novita",
           "date": "2026-10-07T22:16:34.106Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-carriere-politica-economica": {
+      "cover": "/images/blog/article-carriere-politica-economica.webp",
+      "hash": "a65502a40f7eca8f2cf2b205d7bbd6521d19f3c13048b6a12ace11c3607a9a3b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "carriere-politica-economica",
+          "category": "pratico",
+          "date": "2026-10-07T22:29:39.311Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
