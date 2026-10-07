@@ -79,6 +79,15 @@ function gitShow(ref, file) {
 const repoRoot = git(['rev-parse', '--show-toplevel']).trim();
 const diffPaths = resolveGitAddPaths(repoRoot, options.paths);
 
+const REFRESH_PRESERVED_IMAGE_CREDIT_PATH = 'packages/articles/content/image-credits';
+
+function includesRefreshPreservedImageCredits() {
+  return diffPaths.some((file) => (
+    file === REFRESH_PRESERVED_IMAGE_CREDIT_PATH
+    || file.startsWith(`${REFRESH_PRESERVED_IMAGE_CREDIT_PATH}/`)
+  ));
+}
+
 function changedFiles() {
   return git(['diff', '--name-only', options.base, options.refresh, '--', ...diffPaths])
     .split('\n')
@@ -86,7 +95,22 @@ function changedFiles() {
     .filter(Boolean);
 }
 
-const files = changedFiles();
+function preservedImageCreditFiles() {
+  if (!includesRefreshPreservedImageCredits()) return [];
+  // The publisher deliberately keeps destination-only cover-credit records in
+  // the current refresh checkout. They can therefore be unchanged between
+  // base and refresh and disappear from `git diff`; enumerate the refresh
+  // tree explicitly so an old stable deletion cannot win the three-way merge.
+  return git([
+    'ls-tree', '-r', '--name-only', options.refresh, '--',
+    REFRESH_PRESERVED_IMAGE_CREDIT_PATH,
+  ])
+    .split('\n')
+    .map((file) => file.trim())
+    .filter(Boolean);
+}
+
+const files = [...new Set([...changedFiles(), ...preservedImageCreditFiles()])];
 const brokenImages = [];
 for (const file of files) {
   const baseRaw = gitShow(options.base, file);

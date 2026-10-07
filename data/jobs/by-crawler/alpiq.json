@@ -113,10 +113,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-10-07T09:41:55.798Z",
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3000,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -334,7 +330,10 @@
       "id": "alpiq-8c3f3cfb0219",
       "slug": "third-party-bess-flex-asset-optimiser-alpiq-lausanne",
       "slugByLocale": {
-        "en": "third-party-bess-flex-asset-optimiser-alpiq-lausanne"
+        "en": "third-party-bess-flex-asset-optimiser-alpiq-lausanne",
+        "it": "third-party-bess-flex-asset-optimiser-alpiq-lausanne",
+        "de": "third-party-bess-flex-asset-optimiser-alpiq-lausanne",
+        "fr": "third-party-bess-flex-asset-optimiser-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
