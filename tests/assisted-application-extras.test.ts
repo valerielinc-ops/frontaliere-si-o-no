@@ -4,7 +4,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
 const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
-const { assessLegitimacy, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
+const { assessLegitimacy, isSeasonalTitle, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
 const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
@@ -67,6 +67,27 @@ describe('posting legitimacy (career-ops Block G)', () => {
     expect(publicSector.tier).not.toBe('suspicious');
     const rolling = assess({ posting: { postingDateSource: 'reported', postedDate: '2026-05-01', text: long }, legitimacy: { specificity: 'mixed', rolling: true } });
     expect(rolling.signals.find((signal: any) => signal.key === 'age')?.weight).toBe('neutral');
+  });
+
+  it('knows a job for a season is advertised months ahead: its age is no ghost sign until the season', () => {
+    // A real order of 2026-10-07: «Weihnachtsaushilfe», published on 5 August, a generic text.
+    const posting = (postedDate: string, titles: Record<string, string> = {}) => ({ postingDateSource: 'reported', postedDate, text: long, titles });
+    const vague = { specificity: 'vague' };
+    const christmas = assess({ posting: posting('2026-07-29', { it: 'Aiuto natalizio (m/f/d)', de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague });
+    expect(christmas.signals.find((signal: any) => signal.key === 'age')).toMatchObject({ weight: 'neutral', detail: '63' });
+    expect(christmas.tier).toBe('caution');
+    expect(christmas.notes.map((note: any) => note.key)).toContain('seasonal');
+    // The title the order or the requirements give counts as the posting's own.
+    expect(assess({ posting: posting('2026-07-29'), legitimacy: vague, titles: ['Collaboratore stagionale'] }).tier).toBe('caution');
+    // Past four months it is old like any other; and a job of every season is judged as before.
+    expect(assess({ posting: posting('2026-05-20', { de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    expect(assess({ posting: posting('2026-07-29', { de: 'Verkaufsberater (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    for (const title of ['Aide de Noël', 'Vendeur·euse saisonnier·ère', 'Christmas Sales Assistant', 'Cameriere per la stagione invernale', 'Seasonal Associate', 'Sommersaison: Servicemitarbeiter']) {
+      expect(isSeasonalTitle([title]), title).toBe(true);
+    }
+    for (const title of ['Addetto alla stagionatura', 'Seasoned Sales Manager', 'Natalia Rossi Assistant', 'Infermiera 80-100%', '']) {
+      expect(isSeasonalTitle([title]), title).toBe(false);
+    }
   });
 
   it('reports self-employment, a wide pay range and text aimed at an AI apart, without changing the tier', () => {

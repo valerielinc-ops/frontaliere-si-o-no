@@ -22,6 +22,20 @@ import { resolveReportedPostingDate } from './lib/jobPostingDate.js';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const PUBLIC_EMPLOYER_RE = /\b(cantone|canton|kanton|comune|città|citta|stadt|gemeinde|commune|ville|confederazione|bund|eidgen|universit|usi\b|supsi|eoc\b|ente ospedaliero|politecnico|eth\b|epfl|scuola|schule|école|ospedale cantonale|kantonsspital)/i;
+// A job for a season: help for Christmas, a summer or a winter season. It is advertised months ahead and stays
+// open until the season starts (a real order, 2026-10-07: «Weihnachtsaushilfe», published on 5 August, still
+// taking applications in October). career-ops reads the age «adjusted for the role type»: like a public
+// posting or a rolling opening, a seasonal one is no ghost job because it is two months old. Read in the job
+// title only, accents folded; the whole word, so «stagionatura» and a «seasoned» manager are none.
+const SEASONAL_TITLE_RE = /weihnacht|saison|\bnatal(?:e|izi[oae])\b|\bnoel\b|\bchristmas\b|\bxmas\b|\bstagional[ei]\b|\bstagione\b|\bseason(?:al)?\b/;
+const SEASONAL_MAX_AGE_DAYS = 120;
+
+const foldTitle = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+/** Whether one of the job's titles (the order's, the posting's in any language) names a seasonal job. */
+export function isSeasonalTitle(titles) {
+  return (Array.isArray(titles) ? titles : [titles]).some((title) => SEASONAL_TITLE_RE.test(foldTitle(title)));
+}
 
 function toMs(value) {
   if (!value) return null;
@@ -45,14 +59,16 @@ export function salaryRange(salary) {
  * @param {object} [input.legitimacy] requirements.legitimacy (verified quotes)
  * @param {string} [input.livenessResult] 'active' | 'uncertain' | … from checkPostingLiveness
  * @param {string} [input.companyName]
+ * @param {string[]} [input.titles] the job's titles (the order's, the posting's): a seasonal job is read there
  * @param {number} input.nowMs
  */
-export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult = '', companyName = '', nowMs }) {
+export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult = '', companyName = '', titles = [], nowMs }) {
   const signals = [];
   const notes = [];
   const add = (key, weight, reliability, detail = '') => signals.push({ key, weight, reliability, detail });
   const publicEmployer = PUBLIC_EMPLOYER_RE.test(companyName);
   const rolling = legitimacy.rolling === true;
+  const seasonal = isSeasonalTitle([...titles, ...Object.values(posting.titles || {})]);
 
   // Posting age (high): under 30 days good, 30-60 mixed, 60+ concerning.
   const dateMs = toMs(resolveReportedPostingDate(posting, new Date(nowMs)));
@@ -63,7 +79,7 @@ export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult
   const ageDays = dateMs !== null ? Math.max(0, Math.floor((nowMs - dateMs) / DAY_MS)) : null;
   if (ageDays === null) add('age_unknown', 'neutral', 'high');
   else if (ageDays < 30) add('age', 'positive', 'high', `${ageDays}`);
-  else if (rolling || (publicEmployer && ageDays <= 90) || ageDays <= 60) add('age', 'neutral', 'high', `${ageDays}`);
+  else if (rolling || (publicEmployer && ageDays <= 90) || (seasonal && ageDays <= SEASONAL_MAX_AGE_DAYS) || ageDays <= 60) add('age', 'neutral', 'high', `${ageDays}`);
   else add('age', 'concerning', 'high', `${ageDays}`);
 
   // Apply channel still open (high): the liveness check right before drafting.
@@ -87,6 +103,7 @@ export function assessLegitimacy({ posting = {}, legitimacy = {}, livenessResult
   if (legitimacy.aiDirectedQuote) notes.push({ key: 'ai_directed_text', quote: legitimacy.aiDirectedQuote });
   if (publicEmployer) notes.push({ key: 'public_employer' });
   if (rolling) notes.push({ key: 'rolling' });
+  if (seasonal) notes.push({ key: 'seasonal' });
 
   const concerning = signals.filter((signal) => signal.weight === 'concerning' && signal.reliability !== 'low');
   const concerningHigh = concerning.filter((signal) => signal.reliability === 'high');
@@ -120,5 +137,6 @@ export const LEGITIMACY_LABELS_IT = {
     ai_directed_text: 'testo rivolto a un’IA o a un revisore',
     public_employer: 'datore pubblico: 60-90 giorni sono normali',
     rolling: 'posizione aperta in continuo',
+    seasonal: 'lavoro stagionale: l’annuncio resta aperto fino alla stagione',
   },
 };

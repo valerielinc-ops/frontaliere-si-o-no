@@ -101,11 +101,11 @@ async function fetchWithTimeout(fetchImpl, url, init = {}) {
  * GET an employer page (the order's jobUrl comes from the browser at
  * checkout): redirects are followed by hand and every hop is re-validated.
  */
-export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
+export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup, { accept = 'text/html' } = {}) {
   let url = startUrl;
   for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
     if (!(await resolvesToPublicHost(url, resolve))) return null;
-    const response = await fetchWithTimeout(fetchImpl, url, { redirect: 'manual', headers: { Accept: 'text/html' } });
+    const response = await fetchWithTimeout(fetchImpl, url, { redirect: 'manual', headers: { Accept: accept } });
     const location = response.headers?.get?.('location');
     if (response.status >= 300 && response.status < 400 && location) {
       url = new URL(location, url).toString();
@@ -113,6 +113,57 @@ export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
     }
     return response;
   }
+  return null;
+}
+
+// ── Workday ────────────────────────────────────────────────────────────────
+
+const WORKDAY_HOST_RE = /^([a-z0-9-]+)\.wd\d+\.myworkdayjobs\.com$/;
+const WORKDAY_LOCALE_RE = /^[a-z]{2}-[A-Z]{2}$/;
+
+/**
+ * The JSON address of a Workday posting, the one its career site reads itself:
+ * https://{tenant}.wdN.myworkdayjobs.com/[{locale}/]{site}/job/{…} →
+ * https://{host}/wday/cxs/{tenant}/{site}/job/{…}. '' for any other address.
+ */
+export function workdayPostingApiUrl(value) {
+  let url;
+  try {
+    url = new URL(String(value || ''));
+  } catch {
+    return '';
+  }
+  const tenant = WORKDAY_HOST_RE.exec(url.hostname.toLowerCase())?.[1];
+  if (url.protocol !== 'https:' || !tenant) return '';
+  const parts = url.pathname.split('/').filter(Boolean);
+  if (WORKDAY_LOCALE_RE.test(parts[0] || '')) parts.shift();
+  // The apply steps of a posting («…/apply», «…/apply/applyManually») are not part of its address.
+  const apply = parts.indexOf('apply', 3);
+  const posting = apply === -1 ? parts : parts.slice(0, apply);
+  if (posting.length < 3 || posting[1] !== 'job') return '';
+  return `${url.origin}/wday/cxs/${tenant}/${posting[0]}/${posting.slice(1).join('/')}`;
+}
+
+/**
+ * What Workday itself says of a posting. Its page is an empty shell filled by
+ * script: no text, no apply control, and HTTP 200 even for a posting that is
+ * gone, so the page alone tells nothing (a real order, 2026-10-07: an open
+ * posting read «expired, insufficient content»). The JSON does:
+ *   - `{gone: false, info}`: the posting (`jobPostingInfo`: jobDescription,
+ *     canApply, posted, startDate, location…);
+ *   - `{gone: true, info: null}`: Workday answers that it does not exist (HTTP
+ *     404, its error «not found: Job_Posting_Anchor_ID»);
+ *   - null: not a Workday posting, or an answer this cannot read. The caller
+ *     then knows nothing more than before.
+ */
+export async function fetchWorkdayPosting(fetchImpl, postingUrl, resolve = lookup) {
+  const api = workdayPostingApiUrl(postingUrl);
+  if (!api) return null;
+  const response = await fetchPublicPage(fetchImpl, api, resolve, { accept: 'application/json' });
+  if (!response) return null;
+  const body = await response.json().catch(() => null);
+  if (response.status === 200 && body?.jobPostingInfo && typeof body.jobPostingInfo === 'object') return { gone: false, info: body.jobPostingInfo };
+  if (response.status === 404 && /Job_Posting_Anchor_ID/.test(String(body?.message || ''))) return { gone: true, info: null };
   return null;
 }
 
@@ -250,6 +301,16 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
 
   if (isFetchablePublicUrl(order?.jobUrl)) {
     try {
+      // A Workday page has no text of its own: the posting is in Workday's JSON.
+      const workday = await fetchWorkdayPosting(fetchImpl, order.jobUrl, resolve);
+      const description = workday?.info ? htmlToText(workday.info.jobDescription).slice(0, MAX_POSTING_CHARS) : '';
+      if (description.length > 200) {
+        const startDate = clean(workday.info.startDate, 40);
+        return {
+          ...empty, text: description, source: 'job_page', location: clean(workday.info.location, 200),
+          datePosted: startDate, postingDateSource: startDate ? 'reported' : 'unknown',
+        };
+      }
       const response = await fetchPublicPage(fetchImpl, order.jobUrl, resolve);
       const contentType = String(response?.headers?.get?.('content-type') || '');
       if (response?.ok && contentType.includes('html')) {

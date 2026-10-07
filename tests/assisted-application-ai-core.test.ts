@@ -5,6 +5,7 @@ import {
   docxXmlToText,
   extractCvText,
   extractDocxText,
+  pdfItemsText,
   readZipEntry,
   renderPdf,
   textWidth,
@@ -17,12 +18,14 @@ import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedAp
 import {
   classifyApplicationChannel,
   fetchJobPosting,
+  fetchWorkdayPosting,
   htmlToText,
   isFetchablePublicUrl,
   isPrivateAddress,
   postingAtsRedirect,
   resolveApplyUrl,
   resolvesToPublicHost,
+  workdayPostingApiUrl,
 } from '../functions/src/assistedApplicationAiJob.js';
 
 /** Minimal ZIP writer (deflate), enough to build a DOCX fixture. */
@@ -124,6 +127,35 @@ describe('cover letter PDF', () => {
     expect(text).toContain('Perché è così? Très élégant, naïve');
     expect(text).toContain('Freundliche Grüsse');
     expect(text).toContain('Como, 30 settembre 2026');
+  });
+
+  it('tells apart the text blocks of a PDF that pdf.js leaves unseparated, by where they stand', () => {
+    // A real order of 2026-10-07, a CV laid out in boxes: the years of three jobs, each in its own box, and a
+    // school under its diploma. pdf.js marks no break between two boxes: «2022 - 202520192018»,
+    // «TuristicoIstituto Tecnico». The fact gate found neither the years nor the school.
+    const item = (str: string, x: number, y: number, width: number, extra: object = {}) => ({ str, x, y, width, height: 8, fontSize: 8, hasEOL: false, ...extra });
+    const boxes = [
+      item('Contact', 43, 561.6, 66, { height: 16, fontSize: 16 }),
+      item('2022 - 2025', 512.6, 476.5, 46.8), item('2019', 542.2, 332.4, 17.3), item('2018', 548.6, 182.4, 17.3),
+      item('Diploma di scuola superiore - Turistico', 279, 611.7, 159.1), item('Istituto Tecnico Esempio', 279, 596.8, 129.8),
+    ];
+    expect(pdfItemsText(boxes)).toBe('Contact\n2022 - 2025\n2019\n2018\nDiploma di scuola superiore - Turistico\nIstituto Tecnico Esempio');
+    const sources = { text: pdfItemsText(boxes), posting: '', order: 'Commessa\nEsempio SA\nMaria Rossi', answers: '' };
+    const letter = { coverLetter: 'Dal 2022 al 2025 ho lavorato in ufficio, dal 2018 in agenzia. Ho studiato presso Istituto Tecnico Esempio.' };
+    expect(checkDraftFacts(letter, sources).unsupported).toEqual([]);
+    const glued = boxes.map((box) => box.str).join('');
+    expect(checkDraftFacts(letter, { ...sources, text: glued }).unsupported.map((flag: any) => flag.token)).toEqual(['2025', '2018', 'Istituto Tecnico Esempio']);
+    // What pdf.js separated stays as it is: its line breaks (on the last item of a line, or on an empty item
+    // that opens the next one) and its word gaps (an item of one space).
+    expect(pdfItemsText([item('Back office,', 279, 444.3, 50), item(' ', 329, 444.3, 2), item('accoglienza', 331, 444.3, 48, { hasEOL: true }), item('al cliente', 279, 432.3, 40)]))
+      .toBe('Back office, accoglienza\nal cliente');
+    expect(pdfItemsText([item('Maria', 76.2, 645.9, 91), item('', 43.7, 618.1, 0, { hasEOL: true }), item('Rossi', 43.7, 618.1, 60)])).toBe('Maria\nRossi');
+    // One word split in two items (a kerning pair, a font change) stays one word; two columns of a line are two words.
+    expect(pdfItemsText([item('Infer', 100, 300, 20), item('miera', 120.2, 300, 21)])).toBe('Infermiera');
+    expect(pdfItemsText([item('Receptionist', 100, 300, 50), item('2019', 400, 300, 17.3)])).toBe('Receptionist 2019');
+    // A superscript stays on its line; items without a position are joined as before.
+    expect(pdfItemsText([item('1', 100, 300, 4), item('er', 104, 303, 6, { height: 5, fontSize: 5 })])).toBe('1er');
+    expect(pdfItemsText([{ str: 'a' }, { str: 'b', hasEOL: true }, { str: 'c' }] as any)).toBe('ab\nc');
   });
 });
 
@@ -353,6 +385,47 @@ describe('job posting fetch', () => {
     expect(blocked.source).toBe('none');
   });
 
+  it('reads a Workday posting from Workday’s own JSON: its page is an empty shell', async () => {
+    const posting = 'https://acme.wd3.myworkdayjobs.com/en-US/Careers/job/Lugano/Verkaufsberater_R15163';
+    const api = 'https://acme.wd3.myworkdayjobs.com/wday/cxs/acme/Careers/job/Lugano/Verkaufsberater_R15163';
+    expect(workdayPostingApiUrl(posting)).toBe(api);
+    // Without the locale, without the place, and from the steps of the application.
+    expect(workdayPostingApiUrl('https://acme.wd3.myworkdayjobs.com/Careers/job/Lugano/Verkaufsberater_R15163/apply/applyManually?source=x')).toBe(api);
+    expect(workdayPostingApiUrl('https://acme.wd103.myworkdayjobs.com/de-DE/Careers/job/Verkaufsberater_R15163/apply'))
+      .toBe('https://acme.wd103.myworkdayjobs.com/wday/cxs/acme/Careers/job/Verkaufsberater_R15163');
+    // A career site's home, another portal, plain http: no posting of Workday's.
+    for (const other of ['https://acme.wd3.myworkdayjobs.com/en-US/Careers', 'https://jobs.lever.co/acme/1', 'http://acme.wd3.myworkdayjobs.com/Careers/job/a/b', 'not a url']) {
+      expect(workdayPostingApiUrl(other)).toBe('');
+    }
+
+    const resolve = async () => [{ address: '93.184.216.34', family: 4 }];
+    const info = { title: 'Verkaufsberater', jobDescription: `<p>${'Beratung und Verkauf im Geschäft. '.repeat(12)}</p>`, location: 'Lugano', startDate: '2026-08-05', canApply: true, posted: true };
+    const calls: Array<[string, string]> = [];
+    const fetchImpl = (answer: () => Response) => async (url: string, init: any = {}) => {
+      calls.push([url, init.headers?.Accept]);
+      return url === api ? answer() : new Response('<html><body><div id="root"></div></body></html>', { status: 200, headers: { 'content-type': 'text/html' } });
+    };
+    const open = fetchImpl(() => new Response(JSON.stringify({ jobPostingInfo: info }), { status: 200 }));
+    await expect(fetchWorkdayPosting(open, posting, resolve)).resolves.toEqual({ gone: false, info });
+    // Workday answers 406 to anything but JSON.
+    expect(calls).toEqual([[api, 'application/json']]);
+    // The posting is gone: Workday's own error, never any other 404 (an address this code derived badly).
+    const gone = fetchImpl(() => new Response(JSON.stringify({ errorCode: 'S21', httpStatus: 404, message: 'not found: Job_Posting_Anchor_ID=Verkaufsberater_R15163' }), { status: 404 }));
+    await expect(fetchWorkdayPosting(gone, posting, resolve)).resolves.toEqual({ gone: true, info: null });
+    for (const unreadable of [new Response('Not Found', { status: 404 }), new Response(JSON.stringify({ widget: 'redirect' }), { status: 200 }), new Response('', { status: 503 })]) {
+      await expect(fetchWorkdayPosting(fetchImpl(() => unreadable), posting, resolve)).resolves.toBeNull();
+    }
+    await expect(fetchWorkdayPosting(open, 'https://jobs.lever.co/acme/1', resolve)).resolves.toBeNull();
+    await expect(fetchWorkdayPosting(open, posting, async () => [{ address: '10.0.0.5', family: 4 }])).resolves.toBeNull();
+
+    // A posting that left our dataset: the page has no text, the JSON has the posting and its date.
+    const read = await fetchJobPosting({ jobId: '', jobUrl: posting }, { resolve, fetchImpl: open });
+    expect(read).toMatchObject({ source: 'job_page', location: 'Lugano', datePosted: '2026-08-05', postingDateSource: 'reported' });
+    expect(read.text).toContain('Beratung und Verkauf im Geschäft.');
+    // No JSON: the page, as for any other employer (here an empty shell, so no posting).
+    expect((await fetchJobPosting({ jobId: '', jobUrl: posting }, { resolve, fetchImpl: gone })).source).toBe('none');
+  });
+
   it('turns HTML into readable text', () => {
     expect(htmlToText('<ul><li>Uno</li><li>Due &amp; tre</li></ul><style>p{}</style>')).toBe('- Uno\n- Due & tre');
   });
@@ -449,6 +522,16 @@ describe('permit status question', () => {
     expect(payload({ permitStatus: 'none' })).toEqual({ status: 'none', name: '' });
     expect(payload({})).toEqual({ status: '', name: '' });
     expect(documentsSystemPrompt('it')).toContain('Never write that a permit is to be requested, applied for, pending, due, guaranteed or not needed');
+  });
+
+  it('asks the letter for the job titles as the profile writes them: the fact gate reads a translated title as one never held', () => {
+    // A real draft of 2026-10-07: an Italian CV, an English letter, «as Administrative Clerk» for «Impiegata
+    // Amministrativa». The gate stopped the draft at the owner; the prompt had never been told.
+    expect(documentsSystemPrompt('en')).toContain('write each exactly as the profile gives it, in the profile\'s own language, never translated or adapted');
+    const sources = { text: 'Maria Rossi\n2022 - 2025\nImpiegata Amministrativa\nEsempio Italia - Legnano', posting: '', order: 'Christmas Assistant\nAcme Cosmetics\nMaria Rossi', answers: '' };
+    const flags = (coverLetter: string) => checkDraftFacts({ coverLetter }, sources).unsupported.map((flag: any) => `${flag.kind}:${flag.token}`);
+    expect(flags('From 2022 to 2025, as Administrative Clerk at Esempio Italia, I managed the back office.')).toEqual(['title:Administrative Clerk']);
+    expect(flags('From 2022 to 2025, as Impiegata Amministrativa at Esempio Italia, I managed the back office.')).toEqual([]);
   });
 });
 
