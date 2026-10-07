@@ -2,12 +2,14 @@
 /**
  * Resolve the safe per-locale admission plan for a completed deploy run.
  *
- * The aggregate workflow_run conclusion is intentionally not the admission
- * signal: matrix legs are independently observable. A locale enters
+ * Matrix legs are independently observable, but a new SEO snapshot is
+ * publishable only when every locale has a proven handoff. A locale enters
  * `healthyLocales` only when its job succeeded and its receipt proves the
- * exact build id, CDN ordering, and payload artifact. Every other locale is
- * explicitly classified as stale/last-known-good. IT remains mandatory
- * because it owns the Pages artifact and the shared CDN payload.
+ * exact build id, CDN ordering, and payload artifact; a non-IT source-ready
+ * receipt enters `tailLocales` until the post-build shard tail completes.
+ * Keeping an old locale shard beside a new IT snapshot breaks the cross-locale
+ * hreflang graph, so stale/partial plans are diagnostics and recovery inputs,
+ * never publish admission.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -20,7 +22,7 @@ import {
 } from './locale-publish-provenance.mjs';
 
 const TERMINAL_CONCLUSIONS = new Set(['success', 'failure', 'cancelled', 'skipped', 'timed_out', 'action_required', 'stale', 'neutral']);
-const ADMISSIBLE_RUN_CONCLUSIONS = new Set(['success', 'failure', 'cancelled']);
+const ADMISSIBLE_RUN_CONCLUSIONS = new Set(['success']);
 const PREREQUISITE_NAMES = Object.freeze([
   'validate production promotion trigger',
   'matrix-setup',
@@ -103,7 +105,15 @@ function byLocale(manifests) {
   return { map, errors };
 }
 
-function blockedPlan({ runConclusion, sourceRunId, sourceSha, reasons, staleReasons = {} }) {
+function blockedPlan({
+  runConclusion,
+  sourceRunId,
+  sourceSha,
+  reasons,
+  staleReasons = {},
+  recoveryRequired = false,
+  legacySourceLocales = [],
+}) {
   return {
     allowed: false,
     mode: 'blocked',
@@ -113,7 +123,8 @@ function blockedPlan({ runConclusion, sourceRunId, sourceSha, reasons, staleReas
     buildId: '',
     healthyLocales: [],
     tailLocales: [],
-    recoveryRequired: false,
+    recoveryRequired,
+    legacySourceLocales,
     staleLocales: LOCALES.slice(),
     staleReasons,
     reason: reasons.join('; ') || 'no locale publish plan was admissible',
@@ -256,11 +267,29 @@ export function resolveLocalePublishPlan({
     reasons.push('IT provenance is missing, invalid, or skewed; refusing all publish side effects');
   }
 
-  if (reasons.length) {
-    return blockedPlan({ runConclusion: conclusion, sourceRunId: runId, sourceSha: sha, reasons, staleReasons });
+  // A non-IT source-ready receipt is not live yet, but it is a complete input
+  // for the deferred tail. Anything outside the union of healthy + tail
+  // locales means the new snapshot cannot produce a complete hreflang graph.
+  const sourceReadyLocales = new Set([...healthyLocales, ...tailLocales]);
+  const sourceIncompleteLocales = LOCALES.filter((locale) => !sourceReadyLocales.has(locale));
+  if (sourceIncompleteLocales.length) {
+    reasons.push(`source locale handoff is incomplete for ${sourceIncompleteLocales.join(', ')}; refusing publish`);
   }
 
-  const recoveryRequired = healthyLocales.includes('it') && legacySourceLocales.length > 0;
+  const recoveryRequired = legacySourceLocales.length > 0;
+
+  if (reasons.length) {
+    return blockedPlan({
+      runConclusion: conclusion,
+      sourceRunId: runId,
+      sourceSha: sha,
+      reasons,
+      staleReasons,
+      recoveryRequired,
+      legacySourceLocales,
+    });
+  }
+
   const recoveryReason = recoveryRequired
     ? `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; dispatch a current build to replay the split handoff`
     : '';
