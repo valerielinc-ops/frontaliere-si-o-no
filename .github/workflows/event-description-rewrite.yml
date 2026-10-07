@@ -24,7 +24,7 @@ on:
         description: 'Requested maximum events per shard (adaptive).'
         required: false
         default: '40'
-        type: number
+        type: string
 
 concurrency:
   group: event-description-rewrite

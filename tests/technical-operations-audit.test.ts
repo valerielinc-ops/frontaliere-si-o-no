@@ -37,6 +37,17 @@ describe('technical operations audit', () => {
     expect(cronError('0 5 ? * *')).toMatch(/non valido/);
   });
 
+  it('mantiene osservabile il contratto del planner di riscrittura eventi', () => {
+    const file = '.github/workflows/event-description-rewrite.yml';
+    const source = fs.readFileSync(path.resolve(file), 'utf8');
+    const findings = auditWorkflowText(file, source, { root: path.resolve('.') });
+
+    expect(findings.filter((item: any) => [
+      'workflow.input-type',
+      'workflow.output-not-produced',
+    ].includes(item.rule))).toEqual([]);
+  });
+
   it('instrada solo gli errori provati verso il fixer bounded', () => {
     const metadata = availableL11Metadata();
     expect(auditIssueRouting({ error: 1, warning: 4 }, metadata)).toEqual({
