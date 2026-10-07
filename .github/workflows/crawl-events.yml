@@ -158,18 +158,18 @@ jobs:
             echo "::error::Unable to fetch the stable events refresh branch"
             exit 1
           fi
-          for path in \
+          # Restore only blobs present in the pending branch. A directory
+          # restore would also delete files added to current main after that
+          # branch was created, turning stale branch absence into data loss.
+          bash scripts/lib/restore-stable-refresh-files.sh \
+            "refs/remotes/origin/${branch}" \
             data/events.json \
             public/data/events.json \
             data/events-geocode-cache.json \
             data/events-translation-cache.json \
             data/events-image-manifest.json \
             data/events/by-source/ \
-            data/events/checkpoints/; do
-            if git cat-file -e "refs/remotes/origin/${branch}:${path}" 2>/dev/null; then
-              git restore --source="refs/remotes/origin/${branch}" -- "$path"
-            fi
-          done
+            data/events/checkpoints/
 
       - name: Validate targeted source inputs
         env:

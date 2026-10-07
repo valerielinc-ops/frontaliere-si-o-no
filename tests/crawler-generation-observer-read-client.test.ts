@@ -96,10 +96,11 @@ describe('GitHub Actions read-only client', () => {
 // into a retried "transport" failure. Both site copies are exercised: the
 // `.github/corpus-workflows` one is the `identical` source that descends to the
 // corpus as `scripts/ci/lib/github-actions-read-client.mjs`.
-describe.each([
+for (const [label, load] of [
   ['scripts/lib', () => import('../scripts/lib/github-actions-read-client.mjs')],
   ['corpus-workflows observer copy', () => import('../.github/corpus-workflows/observers/scripts/lib/github-actions-read-client.mjs')],
-])('releaseLock() that throws is non-fatal (%s)', (_label, load) => {
+]) {
+  describe(`releaseLock() that throws is non-fatal (${label})`, () => {
   function responseWithThrowingRelease(chunks: number[][]) {
     const queue = chunks.map((chunk) => Uint8Array.from(chunk));
     let cancelled = false;
@@ -275,10 +276,45 @@ describe.each([
   });
 
   it('refuses a chunk that is not bytes without retrying it', async () => {
-    const { response, calls } = trackedResponse(['{"ok":1}' as unknown as ArrayBufferView]);
+    const cancel = vi.fn().mockResolvedValue(undefined);
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '{"ok":1}' }),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader), cancel: vi.fn() },
+    };
     const { result, fetchImpl } = await readWith(load, response, 64);
     await expect(result).rejects.toThrow(/github_api_invalid/);
     expect(fetchImpl).toHaveBeenCalledTimes(1);
-    expect(calls.released).toBe(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
   });
-});
+
+  it('keeps the invalid-chunk verdict when reader cancellation throws', async () => {
+    const cancel = vi.fn().mockRejectedValue(new Error('cancel failed'));
+    const releaseLock = vi.fn();
+    const reader = {
+      read: vi.fn().mockResolvedValue({ done: false, value: '{"ok":1}' }),
+      cancel,
+      releaseLock,
+    };
+    const response = {
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      body: { getReader: vi.fn(() => reader), cancel: vi.fn() },
+    };
+    const { result, fetchImpl } = await readWith(load, response, 64);
+    await expect(result).rejects.toThrow(/github_api_invalid/);
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(cancel).toHaveBeenCalledTimes(1);
+    expect(releaseLock).toHaveBeenCalledTimes(1);
+  });
+  });
+}

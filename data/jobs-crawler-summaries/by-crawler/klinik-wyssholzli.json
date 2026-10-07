@@ -1,18 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-06T09:36:26.988Z",
+  "generatedAt": "2026-10-06T21:30:59.510Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 2660,
-  "avgDurationMs": 2660,
+  "unchangedCount": 2,
+  "durationMs": 3710,
+  "avgDurationMs": 3710,
   "durationHistory": [
-    2660
+    3710
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -60,6 +60,49 @@
       }
     },
     {
+      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
+      "slug": "terapeuta-del-movimento-koerper-01-01-2027-60-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
+      },
+      "id": "klinik-wyssholzli-9eb3b2cca6b8",
+      "firstSeenAt": "2026-09-30T21:26:48.276Z",
+      "salaryMin": 51000,
+      "salaryMax": 71400,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
       "title": "Praktikantin 2025",
       "slug": "pratica-2025-klinik-wyssholzli-herzogenbuchsee",
       "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Praktikantin_2025.pdf",
@@ -94,11 +137,11 @@
       "salaryMax": 119000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     }
@@ -189,50 +232,7 @@
         "translation": 21,
         "completeness": 20
       }
-    },
-    {
-      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
-      "slug": "terapeuta-del-movimento-koerper-01-01-2027-60-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
-      },
-      "id": "klinik-wyssholzli-9eb3b2cca6b8",
-      "firstSeenAt": "2026-09-30T21:26:48.276Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

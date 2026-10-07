@@ -69,7 +69,7 @@ describe('isCantonCorpusPath', () => {
   });
 
   it('keeps every file of the two historical sections', () => {
-    for (const e of Object.values(ARTICLE_SECTION_CORE)) {
+    for (const e of Object.values(ARTICLE_SECTION_CORE).filter((entry) => entry.kind !== 'canton')) {
       expect(isCantonCorpusPath(`${e.bodyDir}/it/x.ts`)).toBe(false);
       expect(isCantonCorpusPath(`${e.metaPrefix}-it.ts`)).toBe(false);
     }

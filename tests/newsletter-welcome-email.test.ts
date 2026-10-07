@@ -30,6 +30,8 @@ const bridgeEmailCascadeCredentialsToEnvMock = vi.fn(async () => {});
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: (...args: unknown[]) => getRemoteConfigValueMock(...args),
   getNewsletterSecrets: (...args: unknown[]) => getNewsletterSecretsMock(...args),
+  getNewsletterTokenPolicyConfig: async () => ({}),
+  getNewsletterConfirmationCopyConfig: async () => ({ NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: '0' }),
   bridgeEmailCascadeCredentialsToEnv: (...args: unknown[]) => bridgeEmailCascadeCredentialsToEnvMock(...args),
 }));
 

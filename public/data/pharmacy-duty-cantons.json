@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T19:07:57.792Z",
+  "generatedAt": "2026-10-07T00:42:24.752Z",
   "windowDays": 7,
   "dutyHubPath": "/farmacie-di-turno/",
   "cantons": {
@@ -9,7 +9,7 @@
         "TI"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-06T19:07:07.959Z",
+      "fetchedAt": "2026-10-07T00:41:36.651Z",
       "sourceUrl": "https://www.ofct.ch/farmacieturno/",
       "sourceType": "official",
       "duties": [
@@ -111,19 +111,10 @@
         "GE"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-06T19:07:56.214Z",
+      "fetchedAt": "2026-10-07T00:42:23.283Z",
       "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
       "sourceType": "association",
       "duties": [
-        {
-          "pharmacy": "pharma24",
-          "city": "Genève",
-          "coverageName": "Genève",
-          "dutyType": "24h",
-          "startsAt": "2026-10-05T22:00:00.000Z",
-          "endsAt": "2026-10-06T22:00:00.000Z",
-          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
-        },
         {
           "pharmacy": "pharma24",
           "city": "Genève",
@@ -185,6 +176,15 @@
           "dutyType": "24h",
           "startsAt": "2026-10-12T22:00:00.000Z",
           "endsAt": "2026-10-13T22:00:00.000Z",
+          "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
+        },
+        {
+          "pharmacy": "pharma24",
+          "city": "Genève",
+          "coverageName": "Genève",
+          "dutyType": "24h",
+          "startsAt": "2026-10-13T22:00:00.000Z",
+          "endsAt": "2026-10-14T22:00:00.000Z",
           "sourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/"
         }
       ],
@@ -206,19 +206,10 @@
         "BS"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-06T19:07:57.792Z",
+      "fetchedAt": "2026-10-07T00:42:24.752Z",
       "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt",
       "sourceType": "official",
       "duties": [
-        {
-          "pharmacy": "24 Stunden Apotheke Basel AG",
-          "city": "Basel",
-          "coverageName": "Basilea Città",
-          "dutyType": "24h",
-          "startsAt": "2026-10-05T22:00:00.000Z",
-          "endsAt": "2026-10-06T22:00:00.000Z",
-          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
-        },
         {
           "pharmacy": "24 Stunden Apotheke Basel AG",
           "city": "Basel",
@@ -280,6 +271,15 @@
           "dutyType": "24h",
           "startsAt": "2026-10-12T22:00:00.000Z",
           "endsAt": "2026-10-13T22:00:00.000Z",
+          "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
+        },
+        {
+          "pharmacy": "24 Stunden Apotheke Basel AG",
+          "city": "Basel",
+          "coverageName": "Basilea Città",
+          "dutyType": "24h",
+          "startsAt": "2026-10-13T22:00:00.000Z",
+          "endsAt": "2026-10-14T22:00:00.000Z",
           "sourceUrl": "https://www.bs.ch/gd/md/hoheitliche-funktionen/kantonsapothekerin/liste-der-apotheken-basel-stadt"
         }
       ],
@@ -290,19 +290,10 @@
         "ZH"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-06T19:07:57.792Z",
+      "fetchedAt": "2026-10-07T00:42:24.752Z",
       "sourceUrl": "https://www.avkz.ch/notfalldienst",
       "sourceType": "association",
       "duties": [
-        {
-          "pharmacy": "Bellevue Apotheke",
-          "city": "Zürich",
-          "coverageName": "Zurigo",
-          "dutyType": "24h",
-          "startsAt": "2026-10-05T22:00:00.000Z",
-          "endsAt": "2026-10-06T22:00:00.000Z",
-          "sourceUrl": "https://www.avkz.ch/notfalldienst"
-        },
         {
           "pharmacy": "Bellevue Apotheke",
           "city": "Zürich",
@@ -365,6 +356,15 @@
           "startsAt": "2026-10-12T22:00:00.000Z",
           "endsAt": "2026-10-13T22:00:00.000Z",
           "sourceUrl": "https://www.avkz.ch/notfalldienst"
+        },
+        {
+          "pharmacy": "Bellevue Apotheke",
+          "city": "Zürich",
+          "coverageName": "Zurigo",
+          "dutyType": "24h",
+          "startsAt": "2026-10-13T22:00:00.000Z",
+          "endsAt": "2026-10-14T22:00:00.000Z",
+          "sourceUrl": "https://www.avkz.ch/notfalldienst"
         }
       ],
       "unresolvedDuties": 0
@@ -374,7 +374,7 @@
         "SO"
       ],
       "state": "fresh",
-      "fetchedAt": "2026-10-06T19:07:57.792Z",
+      "fetchedAt": "2026-10-07T00:42:24.752Z",
       "sourceUrl": "https://avso.ch/notfalldienst-apotheken/",
       "sourceType": "association",
       "duties": [

@@ -74,6 +74,15 @@ function copyOfChunk(value) {
   throw new GitHubActionsReadError('github_api_invalid', 'response chunk is not bytes');
 }
 
+/**
+ * Best-effort cleanup after a reader error. A rejected `reader.read()` may
+ * already have errored the stream, but cancelling it is harmless; neither a
+ * rejected cancellation nor a successful one may replace the read verdict.
+ */
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 async function readBoundedResponse(response, maxBytes) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > maxBytes) {
@@ -90,11 +99,13 @@ async function readBoundedResponse(response, maxBytes) {
       const chunk = copyOfChunk(value);
       size += chunk.byteLength;
       if (size > maxBytes) {
-        try { await reader.cancel(); } catch { /* the cap remains authoritative */ }
         throw new GitHubActionsReadError('github_response_too_large');
       }
       chunks.push(chunk);
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older
     // WHATWG streams and polyfilled bodies throw from releaseLock() (pending

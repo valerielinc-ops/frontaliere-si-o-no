@@ -1,7 +1,7 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-10-06T09:14:42.311Z",
+  "generatedAt": "2026-10-06T21:13:20.273Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5414,
-  "avgDurationMs": 5414,
+  "durationMs": 5292,
+  "avgDurationMs": 5292,
   "durationHistory": [
-    5414
+    5292
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:14:29.563Z",
+      "crawledAt": "2026-10-06T21:13:10.251Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:14:28.897Z",
+      "crawledAt": "2026-10-06T21:13:09.569Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/09/Inserat-MPA-Patientenmanagement-50-60.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:14:28.211Z",
+      "crawledAt": "2026-10-06T21:13:08.861Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -152,5 +152,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

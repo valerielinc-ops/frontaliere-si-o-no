@@ -1,7 +1,7 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-10-06T09:13:59.011Z",
+  "generatedAt": "2026-10-06T21:13:43.519Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4798,
-  "avgDurationMs": 4798,
+  "durationMs": 4214,
+  "avgDurationMs": 4214,
   "durationHistory": [
-    4798
+    4214
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:13:41.433Z",
+      "crawledAt": "2026-10-06T21:13:28.595Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

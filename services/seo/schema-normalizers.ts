@@ -5,6 +5,7 @@ import {
  SITE_URL,
  TICINO_CUSTOMS_DEPARTMENT_ID,
  TICINO_CUSTOMS_DEPARTMENT_NAME,
+ stableOrganizationId,
  WEBSITE_ID,
 } from './organizationLd';
 import { isSiteOrganizationCreator } from './imageObjectLd';
@@ -142,6 +143,14 @@ function normalizeSchemaObject(record: Record<string, any>): Record<string, any>
  if (isSiteOrganizationCreator(record)) {
   record['@type'] = ORGANIZATION_LD['@type'];
   record['@id'] = ORGANIZATION_ID;
+ }
+
+ // Repeated external organizations (for example image credits and nursing
+ // employer lists) often have only a name. Give those nodes one deterministic
+ // identity while preserving every explicit foreign @id above.
+ if (isSchemaType(record, 'Organization')) {
+  const stableId = stableOrganizationId(record);
+  if (stableId) record['@id'] = stableId;
  }
 
  if (isSchemaType(record, 'Dataset') && !record.license) {

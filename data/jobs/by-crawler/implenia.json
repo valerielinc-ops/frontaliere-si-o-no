@@ -1,6 +1,6 @@
 {
   "crawlerKey": "implenia",
-  "assembledAt": "2026-10-06T09:32:29.713Z",
+  "assembledAt": "2026-10-06T21:33:05.336Z",
   "jobs": [
     {
       "id": "implenia-75dec3d993b0",
@@ -17,7 +17,7 @@
       "title": "Senior Cost Manager (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
         "it": "Senior Cost Manager (m/f/d), Opfikon, 80-100 %",
-        "en": "Senior Cost Manager (m/f/d), Opfikon, 80-100 %",
+        "en": "Senior Cost Manager (m/w/d), Opfikon, 80-100%",
         "de": "Senior Cost Manager (m/w/d), Opfikon, 80-100%",
         "fr": "Gestionnaire principal des coûts (h/f/d), Opfikon, 80-100 %"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Cost-Manager-%28mwd%29%2C-Opfikon%2C-80-100/13859-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:20.797Z",
+      "crawledAt": "2026-10-06T21:32:59.018Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -54,6 +54,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-05T21:41:01.453Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -145,7 +146,8 @@
           "maxValue": 102200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-dca8c77c909a",
@@ -218,7 +220,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-65d851a2fb12",
@@ -251,7 +254,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Bern%2C-50-100/13769-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:19.037Z",
+      "crawledAt": "2026-10-06T21:32:58.238Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -336,7 +339,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Bern%2C-40-100/13831-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:18.427Z",
+      "crawledAt": "2026-10-06T21:32:57.487Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -399,7 +402,7 @@
       "companyDomain": "implenia.com",
       "title": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
       "titleByLocale": {
-        "it": "Azienda immobiliare (m/f/d), Wallisellen, 80-100 %",
+        "it": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
         "en": "Rental specialist real estate (m/f/d), Wallisellen, 80-100 %",
         "de": "Vermietungsspezialist Immobilien (m/w/d), Wallisellen, 80-100%",
         "fr": "Location immobilier spécialisé (h/f/d), Wallisellen, 80-100 %"
@@ -416,7 +419,7 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Wallisellen%2C-80-100/13750-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:17.533Z",
+      "crawledAt": "2026-10-06T21:32:56.449Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -456,6 +459,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:22:23.388Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -501,7 +505,7 @@
       "url": "https://jobs.implenia.com/job/ERP-Application-Specialist-%28mwd%29-80-100%2C-Opfikon/13672-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:17.039Z",
+      "crawledAt": "2026-10-06T21:32:55.876Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -562,7 +566,7 @@
       "title": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
       "titleByLocale": {
         "it": "Gestione applicazioni SAP SD (m/f/d) 80-100%, Opfikon",
-        "en": "Application Manager SAP SD (m/f/d) 80-100%, Opfikon",
+        "en": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
         "de": "Application Manager SAP SD (m/w/d) 80-100%, Opfikon",
         "fr": "Gestionnaire d'applications SAP SD (h/f/d) 80-100%, Opfikon"
       },
@@ -578,7 +582,7 @@
       "url": "https://jobs.implenia.com/job/Application-Manager-SAP-SD-%28mwd%29-80-100%2C-Opfikon/13697-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:16.861Z",
+      "crawledAt": "2026-10-06T21:32:55.599Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -610,6 +614,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:48:45.409Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -655,7 +660,7 @@
       "url": "https://jobs.implenia.com/job/Vermietungsspezialist-Immobilien-%28mwd%29%2C-Olten%2C-100/13817-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:16.277Z",
+      "crawledAt": "2026-10-06T21:32:54.906Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "",
@@ -735,7 +740,7 @@
       "url": "https://jobs.implenia.com/job/G%C3%A9rant-%28hfx%29%2C-Neuch%C3%A2tel%2C-90/13843-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:32:15.570Z",
+      "crawledAt": "2026-10-06T21:32:54.103Z",
       "addressLocality": "Rue Saint-Honoré 2 Case postale-2000 Neuchâtel",
       "postalCode": "2000",
       "streetAddress": "",
@@ -821,7 +826,7 @@
       "url": "https://jobs.implenia.com/job/Gesamtplanungsleiter-%28wmd%29/13518-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:14.773Z",
+      "crawledAt": "2026-10-06T21:32:47.473Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -916,7 +921,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Umbau-%28wmd%29/10421-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:14.473Z",
+      "crawledAt": "2026-10-06T21:32:47.201Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -994,7 +999,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Umbau-%28wmd%29-Z%C3%BCrich/13438-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:14.212Z",
+      "crawledAt": "2026-10-06T21:32:45.639Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1074,7 +1079,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-GUTU-Z%C3%BCrich-%28wmd%29/13772-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:13.931Z",
+      "crawledAt": "2026-10-06T21:32:45.343Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1156,7 +1161,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Neubau-Gisikon-%28wmd%29/13685-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:13.662Z",
+      "crawledAt": "2026-10-06T21:32:45.162Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -1290,7 +1295,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-2c40cca21778",
@@ -1323,7 +1329,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-HLKS-f%C3%BCr-Datacenter-%28wmd%29/13777-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:13.065Z",
+      "crawledAt": "2026-10-06T21:32:49.400Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1403,7 +1409,7 @@
       "url": "https://jobs.implenia.com/job/%28Junior%29-Immobilienbewirtschafter-%28mwd%29%2C-Wallisellen%2C-80-100/13751-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:12.470Z",
+      "crawledAt": "2026-10-06T21:32:48.644Z",
       "addressLocality": "Wallisellen",
       "postalCode": "8304",
       "streetAddress": "Industriestrasse 43",
@@ -1483,7 +1489,7 @@
       "url": "https://jobs.implenia.com/job/Planungsleiter-Datacenter-%28wmd%29/13773-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:12.016Z",
+      "crawledAt": "2026-10-06T21:32:47.651Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1612,7 +1618,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-0837b16de240",
@@ -1635,17 +1642,17 @@
       },
       "description": "Du möchtest Sanitärprojekte nicht nur begleiten, sondern von der Idee bis zur erfolgreichen Umsetzung verantworten? Dann bring dein Know-how bei Planovita in Opfikon als Projektleiter Sanitär (m/w/d) ein.\n\nAufgaben\n\nWelche Aufgaben erwarten dich als Projektleiter Sanitär (m/w/d)?\n\n• Projektierung, Devisierung und Ausführungsplanung von Sanitäranlagen\n\n• Vorbereitung von Schemas und Submissionen und Erstellung von Berechnungen\n\n• Fachbauleitung und Begleitung der Projekte während der Ausführung\n\n• Koordination des Planungsteams in den jeweiligen Projektphasen\n\n• Zusammenarbeit mit Bauherrschaften, GU/TU, Architekten und Fachplanenden sowie Leitung von Projektsitzungen\n\n• Sicherstellung von Qualität, Kosten und Terminen über alle Projektphasen hinweg\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als Projektleiter Sanitär (m/w/d)?\n\n• Ausbildung als Techniker (m/w/d) HF/TS oder mehrjährige Berufserfahrung in einer adäquaten Position\n\n• Erfahrung in der Planung und Realisierung von Sanitärprojekten\n\n• Gute Kenntnisse in MS-Office, sowie CAD (Nova), idealerweise Erfahrung mit BIM\n\n• Selbstständige und strukturierte Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Projektbeteiligten\n\n• Sehr gute Deutschkenntnisse\n\n## Benefits\n\nWelche Benefits bieten wir dir als Projektleiter Sanitär (m/w/d)?\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Umfeld Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle und moderne Arbeitsmittel mit Homeoffice Möglichkei\n\nEine spannende Auswahl an Benefits:\n\n• Bis 40% Home-Office\n\n• 25 Tage Ferien und 9 bezahlte Brückentage (28 Tage für Kader Mitarbeitende, ab dem 50. Lebensjahr 30 Tage Ferien für alle Mitarbeitenden)\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\nWenn Du dich in dieser Beschreibung wiederfindest und Teil von Planovita werden möchtest, freuen wir uns auf deine Bewerbung.\n\n## Wie läuft der Bewerbungsprozess bei Planovita ab?\n\nBei Planovita erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Planovita schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Planovita ist Teil von Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com\n\nHerzlich willkommen bei Planovita!\nWir füllen Gebäudetechnikplanung mit Leben – smart, effizient, nachhaltig!\n\nUnser heutiges Unternehmen mit seinen rund 30 Mitarbeitenden kann auf eine vieljährige, bewegte Geschichte zurückblicken. Wobei Rückblicke eigentlich nicht unser Ding sind – wir sehen lieber nach vorne! Hierfür haben wir viele der klügsten und fortschrittlichsten Köpfe unserer Branche gewinnen können.\n\nHeute stehen wir für die kompetente Implementierung neuester Technologien, wie etwa BIM – alles im Geist der effizienten Nachhaltigkeit. Neben der Planungs- und Realisierungsphase berücksichtigen wir immer auch den optimierten Betrieb der Anlagen und Objekte.\n\nHier findest du spannende Hintergründe zu Planovita, deinem lebensnahen Fachplaner für Gebäudetechnik!\n\nWir bitten Personalvermittler, keine Lebensläufe einzureichen. Unaufgeforderte Einsendungen werden nicht berücksichtigt und stellen keinen Honoraranspruch dar.",
       "descriptionByLocale": {
-        "it": "Du möchtest Sanitärprojekte nicht nur begleiten, sondern von der Idee bis zur erfolgreichen Umsetzung verantworten? Dann bring dein Know-how bei Planovita in Opfikon als Projektleiter Sanitär (m/w/d) ein.\n\nAufgaben\n\nWelche Aufgaben erwarten dich als Projektleiter Sanitär (m/w/d)?\n\n• Projektierung, Devisierung und Ausführungsplanung von Sanitäranlagen\n\n• Vorbereitung von Schemas und Submissionen und Erstellung von Berechnungen\n\n• Fachbauleitung und Begleitung der Projekte während der Ausführung\n\n• Koordination des Planungsteams in den jeweiligen Projektphasen\n\n• Zusammenarbeit mit Bauherrschaften, GU/TU, Architekten und Fachplanenden sowie Leitung von Projektsitzungen\n\n• Sicherstellung von Qualität, Kosten und Terminen über alle Projektphasen hinweg\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als Projektleiter Sanitär (m/w/d)?\n\n• Ausbildung als Techniker (m/w/d) HF/TS oder mehrjährige Berufserfahrung in einer adäquaten Position\n\n• Erfahrung in der Planung und Realisierung von Sanitärprojekten\n\n• Gute Kenntnisse in MS-Office, sowie CAD (Nova), idealerweise Erfahrung mit BIM\n\n• Selbstständige und strukturierte Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Projektbeteiligten\n\n• Sehr gute Deutschkenntnisse\n\n## Benefits\n\nWelche Benefits bieten wir dir als Projektleiter Sanitär (m/w/d)?\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Umfeld Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle und moderne Arbeitsmittel mit Homeoffice Möglichkei\n\nEine spannende Auswahl an Benefits:\n\n• Bis 40% Home-Office\n\n• 25 Tage Ferien und 9 bezahlte Brückentage (28 Tage für Kader Mitarbeitende, ab dem 50. Lebensjahr 30 Tage Ferien für alle Mitarbeitenden)\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\nWenn Du dich in dieser Beschreibung wiederfindest und Teil von Planovita werden möchtest, freuen wir uns auf deine Bewerbung.\n\n## Wie läuft der Bewerbungsprozess bei Planovita ab?\n\nBei Planovita erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Planovita schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Planovita ist Teil von Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com\n\nHerzlich willkommen bei Planovita!\nWir füllen Gebäudetechnikplanung mit Leben – smart, effizient, nachhaltig!\n\nUnser heutiges Unternehmen mit seinen rund 30 Mitarbeitenden kann auf eine vieljährige, bewegte Geschichte zurückblicken. Wobei Rückblicke eigentlich nicht unser Ding sind – wir sehen lieber nach vorne! Hierfür haben wir viele der klügsten und fortschrittlichsten Köpfe unserer Branche gewinnen können.\n\nHeute stehen wir für die kompetente Implementierung neuester Technologien, wie etwa BIM – alles im Geist der effizienten Nachhaltigkeit. Neben der Planungs- und Realisierungsphase berücksichtigen wir immer auch den optimierten Betrieb der Anlagen und Objekte.\n\nHier findest du spannende Hintergründe zu Planovita, deinem lebensnahen Fachplaner für Gebäudetechnik!\n\nWir bitten Personalvermittler, keine Lebensläufe einzureichen. Unaufgeforderte Einsendungen werden nicht berücksichtigt und stellen keinen Honoraranspruch dar.",
-        "en": "Du möchtest Sanitärprojekte nicht nur begleiten, sondern von der Idee bis zur erfolgreichen Umsetzung verantworten? Dann bring dein Know-how bei Planovita in Opfikon als Projektleiter Sanitär (m/w/d) ein.\n\nAufgaben\n\nWelche Aufgaben erwarten dich als Projektleiter Sanitär (m/w/d)?\n\n• Projektierung, Devisierung und Ausführungsplanung von Sanitäranlagen\n\n• Vorbereitung von Schemas und Submissionen und Erstellung von Berechnungen\n\n• Fachbauleitung und Begleitung der Projekte während der Ausführung\n\n• Koordination des Planungsteams in den jeweiligen Projektphasen\n\n• Zusammenarbeit mit Bauherrschaften, GU/TU, Architekten und Fachplanenden sowie Leitung von Projektsitzungen\n\n• Sicherstellung von Qualität, Kosten und Terminen über alle Projektphasen hinweg\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als Projektleiter Sanitär (m/w/d)?\n\n• Ausbildung als Techniker (m/w/d) HF/TS oder mehrjährige Berufserfahrung in einer adäquaten Position\n\n• Erfahrung in der Planung und Realisierung von Sanitärprojekten\n\n• Gute Kenntnisse in MS-Office, sowie CAD (Nova), idealerweise Erfahrung mit BIM\n\n• Selbstständige und strukturierte Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Projektbeteiligten\n\n• Sehr gute Deutschkenntnisse\n\n## Benefits\n\nWelche Benefits bieten wir dir als Projektleiter Sanitär (m/w/d)?\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Umfeld Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle und moderne Arbeitsmittel mit Homeoffice Möglichkei\n\nEine spannende Auswahl an Benefits:\n\n• Bis 40% Home-Office\n\n• 25 Tage Ferien und 9 bezahlte Brückentage (28 Tage für Kader Mitarbeitende, ab dem 50. Lebensjahr 30 Tage Ferien für alle Mitarbeitenden)\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\nWenn Du dich in dieser Beschreibung wiederfindest und Teil von Planovita werden möchtest, freuen wir uns auf deine Bewerbung.\n\n## Wie läuft der Bewerbungsprozess bei Planovita ab?\n\nBei Planovita erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Planovita schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Planovita ist Teil von Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com\n\nHerzlich willkommen bei Planovita!\nWir füllen Gebäudetechnikplanung mit Leben – smart, effizient, nachhaltig!\n\nUnser heutiges Unternehmen mit seinen rund 30 Mitarbeitenden kann auf eine vieljährige, bewegte Geschichte zurückblicken. Wobei Rückblicke eigentlich nicht unser Ding sind – wir sehen lieber nach vorne! Hierfür haben wir viele der klügsten und fortschrittlichsten Köpfe unserer Branche gewinnen können.\n\nHeute stehen wir für die kompetente Implementierung neuester Technologien, wie etwa BIM – alles im Geist der effizienten Nachhaltigkeit. Neben der Planungs- und Realisierungsphase berücksichtigen wir immer auch den optimierten Betrieb der Anlagen und Objekte.\n\nHier findest du spannende Hintergründe zu Planovita, deinem lebensnahen Fachplaner für Gebäudetechnik!\n\nWir bitten Personalvermittler, keine Lebensläufe einzureichen. Unaufgeforderte Einsendungen werden nicht berücksichtigt und stellen keinen Honoraranspruch dar.",
+        "it": "Non solo vuoi accompagnare i progetti di sanificazione, ma sono responsabili per loro dall'idea alla riuscita implementazione? Quindi porta il tuo know-how a Planovita in Opfikon come project manager sanitario (m/f/d).\n\nCompiti\n\nQuali compiti vi attendono come Project Manager Sanitary (m/f/d)?\n\n• Progettazione, progettazione e realizzazione di impianti sanitari\n\n• Preparazione di schemi e sottomissioni e preparazione di calcoli\n\n• Gestione e supporto dei progetti durante l'attuazione\n\n• Coordinamento del team di pianificazione nelle rispettive fasi di progetto\n\n• Collaborazione con i proprietari di edifici, GU/TU, architetti e progettisti specializzati e gestione di incontri di progetto\n\n• Garantire qualità, costi e scadenze in tutte le fasi del progetto\n\n## Requisiti\n\nQuali requisiti porti con te come project manager Sanitary (m/f/d)?\n\n• Formazione come tecnico (m/f/d) HF/TS o diversi anni di esperienza professionale in una posizione adeguata\n\n• Esperienza nella progettazione e realizzazione di progetti sanitari\n\n• Buona conoscenza di MS-Office, così come CAD (Nova), idealmente esperienza con BIM\n\n• Metodi di lavoro autonomi e strutturati\n\n• Godetevi il lavoro con diversi partecipanti al progetto\n\n• Molto buona conoscenza del tedesco\n\n## Vantaggi\n\nQuali vantaggi offriamo come Project Manager Sanitary (m/f/d)?\n\n• Un'attività eccitante e stimolante in un ambiente dinamico Un ambiente di lavoro multiculturale con la possibilità di plasmare un futuro degno di vivere in\n\n• Tecnologie all'avanguardia e un luogo di lavoro contemporaneo in un'azienda sostenibile\n\n• Una società che promuove il talento e la formazione dei propri dipendenti\n\n• La sicurezza di un gruppo finanziariamente sano con radici forti in Svizzera\n\n• Modelli di lavoro flessibili e attrezzature moderne di lavoro con ufficio domestico\n\nUna selezione emozionante di vantaggi:\n\n• Fino al 40% home office\n\n• 25 giorni festivi e 9 giorni ponte pagati (28 giorni per i dipendenti cadre, 30 giorni di vacanza per tutti i dipendenti dall'età di 50)\n\n• un fondo pensione interno con una copertura molto buona e 3 livelli di contributo\n\n• Eccellente assicurazione di viaggio per voi e coloro che vivono nella stessa famiglia\n\nSe ti trovi in questa descrizione e vuoi diventare parte di Planovita, non vediamo l'ora della tua applicazione.\n\n## Qual è il processo di applicazione a Planovita?\n\nA Planovita puoi aspettarti un processo di applicazione semplice e trasparente:\n\n• Applicazione online con CV\n\n• Chiamata iniziale personale per telefono, digitalmente o sul sito\n\n• Seconda riunione e fase di offerta\n\n## Che altro è importante per noi\n\nA Planovita, apprezziamo e viviamo la diversità. Il nostro processo di reclutamento mira quindi a promuovere la diversità, l'uguaglianza e l'inclusione.\n\n## Planovita fa parte di Implenia\n\nCome fornitore leader di servizi edili e immobiliari svizzeri, Implenia sviluppa, realizza e gestisce spazi abitativi, ambienti di lavoro e infrastrutture per le generazioni future in Svizzera e Germania. Implenia offre anche progetti di tunnelling e infrastrutture correlate in altri mercati. L'azienda combina il know-how di unità di consulenza, sviluppo, pianificazione e esecuzione altamente qualificate sotto un tetto in un fornitore di servizi di costruzione e immobiliare integrato, multinazionale leader. Con sede a Opfikon nei pressi di Zurigo, Implenia impiega oltre 8.000 persone (FTE) in tutta Europa e raggiunge un fatturato di 3,5 miliardi di franchi nel 2025. Maggiori informazioni su implenia.com\n\nBenvenuti a Planovita!\nRiempiamo la pianificazione della tecnologia di costruzione con la vita – intelligente, efficiente, sostenibile!\n\nLa nostra attuale società con i suoi circa 30 dipendenti può guardare indietro su una lunga, storia evento. Per cui le retrospettive non sono in realtà la nostra cosa – preferiamo guardare avanti! Abbiamo vinto molte delle menti più luminose e più avanzate del nostro settore.\n\nOggi siamo per l'implementazione competente delle ultime tecnologie, come BIM – tutto nello spirito di una sostenibilità efficiente. Oltre alla fase di progettazione e realizzazione, prendiamo sempre in considerazione il funzionamento ottimizzato delle piante e degli oggetti.\n\nQui troverete interessanti sfondi per Planovita, il vostro progettista specializzato per la costruzione della tecnologia!\n\nChiediamo ai reclutatori di non presentare i CV. Le richieste non richieste non sono considerate e non costituiscono un diritto a pagamento.",
+        "en": "Do you not only want to accompany sanitation projects, but are responsible for them from the idea to the successful implementation? Then bring your know-how to Planovita in Opfikon as project manager sanitary (m/f/d).\n\nTasks\n\nWhat tasks await you as Project Manager Sanitary (m/f/d)?\n\n• Project planning, devising and execution planning of sanitary facilities\n\n• Preparation of schemes and submissions and preparation of calculations\n\n• Project management and support during implementation\n\n• Coordination of the planning team in the respective project phases\n\n• Collaboration with building owners, GU/TU, architects and specialist planners as well as managing project meetings\n\n• Ensuring quality, costs and deadlines across all project phases\n\n## Requirements\n\nWhat requirements do you bring with you as project manager Sanitary (m/f/d)?\n\n• Training as a technician (m/f/d) HF/TS or several years of professional experience in an adequate position\n\n• Experience in planning and realizing sanitary projects\n\n• Good knowledge of MS-Office, as well as CAD (Nova), ideally experience with BIM\n\n• Self-employed and structured working methods\n\n• Enjoy working with different project participants\n\n• Very good knowledge of German\n\n## Benefits\n\nWhat benefits do we offer you as Project Manager Sanitary (m/f/d)?\n\n• An exciting and challenging activity in a dynamic environment A multicultural working environment with the chance to shape a future worth living in\n\n• State-of-the-art technologies and a contemporary workplace at a sustainable company\n\n• A company that promotes talent and the training of its employees\n\n• The security of a financially healthy, broad-based group with strong roots in Switzerland\n\n• Flexible working models and modern work equipment with home office\n\nAn exciting selection of benefits:\n\n• Up to 40% home office\n\n• 25 days holidays and 9 paid bridge days (28 days for cadre employees, 30 days holiday for all employees from the age of 50)\n\n• an in-house pension fund with very good coverage and 3 contribution levels\n\n• Excellent travel insurance for you and those living in the same household\n\nIf you find yourself in this description and want to become part of Planovita, we look forward to your application.\n\n## What is the application process at Planovita?\n\nAt Planovita you can expect a simple and transparent application process:\n\n• Online application with CV\n\n• Personal initial call by telephone, digitally or on site\n\n• Second meeting and offer phase\n\n## What else is important to us\n\nAt Planovita, we value and live diversity. Our recruitment process is therefore aimed at promoting diversity, equality and inclusion.\n\n## Planovita is part of Implenia\n\nAs a leading Swiss construction and real estate service provider, Implenia develops, realizes and manages living spaces, working environments and infrastructure for future generations in Switzerland and Germany. Implenia also offers tunnelling and related infrastructure projects in other markets. The company combines the know-how of highly qualified consulting, development, planning and execution units under one roof into an integrated, multinationally leading construction and real estate service provider. Headquartered in Opfikon near Zurich, Implenia employs more than 8,000 people (FTE) across Europe and achieved a turnover of CHF 3.5 billion in 2025. More information at implenia.com\n\nWelcome to Planovita!\nWe fill building technology planning with life – smart, efficient, sustainable!\n\nOur current company with its approximately 30 employees can look back on a long, eventful history. Whereby retrospectives are actually not our thing – we prefer to look forward! We have won many of the brightest and most advanced minds in our industry.\n\nToday we stand for the competent implementation of the latest technologies, such as BIM – all in the spirit of efficient sustainability. In addition to the planning and realization phase, we always take into account the optimized operation of the plants and objects.\n\nHere you will find exciting backgrounds to Planovita, your life-like specialist planner for building technology!\n\nWe ask recruiters not to submit CVs. Unsolicited submissions are not considered and do not constitute a fee entitlement.",
         "de": "Du möchtest Sanitärprojekte nicht nur begleiten, sondern von der Idee bis zur erfolgreichen Umsetzung verantworten? Dann bring dein Know-how bei Planovita in Opfikon als Projektleiter Sanitär (m/w/d) ein.\n\nAufgaben\n\nWelche Aufgaben erwarten dich als Projektleiter Sanitär (m/w/d)?\n\n• Projektierung, Devisierung und Ausführungsplanung von Sanitäranlagen\n\n• Vorbereitung von Schemas und Submissionen und Erstellung von Berechnungen\n\n• Fachbauleitung und Begleitung der Projekte während der Ausführung\n\n• Koordination des Planungsteams in den jeweiligen Projektphasen\n\n• Zusammenarbeit mit Bauherrschaften, GU/TU, Architekten und Fachplanenden sowie Leitung von Projektsitzungen\n\n• Sicherstellung von Qualität, Kosten und Terminen über alle Projektphasen hinweg\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als Projektleiter Sanitär (m/w/d)?\n\n• Ausbildung als Techniker (m/w/d) HF/TS oder mehrjährige Berufserfahrung in einer adäquaten Position\n\n• Erfahrung in der Planung und Realisierung von Sanitärprojekten\n\n• Gute Kenntnisse in MS-Office, sowie CAD (Nova), idealerweise Erfahrung mit BIM\n\n• Selbstständige und strukturierte Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Projektbeteiligten\n\n• Sehr gute Deutschkenntnisse\n\n## Benefits\n\nWelche Benefits bieten wir dir als Projektleiter Sanitär (m/w/d)?\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Umfeld Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle und moderne Arbeitsmittel mit Homeoffice Möglichkei\n\nEine spannende Auswahl an Benefits:\n\n• Bis 40% Home-Office\n\n• 25 Tage Ferien und 9 bezahlte Brückentage (28 Tage für Kader Mitarbeitende, ab dem 50. Lebensjahr 30 Tage Ferien für alle Mitarbeitenden)\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\nWenn Du dich in dieser Beschreibung wiederfindest und Teil von Planovita werden möchtest, freuen wir uns auf deine Bewerbung.\n\n## Wie läuft der Bewerbungsprozess bei Planovita ab?\n\nBei Planovita erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Planovita schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Planovita ist Teil von Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com\n\nHerzlich willkommen bei Planovita!\nWir füllen Gebäudetechnikplanung mit Leben – smart, effizient, nachhaltig!\n\nUnser heutiges Unternehmen mit seinen rund 30 Mitarbeitenden kann auf eine vieljährige, bewegte Geschichte zurückblicken. Wobei Rückblicke eigentlich nicht unser Ding sind – wir sehen lieber nach vorne! Hierfür haben wir viele der klügsten und fortschrittlichsten Köpfe unserer Branche gewinnen können.\n\nHeute stehen wir für die kompetente Implementierung neuester Technologien, wie etwa BIM – alles im Geist der effizienten Nachhaltigkeit. Neben der Planungs- und Realisierungsphase berücksichtigen wir immer auch den optimierten Betrieb der Anlagen und Objekte.\n\nHier findest du spannende Hintergründe zu Planovita, deinem lebensnahen Fachplaner für Gebäudetechnik!\n\nWir bitten Personalvermittler, keine Lebensläufe einzureichen. Unaufgeforderte Einsendungen werden nicht berücksichtigt und stellen keinen Honoraranspruch dar.",
-        "fr": "Du möchtest Sanitärprojekte nicht nur begleiten, sondern von der Idee bis zur erfolgreichen Umsetzung verantworten? Dann bring dein Know-how bei Planovita in Opfikon als Projektleiter Sanitär (m/w/d) ein.\n\nAufgaben\n\nWelche Aufgaben erwarten dich als Projektleiter Sanitär (m/w/d)?\n\n• Projektierung, Devisierung und Ausführungsplanung von Sanitäranlagen\n\n• Vorbereitung von Schemas und Submissionen und Erstellung von Berechnungen\n\n• Fachbauleitung und Begleitung der Projekte während der Ausführung\n\n• Koordination des Planungsteams in den jeweiligen Projektphasen\n\n• Zusammenarbeit mit Bauherrschaften, GU/TU, Architekten und Fachplanenden sowie Leitung von Projektsitzungen\n\n• Sicherstellung von Qualität, Kosten und Terminen über alle Projektphasen hinweg\n\n## Anforderungen\n\nWelche Anforderungen bringst du mit als Projektleiter Sanitär (m/w/d)?\n\n• Ausbildung als Techniker (m/w/d) HF/TS oder mehrjährige Berufserfahrung in einer adäquaten Position\n\n• Erfahrung in der Planung und Realisierung von Sanitärprojekten\n\n• Gute Kenntnisse in MS-Office, sowie CAD (Nova), idealerweise Erfahrung mit BIM\n\n• Selbstständige und strukturierte Arbeitsweise\n\n• Freude an der Zusammenarbeit mit verschiedenen Projektbeteiligten\n\n• Sehr gute Deutschkenntnisse\n\n## Benefits\n\nWelche Benefits bieten wir dir als Projektleiter Sanitär (m/w/d)?\n\n• Eine spannende und herausfordernde Tätigkeit in einem dynamischen Umfeld Ein multikulturelles Arbeitsumfeld mit der Chance, eine lebenswerte Zukunft mitzugestalten\n\n• Modernste Technologien und einen zeitgemässen Arbeitsplatz bei einem nachhaltigen Unternehmen\n\n• Ein Unternehmen, das Talente und die Weiterbildung seiner Mitarbeitenden fördert\n\n• Die Sicherheit eines finanziell gesunden, breit aufgestellten Konzerns mit starken Wurzeln in der Schweiz\n\n• Flexible Arbeitsmodelle und moderne Arbeitsmittel mit Homeoffice Möglichkei\n\nEine spannende Auswahl an Benefits:\n\n• Bis 40% Home-Office\n\n• 25 Tage Ferien und 9 bezahlte Brückentage (28 Tage für Kader Mitarbeitende, ab dem 50. Lebensjahr 30 Tage Ferien für alle Mitarbeitenden)\n\n• eine hauseigene Pensionskasse mit sehr gutem Deckungsgrad und 3 Beitragsstufen\n\n• eine hervorragende Reiseversicherung für dich und im gleichen Haushalt lebende Personen\n\nWenn Du dich in dieser Beschreibung wiederfindest und Teil von Planovita werden möchtest, freuen wir uns auf deine Bewerbung.\n\n## Wie läuft der Bewerbungsprozess bei Planovita ab?\n\nBei Planovita erwartet dich ein einfacher und transparenter Bewerbungsprozess:\n\n• Online-Bewerbung mit Lebenslauf\n\n• Persönliches Erstgespräch per Telefon, digital oder vor Ort\n\n• Zweitgespräch und Angebotsphase\n\n## Was uns noch wichtig ist\n\nBei Planovita schätzen und leben wir Diversität. Unser Rekrutierungsprozess ist daher auf die Förderung von Vielfalt, Gleichberechtigung und Inklusion ausgerichtet.\n\n## Planovita ist Teil von Implenia\n\nAls führender Schweizer Bau- und Immobiliendienstleister entwickelt, realisiert und bewirtschaftet Implenia Lebensräume, Arbeitswelten und Infrastruktur für künftige Generationen in der Schweiz und in Deutschland. Zudem bietet Implenia in weiteren Märkten Tunnelbau- und damit verbundene Infrastrukturprojekte. Das Unternehmen fasst das Know-how aus hochqualifizierten Beratungs-, Entwicklungs-, Planungs- und Ausführungseinheiten unter einem Dach zu einem integrierten, multinational führenden Bau- und Immobiliendienstleister zusammen. Mit Hauptsitz in Opfikon bei Zürich beschäftigt Implenia europaweit über 8 000 Mitarbeitende (FTE) und erzielte im Jahr 2025 einen Umsatz von CHF 3,5 Mrd. Weitere Informationen unter implenia .com\n\nHerzlich willkommen bei Planovita!\nWir füllen Gebäudetechnikplanung mit Leben – smart, effizient, nachhaltig!\n\nUnser heutiges Unternehmen mit seinen rund 30 Mitarbeitenden kann auf eine vieljährige, bewegte Geschichte zurückblicken. Wobei Rückblicke eigentlich nicht unser Ding sind – wir sehen lieber nach vorne! Hierfür haben wir viele der klügsten und fortschrittlichsten Köpfe unserer Branche gewinnen können.\n\nHeute stehen wir für die kompetente Implementierung neuester Technologien, wie etwa BIM – alles im Geist der effizienten Nachhaltigkeit. Neben der Planungs- und Realisierungsphase berücksichtigen wir immer auch den optimierten Betrieb der Anlagen und Objekte.\n\nHier findest du spannende Hintergründe zu Planovita, deinem lebensnahen Fachplaner für Gebäudetechnik!\n\nWir bitten Personalvermittler, keine Lebensläufe einzureichen. Unaufgeforderte Einsendungen werden nicht berücksichtigt und stellen keinen Honoraranspruch dar."
+        "fr": "Voulez-vous non seulement accompagner les projets d'assainissement, mais êtes-vous responsable de ceux-ci de l'idée à la mise en œuvre réussie? Apportez ensuite votre savoir-faire à Planovita à Opfikon en tant que chef de projet sanitaire (h/f/d).\n\nTâche\n\nQuelles tâches vous attendent en tant que Project Manager Sanitaire (h/f/d)?\n\n• Planification des projets, conception et exécution des installations sanitaires\n\n• Préparation des plans et des soumissions et des calculs\n\n• Gestion de projet et appui pendant la mise en œuvre\n\n• Coordination de l ' équipe de planification dans les différentes phases du projet\n\n• Collaboration avec les propriétaires de bâtiments, le GU/TU, les architectes et les planificateurs spécialisés ainsi que la gestion des réunions de projet\n\n• Assurer la qualité, les coûts et les délais pour toutes les phases du projet\n\n## Exigences\n\nQuelles exigences apportez-vous en tant que gestionnaire de projet Sanitaire (h/f/d)?\n\n• Formation comme technicien (h/f/d) HF/TS ou plusieurs années d'expérience professionnelle dans un poste adéquat\n\n• Expérience dans la planification et la réalisation de projets sanitaires\n\n• Bonne connaissance de MS-Office, ainsi que CAD (Nova), idéalement expérience avec BIM\n\n• Méthodes de travail indépendantes et structurées\n\n• Profitez de travailler avec différents participants au projet\n\n• Très bonne connaissance de l'allemand\n\n## Avantages\n\nQuels sont les avantages que nous vous offrons en tant que Project Manager Sanitaire (h/f/d)?\n\n• Une activité passionnante et stimulante dans un environnement dynamique Un environnement de travail multiculturel avec la chance de façonner un avenir digne de vivre\n\n• Des technologies de pointe et un lieu de travail contemporain dans une entreprise durable\n\n• Une entreprise qui promeut le talent et la formation de ses employés\n\n• La sécurité d'un groupe en bonne santé financière et à base large ayant de solides racines en Suisse\n\n• Modèles de travail flexibles et équipements de travail modernes avec bureau à domicile\n\nUne sélection passionnante de bénéfices:\n\n• Jusqu'à 40% de bureaux à domicile\n\n• 25 jours de congé et 9 jours de pont payés (28 jours pour les cadres, 30 jours de congé pour tous les salariés à partir de 50 ans)\n\n• un fonds de pension interne avec une très bonne couverture et 3 niveaux de cotisation\n\n• Excellente assurance voyage pour vous et ceux qui vivent dans le même ménage\n\nSi vous vous trouvez dans cette description et que vous souhaitez faire partie de Planovita, nous attendons avec impatience votre candidature.\n\n## Quel est le processus de demande à Planovita?\n\nChez Planovita vous pouvez vous attendre à un processus de demande simple et transparent:\n\n• Demande en ligne avec CV\n\n• Appel personnel initial par téléphone, numériquement ou sur place\n\n• Deuxième réunion et phase d ' offre\n\n## Ce qui est important pour nous\n\nChez Planovita, nous apprécions et vivons la diversité. Notre processus de recrutement vise donc à promouvoir la diversité, l'égalité et l'inclusion.\n\n## Planovita fait partie d'Implenia\n\nEn tant que premier fournisseur suisse de services immobiliers et de construction, Implenia développe, réalise et gère des espaces de vie, des environnements de travail et des infrastructures pour les générations futures en Suisse et en Allemagne. Implenia propose également des projets de tunnel et d'infrastructures connexes sur d'autres marchés. L'entreprise combine le savoir-faire d'unités hautement qualifiées de conseil, de développement, de planification et d'exécution sous un même toit en un fournisseur intégré de services immobiliers et de construction. Basée à Opfikon près de Zurich, Implenia emploie plus de 8 000 personnes (ETP) en Europe et a réalisé un chiffre d'affaires de 3,5 milliards de CHF en 2025. Plus d'informations sur implenia.com\n\nBienvenue à Planovita!\nNous remplissons la planification technologique de construction avec la vie – intelligente, efficace, durable!\n\nNotre entreprise actuelle, qui compte une trentaine d'employés, peut revenir sur une longue histoire mouvementée. Par où les rétrospectives ne sont pas notre chose – nous préférons regarder vers l'avenir! Nous avons gagné beaucoup des esprits les plus brillants et les plus avancés de notre industrie.\n\nAujourd'hui, nous sommes pour la mise en œuvre compétente des dernières technologies, telles que BIM, dans un esprit de durabilité efficace. En plus de la phase de planification et de réalisation, nous prenons toujours en compte le fonctionnement optimisé des plantes et des objets.\n\nIci, vous trouverez des milieux passionnants à Planovita, votre planificateur de la vie spécialiste pour la technologie de construction!\n\nNous demandons aux recruteurs de ne pas soumettre de CV. Les présentations non sollicitées ne sont pas considérées et ne constituent pas un droit."
       },
       "location": "Glattpark (Opfikon)",
       "canton": "ZH",
       "url": "https://jobs.implenia.com/job/Projektleiter-Sanit%C3%A4r-%28mwd%29%2C-Opfikon%2C-100/13680-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:11.644Z",
+      "crawledAt": "2026-10-06T21:32:46.923Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1676,7 +1683,6 @@
           "projektleiter-sanitar-m-w-d-opfikon-100-implenia-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T21:57:24.031Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -1723,7 +1729,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Angebot-und-Kostenplanung-Modernisation-%28wmd%29/13482-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:11.309Z",
+      "crawledAt": "2026-10-06T21:32:46.443Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1800,7 +1806,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Bauphysik-&-Nachhaltigkeit-%28mwd%29/13800-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:10.595Z",
+      "crawledAt": "2026-10-06T21:32:46.731Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1936,7 +1942,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-d30a6b60714a",
@@ -1969,7 +1976,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Baumeister-Neu-undoder-Umbau-%28wmd%29/11598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.850Z",
+      "crawledAt": "2026-10-06T21:32:46.027Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -2045,7 +2052,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-GUTU-Gisikon-%28wmd%29/12695-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.707Z",
+      "crawledAt": "2026-10-06T21:32:45.832Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -2121,7 +2128,7 @@
       "url": "https://jobs.implenia.com/job/Health-&-Safety-Supervisor-%28mwd%29/13776-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.461Z",
+      "crawledAt": "2026-10-06T21:32:43.015Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2195,7 +2202,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Value-Assurance-Specialist-%28mwd%29-80-100/13794-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.305Z",
+      "crawledAt": "2026-10-06T21:32:40.307Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2272,7 +2279,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Legal-Counsel-%28mwd%29-80-100/13724-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.162Z",
+      "crawledAt": "2026-10-06T21:32:40.881Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2349,7 +2356,7 @@
       "url": "https://jobs.implenia.com/job/IT-Business-Partner-Division-Civil-Engineering-%28mwd%29-80-100/13797-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:08.926Z",
+      "crawledAt": "2026-10-06T21:32:40.600Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2472,7 +2479,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:26:30.966Z"
+      "firstSeenAt": "2026-10-02T21:26:30.966Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -2489,7 +2497,7 @@
       "title": "Customer Consultant Bewirtschaftung (m/w/d), Winterthur, 60-100%",
       "titleByLocale": {
         "it": "Gestione del consulente clienti (m/f/d), Winterthur, 60-100 %",
-        "en": "Customer Consultant Management (m/f/d), Winterthur, 60-100 %",
+        "en": "Customer Consultant Bewirtschaftung (m/w/d), Winterthur, 60-100%",
         "de": "Customer Berater Bewirtschaftung (m/w/d), Winterthur, 60-100%",
         "fr": "Consultant client Gestion (h/f/d), Winterthur, 60-100 %"
       },
@@ -2505,7 +2513,7 @@
       "url": "https://jobs.implenia.com/job/Customer-Consultant-Bewirtschaftung-%28mwd%29%2C-Winterthur%2C-60-100/12689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:07.287Z",
+      "crawledAt": "2026-10-06T21:32:42.237Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -2534,6 +2542,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:28:38.754Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2553,9 +2562,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "initiativbewerbung-implenia-opfikon",
+        "en": "own-initiative-application-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "initiativbewerbung-implenia-ch"
+        "fr": "demande-d-initiative-implenia-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2579,7 +2588,7 @@
       "url": "https://jobs.implenia.com/job/Initiativbewerbung/12287-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:06.691Z",
+      "crawledAt": "2026-10-06T21:32:39.777Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -2609,9 +2618,11 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
+          "initiativbewerbung-implenia-opfikon",
           "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
+          "initiativbewerbung-implenia-ch",
           "demande-d-initiative-implenia-opfikon"
         ]
       },
@@ -2619,6 +2630,7 @@
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
+        "initiativbewerbung-implenia-opfikon",
         "own-initiative-application-implenia-opfikon",
         "demande-d-initiative-implenia-opfikon"
       ],
@@ -2668,7 +2680,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:06.463Z",
+      "crawledAt": "2026-10-06T21:32:39.594Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -2761,7 +2773,7 @@
       "url": "https://jobs.implenia.com/job/Vermarkter-CREM-%28mwd%29%2C-Opfikon%2C-Bern-80-100/13748-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:05.872Z",
+      "crawledAt": "2026-10-06T21:32:59.849Z",
       "addressLocality": "Laupenstrasse 19 Postfach-3001 Bern",
       "postalCode": "3004",
       "streetAddress": "",
@@ -2854,7 +2866,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiter-Elektro-%28mwd%29%2C-Gisikon%2C-80-100/13043-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:05.252Z",
+      "crawledAt": "2026-10-06T21:32:39.328Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -2933,7 +2945,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Elektroplanung-%28Gisikon-Opfikon-Bern%29/13041-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.968Z",
+      "crawledAt": "2026-10-06T21:32:59.296Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -3013,7 +3025,7 @@
       "url": "https://jobs.implenia.com/job/Sicherheitsw%C3%A4rter-Sicherheitschef/12496-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.811Z",
+      "crawledAt": "2026-10-06T21:32:38.989Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -3095,7 +3107,7 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Technisches-B%C3%BCro-80-100-%28wmd%29/12462-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.625Z",
+      "crawledAt": "2026-10-06T21:32:38.798Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -3172,7 +3184,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Projektleiterin-Spezialtiefbau%2C-80-100/11845-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.328Z",
+      "crawledAt": "2026-10-06T21:32:38.541Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -3265,7 +3277,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Elektrotechnik-%28wmd%29/13245-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.154Z",
+      "crawledAt": "2026-10-06T21:32:41.068Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3393,7 +3405,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-9e6a835a50f7",
@@ -3409,7 +3422,7 @@
       "companyDomain": "implenia.com",
       "title": "Kalkulator Holzbau, (m/w/d), 80-100%",
       "titleByLocale": {
-        "it": "Calcolatore Holzbau, (m/f/d), 80-100 %",
+        "it": "Kalkulator Holzbau, (m/w/d), 80-100%",
         "en": "Calculator Holzbau, (m/f/d), 80-100 %",
         "de": "Kalkulator Holzbau, (m/w/d), 80-100%",
         "fr": "Calculatrice Holzbau, (h/f/d), 80-100 %"
@@ -3426,7 +3439,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Holzbau%2C-%28mwd%29%2C-80-100/12872-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:03.050Z",
+      "crawledAt": "2026-10-06T21:32:40.034Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -3556,7 +3569,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-588e8da9b6c8",
@@ -3637,7 +3651,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-360bd1120c47",
@@ -3717,7 +3732,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-b37431587563",
@@ -3733,7 +3749,7 @@
       "companyDomain": "implenia.com",
       "title": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
-        "it": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
+        "it": "Costruzione logistica planner (m/f/d), Opfikon, 80-100 %",
         "en": "Construction logistics planner (m/f/d), Opfikon, 80-100 %",
         "de": "Baulogistikplaner (m/w/d), Opfikon, 80-100%",
         "fr": "Planificateur logistique de construction (h/f/d), Opfikon, 80-100 %"
@@ -3784,7 +3800,6 @@
           "baulogistikplaner-m-w-d-opfikon-80-100-implenia-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T21:57:24.384Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3798,7 +3813,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-8e19b606e044",
@@ -3878,7 +3894,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-6b906ce1c464",
@@ -3958,7 +3975,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-ff888470088e",
@@ -4040,7 +4058,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-f7cf53bd80cf",
@@ -4132,7 +4151,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-fd91e9705541",
@@ -4165,7 +4185,7 @@
       "url": "https://jobs.implenia.com/job/Zeichner-Baulogistik-%28mwd%29%2C-Opfikon%2C-80-100/13568-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:58.995Z",
+      "crawledAt": "2026-10-06T21:32:38.263Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4247,7 +4267,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ%2C-Feinarbeiten-Montage-Service%2C-80-100/12022-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:58.730Z",
+      "crawledAt": "2026-10-06T21:32:37.961Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -4324,7 +4344,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-%28mwd%29%2C-Gisikon%2C-80-100/12487-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:58.464Z",
+      "crawledAt": "2026-10-06T21:32:37.777Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4398,7 +4418,7 @@
       "url": "https://jobs.implenia.com/job/Vorarbeiter-Holzbau-%28mwd%29%2C-80-100/12920-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:57.576Z",
+      "crawledAt": "2026-10-06T21:32:37.502Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4423,7 +4443,8 @@
         "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4434,7 +4455,8 @@
           "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
         ],
         "en": [
-          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3"
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ],
         "fr": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
@@ -4486,7 +4508,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:57.303Z",
+      "crawledAt": "2026-10-06T21:32:37.210Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -4568,7 +4590,7 @@
       "url": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:57.143Z",
+      "crawledAt": "2026-10-06T21:32:36.945Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4647,7 +4669,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Kalkulation-Zentralschweiz-%28wmd%29%2C-80-100/12911-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:56.877Z",
+      "crawledAt": "2026-10-06T21:32:36.624Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4723,7 +4745,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Luzern-%28wmd%29/12839-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:56.636Z",
+      "crawledAt": "2026-10-06T21:32:36.336Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -4799,7 +4821,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:56.378Z",
+      "crawledAt": "2026-10-06T21:32:36.047Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4873,7 +4895,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ-%28mwd%29%2C-80-100/13057-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:56.192Z",
+      "crawledAt": "2026-10-06T21:32:35.724Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4930,7 +4952,7 @@
       "companyDomain": "implenia.com",
       "title": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
       "titleByLocale": {
-        "it": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
+        "it": "Project Engineer (m/f/d) Civil, Structural & Architectural - Data Center",
         "en": "Project Engineer (m/f/d) Civil, Structural & Architectural - Data Center",
         "de": "Projektingenieur (w/m/d) Civil, Structural & Architectural - Data Center",
         "fr": "Ingénieur de projet (h/f/d) Civil, structural et architectural - Data Center"
@@ -4967,7 +4989,6 @@
       "applyUrl": "https://jobs.implenia.com/job/Projektingenieur-%28wmd%29-Civil%2C-Structural-&-Architectural-Data-Center/13775-de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:05:12.736Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4982,7 +5003,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-c01c93b7fe3d",
@@ -5064,7 +5085,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-8541298e579f",
@@ -5080,7 +5101,7 @@
       "companyDomain": "implenia.com",
       "title": "Bau-/Projektleiter(w/m/d) für Hotelbau, Andermatt",
       "titleByLocale": {
-        "it": "Bau-/Projektleiter(w/m/d) per Hotelbau, Andermatt",
+        "it": "Responsabile Costruzioni/Progetto(m/f/d) per la Costruzione Alberghiera, Andermatt",
         "en": "Construction/project manager(m/f/d) for hotel construction, Andermatt",
         "de": "Bau-/Projektleiter(w/m/d) für Hotelbau, Andermatt",
         "fr": "Responsable de la construction/projet(h/f/d) pour la construction hôtelière, Andermatt"
@@ -5127,7 +5148,6 @@
           "bau-projektleiter-w-m-d-fur-hotelbau-andermatt-implenia-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T23:09:09.027Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -5142,7 +5162,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-96c78cc6e5a7",
@@ -5175,7 +5195,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-Baumeister-Aarau-%28mwd%29/11078-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:40:50.024Z",
+      "crawledAt": "2026-10-06T21:32:43.223Z",
       "addressLocality": "Aarau",
       "postalCode": "5000",
       "streetAddress": "",
@@ -5220,8 +5240,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-69a8937f3d84",
@@ -5254,7 +5273,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Tunnelbau-%28mwd%29-80-100/10973-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:40:48.816Z",
+      "crawledAt": "2026-10-06T21:32:43.505Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -5295,8 +5314,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-c5de849571f2",
@@ -5329,7 +5347,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Heizung-%28mwd%29%2C-Gisikon%2C-80-100/10333-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T21:40:48.576Z",
+      "crawledAt": "2026-10-06T21:32:43.788Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "An der Reuss 5",
@@ -5378,8 +5396,7 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-1055af78708a",
@@ -5412,7 +5429,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbuchhalter-%28mwd%29%2C-Olten%2C-60/13663-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:50.967Z",
+      "crawledAt": "2026-10-06T21:32:53.357Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "4600",
       "streetAddress": "",
@@ -5461,8 +5478,7 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     },
     {
       "id": "implenia-5428d781d7bc",
@@ -5495,7 +5511,7 @@
       "url": "https://jobs.implenia.com/job/Immobiliencontroller-%28mwd%29%2C-Winterthur-oder-Opfikon%2C-80-100/13687-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:49.549Z",
+      "crawledAt": "2026-10-06T21:32:52.511Z",
       "addressLocality": "Thurgauerstrasse 101A-8152 Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -5542,8 +5558,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     },
     {
       "id": "implenia-1fad18a5ef56",
@@ -5576,7 +5591,7 @@
       "url": "https://jobs.implenia.com/job/Kaufm%C3%A4nnischer-Leiter-Senior-Bewirtschafter-%28mwd%29%2C-Zentrum-Regensdorf%2C-80-100/13557-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:48.596Z",
+      "crawledAt": "2026-10-06T21:32:51.746Z",
       "addressLocality": "Einkaufszentrum Regensdorf Zentrum 1-8105 Zentrum Regensdorf",
       "postalCode": "8105",
       "streetAddress": "",
@@ -5617,8 +5632,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 2
+      }
     },
     {
       "id": "implenia-6620966555fe",
@@ -5651,7 +5665,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Fachfrau-mann-Kundendialog/13491-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:30:47.607Z",
+      "crawledAt": "2026-10-06T21:32:50.948Z",
       "addressLocality": "Winterthur (Roter Turm)",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -5692,8 +5706,84 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "implenia-1b2205a851ab",
+      "slug": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-o-zurich-opfikon-40-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+      "slugByLocale": {
+        "de": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-oder-zurich-opfikon-40-100-implenia-ch",
+        "it": "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-o-zurich-opfikon-40-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "case-manager-process-accounting-m-f-d-winterthur-or-zurich-opfikon-40-100-implenia-technikumstrasse-61-postfach-8400",
+        "fr": "gestionnaire-de-cas-comptabilite-des-processus-h-f-d-winterthur-ou-zurich-opfikon-40-100-implenia-technikumstrasse-61"
       },
-      "crawlerMissStreak": 2
+      "company": "Implenia",
+      "companyKey": "implenia",
+      "companyDomain": "implenia.com",
+      "title": "Sachbearbeiter Prozessbuchhaltung (m/w/d), Winterthur oder Zürich (Opfikon), 40-100%",
+      "titleByLocale": {
+        "de": "Sachbearbeiter Prozessbuchhaltung (m/w/d), Winterthur oder Zürich (Opfikon), 40-100%",
+        "it": "Sachbearbeiter Prozessbuchhaltung (m/w/d), Winterthur o Zürich (Opfikon), 40-100%",
+        "en": "Sachbearbeiter Prozessbuchhaltung (m/w/d), Winterthur oder Zürich (Opfikon), 40-100%",
+        "fr": "Sachbearbeiter Prozessbuchhaltung (m/w/d), Winterthur oder Zürich (Opfikon), 40-100%"
+      },
+      "description": "Als grösster Immobilien-Bewirtschaftungsdienstleister von anspruchsvollen Wohn- sowie Büro- und Gewerbeflächen, bieten wir unseren Kunden ein umfassendes rundum Servicepaket an.\n\nDer Unternehmensbereich Finance & Corporate Center (FCC) erbringt für unsere Immobilieneigentümer sowie internen Kunden eine Vielzahl von Servicedienstleistungen mit dem Ziel, einen Rundumservice von hoher Qualität und Effizienz zur Verfügung zu stellen.\n\nZur Unterstützung eines bestehenden Teams suchen wir eine engagierte, erfahrene und selbständige Persönlichkeit als\n\nSachbearbeiter Prozessbuchhaltung (m/w/d)\n\nWinterthur oder Zürich (Opfikon), 40 - 100%\n\nDas bewegst du:\n\n• Du betreust dein eigenes Portfolio im Nebenbuch und begleitest digitale Buchhaltungsprozesse\n\n• Kreditoren- und Debitorenrechnungen sowie Gutschriften verbuchst du termingerecht\n\n• Du pflegst, stimmst ab und korrigierst Kreditoren- und Debitorenkonten und hältst alle Buchungen sauber nach\n\n• Kreditorenrechnungen und Mahnungen im digitalen Posteingang (D/F/I) bearbeitest du effizient und lösungsorientiert\n\n• Du übernimmst die Weiterbelastung von Einzelrechnungen an Mieter\n\n• Als Ansprechperson für interne und externe Stakeholder beantwortest du buchhalterische Fragen kompetent\n\n• Du unterstützt und berätst die Immobilienbuchhaltung, Bewirtschaftung und das Center Management in finanziellen Prozessen\n\n• Dein Reporting sorgt für Transparenz: Du führst eine Pendenzenliste über offene/unbearbeitete Fälle\n\nDeshalb gelingt es dir:\n\n• Du hast eine abgeschlossene kaufmännische Grundausbildung oder befindest dich in Ausbildung – idealerweise mit Erfahrung in der Immobilienbewirtschaftung oder Buchhaltung\n\n• Mit MS Office (Word/Excel/PowerPoint) kennst du dich sehr gut aus, und idealerweise hast du bereits Erfahrung mit Fachapplikationen (z. B. Immo-ERP)\n\n• Eine exakte, strukturierte und speditive Arbeitsweise mit hoher Dienstleistungsorientierung zeichnen dich aus\n\n• Du kommunizierst stilsicher in Deutsch, Französisch und/oder Italienisch sind von Vorteil\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+      "descriptionByLocale": {
+        "de": "Als grösster Immobilien-Bewirtschaftungsdienstleister von anspruchsvollen Wohn- sowie Büro- und Gewerbeflächen, bieten wir unseren Kunden ein umfassendes rundum Servicepaket an.\n\nDer Unternehmensbereich Finance & Corporate Center (FCC) erbringt für unsere Immobilieneigentümer sowie internen Kunden eine Vielzahl von Servicedienstleistungen mit dem Ziel, einen Rundumservice von hoher Qualität und Effizienz zur Verfügung zu stellen.\n\nZur Unterstützung eines bestehenden Teams suchen wir eine engagierte, erfahrene und selbständige Persönlichkeit als\n\nSachbearbeiter Prozessbuchhaltung (m/w/d)\n\nWinterthur oder Zürich (Opfikon), 40 - 100%\n\nDas bewegst du:\n\n• Du betreust dein eigenes Portfolio im Nebenbuch und begleitest digitale Buchhaltungsprozesse\n\n• Kreditoren- und Debitorenrechnungen sowie Gutschriften verbuchst du termingerecht\n\n• Du pflegst, stimmst ab und korrigierst Kreditoren- und Debitorenkonten und hältst alle Buchungen sauber nach\n\n• Kreditorenrechnungen und Mahnungen im digitalen Posteingang (D/F/I) bearbeitest du effizient und lösungsorientiert\n\n• Du übernimmst die Weiterbelastung von Einzelrechnungen an Mieter\n\n• Als Ansprechperson für interne und externe Stakeholder beantwortest du buchhalterische Fragen kompetent\n\n• Du unterstützt und berätst die Immobilienbuchhaltung, Bewirtschaftung und das Center Management in finanziellen Prozessen\n\n• Dein Reporting sorgt für Transparenz: Du führst eine Pendenzenliste über offene/unbearbeitete Fälle\n\nDeshalb gelingt es dir:\n\n• Du hast eine abgeschlossene kaufmännische Grundausbildung oder befindest dich in Ausbildung – idealerweise mit Erfahrung in der Immobilienbewirtschaftung oder Buchhaltung\n\n• Mit MS Office (Word/Excel/PowerPoint) kennst du dich sehr gut aus, und idealerweise hast du bereits Erfahrung mit Fachapplikationen (z. B. Immo-ERP)\n\n• Eine exakte, strukturierte und speditive Arbeitsweise mit hoher Dienstleistungsorientierung zeichnen dich aus\n\n• Du kommunizierst stilsicher in Deutsch, Französisch und/oder Italienisch sind von Vorteil\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+        "it": "Als grösster Immobilien-Bewirtschaftungsdienstleister von anspruchsvollen Wohn- sowie Büro- und Gewerbeflächen, bieten wir unseren Kunden ein umfassendes rundum Servicepaket an.\n\nDer Unternehmensbereich Finance & Corporate Center (FCC) erbringt für unsere Immobilieneigentümer sowie internen Kunden eine Vielzahl von Servicedienstleistungen mit dem Ziel, einen Rundumservice von hoher Qualität und Effizienz zur Verfügung zu stellen.\n\nZur Unterstützung eines bestehenden Teams suchen wir eine engagierte, erfahrene und selbständige Persönlichkeit als\n\nSachbearbeiter Prozessbuchhaltung (m/w/d)\n\nWinterthur oder Zürich (Opfikon), 40 - 100%\n\nDas bewegst du:\n\n• Du betreust dein eigenes Portfolio im Nebenbuch und begleitest digitale Buchhaltungsprozesse\n\n• Kreditoren- und Debitorenrechnungen sowie Gutschriften verbuchst du termingerecht\n\n• Du pflegst, stimmst ab und korrigierst Kreditoren- und Debitorenkonten und hältst alle Buchungen sauber nach\n\n• Kreditorenrechnungen und Mahnungen im digitalen Posteingang (D/F/I) bearbeitest du effizient und lösungsorientiert\n\n• Du übernimmst die Weiterbelastung von Einzelrechnungen an Mieter\n\n• Als Ansprechperson für interne und externe Stakeholder beantwortest du buchhalterische Fragen kompetent\n\n• Du unterstützt und berätst die Immobilienbuchhaltung, Bewirtschaftung und das Center Management in finanziellen Prozessen\n\n• Dein Reporting sorgt für Transparenz: Du führst eine Pendenzenliste über offene/unbearbeitete Fälle\n\nDeshalb gelingt es dir:\n\n• Du hast eine abgeschlossene kaufmännische Grundausbildung oder befindest dich in Ausbildung – idealerweise mit Erfahrung in der Immobilienbewirtschaftung oder Buchhaltung\n\n• Mit MS Office (Word/Excel/PowerPoint) kennst du dich sehr gut aus, und idealerweise hast du bereits Erfahrung mit Fachapplikationen (z. B. Immo-ERP)\n\n• Eine exakte, strukturierte und speditive Arbeitsweise mit hoher Dienstleistungsorientierung zeichnen dich aus\n\n• Du kommunizierst stilsicher in Deutsch, Französisch und/oder Italienisch sind von Vorteil\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+        "en": "Als grösster Immobilien-Bewirtschaftungsdienstleister von anspruchsvollen Wohn- sowie Büro- und Gewerbeflächen, bieten wir unseren Kunden ein umfassendes rundum Servicepaket an.\n\nDer Unternehmensbereich Finance & Corporate Center (FCC) erbringt für unsere Immobilieneigentümer sowie internen Kunden eine Vielzahl von Servicedienstleistungen mit dem Ziel, einen Rundumservice von hoher Qualität und Effizienz zur Verfügung zu stellen.\n\nZur Unterstützung eines bestehenden Teams suchen wir eine engagierte, erfahrene und selbständige Persönlichkeit als\n\nSachbearbeiter Prozessbuchhaltung (m/w/d)\n\nWinterthur oder Zürich (Opfikon), 40 - 100%\n\nDas bewegst du:\n\n• Du betreust dein eigenes Portfolio im Nebenbuch und begleitest digitale Buchhaltungsprozesse\n\n• Kreditoren- und Debitorenrechnungen sowie Gutschriften verbuchst du termingerecht\n\n• Du pflegst, stimmst ab und korrigierst Kreditoren- und Debitorenkonten und hältst alle Buchungen sauber nach\n\n• Kreditorenrechnungen und Mahnungen im digitalen Posteingang (D/F/I) bearbeitest du effizient und lösungsorientiert\n\n• Du übernimmst die Weiterbelastung von Einzelrechnungen an Mieter\n\n• Als Ansprechperson für interne und externe Stakeholder beantwortest du buchhalterische Fragen kompetent\n\n• Du unterstützt und berätst die Immobilienbuchhaltung, Bewirtschaftung und das Center Management in finanziellen Prozessen\n\n• Dein Reporting sorgt für Transparenz: Du führst eine Pendenzenliste über offene/unbearbeitete Fälle\n\nDeshalb gelingt es dir:\n\n• Du hast eine abgeschlossene kaufmännische Grundausbildung oder befindest dich in Ausbildung – idealerweise mit Erfahrung in der Immobilienbewirtschaftung oder Buchhaltung\n\n• Mit MS Office (Word/Excel/PowerPoint) kennst du dich sehr gut aus, und idealerweise hast du bereits Erfahrung mit Fachapplikationen (z. B. Immo-ERP)\n\n• Eine exakte, strukturierte und speditive Arbeitsweise mit hoher Dienstleistungsorientierung zeichnen dich aus\n\n• Du kommunizierst stilsicher in Deutsch, Französisch und/oder Italienisch sind von Vorteil\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa",
+        "fr": "Als grösster Immobilien-Bewirtschaftungsdienstleister von anspruchsvollen Wohn- sowie Büro- und Gewerbeflächen, bieten wir unseren Kunden ein umfassendes rundum Servicepaket an.\n\nDer Unternehmensbereich Finance & Corporate Center (FCC) erbringt für unsere Immobilieneigentümer sowie internen Kunden eine Vielzahl von Servicedienstleistungen mit dem Ziel, einen Rundumservice von hoher Qualität und Effizienz zur Verfügung zu stellen.\n\nZur Unterstützung eines bestehenden Teams suchen wir eine engagierte, erfahrene und selbständige Persönlichkeit als\n\nSachbearbeiter Prozessbuchhaltung (m/w/d)\n\nWinterthur oder Zürich (Opfikon), 40 - 100%\n\nDas bewegst du:\n\n• Du betreust dein eigenes Portfolio im Nebenbuch und begleitest digitale Buchhaltungsprozesse\n\n• Kreditoren- und Debitorenrechnungen sowie Gutschriften verbuchst du termingerecht\n\n• Du pflegst, stimmst ab und korrigierst Kreditoren- und Debitorenkonten und hältst alle Buchungen sauber nach\n\n• Kreditorenrechnungen und Mahnungen im digitalen Posteingang (D/F/I) bearbeitest du effizient und lösungsorientiert\n\n• Du übernimmst die Weiterbelastung von Einzelrechnungen an Mieter\n\n• Als Ansprechperson für interne und externe Stakeholder beantwortest du buchhalterische Fragen kompetent\n\n• Du unterstützt und berätst die Immobilienbuchhaltung, Bewirtschaftung und das Center Management in finanziellen Prozessen\n\n• Dein Reporting sorgt für Transparenz: Du führst eine Pendenzenliste über offene/unbearbeitete Fälle\n\nDeshalb gelingt es dir:\n\n• Du hast eine abgeschlossene kaufmännische Grundausbildung oder befindest dich in Ausbildung – idealerweise mit Erfahrung in der Immobilienbewirtschaftung oder Buchhaltung\n\n• Mit MS Office (Word/Excel/PowerPoint) kennst du dich sehr gut aus, und idealerweise hast du bereits Erfahrung mit Fachapplikationen (z. B. Immo-ERP)\n\n• Eine exakte, strukturierte und speditive Arbeitsweise mit hoher Dienstleistungsorientierung zeichnen dich aus\n\n• Du kommunizierst stilsicher in Deutsch, Französisch und/oder Italienisch sind von Vorteil\n\nHier einige unserer Benefits:\n\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab.\n\nWeitere Informationen zu unseren Benefits findest du auf unserer Karriereseite.\n\n#Wincasa"
+      },
+      "location": "Technikumstrasse 61 Postfach-8400 Winterthur",
+      "canton": "ZH",
+      "url": "https://jobs.implenia.com/job/Sachbearbeiter-Prozessbuchhaltung-%28mwd%29%2C-Winterthur-oder-Z%C3%BCrich-%28Opfikon%29%2C-40-100/13675-de_DE",
+      "source": "Implenia Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-06T21:32:50.103Z",
+      "addressLocality": "Technikumstrasse 61 Postfach-8400 Winterthur",
+      "postalCode": "8400",
+      "streetAddress": "",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.implenia.com/job/Sachbearbeiter-Prozessbuchhaltung-%28mwd%29%2C-Winterthur-oder-Z%C3%BCrich-%28Opfikon%29%2C-40-100/13675-de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-oder-zurich-opfikon-40-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-prozessbuchhaltung-m-w-d-winterthur-oder-zurich-opfikon-40-100-implenia-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-20T10:25:39.103Z"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { existsSync, readFileSync } from 'node:fs';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -155,6 +155,42 @@ describe('company-logo-audit', () => {
     }));
   });
 
+  it('reports checkout assets pending CDN deployment without counting coverage as valid', async () => {
+    const root = await mkdtemp(path.join(os.tmpdir(), 'company-logo-pending-'));
+    try {
+      await mkdir(path.join(root, 'public/images/brands'), { recursive: true });
+      await writeFile(path.join(root, 'public/images/brands/pending.png'), pngBytes(128, 128));
+      const jobUrl = 'https://pending.test/job/1';
+      const report = await auditCompanyLogos([
+        { companyKey: 'pending', company: 'Pending AG', url: jobUrl },
+      ], {
+        resolveLogo: () => '/images/brands/pending.png',
+        assetBaseUrl: 'https://cdn.test',
+        localAssetRoot: root,
+        fetchImpl: async () => imageResponse(404),
+      });
+
+      expect(report.withLogo).toBe(0);
+      expect(report.broken).toBe(0);
+      expect(report.pendingDeploy).toBeGreaterThan(0);
+      expect(report.pendingDeployJobCount).toBeGreaterThan(0);
+      expect(report.affectedCompanies[0]).toMatchObject({
+        companyKey: 'pending',
+        status: 'pending-deploy',
+        pendingDeployJobCount: 1,
+        examples: { pendingDeploy: jobUrl },
+      });
+      expect(report.references[0]).toEqual(expect.objectContaining({
+        status: 'pending-deploy',
+        reason: 'asset-present-in-checkout',
+        cdnStatus: 'broken',
+        localPath: '/images/brands/pending.png',
+      }));
+    } finally {
+      await rm(root, { recursive: true, force: true });
+    }
+  });
+
   it('reports low-quality logos separately from missing and broken coverage', async () => {
     const jobUrl = 'https://nsn.test/job/1';
     const report = await auditCompanyLogos([
@@ -231,7 +267,11 @@ describe('company-logo-audit', () => {
     const installMarker = 'run: npm ci --ignore-scripts --no-audit --no-fund';
     const assembleMarker = 'run: node scripts/assemble-jobs-dataset.mjs --no-summaries';
     expect(auditWorkflow).toContain('./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs');
-    expect(auditWorkflow).toContain('--regenerate-cmd "./node_modules/.bin/tsx scripts/audit-missing-company-logos.mjs; git add data/company-logos-missing.json"');
+    expect(auditWorkflow).toContain('node scripts/download-missing-company-logos.mjs --from-audit');
+    expect(auditWorkflow).toContain('node scripts/verify-company-logo-acquisition.mjs');
+    expect(auditWorkflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(auditWorkflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(auditWorkflow).not.toMatch(/HEAD:main/);
 
     for (const workflow of [auditWorkflow, verifyWorkflow]) {
       expect(workflow).toContain('cache: npm');

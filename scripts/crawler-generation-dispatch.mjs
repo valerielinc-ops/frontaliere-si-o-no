@@ -95,6 +95,10 @@ function dispatchResponseRunId(body, repository) {
   }
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 async function boundedResponseBody(response) {
   const declared = Number(response.headers.get('content-length'));
   if (Number.isFinite(declared) && declared > MAX_RESPONSE_BYTES) throw new Error('response_too_large');
@@ -108,7 +112,6 @@ async function boundedResponseBody(response) {
       if (done) break;
       size += value.byteLength;
       if (size > MAX_RESPONSE_BYTES) {
-        try { await reader.cancel(); } catch { /* preserve the bounded-size error */ }
         throw new Error('response_too_large');
       }
       // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
@@ -117,6 +120,9 @@ async function boundedResponseBody(response) {
         ? value.slice(0)
         : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
     }
+  } catch (error) {
+    await cancelReaderOnReadError(reader);
+    throw error;
   } finally {
     // Releasing the lock is cleanup and must never replace the verdict: older
     // WHATWG streams and polyfilled bodies throw from releaseLock(), which

@@ -15,7 +15,9 @@ permissions:
 
 concurrency:
   group: deploy-cloud-functions
-  cancel-in-progress: true
+  # A production deploy already serializes the final state. Never cancel an
+  # active deploy merely because a newer main commit entered the queue.
+  cancel-in-progress: false
 
 jobs:
   deploy-functions:

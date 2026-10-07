@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-10-06T09:13:35.768Z",
+  "assembledAt": "2026-10-06T21:11:10.954Z",
   "jobs": [
     {
       "id": "cedes-38194b91f772",
@@ -47,7 +47,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:13:30.127Z",
+      "crawledAt": "2026-10-06T21:11:05.275Z",
       "previousSlugs": [
         "lead-buyer-electronics-cedes-landquart"
       ],
@@ -80,9 +80,9 @@
     },
     {
       "id": "cedes-33d85e05de4e",
-      "slug": "operatore-nel-montaggio-smd-cedes-ag-landquart",
+      "slug": "operator-in-smd-assembly-cedes-ag-landquart",
       "slugByLocale": {
-        "it": "operatore-nel-montaggio-smd-cedes-ag-landquart",
+        "it": "operator-in-smd-assembly-cedes-ag-landquart",
         "en": "operator-in-smd-assembly-cedes-landquart",
         "de": "betreiber-in-der-smd-baugruppe-cedes-ag-landquart",
         "fr": "operateur-in-smd-assembly-cedes-ag-landquart"
@@ -92,7 +92,7 @@
       "companyDomain": "cedes.com",
       "title": "Operator in SMD Assembly",
       "titleByLocale": {
-        "it": "Operatore nel montaggio SMD",
+        "it": "Operator in SMD Assembly",
         "en": "Operator in SMD Assembly",
         "de": "Betreiber in der SMD-Baugruppe",
         "fr": "Opérateur in SMD Assembly"
@@ -123,16 +123,18 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:13:29.782Z",
+      "crawledAt": "2026-10-06T21:11:04.990Z",
       "previousSlugs": [
         "operator-in-smd-assembly-cedes-landquart",
         "operatore-in-assemblaggio-smd-cedes-ag-landquart",
+        "operatore-nel-montaggio-smd-cedes-ag-landquart",
         "operator-in-smd-assembly-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operator-in-smd-assembly-cedes-landquart",
           "operatore-in-assemblaggio-smd-cedes-ag-landquart",
+          "operatore-nel-montaggio-smd-cedes-ag-landquart",
           "operator-in-smd-assembly-cedes-ag-landquart"
         ],
         "de": [
@@ -156,7 +158,8 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/"
+      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
+      "needsRetranslation": true
     },
     {
       "id": "cedes-3fa516c3ca31",
@@ -203,7 +206,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:13:29.458Z",
+      "crawledAt": "2026-10-06T21:11:04.704Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"

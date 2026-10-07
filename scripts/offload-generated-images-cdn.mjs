@@ -216,16 +216,22 @@ function isTagNamed(html, tag, expected) {
   return tag && asciiNameEquals(html, tag.nameStart, tag.nameEnd, expected);
 }
 
-function skipRawTextElement(html, afterOpening, name) {
+function findRawTextClose(html, afterOpening, name) {
   let searchFrom = afterOpening;
   while (searchFrom < html.length) {
     const start = html.indexOf('<', searchFrom);
-    if (start < 0) return -1;
+    if (start < 0) return null;
     const tag = readTag(html, start);
-    if (tag && tag.closing && isTagNamed(html, tag, name)) return tag.end + 1;
+    if (tag && tag.closing && isTagNamed(html, tag, name)) {
+      return { start, end: tag.end + 1 };
+    }
     searchFrom = start + 1;
   }
-  return -1;
+  return null;
+}
+
+function skipRawTextElement(html, afterOpening, name) {
+  return findRawTextClose(html, afterOpening, name)?.end ?? -1;
 }
 
 function skipTemplateElement(html, afterOpening) {
@@ -315,6 +321,115 @@ function findCharsetMetaEnd(headContent) {
     searchFrom = tag.end + 1;
   }
   return -1;
+}
+
+/**
+ * Find active CDN-base assignment scripts in a head. A broad string check is
+ * insufficient here: a stale assignment can sit before the charset tag, while
+ * a comment/template/string can contain the same marker without installing it.
+ * Returning full source ranges lets the caller remove stale assignments before
+ * reinserting one canonical marker after the charset declaration.
+ */
+function findActiveCdnBaseScriptRanges(html, headStart, headEnd) {
+  const ranges = [];
+  let searchFrom = headStart;
+  const isGeneratedAssignment = (body) =>
+    /^\s*window\.__CDN_DATA_BASE__\s*=\s*(?:"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')\s*;?\s*$/.test(body);
+
+  while (searchFrom < headEnd) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0 || start >= headEnd) break;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0 || afterComment > headEnd) break;
+      searchFrom = afterComment;
+      continue;
+    }
+    const tag = readTag(html, start);
+    if (!tag || tag.end + 1 > headEnd) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'template')) {
+      const afterTemplate = skipTemplateElement(html, tag.end + 1);
+      if (afterTemplate < 0 || afterTemplate > headEnd) break;
+      searchFrom = afterTemplate;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'script')) {
+      const close = findRawTextClose(html, tag.end + 1, 'script');
+      if (!close || close.end > headEnd) break;
+      if (isGeneratedAssignment(html.slice(tag.end + 1, close.start))) {
+        ranges.push({ start, end: close.end });
+      }
+      searchFrom = close.end;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing) {
+      let skippedRawText = false;
+      for (const rawName of ['style', 'textarea', 'title']) {
+        if (!isTagNamed(html, tag, rawName)) continue;
+        const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
+        if (afterRawText < 0 || afterRawText > headEnd) return ranges;
+        searchFrom = afterRawText;
+        skippedRawText = true;
+        break;
+      }
+      if (skippedRawText) continue;
+    }
+    searchFrom = tag.end + 1;
+  }
+  return ranges;
+}
+
+/** Return the end of same-origin CDN hint tags already present in a head. */
+function findExistingCdnHintEnd(html, headStart, headEnd, cdnOrigin) {
+  if (!cdnOrigin) return -1;
+  const needles = [
+    `<link rel="preconnect" href="${cdnOrigin}"`,
+    `<link rel="dns-prefetch" href="${cdnOrigin}"`,
+  ];
+  let searchFrom = headStart;
+  let lastEnd = -1;
+  while (searchFrom < headEnd) {
+    const start = html.indexOf('<', searchFrom);
+    if (start < 0 || start >= headEnd) break;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0 || afterComment > headEnd) break;
+      searchFrom = afterComment;
+      continue;
+    }
+    const tag = readTag(html, start);
+    if (!tag || tag.end + 1 > headEnd) {
+      searchFrom = start + 1;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing && isTagNamed(html, tag, 'template')) {
+      const afterTemplate = skipTemplateElement(html, tag.end + 1);
+      if (afterTemplate < 0 || afterTemplate > headEnd) break;
+      searchFrom = afterTemplate;
+      continue;
+    }
+    if (!tag.closing && !tag.selfClosing) {
+      let skippedRawText = false;
+      for (const rawName of ['script', 'style', 'textarea', 'title']) {
+        if (!isTagNamed(html, tag, rawName)) continue;
+        const afterRawText = skipRawTextElement(html, tag.end + 1, rawName);
+        if (afterRawText < 0 || afterRawText > headEnd) return lastEnd;
+        searchFrom = afterRawText;
+        skippedRawText = true;
+        break;
+      }
+      if (skippedRawText) continue;
+    }
+    const sourceTag = html.slice(start, tag.end + 1);
+    if (!tag.closing && needles.some((needle) => sourceTag.startsWith(needle))) {
+      lastEnd = tag.end + 1;
+    }
+    searchFrom = tag.end + 1;
+  }
+  return lastEnd;
 }
 
 function log(msg) {
@@ -596,38 +711,53 @@ function offloadAll(distDir, cdnBase, onlyFiles = null) {
     //     present whenever cdnBase is valid (this script only runs then).
     if (isHtml) {
       htmlSeen++;
-      if (out.includes('__CDN_DATA_BASE__')) {
-        injected++; // already present (idempotent re-run)
-      } else {
-        const m = out.match(/<head[^>]*>/i);
-        if (m) {
-          const headEnd = m.index + m[0].length;
-          const headRemainder = out.slice(headEnd);
-          const headCloseAt = headRemainder.search(/<\/head\s*>/i);
-          const headContent = headCloseAt >= 0
-            ? headRemainder.slice(0, headCloseAt)
-            : headRemainder;
-          const charsetEnd = findCharsetMetaEnd(headContent);
-          // HTML requires the encoding declaration near the start of <head>.
-          // Keep the deploy-time hints after it; fall back to the old insertion
-          // point for unusual documents that do not declare a charset.
-          const at = charsetEnd >= 0
-            ? headEnd + charsetEnd
-            : headEnd;
-          // The hint comment above assumes the data CDN is a DISTINCT host
-          // from the asset CDN; when config points both at the same origin the
-          // build already ships this exact preconnect (asyncCssPlugin /
-          // template heads) and re-adding it duplicates the hint on every page
-          // (#3530). An existing preconnect also supersedes dns-prefetch, so
-          // only the data-base script tag is still required.
-          const tag = cdnOrigin && out.includes(`<link rel="preconnect" href="${cdnOrigin}"`)
-            ? injectTag.replace(hintTags, '')
-            : injectTag;
-          out = out.slice(0, at) + tag + out.slice(at);
-          injected++;
+      const m = out.match(/<head[^>]*>/i);
+      if (m) {
+        // A previous deploy can leave the marker before the charset. Remove
+        // active generated assignment scripts first, then recompute all
+        // offsets against the shortened document before inserting the marker.
+        let headStart = m.index + m[0].length;
+        let headRemainder = out.slice(headStart);
+        let headCloseAt = headRemainder.search(/<\/head\s*>/i);
+        let headEnd = headCloseAt >= 0 ? headStart + headCloseAt : out.length;
+        const staleRanges = findActiveCdnBaseScriptRanges(out, headStart, headEnd);
+        for (let i = staleRanges.length - 1; i >= 0; i--) {
+          const { start, end } = staleRanges[i];
+          out = out.slice(0, start) + out.slice(end);
         }
-        // no <head>: leave it (its SPA fetch degrades gracefully)
+        if (staleRanges.length > 0) {
+          const refreshed = out.match(/<head[^>]*>/i);
+          headStart = refreshed.index + refreshed[0].length;
+          headRemainder = out.slice(headStart);
+          headCloseAt = headRemainder.search(/<\/head\s*>/i);
+          headEnd = headCloseAt >= 0 ? headStart + headCloseAt : out.length;
+        }
+
+        const headContent = out.slice(headStart, headEnd);
+        const charsetEnd = findCharsetMetaEnd(headContent);
+        // HTML requires the encoding declaration near the start of <head>.
+        // Keep the deploy-time hints after it; fall back to the old insertion
+        // point for unusual documents that do not declare a charset.
+        let at = charsetEnd >= 0
+          ? headStart + charsetEnd
+          : headStart;
+        // The hint comment above assumes the data CDN is a DISTINCT host
+        // from the asset CDN; when config points both at the same origin the
+        // build already ships this exact preconnect (asyncCssPlugin /
+        // template heads) and re-adding it duplicates the hint on every page
+        // (#3530). An existing preconnect also supersedes dns-prefetch, so
+        // only the data-base script tag is still required. If that existing
+        // hint was emitted later in the head (as in the stale live artifact),
+        // place the base marker after it so the connection starts first.
+        const existingHintEnd = findExistingCdnHintEnd(out, headStart, headEnd, cdnOrigin);
+        if (existingHintEnd >= at) at = existingHintEnd;
+        const tag = existingHintEnd >= 0
+          ? injectTag.replace(hintTags, '')
+          : injectTag;
+        out = out.slice(0, at) + tag + out.slice(at);
+        injected++;
       }
+      // no <head>: leave it (its SPA fetch degrades gracefully)
     }
 
     if (out !== orig) fs.writeFileSync(fp, out);

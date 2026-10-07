@@ -16,7 +16,7 @@ export function resolveAuthorProfileMetadata(sectionOrPath: string, locale: Auth
     canonicalPath: new URL(seo.canonical).pathname,
     structuredData: [
       { '@context': 'https://schema.org', '@type': 'ProfilePage', name: seo.title, url: seo.canonical,
-        inLanguage: locale, mainEntity: { '@id': `${seo.canonical}#person` } },
+        inLanguage: locale, mainEntity: { '@id': String(seo.jsonLd['@id']) } },
       seo.jsonLd,
     ],
   };

@@ -1,7 +1,7 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-10-06T09:19:37.399Z",
+  "generatedAt": "2026-10-06T21:19:02.527Z",
   "total": 5,
   "discovered": 7,
   "parsed": 5,
@@ -13,10 +13,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5620,
-  "avgDurationMs": 5620,
+  "durationMs": 4272,
+  "avgDurationMs": 4272,
   "durationHistory": [
-    5620
+    4272
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -182,11 +182,11 @@
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/front-office-724678/en",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -233,5 +233,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

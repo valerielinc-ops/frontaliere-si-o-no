@@ -1,7 +1,7 @@
 {
   "key": "klinik-aadorf",
   "label": "Klinik Aadorf",
-  "generatedAt": "2026-10-06T09:17:20.654Z",
+  "generatedAt": "2026-10-06T21:16:06.401Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5739,
-  "avgDurationMs": 5739,
+  "durationMs": 4907,
+  "avgDurationMs": 4907,
   "durationHistory": [
-    5739
+    4907
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:03.704Z",
+      "crawledAt": "2026-10-06T21:15:55.119Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -57,11 +57,11 @@
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
@@ -75,13 +75,13 @@
       "companyKey": "klinik-aadorf",
       "companyDomain": "klinik-aadorf.ch",
       "title": "MITARBEITERIN / MITARBEITER HAUSDIENST (W/M/D) 60%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Aadorf",
       "canton": "TG",
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/41921d06-3a31-4c81-a961-7a46ba6e54b2/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:05.485Z",
+      "crawledAt": "2026-10-06T21:15:57.166Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -102,11 +102,11 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -117,13 +117,13 @@
       "companyKey": "klinik-aadorf",
       "companyDomain": "klinik-aadorf.ch",
       "title": "ASSISTENZÄRZTIN / ASSISTENZARZT (W/M/D) 60%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Aadorf",
       "canton": "TG",
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:05.044Z",
+      "crawledAt": "2026-10-06T21:15:56.659Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -144,11 +144,11 @@
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -165,7 +165,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:04.594Z",
+      "crawledAt": "2026-10-06T21:15:56.152Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -201,13 +201,12 @@
       "companyKey": "klinik-aadorf",
       "companyDomain": "klinik-aadorf.ch",
       "title": "PRAKTIKANT/IN PSYCHOLOGIE (W/M/D) 80-100%",
-      "needsRetranslation": true,
       "location": "Aadorf",
       "canton": "TG",
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/81bb4cc3-0079-49a3-9e87-179919822f8f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:17:04.140Z",
+      "crawledAt": "2026-10-06T21:15:55.637Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -227,14 +226,14 @@
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

@@ -32,6 +32,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractDeclaredIdentity } from './crawler-company-identity.mjs';
+import { replaceActiveSlug } from './dedicated-crawler-common.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 
 const LIB_DIR = path.dirname(fileURLToPath(import.meta.url));
 
@@ -109,4 +111,72 @@ export function applyDeclaredBrandRelabel(jobs, labels = declaredBrandLabels()) 
     byKey[key] = (byKey[key] || 0) + 1;
   }
   return { relabelled, byKey };
+}
+
+/**
+ * Refresh active job routes after a declared crawler-brand relabel.
+ *
+ * `mergePreserveLocaleData()` and `restoreExistingSlugIdentity()` deliberately
+ * keep published routes stable. That is correct for ordinary title edits, but
+ * it also keeps the old employer token when a mono-brand crawler changes its
+ * declared label. The later batch slug-regeneration job repairs that state,
+ * yet a crawler slice can be observed in between those two jobs. Repair the
+ * route at the same write boundary as the label and retain every replaced
+ * route as a locale-aware bridge.
+ *
+ * The caller should run `applyDeclaredBrandRelabel()` first so `job.company`
+ * is already the declared label. This helper intentionally derives a route
+ * only when the corresponding localized title exists; an absent primary field
+ * stays unknown rather than falling back to a neighbouring locale.
+ *
+ * @param {object[]} jobs
+ * @param {Map<string, string>} [labels]
+ * @returns {{ refreshed: number, byKey: Record<string, number> }}
+ */
+export function refreshDeclaredBrandSlugs(jobs, labels = declaredBrandLabels()) {
+  const byKey = {};
+  let refreshed = 0;
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    if (!job || typeof job !== 'object') continue;
+    const key = String(job.companyKey || '').toLowerCase();
+    const declared = labels.get(key);
+    if (!declared) continue;
+
+    const titleByLocale = job.titleByLocale && typeof job.titleByLocale === 'object'
+      ? job.titleByLocale
+      : {};
+    const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
+    const location = String(job.location || job.addressLocality || '').trim();
+    const disambiguator = String(job.slugDisambiguator || '').trim();
+    const currentMaster = String(job.slug || '').trim();
+    const masterLocale = currentMaster
+      ? ['it', 'en', 'de', 'fr'].find((locale) => (
+        String(job.slugByLocale?.[locale] || '').trim() === currentMaster
+      ))
+      : undefined;
+    const validatedLocales = new Set();
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const title = String(
+        titleByLocale[locale] || (locale === sourceLang ? job.title : '') || '',
+      ).trim();
+      if (!title) continue;
+      const canonical = buildSlug(title, declared, location, disambiguator);
+      if (!canonical) continue;
+      validatedLocales.add(locale);
+      if (!replaceActiveSlug(job, canonical, { locale })) continue;
+      refreshed++;
+      byKey[key] = (byKey[key] || 0) + 1;
+    }
+
+    const canonicalMaster = masterLocale
+      ? String(job.slugByLocale?.[masterLocale] || '').trim()
+      : '';
+    if (masterLocale && validatedLocales.has(masterLocale)
+      && canonicalMaster && currentMaster !== canonicalMaster
+      && replaceActiveSlug(job, canonicalMaster)) {
+      refreshed++;
+      byKey[key] = (byKey[key] || 0) + 1;
+    }
+  }
+  return { refreshed, byKey };
 }

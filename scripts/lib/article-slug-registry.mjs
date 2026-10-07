@@ -31,12 +31,12 @@ import { readFileSync } from 'node:fs';
 
 import {
   ARTICLE_SECTION_CORE,
-  ARTICLE_SECTION_CORE_LIST,
+  SITE_RENDERED_ARTICLE_SECTIONS,
 } from '../../build-plugins/shared/articleSectionCore.mjs';
 
 /** Canonical section keys, in canonical order: `frontaliere`, `svizzera`. */
 export const ARTICLE_SECTION_KEYS = Object.freeze(
-  ARTICLE_SECTION_CORE_LIST.map((entry) => entry.section),
+  SITE_RENDERED_ARTICLE_SECTIONS.map((entry) => entry.section),
 );
 
 const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
@@ -49,7 +49,7 @@ const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
  */
 export const ARTICLE_PATH_BASE = Object.freeze(
   Object.fromEntries(
-    ARTICLE_SECTION_CORE_LIST.map((entry) => [
+    SITE_RENDERED_ARTICLE_SECTIONS.map((entry) => [
       entry.section,
       Object.freeze(
         Object.fromEntries(
@@ -69,7 +69,7 @@ export const ARTICLE_PATH_BASE = Object.freeze(
 /** Where each section's registry lives, and the const it exports. */
 export const ARTICLE_REGISTRY_FILES = Object.freeze(
   Object.fromEntries(
-    ARTICLE_SECTION_CORE_LIST.map((entry) => [
+    SITE_RENDERED_ARTICLE_SECTIONS.map((entry) => [
       entry.section,
       Object.freeze({ file: entry.slugDataFile, constName: entry.slugConst }),
     ]),

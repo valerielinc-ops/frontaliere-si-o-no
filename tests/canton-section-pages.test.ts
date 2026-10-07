@@ -2,22 +2,16 @@
 // section — landing, `/tutti/` archive + page-N, the 6 thematic hubs (D17),
 // article pages and RSS — in the 4 locales, without the site.
 //
-// Two canton sections are switched ON for this file only, by mocking the
-// generated activation list: the core keeps `ACTIVE_CANTON_SECTIONS = []` in
-// production (no consumer changes behaviour until a canton is activated), and
-// the renderers that read the corpus — article pages, archive, RSS — work on
-// active sections, exactly as they will once a canton is turned on. canton-ti
-// and canton-basilea cover the plain case and a half-canton URL group whose
-// French name carries a diacritic (Bâle).
-import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest';
+// Two canton sections are switched ON for this file only through the same
+// host injection used by the corpus. The site default remains empty, while
+// the renderers that read the corpus exercise active sections exactly as they
+// will once a canton is turned on. canton-ti and canton-basilea cover the
+// plain case and a half-canton URL group whose French name carries a
+// diacritic (Bâle).
+import { describe, it, expect, beforeAll, afterAll } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
-
-vi.mock('../packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs', async (importOriginal) => {
-  const actual = await importOriginal<Record<string, unknown>>();
-  return { ...actual, ACTIVE_CANTON_SECTIONS: ['canton-basilea', 'canton-ti'] };
-});
 
 import '../build-plugins/articlesSiteShellBootstrap';
 import { renderArticlePages } from '../packages/articles/engine/ogPagesPlugin';
@@ -37,7 +31,11 @@ import {
   CANTON_HUB_TOPIC_CLUSTERS,
   cantonSectionLabel,
 } from '../packages/articles/engine/shared/cantonSectionCopy.mjs';
-import { ARTICLE_SECTION_CORE, ARTICLE_SECTION_CORE_ALL } from '../packages/articles/engine/shared/articleSectionCore.mjs';
+import {
+  ARTICLE_SECTION_CORE,
+  ARTICLE_SECTION_CORE_ALL,
+  configureActiveCantonSections,
+} from '../packages/articles/engine/shared/articleSectionCore.mjs';
 import { CANTON_HUB_TOPIC_KEYS } from '../packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs';
 import { CANTON_DISPLAY_NAMES } from '../packages/articles/engine/shared/cantonDisplayNames.mjs';
 import { CANTON_DISPLAY } from '../build-plugins/shared/cantonDisplay';
@@ -45,6 +43,8 @@ import { TOPIC_CLUSTERS } from '../packages/articles/engine/topicTaxonomy';
 import { corpusSectionCdnKey } from '../infra/cloudflare-worker/locale-router.js';
 import { repairSerpSnippet } from '../build-plugins/shared/clauseTail.mjs';
 import { ORGANIZATION_LD } from '../services/seo/organizationLd';
+
+configureActiveCantonSections(['BASILEA', 'TI']);
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 type Loc = (typeof LOCALES)[number];

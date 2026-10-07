@@ -109,6 +109,18 @@ describe('static: no rclone/aws call on the deploy path without a time limit', (
     });
   }
 
+  it('a change to any scanned script selects this test (related-tests pairing)', () => {
+    // The scan reads the scripts from disk; no import ties this file to them.
+    // Without an explicit entry in the related-tests table, a PR that adds an
+    // rclone call to one of them never runs this guard: that is how an lsf
+    // lookup with an unrecognised bound reached main (#11879).
+    const runner = read('scripts/ci/run-related-tests.mjs');
+    const entry = runner.match(/\['tests\/r2-calls-bounded\.test\.ts',\s*\/(.+)\/\],/);
+    expect(entry, 'tests/r2-calls-bounded.test.ts is missing from the related-tests table').toBeTruthy();
+    const scope = new RegExp(entry![1]);
+    for (const file of DEPLOY_R2_SCRIPTS) expect(scope.test(file), file).toBe(true);
+  });
+
   it('the scanner itself goes red on each unbounded shape (and stays green on bounded ones)', () => {
     const bad = [
       '"${RC[@]}" lsjson -R --files-only --hash "$bkt/assets" > "$out"',
@@ -455,6 +467,44 @@ describe('behaviour: _r2_timeout_s rejects 0 and every non-positive or open-ende
     expect(out).toMatch(/✅ uploaded/);
     return readFileSync(limits, 'utf8').trim();
   }
+
+  /** Runs `upload-cdn-file.sh --check` with the same recording `timeout` stub. */
+  function lookupLimit(name: string, value: string): string {
+    const dir = join(SCRATCH, name);
+    const bin = join(dir, 'bin');
+    mkdirSync(bin, { recursive: true });
+    writeFileSync(join(bin, 'rclone'), '#!/usr/bin/env bash\nexit 0\n');
+    writeFileSync(
+      join(bin, 'timeout'),
+      '#!/usr/bin/env bash\n[ "$1" = "-k" ] && shift 2\necho "$1" >> "$STUB_LIMITS"\nshift\nexec "$@"\n',
+    );
+    chmodSync(join(bin, 'rclone'), 0o755);
+    chmodSync(join(bin, 'timeout'), 0o755);
+    const limits = join(dir, 'limits.log');
+    writeFileSync(limits, '');
+    const out = execFileSync('bash', ['scripts/lib/upload-cdn-file.sh', '--check', 'images/hero.webp'], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      timeout: 30_000,
+      env: {
+        PATH: `${bin}:${process.env.PATH ?? ''}`,
+        RUNNER_TEMP: dir,
+        R2_ACCESS_KEY_ID: 'k',
+        R2_SECRET_ACCESS_KEY: 's',
+        R2_S3_ENDPOINT: 'https://r2.invalid',
+        R2_BUCKET: 'bkt',
+        R2_TIMEOUT_OBJECT_S: value,
+        STUB_LIMITS: limits,
+      },
+    });
+    expect(out).toMatch(/missing images\/hero\.webp/);
+    return readFileSync(limits, 'utf8').trim();
+  }
+
+  it('upload-cdn-file.sh --check: the lookup runs under the same per-object limit', () => {
+    expect(lookupLimit('lookup-valid', '45')).toBe('45');
+    expect(lookupLimit('lookup-zero', '0')).toBe('120');
+  });
 
   it('upload-cdn-file.sh: R2_TIMEOUT_OBJECT_S=0 still runs the PUT under the 120 s default', () => {
     expect(uploadLimit('upload-zero', '0')).toBe('120');

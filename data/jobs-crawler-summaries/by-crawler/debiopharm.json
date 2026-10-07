@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-06T09:22:20.609Z",
+  "generatedAt": "2026-10-06T21:20:18.730Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 3218,
-  "avgDurationMs": 3218,
+  "durationMs": 3608,
+  "avgDurationMs": 3608,
   "durationHistory": [
-    3218
+    3608
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -189,7 +189,6 @@
       "streetAddress": "",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -248,5 +247,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

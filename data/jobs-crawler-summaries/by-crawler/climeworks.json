@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-10-06T09:15:36.357Z",
+  "generatedAt": "2026-10-06T21:13:11.895Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 2883,
-  "avgDurationMs": 2883,
+  "durationMs": 3204,
+  "avgDurationMs": 3204,
   "durationHistory": [
-    2883
+    3204
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:15:24.147Z",
+      "crawledAt": "2026-10-06T21:13:01.849Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,7 +79,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:15:24.145Z",
+      "crawledAt": "2026-10-06T21:13:01.848Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,7 +121,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:15:24.143Z",
+      "crawledAt": "2026-10-06T21:13:01.846Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +163,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:15:24.141Z",
+      "crawledAt": "2026-10-06T21:13:01.843Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,7 +205,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:15:24.135Z",
+      "crawledAt": "2026-10-06T21:13:01.836Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,5 +236,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

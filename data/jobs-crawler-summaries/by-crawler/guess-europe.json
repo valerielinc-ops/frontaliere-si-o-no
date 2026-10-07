@@ -1,18 +1,66 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-06T09:14:16.037Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-10-06T21:11:56.048Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 2631,
-  "avgDurationMs": 2631,
+  "durationMs": 2223,
+  "avgDurationMs": 2223,
   "durationHistory": [
-    2631
+    2223
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Area Manager Jewellery",
+      "slug": "area-manager-jewellery-guess-europe-sagl-bioggio-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/6E6AA05D9F/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/6E6AA05D9F/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Bioggio",
+      "addressLocality": "Bioggio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-06T00:00:00.000Z",
+      "postedDate": "2026-10-06T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Physical & Mental Health programs, sustainable projects and workshop promoted by Guess Cares",
+        "Arts, sports and social events outside the office, thanks to our Guess Fun activities!",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-f4effaf71c89",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6934",
+      "firstSeenAt": "2026-10-06T21:11:45.282Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -421,5 +469,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

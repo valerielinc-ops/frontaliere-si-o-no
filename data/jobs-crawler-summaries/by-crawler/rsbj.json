@@ -1,7 +1,7 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-10-06T09:31:12.896Z",
+  "generatedAt": "2026-10-06T21:42:34.248Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 15438,
-  "avgDurationMs": 15438,
+  "durationMs": 8569,
+  "avgDurationMs": 8569,
   "durationHistory": [
-    15438
+    8569
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:31:00.658Z",
+      "crawledAt": "2026-10-06T21:42:11.158Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_58809/fr/ergotherapeute-entre-40-et-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:30:52.487Z",
+      "crawledAt": "2026-10-06T21:42:08.754Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:30:59.851Z",
+      "crawledAt": "2026-10-06T21:42:10.363Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -163,7 +163,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:30:58.727Z",
+      "crawledAt": "2026-10-06T21:42:09.555Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -193,5 +193,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

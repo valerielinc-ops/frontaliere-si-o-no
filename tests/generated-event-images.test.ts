@@ -52,6 +52,13 @@ const RECORD = {
   variant: '01',
 };
 
+const ARTICLE_RECORD = {
+  ...RECORD,
+  assetId: 'historical-article-hero',
+  scope: 'article-hero',
+  imageUrl: '/images/blog/historical-article-hero.webp',
+};
+
 describe('generated event image policy', () => {
   it('keeps the forbidden-content policy in the canonical prompt', () => {
     const prompt = buildGeneratedImagePrompt({
@@ -67,6 +74,8 @@ describe('generated event image policy', () => {
 
   it('validates a complete generated record and rejects a stale path', () => {
     expect(validateGeneratedImageRecord(RECORD).valid).toBe(true);
+    expect(validateGeneratedImageRecord(ARTICLE_RECORD).valid).toBe(true);
+    expect(validateGeneratedImageRecord({ ...ARTICLE_RECORD, imageUrl: '/images/generated/historical-article-hero.webp' }).valid).toBe(false);
     expect(validateGeneratedImageRecord({ ...RECORD, licenseUrl: 'https://example.com/terms' }).valid).toBe(false);
     expect(validateGeneratedImageRegistry({ schema: 1, libraryVersion: '2026-10-06', cdnPrefix: '/images/events/library/', assetCount: 1, assets: [RECORD] }, { scope: 'event-library' }).valid).toBe(true);
     expect(validateGeneratedImageRecord({ ...RECORD, imageUrl: '/images/events/myswitzerland-old.webp' }).valid).toBe(false);

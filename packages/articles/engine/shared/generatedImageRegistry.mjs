@@ -9,12 +9,15 @@
 
 export const GENERATED_IMAGE_SCHEMA_VERSION = 1;
 export const GENERATED_IMAGE_LICENSE = 'generated-provider';
+export const PRIVATE_GRANT_LICENSE = 'private-grant';
+export const PRIVATE_GRANT_PROVIDER = 'site-owned';
 export const GENERATED_IMAGE_CREDIT = 'frontaliereticino.ch';
 export const GENERATED_IMAGE_PROMPT_VERSION = 'frontaliereticino.generated-image-policy.v1';
 export const GENERATED_IMAGE_MAX_BYTES = 220 * 1024;
 
 export const GENERATED_IMAGE_SCOPES = Object.freeze([
   'event-library',
+  'editorial-profile',
   'article-hero',
   'place',
   'og',
@@ -83,6 +86,18 @@ function aspectRatio(width, height) {
   return `${width}:${height}`;
 }
 
+export function generatedImagePrefixForScope(scope) {
+  if (scope === 'event-library') return '/images/events/library/';
+  if (scope === 'editorial-profile') return '/images/authors/';
+  if (scope === 'article-hero') return '/images/blog/';
+  if (scope === 'place') return '/images/places/';
+  return '/images/generated/';
+}
+
+export function generatedImagePathForScope(scope, assetId) {
+  return `${generatedImagePrefixForScope(scope)}${assetId}.webp`;
+}
+
 /**
  * Normalize the public generation specification before it reaches a provider.
  * The returned object is also the canonical input for prompt hashing.
@@ -130,13 +145,19 @@ export function buildGeneratedImagePrompt(spec, { variation = '' } = {}) {
   const normalized = normalizeGeneratedImageSpec(spec);
   const policy = GENERATED_IMAGE_POLICY.map((rule) => `- ${rule}`).join('\n');
   const variationText = normalizeText(variation);
+  const ratio = normalized.format.width / normalized.format.height;
+  const composition = ratio > 1.3
+    ? 'landscape'
+    : ratio < 0.8
+      ? 'portrait'
+      : 'square';
   return [
     'Create one original editorial illustration for frontaliereticino.ch.',
     `Purpose: ${normalized.scope}.`,
     `Subject: ${normalized.subject}.`,
     `Area or visual context: ${normalized.area}.`,
     `Seasonal atmosphere: ${normalized.season}.`,
-    `Composition: landscape ${normalized.format.width}x${normalized.format.height}, clear subject separation, calm editorial composition, no cropped focal subject at the edges.`,
+    `Composition: ${composition} ${normalized.format.width}x${normalized.format.height}, clear subject separation, calm editorial composition, no cropped focal subject at the edges.`,
     'Style: warm, precise, contemporary Swiss editorial illustration with natural texture, restrained colors and a consistent art direction; not photorealistic.',
     'Mandatory safety policy:',
     policy,
@@ -156,7 +177,11 @@ export function generatedImagePromptInput(spec, options) {
 }
 
 export function isGeneratedImagePath(value) {
-  return typeof value === 'string' && /^\/images\/(?:events\/library|generated)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+  return typeof value === 'string' && /^\/images\/(?:events\/library|generated|blog|authors|places(?:\/thumbnails)?)\/[a-z0-9][a-z0-9._-]{2,127}\.webp$/.test(value);
+}
+
+export function isPrivateGrantImageRecord(record) {
+  return isRecord(record) && record.license === PRIVATE_GRANT_LICENSE && record.provider === PRIVATE_GRANT_PROVIDER;
 }
 
 export function generatedImageAssetIdFromPath(value) {
@@ -173,45 +198,59 @@ export function validateGeneratedImageRecord(record) {
   if (!isRecord(record)) return { valid: false, errors: ['record must be an object'] };
   if (record.schema !== GENERATED_IMAGE_SCHEMA_VERSION) errors.push('schema must be 1');
   if (!ASSET_ID_RE.test(String(record.assetId || ''))) errors.push('assetId is invalid');
-  if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
-  if (!nonEmpty(record.model)) errors.push('model is required');
-  if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
-  if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
-  if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
-  if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
-  if (GENERATED_IMAGE_LICENSE_URLS[record.provider] && record.licenseUrl !== GENERATED_IMAGE_LICENSE_URLS[record.provider]) {
-    errors.push('licenseUrl does not match the provider terms');
+  const isPrivateGrant = record.license === PRIVATE_GRANT_LICENSE;
+  if (isPrivateGrant) {
+    if (record.provider !== PRIVATE_GRANT_PROVIDER) errors.push('private-grant provider must be site-owned');
+    if (!nonEmpty(record.note)) errors.push('private-grant note is required');
+    if (!nonEmpty(record.credit)) errors.push('private-grant credit is required');
+    for (const field of ['model', 'executorModel', 'promptVersion', 'promptHash', 'licenseUrl', 'generatedAt', 'verifiedAt', 'restrictions', 'vision']) {
+      if (record[field] !== undefined) errors.push(`private-grant must not declare generated field ${field}`);
+    }
+  } else {
+    if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
+    if (!nonEmpty(record.model)) errors.push('model is required');
+    if (record.promptVersion !== GENERATED_IMAGE_PROMPT_VERSION) errors.push('promptVersion is not current');
+    if (!SHA256_RE.test(String(record.promptHash || ''))) errors.push('promptHash must be sha256');
+    if (record.license !== GENERATED_IMAGE_LICENSE) errors.push('license must be generated-provider');
+    if (!/^https:\/\//i.test(String(record.licenseUrl || ''))) errors.push('licenseUrl must be https');
+    if (GENERATED_IMAGE_LICENSE_URLS[record.provider] && record.licenseUrl !== GENERATED_IMAGE_LICENSE_URLS[record.provider]) {
+      errors.push('licenseUrl does not match the provider terms');
+    }
+    if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
   }
-  if (record.credit !== GENERATED_IMAGE_CREDIT) errors.push('credit must be frontaliereticino.ch');
   if (!positiveInteger(record.width) || !positiveInteger(record.height)) errors.push('width/height must be positive integers');
   if (record.format !== 'webp') errors.push('format must be webp');
   if (!positiveInteger(record.bytes) || record.bytes > GENERATED_IMAGE_MAX_BYTES) errors.push('bytes exceed the WebP limit');
   if (!SHA256_RE.test(String(record.sha256 || ''))) errors.push('sha256 must be present');
-  if (!isoDate(record.generatedAt)) errors.push('generatedAt must be an ISO UTC timestamp');
-  if (!isoDate(record.verifiedAt)) errors.push('verifiedAt must be an ISO UTC timestamp');
+  if (!isPrivateGrant && !isoDate(record.generatedAt)) errors.push('generatedAt must be an ISO UTC timestamp');
+  if (!isPrivateGrant && !isoDate(record.verifiedAt)) errors.push('verifiedAt must be an ISO UTC timestamp');
   if (!GENERATED_IMAGE_SCOPES.includes(record.scope)) errors.push('scope is not allowed');
   if (record.scope === 'event-library') {
     for (const field of ['category', 'area', 'season', 'variant']) {
       if (!nonEmpty(record[field])) errors.push(`event-library ${field} is required`);
     }
   }
-  if (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item))) {
+  if (!isPrivateGrant && (!Array.isArray(record.restrictions) || !GENERATED_IMAGE_RESTRICTIONS.every((item) => record.restrictions.includes(item)))) {
     errors.push('restrictions do not contain the mandatory policy');
   }
-  if (!isRecord(record.vision)
+  if (!isPrivateGrant && (!isRecord(record.vision)
     || record.vision.ok !== true
     || record.vision.contains_text !== false
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
     || record.vision.looks_like_specific_real_event !== false
-    || !nonEmpty(record.vision.notes)) {
+    || !nonEmpty(record.vision.notes))) {
     errors.push('vision gate verdict is missing or rejected');
   }
-  if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a generated WebP path');
-  const expectedPrefix = record.scope === 'event-library' ? '/images/events/library/' : '/images/generated/';
+  if (!isGeneratedImagePath(record.imageUrl)) errors.push('imageUrl must be a registered WebP path');
+  const expectedPrefix = generatedImagePrefixForScope(record.scope);
   if (record.imageUrl && !record.imageUrl.startsWith(expectedPrefix)) errors.push('imageUrl does not match scope');
   if (record.imageUrl && generatedImageAssetIdFromPath(record.imageUrl) !== record.assetId) errors.push('imageUrl assetId mismatch');
-  if (record.width / record.height < 1.6 || record.width / record.height > 1.9) errors.push('image aspect ratio is outside the editorial range');
+  const ratio = record.width / record.height;
+  const ratioValid = record.scope === 'editorial-profile'
+    ? ratio >= 0.8 && ratio <= 1.25
+    : ratio >= 1.6 && ratio <= 1.9;
+  if (!ratioValid) errors.push('image aspect ratio is outside the editorial range');
   return { valid: errors.length === 0, errors };
 }
 

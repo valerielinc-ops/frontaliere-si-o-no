@@ -1254,6 +1254,9 @@ jobs:
             /packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
+            # The publication-policy tests exercise one real imageCredits record
+            # without materializing the rest of the article corpus.
+            /packages/articles/content/image-credits/**/*.json
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -1302,6 +1305,9 @@ jobs:
             # tests/authors.test.ts is part of the test-tree lint whenever a PR
             # changes tests; keep its small runtime photo fixtures materialized.
             /public/images/authors/
+            # The generated-image registry gate validates the full published
+            # place catalog and its responsive thumbnails as well.
+            /public/images/places/
             /*.cjs
             /*.js
             /*.json
@@ -1785,6 +1791,7 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_GENERATED_SITE_IMAGES: ${{ steps.body_contract.outcome != 'failure' }}
           # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
           # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
           # cosi' il confronto copre tutti i commit della PR qualunque sia la
@@ -1819,6 +1826,9 @@ jobs:
           fi
           if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
             expected_labels+=(twin-imports)
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            expected_labels+=(generated-site-images)
           fi
           if [ "${#expected_labels[@]}" -eq 0 ]; then
             echo "::error::independent gate roster is empty"
@@ -1877,6 +1887,9 @@ jobs:
             # in background, dall'env dello step, non qui.
             # shellcheck disable=SC2016
             start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs ${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            start_gate generated-site-images 'npm run validate:generated-images'
           fi
 
       # ══════════════════════════════════════════════════════════════════════
@@ -2300,6 +2313,10 @@ jobs:
         run: |
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Verify published blog cover ledger
+        if: ${{ steps.body_contract.outcome != 'failure' }}
+        run: node scripts/ci/verify-blog-cover-ledger.mjs
 
       - name: vitest related (PR diff)
         id: vitest_related

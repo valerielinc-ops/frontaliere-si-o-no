@@ -280,6 +280,7 @@ import {
   COMPANY_ROUTE_PREFIX,
   isCompanyHubNamespaceSlug,
 } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { historicalArchiveHeading } from './shared/historicalArchiveHeading';
 import {
@@ -329,10 +330,7 @@ export function buildCantonAwareJobDetailPath(
  cantonCode: string,
  slug: string,
 ): string {
-  const path = [locale === 'it' ? '' : locale, sharedResolveCantonSection(locale, cantonCode), slug]
-    .filter(Boolean)
-    .join('/');
-  return '/' + path + '/';
+  return buildCanonicalJobDetailPath(locale, cantonCode, slug);
 }
 
 export function buildCantonAwareJobDetailUrl(
@@ -2563,11 +2561,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   job: any,
   i: number,
   locale: 'it' | 'en' | 'de' | 'fr',
-  sectionSlug: string,
-  canton: string,
  ): Record<string, unknown> => {
   const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
-  const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
+  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+  const abs = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCanton)}`;
   const jobPosting = buildJobListEntry(
    {
     title: jobTitle,
@@ -2579,7 +2576,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     location: job?.location,
     addressLocality: job?.addressLocality,
     addressRegion: job?.addressRegion,
-    canton: job?.canton ?? canton,
+    canton: job?.canton ?? jobCanton,
     postalCode: job?.postalCode,
     streetAddress: job?.streetAddress,
     datePosted: job?.datePosted ?? job?.postedDate,
@@ -3200,6 +3197,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  fr: localizedSlug(job, 'fr'),
  };
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const perLocaleCanonicalPath = {
+ it: buildCanonicalJobDetailPath('it', job, perLocaleSlug.it, jobCanton),
+ en: buildCanonicalJobDetailPath('en', job, perLocaleSlug.en, jobCanton),
+ de: buildCanonicalJobDetailPath('de', job, perLocaleSlug.de, jobCanton),
+ fr: buildCanonicalJobDetailPath('fr', job, perLocaleSlug.fr, jobCanton),
+ };
  // Per-job invariants — values that depend only on the job (and jobCanton,
  // which is itself job-invariant) and are therefore identical across the
  // 4 locale iterations below. Hoisting them out of the inner loop avoids
@@ -3234,6 +3237,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const perJob_relatedJobs = incrementalManifests
   ? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed)
   : null;
+ const perJob_related = perJob_relatedJobs ?? selectRelatedJobs(perJob_relatedPool, perJob_relatedSeed);
+ const perJob_relatedCanonicalPaths = perJob_related.map((relatedJob: any) => {
+   const relatedCanton = sharedResolveJobCanton(relatedJob as { canton?: string; location?: string });
+   return {
+     job: relatedJob,
+     paths: {
+       it: buildCanonicalJobDetailPath('it', relatedJob, localizedSlug(relatedJob, 'it'), relatedCanton),
+       en: buildCanonicalJobDetailPath('en', relatedJob, localizedSlug(relatedJob, 'en'), relatedCanton),
+       de: buildCanonicalJobDetailPath('de', relatedJob, localizedSlug(relatedJob, 'de'), relatedCanton),
+       fr: buildCanonicalJobDetailPath('fr', relatedJob, localizedSlug(relatedJob, 'fr'), relatedCanton),
+     },
+   };
+ });
  const perJob_salaryMin = Number.isFinite(Number(job.salaryMin))
  ? Number(job.salaryMin)
  : Number(job?.baseSalary?.value?.minValue);
@@ -3268,15 +3284,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const hreflangHtml = buildLocaleAlternateBlock({
  eligibleLocales: activeJobEligibleLocales,
  hrefFor: (alternateLocale) => {
- const p = `${localePrefix[alternateLocale]}/${buildCantonAwareSection(alternateLocale, jobCanton)}/${perLocaleSlug[alternateLocale]}`
- .replace(/\/+/g, '/');
- return `${BASE_URL}${withSlash(p)}`;
+ return `${BASE_URL}${perLocaleCanonicalPath[alternateLocale]}`;
  },
  });
  for (const locale of localeList) {
  const __tActiveJob = startTimer();
- const sectionForJob = buildCantonAwareSection(locale, jobCanton);
- const relPath = `${localePrefix[locale]}/${sectionForJob}/${perLocaleSlug[locale]}`.replace(/\/+/g, '/');
+ const relPath = perLocaleCanonicalPath[locale];
  // Suppress duplicate per-locale emit. Most-recent (sorted earlier)
  // already won this path; emitting again would only register a
  // collision in dist/.write-collisions.json without changing the
@@ -3568,20 +3581,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // enough to keep the orphan pool reachable at ~8.2k edges
  // (6 × 1370 reachable details), low enough to keep detail-page byte
  // weight under the audit:page-weight budget.
- const relatedPool = perJob_relatedPool;
- // Stable hash of own slug → starting offset into the pool, so
- // different details surface different neighbours (no "always top N")
- // without losing determinism between builds. Hoisted to perJob block —
- // see top of the outer for-each-job loop.
- const relatedSeed = perJob_relatedSeed;
- const related = perJob_relatedJobs ?? selectRelatedJobs(relatedPool, relatedSeed);
+ const related = perJob_related;
  // close related-pool phase (selection done); relatedHtml render goes into
  // the same bucket so the bucket measures the full cross-link block cost.
- const relatedHtml = related
- .map((r: any, i: number) => {
- const rp = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${localizedSlug(r, locale)}`.replace(/\/+/g, '/');
+ const relatedHtml = perJob_relatedCanonicalPaths
+ .map(({ job: r, paths: rPaths }, i: number) => {
  // Relative href — internal navigation resolves against canonical (absolute).
- const href = withSlash(rp);
+ const href = rPaths[locale];
  const relatedTitle = stripLiteralMarkdownFromTitle(String(r?.titleByLocale?.[locale] || r.title || ''));
  const rLogo = companyLogo(r);
  const rSalary = (() => {
@@ -3880,8 +3886,15 @@ ${staticAnalyticsHtml}
  <body>
  ${rootShell(hasSpaBundle)}
  <main class="seo-static-content static-job-page">
+ <div class="job-detail-top-row">
  <nav class="bn"><a href="${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
- <article class="proposal">
+ <div class="job-detail-top-banner-reserve" aria-hidden="true"></div>
+ </div>
+ <div class="ft-rail-grid ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[var(--ft-rail-w-m-l,180px)_minmax(0,1fr)_var(--ft-rail-w-m-r,180px)] xl:gap-4 xlw:grid-cols-[var(--ft-rail-w-l,300px)_minmax(0,1fr)_var(--ft-rail-w-r,300px)] static-job-rail-shell">
+ <aside class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ <div class="static-job-rail-center">
+ <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 static-job-inner-grid">
+ <article class="proposal lg:col-span-8">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
  <!-- jobs-seo-reuse:hero-badges:start -->${renderHeroBadges({ job, locale, salaryMin, salaryText, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:hero-badges:end -->
@@ -3898,6 +3911,10 @@ ${staticAnalyticsHtml}
  ${jobFaqHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords: [], esc })}
+ </div>
+ </div>
+ <aside class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ </div>
  ${(() => {
  const cSlugBanner = employerHubSlug;
  // Relative href — internal navigation resolves against canonical (absolute).
@@ -4518,9 +4535,7 @@ ${staticAnalyticsHtml}
  // soft-canonical /cerca-lavoro-ticino/ detour that <link rel=canonical>
  // redirected back to the canton URL — needless hop and breadcrumb mismatch.
  const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const sectionForJob = jobCanton ? sharedResolveCantonSection(locale, jobCanton) : sectionByLocale[locale];
- const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, jSlug, jobCanton)}`;
  // NO `logoUrl` override: `renderJobCardHtml` resolves the logo itself via
  // `resolveJobCardLogo` (the canonical curated-asset → coloured-initials
  // chain), exactly like the per-canton call site further down. Passing
@@ -4826,9 +4841,7 @@ ${staticAnalyticsHtml}
  const itemListItems = listedCompanyJobs.map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
  const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
- const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = `${BASE_URL}${withSlash(jPath)}`;
+ const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, jSlug, jobCantonForList)}`;
  const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
  return { '@type': 'ListItem', position: idx + 1, url: jHref, name: jTitle };
  });
@@ -7738,7 +7751,7 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ mapCantonJobToListItem(job, i, locale)),
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
@@ -7944,8 +7957,7 @@ ${staticAnalyticsHtml}
  // listed may live in any canton. Point ItemList at the actually-emitted
  // canonical URL, not the soft-canonical TI detour.
  const jc = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const secForJob = jc ? sharedResolveCantonSection(locale, jc) : sectionByLocale[locale];
- return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${secForJob}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` };
+ return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jc)}` };
  }) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
@@ -8075,7 +8087,10 @@ ${staticAnalyticsHtml}
  const pgCompanyCount = new Set(pgJobs.map((job: any) => String(job.company || '')).filter(Boolean)).size;
  const pgLocationCount = new Set(pgJobs.map((job: any) => String(job.location || '')).filter(Boolean)).size;
  const pgCollLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: `${BASE_URL}/` } });
- const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+ const pgItemLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => {
+ const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, localizedSlug(job, locale), jobCantonForList)}` };
+ }) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? `Lavoro in ${cDisplay}` : locale === 'en' ? `Jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Emploi \u00e0 ${cDisplay}`;
@@ -8610,17 +8625,8 @@ ${staticAnalyticsHtml}
  name: pageTitle,
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
- itemListElement: cappedJobs.map((job: any, i: number) => {
- const jobCanton = isAggregate
- ? sharedResolveJobCanton(job as { canton?: string; location?: string })
- : canton;
- const jobSection = isAggregate
- ? jobCanton
- ? sharedResolveCantonSection(locale, jobCanton)
- : sectionByLocale[locale]
- : sectionSlug;
- return mapCantonJobToListItem(job, i, locale, jobSection, jobCanton);
- }),
+ itemListElement: cappedJobs.map((job: any, i: number) =>
+ mapCantonJobToListItem(job, i, locale)),
  });
  // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
  // mirrors the TI sector hub (jobSectorPagesPlugin.ts) so the stat-grid /
@@ -9006,7 +9012,7 @@ ${staticAnalyticsHtml}
  name: pageTitle,
  numberOfItems: companyJobs.length,
  itemListElement: companyJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ mapCantonJobToListItem(job, i, locale)),
  });
  const allJobsLabel = locale === 'it' ? `Vedi tutte le offerte in ${cDisplay}`
  : locale === 'en' ? `View all jobs in ${cDisplay}`
@@ -9133,7 +9139,7 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ mapCantonJobToListItem(job, i, locale)),
  });
  // Organization JSON-LD — derived from job data (no curated overlay).
  // sameAs/logo (issue #4306) are real, derived values only: sameAs from
@@ -9425,7 +9431,7 @@ ${staticAnalyticsHtml}
  numberOfItems: cappedJobs.length,
  // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
- mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
+ mapCantonJobToListItem(job, i, locale)),
  });
  // sameAs/logo (issue #4306) — real, derived values only. See
  // resolveCompanyHubOrgExtras above (shared with Phase 3.3).
@@ -10588,7 +10594,7 @@ ${staticAnalyticsHtml}
   const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
   for (const locale of localeList) {
    const slug = localizedSlug(job, locale);
-   const localeUrl = buildCantonAwareJobDetailUrl(locale, jobCantonForSitemap, slug);
+   const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug, jobCantonForSitemap)}`;
    if (resolveCanonicalUrl(slug, localeUrl) !== localeUrl) continue;
    if (!emittedActiveJobPaths.has(`${jobCantonForSitemap}:${locale}:${slug}`)) continue;
    activeJobSitemapLocs.add(localeUrl);
@@ -10608,8 +10614,7 @@ ${staticAnalyticsHtml}
  // sitemap URLs whose <link rel="canonical"> pointed elsewhere → blocked
  // by validate:sitemap-pages with "Canonical mismatch".
  const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const itSectionForJob = buildCantonAwareSection('it', jobCantonForSitemap);
- const itPath = withSlash(`/${itSectionForJob}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+ const itPath = buildCanonicalJobDetailPath('it', job, perLocaleSlugMap.it, jobCantonForSitemap);
  const itUrl = `${BASE_URL}${itPath}`;
  // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
  // Jobs listed in data/job-canonical-overrides.json have <link rel="canonical">
@@ -10621,9 +10626,7 @@ ${staticAnalyticsHtml}
  if (overrideUrl !== itUrl) return '';
  const sitemapLocalePaths = new Map<typeof localeList[number], string>();
  for (const l of localeList) {
- const sectionForLocale = buildCantonAwareSection(l, jobCantonForSitemap);
- const p = `${localePrefix[l]}/${sectionForLocale}/${perLocaleSlugMap[l]}`.split('/').filter(Boolean).join('/');
- const localePath = withSlash(p);
+ const localePath = buildCanonicalJobDetailPath(l, job, perLocaleSlugMap[l], jobCantonForSitemap);
  const localeUrl = `${BASE_URL}${localePath}`;
  // Keep the legacy urlset aligned with the same active-page registry used by
  // the canton shards. A translated slug can be suppressed by per-locale
@@ -10674,20 +10677,19 @@ ${staticAnalyticsHtml}
  // not the legacy TI section. Compute once per job; reused inside addEntry
  // and the canonicalAlternates emit below.
  const jobCantonForSitemapPrevSlugs = sharedResolveJobCanton(job as { canton?: string; location?: string });
- const currentItPath = withSlash(`/${buildCantonAwareSection('it', jobCantonForSitemapPrevSlugs)}/${currentItSlug}`.replace(/\/+/g, '/'));
+ const currentItPath = buildCanonicalJobDetailPath('it', job, currentItSlug, jobCantonForSitemapPrevSlugs);
  const canonicalAlternates = localeList.map((l) => {
- const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCantonForSitemapPrevSlugs)}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
- return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
+ const p = buildCanonicalJobDetailPath(l, job, localizedSlug(job, l), jobCantonForSitemapPrevSlugs);
+ return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${p}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
 
  const addEntry = (ps: string, locale: 'it' | 'en' | 'de' | 'fr') => {
  const currentSlug = localizedSlug(job, locale);
  if (!ps || ps === currentSlug) return;
- const currentCanonicalRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForSitemapPrevSlugs)}/${currentSlug}`
-  .replace(/\/+/g, '/');
+ const currentCanonicalRelPath = buildCanonicalJobDetailPath(locale, job, currentSlug, jobCantonForSitemapPrevSlugs);
  if (!hasCachedOrEmittedHtml(jobHtmlCache, jobsSeoHtmlCacheKey(locale, currentCanonicalRelPath), distDir, currentCanonicalRelPath)) return;
- const psRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForSitemapPrevSlugs)}/${ps}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const psRelPath = buildCanonicalJobDetailPath(locale, job, ps, jobCantonForSitemapPrevSlugs).replace(/^\/+/, '').replace(/\/+$/, '');
  if (activeJobDirs.has(psRelPath)) return;
  if (prevSlugSitemapPaths.has(psRelPath)) return;
  prevSlugSitemapPaths.add(psRelPath);
@@ -10940,15 +10942,14 @@ ${staticAnalyticsHtml}
      const groupJobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
      // canonical-overrides: same gate as legacy sitemap. Skip if the job
      // self-canonicalizes elsewhere (otherwise Semrush flags non-canonical).
-     const itSectionForGroup = buildCantonAwareSection('it', groupJobCanton);
-     const itPathLegacy = withSlash(`/${itSectionForGroup}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+     const itPathLegacy = buildCanonicalJobDetailPath('it', job, perLocaleSlugMap.it, groupJobCanton);
      const itUrlLegacy = `${BASE_URL}${itPathLegacy}`;
      if (resolveCanonicalUrl(perLocaleSlugMap.it, itUrlLegacy) !== itUrlLegacy) continue;
      for (const locale of localeList) {
        // This is the same canton-aware path admitted to
        // activeJobSitemapLocs above. For TI jobs the shared resolver retains
        // the frozen legacy section; non-TI jobs stay in their own canton.
-       const localeUrl = buildCantonAwareJobDetailUrl(locale, groupJobCanton, perLocaleSlugMap[locale]);
+       const localeUrl = `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, perLocaleSlugMap[locale], groupJobCanton)}`;
        // Per-locale canonical-override gate. canonicalOverrides is keyed by
        // per-locale slug (e.g. `expediter-casale-sa-lugano` for EN,
        // `beschleuniger-…` for DE) — an entry can target a single locale
@@ -11338,8 +11339,7 @@ ${staticAnalyticsHtml}
            };
            const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
            const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
-           const jSection = buildCantonAwareSection(entry.locale, jCanton);
-           const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
+           const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(entry.locale, jt, jslug, jCanton)}`;
            const card = renderJobCardHtml(jt, {
              href: jHref,
              locale: entry.locale as JobCardLocale,
@@ -11962,8 +11962,7 @@ ${staticAnalyticsHtml}
                };
                const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
                const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
-               const jSection = buildCantonAwareSection(entry.locale, jCanton);
-               const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
+               const jHref = `${BASE_URL}${buildCanonicalJobDetailPath(entry.locale, jt, jslug, jCanton)}`;
                return {
                  '@type': 'ListItem',
                  position: i + 1,
@@ -13657,8 +13656,8 @@ ${staticAnalyticsHtml}
  const companyJobsHeading = locale === 'it' ? `Altre offerte di ${esc(jobCompany)}` : locale === 'en' ? `More jobs at ${esc(jobCompany)}` : locale === 'de' ? `Weitere Stellen bei ${esc(jobCompany)}` : `Autres offres chez ${esc(jobCompany)}`;
  const companyJobsList = sameCompanyActiveJobs.map((j: any) => {
  const jSlug = localizedSlug(j, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = withSlash(jPath);
+ const jCanton = sharedResolveJobCanton(j as { canton?: string; location?: string });
+ const jHref = buildCanonicalJobDetailPath(locale, j, jSlug, jCanton);
  const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
  return `<li><a href="${jHref}">${esc(jTitle)}</a> — ${esc(j.location)}</li>`;
  }).join('');
@@ -13724,8 +13723,8 @@ ${staticAnalyticsHtml}
  const recentHeading = locale === 'it' ? 'Altre posizioni attive' : locale === 'en' ? 'Other active positions' : locale === 'de' ? 'Weitere offene Stellen' : 'Autres postes actifs';
  const recentList = recentJobs.map((j: any) => {
  const jSlug = localizedSlug(j, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
- const jHref = withSlash(jPath);
+ const jCanton = sharedResolveJobCanton(j as { canton?: string; location?: string });
+ const jHref = buildCanonicalJobDetailPath(locale, j, jSlug, jCanton);
  const jTitle = stripLiteralMarkdownFromTitle(String(j?.titleByLocale?.[locale] || j.title || ''));
  const jCompany = String(j.company || '');
  const jLoc = String(j.location || '');

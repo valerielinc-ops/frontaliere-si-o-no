@@ -6,6 +6,7 @@ import {
   applyDeclaredBrandRelabel,
   declaredBrandLabels,
   parserPathForCrawlerKey,
+  refreshDeclaredBrandSlugs,
 } from '../scripts/lib/crawler-brand-relabel.mjs';
 import { canonicalCompanyProfileSlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 
@@ -83,10 +84,67 @@ describe('declared brand relabel', () => {
     for (const n of counts.values()) expect(n).toBeGreaterThanOrEqual(5);
   });
 
+  it('refreshes stale active job slugs and keeps the replaced routes as bridges', () => {
+    const labels = new Map([
+      ['ipersonal', 'MediPersonal'],
+      ['med-ipersonal', 'iPersonal AG'],
+    ]);
+    const oldSourceSlug = 'facharzt-arztin-fur-allgemeine-innere-medizin-med-ipersonal-ch-oberwil-b';
+    const oldItalianSlug = 'facharzt-arztin-per-allgemeine-innere-medizin-med-ipersonal-ch-oberwil-b';
+    const jobs = [{
+      id: 'ipersonal-24c49ec62e3b',
+      companyKey: 'ipersonal',
+      company: 'MediPersonal',
+      sourceLang: 'de',
+      title: 'Facharzt/-ärztin für Allgemeine Innere Medizin',
+      titleByLocale: {
+        de: 'Facharzt/-ärztin für Allgemeine Innere Medizin',
+        it: 'Facharzt/-ärztin per Allgemeine Innere Medizin',
+      },
+      location: 'Oberwil b',
+      slug: oldItalianSlug,
+      slugByLocale: { de: oldSourceSlug, it: oldItalianSlug },
+    }];
+
+    applyDeclaredBrandRelabel(jobs, labels);
+    const result = refreshDeclaredBrandSlugs(jobs, labels);
+
+    expect(jobs[0].slugByLocale.de).toBe(
+      'facharzt-arztin-fur-allgemeine-innere-medizin-medipersonal-oberwil-b',
+    );
+    expect(jobs[0].slugByLocale.it).toBe(
+      'facharzt-arztin-per-allgemeine-innere-medizin-medipersonal-oberwil-b',
+    );
+    expect(jobs[0].slug).toBe(jobs[0].slugByLocale.it);
+    expect(jobs[0].previousSlugsByLocale.de).toContain(oldSourceSlug);
+    expect(jobs[0].previousSlugsByLocale.it).toContain(oldItalianSlug);
+    expect(result.refreshed).toBeGreaterThanOrEqual(2);
+  });
+
+  it('syncs the flat slug only to its validated pre-refresh locale owner', () => {
+    const labels = new Map([['ipersonal', 'IPERSONAL']]);
+    const job = {
+      companyKey: 'ipersonal',
+      sourceLang: 'de',
+      titleByLocale: { de: 'Arbeit' },
+      location: 'Lugano',
+      slugByLocale: {
+        it: 'alte-ipersonal-route',
+        de: 'arbeit-ipersonal-lugano',
+      },
+      slug: 'arbeit-ipersonal-lugano',
+    };
+
+    refreshDeclaredBrandSlugs([job], labels);
+
+    expect(job.slug).toBe(job.slugByLocale.de);
+    expect(job.slug).not.toBe(job.slugByLocale.it);
+  });
+
   it('is wired into the assembly of both active and expired jobs', () => {
     const src = fs.readFileSync(path.join(ROOT, 'scripts', 'assemble-jobs-dataset.mjs'), 'utf8');
-    // Two call sites: the active `deduped` pass and the expired one. A net that
-    // is only imported repairs nothing.
-    expect(src.match(/applyDeclaredBrandRelabel\(/g)?.length).toBe(2);
+    // Three call sites: the crawler slice writer, the active `deduped` pass,
+    // and the expired one. A net that is only imported repairs nothing.
+    expect(src.match(/applyDeclaredBrandRelabel\(/g)?.length).toBe(3);
   });
 });

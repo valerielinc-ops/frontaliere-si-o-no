@@ -92,7 +92,9 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
     const carry = steps.find((step) => step.name === 'Carry forward pending previousSlugs recovery PR');
     expect(carry?.run).toContain("branch='chore/recover-prev-slugs'");
     expect(carry?.run).toContain('git ls-remote "$remote_url"');
-    expect(carry?.run).toContain('git restore --source="refs/remotes/origin/${branch}"');
+    expect(carry?.run).toContain('scripts/lib/restore-stable-refresh-files.sh');
+    expect(carry?.run).toContain('"refs/remotes/origin/${branch}"');
+    expect(carry?.run).not.toContain('git restore --source="refs/remotes/origin/${branch}" -- "$path"');
     expect(carry?.run).toContain('data/jobs/by-crawler/');
     expect(steps.indexOf(carry!)).toBeLessThan(steps.indexOf(reconcile));
   });

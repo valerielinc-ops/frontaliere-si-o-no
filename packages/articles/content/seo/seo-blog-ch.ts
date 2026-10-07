@@ -48750,16 +48750,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-prestazioni-uri-cassa': {
-    title: 'AVS e prestazioni complementari nel canton Uri',
+    title: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
-    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
+    ogTitle: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
     canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari nel canton Uri",
+      "headline": "AVS Uri: cassa di compensazione e prestazioni complementari",
       "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
       "image": {
         "@type": "ImageObject",
@@ -98033,6 +98033,856 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bern-risanamento-energia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-deduzioni-3a-2027': {
+    title: 'Pilastro 3a: deduzioni fiscali massime 2027 | Frontaliere Ticino',
+    description: 'Dal 1° gennaio 2027 cambiano i limiti del pilastro 3a: 7373 franchi per chi ha un 2° pilastro e 36864 per chi non lo possiede. Confronto con gli importi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pilastro, deduzioni, fiscali, massime',
+    ogTitle: 'Pilastro 3a: deduzioni massime 2027',
+    ogDescription: 'La comunicazione pubblicata a Berna il 5 ottobre 2026 fissa i nuovi tetti della deduzione fiscale per il pilastro 3a. Dal 1° gennaio 2027 il limite sarà di 7373 franchi con un 2° pilastro e di 36864 franchi senza.',
+    canonicalPath: '/articoli-svizzera/deduzioni-3a-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pilastro 3a: deduzioni fiscali massime 2027",
+      "description": "Dal 1° gennaio 2027 cambiano i limiti del pilastro 3a: 7373 franchi per chi ha un 2° pilastro e 36864 per chi non lo possiede. Confronto con gli importi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deduzioni-3a-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calcolatrice e documenti fiscali svizzeri per le deduzioni del pilastro 3a"
+      },
+      "datePublished": "2026-10-05T15:21:39+00:00",
+      "dateModified": "2026-10-05T15:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deduzioni-3a-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-greggio-export-pre-guerra': {
+    title: 'Greggio: export mediorientale ai livelli pre-guerra',
+    description: 'Le esportazioni di greggio dal Medio Oriente, escluso l\'Iran, superano i livelli pre-guerra. Brent a 101,44 dollari e WTI a 90,02: le rotte alternative',
+    keywords: 'frontalieri, ticino, svizzera, italia, greggio, export, mediorientale, livelli',
+    ogTitle: 'Export di greggio: Medio Oriente sopra i livelli pre-guerra',
+    ogDescription: 'La media delle spedizioni ha oltrepassato per più giorni i 18 milioni di barili al giorno precedenti al conflitto. Arabia Saudita ed Emirati usano oleodotti alternativi, mentre le petroliere escono dal Golfo con scorta americana.',
+    canonicalPath: '/articoli-svizzera/greggio-export-pre-guerra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Greggio: export mediorientale ai livelli pre-guerra",
+      "description": "Le esportazioni di greggio dal Medio Oriente, escluso l'Iran, superano i livelli pre-guerra. Brent a 101,44 dollari e WTI a 90,02: le rotte alternative",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/greggio-export-pre-guerra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano associato alla lettura dei mercati energetici internazionali"
+      },
+      "datePublished": "2026-10-05T23:22:16+00:00",
+      "dateModified": "2026-10-05T23:22:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/greggio-export-pre-guerra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-patriot-bodluv-iva-attesa': {
+    title: 'Svizzera indifesa: ritardo difesa missilizia e IVA',
+    description: 'La Svizzera rischia di restare indifesa contro missili balistici a causa del ritardo nella fornitura del sistema Bodluv GR2 e del Patriot. Il finanziamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, indifesa, ritardo, difesa, missilizia',
+    ogTitle: 'Svizzera indifesa: ritardo difesa missilizia e IVA',
+    ogDescription: 'L\'articolo analizza il ritardo nella fornitura dei sistemi antimissile svizzeri Bodluv GR2 e Patriot, il possibile finanziamento tramite aumento dell\'IVA ancora da approvare dal Parlamento, i fornitori Francia e Israele e le posizioni politiche',
+    canonicalPath: '/articoli-svizzera/svizzera-patriot-bodluv-iva-attesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera indifesa: ritardo difesa missilizia e IVA",
+      "description": "La Svizzera rischia di restare indifesa contro missili balistici a causa del ritardo nella fornitura del sistema Bodluv GR2 e del Patriot. Il finanziamento",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-patriot-bodluv-iva-attesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione di un sistema di difesa antimissile svizzero sulle Alpi con monete euro che rappresentano un possibile aumento dell'IVA"
+      },
+      "datePublished": "2026-10-05T23:53:47+00:00",
+      "dateModified": "2026-10-05T23:53:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-patriot-bodluv-iva-attesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-edilizio-berna-procedura': {
+    title: 'Autorizzazione edilizia a Berna: requisiti e procedura',
+    description: 'Autorizzazione edilizia nel Cantone di Berna: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori senza permesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, berna, requisiti',
+    ogTitle: 'Permesso edilizio nel Cantone di Berna',
+    ogDescription: 'La procedura edilizia nel Cantone di Berna parte dalla verifica del permesso e dei documenti richiesti. Comune e cantone hanno un ruolo nel percorso; opposizioni e ricorsi vanno considerati prima di iniziare i lavori.',
+    canonicalPath: '/articoli-svizzera/permesso-edilizio-berna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorizzazione edilizia a Berna: requisiti e procedura",
+      "description": "Autorizzazione edilizia nel Cantone di Berna: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori senza permesso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-edilizio-berna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti per una richiesta di autorizzazione edilizia nel Cantone di Berna"
+      },
+      "datePublished": "2026-10-06T01:17:07+00:00",
+      "dateModified": "2026-10-06T01:17:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-edilizio-berna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-air-baltic-tagli-swiss': {
+    title: 'Air Baltic, partner di Swiss, taglia fino a 700 posti',
+    description: 'Air Baltic, che opera anche per Swiss, prevede 500-700 tagli su circa 3\'000 posti. Il programma di voli resta invariato; coinvolte Riga, Vilnius e Tallinn.',
+    keywords: 'frontalieri, ticino, svizzera, italia, baltic, partner, swiss, taglia',
+    ogTitle: 'Air Baltic: fino a 700 tagli, partnership con Swiss',
+    ogDescription: 'Il nuovo piano aziendale della compagnia lettone punta su una flotta propria più ridotta di Airbus A220-300 e su partnership più solide durante tutto l\'anno. Cinque A220-300 erano in servizio per Swiss all\'inizio di marzo.',
+    canonicalPath: '/articoli-svizzera/air-baltic-tagli-swiss/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Air Baltic, partner di Swiss, taglia fino a 700 posti",
+      "description": "Air Baltic, che opera anche per Swiss, prevede 500-700 tagli su circa 3'000 posti. Il programma di voli resta invariato; coinvolte Riga, Vilnius e Tallinn.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/air-baltic-tagli-swiss.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Air Baltic riduce il personale mentre mantiene invariato il programma di voli."
+      },
+      "datePublished": "2026-10-06T01:43:45+00:00",
+      "dateModified": "2026-10-06T01:43:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/air-baltic-tagli-swiss/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamedia-cancella-34-posti-lavoro': {
+    title: 'Tamedia cancella 34 posti di lavoro in cinque redazioni',
+    description: 'Tamedia sopprime 34 posti di lavoro a tempo pieno coinvolgendo 41 collaboratori a Zurigo, Berna, Basilea, Losanna e Ginevra. Scopri il piano sociale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, cancella, posti, lavoro',
+    ogTitle: 'Tamedia taglia 34 posti di lavoro in Svizzera',
+    ogDescription: 'Annunciata la soppressione di 34 posizioni a tempo pieno e 41 collaboratori coinvolti nelle redazioni di Zurigo, Berna, Basilea, Losanna e Ginevra. Dettagli sul piano sociale e sulle misure di accompagnamento.',
+    canonicalPath: '/articoli-svizzera/tamedia-cancella-34-posti-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia cancella 34 posti di lavoro in cinque redazioni",
+      "description": "Tamedia sopprime 34 posti di lavoro a tempo pieno coinvolgendo 41 collaboratori a Zurigo, Berna, Basilea, Losanna e Ginevra. Scopri il piano sociale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tamedia-cancella-34-posti-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio Tamedia con redazione giornalistica in Svizzera"
+      },
+      "datePublished": "2026-10-06T03:24:07+00:00",
+      "dateModified": "2026-10-06T03:24:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-cancella-34-posti-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neutralita-svizzera-voto-costituzione': {
+    title: 'Neutralità svizzera: respinta la stretta in Costituzione',
+    description: 'Il popolo svizzero ha respinto l\'iniziativa per una neutralità più rigida nella Costituzione e confermato l\'attuale interpretazione della neutralità elvetica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, respinta, stretta, costituzione',
+    ogTitle: 'Neutralità svizzera: respinta la stretta costituzionale',
+    ogDescription: 'L\'analisi sul rifiuto dell\'iniziativa per una concezione più rigida della neutralità mostra la conferma del sostegno popolare all\'attuale interpretazione elvetica e richiama i dubbi sulle intenzioni dei sostenitori.',
+    canonicalPath: '/articoli-svizzera/neutralita-svizzera-voto-costituzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità svizzera: respinta la stretta in Costituzione",
+      "description": "Il popolo svizzero ha respinto l'iniziativa per una neutralità più rigida nella Costituzione e confermato l'attuale interpretazione della neutralità elvetica.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neutralita-svizzera-voto-costituzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona in una scena editoriale sulla politica svizzera"
+      },
+      "datePublished": "2026-10-06T04:01:17+00:00",
+      "dateModified": "2026-10-06T04:01:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-svizzera-voto-costituzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elezioni-berna-guida-voto': {
+    title: 'Elezioni cantonali a Berna: guida a calendario e voto',
+    description: 'Guida ufficiale alle elezioni cantonali nel Cantone di Berna: calendario, modalità di voto, liste, competenze fiscali, previdenza e regole di locazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, cantonali, berna, calendario',
+    ogTitle: 'Elezioni cantonali Berna: guida a calendario, voto e competenze',
+    ogDescription: 'Scopri come orientarti nelle elezioni cantonali a Berna. Una panoramica completa su calendario, modalità di voto, liste, suddivisione fiscale, previdenza e regole sulla locazione.',
+    canonicalPath: '/articoli-svizzera/elezioni-berna-guida-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elezioni cantonali a Berna: guida a calendario e voto",
+      "description": "Guida ufficiale alle elezioni cantonali nel Cantone di Berna: calendario, modalità di voto, liste, competenze fiscali, previdenza e regole di locazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elezioni-berna-guida-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida alle elezioni cantonali nel Cantone di Berna e competenze"
+      },
+      "datePublished": "2026-10-06T04:48:47+00:00",
+      "dateModified": "2026-10-06T04:48:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elezioni-berna-guida-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-protezione-servizio-indennita': {
+    title: 'Protezione civile canton Berna: requisiti e indennità',
+    description: 'Protezione civile nel canton Berna: legge federale, coordinamento cantonale. Convocazioni e indennità devono essere verificate presso l\'autorità competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, canton, berna',
+    ogTitle: 'Protezione civile canton Berna: requisiti e indennità',
+    ogDescription: 'Nel canton Berna la protezione civile segue un coordinamento cantonale nell\'ambito della legge federale. Requisiti, convocazioni e indennità non vanno dedotti da regole generiche: il riferimento è l\'autorità competente.',
+    canonicalPath: '/articoli-svizzera/berna-protezione-servizio-indennita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile canton Berna: requisiti e indennità",
+      "description": "Protezione civile nel canton Berna: legge federale, coordinamento cantonale. Convocazioni e indennità devono essere verificate presso l'autorità competente.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berna-protezione-servizio-indennita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protezione civile svizzera davanti a un edificio amministrativo cantonale"
+      },
+      "datePublished": "2026-10-06T05:28:53+00:00",
+      "dateModified": "2026-10-06T05:28:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-protezione-servizio-indennita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-edifici-berna-obbligo-premi': {
+    title: 'Assicurazione immobili Canton Berna: obbligo e premi',
+    description: 'Assicurazione immobili nel Canton Berna: obbligo, ente competente, coperture, premi e procedura in caso di sinistro, con confronto alle altre voci svizzere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, canton, berna',
+    ogTitle: 'Assicurazione immobili Canton Berna: obbligo e premi',
+    ogDescription: 'Nel Canton Berna il primo nodo è capire se l\'assicurazione degli edifici è obbligatoria e chi la gestisce. La guida separa ente cantonale, assicuratore autorizzato, premi, coperture e sinistro dalle imposte, dalla LAMal e dalla previdenza.',
+    canonicalPath: '/articoli-svizzera/edifici-berna-obbligo-premi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione immobili Canton Berna: obbligo e premi",
+      "description": "Assicurazione immobili nel Canton Berna: obbligo, ente competente, coperture, premi e procedura in caso di sinistro, con confronto alle altre voci svizzere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/edifici-berna-obbligo-premi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero e documenti per l'assicurazione immobiliare"
+      },
+      "datePublished": "2026-10-06T06:00:48+00:00",
+      "dateModified": "2026-10-06T06:00:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/edifici-berna-obbligo-premi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-immobili-settembre-regioni': {
+    title: 'Prezzi case e appartamenti in Svizzera: settembre stabile',
+    description: 'A settembre i prezzi richiesti in Svizzera cambiano poco: case unifamiliari -0,1% e appartamenti +0,2%, con differenze regionali anche tra Zurigo e Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, case, appartamenti, settembre',
+    ogTitle: 'Case e appartamenti: prezzi stabili a settembre',
+    ogDescription: 'L\'analisi degli annunci Immoscout, in collaborazione con IAZI, mostra prezzi nazionali quasi stabili in settembre, ma differenze regionali: Zurigo guida il calo delle case, mentre il Ticino sale per la proprietà per piani.',
+    canonicalPath: '/articoli-svizzera/prezzi-immobili-settembre-regioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi case e appartamenti in Svizzera: settembre stabile",
+      "description": "A settembre i prezzi richiesti in Svizzera cambiano poco: case unifamiliari -0,1% e appartamenti +0,2%, con differenze regionali anche tra Zurigo e Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-immobili-settembre-regioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali svizzeri e andamento regionale dei prezzi immobiliari"
+      },
+      "datePublished": "2026-10-06T06:36:57+00:00",
+      "dateModified": "2026-10-06T06:36:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-immobili-settembre-regioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ostinelli-cassa-malati-udienza-pretore': {
+    title: 'Ostinelli non paga la cassa malati e va davanti al pretore',
+    description: 'Roberto Ostinelli, medico di Mendrisio, ha smesso di pagare la cassa malati svizzera da giugno 2024 e deve presentarsi davanti al pretore il 6 ottobre dopo aver',
+    keywords: 'frontalieri, ticino, svizzera, italia, ostinelli, paga, cassa, malati',
+    ogTitle: 'Ostinelli non paga la cassa malati e va davanti al pretore',
+    ogDescription: 'Il medico e parlamentare Roberto Ostinelli, residente a Mendrisio, non versa più il premio della cassa malati svizzera da giugno 2024, optando per un\'assicurazione internazionale da 140 euro al mese che dice valida anche in Svizzera. Dopo il rifiuto',
+    canonicalPath: '/articoli-svizzera/ostinelli-cassa-malati-udienza-pretore/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ostinelli non paga la cassa malati e va davanti al pretore",
+      "description": "Roberto Ostinelli, medico di Mendrisio, ha smesso di pagare la cassa malati svizzera da giugno 2024 e deve presentarsi davanti al pretore il 6 ottobre dopo aver",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ostinelli-cassa-malati-udienza-pretore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Roberto Ostinelli, medico di Mendrisio, davanti al pretore per il mancato pagamento della cassa malati"
+      },
+      "datePublished": "2026-10-06T07:13:37+00:00",
+      "dateModified": "2026-10-06T07:13:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ostinelli-cassa-malati-udienza-pretore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-assicurazione-base-proiezione': {
+    title: 'Premi cassa malati in aumento: verso i 1000 franchi al mese',
+    description: 'L\'anno prossimo il premio medio dell\'assicurazione base sarà 488 franchi (+23, +5%). Se il trend del 5% annuo continua, tra 14 anni si avvicinerà a 966,20',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, aumento',
+    ogTitle: 'Premi cassa malati in aumento: verso i 1000 franchi al mese',
+    ogDescription: 'L\'articolo analizza l aumento previsto dei premi dell\'assicurazione obbligatoria: 488 franchi al mese l anno prossimo (+5%, +23 franchi). Secondo la proiezione del 5% annuo, il premio potrebbe raggiungere 966,20 franchi dopo 14 anni e più del doppio',
+    canonicalPath: '/articoli-svizzera/costi-assicurazione-base-proiezione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati in aumento: verso i 1000 franchi al mese",
+      "description": "L'anno prossimo il premio medio dell'assicurazione base sarà 488 franchi (+23, +5%). Se il trend del 5% annuo continua, tra 14 anni si avvicinerà a 966,20",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costi-assicurazione-base-proiezione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che controlla le spese sanitarie e i premi della cassa malati sul tavolo della cucina"
+      },
+      "datePublished": "2026-10-06T07:50:50+00:00",
+      "dateModified": "2026-10-06T07:50:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-assicurazione-base-proiezione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-settembre-2026': {
+    title: 'La situazione sul mercato del lavoro nel mese di settembre 2026',
+    description: 'La SECO ha pubblicato i dati di settembre 2026: 140’480 disoccupati (3%), in calo mensile dello 0,8%, ma in aumento annuo del 5,4%. Posti vacanti URC a 44’199.',
+    keywords: 'frontalieri, ticino, svizzera, italia, situazione, mercato, lavoro, mese',
+    ogTitle: 'Mercato lavoro Svizzera: dati SECO settembre 2026',
+    ogDescription: 'I dati SECO di settembre 2026 rivelano 140’480 disoccupati in Svizzera con un tasso al 3%. Registrato un calo mensile dello 0,8% ma un aumento annuo del 5,4%. I posti vacanti presso gli URC sono 44’199. L\'analisi include anche disoccupazione',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-settembre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La situazione sul mercato del lavoro nel mese di settembre 2026",
+      "description": "La SECO ha pubblicato i dati di settembre 2026: 140’480 disoccupati (3%), in calo mensile dello 0,8%, ma in aumento annuo del 5,4%. Posti vacanti URC a 44’199.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di una città svizzera che simboleggia il mercato del lavoro e l'economia nazionale."
+      },
+      "datePublished": "2026-10-06T08:45:47+00:00",
+      "dateModified": "2026-10-06T08:45:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-effettivo-esercito-2026-calo': {
+    title: 'L\'effettivo dell\'esercito è sufficiente ora ma calerà entro il 2030',
+    description: 'Al 1° marzo 2026 l\'esercito svizzero conta 147 017 militari, sufficienti per garantire il regolamentare di 100 000, ma si prevede un calo sotto 130 000 unità',
+    keywords: 'frontalieri, ticino, svizzera, italia, effettivo, dell, esercito, sufficiente',
+    ogTitle: 'Esercito svizzero: effettivo sufficiente ora, calo previsto entro 2030',
+    ogDescription: 'Il censimento dell’esercito 2026 pubblicato il 6 ottobre mostra 147 017 militari incorporati al 1° marzo, sufficienti per il regolamentare di 100 000. Tuttavia, il proscioglimento delle ultime due classi d’età con obbligo di 12 anni nel 2028‑2029',
+    canonicalPath: '/articoli-svizzera/effettivo-esercito-2026-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'effettivo dell'esercito è sufficiente ora ma calerà entro il 2030",
+      "description": "Al 1° marzo 2026 l'esercito svizzero conta 147 017 militari, sufficienti per garantire il regolamentare di 100 000, ma si prevede un calo sotto 130 000 unità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/effettivo-esercito-2026-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista delle caserme dell'esercito svizzero vicino a Lugano con soldati in addestramento"
+      },
+      "datePublished": "2026-10-06T10:00:38+00:00",
+      "dateModified": "2026-10-06T10:00:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/effettivo-esercito-2026-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-perdita-ad-bilancio-2025': {
+    title: 'Assicurazione disoccupazione: perdita 249 milioni nel 2025',
+    description: 'L\'assicurazione disoccupazione chiude il 2025 con una perdita di 249 milioni. La SECO comunica uscite, entrate, disoccupati medi e capitale netto del fondo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, disoccupazione, perdita, milioni',
+    ogTitle: 'AD: perdita di 249 milioni nel 2025',
+    ogDescription: 'Nel 2025 l\'AD ha registrato uscite per 8,69 miliardi contro 8,44 di entrate. I disoccupati medi sono saliti a 133\'712, mentre il capitale proprio netto del fondo è sceso a 7,96 miliardi; l\'approvazione formale resta pendente.',
+    canonicalPath: '/articoli-svizzera/perdita-ad-bilancio-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione disoccupazione: perdita 249 milioni nel 2025",
+      "description": "L'assicurazione disoccupazione chiude il 2025 con una perdita di 249 milioni. La SECO comunica uscite, entrate, disoccupati medi e capitale netto del fondo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/perdita-ad-bilancio-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio federale a Berna, immagine simbolica del bilancio dell'assicurazione disoccupazione"
+      },
+      "datePublished": "2026-10-06T10:41:49+00:00",
+      "dateModified": "2026-10-06T10:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/perdita-ad-bilancio-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fuochi-artificio-no': {
+    title: 'Fuochi d\'artificio, la destra lancia il no all\'iniziativa',
+    description: 'Il comitato contrario ha lanciato la campagna per il voto del 29 novembre: Centro, PLR, UDC e mondo economico contestano un divieto nazionale sproporzionato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuochi, artificio, destra, lancia',
+    ogTitle: 'Fuochi d\'artificio: il no al divieto nazionale',
+    ogDescription: 'La campagna contraria è partita martedì. L\'iniziativa chiede più protezione da rumore ed emissioni; il fronte del no teme effetti su feste private e manifestazioni organizzate. Per i grandi eventi sovraregionali sono previste eccezioni cantonali.',
+    canonicalPath: '/articoli-svizzera/fuochi-artificio-no/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuochi d'artificio, la destra lancia il no all'iniziativa",
+      "description": "Il comitato contrario ha lanciato la campagna per il voto del 29 novembre: Centro, PLR, UDC e mondo economico contestano un divieto nazionale sproporzionato.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuochi-artificio-no.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fuochi d'artificio sopra una città svizzera durante il dibattito sull'iniziativa"
+      },
+      "datePublished": "2026-10-06T11:19:54+00:00",
+      "dateModified": "2026-10-06T11:19:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fuochi-artificio-no/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ruegsegger-candidato-federale': {
+    title: 'Rüegsegger candidato UDC per il Consiglio federale',
+    description: 'Il Canton Svitto propone André Rüegsegger per la successione di Guy Parmelin: è la prima candidatura ufficiale dopo l\'annuncio delle dimissioni a fine anno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rüegsegger, candidato, consiglio, federale',
+    ogTitle: 'Rüegsegger candidato UDC al Consiglio federale',
+    ogDescription: 'La sezione UDC del Canton Svitto propone André Rüegsegger alla commissione di ricerca nazionale come prima candidatura ufficiale per la successione di Guy Parmelin. Il consigliere di Stato, 50 anni, è nell\'esecutivo svittese dal 2012.',
+    canonicalPath: '/articoli-svizzera/ruegsegger-candidato-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rüegsegger candidato UDC per il Consiglio federale",
+      "description": "Il Canton Svitto propone André Rüegsegger per la successione di Guy Parmelin: è la prima candidatura ufficiale dopo l'annuncio delle dimissioni a fine anno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ruegsegger-candidato-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande, immagine simbolica per la politica federale svizzera."
+      },
+      "datePublished": "2026-10-06T12:03:33+00:00",
+      "dateModified": "2026-10-06T12:03:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruegsegger-candidato-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affluenza-scalo-zurigo-autunno': {
+    title: 'Aeroporto di Zurigo: record con 123\'000 passeggeri',
+    description: 'Zurigo: record con 123\'000 viaggiatori il 4 ottobre. Dati provvisori; picco dello scalo legato alle vacanze autunnali, numeri definitivi a metà novembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, record, passeggeri',
+    ogTitle: 'Aeroporto di Zurigo: 123\'000 viaggiatori in un giorno',
+    ogDescription: 'Domenica 4 ottobre, Zurigo ha accolto 123\'000 viaggiatori: record giornaliero ancora provvisorio. L\'affluenza è legata alle vacanze scolastiche autunnali in diversi Cantoni svizzero-tedeschi; i numeri definitivi arriveranno a metà novembre.',
+    canonicalPath: '/articoli-svizzera/affluenza-scalo-zurigo-autunno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto di Zurigo: record con 123'000 passeggeri",
+      "description": "Zurigo: record con 123'000 viaggiatori il 4 ottobre. Dati provvisori; picco dello scalo legato alle vacanze autunnali, numeri definitivi a metà novembre.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/affluenza-scalo-zurigo-autunno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Zurigo con un aereo sulla pista e il terminale sullo sfondo"
+      },
+      "datePublished": "2026-10-06T12:52:17+00:00",
+      "dateModified": "2026-10-06T12:52:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affluenza-scalo-zurigo-autunno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rickli-tempo-candidatura-federal': {
+    title: 'Natalie Rickli prende tempo su candidatura federale',
+    description: 'Natalie Rickli, consigliera di Stato dell\'UDC, non conferma la candidatura al Consiglio federale, rimandando la decisione dopo le vacanze autunnali; il termine',
+    keywords: 'frontalieri, ticino, svizzera, italia, natalie, rickli, prende, tempo',
+    ogTitle: 'Natalie Rickli prende tempo su candidatura federale',
+    ogDescription: 'La consigliera di Stato zurighese Natalie Rickli, una delle favorite per la successione di Guy Parmelin, non ha ancora confermato la sua candidatura al Consiglio federale. Ha dichiarato di voler riflettere e di rispondere dopo le vacanze autunnali',
+    canonicalPath: '/articoli-svizzera/rickli-tempo-candidatura-federal/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Natalie Rickli prende tempo su candidatura federale",
+      "description": "Natalie Rickli, consigliera di Stato dell'UDC, non conferma la candidatura al Consiglio federale, rimandando la decisione dopo le vacanze autunnali; il termine",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rickli-tempo-candidatura-federal.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista fotorealistica di un edificio federale svizzero al tramonto autunnale."
+      },
+      "datePublished": "2026-10-06T14:04:52+00:00",
+      "dateModified": "2026-10-06T14:04:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rickli-tempo-candidatura-federal/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuovi-progetti-chiave-digitali': {
+    title: 'Nuovi progetti chiave per la sovranità digitale federale',
+    description: 'Il 1° ottobre 2026 il cancelliere ha designato due nuovi progetti chiave: la postazione di lavoro sulla sovranità digitale e EasyGov 2.0. NEPRO esce',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, progetti, chiave, sovranità',
+    ogTitle: 'Nuovi progetti chiave nel settore della trasformazione digitale e dell’informatica',
+    ogDescription: 'Il comunicato del cancelliere del 1° ottobre 2026 ha inserito come progetti chiave la postazione di lavoro basata sulla sovranità digitale e EasyGov 2.0, mentre NEPRO esce dalla categoria. I 22 progetti chiave attuali costituiscono più della metà',
+    canonicalPath: '/articoli-svizzera/nuovi-progetti-chiave-digitali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi progetti chiave per la sovranità digitale federale",
+      "description": "Il 1° ottobre 2026 il cancelliere ha designato due nuovi progetti chiave: la postazione di lavoro sulla sovranità digitale e EasyGov 2.0. NEPRO esce",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-progetti-chiave-digitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto del Bundeshaus a Berna con linee digitali che simboleggiano la trasformazione informatica federale"
+      },
+      "datePublished": "2026-10-06T14:57:46+00:00",
+      "dateModified": "2026-10-06T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuovi-progetti-chiave-digitali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-luna-opportunita-aziende-svizzere': {
+    title: 'Industrializzare la Luna: opportunità per le aziende svizzere',
+    description: 'La filiera spaziale svizzera fattura 330 milioni di franchi, impiega quasi 3000 addetti in 120 aziende e l\'economia lunare potrebbe raggiungere 343-566 miliardi',
+    keywords: 'frontalieri, ticino, svizzera, italia, industrializzare, luna, opportunità, aziende',
+    ogTitle: 'Industrializzare la Luna: opportunità per le aziende svizzere',
+    ogDescription: 'La filiera spaziale svizzera, con circa 330 milioni di franchi di fatturato e quasi 3000 addetti in 120 imprese, si prepara all\'industrializzazione della Luna. Secondo Deloitte, l\'economia lunare potrebbe valere tra 343 e 566 miliardi di dollari',
+    canonicalPath: '/articoli-svizzera/luna-opportunita-aziende-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Industrializzare la Luna: opportunità per le aziende svizzere",
+      "description": "La filiera spaziale svizzera fattura 330 milioni di franchi, impiega quasi 3000 addetti in 120 aziende e l'economia lunare potrebbe raggiungere 343-566 miliardi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/luna-opportunita-aziende-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingegneri svizzeri che lavorano su componenti per missioni lunari in un'officina di Aigle"
+      },
+      "datePublished": "2026-10-06T15:49:22+00:00",
+      "dateModified": "2026-10-06T15:49:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luna-opportunita-aziende-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-maiali-polmonite-enzootica-svizzera': {
+    title: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    description: 'Emergenza sanitaria suinicola in Svizzera: oltre 10\'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l\'uomo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, maiali, uccisi, polmonite, enzootica',
+    ogTitle: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    ogDescription: 'Un\'epidemia di polmonite enzootica ha colpito 60 allevamenti in 14 Cantoni svizzeri. Oltre 10\'500 suini sono stati abbattuti o macellati per fermare il contagio.',
+    canonicalPath: '/articoli-svizzera/maiali-polmonite-enzootica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: 10'500 maiali uccisi per polmonite enzootica",
+      "description": "Emergenza sanitaria suinicola in Svizzera: oltre 10'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l'uomo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maiali-polmonite-enzootica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio rurale svizzero con strutture agricole own modern own"
+      },
+      "datePublished": "2026-10-06T17:19:31+00:00",
+      "dateModified": "2026-10-06T17:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maiali-polmonite-enzootica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ginevra-iniziativa-cern-fcc': {
+    title: 'Ginevra lancia voto popolare sul futuro CERN | Frontaliere Ticino',
+    description: 'Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, lancia, voto, popolare',
+    ogTitle: 'Ginevra lancia voto popolare sul futuro CERN',
+    ogDescription: 'Il Future Circular Collider (FCC) del CERN, lungo 91 km e dal costo stimato di 15 miliardi di franchi, potrebbe essere sottoposto a un voto popolare ginevrino. L\'iniziativa Co-CERNés chiede 5’696 firme entro metà febbraio 2027 per rendere',
+    canonicalPath: '/articoli-svizzera/ginevra-iniziativa-cern-fcc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra lancia voto popolare sul futuro CERN",
+      "description": "Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ginevra-iniziativa-cern-fcc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Ginevra con il complesso del CERN sullo sfondo, luce diurna"
+      },
+      "datePublished": "2026-10-06T17:58:26+00:00",
+      "dateModified": "2026-10-06T17:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-iniziativa-cern-fcc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziative-mps-giustizia-respinte': {
+    title: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    description: 'Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all\'età pensionamento dei magistrati (70 anni rimane) né',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, sulla, giustizia, bocciate',
+    ogTitle: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    ogDescription: 'A Bellinzona, il Gran Consiglio ha bocciato entrambe le proposte degli esponenti MPS Matteo Pronzini e Pino Sergi. La prima voleva ridurre l\'età di pensionamento dei giudici da 70 a 65 anni, ricevendo 41 voti contrari; la seconda intendeva attribuire',
+    canonicalPath: '/articoli-svizzera/iniziative-mps-giustizia-respinte/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative MPS sulla giustizia bocciate dal Gran Consiglio",
+      "description": "Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all'età pensionamento dei magistrati (70 anni rimane) né",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-mps-giustizia-respinte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Gran Consiglio a Bellinzona durante una votazione sulle iniziative MPS sulla giustizia"
+      },
+      "datePublished": "2026-10-06T18:30:47+00:00",
+      "dateModified": "2026-10-06T18:30:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziative-mps-giustizia-respinte/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

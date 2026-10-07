@@ -6618,7 +6618,7 @@ const BLOG_SEO_METADATA_7: Record<string, SEOMetadata> = {
     title: 'Giovani agenti con la polizia locale a Como: monopattini, droghe e alcol',
     description: 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, giovani, agenti, polizia, locale',
-    ogTitle: 'Giovani agenti con la polizia locale a Como',
+    ogTitle: 'Giovani agenti con la polizia locale a Como: monopattini',
     ogDescription: 'Dieci studenti diventano agenti per un giorno con la polizia locale di Como, segnalando violazioni e promuovendo la legalità.',
     canonicalPath: '/articoli-frontaliere/giovani-agenti-como-polizia-locale/',
     structuredData: {

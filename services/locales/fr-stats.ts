@@ -301,7 +301,7 @@ const frStats: Record<string, string> = {
  'blog.contentType.news': 'Actualité',
  'blog.byline': 'Rédaction Frontaliere Ticino',
  'blog.bylinePrefix': 'Par',
- 'blog.authorBio': 'Expert fiscal transfrontalier Suisse-Italie depuis 2020. Spécialisé dans le calcul du salaire net, la fiscalité des frontaliers et la sécurité sociale suisse. Données vérifiées auprès des sources officielles OFS, Agenzia delle Entrate et Canton du Tessin.',
+ 'blog.authorBio': 'Profil éditorial de la rédaction de frontaliereticino.ch. La couverture combine sources officielles, guides pratiques et vérifications éditoriales sur le travail transfrontalier.',
  'blog.newsBanner.title': 'Actualité récente',
  'blog.newsBanner.desc': 'Cet article rapporte une actualité récente. Découvrez aussi nos guides pratiques toujours à jour pour les frontaliers.',
  'blog.seoTitle': 'Tout ce qu\'un frontalier doit savoir',

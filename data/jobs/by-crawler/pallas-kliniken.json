@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pallas-kliniken",
-  "assembledAt": "2026-10-06T09:25:48.171Z",
+  "assembledAt": "2026-10-06T21:27:16.070Z",
   "jobs": [
     {
       "id": "pallas-kliniken-ca73a56c6513",
@@ -34,7 +34,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQikD2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:39.546Z",
+      "crawledAt": "2026-10-06T21:27:07.642Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -54,20 +54,9 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQikD2AT",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:23:52.667Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
@@ -79,9 +68,20 @@
           "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
         ]
       },
-      "previousSlugs": [
-        "leitende-r-medizinische-r-praxisassistent-in-80-100-asthetische-medizin-pallas-kliniken"
-      ]
+      "firstSeenAt": "2026-10-03T09:23:52.667Z",
+      "salaryMin": 124000,
+      "salaryMax": 173000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 124000,
+          "maxValue": 173000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "pallas-kliniken-a5c6577a24c2",
@@ -115,7 +115,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQgth2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:39.045Z",
+      "crawledAt": "2026-10-06T21:27:07.132Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -135,6 +135,20 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQgth2AD",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:23:52.036Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -148,21 +162,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
-        ],
-        "en": [
-          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
-        ],
-        "fr": [
-          "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-n-praxisassistent-in-80-100-bereich-ophthalmologie-pallas-kliniken-bern"
-      ]
+      }
     },
     {
       "id": "pallas-kliniken-35994d4d2552",
@@ -195,7 +195,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PF3Dh2AL",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:38.542Z",
+      "crawledAt": "2026-10-06T21:27:06.626Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000O3j1B2AR",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:38.032Z",
+      "crawledAt": "2026-10-06T21:27:06.114Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -357,7 +357,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:36.729Z",
+      "crawledAt": "2026-10-06T21:27:05.595Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JW78H2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:36.230Z",
+      "crawledAt": "2026-10-06T21:27:05.187Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000I9Ldx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:34.875Z",
+      "crawledAt": "2026-10-06T21:27:04.677Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -587,7 +587,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:33.396Z",
+      "crawledAt": "2026-10-06T21:27:04.160Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -668,7 +668,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG000004A6BV2A0",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:32.892Z",
+      "crawledAt": "2026-10-06T21:27:03.740Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -749,7 +749,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG000003qAft2AE",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:31.545Z",
+      "crawledAt": "2026-10-06T21:27:03.335Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -826,7 +826,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RI9tJ2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:29.242Z",
+      "crawledAt": "2026-10-06T21:27:02.827Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -906,7 +906,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RI2bk2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:28.842Z",
+      "crawledAt": "2026-10-06T21:27:02.321Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -980,7 +980,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PETyF2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:28.447Z",
+      "crawledAt": "2026-10-06T21:27:01.816Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1041,12 +1041,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Dermatologie. Hier zählen wir mit über 350 Mitarbeitenden an 17 Standorten zu den führenden Anbieter in der Schweiz.\n• Wir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, steht einer hervorragenden Zusammenarbeit nichts mehr im Weg. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen.\nZur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe suchen wir Sie als initiative und selbstständige Persönlichkeit.\n\nKlinikleiter/-in 100%\n\nI n dieser Funktion sind Sie zuständig für die personelle und wirtschaftliche Führung unserer Augen- und Belegarztklinik in Olten, mit Spitalstatus und dem ambulanten Augenzentrum.\n\n## Verantwortlichkeiten\n• Sie verantworten die Umsetzung der medizinischen Strategie sowie das Aus- und Weiterbildungsprogramm der Klinik, in Abstimmung mit den zuständigen Ärzten.\n\n• Als Verantwortlicher der Klinik entwickeln Sie durch die Akquisition neuer Belegärztinnen und -ärzte die Klinik stetig weiter und stellen eine optimale Auslastung der OPS-Kapazitäten sicher.\n\n• Sie gestalten aktiv die zukünftige prozessuale und räumliche Organisation mit. Im Fokus stehen dabei die zukünftigen Veränderungen in der Medizin, die nötigen Optimierungen im Bereich Effizienz und der geplante Neubau.\n\n• Mit Ihrem Führungsteam stellen Sie den Erfolg des ambulanten Augenzentrums, der stationären Klinik und die Umsetzung des kantonalen Leistungsauftrags sicher.\n\n## Anforderungen\n• Als Klinikleiter/in haben Sie eine a bgeschlossene Ausbildung zum/zur technischen Operationsassistent/in HF oder Experten/Expertin Anästhesiepflege NDS HF.\n\n• Eine Weiterbildung in Betriebswirtschaft, Personalführung, Gesundheitsmanagement oder einer verwandten Fachrichtung.\n\n• Sie verfügen über mehrjährige Berufs- und Führungserfahrung in einer betriebswirtschaftlichen Funktion im Spitalbereich oder haben bereits eine vergleichbare Position bekleidet.\n\n• Erfahrung in der Optimierung von ambulanten Prozessen des operativen Bereichs sind Voraussetzung.\n\n• In dieser Funktion kommunizieren Sie klar und adressatengerecht, sind kunden- und lösungsorientiert.\n\n• Als authentische Führungskraft bringen Sie ausserordentlich gute Entscheidungs-, Planungs- und Organisationsfähigkeit mit und setzen Verbesserungen rasch um.\n\n• Zum gemeinsamen Erfolg tragen Sie bei, durch Nähe zum operativen Betrieb und Entwicklung des Teams.\n\n• Sie sind eine gewinnende Persönlichkeit, die Menschen durch Ihre Integrationsfähigkeit und Ihr natürliches Auftreten überzeugt, begeistert und motiviert.\n\n## Vorteile\n• Eine verantwortungsvolle Führungsposition mit viel Gestaltungsspielraum und der Möglichkeit, Prozesse aktiv weiterzuentwickeln.\n\n• Die Chance, die Zukunft mitzugestalten und Optimierungspotenziale nachhaltig umzusetzen.\n\n• Ein engagiertes, kollegiales Team sowie eine offene Unternehmenskultur mit kurzen Entscheidungswegen.\n\n• Abwechslungsreiche Aufgaben in einem innovativen und wachsenden Unternehmen des Schweizer Gesundheitswesens.\n\n• Attraktive Anstellungsbedingungen sowie vielfältige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung.\n\n• Ein moderner Arbeitsplatz direkt beim Bahnhof Olten – bequem erreichbar in rund 30 Minuten ab Zürich, Bern, Basel oder Luzern.\n\nKlingt spannend? Dann freuen wir uns auf Ihre Bewerbung und darauf, Sie persönlich kennenzulernen!\nFür Fragen steht Ihnen der COO, Daniel Junker, unter 076 687 89 59 oder daniel.junker@pallas-kliniken.ch sowie unser CHRO, Diego Cicco, unter 058 335 31 39 oder diego.cicco@pallas-kliniken.ch , gerne zur Verfügung.",
         "fr": "Les cliniques Pallas se spécialisent en ophtalmologie et dermatologie. Avec plus de 350 employés sur 17 sites, nous sommes l'un des principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un haut niveau d'engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, rien ne fait obstacle à une excellente coopération. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de façon optimale votre carrière en tant qu'ophtalmologiste.\nPour compléter notre équipe existante dans notre groupe de cliniques, nous vous recherchons comme une initiative et une personnalité indépendante.\n\nDirecteur de clinique/en 100%\n\nDans cette fonction, vous êtes responsable du personnel et de la gestion économique de notre clinique des yeux et documents à Olten, avec le statut hospitalier et le centre des yeux ambulatoires.\n\n## Responsabilité\n• Ils sont responsables de la mise en œuvre de la stratégie médicale ainsi que du programme de formation et de perfectionnement de la clinique, en coordination avec les médecins responsables.\n\n• En tant que responsable de la clinique, vous développez constamment la clinique en acquérant de nouveaux médecins et en assurant une utilisation optimale des capacités de l'OPS.\n\n• Ils façonnent activement l'organisation processuelle et spatiale future. L'accent est mis sur les changements futurs dans la médecine, les optimisations nécessaires dans le domaine de l'efficacité et le nouveau bâtiment prévu.\n\n• Avec votre équipe de gestion, vous assurez le succès du centre de consultation externe, de la clinique et de la mise en œuvre du mandat de service cantonal.\n\n## Exigences\n• En tant que directeur de clinique, vous avez suivi une formation en tant qu'assistant technique en chirurgie ou en anesthésie spécialisée NDS HF.\n\n• Une formation complémentaire en administration des affaires, gestion du personnel, gestion de la santé ou un domaine d'expertise connexe.\n\n• Vous avez plusieurs années d'expérience professionnelle et de gestion dans une fonction de gestion d'entreprise dans le secteur hospitalier ou avez déjà occupé un poste comparable.\n\n• L'expérience dans l'optimisation des processus ambulatoires dans le domaine opérationnel est une condition préalable.\n\n• Dans cette fonction, vous communiquez clairement et orientée vers l'adresse, et sont orientées vers le client et la solution.\n\n• En tant que leader authentique, vous apportez des compétences exceptionnelles en matière de prise de décisions, de planification et d'organisation et vous implémentez rapidement des améliorations.\n\n• Vous contribuez au succès conjoint en étant proche du fonctionnement et du développement de l'équipe.\n\n• Vous êtes une personnalité gagnante qui convainc, inspire et motive les gens par votre capacité à s'intégrer et votre apparence naturelle.\n\n## Avantages\n• Un poste de leadership responsable avec beaucoup de marge de manoeuvre et l'occasion de développer activement des processus.\n\n• La possibilité de façonner l'avenir et de mettre en œuvre le potentiel d'optimisation d'une manière durable.\n\n• Une équipe engagée, collaborative et une culture d'entreprise ouverte avec de courtes voies de décision.\n\n• Des tâches variées dans une société de santé suisse innovante et en pleine croissance.\n\n• Des conditions d'emploi attrayantes et diverses possibilités de perfectionnement professionnel et personnel.\n\n• Un lieu de travail moderne à côté de la gare d'Olten – facilement accessible en environ 30 minutes de Zurich, Berne, Bâle ou Lucerne.\n\nÇa semble excitant ? Ensuite, nous attendons avec impatience votre candidature et de vous rencontrer personnellement!\nPour toute question, le COO, Daniel Junker, au 076 687 89 59 ou daniel.junker@pallas-kliniken.ch ainsi que notre CHRO, Diego Cicco, au 058 335 31 39 ou diego.cicco@pallas-kliniken.ch est à votre disposition."
       },
+      "needsRetranslation": false,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RKq4X2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:27.943Z",
+      "crawledAt": "2026-10-06T21:27:01.301Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1066,20 +1067,9 @@
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RKq4X2AT",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:25:44.651Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "klinikleiter-in-100-pallas-kliniken-olten"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "klinikleiter-in-100-pallas-kliniken-olten"
@@ -1091,9 +1081,20 @@
           "klinikleiter-in-100-pallas-kliniken-olten"
         ]
       },
-      "previousSlugs": [
-        "klinikleiter-in-100-pallas-kliniken-olten"
-      ]
+      "firstSeenAt": "2026-09-30T21:25:44.651Z",
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "pallas-kliniken-30367910756a",
@@ -1126,7 +1127,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PmTir2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:27.446Z",
+      "crawledAt": "2026-10-06T21:27:00.679Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1206,7 +1207,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:27.044Z",
+      "crawledAt": "2026-10-06T21:27:00.065Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1292,12 +1293,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\nWir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen.\n\nZur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe am Standort Langenthal suchen wir Sie als initiative und selbstständige Persönlichkeit.\n\nFachärztin/Facharzt Ophthalmologie 60-100%\n\n## Verantwortlichkeiten\nAls Facharzt / Fachärztin Ophthalmologie an unserem Standort Langenthal stellen Sie die professionell geführte medizinische Sprechstunde sicher. Ihre Fähigkeiten setzen Sie kompetent in der Zusammenarbeit mit den vorhandenen spezialisierten Fachärzten / Fachärztinnen ein. Sie tragen dafür Sorge, dass unsere Patienten optimal versorgt werden. Mit dem eingespielten Team erbringen Sie exzellente medizinische Leistungen auf höchstem Niveau. Sie profitieren dabei von einem breiten Netzwerk, laufenden internen & externen Weiterbildungen sowie einem modernen Arbeitsumfeld.\n\n## Anforderungen\n• Facharzttitel Ophthalmologie\n\n• Mehrjährige Erfahrung im Bereich der Ophthalmologie\n\n• Erfolgs-, zielorientiertes und unternehmerisches Denken und Handeln, mit hohem Qualitäts- und Dienstleistungsverständnis\n\n• Hohe emotionale Intelligenz und Belastbarkeit im Umgang mit Patient/-innen, Mitarbeitenden und weiteren internen wie externen Partnern\n\n• Hervorragende Beobachter/-in und Kommunikator/-in im Dialog mit Patient/-innen\n\n• Fähigkeit, rasch Problemstellungen zu erkennen und Lösungsansätze selbständig zu entwickeln\n\n• Ausgeprägte Beratungskompetenz in deutscher Sprache mit gut verständlicher und adressatengerechter Ausdrucksweise in Wort und Schrift\n\n## Vorteile\nFür Ihre Konsultationen am eigenen Standort profitieren Sie von unserer modernen Infrastruktur, in welcher Sie Ihre Patient/-innen ambulant professionell behandeln können. Dabei entlasten wir Sie bei administrativen\n• Aufgaben. Zudem unterstützt Sie ein interdisziplinäres und standortübergreifendes Team, bestehend aus Fachspezialisten, optimal mit Ideen und weiteren Entwicklungsmöglichkeiten. Darüber hinaus können Sie im Fachaustausch von unserem breit aufgestellten Ärzteteam profitieren. Alle Standorte sind sehr zentral gelegen, sie sind in unter 30 Minuten mit den öffentlichen Verkehrsmitteln ab unserem Hauptstandort in Olten erreichbar. Neben unseren geregelten Arbeitszeiten, welche Ihnen Zeit für Familie und Freizeit erlauben, bieten wir Ihnen auch interne sowie externe Weiterbildungsmöglichkeiten an. Hervorragende Verdienstmöglichkeiten sind für uns selbstverständlich.\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie persönlich kennenzulernen!\n\nFür zusätzliche Informationen steht Ihnen Herr Silvan Bärtschi, Business Partner Ärzte, unter Tel. +41 58 335 32 26 oder via E-Mail silvan.baertschi@pallas-kliniken.ch gerne zur Verfügung.",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\nNous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de manière optimale votre carrière d'ophtalmologiste.\n\nPour compléter notre équipe existante dans notre groupe hospitalier sur le site de Langenthal, nous vous recherchons comme une initiative et une personnalité indépendante.\n\nSpécialiste en ophtalmologie 60-100 %\n\n## Responsabilité\nEn tant que spécialiste en ophtalmologie à notre emplacement Langenthal, vous assurez la consultation médicale guidée professionnellement. Vous utilisez vos compétences avec compétence en collaboration avec les spécialistes/spécialistes existants. Ils s'assurent que nos patients sont soignés de manière optimale. Avec l'équipe expérimentée, vous fournissez d'excellents services médicaux au plus haut niveau. Vous bénéficiez d'un vaste réseau, d'une formation interne et externe continue ainsi que d'un environnement de travail moderne.\n\n## Exigences\n• Titre du spécialiste Ophtalmologie\n\n• Plusieurs années d'expérience en ophtalmologie\n\n• Réussir, orienter vers l'objectif et l'esprit d'entreprise et agir, avec un haut niveau de compréhension de la qualité et des services\n\n• Haute intelligence émotionnelle et résilience face aux patients, employés et autres partenaires internes et externes\n\n• Excellent observateur et communicateur en dialogue avec les patients\n\n• Capacité à identifier rapidement les problèmes et à développer des solutions indépendantes\n\n• Compétence de consultation étendue en allemand avec une langue facile à comprendre et adaptée au destinataire dans la parole et l'écriture\n\n## Avantages\nPour vos consultations à votre propre emplacement, vous bénéficiez de notre infrastructure moderne, dans laquelle vous pouvez traiter vos patients professionnellement. Nous vous assurons des charges administratives.\n• Des tâches. De plus, une équipe interdisciplinaire et interlocalisée composée de spécialistes vous accompagne de façon optimale avec des idées et des possibilités de développement. De plus, vous pouvez bénéficier de notre vaste équipe médicale. Tous les emplacements sont très centralement situés, ils peuvent être atteints en moins de 30 minutes en transports en commun de notre emplacement principal à Olten. En plus de nos heures de travail régulières, qui vous permettent de prendre du temps pour la famille et les loisirs, nous vous offrons également des possibilités de formation interne et externe. D'excellentes opportunités de gain sont bien sûr une question pour nous.\n\nAvons-nous suscité votre intérêt ? Alors nous avons hâte de vous rencontrer personnellement!\n\nPour plus d'informations, M. Silvan Bärtschi, médecin associé d'entreprise, est disponible au +41 58 335 32 26 ou par email silvan.baertschi@pallas-kliniken.ch."
       },
+      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:26.640Z",
+      "crawledAt": "2026-10-06T21:26:59.547Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1371,7 +1373,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:26.145Z",
+      "crawledAt": "2026-10-06T21:26:58.937Z",
       "addressLocality": "Wohlen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1451,18 +1453,17 @@
       },
       "description": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nWir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere Arzt oder Ärztin in der Ästhetik optimal zu unterstützen.\n\nFür unsere medizinische Standortleitung in Solothurn suchen wir eine engagierte und erfahrene Persönlichkeit als\n\nMedizinische Standortleitung Dermatologie\nFachärztin/Facharzt Dermatologie - 60-100%\n\n## Verantwortlichkeiten\n• Medizinische Gesamtverantwortung für den Standort. Gemeinsam mit Ihrem Team stellen Sie eine qualitativ hochwertige, patientenorientierte und effiziente dermatologische Versorgung sicher.\n\n• Fachliche Weiterentwicklung des medizinischen Leistungsangebots. Sie erkennen relevante Entwicklungen früh und integrieren sie erfolgreich in den Klinikalltag.\n\n• Aktive Mitgestaltung der strategischen und operativen Standortentwicklung. Sie verbinden medizinische Qualität mit betriebswirtschaftlicher Verantwortung.\n\n• Pflege und Ausbau des Zuweisernetzwerks sowie nachhaltiger Kooperationen mit niedergelassenen Ärztinnen und Ärzten und weiteren Partnern im Gesundheitswesen.\n\n• Koordinierte Weiterleitung und enge Zusammenarbeit mit den entsprechenden Fachbereichen bei fachgebietsübergreifenden Fragestellungen.\n\n## Anforderungen\n• Facharzttitel Dermatologie und Venerologie mit ausgewiesener Erfahrung in der klassischen Dermatologie (konservativ und operativ).\n\n• Führungs- oder Leitungserfahrung oder klar erkennbares Potenzial und Motivation, eine Leitungsfunktion zu übernehmen.\n\n• Unternehmerische, selbstständige Arbeitsweise mit hohem Qualitäts- und Dienstleistungsverständnis.\n\n• Ausgeprägte Sozial- und Kommunikationskompetenz gegenüber Patientinnen und Patienten, Mitarbeitenden sowie internen und externen Partnern.\n\n• Interesse an ästhetischer Dermatologie von Vorteil.\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\n## Vorteile\n• Führungsverantwortung mit echtem Gestaltungsspielraum. Sie prägen die Entwicklung Ihres Standorts mit.\n\n• Spürbare Entlastung bei administrativen Aufgaben für den Fokus auf Medizin und Führung.\n\n• Moderne Infrastruktur und ein interdisziplinäres, standortübergreifendes Team von Fachspezialistinnen und -spezialisten.\n\n• Interne und externe Weiterbildungen.\n\n• Marktgerechte, leistungsorientierte Vergütung.\n\n• Zentrale Lage in unmittelbarer Nähe des Bahnhofs.\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie persönlich kennenzulernen!",
       "descriptionByLocale": {
-        "it": "Le cliniche Pallas sono specializzate in oftalmologia ed estetica. Con oltre 350 dipendenti e 17 sedi, siamo uno dei principali fornitori in Svizzera.\n• Offriamo un ambiente altamente professionale con condizioni di lavoro attraenti e un team motivato e dinamico. Se avete un alto impegno, l'interesse per la formazione regolare e il godimento del lavoro di squadra, la cooperazione eccellente è già inevitabile. La nostra moderna infrastruttura in tutte le discipline è continuamente ampliata per supportare in modo ottimale il medico di carriera nell'estetica. Per la nostra gestione del sito medico a Solothurn stiamo cercando una personalità impegnata e esperta come specialista di dermatologia di gestione del sito medico / dermatologia specialistica - 60-100 %",
-        "en": "The Pallas clinics are specialized in ophthalmology and aesthetics. With over 350 employees and 17 locations, we are one of the leading providers in Switzerland.\n• We offer a highly professional environment with attractive employment conditions and a motivated and dynamic team. If you have high commitment, interest in regular training and enjoyment of teamwork, excellent cooperation is already inevitable. Our modern infrastructure in all disciplines is continuously expanded to optimally support your career doctor in aesthetics. For our medical site management in Solothurn we are looking for a committed and experienced personality as medical site management dermatology specialist / specialist dermatology - 60-100 %",
+        "it": "Le cliniche Pallas sono specializzate in oftalmologia ed estetica. Con oltre 350 dipendenti e 17 sedi, siamo uno dei principali fornitori in Svizzera.\n\nOffriamo un ambiente altamente professionale con condizioni di lavoro attraenti e un team motivato e dinamico. Se avete un alto impegno, l'interesse per la formazione regolare e il godimento del lavoro di squadra, la cooperazione eccellente è già inevitabile. La nostra moderna infrastruttura in tutte le discipline è continuamente ampliata per supportare in modo ottimale il vostro medico di carriera nell'estetica.\n\nPer la nostra gestione del sito medico a Solothurn stiamo cercando una personalità impegnata e esperta come\n\nGestione del sito medico Dermatologia\nDermatologia medica specialistica - 60-100 %\n\n## Responsabilità\n• Responsabilità complessiva medica per la posizione. Insieme al vostro team, assicurate cure dermatologiche di alta qualità, orientate al paziente ed efficienti.\n\n• Sviluppo professionale dei servizi medici offerti. Riconoscono gli sviluppi rilevanti in una fase iniziale e li integrano con successo nella vita quotidiana dell'ospedale.\n\n• Partecipazione attiva allo sviluppo della posizione strategica e operativa. Combinano la qualità medica con la responsabilità aziendale.\n\n• Manutenzione e ampliamento della rete di riferimento e cooperazione sostenibile con medici e altri partner consolidati nel settore sanitario.\n\n• Trasmissione coordinata e stretta collaborazione con i dipartimenti competenti in materia di questioni interdisciplinari.\n\n## Requisiti\n• Dermatologia e venerologia del titolo specialistico con comprovata esperienza nella dermatologia classica (conservativa e chirurgica).\n\n• Esperienza di leadership o potenziale e motivazione chiaramente identificabili per assumere un ruolo di leadership.\n\n• Metodo di lavoro indipendente e imprenditoriale con un elevato livello di comprensione della qualità e dei servizi.\n\n• Forte capacità di comunicazione e sociale verso pazienti, dipendenti e partner interni ed esterni.\n\n• L'interesse per la dermatologia estetica è vantaggioso.\n\n• Molto buona conoscenza del tedesco in parola e scrittura.\n\n## Vantaggi\n• Responsabilità di leadership con un vero scopo di progettazione. Forma lo sviluppo della tua posizione.\n\n• Rilievo significativo nei compiti amministrativi per l'attenzione alla medicina e alla leadership.\n\n• Infrastrutture moderne e un team interdisciplinare e cross-location di specialisti.\n\n• Formazione interna ed esterna.\n\n• Remunerazione basata sul mercato e basata sulle prestazioni.\n\n• Posizione centrale nelle immediate vicinanze della stazione.\nAbbiamo suscitato il vostro interesse? Allora non vediamo l'ora di incontrarvi personalmente!",
+        "en": "The Pallas clinics are specialized in ophthalmology and aesthetics. With over 350 employees and 17 locations, we are one of the leading providers in Switzerland.\n\nWe offer a highly professional environment with attractive employment conditions and a motivated and dynamic team. If you have high commitment, interest in regular training and enjoyment of teamwork, excellent cooperation is already inevitable. Our modern infrastructure in all disciplines is continuously expanded to optimally support your career doctor in aesthetics.\n\nFor our medical site management in Solothurn we are looking for a committed and experienced personality as\n\nMedical site management Dermatology\nSpecialist doctor dermatology - 60-100 %\n\n## Responsibility\n• Medical overall responsibility for the location. Together with your team, you ensure high-quality, patient-oriented and efficient dermatological care.\n\n• Professional development of the medical services offered. They recognize relevant developments at an early stage and successfully integrate them into everyday hospital life.\n\n• Active participation in strategic and operational location development. They combine medical quality with business responsibility.\n\n• Maintenance and expansion of the referral network as well as sustainable cooperation with established doctors and other partners in the healthcare sector.\n\n• Coordinated forwarding and close cooperation with the relevant departments on interdisciplinary issues.\n\n## Requirements\n• Specialist title dermatology and venerology with proven experience in classical dermatology (conservative and surgical).\n\n• Leadership experience or clearly identifiable potential and motivation to take on a leadership role.\n\n• Entrepreneurial, independent working method with a high level of understanding of quality and services.\n\n• Strong social and communication skills towards patients, employees and internal and external partners.\n\n• Interest in aesthetic dermatology is beneficial.\n\n• Very good knowledge of German in word and writing.\n\n## Benefits\n• Leadership responsibility with real scope for design. You shape the development of your location.\n\n• Significant relief in administrative tasks for the focus on medicine and leadership.\n\n• Modern infrastructure and an interdisciplinary, cross-location team of specialists.\n\n• Internal and external training.\n\n• Market-based, performance-based remuneration.\n\n• Central location in the immediate vicinity of the station.\nHave we aroused your interest? Then we look forward to meeting you personally!",
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nWir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere Arzt oder Ärztin in der Ästhetik optimal zu unterstützen.\n\nFür unsere medizinische Standortleitung in Solothurn suchen wir eine engagierte und erfahrene Persönlichkeit als\n\nMedizinische Standortleitung Dermatologie\nFachärztin/Facharzt Dermatologie - 60-100%\n\n## Verantwortlichkeiten\n• Medizinische Gesamtverantwortung für den Standort. Gemeinsam mit Ihrem Team stellen Sie eine qualitativ hochwertige, patientenorientierte und effiziente dermatologische Versorgung sicher.\n\n• Fachliche Weiterentwicklung des medizinischen Leistungsangebots. Sie erkennen relevante Entwicklungen früh und integrieren sie erfolgreich in den Klinikalltag.\n\n• Aktive Mitgestaltung der strategischen und operativen Standortentwicklung. Sie verbinden medizinische Qualität mit betriebswirtschaftlicher Verantwortung.\n\n• Pflege und Ausbau des Zuweisernetzwerks sowie nachhaltiger Kooperationen mit niedergelassenen Ärztinnen und Ärzten und weiteren Partnern im Gesundheitswesen.\n\n• Koordinierte Weiterleitung und enge Zusammenarbeit mit den entsprechenden Fachbereichen bei fachgebietsübergreifenden Fragestellungen.\n\n## Anforderungen\n• Facharzttitel Dermatologie und Venerologie mit ausgewiesener Erfahrung in der klassischen Dermatologie (konservativ und operativ).\n\n• Führungs- oder Leitungserfahrung oder klar erkennbares Potenzial und Motivation, eine Leitungsfunktion zu übernehmen.\n\n• Unternehmerische, selbstständige Arbeitsweise mit hohem Qualitäts- und Dienstleistungsverständnis.\n\n• Ausgeprägte Sozial- und Kommunikationskompetenz gegenüber Patientinnen und Patienten, Mitarbeitenden sowie internen und externen Partnern.\n\n• Interesse an ästhetischer Dermatologie von Vorteil.\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\n## Vorteile\n• Führungsverantwortung mit echtem Gestaltungsspielraum. Sie prägen die Entwicklung Ihres Standorts mit.\n\n• Spürbare Entlastung bei administrativen Aufgaben für den Fokus auf Medizin und Führung.\n\n• Moderne Infrastruktur und ein interdisziplinäres, standortübergreifendes Team von Fachspezialistinnen und -spezialisten.\n\n• Interne und externe Weiterbildungen.\n\n• Marktgerechte, leistungsorientierte Vergütung.\n\n• Zentrale Lage in unmittelbarer Nähe des Bahnhofs.\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie persönlich kennenzulernen!",
-        "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de manière optimale votre médecin de carrière en esthétique. Pour la gestion de notre site médical à Soleure, nous recherchons une personnalité engagée et expérimentée en tant que spécialiste en dermatologie / dermatologie spécialiste - 60-100 %"
+        "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n\nNous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de manière optimale votre médecin de carrière en esthétique.\n\nPour notre gestion de site médical à Soleure, nous recherchons une personnalité engagée et expérimentée comme\n\nGestion du site médical Dermatologie\nDermatologie médecin spécialiste - 60-100 %\n\n## Responsabilité\n• Responsabilité médicale globale de l'emplacement. Avec votre équipe, vous assurez des soins dermatologiques de haute qualité, orientés vers le patient et efficaces.\n\n• Développement professionnel des services médicaux offerts. Ils reconnaissent les développements pertinents à un stade précoce et les intègrent avec succès dans la vie quotidienne des hôpitaux.\n\n• Participation active au développement des lieux stratégiques et opérationnels. Ils combinent qualité médicale et responsabilité commerciale.\n\n• Maintien et expansion du réseau de référence ainsi qu'une coopération durable avec les médecins établis et d'autres partenaires du secteur de la santé.\n\n• Coordination et coopération étroite avec les départements concernés sur les questions interdisciplinaires.\n\n## Exigences\n• Titre spécialisé dermatologie et vénérologie avec une expérience prouvée en dermatologie classique (conservatrice et chirurgicale).\n\n• Expérience en leadership ou potentiel et motivation clairement identifiables pour assumer un rôle de leadership.\n\n• Méthode de travail indépendante et entrepreneuriale avec un haut niveau de compréhension de la qualité et des services.\n\n• Des compétences sociales et de communication solides pour les patients, les employés et les partenaires internes et externes.\n\n• L'intérêt pour la dermatologie esthétique est bénéfique.\n\n• Très bonne connaissance de l'allemand en paroles et en écriture.\n\n## Avantages\n• Responsabilité de leadership avec une réelle marge de manœuvre pour la conception. Vous façonnez le développement de votre emplacement.\n\n• Un soulagement important dans les tâches administratives pour l'accent mis sur la médecine et le leadership.\n\n• Infrastructure moderne et équipe interdisciplinaire de spécialistes.\n\n• Formation interne et externe.\n\n• Rémunération fondée sur le marché et la performance.\n\n• Emplacement central à proximité immédiate de la station.\nAvons-nous suscité votre intérêt ? Alors nous avons hâte de vous rencontrer personnellement!"
       },
-      "needsRetranslation": true,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbKVS2A3",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:25.721Z",
+      "crawledAt": "2026-10-06T21:26:57.953Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1532,18 +1533,17 @@
       },
       "description": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nWir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere Arzt oder Ärztin in der Ästhetik optimal zu unterstützen.\n\nFür unsere medizinische Standortleitung in Winterthur suchen wir eine engagierte und erfahrene Persönlichkeit als\n\nMedizinische Standortleitung Dermatologie\nFachärztin/Facharzt Dermatologie - 60-100%\n\n## Verantwortlichkeiten\n• Medizinische Gesamtverantwortung für den Standort. Gemeinsam mit Ihrem Team stellen Sie eine qualitativ hochwertige, patientenorientierte und effiziente dermatologische Versorgung sicher.\n\n• Fachliche Weiterentwicklung des medizinischen Leistungsangebots. Sie erkennen relevante Entwicklungen früh und integrieren sie erfolgreich in den Klinikalltag.\n\n• Aktive Mitgestaltung der strategischen und operativen Standortentwicklung. Sie verbinden medizinische Qualität mit betriebswirtschaftlicher Verantwortung.\n\n• Pflege und Ausbau des Zuweisernetzwerks sowie nachhaltiger Kooperationen mit niedergelassenen Ärztinnen und Ärzten und weiteren Partnern im Gesundheitswesen.\n\n• Koordinierte Weiterleitung und enge Zusammenarbeit mit den entsprechenden Fachbereichen bei fachgebietsübergreifenden Fragestellungen.\n\n## Anforderungen\n• Facharzttitel Dermatologie und Venerologie mit ausgewiesener Erfahrung in der klassischen Dermatologie (konservativ und operativ).\n\n• Führungs- oder Leitungserfahrung oder klar erkennbares Potenzial und Motivation, eine Leitungsfunktion zu übernehmen.\n\n• Unternehmerische, selbstständige Arbeitsweise mit hohem Qualitäts- und Dienstleistungsverständnis.\n\n• Ausgeprägte Sozial- und Kommunikationskompetenz gegenüber Patientinnen und Patienten, Mitarbeitenden sowie internen und externen Partnern.\n\n• Interesse an ästhetischer Dermatologie von Vorteil.\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\n## Vorteile\n• Führungsverantwortung mit echtem Gestaltungsspielraum. Sie prägen die Entwicklung Ihres Standorts mit.\n\n• Spürbare Entlastung bei administrativen Aufgaben für den Fokus auf Medizin und Führung.\n\n• Moderne Infrastruktur und ein interdisziplinäres, standortübergreifendes Team von Fachspezialistinnen und -spezialisten.\n\n• Interne und externe Weiterbildungen.\n\n• Marktgerechte, leistungsorientierte Vergütung.\n\n• Zentrale Lage in unmittelbarer Nähe des Bahnhofs.\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie persönlich kennenzulernen!",
       "descriptionByLocale": {
-        "it": "Le cliniche Pallas sono specializzate in oftalmologia ed estetica. Con oltre 350 dipendenti e 17 sedi, siamo uno dei principali fornitori in Svizzera.\n• Offriamo un ambiente altamente professionale con condizioni di lavoro attraenti e un team motivato e dinamico. Se avete un alto impegno, l'interesse per la formazione regolare e il godimento del lavoro di squadra, la cooperazione eccellente è già inevitabile. La nostra moderna infrastruttura in tutte le discipline è continuamente ampliata per supportare in modo ottimale il medico di carriera nell'estetica. Per la nostra gestione del sito medico a Winterthur stiamo cercando una personalità impegnata e esperta come specialista di dermatologia di gestione del sito medico / dermatologia specialistica - 60-100 %",
-        "en": "The Pallas clinics are specialized in ophthalmology and aesthetics. With over 350 employees and 17 locations, we are one of the leading providers in Switzerland.\n• We offer a highly professional environment with attractive employment conditions and a motivated and dynamic team. If you have high commitment, interest in regular training and enjoyment of teamwork, excellent cooperation is already inevitable. Our modern infrastructure in all disciplines is continuously expanded to optimally support your career doctor in aesthetics. For our medical site management in Winterthur we are looking for a committed and experienced personality as medical site management dermatology specialist / specialist dermatology - 60-100 %",
+        "it": "Le cliniche Pallas sono specializzate in oftalmologia ed estetica. Con oltre 350 dipendenti e 17 sedi, siamo uno dei principali fornitori in Svizzera.\n\nOffriamo un ambiente altamente professionale con condizioni di lavoro attraenti e un team motivato e dinamico. Se avete un alto impegno, l'interesse per la formazione regolare e il godimento del lavoro di squadra, la cooperazione eccellente è già inevitabile. La nostra moderna infrastruttura in tutte le discipline è continuamente ampliata per supportare in modo ottimale il vostro medico di carriera nell'estetica.\n\nPer la nostra gestione del sito medico a Winterthur stiamo cercando una personalità impegnata e esperta come\n\nGestione del sito medico Dermatologia\nDermatologia medica specialistica - 60-100 %\n\n## Responsabilità\n• Responsabilità complessiva medica per la posizione. Insieme al vostro team, assicurate cure dermatologiche di alta qualità, orientate al paziente ed efficienti.\n\n• Sviluppo professionale dei servizi medici offerti. Riconoscono gli sviluppi rilevanti in una fase iniziale e li integrano con successo nella vita quotidiana dell'ospedale.\n\n• Partecipazione attiva allo sviluppo della posizione strategica e operativa. Combinano la qualità medica con la responsabilità aziendale.\n\n• Manutenzione e ampliamento della rete di riferimento e cooperazione sostenibile con medici e altri partner consolidati nel settore sanitario.\n\n• Trasmissione coordinata e stretta collaborazione con i dipartimenti competenti in materia di questioni interdisciplinari.\n\n## Requisiti\n• Dermatologia e venerologia del titolo specialistico con comprovata esperienza nella dermatologia classica (conservativa e chirurgica).\n\n• Esperienza di leadership o potenziale e motivazione chiaramente identificabili per assumere un ruolo di leadership.\n\n• Metodo di lavoro indipendente e imprenditoriale con un elevato livello di comprensione della qualità e dei servizi.\n\n• Forte capacità di comunicazione e sociale verso pazienti, dipendenti e partner interni ed esterni.\n\n• L'interesse per la dermatologia estetica è vantaggioso.\n\n• Molto buona conoscenza del tedesco in parola e scrittura.\n\n## Vantaggi\n• Responsabilità di leadership con un vero scopo di progettazione. Forma lo sviluppo della tua posizione.\n\n• Rilievo significativo nei compiti amministrativi per l'attenzione alla medicina e alla leadership.\n\n• Infrastrutture moderne e un team interdisciplinare e cross-location di specialisti.\n\n• Formazione interna ed esterna.\n\n• Remunerazione basata sul mercato e basata sulle prestazioni.\n\n• Posizione centrale nelle immediate vicinanze della stazione.\nAbbiamo suscitato il vostro interesse? Allora non vediamo l'ora di incontrarvi personalmente!",
+        "en": "The Pallas clinics are specialized in ophthalmology and aesthetics. With over 350 employees and 17 locations, we are one of the leading providers in Switzerland.\n\nWe offer a highly professional environment with attractive employment conditions and a motivated and dynamic team. If you have high commitment, interest in regular training and enjoyment of teamwork, excellent cooperation is already inevitable. Our modern infrastructure in all disciplines is continuously expanded to optimally support your career doctor in aesthetics.\n\nFor our medical site management in Winterthur we are looking for a committed and experienced personality as\n\nMedical site management Dermatology\nSpecialist doctor dermatology - 60-100 %\n\n## Responsibility\n• Medical overall responsibility for the location. Together with your team, you ensure high-quality, patient-oriented and efficient dermatological care.\n\n• Professional development of the medical services offered. They recognize relevant developments at an early stage and successfully integrate them into everyday hospital life.\n\n• Active participation in strategic and operational location development. They combine medical quality with business responsibility.\n\n• Maintenance and expansion of the referral network as well as sustainable cooperation with established doctors and other partners in the healthcare sector.\n\n• Coordinated forwarding and close cooperation with the relevant departments on interdisciplinary issues.\n\n## Requirements\n• Specialist title dermatology and venerology with proven experience in classical dermatology (conservative and surgical).\n\n• Leadership experience or clearly identifiable potential and motivation to take on a leadership role.\n\n• Entrepreneurial, independent working method with a high level of understanding of quality and services.\n\n• Strong social and communication skills towards patients, employees and internal and external partners.\n\n• Interest in aesthetic dermatology is beneficial.\n\n• Very good knowledge of German in word and writing.\n\n## Benefits\n• Leadership responsibility with real scope for design. You shape the development of your location.\n\n• Significant relief in administrative tasks for the focus on medicine and leadership.\n\n• Modern infrastructure and an interdisciplinary, cross-location team of specialists.\n\n• Internal and external training.\n\n• Market-based, performance-based remuneration.\n\n• Central location in the immediate vicinity of the station.\nHave we aroused your interest? Then we look forward to meeting you personally!",
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n\nWir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere Arzt oder Ärztin in der Ästhetik optimal zu unterstützen.\n\nFür unsere medizinische Standortleitung in Winterthur suchen wir eine engagierte und erfahrene Persönlichkeit als\n\nMedizinische Standortleitung Dermatologie\nFachärztin/Facharzt Dermatologie - 60-100%\n\n## Verantwortlichkeiten\n• Medizinische Gesamtverantwortung für den Standort. Gemeinsam mit Ihrem Team stellen Sie eine qualitativ hochwertige, patientenorientierte und effiziente dermatologische Versorgung sicher.\n\n• Fachliche Weiterentwicklung des medizinischen Leistungsangebots. Sie erkennen relevante Entwicklungen früh und integrieren sie erfolgreich in den Klinikalltag.\n\n• Aktive Mitgestaltung der strategischen und operativen Standortentwicklung. Sie verbinden medizinische Qualität mit betriebswirtschaftlicher Verantwortung.\n\n• Pflege und Ausbau des Zuweisernetzwerks sowie nachhaltiger Kooperationen mit niedergelassenen Ärztinnen und Ärzten und weiteren Partnern im Gesundheitswesen.\n\n• Koordinierte Weiterleitung und enge Zusammenarbeit mit den entsprechenden Fachbereichen bei fachgebietsübergreifenden Fragestellungen.\n\n## Anforderungen\n• Facharzttitel Dermatologie und Venerologie mit ausgewiesener Erfahrung in der klassischen Dermatologie (konservativ und operativ).\n\n• Führungs- oder Leitungserfahrung oder klar erkennbares Potenzial und Motivation, eine Leitungsfunktion zu übernehmen.\n\n• Unternehmerische, selbstständige Arbeitsweise mit hohem Qualitäts- und Dienstleistungsverständnis.\n\n• Ausgeprägte Sozial- und Kommunikationskompetenz gegenüber Patientinnen und Patienten, Mitarbeitenden sowie internen und externen Partnern.\n\n• Interesse an ästhetischer Dermatologie von Vorteil.\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift.\n\n## Vorteile\n• Führungsverantwortung mit echtem Gestaltungsspielraum. Sie prägen die Entwicklung Ihres Standorts mit.\n\n• Spürbare Entlastung bei administrativen Aufgaben für den Fokus auf Medizin und Führung.\n\n• Moderne Infrastruktur und ein interdisziplinäres, standortübergreifendes Team von Fachspezialistinnen und -spezialisten.\n\n• Interne und externe Weiterbildungen.\n\n• Marktgerechte, leistungsorientierte Vergütung.\n\n• Zentrale Lage in unmittelbarer Nähe des Bahnhofs.\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns, Sie persönlich kennenzulernen!",
-        "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de manière optimale votre médecin de carrière en esthétique. Pour notre gestion de site médical à Winterthur, nous recherchons une personnalité engagée et expérimentée en tant que spécialiste en dermatologie / dermatologie spécialisée - 60-100 %"
+        "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n\nNous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de manière optimale votre médecin de carrière en esthétique.\n\nPour notre gestion de site médical à Winterthur, nous recherchons une personnalité engagée et expérimentée\n\nGestion du site médical Dermatologie\nDermatologie médecin spécialiste - 60-100 %\n\n## Responsabilité\n• Responsabilité médicale globale de l'emplacement. Avec votre équipe, vous assurez des soins dermatologiques de haute qualité, orientés vers le patient et efficaces.\n\n• Développement professionnel des services médicaux offerts. Ils reconnaissent les développements pertinents à un stade précoce et les intègrent avec succès dans la vie quotidienne des hôpitaux.\n\n• Participation active au développement des lieux stratégiques et opérationnels. Ils combinent qualité médicale et responsabilité commerciale.\n\n• Maintien et expansion du réseau de référence ainsi qu'une coopération durable avec les médecins établis et d'autres partenaires du secteur de la santé.\n\n• Coordination et coopération étroite avec les départements concernés sur les questions interdisciplinaires.\n\n## Exigences\n• Titre spécialisé dermatologie et vénérologie avec une expérience prouvée en dermatologie classique (conservatrice et chirurgicale).\n\n• Expérience en leadership ou potentiel et motivation clairement identifiables pour assumer un rôle de leadership.\n\n• Méthode de travail indépendante et entrepreneuriale avec un haut niveau de compréhension de la qualité et des services.\n\n• Des compétences sociales et de communication solides pour les patients, les employés et les partenaires internes et externes.\n\n• L'intérêt pour la dermatologie esthétique est bénéfique.\n\n• Très bonne connaissance de l'allemand en paroles et en écriture.\n\n## Avantages\n• Responsabilité de leadership avec une réelle marge de manœuvre pour la conception. Vous façonnez le développement de votre emplacement.\n\n• Un soulagement important dans les tâches administratives pour l'accent mis sur la médecine et le leadership.\n\n• Infrastructure moderne et équipe interdisciplinaire de spécialistes.\n\n• Formation interne et externe.\n\n• Rémunération fondée sur le marché et la performance.\n\n• Emplacement central à proximité immédiate de la station.\nAvons-nous suscité votre intérêt ? Alors nous avons hâte de vous rencontrer personnellement!"
       },
-      "needsRetranslation": true,
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbCXw2AN",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:25:25.320Z",
+      "crawledAt": "2026-10-06T21:26:57.545Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",

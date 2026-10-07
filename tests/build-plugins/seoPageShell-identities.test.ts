@@ -4,6 +4,7 @@ import {
   buildSeoPageHtml,
   normalizeStaticJsonLdScripts,
 } from '../../build-plugins/shared/seoPageShell';
+import { inlineScriptJson } from '../../build-plugins/shared/inlineJsonScript';
 import {
   TICINO_CUSTOMS_DEPARTMENT_ID,
   WEBSITE_ID,
@@ -77,6 +78,47 @@ describe('static SEO JSON-LD identities', () => {
     });
 
     expect(normalizeStaticJsonLdScripts([source])).toEqual([source]);
+  });
+
+  it('gives repeated name-only external organizations a deterministic id', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'ItemList',
+        itemListElement: [
+          { '@type': 'ListItem', item: { '@type': 'Organization', name: 'EOC – Ente Ospedaliero Cantonale' } },
+          { '@type': 'ListItem', item: { '@type': 'Organization', name: 'EOC – Ente Ospedaliero Cantonale' } },
+        ],
+      }),
+    ]);
+
+    const items = JSON.parse(serialized).itemListElement;
+    expect(items[0].item['@id']).toBe(
+      'https://frontaliereticino.ch/#organization-eoc-ente-ospedaliero-cantonale-50273b5f8a9088d1',
+    );
+    expect(items[1].item['@id']).toBe(items[0].item['@id']);
+  });
+
+  it('uses an official organization URL as its identity', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({ '@type': 'Organization', name: 'EOC', url: 'https://www.eoc.ch' }),
+    ]);
+
+    expect(JSON.parse(serialized)['@id']).toBe('https://www.eoc.ch/');
+  });
+
+  it('applies the same organization identity pass to article-engine JSON-LD', () => {
+    const serialized = inlineScriptJson({
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      image: {
+        '@type': 'ImageObject',
+        creator: { '@type': 'Organization', name: 'European Commission (Christophe Licoppe)' },
+      },
+    });
+
+    expect(JSON.parse(serialized).image.creator['@id']).toBe(
+      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe-9c3bd3af9176f96b',
+    );
   });
 });
 

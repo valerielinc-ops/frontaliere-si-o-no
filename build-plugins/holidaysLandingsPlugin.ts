@@ -634,7 +634,7 @@ function renderPage(opts: {
         return `<tr${coincClass}><td class="hc">${esc(formatDate(h.dates[String(year)], locale))}</td><td class="hc">${esc(h.name[locale])}</td><td class="hc" style="text-align:center">${checkMark(h.ticino, L.tableHeadTicino)}</td><td class="hc" style="text-align:center">${checkMark(h.italy, L.tableHeadItaly)}</td></tr>`;
       })
       .join('');
-    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:12px 14px;font-weight:700">${esc(L.ticino.calendarTitle(year))}</caption><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table aria-label="${esc(L.ticino.calendarTitle(year))}" style="width:100%;border-collapse:collapse"><caption style="text-align:left;padding:12px 14px;font-weight:700">${esc(L.ticino.calendarTitle(year))}</caption><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   // Comparison table (ch-vs-it page): all holidays y1 with TI/IT flags.
@@ -648,7 +648,7 @@ function renderPage(opts: {
         return `<tr${rowStyle}><td class="hc">${esc(formatDate(h.dates[String(y1)], locale))}</td><td class="hc">${esc(h.name[locale])}</td><td class="hc" style="text-align:center">${checkMark(h.ticino, L.tableHeadTicino)}</td><td class="hc" style="text-align:center">${checkMark(h.italy, L.tableHeadItaly)}</td></tr>`;
       })
       .join('');
-    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table style="width:100%;border-collapse:collapse"><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    return `<div class="s-card" style="overflow-x:auto;padding:0;border-radius:14px"><table aria-label="${esc(L.chVsIt.h1)}" style="width:100%;border-collapse:collapse"><thead><tr><th class="hd">${esc(L.tableHeadDate)}</th><th class="hd">${esc(L.tableHeadHoliday)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadTicino)}</th><th class="hd" style="text-align:center">${esc(L.tableHeadItaly)}</th></tr></thead><tbody>${rows}</tbody></table></div>`;
   }
 
   function nonCoincList(items: readonly HolidayRecord[]): string {
@@ -739,7 +739,10 @@ function renderPage(opts: {
       <ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul>
     </section>`;
 
-  const bodyHtml = `<main class="s-xzWvwM">${body}</main>`;
+  // buildSeoPageHtml supplies the single crawler-facing main landmark. Keep
+  // the page layout class on a neutral wrapper so holiday pages do not nest
+  // a second main inside the shared SEO shell.
+  const bodyHtml = `<div class="s-xzWvwM">${body}</div>`;
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({

@@ -1,19 +1,21 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-06T09:14:11.000Z",
+  "generatedAt": "2026-10-06T21:13:35.754Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11961,
-  "avgDurationMs": 11961,
+  "unchangedCount": 2,
+  "durationMs": 12424,
+  "avgDurationMs": 12424,
   "durationHistory": [
-    11961
+    12424
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
@@ -56,10 +58,7 @@
         "translation": 25,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
@@ -104,5 +103,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

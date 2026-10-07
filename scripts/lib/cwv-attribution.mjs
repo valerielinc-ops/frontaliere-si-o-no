@@ -175,12 +175,11 @@ function weightedMean(items, field) {
   return total ? known.reduce((sum, item) => sum + item[field] * item.count, 0) / total : null;
 }
 
-/** The CLS selectors with most events, with event-weighted mean `ac` and `cc`. */
-export function topClsSelectors(rows, limit = TOP_SELECTORS) {
-  const [cls] = ATTRIBUTION_SECTIONS;
+/** The selectors for one metric with most events, with weighted `ac`/`cc`. */
+function topSelectors(rows, section, limit = TOP_SELECTORS) {
   const bySelector = new Map();
   for (const row of rows) {
-    if (row.section !== cls) continue;
+    if (row.section !== section) continue;
     const key = row.selector || '(vuoto)';
     const list = bySelector.get(key) || [];
     list.push(row);
@@ -198,6 +197,23 @@ export function topClsSelectors(rows, limit = TOP_SELECTORS) {
       cc: weightedMean(items, 'cc'),
     };
   }).sort((a, b) => b.count - a.count || a.selector.localeCompare(b.selector)).slice(0, limit);
+}
+
+/** The CLS selectors with most events. */
+export function topClsSelectors(rows, limit = TOP_SELECTORS) {
+  return topSelectors(rows, ATTRIBUTION_SECTIONS[0], limit);
+}
+
+/** The INP interaction targets with most events. */
+export function topInpSelectors(rows, limit = TOP_SELECTORS) {
+  return topSelectors(rows, ATTRIBUTION_SECTIONS[1], limit);
+}
+
+/** Number of INP events whose attribution did not contain a selector. */
+export function missingInpSelectorCount(rows) {
+  return rows
+    .filter((row) => row.section === ATTRIBUTION_SECTIONS[1] && !row.selector)
+    .reduce((sum, row) => sum + row.count, 0);
 }
 
 function p75(observations) {

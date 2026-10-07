@@ -1,7 +1,7 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-10-06T09:15:45.248Z",
+  "generatedAt": "2026-10-06T21:12:12.286Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5635,
-  "avgDurationMs": 5635,
+  "durationMs": 5683,
+  "avgDurationMs": 5683,
   "durationHistory": [
-    5635
+    5683
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144287819-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:15:31.074Z",
+      "crawledAt": "2026-10-06T21:11:54.826Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,5 +68,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

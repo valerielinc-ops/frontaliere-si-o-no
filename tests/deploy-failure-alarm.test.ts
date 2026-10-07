@@ -35,6 +35,9 @@ import {
   firstFailure,
   consecutiveFailureStreak,
   buildAlarmDescription,
+  buildRunHistoryArgs,
+  mergeRunHistoryRuns,
+  RUN_HISTORY_STATUS_FILTERS,
 } from '../scripts/ci/report-deploy-run-failure.mjs';
 import { coverageOf, parseWorkflow, observedWorkflowNames, isFailureGated } from '../scripts/ci/failure-issue-inventory.mjs';
 
@@ -159,6 +162,26 @@ describe('«da quante run consecutive», non «il deploy è rosso»', () => {
   it('un id fuori dalla finestra non azzera il conteggio: riparte dalla più recente', () => {
     const { streak } = consecutiveFailureStreak(RUN_LIST, { fromRunId: 1 });
     expect(streak).toBe(0); // la più recente è verde, quindi zero — non un crash
+  });
+});
+
+describe('lo storico dell allarme non viene troncato dalle cancellate', () => {
+  it('costruisce una lettura server-filtered per ogni conclusione che può decidere', () => {
+    expect(RUN_HISTORY_STATUS_FILTERS).toEqual(['success', 'failure', 'timed_out', 'startup_failure']);
+    const args = buildRunHistoryArgs(OBSERVED, 'success', Date.parse('2026-10-06T00:00:00Z'));
+    expect(args).toContain('--status');
+    expect(args).toContain('success');
+    expect(args).toContain('-b');
+    expect(args).toContain('main');
+  });
+
+  it('riunisce le pagine e mantiene la serie newest-first', () => {
+    const runs = mergeRunHistoryRuns([
+      [{ databaseId: 2, status: 'completed', conclusion: 'success', createdAt: '2026-10-06T00:02:00Z' }],
+      [{ databaseId: 1, status: 'completed', conclusion: 'failure', createdAt: '2026-10-06T00:01:00Z' }],
+      [{ databaseId: 2, status: 'completed', conclusion: 'success', createdAt: '2026-10-06T00:02:00Z' }],
+    ]);
+    expect(runs.map((run) => run.databaseId)).toEqual([2, 1]);
   });
 });
 

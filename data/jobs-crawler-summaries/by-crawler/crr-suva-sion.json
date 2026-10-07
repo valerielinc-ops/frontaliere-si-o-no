@@ -1,27 +1,70 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-10-06T09:24:55.859Z",
-  "total": 1,
+  "generatedAt": "2026-10-06T21:15:13.584Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2628,
-  "avgDurationMs": 2628,
+  "durationMs": 3154,
+  "avgDurationMs": 3154,
   "durationHistory": [
-    2628
+    3154
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "crr-suva-sion-5a344bee5bb3",
+      "slug": "ict-senior-security-engineer-crr-suva-sion-sion",
+      "company": "Clinique romande de réadaptation (CRR Suva)",
+      "companyKey": "crr-suva-sion",
+      "companyDomain": "crr-suva.ch",
+      "title": "ICT Senior Security Engineer",
+      "needsRetranslation": true,
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.crr-suva.ch/clinique-readaptation/senior-security-engineer-2434.html",
+      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-06T21:15:05.534Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/senior-security-engineer-2434.html",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-06T21:15:05.534Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -38,7 +81,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:24:47.848Z",
+      "crawledAt": "2026-10-06T21:15:06.000Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

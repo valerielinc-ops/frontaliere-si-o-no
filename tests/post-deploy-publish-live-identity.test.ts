@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   isExactBuildId,
+  isNewerBuildId,
   verifyLiveBuildIdentity,
 } from '../scripts/ci/verify-live-build-identity.mjs';
 
@@ -15,6 +16,12 @@ describe('post-deploy live build identity guard', () => {
     expect(isExactBuildId('1718000000123', 'older')).toBe(false);
   });
 
+  it('classifies only a numerically newer live build as the safe stale race', () => {
+    expect(isNewerBuildId('1718000000123', '1718000000124')).toBe(true);
+    expect(isNewerBuildId('1718000000123', '1718000000122')).toBe(false);
+    expect(isNewerBuildId('1718000000123', 'malformed')).toBe(false);
+  });
+
   it('rejects a newer live build before side-effects can be admitted', async () => {
     const verdict = await verifyLiveBuildIdentity({
       expectedBuildId: '1718000000123',
@@ -23,6 +30,7 @@ describe('post-deploy live build identity guard', () => {
     });
 
     expect(verdict.ok).toBe(false);
+    expect(verdict.kind).toBe('stale');
     expect(verdict.reason).toMatch(/stale publisher source/);
     expect(verdict.expected).toBe('1718000000123');
     expect(verdict.live).toBe('1718000000124');
@@ -36,6 +44,7 @@ describe('post-deploy live build identity guard', () => {
     });
 
     expect(verdict.ok).toBe(false);
+    expect(verdict.kind).toBe('fetch-failure');
     expect(verdict.reason).toContain('HTTP 503');
   });
 });
@@ -56,6 +65,8 @@ describe('post-deploy-publish.yml — live identity placement', () => {
     expect(guardBlock).toContain('verify-live-build-identity.mjs');
     expect(guardBlock).toContain('EXPECTED_BUILD_ID_FILE');
     expect(guardBlock).toContain('SOURCE_DEPLOY_REF');
+    expect(guardBlock).toContain('id: live_identity');
+    expect(guardBlock).toContain('--stale-policy=skip');
 
     for (const stepName of [
       'Sync previous-slug winners registry',
@@ -66,6 +77,9 @@ describe('post-deploy-publish.yml — live identity placement', () => {
     ]) {
       const step = workflow.indexOf(`- name: ${stepName}`);
       expect(step, stepName).toBeGreaterThan(guard);
+      const nextStep = workflow.indexOf('\n      - name:', step + 1);
+      const stepBlock = workflow.slice(step, nextStep === -1 ? workflow.length : nextStep);
+      expect(stepBlock, stepName).toContain("steps.live_identity.outputs.status == 'match'");
     }
   });
 });

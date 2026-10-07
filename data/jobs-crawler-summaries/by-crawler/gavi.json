@@ -1,7 +1,7 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-10-06T09:13:04.465Z",
+  "generatedAt": "2026-10-06T21:14:04.949Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,19 +13,21 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7154,
-  "avgDurationMs": 7154,
+  "unchangedCount": 1,
+  "durationMs": 4137,
+  "avgDurationMs": 4137,
   "durationHistory": [
-    7154
+    4137
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gavi-779c03b3dd09",
-      "slug": "senior-manager-grants-design-gavi-le-grand-saconnex",
+      "slug": "senior-manager-progettazione-dei-grant-gavi-the-vaccine-alliance-le-grand-saconnex",
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
       "companyDomain": "gavi.org",
@@ -35,7 +37,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:50.314Z",
+      "crawledAt": "2026-10-06T21:13:50.717Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -59,16 +61,14 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

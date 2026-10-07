@@ -40,6 +40,13 @@ describe('reopenedAfterDecomposition', () => {
     ])).toBe(true);
   });
 
+  it('true: il monitor annota una ricorrenza su una issue già aperta', () => {
+    expect(reopenedAfterDecomposition([
+      decomposed('2026-10-03T10:00:00Z'),
+      { body: '🔁 Recurrence on workflow run.\n\n**Workflow:** Bing SEO closed loop', createdAt: '2026-10-03T11:00:00Z' },
+    ])).toBe(true);
+  });
+
   it('false: decomposizione rifatta DOPO la ricorrenza ridà l\'autorità al PARENT-CLOSE', () => {
     expect(reopenedAfterDecomposition([
       reopened('2026-10-03T11:00:00Z'),
@@ -52,6 +59,19 @@ describe('reopenedAfterDecomposition', () => {
       decomposed('2026-10-01T10:00:00Z'),
       reopened('2026-10-02T10:00:00Z'),
       decomposed('2026-10-03T12:00:00Z'),
+    ])).toBe(false);
+  });
+
+  it('a parità di secondo decide la posizione nel thread', () => {
+    // GitHub data i commenti al secondo: una ricorrenza scritta nello stesso
+    // secondo della decomposizione è «dopo» solo se viene dopo nell'elenco.
+    expect(reopenedAfterDecomposition([
+      decomposed('2026-10-03T10:00:00Z'),
+      reopened('2026-10-03T10:00:00Z'),
+    ])).toBe(true);
+    expect(reopenedAfterDecomposition([
+      reopened('2026-10-03T10:00:00Z'),
+      decomposed('2026-10-03T10:00:00Z'),
     ])).toBe(false);
   });
 
@@ -107,6 +127,13 @@ describe('cablaggio nel PARENT-CLOSE di followup-drainer.mjs', () => {
     );
   });
 
+  it('invoca il riarmo puro e scrive il marker prima di rimuovere il veto', () => {
+    expect(src).toMatch(/decideParentRearm\([\s\S]*?childStates/);
+    expect(src).toContain('parentRearmCommentBody({');
+    expect(src).toContain("remove: [LBL_DECOMPOSED, 'agent:triaged', LBL_FIX, LBL_QUEUED]");
+    expect(src).toContain('triage-sweep');
+  });
+
   it('chiama la guardia nel blocco PARENT-CLOSE prima di `gh issue close` e del commento di chiusura', () => {
     const start = src.indexOf('// --- PARENT-CLOSE:');
     const end = src.indexOf('// --- VERDICT-EXIT:', start);
@@ -121,5 +148,15 @@ describe('cablaggio nel PARENT-CLOSE di followup-drainer.mjs', () => {
     expect(close).toBeGreaterThan(-1);
     expect(guard).toBeLessThan(closeComment);
     expect(guard).toBeLessThan(close);
+  });
+
+  it('non legge le figlie prima della guardia di ricorrenza', () => {
+    const start = src.indexOf('// --- PARENT-CLOSE:');
+    const end = src.indexOf('// --- VERDICT-EXIT:', start);
+    const block = src.slice(start, end);
+    const guard = block.indexOf('if (reopenedAfterDecomposition(comments))');
+    const childRead = block.indexOf('readParentRearmChildStates(kids)');
+    expect(guard).toBeGreaterThan(-1);
+    expect(childRead).toBeGreaterThan(guard);
   });
 });

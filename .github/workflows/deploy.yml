@@ -886,6 +886,38 @@ jobs:
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Advisory phase observer (#9247): the build-profile history already
+      # contains the same-locale baselines. Keep the table and the +30% alarm
+      # outside the publish path; a missing history row must never stop deploy.
+      - name: Observe phase timing per locale
+        id: phase_timing
+        if: always()
+        continue-on-error: true
+        shell: bash
+        env:
+          PHASE_TIMING_LOG: /tmp/build.log
+          PHASE_TIMING_HISTORY: data/build-history/memory-peaks.jsonl
+          PHASE_TIMING_LOCALE: ${{ matrix.locale }}
+          PHASE_TIMING_ALERT_FILE: ${{ runner.temp }}/phase-timing-alert.md
+        run: node scripts/ci/phase-timing-observer.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Report build phase timing regression to GitHub Issues
+        if: always() && steps.phase_timing.outputs.alert == 'true'
+        continue-on-error: true
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Build phase timing regression (+30% median)'
+          closed-by: sibling-resolve-step
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '3'
+          labels: Bug
+          entity: ${{ matrix.locale }}
+          diag-file: ${{ runner.temp }}/phase-timing-alert.md
+          context: |
+            - Il deploy resta non bloccante: questa è una misura advisory della gamba `${{ matrix.locale }}`.
+            - L'allarme scatta solo quando una fase supera del 30% la mediana della stessa lingua con almeno tre campioni.
+            - La tabella completa è nel riepilogo della gamba e la riga misurata viene conservata nello storico build-profile.
+
       - name: Incremental manifest shadow report
         if: always()
         continue-on-error: true
@@ -2223,6 +2255,7 @@ jobs:
           ROW_LOCALE: ${{ matrix.locale }}
           ROW_RUN_ID: ${{ github.run_id }}
           ROW_SHA: ${{ github.sha }}
+          ROW_BUILD_STATUS: ${{ job.status }}
           # IT keeps its section timing in this job. The non-IT section tail
           # now runs in deploy-publish.yml; only its compact source handoff is
           # measured here.
@@ -2258,6 +2291,7 @@ jobs:
               locale: process.env.ROW_LOCALE,
               run_id: process.env.ROW_RUN_ID,
               sha: process.env.ROW_SHA,
+              build_status: process.env.ROW_BUILD_STATUS || null,
               kind: "build-profile",
               profile,
               phases,
@@ -2463,6 +2497,7 @@ jobs:
       # il repo e gli artifact della run.
       contents: read
       actions: read
+      issues: write
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -2488,6 +2523,7 @@ jobs:
             /data/build-history/
             /scripts/lib/
             /scripts/ci/assert-accumulator-write.mjs
+            /scripts/ci/phase-timing-observer.mjs
             /scripts/load-rc-env.mjs
           sparse-checkout-cone-mode: false
 
@@ -2528,6 +2564,50 @@ jobs:
           HISTORY_ROWS_DIR: ${{ runner.temp }}/build-history-rows
           HISTORY_COMMIT_MSG: 'chore(build-history): append rows run ${{ github.run_id }}'
         run: bash scripts/lib/commit-build-history-rows.sh
+
+      # The matrix legs may observe independently; resolve only after every
+      # locale is green AND three consecutive deploy runs have complete phase
+      # measurements below the +30% boundary. The Actions run list is needed
+      # because a cancelled run can stop before writing a history row.
+      - name: Resolve build phase timing regression issue on green
+        if: always() && needs.build-locale.result == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PHASE_TIMING_HISTORY: data/build-history/memory-peaks.jsonl
+          PHASE_TIMING_RUNS_FILE: ${{ runner.temp }}/phase-timing-runs.json
+          PHASE_TIMING_RUN_ID: ${{ github.run_id }}
+          PHASE_TIMING_REQUIRED_LOCALES: it,en,de,fr
+          PHASE_TIMING_RECOVERY_RUNS: '3'
+        run: |
+          set -euo pipefail
+          # A `--branch` run listing without `--created` can come back frozen
+          # weeks in the past (scripts/ci/lib/run-listing-window.mjs): the
+          # recovery check would then not find the current run and never
+          # close. Seven days cover the three consecutive deploys it needs
+          # with a wide margin; the observer orders the runs by id itself.
+          CREATED_SINCE="$(jq -rn 'now - (7 * 86400) | strftime("%Y-%m-%d")')"
+          gh run list \
+            --repo "$GH_REPO" \
+            --workflow deploy.yml \
+            --branch main \
+            --created ">=$CREATED_SINCE" \
+            --limit 20 \
+            --json databaseId,status,conclusion \
+            > "$PHASE_TIMING_RUNS_FILE"
+          recovery=$(node scripts/ci/phase-timing-observer.mjs --recovery-ready)
+          echo "[phase-timing] recovery-ready=$recovery (runs=$PHASE_TIMING_RECOVERY_RUNS)"
+          if [ "$recovery" != 'true' ]; then
+            exit 0
+          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Build phase timing regression (+30% median)" \
+            --resolve \
+            --workflow "$WORKFLOW_NAME" \
+            --run-url "$RUN_URL"
 
   # ───────────────────────────────────────────────────────────────────────
   # rearm: make "every HEAD eventually gets a successful build" an invariant

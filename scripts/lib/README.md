@@ -127,6 +127,61 @@ versioned registry to `data/event-image-library.json`; the uploader publishes
 only `images/events/library/<assetId>.webp` to R2. When `--before-registry` is
 provided, unchanged records are retained only after an R2 existence check, so
 a deleted object is scheduled for repair. The weekly workflow uses the same
-interface with the OAuth broker and opens a data PR. Article and place
-generators are intentionally a follow-up corpus change; they must call the
-same `generateImageFromSpec()` contract rather than add a second provider path.
+interface with the OAuth broker and opens a data PR. The site article generator
+also calls `generateImageFromSpec()` and persists its `article-hero` record;
+future place/corpus generators must use the same contract rather than add a
+second provider path.
+
+The site's editorial-profile and place catalogue uses the same boundary:
+
+```bash
+npm run generate:editorial-images -- --only authors
+npm run generate:editorial-images -- --only places
+npm run validate:generated-images
+```
+
+The generator writes three 400×400 illustrated profile avatars, sixteen
+1200×675 place views and their sixteen 480×270 thumbnails, keeping the
+existing filenames and recording each byte in
+`data/generated-image-registry.json`. The validator checks every file under
+`public/images/authors/` and `public/images/places/` against that registry,
+including the XMP/IPTC-marked WebP byte hash and dimensions. Author images are
+uploaded to the existing CDN during deployment; place images and thumbnails
+remain same-origin by contract.
+
+The historical blog-cover repair lane uses the same contract with
+`scope: 'article-hero'`: its verified bytes live at
+`public/images/blog/<assetId>.webp`, while the matching `generated-provider`
+record is written to
+`packages/articles/content/image-credits/blog/`. The audit and queue scripts
+are deliberately sparse-checkout friendly:
+
+```bash
+node scripts/audit/blog-cover-ledger.mjs --write data/blog-cover-ledger.json
+node scripts/audit/materialize-blog-cover-ledger.mjs
+node scripts/audit/generate-blog-cover-queue.mjs --limit 20
+node scripts/audit/build-blog-image-credits-index.mjs
+npm run validate:blog-cover-ledger
+```
+
+The queue has a hard 150-asset budget, prioritizes level-5 historical
+replacements and then level-6 inferred covers by traffic/recency, and publishes
+remaining work only through the scheduled data-PR workflow. Level-6 covers
+remain on their article URL with an explicit `inferred`/`no-credit` entry until
+generation completes. The SPA consumes the site-owned
+`data/image-credits-blog.json` bridge when a section index does not yet contain
+a generated article-hero record.
+
+## published-image-policy.mjs — no unrecorded image leaves the site
+
+`scripts/lib/published-image-policy.mjs` is the Node-side publication gate. A
+third-party uploader must use `checkPublishedImageUrl(..., { requireCdn: true })`:
+only CDN `/images/blog/`, `/images/events/library/` and `/images/generated/`
+URLs with a valid generated-image registry record or an `imageCredits` record
+whose status is `ok` pass. A CDN host or a file extension is not a licence.
+
+The `og:image` build gate (`scripts/verify-og-images.mjs`) additionally permits
+only the documented site-owned exceptions: `/og-image.png`, generated
+`/og/jobs/`, `/og/seo/` and `/og/border-wait/` cards, author photos,
+`/images/places/` and event catalog cards. Those exceptions are explicit in
+`SITE_OWNED_OG_IMAGE_ALLOWLIST`; they are not accepted by LinkedIn uploads.

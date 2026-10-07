@@ -1167,6 +1167,22 @@ export async function runStandardCrawlerPipeline(config) {
       await rewriteStoredJobsOnSoftExit();
       return;
     }
+    // A prospector spec can observe listing links but lose too many detail
+    // pages to prove a complete snapshot. Treat that as a parser/source
+    // extraction failure and keep the previous slice untouched; publishing
+    // the surviving rows would turn a transient detail outage into live-job
+    // expiry and later resurrection (the Stellenpartner health incident).
+    if (err?.specDetailDrop && Number.isInteger(err?.specDiscoveredCount)) {
+      counts.discovered = err.specDiscoveredCount;
+      counts.parsed = 0;
+      counts.lastFetchOutcome = 'selector_miss';
+      counts.detailDrop = normalizeDetailDrop(err.specDetailDrop);
+      console.warn(
+        `\n⚠️ ${companyLabel}: spec detail snapshot incomplete; keeping existing jobs `
+        + `(${counts.detailDrop?.dropped ?? 'unknown'}/${counts.detailDrop?.candidates ?? 'unknown'} dropped).`,
+      );
+      return finishWithoutPublish({ kind: 'source-extraction-failed' });
+    }
     throw err;
   }
 

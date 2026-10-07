@@ -15,7 +15,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { SOCIAL_IMAGE_ORIGIN } from './social-publish-queue.mjs';
+import {
+  isAllowedImageUrl,
+  isAllowedVideoUrl,
+  SOCIAL_IMAGE_ORIGIN,
+} from './social-publish-queue.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -53,7 +57,12 @@ export function uploadCarouselSlides(buffers, { channel, keyPrefix }) {
       // upload-cdn-file.sh always exits 0 by design; success is detected by
       // its own documented stdout marker, same as push-mirrored-event-images-cdn.mjs.
       if (res.status === 0 && out.includes('✅ uploaded')) {
-        return `${CDN_BASE}/${cdnKey}`;
+        const publicUrl = `${CDN_BASE}/${cdnKey}`;
+        if (!isAllowedImageUrl(publicUrl)) {
+          console.warn(`⚠️  refusing non-social carousel URL for ${fileName}`);
+          return null;
+        }
+        return publicUrl;
       }
       console.warn(`⚠️  slide upload failed for ${fileName}: ${out.trim().split('\n').slice(-1)[0] || 'no output'}`);
       return null;
@@ -84,7 +93,14 @@ export function uploadCarouselVideo(buffer, { channel, keyPrefix }) {
       env: process.env,
     });
     const out = `${res.stdout || ''}${res.stderr || ''}`;
-    if (res.status === 0 && out.includes('✅ uploaded')) return `${CDN_BASE}/${cdnKey}`;
+    if (res.status === 0 && out.includes('✅ uploaded')) {
+      const publicUrl = `${CDN_BASE}/${cdnKey}`;
+      if (!isAllowedVideoUrl(publicUrl)) {
+        console.warn(`⚠️  refusing non-social carousel video URL for ${fileName}`);
+        return null;
+      }
+      return publicUrl;
+    }
     console.warn(`⚠️  video upload failed for ${fileName}: ${out.trim().split('\n').slice(-1)[0] || 'no output'}`);
     return null;
   } finally {

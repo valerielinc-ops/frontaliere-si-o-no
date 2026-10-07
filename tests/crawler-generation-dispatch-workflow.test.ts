@@ -290,7 +290,7 @@ describe('crawler generation PR B workflow wiring', () => {
       expect(resolver.index).toBeLessThan(cascade.index);
       expect(resolver.step.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
       expect(resolver.step.run).toContain('preserving effective setting');
-      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=30');
+      expect(resolver.step.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS=180');
       const cascadeEnv = steps[cascade.index].env ?? {};
       expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
       expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
@@ -319,6 +319,12 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(dispatch.if).toBe("steps.generation_preflight.outputs.ready == 'true'");
     expect(dispatch.if).not.toMatch(/reasons|warnings|length/);
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
+    const runGenerationToken = '${{ github.run_id }}-${{ github.run_attempt }}';
+    for (const step of [dispatch, sentinel, cleanup]) {
+      expect(step.env.GENERATION_TOKEN).toBe(runGenerationToken);
+      expect(step.run).toContain('--generation-token "$GENERATION_TOKEN"');
+    }
+    expect(source).not.toMatch(/GENERATION_TOKEN:\s+\$\{\{\s*inputs\./);
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
     expect(dispatch.env.CORPUS_CODE_COMMIT).not.toContain('unavailable');

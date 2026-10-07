@@ -127,6 +127,118 @@ const FAMILY_RECORDS: Record<string, ImageCreditRecord> = {
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+function generatedArticleHero(): ImageCreditRecord {
+  const generated = {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    provider: 'openai-codex',
+    model: 'gpt-image-test',
+    executorModel: 'gpt-5-codex',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 120000,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: '2026-10-06T10:00:00.000Z',
+    verifiedAt: '2026-10-06T10:01:00.000Z',
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    area: 'Ticino and Swiss border region',
+    season: 'all seasons',
+    variant: 'balanced composition',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      notes: 'safe generic editorial illustration',
+    },
+  };
+  return {
+    schema: 1,
+    cover: '/images/blog/test-generated-cover.webp',
+    source: 'generated-provider',
+    commons: {
+      title: 'Generated editorial illustration',
+      pageUrl: generated.licenseUrl,
+      width: generated.width,
+      height: generated.height,
+      revision: generated.generatedAt,
+    },
+    author: { text: 'frontaliereticino.ch', name: 'frontaliereticino.ch', url: null, type: 'Organization' },
+    attribution: null,
+    licence: {
+      name: 'Generated media — provider terms apply',
+      url: generated.licenseUrl,
+      family: 'other-attribution',
+      attributionRequired: true,
+    },
+    restrictions: [...generated.restrictions],
+    modified: 'resized',
+    fetchedAt: '2026-10-06',
+    status: 'ok',
+    curation: null,
+    generated,
+  } as unknown as ImageCreditRecord;
+}
+
+describe('generated article-hero image records', () => {
+  const generated = generatedArticleHero();
+
+  it('validate the shared engine record without treating it as Wikimedia', () => {
+    expect(validateImageCreditRecord(generated)).toEqual({ valid: true, errors: [] });
+  });
+
+  it('projects provider terms consistently to SEO, visible copy and RSS', () => {
+    const ld = imageObjectCreditFields(generated);
+    expect(ld).toEqual({
+      creator: { '@type': 'Organization', name: 'frontaliereticino.ch' },
+      creditText: 'frontaliereticino.ch (generated media)',
+      copyrightNotice: 'Generated media; provider terms apply.',
+      license: 'https://openai.com/policies/terms-of-use/',
+      acquireLicensePage: 'https://openai.com/policies/terms-of-use/',
+    });
+    expect(imageCreditParts(generated, 'it')?.text).toContain('generata con IA tramite frontaliereticino.ch');
+    expect(imageCreditParts(generated, 'en')?.text).toContain('generated with AI by frontaliereticino.ch');
+    expect(mediaRssCreditXml(generated, 'it')).toContain('frontaliereticino.ch');
+    expect(mediaRssCreditXml(generated, 'it')).toContain('https://openai.com/policies/terms-of-use/');
+  });
+});
+
+describe('inferred cover records', () => {
+  const inferred = {
+    schema: 1,
+    cover: '/images/blog/inferred-cover.webp',
+    source: 'inferred',
+    evidence: 'inferred',
+    provider: null,
+    verifiedAt: '2026-10-07',
+    status: 'review',
+  } as unknown as ImageCreditRecord;
+
+  it('is a valid audit record without making a provider or licence claim', () => {
+    expect(validateImageCreditRecord(inferred)).toEqual({ valid: true, errors: [] });
+    expect(hasVisibleImageCredit(inferred)).toBe(false);
+    expect(imageObjectCreditFields(inferred)).toEqual({});
+    expect(imageCreditParts(inferred, 'it')).toBeNull();
+    expect(renderImageCreditHtml(inferred, 'it')).toBe('');
+    expect(mediaRssCreditXml(inferred, 'it')).toBe('');
+  });
+});
+
 describe('the design worked example (Locarno 1.jpg, CC BY-SA 3.0)', () => {
   it('is a valid schema-1 record', () => {
     expect(validateImageCreditRecord(locarno())).toEqual({ valid: true, errors: [] });
@@ -731,6 +843,22 @@ describe('createImageCreditReader', () => {
       expect(warn, label).toHaveBeenCalledTimes(1);
       expect(String(warn.mock.calls[0][0]), label).toContain(message);
     }
+  });
+
+  it('drops an inferred record silently: it is an audit record, not a credit claim', () => {
+    const warn = vi.fn();
+    const inferred = {
+      schema: 1,
+      cover: `/images/blog/${KEY}.webp`,
+      source: 'inferred',
+      evidence: 'inferred',
+      provider: null,
+      verifiedAt: '2026-10-07',
+      status: 'review',
+    };
+    const { fs } = memFs({ [`${CORPUS}/blog/${KEY}.json`]: JSON.stringify(inferred) });
+    expect(createImageCreditReader(fs, [CORPUS], { warn }).get(`/images/blog/${KEY}.webp`)).toBeNull();
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('never throws on an I/O error either', () => {

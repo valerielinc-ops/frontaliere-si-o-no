@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zermatt-bergbahnen",
-  "assembledAt": "2026-10-06T09:33:00.516Z",
+  "assembledAt": "2026-10-06T21:45:29.358Z",
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
@@ -48,7 +48,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/kuechenchef-kuechenchefin-im-tagesbetrieb_job_5225639",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:54.278Z",
+      "crawledAt": "2026-10-06T21:45:24.336Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:36:24.260Z",
       "salaryMin": 65500,
@@ -112,7 +112,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-metallbauer-in-efz_job_4602024",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:53.609Z",
+      "crawledAt": "2026-10-06T21:45:23.700Z",
       "previousSlugs": [
         "lehrstelle-metallbauer-in-efz-zermatt-zermatt-bergbahnen"
       ],
@@ -183,7 +183,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:52.997Z",
+      "crawledAt": "2026-10-06T21:45:23.075Z",
       "requirementsByLocale": {
         "en": [
           "Good analytical skills and networked thinking",
@@ -243,6 +243,7 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:53:04.281Z",
+      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -265,7 +266,7 @@
         "it": "apprendistato-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
         "en": "apprenticeship-polymechanic-production-mechanic-zermatt-bergbahnen-zermatt",
         "de": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "fr": "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
+        "fr": "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -304,10 +305,11 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-polymechaniker-in-produktionsmechaniker-in_job_3700464",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:52.321Z",
+      "crawledAt": "2026-10-06T21:45:22.416Z",
       "previousSlugs": [
         "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-zermatt-bergbahnen",
-        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
+        "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt",
+        "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -317,6 +319,7 @@
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ],
         "fr": [
+          "apprentissage-polymecanique-mecanicien-de-production-zermatt-bergbahnen-zermatt",
           "lehrstelle-polymechaniker-in-produktionsmechaniker-in-zermatt-bergbahnen-zermatt"
         ]
       },
@@ -382,7 +385,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:51.690Z",
+      "crawledAt": "2026-10-06T21:45:21.758Z",
       "requirementsByLocale": {
         "it": [
           "Costituisce titolo preferenziale l'esperienza nella costruzione di funivie o impianti",
@@ -469,7 +472,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/elektroinstallateur-in-efz_job_3001247",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:51.013Z",
+      "crawledAt": "2026-10-06T21:45:21.048Z",
       "previousSlugs": [
         "elektroinstallateur-in-efz-zermatt-zermatt-bergbahnen"
       ],

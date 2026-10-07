@@ -436,7 +436,8 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
     expect(RELATED_RUNNER).toContain('sourceRe.test(file)');
     expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
-    expect(RELATED_RUNNER).toContain('No static related edge found');
+    expect(RELATED_RUNNER).toContain('The conservative full-suite fallback is disabled');
+    expect(RELATED_RUNNER).toContain('stopWithoutFullSuite');
     expect(RELATED_RUNNER).toContain('const visited = new Set()');
     expect(RELATED_RUNNER).toContain('function stripComments');
     expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');

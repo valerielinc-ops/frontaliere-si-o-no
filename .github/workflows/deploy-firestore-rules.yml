@@ -19,7 +19,9 @@ permissions:
 
 concurrency:
   group: deploy-firestore-rules
-  cancel-in-progress: true
+  # Rules, storage and indexes are production state; never interrupt an
+  # active deployment just because a newer main commit entered the queue.
+  cancel-in-progress: false
 
 jobs:
   deploy-rules:

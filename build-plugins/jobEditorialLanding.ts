@@ -7,6 +7,7 @@ export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import municipalitiesFile from '../data/canton-municipalities.json';
 import { resolveJobCanton } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { composePlaceTitle, escapeForBudget, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { resolveJobIntentKeyBySlug, type JobIntentKey } from './jobIntentLanding';
@@ -1379,8 +1380,20 @@ function buildSearchHref(baseUrl: string, localePrefix: string, sectionSlug: str
  return ensureTrailingSlash(`${baseUrl}${`${localePrefix}/${sectionSlug}/${searchSlug}`.replace(/\/+/g, '/')}`);
 }
 
-function buildJobHref(baseUrl: string, localePrefix: string, sectionSlug: string, slug: string): string {
- return ensureTrailingSlash(`${baseUrl}${`${localePrefix}/${sectionSlug}/${slug}`.replace(/\/+/g, '/')}`);
+function buildJobHref(
+ baseUrl: string,
+ locale: JobLandingLocale,
+ job: JobLike,
+ slug: string,
+ legacySectionSlug: string,
+): string {
+ return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
+  locale,
+  job,
+  slug,
+  undefined,
+  legacySectionSlug,
+ )}`;
 }
 
 function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
@@ -1436,7 +1449,13 @@ function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, opti
     : j.title || 'Offerta lavoro')),
    company: normalizeSpace(typeof j.company === 'string' ? j.company : ''),
    location: normalizeSpace(typeof j.location === 'string' ? j.location : ''),
-   href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
+   href: buildJobHref(
+    options.baseUrl,
+    locale,
+    job,
+    options.localizedSlug(job, locale),
+    options.sectionSlug,
+   ),
    postingDateSource: job.postingDateSource,
    datePosted,
    titleByLocale: titleByLocaleTyped,

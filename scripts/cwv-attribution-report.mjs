@@ -14,9 +14,9 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 //   node scripts/cwv-attribution-report.mjs --comment   # also comment on the open CWV issues
 //
 // Exit 1 when the GA4 Data API rejects a request (an unregistered dimension
-// must not pass in silence) or no service-account token is available; exit 0
-// with «nessun evento di attribuzione nella finestra» when the window has no
-// attribution rows yet.
+// must not pass in silence) or no service-account token is available. A window
+// entirely after 2026-10-04 also fails when its template samples are non-good
+// but the attribution stream is empty; pre-emitter windows remain fail-open.
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -34,6 +34,8 @@ import {
   summarizeAttribution,
   templateP75,
   topClsSelectors,
+  topInpSelectors,
+  missingInpSelectorCount,
 } from './lib/cwv-attribution.mjs';
 
 export const WINDOW_DAYS = 7;
@@ -48,13 +50,26 @@ const defaultFetch = (url, options) =>
 export const CWV_REGRESSION_LABEL = 'cwv-regression';
 export const WATCHLIST_TITLE_PREFIX = 'CWV field regression on a tracked page';
 export const NO_EVENTS_MESSAGE = 'nessun evento di attribuzione nella finestra';
+export const ATTRIBUTION_EMITTER_LIVE_FROM = '2026-10-04';
+export const ATTRIBUTION_GAP_MESSAGE = 'finestra post-emitter con campioni CWV non good ma senza righe di attribuzione';
 export const FAILURE_TITLE = 'CWV attribution report: dimensione GA4 non valida, contratto client/lettore divergente o evento web_vitals assente';
+export const ATTRIBUTION_GAP_FAILURE_TITLE = 'CWV attribution report: attribuzione assente dopo il rilascio dell\'emitter';
 export const REPORT_HEADING = '### Attribuzione CWV dal campo';
 
 const fmtCls = (n) => (typeof n === 'number' ? n.toFixed(3) : 'n/a');
 const fmtMs = (n) => (typeof n === 'number' ? `${Math.round(n)} ms` : 'n/a');
 const fmtMean = (n) => (typeof n === 'number' ? n.toFixed(1) : 'n/a');
 const cell = (value) => String(value).replace(/\|/g, '\\|').replace(/`/g, "'");
+
+export function isAttributionEmitterLiveWindow(window) {
+  return String(window?.startDate || '') > ATTRIBUTION_EMITTER_LIVE_FROM;
+}
+
+export function hasNonGoodTemplateSamples(templates) {
+  return templates.some((row) =>
+    (row.metric === 'CLS' && row.value > 0.1)
+    || (row.metric === 'INP' && row.value > 200));
+}
 
 export function renderReport(report, { runUrl } = {}) {
   const { window, attribution, selectors, templates, coverage = {} } = report;
@@ -71,6 +86,9 @@ export function renderReport(report, { runUrl } = {}) {
   const summary = summarizeAttribution(attribution);
   if (!summary.length) {
     lines.push(`_${NO_EVENTS_MESSAGE}._`);
+    if (isAttributionEmitterLiveWindow(window) && hasNonGoodTemplateSamples(templates)) {
+      lines.push('', `**ERRORE: ${ATTRIBUTION_GAP_MESSAGE}.**`);
+    }
   } else {
     lines.push('| section | component | action | eventi |', '|---|---|---|---:|');
     for (const row of summary) lines.push(`| ${cell(row.section)} | ${cell(row.component)} | ${cell(row.action)} | ${row.count} |`);
@@ -88,6 +106,18 @@ export function renderReport(report, { runUrl } = {}) {
       lines.push('', '_`ac` = contenitori Auto Ads presenti, `cc` = quelli collassati da `services/autoAdCollapse.ts`, medie pesate per evento._');
       if (coverage.selectorsTruncated) lines.push('_I selettori sono letti dalle prime righe per eventi: la coda e\' fuori dal limite della richiesta._');
     }
+  }
+
+  lines.push('', '#### Primi bersagli INP', '');
+  const inpTargets = topInpSelectors(selectors);
+  const missingInp = missingInpSelectorCount(selectors);
+  if (!inpTargets.length) {
+    lines.push('_Nessun bersaglio INP nella finestra._', '', `_Bersagli INP senza selettore: ${missingInp} eventi._`);
+  } else {
+    lines.push('| # | bersaglio | component | eventi | ac medio | cc medio |', '|---:|---|---|---:|---:|---:|');
+    inpTargets.forEach((row, i) => lines.push(`| ${i + 1} | \`${cell(row.selector)}\` | ${cell(row.component)} | ${row.count} | ${fmtMean(row.ac)} | ${fmtMean(row.cc)} |`));
+    lines.push('', `_Bersagli INP senza selettore: ${missingInp} eventi._`);
+    if (coverage.selectorsTruncated) lines.push('_I selettori sono letti dalle prime righe per eventi: la coda e\' fuori dal limite della richiesta._');
   }
 
   lines.push('', '#### p75 per template su `/cerca-lavoro*`', '');
@@ -175,6 +205,12 @@ export async function main({
   const markdown = renderReport(report, { runUrl: runUrlFromEnv(env) });
   log(markdown);
 
+  if (!report.attribution.length
+    && isAttributionEmitterLiveWindow(report.window)
+    && hasNonGoodTemplateSamples(report.templates)) {
+    logError(`::error title=${ATTRIBUTION_GAP_FAILURE_TITLE}::${ATTRIBUTION_GAP_MESSAGE}`);
+    return 1;
+  }
   if (!report.attribution.length) {
     log(NO_EVENTS_MESSAGE);
     return 0;

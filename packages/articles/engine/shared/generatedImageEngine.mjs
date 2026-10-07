@@ -28,6 +28,7 @@ import {
   GENERATED_IMAGE_POLICY,
   GENERATED_IMAGE_PROMPT_VERSION,
   GENERATED_IMAGE_RESTRICTIONS,
+  generatedImagePathForScope,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
 import { eventImageLibrarySlots } from './eventImageLibrary.mjs';
@@ -441,6 +442,7 @@ export async function generateImageFromSpec(spec, {
   outputDir,
   assetId,
   maxAttempts = 3,
+  publishedImageUrl,
   onProviderAttempt,
   now = () => new Date(),
   deadlineAt,
@@ -511,7 +513,7 @@ export async function generateImageFromSpec(spec, {
         verifiedAt,
         restrictions: [...GENERATED_IMAGE_RESTRICTIONS],
         scope: normalized.scope,
-        imageUrl: `${normalized.scope === 'event-library' ? '/images/events/library/' : '/images/generated/'}${finalAssetId}.webp`,
+        imageUrl: publishedImageUrl || generatedImagePathForScope(normalized.scope, finalAssetId),
         category: normalized.category,
         area: normalized.area,
         season: normalized.season,

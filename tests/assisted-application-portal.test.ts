@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateForForm, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -307,6 +307,18 @@ describe('portal runner helpers', () => {
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
+  });
+
+  it('recognises a resumed SuccessFactors OTP page with its code field and Continue button', () => {
+    const otpPage = {
+      fields: [{ id: 'otp', kind: 'text', inputType: 'text', label: '*Code confidentiel:', required: true }],
+      buttons: [{ id: 'continue', text: 'Continuer' }],
+      text: '',
+    };
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: 1 })).toBe(false);
+    expect(isOtpVerificationPage(otpPage, 'sunrise.wd3.myworkdayjobs.com', { verifiedAt: null })).toBe(false);
+    expect(isOtpVerificationPage({ ...otpPage, buttons: [] }, 'career5.successfactors.eu', { verifiedAt: null })).toBe(false);
   });
 });
 

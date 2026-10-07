@@ -19,7 +19,11 @@ import { hasConfirmationProof, hasConfirmationStamp } from './lib/subscriberCons
 import { normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
-import { bridgeEmailCascadeCredentialsToEnv, getNewsletterTokenPolicyConfig } from './remoteConfigSecrets.js';
+import {
+  bridgeEmailCascadeCredentialsToEnv,
+  getNewsletterConfirmationCopyConfig,
+  getNewsletterTokenPolicyConfig,
+} from './remoteConfigSecrets.js';
 import {
   mintNewsletterActionToken,
   resolveNewsletterTokenPolicy,
@@ -33,11 +37,18 @@ import {
   confirmationConfirmUrl,
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
-import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
+import { makeDeliveryRefOnSent as makeMailerooRefOnSent } from './lib/deliveryReference.js';
 import {
   confirmationJobContextForSend,
+  resolveConfirmationJobContext,
   sanitizeConfirmationReturnPath,
 } from './lib/confirmationJobContext.js';
+import {
+  assignConfirmationCopyVariant,
+  CONFIRMATION_COPY_DEFAULTS,
+  isConfirmationCopyExperimentActive,
+  readConfirmationCopyConfig,
+} from './lib/confirmationCopyExperiment.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
@@ -247,6 +258,26 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  const attemptsBefore = confirmationAttemptsUsed(data);
  const frame = isCycleSend ? confirmationFrameForAttempt(attemptsBefore + 1) : CONFIRMATION_FRAMES.FIRST;
 
+ // Copy experiment: request #1 is the only point that assigns a new arm. A
+ // Remote Config failure is fail-safe (current contextual copy), while a
+ // stored snapshot remains authoritative for requests #2/#3.
+ let copyConfig = CONFIRMATION_COPY_DEFAULTS;
+ if (isCycleSend) {
+   try {
+     copyConfig = readConfirmationCopyConfig(await getNewsletterConfirmationCopyConfig());
+   } catch (copyErr) {
+     console.warn('[newsletterConfirmation] confirmation copy rollout read failed, using contextual default:', copyErr?.message || copyErr);
+   }
+ }
+ const eligibleJobContext = isCycleSend && attemptsBefore === 0
+   ? resolveConfirmationJobContext(data, { now })
+   : null;
+ const assignedCopyVariant = eligibleJobContext && isConfirmationCopyExperimentActive(copyConfig)
+   ? assignConfirmationCopyVariant({ email: normalizedEmail, eligible: true, config: copyConfig })
+   : null;
+ const jobContextOptions = { attemptsBefore, returnPath: sourcePath, now };
+ if (assignedCopyVariant) jobContextOptions.copyVariant = assignedCopyVariant;
+
  // A job-gate signup is asked about THE JOB it came from, not about a
  // newsletter it never thought it was joining (measured 2026-09-24: 67% of
  // job-gate recipients opened the generic request, 33% confirmed). Only for a
@@ -256,7 +287,7 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  // name a different offer from the one #1 named. See
  // lib/confirmationJobContext.js → confirmationJobContextForSend.
  const jobSend = isCycleSend
-   ? confirmationJobContextForSend(data, { attemptsBefore, returnPath: sourcePath })
+   ? confirmationJobContextForSend(data, jobContextOptions)
    : null;
 
  // No auth token embedded in the URL — the confirm action's Cloud Function
@@ -279,6 +310,8 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  firstSentAt: confirmationFirstSentAt(data),
  login: isLoginLink,
  jobContext: jobSend ? jobSend.jobContext : null,
+ copyVariant: jobSend?.copyVariant,
+ sourceCta: jobSend?.sourceCta,
  });
 
  // Re-read the consent state after all token/template work and immediately

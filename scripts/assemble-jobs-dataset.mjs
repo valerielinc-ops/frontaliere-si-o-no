@@ -52,7 +52,12 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
-import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
+import {
+  applyDeclaredBrandRelabel,
+  refreshDeclaredBrandSlugs,
+  declaredBrandLabels,
+  BRAND_RELABELLED_CRAWLER_KEYS,
+} from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
@@ -3014,6 +3019,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     );
   }
 
+  // A crawler rerun can carry a previously published brand-bearing slug
+  // through the merge's identity-preservation net. Keep the declared brand
+  // and its active routes atomic at the slice-write boundary; waiting for the
+  // separate post-translation regeneration pass leaves live-data gates with a
+  // window in which company and slug disagree.
+  if (BRAND_RELABELLED_CRAWLER_KEYS.includes(crawlerKey)) {
+    const writerBrandLabels = declaredBrandLabels();
+    const writerRelabel = applyDeclaredBrandRelabel(finalJobs, writerBrandLabels);
+    const writerSlugRefresh = refreshDeclaredBrandSlugs(finalJobs, writerBrandLabels);
+    if (writerRelabel.relabelled > 0 || writerSlugRefresh.refreshed > 0) {
+      console.log(
+        `  🏷️  Write-time brand relabel: ${writerRelabel.relabelled} label(s), `
+          + `${writerSlugRefresh.refreshed} active slug(s) refreshed`,
+      );
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -3400,10 +3422,13 @@ async function assembleJobs() {
   // 404 on an indexed route plus a sitemap exit. Reconciling at assembly makes
   // the swap atomic: one deploy flips both slices, whatever order the crawlers
   // happen to run in. See scripts/lib/crawler-brand-relabel.mjs.
-  const relabel = applyDeclaredBrandRelabel(deduped);
-  if (relabel.relabelled > 0) {
+  const brandLabels = declaredBrandLabels();
+  const relabel = applyDeclaredBrandRelabel(deduped, brandLabels);
+  const slugRefresh = refreshDeclaredBrandSlugs(deduped, brandLabels);
+  if (relabel.relabelled > 0 || slugRefresh.refreshed > 0) {
     const perKey = Object.entries(relabel.byKey).map(([k, n]) => `${k}×${n}`).join(', ');
-    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey})`);
+    const refreshed = slugRefresh.refreshed > 0 ? `; refreshed ${slugRefresh.refreshed} slug(s)` : '';
+    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey || 'slug-only'})${refreshed}`);
   }
 
   // ── Foreign filter + Swiss-municipality whitelist ───────────────────
@@ -3874,7 +3899,9 @@ function assembleExpiredJobs() {
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  applyDeclaredBrandRelabel(assembled);
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(assembled, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(assembled, expiredBrandLabels);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
@@ -4151,7 +4178,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // vacancy housekeeping archived as a duplicate. Merging it would hand the
     // active job another posting's routes, including its hash-tailed slug,
     // which becomes cross-job contamination once that posting is re-listed
-    // (#11596). Records without any identity keep the legacy evidence rules.
+    // (#11596). An identity-less archive record is therefore ambiguous when
+    // the active match has a stable URL; the shared helper fails closed there.
+    // The bounded legacy evidence rules remain only when neither side has a
+    // stable identity.
     if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost

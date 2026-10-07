@@ -1,6 +1,6 @@
 /**
  * Regression suite for issue #5632 (follow-up of #5602) and #5780 (12 more
- * copies of the same defect, found by grepping the whole repo). All fifteen
+ * copies of the same defect, found by grepping the whole repo). The fourteen
  * call sites decoded TS string-literal escapes with a CHAIN of `.replace()`,
  * which resolves `\\` — the escape that protects every other one — LAST:
  *
@@ -18,7 +18,7 @@
  * pass (mirroring the independent fix already shipped for
  * `packages/articles/engine/shared/tsStringEscapes.ts` in #5602 — see that
  * file's own doc comment and `tests/articles-engine-ts-string-escapes.test.ts`
- * for the reference invariant), and all fifteen sites now call through it
+ * for the reference invariant), and all fourteen remaining sites now call through it
  * instead of repeating the chain a fourth, fifth, ... sixteenth time.
  *
  * `build-plugins/staticPagesPlugin.ts`, `build-plugins/pdfWhitepapersPlugin.ts`
@@ -173,7 +173,7 @@ describe('unescapeTsValue (scripts/lib/meta-field-regex.mjs) — narrower scope,
 const BACKSLASH = String.fromCharCode(92);
 const BUGGY_CHAIN_SIGNATURE = `.replace(/${BACKSLASH}${BACKSLASH}${BACKSLASH}${BACKSLASH}/g`;
 
-describe('wiring — the fifteen ratified #5632/#5780 sites call the shared decoder', () => {
+describe('wiring — the fourteen remaining ratified #5632/#5780 sites call the shared decoder', () => {
   const SITES = [
     // #5632
     'build-plugins/staticPagesPlugin.ts',
@@ -189,7 +189,6 @@ describe('wiring — the fifteen ratified #5632/#5780 sites call the shared deco
     'tests/google-news-compliance.test.ts',
     'tests/blog-headline-validation.test.ts',
     'scripts/batch-add-faq-to-articles.mjs',
-    'scripts/backfill-small-images.mjs',
     'scripts/create-article.mjs',
     'scripts/lib/blog-body-io.mjs',
     'scripts/lib/article-topic-selector.mjs',
@@ -220,8 +219,8 @@ describe('wiring — the fifteen ratified #5632/#5780 sites call the shared deco
 /**
  * The repo-wide instance the previous `describe` block's doc comment used
  * to defer (issue #5780). SITES above is a fixed enumeration — it catches
- * regressions on the fifteen known sites but says nothing about a
- * sixteenth. This scans every tracked source file instead, so a future
+ * regressions on the fourteen known sites but says nothing about a
+ * fifteenth. This scans every tracked source file instead, so a future
  * copy is caught the first time CI runs, not the next time someone
  * happens to grep for it by hand.
  *

@@ -157,3 +157,67 @@ describe('adoptStaticFallbackIntoRoot — #8868', () => {
     expect(entry).not.toMatch(/rootElement\.appendChild\(fallback\)/);
   });
 });
+
+describe('static → SPA job-board geometry — #9815', () => {
+  const appSource = readFileSync(resolve(ROOT, 'App.tsx'), 'utf-8');
+  const jobSource = readFileSync(resolve(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
+  const hubSource = readFileSync(resolve(ROOT, 'build-plugins/staticPagesPlugin.ts'), 'utf-8');
+  const guttersSource = readFileSync(resolve(ROOT, 'build-plugins/shared/railGutters.ts'), 'utf-8');
+  const spaRailSource = readFileSync(resolve(ROOT, 'components/shared/useRailGridCollapse.ts'), 'utf-8');
+  const criticalSource = readFileSync(resolve(ROOT, 'build-plugins/shared/criticalCss.ts'), 'utf-8');
+  const indexCssSource = readFileSync(resolve(ROOT, 'index.css'), 'utf-8');
+
+  it('keeps the static detail and the hydrated detail on the same three-column rail contract', () => {
+    expect(spaRailSource).toContain('ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[');
+    expect(spaRailSource).toContain('ft-rail-aside-x hidden xl:max-xlw:block');
+    expect(jobSource).toContain('class="ft-rail-grid ft-rail-grid-x xl:grid xl:max-xlw:grid-cols-[');
+    expect(jobSource).toContain('class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block');
+    expect(jobSource).toContain('grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6');
+    expect(criticalSource).toContain('main.seo-static-content.static-job-page');
+    expect(indexCssSource).toContain('main.seo-static-content.static-job-page');
+  });
+
+  it('uses the job-board rail variant for the static hub, not the legacy 160px-only wrapper', () => {
+    expect(guttersSource).toContain("'job-board'");
+    expect(guttersSource).toContain('ft-rail-grid-x job-board-static-rail-shell xl:grid');
+    expect(guttersSource).toContain('ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block');
+    expect(guttersSource).toContain('job-board-static-rail-shell');
+    expect(hubSource).toContain('railGutters(');
+    expect(hubSource).toContain("const isJobBoardHub = hubChromeSpec?.hubKey === 'job-board';");
+    expect(hubSource).toContain('job-board-static-top-stack');
+    expect(hubSource).toContain('job-board-top-banner-reserve');
+    expect(hubSource).toContain('class="static-job-rail-center"');
+    expect(hubSource).toContain("isJobBoardHub ? 'job-board' : 'default'");
+  });
+
+  it('derives the static cap and centering from the hydrated job-board main contract', () => {
+    const mainClass = appSource.match(/activeTab === 'job-board'\s*\?\s*'([^']+)'/)?.[1];
+    const maxWidthPx = mainClass?.match(/!max-w-\[(\d+)px\]/)?.[1];
+    expect(maxWidthPx, 'the job-board branch must declare a pixel max-width').toBeTruthy();
+    expect(appSource).toMatch(/<main id="main-content"[^>]*mx-auto/);
+
+    const expectCenteredCapped = (source: string, selector: string, separator: string) => {
+      const rule = source.match(new RegExp(`${selector}\\s*\\{([^}]*)\\}`))?.[1] ?? '';
+      expect(rule, `${selector} must have an explicit static rule`).toContain(`max-width:${separator}${maxWidthPx}px`);
+      expect(rule).toContain(`margin-inline:${separator}auto`);
+    };
+
+    for (const selector of ['main\\.seo-static-content\\.static-job-page', 'main\\.seo-static-content\\.job-board-static-hub']) {
+      expectCenteredCapped(indexCssSource, selector, ' ');
+      expectCenteredCapped(criticalSource, selector, '');
+    }
+
+    expect(indexCssSource).toMatch(
+      new RegExp(`\\.ft-rail-grid\\.ft-rail-grid-x\\s*\\{[^}]*max-width:\\s*${maxWidthPx}px[^}]*margin-inline:\\s*auto`),
+    );
+    expect(criticalSource).toMatch(
+      new RegExp(`\\.ft-rail-grid\\.ft-rail-grid-x\\{[^}]*max-width:${maxWidthPx}px;margin-inline:auto`),
+    );
+  });
+
+  it('portals the job-board footer through the explicit footer-root handoff target', () => {
+    expect(appSource).toContain("activeTab === 'job-board'");
+    expect(appSource).toContain("document.getElementById('footer-root')");
+    expect(appSource).toContain('footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx');
+  });
+});

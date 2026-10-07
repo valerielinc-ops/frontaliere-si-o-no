@@ -13,7 +13,7 @@ import sharp from 'sharp';
 
 import { pickTopNUnposted } from '../scripts/lib/daily-top-content.mjs';
 import { formatDayIt, buildCarouselCaption, buildTikTokCaption, TIKTOK_CAPTION_MAX_CHARS } from '../scripts/lib/social-post-utils.mjs';
-import { buildQueueEntry, isAllowedVideoUrl } from '../scripts/lib/social-publish-queue.mjs';
+import { buildQueueEntry, isAllowedImageUrl, isAllowedVideoUrl } from '../scripts/lib/social-publish-queue.mjs';
 import {
   BRAND_VIDEO_BACKGROUND,
   TIKTOK_VIDEO_HEIGHT,
@@ -221,6 +221,32 @@ describe('TikTok video queue contract', () => {
     expect(audioStream).toMatchObject({ codec_name: 'aac', sample_rate: '44100', channels: 2 });
     expect(Number(parsed.format.duration)).toBeGreaterThan(7);
     expect(Number(parsed.format.duration)).toBeLessThan(8.5);
+  });
+});
+
+describe('carousel asset boundary', () => {
+  it('accepts only our rendered social CDN assets, never a cover URL', () => {
+    const social = 'https://cdn.frontaliereticino.ch/images/social/instagram/article-2026-08-23-0.jpg';
+    expect(isAllowedImageUrl(social)).toBe(true);
+    expect(isAllowedImageUrl('https://cdn.frontaliereticino.ch/images/blog/a2-ancora-al-collasso.webp')).toBe(false);
+    expect(isAllowedImageUrl('https://cdn.frontaliereticino.ch/images/events/library/event.webp')).toBe(false);
+    expect(isAllowedImageUrl('https://images.example/cover.webp')).toBe(false);
+    expect(() => buildQueueEntry({
+      channel: 'instagram',
+      kind: 'article',
+      day: '2026-08-23',
+      caption: 'caption',
+      imageUrls: ['https://cdn.frontaliereticino.ch/images/blog/a2-ancora-al-collasso.webp'],
+      ledgerEntries: [],
+    })).toThrow(/outside/);
+  });
+
+  it('renders carousel cards from copy, with no cover URL input path', () => {
+    const renderer = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/social-carousel-image.mjs'), 'utf8');
+    const uploader = fs.readFileSync(path.resolve(__dirname, '../scripts/lib/social-carousel-upload.mjs'), 'utf8');
+    expect(renderer).not.toContain('/images/blog/');
+    expect(renderer).not.toContain('og:image');
+    expect(uploader).toContain('images/social/${channel}/');
   });
 });
 

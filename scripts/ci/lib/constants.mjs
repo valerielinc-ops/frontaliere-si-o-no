@@ -19,6 +19,22 @@ export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
 export const VITEST_EXECUTION_JOB_NAME = VITEST_CHECK_NAME;
 
 /**
+ * Keep squash commits descriptive even when the PR has only one checkpoint
+ * commit. GitHub's repository setting may fall back to the commit subject;
+ * every automated merge path therefore supplies this explicit headline.
+ */
+export function formatSquashCommitSubject({ prNumber, title } = {}) {
+  const normalizedPrNumber = String(prNumber ?? '').trim();
+  if (!/^\d+$/.test(normalizedPrNumber)) {
+    throw new Error('numero PR mancante o non valido per il titolo dello squash');
+  }
+  if (typeof title !== 'string' || title.trim() === '' || /[\r\n]/u.test(title)) {
+    throw new Error('titolo PR mancante o non valido per il titolo dello squash');
+  }
+  return `${title.trim()} (#${normalizedPrNumber})`;
+}
+
+/**
  * Matcha il nome dei check-run dei singoli SHARD vitest in `tests.yml`
  * (`name: vitest shard ${{ matrix.shard }}/4` → `vitest shard 1/4`, …). Distinto
  * da `VITEST_CHECK_NAME`, che è il job AGGREGATORE: l'aggregatore collassa

@@ -1,7 +1,7 @@
 {
   "key": "lalive",
   "label": "LALIVE",
-  "generatedAt": "2026-10-06T09:27:13.918Z",
+  "generatedAt": "2026-10-06T21:25:36.232Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6965,
-  "avgDurationMs": 6965,
+  "durationMs": 6323,
+  "avgDurationMs": 6323,
   "durationHistory": [
-    6965
+    6323
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158506",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:26:53.217Z",
+      "crawledAt": "2026-10-06T21:25:20.809Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,8 +52,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/1158506",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:12:34.422Z",
+      "needsRetranslation": true,
       "salaryMin": 69000,
       "salaryMax": 118000,
       "salarySource": "estimated",
@@ -80,7 +80,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2644016",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:26:54.972Z",
+      "crawledAt": "2026-10-06T21:25:22.578Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -97,7 +97,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/2644016",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:12:34.425Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
@@ -122,7 +121,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2585737",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:26:54.457Z",
+      "crawledAt": "2026-10-06T21:25:22.383Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -163,7 +162,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2412556",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:26:53.910Z",
+      "crawledAt": "2026-10-06T21:25:21.838Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -204,7 +203,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2344646",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:26:53.401Z",
+      "crawledAt": "2026-10-06T21:25:21.317Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -245,7 +244,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158502",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:26:52.800Z",
+      "crawledAt": "2026-10-06T21:25:20.279Z",
       "addressLocality": "Zurigo",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -262,7 +261,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/1158502",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:12:34.421Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -287,7 +285,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1155459",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:26:52.267Z",
+      "crawledAt": "2026-10-06T21:25:19.765Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -317,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

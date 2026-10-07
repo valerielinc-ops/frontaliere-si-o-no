@@ -1,16 +1,16 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-10-06T09:22:58.521Z",
+  "generatedAt": "2026-10-06T21:29:56.617Z",
   "total": 63,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 62,
-  "durationMs": 123846,
-  "avgDurationMs": 123846,
+  "durationMs": 141949,
+  "avgDurationMs": 141949,
   "durationHistory": [
-    123846
+    141949
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,8 +45,8 @@
       "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref1212e-candidatura-spontanea-svizzera",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -83,18 +83,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "afry-e22ec691c6ad",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-06-08T12:23:39.662Z",
       "postalCode": "2800",
-      "_qualityScore": 84,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1260,5 +1260,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

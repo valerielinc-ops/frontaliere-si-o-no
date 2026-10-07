@@ -263,4 +263,16 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     // string that produced 426 duplicate-title issues in Semrush.
     expect(bridge).not.toContain('<title>Redirecting…</title>');
   });
+
+  it('keeps the parser contract required by the mirrored fast-publish engine', () => {
+    const engine = fs.readFileSync(
+      path.resolve('packages/articles/engine/flatHtmlRedirect.ts'),
+      'utf-8',
+    );
+
+    expect(engine).toContain('const HTML_VOID_ELEMENTS = new Set([');
+    expect(engine).toContain('const HTML_INACTIVE_RAW_TEXT_ELEMENTS = new Set([');
+    expect(engine).toContain('const HTML_TEMPLATE_RAW_TEXT_ELEMENTS = new Set([');
+    expect(engine).toContain('maskInactiveMarkup(indexHtml, { maskRcdata: true })');
+  });
 });

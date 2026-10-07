@@ -138,7 +138,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle, esc } from './shared/seoContentTokens';
 import { renderPlainTextLinks } from './shared/plainTextLinks';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 // Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
 // definizione di "quanto e' larga davvero questa immagine", non due.
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
@@ -1596,7 +1596,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // to detect them — instead we parse the same source files to build a deterministic
  // skip set that covers ALL locales (IT + EN/DE/FR variants).
  //
- // ogPagesPlugin owns BOTH article sections (see its `SECTIONS` table):
+ // ogPagesPlugin owns the Pages-shard article sections (see its site-rendered
+ // descriptor table):
  // `frontaliere` (seo-blog*.ts → /articoli-frontaliere/) AND `svizzera`
  // (seo-blog-ch.ts → /articoli-svizzera/). The skip-set MUST list both: a
  // section omitted here falls through to the racy `fs.existsSync` check below,
@@ -1606,15 +1607,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (FR survives, IT/EN/DE vanish), surfacing as audit-hreflang [missingTarget]
  // on a freshly-published article (validate-dist failure 2026-06-23, run
  // 27998666257). This list used to be a hand-copied literal that had to be
- // kept in lockstep with ogPagesPlugin's `SECTIONS` table by hand; as of
- // issue #4881 Fase 6 it is derived from `ARTICLE_SECTION_DESCRIPTORS`, the
- // SAME shared descriptor `ogPagesPlugin.ts` reads for its own `SECTIONS`
- // table — so this skip-set can no longer drift from it by construction.
+ // kept in lockstep with ogPagesPlugin's site-rendered descriptor table by
+ // hand; as of issue #4881 Fase 6 it is derived from the SAME shared selector
+ // `SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS`, so the site never emits or
+ // validates a canton page that the corpus serves from R2.
  const ogSections: ReadonlyArray<{
  seoFiles: readonly string[];
  slugData: string;
  indexSlugs: Record<'en' | 'de' | 'fr', string>;
- }> = ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
+ }> = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
  seoFiles: sec.seoFiles,
  slugData: sec.slugData,
  indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
@@ -1707,7 +1708,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      * leaving one orphaned behind.
      */
     let skippedIndexes = 0;
-    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+    for (const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
       const isSvizzera = sec.seoFiles.some((f) => f.includes('-ch'));
       const skip = isSvizzera
         ? process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true'
@@ -2435,7 +2436,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  fr: parseBlogBodyLocale('fr'),
  } as const;
 
- const getPagePreloads = (urlPath: string, locale: string): string => {
+ const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = ''): string => {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
@@ -2455,21 +2456,32 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
  tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
- // Preload blog hero image on article listing pages.
+ // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
  // un'immagine che la pagina non mostra, e — dopo il fix del ramo detail —
  // per una che non compare piu' nel documento affatto.
- if (blogSlugs.has(firstSeg)) {
+ if (blogSlugs.has(firstSeg) || swissSlugs.has(firstSeg)) {
+ const isSwissSection = swissSlugs.has(firstSeg);
+ const articleIds = isSwissSection ? swissArticleIdByLocale : blogArticleIdByLocale;
+ const sectionHero = isSwissSection ? swissHeroImageStatic : blogHeroImageStatic;
  const isDetail = segs.length > (localePrefixes.includes(segs[0] ?? '') ? 2 : 1);
  const detailLocale = (localePrefixes.includes(segs[0] ?? '') ? segs[0] : 'it') as 'it' | 'en' | 'de' | 'fr';
  const detailId = isDetail
- ? (blogArticleIdByLocale[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? blogArticleIdByLocale.it[segs[segs.length - 1] ?? ''])
+ ? (articleIds[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? articleIds.it[segs[segs.length - 1] ?? ''])
  : undefined;
- const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || blogHeroImageStatic;
+ const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || sectionHero;
  if (preloadHero) {
  tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
  }
+ }
+ // Generated SEO cards (glossary and its translated route family) are emitted
+ // by this plugin's hand-rolled shell rather than buildSeoPageHtml, so the
+ // shared hero-marker helper cannot add their LCP hint. The caller passes the
+ // already-resolved URL after constructing the single hero identity used by
+ // og:image and the body <img>.
+ if (generatedHeroUrl) {
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">`);
  }
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
@@ -3331,7 +3343,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // the Italian SEO registry. Keep the fallback useful for crawlers instead of
  // deriving a short title and a generic one-line description from the slug.
  const title = 'Articoli sulla Svizzera 2026 | Frontaliere Ticino';
- const desc = 'Notizie, analisi e guide sulla Svizzera per frontalieri: tasse, lavoro, costo della vita e aggiornamenti cantonali.';
+ const desc = 'Notizie, analisi e guide aggiornate sulla Svizzera per frontalieri: lavoro, fisco, previdenza, trasporti, vita quotidiana e opportunità nei cantoni.';
  seo = { title, desc, ogT: title, ogD: desc };
  }
  if (!seo) {
@@ -5717,6 +5729,17 @@ ${hrefTags}
  innerHtml: rootHtml,
  })
  : null;
+ // The job-board root has no SPA SubTabNav: `activeTab === 'job-board'`
+ // renders the board directly, while the generic hub fallback would borrow
+ // the Confronti tabs. Do not paint a 100px static nav that React removes
+ // during the handoff; the SEO body and its links remain in the fallback.
+ const isJobBoardHub = hubChromeSpec?.hubKey === 'job-board';
+ const staticHubSubnavHtml = isJobBoardHub
+ ? ''
+ : hubChromeSplit?.subnavHtml ?? '';
+ const staticHubMainClass = isJobBoardHub
+ ? 'seo-static-content job-board-static-hub'
+ : 'seo-static-content';
  // `<div id="footer-root"></div>` is the portal target App.tsx reads via
  // `document.getElementById('footer-root')` in lite-shell mode. Without it,
  // React falls back to inline render INSIDE `#root`, painting the footer
@@ -5728,7 +5751,27 @@ ${hrefTags}
  // portals <ArticleRailAdStack> into #rail-left-root / #rail-right-root here
  // too (these editorial / hub landings previously rendered NO rails). Shared
  // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
- const { open: railGridOpen, close: railGridClose } = railGutters(true);
+ const { open: railGridOpen, close: railGridClose } = railGutters(
+   true,
+   isJobBoardHub ? 'job-board' : 'default',
+ );
+ // A non-staticOverlay handoff moves the fallback <main> into #root and hides
+ // its old outer `.ft-rail-grid` wrapper. Keep the job-board rail shell inside
+ // that main so the three-column geometry survives the move and matches the
+ // SPA's `ft-rail-grid-x` wrapper instead of reverting to a full-width body.
+ const staticHubMainHtml = isJobBoardHub
+   ? `<main class="${staticHubMainClass}">
+ <div class="job-board-static-top-stack">
+  <div class="job-board-top-banner-reserve" aria-hidden="true"></div>
+${railGridOpen}
+ <div class="static-job-rail-center">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </div>${railGridClose}
+ </div>
+ </main>`
+   : `<main class="${staticHubMainClass}">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </main>`;
  // The bare article indexes emit their body as a SIBLING of #root, not inside it.
  // Inside #root React destroys the server-rendered content on mount, so a bundle
  // that fails to render leaves a blank page — which is what users got when the
@@ -5744,11 +5787,9 @@ ${hrefTags}
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
  ? `${rootShell(hasSpaBundle)}
-${hubChromeSplit.subnavHtml}
-${railGridOpen}
- <main class="seo-static-content">
-${hubChromeSplit.bodyHtml}
- </main>${railGridClose}
+${staticHubSubnavHtml}
+${isJobBoardHub ? '' : railGridOpen}
+${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <div id="footer-root"></div>`
  : isBareArticleIndex
    ? `${rootShell(hasSpaBundle)}
@@ -5785,7 +5826,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
+ ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-10-06T09:13:16.310Z",
+  "assembledAt": "2026-10-06T21:14:53.912Z",
   "jobs": [
     {
       "id": "citta-di-bellinzona-progettista-elettrico-con-responsabilita-di-coordinamento-per-il-settore-bellinzona",
@@ -50,7 +50,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T09:13:09.667Z",
+      "crawledAt": "2026-10-06T21:14:48.889Z",
       "firstSeenAt": "2026-10-03T09:11:46.572Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -114,7 +114,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T09:13:09.410Z",
+      "crawledAt": "2026-10-06T21:14:48.683Z",
       "firstSeenAt": "2026-10-03T09:11:46.377Z",
       "salaryMin": 34000,
       "salaryMax": 51500,
@@ -193,7 +193,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

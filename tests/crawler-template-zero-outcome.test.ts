@@ -370,6 +370,22 @@ describe('every exit without publication names its cause', () => {
     );
   });
 
+  it('(e) keeps the prior slice when a spec detail snapshot exceeds the drop grace', async () => {
+    const error = Object.assign(new Error('detail snapshot incomplete'), {
+      specDetailDrop: { candidates: 20, gone: 3, rejected: 1, dropped: 4 },
+      specDiscoveredCount: 20,
+    });
+    const counts = await runPipeline(async () => { throw error; });
+
+    expect(counts).toMatchObject({
+      abortKind: 'source-extraction-failed',
+      lastFetchOutcome: 'selector_miss',
+      discovered: 20,
+      parsed: 0,
+    });
+    expectSliceUntouched();
+  });
+
   it('(f) names missing-detail-url and leaves the slice untouched', async () => {
     const counts = await runPipeline(async () => ({
       jobs: [{ ...storedJob(1), id: 'fresh-1' }],

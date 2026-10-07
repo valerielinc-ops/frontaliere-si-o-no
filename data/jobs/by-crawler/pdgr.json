@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-06T09:32:47.561Z",
+  "assembledAt": "2026-10-06T21:33:56.822Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:40.032Z",
+      "crawledAt": "2026-10-06T21:33:51.512Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7206",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:38.935Z",
+      "crawledAt": "2026-10-06T21:33:50.397Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:37.810Z",
+      "crawledAt": "2026-10-06T21:33:49.281Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:36.696Z",
+      "crawledAt": "2026-10-06T21:33:48.164Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:35.581Z",
+      "crawledAt": "2026-10-06T21:33:47.061Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:34.491Z",
+      "crawledAt": "2026-10-06T21:33:45.944Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -530,7 +530,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:33.403Z",
+      "crawledAt": "2026-10-06T21:33:44.820Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -616,8 +616,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -641,7 +641,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:32.313Z",
+      "crawledAt": "2026-10-06T21:33:43.712Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -673,15 +673,18 @@
           "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-pdgr-ch",
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur",
         "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
@@ -732,7 +735,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:31.189Z",
+      "crawledAt": "2026-10-06T21:33:42.588Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -816,7 +819,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:30.072Z",
+      "crawledAt": "2026-10-06T21:33:41.492Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -867,7 +870,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -893,7 +896,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:28.988Z",
+      "crawledAt": "2026-10-06T21:33:40.376Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -953,6 +956,7 @@
         "en": [
           "oberarztin-oberarzt-pdgr-ch",
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
           "senior-doctor-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
@@ -976,6 +980,7 @@
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -1025,7 +1030,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:27.870Z",
+      "crawledAt": "2026-10-06T21:33:39.275Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1137,7 +1142,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:26.751Z",
+      "crawledAt": "2026-10-06T21:33:38.134Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1239,7 +1244,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:25.640Z",
+      "crawledAt": "2026-10-06T21:33:37.017Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1344,7 +1349,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:24.557Z",
+      "crawledAt": "2026-10-06T21:33:35.903Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1445,7 +1450,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:22.397Z",
+      "crawledAt": "2026-10-06T21:33:33.647Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1558,7 +1563,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:21.308Z",
+      "crawledAt": "2026-10-06T21:33:32.522Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1666,9 +1671,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1683,7 +1688,7 @@
       "description": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
       "descriptionByLocale": {
         "it": "I dintorni:\nbassa percentuale, principalmente fine settimana (durante il giorno)\n\nUna funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con un alto livello di responsabilità personale – ben compatibile con una pratica o altri obblighi professionali. AKI è strettamente in rete con servizi stazionari e ambulatoriali e fa parte di una moderna struttura di approvvigionamento integrata.\n\nI loro compiti:\n- Voi assumete valutazioni psichiatriche acute e interventi di crisi nell'ambiente ambulatorio\n\n- Trattano pazienti che camminano\n\n- Esse effettuano valutazioni consiliari, comprese, ove necessario, la visita all'intervento di crisi;\n\n- Sei coinvolto nell'educazione e nella formazione dei colleghi più giovani e supervisiona medici e psicologi assistenti / psicologi\n\n- Lavori con infermieri esperti nel triage e prendi il controllo della gestione dei casi\n\n- Sviluppare insieme piani di trattamento pragmatici e realizzabili\n\nIl nostro profilo di requisito:\n- Hai completato gli studi in medicina umana e hai completato la formazione specialistica in psichiatria e psicoterapia\n\n- Essi portano la sicurezza nella valutazione di situazioni psichiatriche acute\n\n- Ti piace lavorare in modo indipendente con una stretta coordinazione del team\n\n- Hai un processo decisionale chiaro e uno stile di comunicazione collegiale\n\nVi offriamo:\n- Un'attività di fine settimana programmata durante il giorno senza obbligo di notte\n\n- Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi\n\n- Un carico di lavoro che può essere combinato bene con un'attività pratica o altri obblighi\n\n- Un'aggiunta mirata a un team consolidato e consolidato\n\n- Brevi percorsi decisionali e collaborazione diretta con la cura e la gestione medica\n\n- Embedding nella moderna struttura di alimentazione PDGR",
-        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA function for (experienced) specialists who are looking for a clearly structured, plannable clinical task with a high level of personal responsibility – well compatible with a practice or other professional obligations. AKI is closely networked with stationary and ambulatory services and is part of a modern, integrated supply structure.\n\nTheir tasks:\n- You take on acute psychiatric assessments and crisis interventions in the outpatient setting\n\n- They treat walk-in patients\n\n- They shall carry out consiliar assessments, including, where necessary, visiting crisis intervention;\n\n- You are involved in the education and training of younger colleagues and supervise assistant doctors and psychologists / psychologists\n\n- You work with experienced nurses in the triage and take over the case management\n\n- Develop pragmatic and viable treatment plans together\n\nOur requirement profile:\n- You have completed studies in human medicine and have completed specialist training in psychiatry and psychotherapy\n\n- They bring security in the assessment of acute psychiatric situations\n\n- You enjoy working independently with close team coordination\n\n- You have clear decision-making and a collegial communication style\n\nWe offer you:\n- A scheduled weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practical activity or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short decision paths and direct cooperation with care and medical management\n\n- Embedding in the modern PDGR supply structure",
+        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA",
         "de": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
         "fr": "Votre environnement:\nfaible pourcentage, principalement le week-end (pendant la journée)\n\nUne fonction pour des spécialistes (expérimentés) qui recherchent une tâche clinique clairement structurée et planifiable avec un haut niveau de responsabilité personnelle – bien compatible avec une pratique ou d'autres obligations professionnelles. AKI est étroitement en réseau avec les services fixes et ambulatoires et fait partie d'une structure d'approvisionnement moderne et intégrée.\n\nLeurs tâches:\n- Vous effectuez des évaluations psychiatriques aiguës et des interventions de crise dans le cadre de patients externes\n\n- Ils traitent les patients ambulants\n\n- Ils procèdent à des évaluations consulaires, y compris, le cas échéant, à des visites d'intervention en cas de crise;\n\n- Vous participez à l'éducation et à la formation de jeunes collègues et supervisez des médecins adjoints et des psychologues / psychologues\n\n- Vous travaillez avec des infirmières expérimentées dans le triage et prenez en charge la gestion de cas\n\n- Élaborer ensemble des plans de traitement pragmatiques et viables\n\nNotre profil d'exigence:\n- Vous avez terminé des études en médecine humaine et une formation spécialisée en psychiatrie et en psychothérapie\n\n- Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës\n\n- Vous aimez travailler indépendamment avec une coordination d'équipe étroite\n\n- Vous avez une prise de décision claire et un style de communication collégiale\n\nNous vous offrons:\n- Une activité prévue le week-end pendant la journée sans obligation de nuit\n\n- Une grande flexibilité et des options de conception individuelles dans la planification des services\n\n- Une charge de travail qui peut être bien combinée à une activité pratique ou à d'autres obligations\n\n- Un ajout ciblé à une équipe bien établie\n\n- Moyens de décision courts et coopération directe avec les soins et la gestion médicale\n\n- Intégrer la structure d'approvisionnement moderne du PDGR"
       },
@@ -1692,7 +1697,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:19.114Z",
+      "crawledAt": "2026-10-06T21:33:30.310Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1724,16 +1729,20 @@
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
           "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
           "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
         "senior-physician-psychiatrische-dienste-graubunden-chur",
         "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
@@ -1784,7 +1793,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:18.030Z",
+      "crawledAt": "2026-10-06T21:33:29.185Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1877,7 +1886,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:16.932Z",
+      "crawledAt": "2026-10-06T21:33:28.060Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1942,7 +1951,7 @@
       "id": "pdgr-7d82aa45ee20",
       "slug": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "terapista-occupazionale-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
         "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
@@ -1969,7 +1978,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:14.696Z",
+      "crawledAt": "2026-10-06T21:33:25.774Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1997,7 +2006,8 @@
         "cook-psychiatrische-dienste-graubunden-chur",
         "kochin-koch-pdgr-ch",
         "kochin-koch-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeut-in-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2005,7 +2015,8 @@
           "cook-psychiatrische-dienste-graubunden-chur",
           "kochin-koch-pdgr-ch",
           "kochin-koch-psychiatrische-dienste-graubunden-chur",
-          "ergotherapeut-in-psychiatrische-dienste-graubunden-chur"
+          "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -2042,7 +2053,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2066,7 +2077,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:12.528Z",
+      "crawledAt": "2026-10-06T21:33:23.507Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2091,7 +2102,8 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-pdgr-ch",
-        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2102,6 +2114,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
@@ -2156,7 +2169,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:11.425Z",
+      "crawledAt": "2026-10-06T21:33:22.404Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2240,7 +2253,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:10.336Z",
+      "crawledAt": "2026-10-06T21:33:21.285Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2312,17 +2325,17 @@
       },
       "description": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
       "descriptionByLocale": {
-        "it": "Il tuo ambiente:\nLavorano presso il Centro Psichiatrico Surselva di Ilanz in un team interdisciplinare e contribuiscono attivamente all'assistenza psichiatrica ambulatoriale della regione. Vi aspetta un ambiente di lavoro collegiale con una buona collaborazione e uno stretto scambio professionale.\n\nI vostri compiti:\n- Lei assume la rappresentanza della direzione infermieristica/del sito e dirige il team della clinica diurna psichiatrica per anziani\n\n- Sostengono la direzione infermieristica e del sito nella gestione professionale, personale e organizzativa del centro psichiatrico\n\n- Garantiscono cure e assistenza professionali, individuali e centrate sul paziente\n\n- Partecipano alla pianificazione del trattamento e lavorano nel sistema di cura di riferimento\n\n- Contribuiscono a modellare l'offerta terapeutica ambientale e assumono la direzione di offerte terapeutiche individuali e di gruppo\n\n- Promuovono una collaborazione apprezzata e interprofessionale e si collegano con partner di trattamento esterni\n\n- Garantisci e sviluppi continuamente la qualità delle cure, gli standard e i processi\n\n- Accompagnano i processi di cambiamento e sviluppo e partecipano alla realizzazione degli obiettivi aziendali e di processo\n\nIl nostro profilo dei requisiti:\n- Lei è un'infermiera diplomata HF/FH / Dipl. Infermiere SSS/SUP e hanno esperienza professionale nell'assistenza psichiatrica agli anziani\n\n- Idealmente, si dispone di esperienza manageriale e di una formazione manageriale completata o si è",
-        "en": "Your surroundings: You work at the Psychiatry Centre Surselva in Ilanz in an interdisciplinary team and actively contribute to the outpatient psychiatric care of the region. A collegial working environment with good cooperation and close professional exchange awaits you.\n\nYour tasks: - You take over the deputy representation of the care / location management and lead the team of the old-agepsychiatric day clinic\n\n- They support the management of the nursing and location in the professional, personnel and organizational management of the Psychiatry Centre\n\n- They ensure professional, individual and patient-centered care and care\n\n- They participate in the treatment planning and work in the reference care system\n\n- You will help shape the milieutherapeutic offer and take over the management of therapeutic individual and group offers\n\n- They promote an appreciative and interprof-tional cooperation and networked with external treatment partners\n\n- You continuously ensure and develop the quality of care, standards and processes\n\n- They accompany change and development processes and contribute to the implementation of the company and process goals\n\nOur requirements profile: - You are a specialist in nursing HF/FH / a specialist in nursing HF/FH and have professional experience in the old-age psychochiatric care\n\n- They ideally have leadership experience and have completed or are willing to complete management training\n\n- They are reliable, act goal- and solution-oriented and are characterized by organizational skills\n\n- You have a high level of technical and social competence and have knowledge of quality management\n\nWe offer you: - You take on a varied and responsible activity\n\n- A diverse and cooperative cooperation with all professional groups at all levels\n\n- With parttime work models, regular working hours and unpaid holidays, an optimal work-life balance\n\n- Use our internal training and further education offer – we also support your external training needs",
+        "it": "I dintorni:\nLavorano in un team interdisciplinare presso il Surselva Psychiatry Center di Ilanz e contribuiscono attivamente alla cura psichiatrica ambulatoriale della regione. Ci si può aspettare un ambiente di lavoro collegiale con una buona cooperazione e uno scambio professionale ravvicinato.\n\nI loro compiti:\n- Prendere il controllo del vice della gestione del sito e guidare il team della clinica diurna psichiatrica di età\n\n- Supportano la gestione dell'allattamento e della posizione nella gestione professionale, personale e organizzativa del centro psichiatria.\n\n- Garantiscono la cura e la cura professionale, individuale e paziente\n\n- Partecipano alla pianificazione del trattamento e lavorano nel sistema di assistenza di riferimento\n\n- Aiuta a modellare l'offerta milieutherapeutica e a prendere il controllo della gestione delle offerte terapeutiche individuali e di gruppo\n\n- Essi promuovono la cooperazione apprezzativa e interprofessionale e la rete con i partner esterni di trattamento\n\n- Garantiscono e sviluppano continuamente la qualità della cura, degli standard e dei processi\n\n- Essi accompagnano i processi di cambiamento e sviluppo e partecipano all'attuazione degli obiettivi aziendali e di processo\n\nIl nostro profilo di requisito:\n- Tu sei Dipl. Specialista infermieristico HF/FH / Dipl. Infermieristica professionale HF/FH e avere esperienza professionale nella cura psichiatrica di vecchiaia\n\n- Idealmente, avete esperienza di leadership e formazione di leadership completata o sono pronti a completarlo\n\n- Sono affidabili, orientati all'obiettivo e orientati alla soluzione e sono caratterizzati da abilità organizzative\n\n- Hanno un alto livello di competenza tecnica e sociale e hanno conoscenza della gestione della qualità\n\nVi offriamo:\n- Si assume un'attività varia e responsabile\n\n- Una cooperazione diversificata e cooperativa con tutti i gruppi professionali a tutti i livelli\n\n- Con modelli di lavoro part-time, orari di lavoro regolari e congedo non retribuito, un equilibrio ottimale della vita lavorativa\n\n- Approfittate della nostra offerta di formazione interna e di ulteriore formazione – supportiamo anche le vostre esigenze di formazione esterna",
+        "en": "Your surroundings:\nThey work in an interdisciplinary team at the Surselva Psychiatry Center in Ilanz and actively contribute to the region’s outpatient psychiatric care. You can expect a collegial working environment with good cooperation and close professional exchange.\n\nTheir tasks:\n- You take over the deputy of the nursing / site management and lead the team of the age psychiatric day clinic\n\n- They support the nursing and location management in the professional, personnel and organizational management of the psychiatry center.\n\n- They ensure professional, individual and patient-centered care and care\n\n- They participate in treatment planning and work in the reference care system\n\n- You help shape the milieutherapeutic offer and take over the management of therapeutic individual and group offers\n\n- They promote appreciative and interprofessional cooperation and network with external treatment partners\n\n- They ensure and continuously develop the quality of care, standards and processes\n\n- They accompany change and development processes and participate in the implementation of company and process goals\n\nOur requirement profile:\n- You are Dipl. Nursing specialist HF/FH / Dipl. Nursing professional HF/FH and have professional experience in old-age psychiatric care\n\n- Ideally, you have leadership experience as well as completed leadership training or are ready to complete it\n\n- They are reliable, act goal-oriented and solution-oriented and are characterized by organizational skill\n\n- They have a high level of technical and social competence and have knowledge of quality management\n\nWe offer you:\n- You take on a varied and responsible activity\n\n- A diverse and cooperative cooperation with all professional groups at all levels\n\n- With part-time work models, regular working hours and unpaid leave, an optimal work-life balance\n\n- Take advantage of our internal training and further education offer – we also support your external training needs",
         "de": "Ihre Umgebung:\nSie arbeiten am Psychiatrie-Zentrum Surselva in Ilanz in einem interdisziplinären Team und gestalten die ambulante psychiatrische Versorgung der Region aktiv mit. Dabei erwartet Sie ein kollegiales Arbeitsumfeld mit guter Zusammenarbeit und engem fachlichem Austausch.\n\nIhre Aufgaben:\n- Sie übernehmen die Stellvertretung der Pflege-/Standortleitung und leiten das Team der Alterspsychiatrischen Tagesklinik\n\n- Sie unterstützen die Pflege- und Standortleitung in der fachlichen, personellen und organisatorischen Führung des Psychiatrie-Zentrums\n\n- Sie gewährleisten eine professionelle, individuelle und patientenzentrierte Pflege und Betreuung\n\n- Sie wirken an der Behandlungsplanung mit und arbeiten im Bezugspflegesystem\n\n- Sie gestalten das milieutherapeutische Angebot mit und übernehmen die Leitung therapeutischer Einzel- und Gruppenangebote\n\n- Sie fördern eine wertschätzende und interprofessionelle Zusammenarbeit und vernetzten sich mit externen Behandlungspartnern\n\n- Sie sichern und entwickeln die Pflegequalität, Standards und Prozesse kontinuierlich weiter\n\n- Sie begleiten Veränderungs- und Entwicklungsprozesse und wirken an der Umsetzung der Unternehmens- und Prozessziele mit\n\nUnser Anforderungsprofil:\n- Sie sind Dipl. Pflegefachfrau HF/FH / Dipl. Pflegefachmann HF/FH und haben Berufserfahrung in der alterspsychiatrischen Pflege\n\n- Sie verfügen idealerweise über Führungserfahrung sowie über eine abgeschlossene Führungsausbildung oder sind bereit, diese zu absolvieren\n\n- Sie sind zuverlässig, handeln ziel- sowie lösungsorientiert und zeichnen sich durch organisatorisches Geschick aus\n\n- Sie haben eine hohe Fach- sowie Sozialkompetenz und besitzen Kenntnisse im Qualitätsmanagement\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n\n- Eine vielfältige und kooperative Zusammenarbeit mit allen Berufsgruppen auf sämtlichen Stufen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
-        "fr": "Votre environnement : Vous travaillez au Centre de Psychiatrie Surselva à Ilanz dans une équipe interdisciplinaire et contribuez activement aux soins psychiatriques ambulatoires de la région. Un environnement de travail collégial avec une bonne coopération et un échange professionnel étroit vous attend.\n\nVos tâches : - Vous prenez en charge la représentation adjointe de la gestion des soins / localisation et dirigez l'équipe de la clinique de jour de psychiatrie de vieillesse\n\n- Ils soutiennent la gestion des soins infirmiers et de l'emplacement dans la gestion professionnelle, du personnel et organisationnelle du Centre de psychiatrie\n\n- Ils assurent des soins professionnels, individuels et axés sur le patient\n\n- Ils participent à la planification du traitement et travaillent dans le système de soins de référence\n\n- Vous aiderez à façonner l'offre milieuthérapeutique et prendre en charge la gestion des offres individuelles et collectives thérapeutiques\n\n- Ils encouragent une coopération positive et interprof-ionale et en réseau avec des partenaires externes de traitement\n\n- Vous veillez et développez en permanence la qualité des soins, des normes et des processus\n\n- Ils accompagnent les processus de changement et de développement et contribuent à la mise en œuvre des objectifs de l'entreprise et des processus\n\nNotre profil d'exigences: - Vous êtes un spécialiste en soins infirmiers HF/FH / un spécialiste en soins infirmiers HF/FH et avez une expérience professionnelle dans les soins psychochiatriques de vieillesse\n\n- Ils ont idéalement une expérience de leadership et ont terminé ou sont prêts à terminer la formation en gestion\n\n- Elles sont fiables, sont orientées vers des objectifs et des solutions et se caractérisent par des compétences organisationnelles\n\n- Vous avez un haut niveau de compétence technique et sociale et avez une connaissance de la gestion de la qualité\n\nNous vous offrons: - Vous prenez une activité variée et responsable\n\n- Une coopération diversifiée et coopérative avec tous les groupes professionnels à tous les niveaux\n\n- Avec des modèles de travail à temps partiel, des horaires de travail réguliers et des congés non payés, un équilibre optimal entre vie professionnelle et vie privée\n\n- Utilisez notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe"
+        "fr": "Votre environnement:\nIls travaillent dans une équipe interdisciplinaire au Surselva Psychiatry Center à Ilanz et contribuent activement aux soins psychiatriques ambulatoires de la région. Vous pouvez vous attendre à un environnement de travail collégial avec une bonne coopération et un échange professionnel étroit.\n\nLeurs tâches:\n- Vous prenez la relève de la direction de l'infirmière / du site et dirigez l'équipe de la clinique de jour psychiatrique d'âge\n\n- Ils soutiennent la gestion des soins infirmiers et de l'emplacement dans la gestion professionnelle, du personnel et organisationnelle du centre de psychiatrie.\n\n- Ils assurent des soins professionnels, individuels et axés sur le patient\n\n- Ils participent à la planification du traitement et travaillent dans le système de soins de référence\n\n- Vous aidez à façonner l'offre milieuthérapeutique et à prendre en charge la gestion des offres individuelles et collectives thérapeutiques\n\n- Ils favorisent la coopération et le réseau avec les partenaires de traitement externes.\n\n- Ils assurent et développent continuellement la qualité des soins, des normes et des processus\n\n- Ils accompagnent les processus de changement et de développement et participent à la mise en œuvre des objectifs de l'entreprise et des processus\n\nNotre profil d'exigence:\n- Vous êtes Dipl. Spécialiste des soins infirmiers HF/FH / Dipl. Soins infirmiers professionnels HF/FH et ont une expérience professionnelle dans les soins psychiatriques de vieillesse\n\n- Idéalement, vous avez une expérience en leadership ainsi qu'une formation en leadership terminée ou êtes prêt à l'achever.\n\n- Ils sont fiables, orientés vers les objectifs et les solutions et se caractérisent par des compétences organisationnelles.\n\n- Ils ont un haut niveau de compétence technique et sociale et une connaissance de la gestion de la qualité\n\nNous vous offrons:\n- Vous prenez une activité variée et responsable\n\n- Une coopération diversifiée et coopérative avec tous les groupes professionnels à tous les niveaux\n\n- Avec des modèles de travail à temps partiel, des horaires de travail réguliers et des congés non rémunérés, un équilibre optimal entre le travail et la vie personnelle\n\n- Profitez de notre offre de formation interne et de formation continue – nous soutenons également vos besoins de formation externe"
       },
       "location": "Ilanz",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:09.235Z",
+      "crawledAt": "2026-10-06T21:33:20.141Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2406,7 +2419,7 @@
       "url": "https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:07.040Z",
+      "crawledAt": "2026-10-06T21:33:17.834Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2490,7 +2503,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:05.965Z",
+      "crawledAt": "2026-10-06T21:33:16.706Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2578,7 +2591,7 @@
       "url": "https://www.pdgr.ch/jobs/gaertner-in-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:04.874Z",
+      "crawledAt": "2026-10-06T21:33:15.581Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2667,7 +2680,7 @@
       "url": "https://www.pdgr.ch/jobs/arbeitsagoge-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:03.558Z",
+      "crawledAt": "2026-10-06T21:33:14.404Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2752,7 +2765,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:02.450Z",
+      "crawledAt": "2026-10-06T21:33:13.260Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -2812,7 +2825,7 @@
       "slug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
         "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
-        "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
+        "en": "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz",
         "de": "kunsttherapeut-in-pdgr-ch",
         "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
       },
@@ -2838,7 +2851,7 @@
       "url": "https://www.pdgr.ch/jobs/kunsttherapeut-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:01.241Z",
+      "crawledAt": "2026-10-06T21:33:12.105Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2863,6 +2876,7 @@
       "pensum": "30 - 40%",
       "previousSlugs": [
         "kunsttherapeut-in-pdgr-ch",
+        "art-therapists-psychiatrische-dienste-graubunden-ilanz",
         "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
@@ -2870,6 +2884,7 @@
           "kunsttherapeut-in-pdgr-ch"
         ],
         "en": [
+          "art-therapists-psychiatrische-dienste-graubunden-ilanz",
           "kunsttherapeut-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "fr": [
@@ -2924,7 +2939,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:32:00.154Z",
+      "crawledAt": "2026-10-06T21:33:10.909Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3010,7 +3025,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:59.072Z",
+      "crawledAt": "2026-10-06T21:33:09.785Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3094,7 +3109,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:57.985Z",
+      "crawledAt": "2026-10-06T21:33:08.677Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3180,7 +3195,7 @@
       "url": "https://www.pdgr.ch/jobs/beauftragte-r-fuer-die-un-brk-peer-mitarbeiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:56.892Z",
+      "crawledAt": "2026-10-06T21:33:07.555Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7405",
       "addressCountry": "CH",
@@ -3257,7 +3272,7 @@
       "url": "https://www.pdgr.ch/jobs/logopaede-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:54.624Z",
+      "crawledAt": "2026-10-06T21:33:05.272Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3340,7 +3355,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-roomservice/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:53.525Z",
+      "crawledAt": "2026-10-06T21:33:04.088Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3401,7 +3416,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
+        "it": "Infermiere diplomato SSS o dipl. Pedagogista sociale SSS",
         "en": "Dipl. Nurse HF or Dipl. Social educator HF",
         "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
         "fr": "Infirmier diplômé ES ou diplômé Éducateur/-trice social/-trice ES"
@@ -3418,7 +3433,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:52.427Z",
+      "crawledAt": "2026-10-06T21:33:02.921Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3449,7 +3464,6 @@
           "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:48:22.174Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3497,7 +3511,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-transportdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:51.248Z",
+      "crawledAt": "2026-10-06T21:33:01.660Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3575,7 +3589,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-raumpflege-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:50.155Z",
+      "crawledAt": "2026-10-06T21:33:00.517Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3653,7 +3667,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-8-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:31:47.936Z",
+      "crawledAt": "2026-10-06T21:32:58.256Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7503",
       "addressCountry": "CH",

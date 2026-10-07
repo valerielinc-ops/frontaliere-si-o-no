@@ -11,7 +11,7 @@
  *            against `data/authors.ts`, falling back to the Organization when unset.
  *   - SPA  — `services/seoService.ts` reads `structuredData.author` verbatim out of
  *            the generated `content/seo/seo-blog*.ts` blobs, falling back to
- *            `/chi-siamo/` when that node is not a `Person` with a `url`.
+ *            `/chi-siamo/` when that node is not a named author with a `url`.
  *
  * Measured when this gate was first run: they did NOT agree — 1712 of the 3692 articles
  * carried a real `authorSlug` while their blob still held the legacy
@@ -117,7 +117,7 @@ describe('article:author — dual source-of-truth parity', () => {
     ).toBe(0);
   });
 
-  it('every Person author in the SEO blobs resolves to the authors registry', () => {
+  it('every named Person or editorial Organization in the SEO blobs resolves to the authors registry', () => {
     // The other direction of the same drift: a blob naming an author page that the
     // registry no longer serves emits `article:author` pointing at a 404.
     const knownAuthorUrls = new Set(
@@ -129,7 +129,7 @@ describe('article:author — dual source-of-truth parity', () => {
     );
     const offenders: string[] = [];
     for (const [key, ref] of authorRefsByKey) {
-      if (ref.type !== 'Person' || !ref.url) continue;
+      if ((ref.type !== 'Organization' && ref.type !== 'Person') || !ref.url) continue;
       if (ref.url === ORG_AUTHOR_URL) continue; // Organization-equivalent legacy form
       if (!knownAuthorUrls.has(ref.url)) offenders.push(`  - ${key}: author url "${ref.url}"`);
     }
