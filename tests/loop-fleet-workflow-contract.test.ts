@@ -552,6 +552,16 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('ships a reproducible depth-1 fixture for measuring the bounded push', () => {
+    const measurement = fs.readFileSync(path.resolve('scripts/ci/measure-loop-fleet-shallow-push.mjs'), 'utf8');
+    expect(measurement).toContain('--depth=1');
+    expect(measurement).toContain('pack.window=0');
+    expect(measurement).toContain('pack.threads=1');
+    expect(measurement).toContain('push --no-thin');
+    expect(measurement).toContain('measureLoopFleetShallowPush');
+    expect(measurement).toContain('shallow: baseline.shallow && noThin.shallow');
+  });
+
   it('removes the obsolete epoch policy and all workflow references to it', () => {
     const policyName = ['loop-fleet', 'epoch-policy'].join('-');
     expect(fs.existsSync(path.resolve('scripts/ci', `${policyName}.mjs`))).toBe(false);
