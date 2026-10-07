@@ -193,3 +193,44 @@ describe('nav-link sentinel survives machine translation', () => {
     expect(restore('Usa il 0NAV-broken-0.').ok).toBe(false);
   });
 });
+
+// The markdown repair runs on the whole field after every engine guard. It
+// used to merge list items (`**a**\n- **b**` → one line); a field that came
+// back with the source's lines must still have them after the repair.
+describe('translateFieldFreeMt — the markdown repair may not change the line count', () => {
+  const text = '- prima voce tradotta bene\n- seconda voce tradotta bene\n- terza voce tradotta bene';
+  const translate = async ({ text: source }: { text: string }) =>
+    source.replace(/voce tradotta bene/g, 'Punkt gut übersetzt');
+
+  it('hands the source to the repair so it can keep the lines the source owns', async () => {
+    const seen: Array<{ sourceText?: string } | undefined> = [];
+    const out = await translateFieldFreeMt({
+      text,
+      sourceLang: 'it',
+      targetLang: 'de',
+      fieldType: 'description',
+      translate,
+      balanceMarkdown: (value: string, options?: { sourceText?: string }) => {
+        seen.push(options);
+        return value;
+      },
+    });
+    expect(out.split('\n')).toHaveLength(3);
+    expect(seen).toEqual([{ sourceText: text }]);
+  });
+
+  it('refuses a field whose lines the repair merged', async () => {
+    const warnings: string[] = [];
+    const out = await translateFieldFreeMt({
+      text,
+      sourceLang: 'it',
+      targetLang: 'de',
+      fieldType: 'description',
+      translate,
+      balanceMarkdown: (value: string) => value.replace(/\n- /, ' '),
+      onWarn: (message: string) => warnings.push(message),
+    });
+    expect(out).toBe('');
+    expect(warnings.join(' ')).toMatch(/markdown repair changed the line count \(3 → 2\)/);
+  });
+});

@@ -2042,6 +2042,37 @@ function delay(ms) {
  * @returns {Promise<string>} Translated text or ''
  */
 /**
+ * Drop the empty bold spans of ONE line (`** **`, `** : **`, `** - **`).
+ *
+ * Markers pair up left to right, so only the text BETWEEN an opening marker and
+ * its closing one is judged. A single regex over the whole text cannot tell the
+ * two apart: it matched ANY two markers with nothing but blanks or punctuation
+ * between them, and that is also the gap between the end of one bold span and
+ * the start of the next. `**a**, **b**` became `**a b**`; and since `\s`
+ * crosses line breaks, a list item ending in bold swallowed the item after it
+ * (`... **1.260 CHF/mese**\n- **LPP**: ...` came back as one line). Working
+ * line by line also makes the step unable to add or remove a line break by
+ * construction.
+ */
+function dropEmptyBoldSpansInLine(line) {
+  const parts = line.split('**');
+  if (parts.length < 3) return line;
+  let out = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const content = parts[index];
+    if (index + 1 >= parts.length) {
+      // Opening marker with no closing one on this line: the parity rule below
+      // decides what happens to it.
+      out += `**${content}`;
+      break;
+    }
+    out += /^[\s:;,.\-–—]*$/u.test(content) ? ' ' : `**${content}**`;
+    out += parts[index + 1];
+  }
+  return out;
+}
+
+/**
  * Post-process a translator output to make sure `**bold**` markdown markers
  * stay balanced. AI translators frequently re-flow paragraphs in a way that
  * leaves orphan `**` (count parity broken) or empty `**…**` runs containing
@@ -2054,15 +2085,24 @@ function delay(ms) {
  * Exported so the same balancer can be reused outside the cascade (tests,
  * upstream sanitizers, retroactive cleanup scripts).
  *
+ * `sourceText` is optional. When the caller has the source and the text to
+ * repair is line-aligned with it (same number of lines), a separator-only line
+ * that the SOURCE owns at the same position is kept: `---` between two
+ * sections is Markdown structure, not decoration added by a translator, and
+ * dropping it took two lines away from a translation that had kept them (the
+ * rule, then one of the blank lines around it at step 5).
+ *
  * @param {string} s
+ * @param {{ sourceText?: string|null }} [options]
  * @returns {string}
  */
-export function balanceMarkdownMarkers(s) {
+export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
   if (typeof s !== 'string' || !s) return s;
   let out = s;
   // 1. Drop empty / whitespace-only / punctuation-only bolds (e.g. `** **`,
-  //    `**  **`, `** : **`, `** - **`).
-  out = out.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  //    `**  **`, `** : **`, `** - **`), one line at a time: see
+  //    `dropEmptyBoldSpansInLine`.
+  out = out.split('\n').map(dropEmptyBoldSpansInLine).join('\n');
   // 2. If `**` count is odd, the output is unrecoverable as bold structure —
   //    strip every `**` so the renderer sees plain text instead of a half-
   //    bold span.
@@ -2071,11 +2111,16 @@ export function balanceMarkdownMarkers(s) {
     out = out.replace(/\*\*/g, '');
   }
   // 3. Strip standalone separator-only lines (`______`, `======`) that some
-  //    translators emit as decoration.
-  out = out
-    .split('\n')
-    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
-    .join('\n');
+  //    translators emit as decoration — unless the source owns that line.
+  const separatorOnly = (line) => /^[\s_\-=*•·~]{3,}$/.test(line);
+  const outLines = out.split('\n');
+  const sourceLines = typeof sourceText === 'string' ? sourceText.split('\n') : null;
+  const aligned = sourceLines !== null && sourceLines.length === outLines.length;
+  const keptLines = outLines.filter((line, index) => (
+    !separatorOnly(line) || (aligned && separatorOnly(sourceLines[index]))
+  ));
+  const removedSeparatorLines = outLines.length - keptLines.length;
+  out = keptLines.join('\n');
   // 4. Strip trailing inline separator runs that often hug a line end.
   out = out
     .split('\n')
@@ -2083,8 +2128,10 @@ export function balanceMarkdownMarkers(s) {
     .join('\n');
   // 5. Collapse 3+ consecutive newlines that step 3 may have created when
   //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →
-  //    \n\n\n after filter).
-  out = out.replace(/\n{3,}/g, '\n\n');
+  //    \n\n\n after filter). A text that is line-aligned with its source and
+  //    lost no line at step 3 has nothing to collapse: its blank runs are the
+  //    source's.
+  if (!aligned || removedSeparatorLines > 0) out = out.replace(/\n{3,}/g, '\n\n');
   // 6. Collapse the consecutive double-spaces that step 1 may have left.
   out = out.replace(/[ \t]{2,}/g, ' ');
   return out.trim();
@@ -2183,7 +2230,7 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
   const finalize = (out) => {
     const finalized = finalizeTranslatedText({
       sourceText: sourceClean,
-      translatedText: balanceMarkdownMarkers(out),
+      translatedText: balanceMarkdownMarkers(out, { sourceText: clean }),
       targetLang,
       fieldType,
       protectedTokens,

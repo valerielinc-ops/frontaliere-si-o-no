@@ -71,3 +71,64 @@ describe('balanceMarkdownMarkers — translator-time defence', () => {
  expect(twice).toBe(once);
  });
 });
+
+/**
+ * The empty-bold step used ONE regex over the whole text: two markers with
+ * only blanks or punctuation between them. That shape is also the gap between
+ * the end of one bold span and the start of the next, and `\s` crosses line
+ * breaks — so a list item ending in bold swallowed the item after it, and the
+ * exit transform took lines away from a translation that had kept them.
+ * Measured on the article corpus (12'692 Italian body fields replayed line for
+ * line): 109 fields in 99 articles came out with fewer lines; 0 after the fix.
+ */
+describe('balanceMarkdownMarkers — never merges lines or neighbouring bolds', () => {
+  it('keeps list items that end in bold apart from the item that follows', () => {
+    const raw = [
+      '- **AVS**: 22 anni su 44 → circa **1.260 CHF/mese**',
+      '- **LPP**: capitale di 280.000 CHF × 6,8% = **1.587 CHF/mese**',
+      '- **Pilastro 3a**: capitale di 180.000 CHF',
+    ].join('\n');
+    expect(balanceMarkdownMarkers(raw)).toBe(raw);
+  });
+
+  it('keeps a bold heading line apart from a bold-labelled line below it', () => {
+    const raw = '💡 **Consigli pratici:**\n- **Monitorare la situazione:** tenersi informati.';
+    expect(balanceMarkdownMarkers(raw)).toBe(raw);
+    const withBlank = '**Totale mensile**: circa **2.847 CHF**\n\n**Nota**: valori indicativi';
+    expect(balanceMarkdownMarkers(withBlank)).toBe(withBlank);
+  });
+
+  it('keeps two neighbouring bold spans on the same line as two', () => {
+    for (const raw of [
+      'I tre pilastri: **AVS**, **LPP** e 3a.',
+      '**Quando:** **18 febbraio 2026**, dalle **10:15** alle **11:30**.',
+      '**Etichetta**: **valore**',
+    ]) {
+      expect(balanceMarkdownMarkers(raw)).toBe(raw);
+    }
+  });
+
+  it('still drops a really empty bold that sits right after a real one', () => {
+    expect(balanceMarkdownMarkers('- **Voce** ** - ** testo')).toBe('- **Voce** testo');
+    expect(balanceMarkdownMarkers('prima **** dopo')).toBe('prima dopo');
+  });
+
+  it('keeps a separator-only line that the source owns at the same position', () => {
+    const source = 'Primo paragrafo.\n\n---\n\nSecondo paragrafo.';
+    const translated = 'Erster Absatz.\n\n---\n\nZweiter Absatz.';
+    // No source: decoration, as before.
+    expect(balanceMarkdownMarkers(translated)).toBe('Erster Absatz.\n\nZweiter Absatz.');
+    // Line-aligned source: the rule is structure and stays.
+    expect(balanceMarkdownMarkers(translated, { sourceText: source })).toBe(translated);
+    // The source has text at that position: the line is not the source's.
+    expect(
+      balanceMarkdownMarkers('Erster Absatz.\n=====\nZweiter Absatz.', {
+        sourceText: 'Primo paragrafo.\nRiga di mezzo.\nSecondo paragrafo.',
+      }),
+    ).toBe('Erster Absatz.\nZweiter Absatz.');
+    // Source with a different line count: no alignment, behaviour as before.
+    expect(balanceMarkdownMarkers(translated, { sourceText: 'Una riga sola.' })).toBe(
+      'Erster Absatz.\n\nZweiter Absatz.',
+    );
+  });
+});
