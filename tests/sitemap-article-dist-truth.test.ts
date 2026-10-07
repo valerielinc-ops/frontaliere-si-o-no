@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -38,7 +38,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  fs.rmSync(dist, { recursive: true, force: true });
+ vi.restoreAllMocks();
+ fs.rmSync(dist, { recursive: true, force: true });
 });
 
 describe('reconcileArticleSitemapsWithDist', () => {
@@ -59,5 +60,12 @@ describe('reconcileArticleSitemapsWithDist', () => {
     await reconcileArticleSitemapsWithDist(dist);
 
     expect(fs.readFileSync(file, 'utf8')).toBe(before);
+  });
+
+  it('propagates a non-ENOENT candidate read error', async () => {
+    const permissionDenied = Object.assign(new Error('permission denied'), { code: 'EACCES' });
+    vi.spyOn(fs.promises, 'readFile').mockRejectedValueOnce(permissionDenied);
+
+    await expect(reconcileArticleSitemapsWithDist(dist)).rejects.toMatchObject({ code: 'EACCES' });
   });
 });

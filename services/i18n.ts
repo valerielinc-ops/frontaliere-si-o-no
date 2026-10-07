@@ -135,7 +135,7 @@ const blogMetaLoaders: Record<ArticleSectionName, Record<Locale, () => Promise<{
 const blogMetaLoaded = new Set<string>();
 const blogMetaLoadingPromises = new Map<string, Promise<void>>();
 
-// Tier 2: Per-article body (body1, body2, body3) — loaded on demand
+// Tier 2: Per-article body (bodyN) — loaded on demand
 const loadedArticleBodies = new Set<string>(); // "locale:articleId"
 const articleBodyPromises = new Map<string, Promise<void>>();
 
@@ -210,6 +210,32 @@ export async function loadArticleBody(articleId: string, section: ArticleSection
 
  localeTick++;
  listeners.forEach(fn => fn(currentLocale));
+}
+
+/**
+ * Return every bodyN translation currently available to the active locale.
+ *
+ * The article loader merges arbitrary bodyN fields into the locale stores, so
+ * callers that need the complete article body must enumerate those stores
+ * instead of assuming the historical body1/body2/body3 shape. The merge order
+ * mirrors t(): the active locale wins, then the Italian fallback is used.
+ */
+export function getLoadedArticleBody(articleId: string): Readonly<Record<string, string>> {
+ const prefix = `blog.article.${articleId}.`;
+ const bodyKey = /^body\d+$/;
+ const result: Record<string, string> = {};
+ const merge = (translations?: Translations): void => {
+  for (const [key, value] of Object.entries(translations ?? {})) {
+   if (!key.startsWith(prefix)) continue;
+   const field = key.slice(prefix.length);
+   if (bodyKey.test(field) && value) result[field] = value;
+  }
+ };
+
+ merge(loadedLocales.it);
+ merge(itTranslations);
+ if (currentLocale !== 'it') merge(loadedLocales[currentLocale]);
+ return result;
 }
 
 /** @deprecated Use loadBlogMeta() + loadArticleBody(id) instead */

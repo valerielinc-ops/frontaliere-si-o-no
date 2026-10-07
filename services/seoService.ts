@@ -7,7 +7,7 @@ import { localizeArticlePageIdentity } from './seo/article-page-identity';
  * Manages SEO metadata for different sections of the app
  */
 
-import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, loadArticleBody, type Locale } from './i18n';
+import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, loadArticleBody, getLoadedArticleBody, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
@@ -1820,11 +1820,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  articleBodyLoadFailed = true;
  }
  if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
- articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder({
- body1: t(`blog.article.${blogArticleId}.body1`),
- body2: t(`blog.article.${blogArticleId}.body2`),
- body3: t(`blog.article.${blogArticleId}.body3`),
- });
+ articleBodyHasPromptPlaceholder = hasArticleBodyPromptPlaceholder(getLoadedArticleBody(blogArticleId));
  }
  const jobSeo = isJobDetailPage && route.jobSlug
  ? await resolveJobSeoBySlug(route.jobSlug, locale, canonicalLocalePath)

@@ -143,7 +143,8 @@ export async function reconcileArticleSitemapsWithDist(distDir: string): Promise
         const html = await fs.promises.readFile(candidate, 'utf-8');
         if (NOINDEX_ROBOTS_RE.test(html)) noindexLocs.add(loc);
         return;
-      } catch {
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
         // A missing page may belong to another locale shard; retain its loc.
       }
     }
