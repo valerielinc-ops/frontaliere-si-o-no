@@ -177,7 +177,8 @@ function deployRequestPathsIgnore() {
 function changedFilesSince({ repo, baseSha, headSha }) {
   const compare = ghJson(['api', `repos/${repo}/compare/${baseSha}...${headSha}`]);
   if (!Array.isArray(compare?.files)) throw new Error('compare response has no files array');
-  return compare.files.map((file) => file.filename).filter((file) => typeof file === 'string');
+  const files = compare.files.map((file) => file.filename).filter((file) => typeof file === 'string');
+  return { files, truncated: compare.files.length >= 300 };
 }
 
 function main() {
@@ -229,13 +230,16 @@ function main() {
   // gets the same durable retry treatment as a queue read failure.
   if (eventName === 'workflow_run' && completedBuildSha && completedBuildSha !== headSha) {
     try {
-      const changed = changedFilesSince({ repo, baseSha: completedBuildSha, headSha });
-      const pending = changedFilesRequiringDeploy(changed, deployRequestPathsIgnore());
-      if (pending.length === 0) {
-        const detail = `${headSha} only adds ${changed.length} ignored path(s) since completed build ${completedBuildSha}`;
+      const comparison = changedFilesSince({ repo, baseSha: completedBuildSha, headSha });
+      const pending = changedFilesRequiringDeploy(comparison.files, deployRequestPathsIgnore());
+      if (!comparison.truncated && pending.length === 0) {
+        const detail = `${headSha} only adds ${comparison.files.length} ignored path(s) since completed build ${completedBuildSha}`;
         console.log(`[deploy-request] ${detail} → skip (workflow-run-ignored-only)`);
         appendSummary(`✅ **Deploy request queue**: no action — workflow-run completion contains only ignored paths since \`${completedBuildSha}\`.`);
         return 0;
+      }
+      if (comparison.truncated) {
+        console.log('[deploy-request] compare response reached GitHub’s 300-file cap; re-arming conservatively');
       }
       console.log(`[deploy-request] workflow-run completion has ${pending.length} deploy-bound path(s) since ${completedBuildSha}`);
     } catch (error) {
