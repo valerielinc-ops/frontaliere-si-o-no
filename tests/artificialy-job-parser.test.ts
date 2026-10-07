@@ -89,7 +89,7 @@ describe('Artificialy career parser', () => {
 
     expect(parseArtificialyCareerPage(html)).toMatchObject({
       blocked: false,
-      items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich', description: SOURCE_BODY })],
+      items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zürich', description: SOURCE_BODY })],
     });
   });
 
