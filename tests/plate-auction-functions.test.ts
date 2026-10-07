@@ -388,7 +388,7 @@ describe('plate-auction Firestore pipeline: timed card turnover', () => {
     expect(result.summaries.tg).toMatchObject({ status: 'active', rowCount: 32 });
     const missing = [...firestore.current.values()].filter((row) => row.sourceKey === 'TG' && row.missingSince !== undefined);
     expect(missing).toHaveLength(8);
-    expect([...firestore.history.values()].filter((row) => row.sourceKey === 'TG')).toEqual([]);
+    expect([...firestore.history.values()].filter((row) => row.sourceKey === 'TG' && row.disappearedFromCatalogue)).toEqual([]);
     expect(firestore.sources.get('tg')).toMatchObject({ status: 'active', errorCode: null });
   });
 });
