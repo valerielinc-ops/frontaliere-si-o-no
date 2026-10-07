@@ -2476,7 +2476,7 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
 // Candidate review page API (signed link from the review e-mails, no login).
 export const assistedApplicationReview = onRequest(
   // 512MiB: an edit by the candidate rebuilds the letter PDF.
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 90, cors: true },
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
   async (req, res) => {
     try {
       // JSON, or an editable Word copy as a download (file=letter.docx|cv.docx).
