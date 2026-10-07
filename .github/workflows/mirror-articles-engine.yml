@@ -1,4 +1,4 @@
-name: Mirror the articles engine and image broker to the corpus repo
+name: Mirror the articles engine and adapted image broker to the corpus repo
 
 # The code half of the cycle, which has had no transport since the cutover.
 #
@@ -21,8 +21,10 @@ name: Mirror the articles engine and image broker to the corpus repo
 # audit:footer-root-presence counts and why its count went from 23 to 3608.
 #
 # The fix is not to re-enable the corpus mirror. It is to carry the small set
-# this repo still owns — `engine/` and the action-owned image broker — and to
-# carry nothing else. Splitting the transport this way is what makes automation
+# this repo still owns — `engine/` and the action-owned image-lane behavior — and
+# to carry nothing else. The corpus broker is an adapted variant, so the
+# workflow applies only the attested image-lane patch rather than replacing its
+# crawler contract. Splitting the transport this way is what makes automation
 # safe: the destructive half of the old mirror was entirely about `content/`,
 # and this workflow may not touch `content/` at all. That is asserted below, at
 # run time, on the staged diff.
@@ -49,6 +51,7 @@ on:
       - 'packages/articles/index.ts'
       - 'packages/articles/articleSections.ts'
       - '.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs'
+      - 'scripts/ci/apply-corpus-image-broker-patch.mjs'
       - '.github/workflows/mirror-articles-engine.yml'
 
   # Safety net, and in practice load-bearing — the same lesson
@@ -98,8 +101,8 @@ jobs:
       # v5, not v4: v4's Node runtime gate fails on this runner image.
       #
       # Sparse, non-cone, anchored. This job reads packages/articles/engine,
-      # the two sibling files and the action-owned image broker it mirrors, and
-      # the complete local import
+      # the two sibling files, the action-owned image broker and the adapted
+      # corpus image patcher it runs, and the complete local import
       # closure of the PR-body validator. The validator runs before `gh pr
       # create`; omitting it from the sparse checkout turns a real gate into a
       # missing-module warning. A full checkout materialises 14k corpus files
@@ -116,6 +119,7 @@ jobs:
             /packages/articles/index.ts
             /packages/articles/articleSections.ts
             /.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs
+            /scripts/ci/apply-corpus-image-broker-patch.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs
             /scripts/ci/lib/hook-command-parser.mjs
@@ -148,8 +152,12 @@ jobs:
             echo "::error::image broker missing — refusing to mirror an incomplete image lane"
             exit 1
           fi
+          if [ ! -f scripts/ci/apply-corpus-image-broker-patch.mjs ]; then
+            echo "::error::corpus image broker patcher missing — refusing to mirror an incomplete image lane"
+            exit 1
+          fi
 
-      - name: Stage the engine and image broker into a clone of the corpus repo
+      - name: Stage the engine and adapted image broker into a clone of the corpus repo
         id: stage
         env:
           PAT: ${{ secrets.ARTICLES_REPO_PAT }}
@@ -207,12 +215,11 @@ jobs:
           for f in index.ts articleSections.ts; do
             [ -f "packages/articles/$f" ] && cp "packages/articles/$f" "$work/$f"
           done
-          mkdir -p "$work/.github/actions/setup-claude-haiku-fallback"
-          cp "$broker_source" "$work/.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs"
-          if ! cmp -s "$broker_source" "$work/.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs"; then
-            echo "::error::image broker preflight mismatch after the copy — refusing to fan out a partial mirror"
-            exit 1
-          fi
+          broker_target="$work/.github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs"
+          node "$GITHUB_WORKSPACE/scripts/ci/apply-corpus-image-broker-patch.mjs" \
+            "$broker_target" "$broker_source"
+          broker_target_sha="$(sha256sum "$broker_target" | cut -d' ' -f1)"
+          echo "broker_target_sha=$broker_target_sha" >> "$GITHUB_OUTPUT"
 
           cd "$work"
           git add -A
@@ -274,7 +281,7 @@ jobs:
           git config user.email "valerielinc@gmail.com"
           git commit -q \
             -m "Lockstep engine/ with frontaliere-si-o-no@${SHA:0:8}" \
-            -m "Automated engine and image-broker mirror (frontaliere-si-o-no .github/workflows/mirror-articles-engine.yml). Carries packages/articles/engine, index.ts, articleSections.ts and the action-owned broker, and nothing else — content/ is owned by this repo and is never touched. Merging republishes the data surface, because publish-api.yml watches engine/**."
+            -m "Automated engine and adapted image-broker mirror (frontaliere-si-o-no .github/workflows/mirror-articles-engine.yml). Carries packages/articles/engine, index.ts, articleSections.ts and the attested image lane, and nothing else — content/ is owned by this repo and is never touched. Merging republishes the data surface, because publish-api.yml watches engine/**."
 
           # Force, deliberately. TARGET_BRANCH is derived state owned solely by
           # this workflow and rebuilt from origin/main on every run, so there is
@@ -370,8 +377,8 @@ jobs:
           printf '%s\n' \
             'Automated by `mirror-articles-engine.yml` in valerielinc-ops/frontaliere-si-o-no.' \
             '' \
-            'The site owns `packages/articles/engine/` and the action-owned image broker; this repo executes them. This PR' \
-            'carries those paths down, and **only** those paths — `content/` belongs to' \
+            'The site owns `packages/articles/engine/` and the action-owned image lane; this repo executes its adapted broker. This PR' \
+            'carries the engine and the broker image-lane patch, and **only** those paths — `content/` belongs to' \
             'this repo and the mirror never touches it (asserted on the staged diff,' \
             'fail-closed).' \
             '' \
@@ -384,11 +391,11 @@ jobs:
             '## Implementato' \
             > "$body"
           # shellcheck disable=SC2016
-          printf -- '- Lockstep of `engine/` (plus `index.ts`, `articleSections.ts` and the image broker) with valerielinc-ops/frontaliere-si-o-no@%s — %s path(s) updated in this repo, %s removed.\n' \
+          printf -- '- Lockstep of `engine/` (plus `index.ts`, `articleSections.ts` and the adapted image-broker patch) with valerielinc-ops/frontaliere-si-o-no@%s — %s path(s) updated in this repo, %s removed.\n' \
             "${SHA:0:8}" "$n_changed" "$n_deleted" >> "$body"
           if [ -n "${carried:-}" ]; then
             # shellcheck disable=SC2016
-            printf '%s\n' '- Site commits this PR carries down, newest first (paths `packages/articles/engine/`, `index.ts`, `articleSections.ts`, image broker):' >> "$body"
+            printf '%s\n' '- Site commits this PR carries down, newest first (paths `packages/articles/engine/`, `index.ts`, `articleSections.ts`, image-broker lane):' >> "$body"
             printf '%s\n' "$carried" \
               | awk 'NF { s = $1; $1 = ""; sub(/^ /, ""); printf "  - `%s` — %s\n", s, $0 }' >> "$body"
           fi
