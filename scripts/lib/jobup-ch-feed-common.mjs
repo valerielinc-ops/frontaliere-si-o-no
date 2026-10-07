@@ -35,7 +35,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, fetchViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
 import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
@@ -195,6 +195,84 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Extract a labelled field from a jobup.ch search-result card.
+ *
+ * The search page is relevance-ranked, so parsers must first parse the card's
+ * employer and then apply an exact employer filter. Keeping this selector in
+ * the shared JobUp module prevents each migrated crawler from drifting on the
+ * same markup and accidentally widening its employer match.
+ */
+function searchCardFieldValue(segment, label) {
+  const rx = new RegExp(`${label}<!-- -->:</span><p[^>]*>([^<]+)</p>`);
+  const match = String(segment || '').match(rx);
+  return match ? normalizeSpace(decodeEntities(match[1])) : '';
+}
+
+/**
+ * Parse jobup.ch search SERP cards into source records.
+ *
+ * The employer is deliberately returned, not interpreted here: callers must
+ * use filterJobupCardsByEmployer with the exact employer they own.
+ */
+export function parseJobupSearchCards(html = '') {
+  const cards = [];
+  if (!html) return cards;
+
+  // Each result is a job-link anchor to a detail page. Splitting on that
+  // semantic marker keeps title, employer and labelled fields in one segment.
+  const segments = String(html).split(/<a[^>]*\bdata-cy="job-link"[^>]*href="\/fr\/emplois\/detail\//i);
+  for (let i = 1; i < segments.length; i += 1) {
+    const segment = segments[i];
+    const uuid = (segment.match(/^([0-9a-f-]+)\//i) || [])[1];
+    if (!uuid) continue;
+
+    const title = normalizeSpace(decodeEntities(
+      (segment.match(/textStyle_body2[^>]*>([^<]+)</) || [])[1] || '',
+    ));
+    const company = normalizeSpace(decodeEntities(
+      (segment.match(/<p class="[^"]*c_gray\.700[^"\n]*fw_bold">([^<]+)<\/p>/) || [])[1] || '',
+    ));
+    const location = searchCardFieldValue(segment, 'Lieu de travail');
+    const workRate = searchCardFieldValue(segment, "Taux d'activité");
+    const contract = searchCardFieldValue(segment, 'Type de contrat');
+
+    if (!title || title.length < 3) continue;
+    cards.push({
+      uuid,
+      // jobup.ch is an external portal; this URL is used for source detail
+      // enrichment and is not a local route.
+      url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
+      title,
+      company,
+      location,
+      workRate,
+      contract,
+    });
+  }
+  return cards;
+}
+
+/** Keep only cards whose employer is an exact case-insensitive match. */
+export function filterJobupCardsByEmployer(cards = [], employerName = '') {
+  const target = normalizeSpace(employerName).toLowerCase();
+  if (!target) return [];
+  return (Array.isArray(cards) ? cards : []).filter(
+    (card) => normalizeSpace(card?.company).toLowerCase() === target,
+  );
+}
+
+/** Fetch a jobup.ch search page through the clean-egress Jina HTML proxy. */
+export async function fetchJobupSearchHtml(searchUrl, { timeoutMs = 40000 } = {}) {
+  const response = await fetchViaJinaWithRetry(searchUrl, { timeoutMs, format: 'html' });
+  if (!response || !response.ok) {
+    const reason = response?.headers?.get?.('x-jina-retry-reason') || `HTTP ${response?.status}`;
+    console.warn(`  ⚠️ jobup SERP fetch via Jina not usable (${reason})`);
+    return '';
+  }
+  return response.text();
 }
 
 async function fetchFeed(url) {
