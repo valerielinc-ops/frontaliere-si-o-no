@@ -837,6 +837,19 @@ export function collapsifySeoBlock(html: string): string {
   detailsRegex,
   '<details><summary>$1</summary><div class="seo-fb-section-body">$2</div></details>',
  );
+ // Due contenitori di layout: titolo+intro da una parte, le sezioni a
+ // scomparsa dall'altra. Servono al CSS per impaginare il pannello a due
+ // colonne senza che l'altezza dell'intro venga ripartita sulle righe delle
+ // sezioni. Idempotente come il resto della trasformazione.
+ if (!out.includes('class="seo-fb-head"')) {
+  out = out.replace(
+   /(<h2 id="[^"]+SeoTitle" class="seo-fb-title">[\s\S]*?<\/h2>\s*<p class="seo-fb-intro">[\s\S]*?<\/p>)/,
+   '<div class="seo-fb-head">$1</div>',
+  );
+ }
+ if (!out.includes('class="seo-fb-sections"')) {
+  out = out.replace(/<details>[\s\S]*<\/details>/, '<div class="seo-fb-sections">$&</div>');
+ }
 
  return out;
 }
@@ -1108,10 +1121,12 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  // visible (not collapsed) so the audit walker picks them up
  // unconditionally — `<a>` inside `<details>` is followed regardless,
  // but cross-section hubs are not a long list so we render inline.
- const xsHubsLabel = locale === 'en' ? 'Cross-section hubs'
-   : locale === 'de' ? 'Übergreifende Hubs'
-   : locale === 'fr' ? 'Hubs transversaux'
-   : 'Hub trasversali';
+ // Etichetta visibile, non solo aria-label: senza titolo il gruppo era una
+ // riga di link anonima fra due rail che invece il titolo ce l'hanno.
+ const xsHubsLabel = locale === 'en' ? 'Jobs and archives'
+   : locale === 'de' ? 'Stellen und Archive'
+   : locale === 'fr' ? 'Emplois et archives'
+   : 'Lavoro e archivi';
  const xsHubs: Array<{ href: string; label: string }> = locale === 'it' ? [
    { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
    { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
@@ -1145,7 +1160,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  const xsHubsHtml = xsHubs
    .map(({ href, label }) => `<a class="hp-cross-hub-link" href="${href}">${label}</a>`)
    .join('');
- const xsHubsBlock = `<nav class="hp-cross-hub-links" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
+ const xsHubsBlock = `<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">${xsHubsLabel}</h2><nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
  // state, mobile fold stays clear. When cantonRows is empty (canton job-data
  // absent at build time) the canton <details> is omitted but the xsHubs block
