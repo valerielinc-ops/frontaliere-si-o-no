@@ -1574,7 +1574,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "id": "accor-1dd9f898dd22",
@@ -1786,7 +1787,6 @@
       "applyUrl": "https://careers.accor.com/fr/fr/job/stagiaire-finance-h-f-x-printemps-2027-in-fairmont-le-montreux-palace-montreux-switzerland-jid-112446",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:30:20.272Z",
       "salaryMin": 73000,
       "salaryMax": 128000,
