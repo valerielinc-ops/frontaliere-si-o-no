@@ -12750,6 +12750,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aggressione-van-villa-olmo.title': 'Côme : touristes agressés dans un van, 21 ans arrêté',
     'blog.article.aggressione-van-villa-olmo.excerpt': '## En bref - Un Égyptien de 21 ans arrêté à Como - Vol dans un van via Cernobbio - Rixe près du Lido di Villa Olmo - Biens et documents',
     'blog.article.aggressione-van-villa-olmo.imageAlt': 'Route au bord du lac la nuit avec un van stationné',
+    'blog.article.furto-van-cernobbio-21enne.title': 'Como, des touristes dépouillés dans le van : un jeune homme de 21 ans arrêté',
+    'blog.article.furto-van-cernobbio-21enne.excerpt': '## En bref - Un Égyptien de 21 ans arrêté à Como - Vol au détriment de touristes via per Cernobbio - Rixe près du Lido di Villa Olmo - Enquête',
+    'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Côme : van stationné via per Cernobbio après le vol subi par des touristes (Como)',
 };
 
 export default blogMetaFr;

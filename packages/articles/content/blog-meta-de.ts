@@ -12747,6 +12747,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aggressione-van-villa-olmo.title': 'Como, Touristen in einem Van beraubt und angegriffen: 21-Jähriger festgenommen',
     'blog.article.aggressione-van-villa-olmo.excerpt': '## Auf einen Blick - In Como wurde ein 21-jähriger Ägypter festgenommen - Diebstahl aus einem Van in der Via per Cernobbio - Handgemenge in der Nähe des Lido di Villa Olmo - Gegenstände und Dokumente',
     'blog.article.aggressione-van-villa-olmo.imageAlt': 'Nächtliche Seestraße mit einem geparkten Van',
+    'blog.article.furto-van-cernobbio-21enne.title': 'Como, Touristen im Van ausgeraubt: 21-Jähriger verhaftet',
+    'blog.article.furto-van-cernobbio-21enne.excerpt': '## Kurz gesagt - Ein 21-jähriger Ägypter wurde auf Como festgenommen - Diebstahl von Touristen auf dem Weg nach Cernobbio - Streit in der Nähe des Lido di Villa Olmo - Ermittlungen',
+    'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Como: Geparkter Van in der Via per Cernobbio nach dem Diebstahl bei Touristen',
 };
 
 export default blogMetaDe;

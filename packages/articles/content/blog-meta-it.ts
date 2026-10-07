@@ -12749,6 +12749,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aggressione-van-villa-olmo.title': 'Como, turisti derubati e aggrediti nel van: arrestato 21enne',
     'blog.article.aggressione-van-villa-olmo.excerpt': '## In breve - Arrestato a Como un 21enne egiziano - Furto in un van in via per Cernobbio - Colluttazione vicino al Lido di Villa Olmo - Beni e documenti',
     'blog.article.aggressione-van-villa-olmo.imageAlt': 'Strada lacustre notturna con un van parcheggiato',
+    'blog.article.furto-van-cernobbio-21enne.title': 'Como, turisti derubati nel van: arrestato un 21enne',
+    'blog.article.furto-van-cernobbio-21enne.excerpt': '## In breve - Arrestato a Como un 21enne egiziano - Furto ai danni di turisti in via per Cernobbio - Colluttazione nei pressi del Lido di Villa Olmo - Indagini',
+    'blog.article.furto-van-cernobbio-21enne.imageAlt': 'Como, van parcheggiato in via per Cernobbio dopo il furto ai danni di una coppia di turisti',
 };
 
 export default blogMetaIt;

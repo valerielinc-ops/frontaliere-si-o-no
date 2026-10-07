@@ -43007,6 +43007,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'furto-van-cernobbio-21enne',
+ category: 'novita',
+ date: '2026-10-07T11:25:53.162Z',
+ image: '/images/blog/article-furto-van-cernobbio-21enne.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [
