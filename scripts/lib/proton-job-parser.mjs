@@ -125,6 +125,12 @@ const GREENHOUSE_LOCATION_CONTAINS = ['Geneva', 'Genève', 'Switzerland'];
 const GREENHOUSE_LOCATION_PART_SPLIT_RE = /\s*(?:[,;|/])\s*/;
 const SWISS_COUNTRY_PART_RE = /^(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i;
 
+function stripSwissCountryPart(value = '') {
+  const parts = normalizeSpace(value).split(/\s+/).filter(Boolean);
+  if (SWISS_COUNTRY_PART_RE.test(parts.at(-1) || '')) parts.pop();
+  return parts.join(' ');
+}
+
 /**
  * Greenhouse's `location.name` is an office list for some Proton postings,
  * not one address. The shared resolver deliberately preserves that source
@@ -154,9 +160,7 @@ function resolveProtonSourceGeography(rawLocation = '') {
     const geography = resolveSourceBackedSwissGeography(sourcePart);
 
     if (geography) {
-      const locality = normalizeSpace(part)
-        .replace(/\s+(?:ch|switzerland|schweiz|suisse|svizzera|svizra)$/i, '')
-        .trim();
+      const locality = stripSwissCountryPart(part);
       if (!locality) return null;
       swissCandidates.push({ location: locality, canton: geography.canton });
       if (hasSwissCountryContext) index += 1;
