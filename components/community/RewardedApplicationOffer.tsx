@@ -1115,7 +1115,7 @@ export default function RewardedApplicationOffer({
 
   // Scrollable, so a long card stays inside the room left above Google's anchor
   // ad (adClearance.cardStyle) instead of running under it.
-  const cardClass = 'w-full max-w-sm space-y-4 overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
+  const cardClass = 'max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full max-w-sm space-y-4 overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
   const primaryButtonClass = 'inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
   const secondaryButtonClass = 'inline-flex min-h-[44px] w-full items-center justify-center rounded-stripe px-4 py-2 text-sm font-semibold text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
 
