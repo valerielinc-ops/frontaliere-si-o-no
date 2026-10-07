@@ -1,6 +1,7 @@
 import {
   ASSET_EXT_ALTERNATION,
   ASSETS_SAME_ORIGIN_RX,
+  CDN_ASSET_ORIGIN,
 } from '../../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 /**
@@ -65,8 +66,6 @@ export const CDN_ASSET_CHECK_MAX_URLS = 24;
  */
 export const CDN_ASSET_CHECK_BUDGET_MS = 30_000;
 
-const CDN_ASSET_ORIGIN = 'https://cdn.frontaliereticino.ch';
-
 /**
  * Extract the canonical CDN asset URLs from one rendered HTML document.
  * The extension alphabet is shared with the offload rewrite and deploy Guard B
@@ -106,7 +105,7 @@ export function findSameOriginAssetRefs(html) {
 }
 
 /** Estensioni per cui una risposta `text/html` non puo' essere l'oggetto chiesto. */
-const NEVER_HTML = /\.(?:js|mjs|css|json|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico)(?:[?#]|$)/i;
+const NEVER_HTML = new RegExp(`\\.(?:${ASSET_EXT_ALTERNATION})(?:[?#]|$)`, 'i');
 
 /**
  * Un `200` che non e' l'oggetto chiesto. Vedi «PERCHE' LO STATUS CODE NON

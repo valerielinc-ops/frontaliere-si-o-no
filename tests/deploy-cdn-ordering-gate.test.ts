@@ -1065,8 +1065,14 @@ function runPrep(env: Record<string, string>): { code: number; stdout: string } 
     });
     return { code: 0, stdout };
   } catch (e: unknown) {
-    const err = e as { status?: number; stdout?: Buffer | string };
-    return { code: err.status ?? 1, stdout: err.stdout?.toString() ?? '' };
+    const err = e as { status?: number; stdout?: Buffer | string; stderr?: Buffer | string };
+    return {
+      code: err.status ?? 1,
+      stdout: [err.stdout, err.stderr]
+        .filter((part) => part !== undefined)
+        .map((part) => part!.toString())
+        .join(''),
+    };
   }
 }
 
@@ -1074,7 +1080,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
   it('with the flag: a missing early CDN payload is a failed handshake, without touching the rest of the prep', () => {
     const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
     expect(r.code, 'the early phase must expose the missing payload to the section gate').toBe(1);
-    expect(r.stdout, 'must run the CDN push section').toMatch(/no offloadable assets present|skipping CDN push|CDN payload/);
+    expect(r.stdout, 'must run the CDN push section').toMatch(/early CDN push did not publish|CDN asset stage is missing/);
     // The full prep's terminal marker must NOT appear: the tar pack, the byte
     // audit and url-first-seen all still belong to the later step.
     expect(r.stdout, 'the early phase must not run the whole prep').not.toMatch(/deploy-it-pages-prep complete/);
@@ -1104,7 +1110,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // degrades to "pushed at the original position", never to "never pushed".
     const r = runPrep({ CDN_TARGET: 'pages' });
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
-    expect(r.stdout).toMatch(/no offloadable assets present|skipping CDN push, assets stay in dist|CDN payload/);
+    expect(r.stdout).toMatch(/CDN asset stage is missing|no dist\/assets — nothing to offload/);
   });
 });
 

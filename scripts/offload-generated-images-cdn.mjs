@@ -53,7 +53,10 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { ASSETS_SAME_ORIGIN_RX } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
+import {
+  ASSET_EXT_ALTERNATION,
+  ASSETS_SAME_ORIGIN_RX,
+} from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 import { formatCdnAssetReport, formatOffloadCoverageReport, verifyCdnAssetRefs } from './lib/cdn-asset-existence.mjs';
 
 const ORIGIN = 'https://frontaliereticino.ch';
@@ -477,7 +480,7 @@ function walkAll(dir, fn) {
 // OG_FILE covers og cards AND the brand/logo/author image TARGETS, so its
 // extension set spans every image type those dirs hold (incl. .ico/.gif).
 const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg|ico|gif))";
-const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
+const ASSET_FILE = `([^\"'\\s)?]+?\\.(?:${ASSET_EXT_ALTERNATION}))`;
 // Guard-B parity: the SUPERSET regex the deploy "Drop dist/assets" step greps
 // for, kept 1:1 with its bash ERE. A same-origin /assets/<file>.<ext> ref that
 // SURVIVES the rewrite below (e.g. a custom SSG path that didn't go through

@@ -14,6 +14,7 @@ import {
   isSoftMissing,
   verifyCdnAssetRefs,
 } from '../scripts/lib/cdn-asset-existence.mjs';
+import { main as verifyCdnAssetPublish } from '../scripts/ci/verify-cdn-asset-publish.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -60,6 +61,22 @@ describe('guardia di esistenza degli /assets/ riscritti sul CDN', () => {
     })).rejects.toMatchObject({
       results: [{ state: 'unknown', status: null }],
     });
+  });
+
+  it('the publish CLI blocks a same-origin or missing-asset replacement before mutation', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'cdn-publish-gate-'));
+    try {
+      fs.writeFileSync(
+        path.join(root, 'page.html'),
+        '<script src="https://cdn.frontaliereticino.ch/assets/new-shell.js"></script>'
+        + '<link href="/assets/forgotten.css">',
+      );
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(res(404, 'text/plain')));
+      await expect(verifyCdnAssetPublish(['--dist', root, '--file', 'page.html'])).resolves.toBe(1);
+    } finally {
+      vi.unstubAllGlobals();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('un 404 diventa una riga ::warning::, e la verifica non lancia', async () => {

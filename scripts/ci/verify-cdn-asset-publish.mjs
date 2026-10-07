@@ -15,8 +15,6 @@ import {
   findSameOriginAssetRefs,
 } from '../lib/cdn-asset-existence.mjs';
 
-export const DEFAULT_SAMPLE_FILES = 32;
-
 function underRoot(root, candidate) {
   const resolvedRoot = path.resolve(root);
   const resolved = path.resolve(root, candidate);
@@ -26,53 +24,20 @@ function underRoot(root, candidate) {
   return resolved;
 }
 
-function htmlFilesUnder(root, relativeDir, maxFiles) {
-  const start = underRoot(root, relativeDir);
-  if (!fs.existsSync(start)) throw new Error(`scan directory missing: ${relativeDir}`);
-  const files = [];
-  const pending = [start];
-  while (pending.length > 0 && files.length < maxFiles) {
-    const current = pending.pop();
-    const entries = fs.readdirSync(current, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
-    for (let i = entries.length - 1; i >= 0; i--) {
-      const entry = entries[i];
-      const absolute = path.join(current, entry.name);
-      if (entry.isDirectory()) {
-        pending.push(absolute);
-      } else if (entry.isFile() && path.extname(entry.name).toLowerCase() === '.html') {
-        files.push(absolute);
-        if (files.length >= maxFiles) break;
-      }
-    }
-  }
-  return files;
-}
-
 /**
- * Read only the files being pushed (or a bounded representative sample of a
- * full section tree) and collect the static asset refs they contain.
- *
- * Full section pages use one shared generated shell, so the bounded sample is
- * sufficient to identify the shell's content-addressed producers without
- * adding a second full-corpus walk to the multi-GB section publisher. The
- * incremental article path passes its exact relpaths and is therefore not
- * sampled.
+ * Read only the exact files being pushed and collect the static asset refs
+ * they contain. The incremental publisher passes its complete relpath list,
+ * so this gate never relies on a first-match sample.
  */
 export function collectCdnAssetRefs({
   distDir,
   files = [],
-  scanDir = null,
-  maxFiles = DEFAULT_SAMPLE_FILES,
   cdnOrigin,
 }) {
   if (!distDir) throw new Error('--dist is required');
-  if (files.length === 0 && !scanDir) throw new Error('at least one --file or --scan-dir is required');
-  if (!Number.isInteger(maxFiles) || maxFiles < 1) throw new Error('--max-files must be a positive integer');
+  if (files.length === 0) throw new Error('at least one --file is required');
 
-  const candidates = [
-    ...files.map((file) => underRoot(distDir, file)),
-    ...(scanDir ? htmlFilesUnder(distDir, scanDir, maxFiles) : []),
-  ];
+  const candidates = files.map((file) => underRoot(distDir, file));
   const uniqueFiles = [...new Set(candidates)];
   const urls = new Set();
   const sameOrigin = [];
@@ -99,16 +64,12 @@ function parseArgs(argv) {
   const result = {
     distDir: null,
     files: [],
-    scanDir: null,
-    maxFiles: DEFAULT_SAMPLE_FILES,
     cdnOrigin: undefined,
   };
   for (let i = 0; i < argv.length; i++) {
     const arg = argv[i];
     if (arg === '--dist') result.distDir = argv[++i];
     else if (arg === '--file') result.files.push(argv[++i]);
-    else if (arg === '--scan-dir') result.scanDir = argv[++i];
-    else if (arg === '--max-files') result.maxFiles = Number(argv[++i]);
     else if (arg === '--cdn-origin') result.cdnOrigin = argv[++i];
     else throw new Error(`unknown argument: ${arg}`);
   }

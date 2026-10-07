@@ -129,11 +129,12 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { computeTickerArticles } from '../build-plugins/newsTickerDataPlugin.ts';
+import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 import { REST_BASE, DEFAULT_ZONE_NAME, resolveZoneId } from './lib/cf-analytics.mjs';
 import { purgeBodiesForUrls } from './lib/cf-purge-variants.mjs';
 
 export const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const CDN_BASE = CDN_ASSET_ORIGIN;
 // Pinned to package.json's devDependencies "esbuild": "^0.28.2" — same
 // determinism rationale as publish-article-fast.mjs pinning `tsx@4.23.15`.
 const ESBUILD_VERSION = '0.28.2';

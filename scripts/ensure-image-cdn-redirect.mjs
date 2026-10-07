@@ -31,8 +31,9 @@
 
 import { resolveZoneId, DEFAULT_ZONE_NAME } from './lib/cf-analytics.mjs';
 import { REDIRECT_RULE_PHASE, ensureRedirectRule } from './lib/cf-redirect-rules.mjs';
+import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const CDN_BASE = CDN_ASSET_ORIGIN;
 
 // The authoritative set is the offload script's deleted-from-dist TARGETS
 // (scripts/offload-generated-images-cdn.mjs `TARGETS[].url`): EVERY prefix it
