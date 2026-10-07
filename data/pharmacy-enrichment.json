@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T19:36:28.938Z",
+  "generatedAt": "2026-10-07T23:50:29.426Z",
   "records": {
     "it-msal-3907": {
-      "checkedAt": "2026-10-07T19:36:28.938Z",
+      "checkedAt": "2026-10-07T23:50:29.426Z",
       "phone": "+39 0332 227362",
       "openingHours": [
         {
@@ -47,22 +47,22 @@
         "phone": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z"
+          "checkedAt": "2026-10-07T23:50:29.426Z"
         },
         "openingHours": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z"
+          "checkedAt": "2026-10-07T23:50:29.426Z"
         },
         "services": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z"
+          "checkedAt": "2026-10-07T23:50:29.426Z"
         },
         "contactEmail": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z"
+          "checkedAt": "2026-10-07T23:50:29.426Z"
         },
         "vatNumber": {
           "url": "https://www.strutturapnrr.gov.it/media/2ilmk4mv/260310-decreto-n-32-2026-di-erogazione-fr25-ddg-40-n-01-signed.pdf",
@@ -85,7 +85,7 @@
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "label": "Comune di Casciago",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z",
+          "checkedAt": "2026-10-07T23:50:29.426Z",
           "fields": [
             "phone",
             "openingHours",
@@ -99,7 +99,7 @@
           "url": "https://www.ats-insubria.it/documentazione?catid=1048&id=3760&m=0&task=download.send",
           "label": "ATS Insubria — elenco farmacie (luglio 2025)",
           "sourceType": "official",
-          "checkedAt": "2026-10-07T19:36:28.938Z",
+          "checkedAt": "2026-10-07T23:50:29.426Z",
           "fields": [
             "phone"
           ],
@@ -109,7 +109,7 @@
           "url": "https://atoka.io/public/it/azienda/farmacia-internazionale-di-casciago-del-dott-massimo-de-bernardi-c-sas/7601ad2f09a8",
           "label": "Atoka — scheda impresa pubblica",
           "sourceType": "directory",
-          "checkedAt": "2026-10-07T19:36:28.938Z",
+          "checkedAt": "2026-10-07T23:50:29.426Z",
           "fields": [
             "vatNumber"
           ],
@@ -124,7 +124,7 @@
   "providerUsage": {
     "month": "2026-10",
     "googlePlaces": {
-      "requests": 1
+      "requests": 2
     }
   }
 }
