@@ -252,6 +252,12 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // SEO modules. Its corpus reads are intentional, but the runtime/source
   // inventory must keep it out of the blocking PR partition.
   { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
+  // These corpus-backed checks landed on main after the previous inventory
+  // sweep; the publisher rewrites their inputs, so they belong in the live
+  // partition rather than the blocking PR suite.
+  { file: "tests/blog-cover-ledger.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
+  { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/", "public/news-ticker-live.json"], since: "2026-10-07", evidence: "review", runtime: true },
+  { file: "tests/sync-articles-sitemaps-parse-gate.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
