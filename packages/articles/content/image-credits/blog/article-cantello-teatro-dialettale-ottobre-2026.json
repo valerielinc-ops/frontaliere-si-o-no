@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "cover": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
+  "source": "generated-provider",
+  "commons": {
+    "title": "Generated editorial illustration",
+    "pageUrl": "https://openai.com/policies/terms-of-use/",
+    "width": 1200,
+    "height": 675,
+    "revision": "2026-10-07T21:02:15.000Z"
+  },
+  "author": {
+    "text": "frontaliereticino.ch",
+    "name": "frontaliereticino.ch",
+    "url": null,
+    "type": "Organization"
+  },
+  "attribution": null,
+  "licence": {
+    "name": "Generated media — provider terms apply",
+    "url": "https://openai.com/policies/terms-of-use/",
+    "family": "other-attribution",
+    "attributionRequired": true
+  },
+  "restrictions": [
+    "illustrative-only",
+    "no-real-recognizable-foreground-person",
+    "no-public-figure-face",
+    "no-logo-brand-or-text",
+    "no-specific-real-event-photojournalism"
+  ],
+  "modified": "resized",
+  "fetchedAt": "2026-10-07",
+  "status": "ok",
+  "curation": null,
+  "generated": {
+    "schema": 1,
+    "assetId": "article-cantello-teatro-dialettale-ottobre-2026",
+    "provider": "openai-codex",
+    "model": "OpenAI built-in image generator",
+    "executorModel": "Codex",
+    "promptVersion": "frontaliereticino.generated-image-policy.v1",
+    "promptHash": "de2babab65ae0b60ff6fd7c8eec28fb8680f88a0a76ce4b6a062af77253614ea",
+    "license": "generated-provider",
+    "licenseUrl": "https://openai.com/policies/terms-of-use/",
+    "credit": "frontaliereticino.ch",
+    "sha256": "d5d3c5311a8390e3044a801411eba546d17336dc4fa435eb1c0b60ee013583db",
+    "bytes": 118816,
+    "width": 1200,
+    "height": 675,
+    "format": "webp",
+    "generatedAt": "2026-10-07T21:02:15.000Z",
+    "verifiedAt": "2026-10-07T21:02:15.000Z",
+    "restrictions": [
+      "illustrative-only",
+      "no-real-recognizable-foreground-person",
+      "no-public-figure-face",
+      "no-logo-brand-or-text",
+      "no-specific-real-event-photojournalism"
+    ],
+    "scope": "article-hero",
+    "imageUrl": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
+    "category": "novita",
+    "area": "Cantello, Varese and the Swiss-Italian border region",
+    "season": "autumn",
+    "variant": "cantello-theatre-dialect-comedy",
+    "vision": {
+      "ok": true,
+      "contains_text": false,
+      "contains_logo": false,
+      "contains_recognizable_face": false,
+      "looks_like_specific_real_event": false,
+      "notes": "Original editorial illustration of a generic community theatre stage; no text, logos, recognizable faces or documentary-event cues."
+    }
+  }
+}

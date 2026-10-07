@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5032
+      "6": 5034
     },
-    "publishedCovers": 6744,
+    "publishedCovers": 6746,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -143609,9 +143609,9 @@
       "references": [
         {
           "section": "frontaliere",
-          "id": "sindacati-miazzina-diritti-9-ottobre",
+          "id": "cantello-teatro-dialettale-ottobre-2026",
           "category": "novita",
-          "date": "2026-10-04T11:20:31.538Z",
+          "date": "2026-10-07T16:05:11.490Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
@@ -179360,6 +179360,60 @@
           "id": "tamedia-41-licenziamenti-13-a-losanna-e-ginevra",
           "category": "novita",
           "date": "2026-10-07T19:46:58.761Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-cantello-teatro-dialettale-ottobre-2026": {
+      "cover": "/images/blog/article-cantello-teatro-dialettale-ottobre-2026.webp",
+      "hash": "d5d3c5311a8390e3044a801411eba546d17336dc4fa435eb1c0b60ee013583db",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "sindacati-miazzina-diritti-9-ottobre",
+          "category": "novita",
+          "date": "2026-10-04T11:20:31.538Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-marcel-salathe-ia-commento": {
+      "cover": "/images/blog/article-marcel-salathe-ia-commento.webp",
+      "hash": "a7bc3ab7672497fbc200efcf04a0fbadea06f6bbf472b72901a14feb9260558a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "marcel-salathe-ia-commento",
+          "category": "novita",
+          "date": "2026-10-07T20:39:09.410Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
