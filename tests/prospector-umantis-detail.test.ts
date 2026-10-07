@@ -131,6 +131,17 @@ describe('Prospector Umantis detail boundary', () => {
       .toMatchObject({ location: 'Buchs', addressLocality: 'Buchs', postalCode: '9471' });
   });
 
+  it('does not treat a postal/locality suffix in a generic metadata field as location evidence', () => {
+    const base = 'https://jobs.example/';
+    const make = (cell: string) => `<table><tr><td><a href="/Vacancies/1/Description/1">x</a></td>${cell}</tr></table>`;
+    const sizes = [
+      make('<span class="column-value">Recruiting 9000 St. Gallen</span>'),
+      make('<li>Recruiting 9000 St. Gallen</li>'),
+    ].map((html) => extractUmantisListingEvidence(html, base).size);
+
+    expect(sizes).toEqual([0, 0]);
+  });
+
   it('extracts German Humboldt content and Arbeitsort but runtime excludes it fail-closed', async () => {
     const detail = extractUmantisDetailFields(fixture('umantis-prospector-2649.html'));
     expect(detail.description).toContain('Ihre Aufgaben');
