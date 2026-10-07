@@ -213,6 +213,7 @@ push_shard() {
         && verify_dcount="$SHARD_VERIFY_DCOUNT" \
         && shard_delta_add_text "$verify_stage" .shard-filecount "$verify_built_n" 0 \
         && shard_delta_add_text "$verify_stage" .shard-deploys "$((verify_dcount + 1))" 0 \
+        && shard_delta_add_text "$verify_stage" .shard-source "$(shard_source_stamp)" 0 \
         && verify_base_tree="$SHARD_VERIFY_BASE_TREE" \
         && verify_plan_tree="$(git -C "$verify_stage" write-tree --missing-ok)"; then
         verify_plan_seconds="$((SECONDS - verify_started))"
@@ -290,6 +291,7 @@ push_shard() {
             incremental=1
             if ! shard_delta_add_text "$stage" .shard-filecount "$built_n" 0; then delta_apply_ok=0; fi
             if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" .shard-source "$(shard_source_stamp)" 1; then delta_apply_ok=0; fi
           fi
           if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
             delta_fallback_reason='delta index update failed'
@@ -430,6 +432,7 @@ push_shard() {
     fi
     printf '%s' "$built_n" > "$stage/.shard-filecount"   # high-water-mark (BUILT size) for the next run's gate (b)
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"  # commits since last flatten (history-cap counter)
+    shard_source_stamp > "$stage/.shard-source"
     echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files served / $built_n built (src $src_n, section-stripped $stripped_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
     fi
 
@@ -465,10 +468,9 @@ push_shard() {
     # Nothing changed since the last deploy → no commit, skip the push
     # entirely (idempotent; the remote already serves this exact tree).
     # The no-change check EXCLUDES the bookkeeping markers (.shard-deploys
-    # bumps every run, .shard-filecount could too) — otherwise the counter
-    # delta would always trip the diff and the skip would be dead code. We
-    # only care whether the SERVED CONTENT changed; if it didn't, there is
-    # nothing to publish and bumping the history counter is pointless.
+    # bumps every run, .shard-filecount could too), but includes .shard-source:
+    # a new source build must leave an auditable publication commit even when
+    # the served bytes are identical.
     _skip_content_push=0
     if [ "$incremental" = 1 ]; then
       _content_diff_status=0
