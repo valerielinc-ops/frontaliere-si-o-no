@@ -132,7 +132,7 @@ const parser = createProspectiveChParser({
   // source locality through the official directory, then use the verified
   // representative postal code for the inferred canton when necessary.
   postalCodeFallback: (canton, location) => (
-    officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton)
+    officialLocalityPostalCode(location, canton) || getCantonPostalFallback(canton, location)
   ),
   extraTrustedHosts: ['jobs.raiffeisen.ch', 'www.raiffeisen.ch'],
   // Partition: drop the regional bank already covered by the dedicated

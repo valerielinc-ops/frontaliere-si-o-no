@@ -8,11 +8,9 @@
 // implementation. The network fetchers live in `fuel-foreign-sources.mjs`.
 //
 // Sides and why each canton gets them:
-//   CH  stations already collected by `generate-fuel-prices-dataset.mjs` (TCS,
-//       border strip within 25 km of the Italian fascia). The national
-//       extension is deliberately NOT done here: the TCS terms of use allow
-//       private use only and reproduction only with explicit permission, so
-//       collecting more of it is not a legitimate source (see the PR body).
+//   CH  the official BFS/UST monthly average (OPEN-BY, attribution required).
+//       It is one national observation copied to every URL canton group, so
+//       no TCS data is published by this producer.
 //   IT  MIMIT open data stations of the Italian border provinces, already
 //       fetched by the same generator.
 //   FR  official instant feed of the French Ministry of Economy (Licence
@@ -20,11 +18,17 @@
 //   AT  E-Control Spritpreisrechner API, by Bundesland. The API publishes only
 //       the cheapest stations of a region, so `coverage` says so.
 //   DE  Tankerkönig (MTS-K, CC BY 4.0), OPTIONAL: skipped when the API key is
-//       not configured.
+//       absent or rejected; its health never gates the Swiss baseline.
 
 export const FUEL_CANTONS_SCHEMA_VERSION = 1;
 export const FUELS = Object.freeze(['sp95', 'diesel']);
 export const SIDES = Object.freeze(['CH', 'FR', 'AT', 'IT', 'DE']);
+export const GRANULARITIES = Object.freeze(['station', 'region', 'national']);
+export const DE_SOURCE_ATTRIBUTION = 'Tankerkönig / MTS-K — CC BY 4.0 (https://creativecommons.tankerkoenig.de)';
+export const CANONICAL_CANTON_GROUPS = Object.freeze([
+  'AG', 'APPENZELLO', 'BASILEA', 'BE', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
+  'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
+]);
 
 /** IT side: Italian provinces (MIMIT `Provincia`) adjacent to each canton. */
 export const IT_PROVINCES_BY_CANTON = Object.freeze({
@@ -51,24 +55,23 @@ export const AT_REGIONS_BY_CANTON = Object.freeze({
   GR: [8, 7],
 });
 
-/** DE side (optional): Tankerkönig radius search around the main crossings. */
+/** DE side (optional): one Tankerkönig radius search per border group. */
 export const DE_POINTS_BY_CANTON = Object.freeze({
-  BASILEA: [{ label: 'Weil am Rhein', lat: 47.594, lng: 7.621 }],
+  BASILEA: [{ label: 'Lörrach', lat: 47.6156, lng: 7.6614 }],
   AG: [{ label: 'Waldshut-Tiengen', lat: 47.623, lng: 8.214 }],
-  ZH: [{ label: 'Jestetten', lat: 47.654, lng: 8.573 }],
   SH: [{ label: 'Gottmadingen', lat: 47.735, lng: 8.776 }],
   TG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
+  ZH: [{ label: 'Jestetten', lat: 47.654, lng: 8.573 }],
+  SG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
 });
-export const DE_SEARCH_RADIUS_KM = 10;
-
-/** CH side: cantons the TCS border strip is expected to cover. */
-export const CH_EXPECTED_CANTONS = Object.freeze(['TI', 'GR', 'VS']);
+export const DE_SEARCH_RADIUS_KM = 5;
 
 /** Sides whose absence is tolerated (no credential configured). */
 export const OPTIONAL_SIDES = Object.freeze(['DE']);
 
 export const MIN_STATIONS_PER_RECORD = 3;
 export const MAX_PRICE_AGE_DAYS = 14;
+export const MAX_NATIONAL_PRICE_AGE_DAYS = 62;
 // A litre outside these bounds is a typo in the source (prices in cents, a
 // missing decimal point): drop it instead of letting it skew the average.
 export const PRICE_BOUNDS = Object.freeze({ min: 0.8, max: 4.0 });
@@ -76,12 +79,9 @@ export const PRICE_BOUNDS = Object.freeze({ min: 0.8, max: 4.0 });
 // had a 1.206 EUR benzina next to a 1.999 median on 2026-10-05): a price
 // further than this fraction from the median of its own set is dropped.
 export const MAX_DEVIATION_FROM_MEDIAN = 0.2;
-// Validity floor, same idea as the other producers: refuse to publish a
-// dataset in which too many of the cantons we have a source for came out
-// empty. 0.75 of the expected cantons keeps one foreign source failing
-// (AT: 2 cantons) publishable and rejects the loss of the French feed
-// (6 cantons) or of the Swiss/Italian generator input.
-export const MIN_EXPECTED_CANTON_COVERAGE = 0.75;
+// Every URL canton group must have at least one Swiss value. Foreign feeds are
+// optional overlays and must never decide whether the Swiss baseline ships.
+export const MIN_EXPECTED_CANTON_COVERAGE = 1;
 
 export function round(value, digits = 3) {
   if (value == null || !Number.isFinite(value)) return null;
@@ -92,6 +92,18 @@ export function round(value, digits = 3) {
 export function isPlausiblePrice(value) {
   return typeof value === 'number' && Number.isFinite(value)
     && value >= PRICE_BOUNDS.min && value <= PRICE_BOUNDS.max;
+}
+
+/**
+ * Public health value for one source. Foreign-source failures are deliberately
+ * strings rather than booleans so the published dataset explains why an
+ * optional overlay is absent without making that absence a dataset error.
+ */
+export function sourceHealth(result) {
+  if (result?.status === 'ok') return 'ok';
+  if (result?.status === 'skipped') return 'skipped';
+  const reason = String(result?.reason || 'unknown').replace(/\s+/g, ' ').trim().slice(0, 240);
+  return `failed:${reason || 'unknown'}`;
 }
 
 export function median(values) {
@@ -226,7 +238,7 @@ export function createStationCantonResolver({ postalIndex, localityIndex, canton
  * without `npm ci`. Reads the central directory, so archives written with a
  * trailing data descriptor work too.
  */
-export function extractSingleZipEntry(buffer, inflateRawSync) {
+export function extractZipEntries(buffer, inflateRawSync) {
   const buf = Buffer.isBuffer(buffer) ? buffer : Buffer.from(buffer);
   let eocd = -1;
   for (let i = buf.length - 22; i >= Math.max(0, buf.length - 65_557); i--) {
@@ -235,40 +247,158 @@ export function extractSingleZipEntry(buffer, inflateRawSync) {
   if (eocd < 0) throw new Error('zip: end of central directory not found');
   const entries = buf.readUInt16LE(eocd + 10);
   if (entries < 1) throw new Error('zip: archive is empty');
-  // Walk the central directory and take the first FILE entry: a directory or
-  // metadata entry ahead of the XML must not be mistaken for it.
   let cd = buf.readUInt32LE(eocd + 16);
   if (cd === 0xffffffff) throw new Error('zip: ZIP64 archives are not supported');
-  let found = null;
+  const files = new Map();
   for (let i = 0; i < entries; i++) {
     if (buf.readUInt32LE(cd) !== 0x02014b50) throw new Error('zip: bad central directory header');
-    const nameLen = buf.readUInt16LE(cd + 28);
-    const name = buf.subarray(cd + 46, cd + 46 + nameLen).toString('utf8');
-    if (!name.endsWith('/')) { found = cd; break; }
-    cd += 46 + nameLen + buf.readUInt16LE(cd + 30) + buf.readUInt16LE(cd + 32);
+    const centralOffset = cd;
+    const nameLen = buf.readUInt16LE(centralOffset + 28);
+    const extraLen = buf.readUInt16LE(centralOffset + 30);
+    const commentLen = buf.readUInt16LE(centralOffset + 32);
+    const name = buf.subarray(centralOffset + 46, centralOffset + 46 + nameLen).toString('utf8');
+    cd += 46 + nameLen + extraLen + commentLen;
+    if (name.endsWith('/')) continue;
+
+    const method = buf.readUInt16LE(centralOffset + 10);
+    const compressedSize = buf.readUInt32LE(centralOffset + 20);
+    const localOffset = buf.readUInt32LE(centralOffset + 42);
+    if (compressedSize === 0xffffffff || localOffset === 0xffffffff) {
+      throw new Error('zip: ZIP64 entries are not supported');
+    }
+    if (buf.readUInt32LE(localOffset) !== 0x04034b50) throw new Error('zip: bad local file header');
+    const localNameLen = buf.readUInt16LE(localOffset + 26);
+    const localExtraLen = buf.readUInt16LE(localOffset + 28);
+    const start = localOffset + 30 + localNameLen + localExtraLen;
+    const data = buf.subarray(start, start + compressedSize);
+    if (method === 0) files.set(name, Buffer.from(data));
+    else if (method === 8) files.set(name, inflateRawSync(data));
+    else throw new Error(`zip: unsupported compression method ${method}`);
   }
-  if (found == null) throw new Error('zip: no file entry');
-  cd = found;
-  const method = buf.readUInt16LE(cd + 10);
-  const compressedSize = buf.readUInt32LE(cd + 20);
-  const localOffset = buf.readUInt32LE(cd + 42);
-  if (compressedSize === 0xffffffff || localOffset === 0xffffffff) {
-    throw new Error('zip: ZIP64 entries are not supported');
-  }
-  if (buf.readUInt32LE(localOffset) !== 0x04034b50) throw new Error('zip: bad local file header');
-  const nameLen = buf.readUInt16LE(localOffset + 26);
-  const extraLen = buf.readUInt16LE(localOffset + 28);
-  const start = localOffset + 30 + nameLen + extraLen;
-  const data = buf.subarray(start, start + compressedSize);
-  if (method === 0) return Buffer.from(data);
-  if (method === 8) return inflateRawSync(data);
-  throw new Error(`zip: unsupported compression method ${method}`);
+  if (!files.size) throw new Error('zip: no file entry');
+  return files;
+}
+
+/**
+ * Extract the first file entry of a ZIP archive. The French feed ships one
+ * XML file; this compatibility helper keeps its original API while the BFS
+ * XLSX parser uses `extractZipEntries` for multiple workbook parts.
+ */
+export function extractSingleZipEntry(buffer, inflateRawSync) {
+  const entries = extractZipEntries(buffer, inflateRawSync);
+  return entries.values().next().value;
 }
 
 function readXmlAttributes(source) {
   const out = {};
   for (const m of String(source).matchAll(/([\w-]+)="([^"]*)"/g)) out[m[1]] = m[2];
   return out;
+}
+
+function decodeXmlText(value) {
+  return String(value || '')
+    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCodePoint(Number.parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'");
+}
+
+function readBfsCellValue(attributes, body, sharedStrings) {
+  const textValues = [...String(body || '').matchAll(/<t\b[^>]*>([\s\S]*?)<\/t>/g)]
+    .map((m) => decodeXmlText(m[1]));
+  const raw = String(body || '').match(/<v\b[^>]*>([\s\S]*?)<\/v>/)?.[1];
+  if (attributes.t === 'inlineStr') return textValues.join('');
+  if (attributes.t === 's') {
+    const index = Number(raw);
+    return Number.isInteger(index) ? (sharedStrings[index] ?? '') : '';
+  }
+  if (raw == null) return textValues.join('');
+  const value = decodeXmlText(raw).trim();
+  const number = Number(value);
+  return Number.isFinite(number) && value !== '' ? number : value;
+}
+
+function excelSerialToMonthIso(value) {
+  const serial = Number(value);
+  if (!Number.isFinite(serial)) return null;
+  const date = new Date(Date.UTC(1899, 11, 30) + Math.floor(serial) * 86_400_000);
+  if (!Number.isFinite(date.getTime())) return null;
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1)).toISOString();
+}
+
+/**
+ * Parse the BFS/UST LIK workbook sheet without an XLSX dependency. The
+ * workbook is a normal ZIP of XML parts; the parser deliberately discovers
+ * the two fuel columns from the header so a harmless column insertion does not
+ * silently swap prices.
+ */
+export function parseBfsFuelSheetXml(sheetXml, sharedStrings = []) {
+  const rows = new Map();
+  for (const match of String(sheetXml).matchAll(/<row\b([^>]*)>([\s\S]*?)<\/row>/g)) {
+    const rowAttributes = readXmlAttributes(match[1]);
+    const rowNumber = Number(rowAttributes.r);
+    if (!Number.isInteger(rowNumber)) continue;
+    const cells = new Map();
+    for (const cell of match[2].matchAll(/<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g)) {
+      const attributes = readXmlAttributes(cell[1]);
+      const ref = String(attributes.r || '').match(/^([A-Z]+)\d+$/)?.[1];
+      if (!ref) continue;
+      cells.set(ref, readBfsCellValue(attributes, cell[2] || '', sharedStrings));
+    }
+    rows.set(rowNumber, cells);
+  }
+
+  let headerRow = null;
+  let sp95Column = null;
+  let dieselColumn = null;
+  for (const [rowNumber, cells] of rows) {
+    for (const [column, value] of cells) {
+      const text = String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      if (!sp95Column && /(?:bleifrei|sans plomb)\s*95/.test(text)) sp95Column = column;
+      if (!dieselColumn && text === 'diesel') dieselColumn = column;
+    }
+    if (sp95Column && dieselColumn) {
+      headerRow = rowNumber;
+      break;
+    }
+  }
+  if (!headerRow || !sp95Column || !dieselColumn) {
+    throw new Error('BFS LIK workbook: fuel columns not found');
+  }
+
+  const latest = {};
+  for (const [rowNumber, cells] of rows) {
+    if (rowNumber <= headerRow) continue;
+    const observedAt = excelSerialToMonthIso(cells.get('A'));
+    if (!observedAt) continue;
+    for (const [fuel, column] of [['sp95', sp95Column], ['diesel', dieselColumn]]) {
+      const rawPrice = cells.get(column);
+      if (rawPrice == null || rawPrice === '') continue;
+      const price = Number(rawPrice);
+      if (!Number.isFinite(price) || price <= 0) continue;
+      if (!latest[fuel] || observedAt > latest[fuel].observedAt) {
+        latest[fuel] = { price, observedAt, period: observedAt.slice(0, 7) };
+      }
+    }
+  }
+  if (!latest.sp95 && !latest.diesel) throw new Error('BFS LIK workbook: no fuel observations');
+  return latest;
+}
+
+export function parseBfsFuelXlsx(buffer, inflateRawSync) {
+  const entries = extractZipEntries(buffer, inflateRawSync);
+  const sheet = entries.get('xl/worksheets/sheet1.xml');
+  if (!sheet) throw new Error('BFS LIK workbook: sheet1.xml not found');
+  const sharedStringsXml = entries.get('xl/sharedStrings.xml');
+  const sharedStrings = sharedStringsXml
+    ? [...sharedStringsXml.toString('utf8').matchAll(/<si\b[\s\S]*?<\/si>/g)]
+      .map((si) => [...si[0].matchAll(/<t\b[^>]*>([\s\S]*?)<\/t>/g)]
+        .map((m) => decodeXmlText(m[1])).join(''))
+    : [];
+  return parseBfsFuelSheetXml(sheet.toString('utf8'), sharedStrings);
 }
 
 /**
@@ -336,7 +466,7 @@ export function parseTankerkoenigStations(json) {
  * once), implausible prices and outliers (`MAX_DEVIATION_FROM_MEDIAN`) are
  * dropped. Returns null below `MIN_STATIONS_PER_RECORD`.
  */
-export function summarizePrices({ canton, side, fuel, currency, observations, observedAtFallback, source, area, coverage }) {
+export function summarizePrices({ canton, side, fuel, currency, observations, observedAtFallback, source, area, coverage, granularity = 'region' }) {
   const byId = new Map();
   for (const o of observations) {
     if (!o || !isPlausiblePrice(o.price)) continue;
@@ -361,6 +491,7 @@ export function summarizePrices({ canton, side, fuel, currency, observations, ob
     source,
     area,
     coverage,
+    granularity,
   };
 }
 
@@ -387,7 +518,41 @@ export function buildChRecords({ swissStations, resolveStationCanton, observedAt
         source: 'TCS Benzinpreis-Radar',
         area: 'CH (fascia entro 25 km dal confine italiano)',
         coverage: 'border-strip',
+        granularity: 'region',
       }));
+    }
+  }
+  return records;
+}
+
+const BFS_FUEL_SOURCE = 'BFS/UST — LIK prezzi medi di energia e carburanti (OPEN-BY; attribuzione obbligatoria)';
+
+/**
+ * Copy the official Swiss monthly national average to every canton URL group.
+ * This is intentionally one national observation, never a station-level
+ * claim: `granularity` and `stations: 1` make that distinction explicit.
+ */
+export function buildSwissNationalRecords({ nationalPrices, cantonCodes }) {
+  const records = [];
+  for (const canton of [...cantonCodes].sort()) {
+    for (const fuel of FUELS) {
+      const observation = nationalPrices?.[fuel];
+      if (!observation || !isPlausiblePrice(observation.price) || !observation.observedAt) continue;
+      records.push({
+        canton,
+        side: 'CH',
+        fuel,
+        currency: 'CHF',
+        avg: round(observation.price),
+        median: round(observation.price),
+        min: round(observation.price),
+        stations: 1,
+        observedAt: observation.observedAt,
+        source: BFS_FUEL_SOURCE,
+        area: 'CH (media nazionale mensile ufficiale)',
+        coverage: 'national-monthly',
+        granularity: 'national',
+      });
     }
   }
   return records;
@@ -410,6 +575,7 @@ export function buildItRecords({ italyStations, nowMs }) {
         source: 'MIMIT Osservaprezzi carburanti (open data)',
         area: provinces.map((p) => `IT-${p}`).join(','),
         coverage: 'border-municipalities-self-service',
+        granularity: 'region',
       }));
     }
   }
@@ -430,6 +596,7 @@ export function buildFrRecords({ frenchStations, nowMs }) {
         source: 'prix-carburants.gouv.fr — flux instantané (Licence Ouverte)',
         area: departments.map((d) => `FR-${d}`).join(','),
         coverage: 'departement',
+        granularity: 'region',
       }));
     }
   }
@@ -451,6 +618,7 @@ export function buildAtRecords({ austrianByRegion, observedAt }) {
         // The API lists only the cheapest stations of a Bundesland: the
         // average is the average of that published set, not of the region.
         coverage: 'cheapest-published',
+        granularity: 'region',
       }));
     }
   }
@@ -466,23 +634,20 @@ export function buildDeRecords({ germanByCanton, observedAt }) {
       pushRecord(records, summarizePrices({
         canton, side: 'DE', fuel, currency: 'EUR',
         observations: stations.map((s) => ({ id: s.id, price: s[fuel], observedAt })),
-        source: 'Tankerkönig / MTS-K (CC BY 4.0)',
+        source: DE_SOURCE_ATTRIBUTION,
         area: points.map((p) => `DE-${p.label} ${DE_SEARCH_RADIUS_KM} km`).join(','),
         coverage: 'radius',
+        granularity: 'region',
       }));
     }
   }
   return records;
 }
 
-/** Cantons for which at least one non-optional side has a configured source. */
-export function expectedCantons() {
-  return [...new Set([
-    ...CH_EXPECTED_CANTONS,
-    ...Object.keys(IT_PROVINCES_BY_CANTON),
-    ...Object.keys(FR_DEPARTMENTS_BY_CANTON),
-    ...Object.keys(AT_REGIONS_BY_CANTON),
-  ])].sort();
+/** Expected groups for a dataset; no foreign feed may shrink this list. */
+export function expectedCantons(cantonCodes = null) {
+  if (Array.isArray(cantonCodes) && cantonCodes.length) return [...new Set(cantonCodes)].sort();
+  return [...CANONICAL_CANTON_GROUPS].sort();
 }
 
 /**
@@ -511,7 +676,7 @@ export function buildFuelCantonsDataset({
       || SIDES.indexOf(a.side) - SIDES.indexOf(b.side)
       || FUELS.indexOf(a.fuel) - FUELS.indexOf(b.fuel));
   const withData = [...new Set(sorted.map((r) => r.canton))].sort();
-  const expected = expectedCantons();
+  const expected = expectedCantons(cantonCodes);
   return {
     schemaVersion: FUEL_CANTONS_SCHEMA_VERSION,
     generatedAt,
@@ -522,6 +687,7 @@ export function buildFuelCantonsDataset({
       ? { provider: 'ECB', chfPerEur: round(exchangeRate.chfPerEur, 6), eurPerChf: round(exchangeRate.eurPerChf, 6) }
       : null,
     sources: sourceStatus,
+    health: Object.fromEntries(Object.entries(sourceStatus || {}).map(([side, result]) => [side.toLowerCase(), sourceHealth(result)])),
     coverage: {
       expectedCantons: expected,
       cantonsWithData: withData,
@@ -542,21 +708,26 @@ export function validateFuelCantonsDataset(dataset) {
   if (dataset?.schemaVersion !== FUEL_CANTONS_SCHEMA_VERSION) errors.push('schemaVersion mismatch');
   const records = Array.isArray(dataset?.records) ? dataset.records : [];
   for (const r of records) {
+    const minStations = r.granularity === 'national' ? 1 : MIN_STATIONS_PER_RECORD;
     const bad = !SIDES.includes(r.side) || !FUELS.includes(r.fuel)
+      || r.currency !== (r.side === 'CH' ? 'CHF' : 'EUR')
       || !isPlausiblePrice(r.avg) || !isPlausiblePrice(r.min) || r.min > r.avg
-      || !Number.isInteger(r.stations) || r.stations < MIN_STATIONS_PER_RECORD
+      || !GRANULARITIES.includes(r.granularity)
+      || !Number.isInteger(r.stations) || r.stations < minStations
+      || (r.granularity === 'national' && (r.side !== 'CH' || r.stations !== 1))
       || !r.observedAt || !r.source || !r.canton;
     if (bad) errors.push(`invalid record ${r.canton}/${r.side}/${r.fuel}`);
   }
-  const expected = dataset?.coverage?.expectedCantons || expectedCantons();
+  const expected = dataset?.coverage?.expectedCantons || expectedCantons(dataset?.cantons);
   const withData = new Set(records.map((r) => r.canton));
   const covered = expected.filter((c) => withData.has(c)).length;
   const coverageRatio = expected.length ? covered / expected.length : 0;
   if (coverageRatio < MIN_EXPECTED_CANTON_COVERAGE) {
     errors.push(`only ${covered}/${expected.length} expected cantons have data (floor ${MIN_EXPECTED_CANTON_COVERAGE})`);
   }
-  for (const side of ['CH', 'IT']) {
-    if (!records.some((r) => r.side === side)) errors.push(`no ${side} record: generator input missing or empty`);
-  }
+  if (!records.some((r) => r.side === 'CH')) errors.push('no CH record: BFS national source missing or empty');
+  const chCantons = new Set(records.filter((r) => r.side === 'CH').map((r) => r.canton));
+  const missingSwiss = expected.filter((c) => !chCantons.has(c));
+  if (missingSwiss.length) errors.push(`no CH value for canton groups: ${missingSwiss.join(', ')}`);
   return { ok: errors.length === 0, errors, coverageRatio: round(coverageRatio, 3) };
 }

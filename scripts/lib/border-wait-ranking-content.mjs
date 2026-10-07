@@ -44,7 +44,7 @@ export const RANKING_ARTICLE_SLUGS = {
  * `slug` is the per-locale canton slug of data/canton-url-slugs.json: the
  * article identity is derived from it (see rankingArticleIdentity).
  *
- * The other twelve are the cantons that have crossings in
+ * The other thirteen are the cantons/groups that have crossings in
  * data/borderCrossings.ts; there is no ranking for a canton without one.
  */
 export const BORDER_RANKING_CANTONS = Object.freeze({
@@ -61,6 +61,7 @@ export const BORDER_RANKING_CANTONS = Object.freeze({
   VD: place({ it: 'vaud', en: 'vaud', de: 'waadt', fr: 'vaud' }, ['nel Canton Vaud', 'del Canton Vaud', 'del Canton Vaud'], ['Vaud', 'Canton Vaud'], ['in der Waadt', 'im Kanton Waadt'], ['du canton de Vaud', 'du canton de Vaud']),
   NE: place({ it: 'neuchatel', en: 'neuchatel', de: 'neuenburg', fr: 'neuchatel' }, ['nel Canton Neuchâtel', 'del Canton Neuchâtel', 'del Canton Neuchâtel'], ['Neuchâtel', 'Canton Neuchâtel'], ['in Neuenburg', 'im Kanton Neuenburg'], ['de Neuchâtel', 'du canton de Neuchâtel']),
   JU: place({ it: 'giura', en: 'jura', de: 'jura', fr: 'jura' }, ['nel Giura', 'del Giura', 'del Canton Giura'], ['Jura', 'Canton Jura'], ['im Jura', 'im Kanton Jura'], ['du Jura', 'du canton du Jura']),
+  SO: place({ it: 'soletta', en: 'solothurn', de: 'solothurn', fr: 'soleure' }, ['nel Canton Soletta', 'del Canton Soletta', 'del Canton Soletta'], ['Solothurn', 'Canton Solothurn'], ['im Kanton Solothurn', 'im Kanton Solothurn'], ['de Soleure', 'du canton de Soleure']),
   BASILEA: place({ it: 'basilea', en: 'basel', de: 'basel', fr: 'bale' }, ['nella regione di Basilea', 'della regione di Basilea', 'della regione di Basilea'], ['Basel', 'the Basel region'], ['in der Region Basel', 'in der Region Basel'], ['de la région de Bâle', 'de la région de Bâle']),
   AG: place({ it: 'argovia', en: 'aargau', de: 'aargau', fr: 'argovie' }, ['in Argovia', "dell'Argovia", 'del Canton Argovia'], ['Aargau', 'Canton Aargau'], ['im Aargau', 'im Kanton Aargau'], ["d'Argovie", "du canton d'Argovie"]),
   ZH: place({ it: 'zurigo', en: 'zurich', de: 'zurich', fr: 'zurich' }, ['nel Canton Zurigo', 'del Canton Zurigo', 'del Canton Zurigo'], ['Zurich', 'Canton Zurich'], ['im Kanton Zürich', 'im Kanton Zürich'], ['du canton de Zurich', 'du canton de Zurich']),

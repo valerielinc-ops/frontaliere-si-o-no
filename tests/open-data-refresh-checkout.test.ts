@@ -104,6 +104,135 @@ function publish(setup: ReturnType<typeof fixture>, fail = false, extraArgs: str
   });
 }
 
+function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = []) {
+  // Same call shape as sync-articles-sitemaps.yml: plain `git add`, no symlink
+  // resolution, required paths first and the optional directory last.
+  return spawnSync('bash', [
+    'scripts/lib/open-data-refresh-pr.sh',
+    '--path', 'data/cache.json', '--path', 'data/history.jsonl',
+    ...extraArgs,
+    '--branch', 'chore/refresh', '--commit-message', 'fixture refresh',
+    '--title', 'Fixture refresh', '--body-file', setup.body,
+  ], {
+    cwd: setup.repo, encoding: 'utf8',
+    env: {
+      ...process.env, ...identity,
+      PATH: `${setup.bin}${path.delimiter}${process.env.PATH || ''}`,
+      GH_TOKEN: 'fixture-token', GITHUB_REPOSITORY: 'fixture/publisher',
+      REFRESH_FIXTURE_GH_FAIL: '0',
+    },
+  });
+}
+
+describe('optional refresh paths (sync run 37515283217)', () => {
+  // The article sync lists `public/images/generated`, a directory that does not
+  // exist until the publisher emits its first governed cover. `git add` aborted
+  // with `fatal: pathspec ... did not match any files` and the whole refresh —
+  // corpus, sitemaps, feeds — was lost with it.
+  it.each([
+    ['plain git add', publishPlain],
+    ['resolved symlinks', (setup: ReturnType<typeof fixture>, extra: string[]) => publish(setup, false, extra)],
+  ] as const)('skips an optional path that does not exist yet and publishes the rest (%s)', (_mode, run) => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    const result = run(setup, ['--optional-path', 'public/images/generated']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain(
+      'Optional refresh path absent and untracked, nothing to stage: public/images/generated',
+    );
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
+  });
+
+  it('stages an optional path once the producer has created it', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    // A sidecar, not a fake image: the reconciler refuses unreadable images.
+    write(setup.repo, 'public/images/generated/credits.json', '{"cover":"governed"}\n');
+    const result = publishPlain(setup, ['--optional-path', 'public/images/generated']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).not.toContain('Optional refresh path absent');
+    expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/credits.json'])).toBe('{"cover":"governed"}');
+  });
+
+  it.each([
+    ['plain git add', publishPlain],
+    ['resolved symlinks', (setup: ReturnType<typeof fixture>, extra: string[]) => publish(setup, false, extra)],
+  ] as const)('skips an optional directory that exists but has nothing to stage (%s)', (_mode, run) => {
+    // The producer may create the directory before it writes the first file.
+    // Git has nothing to add there, so the path must not enter the staging set.
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    fs.mkdirSync(path.join(setup.repo, 'public/images/generated'), { recursive: true });
+    const result = run(setup, ['--optional-path', 'public/images/generated']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stderr).not.toContain('did not match any files');
+    expect(result.stdout).toContain(
+      'Optional refresh path has nothing to stage: public/images/generated',
+    );
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
+  });
+
+  it('stages the deletion of a tracked optional directory that disappeared', () => {
+    // Tracked on main, then removed by the producer: the optional path no
+    // longer exists on disk but the index still knows its child, and the
+    // refresh must carry the deletion instead of skipping the path.
+    const setup = fixture();
+    write(setup.repo, 'public/images/generated/credits.json', '{"cover":"governed"}\n');
+    git(setup.repo, ['add', 'public/images/generated/credits.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'tracked cover sidecar']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+    fs.rmSync(path.join(setup.repo, 'public/images/generated'), { recursive: true });
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    const result = publishPlain(setup, ['--optional-path', 'public/images/generated']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).not.toContain('Optional refresh path');
+    const tree = git(setup.remote, ['ls-tree', '-r', '--name-only', 'chore/refresh']);
+    expect(tree).not.toContain('public/images/generated/credits.json');
+    expect(git(setup.remote, ['show', 'chore/refresh:data/cache.json'])).toBe('{"version":"current"}');
+  });
+
+  it('treats a repeated optional path as one', () => {
+    const setup = fixture();
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'public/images/generated/credits.json', '{"cover":"governed"}\n');
+    const result = publishPlain(setup, [
+      '--optional-path', 'public/images/generated',
+      '--optional-path', 'public/images/generated',
+    ]);
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/credits.json'])).toBe('{"cover":"governed"}');
+  });
+
+  it('judges an optional alias at its real path when symlinks are resolved', () => {
+    // The alias directory is a symlink: git cannot list untracked files
+    // through it, so the decision must be taken on the resolved path.
+    const setup = fixture();
+    fs.symlinkSync('../packages/articles/content', path.join(setup.repo, 'services/content-alias'));
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'packages/articles/content/fresh.ts', 'export default "fresh";\n');
+    const result = publish(setup, false, ['--optional-path', 'services/content-alias/fresh.ts']);
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).not.toContain('Optional refresh path');
+    expect(git(setup.remote, ['show', 'chore/refresh:packages/articles/content/fresh.ts'])).toBe('export default "fresh";');
+  });
+
+  it('keeps failing loudly when a REQUIRED path matches nothing', () => {
+    const setup = fixture();
+    const pendingHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    const result = publishPlain(setup, ['--path', 'public/images/generated']);
+    expect(result.status).not.toBe(0);
+    expect(result.stderr).toContain("pathspec 'public/images/generated' did not match any files");
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(pendingHead);
+  });
+
+  it('declares the generated covers directory optional in the article sync workflow', () => {
+    const workflow = fs.readFileSync(path.join(ROOT, '.github/workflows/sync-articles-sitemaps.yml'), 'utf8');
+    expect(workflow).toContain('--optional-path public/images/generated');
+    expect(workflow).not.toContain('--path public/images/generated');
+  });
+});
+
 describe('data publisher preserves its source checkout', () => {
   it('uses current helper dependencies and preserves source code across consecutive publishes', () => {
     const setup = fixture();

@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 /**
  * Load secrets from Firebase Remote Config → environment variables
  *
@@ -24,8 +27,6 @@
  *   • If Firebase auth fails, the script exits 0 with a warning (non-blocking)
  *     so workflows that don't have Firebase configured still work.
  */
-
-import { pathToFileURL } from 'node:url';
 
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
@@ -67,6 +68,10 @@ export const RC_TO_ENV = {
   // tooling, never written as a source or static HTML literal.
   FIREBASE_API_KEY:               ['FIREBASE_API_KEY', 'VITE_FIREBASE_API_KEY'],
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
+  // Optional German fuel overlay. Keep unset until the owner obtains a key
+  // through Tankerkönig's manual registration and confirms redistribution
+  // terms; the adapter is fail-closed without it.
+  TANKERKOENIG_API_KEY:           ['TANKERKOENIG_API_KEY'],
   // Google Routes is the current API surface. Keep the legacy Distance Matrix
   // key separately available so the mesh can fall back when Routes is disabled
   // in the project; the value itself is never exposed to the client here.
@@ -360,6 +365,16 @@ export const RC_TO_ENV = {
 
   // Feature flags
   ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
+  // Eventfrog Public API, Ticino ephemeral event pages (owner decision D5,
+  // 2026-10-05). EVENTFROG_ENABLED is the switch of the whole source — the
+  // daily sync (crawl-events.yml), the snapshot download (deploy.yml) and the
+  // page emission; absent or anything but `true` keeps it off. The key and its
+  // expiry date (YYYY-MM-DD, for the renewal warning) are created by the owner
+  // on eventfrog.ch. Site-only on purpose: the corpus must never be able to
+  // read Eventfrog data (AGB §17(3)/(6)), so its loader does not map them.
+  EVENTFROG_ENABLED:              ['EVENTFROG_ENABLED'],
+  EVENTFROG_PUBLIC_API_KEY:       ['EVENTFROG_PUBLIC_API_KEY'],
+  EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT: ['EVENTFROG_PUBLIC_API_KEY_EXPIRES_AT'],
   // Exact-job application-intent ranking (#9934); absent/false stays control.
   APPLICATION_INTENT_RANKING_ENABLED: ['APPLICATION_INTENT_RANKING_ENABLED'],
   // Job-email ranking (#7922), affinity variant since 2026-10: kill switch,
@@ -729,7 +744,22 @@ async function main() {
 }
 
 // Only run when executed directly (not when imported by tests).
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+const directInvocation = (() => {
+  if (!process.argv[1]) return false;
+  try {
+    const entryPath = fileURLToPath(import.meta.url);
+    const resolvedArgvPath = path.resolve(process.argv[1]);
+    try {
+      return realpathSync(entryPath) === realpathSync(resolvedArgvPath);
+    } catch {
+      return entryPath === resolvedArgvPath;
+    }
+  } catch {
+    return false;
+  }
+})();
+
+if (directInvocation) {
   main().catch((err) => {
     console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
     console.warn('   Falling back to environment variables / GH Secrets.');

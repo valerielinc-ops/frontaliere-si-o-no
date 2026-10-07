@@ -1,34 +1,40 @@
 import { describe, expect, it } from 'vitest';
-import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
-import os from 'node:os';
 import path from 'node:path';
 import { deflateRawSync, inflateRawSync } from 'node:zlib';
 
 import {
   AT_REGIONS_BY_CANTON,
+  DE_POINTS_BY_CANTON,
+  DE_SEARCH_RADIUS_KM,
   FR_DEPARTMENTS_BY_CANTON,
+  GRANULARITIES,
   MIN_STATIONS_PER_RECORD,
   buildAtRecords,
   buildChRecords,
   buildFrRecords,
   buildFuelCantonsDataset,
   buildItRecords,
+  buildSwissNationalRecords,
   createStationCantonResolver,
   expectedCantons,
   extractSingleZipEntry,
+  parseBfsFuelSheetXml,
   parseEControStations,
   parseFrenchInstantXml,
   parseFrenchTimestamp,
   parseItalianTimestamp,
   parseTankerkoenigStations,
+  sourceHealth,
   summarizePrices,
   validateFuelCantonsDataset,
 } from '../scripts/lib/fuel-cantons-dataset.mjs';
 import {
   fetchAustrianStations,
+  DE_REQUEST_INTERVAL_MS,
   fetchFrenchStations,
   fetchGermanStations,
+  fetchSwissNationalFuelPrices,
 } from '../scripts/lib/fuel-foreign-sources.mjs';
 import { buildFromInput } from '../scripts/build-fuel-cantons-dataset.mjs';
 import { buildFuelCantonsInput } from '../scripts/generate-fuel-prices-dataset.mjs';
@@ -110,6 +116,19 @@ describe('fuel cantons — source parsers', () => {
     expect(() => extractSingleZipEntry(Buffer.from('not a zip at all, definitely not'), inflateRawSync)).toThrow(/central directory/);
     // A directory entry ahead of the XML is skipped.
     expect(extractSingleZipEntry(makeZip('x.xml', xml, { leadingDir: 'feed/' }), inflateRawSync).equals(xml)).toBe(true);
+  });
+
+  it('parses the latest BFS/UST monthly national fuel row from workbook XML', () => {
+    const sheet = `<worksheet><sheetData>
+      <row r="5"><c r="V5" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X5" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="6"><c r="A6"><v>46235</v></c><c r="V6"><v>1.98</v></c><c r="X6"><v>2.21</v></c></row>
+      <row r="7"><c r="A7"><v>46266</v></c><c r="V7"><v>2.02</v></c><c r="X7"><v>2.27</v></c></row>
+      <row r="8"><c r="A8"><v>46296</v></c><c r="V8"/><c r="X8"/></row>
+    </sheetData></worksheet>`;
+    expect(parseBfsFuelSheetXml(sheet)).toEqual({
+      sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z', period: '2026-09' },
+      diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z', period: '2026-09' },
+    });
   });
 
   it('keeps only the configured départements and maps SP95/E10/Gazole', () => {
@@ -213,13 +232,17 @@ function syntheticRecords() {
     sp95: [0, 1, 2].map((k) => ({ id: `AT-${code}-${k}`, price: 1.8 })),
     diesel: [0, 1, 2].map((k) => ({ id: `AT-${code}-${k}`, price: 2.1 })),
   }]));
-  const resolve = createStationCantonResolver({ postalIndex, localityIndex, cantonSlugFile });
-  const swissStations = [['6900 Lugano', 3], ['7500 St. Moritz', 3], ['3900 Brig', 3]].flatMap(([addr, n]) =>
-    Array.from({ length: n as number }, (_, k) => ({ id: `${addr}-${k}`, address: `Strasse ${k}, ${addr}`, sp95PriceChf: 2, dieselPriceChf: 2.2, updatedAt: nowIso })));
+  const ch = buildSwissNationalRecords({
+    nationalPrices: {
+      sp95: { price: 2, observedAt: nowIso },
+      diesel: { price: 2.2, observedAt: nowIso },
+    },
+    cantonCodes: CANTONS,
+  });
   const fresh = romeWallClock(hoursAgo(3));
   const italyStations = ['CO', 'SO', 'VB'].flatMap((p) => [0, 1, 2].map((k) => ({ id: `${p}${k}`, province: p, isSelf: true, priceEur: 1.95, dieselPriceEur: 2.05, updatedAt: fresh })));
   return {
-    ch: buildChRecords({ swissStations, resolveStationCanton: resolve }),
+    ch,
     it: buildItRecords({ italyStations, nowMs: Date.now() }),
     fr: buildFrRecords({ frenchStations, nowMs: Date.now() }),
     at: buildAtRecords({ austrianByRegion, observedAt: nowIso }),
@@ -231,27 +254,28 @@ describe('fuel cantons — dataset and validity gate', () => {
     const { ch, it, fr, at } = syntheticRecords();
     const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: { chfPerEur: 0.93, eurPerChf: 1.075 }, sourceStatus: {}, records: [...fr, ...ch, ...at, ...it] });
     expect(dataset.cantons).toHaveLength(24);
-    expect(dataset.coverage.expectedCantonsWithData).toEqual(expectedCantons());
+    expect(dataset.coverage.expectedCantonsWithData).toEqual(expectedCantons(CANTONS));
     for (const r of dataset.records) {
-      for (const key of ['canton', 'side', 'fuel', 'avg', 'min', 'stations', 'observedAt', 'source']) expect(r).toHaveProperty(key);
+      for (const key of ['canton', 'side', 'fuel', 'avg', 'min', 'stations', 'observedAt', 'source', 'granularity']) expect(r).toHaveProperty(key);
+      expect(GRANULARITIES).toContain(r.granularity);
       expect(CANTONS).toContain(r.canton);
     }
     expect(dataset.records[0].canton <= dataset.records[dataset.records.length - 1].canton).toBe(true);
     expect(validateFuelCantonsDataset(dataset)).toMatchObject({ ok: true, coverageRatio: 1 });
   });
 
-  it('refuses the dataset when the French feed is lost (too many expected cantons empty)', () => {
+  it('refuses the dataset when any Swiss canton loses its value', () => {
     const { ch, it, at } = syntheticRecords();
-    const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: null, sourceStatus: {}, records: [...ch, ...it, ...at] });
+    const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: null, sourceStatus: {}, records: [...ch.filter((r: any) => r.canton !== 'AG'), ...it, ...at] });
     const verdict = validateFuelCantonsDataset(dataset);
     expect(verdict.ok).toBe(false);
-    expect(verdict.errors.join('\n')).toMatch(/expected cantons have data/);
+    expect(verdict.errors.join('\n')).toMatch(/no CH value for canton groups: AG/);
   });
 
-  it('refuses the dataset when the Swiss/Italian generator input is missing', () => {
+  it('refuses the dataset when the Swiss national source is missing', () => {
     const { fr, at } = syntheticRecords();
     const dataset = buildFuelCantonsDataset({ cantonCodes: CANTONS, generatedAt: new Date().toISOString(), exchangeRate: null, sourceStatus: {}, records: [...fr, ...at] });
-    expect(validateFuelCantonsDataset(dataset).errors).toEqual(expect.arrayContaining([expect.stringMatching(/no CH record/), expect.stringMatching(/no IT record/)]));
+    expect(validateFuelCantonsDataset(dataset).errors).toEqual(expect.arrayContaining([expect.stringMatching(/no CH record/)]));
   });
 
   it('rejects a configured canton that is not a URL group', () => {
@@ -276,11 +300,125 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     const secret = 'k3y-should-not-leak';
     const res = await fetchGermanStations({
       apiKey: secret,
-      retries: 1,
+      requestIntervalMs: 0,
       fetchImpl: (async (url: string) => { throw new Error(`boom ${url}`); }) as any,
     });
     expect(res.status).toBe('failed');
     expect(res.reason).not.toContain(secret);
+  });
+
+  it('stops after one ok:false response for a rejected or expired key', async () => {
+    for (const message of ['Key existiert nicht oder ist deaktiviert', 'API key expired']) {
+      let calls = 0;
+      const result = await fetchGermanStations({
+        apiKey: 'key-used-only-in-test',
+        requestIntervalMs: 0,
+        fetchImpl: (async () => {
+          calls += 1;
+          return okResponse({ ok: false, message });
+        }) as any,
+      });
+      expect(result).toMatchObject({ status: 'skipped' });
+      expect(result.reason).toContain('rejected');
+      expect(result.reason).toContain(message);
+      expect(calls).toBe(1);
+    }
+  });
+
+  it('drops a partial DE overlay when a later group rejects the key', async () => {
+    let calls = 0;
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => {
+        calls += 1;
+        if (calls === 1) return okResponse({ ok: true, stations: [{ id: 'first', e5: 1.8, diesel: 2.0 }] });
+        return okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' });
+      }) as any,
+    });
+    expect(result).toMatchObject({ status: 'skipped', data: {}, coverage: {} });
+    expect(calls).toBe(2);
+  });
+
+  it('uses one serialised request per DE group and exposes the active coverage', async () => {
+    const requests: URL[] = [];
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async (url: string) => {
+        requests.push(new URL(url));
+        return okResponse({
+          ok: true,
+          stations: [0, 1, 2].map((i) => ({ id: `${requests.length}-${i}`, e5: 1.8 + i / 100, diesel: 2.0 + i / 100 })),
+        });
+      }) as any,
+    });
+    expect(DE_REQUEST_INTERVAL_MS).toBe(60_000);
+    expect(Object.keys(DE_POINTS_BY_CANTON)).toEqual(['BASILEA', 'AG', 'SH', 'TG', 'ZH', 'SG']);
+    expect(requests).toHaveLength(Object.keys(DE_POINTS_BY_CANTON).length);
+    expect(requests.every((url) => url.searchParams.get('rad') === String(DE_SEARCH_RADIUS_KM))).toBe(true);
+    expect(result.status).toBe('ok');
+    for (const canton of Object.keys(DE_POINTS_BY_CANTON)) {
+      expect(result.coverage[canton]).toMatchObject({ stations: 3, sp95: 3, diesel: 3 });
+    }
+
+    const dataset = await buildFromInput({}, {
+      fetchers: {
+        ch: async () => ({ status: 'ok', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+        de: async () => result,
+      },
+    });
+    expect(dataset.health.de).toBe('ok');
+    expect(dataset.records.filter((record: any) => record.side === 'DE')).toHaveLength(12);
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+  });
+
+  it('keeps the Swiss dataset valid when DE is missing, rejected, expired, or offline', async () => {
+    const fetchers = (de: any) => ({
+      ch: async () => ({ status: 'ok', data: {
+        sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+        diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+      } }),
+      fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+      at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+      de: async () => de,
+    });
+    const rejected = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' })) as any,
+    });
+    const expired = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'API key expired' })) as any,
+    });
+    const offline = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => { throw new Error('network offline'); }) as any,
+    });
+    const cases = [
+      { de: { status: 'skipped', reason: 'missing key', data: {} }, health: 'skipped' },
+      { de: rejected, health: 'skipped' },
+      { de: expired, health: 'skipped' },
+      { de: offline, health: 'failed:network offline' },
+    ];
+    for (const { de, health } of cases) {
+      const dataset = await buildFromInput({}, { fetchers: fetchers(de) });
+      if (health === 'failed:network offline') {
+        expect(dataset.health.de).toMatch(/^failed:.*network offline$/);
+      } else {
+        expect(dataset.health.de).toBe(health);
+      }
+      expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+    }
+    expect(sourceHealth(offline)).toMatch(/^failed:.*network offline$/);
   });
 
   it('reads the Austrian regions and the French zip through the injected fetch', async () => {
@@ -291,6 +429,49 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     const zip = makeZip('x.xml', Buffer.from(frenchXml([frenchPdv('74000001', '74000', [['Gazole', 2.3, hoursAgo(1)]])]), 'latin1'));
     const fr = await fetchFrenchStations({ fetchImpl: (async () => okResponse(zip, true)) as any });
     expect(fr).toMatchObject({ status: 'ok', stationCount: 1 });
+
+    const bfsSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c><c r="X2"><v>2.27</v></c></row>
+    </sheetData></worksheet>`;
+    const ch = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
+    });
+    expect(ch).toMatchObject({ status: 'ok', observedMonth: '2026-09', data: { sp95: { price: 2.02 }, diesel: { price: 2.27 } } });
+
+    const stale = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2027-01-01T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(bfsSheet)), true)) as any,
+    });
+    expect(stale).toMatchObject({ status: 'failed' });
+    expect(stale.reason).toMatch(/older than/);
+
+    const splitFreshnessSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46244</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitFreshness = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-01T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitFreshnessSheet)), true)) as any,
+    });
+    expect(splitFreshness).toMatchObject({ status: 'ok' });
+
+    const splitStaleSheet = `<worksheet><sheetData>
+      <row r="1"><c r="V1" t="inlineStr"><is><t>Bleifrei 95 / sans plomb 95</t></is></c><c r="X1" t="inlineStr"><is><t>Diesel</t></is></c></row>
+      <row r="2"><c r="A2"><v>46266</v></c><c r="V2"><v>2.02</v></c></row>
+      <row r="3"><c r="A3"><v>46204</v></c><c r="X3"><v>2.26</v></c></row>
+    </sheetData></worksheet>`;
+    const splitStale = await fetchSwissNationalFuelPrices({
+      retries: 1,
+      now: new Date('2026-10-06T00:00:00.000Z'),
+      fetchImpl: (async () => okResponse(makeZip('xl/worksheets/sheet1.xml', Buffer.from(splitStaleSheet)), true)) as any,
+    });
+    expect(splitStale).toMatchObject({ status: 'failed', data: {} });
+    expect(splitStale.reason).toMatch(/diesel/);
   });
 });
 
@@ -312,6 +493,10 @@ describe('fuel cantons — producer CLI', () => {
 
     const dataset = await buildFromInput(input, {
       fetchers: {
+        ch: async () => ({ status: 'ok', observedMonth: '2026-09', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
         fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
         at: async () => ({ status: 'ok', data: { 8: { sp95: [], diesel: [] }, 7: { sp95: [], diesel: [] } } }),
         de: async () => ({ status: 'skipped', reason: 'no key', data: {} }),
@@ -320,22 +505,25 @@ describe('fuel cantons — producer CLI', () => {
     expect(dataset.sources.FR).toMatchObject({ status: 'failed', reason: 'offline' });
     expect(dataset.sources.FR).not.toHaveProperty('data');
     expect(dataset.records.filter((r: any) => r.canton === 'TI').map((r: any) => r.side)).toEqual(['CH', 'CH', 'IT', 'IT']);
-    expect(validateFuelCantonsDataset(dataset).ok).toBe(false);
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
   });
 
-  it('exits 0 and writes nothing when the generator skipped its run', () => {
-    const outRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'fuel-cantons-'));
-    const githubOutput = path.join(outRoot, 'github-output');
-    fs.writeFileSync(githubOutput, '');
-    const res = spawnSync(process.execPath, [
-      path.join(ROOT, 'scripts', 'build-fuel-cantons-dataset.mjs'),
-      '--input', path.join(outRoot, 'missing.json'),
-      '--out-root', outRoot,
-    ], { encoding: 'utf8', env: { ...process.env, GITHUB_OUTPUT: githubOutput } });
-    expect(res.status).toBe(0);
-    expect(res.stdout).toMatch(/not found/);
-    expect(fs.existsSync(path.join(outRoot, 'data'))).toBe(false);
-    // No accepted build: the workflow must not see `built=true`.
-    expect(fs.readFileSync(githubOutput, 'utf8')).not.toContain('built=true');
+  it('builds the Swiss baseline when the generator hand-off is absent', async () => {
+    const now = new Date('2026-10-06T12:00:00.000Z');
+    const dataset = await buildFromInput({}, {
+      now,
+      fetchers: {
+        ch: async () => ({ status: 'ok', observedMonth: '2026-09', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+        de: async () => ({ status: 'skipped', reason: 'blocked', data: {} }),
+      },
+    });
+    expect(dataset.records.filter((r: any) => r.side === 'CH')).toHaveLength(48);
+    expect(dataset.health.de).toBe('skipped');
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
   });
 });

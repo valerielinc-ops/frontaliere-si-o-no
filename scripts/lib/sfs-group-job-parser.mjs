@@ -326,7 +326,7 @@ export async function fetchAllSfsGroupJobs() {
     const postalCode = sourcePostalCode
       || officialLocalityPostalCode(location, canton)
       || resolvedHq?.postalCode
-      || (location === HQ.city ? HQ.postalCode : getCantonPostalFallback(canton))
+      || (location === HQ.city ? HQ.postalCode : getCantonPostalFallback(canton, location))
       || HQ.postalCode;
     const streetAddress = sourceStreetAddress
       || resolvedHq?.streetAddress

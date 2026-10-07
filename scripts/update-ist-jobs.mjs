@@ -77,7 +77,11 @@ import {
   WAF_IP_BLOCK_STATUS,
 } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { locateTagByAttribute, extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
+import {
+  decodeEntities,
+  extractBalancedTagBlock,
+} from './lib/hospital-custom-html-helpers.mjs';
+import { readAttr, scanStartTags } from './lib/html-attr.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
@@ -342,35 +346,124 @@ async function discoverIstJobUrls() {
 
 /* ── Job detail parsing ────────────────────────────────────── */
 
-function extractMicrodata(html) {
-  const get = (prop) => {
-    // Try <meta itemprop="prop" content="...">
-    const metaRe = new RegExp(`itemprop="${prop}"\\s+content="([^"]*)"`, 'i');
-    const metaMatch = html.match(metaRe);
-    if (metaMatch) return metaMatch[1].trim();
+const VOID_HTML_TAGS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+  'link', 'meta', 'param', 'source', 'track', 'wbr',
+]);
 
-    // Try <span itemprop="prop">...</span>
-    const spanRe = new RegExp(`itemprop="${prop}"[^>]*>([^<]+)`, 'i');
-    const spanMatch = html.match(spanRe);
-    if (spanMatch) return spanMatch[1].trim();
+function decodeIstField(raw = '') {
+  return normalizeSpace(decodeEntities(stripHtml(String(raw || ''))));
+}
+
+function stripIstPortalTitleSuffix(raw = '') {
+  return decodeEntities(String(raw || ''))
+    .trim()
+    .replace(/\s+Job Details\s*\|\s*Inspired Education(?:\s+Group)?\s*$/iu, '')
+    .replace(/\s*\|\s*Inspired Education(?:\s+Group)?\s*$/iu, '')
+    .trim();
+}
+
+/**
+ * Build one quote/order-tolerant reader for the SuccessFactors detail HTML.
+ *
+ * The portal has emitted all of these equivalent forms over time:
+ * `itemprop="title" content="..."`, `content="..." itemprop='title'`,
+ * and `data-careersite-propertyid = "title"`. The former regexes required
+ * one exact spelling and turned a reachable detail page into a selector miss.
+ * Attribute matching stays exact by name/value; no free-text first-match is
+ * used for a job field.
+ */
+function createIstHtmlFieldReader(html) {
+  const source = String(html || '');
+  const tags = scanStartTags(source);
+
+  const matchingTags = (attribute, expected) => {
+    const wanted = String(expected || '').trim().toLowerCase();
+    return tags.filter(({ raw }) => readAttr(raw, attribute).trim().toLowerCase() === wanted);
+  };
+
+  const readHtml = (attribute, expected) => {
+    for (const tag of matchingTags(attribute, expected)) {
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const inner = extractBalancedTagBlock(source.slice(tag.end), tag.name);
+      if (inner) return inner;
+    }
     return '';
   };
 
-  const getPropertyId = (propId) => {
-    const re = new RegExp(`data-careersite-propertyid="${propId}"[^>]*>([\\s\\S]*?)(?=<\\/span>|<span)`, 'i');
-    const m = html.match(re);
-    return m ? normalizeSpace(stripHtml(m[1])) : '';
+  const readText = (attribute, expected) => {
+    for (const tag of matchingTags(attribute, expected)) {
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+      if (tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
   };
 
+  const readMeta = (expected) => {
+    const wanted = String(expected || '').trim().toLowerCase();
+    for (const tag of tags) {
+      if (tag.name !== 'meta') continue;
+      const property = readAttr(tag.raw, 'property').trim().toLowerCase();
+      const name = readAttr(tag.raw, 'name').trim().toLowerCase();
+      if (property !== wanted && name !== wanted) continue;
+      const content = readAttr(tag.raw, 'content');
+      if (content) return decodeEntities(normalizeSpace(content));
+    }
+    return '';
+  };
+
+  const readFirstTagText = (tagName) => {
+    const wanted = String(tagName || '').trim().toLowerCase();
+    for (const tag of tags) {
+      if (tag.name !== wanted || tag.selfClosing || VOID_HTML_TAGS.has(tag.name)) continue;
+      const value = decodeIstField(extractBalancedTagBlock(source.slice(tag.end), tag.name));
+      if (value) return value;
+    }
+    return '';
+  };
+
+  return { readHtml, readMeta, readText, readFirstTagText };
+}
+
+export function extractIstMicrodata(html = '') {
+  const reader = createIstHtmlFieldReader(html);
+  const get = (prop) => reader.readText('itemprop', prop);
+  const getPropertyId = (propId) => reader.readText('data-careersite-propertyid', propId);
+  const getPropertyHtml = (propId) => reader.readHtml('data-careersite-propertyid', propId);
+
+  const structuredTitle = get('title') || getPropertyId('title');
+  const title = stripIstPortalTitleSuffix(
+    structuredTitle
+      || reader.readMeta('og:title')
+      || reader.readFirstTagText('title')
+      || reader.readFirstTagText('h1'),
+  );
+
+  const streetAddress = get('streetAddress');
+  const locality = get('addressLocality') || getPropertyId('city');
+  const region = get('addressRegion') || getPropertyId('region');
+  const country = get('addressCountry') || getPropertyId('country');
+  const location = streetAddress
+    || getPropertyId('location')
+    || [locality, region, country].filter(Boolean).join(', ');
+
+  const descriptionHtml = getPropertyHtml('description') || reader.readHtml('itemprop', 'description');
+  const description = descriptionHtml
+    ? decodeEntities(stripHtml(descriptionHtml))
+    : getPropertyId('description') || get('description');
+
   return {
-    title: get('title') || getPropertyId('title'),
-    location: get('streetAddress') || getPropertyId('location'),
+    title,
+    location,
     datePosted: get('datePosted'),
     hiringOrganization: get('hiringOrganization'),
     company: get('company') || getPropertyId('company') || getPropertyId('employer'),
     tenant: get('tenant') || getPropertyId('tenant') || getPropertyId('tenantName'),
     facility: get('facility') || get('schoolName') || getPropertyId('facility'),
-    description: getPropertyId('description'),
+    description,
   };
 }
 
@@ -379,19 +472,7 @@ async function fetchJobDetail(url) {
   const html = await fetchHtml(url);
   if (!html) return null;
 
-  const data = extractMicrodata(html);
-
-  // Extract the full description from the description block. The block is
-  // heavily nested (`<span data-careersite-propertyid="description">` wraps
-  // an inner `<span class="jobdescription">` with many nested `<p>`/`<span>`
-  // paragraphs), so a naive non-greedy `[\s\S]*?</span>` regex stops at the
-  // FIRST inner close tag and truncates to a short generic intro instead of
-  // the real job-specific content — use the shared balanced-tag walker.
-  const descLoc = locateTagByAttribute(html, 'data-careersite-propertyid="description"', { skipVoidTags: true });
-  if (descLoc) {
-    const descBlock = extractBalancedTagBlock(descLoc.rest, descLoc.tagName);
-    if (descBlock) data.description = stripHtml(descBlock);
-  }
+  const data = extractIstMicrodata(html);
 
   // Historic generic `/job/<city>-<role>/<id>/` URLs can omit the tenant
   // marker while the detail body still contains the official hiring sentence.

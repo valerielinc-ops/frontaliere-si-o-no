@@ -21,6 +21,170 @@ import { imageObjectLd, SITE_ORGANIZATION_ID } from './imageObjectLd';
 export const ORGANIZATION_ID = SITE_ORGANIZATION_ID;
 
 const SITE = 'https://frontaliereticino.ch';
+export const SITE_URL = `${SITE}/`;
+
+const SITE_ORGANIZATION_NAME = 'Frontaliere Ticino';
+const ORGANIZATION_ID_PREFIX = `${SITE}/#organization-`;
+
+/**
+ * Return a URL-safe, deterministic key for an organization name.
+ *
+ * Name-only organizations are common in nested ImageObject and ItemList
+ * nodes. Their exact display name is the only fact shared by those nodes, so
+ * keeping the key derived from that name makes the identity stable across
+ * locales and builds without inventing a page URL for the external entity.
+ */
+function organizationNameHash(name: string): string {
+  // Two independent 32-bit lanes provide a compact 64-bit suffix without
+  // requiring a platform crypto API. The caller passes the complete canonical
+  // name, so two names with the same readable slug or the same readable
+  // prefix cannot share the fallback identity.
+  let first = 0x811c9dc5;
+  let second = 0x9e3779b9;
+  for (let index = 0; index < name.length; index += 1) {
+    const code = name.charCodeAt(index);
+    first = Math.imul(first ^ code, 0x01000193);
+    second = Math.imul(second ^ (code + index), 0x85ebca6b);
+  }
+  return `${(first >>> 0).toString(16).padStart(8, '0')}${(second >>> 0).toString(16).padStart(8, '0')}`;
+}
+
+/**
+ * The form of a name that decides its identity: Unicode-composed, with outer
+ * and repeated whitespace removed, and without letter case. Two names that
+ * differ only in those respects are one name written twice; any other
+ * difference (an accent, punctuation, `&` against `and`) is a different name.
+ */
+function canonicalOrganizationName(name: string): string {
+  return name.normalize('NFC').trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function organizationNameKey(name: string): string {
+  const normalized = name
+    .normalize('NFKD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!normalized) return '';
+  const readable = normalized.slice(0, 96).replace(/-+$/g, '');
+  // The slug only keeps the fragment legible. It is lossy on purpose (accents,
+  // punctuation and `&` all fold), so on its own it would hand one identity to
+  // different names: "A & B" and "A and B", "Müller AG" and "Muller AG". The
+  // hash of the canonical name is what makes the fallback an identity, at
+  // every length and not only past the readable limit.
+  return `${readable}-${organizationNameHash(canonicalOrganizationName(name))}`;
+}
+
+function httpUrl(value: unknown): string | undefined {
+  if (typeof value !== 'string' || !value.trim()) return undefined;
+  try {
+    const parsed = new URL(value.trim());
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return undefined;
+    return parsed.href;
+  } catch {
+    return undefined;
+  }
+}
+
+function firstSameAsUrl(value: unknown): string | undefined {
+  const candidates = Array.isArray(value) ? value : [value];
+  return candidates.map(httpUrl).find((candidate): candidate is string => Boolean(candidate));
+}
+
+export interface OrganizationIdentityInput {
+  '@id'?: unknown;
+  name?: unknown;
+  url?: unknown;
+  sameAs?: unknown;
+  '@type'?: unknown;
+}
+
+/**
+ * Resolve the stable identifier for a JSON-LD Organization node.
+ *
+ * Explicit IDs always win, except for the site's own stale IDs when a
+ * first-party URL proves the canonical `#organization` identity. Official URLs
+ * are the next strongest identity. A deterministic site-scoped fragment is the
+ * fallback for named, name-only organizations that recur in nested schema.
+ * The site name without a URL is deliberately left anonymous: a same-name
+ * newsroom supplied by an external source must not be merged into the site.
+ */
+export function stableOrganizationId(record: OrganizationIdentityInput): string | undefined {
+  const name = typeof record.name === 'string' ? record.name.trim() : '';
+  const url = httpUrl(record.url);
+  const siteOwnedUrl = Boolean(url && url.startsWith(SITE_URL));
+
+  // Locale paths and other first-party pages still identify the one site
+  // publisher; do not mint a different graph node for each translated URL.
+  if (name === SITE_ORGANIZATION_NAME && siteOwnedUrl) return ORGANIZATION_ID;
+
+  if (typeof record['@id'] === 'string' && record['@id'].trim()) {
+    return record['@id'].trim();
+  }
+  if (url) return url;
+
+  const sameAsUrl = firstSameAsUrl(record.sameAs);
+  if (sameAsUrl) return sameAsUrl;
+
+  // Unknown-author is a placeholder, not an entity that a crawler can merge.
+  if (!name || name.toLowerCase() === 'unknown author') return undefined;
+  if (name === SITE_ORGANIZATION_NAME) return undefined;
+
+  const key = organizationNameKey(name);
+  return key ? `${ORGANIZATION_ID_PREFIX}${key}` : undefined;
+}
+
+function isOrganizationRecord(record: Record<string, unknown>): boolean {
+  const type = record['@type'];
+  return type === 'Organization'
+    || (Array.isArray(type) && type.includes('Organization'));
+}
+
+/**
+ * Add stable IDs to Organization nodes in a JSON-LD value without mutating
+ * the caller's object. This focused pass is safe for the shared JSON script
+ * serializer, including article-engine emitters that cannot import the site's
+ * larger schema normalizer because of the package boundary.
+ */
+export function normalizeOrganizationIdentities<T>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeOrganizationIdentities(item)) as T;
+  }
+  if (!value || typeof value !== 'object') return value;
+
+  const cloned: Record<string, unknown> = {};
+  for (const [key, nested] of Object.entries(value as Record<string, unknown>)) {
+    cloned[key] = normalizeOrganizationIdentities(nested);
+  }
+  if (isOrganizationRecord(cloned) && !stableOrganizationId(cloned)) {
+    // `stableOrganizationId` returns the explicit ID for identified nodes, so
+    // this branch only handles empty/invalid records and keeps them as-is.
+    return cloned as T;
+  }
+  if (isOrganizationRecord(cloned)) {
+    const id = stableOrganizationId(cloned);
+    if (id) cloned['@id'] = id;
+  }
+  return cloned as T;
+}
+
+/** Stable graph identity for the site-level WebSite entity. */
+export const WEBSITE_ID = `${SITE}/#website`;
+
+/**
+ * Stable identity for the editorial team named in article bylines.
+ *
+ * The team is an authoring organization, while `#organization` identifies
+ * the Frontaliere Ticino publisher. Reusing the publisher id for both makes
+ * a graph merge two different names and URLs into one entity.
+ */
+export const EDITORIAL_TEAM_ID = `${SITE}/chi-siamo/#team`;
+
+/** Stable source identity for the Ticino customs webcam attribution. */
+export const TICINO_CUSTOMS_DEPARTMENT_ID = 'https://www.ti.ch/webcam';
+export const TICINO_CUSTOMS_DEPARTMENT_NAME = 'Dipartimento del territorio – Canton Ticino';
 
 /**
  * Profiles that anchor this entity to the same real-world organization

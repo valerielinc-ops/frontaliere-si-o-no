@@ -118,6 +118,29 @@ describe('seo-static.css', () => {
     });
     expect(mobileCardsRule?.toString()).toContain('grid-template-columns:1fr');
   });
+
+  it('keeps homepage discovery links at a comfortable mobile touch size', () => {
+    const css = fs.readFileSync(CSS_PATH, 'utf8');
+    const root = postcss.parse(css, { from: CSS_PATH });
+    const targetSelectors = [
+      '.hp-language-option',
+      '.hp-discovery-pill',
+      '.hp-canton-link',
+      '.hp-cross-hub-link',
+    ];
+
+    for (const selector of targetSelectors) {
+      let minHeight: string | undefined;
+      root.walkRules((candidate) => {
+        if (!candidate.selectors.includes(selector)) return;
+        candidate.walkDecls('min-height', (declaration) => {
+          minHeight = declaration.value;
+        });
+      });
+
+      expect(minHeight, `${selector} needs a 44px minimum touch target`).toBe('44px');
+    }
+  });
 });
 
 // Cascade-source guard (inverted by the visible-pre-hydration contract).

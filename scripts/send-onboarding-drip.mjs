@@ -50,6 +50,7 @@ import {
 } from './lib/send-schedule.mjs';
 import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -78,16 +79,9 @@ const TEST_STEP = Math.max(0, Math.min(DRIP_STEP_COUNT - 1, Number(opt('test-ste
 let db;
 let adminSdk;
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { FieldValue, getFirestore, Timestamp } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
+  const { FieldValue, Timestamp } = await import('firebase-admin/firestore');
   adminSdk = { firestore: { FieldValue, Timestamp } };
-  db = getFirestore();
+  db = await getFirestoreDb();
 }
 
 function toDate(v) {

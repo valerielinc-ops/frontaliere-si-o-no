@@ -17,11 +17,13 @@ insiste mai dopo un errore.
    `scripts/post-to-tiktok.mjs`, workflow `*-daily-broadcast.yml`) scelgono il
    carosello, generano le slide, le caricano sulla CDN e, quando il robot è il
    trasporto, mettono il post pronto in `data/<canale>-queue.json` su `main`
-   (`scripts/lib/social-publish-queue.mjs`). È la stessa scelta, la stessa
-   deduplica e lo stesso ledger della pipeline API: il robot non decide cosa
-   pubblicare.
-2. Il robot (`run.mjs`) legge la coda da `origin/main`, scarica le slide dalla
-   CDN e le pubblica dalla pagina web della piattaforma.
+   (`scripts/lib/social-publish-queue.mjs`). Per TikTok la voce in coda porta
+   anche un MP4 fatto dalle stesse slide, perché l'upload web accetta solo
+   video. È la stessa scelta, la stessa deduplica e lo stesso ledger della
+   pipeline API: il robot non decide cosa pubblicare.
+2. Il robot (`run.mjs`) legge la coda da `origin/main`, scarica le slide
+   Instagram o l'MP4 TikTok verificato dalla CDN e li pubblica dalla pagina
+   web della piattaforma.
 3. Solo dopo aver **visto la conferma** della piattaforma nella pagina,
    lancia `social-robot-confirm.yml`, che sposta il post dalla coda al ledger
    `data/<canale>-posted.json`. Un clic senza conferma visibile — o seguito da

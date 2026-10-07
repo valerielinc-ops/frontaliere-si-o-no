@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 /**
  * Deterministic post-model marker admission.
@@ -12,7 +13,6 @@
  * finding-bearing/stale review.
  */
 import { readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import {
   normalizeReviewInputRevision,
   reviewHasInputRevision,
@@ -185,7 +185,7 @@ export function markerCli(argv = process.argv, stdinText = '') {
 }
 
 const isDirectRun = (() => {
-  try { return import.meta.url === pathToFileURL(process.argv[1]).href; } catch { return false; }
+  try { return isInvokedDirectly(import.meta.url); } catch { return false; }
 })();
 
 if (isDirectRun) process.exitCode = markerCli(process.argv, readFileSync(0, 'utf8'));

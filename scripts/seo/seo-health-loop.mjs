@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * seo-health-loop.mjs — one closed-loop check for the five SEO workstreams.
  *
@@ -26,7 +27,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import {
   SITE_ORIGIN,
   SITE_HOST,
@@ -1066,7 +1067,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const invokedDirectly = isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((error) => {
     console.error(`[seo-health-loop] fatal: ${safeError(error)}`);

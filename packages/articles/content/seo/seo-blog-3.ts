@@ -359,13 +359,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Cure a domicilio in Ticino: le nuove | Frontaliere Ticino',
  description: 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, nuove, norme',
- ogTitle: 'Cure a domicilio in Ticino: le nuove norme e le sfide pol',
+ ogTitle: 'Cure a domicilio in Ticino: le nuove norme e le sfide',
  ogDescription: 'Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l\'introduzione di nuove misure legislative.',
  canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino-politica/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Cure a domicilio in Ticino: le nuove norme e le sfide pol",
+ "headline": "Cure a domicilio in Ticino: le nuove norme e le sfide politiche",
  "description": "Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l'introduzione di nuove misure legislative. Dati aggiornati 2026 per",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cure-domicilio-ticino-politica.webp`,
@@ -417,13 +417,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Firmata la nascita del Parco del Vedeggio: il futuro verde',
  description: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, firmata, nascita, parco, vedeggio',
- ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verd',
+ ogTitle: 'Firmata la nascita del Parco del Vedeggio: il futuro verde',
  ogDescription: 'Cinque comuni del Ticino siglano l\'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista.',
  canonicalPath: '/articoli-frontaliere/parco-vedeggio-comuni-firman/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Firmata la nascita del Parco del Vedeggio: il futuro verd",
+ "headline": "Firmata la nascita del Parco del Vedeggio: il futuro verde del Ticino",
  "description": "Cinque comuni del Ticino siglano l'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/parco-vedeggio-comuni-firman.webp`,
@@ -446,13 +446,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Ticino sospende esportazioni di materiale bellico',
  description: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
  keywords: 'frontalieri, ticino, svizzera, italia, sospende, esportazioni, materiale, bellico',
- ogTitle: 'Ticino sospende esportazioni di materiale bellico verso g',
+ ogTitle: 'Ticino sospende esportazioni di materiale bellico verso gli',
  ogDescription: 'Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten',
  canonicalPath: '/articoli-frontaliere/stop-export-materiale-bellico/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Ticino sospende esportazioni di materiale bellico verso g",
+ "headline": "Ticino sospende esportazioni di materiale bellico verso gli USA",
  "description": "Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/stop-export-materiale-bellico.webp`,
@@ -481,7 +481,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Scontri violenti tra uomini nel Ticino: ospedalizzazioni",
+ "headline": "Scontri violenti tra uomini nel Ticino: ospedalizzazioni e tensioni",
  "description": "Due uomini coinvolti in un'escalation di violenza nel Mendrisiotto sono finiti in ospedale. La vicenda riaccende il dibattito sulla sicurezza e sugli incidenti",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/gestione-scontri-frontali-ticino.webp`,
@@ -533,13 +533,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Rischio-Lugano in casa dello Young | Frontaliere Ticino',
  description: 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
  keywords: 'frontalieri, ticino, svizzera, italia, rischio-lugano, casa, dello, young',
- ogTitle: 'Rischio-Lugano in casa dello Young Boys: una sfida decisi',
+ ogTitle: 'Rischio-Lugano in casa dello Young Boys: una sfida decisiva',
  ogDescription: 'Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.',
  canonicalPath: '/articoli-frontaliere/rischio-lugano-young-boys/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Rischio-Lugano in casa dello Young Boys: una sfida decisi",
+ "headline": "Rischio-Lugano in casa dello Young Boys: una sfida decisiva",
  "description": "Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/rischio-lugano-young-boys.webp`,
@@ -884,13 +884,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Sequestro record di cannabis in Argovia: rischi',
  description: 'Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, sequestro, record, cannabis, argovia',
- ogTitle: 'Sequestro record di cannabis in Argovia: rischi per i fro',
+ ogTitle: 'Sequestro record di cannabis in Argovia: rischi',
  ogDescription: 'Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine',
  canonicalPath: '/articoli-frontaliere/cannabis-sequestro-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Sequestro record di cannabis in Argovia: rischi per i fro",
+ "headline": "Sequestro record di cannabis in Argovia: rischi per i frontalieri",
  "description": "Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine. Dati aggiornati",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/cannabis-sequestro-ticino.webp`,
@@ -942,13 +942,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Riapre la Casetta a Davesco-Soragno | Frontaliere Ticino',
  description: 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino',
  keywords: 'frontalieri, ticino, svizzera, italia, riapre, casetta, davesco-soragno, punto',
- ogTitle: 'Riapre la Casetta a Davesco-Soragno: punto di ristoro nel',
+ ogTitle: 'Riapre la Casetta a Davesco-Soragno: punto di ristoro',
  ogDescription: 'Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino',
  canonicalPath: '/articoli-frontaliere/riapertura-casetta-chiosco-davesco/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Riapre la Casetta a Davesco-Soragno: punto di ristoro nel",
+ "headline": "Riapre la Casetta a Davesco-Soragno: punto di ristoro nel cuore del percorso ciclopedonale",
  "description": "Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/riapertura-casetta-chiosco-davesco.webp`,
@@ -1000,13 +1000,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Domeniche senza auto in Svizzera: il Ticino verso una nuova',
  description: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati',
  keywords: 'frontalieri, ticino, svizzera, italia, domeniche, senza, auto, verso',
- ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuo',
+ ogTitle: 'Domeniche senza auto in Svizzera: il Ticino verso una nuova',
  ogDescription: 'Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri.',
  canonicalPath: '/articoli-frontaliere/domeniche-senza-auto-ticino-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Domeniche senza auto in Svizzera: il Ticino verso una nuo",
+ "headline": "Domeniche senza auto in Svizzera: il Ticino verso una nuova mobilità?",
  "description": "Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/domeniche-senza-auto-ticino-2026.webp`,
@@ -1411,13 +1411,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Referendum sulla giustizia in Italia | Frontaliere Ticino',
  description: 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su',
  keywords: 'frontalieri, ticino, svizzera, italia, referendum, sulla, giustizia, posizione',
- ogTitle: 'Referendum sulla giustizia in Italia: la posizione di Sal',
+ ogTitle: 'Referendum sulla giustizia in Italia: la posizione',
  ogDescription: 'Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su',
  canonicalPath: '/articoli-frontaliere/giustizia-referendum-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Referendum sulla giustizia in Italia: la posizione di Sal",
+ "headline": "Referendum sulla giustizia in Italia: la posizione di Salvini e il quadro in Ticino",
  "description": "Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/giustizia-referendum-ticino.webp`,
@@ -1469,13 +1469,13 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  title: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40%',
  description: 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del',
  keywords: 'frontalieri, ticino, svizzera, italia, como, rapinese, prezzi, dell',
- ogTitle: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40% a',
+ ogTitle: 'Como, Rapinese: prezzi dell\'asfalto in aumento del 40%',
  ogDescription: 'Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull\'uso del piano da 5 milioni per le asfaltature, con i costi saliti del',
  canonicalPath: '/articoli-frontaliere/como-asfaltature-war-costs/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Como, Rapinese: prezzi dell'asfalto in aumento del 40% a",
+ "headline": "Como, Rapinese: prezzi dell'asfalto in aumento del 40% a causa della guerra",
  "description": "Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull'uso del piano da 5 milioni per le asfaltature, con i costi saliti del",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/como-asfaltature-war-costs.webp`,
@@ -1650,7 +1650,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Annaffiatoi e aiuole, il centro si cura insieme: a Lavena",
+ "headline": "Annaffiatoi e aiuole, il centro si cura insieme: a Lavena Pontre Tresa l’idea ‘verde’ che coinvolge i negozi",
  "description": "A Lavena Ponte Tresa, il centro si cura insieme con l'aiuto dei negozi. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-verde.webp`,
@@ -1796,7 +1796,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Colpo di stiletto / \"Eurospin\" di Luino, occhio al cambio",
+ "headline": "Colpo di stiletto / \"Eurospin\" di Luino, occhio al cambio… burbantino",
  "description": "Tassi di cambio instabili e mercato finanziario in agitazione. Il \"Eurospin\" di Luino, un nuovo strumento per gestire i rischi del cambio. Dati aggiornati 2026",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/eurospin-luino-occhio-al-cambio.webp`,

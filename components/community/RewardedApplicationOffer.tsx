@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { ExternalLink, Loader2, RefreshCw, ShieldCheck } from 'lucide-react';
 import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
 import AssistedApplicationOffer from '@/components/community/AssistedApplicationOffer';
+import { useApplicationOfferAdClearance } from '@/components/community/useApplicationOfferAdClearance';
 import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
@@ -25,6 +26,7 @@ import {
   type OfferwallGateStatus,
   type OfferwallReleaseResult,
 } from '@/services/offerwallClickGate';
+import { reportOfferwallGateAbsent } from '@/services/offerwallGateDiag';
 import {
   markOfferwallResume,
   offerwallConsentState,
@@ -380,6 +382,8 @@ export default function RewardedApplicationOffer({
   const loadingRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const dismissFromBackdrop = useApplicationOfferBackdropDismiss(onDismiss);
+  // The hand-off card's buttons stay clear of Google's anchor ad.
+  const adClearance = useApplicationOfferAdClearance();
 
   // Shared shape of every rewarded event of this offer: the job context, the
   // ad inventory, and the Google request id that joins it to the
@@ -658,6 +662,14 @@ export default function RewardedApplicationOffer({
       ...offerwallContext(),
       reason: notShownReason(decision),
     });
+    // Funding Choices never reached the gate: say how far it got, now and a
+    // little later (the context is taken now, the offer may be gone by then).
+    if (decision.status === 'absent') {
+      const context = offerwallContext();
+      reportOfferwallGateAbsent((eventName, params) => {
+        trackAssistedApplicationEvent(eventName, { ...context, ...params });
+      });
+    }
   };
 
   // Reload once to resume this click where only a fresh page load can hold
@@ -1101,7 +1113,9 @@ export default function RewardedApplicationOffer({
   // Under Google's consent message too: its own dialog covers the page.
   const showLoading = phase !== 'gpt_ready' && phase !== 'gpt_retry' && phase !== 'handoff';
 
-  const cardClass = 'w-full max-w-sm space-y-4 rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
+  // Scrollable, so a long card stays inside the room left above Google's anchor
+  // ad (adClearance.cardStyle) instead of running under it.
+  const cardClass = 'max-h-[calc(100dvh_-_2rem_-_var(--offer-ad-inset,0px))] w-full max-w-sm space-y-4 overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg focus:outline-none';
   const primaryButtonClass = 'inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-stripe bg-accent px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
   const secondaryButtonClass = 'inline-flex min-h-[44px] w-full items-center justify-center rounded-stripe px-4 py-2 text-sm font-semibold text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2';
 
@@ -1109,6 +1123,7 @@ export default function RewardedApplicationOffer({
     <div
       className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-center justify-center bg-black/55 px-4 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm"
       onClick={handleBackdropClick}
+      style={adClearance.overlayStyle}
       data-testid="rewarded-application-offer"
     >
       {showLoading && (
@@ -1136,6 +1151,7 @@ export default function RewardedApplicationOffer({
           aria-modal="true"
           aria-labelledby="rewarded-application-offer-title"
           className={phase === 'gpt_ready' ? cardClass : 'hidden'}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-opt-in"
         >
           <div>
@@ -1180,6 +1196,7 @@ export default function RewardedApplicationOffer({
           aria-modal="true"
           aria-labelledby="rewarded-application-offer-retry-title"
           className={cardClass}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-retry"
         >
           <p id="rewarded-application-offer-retry-title" className="text-sm leading-relaxed text-body">
@@ -1213,6 +1230,7 @@ export default function RewardedApplicationOffer({
           aria-labelledby="rewarded-application-handoff-title"
           aria-describedby="rewarded-application-handoff-text"
           className={cardClass}
+          style={adClearance.cardStyle}
           data-testid="rewarded-application-handoff"
         >
           <div>

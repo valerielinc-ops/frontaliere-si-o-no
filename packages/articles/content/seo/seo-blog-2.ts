@@ -45,7 +45,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Incidente mortale a Porlezza",
+ "headline": "Incidente mortale a Porlezza: muore un frontaliere",
  "description": "Sabato tragico a Porlezza: un frontaliere 19enne perde la vita in uno scontro auto-scooter. Implicazioni per la sicurezza stradale. Dati aggiornati 2026 per",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/incidente-mortale-frontaliere.webp`,
@@ -393,7 +393,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Educatori in Germania: stipendi fino a 3mila euro, un'alternativa per i",
+ "headline": "Educatori in Germania: stipendi fino a 3mila euro, un'alternativa per i frontalieri?",
  "description": "Scopri le opportunità per educatori in Germania con stipendi fino a 3.000 euro, un'alternativa per i giovani della fascia di confine italiana che solitamente",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lavoro-educatori-germania-alternativa.webp`,
@@ -964,16 +964,16 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  },
 
  'blog-iniziativa-anti-dumping-voto': {
- title: 'Ticino al voto sull\'iniziativa | Frontaliere Ticino',
+ title: 'Voto anti-dumping in Ticino: proposta e impatto',
  description: 'L\'8 marzo 2026 il Ticino vota sull\'iniziativa anti-dumping salariale. Scopri cosa prevede, l\'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano',
  keywords: 'frontalieri, ticino, svizzera, italia, voto, sull, iniziativa, anti-dumping',
- ogTitle: 'Voto cruciale in Ticino: l\'iniziativa anti-dumping salariale',
+ ogTitle: 'Voto anti-dumping in Ticino: proposta e impatto',
  ogDescription: 'L\'8 marzo 2026 il Ticino vota per blindare i salari. Un\'analisi completa dell\'iniziativa anti-dumping e del suo impatto sui frontalieri e l\'economia cantonale.',
  canonicalPath: '/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iniziativa anti-dumping salariale in Ticino al voto",
+ "headline": "Voto anti-dumping in Ticino: proposta e impatto",
  "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping salariale. Scopri cosa prevede, l'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/iniziativa-anti-dumping-voto.webp`,
@@ -1837,13 +1837,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Nessun prelievo AVS sulle mance: una svolta per i lavoratori',
  description: 'Scopri come l\'esenzione delle mance dai contributi sociali impatta i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, nessun, prelievo, sulle, mance',
- ogTitle: 'Nessun prelievo AVS sulle mance',
+ ogTitle: 'Nessun prelievo AVS sulle mance: una svolta per i lavoratori',
  ogDescription: 'Il Consiglio degli Stati approva l\'esenzione delle mance dai contributi sociali, una buona notizia per i lavoratori.',
  canonicalPath: '/articoli-frontaliere/nessun-prelievo-avs-sulle-mance/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Nessun prelievo AVS sulle mance",
+ "headline": "Nessun prelievo AVS sulle mance: una svolta per i lavoratori",
  "description": "Scopri come l'esenzione delle mance dai contributi sociali impatta i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/nessun-prelievo-avs-sulle-mance.webp`,
@@ -1930,7 +1930,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Ticino: Docenti frontalieri senza valido permesso di lavoro? Il Governo",
+ "headline": "Ticino: Docenti frontalieri senza valido permesso di lavoro? Il Governo risponde",
  "description": "Il Governo del Ticino chiarisce la situazione riguardo ai permessi di lavoro per docenti frontalieri. Scopri di più. Dati aggiornati 2026 per frontalieri in",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/docenti-frontalieri-permesso-lavoro.webp`,
@@ -2447,7 +2447,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Incidente sul Viadotto Brogeda | Frontaliere Ticino',
  description: 'Incidente sul viadotto Brogeda provoca feriti e blocco del traffico. Scopri le ultime notizie su Como. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, incidente, viadotto, brogeda, traffico',
- ogTitle: 'Incidente sul Viadotto Brogeda',
+ ogTitle: 'Incidente sul Viadotto Brogeda: Traffico Bloccato',
  ogDescription: 'Un grave incidente sul viadotto Brogeda all\'uscita dell\'autostrada Como con ripercussioni sul traffico.',
  canonicalPath: '/articoli-frontaliere/incidente-viadotto-brogeda-como/',
  structuredData: {
@@ -2540,7 +2540,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Imposizione individuale: approvata una rivoluzione fiscale",
+ "headline": "Imposizione individuale: approvata una rivoluzione fiscale in Ticino",
  "description": "Scopri la rivoluzione fiscale approvata in Ticino: imposizione individuale per i coniugi e impatti sui frontalieri. Dati aggiornati 2026 per frontalieri in",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/imposizione-individuale-rivoluzione-fiscale.webp`,
@@ -2563,13 +2563,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Votazioni federali: Sì alla tassazione | Frontaliere Ticino',
  description: 'Le recenti votazioni federali confermano l\'approvazione della tassazione individuale e respingono diverse iniziative. Dati aggiornati 2026 per frontalieri in',
  keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, alla, tassazione',
- ogTitle: 'Votazioni federali: Sì alla tassazione individuale in Tic',
+ ogTitle: 'Votazioni federali: Sì alla tassazione individuale in Ticino',
  ogDescription: 'Le recenti votazioni federali confermano l\'approvazione della tassazione individuale e respingono diverse iniziative.',
  canonicalPath: '/articoli-frontaliere/votazioni-federali-tassazione-individuale/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Votazioni federali: Sì alla tassazione individuale in Tic",
+ "headline": "Votazioni federali: Sì alla tassazione individuale in Ticino",
  "description": "Le recenti votazioni federali confermano l'approvazione della tassazione individuale e respingono diverse iniziative. Dati aggiornati 2026 per frontalieri in",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/votazioni-federali-tassazione-individuale.webp`,
@@ -2592,13 +2592,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Frontalieri negli atenei ticinesi: il caso delle università',
  description: 'Il sistema universitario ticinese è in crisi. Un rapporto di minoranza minaccia l\'approvazione dei contratti con USI e SUPSI. Dati aggiornati 2026 per',
  keywords: 'frontalieri, ticino, svizzera, italia, negli, atenei, ticinesi, caso',
- ogTitle: 'Frontalieri negli atenei ticinesi',
+ ogTitle: 'Frontalieri negli atenei ticinesi: il caso delle università',
  ogDescription: 'Il sistema universitario ticinese è in crisi. Un rapporto di minoranza minaccia l\'approvazione dei contratti con USI e SUPSI.',
  canonicalPath: '/articoli-frontaliere/universita-ticino-frontalieri/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Frontalieri negli atenei ticinesi: il caso delle università",
+ "headline": "Frontalieri negli atenei ticinesi: il caso delle università 'italianizzate'",
  "description": "Il sistema universitario ticinese è in crisi. Un rapporto di minoranza minaccia l'approvazione dei contratti con USI e SUPSI. Dati aggiornati 2026 per",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/universita-ticino-frontalieri.webp`,
@@ -2853,13 +2853,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Governo Ticino: sospensione immediata | Frontaliere Ticino',
  description: 'Il Parlamento cantonale chiede al Governo di sospendere subito il pagamento da parte degli utenti per le cure domiciliari. La mozione innesca un acceso dibattit',
  keywords: 'frontalieri, ticino, svizzera, italia, governo, sospensione, immediata, partecipazione',
- ogTitle: 'Governo Ticino: sospensione immediata della partecipazion',
+ ogTitle: 'Governo Ticino: sospensione immediata della partecipazione',
  ogDescription: 'Il Parlamento cantonale chiede al Governo di sospendere subito il pagamento da parte degli utenti per le cure domiciliari. La mozione innesca un acceso dibattit',
  canonicalPath: '/articoli-frontaliere/sospensione-costi-utenti-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Governo Ticino: sospensione immediata della partecipazion",
+ "headline": "Governo Ticino: sospensione immediata della partecipazione ai costi",
  "description": "Il Parlamento cantonale chiede al Governo di sospendere subito il pagamento da parte degli utenti per le cure domiciliari. La mozione innesca un acceso dibattit",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sospensione-costi-utenti-ticino.webp`,
@@ -2940,13 +2940,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Iniziative cassa malati, Gestione | Frontaliere Ticino',
  description: 'La commissione della Gestione chiede un parere legale sul potere del Consiglio di Stato di legare l\'entrata in vigore delle iniziative a coperture finanziarie,',
  keywords: 'frontalieri, ticino, svizzera, italia, iniziative, cassa, malati, gestione',
- ogTitle: 'Iniziative cassa malati, Gestione interpella un costituzi',
+ ogTitle: 'Iniziative cassa malati, Gestione interpella',
  ogDescription: 'La commissione della Gestione chiede un parere legale sul potere del Consiglio di Stato di legare l\'entrata in vigore delle iniziative a coperture finanziarie,',
  canonicalPath: '/articoli-frontaliere/iniziative-cassa-malati-costituzionalista-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iniziative cassa malati, Gestione interpella un costituzi",
+ "headline": "Iniziative cassa malati, Gestione interpella un costituzionalista sul Ticino",
  "description": "La commissione della Gestione chiede un parere legale sul potere del Consiglio di Stato di legare l'entrata in vigore delle iniziative a coperture finanziarie,",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/iniziative-cassa-malati-costituzionalista-ticino.webp`,
@@ -3259,7 +3259,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Problemi in rotaia tra Bellinzona e Lugano: disagi',
  description: 'Ritardi e soppressioni dei treni tra Bellinzona e Lugano, cause e soluzioni per i pendolari. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, problemi, rotaia, bellinzona, lugano',
- ogTitle: 'Problemi in rotaia tra Bellinzona e Lugano',
+ ogTitle: 'Problemi in rotaia tra Bellinzona e Lugano: disagi',
  ogDescription: 'Disagi per i pendolari a causa di ritardi e soppressioni dei treni tra Bellinzona e Lugano.',
  canonicalPath: '/articoli-frontaliere/problemi-rotaia-bellinzona-lugano/',
  structuredData: {
@@ -3288,13 +3288,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Ticino e frontalieri: successo per il carpooling aziendale',
  description: 'Il progetto MomòRide, lanciato a Balerna, Chiasso e Novazzano, ha già registrato 100 utenti iscritti in un mese. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, successo, carpooling, aziendale, premi',
- ogTitle: 'Ticino e frontalieri: successo per il carpooling aziendal',
+ ogTitle: 'Ticino e frontalieri: successo per il carpooling aziendale',
  ogDescription: 'Il progetto MomòRide, lanciato a Balerna, Chiasso e Novazzano, ha già registrato 100 utenti iscritti in un mese.',
  canonicalPath: '/articoli-frontaliere/carpooling-aziendale-ticino/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Ticino e frontalieri: successo per il carpooling aziendal",
+ "headline": "Ticino e frontalieri: successo per il carpooling aziendale con premi fino a 500 franchi",
  "description": "Il progetto MomòRide, lanciato a Balerna, Chiasso e Novazzano, ha già registrato 100 utenti iscritti in un mese. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/carpooling-aziendale-ticino.webp`,
@@ -3462,7 +3462,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Confine tesissimo: stop agli assegni | Frontaliere Ticino',
  description: 'La tensione tra Canton Ticino e Italia si intensifica con la minaccia di sospendere gli assegni familiari ai frontalieri. La mozione di Quadri mira a garantire',
  keywords: 'frontalieri, ticino, svizzera, italia, confine, tesissimo, stop, agli',
- ogTitle: 'Confine tesissimo: stop agli assegni familiari ai',
+ ogTitle: 'Confine tesissimo: stop agli assegni familiari',
  ogDescription: 'La tensione tra Canton Ticino e Italia si intensifica con la minaccia di sospendere gli assegni familiari ai frontalieri. La mozione di Quadri mira a garantire',
  canonicalPath: '/articoli-frontaliere/confine-tesissimo-assegni-familiari/',
  structuredData: {
@@ -3549,13 +3549,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Chiasso: il Tribunale Federale impone | Frontaliere Ticino',
  description: 'Il Tribunale Federale ha imposto al Comune di Chiasso di rivedere la variante di Piano Regolatore per le antenne di telefonia mobile. La sentenza evidenzia',
  keywords: 'frontalieri, ticino, svizzera, italia, chiasso, tribunale, federale, impone',
- ogTitle: 'Chiasso: il Tribunale Federale impone la riscrittura del',
+ ogTitle: 'Chiasso: il Tribunale Federale impone la riscrittura',
  ogDescription: 'Il Tribunale Federale ha imposto al Comune di Chiasso di rivedere la variante di Piano Regolatore per le antenne di telefonia mobile. La sentenza evidenzia',
  canonicalPath: '/articoli-frontaliere/chiasso-piano-regolatore-telefonia/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Chiasso: il Tribunale Federale impone la riscrittura del Piano",
+ "headline": "Chiasso: il Tribunale Federale impone la riscrittura del Piano Regolatore per la telefonia",
  "description": "Il Tribunale Federale ha imposto al Comune di Chiasso di rivedere la variante di Piano Regolatore per le antenne di telefonia mobile. La sentenza evidenzia",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/chiasso-piano-regolatore-telefonia.webp`,
@@ -3607,7 +3607,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Il paradosso del Ticino: 600 | Frontaliere Ticino',
  description: 'Il mercato del lavoro in Ticino è saturo e pieno di idiosincrasie. Scopri come risolvere questo paradosso e migliorare le tue prospettive di carriera.',
  keywords: 'frontalieri, ticino, svizzera, italia, paradosso, candidature, posti, lavoro',
- ogTitle: 'Il paradosso del Ticino: 600 candidature per 3 posti di',
+ ogTitle: 'Il paradosso del Ticino: 600 candidature per 3 posti',
  ogDescription: 'Il mercato del lavoro in Ticino è saturo e pieno di idiosincrasie. Scopri come risolvere questo paradosso e migliorare le tue prospettive di carriera.',
  canonicalPath: '/articoli-frontaliere/paradosso-ticino-lavoro/',
  structuredData: {
@@ -3759,7 +3759,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Le superfici di verde pubblico presenti a Chiasso sono sufficienti",
+ "headline": "Le superfici di verde pubblico presenti a Chiasso sono sufficienti, secondo il Municipio",
  "description": "Secondo l'articolo pubblicato su laRegione, il Municipio di Chiasso ha risposto all'interrogazione sottolineando che la superficie di verde pubblico è",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/chiasso-verde-sufficiente.webp`,
@@ -3788,7 +3788,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Comitati e associazioni intorno a Malpensa chiedono l'assemblea del CUV",
+ "headline": "Comitati e associazioni intorno a Malpensa chiedono l'assemblea del CUV per il 2026",
  "description": "I Comitati e le associazioni ambientaliste del territorio intorno a Malpensa chiedono la convocazione dell'assemblea del CUV per il 2026. Dati aggiornati 2026",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/comitati-malpensa-cuv-2026.webp`,
@@ -3811,7 +3811,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Borsa di Zurigo: sprazzi qua e là, ma l\'umor grigio resta',
  description: 'La borsa di Zurigo ha chiuso la settimana con sprazzi qua e là, ma l\'umor grigio resta e il mercato non va. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, borsa, zurigo, sprazzi, umor',
- ogTitle: 'Borsa di Zurigo: sprazzi qua e là, ma l\'umor grigio resta e',
+ ogTitle: 'Borsa di Zurigo: sprazzi qua e là, ma l\'umor grigio resta',
  ogDescription: 'La borsa di Zurigo ha chiuso la settimana con sprazzi qua e là, ma l\'umor grigio resta e il mercato non va.',
  canonicalPath: '/articoli-frontaliere/borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta/',
  structuredData: {
@@ -3840,13 +3840,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Iran, Tajani assicura: Nessuna | Frontaliere Ticino',
  description: 'Il ministro degli esteri Antonio Tajani ha confermato che l\'Italia non sta negoziando il passaggio di navi italiane nello Stretto di Hormuz, in un momento di te',
  keywords: 'frontalieri, ticino, svizzera, italia, iran, tajani, assicura, nessuna',
- ogTitle: 'Iran, Tajani assicura: Nessuna trattativa per passaggio n',
+ ogTitle: 'Iran, Tajani assicura: Nessuna trattativa per passaggio navi',
  ogDescription: 'Il ministro degli esteri Antonio Tajani ha confermato che l\'Italia non sta negoziando il passaggio di navi italiane nello Stretto di Hormuz, in un momento di te',
  canonicalPath: '/articoli-frontaliere/iran-tajani-non-tratta-navi/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Iran, Tajani assicura: Nessuna trattativa per passaggio n",
+ "headline": "Iran, Tajani assicura: Nessuna trattativa per passaggio navi italiane in Stretto Hormuz",
  "description": "Il ministro degli esteri Antonio Tajani ha confermato che l'Italia non sta negoziando il passaggio di navi italiane nello Stretto di Hormuz, in un momento di te",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/iran-tajani-non-tratta-navi.webp`,
@@ -3985,13 +3985,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Bilaterali III: il Parlamento chiamato | Frontaliere Ticino',
  description: 'Il Consiglio federale ha trasmesso al Parlamento il messaggio per gli accordi Bilaterali III con l’UE, fondamentali per il Canton Ticino e i frontalieri.',
  keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, parlamento, chiamato, decidere',
- ogTitle: 'Bilaterali III: il Parlamento chiamato a decidere, impatt',
+ ogTitle: 'Bilaterali III: il Parlamento chiamato a decidere, impatto',
  ogDescription: 'Il Consiglio federale ha trasmesso al Parlamento il messaggio per gli accordi Bilaterali III con l’UE, fondamentali per il Canton Ticino e i frontalieri.',
  canonicalPath: '/articoli-frontaliere/bilaterali-iii-ticino-parlamento-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Bilaterali III: il Parlamento chiamato a decidere, impatt",
+ "headline": "Bilaterali III: il Parlamento chiamato a decidere, impatto sul Ticino",
  "description": "Il Consiglio federale ha trasmesso al Parlamento il messaggio per gli accordi Bilaterali III con l’UE, fondamentali per il Canton Ticino e i frontalieri.",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/bilaterali-iii-ticino-parlamento-2026.webp`,
@@ -4130,7 +4130,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Addio ad Antonio Cannavale: il cordoglio della comunità',
  description: 'La scomparsa di Antonio Cannavale, amministratore comunale degli anni \'80 e \'postino gentile\' di Lavena Ponte Tresa, ha causato un profondo dolore nella',
  keywords: 'frontalieri, ticino, svizzera, italia, addio, antonio, cannavale, cordoglio',
- ogTitle: 'Addio ad Antonio Cannavale: il cordoglio della comunità di',
+ ogTitle: 'Addio ad Antonio Cannavale: il cordoglio della comunità',
  ogDescription: 'La scomparsa di Antonio Cannavale, amministratore comunale degli anni \'80 e \'postino gentile\' di Lavena Ponte Tresa, ha causato un profondo dolore nella',
  canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-addio-antonio-cannavale/',
  structuredData: {
@@ -4217,13 +4217,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Di più In Ticino il \'no\' all\'iniziativa | Frontaliere Ticino',
  description: 'Il Ticino ha respinto un\'innovativa proposta contro il dumping salariale, ma il dibattito continua. Dati aggiornati 2026 per frontalieri in Ticino.',
  keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, anti-dumping, chiude, dibattito',
- ogTitle: 'Di più In Ticino il \'no\' all\'iniziativa anti-dumping non',
+ ogTitle: 'Di più In Ticino il \'no\' all\'iniziativa anti-dumping',
  ogDescription: 'Il Ticino ha respinto un\'innovativa proposta contro il dumping salariale, ma il dibattito continua.',
  canonicalPath: '/articoli-frontaliere/ticino-no-anti-dumping/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Di più In Ticino il 'no' all'iniziativa anti-dumping non",
+ "headline": "Di più In Ticino il 'no' all'iniziativa anti-dumping non chiude il dibattito",
  "description": "Il Ticino ha respinto un'innovativa proposta contro il dumping salariale, ma il dibattito continua. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/ticino-no-anti-dumping.webp`,
@@ -4368,7 +4368,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Gli svizzeri contrari all'aumento dell'IVA per l'esercito",
+ "headline": "Gli svizzeri contrari all'aumento dell'IVA per l'esercito e la 13esima AVS",
  "description": "Secondo un sondaggio Tamedia, gli svizzeri sono contrari all'aumento dell'IVA per finanziare l'esercito e la 13esima AVS. Solo il 13% è favorevole.",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/sondaggio-tamedia-iva-esercito-avs.webp`,
@@ -4565,13 +4565,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Swissminiatur 2026: nasce la miniera | Frontaliere Ticino',
  description: 'Il parco di Melide inaugura la stagione con una novità assoluta: il tunnel centrale diventa una galleria mineraria immersiva dedicata alla storia dell\'oro del M',
  keywords: 'frontalieri, ticino, svizzera, italia, swissminiatur, nasce, miniera, sessa',
- ogTitle: 'Swissminiatur 2026: nasce la miniera d\'oro di Sessa a gra',
+ ogTitle: 'Swissminiatur 2026: nasce la miniera d\'oro di Sessa',
  ogDescription: 'Il parco di Melide inaugura la stagione con una novità assoluta: il tunnel centrale diventa una galleria mineraria immersiva dedicata alla storia dell\'oro del M',
  canonicalPath: '/articoli-frontaliere/swissminiatur-miniera-sessa-2026/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
- "headline": "Swissminiatur 2026: nasce la miniera d'oro di Sessa a gra",
+ "headline": "Swissminiatur 2026: nasce la miniera d'oro di Sessa a grandezza reale",
  "description": "Il parco di Melide inaugura la stagione con una novità assoluta: il tunnel centrale diventa una galleria mineraria immersiva dedicata alla storia dell'oro del M",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/swissminiatur-miniera-sessa-2026.webp`,
@@ -4803,7 +4803,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
  title: 'Caro-carburante in Ticino: Quadri | Frontaliere Ticino',
  description: 'Benzina a 3 franchi al litro, pressione fiscale elevata e guerra in Medio Oriente: il consigliere nazionale della Lega chiede intervento immediato della',
  keywords: 'frontalieri, ticino, svizzera, italia, caro-carburante, quadri, chiede, taglio',
- ogTitle: 'Caro-carburante in Ticino: Quadri chiede taglio imposte a',
+ ogTitle: 'Caro-carburante in Ticino: Quadri chiede taglio imposte',
  ogDescription: 'Benzina a 3 franchi al litro, pressione fiscale elevata e guerra in Medio Oriente: il consigliere nazionale della Lega chiede intervento immediato della',
  canonicalPath: '/articoli-frontaliere/caro-carburante-benzina-ticino/',
  structuredData: {

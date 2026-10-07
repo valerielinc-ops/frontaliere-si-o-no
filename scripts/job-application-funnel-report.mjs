@@ -1,6 +1,6 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /** Read-only by default. --provision explicitly registers the categorical dimension. */
-import { pathToFileURL } from 'node:url';
 import { DEFAULT_GA4_PROPERTY_ID, GA4_READONLY_SCOPE, getServiceAccountToken, ga4DateRange, runGa4Report } from './lib/ga4-service-account.mjs';
 import { ensureGa4CustomDimensions } from './lib/ga4-employer-insights-dimensions.mjs';
 import { JOB_JOURNEY_GA4_DIMENSIONS } from './lib/ga4-job-journey-dimensions.mjs';
@@ -121,4 +121,4 @@ async function main() {
  console.log(JSON.stringify({ schemaVersion: 1, event: 'job_application_journey', range, rowCount: total, ...summarizeJourneyRows(rows), note: 'Observed analytics-consented journeys; handoff means external navigation attempted, not an application submitted. Historical events are not backfilled.' }, null, 2));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((error) => { console.error(error.message); process.exitCode = 1; });
+if (isInvokedDirectly(import.meta.url)) main().catch((error) => { console.error(error.message); process.exitCode = 1; });

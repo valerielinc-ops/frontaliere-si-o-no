@@ -61,6 +61,77 @@ function payload(overrides: Record<string, unknown> = {}) {
   };
 }
 
+function generatedPayload() {
+  const generated = {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    provider: 'openai-codex',
+    model: 'gpt-image-test',
+    executorModel: 'gpt-5-codex',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 120000,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: '2026-10-06T10:00:00.000Z',
+    verifiedAt: '2026-10-06T10:01:00.000Z',
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    area: 'Ticino and Swiss border region',
+    season: 'all seasons',
+    variant: 'balanced composition',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      notes: 'safe generic editorial illustration',
+    },
+  };
+  return {
+    schema: 1,
+    commit: 'fixture-commit',
+    section: 'blog',
+    files: {
+      'generated:test-generated-cover': {
+        source: 'generated-provider',
+        commons: {
+          title: 'Generated editorial illustration',
+          pageUrl: generated.licenseUrl,
+          width: generated.width,
+          height: generated.height,
+          revision: generated.generatedAt,
+        },
+        author: { text: 'frontaliereticino.ch', name: 'frontaliereticino.ch', url: null, type: 'Organization' },
+        attribution: null,
+        licence: {
+          name: 'Generated media — provider terms apply',
+          url: generated.licenseUrl,
+          family: 'other-attribution',
+          attributionRequired: true,
+        },
+        restrictions: generated.restrictions,
+        fetchedAt: '2026-10-06',
+        generated,
+      },
+    },
+    covers: { 'test-generated-cover': { file: 'generated:test-generated-cover', modified: 'resized' } },
+  };
+}
+
 const okResponse = (body: unknown) => ({ ok: true, status: 200, json: () => Promise.resolve(body) }) as unknown as Response;
 
 function stubFetch(impl: (url: string, init?: RequestInit) => Promise<Response>) {
@@ -127,6 +198,42 @@ describe('fetchImageCredit — a published credit becomes the record the project
     });
     // Public domain: no visible line (owner decision 2026-10-05).
     expect(imageCreditParts(record, 'en')).toBeNull();
+  });
+});
+
+describe('the unified blog index carries generated article heroes', () => {
+  it('rebuilds and validates a generated-provider record', () => {
+    const record = imageCreditFromIndex(generatedPayload() as never, '/images/blog/test-generated-cover.webp');
+    expect(record).not.toBeNull();
+    expect(validateImageCreditRecord(record).valid).toBe(true);
+    expect(record?.source).toBe('generated-provider');
+    expect(imageObjectCreditFields(record!)).not.toHaveProperty('isBasedOn');
+  });
+
+  it('consults the blog endpoint when the section index has no cover entry', async () => {
+    const fn = stubFetch((url) => Promise.resolve(okResponse(
+      url.includes('image-credits-blog') ? generatedPayload() : payload(),
+    )));
+    const record = await fetchImageCredit('frontaliere', '/images/blog/test-generated-cover.webp');
+    expect(record?.source).toBe('generated-provider');
+    expect(fn).toHaveBeenCalledTimes(2);
+    expect(String(fn.mock.calls[1][0])).toContain('/data/image-credits-blog.json');
+  });
+
+  it('treats an inferred index entry as explicit no-credit without an error', () => {
+    const index = payload({
+      section: 'blog',
+      files: {},
+      covers: {
+        'fixture-cover': {
+          evidence: 'inferred',
+          provider: null,
+          verifiedAt: '2026-10-07',
+          status: 'no-credit',
+        },
+      },
+    });
+    expect(imageCreditFromIndex(index as never, COVER)).toBeNull();
   });
 });
 

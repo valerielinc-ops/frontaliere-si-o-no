@@ -65,6 +65,16 @@ describe('article SEO fallback builder', () => {
     ]);
   });
 
+  it('renders underscore emphasis without changing identifiers that contain underscores', () => {
+    expect(renderArticleInlineMarkup('_Fonte: Ticinonline, 24 febbraio 2026_')).toBe(
+      '<em>Fonte: Ticinonline, 24 febbraio 2026</em>',
+    );
+    expect(renderArticleInlineMarkup('**_mobilità pubblica_**')).toBe(
+      '<strong><em>mobilità pubblica</em></strong>',
+    );
+    expect(renderArticleInlineMarkup('MOPS_DanceSyndrome')).toBe('MOPS_DanceSyndrome');
+  });
+
   it('clamps a skipped heading level under the article section wrapper', () => {
     const html = renderArticleDerivedSectionsHtml([
       { heading: 'Contesto', html: '<h4>Analisi</h4><p>Testo.</p>' },
@@ -192,11 +202,32 @@ describe('article SEO fallback builder', () => {
       const [section] = cleanupArticleBodySections(keyed([table]));
 
       expect(section.html).toBe(
-        '<table><caption class="sr-only">Valico</caption><thead><tr><th>Valico</th><th>Attesa</th></tr></thead>'
+        '<table aria-label="Table 1: Valico"><caption class="sr-only">Table 1: Valico</caption><thead><tr><th scope="col">Valico</th><th scope="col">Attesa</th></tr></thead>'
         + '<tbody><tr><td>Chiasso-Brogeda</td><td>12 min</td></tr>'
         + '<tr><td>Ponte Tresa</td><td>0 min</td></tr></tbody></table>',
       );
       expect(section.html).not.toContain('|');
+    });
+
+    it('gives each table a unique accessible name across body sections', () => {
+      const [firstTable, secondTable] = cleanupArticleBodySections([
+        { key: 'body1', text: '| anno | valore |\n|---|---|\n| 2025 | 1 |' },
+        { key: 'body2', text: '| anno | valore |\n|---|---|\n| 2026 | 2 |' },
+      ]);
+
+      expect(firstTable.html).toContain('aria-label="Table 1: anno"');
+      expect(secondTable.html).toContain('aria-label="Table 2: anno"');
+      expect(firstTable.html).toContain('<th scope="col">anno</th>');
+      expect(secondTable.html).toContain('<th scope="col">anno</th>');
+    });
+
+    it('pads an incomplete row so every column header has a data cell', () => {
+      const [section] = cleanupArticleBodySections(keyed([
+        '| Voce | Valore | Fonte |\n|---|---|---|\n| Cambio | 1.07 |',
+      ]));
+
+      expect(section.html).toContain('<td>—</td>');
+      expect(section.html.match(/<td>/g) ?? []).toHaveLength(3);
     });
 
     it('renders inline markup inside cells', () => {
@@ -246,8 +277,8 @@ describe('article SEO fallback builder', () => {
         ].join('\n'),
       ]));
 
-      expect(section.html).toContain('<table>');
-      expect(section.html).toContain('<th>Nota con ## marker interno</th>');
+      expect(section.html).toContain('<table aria-label="Table 1: Voce">');
+      expect(section.html).toContain('<th scope="col">Nota con ## marker interno</th>');
       expect(section.html).not.toContain('<h3>');
     });
 

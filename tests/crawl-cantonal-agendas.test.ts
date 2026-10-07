@@ -62,7 +62,6 @@ describe('fr.ch events feed', () => {
       comuneMatch: 'exact',
       canton: 'FR',
       url: 'https://www.fr.ch/dsas/ssp/evenements/bouger-decouvrir-partager-un-apres-midi-pour-les-60',
-      imageUrl: 'https://www.fr.ch/sites/default/files/2026-09/apresmidi-decouverte-sportive-60%2B-morat.png',
       address: { street: 'Wilerweg 53', postalCode: '3280', locality: 'Murten' },
       geo: { lat: 46.9232041, lng: 7.1240511 },
       organizer: { '@type': 'Organization', name: 'Service de la santé publique' },
@@ -186,7 +185,7 @@ describe('iCMS events RSS (stadtluzern.ch termine.rss)', () => {
     });
     expect(events[0].startTime).toBeUndefined();
     expect(events[1]).toMatchObject({ startDate: '2026-10-09', startTime: '12:00', canton: 'LU' });
-    expect(events[1].imageUrl).toMatch(/^https:\/\/pcdn1\.i-web\.ch\//);
+    expect(events[1]).not.toHaveProperty('imageUrl');
     expect(JSON.stringify(events)).not.toContain('@');
   });
 

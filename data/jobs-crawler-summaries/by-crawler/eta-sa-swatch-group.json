@@ -1,17 +1,17 @@
 {
   "key": "eta-sa-swatch-group",
   "label": "eta-sa-swatch-group",
-  "generatedAt": "2026-10-05T09:23:35.578Z",
+  "generatedAt": "2026-10-07T09:26:19.843Z",
   "total": 10,
   "authoritativeEmptySnapshot": false,
   "newCount": 10,
   "updatedCount": 0,
-  "removedCount": 9,
+  "removedCount": 10,
   "unchangedCount": 0,
-  "durationMs": 357031,
-  "avgDurationMs": 357031,
+  "durationMs": 392921,
+  "avgDurationMs": 392921,
   "durationHistory": [
-    357031
+    392921
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "sourceLang": "de",
       "salaryMin": 73000,
@@ -42,13 +42,14 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "postalCode": "2540",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -68,7 +69,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "sourceLang": "fr",
       "salaryMin": 68500,
@@ -79,12 +80,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -104,7 +106,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -117,12 +119,13 @@
       "retranslationAttempts": 1,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -142,9 +145,8 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-26T14:01:06.755Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 175000,
       "salaryMax": 307500,
@@ -154,12 +156,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -179,9 +182,8 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-26T14:01:06.755Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -191,12 +193,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -216,7 +219,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -229,12 +232,13 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -254,7 +258,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -266,12 +270,13 @@
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3781",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "postalCode": "2540",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -291,7 +296,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 73000,
@@ -303,12 +308,51 @@
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3780",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-eszdt",
+      "slug": "linea-meccanica-eta-sa-swatch-group-2540-grenchen",
+      "company": "ETA SA (Swatch Group)",
+      "title": "Mécanicien de ligne | Manufacture Horlogère Suisse | ETA SA",
+      "location": "2540 Grenchen",
+      "canton": "SO",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3789",
+      "applyUrl": "https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3789",
+      "source": "Company Careers Crawler",
+      "companyKey": "eta-sa-swatch-group",
+      "companyDomain": "eta.ch",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
+      "firstSeenAt": "2026-10-06T09:19:09.285Z",
+      "sourceLang": "fr",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2540",
+      "addressLocality": "2540 Grenchen",
+      "addressRegion": "SO",
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -330,7 +374,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -338,51 +382,15 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
+      "postalCode": "2540",
       "addressLocality": "2540 Grenchen",
       "addressRegion": "SO",
-      "_qualityScore": 78,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 18,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "company-eszdv",
-      "slug": "polymechaniker-in-im-bereich-erosion-80-100-in-loco-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540",
-      "company": "ETA SA (Swatch Group)",
-      "title": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
-      "location": "2540 Grenchen",
-      "canton": "SO",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3787",
-      "applyUrl": "https://www.eta.ch/index.php/en/jobs-careers/vacancies/detail/3787",
-      "source": "Company Careers Crawler",
-      "companyKey": "eta-sa-swatch-group",
-      "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-05T09:23:06.127Z",
-      "firstSeenAt": "2026-09-28T21:22:42.869Z",
-      "needsRetranslation": true,
-      "sourceLang": "de",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "addressLocality": "2540 Grenchen",
-      "addressRegion": "SO",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 18,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
@@ -405,7 +413,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "sourceLang": "de",
       "salaryMin": 73000,
@@ -416,12 +424,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "postalCode": "2540",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -441,7 +450,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "sourceLang": "fr",
       "salaryMin": 68500,
@@ -452,12 +461,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -477,7 +487,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -490,12 +500,13 @@
       "retranslationAttempts": 1,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -515,9 +526,8 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-26T14:01:06.755Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 175000,
       "salaryMax": 307500,
@@ -527,17 +537,18 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
       "id": "company-eszdz",
-      "slug": "maschinenoperateur-in-auftragsovrbereitung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-0eszdz",
+      "slug": "operatore-trice-di-macchina-in-cantiere-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
       "company": "ETA SA (Swatch Group)",
       "title": "MASCHINENOPERATEUR/IN AUFTRAGSOVRBEREITUNG - vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "2540 Grenchen",
@@ -552,9 +563,8 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-26T14:01:06.755Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -564,12 +574,13 @@
       "addressRegion": "SO",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -589,7 +600,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -602,12 +613,13 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -627,7 +639,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 68500,
@@ -639,12 +651,13 @@
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3781",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 87,
+      "postalCode": "2540",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -664,7 +677,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-23T23:45:18.912Z",
       "sourceLang": "de",
       "salaryMin": 73000,
@@ -676,12 +689,50 @@
       "sourceIdentity": "url:https://www.eta.ch/en/jobs-careers/vacancies/detail/3780",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "2540",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
+      }
+    },
+    {
+      "id": "company-eszdt",
+      "slug": "linea-meccanica-eta-sa-swatch-group-2540-grenchen",
+      "company": "ETA SA (Swatch Group)",
+      "title": "Mécanicien de ligne | Manufacture Horlogère Suisse | ETA SA",
+      "location": "2540 Grenchen",
+      "canton": "SO",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3789",
+      "applyUrl": "https://www.eta.ch/en/jobs-careers/vacancies/detail/3789",
+      "source": "Company Careers Crawler",
+      "companyKey": "eta-sa-swatch-group",
+      "companyDomain": "eta.ch",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
+      "firstSeenAt": "2026-10-06T09:19:09.285Z",
+      "sourceLang": "fr",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2540",
+      "addressLocality": "2540 Grenchen",
+      "addressRegion": "SO",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -703,7 +754,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-10-04T21:24:40.023Z",
+      "crawledAt": "2026-10-06T21:22:51.072Z",
       "firstSeenAt": "2026-09-28T21:22:42.869Z",
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -711,17 +762,18 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "employmentType": "FULL_TIME",
+      "postalCode": "2540",
       "addressLocality": "2540 Grenchen",
       "addressRegion": "SO",
-      "_qualityScore": 78,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 18,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
   "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

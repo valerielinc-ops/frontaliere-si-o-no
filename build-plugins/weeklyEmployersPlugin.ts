@@ -123,7 +123,12 @@ import { buildCompanyOrganization, type JobInput } from './shared/jobPostingSche
 import { buildJobListEntry } from './shared/jobListEntry';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
-import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import {
+  employerCanonicalHref,
+  loadKnownCompanySlugs,
+  loadKnownEmployerProfileSlugs,
+  slugifyEmployer,
+} from './shared/employerLinks';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import {
@@ -2031,6 +2036,8 @@ export interface WeeklyEmployersPageInputs {
    * When omitted (e.g. in tests), only EMPLOYER_BRANDS lookups are used.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Canonical slugs for the emitted `/aziende/<slug>/` employer profiles. */
+  knownEmployerProfileSlugs?: ReadonlySet<string>;
   /** Repository root — enables `public/images/brands/*.png` lookup for company logos. */
   rootDir?: string;
   /**
@@ -2414,6 +2421,8 @@ export interface TopHubPageInputs {
   topCompanies?: ReadonlyArray<{ employer: string; employerKey?: string; active: number; delta: number }>;
   /** Company slug registry — resolves curated brand-hub links for the top-companies cards. */
   knownSlugs?: ReadonlySet<string>;
+  /** Canonical slugs for the emitted `/aziende/<slug>/` employer profiles. */
+  knownEmployerProfileSlugs?: ReadonlySet<string>;
   /** Repo root — resolves explicit brand logos for the top-companies cards. */
   rootDir?: string;
   /** Whether real week-over-week deltas exist (≥2 snapshots). Suppresses the
@@ -2595,7 +2604,8 @@ export function renderTopHubPage(inp: TopHubPageInputs): string {
       }, {
         locale,
         baseUrl: BASE_URL,
-        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+        ...(href ? { fallbackUrl: `${BASE_URL}${href}` } : {}),
+        knownSlugs: inp.knownEmployerProfileSlugs,
       });
       return {
         '@type': 'ListItem',
@@ -2926,6 +2936,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     enableAutoStubs = false,
     distDir,
     knownSlugs,
+    knownEmployerProfileSlugs,
     rootDir,
     cityLeaves,
   } = inp;
@@ -3230,7 +3241,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
       }, {
         locale,
         baseUrl: BASE_URL,
-        fallbackUrl: href ? `${BASE_URL}${href}` : canonicalUrl,
+        ...(href ? { fallbackUrl: `${BASE_URL}${href}` } : {}),
+        knownSlugs: knownEmployerProfileSlugs,
       });
       return {
         '@type': 'ListItem',
@@ -3412,6 +3424,8 @@ export interface CompanyCityPageInputs {
    * page exists. When omitted, only EMPLOYER_BRANDS lookups are used.
    */
   knownSlugs?: ReadonlySet<string>;
+  /** Canonical slugs for the emitted `/aziende/<slug>/` employer profiles. */
+  knownEmployerProfileSlugs?: ReadonlySet<string>;
   /** Repository root — enables `public/images/brands/*.png` lookup for the company logo. */
   rootDir?: string;
 }
@@ -4085,6 +4099,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
   // Load company slug registry once for the entire generation run.
   const __tKnownSlugs = __weProfStart();
   const knownSlugs = loadKnownCompanySlugs(opts.rootDir);
+  const knownEmployerProfileSlugs = loadKnownEmployerProfileSlugs(opts.rootDir);
   __weProfRecord('gen-known-slugs', __tKnownSlugs);
 
   const latestSnapshot: JobsSnapshot | null =
@@ -4176,6 +4191,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
       companiesCount: totalCompanies,
       topCompanies: ticinoStats.topCompanies,
       knownSlugs,
+      knownEmployerProfileSlugs,
       rootDir: opts.rootDir,
       hasHistoricalDelta,
       distDir,
@@ -4227,6 +4243,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         enableAutoStubs: opts.enableAutoStubs,
         distDir,
         knownSlugs,
+        knownEmployerProfileSlugs,
         rootDir: opts.rootDir,
         cityLeaves,
         availableArchives,
@@ -4319,6 +4336,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
             enableAutoStubs: opts.enableAutoStubs,
             distDir,
             knownSlugs,
+            knownEmployerProfileSlugs,
             rootDir: opts.rootDir,
             availableArchives,
             peerCities,
@@ -4407,6 +4425,7 @@ export function generateWeeklyEmployerPages(opts: GenerationOptions): GeneratedP
         distDir,
         companySiblingCities,
         knownSlugs,
+        knownEmployerProfileSlugs,
         rootDir: opts.rootDir,
       });
       html = injectSiblingLinks(

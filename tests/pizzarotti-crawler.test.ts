@@ -6,6 +6,8 @@ import {
   classifyPizzarottiListings,
   isPizzarottiClassifiableLocation,
   parsePizzarottiListings,
+  parsePizzarottiJobDetail,
+  resolvePizzarottiLocation,
 } from '../scripts/lib/pizzarotti-job-parser.mjs';
 
 const PIZZAROTTI_UPDATER = fs.readFileSync(
@@ -60,6 +62,94 @@ describe('Pizzarotti listing classification', () => {
     expect(result.lastFetchOutcome).toBe('filtered_empty');
     expect(result.unclassifiedLocationCount).toBe(0);
     expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('recovers a missing Sede from the Pizzarotti teaser without treating an Italian province code as Swiss', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/aspp-ctg">ASPP - CTG</a></h3></div>
+        <div class="vacancy__description">L'Impresa Pizzarotti ricerca un* ASPP con sede a Campomorone (GE). Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('Campomorone');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toEqual([]);
+    expect(result.lastFetchOutcome).toBe('filtered_empty');
+    expect(result.unclassifiedLocationCount).toBe(0);
+    expect(result.authoritativeEmptySnapshot).toBe(true);
+  });
+
+  it('preserves periods inside Swiss teaser locations', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/st-gallen">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager con sede a St. Gallen (SG). Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('St. Gallen');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('St. Gallen');
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
+  it('preserves the St. abbreviation when the teaser omits the region code', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/st-gallen-no-region">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager con sede a St. Gallen. Il ruolo prevede le seguenti attività.</div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('St. Gallen');
+    const result = classifyPizzarottiListings(listings);
+
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('St. Gallen');
+    expect(result.lastFetchOutcome).toBe('ok');
+  });
+
+  it('uses the explicit detail workplace when a listing card has no location', () => {
+    const listings = parsePizzarottiListings(`
+      <div class="vacancy__render">
+        <div class="vacancy__title"><h3><a href="/jobs/detail-location">Site manager</a></h3></div>
+        <div class="vacancy__description">Impresa Pizzarotti ricerca un* Site manager per un nuovo progetto infrastrutturale.</div>
+      </div>
+    `);
+    const detail = parsePizzarottiJobDetail(`
+      <div id="description__vacancy-title">Site manager</div>
+      <div id="description__subtitle">
+        <span class="subtitle__informations" title="Azienda">Impresa Pizzarotti &amp; C. S.p.A.</span>
+        <span class="subtitle__informations" title="Sede">Italia</span>
+        <span class="subtitle__informations" title="Professione/Funzione">Direzione Cantiere</span>
+      </div>
+      <div id="description__body">
+        <h3 class="body__headings">Altre informazioni</h3>
+        <div class="body__text"><p>Luogo di lavoro: Lugano (TI).</p></div>
+      </div>
+    `);
+
+    expect(listings[0].location).toBe('');
+    expect(detail.location).toBe('Lugano (TI)');
+
+    const resolved = { ...listings[0], location: resolvePizzarottiLocation(listings[0], detail) };
+    const result = classifyPizzarottiListings([resolved]);
+    expect(result.listings).toHaveLength(1);
+    expect(result.listings[0].location).toBe('Lugano (TI)');
+    expect(result.unclassifiedLocationCount).toBe(0);
+  });
+
+  it('keeps a more specific listing location when a detail subtitle only names the country', () => {
+    const resolved = resolvePizzarottiLocation(
+      { location: 'Campomorone (GE)' },
+      { location: 'Italia' },
+    );
+
+    expect(resolved).toBe('Campomorone (GE)');
   });
 
   it('does not prove an empty target slice when a location is unknown', () => {

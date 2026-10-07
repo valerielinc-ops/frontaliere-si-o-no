@@ -3,7 +3,7 @@ import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
-import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
 import type { PendingJobAlertOrigin } from '@/services/pendingJobAlert';
 import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 
@@ -79,12 +79,7 @@ export default function JobBoardFilterAlertCta({
     // JobAlertForm owns auth, email capture, and pending-intent replay. Keep
     // the request queued for a lazy mount, and also notify an already-mounted
     // list form so the tap opens it immediately.
-    requestJobAlertOpen(keywordLabel, formOrigin);
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('openJobAlert', {
-        detail: { keyword: keywordLabel, origin: formOrigin },
-      }));
-    }
+    openJobAlertForm(keywordLabel, formOrigin);
     onAnonymousOpen?.();
   }, [formOrigin, keywordLabel, onAnonymousOpen]);
 

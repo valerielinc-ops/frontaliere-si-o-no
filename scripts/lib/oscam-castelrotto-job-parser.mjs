@@ -26,7 +26,7 @@ import { sourcePostingDateFields } from './source-posting-date.mjs';
  *    expose body content); a bando without readable text gets none.
  *
  * Inventory note: 3 concorsi at probe time. OSCAM serves Malcantone (Castelrotto,
- * postal 6989) — TI audience priority for the frontaliere job-board.
+ * postal 6980) — TI audience priority for the frontaliere job-board.
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -48,11 +48,19 @@ export const OSCAM_CASTELROTTO_KEY = 'oscam-castelrotto';
 export const OSCAM_CASTELROTTO_COMPANY_NAME =
   'Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)';
 export const OSCAM_CASTELROTTO_COMPANY_DOMAIN = 'oscam.ch';
+export const OSCAM_CASTELROTTO_ADDRESS = Object.freeze({
+  streetAddress: 'Nucleo 30',
+  addressLocality: 'Castelrotto',
+  addressRegion: 'TI',
+  postalCode: '6980',
+  addressCountry: 'CH',
+});
 
 const PUBLIC_CAREER_URL = 'https://www.oscam.ch/lavoraconnoi/';
 const DEFAULT_CITY = 'Castelrotto';
 const DEFAULT_CANTON = 'TI';
-const DEFAULT_POSTAL = '6989';
+const DEFAULT_STREET = OSCAM_CASTELROTTO_ADDRESS.streetAddress;
+const DEFAULT_POSTAL = OSCAM_CASTELROTTO_ADDRESS.postalCode;
 
 // Stale placeholder PDF that lives inside every h4 wrapper (icon anchor).
 const STATIC_PLACEHOLDER_RE = /\/Concorso_generale_medici_assistenti_01\.pdf$/i;
@@ -274,6 +282,7 @@ export async function fetchAllOscamCastelrottoJobs() {
 
       addressLocality: DEFAULT_CITY,
       addressRegion: DEFAULT_CANTON,
+      streetAddress: DEFAULT_STREET,
       addressCountry: 'CH',
       country: 'CH',
       postalCode: DEFAULT_POSTAL,

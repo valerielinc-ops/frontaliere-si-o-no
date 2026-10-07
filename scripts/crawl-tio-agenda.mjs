@@ -12,12 +12,9 @@
  *
  * Flyer images (issue #3036 item 3): the raw flyer URL each card links to
  * (tio.ch embeds thumbnails hosted on biglietteria.ch, a third-party ticketing
- * site with no stated reuse terms) is NEVER hotlinked into production — see
- * `mirrorEventImages` below, which downloads each flyer once via
- * events-utils.mjs `mirrorEventImage` and replaces the URL with our own
- * mirrored `/images/events/...` copy (or drops it entirely on any failure),
- * the same convention `crawl-guidle-events.mjs` / `crawl-myswitzerland-events.mjs`
- * already use.
+ * site with no stated reuse terms) is NEVER hotlinked or downloaded into
+ * production. `mirrorEventImages` applies the shared licence gate and drops
+ * the URL because this source is not allowlisted.
  *
  * Detail metadata (description/address/offers gap): the day-page card carries
  * only the compact event summary; the per-event detail page exposes the
@@ -48,6 +45,7 @@ import {
   resolveComune,
   loadCantonComuni,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   normalizeText,
   geocodeVenue,
   loadGeocodeCache,
@@ -65,6 +63,7 @@ import {
   normalizeEventPeople,
 } from './lib/event-metadata.mjs';
 import { mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 
 const SOURCE = EVENT_SOURCES['tio-agenda'];
 const DAY_URL = (compact) => `https://www.tio.ch/agenda/day/${compact}`;
@@ -201,15 +200,13 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
 }
 
 /**
- * Mirror every event's flyer image to our own CDN storage before it ever
- * reaches the slice file / dataset — the no-hotlink policy (see
- * events-utils.mjs mirrorEventImage header) requires `imageUrl` to always be
- * either a site-relative mirrored path or absent, NEVER the raw
- * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM.
- * Mirrors the guidle/myswitzerland crawlers' convention (map → mirror →
- * store), just applied as a post-pass here since tio-agenda parses every
- * event straight off the already-fetched day pages — the card itself never
- * carries the detail metadata either, that's a separate per-event fetch, see
+ * Apply the event-image licence gate before an event reaches the slice file /
+ * dataset. The shared mirror contract requires `imageUrl` to be either a
+ * site-relative path from an allowlisted source or absent, NEVER the raw
+ * tio.ch/biglietteria.ch flyer URL `parseDayHtml` extracts from the DOM. This
+ * is a post-pass because tio-agenda parses every event straight off the
+ * already-fetched day pages; the card itself never carries the detail
+ * metadata either, that's a separate per-event fetch, see
  * `enrichEventsWithPrice` below.
  *
  * Returns a NEW array (does not mutate `events`). `mirrorFn` is injectable so
@@ -218,11 +215,14 @@ export function warnIfLowConfidenceComuneShare(byMethod, resolved) {
 export async function mirrorEventImages(events, mirrorFn = mirrorEventImage) {
   const out = [];
   for (const ev of events) {
-    const imageUrl = (await mirrorFn(ev.imageUrl, ev.id)) || undefined;
-    out.push({ ...ev, imageUrl });
+    const mirrored = await mirrorFn(ev.imageUrl, ev.id, SOURCE.key);
+    const { imageUrl: _sourceImageUrl, ...withoutSourceImage } = ev;
+    out.push(mirrored ? { ...withoutSourceImage, imageUrl: mirrored } : withoutSourceImage);
     // Only pace real network attempts (skipped for events with no source
     // image at all, and skipped entirely under an injected test mirrorFn).
-    if (mirrorFn === mirrorEventImage && ev.imageUrl) await sleep(IMAGE_MIRROR_DELAY_MS);
+    if (mirrorFn === mirrorEventImage && ev.imageUrl && isEventImageSourceAllowed(SOURCE.key)) {
+      await sleep(IMAGE_MIRROR_DELAY_MS);
+    }
   }
   return out;
 }
@@ -600,13 +600,14 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
   // Persist caches only on a real (non-dry-run) write, so a --dry-run/test
   // invocation never pollutes the tracked cache files with speculative data.
   saveGeocodeCache(geocodeCache);
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
 
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);

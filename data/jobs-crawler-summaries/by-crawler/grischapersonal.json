@@ -1,7 +1,7 @@
 {
   "key": "grischapersonal",
   "label": "Grischa Personal AG",
-  "generatedAt": "2026-10-05T09:09:24.220Z",
+  "generatedAt": "2026-10-07T09:14:24.476Z",
   "total": 38,
   "discovered": null,
   "parsed": 38,
@@ -16,15 +16,57 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 38,
-  "durationMs": 5014,
-  "avgDurationMs": 5014,
+  "durationMs": 5243,
+  "avgDurationMs": 5243,
   "durationHistory": [
-    5014
+    5243
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "grischapersonal-7320dd4cedf4",
+      "slug": "contratto-di-costruzione-roograf-flachdach-steildach-spengler-grischa-personal-ag-graubunden",
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "GEBÄUDEHÜLLENGEWERBE: DACHDECKER FLACHDACH / STEILDACH / SPENGLER",
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:09.688Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2023-08-22T08:00:22+02:00",
+      "postedDate": "2023-08-22T08:00:22+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-27T05:13:26.245Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "postalCode": "7000",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "id": "grischapersonal-b676cd369d35",
       "slug": "construzione-alimentari-con-operazione-m-f-grischa-personal-ag-zurich",
@@ -37,7 +79,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b3db3e633a3c#:~:text=GER%C3%9CSTBAUHELFER%20MIT%20BERUFSERFAHRUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.577Z",
+      "crawledAt": "2026-10-07T09:14:09.688Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -57,53 +99,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "grischapersonal-7320dd4cedf4",
-      "slug": "contratto-di-costruzione-roograf-flachdach-steildach-spengler-grischa-personal-ag-graubunden",
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "GEBÄUDEHÜLLENGEWERBE: DACHDECKER FLACHDACH / STEILDACH / SPENGLER",
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.576Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2023-08-22T08:00:22+02:00",
-      "postedDate": "2023-08-22T08:00:22+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=a49cb87c8254#:~:text=GEB%C3%84UDEH%C3%9CLLENGEWERBE%3A%20DACHDECKER%20FLACHDACH%20%2F%20STEILDACH%20%2F%20SPENGLER",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:13:26.245Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -118,7 +120,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=dfeef8f594f1#:~:text=BETRIEBSMITARBEITER%20FLEISCHVERARBEITUNG%20(m%2Fw)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.575Z",
+      "crawledAt": "2026-10-07T09:14:09.686Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -138,12 +140,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "postalCode": "7000",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -158,7 +161,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2e2ef90e9506#:~:text=BETRIEBSELEKTRIKER%20PRODUKTIONSANLAGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.573Z",
+      "crawledAt": "2026-10-07T09:14:09.685Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -178,53 +181,13 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "4001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "grischapersonal-431ea2f43260",
-      "slug": "costruzione-di-costruzione-m-f-d-grischa-personal-ag-zurich",
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "BAUFÜHRER GERÜSTBAU (m/w/d)",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.572Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:00+02:00",
-      "postedDate": "2024-09-30T12:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:13:26.242Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -239,7 +202,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bcacbaccad00#:~:text=HEIZUNGSINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.571Z",
+      "crawledAt": "2026-10-07T09:14:09.684Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -260,12 +223,55 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "grischapersonal-431ea2f43260",
+      "slug": "costruzione-di-costruzione-m-f-d-grischa-personal-ag-zurich",
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "BAUFÜHRER GERÜSTBAU (m/w/d)",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:09.684Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:00+02:00",
+      "postedDate": "2024-09-30T12:00:00+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=e1b24c878123#:~:text=BAUF%C3%9CHRER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:13:26.242Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -280,7 +286,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0a1b3b10e76b#:~:text=METALLBAUMONTEUR%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.570Z",
+      "crawledAt": "2026-10-07T09:14:09.683Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -301,12 +307,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -321,7 +328,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=21d79ad5ccda#:~:text=ISOLEUR%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.567Z",
+      "crawledAt": "2026-10-07T09:14:09.682Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -342,53 +349,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "7000",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "grischapersonal-286206b304d5",
-      "slug": "holzbau-polier-techniker-m-w-d-grischa-personal-ag-graubunden",
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "HOLZBAU POLIER / TECHNIKER (m/w/d)",
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.566Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:05+02:00",
-      "postedDate": "2024-09-30T12:00:05+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:13:26.239Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -403,7 +370,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=bc5132ca89a7#:~:text=BAUARBEITER%20LAWINENVERBAUUNGEN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.565Z",
+      "crawledAt": "2026-10-07T09:14:09.681Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -423,12 +390,55 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "grischapersonal-286206b304d5",
+      "slug": "holzbau-polier-techniker-m-w-d-grischa-personal-ag-graubunden",
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "HOLZBAU POLIER / TECHNIKER (m/w/d)",
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:09.681Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:05+02:00",
+      "postedDate": "2024-09-30T12:00:05+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=c17af59addb5#:~:text=HOLZBAU%20POLIER%20%2F%20TECHNIKER%20(m%2Fw%2Fd)",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-27T05:13:26.239Z",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "postalCode": "7000",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -443,7 +453,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=97928a1b821f#:~:text=GER%C3%9CSTBAUER%20%2F%20GER%C3%9CSTMONTEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.564Z",
+      "crawledAt": "2026-10-07T09:14:09.680Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,12 +474,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -484,7 +495,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=5cd9d69cb14a#:~:text=SANIT%C3%84RINSTALLATEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.563Z",
+      "crawledAt": "2026-10-07T09:14:09.679Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -505,12 +516,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -525,7 +537,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=34e311e0657c#:~:text=METZGER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.562Z",
+      "crawledAt": "2026-10-07T09:14:09.678Z",
       "addressLocality": "Region Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -546,12 +558,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -566,7 +579,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=019125e7f174#:~:text=GER%C3%9CSTBAUER%20EFZ%20MIT%20LKW%2DF%C3%9CHRERSCHEIN%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.561Z",
+      "crawledAt": "2026-10-07T09:14:09.677Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -587,53 +600,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "grischapersonal-512bb94194f8",
-      "slug": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
-      "company": "Grischa Personal AG",
-      "companyKey": "grischapersonal",
-      "companyDomain": "grischapersonal.ch",
-      "title": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
-      "location": "Graubünden",
-      "canton": "GR",
-      "url": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
-      "source": "Grischa Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.560Z",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2024-09-30T12:00:17+02:00",
-      "postedDate": "2024-09-30T12:00:17+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-27T05:13:26.234Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -648,7 +621,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=1e7165c66c1a#:~:text=BAUMASCHINENF%C3%9CHRER%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.559Z",
+      "crawledAt": "2026-10-07T09:14:09.676Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -669,12 +642,55 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "grischapersonal-512bb94194f8",
+      "slug": "polier-road-buffer-m-f-d-grischa-personal-ag-graubunden",
+      "company": "Grischa Personal AG",
+      "companyKey": "grischapersonal",
+      "companyDomain": "grischapersonal.ch",
+      "title": "POLIER STRASSENBAU/TIEFBAU (m/w/d)",
+      "location": "Graubünden",
+      "canton": "GR",
+      "url": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
+      "source": "Grischa Personal AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:09.676Z",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2024-09-30T12:00:17+02:00",
+      "postedDate": "2024-09-30T12:00:17+02:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://grischapersonal.ch/stellen/?jobid=ee39a05cf019#:~:text=POLIER%20STRASSENBAU%2FTIEFBAU%20(m%2Fw%2Fd)",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-27T05:13:26.234Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "postalCode": "7000",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -689,7 +705,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ba1896af07b7#:~:text=STRASSENBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.558Z",
+      "crawledAt": "2026-10-07T09:14:09.675Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -710,12 +726,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -730,7 +747,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=b54030455bbb#:~:text=VORARBEITER%20ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.557Z",
+      "crawledAt": "2026-10-07T09:14:09.674Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -751,12 +768,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -771,7 +789,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0ac7c2b89d28#:~:text=DACHDECKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.556Z",
+      "crawledAt": "2026-10-07T09:14:09.673Z",
       "addressLocality": "Graubünden, Thurgau, Zürich",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -812,7 +830,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=9e7f96cbd38c#:~:text=BAUSPENGLER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.555Z",
+      "crawledAt": "2026-10-07T09:14:09.672Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -833,12 +851,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -853,7 +872,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=0aee309cb88d#:~:text=Maurer%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.554Z",
+      "crawledAt": "2026-10-07T09:14:09.671Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -873,12 +892,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -893,7 +913,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=42943d2bbf37#:~:text=METALLBAUER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.553Z",
+      "crawledAt": "2026-10-07T09:14:09.670Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -914,12 +934,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -934,7 +955,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=f17adb7c9740#:~:text=GRUPPENLEITER%20GER%C3%9CSTBAU%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.551Z",
+      "crawledAt": "2026-10-07T09:14:09.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -954,12 +975,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -974,7 +996,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=ce5a71eb054c#:~:text=ZIMMERMANN%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.550Z",
+      "crawledAt": "2026-10-07T09:14:09.668Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -995,12 +1017,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1015,7 +1038,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=6909d4c416b9#:~:text=GIPSER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.549Z",
+      "crawledAt": "2026-10-07T09:14:09.667Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1036,12 +1059,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1056,7 +1080,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=49229573c0b4#:~:text=MALER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.547Z",
+      "crawledAt": "2026-10-07T09:14:09.666Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1077,12 +1101,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1097,7 +1122,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=adf9c2d321a4#:~:text=SCHREINER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.546Z",
+      "crawledAt": "2026-10-07T09:14:09.665Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1117,12 +1142,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "postalCode": "7000",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1137,7 +1163,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=2a6b2ad6fada#:~:text=FLACHDACHISOLEUR%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.545Z",
+      "crawledAt": "2026-10-07T09:14:09.664Z",
       "addressLocality": "Zürich oder Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1157,12 +1183,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "7000",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1177,7 +1204,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=e3367af786da#:~:text=KRANF%C3%9CHRER%20SUVA%20KAT.%20B%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.542Z",
+      "crawledAt": "2026-10-07T09:14:09.662Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1197,12 +1224,13 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1217,7 +1245,7 @@
       "url": "https://grischapersonal.ch/stellen/?jobid=3bc35678b9c3#:~:text=ELEKTROINSTALLATEUR%20EFZ%20%2F%20MONTAGEELEKTRIKER%20EFZ%20(m%2Fw%2Fd)",
       "source": "Grischa Personal AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:09:15.541Z",
+      "crawledAt": "2026-10-07T09:14:09.661Z",
       "addressLocality": "7000 Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1238,14 +1266,15 @@
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "7000",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

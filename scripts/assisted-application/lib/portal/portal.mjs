@@ -23,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -44,6 +44,7 @@ export const WAVE1_CHANNELS = new Set([
 ]);
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = 5;
+const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
@@ -51,7 +52,9 @@ export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\
 // the posting for later by e-mail: never the way into the form.
 export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
 const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
-const OUTCOME_TIMEOUT_MS = 25_000;
+const OUTCOME_TIMEOUT_MS = 60_000;
+const POPUP_WAIT_TIMEOUT_MS = 60_000;
+const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
@@ -203,6 +206,15 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/** A SuccessFactors page resumed between account creation and OTP submission. */
+export function isOtpVerificationPage(snapshot, host, account) {
+  if (!account || account.verifiedAt || !usesOtpAccountCreation(host) || hasApplicationForm(snapshot)) return false;
+  if (!codeField(snapshot)) return false;
+  return Boolean(findButton(snapshot.buttons || [], NEXT_RE)
+    || findButton(snapshot.buttons || [], SUBMIT_RE)
+    || findButton(snapshot.buttons || [], ACCOUNT_VERIFY_RE));
+}
+
 /**
  * A page that has just changed may still be drawing its form (JOIN's steps
  * render a moment after the address changes, dry_run 36817633054 read none):
@@ -249,6 +261,41 @@ async function clickButton(page, button) {
       await page.goto(button.href, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     }
   }
+}
+
+/**
+ * Click a portal link without pinning a stale ElementHandle. Some ATS pages
+ * re-render their navigation links while an application session starts; a
+ * locator can re-resolve the link, and its href gives us a safe navigation
+ * fallback when the click still times out.
+ */
+export async function clickPortalLink(page, link, { context = null } = {}) {
+  // Start this before reading href or clicking: an ATS can re-render the
+  // locator for several seconds before dispatching a target="_blank" popup.
+  const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
+  const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
+  try {
+    await link.click({ timeout: 6_000 });
+  } catch (error) {
+    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
+    let target;
+    try {
+      target = new URL(href, page.url()).href;
+    } catch {
+      throw error;
+    }
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  }
+  if (!popup) return null;
+  // A link without a popup should continue promptly after a short grace
+  // window; clear the timer as soon as the popup arrives.
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
+    popup.then((opened) => {
+      clearTimeout(timer);
+      resolve(opened);
+    });
+  });
 }
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
@@ -316,12 +363,18 @@ async function openApplicationForm(context, page, snapshot) {
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
-    const link = manual || apply ? null : await page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first().elementHandle().catch(() => null);
-    if (!manual && !apply && !link) return { page, snapshot };
-    const popup = context.waitForEvent('page', { timeout: 6000 }).catch(() => null);
-    if (manual || apply) await clickButton(page, manual || apply);
-    else await link.click();
-    page = (await popup) || page;
+    const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
+    const linkVisible = link
+      ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
+      : false;
+    if (!manual && !apply && !linkVisible) return { page, snapshot };
+    if (manual || apply) {
+      const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+      await clickButton(page, manual || apply);
+      page = (await popup) || page;
+    } else {
+      page = (await clickPortalLink(page, link, { context })) || page;
+    }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
@@ -488,9 +541,10 @@ async function clickFirst(page, snapshot, patterns) {
       await clickButton(page, button);
       return true;
     }
-    const link = await page.getByRole('link', { name: pattern }).first().elementHandle().catch(() => null);
-    if (link) {
-      await link.click();
+    const link = page.getByRole('link', { name: pattern }).first();
+    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+    if (linkVisible) {
+      await clickPortalLink(page, link);
       return true;
     }
   }
@@ -499,20 +553,45 @@ async function clickFirst(page, snapshot, patterns) {
 
 /** The verification e-mail's link (on the portal's own site) or code, read from the order's inbox. */
 async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
-  const verification = await ctx.accounts.waitForVerification({ host, sinceMs });
+  let current = snapshot || await extractFields(page);
+  const existingVerificationIds = typeof ctx.accounts.verificationMessageIds === 'function'
+    ? await ctx.accounts.verificationMessageIds()
+    : [];
+  const requestedAt = Date.now();
+  let resendRequested = false;
+  try {
+    if (await clickFirst(page, current, [RESEND_VERIFICATION_RE])) {
+      await settle(page);
+      current = await extractFields(page);
+      sinceMs = requestedAt;
+      resendRequested = true;
+    }
+  } catch {
+    // A portal may remove the resend control while processing the request;
+    // the existing message is still a valid fallback for this run.
+  }
+  const verification = await ctx.accounts.waitForVerification({
+    host,
+    sinceMs,
+    ...(resendRequested ? { excludeMessageIds: existingVerificationIds } : {}),
+  });
   if (!verification) return { handoff: 'account_verification_timeout' };
   if (verification.url) {
     await page.goto(verification.url, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
   } else {
-    const current = snapshot || await extractFields(page);
     const field = codeField(current);
     if (!field) return { handoff: 'account' };
     await applyActions(page, current.fields, [{ fieldId: field.id, action: 'fill', value: verification.code }], {});
-    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i])) return { handoff: 'account' };
+    if (!await clickFirst(page, current, [SUBMIT_RE, NEXT_RE, ACCOUNT_VERIFY_RE])) return { handoff: 'account' };
     await settle(page);
   }
-  const after = await extractFields(page);
+  let after = await extractFields(page);
+  const outcomeDeadline = Date.now() + OUTCOME_TIMEOUT_MS;
+  while (verificationIsPending(after) && Date.now() < outcomeDeadline) {
+    await page.waitForTimeout(Math.min(1000, outcomeDeadline - Date.now()));
+    after = await extractFields(page);
+  }
   // Verified only when the portal says so: an expired or refused token never
   // marks the account verified for the next runs.
   const outcome = verificationOutcome(after);
@@ -754,7 +833,7 @@ export async function openFormSections(page, snapshot, { files = {}, done = new 
  * it on the alias, or verify it. Returns the next page, a handoff reason,
  * questions for the candidate, or `dryRun` (a dry run never creates an account).
  */
-async function handleAuth({ page, snapshot, ctx }) {
+async function handleAuth({ page, snapshot, ctx, allowExistingRegistration = false }) {
   const host = new URL(page.url()).hostname;
   const kind = authPageKind(snapshot);
   const account = await ctx.accounts.load(host);
@@ -763,6 +842,21 @@ async function handleAuth({ page, snapshot, ctx }) {
     if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account' };
     await settle(page);
     return { snapshot: await extractFields(page) };
+  }
+
+  // With SuccessFactors' OTP verification the candidate is not an account
+  // yet until the code is accepted. A prior run may therefore have the
+  // encrypted password and `verifiedAt: null`, while the portal quite
+  // correctly answers a sign-in with its generic invalid-credentials page.
+  // Restart the registration flow with the same password so the portal can
+  // issue a fresh OTP; do not throw the credential away and try to create a
+  // second one.
+  if (kind === 'sign_in' && account && !account.verifiedAt && usesOtpAccountCreation(host) && !allowExistingRegistration) {
+    if (!await clickFirst(page, snapshot, [CREATE_ACCOUNT_RE])) return { handoff: 'account_verification' };
+    await settle(page);
+    const registration = await extractFields(page);
+    if (authPageKind(registration) !== 'create') return { handoff: 'account_verification' };
+    return handleAuth({ page, snapshot: registration, ctx, allowExistingRegistration: true });
   }
 
   if (kind === 'sign_in') {
@@ -784,7 +878,8 @@ async function handleAuth({ page, snapshot, ctx }) {
   }
 
   // Create-account page.
-  if (account) {
+  const retryingUnverifiedAccount = Boolean(account && !account.verifiedAt && allowExistingRegistration);
+  if (account && !retryingUnverifiedAccount) {
     // Created by an earlier run: sign in instead.
     if (!await clickFirst(page, snapshot, [SIGN_IN_RE])) return { handoff: 'account' };
     await settle(page);
@@ -792,12 +887,21 @@ async function handleAuth({ page, snapshot, ctx }) {
   }
   if (ctx.dryRun) return { dryRun: true };
   const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
-  const plan = await planPage({ snapshot: others, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const candidate = account
+    ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
+    : ctx.candidate;
+  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
   if (plan.missingRequired.length) return { questions: questionsFrom(plan.missingRequired) };
-  const password = newPortalPassword({ portal: host });
-  // Stored (encrypted) before the click: a run that dies afterwards still knows it.
-  await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
+  const password = account?.password || newPortalPassword({ portal: host });
   const sinceMs = Date.now();
+  if (retryingUnverifiedAccount) {
+    // Keep the existing encrypted password: the registration retry is the
+    // continuation of the same candidate account, not a new credential.
+    await ctx.accounts.mark(host, { status: 'pending' });
+  } else {
+    // Stored (encrypted) before the click: a run that dies afterwards still knows it.
+    await ctx.accounts.save(host, { email: candidate.identity.email, password });
+  }
   const passwordActions = snapshot.fields.filter((field) => field.inputType === 'password')
     .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
   await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
@@ -806,13 +910,16 @@ async function handleAuth({ page, snapshot, ctx }) {
   const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   const filled = await extractFields(page, NAVIGATION);
   if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
-    await ctx.accounts.discard(host, 'no_create_button');
+    // A retry is still the same unverified account: keep its encrypted
+    // password so the owner can retry after the portal exposes its button.
+    if (!retryingUnverifiedAccount) await ctx.accounts.discard(host, 'no_create_button');
     return noted({ handoff: 'account' });
   }
   await settle(page);
   const after = await extractFields(page);
   const outcome = registrationOutcome(after);
   if (outcome === 'refused') {
+    if (retryingUnverifiedAccount) return noted({ handoff: 'account_verification_retry_refused' });
     // No account exists: the next run creates it again instead of signing in.
     await ctx.accounts.discard(host, 'registration_refused');
     return noted({ handoff: 'account_create_refused' });
@@ -1081,12 +1188,27 @@ export async function submitViaPortal(ctx) {
       if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
       return result;
     };
+    const pendingOtpAccount = async (current) => {
+      if (!ctx.accounts || !codeField(current)) return null;
+      let host = '';
+      try {
+        host = new URL(page.url()).hostname;
+      } catch {
+        return null;
+      }
+      const account = await ctx.accounts.load(host);
+      return isOtpVerificationPage(current, host, account) ? { host, account } : null;
+    };
     const match = await formMatch();
     evidence.postingMatch = match;
+    const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ownAccountForm(snapshot) && !ctx.skipPostingCheck;
+    let postingCheckPending = match === 'mismatch'
+      && (snapshot.passwordVisible || initialOtpAccount)
+      && !ownAccountForm(snapshot)
+      && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
@@ -1151,6 +1273,34 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      // SuccessFactors can resume directly on its one-time-code page after a
+      // previous run saved the password but did not consume the OTP. It has no
+      // password field, so it must be handled before the application planner.
+      const otpAccount = await pendingOtpAccount(snapshot);
+      if (otpAccount) {
+        if (++authSteps > MAX_AUTH_STEPS) return await handoff('account_verification');
+        const auth = await verifyAccount({
+          page,
+          host: otpAccount.host,
+          sinceMs: otpAccount.account.createdAt || 0,
+          ctx,
+          snapshot,
+        });
+        evidence.steps.at(-1).auth = {
+          kind: 'otp_verification',
+          outcome: auth.handoff || 'ok',
+        };
+        if (auth.handoff) return await handoff(auth.handoff);
+        snapshot = auth.snapshot;
+        if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
+          await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+          await settle(page);
+          ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+          snapshot = await extractFields(page);
+        }
+        step -= 1;
+        continue;
+      }
       // Closed sections opened, and the CV put in a dialog's file input (openFormSections).
       const openSections = async () => {
         const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });

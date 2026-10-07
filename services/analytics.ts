@@ -2851,7 +2851,7 @@ export const Analytics = {
  // services/employerSuggestions.ts, whose entire input is how many ads an
  // employer has open and whether you already follow it — folding it into
  // 'company_follow_button' would leave that criterion unmeasurable.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -2876,7 +2876,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'company_follow_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {

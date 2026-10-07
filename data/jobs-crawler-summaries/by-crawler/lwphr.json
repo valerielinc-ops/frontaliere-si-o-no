@@ -1,18 +1,18 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-10-05T09:19:42.720Z",
-  "total": 15,
+  "generatedAt": "2026-10-07T09:19:23.020Z",
+  "total": 16,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 5798,
-  "avgDurationMs": 5798,
+  "unchangedCount": 13,
+  "durationMs": 5106,
+  "avgDurationMs": 5106,
   "durationHistory": [
-    5798
+    5106
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,12 +47,13 @@
       "salaryMax": 102000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "7500",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -119,17 +120,52 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "6900",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "(preferibile) o Architettura;",
+      "slug": "preferibile-o-architettura-lwp-ledermann-wieting-partners-switzerland",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/direttore_ufficio_tecnico.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-df739a9c239c",
+      "firstSeenAt": "2026-10-05T21:26:24.362Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 13
+      }
+    },
     {
       "title": "Per conto di una società cliente siamo alla ricerca di un:",
       "slug": "per-conto-di-una-societa-cliente-siamo-alla-ricerca-di-un-lwp-ledermann-wieting-partners-switzerland",
@@ -294,11 +330,11 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 76,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 21,
         "completeness": 13
       }
     },
@@ -366,12 +402,13 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "6900",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -470,11 +507,11 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 78,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 13
       }
     },
@@ -547,5 +584,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

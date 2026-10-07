@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BellRing, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { openJobAlertForm } from '@/services/jobAlertOpenSignal';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
@@ -87,7 +88,7 @@ export default function JobAlertStickyBanner({
  const handleOpen = () => {
  finishedRef.current = true;
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { origin: 'sticky_banner' } }));
+ openJobAlertForm(undefined, 'sticky_banner');
  setVisible(false);
  };
 

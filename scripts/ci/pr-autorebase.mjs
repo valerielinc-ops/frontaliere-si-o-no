@@ -106,6 +106,11 @@ import { intFromEnv, positiveIntFromEnv } from '../lib/int-from-env.mjs';
 import { PR_FIX_CLAIM_MARKER, latestPrFixClaims } from './pr-fixer-claim.mjs';
 import { conflictHandoffExpectedHead, conflictHandoffOriginPr } from './check-issue-already-resolved.mjs';
 import {
+  GENERATED_FILE_REGISTRY,
+  generatedConflictPlan,
+  generatedConflictWorktreePaths,
+} from './generated-files-registry.mjs';
+import {
   duplicateOldEnough,
   electHandoffKeeper,
   handoffBusy,
@@ -148,6 +153,9 @@ const MAX_REOPENS = intFromEnv('AUTOREBASE_MAX_REOPENS', DEFAULT_MAX_REOPENS);
 
 const budget = runBudgetFromEnv();
 const CONFLICT_MARKER = '<!-- AUTOREBASE_CONFLICT -->';
+/** Lock esplicito per una risoluzione manuale già iniziata sul branch della PR. */
+export const CONFLICT_RESOLUTION_LOCK_LABEL = 'agent:resolving-conflict';
+export const CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS = 60 * 60 * 1000;
 
 // ── Rilevazione conflitti con main su TUTTE le PR aperte ─────────────────────
 //
@@ -433,6 +441,204 @@ function git(args, { allowFail = false } = {}) {
   }
 }
 
+function gitAt(cwd, args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('git', args, {
+      cwd,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  } catch (error) {
+    if (allowFail) return null;
+    throw error;
+  }
+}
+
+function runGeneratedCommand(command, { cwd, env }) {
+  try {
+    const stdout = execFileSync(command.argv[0], command.argv.slice(1), {
+      cwd,
+      env,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return { ok: true, stdout, stderr: '' };
+  } catch (error) {
+    return {
+      ok: false,
+      stdout: error?.stdout || '',
+      stderr: error?.stderr || String(error),
+      status: error?.status ?? null,
+    };
+  }
+}
+
+function unmergedPaths(runGit) {
+  const raw = runGit(['diff', '--name-only', '--diff-filter=U'], { allowFail: true });
+  if (raw === null) return null;
+  return raw.split(/\r?\n/u).map((path) => path.trim()).filter(Boolean);
+}
+
+function generatedPathCandidates(runGit, conflictPaths, registry) {
+  const raw = runGit(['ls-files', '-co', '--exclude-standard', '-z'], { allowFail: true });
+  if (raw === null) return null;
+  const candidates = [...new Set([
+    ...conflictPaths,
+    ...raw.split('\0').filter(Boolean),
+  ])];
+  return candidates.filter((path) => generatedConflictPlan([path], registry).eligible);
+}
+
+function commandFailureReason(stage, rule, result) {
+  const detail = String(result?.stderr || result?.stdout || '').trim().split(/\r?\n/u)[0];
+  return `${stage} ${rule.id}${detail ? `: ${detail.slice(0, 240)}` : ''}`;
+}
+
+export const GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE = 'Merge origin/main (regenerate generated files)';
+
+/**
+ * Risolve un merge fallito soltanto quando ogni path non risolto e' nel
+ * registro degli artefatti generati. Prima sceglie il lato main come input
+ * leggibile per i generatori, poi esegue generazione e --check, stage mirato e
+ * commit del merge. Un fallimento lascia al chiamante l'abort esistente.
+ *
+ * `commandRunner` e' iniettabile per provare la transazione in un repository
+ * git temporaneo senza eseguire il generatore reale; il registro di produzione
+ * conserva comunque i comandi reali.
+ */
+export function resolveGeneratedConflictMerge({
+  cwd = process.cwd(),
+  registry = GENERATED_FILE_REGISTRY,
+  gitRunner,
+  commandRunner = runGeneratedCommand,
+} = {}) {
+  const runGit = gitRunner || ((args, options) => gitAt(cwd, args, options));
+  const conflictPaths = unmergedPaths(runGit);
+  if (conflictPaths === null) {
+    return { status: 'failed', reason: 'cannot read unmerged paths' };
+  }
+  if (conflictPaths.length === 0) return { status: 'not-applicable', conflictPaths };
+
+  const plan = generatedConflictPlan(conflictPaths, registry);
+  if (!plan.eligible) {
+    return {
+      status: 'ineligible',
+      conflictPaths,
+      unregistered: plan.unregistered,
+    };
+  }
+
+  const sparseCheckout = runGit(['config', '--bool', 'core.sparseCheckout'], { allowFail: true });
+  if (String(sparseCheckout || '').trim() === 'true') {
+    const worktreePaths = generatedConflictWorktreePaths(plan);
+    if (worktreePaths.length > 0
+      && runGit(['sparse-checkout', 'add', ...worktreePaths], { allowFail: true }) === null) {
+      return {
+        status: 'failed',
+        conflictPaths,
+        reason: 'cannot materialize generator inputs: git sparse-checkout add failed',
+      };
+    }
+    // Il checkout del job e' usa e getta: non serve ripristinare i pattern aggiunti.
+  }
+
+  const sourceCommit = (runGit(['merge-base', 'origin/main', 'HEAD'], { allowFail: true }) || '').trim();
+  if (!/^[0-9a-f]{40}$/iu.test(sourceCommit)) {
+    return { status: 'failed', conflictPaths, reason: 'cannot resolve origin/main merge-base' };
+  }
+
+  for (const path of conflictPaths) {
+    if (runGit(['checkout', '--theirs', '--', path], { allowFail: true }) === null) {
+      return { status: 'failed', conflictPaths, reason: `cannot seed generated path ${path} from main` };
+    }
+  }
+
+  for (const rule of plan.rules) {
+    const generatorEnv = {
+      ...process.env,
+      ...rule.generator.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let generated;
+    try {
+      generated = commandRunner(rule.generator, { cwd, env: generatorEnv });
+    } catch (error) {
+      generated = { ok: false, stderr: String(error) };
+    }
+    if (!generated?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('generator failed', rule, generated) };
+    }
+
+    const verifierEnv = {
+      ...process.env,
+      ...rule.verifier.env,
+      CRAWLER_SOURCE_COMMIT: sourceCommit,
+    };
+    let verified;
+    try {
+      verified = commandRunner(rule.verifier, { cwd, env: verifierEnv });
+    } catch (error) {
+      verified = { ok: false, stderr: String(error) };
+    }
+    if (!verified?.ok) {
+      return { status: 'failed', conflictPaths, reason: commandFailureReason('verification failed', rule, verified) };
+    }
+  }
+
+  const pathsToStage = generatedPathCandidates(runGit, conflictPaths, registry);
+  if (pathsToStage === null || pathsToStage.length === 0) {
+    return { status: 'failed', conflictPaths, reason: 'cannot enumerate generated paths to stage' };
+  }
+  if (runGit(['add', '--all', '--', ...pathsToStage], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot stage regenerated paths' };
+  }
+
+  const remaining = unmergedPaths(runGit);
+  if (remaining === null || remaining.length > 0) {
+    return {
+      status: 'failed',
+      conflictPaths,
+      reason: `generated resolution left unmerged paths: ${(remaining || []).join(', ')}`,
+    };
+  }
+  if (runGit(['commit', '-m', GENERATED_CONFLICT_MERGE_COMMIT_MESSAGE], { allowFail: true }) === null) {
+    return { status: 'failed', conflictPaths, reason: 'cannot commit regenerated merge' };
+  }
+  return {
+    status: 'resolved',
+    conflictPaths,
+    rules: plan.rules.map((rule) => rule.id),
+  };
+}
+
+/**
+ * Decide the hand-off boundary for a conflict whose paths may be generated.
+ * The caller runs the existing generated resolver only for `regenerate`; a
+ * valid manual-resolution lock always wins and blocks both regeneration and
+ * hand-off.
+ */
+export function decideGeneratedConflictHandoff({
+  conflictPaths = [],
+  conflictLockState = 'none',
+  resolutionStatus = 'not-started',
+} = {}) {
+  if (conflictLockState === 'active' || conflictLockState === 'unreadable') {
+    return { action: 'skip', reason: 'lock' };
+  }
+
+  const plan = generatedConflictPlan(conflictPaths);
+  if (!plan.eligible) {
+    return { action: 'handoff', reason: 'manual-conflict', unregistered: plan.unregistered };
+  }
+  if (resolutionStatus === 'not-started') {
+    return { action: 'regenerate', reason: 'generated-only', rules: plan.rules.map((rule) => rule.id) };
+  }
+  if (resolutionStatus === 'resolved') {
+    return { action: 'resolved', reason: 'generated' };
+  }
+  return { action: 'handoff', reason: 'generated-resolution-failed' };
+}
+
 /**
  * Restituisce l'entry dell'albero per un path senza materializzare il file.
  * `null` significa che Git non ha potuto leggere il ref; `exists:false` è
@@ -501,6 +707,11 @@ function pushBranch(branch) {
     ['-c', 'http.https://github.com/.extraheader=', 'push', authedUrl(), `${branch}:${branch}`],
     { allowFail: true },
   );
+}
+
+function configureAutorebaseCommitIdentity() {
+  git(['config', 'user.name', 'Valerie Linc']);
+  git(['config', 'user.email', 'valerielinc@gmail.com']);
 }
 
 /**
@@ -810,10 +1021,20 @@ function readReopenBudgetBody(num) {
 }
 
 /** Label correnti della PR (rilette: il breaker può averle appena cambiate). */
+function readCurrentPrLabelNames(num) {
+  try {
+    const view = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'labels']);
+    if (!Array.isArray(view?.labels)) return null;
+    return view.labels
+      .map((label) => String(label?.name || ''))
+      .filter(Boolean);
+  } catch {
+    return null;
+  }
+}
+
 function labelsOf(num) {
-  const raw = gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'labels',
-    '--jq', '[.labels[].name] | join(",")'], { json: false, allowFail: true });
-  return (raw || '').trim().split(',').filter(Boolean);
+  return readCurrentPrLabelNames(num) || [];
 }
 
 /**
@@ -1618,9 +1839,72 @@ export function conflictHandoffMarker(head) {
   return `${CONFLICT_HANDOFF_MARKER_PREFIX} head=${String(head).slice(0, 12)} -->`;
 }
 
+function timestampMs(value) {
+  if (typeof value === 'number') return Number.isFinite(value) ? value : NaN;
+  const at = Date.parse(String(value ?? ''));
+  return Number.isFinite(at) ? at : NaN;
+}
+
+/** Ultimo evento di lock, o null se la timeline non ne porta uno leggibile. */
+export function lastConflictResolutionLockEvent(events) {
+  let latest = null;
+  for (const event of Array.isArray(events) ? events : []) {
+    const label = typeof event?.label === 'string' ? event.label : event?.label?.name;
+    if (label !== CONFLICT_RESOLUTION_LOCK_LABEL) continue;
+    if (event?.event !== 'labeled' && event?.event !== 'unlabeled') continue;
+    const at = timestampMs(event.created_at ?? event.createdAt);
+    if (!Number.isFinite(at)) continue;
+    if (!latest || at >= latest.at) latest = { event: event.event, at };
+  }
+  return latest;
+}
+
+/**
+ * Stato del lock di risoluzione. Puro: il lettore GitHub inietta eventi e
+ * timestamp, così scadenza e push restano testabili senza chiamare la rete.
+ */
+export function decideConflictResolutionLock({
+  labels = [],
+  events,
+  headCommittedAt = null,
+  now = Date.now(),
+  maxAgeMs = CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+}) {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  if (!names.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) {
+    return { state: 'none', release: false };
+  }
+  if (!Array.isArray(events)) {
+    return { state: 'unreadable', release: false, reason: 'timeline' };
+  }
+  const latest = lastConflictResolutionLockEvent(events);
+  if (!latest) return { state: 'unreadable', release: false, reason: 'timeline' };
+  if (latest.event === 'unlabeled') return { state: 'none', release: false, reason: 'unlabeled' };
+  const nowAt = timestampMs(now);
+  if (!Number.isFinite(nowAt)) return { state: 'unreadable', release: false, reason: 'clock' };
+  const expiresAt = latest.at + maxAgeMs;
+  if (nowAt >= expiresAt) {
+    return { state: 'expired', release: true, lockedAt: latest.at, expiresAt };
+  }
+  const headAt = timestampMs(headCommittedAt);
+  if (!Number.isFinite(headAt)) {
+    return { state: 'unreadable', release: false, reason: 'head' };
+  }
+  if (headAt > latest.at) {
+    return { state: 'pushed', release: true, lockedAt: latest.at, headCommittedAt: headAt, expiresAt };
+  }
+  return { state: 'active', release: false, lockedAt: latest.at, expiresAt };
+}
+
 /** Il conflitto merita un agente adesso? Puro: niente rete. */
-export function shouldHandOffConflict({ lgtm, agentOwned = false, alreadyHandedOff }) {
-  return (Boolean(lgtm) || Boolean(agentOwned)) && !alreadyHandedOff;
+export function shouldHandOffConflict({
+  lgtm,
+  agentOwned = false,
+  alreadyHandedOff,
+  conflictLockState = 'none',
+}) {
+  const lockBlocks = conflictLockState === 'active' || conflictLockState === 'unreadable';
+  return (Boolean(lgtm) || Boolean(agentOwned)) && !alreadyHandedOff && !lockBlocks;
 }
 
 // --- HAND-OFF di una PR del ciclo in conflitto, anche SENZA LGTM (2026-09-27) --
@@ -1652,15 +1936,33 @@ export function isAgentOwnedPr(labels = [], headRefName = '') {
   return ref.startsWith('fix/') || ref.startsWith('automerge-');
 }
 
-export function agentPrConflictNeedsHandOff({ conflicted, nearMerge, labels = [], headRefName = '' }) {
-  return conflicted === true && !nearMerge && isAgentOwnedPr(labels, headRefName);
+export function agentPrConflictNeedsHandOff({
+  conflicted,
+  nearMerge,
+  labels = [],
+  headRefName = '',
+  conflictLockState = null,
+}) {
+  const names = labels.map((label) => (typeof label === 'string' ? label : label?.name));
+  const lockBlocks = conflictLockState === null
+    ? names.includes(CONFLICT_RESOLUTION_LOCK_LABEL)
+    : conflictLockState === 'active' || conflictLockState === 'unreadable';
+  return conflicted === true && !nearMerge && !lockBlocks && isAgentOwnedPr(labels, headRefName);
 }
 
 /**
  * Titolo e body della issue di hand-off. Puro: niente rete. Il titolo cambia
  * con il LGTM: la dedup si fa sulla PR di origine (`handoffIssuesForOrigin`).
  */
-export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = true, closes = null }) {
+export function buildConflictHandoffIssue({
+  num,
+  branch,
+  head,
+  files,
+  lgtm = true,
+  closes = null,
+  generatedResolution = null,
+}) {
   const list = (files || []).slice(0, 30).map((f) => `- \`${f}\``).join('\n') || '- (elenco non disponibile: ricalcolalo con il comando sotto)';
   // Le issue che #N chiude passano alla PR nuova: #10095 chiudeva #10082, la sua
   // riapplicazione #10145 no, e #10082 sarebbe rimasta aperta a farsi rifare.
@@ -1676,8 +1978,16 @@ export function buildConflictHandoffIssue({ num, branch, head, files, lgtm = tru
   const opening = lgtm
     ? `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) aveva un \`## LGTM\` ed e' entrata in conflitto con \`main\`. L'autorebase deterministico ha provato \`git merge origin/main\` e l'unione degli import, poi ha abortito: il conflitto tocca codice, non solo import.`
     : `La PR #${num} (branch \`${branch}\`, HEAD \`${String(head).slice(0, 12)}\`) e' una PR del ciclo (\`agent:autofix\`) senza \`## LGTM\` ed e' in conflitto con \`main\`: con il conflitto GitHub non avvia review ne' 🔴-fixer, quindi nessun altro passo del ciclo la sblocca. I suoi 🔴 aperti tornano alla review della PR nuova.`;
+  const generatedFailure = generatedResolution?.status === 'failed'
+    ? [
+      '',
+      `Rigenerazione automatica tentata e fallita: ${generatedResolution.reason || 'motivo non disponibile'}`,
+      '<!-- GENERATED_RESOLUTION_FAILED -->',
+    ]
+    : [];
   const body = [
     opening,
+    ...generatedFailure,
     '',
     'File in conflitto:',
     '',
@@ -1955,12 +2265,88 @@ function closeDuplicateHandoffIssues(members, num) {
   return canonical;
 }
 
-function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } = {}) {
+function parseConflictResolutionLockEvents(raw) {
+  if (typeof raw !== 'string') return null;
+  const events = [];
+  for (const line of raw.split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      const event = JSON.parse(line);
+      if (!event || typeof event !== 'object') return null;
+      events.push({ ...event, label: CONFLICT_RESOLUTION_LOCK_LABEL });
+    } catch {
+      return null;
+    }
+  }
+  return events;
+}
+
+function readConflictResolutionLockEvents(num) {
+  try {
+    const raw = gh([
+      'api', '--paginate', `repos/${REPO}/issues/${num}/events?per_page=100`,
+      '--jq', `.[] | select((.event == "labeled" or .event == "unlabeled") and .label.name == "${CONFLICT_RESOLUTION_LOCK_LABEL}") | {event, created_at} | @json`,
+    ], { json: false });
+    return parseConflictResolutionLockEvents(raw);
+  } catch {
+    return null;
+  }
+}
+
+function readHeadCommitterAt(head) {
+  try {
+    const raw = gh(['api', `repos/${REPO}/commits/${head}`, '--jq', '.commit.committer.date'], { json: false });
+    return String(raw || '').trim() || null;
+  } catch {
+    return null;
+  }
+}
+
+function readConflictResolutionLock(num, head, knownLabels = null) {
+  const labels = knownLabels ?? readCurrentPrLabelNames(num);
+  if (!Array.isArray(labels)) return { state: 'unreadable', release: false, reason: 'labels' };
+  if (!labels.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) return { state: 'none', release: false };
+  const events = readConflictResolutionLockEvents(num);
+  const headCommittedAt = readHeadCommitterAt(head);
+  return decideConflictResolutionLock({ labels, events, headCommittedAt });
+}
+
+function removeConflictResolutionLock(num, decision) {
+  const reason = decision.state === 'expired' ? 'scaduto dopo 60 minuti' : 'rimosso dopo il primo push sulla HEAD';
+  if (DRY) {
+    console.log(`[dry] -label ${CONFLICT_RESOLUTION_LOCK_LABEL} #${num} (${reason})`);
+    return;
+  }
+  gh(['pr', 'edit', String(num), '--repo', REPO, '--remove-label', CONFLICT_RESOLUTION_LOCK_LABEL],
+    { json: false, allowFail: true });
+  console.log(`PR #${num}: -label ${CONFLICT_RESOLUTION_LOCK_LABEL} (${reason}).`);
+}
+
+function releaseConflictResolutionLockIfNeeded(num, head, knownLabels) {
+  const decision = readConflictResolutionLock(num, head, knownLabels);
+  if (decision.release) removeConflictResolutionLock(num, decision);
+  return decision;
+}
+
+function handOffConflictToFixer(
+  num,
+  branch,
+  head,
+  lgtm,
+  { agentOwned = false, generatedResolution = null } = {},
+) {
+  const lock = readConflictResolutionLock(num, head);
+  if (lock.release) removeConflictResolutionLock(num, lock);
+  if (lock.state === 'active' || lock.state === 'unreadable') {
+    console.log(`PR #${num}: lock ${CONFLICT_RESOLUTION_LOCK_LABEL} ${lock.state === 'active' ? 'valido' : 'non verificabile'} → nessun hand-off a issue-fix.`);
+    return;
+  }
   const marker = conflictHandoffMarker(head);
   if (!shouldHandOffConflict({
     lgtm,
     agentOwned,
     alreadyHandedOff: (lgtm || agentOwned) && hasCommentMarker(num, marker),
+    conflictLockState: lock.state,
   })) return;
   // Il ramo chiamante puo' essersi basato su `mergeable=CONFLICTING`, che e'
   // una cache: l'hand-off parte solo se merge-tree conferma ADESSO un
@@ -1981,7 +2367,13 @@ function handOffConflictToFixer(num, branch, head, lgtm, { agentOwned = false } 
     console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
   const { title, body } = buildConflictHandoffIssue({
-    num, branch, head, files: verdict.files, lgtm, closes: prClosingIssueNumbers(num),
+    num,
+    branch,
+    head,
+    files: verdict.files,
+    lgtm,
+    closes: prClosingIssueNumbers(num),
+    generatedResolution,
   });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
   // La chiave e' la PR di ORIGINE, non il titolo (che cambia con il LGTM): una
@@ -2137,11 +2529,94 @@ function resolveImportUnionConflicts() {
   return true;
 }
 
+/** Risolve il merge in corso, mantenendo il percorso import-union precedente. */
+function resolveMergeConflict() {
+  const generated = resolveGeneratedConflictMerge();
+  if (generated.status === 'resolved') {
+    return { resolved: true, mode: 'generated', generated };
+  }
+  if (generated.status === 'failed') {
+    console.log(`  rigenerazione dei conflitti generati fallita → abort: ${generated.reason}`);
+    return { resolved: false, mode: 'generated-failed', generated };
+  }
+  if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+    return { resolved: true, mode: 'import-union', generated };
+  }
+  return { resolved: false, mode: 'none', generated };
+}
+
+/**
+ * Prima del hand-off di una PR del ciclo, prova la stessa transazione di
+ * rigenerazione usata dal percorso near-merge, ma solo per un conflitto tutto
+ * generato. Un conflitto misto o un fallimento lascia al chiamante il normale
+ * hand-off; il lock valido di una risoluzione manuale blocca entrambi.
+ */
+function tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot) {
+  const lock = readConflictResolutionLock(num, head);
+  if (lock.release) removeConflictResolutionLock(num, lock);
+  if (lock.state === 'active' || lock.state === 'unreadable') {
+    console.log(`PR #${num}: lock ${CONFLICT_RESOLUTION_LOCK_LABEL} ${lock.state === 'active' ? 'valido' : 'non verificabile'} → nessuna rigenerazione né hand-off.`);
+    return { status: 'locked' };
+  }
+
+  const verdict = mergeTreeVerdict(head);
+  if (verdict.state !== 'conflicted') return { status: 'not-applicable', reason: verdict.state };
+
+  const decision = decideGeneratedConflictHandoff({
+    conflictPaths: verdict.files,
+    conflictLockState: lock.state,
+  });
+  if (decision.action === 'skip') return { status: 'locked' };
+  if (decision.action !== 'regenerate') return { status: 'handoff', reason: decision.reason };
+  if (DRY) {
+    console.log(`[dry] #${num} conflitto solo su file generati → rigenerazione prima del hand-off`);
+    return { status: 'not-applicable', reason: 'dry-run' };
+  }
+
+  if (!checkoutDecidedHead(num, branch, head)) return { status: 'handoff', reason: 'checkout-failed' };
+  configureAutorebaseCommitIdentity();
+
+  const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
+  if (merged !== null) {
+    git(['reset', '--hard', head], { allowFail: true });
+    return { status: 'not-applicable', reason: 'conflict-cleared' };
+  }
+
+  const generated = resolveGeneratedConflictMerge();
+  const resolvedDecision = decideGeneratedConflictHandoff({
+    conflictPaths: verdict.files,
+    conflictLockState: lock.state,
+    resolutionStatus: generated.status,
+  });
+  if (resolvedDecision.action !== 'resolved') {
+    console.log(`  rigenerazione prima del hand-off fallita → abort: ${generated.reason || resolvedDecision.reason}`);
+    git(['merge', '--abort'], { allowFail: true });
+    return { status: 'handoff', reason: resolvedDecision.reason, generated };
+  }
+
+  const reviewerBeforePush = readReviewerSnapshot(num, head);
+  if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
+    console.log(`PR #${num}: review cambiata o non verificabile dopo la rigenerazione → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+    git(['reset', '--hard', head], { allowFail: true });
+    return { status: 'not-applicable', reason: 'review-changed' };
+  }
+
+  const pushed = pushBranch(branch);
+  if (pushed === null) {
+    console.log(`PR #${num}: push della rigenerazione fallito — hand-off invariato, riprovo al prossimo tick.`);
+    return { status: 'handoff', reason: 'push-failed', generated };
+  }
+  releaseBreakerLabelAfterPush(num);
+  if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
+  console.log(`✅ PR #${num}: conflitto solo su file generati AUTO-RISOLTO + pushato → nessun hand-off; dispatch tests + review.`);
+  return { status: 'resolved', generated };
+}
+
 async function processPR(pr) {
   const num = pr.number;
   const branch = pr.headRefName;
   const head = pr.headRefOid;
-  const labels = (pr.labels || []).map((l) => l.name);
+  let labels = (pr.labels || []).map((l) => l.name);
 
   // `behind` serve allo stuck-red e al flusso normale:
   // memoizzato per non pagare tre volte la compare API.
@@ -2244,6 +2719,15 @@ async function processPR(pr) {
     return;
   }
 
+  // Un push successivo al lock lo chiude anche se il conflitto è già rientrato
+  // e quindi questo tick non entrerà mai nel percorso di hand-off.
+  if (labels.includes(CONFLICT_RESOLUTION_LOCK_LABEL)) {
+    const lock = releaseConflictResolutionLockIfNeeded(num, head, labels);
+    if (lock.release || lock.reason === 'unlabeled') {
+      labels = labels.filter((label) => label !== CONFLICT_RESOLUTION_LOCK_LABEL);
+    }
+  }
+
   // Veto `needs-human` + verdetto bloccante: DOPO la rilevazione conflitti
   // (sola lettura + label, resta utile a chi interviene a mano) e PRIMA di
   // ogni scrittura sul branch (stuck-red, heal, merge, push, reopen).
@@ -2254,7 +2738,13 @@ async function processPR(pr) {
 
   if (!nearMerge) {
     if (agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })) {
-      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+      const generatedResolution = tryGeneratedConflictBeforeHandoff(num, branch, head, reviewerSnapshot);
+      if (generatedResolution.status === 'handoff') {
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: generatedResolution.generated,
+        });
+      }
     }
     console.log(`PR #${num} non near-merge (no LGTM/collision-risk/stale-review/stuck-red) — skip del rebase.`);
     return;
@@ -2311,13 +2801,13 @@ async function processPR(pr) {
       if (DRY) { console.log(`[dry] #${num} CONFLICTING → tenta auto-resolve import-union, else stale-review`); return; }
       let done = false;
       if (checkoutDecidedHead(num, branch, head)) {
-        git(['config', 'user.name', 'Valerie Linc']);
-        git(['config', 'user.email', 'valerielinc@gmail.com']);
+        configureAutorebaseCommitIdentity();
         const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
-        if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+        const resolution = mg === null ? resolveMergeConflict() : { resolved: false, mode: 'none' };
+        if (resolution.resolved) {
           const reviewerBeforePush = readReviewerSnapshot(num, head);
           if (reviewerSnapshotChanged(reviewerSnapshot, reviewerBeforePush)) {
-            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge import-union → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
+            console.log(`PR #${num}: review cambiata o non verificabile dopo il merge ${resolution.mode} → reset alla HEAD ${head.slice(0, 8)}, nessun push.`);
             git(['reset', '--hard', head], { allowFail: true });
             done = true;
           } else {
@@ -2326,7 +2816,7 @@ async function processPR(pr) {
               if (!inheritedRescue) commentStuckRedRescue(num, stuckRedReason);
               // Push OK: la PR è ora mergeable. Dispatch tests + review sulla
               // nuova HEAD: il vecchio LGTM non viene riusato.
-              console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
+              console.log(`✅ PR #${num}: conflitto ${resolution.mode} AUTO-RISOLTO + pushato → mergeable; dispatch tests + review.`);
               if (dispatchTests(num, branch)) clearStaleReviewLabel(num);
               done = true;
             }
@@ -2338,7 +2828,10 @@ async function processPR(pr) {
         console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
         ensureStaleLabel(num);
         commentConflictOnce(num, branch);
-        handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+        handOffConflictToFixer(num, branch, head, lgtm, {
+          agentOwned,
+          generatedResolution: resolution.generated,
+        });
       }
       return;
     }
@@ -2523,22 +3016,25 @@ async function processPR(pr) {
   // checkout del branch sull'head remoto (worktree CI pulito), solo se è ancora
   // l'head su cui i gate sopra hanno deciso.
   if (!checkoutDecidedHead(num, branch, head)) return;
-  git(['config', 'user.name', 'Valerie Linc']);
-  git(['config', 'user.email', 'valerielinc@gmail.com']);
+  configureAutorebaseCommitIdentity();
 
   const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
   if (merged === null) {
     // Conflitto a runtime (mergeable era ottimista o è cambiato tra check e
-    // merge). Tenta l'auto-resolve import-union come nel path CONFLICTING; se
-    // non import-only → abort + stale-review.
-    if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
-      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (import-union) → proseguo col push.`);
+    // merge). I soli artefatti registrati vengono rigenerati; per gli altri
+    // resta l'auto-resolve import-union e poi l'abort esistente.
+    const resolution = resolveMergeConflict();
+    if (resolution.resolved) {
+      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (${resolution.mode}) → proseguo col push.`);
     } else {
       console.log(`PR #${num}: merge origin/main ha conflitto non auto-risolvibile → abort + stale-review + comment.`);
       git(['merge', '--abort'], { allowFail: true });
       ensureStaleLabel(num);
       commentConflictOnce(num, branch);
-      handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });
+      handOffConflictToFixer(num, branch, head, lgtm, {
+        agentOwned,
+        generatedResolution: resolution.generated,
+      });
       return;
     }
   }

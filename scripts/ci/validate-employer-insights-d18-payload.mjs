@@ -1,7 +1,7 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 import fs from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import {
   validateD18FirstRunEvidence,
   validateD18Payload,
@@ -66,7 +66,7 @@ function main() {
   console.log(summary);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     main();
   } catch (error) {

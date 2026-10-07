@@ -20,6 +20,7 @@ const mocks = vi.hoisted(() => ({
   status: 'absent' as 'held' | 'released' | 'suppressed' | 'off_board' | 'absent',
   releaseHeldOfferwall: vi.fn(),
   trackAssistedApplicationEvent: vi.fn(),
+  reportOfferwallGateAbsent: vi.fn(),
 }));
 
 vi.mock('@/components/shared/GptRewardedAd', () => ({
@@ -37,6 +38,9 @@ vi.mock('@/services/rewardedApplicationAccess', () => ({
 }));
 vi.mock('@/services/assistedApplicationExperiment', () => ({
   trackAssistedApplicationEvent: mocks.trackAssistedApplicationEvent,
+}));
+vi.mock('@/services/offerwallGateDiag', () => ({
+  reportOfferwallGateAbsent: mocks.reportOfferwallGateAbsent,
 }));
 vi.mock('@/services/offerwallClickGate', () => ({
   offerwallGateStatus: () => mocks.status,
@@ -426,6 +430,48 @@ describe('RewardedApplicationOffer — Funding Choices still loading', () => {
     expect(tracked('rewarded_offerwall_not_shown')).toEqual([
       expect.objectContaining({ reason: 'not_held', gate_status: 'absent' }),
     ]);
+  });
+
+  it('reports why the gate was absent, with the offer context, once', async () => {
+    vi.useFakeTimers();
+    addFundingChoicesScript();
+    consent('granted');
+    render(<RewardedApplicationOffer {...props()} />);
+    expect(mocks.reportOfferwallGateAbsent, 'not before the wait is over').not.toHaveBeenCalled();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(3100);
+    });
+
+    expect(mocks.reportOfferwallGateAbsent).toHaveBeenCalledTimes(1);
+    // The diagnostic events go out through the offer's own tracking.
+    const send = mocks.reportOfferwallGateAbsent.mock.calls[0][0] as (name: string, params: Record<string, unknown>) => void;
+    send('rewarded_offerwall_gate_absent', { reason: 'cmf_first_only', shown_ms: 4200 });
+    send('rewarded_offerwall_gate_late', { reason: 'held', gate_status: 'held', shown_ms: 12_300 });
+    expect(tracked('rewarded_offerwall_gate_absent')).toEqual([expect.objectContaining({
+      jobId: 'job-1',
+      companyId: 'company-1',
+      reason: 'cmf_first_only',
+      shown_ms: 4200,
+      gate_status: 'absent',
+      consent_state: 'granted',
+    })]);
+    expect(tracked('rewarded_offerwall_gate_late')).toEqual([expect.objectContaining({
+      reason: 'held',
+      gate_status: 'held',
+      consent_state: 'granted',
+    })]);
+  });
+
+  it('sends no absent-gate diagnostic for a gate Funding Choices did reach', () => {
+    mocks.status = 'released';
+    consent('granted');
+    render(<RewardedApplicationOffer {...props()} onReload={undefined} />);
+
+    expect(tracked('rewarded_offerwall_not_shown')).toEqual([
+      expect.objectContaining({ reason: 'already_released', gate_status: 'released' }),
+    ]);
+    expect(mocks.reportOfferwallGateAbsent).not.toHaveBeenCalled();
   });
 
   it('waits for the gate after the resume reload even before the script is seen', async () => {

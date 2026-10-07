@@ -206,8 +206,9 @@ describe('il job trattenuto resta nella coda di translate-pending', () => {
     expect(missingSlots(held).filter((slot: Job) => slot.field === 'title').map((slot: Job) => slot.locale))
       .toEqual(untranslatedTitleLocales(held));
     expect(needsTranslation(held)).toBe(true);
-    // …and Phases 2a.2/2d (fix-untranslated-titles) queue exactly the
-    // source-copy / LLM-reasoning reasons, with no give-up valve.
+    // …and Phases 2a.2/2d (fix-untranslated-titles) queue the
+    // source-copy/LLM-reasoning and marker-backed wrong-language reasons,
+    // with no give-up valve.
     for (const locale of untranslatedTitleLocales(held)) {
       expect(titleLooksUntranslated({
         title: held.titleByLocale[locale], sourceTitle: held.title, sourceLang: 'de', targetLocale: locale,

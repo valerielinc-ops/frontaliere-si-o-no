@@ -74,7 +74,7 @@ describe('REVIEW.md compression contract', () => {
       '## Non implementato (ancora)',
       '## LGTM',
       '🔴 Important',
-      'DECLASSIFIED-BODY',
+      'DECLASSIFIED-STALE-BODY',
       'DECLASSIFIED-UNCHANGED-LINE',
       'REVIEW_CARRY_FORWARD',
       'scripts/ci/lib/automation-risk-policy.mjs',

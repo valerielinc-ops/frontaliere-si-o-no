@@ -700,6 +700,9 @@ step_push_cdn() {
   # it mirrors, in the same run, via scripts/lib/upload-cdn-file.sh. Do not add
   # it back: a deploy has no source to push from, and re-adding it would make
   # this loop's silence look like coverage.
+  # The generated event library follows the same rule: its WebP bytes never
+  # enter dist or git; scripts/upload-event-image-library-cdn.mjs publishes
+  # images/events/library/<assetId>.webp directly to R2 before its data PR.
   #
   # Nothing is lost at the edge by dropping it: the R2 publish path
   # (_publish_cdn_r2, CDN_TARGET=r2) is `rclone copy` — additive, never

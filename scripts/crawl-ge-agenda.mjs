@@ -28,14 +28,16 @@
  * venue/title match still takes priority if a different real GE comune name
  * happens to appear in the description text.
  *
- * Flyer images (no-hotlink policy): mirrored by the factory itself via the
- * shared `mirrorEventImage`, same as every other events crawler.
+ * Flyer images (licence policy): passed through the factory's shared image
+ * gate; this HTML source is not allowlisted, so its third-party images are
+ * dropped before the slice is written.
  * Admission tariffs and ticket links come from each event's own detail page.
  */
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
-import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay } from './lib/events-utils.mjs';
+import { sanitizeEventForPublication } from './lib/event-description-policy.mjs';
+import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay, isEventImageSourceAllowed } from './lib/events-utils.mjs';
 import { parseEventPriceText } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['ge-agenda'];
@@ -258,7 +260,7 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
       comuneMatch: method || undefined,
       canton: SOURCE.canton,
       url: absoluteUrl(href),
-      imageUrl: absoluteUrl(rawImageUrl) || undefined,
+      ...(isEventImageSourceAllowed(SOURCE.key) && absoluteUrl(rawImageUrl) ? { imageUrl: absoluteUrl(rawImageUrl) } : {}),
     });
   }
 
@@ -320,7 +322,7 @@ async function main() {
   const dryRun = args.includes('--dry-run');
   const { events } = await crawler.crawl({ dryRun });
   if (dryRun) {
-    console.log(JSON.stringify(events.slice(0, 3), null, 2));
+    console.log(JSON.stringify(events.slice(0, 3).map(sanitizeEventForPublication), null, 2));
   }
 }
 

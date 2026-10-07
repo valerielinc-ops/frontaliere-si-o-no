@@ -33,6 +33,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -124,25 +125,14 @@ async function main() {
     return;
   }
 
-  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!credPath || !fs.existsSync(credPath)) {
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
     console.warn('⚠️  GOOGLE_APPLICATION_CREDENTIALS not set — writing empty trending data');
     writeFallback();
     return;
   }
 
   try {
-    const firebaseApp = await import('firebase-admin/app');
-    const firebaseFirestore = await import('firebase-admin/firestore');
-    if (!firebaseApp.getApps().length) {
-      firebaseApp.initializeApp({
-        credential: firebaseApp.cert(
-          JSON.parse(fs.readFileSync(credPath, 'utf-8')),
-        ),
-      });
-    }
-
-    const db = firebaseFirestore.getFirestore();
+    const db = await getFirestoreDb();
 
     // The loop below keeps a document only if it was viewed inside the 30-day
     // half-weight window, so the window belongs in the query. Documents with

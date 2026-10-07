@@ -7,7 +7,17 @@ const LEDGER_TRIM_LIMIT = 1000;
 export const EVENT_CACHE_PATHS = new Set([
   'data/events-geocode-cache.json',
   'data/events-translation-cache.json',
+  'data/events-description-rewrites.json',
 ]);
+
+// The article sync keeps destination-only cover-credit records when the
+// published API snapshot lags the site checkout. A stable refresh branch made
+// by an older run may already have deleted those files; when the current
+// refresh leaves a base record unchanged, restore the current refresh's copy
+// instead of carrying that stale deletion forward. Keep this exception scoped
+// to the generated image-credit tree so ordinary snapshot deletions retain
+// their existing precedence.
+const REFRESH_PRESERVED_IMAGE_CREDIT_RE = /^packages\/articles\/content\/image-credits\//u;
 
 function parseObject(raw, label) {
   let parsed;
@@ -116,7 +126,26 @@ function mergeEventCache(file, baseRaw, remoteRaw, refreshRaw) {
   return `${JSON.stringify(merged, null, 2)}\n`;
 }
 
+function mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw) {
+  const base = parseObject(baseRaw ?? '{}', `${file} merge base`);
+  const remote = parseObject(remoteRaw, `${file} other branch`);
+  const refresh = parseObject(refreshRaw, `${file} current refresh`);
+  const mergedEntries = Object.fromEntries(Object.entries(mergeCacheEntries(
+    base.entries ?? {},
+    remote.entries ?? {},
+    refresh.entries ?? {},
+  )).sort(([left], [right]) => left.localeCompare(right)));
+  return `${JSON.stringify({
+    ...remote,
+    ...refresh,
+    entries: mergedEntries,
+  }, null, 2)}\n`;
+}
+
 function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
+  if (file === 'data/events-description-rewrites.json') {
+    return mergeEventDescriptionRewriteCache(file, baseRaw, remoteRaw, refreshRaw);
+  }
   if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);
   if (TELEGRAM_LEDGER_PATHS.has(file)) return mergePostedLedger(remoteRaw, refreshRaw, file);
@@ -171,6 +200,14 @@ export function mergeRefreshContent(file, baseRaw, remoteRaw, refreshRaw) {
   const remoteChanged = !sameContent(remoteRaw, baseRaw);
   const refreshChanged = !sameContent(refreshRaw, baseRaw);
 
+  if (
+    !refreshChanged
+    && remoteRaw === null
+    && refreshRaw !== null
+    && REFRESH_PRESERVED_IMAGE_CREDIT_RE.test(file)
+  ) {
+    return refreshRaw;
+  }
   if (!refreshChanged) return remoteRaw;
   if (!remoteChanged) return refreshRaw;
   if (remoteRaw === null) return refreshRaw;

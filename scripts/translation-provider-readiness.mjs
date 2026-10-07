@@ -19,7 +19,19 @@
  * project is capped on purpose at 16,000 characters a day.
  *
  *   node scripts/translation-provider-readiness.mjs [--summary] [--json FILE]
- *   node scripts/translation-provider-readiness.mjs --alert-from FILE [--run-url URL]
+ *   node scripts/translation-provider-readiness.mjs --alert-from FILE [--run-url URL] [--codex-reserve-dir DIR]
+ *
+ * Codex reserve (owner decision H7, 2026-10-05: «utilizza codex luna max per
+ * le traduzioni quando falliscono le chiavi»). The cascade of Phase 2b now
+ * hands to Codex Luna Max the texts that DeepL and Azure can no longer serve,
+ * so a rejected key is EXPECTED and covered while that reserve works. With
+ * `--codex-reserve-dir` (the reports the translating phases wrote, see
+ * scripts/lib/codex-reserve-report.mjs) the alert reads the reserve's verdict:
+ *   - `covered`: the rejected provider is logged as «degraded, covered by
+ *     Codex» (notice + step summary) and no needs-human issue is opened or
+ *     commented, so an open alert is not reopened at every run;
+ *   - `codex-failed` / `codex-unavailable` / `unknown`: the real red — the
+ *     issue is opened as before, and its body says what the reserve did.
  *
  * A rejected or exhausted provider is a verdict, not a failure: the exit code
  * is non-zero only when the probe itself crashes, and the workflow step is
@@ -280,7 +292,7 @@ export function formatReadinessTable(results) {
   ].join('\n');
 }
 
-export function formatCredentialAlert(provider, results, { runUrl } = {}) {
+export function formatCredentialAlert(provider, results, { runUrl, codexReserve = null } = {}) {
   const rows = results.filter((result) => result.provider === provider);
   return [
     '## Scheda',
@@ -290,27 +302,55 @@ export function formatCredentialAlert(provider, results, { runUrl } = {}) {
     '- OSSERVATORE: the provider probe in translate-pending runs on every credentialed run and closes this issue when the provider answers again.',
     '',
     formatReadinessTable(results),
+    ...(codexReserve ? ['', `Codex reserve: ${codexReserve.verdict} — ${codexReserve.detail}`] : []),
     ...(runUrl ? ['', `Run: ${runUrl}`] : []),
   ].join('\n');
 }
 
-async function alertFrom(file, runUrl) {
+/**
+ * What the alert does for each probed provider, given the Codex reserve's
+ * verdict (`null` = not read: the behaviour before the reserve existed).
+ *   - `alert`: every credential rejected and the reserve did not cover the run;
+ *   - `covered`: every credential rejected, the reserve covered the run;
+ *   - `resolve`: the provider answered again;
+ *   - `none`: nothing to say (quota, transient error).
+ */
+export function planCredentialAlerts(results, codexReserve = null) {
+  const rejected = rejectedProviders(results);
+  const probed = [...new Set(results.filter((result) => result.verdict !== 'not-configured').map((result) => result.provider))];
+  return probed.map((provider) => {
+    if (rejected.includes(provider)) {
+      return { provider, action: codexReserve?.verdict === 'covered' ? 'covered' : 'alert' };
+    }
+    return { provider, action: providerRecovered(provider, results) ? 'resolve' : 'none' };
+  });
+}
+
+async function alertFrom(file, runUrl, codexReserveDir) {
   const { createGithubIssue, resolveGithubIssue } = await import('./lib/github-issue-creator.mjs');
   const results = JSON.parse(readFileSync(file, 'utf8')).results || [];
-  const rejected = rejectedProviders(results);
-  const probed = new Set(results.filter((result) => result.verdict !== 'not-configured').map((result) => result.provider));
-  for (const provider of probed) {
+  let codexReserve = null;
+  if (codexReserveDir !== undefined) {
+    const { codexReserveCoverage, readCodexReserveReports } = await import('./lib/codex-reserve-report.mjs');
+    codexReserve = codexReserveCoverage(readCodexReserveReports(codexReserveDir));
+    console.log(`🤖 Codex reserve: ${codexReserve.verdict} — ${codexReserve.detail}`);
+  }
+  for (const { provider, action } of planCredentialAlerts(results, codexReserve)) {
     const title = credentialAlertTitle(provider);
-    if (rejected.includes(provider)) {
+    if (action === 'covered') {
+      const line = `${PROVIDER_NAMES[provider] || provider}: every credential rejected — degraded, covered by the Codex reserve (${codexReserve.detail})`;
+      console.log(`::notice title=Translation provider degraded, covered by Codex::${line}`);
+      if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `- ${line}\n`);
+    } else if (action === 'alert') {
       await createGithubIssue({
         title,
-        description: formatCredentialAlert(provider, results, { runUrl }),
+        description: formatCredentialAlert(provider, results, { runUrl, codexReserve }),
         priority: 2,
         // Rotating a credential is an owner action: keep it out of the fixer queue.
         labels: ['needs-human', 'fu-parked'],
         workflow: 'Translate Pending Jobs',
       });
-    } else if (providerRecovered(provider, results)) {
+    } else if (action === 'resolve') {
       resolveGithubIssue(title, { workflow: 'Translate Pending Jobs', runUrl });
     }
   }
@@ -324,7 +364,7 @@ async function main() {
   };
   const from = get('--alert-from');
   if (from) {
-    await alertFrom(from, get('--run-url'));
+    await alertFrom(from, get('--run-url'), get('--codex-reserve-dir'));
     return;
   }
   const results = await probeTranslationProviders();

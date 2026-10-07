@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * report-synced-article-fabrication.mjs — run the curated
  * `article-fabrication-guard` denylist (institutions, acronyms, incorrect
@@ -65,7 +66,6 @@
  */
 
 import { appendFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import { BODY_DIRS, changedArticleIdsWorktree, newArticleIdsWorktree } from '../lib/blog-body-io.mjs';
 import { scanFabricationPatterns, extractTextContentFromSource } from '../lib/article-fabrication-patterns.mjs';
@@ -337,7 +337,7 @@ async function main() {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main()
     .then((code) => process.exit(code))
     .catch((err) => {

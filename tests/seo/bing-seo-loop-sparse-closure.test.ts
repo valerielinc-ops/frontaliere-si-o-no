@@ -35,7 +35,7 @@ const FAILURE_TITLE = 'Bing full-tree: sparse-checkout senza la chiusura degli i
  * Radici del perimetro con cui `run-related-tests.mjs` seleziona questo test.
  * Ogni file di codice della chiusura deve starci dentro: altrimenti un import
  * aggiunto a quel file non farebbe girare il test sulla sua PR. Il lato del
- * runner e' fissato da `tests/run-related-tests-github-assets.test.ts`, che
+ * runner e' fissato da `tests/run-related-tests-selection.test.ts`, che
  * interroga il runner vero per un file sotto ciascuna radice.
  */
 const SELECTION_ROOTS = ['scripts/', 'build-plugins/shared/', 'packages/articles/engine/'];

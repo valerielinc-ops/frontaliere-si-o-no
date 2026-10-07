@@ -119,6 +119,16 @@ describe('holidays landings — render smoke', () => {
     const r = __renderHolidayPageForTest({ locale: 'it', page: 'ch-vs-it', dateStamp: '2026-07-19' });
     expect(r.html).toContain('Venerdì Santo');
     expect(r.html).toContain('Anniversario della Liberazione');
+    expect((r.html.match(/<main\b/g) ?? []).length).toBe(1);
+    expect(r.html).toContain('aria-label="Giorni festivi: Svizzera (Ticino) vs Italia');
+  });
+
+  it('gives both Ticino calendar tables explicit accessible names', () => {
+    const r = __renderHolidayPageForTest({ locale: 'it', page: 'ticino', dateStamp: '2026-07-19' });
+
+    expect((r.html.match(/<main\b/g) ?? []).length).toBe(1);
+    expect(r.html).toContain('aria-label="Calendario festivi 2026"');
+    expect(r.html).toContain('aria-label="Calendario festivi 2027"');
   });
 
   it('does not expose a null placeholder in the German editorial holiday copy', () => {

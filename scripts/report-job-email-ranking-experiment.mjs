@@ -73,6 +73,7 @@ import { execFileSync } from 'node:child_process';
 import { realpathSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { JOB_EMAIL_RANKING_DEFAULTS } from '../functions/src/lib/jobEmailRanking.js';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import {
   JOB_EMAIL_RANKING_DELIVERIES_COLLECTION,
   JOB_EMAIL_RANKING_EVENTS_COLLECTION,
@@ -609,20 +610,7 @@ export function parseArgs(argv) {
 }
 
 async function initFirebase() {
-  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const projectId = 'frontaliere-ticino';
-    if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-      initializeApp({ credential: cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON)), projectId });
-    } else if (process.env.GOOGLE_APPLICATION_CREDENTIALS && fs.existsSync(process.env.GOOGLE_APPLICATION_CREDENTIALS)) {
-      const cred = JSON.parse(fs.readFileSync(process.env.GOOGLE_APPLICATION_CREDENTIALS, 'utf8'));
-      initializeApp(cred.private_key ? { credential: cert(cred), projectId } : { credential: applicationDefault(), projectId });
-    } else {
-      initializeApp({ credential: applicationDefault(), projectId });
-    }
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 const EVENT_FIELDS = ['event_type', 'surface', 'surface_id', 'delivery_id', 'job_id', 'position', 'ranking_variant', 'user_id', 'occurred_at', 'affinity_profile'];

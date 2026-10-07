@@ -139,7 +139,7 @@ export interface AstraVehicleStatsResult {
 }
 
 export const ASTRA_SOURCE_LINK =
-  "https://www.astra.admin.ch/astra/it/home/documentazione/dati-aperti/veicoli.html";
+  "https://www.astra.admin.ch/it/temi/veicoli.html";
 
 const LOCAL_CACHE_KEY = "astra_vehicle_stats_cache_v1";
 const FIRESTORE_COLLECTION = "config";

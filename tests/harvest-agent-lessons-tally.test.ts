@@ -15,6 +15,36 @@ type Review = { author: { login: string }; body: string };
 type PR = { number: number; reviews: Review[] };
 const claudeReview = (body: string): Review => ({ author: { login: 'claude' }, body });
 
+// Testi reali dei sei finding che hanno riacceso #10113 dopo il cutoff
+// 2026-09-27T20:24:14Z. Restano verbatim per misurare la classe, non solo il
+// lessico sintetico del bucket.
+const ISSUE_10113_FINDINGS = [
+  {
+    pr: 11514,
+    line: 'scripts/check-crawler-health.mjs:L728: 🔴 Important: [funnel] The replacement guard treats every finite `generatedAt > P` as a publication for E and omits `at <= E`; a member with a later or out-of-order summary can therefore suppress `summary-missing` even though no summary landed in `(P, E]`, leaving the crawler-health streak frozen. Require the member timestamp to satisfy `at > previousAt && at <= latestAt` before skipping the replacement. Accettazione: `node --input-type=module -e \'import { applyGenerationSummaryAbsence as f } from "./scripts/check-crawler-health.mjs"; const r=f([{slug:"target",generatedAt:"2026-10-03T00:00:00Z"},{slug:"sibling",generatedAt:"2026-10-04T00:30:00Z"},{slug:"future",generatedAt:"2026-10-05T00:00:00Z"}],{groups:{g:["target","sibling","future"]},ledgerEntries:[{group:"g",checkedAt:"2026-10-03T00:00:00Z"},{group:"g",checkedAt:"2026-10-04T01:00:00Z"}]}); const got=r.absent.map(x=>x.slug).sort().join(","); if(got!=="future,target") throw new Error(got);\'`.',
+  },
+  {
+    pr: 11364,
+    line: 'scripts/ci/sibling-check-gate.mjs:L377: 🔴 Important: [correctness] The cache is disabled only for the local fallback; the checker extracted from the judged revision or `origin/main` inherits `process.env`, while the checker cache is keyed by the head/ref rather than checker contents, so a verdict produced by a different checker revision can be reused and the gate is no longer pinned to the judged checker. Set `CHECK_SIBLING_PATTERNS_CACHE` to \'0\' for every checker invocation. Accettazione: `rg -n "CHECK_SIBLING_PATTERNS_CACHE: \'0\'" scripts/ci/sibling-check-gate.mjs` shows the cache-disabled environment is applied unconditionally to each checker source.',
+  },
+  {
+    pr: 11184,
+    line: 'scripts/ci/check-sibling-patterns.mjs:L797: 🟡 Nit The new function-header filter does not recognize common `export async function ... {` or `export default function ... {` headers, so removing one still contributes a generic sibling expression and can produce a false-positive gate candidate. Extend the header matcher to accept the export/default modifiers. Accettazione: `node --input-type=module -e "import { isGenericRemovedExpression } from \'./scripts/ci/check-sibling-patterns.mjs\'; console.log(isGenericRemovedExpression(\'export async function foo() {\'))"` → `true`. — deferred, non funnel-critical.',
+  },
+  {
+    pr: 10397,
+    line: 'PR body:L7: 🔴 Important: [other] The `## Implementato` bullet claims the sibling checker is bounded in partial clones, but supplies no pre/post measurement or explicit revert-risk, leaving a CI optimization claim unvalidated before merge. Add a reproducible pre/post measurement for the partial-clone path to the PR evidence. Accettazione: the PR body contains the benchmark command and environment plus numeric pre/post results for the partial-clone path.',
+  },
+  {
+    pr: 10392,
+    line: 'PR body:L6: 🔴 Important: [contract] The PR claims that replacing `git archive` with `git ls-tree` plus `git cat-file --batch` makes the hook complete on the large clone, but provides no pre/post measurement and no explicit revert-risk. Add a repeatable pre/post measurement for the same large-clone revision to the PR body. Accettazione: the old and new `node scripts/ci/check-sibling-patterns.mjs --head <same-ref>` runs both exit 0 and their elapsed times are recorded in the PR body.',
+  },
+  {
+    pr: 10203,
+    line: 'scripts/lib/events-retention.mjs:L14: 🔴 Important: [funnel] `eventRouteForHistory()` persists only `slugifyEvent(event)`\'s base slug, while `assignEventSlugs()` adds `-2`, `-3`, and so on for same-title/date siblings; when a non-first sibling changes, the archive records and bridges the wrong path, so its actual historical detail URL can 404. Persist the collision-resolved slug assigned for the event\'s `(canton,comune)` group in `previousRoutes`; affected persistence call sites are `scripts/lib/crawl-checkpoint.mjs:L92` and `scripts/assemble-events-dataset.mjs:L147`. Accettazione: input→output — two events with identical title/startDate in one group give the second event `base-2`, then changing that event must produce `previousRoutes[0].slug===base-2` and a historical migration with `fromSlug===base-2`, not `base`.',
+  },
+] as const;
+
 describe('detectSeverity', () => {
   it('riconosce 🔴/🟡/❓ e null', () => {
     expect(detectSeverity('🔴 q: bug')).toBe('🔴');
@@ -129,6 +159,40 @@ describe('tallyFindings — recap LGTM "Nessun/Zero 🔴" non gonfia sibling-cla
     ];
     const { counts } = tallyFindings(prs);
     expect(counts['sibling-class-fix']).toBe(1);
+  });
+});
+
+describe('issue #10113 — sibling tooling non è sibling-class-fix', () => {
+  const prs: PR[] = ISSUE_10113_FINDINGS.map(({ pr, line }) => ({
+    number: pr,
+    reviews: [claudeReview(line)],
+  }));
+
+  it('riclassifica i quattro finding sul checker/gate come argomento', () => {
+    const toolingPrs = new Set([11364, 11184, 10397, 10392]);
+    const { counts } = tallyFindings(prs);
+
+    expect(counts['sibling-tooling']).toBe(toolingPrs.size);
+    expect(counts['sibling-class-fix'] ?? 0).toBe(0);
+  });
+
+  it('lascia #11514 e #10203 fuori dalla classe sibling e dal tooling', () => {
+    for (const { pr, line } of ISSUE_10113_FINDINGS.filter(({ pr }) => pr === 11514 || pr === 10203)) {
+      expect(bucketFinding(line), `PR ${pr}`).not.toBe('sibling-class-fix');
+      expect(bucketFinding(line), `PR ${pr}`).not.toBe('sibling-tooling');
+    }
+  });
+
+  it('continua a contare una classe mancata vera anche se il gemello è il checker', () => {
+    const line = 'scripts/ci/other-check.mjs:L1: 🟡 Nit: il sibling `scripts/ci/check-sibling-patterns.mjs` porta ancora lo stesso costrutto non toccato dal fix.';
+    expect(bucketFinding(line)).toBe('sibling-class-fix');
+    expect(tallyFindings([{ number: 10113, reviews: [claudeReview(line)] }]).counts['sibling-class-fix']).toBe(1);
+  });
+
+  it("ignora l'indirizzo iniziale anche negli altri bucket di processo", () => {
+    expect(bucketFinding('scripts/ci/claim-unvalidated-monitor.mjs:L1: 🔴 Important: the cache misses an entry for a new revision.')).not.toBe('unvalidated-claim');
+    expect(bucketFinding('PR body:L7: 🔴 Important: the cache misses an entry for a new revision.')).not.toBe('pr-body-contract');
+    expect(bucketFinding('scripts/ci/check-sibling-patterns.mjs:L797: 🔴 Important: the cache misses an entry for a new revision.')).not.toBe('sibling-class-fix');
   });
 });
 

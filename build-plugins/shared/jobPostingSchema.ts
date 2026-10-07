@@ -158,6 +158,11 @@ export interface BuildJobPostingOptions {
    */
   readonly baseUrl?: string;
   /**
+   * Canonical employer-profile slugs emitted by this build. A slug outside
+   * this set must never be turned into a guessed `/aziende/<slug>/` URL.
+   */
+  readonly knownSlugs?: ReadonlySet<string>;
+  /**
    * Optional build clock for deterministic SSG output. Callers that omit it
    * retain the historical wall-clock fallback (notably the runtime SPA).
    */
@@ -196,10 +201,10 @@ export interface BaseSalarySchema {
 export interface HiringOrganizationSchema {
   readonly '@type': 'Organization';
   /** Stable first-party identity shared by every locale and employer surface. */
-  readonly '@id': string;
+  readonly '@id'?: string;
   readonly name: string;
-  /** Canonical employer profile URL (always a real first-party route). */
-  readonly url: string;
+  /** Canonical employer profile URL when the build knows that route exists. */
+  readonly url?: string;
   readonly sameAs?: string;
   readonly logo?: string;
 }
@@ -526,17 +531,21 @@ export interface BuildCompanyOrganizationOptions {
   readonly baseUrl?: string;
   /** Real page URL used when the source does not carry a company identity. */
   readonly fallbackUrl?: string;
+  /** Canonical employer-profile slugs emitted by this build. */
+  readonly knownSlugs?: ReadonlySet<string>;
 }
 
 /**
  * Build one stable Organization identity for every job/company emitter.
  *
- * Employer pages exist under `/aziende/<canonical-slug>/` for both full
- * profiles and below-floor bridges. Using the Italian profile as the
- * canonical URL keeps the same employer entity shared by all four locale
- * pages and by canton/company hubs. The source website remains `sameAs` so
- * the schema keeps its external provenance without making a locale-specific
- * page URL the identity of the company.
+ * Employer pages exist under `/aziende/<canonical-slug>/` for full profiles
+ * and below-floor bridges. The profile URL is used only when its slug is in
+ * the build's emitted-profile registry; source records often contain an
+ * employer that has no profile page, and inventing that URL creates a broken
+ * entity identity. Such callers can provide their real canonical page as
+ * `fallbackUrl`. The source website remains `sameAs` so the schema keeps its
+ * external provenance without making a locale-specific page URL the identity
+ * of the company.
  */
 export function buildCompanyOrganization(
   job: JobInput,
@@ -550,10 +559,11 @@ export function buildCompanyOrganization(
   const companySlug = rawCompany
     ? canonicalCompanyProfileSlug(String(job.company || job.companySlug || rawCompany), String(job.companyKey || ''))
     : '';
-  const profileUrl = companySlug
+  const profileUrl = companySlug && opts.knownSlugs?.has(companySlug)
     ? `${baseUrl}${buildEmployerProfilePath('it', companySlug)}`
-    : String(opts.fallbackUrl || `${baseUrl}/`);
-  const identityUrl = profileUrl.endsWith('/') ? profileUrl : `${profileUrl}/`;
+    : '';
+  const fallbackUrl = String(opts.fallbackUrl || '').trim();
+  const identityUrl = profileUrl || (fallbackUrl ? (fallbackUrl.endsWith('/') ? fallbackUrl : `${fallbackUrl}/`) : '');
 
   const rawWebsite = String(job.companyWebsite || job.companyDomain || '').trim();
   const sameAs = rawWebsite
@@ -568,9 +578,8 @@ export function buildCompanyOrganization(
 
   return {
     '@type': 'Organization',
-    '@id': `${identityUrl}#organization`,
     name: companyName,
-    url: identityUrl,
+    ...(identityUrl ? { '@id': `${identityUrl}#organization`, url: identityUrl } : {}),
     ...(sameAs ? { sameAs } : {}),
     ...(logo ? { logo } : {}),
   };
@@ -816,15 +825,26 @@ export function resolveJobPostingAddress(job: JobInput, locale: string): PostalA
 /** Facts used by visible FAQ content independently of rich-result eligibility. */
 export type JobPostingFacts = Pick<JobPostingSchema, 'baseSalary' | 'employmentType' | 'hiringOrganization' | 'jobLocation'>;
 
-export function buildJobPostingFacts(job: JobInput, locale: string): JobPostingFacts {
+export interface BuildJobPostingFactsOptions {
+  readonly baseUrl?: string;
+  readonly fallbackUrl?: string;
+  readonly knownSlugs?: ReadonlySet<string>;
+}
+
+export function buildJobPostingFacts(
+  job: JobInput,
+  locale: string,
+  opts: BuildJobPostingFactsOptions = {},
+): JobPostingFacts {
   const companyName = resolveCompanyName(job, locale);
   return {
     baseSalary: resolveBaseSalary(job),
     employmentType: normaliseEmploymentType(job.employmentType || job.contractType || job.contract),
     hiringOrganization: buildCompanyOrganization(job, {
       locale,
-      baseUrl: CANONICAL_ORIGIN,
-      fallbackUrl: `${CANONICAL_ORIGIN}/`,
+      baseUrl: opts.baseUrl || CANONICAL_ORIGIN,
+      fallbackUrl: opts.fallbackUrl,
+      knownSlugs: opts.knownSlugs,
     }),
     jobLocation: { '@type': 'Place', address: resolveAddress(job, companyName, locale) },
   };
@@ -871,6 +891,7 @@ export function buildJobPostingSchema(
     locale: opts.locale,
     baseUrl: opts.baseUrl,
     fallbackUrl: opts.url,
+    knownSlugs: opts.knownSlugs,
   });
 
   const schema: JobPostingSchema = {

@@ -261,7 +261,7 @@ async function resolveHeroImage(data, doc) {
  * pickAuthorForTopic() here is the same pre-existing behavior as before,
  * for a case this incident never actually involved.
  *
- * @returns {{slug: string, name: string, linkedinUrl: string|null}|null}
+ * @returns {{kind: 'real-author', slug: string, name: string, uid: string, linkedinUrl?: string}|null}
  */
 function resolveJournalistAuthor(doc) {
   return (doc?.authorUid ? getAuthorByUid(doc.authorUid) : undefined) || null;

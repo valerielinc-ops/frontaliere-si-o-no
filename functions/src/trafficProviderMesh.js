@@ -596,7 +596,7 @@ export function isProviderQuotaError(error) {
  * document. `rate-limit` is a per-provider minimum interval that carries its
  * own `retryAfterMs`. Treating either as account-wide is what turned three
  * aborted transactions into a 5.6-hour outage on 2026-09-18: mapbox — the only
- * provider that actually serves all 141 crossings — was banned mid-run and the
+ * provider that actually served the paid-monitored crossing set — was banned mid-run and the
  * mesh collapsed onto its misconfigured fallbacks.
  */
 export const TRANSIENT_RESERVATION_REASONS = Object.freeze(['quota-check-failed', 'rate-limit']);
@@ -781,7 +781,7 @@ async function getOpenRouteServiceTimes(originLat, originLng, destLat, destLng, 
  * JSON body. The original adapter called it OSRM-style — a GET on
  * `/route/v1/driving/{lng,lat;lng,lat}` — which is not a route on that host and
  * answered `HTTP 404` with an empty body on EVERY segment since the provider
- * was added. It was the final error for 45 of the 141 crossings in run
+ * was added. It was the final error for 45 crossings in run
  * 35358498994, and its 20-credit reservation was spent on each of those 404s.
  *
  * Both response shapes are accepted: `trip.summary.time` is the native reply,

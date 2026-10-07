@@ -1,16 +1,13 @@
 # Issue Automation Instructions
 
-Contratto: `issue-triage.yml` (route **deterministico, senza agente**), `issue-fix.yml` (fix → PR); companion `/fix-issue N` (`.claude/commands/fix-issue.md`).
+Contratto: `issue-triage.yml` (**deterministico, senza agente**), `issue-fix.yml` (fix → PR), `/fix-issue N` (`.claude/commands/fix-issue.md`).
 
 ## Scopo
-
-Issue monitor: classifica/risk policy; automatizza solo categoria/path/rischio verificati. F1/F7, control-plane, ignoti → deny. Tecnico → `automation-deferred`; owner → `needs-human`. PR: check/review.
-
 **Dedup a MONTE:** `scripts/lib/github-issue-creator.mjs`, **titolo stabile** + 🔁. `post-merge-followup`/`FOLLOWUP.md`: bucket `Europe/Zurich` per target; sito/corpus separati. Triage: **`scripts/lib/classify-issue.mjs` + shell, zero agente/quota**.
 
 ### Bucket giornaliero follow-up
 
-`FOLLOWUP.md`: bucket `follow-up(daily:YYYY-MM-DD): N item — owner/repo`; `State: collecting|sealed`, `Daily key`, `Target repository`; ID `FU-YYYY-MM-DD-NNN`. Gate: no acceptance → demote; drainer: `open` da `sealed` senza PR → promote; `issue-fix`: `Addresses #N` + `Follow-up item: FU-...`; reconciler chiude validi `done`; watermark/retry/`## Post-merge follow-up triage` fail-safe.
+`FOLLOWUP.md`: bucket `follow-up(daily:YYYY-MM-DD): N item — owner/repo`; `State: collecting|sealed`, `Daily key`, `Target repository`; ID `FU-YYYY-MM-DD-NNN`. Gate: no acceptance → demote; drainer: `open` da `sealed` senza PR → promote; `issue-fix`: `Addresses #N` + `Follow-up item: FU-...`; reconciler: validi → `done`; watermark/retry/`## Post-merge follow-up triage` fail-safe.
 
 ## Categorie
 
@@ -25,14 +22,12 @@ Issue monitor: classifica/risk policy; automatizza solo categoria/path/rischio v
 
 ## Triage flow (`issue-triage.yml`, on `issues: opened`) — deterministico, senza agente
 
-Step shell `Classify and route` + helper Node testabile, zero modello:
-
 1. **Classifica** via regex su titolo+label → UNA categoria (revenue/tracker prima, per evitare collisioni di nomi azienda). Vedi tabella "Categorie".
 2. **Valuta la risk policy** con `scripts/ci/lib/automation-risk-policy.mjs`: su issue surface F1/F7, control-plane, path sconosciuti, metadata non verificabili e issue non note bloccano il routing; la decisione è fail-closed.
-3. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`). Una decisione bloccata rimuove eventuali label di routing stale e aggiunge `automation-deferred` con `GITHUB_TOKEN`; `needs-human` viene aggiunta solo dal percorso che ha formulato una domanda del proprietario non coperta dai documenti.
-4. **Routing consentito** (vedi sotto): `crawler` → `agent:fix` via App/PAT immediato **se lo slot `issue-fix` è libero**, altrimenti in coda; le altre categorie ordinarie → `agent:fix-queued` via App/PAT, solo su issue OPEN.
+3. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`). Decisione bloccata: rimuove label di routing stale, aggiunge `automation-deferred` con `GITHUB_TOKEN`; `needs-human` solo dal percorso che ha formulato una domanda del proprietario non coperta dai documenti.
+4. **Routing** (vedi sotto): `crawler` → `agent:fix` via App/PAT immediato **se lo slot `issue-fix` è libero**, altrimenti in coda; altre categorie ordinarie → `agent:fix-queued` via App/PAT, solo su issue OPEN.
 
-Nessun dedup-close/lettura issue aperte. Misclassificazione → `other`; senza label/categoria verificabile la policy nega il fixer.
+Nessun dedup-close/lettura di issue aperte. Misclassificazione → `other`; label/categoria non verificabile → policy nega il fixer.
 
 ### Routing policy
 
@@ -45,36 +40,36 @@ Nessun dedup-close/lettura issue aperte. Misclassificazione → `other`; senza l
 | `revenue` | Normalmente **deny sull’issue surface**: i segnali revenue/RPM ricadono nel dominio F1/F7 `billing-revenue-partner`, quindi niente `agent:fix`/`agent:fix-queued`; il defer rientra nello sweep e segue VISION/DECISIONS. |
 | `other` | **Nessun auto-route per default**: passa solo con segnali ordinari espliciti (oggi `job-description-locale` o `job-title-locale`) e path/rischio verificabili; l’unknown resta `route='none'`. |
 
-**Pin `keep-open`/`agent:no-age-out`** → `route='none'`, `autofix=false`, no triage/drainer; `pinned`/`do-not-close` NON pinnano. `DECISIONS.md` → togli `needs-human`; sweep riesamina `automation-deferred`. No bypass.
+**Pin `keep-open`/`agent:no-age-out`** → `route='none'`, `autofix=false`, no triage/drainer; `pinned`/`do-not-close` NON pinnano. `DECISIONS.md` → togli `needs-human`; sweep riesamina `automation-deferred`; no bypass.
 
-**Routing App/PAT in bash**: `Classify and route` usa installation token `APP_TOKEN`, fallback `GITHUB_PAT` da Remote Config, solo se OPEN.
-- **App/PAT, non GITHUB_TOKEN**: `GITHUB_TOKEN` non triggera `issue-fix`; `github-actions[bot]` non passa `sender == valerielinc-ops`. Serve solo per `agent:triaged`/`automation-deferred`; `needs-human` richiede una domanda strutturata.
+**Routing App/PAT in bash**: `Classify and route` usa `APP_TOKEN`, fallback `GITHUB_PAT` da Remote Config, solo OPEN.
+- **App/PAT, non GITHUB_TOKEN**: `GITHUB_TOKEN` non triggera `issue-fix`; `github-actions[bot]` non passa `sender == valerielinc-ops`. Solo `agent:triaged`/`automation-deferred`; `needs-human` richiede domanda strutturata.
 - **Guard `state == OPEN`**: niente label su issue chiuse.
-- Senza App/PAT (credenziali o RC non disponibili) → skip + warning; mai fixer via GITHUB_TOKEN.
+- App/PAT assente (credenziali/RC) → skip + warning; mai fixer via GITHUB_TOKEN.
 
 ### Frugalità quota (no ANTHROPIC_API_KEY)
 
-AGENTS.md: fixer `CODEX_AUTH_JSON`/Codex Luna Max, non Anthropic; triage zero-agent, max-turns integri, OPEN, `cancel-in-progress: false`, pool bounded; `follow-up`: bucket/repo/giorno, un item/run, `tests.yml`+`## LGTM`+native auto-merge.
+Quota: fixer `CODEX_AUTH_JSON`/Codex Luna Max; triage zero-agent; follow-up bounded.
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
-`agent:fix` = consenso owner/triage via App/PAT, mai `GITHUB_TOKEN`. Prima del fixer, `risk_policy` può togliere il routing con `automation-deferred`.
+`agent:fix` = consenso owner/triage via App/PAT, mai `GITHUB_TOKEN`; `risk_policy` può togliere il routing con `automation-deferred`.
 
-**Pre-flight 0.1/0/0.5/0.75**, deterministici pre-agent: su stop tolgono `agent:fix`, postano marker/output guard, saltano Codex (`if:`).
+**Pre-flight 0.1/0/0.5/0.75**, deterministici pre-agent: stop → tolgono `agent:fix`, postano marker/output guard, saltano Codex (`if:`).
 
-0.1. **Pre-flight quota backoff** — `scripts/ci/check-quota-backoff.mjs`. Gira **prima di `npm ci`** (solo builtin Node + `gh`). Legge il beacon `<!-- QUOTA_RESETS_AT: <epoch> -->` lasciato da una run precedente su `agent:fix`/`agent:fix-queued`; con finestra aperta ri-accoda (`agent:fix` → `agent:fix-queued`) **senza consumare un tentativo** → `<!-- FIX_OUTCOME: rate-limited -->`, `quota_blocked=true`. PROCEED-SAFE: beacon assente/malformato o errore gh → procede invariato.
-0. **Pre-flight already-resolved** — `scripts/ci/check-issue-already-resolved.mjs`. Gate contro `fix-outcome:already-fixed`: triggera se un token DISTINTIVO di `## Suggested action` già presente **verbatim** nel file citato su main → `<!-- FIX_OUTCOME: already-fixed -->`, `already_resolved=true`. CONSERVATIVO: solo follow-up **singole** non in-flight con match forte; aggregate legacy e bucket `follow-up(daily:YYYY-MM-DD)` restano al reconciler/fixer item-per-item; aggregate/ambiguo/nessun match procedono invariati. Matcher condiviso con `reconcile-followups.mjs` (`scripts/ci/followup-resolution-match.mjs`).
-0.5. **Pre-flight workflows-scope capability guard** — `scripts/ci/check-workflows-scope.mjs`. Trigger, uno dei due: (a) **body-esplicito** — la issue cita `.github/workflows/**` verbatim in backtick/code-block; (b) **recurrence** — auto-file `scan-job-timeouts.mjs` (label `ci-timeout`) con **titolo esatto** coincidente a una issue PRECEDENTE già chiusa con lo stesso marker → `<!-- FIX_OUTCOME: blocked-workflows-scope -->`, `workflows_blocked=true`. CONSERVATIVO: nessun match → procede invariato.
-0.75. **Pre-flight in-progress claim gate** — `scripts/ci/claim-issue-in-flight.mjs`. Dopo risk policy e preflight di quota/capability, reclama `agent:in-progress` prima di tier/Codex; se già presente → `<!-- FIX_OUTCOME: overlap-skip -->`, `in_flight=true`, zero quota Max. Con `agent:remote`/`agent:local`, il fixer remoto rilascia entrambi solo se `claim_acquired=true` dimostra la proprietà. Se assente → procede; release simmetrico (`if: always()`) su ogni path terminale. FAIL-CLOSED: errore gh/API/parse → `in_flight=true`, `claim_acquired=false`, nessun fixer e nessun release.
+0.1. **Pre-flight quota backoff** — `scripts/ci/check-quota-backoff.mjs`. Prima di `npm ci` (solo builtin Node + `gh`). Legge il beacon `<!-- QUOTA_RESETS_AT: <epoch> -->` di una run precedente su `agent:fix`/`agent:fix-queued`; con finestra aperta ri-accoda (`agent:fix` → `agent:fix-queued`) **senza consumare un tentativo** → `<!-- FIX_OUTCOME: rate-limited -->`, `quota_blocked=true`. PROCEED-SAFE: beacon assente/malformato o errore gh → invariato.
+0. **Pre-flight already-resolved** — `scripts/ci/check-issue-already-resolved.mjs`. Gate contro `fix-outcome:already-fixed`: token DISTINTIVO di `## Suggested action` già **verbatim** nel file citato su main → `<!-- FIX_OUTCOME: already-fixed -->`, `already_resolved=true`. CONSERVATIVO: solo follow-up **singole** non in-flight con match forte; aggregate legacy e bucket `follow-up(daily:YYYY-MM-DD)` al reconciler/fixer item-per-item; aggregate/ambiguo/nessun match invariati. Matcher condiviso con `reconcile-followups.mjs` (`scripts/ci/followup-resolution-match.mjs`).
+0.5. **Pre-flight workflows-scope capability guard** — `scripts/ci/check-workflows-scope.mjs`. Trigger: (a) **body-esplicito** — issue cita `.github/workflows/**` verbatim in backtick/code-block; (b) **recurrence** — auto-file `scan-job-timeouts.mjs` (label `ci-timeout`) con **titolo esatto** coincidente a issue PRECEDENTE chiusa con lo stesso marker → `<!-- FIX_OUTCOME: blocked-workflows-scope -->`, `workflows_blocked=true`. CONSERVATIVO: nessun match → invariato.
+0.75. **Pre-flight in-progress claim gate** — `scripts/ci/claim-issue-in-flight.mjs`. Dopo risk policy + preflight quota/capability, reclama `agent:in-progress` prima di tier/Codex; già presente → `<!-- FIX_OUTCOME: overlap-skip -->`, `in_flight=true`, zero quota Max. Con `agent:remote`/`agent:local`, il fixer remoto rilascia entrambi solo se `claim_acquired=true` dimostra la proprietà. Assente → procede; release simmetrico (`if: always()`) su ogni path terminale. FAIL-CLOSED: errore gh/API/parse → `in_flight=true`, `claim_acquired=false`, nessun fixer/release.
 1. **Pre-condizioni** (abort con commento se falliscono):
-   - PR aperta già citante la issue → skip ("PR già in volo"). Difesa secondaria (0.75 è primaria) per il caso raro di PR già aperta senza label (es. lavoro manuale pre-esistente).
-   - **Overlap-file**: estrai i path target dal body issue; se una PR aperta (`gh pr list --state open` + `gh pr diff <n> --name-only`) **già modifica** uno di quei file → skip ("file già in volo in PR #N; riaprire dopo il merge se pertinente"). Issue non file-specifica → procedi.
+    - PR aperta già citante la issue → skip ("PR già in volo"). Difesa secondaria (0.75 primaria) per PR aperta senza label (es. lavoro manuale pre-esistente).
+    - **Overlap-file**: estrai i path target dal body; se una PR aperta (`gh pr list --state open` + `gh pr diff <n> --name-only`) **già modifica** uno → skip ("file già in volo in PR #N; riaprire dopo il merge se pertinente"). Issue non file-specifica → procedi.
 2. Branch `fix/issue-<N>`.
 3. Diagnosi **root cause** (non sintomo). `crawler` → rigenera parser / edit mirato selector+config.
-4. Fix **chirurgico sulla classe del bug**, non sul singolo file — regola in AGENTS.md #6 (sibling-grep pre-push via `check-sibling-patterns.mjs --strict`, falso-positivo documentato per-file in `## Non implementato`). Mai abbassare gate (#1). Mai disabilitare Auto Ads (#7).
-5. Commit identity: quella già configurata nel checkout del runner (`git config user.email`), mai un'identità scelta dal modello; la regola canonica è in `AGENTS.md → Privacy`. No path home assoluti, no email personali (Privacy).
+4. Fix **chirurgico sulla classe del bug**, non sul singolo file — AGENTS.md #6 (sibling-grep pre-push via `check-sibling-patterns.mjs --strict`, falso-positivo documentato per-file in `## Non implementato`). Mai abbassare gate (#1)/disabilitare Auto Ads (#7).
+5. Commit identity: quella del checkout runner (`git config user.email`), mai scelta dal modello; regola canonica in `AGENTS.md → Privacy`. No path home assoluti/email personali (Privacy).
 6. Push branch + `gh pr create`.
-7. PR body OBBLIGATORIO `## Implementato` + `## Non implementato (ancora)` (REVIEW.md completeness contract). Una fix PR di bucket deve contenere `Addresses #N` e `Follow-up item: FU-YYYY-MM-DD-NNN`; **MAI `Closes #N`** finché resta anche un item valido aperto. Il fixer lavora un item/run; il reconciler chiude solo con tutti gli item validi provati fatti; per le legacy multi-item usare un **progress-ref senza keyword di chiusura**. `pr-body-contract.yml` valida header e riferimenti, non la precisione del contenuto. **Self-check prima di `gh pr create`**: `git diff origin/main`, ogni bullet di `## Implementato` dev'essere nel diff; `## Non implementato (ancora)` elenca scope specifici (`- motivo: ...`), MAI `- ` vuoto o placeholder.
+7. PR body OBBLIGATORIO `## Implementato` + `## Non implementato (ancora)` (REVIEW.md completeness contract). Bucket: `Addresses #N` e `Follow-up item: FU-YYYY-MM-DD-NNN`; **MAI `Closes #N`** finché resta un item valido aperto. Fixer = un item/run; reconciler chiude solo con tutti gli item validi provati fatti; legacy multi-item: **progress-ref senza keyword di chiusura**. `pr-body-contract.yml` valida header/riferimenti, non precisione. **Self-check prima di `gh pr create`**: `git diff origin/main`, ogni bullet di `## Implementato` dev'essere nel diff; `## Non implementato (ancora)` elenca scope specifici (`- motivo: ...`), MAI `- ` vuoto o placeholder.
 8. **Telemetria OBBLIGATORIA — ULTIMA azione del run:** commento sulla issue con `<!-- FIX_OUTCOME: pr-created -->` per happy path e abort, usando i codici `pr-created` · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`; post-step emette anche `max-turns` (`error_max_turns`) e `rate-limited` (HTTP 429). Senza marker → `no-pr-unspecified`.
 9. La PR passa required `tests.yml` (`vitest (unit + integration)`), review Codex approvante sulla stessa HEAD, eventuale autorebase bounded e native auto-merge. **L'agent NON mergia a mano**: GitHub merge dopo required check; `needs-human` è tracking, non veto. Dopo creazione/aggiornamento usa dalla root `bin/gh-frontaliere events subscribe --repo valerielinc-ops/frontaliere-si-o-no --resource pull_request --number <N> --wait-for merged,failed --agent-id <id>` e un solo `events listen`, poi verifica prima del cleanup.
 
@@ -87,31 +82,31 @@ AGENTS.md: fixer `CODEX_AUTH_JSON`/Codex Luna Max, non Anthropic; triage zero-ag
 
 ### CODE vs DATA (no scroll dei blob — frugalità token, mirror del guard reviewer #1096)
 
-I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**` **NON sono code** da leggere riga-per-riga.
+I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**` **NON sono code**: non leggerli riga-per-riga.
 
 - **Root cause su output dati = fixa il CODE che li genera** (parser/crawler/build-plugin), non il blob a mano.
-- Serve un campione? `Read` **mirato** (offset/limit), mai l'intero blob.
+- Campione? `Read` **mirato** (offset/limit), mai l'intero blob.
 - `rg`/`grep` cross-file **scopati al code**: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`).
-- **Eccezione:** un file `data/**` checked-in che è **config/fixture** (non output rigenerato) e che il fix modifica a mano → trattalo come code.
+- **Eccezione:** file `data/**` checked-in **config/fixture** (non output rigenerato) modificato a mano → trattalo come code.
 
 ### Abort senza PR (no fix forzato)
 
-- **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Un codice inventato non è verdetto: il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
+- **Solo codici `FIX_OUTCOME` dello step 8:** `pr-created`, `blocked-workflows-scope`, `blocked-secrets`, `blocked-admin-settings`, `no-root-cause`, `overlap-skip`, `pr-already-open`, `already-fixed`, `revenue-tracker-manual`. Codice inventato: non è verdetto; il drainer non lo mette in `NON_RETRYABLE` e ri-accoda. `automation-deferred` è label, non esito.
 - Root cause incerta → "Root cause non determinata: <cosa hai trovato>", `<!-- FIX_OUTCOME: no-root-cause -->`, `<!-- AUTOMATION_DEFERRED: technical -->`, label `automation-deferred`, termina senza domande.
-  - **Daily bucket** (`follow-up(daily:…)`): `no-root-cause` vale per l'item selezionato, non per la issue. Solo il marker `FIX_OUTCOME`: niente `AUTOMATION_DEFERRED`, niente label `automation-deferred`, routing intatto. Il post-step `scripts/ci/route-already-fixed.mjs` porta l'item a `State: blocked` con `FU_ITEM_BLOCKED reason=no-root-cause` (stesso ramo per `blocked-admin-settings`) e il bucket resta in coda per l'item successivo.
+  - **Daily bucket** (`follow-up(daily:…)`): `no-root-cause` vale per l'item selezionato, non per la issue. Solo marker `FIX_OUTCOME`: no `AUTOMATION_DEFERRED`/label `automation-deferred`, routing intatto. Il post-step `scripts/ci/route-already-fixed.mjs` porta l'item a `State: blocked` con `FU_ITEM_BLOCKED reason=no-root-cause` (stesso ramo per `blocked-admin-settings`) e il bucket resta in coda per l'item successivo.
 - Già risolto su `main` → `already-fixed` + `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->`. Capability mancante → il `blocked-*` che la nomina.
-- Repo sbagliato → migra al proprietario, collega le schede, chiudi l'errata con evidenza (`DECISIONS.md`). Manca un dato → strumenta, non parcheggiare.
-- **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e altri parametri in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` solo per variabile vuota, nominandola (`RC_TO_ENV`).
+- Repo sbagliato → migra al proprietario, collega le schede, chiudi l'errata con evidenza (`DECISIONS.md`). Dato mancante → strumenta, non parcheggiare.
+- **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` solo per variabile vuota, nominandola (`RC_TO_ENV`).
   - **Rotazione credenziali:** l'autorizzazione copre l'USO, non ROTAZIONE (`DECISIONS.md`). Per ruotare/rigenerare/revocare: "rotazione di credenziali — resta una decisione umana (DECISIONS.md)" e termina PRIMA del diff.
-- **Capability-guard `.github/workflows/**` (turno ~1, PRIMA del fix).** Senza `APP_TOKEN_WORKFLOWS == 'true'` il push fallisce **sempre**: posta diff + "serve scope `workflows` / mano umana" e **TERMINA SUBITO**. Setting/branch-protection/admin-API 403 → `blocked-admin-settings`.
-- Mai un fix speculativo pur di produrre una PR.
+- **Capability-guard `.github/workflows/**` (turno ~1, PRIMA del fix).** Senza `APP_TOKEN_WORKFLOWS == 'true'` push fallisce **sempre**: posta diff + "serve scope `workflows` / mano umana"; **TERMINA SUBITO**. Setting/branch-protection/admin-API 403 → `blocked-admin-settings`.
+- Mai un fix speculativo.
 - **Ogni abort DEVE chiudere con `<!-- FIX_OUTCOME: <code> -->` nel commento** (codici, e conseguenza del marker mancante: step 8).
 
 ### Drenare il backlog queue-managed (`followup-drainer.yml`, automatico)
 
-`issue-fix`: `concurrency: { group: issue-fix-${issue.number || run_id}, cancel-in-progress: false }`. Un trigger sostituisce solo il pending della stessa issue; il drainer ri-arma. Vale per **crawler**; pool bounded.
+`issue-fix`: `concurrency: { group: issue-fix-${issue.number || run_id}, cancel-in-progress: false }`. Un trigger sostituisce solo il pending della stessa issue; drainer ri-arma. Vale per **crawler**; pool bounded.
 
-`scripts/ci/followup-drainer.mjs` (**zero-agente**): non-`crawler` in coda, max **7 issue**, `fu-prio:high`, `isQueueManaged()` (`classifyIssue().route === 'queue'`). `crawlerFixDecision`: no verdetto → `fu-attempt:N` → `fu-parked`+`automation-deferred`; `max-turns`/fermo → defer; `rate-limited` → hold/re-queue, zero tentativi.
+`scripts/ci/followup-drainer.mjs` (**zero-agente**): non-`crawler` in coda, max **7 issue**, `fu-prio:high`, `isQueueManaged()` (`classifyIssue().route === 'queue'`). `crawlerFixDecision`: no verdetto → `fu-attempt:N` → `fu-parked`+`automation-deferred`; `max-turns`/fermo → defer; `rate-limited` → hold/re-queue, 0 tentativi.
 
 **Rescue + park:** `agent:fix` queue-managed orfano (run morta, no PR `fix/issue-N`, `updatedAt` > 30min) → `fu-attempt:N`++; a 3 `fu-parked` (**non chiuso**, ri-tentabile), via `agent:fix-queued` a slot libero.
 
@@ -121,7 +116,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 ### Stadio di decomposizione (`issue-decompose.yml`, 2026-08-21)
 
-`agent:decompose-queued` → UNO `agent:decompose`/tick (quota/fairness); planner **NON implementa**. ≤6 `## Scheda` (CAUSA/FIX/METRICA+COMANDO/OSSERVATORE) con `from-decompose`+`fu-prio`; oltre → 5+contenitore. Padre: `decomposed:1`, `<!-- DECOMPOSED_INTO: n1 n2 -->`, PARENT-CLOSE a figlie chiuse, anti-ricorsione. Esito `<!-- DECOMPOSE_OUTCOME: decomposed-K | atomic-requeue | needs-human-decision | automation-deferred | already-resolved -->`. Run morta: `decompose-retried` → `fu-parked`+`automation-deferred`, salvo domanda. Fixer: CAUSA/COMANDO in ≤3 turni.
+`agent:decompose-queued` → UNO `agent:decompose`/tick (quota/fairness); planner **NON implementa**. ≤6 `## Scheda` (CAUSA/FIX/METRICA+COMANDO/OSSERVATORE) con `from-decompose`+`fu-prio`; oltre → 5+contenitore. Padre: `decomposed:1`, `<!-- DECOMPOSED_INTO: n1 n2 -->`, PARENT-CLOSE a figlie chiuse, anti-ricorsione. Se un monitor annota `🔁 **Reopened**` o `🔁 Recurrence on workflow run.` dopo l’ultimo marker e tutte le figlie sono chiuse, PARENT-REARM scrive `<!-- PARENT_REARM: ... -->`, rimuove `decomposed:1`/`agent:triaged` (e routing stale) e lascia il padre al triage-sweep deterministico esistente; non crea una coda parallela. Un riarmo vale una sola volta per ricorrenza, al massimo 2 marcatori in 30 giorni per issue e 2 riarmi per run di default; marker o stato figlia illeggibile → nessuna mutazione. Una decomposizione successiva è l’ultima autorità e riporta al PARENT-CLOSE. Esito `<!-- DECOMPOSE_OUTCOME: decomposed-K | atomic-requeue | needs-human-decision | automation-deferred | already-resolved -->`. Run morta: `decompose-retried` → `fu-parked`+`automation-deferred`, salvo domanda. Fixer: CAUSA/COMANDO in ≤3 turni.
 
 ## Local fixer (`/fix-issue N`)
 
@@ -143,25 +138,19 @@ Per HIGH-risk/manuale in coda: worktree-first; approvazione pre-push solo con `O
 
 ## Segnalazione umana di un difetto di contenuto crawlato
 
-Segnala un difetto **visto a occhio** live senza sessione:
-
 ```bash
 node scripts/report-crawler-content-error.mjs <crawler-key|url-del-job> "<cosa c'è che non va>"
 node scripts/report-crawler-content-error.mjs <...> --urgent    # route immediata
 node scripts/report-crawler-content-error.mjs <...> --dry-run   # stampa e basta
 ```
 
-Pipeline: `issue-triage` → `issue-fix` → PR → `tests.yml` → review Codex → native auto-merge.
+`issue-triage` → `issue-fix` → PR → `tests.yml` → review Codex → native auto-merge.
 
-Senza flag → `other`; senza segnale → `route='none'`. `--urgent` aggiunge `parser-broken` → `crawler` → `agent:fix` immediato se consentito (opt-in).
-
-
+Senza flag → `other`; senza segnale → `route='none'`. `--urgent` aggiunge `parser-broken` → `crawler` → `agent:fix` se consentito (opt-in).
 
 ## Contratto minimo per issue auto-generate (`## Segnali`, opt-in)
 
-Il solo sintomo non dà riproduzione/evidenza. `issue-decompose.yml` usa `## Scheda`; reporter zero-agente: `signals` opt-in.
-
-`signals` in `createGithubIssue()` (`scripts/lib/github-issue-creator.mjs`, `formatSignalsBlock`) = fatti raccolti, NON diagnosi.
+`signals` in `createGithubIssue()` (`scripts/lib/github-issue-creator.mjs`, `formatSignalsBlock`) = fatti, NON diagnosi
 
 ```js
 await createGithubIssue({
@@ -175,12 +164,12 @@ await createGithubIssue({
 });
 ```
 
-CLI (`github-issue-creator.mjs` subprocess):
+CLI (`github-issue-creator.mjs`)
 `--signal-cosa "..." --signal-osservato N --signal-atteso N --signal-comando "..." --signal-evidenza "..."` (ripetibile).
 
-Renderizza `## Segnali (raccolti automaticamente)` prima di `description`; senza `signals` body invariato; `issue-fix.yml` salta la scoperta.
+Renderizza `## Segnali (raccolti automaticamente)` prima di `description`; senza `signals` invariato; `issue-fix.yml` salta scoperta.
 
-Caller ricchi (`report-validate-dist-failure.mjs`, `send-job-alerts.mjs`): niente `## Segnali`; eccezione `reconcile-here-usage.mjs`.
+Caller: `report-validate-dist-failure.mjs`, `send-job-alerts.mjs`: niente `## Segnali`; eccezione `reconcile-here-usage.mjs`.
 
 ## Kill-switch
 

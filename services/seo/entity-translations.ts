@@ -18,6 +18,8 @@
 // NOTE: Strings intentionally avoid accented characters where the source
 // avoids them (Swiss-German umlaut rendering under ASCII-safe build).
 
+import { ORGANIZATION_ID } from './organizationLd';
+
 export type SupportedLocale = 'en' | 'de' | 'fr';
 
 interface LocalizedText {
@@ -714,6 +716,13 @@ export function translateOrganization(
  obj: Record<string, any>,
  locale: SupportedLocale
 ): void {
+ // `#organization` is one graph entity shared by every locale. Translating
+ // its description, knowsAbout, areaServed, or inLanguage in place creates
+ // conflicting definitions for the same @id (the crawler reports one value
+ // per locale). Locale-specific copy belongs to page-local organizations;
+ // keep the canonical publisher node byte-stable instead.
+ if (obj['@id'] === ORGANIZATION_ID) return;
+
  const name = typeof obj.name === 'string' ? obj.name : undefined;
  if (name) {
  const entry = ORGANIZATION_TRANSLATIONS[name];

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Frontaliere Ticino — User Value Report (Stage 3: AdSense revenue-per-user)
  *
@@ -50,7 +51,7 @@
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 
@@ -830,7 +831,7 @@ function writeOutput(report) {
   writeFileSync(OUTPUT_PATH, JSON.stringify(report, null, 2));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((e) => {
+if (isInvokedDirectly(import.meta.url)) main().catch((e) => {
   console.error('user-value-report failed:', e.message);
   if (flags.debug) console.error(e.stack);
   process.exit(0);

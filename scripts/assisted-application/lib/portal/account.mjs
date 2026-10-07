@@ -9,6 +9,8 @@
  *   create-account page           → random password, stored encrypted BEFORE
  *                                   the click; the planner fills the rest
  *   "check your e-mail"           → the inbox's verification link or code
+ *   SuccessFactors sign-in with an unverified account
+ *                             → restart registration to issue a fresh OTP
  *   sign-in page, account known   → alias + password
  *   application form with its own → the same random password, typed with the
  *   password field                  rest of the form (portal.mjs)
@@ -31,11 +33,14 @@ const VERIFICATION_POLL_MS = 10_000;
 // button is «Konto anlegen» / «Crea account» / «Créer un compte».
 export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?(konto (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an )?account|sign up|register|crea (un )?account|registrati( qui)?|créer (un )?compte|créez-en un|s'inscrire)$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
-export const VERIFY_PAGE_RE = /(verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)/i;
-const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs/i;
+export const RESEND_VERIFICATION_RE = /(resend|send (?:a )?new (?:verification )?code|request a new code|neuen code (?:senden|anfordern)|code (?:erneut|noch einmal) senden|renvoyer|réenvoyer|envoyer un nouveau code|invia(?:re)? un nuovo codice|nuovo codice|reinvia)/i;
+export const VERIFY_PAGE_RE = /((verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)|one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|einmal(?:passwort|code))/i;
+const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code)|mot de passe [àa] usage unique/i;
+const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:verification|confirmation) code\b|code (?:de |di )?(?:vérification|verification|confirmation|verifica)|code confidentiel|bestätigungs(?:code|passwort)|verifizierungscode|\bpin\b|\btoken\b/i;
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
+const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
 /**
  * What the page after the "create account" click says: `refused` (still the
@@ -61,6 +66,22 @@ export function verificationOutcome(after) {
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
+}
+
+/**
+ * The OTP page is still processing the click; its code field is not a
+ * rejection yet. SuccessFactors can also briefly expose an empty document
+ * while the post-verification route is loading, so that state must not be
+ * classified as an unconfirmed verification either.
+ */
+export function verificationIsPending(after) {
+  const hasVisibleResult = Boolean(String(after?.text || '').trim())
+    || Boolean(after?.fields?.length)
+    || Boolean(after?.buttons?.length)
+    || Boolean(after?.errors?.length);
+  if (!hasVisibleResult) return true;
+  if (!codeField(after)) return false;
+  return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }
 
 /** create: two password fields (password + repeat); sign_in: one. */
@@ -104,6 +125,11 @@ export function asksExistingPassword(field) {
 // other portal keeps the 20 it has always had.
 const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
 
+/** SuccessFactors creates the external candidate only after its OTP succeeds. */
+export function usesOtpAccountCreation(portal = '') {
+  return /(?:successfactors|sapsf)\.|jobs\.sap\.com/i.test(String(portal));
+}
+
 /**
  * The password's length on this portal (its host, or its channel id): not one
  * length for all (review of #10980). career2.successfactors.eu → 16,
@@ -140,6 +166,7 @@ export function accountsRefFor(db, orderId) {
  */
 export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = () => Date.now(), sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)) }) {
   const ref = accountsRefFor(db, orderId);
+  const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
   return {
     /** A password typed but never stored (a dry run's) is masked in the log all the same. */
     mask,
@@ -172,16 +199,22 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       if (!current) return;
       await ref.set({ [hostKey(host)]: { ...current, ...patch } }, { merge: true });
     },
+    /** Message ids already present before a portal asks us to resend a code. */
+    async verificationMessageIds() {
+      const snapshot = await inbox.get();
+      return snapshot.docs.filter((doc) => doc.data()?.category === 'verification').map((doc) => doc.id);
+    },
     /**
      * The first verification message classified by the inbound handler after
      * `sinceMs` whose link is on the portal's site (or that carries a code).
      */
-    async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS }) {
-      const inbox = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('inbox');
+    async waitForVerification({ host, sinceMs, timeoutMs = VERIFICATION_TIMEOUT_MS, excludeMessageIds = [] }) {
+      const excluded = new Set(excludeMessageIds);
       const deadline = nowMs() + timeoutMs;
       while (nowMs() < deadline) {
         const snapshot = await inbox.where('receivedAt', '>=', sinceMs).get();
         for (const doc of snapshot.docs) {
+          if (excluded.has(doc.id)) continue;
           const message = doc.data();
           if (message.category !== 'verification') continue;
           const url = message.verificationUrl && sameSite(message.verificationUrl, host) ? message.verificationUrl : '';
@@ -200,7 +233,12 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
 }
 
 export function codeField(snapshot) {
-  return snapshot.fields.find((field) => field.kind === 'text' && field.inputType !== 'password' && CODE_FIELD_RE.test(`${field.label} ${field.name}`)) || null;
+  return snapshot.fields.find((field) => {
+    const label = `${field.label} ${field.name}`;
+    return CODE_FIELD_RE.test(label)
+      && (field.kind === 'text' && field.inputType !== 'password'
+        || field.inputType === 'password' && PASSWORD_CODE_FIELD_RE.test(label));
+  }) || null;
 }
 
 export function loginFields(snapshot) {

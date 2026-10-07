@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { execFileSync, spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -37,7 +38,7 @@ import {
   pressedToday,
 } from '../scripts/social-robot/lib/cadence.mjs';
 import { RobotError } from '../scripts/social-robot/lib/flows.mjs';
-import { displayPath, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
+import { displayPath, downloadEntryFiles, downloadImages, issueTitleFor, runRobot } from '../scripts/social-robot/lib/robot.mjs';
 import { applyConfirmation, parseConfirmArgs } from '../scripts/social-robot/confirm.mjs';
 import { resolveBrowserLaunch } from '../scripts/social-robot/lib/browser.mjs';
 
@@ -55,6 +56,18 @@ afterAll(() => {
 const NOW = Date.parse('2026-10-04T09:30:00Z');
 const HOUR = 3600_000;
 const cdn = (name: string) => `https://cdn.frontaliereticino.ch/images/social/instagram/${name}`;
+const tiktokVideo = (name: string, bytes = 4) => {
+  const body = Buffer.from(Array.from({ length: bytes }, (_, i) => i + 1));
+  return {
+    url: `https://cdn.frontaliereticino.ch/images/social/tiktok/${name}.mp4`,
+    bytes: body.length,
+    sha256: createHash('sha256').update(body).digest('hex'),
+    durationMs: 7_750,
+    width: 1080,
+    height: 1920,
+    body,
+  };
+};
 
 function entry(kind = 'article', day = '2026-10-03', { channel = 'instagram', now = NOW } = {}) {
   return buildQueueEntry({
@@ -314,6 +327,29 @@ function harness({ queue = { pending: [entry('article')] }, journal = emptyJourn
 }
 
 describe('runRobot', () => {
+  it('skips a legacy TikTok queue entry without video and continues to the next one without an issue', async () => {
+    const legacy = entry('article', '2026-10-03', { channel: 'tiktok' });
+    const video = tiktokVideo('job-2026-10-04');
+    const next = buildQueueEntry({
+      channel: 'tiktok',
+      kind: 'job',
+      day: '2026-10-04',
+      caption: 'lavoro in Svizzera\n\n#frontalieri',
+      imageUrls: [cdn('job-2026-10-04-0.jpg')],
+      video,
+      ledgerEntries: [{ id: 'job-slug', kind: 'job' }],
+      now: NOW + 1,
+    });
+    const h = harness({ queue: { pending: [legacy, next] } });
+    const out = await runRobot(h.deps({ platforms: ['tiktok'] }));
+    expect(out.results).toEqual(expect.arrayContaining([
+      { channel: 'tiktok', outcome: 'skipped', reason: 'no-video', queueId: legacy.id },
+      expect.objectContaining({ channel: 'tiktok', outcome: 'published', queueId: next.id }),
+    ]));
+    expect(h.calls.flow.map((call) => call.id)).toEqual([next.id]);
+    expect(h.calls.issues).toEqual([]);
+  });
+
   it('stays a dry run unless the command line AND Remote Config allow publishing', async () => {
     for (const [cliMode, rcMode] of [['dry-run', 'live'], ['publish', 'dry'], ['dry-run', 'dry']] as const) {
       const h = harness();
@@ -343,7 +379,7 @@ describe('runRobot', () => {
     expect(h.calls.flow).toHaveLength(1);
   });
 
-  it('never marks a post pressed without confirmation: unconfirmed, blocked, issue for a human', async () => {
+  it('keeps a sent publish click without confirmation as unconfirmed and blocked for a human', async () => {
     const h = harness({ flow: async () => { throw new RobotError('confirmation-missing', 'no confirmation', { step: 'confirmation', pressed: true }); } });
     const out = await runRobot(h.deps());
     expect(out.results[0]).toMatchObject({ outcome: 'unconfirmed', errorClass: 'confirmation-missing' });
@@ -352,6 +388,18 @@ describe('runRobot', () => {
     expect(h.calls.issues[0].labels).toContain('needs-human');
     await runRobot(h.deps());
     expect(h.calls.flow).toHaveLength(1);
+  });
+
+  it('records a publish click intercepted before dispatch as error and retries it', async () => {
+    const h = harness({ flow: async () => { throw new RobotError('interstitial-unknown', 'Post click was intercepted', { step: 'publish', pressed: false }); } });
+    const out = await runRobot(h.deps());
+    expect(out.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.journal().attempts[0]).toMatchObject({ outcome: 'error', step: 'publish' });
+    expect(h.calls.issues[0].labels).not.toContain('needs-human');
+
+    const retry = await runRobot(h.deps());
+    expect(retry.results[0]).toMatchObject({ outcome: 'error', errorClass: 'interstitial-unknown' });
+    expect(h.calls.flow).toHaveLength(2);
   });
 
   it('opens the issue with a stable title on any error, with the home folder hidden', async () => {
@@ -491,6 +539,20 @@ describe('robot helpers', () => {
     await expect(downloadImages({ imageUrls: ['https://evil.example/a.jpg'] }, dir, { fetchImpl: ok as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
   });
 
+  it('downloads TikTok video only after checking content type, bytes and sha256', async () => {
+    const dir = tempDir();
+    const video = tiktokVideo('article-2026-10-03', 8);
+    const videoEntry = { ...entry('article', '2026-10-03', { channel: 'tiktok' }), video };
+    const fetchImpl = async (url: string) => url.endsWith('.mp4')
+      ? new Response(video.body, { status: 200, headers: { 'content-type': 'video/mp4' } })
+      : new Response(new Uint8Array([0xff, 0xd8]), { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    const files = await downloadEntryFiles(videoEntry, dir, { fetchImpl: fetchImpl as typeof fetch });
+    expect(files.map((file: string) => path.basename(file))).toEqual(['article-2026-10-03.mp4']);
+    await expect(downloadEntryFiles({ ...videoEntry, video: { ...video, bytes: video.bytes + 1 } }, dir, { fetchImpl: fetchImpl as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+    const wrongType = async () => new Response(video.body, { status: 200, headers: { 'content-type': 'image/jpeg' } });
+    await expect(downloadEntryFiles(videoEntry, dir, { fetchImpl: wrongType as typeof fetch })).rejects.toMatchObject({ errorClass: 'download' });
+  });
+
   it('hides the home folder in paths it publishes', () => {
     expect(displayPath('/home/tester/Library/x', '/home/tester')).toBe('~/Library/x');
   });
@@ -508,6 +570,124 @@ describe('robot helpers', () => {
 
 describe('Mac host launch agent', () => {
   const script = path.join(ROOT, 'scripts', 'social-robot', 'launchd.sh');
+
+  type LaunchFixture = {
+    root: string;
+    repo: string;
+    state: string;
+    installed: string;
+    stateLauncher: string;
+    logs: string;
+    runLog: string;
+    sha: string;
+    extraPath: string;
+  };
+
+  function gitFixture(repo: string, args: string[]) {
+    execFileSync('git', ['-C', repo, ...args], { stdio: 'ignore' });
+  }
+
+  function createLaunchFixture({
+    missingDependency = false,
+    runBody,
+  }: { missingDependency?: boolean; runBody?: string } = {}): LaunchFixture {
+    const root = tempDir();
+    const repo = path.join(root, 'repo');
+    const scriptsDir = path.join(repo, 'scripts');
+    const socialDir = path.join(scriptsDir, 'social-robot');
+    const libDir = path.join(scriptsDir, 'lib');
+    fs.mkdirSync(socialDir, { recursive: true });
+    fs.mkdirSync(libDir, { recursive: true });
+
+    const launcherSource = fs.readFileSync(script, 'utf8');
+    const declared = (launcherSource.match(/^snapshot_paths="([^"]+)"/m)?.[1] ?? '').split(/\s+/).filter(Boolean);
+    const extraPath = 'scripts/lib/social-robot-test-dependency.mjs';
+    const destinationPaths = missingDependency ? declared : [...declared, extraPath];
+    const destinationLauncher = launcherSource.replace(
+      /^snapshot_paths="[^"]+"/m,
+      `snapshot_paths="${destinationPaths.join(' ')}"`,
+    );
+    fs.writeFileSync(path.join(socialDir, 'launchd.sh'), destinationLauncher);
+    fs.copyFileSync(path.join(ROOT, 'scripts', 'social-robot', 'verify-snapshot.mjs'), path.join(socialDir, 'verify-snapshot.mjs'));
+    fs.writeFileSync(
+      path.join(socialDir, 'run.mjs'),
+      runBody ?? [
+        `import '../lib/${path.basename(extraPath)}';`,
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    );
+    for (const rel of destinationPaths) {
+      if (rel === 'scripts/social-robot') continue;
+      const file = path.join(repo, rel);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      if (!fs.existsSync(file)) fs.writeFileSync(file, 'export const fixture = true;\n');
+    }
+    if (!missingDependency) fs.writeFileSync(path.join(repo, extraPath), 'export const fixture = true;\n');
+
+    gitFixture(repo, ['init', '-q', '-b', 'main']);
+    gitFixture(repo, ['config', 'user.email', 'test@example.invalid']);
+    gitFixture(repo, ['config', 'user.name', 'social-robot-test']);
+    gitFixture(repo, ['add', '.']);
+    gitFixture(repo, ['commit', '-qm', 'social robot snapshot fixture']);
+    const sha = execFileSync('git', ['-C', repo, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+
+    const state = path.join(root, 'state');
+    const stateLauncher = path.join(state, 'launchd.sh');
+    const installed = path.join(root, 'installed-launchd.sh');
+    fs.mkdirSync(state, { recursive: true });
+    fs.writeFileSync(installed, launcherSource);
+    fs.writeFileSync(stateLauncher, launcherSource);
+
+    return {
+      root,
+      repo,
+      state,
+      stateLauncher,
+      installed,
+      logs: path.join(root, 'logs'),
+      runLog: path.join(root, 'run.log'),
+      sha,
+      extraPath,
+    };
+  }
+
+  function launchEnv(fixture: LaunchFixture, overrides: Record<string, string> = {}) {
+    return {
+      ...process.env,
+      HOME: path.join(fixture.root, 'home'),
+      PATH: process.env.PATH,
+      SR_SITE_REPO: fixture.repo,
+      SR_REF: fixture.sha,
+      SR_LOG_DIR: fixture.logs,
+      SOCIAL_ROBOT_STATE_DIR: fixture.state,
+      SR_SERVICE_ACCOUNT: path.join(fixture.root, 'missing-service-account.json'),
+      SOCIAL_ROBOT_RUN_LOG: fixture.runLog,
+      GH_REPO: 'valerielinc-ops/frontaliere-si-o-no',
+      ...overrides,
+    };
+  }
+
+  function runLauncher(fixture: LaunchFixture, env: Record<string, string>, launcher = fixture.installed) {
+    return execFileSync('bash', [launcher, 'run'], { env, encoding: 'utf8' });
+  }
+
+  function fakeGh(root: string, existingIssue = '', exitCode = 0) {
+    const bin = path.join(root, 'bin');
+    const calls = path.join(root, 'gh-calls.log');
+    fs.mkdirSync(bin, { recursive: true });
+    fs.writeFileSync(path.join(bin, 'gh'), [
+      '#!/bin/sh',
+      'printf "%s\\n" "$*" >> "$GH_CALLS"',
+      'if [ "$1" = "issue" ] && [ "$2" = "list" ]; then',
+      existingIssue ? `  printf '%s\\n' '${existingIssue}'` : '  :',
+      'fi',
+      `exit ${exitCode}`,
+      '',
+    ].join('\n'));
+    fs.chmodSync(path.join(bin, 'gh'), 0o755);
+    return { bin, calls };
+  }
 
   it('writes a plist with one calendar entry per window that runs the copy in the state folder', () => {
     const dir = tempDir();
@@ -540,6 +720,60 @@ describe('Mac host launch agent', () => {
     walk('scripts/load-rc-env.mjs');
     const missing = [...seen].filter((rel) => !covered(rel));
     expect(missing).toEqual([]);
+  });
+
+  it('uses the destination SHA snapshot list even when the installed copy is old', () => {
+    const fixture = createLaunchFixture();
+    expect(fs.readFileSync(fixture.installed, 'utf8')).not.toContain(fixture.extraPath);
+    runLauncher(fixture, launchEnv(fixture));
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('ran');
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'))).toBe(true);
+    expect(fs.readFileSync(fixture.stateLauncher, 'utf8')).toContain(fixture.extraPath);
+  });
+
+  it('does not cache or execute an incomplete snapshot and alerts through gh', () => {
+    const fixture = createLaunchFixture({
+      missingDependency: true,
+      runBody: [
+        "import '../lib/missing-social-robot-dependency.mjs';",
+        "import { appendFileSync } from 'node:fs';",
+        "appendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'ran\\n');",
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '9876');
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    expect(fs.existsSync(fixture.runLog)).toBe(false);
+    expect(fs.existsSync(path.join(fixture.state, 'runner', fixture.sha))).toBe(false);
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue list');
+    expect(calls).toContain('issue comment 9876');
+  });
+
+  it('alerts on a non-zero robot exit without letting gh failure fail cmd_run', () => {
+    const fixture = createLaunchFixture({
+      runBody: [
+        "import '../lib/social-robot-test-dependency.mjs';",
+        "console.error('Error: TOKEN=SECRET');",
+        'process.exit(7);',
+      ].join('\n'),
+    });
+    const gh = fakeGh(fixture.root, '', 1);
+    const env = launchEnv(fixture, { GH_CALLS: gh.calls, PATH: `${gh.bin}:${process.env.PATH}` });
+    expect(() => runLauncher(fixture, env)).not.toThrow();
+    const calls = fs.readFileSync(gh.calls, 'utf8');
+    expect(calls).toContain('issue create');
+    expect(calls).not.toContain('SECRET');
+  });
+
+  it('writes the verification marker and reuses the cached snapshot', () => {
+    const fixture = createLaunchFixture();
+    runLauncher(fixture, launchEnv(fixture));
+    const cachedRun = path.join(fixture.state, 'runner', fixture.sha, 'scripts', 'social-robot', 'run.mjs');
+    fs.appendFileSync(cachedRun, "\nappendFileSync(process.env.SOCIAL_ROBOT_RUN_LOG, 'cached\\n');\n");
+    runLauncher(fixture, launchEnv(fixture), fixture.stateLauncher);
+    expect(fs.readFileSync(fixture.runLog, 'utf8')).toContain('cached');
+    expect(fs.readFileSync(path.join(fixture.state, 'runner', fixture.sha, '.snapshot-verified'), 'utf8').trim()).toBe(fixture.sha);
   });
 });
 

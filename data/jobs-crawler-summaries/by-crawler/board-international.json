@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-10-05T09:31:05.650Z",
+  "generatedAt": "2026-10-07T09:33:15.466Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2246,
-  "avgDurationMs": 2246,
+  "durationMs": 1817,
+  "avgDurationMs": 1817,
   "durationHistory": [
-    2246
+    1817
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -49,12 +49,13 @@
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/pbwvu8b7ls/cloud-operations-specialist",
       "datePosted": "2026-09-07",
       "postingDateSource": "reported",
-      "_qualityScore": 91,
+      "postalCode": "6830",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -88,12 +89,13 @@
       "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/0vdeq1qupp/software-engineer",
       "datePosted": "2026-09-07",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "6830",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -126,12 +128,13 @@
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
       "datePosted": "2026-08-14",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "6830",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -165,14 +168,15 @@
       "needsRetranslation": true,
       "datePosted": "2026-07-20",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "6830",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

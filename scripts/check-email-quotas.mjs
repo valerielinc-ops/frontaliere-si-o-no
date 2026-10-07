@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * check-email-quotas.mjs — Verify the daily/monthly sending limits of every
  * configured email provider by hitting their real usage endpoints.
@@ -27,7 +28,6 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { pathToFileURL } from 'node:url';
 import {
   PROVIDERS,
   syncQuotasFromAPIs,
@@ -286,7 +286,7 @@ async function main(opts) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const opts = parseArgs(process.argv);
   main(opts).catch(err => {
     console.error('check-email-quotas failed:', err?.message || err);

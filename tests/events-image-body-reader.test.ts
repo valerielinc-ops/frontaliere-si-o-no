@@ -19,12 +19,17 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import {
   EVENT_IMAGE_MAX_BYTES,
-  mirrorEventImage,
+  mirrorEventImage as mirrorEventImageImpl,
   resetEventImageManifestCache,
 } from '../scripts/lib/events-utils.mjs';
 
 const MIB = 1024 * 1024;
 const URL_OK = 'https://images.example.test/a.jpg';
+
+// These streaming tests exercise the download mechanics with the one source
+// that is currently allowed to mirror images; policy-deny coverage lives in
+// events-nationwide-sources.test.ts.
+const mirrorEventImage = (sourceUrl: string, stableId: string) => mirrorEventImageImpl(sourceUrl, stableId, 'openagenda');
 
 let dir: string;
 // Le immagini vanno in tmpdir (EVENTS_IMAGE_DIR), non in public/images/events/

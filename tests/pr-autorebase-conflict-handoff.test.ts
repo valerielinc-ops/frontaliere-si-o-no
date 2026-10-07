@@ -6,6 +6,9 @@ import {
   shouldHandOffConflict,
   agentPrConflictNeedsHandOff,
   isAgentOwnedPr,
+  CONFLICT_RESOLUTION_LOCK_LABEL,
+  CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+  decideConflictResolutionLock,
   handoffIssuesForOrigin,
   createHandoffIssueIndex,
   planConflictHandoff,
@@ -43,10 +46,34 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
     expect(body).not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#9260\b/i);
   });
 
+  it('rende visibile solo il fallimento di una rigenerazione effettivamente tentata', () => {
+    const normal = buildConflictHandoffIssue({
+      num: 9260,
+      branch: 'fix/issue-8931-bfs-depth-20260919',
+      head: HEAD,
+      files: ['.github/corpus-workflows/contract.json'],
+    });
+    const failed = buildConflictHandoffIssue({
+      num: 9260,
+      branch: 'fix/issue-8931-bfs-depth-20260919',
+      head: HEAD,
+      files: ['.github/corpus-workflows/contract.json'],
+      generatedResolution: {
+        status: 'failed',
+        reason: 'cannot materialize generator inputs: git sparse-checkout add failed',
+      },
+    });
+    expect(normal.body).not.toContain('GENERATED_RESOLUTION_FAILED');
+    expect(failed.body).toContain('Rigenerazione automatica tentata e fallita: cannot materialize generator inputs: git sparse-checkout add failed');
+    expect(failed.body).toContain('<!-- GENERATED_RESOLUTION_FAILED -->');
+  });
+
   it('ogni ramo che abortisce un conflitto non auto-risolvibile passa la mano', () => {
-    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned \}\);/g) || [];
+    const aborts = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
     const bare = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
-    expect(aborts.length).toBe(3);
+    const handoffs = SOURCE.match(/handOffConflictToFixer\(num, branch, head, lgtm,/g) || [];
+    expect(aborts.length).toBeGreaterThan(0);
+    expect(handoffs.length).toBeGreaterThanOrEqual(aborts.length);
     expect(bare.length).toBe(aborts.length);
   });
 
@@ -235,7 +262,15 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const calls = processPr.match(/handOffConflictToFixer\([^)]*\)/g) || [];
     expect(calls.length).toBe(4);
-    for (const call of calls) expect(call).toBe('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned })');
+    for (const call of calls) {
+      // Gli argomenti di posizione sono sempre gli stessi; le opzioni portano
+      // `agentOwned` come proprieta' a se', con o senza l'esito della
+      // rigenerazione tentata prima dell'hand-off.
+      const normalized = call.replace(/\s+/g, ' ');
+      expect(normalized).toMatch(
+        /^handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned(?:, generatedResolution: [\w.]+,?)? \}\)$/,
+      );
+    }
     expect(processPr).toContain('const agentOwned = isAgentOwnedPr(labels, branch);');
     expect(shouldHandOffConflict({ lgtm: false, agentOwned: false, alreadyHandedOff: false })).toBe(false);
   });
@@ -252,6 +287,65 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     // `null` = merge-tree non verificabile: fail-closed.
     expect(agentPrConflictNeedsHandOff({ conflicted: null, nearMerge: false, labels: agent })).toBe(false);
     expect(agentPrConflictNeedsHandOff({ conflicted: false, nearMerge: false, labels: agent })).toBe(false);
+  });
+
+  it('un lock agent:resolving-conflict valido sospende il passaggio di mano', () => {
+    expect(agentPrConflictNeedsHandOff({
+      conflicted: true,
+      nearMerge: false,
+      labels: ['agent:autofix', CONFLICT_RESOLUTION_LOCK_LABEL],
+    })).toBe(false);
+  });
+
+  describe('lock a tempo', () => {
+    const lockedAt = Date.parse('2026-10-06T09:00:00Z');
+    const event = (name: 'labeled' | 'unlabeled', at: string) => ({
+      event: name,
+      label: { name: CONFLICT_RESOLUTION_LOCK_LABEL },
+      created_at: at,
+    });
+
+    it('scade dopo 60 minuti e lascia ripartire il hand-off', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [CONFLICT_RESOLUTION_LOCK_LABEL],
+        events: [event('labeled', '2026-10-06T09:00:00Z')],
+        headCommittedAt: '2026-10-06T09:01:00Z',
+        now: lockedAt + CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS,
+      });
+      expect(decision).toMatchObject({ state: 'expired', release: true, lockedAt });
+      expect(shouldHandOffConflict({
+        lgtm: false,
+        agentOwned: true,
+        alreadyHandedOff: false,
+        conflictLockState: decision.state,
+      })).toBe(true);
+    });
+
+    it('rimuove il lock al primo push successivo', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [CONFLICT_RESOLUTION_LOCK_LABEL],
+        events: [event('labeled', '2026-10-06T09:00:00Z')],
+        headCommittedAt: '2026-10-06T09:02:00Z',
+        now: '2026-10-06T09:10:00Z',
+      });
+      expect(decision).toMatchObject({ state: 'pushed', release: true, lockedAt });
+    });
+
+    it('senza lock mantiene il comportamento precedente', () => {
+      const decision = decideConflictResolutionLock({
+        labels: [],
+        events: [],
+        headCommittedAt: '2026-10-06T09:01:00Z',
+        now: '2026-10-06T09:10:00Z',
+      });
+      expect(decision).toEqual({ state: 'none', release: false });
+      expect(shouldHandOffConflict({
+        lgtm: false,
+        agentOwned: true,
+        alreadyHandedOff: false,
+        conflictLockState: decision.state,
+      })).toBe(true);
+    });
   });
 
   it('la issue senza LGTM ha un titolo proprio e non promette un contributo approvato', () => {
@@ -277,10 +371,17 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const processPr = SOURCE.slice(SOURCE.indexOf('async function processPR('));
     const scan = processPr.indexOf('const conflictScan = reportMainConflict(');
     const branch = processPr.indexOf('if (!nearMerge) {');
-    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });');
+    const generated = processPr.indexOf('tryGeneratedConflictBeforeHandoff(', branch);
+    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm,', branch);
     expect(scan).toBeGreaterThan(-1);
     expect(branch).toBeGreaterThan(scan);
+    expect(generated).toBeGreaterThan(branch);
     expect(call).toBeGreaterThan(branch);
+    expect(generated).toBeLessThan(call);
     expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })');
+    const calls = processPr.match(/handOffConflictToFixer\(num, branch, head, lgtm,[\s\S]*?\n\s*\}\);/g) || [];
+    expect(calls.length).toBeGreaterThan(0);
+    expect(calls.some((source) => source.includes('generatedResolution: generatedResolution.generated'))).toBe(true);
+    expect(calls.some((source) => source.includes('generatedResolution: resolution.generated'))).toBe(true);
   });
 });

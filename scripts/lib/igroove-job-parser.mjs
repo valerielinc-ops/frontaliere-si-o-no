@@ -36,6 +36,7 @@ import {
   isWorkModeLocationLabel,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
+import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -146,6 +147,11 @@ function isSwissAddressCountry(value = '') {
   return /^(?:ch|che|756|switzerland|schweiz|suisse|svizzera)(?:$|[\s(-])/i.test(country);
 }
 
+function hasExplicitCantonMarker(value = '', canton = '') {
+  if (!value || !canton) return false;
+  return new RegExp(`(?:^|[\\s,(])${canton}(?:$|[\\s,)])`, 'i').test(value);
+}
+
 /**
  * Resolve the best city / postal code / street / region / canton from the
  * Personio `office` free-text field and, when present, its structured detail
@@ -162,11 +168,28 @@ function resolveLocation(officeText = '', locationDetail = null) {
     ? locationDetail
     : null;
   const detailLocality = normalizeSpace(confirmedDetail?.locality || '');
-  const city = swissCityFromLocationField(detailLocality) || swissCityFromLocationField(office);
+  const detailPostalCode = normalizeSpace(confirmedDetail?.postalCode || '');
+  const detailPostalPlace = resolveSwissPostalCodePlace(detailPostalCode);
+  const detailCantonHint = inferSwissTargetCanton(detailLocality);
+  const detailCanton = detailLocality
+    ? resolveSwissLocalityCanton(detailLocality, {
+      postalCode: detailPostalCode,
+      cantons: hasExplicitCantonMarker(detailLocality, detailCantonHint)
+        ? [detailCantonHint]
+        : null,
+    })
+    : '';
+  const detailCity = detailCanton
+    && detailPostalPlace?.canton === detailCanton
+    ? detailPostalPlace.locality
+    : detailCanton
+      ? swissCityFromLocationField(detailLocality)
+      : '';
+  const city = detailCity || swissCityFromLocationField(office);
   const resolvedLocation = city || detailLocality || office;
-  const canton = inferSwissTargetCanton(detailLocality || resolvedLocation) || HQ.canton;
+  const canton = detailCanton || inferSwissTargetCanton(resolvedLocation) || HQ.canton;
   const isHqCity = !resolvedLocation || /z[uü]rich/i.test(resolvedLocation);
-  const hasStructuredAddress = Boolean(detailLocality);
+  const hasStructuredAddress = Boolean(detailCity);
 
   return {
     location: resolvedLocation || HQ.city,

@@ -11,8 +11,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { BORDER_MINIMUMS, verifyPharmacyReleaseContract } from './import-pharmacies-border.mjs';
-import { validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from './lib/pharmacy-enrichment.mjs';
+import { BORDER_MINIMUMS, verifyPharmacyReleaseContract } from './lib/pharmacy-border-release-validation.mjs';
+import { validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from './lib/pharmacy-enrichment-validation.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');

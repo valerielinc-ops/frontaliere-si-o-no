@@ -1,17 +1,41 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T11:45:03.719Z",
+  "generatedAt": "2026-10-07T11:15:12.341Z",
   "records": {
     "it-msal-3907": {
-      "checkedAt": "2026-10-05T11:45:03.719Z",
+      "checkedAt": "2026-10-07T11:15:12.341Z",
       "phone": "+39 0332 227362",
       "openingHours": [
-        { "dayOfWeek": "monday", "opens": "08:30", "closes": "20:00" },
-        { "dayOfWeek": "tuesday", "opens": "08:30", "closes": "20:00" },
-        { "dayOfWeek": "wednesday", "opens": "08:30", "closes": "20:00" },
-        { "dayOfWeek": "thursday", "opens": "08:30", "closes": "20:00" },
-        { "dayOfWeek": "friday", "opens": "08:30", "closes": "20:00" },
-        { "dayOfWeek": "saturday", "opens": "08:30", "closes": "20:00" }
+        {
+          "dayOfWeek": "monday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "dayOfWeek": "tuesday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "dayOfWeek": "wednesday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "dayOfWeek": "thursday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "dayOfWeek": "friday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "dayOfWeek": "saturday",
+          "opens": "08:30",
+          "closes": "20:00"
+        }
       ],
       "services": [
         "Consegna a domicilio",
@@ -22,22 +46,22 @@
         "phone": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-05T11:45:03.719Z"
+          "checkedAt": "2026-10-07T11:15:12.341Z"
         },
         "openingHours": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-05T11:45:03.719Z"
+          "checkedAt": "2026-10-07T11:15:12.341Z"
         },
         "services": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-05T11:45:03.719Z"
+          "checkedAt": "2026-10-07T11:15:12.341Z"
         },
         "contactEmail": {
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "sourceType": "official",
-          "checkedAt": "2026-10-05T11:45:03.719Z"
+          "checkedAt": "2026-10-07T11:15:12.341Z"
         }
       },
       "externalSources": [
@@ -45,13 +69,30 @@
           "url": "https://comune.casciago.va.it/vivere-il-comune/luoghi/farmacia-internazionale-di-casciago/",
           "label": "Comune di Casciago",
           "sourceType": "official",
-          "checkedAt": "2026-10-05T11:45:03.719Z",
-          "sourceUpdatedAt": "2024-05-27T11:04:52+00:00",
-          "fields": ["phone", "openingHours", "services", "contactEmail"],
+          "checkedAt": "2026-10-07T11:15:12.341Z",
+          "fields": [
+            "phone",
+            "openingHours",
+            "services",
+            "contactEmail"
+          ],
+          "status": "verified",
+          "sourceUpdatedAt": "2024-05-27T11:04:52.000Z"
+        },
+        {
+          "url": "https://www.ats-insubria.it/documentazione?catid=1048&id=3760&m=0&task=download.send",
+          "label": "ATS Insubria — elenco farmacie (luglio 2025)",
+          "sourceType": "official",
+          "checkedAt": "2026-10-07T11:15:12.341Z",
+          "fields": [
+            "phone"
+          ],
           "status": "verified"
         }
       ]
     }
   },
-  "warnings": []
+  "warnings": [
+    "googlePlaces:it-msal-3907: HTTP 403 for https://places.googleapis.com/v1/places:searchText"
+  ]
 }

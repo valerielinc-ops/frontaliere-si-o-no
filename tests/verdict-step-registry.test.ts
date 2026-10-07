@@ -504,6 +504,69 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     expect(created[0][created[0].indexOf('--title') + 1]).toBe(`CI Failure: ${MONITOR_NAME}`);
   });
 
+  it('fixture reale #5661: uno step diverso dal verdetto apre il thread standard e lo collega', async () => {
+    const syncJobs: Jobs = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'tests/fixtures/scan-unreported-failures-domain-coverage/run-37339354134-jobs.json'),
+      'utf8',
+    ));
+    const syncId = '8888';
+    const syncPath = '.github/workflows/sync-articles-sitemaps.yml';
+    const syncName = 'Sync article sitemaps, feeds and ticker from the articles API';
+    const syncRun = {
+      id: '37339354134',
+      event: 'repository_dispatch',
+      head_branch: 'main',
+      created_at: '2026-10-05T16:14:59Z',
+      updated_at: '2026-10-05T16:18:53Z',
+      html_url: 'https://github.com/o/r/actions/runs/37339354134',
+    };
+    const domainIssue = {
+      number: 5661,
+      title: 'Content grounding: articoli sincronizzati con claim non verificati',
+      updatedAt: '2026-10-06T11:00:00Z',
+      body: `**Workflow:** ${syncName}`,
+      url: 'https://github.com/o/r/issues/5661',
+    };
+    const calls = execFileSync;
+    vi.setSystemTime(new Date('2026-10-06T12:00:00Z'));
+    calls.mockReset();
+    calls.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') {
+        return args[3] === 'open' ? JSON.stringify([domainIssue]) : '[]';
+      }
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ body: '', comments: [] });
+      if (args[0] === 'api') {
+        const p = String(args[1]);
+        if (p.includes('/actions/workflows?')) {
+          return tsv([[syncId, syncName, syncPath, 'active', '2026-01-01T00:00:00Z']]);
+        }
+        if (p.includes('/actions/runs?created=')) {
+          return tsv([[syncRun.id, syncId, syncRun.event, syncRun.head_branch, 'failure', syncRun.created_at,
+            syncRun.updated_at, syncRun.html_url, syncPath]]);
+        }
+        if (p.includes(`/actions/workflows/${syncId}/runs`)) {
+          return tsv([[syncRun.id, 'completed', 'failure', syncRun.created_at, syncRun.event, syncRun.head_branch]]);
+        }
+        if (p.includes('/actions/runs/37339354134/jobs')) return JSON.stringify(syncJobs);
+        if (p.includes('/issues?state=closed')) return '[]';
+        return '';
+      }
+      if (args[0] === 'label' && args[1] === 'create') return '';
+      if (args[0] === 'issue' && ['reopen', 'comment', 'create', 'edit'].includes(args[1])) {
+        return 'https://github.com/o/r/issues/9999';
+      }
+      return '';
+    });
+
+    await scanFailures();
+    const created = issueCalls('create').map((c) => c[1] as string[]);
+    expect(created).toHaveLength(1);
+    expect(created[0][created[0].indexOf('--title') + 1]).toBe(`CI Failure: ${syncName}`);
+    const body = created[0][created[0].indexOf('--body') + 1];
+    expect(body).toContain('[#5661](https://github.com/o/r/issues/5661)');
+    expect(body).toContain('Pull the article corpus');
+  });
+
   it('owner non persistito: la run di solo verdetto resta segnalabile e apre «CI Failure:»', async () => {
     // Nessuna issue della famiglia, oppure solo issue ferme da prima della run: il
     // reporter owner (o GitHub) può aver fallito in silenzio, il verdetto da solo non prova niente.

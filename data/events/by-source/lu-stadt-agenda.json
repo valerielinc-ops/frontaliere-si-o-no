@@ -1,0 +1,233 @@
+{
+  "schemaVersion": 1,
+  "sourceKey": "lu-stadt-agenda",
+  "sourceName": "Stadt Luzern — Termine",
+  "canton": "LU",
+  "assembledAt": "2026-10-05T22:32:24.867Z",
+  "events": [
+    {
+      "id": "lu-stadt-agenda:6840391",
+      "title": "Kunstausstellung Weltformat",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-10",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/6840391",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "699a06b42d54908c5e627d86c532ec8905a2adcd7f7bed5f3653ee347a1690d6"
+    },
+    {
+      "id": "lu-stadt-agenda:7649719",
+      "title": "Wissen am Mittag",
+      "startDate": "2026-10-09",
+      "startTime": "12:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7649719",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "6f23092835b39b3c9b26459e82d544b9405c8c5f4a5d98d79b784d4f7dbd24c6"
+    },
+    {
+      "id": "lu-stadt-agenda:7463704",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-09",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463704",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "e9114c271150d97011935be93c055c7c173cb46e8754b04de9239dbe7ad50d22"
+    },
+    {
+      "id": "lu-stadt-agenda:7629577",
+      "title": "KulTour - Blick hinter die Türen von Kulturschaffenden",
+      "startDate": "2026-10-12",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7629577",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "fc19b858a04a899c9e1e8738802c338676c9d4300798ba67d6aa55caf8added6"
+    },
+    {
+      "id": "lu-stadt-agenda:7648402",
+      "title": "Bewegung und Begegnung - Feldenkrais",
+      "startDate": "2026-10-12",
+      "startTime": "14:00",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7648402",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "dff0875b060cfca098356fcdd5fa50863d79a09f66b8c44bf2f9c1c3d18fe074"
+    },
+    {
+      "id": "lu-stadt-agenda:7456402",
+      "title": "Lebensreise - Lesung Emilia Roig",
+      "startDate": "2026-10-12",
+      "startTime": "18:30",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7456402",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "bd05ed62b8054bc82a1d78f1d053aee55457b1d1aa6d263ea88298017975bbbb"
+    },
+    {
+      "id": "lu-stadt-agenda:7688353",
+      "title": "Im Gespräch über Sicherheit und Sauberkeit",
+      "startDate": "2026-10-15",
+      "startTime": "18:30",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7688353",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "d3b5d62dd297a95dad48298662b12e9f1a968df72e9aef9c4278192f7e299e30"
+    },
+    {
+      "id": "lu-stadt-agenda:7694293",
+      "title": "Winter Qi Gong Waldfriedhof Staffeln",
+      "startDate": "2026-10-16",
+      "startTime": "08:30",
+      "comune": "Sursee",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7694293",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "efca251af211407c73e0e88da6d745f986c0a36f72f7b6b385566b692983b299"
+    },
+    {
+      "id": "lu-stadt-agenda:7463707",
+      "title": "Salonkonzert",
+      "startDate": "2026-10-16",
+      "startTime": "15:00",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7463707",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "0a11eff8e93afa4b79262feb2469c99123573a7022aa04479ec1f04f2be485a2"
+    },
+    {
+      "id": "lu-stadt-agenda:7626901",
+      "title": "Ausstellung NachtLeben",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-25",
+      "comune": "Luzern",
+      "comuneMatch": "exact",
+      "canton": "LU",
+      "url": "https://www.stadtluzern.ch/_rte/anlass/7626901",
+      "sourceKey": "lu-stadt-agenda",
+      "sourceName": "Stadt Luzern — Termine",
+      "crawledAt": "2026-10-05T22:32:24.867Z",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine",
+        "url": "https://www.stadtluzern.ch/aktuelles/termine"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Stadt Luzern — Termine"
+      },
+      "sourceDescriptionHash": "53094c72ba1ae4eb8f48f20398dfa1dfca4f8b139aa62234bc1846adfebe66dc"
+    }
+  ]
+}

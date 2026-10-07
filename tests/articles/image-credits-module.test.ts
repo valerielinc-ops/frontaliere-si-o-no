@@ -127,6 +127,122 @@ const FAMILY_RECORDS: Record<string, ImageCreditRecord> = {
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 
+function generatedArticleHero(): ImageCreditRecord {
+  const generated = {
+    schema: 1,
+    assetId: 'test-generated-cover',
+    provider: 'openai-codex',
+    model: 'gpt-image-test',
+    executorModel: 'gpt-5-codex',
+    promptVersion: 'frontaliereticino.generated-image-policy.v1',
+    promptHash: 'a'.repeat(64),
+    license: 'generated-provider',
+    licenseUrl: 'https://openai.com/policies/terms-of-use/',
+    credit: 'frontaliereticino.ch',
+    sha256: 'b'.repeat(64),
+    bytes: 120000,
+    width: 1200,
+    height: 675,
+    format: 'webp',
+    generatedAt: '2026-10-06T10:00:00.000Z',
+    verifiedAt: '2026-10-06T10:01:00.000Z',
+    restrictions: [
+      'illustrative-only',
+      'no-real-recognizable-foreground-person',
+      'no-public-figure-face',
+      'no-logo-brand-or-text',
+      'no-specific-real-event-photojournalism',
+    ],
+    scope: 'article-hero',
+    imageUrl: '/images/blog/test-generated-cover.webp',
+    area: 'Ticino and Swiss border region',
+    season: 'all seasons',
+    variant: 'balanced composition',
+    vision: {
+      ok: true,
+      contains_text: false,
+      contains_logo: false,
+      contains_recognizable_face: false,
+      looks_like_specific_real_event: false,
+      notes: 'safe generic editorial illustration',
+    },
+  };
+  return {
+    schema: 1,
+    cover: '/images/blog/test-generated-cover.webp',
+    source: 'generated-provider',
+    commons: {
+      title: 'Generated editorial illustration',
+      pageUrl: generated.licenseUrl,
+      width: generated.width,
+      height: generated.height,
+      revision: generated.generatedAt,
+    },
+    author: { text: 'frontaliereticino.ch', name: 'frontaliereticino.ch', url: null, type: 'Organization' },
+    attribution: null,
+    licence: {
+      name: 'Generated media — provider terms apply',
+      url: generated.licenseUrl,
+      family: 'other-attribution',
+      attributionRequired: true,
+    },
+    restrictions: [...generated.restrictions],
+    modified: 'resized',
+    fetchedAt: '2026-10-06',
+    status: 'ok',
+    curation: null,
+    generated,
+  } as unknown as ImageCreditRecord;
+}
+
+describe('generated article-hero image records', () => {
+  const generated = generatedArticleHero();
+
+  it('validate the shared engine record without treating it as Wikimedia', () => {
+    expect(validateImageCreditRecord(generated)).toEqual({ valid: true, errors: [] });
+  });
+
+  it('projects provider terms consistently to SEO, visible copy and RSS', () => {
+    const ld = imageObjectCreditFields(generated);
+    expect(ld).toEqual({
+      creator: {
+        '@type': 'Organization',
+        '@id': 'https://frontaliereticino.ch/#image-creator-organization-frontaliereticino-ch-e7e2226e',
+        name: 'frontaliereticino.ch',
+      },
+      creditText: 'frontaliereticino.ch (generated media)',
+      copyrightNotice: 'Generated media; provider terms apply.',
+      license: 'https://openai.com/policies/terms-of-use/',
+      acquireLicensePage: 'https://openai.com/policies/terms-of-use/',
+    });
+    expect(imageCreditParts(generated, 'it')?.text).toContain('generata con IA tramite frontaliereticino.ch');
+    expect(imageCreditParts(generated, 'en')?.text).toContain('generated with AI by frontaliereticino.ch');
+    expect(mediaRssCreditXml(generated, 'it')).toContain('frontaliereticino.ch');
+    expect(mediaRssCreditXml(generated, 'it')).toContain('https://openai.com/policies/terms-of-use/');
+  });
+});
+
+describe('inferred cover records', () => {
+  const inferred = {
+    schema: 1,
+    cover: '/images/blog/inferred-cover.webp',
+    source: 'inferred',
+    evidence: 'inferred',
+    provider: null,
+    verifiedAt: '2026-10-07',
+    status: 'review',
+  } as unknown as ImageCreditRecord;
+
+  it('is a valid audit record without making a provider or licence claim', () => {
+    expect(validateImageCreditRecord(inferred)).toEqual({ valid: true, errors: [] });
+    expect(hasVisibleImageCredit(inferred)).toBe(false);
+    expect(imageObjectCreditFields(inferred)).toEqual({});
+    expect(imageCreditParts(inferred, 'it')).toBeNull();
+    expect(renderImageCreditHtml(inferred, 'it')).toBe('');
+    expect(mediaRssCreditXml(inferred, 'it')).toBe('');
+  });
+});
+
 describe('the design worked example (Locarno 1.jpg, CC BY-SA 3.0)', () => {
   it('is a valid schema-1 record', () => {
     expect(validateImageCreditRecord(locarno())).toEqual({ valid: true, errors: [] });
@@ -248,7 +364,11 @@ describe('attribution requested by the licensor', () => {
   it('is the credit text; the creator stays the author; the notice is © author', () => {
     const ld = imageObjectCreditFields(FORTEPAN);
     expect(ld.creditText).toBe('FOTO:FORTEPAN / Angyalföldi Helytörténeti Gyűjtemény / Wikimedia Commons');
-    expect(ld.creator).toEqual({ '@type': 'Organization', name: 'Fortepan' });
+    expect(ld.creator).toEqual({
+      '@type': 'Organization',
+      '@id': 'https://frontaliereticino.ch/#image-creator-organization-fortepan-33cde663',
+      name: 'Fortepan',
+    });
     expect(ld.copyrightNotice).toBe('© Fortepan');
   });
 
@@ -260,6 +380,33 @@ describe('attribution requested by the licensor', () => {
       name: 'Riessdo',
       url: 'https://de.wikipedia.org/wiki/User:Riessdo',
     });
+  });
+
+  it('gives repeated name-only creators a deterministic id without inventing a profile URL', () => {
+    const maxRoser = record({
+      author: { text: 'Max Roser', name: 'Max Roser', url: null, type: 'Person' },
+    });
+    const first = imageObjectCreditFields(maxRoser).creator;
+    const second = imageObjectCreditFields(maxRoser).creator;
+    expect(first).toEqual(second);
+    expect(first).toMatchObject({ '@type': 'Person', name: 'Max Roser' });
+    expect(first['@id']).toBe('https://frontaliereticino.ch/#image-creator-person-max-roser-012a315f');
+    expect(first).not.toHaveProperty('url');
+  });
+
+  it('scopes an unknown creator to its cover instead of merging placeholders', () => {
+    const first = imageObjectCreditFields(UNKNOWN_PD).creator;
+    const second = imageObjectCreditFields({
+      ...UNKNOWN_PD,
+      cover: '/images/blog/another-unknown.webp',
+      commons: {
+        ...UNKNOWN_PD.commons,
+        pageUrl: 'https://commons.wikimedia.org/wiki/File:Another_unknown.png',
+      },
+    }).creator;
+    expect(first).toMatchObject({ '@type': 'Person', name: 'Unknown author' });
+    expect(first['@id']).toBe('https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e');
+    expect(second['@id']).not.toBe(first['@id']);
   });
 
   it('a ©-prefixed attribution is the copyright notice verbatim', () => {
@@ -325,7 +472,11 @@ describe('unknown author (courtesy credit only)', () => {
 
   it('never falls back to the site, Commons or the uploader as creator', () => {
     const ld = imageObjectCreditFields(UNKNOWN_PD);
-    expect(ld.creator).toEqual({ '@type': 'Person', name: UNKNOWN_AUTHOR_NAME });
+    expect(ld.creator).toEqual({
+      '@type': 'Person',
+      '@id': 'https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e',
+      name: UNKNOWN_AUTHOR_NAME,
+    });
     expect(ld.creditText).toBe(`${UNKNOWN_AUTHOR_NAME} / Wikimedia Commons`);
     expect(ld.copyrightNotice).toBe('Public domain');
   });
@@ -368,7 +519,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
 
   it('public domain keeps exactly the ImageObject fields it had', () => {
     expect(imageObjectCreditFields(PD)).toEqual({
-      creator: { '@type': 'Person', name: 'Sergei Mikhailovich Prokudin-Gorskii' },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-sergei-mikhailovich-prokudin-gorskii-8e498110',
+        name: 'Sergei Mikhailovich Prokudin-Gorskii',
+      },
       creditText: 'Sergei Mikhailovich Prokudin-Gorskii / Wikimedia Commons',
       copyrightNotice: 'Public domain',
       license: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
@@ -376,7 +531,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
       isBasedOn: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg',
     });
     expect(imageObjectCreditFields(UNKNOWN_PD)).toEqual({
-      creator: { '@type': 'Person', name: UNKNOWN_AUTHOR_NAME },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-https-commons-wikimedia-org-wiki-file-swiss-vote-png-a3d9d15e',
+        name: UNKNOWN_AUTHOR_NAME,
+      },
       creditText: `${UNKNOWN_AUTHOR_NAME} / Wikimedia Commons`,
       copyrightNotice: 'Public domain',
       license: 'https://commons.wikimedia.org/wiki/File:Swiss_vote.png',
@@ -388,7 +547,11 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
   it('CC0 keeps exactly the ImageObject fields it had', () => {
     const page = 'https://commons.wikimedia.org/wiki/File:AI_Classroom_at_Universal_Ai_University.jpg';
     const expected = {
-      creator: { '@type': 'Person', name: 'ManoBV16' },
+      creator: {
+        '@type': 'Person',
+        '@id': 'https://frontaliereticino.ch/#image-creator-person-manobv16-3fabcae8',
+        name: 'ManoBV16',
+      },
       creditText: 'ManoBV16 / Wikimedia Commons',
       copyrightNotice: 'CC0',
       license: 'https://creativecommons.org/publicdomain/zero/1.0/',
@@ -731,6 +894,22 @@ describe('createImageCreditReader', () => {
       expect(warn, label).toHaveBeenCalledTimes(1);
       expect(String(warn.mock.calls[0][0]), label).toContain(message);
     }
+  });
+
+  it('drops an inferred record silently: it is an audit record, not a credit claim', () => {
+    const warn = vi.fn();
+    const inferred = {
+      schema: 1,
+      cover: `/images/blog/${KEY}.webp`,
+      source: 'inferred',
+      evidence: 'inferred',
+      provider: null,
+      verifiedAt: '2026-10-07',
+      status: 'review',
+    };
+    const { fs } = memFs({ [`${CORPUS}/blog/${KEY}.json`]: JSON.stringify(inferred) });
+    expect(createImageCreditReader(fs, [CORPUS], { warn }).get(`/images/blog/${KEY}.webp`)).toBeNull();
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('never throws on an I/O error either', () => {

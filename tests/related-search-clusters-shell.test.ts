@@ -2,7 +2,7 @@ import { mkdtempSync, rmSync, writeFileSync, mkdirSync, readFileSync } from 'nod
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { afterEach, describe, expect, it } from 'vitest';
-import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
+import { renderClusterPage, isClusterBelowFloor, selectRelatedClusterLinks } from '../build-plugins/relatedSearchClustersPlugin';
 import { countHtmlBodyWords, MIN_INDEXABLE_WORDS } from '../build-plugins/constants';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
@@ -463,6 +463,45 @@ describe('below-floor bridge floor decision (issue #4303 item 4 / run 2963670705
     expect(page.html).toMatch(/<meta name="?robots"? content="?index, follow/);
     expect(page.html).toContain('max-image-preview:large');
     expect(page.html).toContain(`<link rel=canonical href="${page.loc}"`);
+  });
+
+  it('does not link Ricerche correlate to a below-floor bridge', () => {
+    const primary = {
+      candidate: { slug: 'ricerca-primary', locale: 'it', jobCount: 3, sampleTerms: ['primary'], editorialCollision: null },
+      keyword: 'primary',
+      city: 'Biel/Bienne',
+      matchingJobs: [
+        { id: 'a', title: 'A', company: 'Co', location: 'Biel', canton: 'BE', slug: 'a' },
+        { id: 'b', title: 'B', company: 'Co', location: 'Biel', canton: 'BE', slug: 'b' },
+        { id: 'c', title: 'C', company: 'Co', location: 'Biel', canton: 'BE', slug: 'c' },
+      ],
+      topCompanies: ['Co'],
+      cantonGroup: '_AGGREGATE_',
+      legacyCantonGroup: 'BE',
+    } as any;
+    const belowFloor = {
+      candidate: { slug: 'ricerca-secondary', locale: 'it', jobCount: 1, sampleTerms: ['secondary'], editorialCollision: null },
+      keyword: 'secondary',
+      city: 'Biel/Bienne',
+      matchingJobs: [{ id: 'd', title: 'D', company: 'Co', location: 'Biel', canton: 'BE', slug: 'd' }],
+      topCompanies: ['Co'],
+      cantonGroup: '_AGGREGATE_',
+      legacyCantonGroup: 'BE',
+    } as any;
+
+    expect(selectRelatedClusterLinks(primary, [primary, belowFloor], {})).toEqual([]);
+
+    const enriched = {
+      'it::ricerca-secondary': {
+        slug: 'ricerca-secondary',
+        locale: 'it',
+        keyword: 'secondary',
+        city: 'Biel/Bienne',
+        intro: Array.from({ length: 50 }, (_, i) => `parola-${i}`).join(' '),
+        faqs: [],
+      },
+    } as any;
+    expect(selectRelatedClusterLinks(primary, [primary, belowFloor], enriched)).toHaveLength(1);
   });
 });
 

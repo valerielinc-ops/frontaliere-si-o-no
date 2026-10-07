@@ -13,7 +13,7 @@
  * the Redazione's.
  *
  * The tag was left behind by #author-eeat, which moved every *other* author
- * surface from a single hardcoded Person to the per-article one; `/chi-siamo/`
+ * surface from a single hardcoded Organization to the per-article one; `/chi-siamo/`
  * survived because at the time it was the only author page that existed.
  * `/autori/<slug>/` pages exist now and are what the JSON-LD `author.url`
  * already points at.
@@ -28,7 +28,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { AUTHORS, getAuthorBySlug } from '../data/authors';
+import { AUTHORS, getAuthorBySlug, isEditorialProfile, isRealAuthor } from '../data/authors';
 import { resolveArticleProvenance } from '../services/articleProvenance';
 
 const ROOT = join(__dirname, '..');
@@ -64,7 +64,7 @@ describe('article:author names the article author, not the Redazione', () => {
   it('the static emitter reuses the same URL the JSON-LD author declares', () => {
     const src = readFileSync(join(ROOT, EMITTERS[0]), 'utf-8');
     // `authorObj` is the object serialised into the JSON-LD `author`; its
-    // `url` is `/autori/<slug>/` for a Person and `/chi-siamo/` for the
+    // `url` is `/autori/<slug>/` for an editorial Organization and `/chi-siamo/` for the
     // Organization fallback. Sourcing the meta tag from it is what makes the
     // two impossible to drift apart again.
     expect(src).toMatch(/article:author"\s+content="\$\{[^}]*authorObj\.url[^}]*\}"/);
@@ -84,24 +84,27 @@ describe('article:author names the article author, not the Redazione', () => {
 
   it('the shared derivation prefers the registry and keeps the blob as fallback', () => {
     const src = readFileSync(join(ROOT, 'services/seo/articleAuthorUrl.ts'), 'utf-8');
-    // Order is the whole point: registry first, blob Person second, team page
+    // Order is the whole point: registry first, blob Organization second, team page
     // last. Flipping the first two re-opens the drift this module closed.
     const registryAt = src.indexOf('getAuthorBySlug(article.authorSlug)');
-    const blobAt = src.search(/blobAuthor\?\.\['@type'\]\s*===\s*'Person'/);
+    const blobAt = src.search(/blobAuthor\?\.\['@type'\]\s*===\s*'(?:Organization|Person)'/);
     expect(registryAt).toBeGreaterThan(-1);
     expect(blobAt).toBeGreaterThan(registryAt);
   });
 
-  it('gives repeated Person and publisher entities stable schema identities', () => {
+  it('gives repeated editorial profiles and publisher entities stable schema identities', () => {
     const src = readFileSync(join(ROOT, EMITTERS[0]), 'utf-8');
 
     // The same author appears on many pages. A stable fragment identifier lets
-    // crawlers reconcile those Person nodes instead of treating every page as
+    // crawlers reconcile those editorial Organization nodes instead of treating every page as
     // a new anonymous entity. The publisher fallback uses the canonical
     // Organization type already declared by organizationLd.ts.
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#person`/);
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#profile`/);
     expect(src).toMatch(/worksFor: \{ '@type': 'Organization'/);
+    expect(src).toMatch(/parentOrganization: \{ '@type': 'Organization'/);
     expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#person`/);
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#profile`/);
     expect(src).toMatch(/'@type': 'Organization' as const/);
   });
 });
@@ -115,24 +118,16 @@ describe('article:author names the article author, not the Redazione', () => {
  * simply false, and it reads as if the redazione, not the author, had produced
  * the piece: the same complaint, on the surface the reader actually sees.
  *
- * The discriminator is `uid` in the author registry — a Firebase Auth uid,
- * documented as set for guest journalists only. Everyone else is an editorial
- * persona for AI-drafted content.
+ * Editorial profiles carry no Firebase identity; real guest authors do. Per-
+ * article provenance can still carry an explicit declaration from a separate
+ * content source.
  */
 describe('editorial transparency disclosure matches how the article was produced', () => {
-  it('uid marks the guest journalists and nobody else', () => {
-    // The registry must keep at least one, or the gate below is dead code.
-    expect(AUTHORS.some((a) => a.uid)).toBe(true);
-    expect(getAuthorBySlug('samuele-valente')?.uid).toBeTruthy();
-
-    // The editorial personas must never carry one: a uid on any of them makes
-    // the disclosure claim AI-drafted articles were written by a human.
-    // Asserted on the property, not on a frozen list, so adding a real guest
-    // journalist does not fail this — adding a persona with a uid does.
-    for (const author of AUTHORS.filter((a) => a.uid)) {
-      expect(author.slug).not.toBe('redazione');
-      expect(author.role).not.toContain('Team editoriale');
-    }
+  it('editorial profiles carry no Firebase identity while real authors do', () => {
+    expect(AUTHORS.length).toBeGreaterThan(0);
+    for (const author of AUTHORS.filter(isEditorialProfile)) expect(Object.keys(author)).not.toContain('uid');
+    const samuele = AUTHORS.find((author) => author.slug === 'samuele-valente');
+    expect(samuele && isRealAuthor(samuele) ? samuele.uid : undefined).toBe('rAaDN0AvhkUjvRxN2TJijgYodm22');
   });
 
   it('the AI-drafted wording is gated, not printed unconditionally', () => {
@@ -144,7 +139,7 @@ describe('editorial transparency disclosure matches how the article was produced
 
     // ...and it sits in the false branch of the human-contributor check.
     expect(src).toMatch(
-      /isHumanContributor[\s\S]{0,400}bozza assistita da intelligenza artificiale/,
+      /isHumanContributor\s*\?[^:]+:\s*['`]bozza assistita da intelligenza artificiale/,
     );
     // ...and the gate reads the article's provenance, not the author's `uid`
     // directly. A bare `Boolean(bylineAuthor?.uid)` here is the assumption

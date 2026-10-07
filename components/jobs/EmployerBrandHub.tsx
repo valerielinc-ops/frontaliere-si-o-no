@@ -18,6 +18,7 @@ import { useMemo } from 'react';
 import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
 import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { stableOrganizationId } from '@/services/seo/organizationLd';
 
 interface EmployerBrandJob {
   readonly id: string;
@@ -81,6 +82,7 @@ export function buildEmployerBrandStructuredData(input: StructuredDataInput): {
   const organization: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': stableOrganizationId({ name: brand.name, url: brand.website }),
     name: brand.name,
     legalName: brand.fullName,
     alternateName: brand.shortName,

@@ -94,7 +94,14 @@ import {
   selectFirstOpenItem,
 } from './followup-resolution-match.mjs';
 import { parseItemMarkers } from './lib/followup-item-evidence.mjs';
-import { decomposedChildNumbers, reopenedAfterDecomposition } from './lib/parent-close-recurrence.mjs';
+import {
+  DEFAULT_PARENT_REARM_MAX_PER_WINDOW,
+  DEFAULT_PARENT_REARM_WINDOW_DAYS,
+  decomposedChildNumbers,
+  decideParentRearm,
+  parentRearmCommentBody,
+  reopenedAfterDecomposition,
+} from './lib/parent-close-recurrence.mjs';
 import { isTrustedAuthor } from './route-already-fixed.mjs';
 
 export {
@@ -415,9 +422,13 @@ const LBL_NO_AGE_OUT = 'agent:no-age-out';
 // (`from-decompose`) entrano nella coda fix normale via triage; il padre resta
 // aperto e viene chiuso dal pass PARENT-CLOSE quando TUTTE le figlie sono chiuse.
 //
-// Anti-ricorsione by-construction: un padre `decomposed:1` non è mai ri-decomposto,
-// una figlia `from-decompose` è atomica per costruzione e non è mai decomposta.
-// L'unica eccezione voluta è la issue-contenitore residua che il planner crea
+// Anti-ricorsione by-construction: finché porta `decomposed:1` un padre non è
+// ri-decomposto, e una figlia `from-decompose` è atomica per costruzione. La
+// sola uscita del padre è PARENT-CLOSE oppure PARENT-REARM: il riarmo è
+// autorizzato da una ricorrenza del monitor con figlie già chiuse, rimuove il
+// tracker dal veto e lo rimette nel triage normale; una decomposizione nuova
+// torna quindi a creare un tracker soggetto allo stesso ciclo bounded.
+// L'altra eccezione voluta è la issue-contenitore residua che il planner crea
 // quando le unità superano il cap (SENZA `from-decompose`): ri-entra nel ciclo e
 // converge perché ogni giro chiude ≥ (cap-1) unità atomiche.
 // `DECOMPOSE_ENABLED=false` spegne routing e promozione (kill-switch, default on).
@@ -432,6 +443,17 @@ const DECOMPOSE_ENABLED = process.env.DECOMPOSE_ENABLED !== 'false';
 // `./lib/parent-close-recurrence.mjs` (`decomposedIntoNumbers`): la data della
 // decomposizione letta dalla guardia del PARENT-CLOSE usa la stessa regola.
 const PARENT_CLOSE_MAX_PER_RUN = intFromEnv('FOLLOWUP_PARENT_CLOSE_MAX_PER_RUN', 5);
+// Un riarmo può riaprire il costo della decomposizione: resta bounded sia sul
+// tick sia sul thread. I default sono volutamente separati dai cap esistenti.
+const PARENT_REARM_MAX_PER_RUN = positiveIntFromEnv('FOLLOWUP_PARENT_REARM_MAX_PER_RUN', 2);
+const PARENT_REARM_MAX_PER_WINDOW = positiveIntFromEnv(
+  'FOLLOWUP_PARENT_REARM_MAX_PER_WINDOW',
+  DEFAULT_PARENT_REARM_MAX_PER_WINDOW,
+);
+const PARENT_REARM_WINDOW_DAYS = positiveIntFromEnv(
+  'FOLLOWUP_PARENT_REARM_WINDOW_DAYS',
+  DEFAULT_PARENT_REARM_WINDOW_DAYS,
+);
 // `parent-dequeue` è una mutazione separata dal controllo `parent-close` che
 // segue. Il cap impedisce che un backlog di padri consumi tutta la finestra del
 // job prima che il tracker possa essere esaminato e chiuso.
@@ -571,11 +593,13 @@ export function isDecomposeEligible(iss) {
  * Un padre già decomposto (`decomposed:1`) è un TRACKER, non lavoro del fixer.
  *
  * Dopo lo scorporo tutto lo scope vive nelle sub-issue dichiarate dal marker
- * `DECOMPOSED_INTO`, che entrano in coda da sole; il padre ha un solo stato
- * terminale, il PARENT-CLOSE più sotto (figlie tutte chiuse). Promuoverlo o
- * ri-armarlo verso `agent:fix` manda un run Claude su una issue che NON ha
- * lavoro proprio: l'agent legge il body, trova gli item già delegati e non può
- * che terminare senza PR — e implementarli lì duplicherebbe le figlie.
+ * `DECOMPOSED_INTO`, che entrano in coda da sole; il padre resta un tracker
+ * fino a PARENT-CLOSE (figlie tutte chiuse) o PARENT-REARM (ricorrenza del
+ * monitor dopo il marker). Promuoverlo direttamente verso `agent:fix` manda
+ * un run Claude su una issue che NON ha lavoro proprio: l'agent legge il body,
+ * trova gli item già delegati e non può che terminare senza PR — e implementarli
+ * lì duplicherebbe le figlie. PARENT-REARM è diverso: rimuove prima il veto e
+ * `agent:triaged`, poi lascia che sia il triage-sweep esistente a classificarlo.
  *
  * Misurato il 2026-09-04 su #7340 (`decomposed:1` + `agent:fix` + `fu-attempt:1`,
  * scorporata la sera prima in #7382-#7386): nello stesso istante altri tre
@@ -2435,12 +2459,33 @@ export function normalizeIssuePage(raw) {
     }
     const body = item.body == null ? '' : item.body;
     if (typeof body !== 'string') return null;
+    // `state` fa parte della proiezione: il PARENT-REARM decide sullo stato del
+    // padre letto da GitHub e resta fail-closed quando manca. Senza questo
+    // campo ogni padre riaperto risultava «unreadable» e nessuno veniva
+    // riarmato (misurato il 2026-10-06 nella run 37544637026: 3 padri saltati a
+    // ogni tick). L'endpoint REST lo porta sempre; una riga che non lo ha resta
+    // valida per gli altri pool, uno `state` che non e' una stringa e' una
+    // risposta malformata.
+    const state = item.state;
+    if (state !== undefined && state !== null && typeof state !== 'string') return null;
     // The REST issues endpoint is shared with pull requests. A PR is a valid
     // API row, but it is not an issue in any of the drainer pools.
     if (item.pull_request) continue;
-    rows.push({ number, title, body, labels: normalizedLabels, createdAt, updatedAt });
+    rows.push({
+      number, title, body, labels: normalizedLabels, createdAt, updatedAt,
+      ...(state ? { state } : {}),
+    });
   }
   return { rows, pageLength: raw.length };
+}
+
+/**
+ * Stato di una issue come lo porta la riga dello snapshot. `null` significa
+ * che la PROIEZIONE non lo contiene: e' un difetto di cablaggio da segnalare,
+ * non una issue illeggibile da ritentare al tick successivo.
+ */
+export function snapshotIssueState(row) {
+  return typeof row?.state === 'string' && row.state ? row.state : null;
 }
 
 /**
@@ -3525,6 +3570,43 @@ function issueComments(num) {
   }
 }
 
+/**
+ * Stati completi delle figlie, richiesti soltanto dopo una ricorrenza del
+ * monitor. Un campo mancante, una risposta non riconoscibile o una lettura
+ * fallita non autorizzano il PARENT-REARM.
+ */
+function readParentRearmChildStates(childNumbers) {
+  if (!Array.isArray(childNumbers) || childNumbers.length === 0) return null;
+  const states = [];
+  for (const number of childNumbers) {
+    try {
+      const issue = gh(['issue', 'view', String(number), '--repo', REPO, '--json', 'state']);
+      const state = String(issue?.state || '').toUpperCase();
+      if (!['OPEN', 'CLOSED'].includes(state)) return null;
+      states.push({ number, state });
+    } catch {
+      return null;
+    }
+  }
+  return states;
+}
+
+function reportParentRearm(results) {
+  if (!results.length) return;
+  const summary = results.map(({ number, outcome, reason }) => `- #${number}: ${outcome}${reason ? ` (${reason})` : ''}`).join('\n');
+  console.log(`parent_rearm=${results.filter((result) => result.outcome === 'rearmed').length}`
+    + ` parent_rearm_skipped=${results.filter((result) => result.outcome !== 'rearmed').length}`);
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  try {
+    appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `### parent-rearm\n\n${summary}\n\n`,
+    );
+  } catch (e) {
+    console.log(`parent-rearm: step summary non scrivibile (${String(e).slice(0, 120)})`);
+  }
+}
+
 /** Stato della PR nominata da un `overlap-skip`, o `null` su errore gh
  * (`overlapBlockerActive(null)` è falso: nessun rinvio su un glitch API). */
 function readOverlapBlocker(num) {
@@ -4029,6 +4111,8 @@ export function runDrain() {
       });
       let examined = 0;
       let lastExaminedCursor = cursorState.cursor;
+      let parentRearms = 0;
+      const parentRearmResults = [];
       for (const p of rotatedParents) {
         if (hasActiveAgentClaim(p)) {
           console.log(`CLAIM-SKIP #${p.number} (agent claim presente: ${names(p).filter((name) => [LBL_IN_PROGRESS, LBL_LOCAL, LBL_REMOTE].includes(name)).join(', ') || 'stato claim incompleto'}) → nessun parent-close sulla flotta locale/remota`);
@@ -4044,14 +4128,84 @@ export function runDrain() {
         const comments = issueComments(p.number) || [];
         const kids = decomposedChildNumbers(comments);
         if (!kids.length) continue; // marker assente/illeggibile → nessuna decisione
-        // Un monitor (github-issue-creator, `🔁 **Reopened**`) che ha riaperto
-        // il padre DOPO la decomposizione ha detto che la condizione è tornata:
-        // le figlie chiuse non lo smentiscono, e richiuderlo qui produceva il
-        // ping-pong chiusura/riapertura di #5661. La chiusura spetta al closer
-        // del monitor; una decomposizione rifatta dopo ridà l'autorità a questo
-        // stadio. Prima delle view di stato delle figlie: non costa letture.
+        // Un monitor (`🔁 **Reopened**` o `🔁 Recurrence on workflow run.`) che
+        // ha riaperto/riconfermato il padre DOPO la decomposizione ha detto che
+        // la condizione è tornata: le figlie chiuse non lo smentiscono. Prima
+        // delle view di stato delle figlie la decisione pura verifica marker,
+        // idempotenza e tetto, quindi un padre non riaperto non paga letture.
         if (reopenedAfterDecomposition(comments)) {
-          console.log(`PARENT-CLOSE-SKIP #${p.number} (riaperta da un monitor dopo la decomposizione: la chiude il suo closer)`);
+          const parentState = snapshotIssueState(p);
+          if (parentState === null) {
+            // Senza lo stato la decisione risponderebbe «unreadable» per sempre:
+            // lo si dice una volta, con un nome diverso, invece di ritentare a
+            // vuoto e leggere le figlie a ogni tick.
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'parent-state-missing' });
+            console.log(`::warning::parent-rearm: lo snapshot non porta lo stato del padre #${p.number} — difetto di cablaggio della proiezione, non un padre illeggibile; nessun riarmo finche' non torna.`);
+            continue;
+          }
+          const rearmOptions = {
+            parentState,
+            comments,
+            now: Date.now(),
+            maxRearms: PARENT_REARM_MAX_PER_WINDOW,
+            windowMs: PARENT_REARM_WINDOW_DAYS * 24 * 60 * 60 * 1000,
+          };
+          // Questo primo passaggio non legge GitHub: serve solo a riparare una
+          // mutazione commentata ma non etichettata dopo un crash fra le due.
+          const recorded = decideParentRearm({ ...rearmOptions, childStates: null });
+          if (recorded.reason === 'already-rearmed') {
+            if (!DRY && !editChecked(p.number, {
+              remove: [LBL_DECOMPOSED, 'agent:triaged', LBL_FIX, LBL_QUEUED],
+            })) {
+              parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'label-write-failed' });
+              console.log(`::warning::parent-rearm: ripristino label #${p.number} fallito — marker conservato, retry al prossimo tick.`);
+              continue;
+            }
+            parentRearmResults.push({ number: p.number, outcome: 'repaired', reason: 'marker-present' });
+            console.log(`PARENT-REARM-REPAIR #${p.number} (marker già scritto, label stale rimossa → triage-sweep)`);
+            continue;
+          }
+          if (parentRearms >= PARENT_REARM_MAX_PER_RUN) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'run-cap' });
+            console.log(`PARENT-REARM-SKIP #${p.number} (cap ${PARENT_REARM_MAX_PER_RUN}/run raggiunto, rinvio al prossimo tick)`);
+            continue;
+          }
+          const childStates = readParentRearmChildStates(kids);
+          const decision = decideParentRearm({ ...rearmOptions, childStates });
+          if (decision.action !== 'rearm') {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: decision.reason });
+            console.log(`PARENT-REARM-SKIP #${p.number} (${decision.reason})`);
+            continue;
+          }
+          if (DRY) {
+            parentRearmResults.push({ number: p.number, outcome: 'dry-run', reason: decision.reason });
+            console.log(`[dry] PARENT-REARM #${p.number} (figlie ${kids.join(', ')}) → triage-sweep`);
+            continue;
+          }
+          try {
+            gh(['issue', 'comment', String(p.number), '--repo', REPO, '--body',
+              parentRearmCommentBody({
+                reopenedAt: decision.reopenedAt,
+                childNumbers: decision.childNumbers,
+              })], { json: false });
+          } catch (e) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'marker-write-failed' });
+            console.log(`::warning::parent-rearm: marker #${p.number} non scritto (${String(e).slice(0, 160)}) — label intatta, retry al prossimo tick.`);
+            continue;
+          }
+          // Il commento è il riarmo durevole: anche se la seconda mutazione
+          // fallisce e richiede repair al tick successivo, non si scrivono più
+          // di PARENT_REARM_MAX_PER_RUN marker nello stesso run.
+          parentRearms++;
+          if (!editChecked(p.number, {
+            remove: [LBL_DECOMPOSED, 'agent:triaged', LBL_FIX, LBL_QUEUED],
+          })) {
+            parentRearmResults.push({ number: p.number, outcome: 'skipped', reason: 'label-write-failed' });
+            console.log(`::warning::parent-rearm: label #${p.number} non rimossa dopo il marker — retry al prossimo tick.`);
+            continue;
+          }
+          parentRearmResults.push({ number: p.number, outcome: 'rearmed', reason: decision.reason });
+          console.log(`PARENT-REARM #${p.number} (figlie tutte chiuse: ${kids.join(', ')}) → rimosso ${LBL_DECOMPOSED}, routing via triage-sweep`);
           continue;
         }
         let allClosed = true;
@@ -4075,6 +4229,7 @@ export function runDrain() {
       if (examined > 0) {
         persistParentCloseCursor({ cursor: lastExaminedCursor, commentId: cursorState.commentId });
       }
+      reportParentRearm(parentRearmResults);
     }
   }
 

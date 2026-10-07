@@ -98,6 +98,7 @@ export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
   'scripts/lib/job-posting-date.mjs',
   'scripts/lib/source-posting-date.mjs',
   'data/canton-municipalities.json',
+  'data/swiss-locality-postal-codes.json',
 ]);
 export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   'scripts/audit-parser-quality.mjs',
@@ -108,6 +109,7 @@ export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
   // recorded before a municipality merge must not silently compare differently.
   'scripts/lib/target-swiss-locations.mjs',
   'data/canton-municipalities.json',
+  'data/swiss-locality-postal-codes.json',
 ]);
 
 function filesSha256(filePaths, readFile) {

@@ -1,7 +1,7 @@
 {
   "bardonnex": {
-    "morning": "0-5 min",
-    "evening": "0-6 min"
+    "morning": "0-9 min",
+    "evening": "0-8 min"
   },
   "basel-weil-am-rhein-autostrada-a2-a5": {
     "evening": "0-3 min"
@@ -11,22 +11,29 @@
   },
   "chiasso-brogeda": {
     "morning": "0-8 min",
-    "evening": "1-8 min"
+    "evening": "1-9 min"
   },
   "chiasso-centro": {
     "morning": "0-2 min",
-    "evening": "0-3 min"
+    "evening": "0-4 min"
   },
   "chiasso-strada": {
-    "morning": "0-29 min",
-    "evening": "1-5 min"
+    "morning": "0-34 min",
+    "evening": "1-8 min"
+  },
+  "ferney-voltaire-grand-saconnex": {
+    "evening": "0-2 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
     "evening": "0-4 min"
   },
   "grenzach-wyhlen-riehen": {
-    "evening": "0-2 min"
+    "morning": "0-2 min",
+    "evening": "0-3 min"
+  },
+  "haag-bendern": {
+    "morning": "0-2 min"
   },
   "konstanz-kreuzlingen": {
     "morning": "0-2 min"
@@ -34,12 +41,19 @@
   "konstanz-tagerwilen-gottlieber-strasse": {
     "morning": "0-2 min"
   },
+  "laufenburg-laufenburg-ag": {
+    "morning": "0-2 min"
+  },
   "moillesulaz": {
     "morning": "0-3 min",
     "evening": "0-2 min"
   },
-  "ponte-tresa": {
+  "perly": {
     "morning": "0-2 min"
+  },
+  "ponte-tresa": {
+    "morning": "0-3 min",
+    "evening": "0-2 min"
   },
   "porto-ceresio-brusino": {
     "morning": "0-3 min",
@@ -53,7 +67,7 @@
     "morning": "0-8 min"
   },
   "st-margrethen-hochst": {
-    "morning": "0-2 min",
+    "morning": "0-3 min",
     "evening": "0-2 min"
   },
   "thonex-vallard": {
@@ -61,6 +75,7 @@
     "evening": "0-2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
-    "morning": "0-2 min"
+    "morning": "0-2 min",
+    "evening": "0-2 min"
   }
 }

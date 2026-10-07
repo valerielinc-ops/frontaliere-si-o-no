@@ -1647,7 +1647,10 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
-        url: `${BASE_URL}/logo-512.png`,
+        // Keep the snapshot publisher on the same canonical logo as every
+        // other site Organization node. The former /logo-512.png variant is
+        // not a tracked asset and split the shared @id into two logo values.
+        url: `${BASE_URL}/icons/icon-512x512.png`,
       }),
     },
     mainEntityOfPage: canonicalUrl,

@@ -72,12 +72,12 @@ summaryIt: one sentence in Italian for the operator.
 summaryCandidate: one or two sentences in ${LANGUAGE_NAMES[locale] || 'Italian'} for the candidate: what the employer wants and what to do next, if anything.
 interviewWhen: date/time/place of a proposed interview exactly as written, else "".
 requestedDocuments: documents or information the employer asks for, else [].
-verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address or account, else "". Never construct them.
+verificationCode / verificationUrl: copied character by character from the e-mail when it asks to verify an address or account, else "". A one-time password, OTP, or password à usage unique is a verificationCode. Never construct them.
 needsReply: true when the employer expects an answer from the candidate.`;
 }
 
 const RULES = [
-  ['verification', /\b(verify|verification|bestätig|verifica|confirm your (e-?mail|account)|code de (vérification|confirmation)|best[aä]tigungscode|codice di verifica)/i],
+  ['verification', /\b(verify|verification|bestätig|verifica|confirm your (e-?mail|account)|code de (vérification|confirmation)|best[aä]tigungscode|codice di verifica|mot de passe [àa] usage unique|one[- ]time (?:password|passcode)|otp|einmal(?:passwort|code))/i],
   ['interview_invite', /\b(interview|colloquio|vorstellungsgespr[aä]ch|entretien|kennenlernen|incontro conoscitivo)/i],
   ['offer', /\b(job offer|offerta di lavoro|arbeitsvertrag|stellenangebot|offre d'emploi|contratto di lavoro)/i],
   ['rejection', /\b(unfortunately|purtroppo|leider|malheureusement|non (possiamo|potremo) (proseguire|dare seguito)|anderen kandidat|autre candidat)/i],
@@ -85,6 +85,7 @@ const RULES = [
   ['documents_request', /\b(please send|inviarci|zusenden|nous faire parvenir|documenti|unterlagen|zeugnisse|diplomi|certificati)/i],
   ['auto_acknowledgement', /\b(we have received|abbiamo ricevuto|wir haben ihre bewerbung erhalten|eingang ihrer bewerbung|nous avons bien reçu|thank you for (your )?appl)/i],
 ];
+const VERIFICATION_CODE_RE = /(?:\b(?:code|codice)\s+(?:confidentiel|de vérification|de verification|de confirmation|di verifica)|\bbest[aä]tigungscode\b|\b(?:one[- ]time (?:password|passcode)|otp|mot de passe [àa] usage unique)\b)[^\d]{0,100}\b(\d{4,8})\b/i;
 
 // A job portal's own account mail (Coop's SuccessFactors, 2026-10-03:
 // «Registrierungsbestätigung Stellenportal der Coop-Gruppe», sent when the
@@ -111,7 +112,10 @@ export function classifyByRules({ subject, text, autoSubmitted }) {
 function sanitizeClassification(raw, message) {
   const text = `${message.subject}\n${message.text}`;
   const category = correctedCategory(INBOUND_CATEGORIES.includes(raw?.category) ? raw.category : 'other', message);
-  const code = String(raw?.verificationCode || '').trim().slice(0, 40);
+  const proposedCode = String(raw?.verificationCode || '').trim().slice(0, 40);
+  const code = proposedCode && text.includes(proposedCode)
+    ? proposedCode
+    : category === 'verification' ? (VERIFICATION_CODE_RE.exec(text)?.[1] || '') : '';
   const url = String(raw?.verificationUrl || '').trim().slice(0, 2000);
   return {
     category,

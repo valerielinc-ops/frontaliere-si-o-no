@@ -342,6 +342,24 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(written).toHaveLength(64);
   });
 
+  it('downloads a governed generated image and preserves its generated path', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'article-generated-x', path: 'images/generated/article-generated-x.webp', bytes: 64 }],
+      }),
+      'images/generated/article-generated-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+
+    const { code } = await run(dir);
+
+    expect(code).toBe(0);
+    const written = fs.readFileSync(path.join(dir, 'public', 'images', 'generated', 'article-generated-x.webp'));
+    expect(written.subarray(0, 4).toString('latin1')).toBe('RIFF');
+    expect(written).toHaveLength(64);
+  });
+
   it('does not re-download an image it already has', async () => {
     routes = {
       ...baseRoutes(),
@@ -394,7 +412,7 @@ describe('pull-articles-api: hero-image manifest', () => {
     const { code, out } = await run(dir);
 
     expect(code).toBe(1);
-    expect(out).toContain('is not an images/blog/<name>.webp path');
+    expect(out).toContain('is not an images/blog/<name>.webp or images/generated/<name>.webp path');
     expect(fs.existsSync(path.join(dir, 'public', 'images'))).toBe(false);
   });
 

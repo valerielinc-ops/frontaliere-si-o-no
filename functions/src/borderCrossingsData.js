@@ -1,6 +1,7 @@
 /**
  * Static border-crossing data used by the scheduled traffic collector.
- * Mirrors data/borderCrossings.ts (closed crossings excluded) so that
+ * Mirrors the paid-monitored subset of data/borderCrossings.ts (closed and
+ * waitSource:none crossings excluded) so that
  * this file can be imported by both trafficSchedulerCore.js and unit tests
  * without pulling in server-side dependencies (firebase-admin).
  */
@@ -16,8 +17,8 @@
  * page (#4545 wired 'widnau-lustenau-schmitterbrucke' into the registry) —
  * and 'Wiesenrain' keeping the unchanged slug is exactly what made that
  * safe: no already-indexed URL moved. Do NOT change the general rule itself
- * — 5 other crossings (incl. the primary Chiasso Centro one) have indexed
- * URLs that depend on parens being stripped.
+ * — these explicit overrides preserve the existing indexed URL and add stable
+ * slugs for the five newly registered Basel-France crossings.
  *
  * Mirror of the override in services/borderCrossingSlug.ts — keep both in
  * sync by hand (see file header). Anti-collision regression coverage lives
@@ -27,6 +28,11 @@
  */
 const CROSSING_SLUG_OVERRIDES = {
  'Widnau-Lustenau (Schmitterbrücke)': 'widnau-lustenau-schmitterbrucke',
+ 'Basel–Saint-Louis (A35)': 'basel-saint-louis-a35',
+ 'Basel–Bourgfelden (Burgfelderstrasse)': 'basel-bourgfelden-burgfelderstrasse',
+ 'Basel–Saint-Louis (Elsässerstrasse)': 'basel-saint-louis-elsasserstrasse',
+ 'Basel–Saint-Louis (Flughafenstrasse)': 'basel-saint-louis-flughafenstrasse',
+ 'Basel–Huningue (Kohlenstrasse)': 'basel-huningue-kohlenstrasse',
 };
 
 /**
@@ -58,8 +64,8 @@ export function slugifyCrossingName(name) {
  * from it (this file must stay importable without firebase-admin/server-side
  * deps, see file header). Every non-closed crossing of every canton (IT, FR,
  * DE, AT, LI sides); entries here are the subset of data/borderCrossings.ts
- * with `trafficLevel: 'closed'` crossings removed (the scheduler has nothing
- * live to poll for a permanently-closed crossing).
+ * with `trafficLevel: 'closed'` and explicit `waitSource: 'none'` crossings
+ * removed (the scheduler has nothing live to poll for either case).
  *
  * Adding a new crossing: append one object with EXACTLY these 4 fields:
  *   { name: '<crossing name — must match data/borderCrossings.ts name field
@@ -72,7 +78,7 @@ export function slugifyCrossingName(name) {
  * rankings in the articles repo). tests/trafficScheduler.test.ts pins it to
  * data/borderCrossings.ts name by name. Do NOT add `country`/`foreignSide`/etc:
  * nothing here reads them. Do NOT add a crossing whose data/borderCrossings.ts
- * `trafficLevel` is `'closed'`.
+ * `trafficLevel` is `'closed'` or whose `waitSource` is `'none'`.
  *
  * @type {Array<{name: string, canton: string, lat: number, lng: number}>}
  */

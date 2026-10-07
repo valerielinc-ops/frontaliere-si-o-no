@@ -29,7 +29,7 @@ const ROOT = resolve(__dirname, '..');
 import { resolveGitAddPath } from './lib/resolve-git-add-path.mjs';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, flushScoresBeforeExit, resetExhaustedModel, printRunSummary } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, isSourcePassthrough, logCascadeSummary } from './lib/free-translate.mjs';
-import { stripCodeFences, findMatchingClose, fixJsonStringBody, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
+import { repairLlmJsonArray, JSON_QUOTE_SAFETY_RULE_IT, describeJsonParseError, describeRawForDiagnostics } from './lib/llm-json-repair.mjs';
 import { wrongLocalePair } from './fix-faq-locales.mjs';
 import { unescapeTsString } from './lib/unescape-ts-string.mjs';
 import { cleanFaqPairs } from './lib/prompt-placeholder-guard.mjs';
@@ -133,31 +133,6 @@ function write(filePath, content) {
 /** Same escaping as create-article.mjs buildBodyFile() */
 function escapeForSingleQuoteTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
-}
-
-/** Strip markdown fences and extract JSON array from LLM output.
- *  Bracket-balanced extraction + string repair live in ./lib/llm-json-repair.mjs
- *  (shared with create-article.mjs's repairLlmJson — same LLM-JSON quirks). */
-function repairJsonArray(s) {
-  let c = stripCodeFences(s);
-  // Bracket-balanced extraction so trailing prose (LLM "Note: ..." after the
-  // array) does not pull in a foreign ']' via lastIndexOf.
-  const arrStart = c.indexOf('[');
-  if (arrStart !== -1) {
-    const arrEnd = findMatchingClose(c, arrStart);
-    if (arrEnd !== -1) c = c.slice(arrStart, arrEnd + 1);
-    else {
-      const lastClose = c.lastIndexOf(']');
-      if (lastClose > arrStart) c = c.slice(arrStart, lastClose + 1);
-    }
-  } else {
-    const objStart = c.indexOf('{');
-    if (objStart !== -1) {
-      const objEnd = findMatchingClose(c, objStart);
-      if (objEnd !== -1) c = c.slice(objStart, objEnd + 1);
-    }
-  }
-  return fixJsonStringBody(c);
 }
 
 /** Extract FAQ array from various LLM response shapes:
@@ -671,7 +646,7 @@ async function _generateFaqITAttempt(bodyText, maxTokens) {
     { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
-  const repaired = repairJsonArray(raw);
+  const repaired = repairLlmJsonArray(raw);
   let parsed;
   try {
     parsed = JSON.parse(repaired);
@@ -745,7 +720,7 @@ async function _generateTopUpFaqITAttempt(bodyText, existingFaq, maxTokens) {
     { temperature: 0.5, maxTokens, jsonMode: true },
   );
 
-  const repaired = repairJsonArray(raw);
+  const repaired = repairLlmJsonArray(raw);
   let parsed;
   try {
     parsed = JSON.parse(repaired);

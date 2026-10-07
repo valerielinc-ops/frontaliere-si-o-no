@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Export the query-level Search Console performance for ONE page —
  * "Fase 2: export query corretto per singola pagina" della GSC content-gap
@@ -23,7 +24,6 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { fetchRetry, getServiceAccountToken } from './lib/ga4-service-account.mjs';
 import { buildNearWinQueries } from './lib/analytics-opportunity-utils.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
@@ -268,6 +268,6 @@ export async function main() {
   return report;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => { console.error(`gsc-page-query-export failed: ${error.message}`); process.exitCode = 1; });
 }

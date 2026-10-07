@@ -148,7 +148,9 @@ type Verdict =
    */
   | { verdict: 'merge-update'; why: string }
   /** Shared auth writer: the screen that initiated it owns the disclosure. */
-  | { verdict: 'central-writer'; why: string };
+  | { verdict: 'central-writer'; why: string }
+  /** Queues a nested follow intent after the shared signup surface owns consent. */
+  | { verdict: 'pending-intent'; why: string };
 
 /**
  * Every signup path, with the verdict that lets it past this file.
@@ -237,6 +239,10 @@ const VERDICTS: Record<string, Verdict> = {
   'services/behaviorTracker.ts': {
     verdict: 'merge-update',
     why: 'writes the private/personalization SUBcollection, not the subscriber document itself',
+  },
+  'services/companyFollowIntent.ts': {
+    verdict: 'pending-intent',
+    why: 'writes only the nested company-follow intent after SignupPromptModal owns the newsletter consent; it does not create the subscriber document or claim a displayed formula',
   },
   'components/preferences/SubscriptionPreferencesController.tsx': {
     verdict: 'shown',
@@ -515,6 +521,7 @@ describe('the verdicts hold', () => {
   const shown = entries.filter(([, v]) => v.verdict === 'shown');
   const notShown = entries.filter(([, v]) => v.verdict === 'recorded-not-shown');
   const unreachable = entries.filter(([, v]) => v.verdict === 'unreachable');
+  const pendingIntents = entries.filter(([, v]) => v.verdict === 'pending-intent');
 
   it.each(shown)('%s shows, once per gate, the exact sentence it stores', (file, v) => {
     const { notices } = v as Extract<Verdict, { verdict: 'shown' }>;
@@ -593,6 +600,21 @@ describe('the verdicts hold', () => {
       expect(src, `${file} must write with { merge: true }`).toMatch(/merge:\s*true/);
     },
   );
+
+  it.each(pendingIntents)('%s writes a nested pending intent, not a subscriber record', (file) => {
+    const src = stripComments(read(file));
+    expect(src, `${file} must keep the follow intent below the subscriber document`).toMatch(
+      /addDoc\(collection\(db, 'newsletter_subscribers', email, 'company_follow_intents'\)/,
+    );
+    expect(
+      src.match(/["']newsletter_subscribers["']/g) ?? [],
+      `${file} must not add a second direct write to the subscriber document`,
+    ).toHaveLength(1);
+    expect(src, `${file} must keep the intent pending until confirmation`).toMatch(/status:\s*'pending'/);
+    expect(src, `${file} must not become a second newsletter signup writer`).not.toMatch(
+      /(?:upsertUnifiedEmailSubscriber|(?:upsert|capture)NewsletterSubscriber(?:Record)?)\s*\(/,
+    );
+  });
 
   it.each(unreachable)('%s is still imported by nothing outside tests', (file) => {
     const moduleName = path.basename(file).replace(/\.tsx?$/, '');

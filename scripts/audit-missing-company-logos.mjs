@@ -27,6 +27,7 @@ import {
   loadCanonicalJobs,
   MIN_LOGO_QUALITY_DIMENSION_PX,
 } from './lib/company-logo-audit.mjs';
+import { auditIssueReason } from './lib/company-logo-acquisition.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,14 +53,18 @@ function buildIssueBody(report) {
   const top = report.affectedCompanies.slice(0, TOP_N_IN_ISSUE);
   const rows = top.map((company) => {
     const example = company.examples.broken
+      || company.examples.pendingDeploy
       || company.examples.missing
       || company.examples.lowQuality
       || company.examples.qualityUnverified
       || company.exampleUrl;
     const link = example ? `[esempio](${example})` : '—';
-    return `| \`${issueSafe(company.companyKey)}\` | ${issueSafe(company.companyName)} | ${company.status} | ${company.affectedJobCount} | ${link} |`;
+    return `| \`${issueSafe(company.companyKey)}\` | ${issueSafe(company.companyName)} | ${company.status} | ${company.affectedJobCount} | ${issueSafe(auditIssueReason(company))} | ${link} |`;
   }).join('\n');
   const restCount = Math.max(0, report.affectedCompanies.length - top.length);
+  const acquisitionNote = report.acquisition
+    ? `La passata deterministica ha acquisito **${report.acquisition.acquired}** loghi verificati; questa issue mostra soltanto il residuo non acquisito (fallimenti: ${report.acquisition.failed}, rifiuti di qualità: ${report.acquisition.qualityRejected}).`
+    : 'La passata deterministica non ha ancora prodotto un risultato verificabile; l’elenco seguente è il residuo misurato dall’audit.';
 
   return `## Cosa è stato misurato
 
@@ -67,21 +72,26 @@ L'audit usa ${formatSource(report)} e invoca \`resolveCompanyLogoUrl()\` da \`se
 
 **${report.affectedCompanies.length} aziende** hanno almeno un annuncio non coperto, non verificabile o di qualità insufficiente:
 
+${acquisitionNote}
+
 | stato | aziende | annunci interessati |
 |---|---:|---:|
 | missing | ${report.missing} | ${report.missingJobCount} |
 | broken | ${report.broken} | ${report.brokenJobCount} |
+| pending-deploy | ${report.pendingDeploy || 0} | ${report.pendingDeployJobCount || 0} |
 | partial | ${report.partial} | ${report.partialJobCount} |
 | low-quality | ${report.lowQuality} | ${report.lowQualityJobCount} |
 | quality-unverified | ${report.qualityUnverified} | ${report.qualityUnverifiedJobCount} |
 | unverified | ${report.unverified} | ${report.unverifiedJobCount} |
 
+\`pending-deploy\` significa che il riferimento locale esiste nel checkout ma il CDN non lo espone ancora: non conta come copertura valida e non viene nascosto come un \`broken\`.
+
 Il report completo è \`data/company-logos-missing.json\`; viene rigenerato dal workflow ogni domenica.
 
 ## Aziende con maggiore impatto
 
-| companyKey | azienda | stato | annunci interessati | esempio |
-|---|---|---|---:|---|
+| companyKey | azienda | stato | annunci interessati | motivo | esempio |
+|---|---|---|---:|---|---|
 ${rows}
 ${restCount ? `\n_...e altre ${restCount} aziende nell'elenco completo._\n` : ''}
 
@@ -150,6 +160,7 @@ async function main() {
     resolveLogo: resolveCompanyLogoUrl,
     assetBaseUrl: process.env.COMPANY_LOGO_AUDIT_ASSET_BASE_URL || DEFAULT_ASSET_BASE_URL,
     timeoutMs: positiveIntFromEnv('COMPANY_LOGO_AUDIT_TIMEOUT_MS', 8_000),
+    localAssetRoot: ROOT,
   });
   const payload = {
     generatedAt: new Date().toISOString(),
@@ -167,6 +178,7 @@ async function main() {
     `missing: ${payload.missing} (${payload.missingJobCount}),`,
     `broken: ${payload.broken} (${payload.brokenJobCount}),`,
     `partial: ${payload.partial} (${payload.partialJobCount}),`,
+    `pending-deploy: ${payload.pendingDeploy} (${payload.pendingDeployJobCount}),`,
     `low-quality: ${payload.lowQuality} (${payload.lowQualityJobCount}),`,
     `valid: ${payload.withLogo}. Scritto ${OUTPUT}`,
   ].join(' '));

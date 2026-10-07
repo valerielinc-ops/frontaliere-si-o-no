@@ -31,7 +31,15 @@
  *      different events that happen to share a generic title and a
  *      low-confidence region-fallback comune) is left untouched — merging
  *      those would risk silently dropping a genuine event.
- *   3b. Superseded HTML twins: while `ge-agenda` (geneve.ch HTML) runs next
+ *   3b. Organizer vs tio.ch (classicAscona, D3 2026-10-05): tio.ch re-titles
+ *      the organizer's concerts («Richard Galliano | Nuovo Viaggio Trio» for
+ *      «Richard Galliano – New Viaggio Trio», «Un inno di bellezza celeste» for
+ *      «A Hymn of Heavenly Beauty») and sometimes names another hall, so the
+ *      title key of rule 3 misses them. A classicAscona concert and a tio-agenda
+ *      record collapse when they start the same day in the same comune and
+ *      share a distinctive word of the title (or of the organizer's URL slug),
+ *      matched one-to-one — see `dedupeOrganizerAgainstTio`.
+ *   3c. Superseded HTML twins: while `ge-agenda` (geneve.ch HTML) runs next
  *      to its licensed API replacement `openagenda`, a duplicate pair keeps
  *      the OpenAgenda record, also when the two date a running event
  *      differently, but only when a physical-location key agrees — see
@@ -71,18 +79,36 @@ import {
   haversineKm,
   EVENT_PRICE_SOURCES,
   hasConfidentPrice,
+  isEventImageSourceAllowed,
 } from './lib/events-utils.mjs';
 import { preserveEventHistory, publishedEventRoutes } from './lib/events-retention.mjs';
 import { cantonAtPoint } from './lib/swiss-canton-geo.mjs';
 import { eventDateIssues } from './lib/events-date-quality.mjs';
+import { assertNoPrivateEvents, isPrivateEventRecord } from './lib/private-event-sources.mjs';
+import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
 
-function readSlices() {
-  if (!existsSync(EVENTS_SLICE_DIR)) return [];
-  return readdirSync(EVENTS_SLICE_DIR)
+const EVENT_IMAGE_LIBRARY_PATH = process.env.EVENT_IMAGE_LIBRARY_PATH
+  ? path.resolve(process.env.EVENT_IMAGE_LIBRARY_PATH)
+  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'data', 'event-image-library.json');
+
+export function loadEventImageLibrary(filePath = EVENT_IMAGE_LIBRARY_PATH) {
+  if (!existsSync(filePath)) return { assets: [] };
+  try {
+    const parsed = JSON.parse(readFileSync(filePath, 'utf-8'));
+    return Array.isArray(parsed.assets) ? parsed : { ...parsed, assets: [] };
+  } catch {
+    return { assets: [] };
+  }
+}
+import { applyDescriptionRewrite, loadEventDescriptionRewriteCache, sanitizeEventForPublication } from './lib/event-description-policy.mjs';
+
+function readSlices(sliceDir = EVENTS_SLICE_DIR) {
+  if (!existsSync(sliceDir)) return [];
+  return readdirSync(sliceDir)
     .filter((f) => f.endsWith('.json'))
     .map((f) => {
       try {
-        return JSON.parse(readFileSync(path.join(EVENTS_SLICE_DIR, f), 'utf-8'));
+        return JSON.parse(readFileSync(path.join(sliceDir, f), 'utf-8'));
       } catch {
         return null;
       }
@@ -133,12 +159,74 @@ export function eventRichnessScore(ev) {
 // tourism-board catalog (good imagery, but skews toward touristy/generic
 // listings over hyper-local ones) — lowest priority of the three. Any future
 // source not listed here sorts last (lowest priority) rather than crashing.
+const SOURCE_PRIORITY = ['tio-agenda', 'openagenda', 'classicascona', 'guidle', 'myswitzerland'];
 // openagenda comes before the catalog sources: it is data under an open
 // licence (Licence Ouverte 2.0), so on a tie the licensed record wins.
-const SOURCE_PRIORITY = ['tio-agenda', 'openagenda', 'guidle', 'myswitzerland'];
 
 function eventSourceKey(ev) {
   return ev.sourceKey || String(ev.id || '').split(':')[0];
+}
+
+function hasOpenAgendaImageEvidence(ev) {
+  return ev
+    && eventSourceKey(ev) === 'openagenda'
+    && typeof ev.imageUrl === 'string'
+    && ev.imageUrl.startsWith('/images/events/openagenda-')
+    && typeof ev.imageCredit === 'string'
+    && ev.imageCredit.trim()
+    && typeof ev.imageLicense === 'string'
+    && ev.imageLicense.trim()
+    && typeof ev.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(ev.imageLicenseUrl);
+}
+
+function hasAllowedMirroredSourceImage(ev) {
+  const sourceKey = eventSourceKey(ev);
+  return Boolean(
+    ev
+      && isEventImageSourceAllowed(sourceKey)
+      && typeof ev.imageUrl === 'string'
+      && ev.imageUrl.startsWith(`/images/events/${sourceKey}-`)
+      && typeof ev.imageCredit === 'string'
+      && ev.imageCredit.trim()
+      && typeof ev.imageLicense === 'string'
+      && ev.imageLicense.trim()
+      && typeof ev.imageLicenseUrl === 'string'
+      && /^https:\/\//i.test(ev.imageLicenseUrl),
+  );
+}
+
+/**
+ * Image policy backstop for old slices and hand-edited snapshots. A source
+ * can remain a valid event-facts source while its images are unlicensed; in
+ * that case remove both the URL and its credit before deduplication so an old
+ * record cannot win a richer-record tie or reach a public dataset.
+ */
+export function stripUnauthorizedEventImage(ev) {
+  const hasImageFields = ev && [
+    'imageUrl', 'imageCredit', 'imageLicense', 'imageLicenseUrl', 'imageAssetId', 'imageProvider',
+  ].some((field) => Object.prototype.hasOwnProperty.call(ev, field));
+  const licensedSourceImage = ev
+    && (hasOpenAgendaImageEvidence(ev) || hasAllowedMirroredSourceImage(ev));
+  if (!hasImageFields || licensedSourceImage) return ev;
+  const {
+    imageUrl: _imageUrl,
+    imageCredit: _imageCredit,
+    imageLicense: _imageLicense,
+    imageLicenseUrl: _imageLicenseUrl,
+    imageAssetId: _imageAssetId,
+    imageProvider: _imageProvider,
+    ...withoutImage
+  } = ev;
+  return withoutImage;
+}
+
+export function assignGeneratedEventImages(events, registry = loadEventImageLibrary()) {
+  return events.map((event) => assignEventImageAsset(event, registry, {
+    sourceImageAllowed: (candidate) => Boolean(
+      hasOpenAgendaImageEvidence(candidate) || hasAllowedMirroredSourceImage(candidate),
+    ),
+  }));
 }
 
 function sourcePriorityRank(ev) {
@@ -167,7 +255,9 @@ function knownPrice(price) {
   return { amount, currency: price.currency || 'CHF', isFree: amount === 0 };
 }
 
-const PRICE_PROVENANCE_FIELDS = ['priceSource', 'priceField'];
+// `currencySource` is provenance too: Eventfrog's amount has no currency, and
+// its CHF is valid only together with the record that read location.country.
+const PRICE_PROVENANCE_FIELDS = ['priceSource', 'priceField', 'currencySource'];
 
 function priceProvenance(price) {
   return Object.fromEntries(PRICE_PROVENANCE_FIELDS.filter((field) => price?.[field]).map((field) => [field, price[field]]));
@@ -392,6 +482,102 @@ export function dedupeFuzzy(events) {
   return { events: out, mergedAway };
 }
 
+// ── Organizer vs tio.ch dedup (rule 3b) ─────────────────────────────────
+// Organizer sources whose concerts tio.ch also lists under its own titles.
+const ORGANIZER_SOURCES_COVERED_BY_TIO = new Set(['classicascona']);
+
+// Words that say nothing about WHICH concert it is: articles/prepositions in
+// it/en/de/fr, the generic «concert/music» words and the places of the
+// festival. «Next Generation» stays: it names the free series both sources list.
+const NON_DISTINCTIVE_TITLE_WORDS = new Set([
+  'alla', 'alle', 'agli', 'allo', 'della', 'delle', 'dello', 'degli', 'dalla', 'dalle', 'nella', 'nelle', 'sulla', 'sulle',
+  'with', 'from', 'that', 'this', 'their', 'into', 'uber', 'dans', 'pour', 'avec', 'sous',
+  'concerto', 'concerti', 'concert', 'concerts', 'konzert', 'konzerte', 'musica', 'music', 'musik', 'musique',
+  'festival', 'festivals',
+  'settimane', 'musicali', 'classicascona', 'ascona', 'locarno', 'chiesa', 'church', 'kirche', 'eglise',
+]);
+
+/** Distinctive lowercase words (≥ 4 letters, not a number) of a title or URL slug. */
+export function distinctiveTitleWords(...texts) {
+  const words = new Set();
+  for (const text of texts) {
+    for (const word of normalizeText(String(text || '')).split(/[^a-z0-9]+/)) {
+      if (word.length >= 4 && !/^\d+$/.test(word) && !NON_DISTINCTIVE_TITLE_WORDS.has(word)) words.add(word);
+    }
+  }
+  return words;
+}
+
+function organizerSlug(event) {
+  try {
+    return new URL(event.url).pathname.split('/').filter(Boolean).pop() || '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Rule 3b. Collapse each organizer concert (classicAscona) with the tio-agenda
+ * record of the same concert: same `startDate`, same comune, and at least one
+ * shared distinctive word between the tio title and the organizer title or
+ * URL slug. Matching is one-to-one and only on an unambiguous best score — two
+ * concerts of the same evening in the same comune (Evensong and Galliano,
+ * 2026-10-07, Ascona) each keep their own tio twin, and a tie merges nothing.
+ * The tio record keeps its identity (it is the one already published); the
+ * price goes through `pickRichestEvent`, so the organizer's structured tariff
+ * replaces tio's text price, with the disagreement recorded in
+ * `price.priceConflicts` (Galliano: tio 20, classicAscona from 40).
+ */
+export function dedupeOrganizerAgainstTio(events) {
+  const sourceOf = (event) => event.sourceKey || String(event.id || '').split(':')[0];
+  const comuneOf = (event) => normalizeText(event.comune || '');
+  const tioByDay = new Map();
+  for (const event of events) {
+    if (sourceOf(event) !== 'tio-agenda' || !comuneOf(event)) continue;
+    const key = `${event.startDate}|${comuneOf(event)}`;
+    if (!tioByDay.has(key)) tioByDay.set(key, []);
+    tioByDay.get(key).push(event);
+  }
+  const proposals = [];
+  for (const organizer of events) {
+    if (!ORGANIZER_SOURCES_COVERED_BY_TIO.has(sourceOf(organizer)) || !comuneOf(organizer)) continue;
+    const words = distinctiveTitleWords(organizer.title, organizerSlug(organizer));
+    const scored = (tioByDay.get(`${organizer.startDate}|${comuneOf(organizer)}`) || [])
+      .map((tio) => ({ tio, score: [...distinctiveTitleWords(tio.title)].filter((word) => words.has(word)).length }))
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score);
+    if (!scored.length || (scored[1] && scored[1].score === scored[0].score)) continue;
+    proposals.push({ organizer, tio: scored[0].tio, score: scored[0].score });
+  }
+  // One organizer concert per tio record: the best score wins, a tie merges nothing.
+  const byTio = new Map();
+  for (const proposal of proposals) {
+    if (!byTio.has(proposal.tio)) byTio.set(proposal.tio, []);
+    byTio.get(proposal.tio).push(proposal);
+  }
+  const replaced = new Map();
+  let mergedAway = 0;
+  for (const [tio, candidates] of byTio) {
+    candidates.sort((a, b) => b.score - a.score);
+    if (candidates[1] && candidates[1].score === candidates[0].score) continue;
+    // The tio record keeps its identity (id, title, route) whatever the
+    // richness score says: it is the one already published, and swapping the
+    // id would drop its page. The organizer contributes its structured price
+    // (with tio's disagreeing text price recorded as a conflict).
+    const merged = pickRichestEvent([tio, candidates[0].organizer]);
+    replaced.set(tio, merged.id === tio.id ? merged : { ...tio, ...(merged.price ? { price: merged.price } : {}) });
+    replaced.set(candidates[0].organizer, null);
+    mergedAway += 1;
+  }
+  if (!mergedAway) return { events, mergedAway };
+  const out = [];
+  for (const event of events) {
+    if (!replaced.has(event)) out.push(event);
+    else if (replaced.get(event)) out.push(replaced.get(event));
+  }
+  return { events: out, mergedAway };
+}
+
 function dateCoveredBy(day, ev) {
   return typeof day === 'string' && day >= ev.startDate && day <= (ev.endDate || ev.startDate);
 }
@@ -536,18 +722,37 @@ export function attachCantonFromGeo(events, cantonAt = cantonAtPoint) {
   return attached;
 }
 
-function assemble() {
-  const priorDataset = loadEventsDataset(EVENTS_DATASET_PATH);
-  const priorById = new Map(priorDataset.events.map((event) => [event.id, event]));
-  const priorRoutes = publishedEventRoutes(priorDataset.events, priorDataset.generatedAt?.slice(0, 10));
-  const slices = readSlices();
+/**
+ * Paths are injectable only so tests can assemble into a temp dir
+ * (tests/events-private-source-exclusions.test.ts); the CLI uses the defaults.
+ */
+export function assemble({
+  sliceDir = EVENTS_SLICE_DIR,
+  datasetPath = EVENTS_DATASET_PATH,
+  rewriteCachePath = path.join(path.dirname(datasetPath), 'events-description-rewrites.json'),
+} = {}) {
+  const priorDataset = loadEventsDataset(datasetPath);
+  const priorEvents = priorDataset.events.map(sanitizeEventForPublication);
+  const priorById = new Map(priorEvents.map((event) => [event.id, event]));
+  const priorRoutes = publishedEventRoutes(priorEvents, priorDataset.generatedAt?.slice(0, 10));
+  const slices = readSlices(sliceDir);
+  const rewriteCache = loadEventDescriptionRewriteCache(rewriteCachePath);
   const byId = new Map();
   let invalidRecords = 0;
+  let privateRecords = 0;
 
   for (const slice of slices) {
     const sliceTs = Date.parse(slice.assembledAt || '') || 0;
-    for (const ev of slice.events) {
-      if (!ev || !ev.id || !ev.startDate || !ev.title) continue;
+    for (const rawEvent of slice.events) {
+      if (!rawEvent || !rawEvent.id || !rawEvent.startDate || !rawEvent.title) continue;
+      const ev = sanitizeEventForPublication(stripUnauthorizedEventImage(rawEvent));
+      // Eventfrog & co. (scripts/lib/private-event-sources.mjs): a record of a
+      // private source must never reach data/events.json or its public copy,
+      // which the corpus republishes as an open API (AGB §17(3)).
+      if (isPrivateEventRecord(ev)) {
+        privateRecords += 1;
+        continue;
+      }
       const dateIssues = eventDateIssues(ev);
       if (dateIssues.length > 0) {
         invalidRecords += 1;
@@ -565,12 +770,14 @@ function assemble() {
   const merged = [...byId.values()].map(({ __ts, ...ev }) => ev);
   const fuzzy = dedupeFuzzy(merged);
   const twins = dedupeSupersededTwins(fuzzy.events);
-  const deduped = twins.events;
-  const mergedAway = fuzzy.mergedAway + twins.mergedAway;
+  const organizer = dedupeOrganizerAgainstTio(twins.events);
+  const deduped = organizer.events;
+  const mergedAway = fuzzy.mergedAway + twins.mergedAway + organizer.mergedAway;
   const cantonlessBefore = deduped.filter((event) => !(typeof event.canton === 'string' && event.canton.trim())).length;
   const cantonFromGeo = attachCantonFromGeo(deduped);
   const frontierAttached = attachItalianFrontierComuni(deduped);
-  const withHistory = deduped.map((event) => {
+  const withLibraryImages = assignGeneratedEventImages(deduped);
+  const withHistory = withLibraryImages.map((event) => {
     const prior = priorById.get(event.id);
     const priorRoute = priorRoutes.get(event.id);
     if (!prior || !priorRoute) return event;
@@ -582,7 +789,9 @@ function assemble() {
     }]);
   });
 
-  const events = withHistory.sort(
+  const eventsWithRewrites = withHistory.map((event) => applyDescriptionRewrite(event, rewriteCache));
+  const rewrittenDescriptions = eventsWithRewrites.filter((event) => event.description).length;
+  const events = eventsWithRewrites.sort(
     (a, b) =>
       (a.startDate || '').localeCompare(b.startDate || '') ||
       (a.title || '').localeCompare(b.title || ''),
@@ -594,8 +803,12 @@ function assemble() {
     totalEvents: events.length,
     events,
   };
+  // Second line of defense: the prior dataset is read back above, so a record
+  // that leaked into it once must not be carried forward either.
+  assertNoPrivateEvents(events, 'data/events.json and public/data/events.json');
+  if (privateRecords > 0) console.warn(`[assemble-events] dropped ${privateRecords} private-source record(s) found in public slices`);
   const json = `${JSON.stringify(out, null, 2)}\n`;
-  writeFileSync(EVENTS_DATASET_PATH, json, 'utf-8');
+  writeFileSync(datasetPath, json, 'utf-8');
 
   // Second copy under public/, mirroring what compute-border-wait-averages.mjs
   // does for its own dataset and for the same reason (issue #4974 item 3).
@@ -608,7 +821,7 @@ function assemble() {
   // the crawling itself stays here, because it is a site data pipeline (§0.2).
   // Derived from EVENTS_DATASET_PATH (…/data/events.json) rather than a second
   // root computation, so the two copies cannot drift apart if the layout moves.
-  const publicPath = path.join(path.dirname(EVENTS_DATASET_PATH), '..', 'public', 'data', 'events.json');
+  const publicPath = path.join(path.dirname(datasetPath), '..', 'public', 'data', 'events.json');
   mkdirSync(path.dirname(publicPath), { recursive: true });
   writeFileSync(publicPath, json, 'utf-8');
 
@@ -618,11 +831,15 @@ function assemble() {
     mergedAway,
     frontierAttached,
     invalidRecords,
+    privateRecords,
+    rewrittenDescriptions,
+    pendingDescriptions: events.length - rewrittenDescriptions,
+    publicPath,
     cantonless: { before: cantonlessBefore, fromGeo: cantonFromGeo },
   };
 }
 
-function printStats(events, mergedAway, frontierAttached, cantonless) {
+function printStats(events, mergedAway, frontierAttached, cantonless, rewrittenDescriptions = events.filter((event) => event.description).length) {
   const byComune = new Map();
   const byCategory = new Map();
   let withComune = 0;
@@ -636,6 +853,7 @@ function printStats(events, mergedAway, frontierAttached, cantonless) {
   const topComuni = [...byComune.entries()].sort((a, b) => b[1] - a[1]).slice(0, 12);
   console.log(`\n── events stats ──`);
   console.log(`total: ${events.length} | with comune: ${withComune} | comuni: ${byComune.size}`);
+  console.log(`descriptions: ${rewrittenDescriptions} rewritten | ${events.length - rewrittenDescriptions} factual-only pending`);
   console.log(`top comuni: ${topComuni.map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`categories: ${[...byCategory.entries()].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${c}(${n})`).join(', ')}`);
   console.log(`cross-source fuzzy dedup: merged away ${mergedAway} duplicate(s)`);
@@ -663,7 +881,7 @@ function printStats(events, mergedAway, frontierAttached, cantonless) {
 // data/events.json.
 const isMainModule = process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
 if (isMainModule) {
-  const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless } = assemble();
+  const { events, slices, mergedAway, frontierAttached, invalidRecords, cantonless, rewrittenDescriptions } = assemble();
   console.log(`[assemble-events] merged ${slices} slice(s) → ${events.length} retained events (${mergedAway} cross-source dup(s) collapsed; ${invalidRecords} invalid date record(s) skipped) → ${path.relative(process.cwd(), EVENTS_DATASET_PATH)}`);
-  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached, cantonless);
+  if (process.argv.includes('--stats')) printStats(events, mergedAway, frontierAttached, cantonless, rewrittenDescriptions);
 }

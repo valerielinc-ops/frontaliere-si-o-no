@@ -1,24 +1,64 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-10-05T17:33:48.846Z",
-  "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": null,
-  "sourceBodyFailureCount": 0,
-  "sourceBodyFailures": [],
-  "abortKind": null,
-  "written": 0,
+  "generatedAt": "2026-10-07T09:23:01.815Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 3114,
+  "avgDurationMs": 3114,
+  "durationHistory": [
+    3114
+  ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://dxt.com/careers/?panel=20897_1#offset_20897_1",
+      "applyUrl": "https://dxt.com/careers/",
+      "title": "Junior Accountant",
+      "company": "DXT Commodities S.A.",
+      "companyKey": "dxt-commodities",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "quant-internship-mercato-del-potere-dxt-commodities-s-a-lugano",
+      "category": "general",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "dxt-careers-crawler",
+      "sourceLang": "en",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Energia / Trading materie prime",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "dxt-commodities-f60f8843492a",
+      "firstSeenAt": "2026-07-10T12:04:35.208Z",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Corso Elvezia 14",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "6a7776e042b7cf4e5bd92a7e2acc0adf4248faea"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

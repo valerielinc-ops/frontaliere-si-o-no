@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * verify-l3-report-equivalence.mjs
  *
@@ -39,8 +40,6 @@
 
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, basename } from 'node:path';
-import { pathToFileURL } from 'node:url';
-
 function parseArgs() {
   const out = new Map();
   for (const a of process.argv.slice(2)) {
@@ -236,7 +235,7 @@ async function main() {
 
 // Only run as a CLI. Importing the module (tests do) must not start a walk or
 // call process.exit().
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error('verify-l3-report-equivalence: fatal', err);
     process.exit(2);

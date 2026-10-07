@@ -37,13 +37,13 @@ const COLLECT_JS =
   `var c=ls('${ADS_CONSENT_STORAGE_KEY}'),consent=c==='${ADS_CONSENT_GRANTED}'?'granted':c==='${ADS_CONSENT_DENIED}'?'denied':'none';` +
   `var path=ls('${READER_NOADS_ACTIVE_KEY}')==='true'?'noads_entitlement':isBot()?'bot_gated':consent==='none'?'waiting_consent':'loaded';` +
   `var a=w.adsbygoogle,g=w.googlefc,o=w.__ftOfferwallGate,s=o?o.state:undefined;` +
-  `var gate=(s==='held'&&typeof o.release==='function')||s==='released'||s==='suppressed'||s==='off_board'?s:'absent';` +
+  `var gate=(s==='held'&&typeof o.release==='function')||s==='released'||s==='suppressed'||s==='off_board'?s:s==='idle'?'off_board':'absent';` +
   `var ins=d.querySelectorAll('ins.adsbygoogle'),tot=0,fil=0,unf=0,col=0;` +
   `for(var i=0;i<ins.length;i++){var el=ins[i];if(!man(el))continue;tot++;var st=el.getAttribute('data-ad-status');if(st==='filled')fil++;else if(st==='unfilled')unf++;if(el.hasAttribute('data-ft-static-ad-collapsed')||el.closest('[${AD_BANNER_STATE_ATTR}="collapsed"]'))col++;}` +
   `var an=d.querySelector('ins[data-anchor-status]');` +
   `return{page_template:(${AD_PAGE_TEMPLATE_INLINE_FN})(h.path,d),consent_state:consent,ad_path:path,` +
   `adsbygoogle_loaded:a&&(a.loaded===true||(typeof a.push==='function'&&a.push!==Array.prototype.push))?1:0,` +
-  `fc_loaded:(g&&(typeof g.getAdBlockerStatus==='function'||typeof g.showRevocationMessage==='function'))||typeof w.__tcfapi==='function'?1:0,` +
+  `fc_loaded:g&&(typeof g.getAdBlockerStatus==='function'||typeof g.showRevocationMessage==='function'||g.MessageTypeEnum!=null)?1:0,` +
   `gate_status:gate,slots_total:tot,slots_filled:fil,slots_unfilled:unf,slots_collapsed:col,` +
   `anchor_status:an?(String(an.getAttribute('data-anchor-status')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40)||'none'):'none',` +
   `vignette_ready:d.querySelector('ins[data-vignette-loaded="true"]')?1:0,` +

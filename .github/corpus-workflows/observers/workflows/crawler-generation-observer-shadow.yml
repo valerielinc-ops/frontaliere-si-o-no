@@ -105,6 +105,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |-
             /data/canton-municipalities.json
+            /data/swiss-locality-postal-codes.json
             /scripts/crawler-generation-observer.mjs
             /functions/src/githubApiHeaders.js
             /scripts/ci/crawler-generation-roster.json
@@ -438,6 +439,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |-
             /data/canton-municipalities.json
+            /data/swiss-locality-postal-codes.json
             /scripts/crawler-generation-observer.mjs
             /functions/src/githubApiHeaders.js
             /scripts/ci/crawler-generation-roster.json
@@ -561,6 +563,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |-
             /data/canton-municipalities.json
+            /data/swiss-locality-postal-codes.json
             /scripts/crawler-generation-observer.mjs
             /functions/src/githubApiHeaders.js
             /scripts/ci/crawler-generation-roster.json

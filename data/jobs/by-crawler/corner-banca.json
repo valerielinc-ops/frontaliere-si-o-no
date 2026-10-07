@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-10-05T09:32:47.847Z",
+  "assembledAt": "2026-10-07T09:43:44.473Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "de": "spontaner-ausbildungseinsatz-corner-banca-switzerland",
+        "fr": "apprentissage-spontane-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -57,18 +57,22 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-05T09:32:38.878Z",
+      "crawledAt": "2026-10-07T09:43:38.001Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
+        "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
         "spontaner-ausbildungseinsatz-corner-banca-switzerland",
         "apprentissage-spontane-corner-banca-switzerland"
       ],
       "previousSlugsByLocale": {
         "de": [
           "initiativbewerbung-lehre-corner-banca-switzerland",
+          "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
           "spontaner-ausbildungseinsatz-corner-banca-switzerland"
         ],
         "fr": [
+          "unsolicited-application-apprenticeship-corner-banca-switzerland",
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
@@ -88,6 +92,7 @@
       },
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "postalCode": "6500",
       "applyUrl": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship"
     },
     {
@@ -164,7 +169,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.877Z",
+      "crawledAt": "2026-10-07T09:43:38.000Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
@@ -200,6 +205,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068"
     },
     {
@@ -216,10 +222,10 @@
       "companyDomain": "corner.ch",
       "title": "Legal Collection case Manager  - ref. 1095",
       "titleByLocale": {
-        "it": "Legal Collection case Manager - rif. 1095",
+        "it": "Responsabile del caso di raccolta legale - rif. 1095",
         "en": "Legal Collection case Manager  - ref. 1095",
         "de": "Fallmanager für Rechtssammlung - Ref. 1095",
-        "fr": "Legal Collection Case Manager - réf. 1095"
+        "fr": "Responsable Affaire Recouvrement Juridique - réf. 1095"
       },
       "description": "We are looking for a motivated and detail-oriented Legal Collections Specialist to join our team. You will be responsible for managing legal debt recovery\n\nactivities and supporting collection strategies within the framework of the Swiss Debt Enforcement and Bankruptcy Act (SchKG) and applicable\n\nfinancial products and consumer finance regulations.\n\nThis role requires close collaboration with internal stakeholders, external legal partners, and debtors to maximize recovery outcomes while maintaining a professional and customer-focused approach\n\nWhat We Offer\n\n• Permanent position in a dynamic and international work environment.\n\n• Competitive salary and benefits package.\n\n• Workplace located in Wallisellen (Zurich), with the possibility of partial remote work (home office).\n\n• Comprehensive onboarding and training program during the first three months at our Lugano office.\n\n• Opportunities for professional growth and development within a growing organization.\n\nKey Responsibilities\n\n• Manage a portfolio of delinquent accounts and initiate, monitor, and follow up on legal debt recovery procedures.\n\n• Prepare, review, and process legal documentation, maintain accurate case records, and monitor ongoing legal proceedings to ensure timely follow-up.\n\n• Liaise with debtors, legal representatives, debt collection agencies, courts, and public authorities, and negotiate payment arrangements and settlement agreements where appropriate.\n\n• Evaluate collection cases, recommend appropriate legal actions, and support the achievement of recovery targets.\n\n• Collaborate with internal departments, including Customer Service, and contribute to the continuous improvement of collection processes and recovery strategies.\n\n• At least 3 years of solid experience in debt collection management within the Swiss enforcement and judicial system (legal collection) is required.\n\n• A strong understanding of Swiss debt enforcement and insolvency procedures, together with familiarity with financial products and consumer finance regulations, would be an advantage.\n\n• Fluent French (C1 level, written and spoken) and good Italian skills (B2 level, written and spoken). Knowledge of German is considered an advantage.\n\n• Strong goal-oriented mindset, organizational abilities, and problem-solving skills.\n\n• The ability to work independently is essential, while also maintaining a strong team spirit and excellent communication with colleagues at the head office while working from a remote branch office.\n\n• High attention to detail and commitment to accuracy.\n\n• Proficiency in Microsoft Office and case management systems.\n\n• Commercial diploma or equivalent qualification (e.g., a degree in Swiss law, political science, or a related field).",
       "descriptionByLocale": {
@@ -270,7 +276,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.875Z",
+      "crawledAt": "2026-10-07T09:43:37.999Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -300,7 +306,6 @@
           "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -317,6 +322,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095"
     },
     {
@@ -388,7 +394,7 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.871Z",
+      "crawledAt": "2026-10-07T09:43:37.997Z",
       "previousSlugs": [
         "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
         "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
@@ -414,7 +420,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109"
@@ -490,7 +496,7 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.870Z",
+      "crawledAt": "2026-10-07T09:43:37.996Z",
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -516,7 +522,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116"
@@ -535,7 +541,7 @@
       "companyDomain": "corner.ch",
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
-        "it": "Consulente Fiscale (Private Banking) - rif. 1117",
+        "it": "Consulente Fiscale - rif. 1117",
         "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Steuerberater (Private Banking) – Ref. 1117",
         "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
@@ -590,7 +596,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.868Z",
+      "crawledAt": "2026-10-07T09:43:37.994Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -599,7 +605,6 @@
           "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -615,7 +620,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117"
@@ -700,8 +705,9 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.868Z",
+      "crawledAt": "2026-10-07T09:43:37.994Z",
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -716,7 +722,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114"
@@ -776,7 +782,7 @@
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.865Z",
+      "crawledAt": "2026-10-07T09:43:37.991Z",
       "previousSlugs": [
         "customer-retention-e-growth-ref-1118-corner-banca-lugano"
       ],
@@ -800,7 +806,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118"
@@ -879,7 +885,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.864Z",
+      "crawledAt": "2026-10-07T09:43:37.990Z",
       "firstSeenAt": "2026-09-03T13:49:26.507Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -895,7 +901,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128"
@@ -955,7 +961,7 @@
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.862Z",
+      "crawledAt": "2026-10-07T09:43:37.988Z",
       "firstSeenAt": "2026-09-03T13:49:26.508Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -971,7 +977,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129"
@@ -999,8 +1005,8 @@
       "descriptionByLocale": {
         "it": "Stiamo cercando una persona altamente qualificata per gestire, elaborare e/o inoltrare in modo competente le chiamate dei clienti e le richieste dei partner, in tedesco, francese, italiano e inglese, su vari argomenti legati ai pagamenti con carte, in conformità con le nostre istruzioni di lavoro.\nQuesta posizione fa parte del nostro team serale e del fine settimana, con orari di lavoro principalmente al di fuori degli orari d'ufficio standard.\n\nResponsabilità Chiave:\n\n• Rispondere alle chiamate in arrivo e gestire le richieste dei clienti e dei partner commerciali in tedesco, francese, italiano o inglese\n\n• Ricevere ed elaborare i reclami dei clienti e le problematiche relative a carte di credito, prepagate e di debito\n\n• Garantire una risoluzione tempestiva e soddisfacente delle richieste dei clienti, al fine di migliorarne la soddisfazione e la fedeltà\n\n• Assicurare che tutte le interazioni con i clienti e i relativi processi rispettino gli standard di qualità interni e le normative legali\n\n• Individuare proattivamente soluzioni ai reclami dei clienti e inoltrare i casi complessi al reparto competente\n\n• Identificare opportunità di vendita (vendita e upselling) durante le interazioni con i clienti\n\nCosa offriamo?\n\n• Flessibilità nel lavoro da casa e nella gestione degli orari lavorativi, per garantire un sano equilibrio tra vita professionale e privata\n\n• Numerosi benefit e incentivi\n\n• Attività di benessere, motivazionali e di team-building\n\nPer la posizione aperta, siamo alla ricerca di candidati in possesso dei seguenti requisiti:\n\n• Formazione in ambito commerciale o turistico\n\n• Esperienza nel servizio clienti\n\n• Buona conoscenza del pacchetto Office / uso del PC\n\n• Buone capacità comunicative\n\n• Lingue: italiano, tedesco/svizzero tedesco, francese e inglese\n\n• In qualità di primo punto di contatto con i clienti, sono richieste le seguenti soft skill: cortesia, empatia, orientamento al cliente e capacità di lavorare in team",
         "en": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "de": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team",
-        "fr": "We are seeking a highly skilled individual to expertly handle, process and/or forward client calls and partner enquiries, in German, French, Italian and English, on various topics related to cards payment, in accordance with our work instructions.\n\nThis position is part of our evening and weekend team, with working hours primarily outside standard office times.\n\nKey responsibilities:\n\n• Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian or English\n\n• Receive and process client complaints and issues related to credit, prepaid and debit cards\n\n• Ensure timely and satisfactory resolution of client concerns to enhance client satisfaction and loyalty\n\n• Ensure all customer interactions and processes comply with internal quality standards and legal regulations\n\n• Proactively find solutions for client complaints and escalating complex cases to the appropriate department\n\n• Identify sales opportunities (selling and upselling) during interactions with the customers\n\nWhat do we offer?\n\n• Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\n• Commercial or tourism background\n\n• Experience in customer service\n\n• Good knowledge of Office package/ PC use\n\n• Good communication skills\n\n• Languages: Italian, German/Swiss German, French and English\n\n• As the first point of contact with customers, the following soft skills are needed: courtesy, empathy, customer orientation and ability to work in team"
+        "de": "Wir suchen eine hochqualifizierte Person, die Kundenanrufe und Partneranfragen in deutscher, französischer, italienischer und englischer Sprache zu verschiedenen Themen im Zusammenhang mit der Kartenzahlung gemäß unseren Arbeitsanweisungen fachkundig bearbeitet, bearbeitet und / oder weiterleitet.\n\nDiese Position ist Teil unseres Abend- und Wochenendteams, mit Arbeitszeiten hauptsächlich außerhalb der üblichen Bürozeiten.\n\nHauptzuständigkeiten:\n\n• Beantworten Sie eingehende Anrufe und bearbeiten Sie Anfragen von Kunden und Geschäftspartnern in Deutsch, Französisch, Italienisch oder Englisch\n\n• Empfangen und bearbeiten Sie Kundenbeschwerden und Probleme im Zusammenhang mit Kredit-, Prepaid- und Debitkarten\n\n• Gewährleistung einer rechtzeitigen und zufriedenstellenden Lösung von Kundenanliegen, um die Kundenzufriedenheit und -bindung zu verbessern\n\n• Sicherstellen, dass alle Kundeninteraktionen und -prozesse den internen Qualitätsstandards und gesetzlichen Vorschriften entsprechen\n\n• Proaktiv Lösungen für Kundenbeschwerden finden und komplexe Fälle an die zuständige Abteilung eskalieren lassen\n\n• Identifizieren Sie Verkaufschancen (Verkauf und Upselling) während der Interaktion mit den Kunden\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und das Management der Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\nFür die Stellenausschreibung suchen wir Kandidaten, die folgende Voraussetzungen erfüllen:\n\n• Kommerzieller oder touristischer Hintergrund\n\n• Erfahrung im Kundenservice\n\n• Gute Kenntnisse der Office-Paket / PC-Nutzung\n\n• Gute Kommunikationsfähigkeit\n\n• Sprachen: Italienisch, Deutsch/Schweizerisches Deutsch, Französisch und Englisch\n\n• Als erster Kontaktpunkt mit Kunden sind folgende Soft Skills gefragt: Höflichkeit, Empathie, Kundenorientierung und Teamfähigkeit",
+        "fr": "Nous recherchons une personne hautement qualifiée pour gérer, traiter et/ou envoyer des appels clients et des demandes de renseignements partenaires, en allemand, français, italien et anglais, sur divers sujets liés au paiement des cartes, conformément à nos instructions de travail.\n\nCe poste fait partie de notre équipe de soirée et de week-end, avec des heures de travail principalement en dehors des heures de bureau standard.\n\nPrincipales responsabilités :\n\n• Répondre aux appels entrants et traiter les demandes de clients et de partenaires commerciaux en allemand, français, italien ou anglais\n\n• Recevoir et traiter les plaintes des clients et les problèmes liés aux cartes de crédit, prépayées et de débit\n\n• Veiller à ce que les préoccupations des clients soient réglées en temps opportun et de façon satisfaisante afin d'accroître la satisfaction et la loyauté des clients\n\n• Veiller à ce que toutes les interactions et tous les processus clients soient conformes aux normes de qualité internes et aux règlements juridiques\n\n• Trouver des solutions proactives pour les plaintes des clients et accroître les cas complexes au ministère approprié\n\n• Identifier les possibilités de vente (vente et vente) pendant les interactions avec les clients\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\nPour l'ouverture d'emploi, nous recherchons des candidats qui répondent aux exigences suivantes :\n\n• Contexte commercial ou touristique\n\n• Expérience du service à la clientèle\n\n• Bonne connaissance de l'utilisation du paquet Office/ PC\n\n• Bonnes compétences en communication\n\n• Langues: italien, allemand/suisse allemand, français et anglais\n\n• Comme premier point de contact avec les clients, les compétences suivantes sont nécessaires : courtoisie, empathie, orientation client et capacité de travailler en équipe"
       },
       "requirements": [
         "Formazione in ambito commerciale o turistico",
@@ -1040,8 +1046,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.860Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-07T09:43:37.987Z",
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
@@ -1058,6 +1063,7 @@
       },
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
+      "postalCode": "8304",
       "applyUrl": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-60-ref-1014"
     },
     {
@@ -1074,7 +1080,7 @@
       "companyDomain": "corner.ch",
       "title": "Collaboratore Ufficio Contenzioso - ref. 1131",
       "titleByLocale": {
-        "it": "Collaboratore Ufficio Contenzioso - rif. 1131",
+        "it": "Collaboratore Ufficio Contenzioso - ref. 1131",
         "en": "Litigation Department Officer - ref. 1131",
         "de": "Litigation Department Officer - ref. 1131",
         "fr": "Litigation Department Officer - ref. 1131"
@@ -1110,7 +1116,7 @@
       "url": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:32:38.857Z",
+      "crawledAt": "2026-10-07T09:43:37.984Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:31:01.819Z",
       "salaryMin": 49500,
@@ -1127,7 +1133,7 @@
         }
       },
       "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
+      "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.corner.ch/o/litigation-department-officer-ref-1131"

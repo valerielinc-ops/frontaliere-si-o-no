@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * Assisted-application agent — entry point of
  * .github/workflows/assisted-application-agent.yml.
@@ -15,7 +16,6 @@
 
 import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
@@ -266,7 +266,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+const invokedDirectly = isInvokedDirectly(import.meta.url);
 if (invokedDirectly) main().catch((error) => {
   console.error('[assisted-application] fatal', safeErrorCode(error));
   process.exitCode = 1;

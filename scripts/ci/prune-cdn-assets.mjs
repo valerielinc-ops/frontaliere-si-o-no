@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * prune-cdn-assets.mjs — CDN assets/ GC janitor (zero-Claude, deterministico).
  *
@@ -60,7 +61,7 @@ import {
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { planJanitor } from './cdn-prune-plan.mjs';
 
 // Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
@@ -116,6 +117,31 @@ function git(dir, args, extraEnv = {}) {
 const CRED_HELPER =
   '!f() { test "$1" = get && printf "username=x-access-token\\npassword=%s\\n" "$SHARD_PUSH_TOKEN"; }; f';
 
+const PAT_PUSH_MAX_ATTEMPTS = 3;
+const PAT_PUSH_RETRY_DELAY_SECONDS = (() => {
+  const raw = process.env.SHARD_PAT_RETRY_DELAY ?? process.env.SHARD_PUSH_RETRY_DELAY;
+  if (raw === undefined || raw === '') return 5;
+  const value = Number(raw);
+  return Number.isFinite(value) && value >= 0 ? value : 5;
+})();
+
+function pushFailureOutput(error) {
+  return [error?.stderr, error?.stdout, error?.message]
+    .map((part) => (Buffer.isBuffer(part) ? part.toString('utf8') : String(part ?? '')))
+    .join('\n');
+}
+
+function isTransientPushFailure(error) {
+  const output = pushFailureOutput(error);
+  return /closed by remote host|unexpected disconnect|remote end hung up|early EOF|connection (reset|timed out|refused)|failed to connect|could not resolve host|network is unreachable|sideband packet|HTTP\/2 stream \d+ was not closed cleanly/iu.test(output)
+    || /remote:\s*(internal server error|service unavailable|bad gateway|gateway timeout)|returned error:\s*(429|5\d\d)/iu.test(output);
+}
+
+function sleepSync(seconds) {
+  if (seconds <= 0) return;
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, seconds * 1000);
+}
+
 /**
  * Force-push `main` to the CDN repo. The deploy key is a single point of
  * failure — read-only, revoked or (for shard repos) a secret shadowed by the
@@ -125,7 +151,7 @@ const CRED_HELPER =
  * Throws the ORIGINAL error when no token is available or the fallback fails
  * too: this must never look like a successful prune.
  */
-function pushCdnMain(repoDir, sshEnv) {
+function pushCdnMain(repoDir, sshEnv, clonedTip) {
   try {
     execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
       { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
@@ -139,21 +165,37 @@ function pushCdnMain(repoDir, sshEnv) {
     const httpsUrl = CDN_REPO_SSH.replace(/^git@github\.com:/, 'https://github.com/');
     console.log(`::add-mask::${token}`);
     console.warn('[janitor] deploy-key push refused — retrying over HTTPS with a PAT');
-    try {
-      execFileSync('git', [
-        '-C', repoDir,
-        '-c', 'credential.helper=',
-        '-c', `credential.helper=${CRED_HELPER}`,
-        'push', '-f', httpsUrl, 'main',
-      ], {
-        env: { ...process.env, SHARD_PUSH_TOKEN: token },
-        stdio: ['ignore', 'pipe', 'pipe'],
-      });
-      console.warn(
-        '[janitor] ⚠️  pushed via the PAT fallback — CDN_DEPLOY_KEY is broken (read-only or revoked). Fix the key.',
-      );
-    } catch {
-      throw err;
+    let delay = PAT_PUSH_RETRY_DELAY_SECONDS;
+    for (let attempt = 1; attempt <= PAT_PUSH_MAX_ATTEMPTS; attempt += 1) {
+      // The PAT fallback is also a force-push. Re-check the live tip before
+      // every attempt so a transient first failure cannot let attempt 2
+      // clobber a deploy that advanced the remote in the meantime.
+      assertFreshRemote(clonedTip, sshEnv);
+      try {
+        execFileSync('git', [
+          '-C', repoDir,
+          '-c', 'credential.helper=',
+          '-c', `credential.helper=${CRED_HELPER}`,
+          'push', '-f', httpsUrl, 'main',
+        ], {
+          env: { ...process.env, SHARD_PUSH_TOKEN: token },
+          stdio: ['ignore', 'pipe', 'pipe'],
+        });
+        console.warn(
+          '[janitor] ⚠️  pushed via the PAT fallback — CDN_DEPLOY_KEY is broken (read-only or revoked). Fix the key.',
+        );
+        return;
+      } catch (fallbackError) {
+        if (attempt < PAT_PUSH_MAX_ATTEMPTS && isTransientPushFailure(fallbackError)) {
+          console.warn(
+            `[janitor] PAT push attempt ${attempt}/${PAT_PUSH_MAX_ATTEMPTS} failed with a transient remote/transport error — retrying in ${delay}s`,
+          );
+          sleepSync(delay);
+          delay *= 2;
+          continue;
+        }
+        throw err;
+      }
     }
   }
 }
@@ -314,7 +356,7 @@ async function main() {
         'commit', '-m', `chore(cdn-janitor): update age registry (no prune, ${reason})`,
       ]);
       assertFreshRemote(clonedTip, sshEnv);
-      pushCdnMain(repoDir, sshEnv);
+      pushCdnMain(repoDir, sshEnv, clonedTip);
       console.log(`[janitor] persisted age registry update (no prune, ${reason})`);
     };
 
@@ -372,7 +414,7 @@ async function main() {
     ]);
 
     assertFreshRemote(clonedTip, sshEnv);
-    pushCdnMain(repoDir, sshEnv);
+    pushCdnMain(repoDir, sshEnv, clonedTip);
 
     console.log(`[janitor] ✅ CDN updated — pruned ${toPrune.length} file(s), registered ${newCount} new`);
     if (toPrune.length > 0) {
@@ -386,7 +428,7 @@ async function main() {
 
 // Run only when invoked directly (`node scripts/ci/prune-cdn-assets.mjs`), not
 // when imported by tests for the pure planJanitor helper.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch(err => {
     console.error('[janitor] fatal:', err.message);
     process.exit(1);

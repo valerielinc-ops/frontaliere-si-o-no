@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-10-05T09:14:16.970Z",
-  "total": 76,
+  "generatedAt": "2026-10-07T09:14:33.546Z",
+  "total": 75,
   "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
-  "unchangedCount": 67,
-  "durationMs": 165299,
-  "avgDurationMs": 165299,
+  "updatedCount": 6,
+  "removedCount": 0,
+  "unchangedCount": 68,
+  "durationMs": 188332,
+  "avgDurationMs": 188332,
   "durationHistory": [
-    165299
+    188332
   ],
   "newJobs": [
     {
@@ -43,19 +43,20 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "8001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
   "updatedJobs": [
     {
       "title": "Technical Buyer 80 - 100% (f/m/d)",
-      "slug": "technical-buyer-80-100-f-m-d-hitachi-energy-zurich",
+      "slug": "acquirente-tecnico-80-100-m-f-d-hitachi-energy-zurich-switzerland",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218876",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Technical-Buyer-80---100---f-m-d-_R0141865/apply",
       "company": "Hitachi Energy",
@@ -83,13 +84,14 @@
       "firstSeenAt": "2026-10-03T09:18:09.844Z",
       "datePosted": "2026-10-01T00:00:00Z",
       "postingDateSource": "reported",
+      "postalCode": "8001",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -122,51 +124,13 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "postalCode": "8001",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Global Finance Trainee 100% (f/m/d)",
-      "slug": "global-finanza-apprendista-100-f-m-d-hitachi-energy-baden-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218253",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/Global-Finance-Trainee-100---f-m-d-_R0145751/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Baden, Switzerland",
-      "addressLocality": "Baden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-28T00:00:00Z",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-9acae15b01fa",
-      "salaryMin": 50000,
-      "salaryMax": 76000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-03T21:16:30.529Z",
-      "datePosted": "2026-09-28T00:00:00Z",
-      "postingDateSource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -197,15 +161,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-25T14:46:05.541Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-25T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "5400",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -236,53 +201,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-23T23:43:27.656Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-22T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "5600",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Photolithography Process Engineer 80 – 100% (f/m/d)",
-      "slug": "photolithography-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-215538",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Lenzburg-Aargau-Switzerland/Photolithography-Process-Engineer-80---100---f-m-d-_R0131579/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Lenzburg, Switzerland",
-      "addressLocality": "Lenzburg",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-10T00:00:00Z",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-cbe9c2ecda22",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-10T23:08:35.182Z",
-      "datePosted": "2026-09-10T00:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -310,25 +238,68 @@
       "contractType": "regular",
       "validThrough": "",
       "id": "hitachi-energy-cb2f91c3205e",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "5600",
       "firstSeenAt": "2026-09-10T23:08:35.182Z",
-      "_qualityScore": 83,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
-      "title": "Field Service Engineer (w/m/d)",
-      "slug": "field-service-ingegnere-w-m-d-hitachi-energy-zurich",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-212616",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Field-Service-Technician--w-m-d-_R0123799/apply",
+      "title": "R&D Team Leader - Bipolar Semiconductors 80 - 100% (f/m/d)",
+      "slug": "r-d-capo-squadra-bipolar-semiconductors-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-209955",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Lenzburg-Aargau-Switzerland/Semiconductor-R-D-Team-Manager---Bipolar-Devices-80---100---f-m-d-_R0125522/apply",
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "companyDomain": "hitachienergy.com",
+      "location": "Lenzburg, Switzerland",
+      "addressLocality": "Lenzburg",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria Energetica",
+      "source": "hitachi-energy-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-08-07T00:00:00Z",
+      "employmentType": "full-time",
+      "contractType": "regular",
+      "validThrough": "",
+      "id": "hitachi-energy-5ca522a7f603",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-08T21:37:04.524Z",
+      "salarySource": "estimated",
+      "datePosted": "2026-08-07T00:00:00Z",
+      "postingDateSource": "reported",
+      "postalCode": "5600",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Celonis CoE - Senior Value Engineer",
+      "slug": "celonis-coe-senior-value-ingegnere-hitachi-energy-zurich",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-219532",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Celonis-CoE---Senior-Value-Engineer_R0130653/apply",
       "company": "Hitachi Energy",
       "companyKey": "hitachi-energy",
       "companyDomain": "hitachienergy.com",
@@ -339,75 +310,72 @@
       "canton": "ZH",
       "country": "CH",
       "category": "engineering",
-      "sector": "Ingegneria Energetica",
+      "sector": "IT & Telecomunicazioni",
       "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-26T00:00:00Z",
+      "sourceLang": "en",
+      "datePosted": "2026-10-06T00:00:00Z",
+      "postedDate": "2026-10-06T00:00:00Z",
+      "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
       "validThrough": "",
-      "id": "hitachi-energy-e07ca6377848",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
+      "id": "hitachi-energy-935e340342db",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-27T19:59:10.655Z",
       "salarySource": "estimated",
-      "datePosted": "2026-08-26T00:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "firstSeenAt": "2026-10-06T09:17:12.100Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Senior R&D Engineer – Traction Transformer Design 80 - 100% (f/m/d)",
-      "slug": "senior-r-d-ingegnere-traction-transformer-design-80-100-f-m-d-hitachi-energy-satigny",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218228",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Satigny-Geneva-Switzerland/Senior-Traction-Transformer-Software-Designer-80---100---f-m-d-_R0137496/apply",
+      "title": "Polymechaniker/in 80 - 100% (w/m/d)",
+      "slug": "polimeccanico-80-100-m-f-d-hitachi-energy-zurich-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-219230",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Polymechaniker-in-80---100---w-m-d-_R0146109/apply",
       "company": "Hitachi Energy",
       "companyKey": "hitachi-energy",
       "companyDomain": "hitachienergy.com",
-      "location": "Satigny, Switzerland",
-      "addressLocality": "Satigny",
-      "addressRegion": "GE",
+      "location": "Zurich, Switzerland",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
-      "canton": "GE",
+      "canton": "ZH",
       "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
+      "category": "production",
+      "sector": "Produzione",
       "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-28T00:00:00Z",
+      "sourceLang": "de",
+      "datePosted": "2026-10-05T00:00:00Z",
+      "postedDate": "2026-10-05T00:00:00Z",
+      "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "regular",
       "validThrough": "",
-      "id": "hitachi-energy-c48c27379d57",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
+      "id": "hitachi-energy-adaa61cd4d05",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T22:55:06.170Z",
-      "datePosted": "2026-09-28T00:00:00Z",
-      "postingDateSource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-10-05T21:26:57.899Z",
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Monteur/in im Leistungslabor 80 - 100% (w/m/d) befristet für 12 Monate",
-      "slug": "monteur-in-im-leistungslabor-80-100-m-w-d-befristet-per-12-monate-hitachi-energy-baden",
+      "slug": "monteur-in-im-leistungslabor-80-100-w-m-d-befristet-per-12-monate-hitachi-energy-baden",
       "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218974",
       "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/Monteur-in-im-Leistungslabor-80---100---w-m-d-_R0137347/apply",
       "company": "Hitachi Energy",
@@ -436,12 +404,13 @@
       "firstSeenAt": "2026-10-02T21:17:26.233Z",
       "datePosted": "2026-10-02T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "5400",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -475,12 +444,13 @@
       "firstSeenAt": "2026-10-03T09:18:09.844Z",
       "datePosted": "2026-10-02T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "8001",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -511,15 +481,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-03T09:18:09.844Z",
-      "needsRetranslation": true,
       "datePosted": "2026-10-02T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -552,12 +522,13 @@
       "firstSeenAt": "2026-10-03T09:18:09.844Z",
       "datePosted": "2026-10-01T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8424",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -591,12 +562,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-10-01T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "8001",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -629,12 +601,13 @@
       "firstSeenAt": "2026-10-01T09:14:30.715Z",
       "datePosted": "2026-10-01T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "5400",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -667,12 +640,13 @@
       "firstSeenAt": "2026-09-30T21:15:27.844Z",
       "datePosted": "2026-09-30T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "5300",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -705,12 +679,13 @@
       "salarySource": "estimated",
       "datePosted": "2026-09-30T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "8001",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -743,12 +718,13 @@
       "firstSeenAt": "2026-09-30T21:15:27.844Z",
       "datePosted": "2026-09-30T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -781,12 +757,13 @@
       "firstSeenAt": "2026-09-30T21:15:27.844Z",
       "datePosted": "2026-09-30T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -819,12 +796,13 @@
       "firstSeenAt": "2026-09-30T21:15:27.844Z",
       "datePosted": "2026-09-30T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "5600",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -895,12 +873,13 @@
       "firstSeenAt": "2026-08-27T19:59:10.655Z",
       "datePosted": "2026-09-29T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -926,19 +905,19 @@
       "contractType": "regular",
       "validThrough": "",
       "id": "hitachi-energy-8ad245ef5f16",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "currency": "CHF",
       "salarySource": "estimated",
       "datePosted": "2026-09-29T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -971,12 +950,13 @@
       "firstSeenAt": "2026-09-29T21:15:08.566Z",
       "datePosted": "2026-09-29T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1009,12 +989,14 @@
       "firstSeenAt": "2026-09-29T09:16:50.197Z",
       "datePosted": "2026-09-29T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "retranslationAttempts": 0,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1047,12 +1029,53 @@
       "firstSeenAt": "2026-09-29T21:15:08.566Z",
       "datePosted": "2026-09-29T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 91,
+      "postalCode": "8001",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Global Finance Trainee 100% (f/m/d)",
+      "slug": "global-finanza-apprendista-100-f-m-d-hitachi-energy-baden-switzerland",
+      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-218253",
+      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Baden-Aargau-Switzerland/Global-Finance-Trainee-100---f-m-d-_R0145751/apply",
+      "company": "Hitachi Energy",
+      "companyKey": "hitachi-energy",
+      "companyDomain": "hitachienergy.com",
+      "location": "Baden, Switzerland",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Ingegneria Energetica",
+      "source": "hitachi-energy-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-28T00:00:00Z",
+      "employmentType": "full-time",
+      "contractType": "regular",
+      "validThrough": "",
+      "id": "hitachi-energy-9acae15b01fa",
+      "salaryMin": 50000,
+      "salaryMax": 76000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T21:16:30.529Z",
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "postalCode": "5400",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1085,50 +1108,13 @@
       "firstSeenAt": "2026-09-26T13:58:28.727Z",
       "datePosted": "2026-09-25T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Internship in Power Converter Engineering 80 - 100% (f/m/d)",
-      "slug": "stage-in-power-converter-engineering-80-100-m-f-d-hitachi-energy-turgi",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-217926",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Turgi-Aargau-Switzerland/Internship--in-Power-Converter-Engineering-80---100---f-m-d-_R0145816/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Turgi, Switzerland",
-      "addressLocality": "Turgi",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Stage & Formazione",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-25T00:00:00Z",
-      "employmentType": "internship",
-      "contractType": "intern (fixed term) (trainee)",
-      "validThrough": "",
-      "id": "hitachi-energy-b57c2c934778",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-09-26T13:58:28.727Z",
-      "datePosted": "2026-09-25T00:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1161,12 +1147,13 @@
       "firstSeenAt": "2026-09-24T14:22:58.139Z",
       "datePosted": "2026-09-24T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "5600",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1199,12 +1186,13 @@
       "firstSeenAt": "2026-09-23T23:43:27.656Z",
       "datePosted": "2026-09-23T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1237,12 +1225,13 @@
       "firstSeenAt": "2026-09-26T13:58:28.727Z",
       "datePosted": "2026-09-23T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "5400",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1275,12 +1264,13 @@
       "firstSeenAt": "2026-09-23T23:43:27.656Z",
       "datePosted": "2026-09-22T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "6500",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1313,12 +1303,13 @@
       "firstSeenAt": "2026-09-21T16:01:33.310Z",
       "datePosted": "2026-09-21T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "1242",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1352,12 +1343,13 @@
       "retranslationAttempts": 1,
       "datePosted": "2026-09-21T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "8001",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1390,12 +1382,13 @@
       "firstSeenAt": "2026-09-19T22:55:06.170Z",
       "datePosted": "2026-09-18T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1428,12 +1421,13 @@
       "firstSeenAt": "2026-09-19T22:55:06.170Z",
       "datePosted": "2026-09-18T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1466,91 +1460,15 @@
       "firstSeenAt": "2026-09-19T22:55:06.170Z",
       "datePosted": "2026-09-17T00:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Automatiker/in / Elektroniker/in Prüffeld 80 - 100% (w/m/d)",
-      "slug": "campo-di-prova-automatico-elettronica-80-100-m-f-d-hitachi-energy-zurich-switzerland",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-216403",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Zurich-Zurich-Switzerland/Prftechniker-in--Test-Technician--80---100---w-m-d-_R0137360/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Zurich, Switzerland",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "quality",
-      "sector": "IT & Telecomunicazioni",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-16T00:00:00Z",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-56dacd2c920b",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T22:55:06.170Z",
-      "datePosted": "2026-09-16T00:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "R&D Design Engineer - Insulation and Components Global Product Care",
-      "slug": "r-d-design-ingegnere-insulation-and-components-global-product-care-hitachi-energy-lodz",
-      "url": "https://www.hitachienergy.com/careers/open-jobs/details/JID3-216503",
-      "applyUrl": "https://hitachi.wd1.myworkdayjobs.com/hitachi/job/Lodz-Lodz-Poland/R-D-Design-Engineer---Inuslation-and-Components-Global-Product-Care_R0137473/apply",
-      "company": "Hitachi Energy",
-      "companyKey": "hitachi-energy",
-      "companyDomain": "hitachienergy.com",
-      "location": "Lodz, Poland",
-      "addressLocality": "Lodz",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria Energetica",
-      "source": "hitachi-energy-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-16T00:00:00Z",
-      "employmentType": "full-time",
-      "contractType": "regular",
-      "validThrough": "",
-      "id": "hitachi-energy-4c148a6f7c3c",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:58:28.727Z",
-      "datePosted": "2026-09-16T00:00:00Z",
-      "postingDateSource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

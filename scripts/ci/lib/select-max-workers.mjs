@@ -3,11 +3,11 @@
  *
  * VITEST_MAX_WORKERS è tarato sul caso comune di run-related-tests.mjs: un
  * grafo related piccolo (poche decine di file), dove il cap a 1 worker basta.
- * Quando il selettore non trova nessun edge di import statico e
- * ripiega sull'intera suite (~1900 file indipendenti), lo stesso cap li
- * serializza su un solo core — un profilo di costo diverso, non un grafo
- * grande ma tanti file piccoli. VITEST_MAX_WORKERS_FALLBACK si applica SOLO
- * in quel caso.
+ * Per il percorso esplicito della suite intera (oggi una modifica al config
+ * globale di Vitest), lo stesso cap serializzerebbe ~1900 file indipendenti su
+ * un solo core — un profilo di costo diverso, non un grafo related piccolo.
+ * VITEST_MAX_WORKERS_FALLBACK si applica solo a quel percorso: una dipendenza
+ * non modellata non arriva qui, perche' il runner si arresta rapidamente.
  *
  * Per una selezione related grande il cap a 1 serializza invece file
  * indipendenti. La soglia di 100 file prende il caso osservato da 103 file,

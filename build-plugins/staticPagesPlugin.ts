@@ -30,6 +30,7 @@ import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
 import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 import { compareArticleSourceDates } from '../services/articleSourceDates';
+import { EDITORIAL_TEAM_ID } from '../services/seo/organizationLd';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -137,7 +138,7 @@ import { borderCrossingLabel, buildBorderCrossingTitle, buildBorderCrossingDescr
 import { differentiateH1FromTitle, esc } from './shared/seoContentTokens';
 import { renderPlainTextLinks } from './shared/plainTextLinks';
 import { inlineScriptJson } from './shared/inlineJsonScript';
-import { ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
+import { SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS } from './shared/articleSectionDescriptors';
 // Stesso misuratore dell'emitter articoli (packages/articles/engine): una sola
 // definizione di "quanto e' larga davvero questa immagine", non due.
 import { readImageIntrinsicSize } from '../packages/articles/engine/shared/imageIntrinsicSize';
@@ -175,6 +176,30 @@ const GLOSSARY_SECTION_SLUGS = new Set([
 ]);
 const GLOSSARY_SOURCE_HUB_PATH = '/glossario-frontaliere/';
 const JSON_LD_SCRIPT_SEPARATOR = '</script>\n <script type="application/ld+json">';
+
+const FOX_TOWN_SOURCE_PATH = '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/';
+const FOX_TOWN_LOCALE_COPY: Record<'en' | 'de' | 'fr', { title: string; description: string }> = {
+ en: {
+  title: 'Fox Town Outlet Mendrisio in Ticino',
+  description: 'Fox Town Outlet Mendrisio: opening hours, brands, discounts, parking and travel from Como and Varese for cross-border visitors.',
+ },
+ de: {
+  title: 'Fox Town Outlet Mendrisio im Tessin',
+  description: 'Fox Town Outlet Mendrisio: Öffnungszeiten, Marken, Rabatte, Parkplätze und Anreise aus Como und Varese für Grenzgänger.',
+ },
+ fr: {
+  title: 'Fox Town Outlet Mendrisio au Tessin',
+  description: 'Fox Town Outlet Mendrisio : horaires, marques, réductions, parking et accès depuis Côme et Varèse pour les travailleurs frontaliers.',
+ },
+};
+
+/** Return the localized head for the one static Fox Town source page. */
+export function resolveFoxTownLocaleSeo(locale: string): { title: string; desc: string; ogT: string; ogD: string } | undefined {
+ if (locale !== 'en' && locale !== 'de' && locale !== 'fr') return undefined;
+ const copy = FOX_TOWN_LOCALE_COPY[locale];
+ const title = buildTitleWithBrand(copy.title);
+ return { title, desc: copy.description, ogT: title, ogD: copy.description };
+}
 
 /**
  * The JSON-LD ImageObject of a hand-written article page, moved onto the page
@@ -1595,7 +1620,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // to detect them — instead we parse the same source files to build a deterministic
  // skip set that covers ALL locales (IT + EN/DE/FR variants).
  //
- // ogPagesPlugin owns BOTH article sections (see its `SECTIONS` table):
+ // ogPagesPlugin owns the Pages-shard article sections (see its site-rendered
+ // descriptor table):
  // `frontaliere` (seo-blog*.ts → /articoli-frontaliere/) AND `svizzera`
  // (seo-blog-ch.ts → /articoli-svizzera/). The skip-set MUST list both: a
  // section omitted here falls through to the racy `fs.existsSync` check below,
@@ -1605,15 +1631,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (FR survives, IT/EN/DE vanish), surfacing as audit-hreflang [missingTarget]
  // on a freshly-published article (validate-dist failure 2026-06-23, run
  // 27998666257). This list used to be a hand-copied literal that had to be
- // kept in lockstep with ogPagesPlugin's `SECTIONS` table by hand; as of
- // issue #4881 Fase 6 it is derived from `ARTICLE_SECTION_DESCRIPTORS`, the
- // SAME shared descriptor `ogPagesPlugin.ts` reads for its own `SECTIONS`
- // table — so this skip-set can no longer drift from it by construction.
+ // kept in lockstep with ogPagesPlugin's site-rendered descriptor table by
+ // hand; as of issue #4881 Fase 6 it is derived from the SAME shared selector
+ // `SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS`, so the site never emits or
+ // validates a canton page that the corpus serves from R2.
  const ogSections: ReadonlyArray<{
  seoFiles: readonly string[];
  slugData: string;
  indexSlugs: Record<'en' | 'de' | 'fr', string>;
- }> = ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
+ }> = SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS.map((sec) => ({
  seoFiles: sec.seoFiles,
  slugData: sec.slugData,
  indexSlugs: { en: sec.indexSlug.en, de: sec.indexSlug.de, fr: sec.indexSlug.fr },
@@ -1706,7 +1732,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      * leaving one orphaned behind.
      */
     let skippedIndexes = 0;
-    for (const sec of ARTICLE_SECTION_DESCRIPTORS) {
+    for (const sec of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
       const isSvizzera = sec.seoFiles.some((f) => f.includes('-ch'));
       const skip = isSvizzera
         ? process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true'
@@ -2434,13 +2460,25 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  fr: parseBlogBodyLocale('fr'),
  } as const;
 
- const getPagePreloads = (urlPath: string, locale: string): string => {
+ const getPagePreloads = (urlPath: string, locale: string, generatedHeroUrl = ''): string => {
  const segs = urlPath.split('/').filter(Boolean);
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (segs.length > 0 && localePrefixes.includes(segs[0])) ? (segs[1] ?? '') : (segs[0] ?? '');
  if (!firstSeg) return '';
 
  const tags: string[] = [];
+ // The first two article cards are marked fetchpriority="high" by the
+ // shared hub renderer because they are the likely LCP candidates. A
+ // high-priority <img> is still discovered only after the body is parsed;
+ // matching image preloads let the browser start those same requests while
+ // it is parsing the head. Keep this capped at the two cards marked high so
+ // the hub does not turn every card into an eager request.
+ const addHubCardPreloads = (articles: readonly StaticArticle[], excludeUrl = ''): void => {
+ for (const article of articles.slice(0, 2)) {
+ if (article.image === excludeUrl) continue;
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${article.image}">`);
+ }
+ };
  const componentPrefixes = routeAwarePreloadChunksFor(urlPath, sectionChunks[firstSeg]);
  if (componentPrefixes) {
  for (const prefix of componentPrefixes) {
@@ -2454,21 +2492,35 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localeChunk = stableChunkFile(`${locale}-${localeChunkKey}`);
  tags.push(`<link rel="modulepreload" href="/assets/${localeChunk}">`);
  }
- // Preload blog hero image on article listing pages.
+ // Preload the first-paint hero image on article listing and detail pages.
  // #5001: su una pagina di DETTAGLIO va preloadata la hero DI QUELL'ARTICOLO.
  // Preloadare quella dell'hub significava un fetch ad alta priorita' per
  // un'immagine che la pagina non mostra, e — dopo il fix del ramo detail —
  // per una che non compare piu' nel documento affatto.
- if (blogSlugs.has(firstSeg)) {
+ if (blogSlugs.has(firstSeg) || swissSlugs.has(firstSeg)) {
+ const isSwissSection = swissSlugs.has(firstSeg);
+ const articleIds = isSwissSection ? swissArticleIdByLocale : blogArticleIdByLocale;
+ const sectionHero = isSwissSection ? swissHeroImageStatic : blogHeroImageStatic;
  const isDetail = segs.length > (localePrefixes.includes(segs[0] ?? '') ? 2 : 1);
  const detailLocale = (localePrefixes.includes(segs[0] ?? '') ? segs[0] : 'it') as 'it' | 'en' | 'de' | 'fr';
  const detailId = isDetail
- ? (blogArticleIdByLocale[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? blogArticleIdByLocale.it[segs[segs.length - 1] ?? ''])
+ ? (articleIds[detailLocale]?.[segs[segs.length - 1] ?? ''] ?? articleIds.it[segs[segs.length - 1] ?? ''])
  : undefined;
- const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || blogHeroImageStatic;
+ const preloadHero = (isDetail && detailId ? heroImageByArticleId[detailId] : '') || sectionHero;
  if (preloadHero) {
  tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${preloadHero}">`);
  }
+ if (!isDetail) {
+ addHubCardPreloads(isSwissSection ? swissArticlesStatic : blogArticlesStatic, preloadHero);
+ }
+ }
+ // Generated SEO cards (glossary and its translated route family) are emitted
+ // by this plugin's hand-rolled shell rather than buildSeoPageHtml, so the
+ // shared hero-marker helper cannot add their LCP hint. The caller passes the
+ // already-resolved URL after constructing the single hero identity used by
+ // og:image and the body <img>.
+ if (generatedHeroUrl) {
+ tags.push(`<link rel="preload" as="image" fetchpriority="high" href="${generatedHeroUrl}">`);
  }
  return tags.length ? '\n ' + tags.join('\n ') : '';
  };
@@ -3031,6 +3083,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return { title, desc: copy.description, ogT: title, ogD: copy.description, sd: localizeMethodologyStructuredData(italianSeo.sd, locale as MethodologyLocale, JSON_LD_SCRIPT_SEPARATOR) };
  }
 
+ // Fox Town has one Italian source page but three translated routes. The
+ // generic slug fallback used the same English title for DE and EN, which
+ // made the two locale pages duplicate the `<title>` value. Keep the venue
+ // name stable while adding a language-specific location phrase.
+ if (sourceCanonicalPath === FOX_TOWN_SOURCE_PATH) {
+  const localized = resolveFoxTownLocaleSeo(locale);
+  if (localized) return { ...localized, sd: italianSeo.sd };
+ }
+
  // The German article archive has a translated route but no separate SEO-map
  // entry. Give it a descriptive title that names both the audience and the
  // Switzerland–Italy context instead of title-casing the slug alone.
@@ -3330,7 +3391,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // the Italian SEO registry. Keep the fallback useful for crawlers instead of
  // deriving a short title and a generic one-line description from the slug.
  const title = 'Articoli sulla Svizzera 2026 | Frontaliere Ticino';
- const desc = 'Notizie, analisi e guide sulla Svizzera per frontalieri: tasse, lavoro, costo della vita e aggiornamenti cantonali.';
+ const desc = 'Notizie, analisi e guide aggiornate sulla Svizzera per frontalieri: lavoro, fisco, previdenza, trasporti, vita quotidiana e opportunità nei cantoni.';
  seo = { title, desc, ogT: title, ogD: desc };
  }
  if (!seo) {
@@ -3465,6 +3526,51 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const lbl = s.path.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) ?? '';
  if (lbl) contextualLinks.push({ href: withTrailingSlash(s.path), label: lbl });
  }
+ } else if (
+ canonicalPath === '/compara-servizi/costo-della-vita/'
+ || canonicalPath === '/en/service-comparison/cost-of-living/'
+ || canonicalPath === '/de/service-vergleich/lebenshaltungskosten/'
+ || canonicalPath === '/fr/comparaison-services/cout-de-la-vie/'
+ ) {
+ // The six city landings are generated by costOfLivingLandingsPlugin and
+ // link back to this hub. Keep the reverse edge in the hub body so crawlers
+ // and readers can discover every generated landing through contextual links,
+ // including Chiasso and the Ticino rollup.
+ const costOfLivingCityLinks: Record<string, { href: string; label: string }[]> = {
+ it: [
+ { href: '/costo-vita-lugano-ticino/', label: 'Costo vita Lugano' },
+ { href: '/costo-vita-mendrisio-ticino/', label: 'Costo vita Mendrisio' },
+ { href: '/costo-vita-chiasso-ticino/', label: 'Costo vita Chiasso' },
+ { href: '/costo-vita-bellinzona-ticino/', label: 'Costo vita Bellinzona' },
+ { href: '/costo-vita-locarno-ticino/', label: 'Costo vita Locarno' },
+ { href: '/costo-vita-ticino/', label: 'Costo vita Ticino' },
+ ],
+ en: [
+ { href: '/en/cost-of-living-lugano-ticino/', label: 'Cost of living Lugano' },
+ { href: '/en/cost-of-living-mendrisio-ticino/', label: 'Cost of living Mendrisio' },
+ { href: '/en/cost-of-living-chiasso-ticino/', label: 'Cost of living Chiasso' },
+ { href: '/en/cost-of-living-bellinzona-ticino/', label: 'Cost of living Bellinzona' },
+ { href: '/en/cost-of-living-locarno-ticino/', label: 'Cost of living Locarno' },
+ { href: '/en/cost-of-living-ticino/', label: 'Cost of living Ticino' },
+ ],
+ de: [
+ { href: '/de/lebenshaltungskosten-lugano-tessin/', label: 'Lebenshaltungskosten Lugano' },
+ { href: '/de/lebenshaltungskosten-mendrisio-tessin/', label: 'Lebenshaltungskosten Mendrisio' },
+ { href: '/de/lebenshaltungskosten-chiasso-tessin/', label: 'Lebenshaltungskosten Chiasso' },
+ { href: '/de/lebenshaltungskosten-bellinzona-tessin/', label: 'Lebenshaltungskosten Bellinzona' },
+ { href: '/de/lebenshaltungskosten-locarno-tessin/', label: 'Lebenshaltungskosten Locarno' },
+ { href: '/de/lebenshaltungskosten-tessin/', label: 'Lebenshaltungskosten Tessin' },
+ ],
+ fr: [
+ { href: '/fr/cout-vie-lugano-tessin/', label: 'Coût de la vie Lugano' },
+ { href: '/fr/cout-vie-mendrisio-tessin/', label: 'Coût de la vie Mendrisio' },
+ { href: '/fr/cout-vie-chiasso-tessin/', label: 'Coût de la vie Chiasso' },
+ { href: '/fr/cout-vie-bellinzona-tessin/', label: 'Coût de la vie Bellinzona' },
+ { href: '/fr/cout-vie-locarno-tessin/', label: 'Coût de la vie Locarno' },
+ { href: '/fr/cout-vie-tessin/', label: 'Coût de la vie Tessin' },
+ ],
+ };
+ contextualLinks.push(...(costOfLivingCityLinks[locale] ?? costOfLivingCityLinks.it));
  } else if (canonicalPath.startsWith('/compara-servizi/')) {
  contextualLinks.push(
  { href: '/compara-servizi/cambio-franco-euro/', label: 'Cambio Valuta' },
@@ -4115,8 +4221,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const COST_OF_LIVING_LINKS: ReadonlyArray<{ href: string; label: string }> = [
  { href: '/costo-vita-lugano-ticino/', label: 'Costo vita Lugano' },
  { href: '/costo-vita-mendrisio-ticino/', label: 'Costo vita Mendrisio' },
+ { href: '/costo-vita-chiasso-ticino/', label: 'Costo vita Chiasso' },
  { href: '/costo-vita-bellinzona-ticino/', label: 'Costo vita Bellinzona' },
  { href: '/costo-vita-locarno-ticino/', label: 'Costo vita Locarno' },
+ { href: '/costo-vita-ticino/', label: 'Costo vita Ticino' },
  ];
  const NURSING_LINKS: ReadonlyArray<{ href: string; label: string }> = [
  { href: '/lavoro-infermieri-svizzera/', label: 'Lavoro infermieri Svizzera' },
@@ -5184,11 +5292,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Dropped the "Esperti in fiscalità e previdenza frontaliera" subtitle
  // (and locale equivalents) that read content-farm-y on every page.
  // Fix #7.
+ const authorItemId = EDITORIAL_TEAM_ID;
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">A cura di <a class="s-OsohZU" href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a></span></p>',
- en: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">By <a class="s-OsohZU" href="/en/about-us/" rel="author">Frontaliere Ticino Editorial Team</a></span></p>',
- de: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">Von <a class="s-OsohZU" href="/de/ueber-uns/" rel="author">Redaktion Frontaliere Ticino</a></span></p>',
- fr: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"><span itemprop="name">Par <a class="s-OsohZU" href="/fr/a-propos/" rel="author">Rédaction Frontaliere Ticino</a></span></p>',
+ it: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">A cura di <a class="s-OsohZU" href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a></span></p>`,
+ en: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">By <a class="s-OsohZU" href="/en/about-us/" rel="author">Frontaliere Ticino Editorial Team</a></span></p>`,
+ de: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">Von <a class="s-OsohZU" href="/de/ueber-uns/" rel="author">Redaktion Frontaliere Ticino</a></span></p>`,
+ fr: `<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="${authorItemId}"><span itemprop="name">Par <a class="s-OsohZU" href="/fr/a-propos/" rel="author">Rédaction Frontaliere Ticino</a></span></p>`,
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
@@ -5668,6 +5777,17 @@ ${hrefTags}
  innerHtml: rootHtml,
  })
  : null;
+ // The job-board root has no SPA SubTabNav: `activeTab === 'job-board'`
+ // renders the board directly, while the generic hub fallback would borrow
+ // the Confronti tabs. Do not paint a 100px static nav that React removes
+ // during the handoff; the SEO body and its links remain in the fallback.
+ const isJobBoardHub = hubChromeSpec?.hubKey === 'job-board';
+ const staticHubSubnavHtml = isJobBoardHub
+ ? ''
+ : hubChromeSplit?.subnavHtml ?? '';
+ const staticHubMainClass = isJobBoardHub
+ ? 'seo-static-content job-board-static-hub'
+ : 'seo-static-content';
  // `<div id="footer-root"></div>` is the portal target App.tsx reads via
  // `document.getElementById('footer-root')` in lite-shell mode. Without it,
  // React falls back to inline render INSIDE `#root`, painting the footer
@@ -5679,7 +5799,27 @@ ${hrefTags}
  // portals <ArticleRailAdStack> into #rail-left-root / #rail-right-root here
  // too (these editorial / hub landings previously rendered NO rails). Shared
  // markup via railGutters() keeps the grid drift-proof vs htmlTemplate.ts.
- const { open: railGridOpen, close: railGridClose } = railGutters(true);
+ const { open: railGridOpen, close: railGridClose } = railGutters(
+   true,
+   isJobBoardHub ? 'job-board' : 'default',
+ );
+ // A non-staticOverlay handoff moves the fallback <main> into #root and hides
+ // its old outer `.ft-rail-grid` wrapper. Keep the job-board rail shell inside
+ // that main so the three-column geometry survives the move and matches the
+ // SPA's `ft-rail-grid-x` wrapper instead of reverting to a full-width body.
+ const staticHubMainHtml = isJobBoardHub
+   ? `<main class="${staticHubMainClass}">
+ <div class="job-board-static-top-stack">
+  <div class="job-board-top-banner-reserve" aria-hidden="true"></div>
+${railGridOpen}
+ <div class="static-job-rail-center">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </div>${railGridClose}
+ </div>
+ </main>`
+   : `<main class="${staticHubMainClass}">
+${hubChromeSplit?.bodyHtml ?? ''}
+ </main>`;
  // The bare article indexes emit their body as a SIBLING of #root, not inside it.
  // Inside #root React destroys the server-rendered content on mount, so a bundle
  // that fails to render leaves a blank page — which is what users got when the
@@ -5695,11 +5835,9 @@ ${hrefTags}
    ARTICLES_INDEX_RX.test(canonicalPath) || SVIZZERA_ARTICLES_INDEX_RX.test(canonicalPath);
  const bodySection = hubChromeSplit
  ? `${rootShell(hasSpaBundle)}
-${hubChromeSplit.subnavHtml}
-${railGridOpen}
- <main class="seo-static-content">
-${hubChromeSplit.bodyHtml}
- </main>${railGridClose}
+${staticHubSubnavHtml}
+${isJobBoardHub ? '' : railGridOpen}
+${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <div id="footer-root"></div>`
  : isBareArticleIndex
    ? `${rootShell(hasSpaBundle)}
@@ -5736,7 +5874,7 @@ ${hrefTags}
  ${CRITICAL_CSS_LINK}
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
- ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
+ ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale, glossaryHero ? seoHeroImageUrl(glossaryHero) : '')}
  ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${ANALYTICS_SNIPPET}${jobBoardHeadTags(fullUrl)}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}

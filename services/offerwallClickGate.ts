@@ -114,15 +114,42 @@ const OFFERWALL_STAGE_CSS = '[class*="fc-"][class*="-root"]:not(.fc-consent-root
 /** Marks a staged Offerwall whose choice closed before the reveal. */
 export const OFFERWALL_DISCARDED_ATTR = 'data-ft-offerwall-discarded';
 const OFFERWALL_DISCARDED_STYLE_ID = 'ft-offerwall-discarded';
+/**
+ * Funding Choices ships `div.fc-message-root{display:flex!important}`, which
+ * outranks a bare attribute selector: live on 2026-10-06 the parked Offerwall
+ * stayed on screen after the choice closed, uninvited, and its overlay took
+ * the next "Candidati" click. The parked root is hidden inline, which no
+ * stylesheet outranks, and by a rule as specific as the stage one.
+ */
+const OFFERWALL_DISCARDED_CSS = `[class*="fc-"][class*="-root"][${OFFERWALL_DISCARDED_ATTR}]{display:none!important}`;
+/** The root's own inline display, put back when the parked Offerwall is shown. */
+const parkedInlineDisplay = new WeakMap<HTMLElement, { value: string; priority: string }>();
 
 function hideDiscardedOfferwall(doc: Document, roots: HTMLElement[]): void {
   if (!doc.getElementById(OFFERWALL_DISCARDED_STYLE_ID)) {
     const style = doc.createElement('style');
     style.id = OFFERWALL_DISCARDED_STYLE_ID;
-    style.textContent = `[${OFFERWALL_DISCARDED_ATTR}]{display:none!important}`;
+    style.textContent = OFFERWALL_DISCARDED_CSS;
     (doc.head || doc.documentElement).appendChild(style);
   }
-  for (const root of roots) root.setAttribute(OFFERWALL_DISCARDED_ATTR, '');
+  for (const root of roots) {
+    if (!parkedInlineDisplay.has(root)) {
+      parkedInlineDisplay.set(root, {
+        value: root.style.getPropertyValue('display'),
+        priority: root.style.getPropertyPriority('display'),
+      });
+    }
+    root.setAttribute(OFFERWALL_DISCARDED_ATTR, '');
+    root.style.setProperty('display', 'none', 'important');
+  }
+}
+
+function unparkOfferwall(root: HTMLElement): void {
+  root.removeAttribute(OFFERWALL_DISCARDED_ATTR);
+  const own = parkedInlineDisplay.get(root);
+  parkedInlineDisplay.delete(root);
+  if (own?.value) root.style.setProperty('display', own.value, own.priority);
+  else root.style.removeProperty('display');
 }
 
 /** Keep Funding Choices messages (but the consent one) off screen. */
@@ -205,7 +232,8 @@ export interface ReleaseHeldOfferwallOptions {
  * Offerwall for this page view (no stored consent decision yet).
  * `off_board`: Funding Choices reached the gate on a page outside the
  * job-board sections, where the Offerwall is always dropped; the visitor
- * then navigated to a job in the SPA without a new page load.
+ * then navigated to a job in the SPA without a new page load (the gate may
+ * read `idle` meanwhile, waiting for a callback that does not come).
  * `absent`: Funding Choices never reached the gate on this page view.
  */
 export type OfferwallGateStatus = 'held' | 'released' | 'suppressed' | 'off_board' | 'absent';
@@ -227,6 +255,15 @@ export function offerwallGateStatus(win: Window = window): OfferwallGateStatus {
   reconcileStaleOffBoardGate(win, gate);
   if (gate?.state === 'held' && typeof gate.release === 'function') return 'held';
   if (gate?.state === 'released' || gate?.state === 'suppressed' || gate?.state === 'off_board') return gate.state;
+  // A gate lasts `idle` only while it waits for the callback of a job-board
+  // section entered in the SPA from an off-board page (the inline gate's
+  // reacquire, or the reset above). Funding Choices does not call again
+  // without a page load: live on 2026-10-06 the gate was still `idle` 28 s
+  // after the navigation, and as `absent` every such click lost the Offerwall
+  // with no recovery (GA4 04-06/10: `not_held` on 45% of the clicks of
+  // visits that landed off the job board, 11% otherwise). It is the
+  // off-board case, which the recovery reload resumes on a fresh page load.
+  if (gate?.state === 'idle') return 'off_board';
   return 'absent';
 }
 
@@ -332,7 +369,7 @@ export function showParkedOfferwall(options: ReleaseHeldOfferwallOptions = {}): 
   const before = new Set(visibleRoots(doc));
   const presentBefore = new Set(fcRoots(doc).filter((el) => el !== root));
   const entitlementBefore = readCookie(doc, FC_OFFERWALL_ENTITLEMENT_COOKIE);
-  root.removeAttribute(OFFERWALL_DISCARDED_ATTR);
+  unparkOfferwall(root);
   return watchOfferwall({
     win,
     doc,

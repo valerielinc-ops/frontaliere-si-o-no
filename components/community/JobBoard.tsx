@@ -17,7 +17,7 @@ import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
 import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
-import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
+import { openJobAlertForm, requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
 import { parseJsonResponse } from '@/services/jsonResponseParser';
@@ -229,6 +229,7 @@ import { takeOfferwallResume } from '@/services/offerwallRecovery';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
+ getAssistedApplicationCheckoutErrorCode,
 } from '@/services/assistedApplicationCheckout';
 import { readReviewToken } from '@/services/assistedApplicationReviewService';
 import { useNewsletterAutologinInFlight } from '@/hooks/useNewsletterAutologinInFlight';
@@ -493,6 +494,8 @@ const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
 // enough to not collide with the save interaction that triggered it.
 const SAVED_NUDGE_SHOW_DELAY_MS = 1200;
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
+const ASSISTED_CHECKOUT_AUTH_RESUME_KEY = 'frontaliere_assisted_checkout_auth_resume';
+const ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS = 30 * 60 * 1000;
 
 /** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
 const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
@@ -595,6 +598,33 @@ function clearJobAuthRedirectSlug(): void {
  sessionStorage.removeItem(JOB_AUTH_REDIRECT_SLUG_KEY);
  } catch {
  // Ignore storage failures.
+ }
+}
+
+function saveAssistedCheckoutAuthResume(jobId: string): void {
+ try {
+  sessionStorage.setItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY, JSON.stringify({ jobId, savedAt: Date.now() }));
+ } catch {
+  // Auth can still complete when sessionStorage is unavailable.
+ }
+}
+
+function consumeAssistedCheckoutAuthResume(jobId: string): boolean {
+ try {
+  const raw = sessionStorage.getItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  if (!raw) return false;
+  const marker = JSON.parse(raw) as { jobId?: unknown; savedAt?: unknown };
+  if (marker?.jobId !== jobId) return false;
+  const savedAt = Number(marker.savedAt);
+  if (!Number.isFinite(savedAt) || Date.now() - savedAt < 0 || Date.now() - savedAt > ASSISTED_CHECKOUT_AUTH_RESUME_TTL_MS) {
+   sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+   return false;
+  }
+  sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY);
+  return true;
+ } catch {
+  try { sessionStorage.removeItem(ASSISTED_CHECKOUT_AUTH_RESUME_KEY); } catch { /* storage unavailable */ }
+  return false;
  }
 }
 
@@ -7323,9 +7353,53 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'checkout_started',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
+  const checkoutResumed = Boolean(
+   authUser?.getIdToken
+   && authUser?.isAnonymous !== true
+   && consumeAssistedCheckoutAuthResume(String(job.id)),
+  );
+  if (checkoutResumed) {
+   trackAssistedApplicationEvent(
+    'checkout_resumed',
+    { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   );
+  }
+  let user: any | null = null;
   try {
-   const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
-   if (!user?.getIdToken) throw new Error('assisted_application_auth_required');
+   user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
+  } catch (error) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_failed',
+     error_code: getAssistedApplicationCheckoutErrorCode(error),
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  if (!user?.getIdToken) {
+   setAssistedCheckoutBusy(false);
+   setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
+   saveAssistedCheckoutAuthResume(String(job.id));
+   trackAssistedApplicationEvent(
+    'checkout_failed',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
+     reason: 'auth_required',
+     error_code: 'assisted_application_auth_required',
+    },
+   );
+   onRequireAuth?.();
+   return;
+  }
+  try {
    const currentPath = `${window.location.origin}${window.location.pathname}`;
    const result = await createAssistedApplicationCheckout({
     jobId: String(job.id),
@@ -7341,15 +7415,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
   } catch (error) {
    setAssistedCheckoutBusy(false);
    setAssistedCheckoutError(t('jobBoard.assisted.checkoutError'));
-  trackAssistedApplicationEvent(
-   'checkout_failed',
+   const errorCode = getAssistedApplicationCheckoutErrorCode(error);
+   const failureReason = errorCode === 'assisted_application_auth_required'
+    ? 'auth_required'
+    : 'session_creation_failed';
+   trackAssistedApplicationEvent(
+    'checkout_failed',
     {
      ...assistedApplicationJobContext(job, assistedApplicationVariant),
      price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS,
-     reason: 'session_creation_failed',
+     reason: failureReason,
+     error_code: errorCode,
     },
-  );
-   if ((error as { message?: string })?.message === 'assisted_application_auth_required') onRequireAuth?.();
+   );
+   if (failureReason === 'auth_required') {
+    saveAssistedCheckoutAuthResume(String(job.id));
+    onRequireAuth?.();
+   }
   }
  };
 
@@ -7819,12 +7901,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  categoryLabel={savedNudge.categoryLabel}
  cantonCode={savedNudge.cantonCode}
  cantonLabel={savedNudge.cantonCode ? getCantonLabel(savedNudge.cantonCode, locale) : null}
- onShown={() => Analytics.trackEvent('nudge_shown', {
+ onShown={() => {
+ // The saved-jobs nudge has its own `nudge_*` funnel and stays outside the
+ // campaign's seven-surface denominator, but its generic shown event keeps the
+ // raw `job_alert_created` pair attributable for GA4 diagnostics.
+ Analytics.trackJobAlertCtaShown('saved_jobs_nudge', savedNudge.categoryLabel);
+ Analytics.trackEvent('nudge_shown', {
  nudge: 'saved_jobs_alert',
  saved_count: savedNudge.savedCount,
  nudge_category: savedNudge.category,
  nudge_canton: savedNudge.cantonCode || '(none)',
- })}
+ })
+ }}
  userId={userId}
  email={userEmail}
  locale={locale}
@@ -7840,10 +7928,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // queued-request + backToList dance as the prompt's onManage above.
  saveNudgeState(recordNudgeAccepted(loadNudgeState(), new Date()));
  if (isJobDetailView) {
- requestJobAlertOpen(savedNudge.categoryLabel);
+ requestJobAlertOpen(savedNudge.categoryLabel, 'saved_jobs_nudge');
  backToList();
  } else {
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: savedNudge.categoryLabel } }));
+ openJobAlertForm(savedNudge.categoryLabel, 'saved_jobs_nudge');
  }
  }}
  onDismissed={handleSavedNudgeDismissed}
@@ -9365,7 +9453,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-4">
 
  {/* Job header — always visible */}
- <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5" data-no-auto-ads="inside">
  <div className="flex items-start gap-4">
  {logoUrl && (
  <img
@@ -9971,7 +10059,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  const faqIsTicino = detailJobCanton === 'TI';
  const faqCantonDisplay = getCantonDisplayName(detailJobCanton, locale);
- const faqSchema = buildJobPostingFacts(faqJobInput, locale);
+ const faqSchema = buildJobPostingFacts(faqJobInput, locale, { fallbackUrl: detailPageUrl });
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
  jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
@@ -10270,7 +10358,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {/* ── Center content (existing 12-col job-detail grid) ── */}
  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
  <article className="lg:col-span-8 lg:self-start space-y-4 sm:space-y-5">
- <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
+ <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6" data-no-auto-ads="inside">
  <div className="flex items-start gap-3 sm:gap-4">
  <button
  type="button"

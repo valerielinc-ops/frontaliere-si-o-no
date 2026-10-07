@@ -140,7 +140,9 @@ function parseArgs(argv) {
 
 /**
  * Core orchestration: iterates the borderCrossings registry and snapshots the
- * first webcam of each crossing that has one.
+ * first webcam of each crossing that has an explicitly embeddable feed.
+ * Link-only sources are deliberately excluded so a public image URL is never
+ * fetched or copied locally without a provider permission to embed it.
  *
  * @param {Object} opts
  * @param {Array}  opts.crossings    registry array (borderCrossings)
@@ -154,7 +156,9 @@ export async function snapshotWebcamsForOg({ crossings, outDir, fetchFn, log }) 
   const fn = fetchFn ?? globalThis.fetch;
   await fs.mkdir(outDir, { recursive: true });
 
-  const withWebcams = crossings.filter((c) => Array.isArray(c.webcams) && c.webcams.length > 0);
+  const withWebcams = crossings.filter((c) =>
+    Array.isArray(c.webcams) && c.webcams.some((webcam) => webcam?.embedAllowed !== false),
+  );
   const results = [];
   let snapshotted = 0;
   let skipped = 0;
@@ -167,7 +171,7 @@ export async function snapshotWebcamsForOg({ crossings, outDir, fetchFn, log }) 
     if (seen.has(slug)) continue;
     seen.add(slug);
 
-    const webcam = c.webcams[0];
+    const webcam = c.webcams.find((candidate) => candidate?.embedAllowed !== false);
     const imageUrl = webcam?.imageUrl;
     if (!imageUrl) {
       skipped++;

@@ -92,9 +92,10 @@
  * Respectful, non-evasive crawling: plain `fetch`, no headless browser, no
  * bot-identity spoofing, a clearly identifying User-Agent (matches the
  * tio-agenda / myswitzerland / mirrorEventImage convention), and a politeness
- * delay between every request to the guidle.com origin. Every event image is
- * mirrored once via `mirrorEventImage` — the output slice NEVER references a
- * guidle.com/imagekit.io image URL directly.
+ * delay between every request to the guidle.com origin. Image URLs are passed
+ * through the shared licence gate and are currently dropped because Guidle
+ * provides no explicit open image licence — the output slice NEVER references
+ * a guidle.com/imagekit.io image URL directly.
  *
  * Usage:
  *   node scripts/crawl-guidle-events.mjs                # one time-budgeted, checkpointed slice of the catalog
@@ -119,6 +120,7 @@ import {
   eventStableId,
   resolveComuneNationwide,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
@@ -131,6 +133,7 @@ import {
   withEventPriceSource,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractEventOfferMetadata,
@@ -332,8 +335,8 @@ function text(el) {
 /** {street, postalCode} from a JSON-LD `location.address` (PostalAddress), or undefined. */
 export function extractAddress(address) {
   if (!address || typeof address !== 'object') return undefined;
-  const street = typeof address.streetAddress === 'string' && address.streetAddress.trim() ? address.streetAddress.trim() : undefined;
-  const postalCode = typeof address.postalCode === 'string' && address.postalCode.trim() ? address.postalCode.trim() : undefined;
+  const street = cleanText(address.streetAddress) || undefined;
+  const postalCode = cleanText(address.postalCode) || undefined;
   if (!street && !postalCode) return undefined;
   return { street, postalCode };
 }
@@ -772,7 +775,9 @@ async function main() {
       // Matches the sibling `crawl-myswitzerland-events.mjs` crawler.
       event.canton = canton || '';
       if (event.comune) resolvedComune += 1;
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      if (isEventImageSourceAllowed(SOURCE.key)) {
+        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+      }
       events.push(event);
     }
 
@@ -828,10 +833,11 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify(translatedEvents.slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 

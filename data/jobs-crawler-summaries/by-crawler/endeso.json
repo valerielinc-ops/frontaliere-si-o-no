@@ -1,7 +1,7 @@
 {
   "key": "endeso",
   "label": "endeso GmbH",
-  "generatedAt": "2026-10-05T09:26:47.924Z",
+  "generatedAt": "2026-10-07T09:20:28.155Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16022,
-  "avgDurationMs": 16022,
+  "unchangedCount": 10,
+  "durationMs": 16083,
+  "avgDurationMs": 16083,
   "durationHistory": [
-    16022
+    16083
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "endeso-277af4da9b39",
       "slug": "operatore-regionale-berna-endeso-gmbh-region-bern",
@@ -35,12 +37,12 @@
       "url": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.702Z",
+      "crawledAt": "2026-10-07T09:20:11.624Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "3001",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -57,12 +59,12 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.195Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -77,12 +79,12 @@
       "url": "https://endeso.ch/jobs/job-27899-praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.701Z",
+      "crawledAt": "2026-10-07T09:20:11.622Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -99,12 +101,12 @@
       "salaryMax": 87000,
       "salarySource": "reported",
       "firstSeenAt": "2026-09-19T23:00:29.193Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -119,12 +121,12 @@
       "url": "https://endeso.ch/jobs/job-27900-recruiting-fachinterviews-hauswirtschaft/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.700Z",
+      "crawledAt": "2026-10-07T09:20:11.619Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -141,12 +143,12 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.191Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -161,12 +163,12 @@
       "url": "https://endeso.ch/jobs/job-27901-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.699Z",
+      "crawledAt": "2026-10-07T09:20:11.618Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "6003",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -183,12 +185,12 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.190Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -203,12 +205,12 @@
       "url": "https://endeso.ch/jobs/job-27902-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.698Z",
+      "crawledAt": "2026-10-07T09:20:11.616Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "6300",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -225,12 +227,12 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.189Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -245,12 +247,12 @@
       "url": "https://endeso.ch/jobs/job-27903-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.697Z",
+      "crawledAt": "2026-10-07T09:20:11.614Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "6300",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -267,12 +269,12 @@
       "salaryMax": 106000,
       "salarySource": "reported",
       "firstSeenAt": "2026-09-19T23:00:29.183Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -287,12 +289,12 @@
       "url": "https://endeso.ch/jobs/job-27904-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.696Z",
+      "crawledAt": "2026-10-07T09:20:11.613Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Tecnica",
       "contract": "full-time",
@@ -309,12 +311,12 @@
       "salaryMax": 102000,
       "salarySource": "reported",
       "firstSeenAt": "2026-09-19T23:00:29.181Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -329,12 +331,12 @@
       "url": "https://endeso.ch/jobs/job-27905-hr-fachspezialist-in-lohn/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.694Z",
+      "crawledAt": "2026-10-07T09:20:11.611Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Risorse Umane",
       "contract": "full-time",
@@ -351,17 +353,17 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:00:29.179Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
       "id": "endeso-abdf1a8ad051",
-      "slug": "remote-grafiker-in-per-webgrafiken-come-freelance-endeso-gmbh-thurgau-bodensee",
+      "slug": "grafico-a-remoto-a-per-grafica-web-come-freelance-endeso-gmbh-thurgau-bodensee",
       "company": "endeso GmbH",
       "companyKey": "endeso",
       "companyDomain": "endeso.ch",
@@ -371,12 +373,12 @@
       "url": "https://endeso.ch/jobs/job-27906-remote-grafiker-in-fuer-webgrafiken-als-freelance/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.693Z",
+      "crawledAt": "2026-10-07T09:20:11.609Z",
       "addressLocality": "Thurgau/Bodensee",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Altro",
       "contract": "full-time",
@@ -392,14 +394,14 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:05:30.592Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -414,12 +416,12 @@
       "url": "https://endeso.ch/jobs/job-27909-praktikum-personalwesen-und-disposition-option-auf-festanstellung/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:26:36.690Z",
+      "crawledAt": "2026-10-07T09:20:11.605Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "",
+      "postalCode": "8500",
       "streetAddress": "",
       "category": "Risorse Umane",
       "contract": "full-time",
@@ -435,18 +437,15 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:00:29.167Z",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

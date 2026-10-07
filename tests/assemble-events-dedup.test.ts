@@ -11,9 +11,12 @@
 import { describe, it, expect } from 'vitest';
 import {
   dedupeFuzzy,
+  dedupeOrganizerAgainstTio,
+  distinctiveTitleWords,
   eventRichnessScore,
   pickRichestEvent,
   attachItalianFrontierComuni,
+  stripUnauthorizedEventImage,
 } from '../scripts/assemble-events-dataset.mjs';
 
 function ev(overrides: Record<string, any> = {}): Record<string, any> {
@@ -26,6 +29,17 @@ function ev(overrides: Record<string, any> = {}): Record<string, any> {
     ...overrides,
   };
 }
+
+describe('organizer vs tio dedup title signals', () => {
+  it('does not treat the generic festival label as a match', () => {
+    expect(distinctiveTitleWords('Festival')).not.toContain('festival');
+    const events = [
+      { id: 'tio-agenda:t', sourceKey: 'tio-agenda', title: 'Festival', startDate: '2026-10-07', comune: 'Ascona' },
+      { id: 'classicascona:c', sourceKey: 'classicascona', title: 'Festival', url: 'https://classicascona.ch/concerti/festival/', startDate: '2026-10-07', comune: 'Ascona' },
+    ];
+    expect(dedupeOrganizerAgainstTio(events).mergedAway).toBe(0);
+  });
+});
 
 describe('eventRichnessScore', () => {
   it('counts populated optional fields only', () => {
@@ -43,6 +57,38 @@ describe('eventRichnessScore', () => {
 
   it('a populated price object counts as one populated field', () => {
     expect(eventRichnessScore(ev({ price: { amount: 10, currency: 'CHF', isFree: false } }))).toBe(1);
+  });
+});
+
+describe('event image licence policy', () => {
+  it('strips stale image references from sources outside the allowlist', () => {
+    const stale = ev({
+      sourceKey: 'myswitzerland',
+      imageUrl: '/images/events/myswitzerland-old.webp',
+      imageCredit: 'MySwitzerland',
+    });
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageUrl');
+    expect(stripUnauthorizedEventImage(stale)).not.toHaveProperty('imageCredit');
+  });
+
+  it('keeps an image from the explicit open-licence source', () => {
+    const licensed = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+      imageLicense: 'Licence Ouverte 2.0',
+      imageLicenseUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+    });
+    expect(stripUnauthorizedEventImage(licensed)).toEqual(licensed);
+  });
+
+  it('strips an OpenAgenda mirror when the per-image licence fields are absent', () => {
+    const incomplete = ev({
+      sourceKey: 'openagenda',
+      imageUrl: '/images/events/openagenda-event.webp',
+      imageCredit: 'OpenAgenda',
+    });
+    expect(stripUnauthorizedEventImage(incomplete)).not.toHaveProperty('imageUrl');
   });
 });
 

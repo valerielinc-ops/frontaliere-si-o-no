@@ -31,8 +31,8 @@
  * normalizzatore a `null`: un documento sintatticamente completo, che un
  * troncamento non puo' produrre. Questo file e' il gemello `mode: adapted`
  * (registrato nel manifest del ciclo agentico condiviso) di quel modulo: stessa forma di
- * output, adattato alle firme locali (`repairLlmJson()` qui non e' esportata
- * separatamente come sul corpus, e i test sotto usano vitest, non node --test)
+ * output, adattato alle firme locali (il repair condiviso e' esportato da
+ * `llm-json-repair.mjs`, e i test sotto usano vitest, non node --test)
  * — vedi valerielinc-ops/frontaliere-si-o-no#6027.
  *
  * PERCHE' I CAMPI CI SONO SEMPRE, ANCHE A ZERO. Un campo che compare solo
@@ -138,7 +138,7 @@ export function describePayloadRejection({ raw, repaired, parsed, parseErr = nul
   const tronc = classifyTruncation(rawStr);
 
   // `kept` e' il numero che avrebbe chiuso l'incidente del corpus da solo:
-  // repairLlmJson() aveva tenuto il 3,4% di un documento da 12.780 caratteri.
+  // Il repair aveva tenuto il 3,4% di un documento da 12.780 caratteri.
   // Un valore basso accusa il RITAGLIO, non il modello.
   const kept = rawStr.length > 0 ? Math.round((repStr.length / rawStr.length) * 1000) / 10 : 0;
 

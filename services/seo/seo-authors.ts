@@ -6,14 +6,13 @@
  *
  * Spec: docs/GOOGLE-NEWS-COMPLIANCE-PLAN.md §4 — FASE 1, A1.
  *
- * The Person JSON-LD shape mirrors the spec exactly: stable `@id`,
- * `worksFor` reference to `#organization`, `sameAs` for KG signals, and
- * `knowsAbout` populated from {@link Author.expertise}.
+ * Editorial signatures are Organizations. Real authors are Persons with the
+ * public identity fields from the registry, including their `sameAs` links.
  */
 
-import { AUTHORS, getAuthorBySlug, type Author } from '../../data/authors';
-import { localizeAuthor } from '../../data/authorLocales';
-import { ORGANIZATION_ID } from './organizationLd';
+import { AUTHORS, getAuthorBySlug, isRealAuthor, type Author } from '../../data/authors';
+import { EDITORIAL_PROFILE_DISCLOSURE, localizeAuthor } from '../../data/authorLocales';
+import { EDITORIAL_TEAM_ID, ORGANIZATION_ID } from './organizationLd';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -72,16 +71,35 @@ function buildDescription(author: Author): string {
   return trimmed || `${author.role} — ${author.expertise.slice(0, 3).join(', ')}.`;
 }
 
-function buildPersonJsonLd(author: Author, canonical: string): Record<string, unknown> {
+function buildEditorialProfileJsonLd(author: Extract<Author, { kind: 'editorial-profile' }>, canonical: string, locale: AuthorLocale): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${canonical}#profile`,
+    name: author.name,
+    image: `${BASE_URL}${author.photoPath}`,
+    description: author.bio,
+    disambiguatingDescription: EDITORIAL_PROFILE_DISCLOSURE[locale],
+    url: canonical,
+    ...(author.linkedin ? { sameAs: [author.linkedin] } : {}),
+    knowsAbout: author.expertise,
+    parentOrganization: {
+      '@type': 'Organization',
+      '@id': EDITORIAL_TEAM_ID,
+      name: 'Redazione Frontaliere Ticino',
+      url: `${BASE_URL}/chi-siamo/`,
+    },
+    knowsLanguage: ['it', 'en'],
+  };
+}
+
+function buildRealAuthorJsonLd(author: Extract<Author, { kind: 'real-author' }>, canonical: string): Record<string, unknown> {
   const sameAs = [
     author.social.linkedin,
     author.social.twitter,
     author.social.mastodon,
-    author.social.wikidataId
-      ? `https://www.wikidata.org/wiki/${author.social.wikidataId}`
-      : undefined,
-  ].filter((v): v is string => typeof v === 'string' && v.length > 0);
-
+    author.social.wikidataId ? `https://www.wikidata.org/wiki/${author.social.wikidataId}` : undefined,
+  ].filter((value): value is string => typeof value === 'string' && value.length > 0);
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -93,7 +111,11 @@ function buildPersonJsonLd(author: Author, canonical: string): Record<string, un
     url: canonical,
     sameAs,
     knowsAbout: author.expertise,
-    worksFor: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: 'Frontaliere Ticino' },
+    worksFor: {
+      '@type': 'Organization',
+      '@id': ORGANIZATION_ID,
+      name: 'Frontaliere Ticino',
+    },
     knowsLanguage: ['it', 'en'],
   };
 }
@@ -105,8 +127,8 @@ function buildPersonJsonLd(author: Author, canonical: string): Record<string, un
  * and tests) or an already-resolved `Author` object. Callers holding a
  * CSR-merged author (admin `author_profiles/{slug}` patch applied on top of
  * the static registry — see `AutorePage.tsx`) MUST pass the merged object,
- * not the slug, so the emitted Person JSON-LD matches the visible bio/photo/
- * social instead of silently reverting to the stale static registry values.
+ * not the slug, so the emitted JSON-LD matches the visible
+ * description/illustration instead of silently reverting to stale values.
  *
  * @throws Error when a slug does not match a registered author. Authors are
  *   a closed registry; an unknown slug is a programming error, not user input.
@@ -122,7 +144,9 @@ export function buildAuthorSeo(authorOrSlug: string | Author, locale: AuthorLoca
   const title = `${author.name} — ${author.role} | ${labels.suffix}`;
   const description = buildDescription(author);
   const ogImage = `${BASE_URL}${author.photoPath}`;
-  const jsonLd = buildPersonJsonLd(author, canonical);
+  const jsonLd = isRealAuthor(author)
+    ? buildRealAuthorJsonLd(author, canonical)
+    : buildEditorialProfileJsonLd(author, canonical, locale);
   return { title, description, canonical, ogImage, jsonLd };
 }
 

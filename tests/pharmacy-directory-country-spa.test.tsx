@@ -62,6 +62,25 @@ describe('pharmacy country SPA route', () => {
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
   });
 
+  it('keeps OpenStreetMap and Google Maps links visible after SPA hydration', () => {
+    const pharmacy = ITALY_BORDER_PHARMACIES.find((candidate) => candidate.id === 'it-msal-3907');
+    expect(pharmacy).toBeDefined();
+
+    render(<PharmacyDirectory page={{
+      kind: 'pharmacy',
+      country: 'IT',
+      areaSlug: 'varese',
+      citySlug: 'casciago',
+      pharmacySlug: pharmacy!.slug,
+      locale: 'it',
+    }} />);
+
+    expect(screen.getByRole('link', { name: 'Apri in OpenStreetMap' })).toHaveAttribute('href', expect.stringContaining('openstreetmap.org'));
+    expect(screen.getByRole('link', { name: 'Google Maps' })).toHaveAttribute('href', expect.stringContaining('google.com/maps/search/?api=1'));
+    expect(screen.getByRole('heading', { name: 'Domande frequenti' })).toBeInTheDocument();
+    expect(screen.getByText(`Dove si trova ${pharmacy!.name}?`)).toBeInTheDocument();
+  });
+
   it('emits a measured completion and marks reviewed next actions on a fresh duty surface', () => {
     const now = new Date(Date.parse(String(ticinoDutiesJson._fetchedAt)) + 60_000);
     vi.useFakeTimers({ now });

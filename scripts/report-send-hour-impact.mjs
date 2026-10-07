@@ -99,6 +99,7 @@ import {
   MIN_EXPECTED_PER_CELL,
 } from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
 // #3798 Fix MEDIO #4: a fixed n<100 threshold flags plenty of large-but-close
@@ -292,15 +293,7 @@ export function effectiveDeliveryDate(data) {
 }
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return { db: getFirestore() };
+  return { db: await getFirestoreDb() };
 }
 
 export function normalizeEmail(value) {

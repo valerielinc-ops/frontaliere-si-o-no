@@ -12,14 +12,14 @@ import { readArticleRegistryMetadata } from './shared/articleRegistryMetadata';
 import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
-import { getSiteShell, type SiteShellContract } from './siteShell';
+import { getSiteShell, type ArticleAuthor, type SiteShellContract } from './siteShell';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
 import { isFaqQuestionHeading } from './shared/faqQuestionPrefixes';
 import { boostDescriptionForCtr } from './shared/ctrBoostDescription';
-import { ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
+import { ARTICLE_SECTION_DESCRIPTORS, SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS, extractBlogEntryPositions, blogKeyToArticleId, type OgSection as OgSectionDescriptor } from './shared/articleSectionDescriptors';
 import { ARTICLE_ROBOTS_INDEX_ENHANCED } from './shared/robotsDirective';
 import { readImageIntrinsicSize } from './shared/imageIntrinsicSize';
 import { decodeTsStringEscapes, repairLegacyDoubleEscapedBreaks } from './shared/tsStringEscapes';
@@ -29,6 +29,26 @@ import { computeSectionTopicAssignment } from './articleHubPagesPlugin';
 import { TOPIC_CLUSTERS, TOPIC_HUB_SEGMENT, type TopicLocale } from './topicTaxonomy';
 import { cantonHubTopicForCluster, cantonSectionLabel, cantonSectionLandingPath, cantonTopicHubLabel, cantonTopicHubPath } from './shared/cantonSectionCopy.mjs';
 import { CORPUS_ROUTE_OWNER_META_TAG } from './shared/corpusRouteOwner.mjs';
+
+/**
+ * Rich author identity supplied by the site shell at runtime. The package
+ * contract deliberately keeps ArticleAuthor minimal so the corpus host can
+ * consume this engine while its author registry is migrated in lockstep.
+ * Missing `kind` is treated as a legacy real-author record when personal
+ * identity fields are present.
+ */
+type ArticleAuthorIdentity = ArticleAuthor & {
+  kind?: 'editorial-profile' | 'real-author';
+  linkedin?: string;
+  social?: { linkedin?: string; twitter?: string; mastodon?: string; wikidataId?: string };
+  uid?: string;
+  cvPath?: string;
+};
+
+function isRealArticleAuthor(author: ArticleAuthorIdentity | undefined): boolean {
+  return author?.kind === 'real-author'
+    || (!author?.kind && Boolean(author?.uid || author?.cvPath || author?.social?.linkedin));
+}
 
 /**
  * Empty SPA mount point, mirroring build-plugins/htmlTemplate.ts `rootShell`.
@@ -147,6 +167,22 @@ const SHELL_INDEX_SLUGS_BY_KIND: Record<OgSectionDescriptor['kind'], (shell: Sit
  national: (shell) => ({ ...shell.swissBlogIndexSlugs }),
  canton: (_shell, section) => ({ ...section.indexSlug }),
 };
+
+/** Root-relative section path, with the locale prefix used by non-Italian routes. */
+function localizedArticleSectionPath(indexSlug: string, locale: string): string {
+ const prefix = locale === 'it' ? '' : `/${locale}`;
+ return `${prefix}/${indexSlug}`;
+}
+
+/**
+ * Feed advertised by an article page. Canton feeds intentionally keep the
+ * historical root feed until the canton feed contract is published.
+ */
+function articleRssAlternatePath(section: OgSectionDescriptor, locale: string): string {
+ if (section.kind === 'canton') return '/rss.xml';
+ const baseName = section.kind === 'frontaliere' ? 'rss' : `rss-${section.name}`;
+ return `/${baseName}${locale === 'it' ? '' : `-${locale}`}.xml`;
+}
 
 export interface RenderArticlePagesOptions {
  rootDir: string;
@@ -368,7 +404,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleCategoryById: Record<string, string> = {};
  const articlePublishedAtById: Record<string, string> = {};
  const articleUpdatedAtById: Record<string, string> = {};
- // Per-article author (E-E-A-T): was hardcoded to a single Person for every
+ // Per-article editorial profile (E-E-A-T): was hardcoded to a single
  // article (JSON-LD + visible byline) — real values live alongside each
  // entry in SECTION.registry, resolved against data/authors.ts below.
  const articleAuthorSlugById: Record<string, string> = {};
@@ -1062,8 +1098,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(cantonHref)}">${esc(cantonLabel)}</a></li>`;
  }
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[loc] ?? SECTION.indexSlug.it;
- const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${prefix}/${indexSlug}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
+ const href = `${localizedArticleSectionPath(indexSlug, loc)}/${TOPIC_HUB_SEGMENT[loc]}/${topic.slug[loc]}/`;
  const label = `${topicHubLinkPrefix[loc] ?? topicHubLinkPrefix.it}${topic.label[loc]}`;
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(label)}</a></li>`;
  };
@@ -1077,8 +1112,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const items = hubItem + picks.map(art => {
  const slug = blogSlugs[art.articleId]?.[locale] ?? art.articleId;
  const indexSlug = blogIndexSlug[locale] ?? SECTION.indexSlug[locale as 'it' | 'en' | 'de' | 'fr'] ?? SECTION.indexSlug.it;
- const prefix = locale === 'it' ? '' : `/${locale}`;
- const href = `${prefix}/${indexSlug}/${slug}/`;
+ const href = `${localizedArticleSectionPath(indexSlug, locale)}/${slug}/`;
  const title = art.ogT.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  return `<li class="s-65FRzB"><a class="s-ty-PxH" href="${esc(href)}">${esc(title)}</a></li>`;
  }).join('');
@@ -1105,7 +1139,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (locSlugs) {
  for (const l of ['en', 'de', 'fr']) {
  const as = locSlugs[l], bs = blogIndexSlug[l];
- if (as && bs) lp[l] = `/${l}/${bs}/${as}`;
+ if (as && bs) lp[l] = `${localizedArticleSectionPath(bs, l)}/${as}`;
  }
  }
 
@@ -1258,31 +1292,44 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  .concat([` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
  .join('\n');
 
- // Determine author: real per-article Person from data/authors.ts via
- // authorSlug (SECTION.registry field), Organization fallback when unset —
+ // Determine author: a Person or editorial-profile Organization from
+ // data/authors.ts via authorSlug (SECTION.registry field), Organization
+ // fallback when unset —
  // mirrors the SPA's mergeArticleByline (services/authorProfileService.ts)
  // + JSON-LD in components/community/BlogArticles.tsx (~1331-1351) and the
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
- const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ const resolvedAuthor = (en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined) as ArticleAuthorIdentity | undefined;
  // The one author surface #author-eeat left behind: `article:author` below
  // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
- // moved to the per-article Person. Every OG consumer (Facebook, LinkedIn,
+ // moved to the per-article editorial profile. Every OG consumer (Facebook,
  // aggregators) therefore read *every* article — guest-authored ones
  // included — as attributed to the Redazione. Reported 2026-09-03 by the
  // guest author of the 2026-09-02 article, whose byline was correct on the
  // page and wrong in the metadata. Organization fallback keeps /chi-siamo/,
  // which is exactly `authorObj.url` in that branch, so the tag and the
  // JSON-LD author can never disagree again.
- const authorObj: Record<string, unknown> = resolvedAuthor
+ const authorObj: Record<string, unknown> = isRealArticleAuthor(resolvedAuthor)
  ? {
  '@type': 'Person' as const,
  '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
  name: resolvedAuthor.name,
- jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
- ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
+ jobTitle: resolvedAuthor.role,
+ sameAs: [resolvedAuthor.social?.linkedin, resolvedAuthor.social?.twitter, resolvedAuthor.social?.mastodon,
+ resolvedAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${resolvedAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : resolvedAuthor
+ ? {
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#profile`,
+ name: resolvedAuthor.name,
+ url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
+ description: resolvedAuthor.role,
+ ...(resolvedAuthor.linkedin ? { sameAs: [resolvedAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : {
  '@type': 'Organization' as const,
@@ -1295,15 +1342,28 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // article has an explicit entry in articleReviewOverrides (nothing
  // reviewed by default, see shared/articleReviewOverrides.ts header).
  const reviewerSlug = resolveArticleReviewerSlug(en.articleId, articleReviewOverrides);
- const reviewerAuthor = reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined;
- const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
+ const reviewerAuthor = (reviewerSlug ? getAuthorBySlug(reviewerSlug) : undefined) as ArticleAuthorIdentity | undefined;
+ const reviewedByObj: Record<string, unknown> | undefined = isRealArticleAuthor(reviewerAuthor)
  ? {
  '@type': 'Person' as const,
  '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
  name: reviewerAuthor.name,
- jobTitle: reviewerAuthor.role,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
- ...(reviewerAuthor.social?.linkedin ? { sameAs: [reviewerAuthor.social.linkedin] } : {}),
+ jobTitle: reviewerAuthor.role,
+ sameAs: [reviewerAuthor.social?.linkedin, reviewerAuthor.social?.twitter, reviewerAuthor.social?.mastodon,
+ reviewerAuthor.social?.wikidataId ? `https://www.wikidata.org/wiki/${reviewerAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino' },
+ }
+ : reviewerAuthor
+ ? {
+ '@type': 'Organization' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#profile`,
+ name: reviewerAuthor.name,
+ url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
+ description: reviewerAuthor.role,
+ ...(reviewerAuthor.linkedin ? { sameAs: [reviewerAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', name: 'Redazione Frontaliere Ticino', '@id': `${BASE_URL}/chi-siamo/#team`, url: `${BASE_URL}/chi-siamo/` },
  }
  : undefined;
 
@@ -1407,6 +1467,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // document. Keep it as WebPage until the registry supplies a real date.
  '@type': en.datePub ? 'NewsArticle' : 'WebPage',
  '@id': `${full}#article`,
+ name: localizedTitle,
  headline: localizedTitle,
  description: localizedDesc,
  // ImageObject, not the bare URL string this used to be. Google's
@@ -1430,8 +1491,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  url: full,
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
- // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/Organization object defined once
+ // SPA-side Organization schema (#3520) — Google's guidance: structured-data
+ // author must match the byline. Organization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
@@ -1448,7 +1509,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // of attached directly to this NewsArticle node — the placement schema.org
  // actually defines, not the type this PR happens to be building.
  mainEntityOfPage: reviewedByObj
- ? { '@type': 'WebPage', '@id': full, reviewedBy: reviewedByObj }
+ ? { '@type': 'WebPage', '@id': full, name: localizedTitle, url: full, reviewedBy: reviewedByObj }
  : full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {
@@ -1495,14 +1556,14 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const breadcrumbLocale = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  // A canton section names itself («Articoli Ticino») and points at its
  // landing in THIS locale (`/en/ticino-articles/`). The two historical
- // sections keep their generic label and locale-less slug path unchanged.
+ // sections keep their generic label and point at their localized landing.
  const sectionName = SECTION.kind === 'canton'
  ? cantonSectionLabel(SECTION.name, breadcrumbLocale)
  : locale === 'en' ? 'Articles' : locale === 'de' ? 'Artikel' : locale === 'fr' ? 'Articles' : 'Articoli';
  const sectionSlug = blogIndexSlug[locale] || SECTION.indexSlug[breadcrumbLocale];
  const sectionCrumbUrl = SECTION.kind === 'canton'
  ? `${BASE_URL}${cantonSectionLandingPath(SECTION.name, breadcrumbLocale)}`
- : `${BASE_URL}/${sectionSlug}/`;
+ : `${BASE_URL}${localizedArticleSectionPath(sectionSlug, breadcrumbLocale)}/`;
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -1615,7 +1676,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="article:section" content="Frontalieri Ticino">
  <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
- <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
+ <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}${articleRssAlternatePath(SECTION, articleLocale)}">
  <script type="application/ld+json">${ldJsonStr}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>${faqLdTag}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
@@ -1650,6 +1711,11 @@ ${href}
  // the FAQ and before the related articles. Empty for an uncredited cover, so
  // those pages stay byte-identical. No caption on the hero above.
  const imageCreditHtml = imageCredit ? renderImageCreditHtml(imageCredit, articleLocale) : '';
+ // Historical sections have a locale-aware article landing. Keep the canton
+ // fallback unchanged until its separate route/feed contract is published.
+ const articleSectionNavPath = SECTION.kind === 'canton'
+  ? `/${SECTION.indexSlug.it}/`
+  : `${localizedArticleSectionPath(blogIndexSlug[articleLocale] ?? SECTION.indexSlug[articleLocale], articleLocale)}/`;
 
  const blogPreloads = [
  `<link rel="preload" as="image" href="${en.img}" fetchpriority="high">`,
@@ -1708,7 +1774,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')}${dateByline ? ` · ${dateByline}` : ''}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${imageCreditHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1732,7 +1798,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${imageCreditHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="${articleSectionNavPath}">Articoli</a></nav>${buildArticleLegalNav(locale)}</article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };
@@ -1851,7 +1917,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  articolisvizzera: process.env.ARTICOLISVIZZERA_BUILD_EMIT_SKIP === 'true',
  };
  const results: Array<{ name: string; skipped: boolean; written: number; entries: number }> = [];
- for (const descriptor of ARTICLE_SECTION_DESCRIPTORS) {
+ for (const descriptor of SITE_RENDERED_ARTICLE_SECTION_DESCRIPTORS) {
  if (descriptor.shardKey === null) continue;
  if (!Object.prototype.hasOwnProperty.call(emitSkipByShard, descriptor.shardKey)) {
  throw new Error(`[og-pages] nessun flag BUILD_EMIT_SKIP per lo shard "${descriptor.shardKey}" (sezione ${descriptor.name})`);

@@ -168,12 +168,13 @@ const IMAGE_MAX_BYTES = 320 * 1024;
 /**
  * Hero-image paths are the one place this script lets a REMOTE document choose a
  * filesystem destination, so the pattern is an allowlist, not a sanitiser: anchored,
- * literal `images/blog/` prefix, a conservative basename charset, `.webp` only. No
+ * literal `images/blog/` or `images/generated/` prefix, a conservative basename
+ * charset, `.webp` only. No
  * `..` can survive it and no absolute path can, which is the property that matters —
  * `path.join(PUBLIC_DIR, x)` with an attacker-chosen `x` is otherwise a write
  * anywhere in the checkout, and this runs in a workflow that commits its output.
  */
-const IMAGE_PATH_RE = /^images\/blog\/[a-z0-9][a-z0-9._-]*\.webp$/;
+const IMAGE_PATH_RE = /^images\/(?:blog|generated)\/[a-z0-9][a-z0-9._-]*\.webp$/;
 
 /**
  * Validate the cheap invariants that protect the committed hero-image tree.
@@ -617,10 +618,11 @@ for (const name of FEEDS) {
 
 // ── Hero images (docs/articles-generator-migration.md §3, §5.5) ──────
 //
-// `gitAddAll()` in create-article.mjs stages `public/images/blog/<id>.webp`
-// next to the article it belongs to. Once generation runs in nanako, that file
-// is written there and main has no copy — and unlike the sitemaps, an image is
-// not a document this script can re-derive, so it has to be transferred.
+// `gitAddAll()` in the corpus stages a record-bearing catalog cover under
+// `public/images/blog/<id>.webp`, or a governed generated cover under
+// `public/images/generated/<asset-id>.webp`. Once generation runs in nanako,
+// main has no copy — and unlike the sitemaps, an image is not a document this
+// script can re-derive, so it has to be transferred.
 //
 // The manifest is a plain list, not a diff: nanako republishes the full set on
 // every push and main downloads only what it is missing. That keeps the pull
@@ -652,7 +654,7 @@ for (const name of FEEDS) {
     if (!Array.isArray(images)) fail(`${IMAGE_MANIFEST} has no images[] array — refusing`);
     if (images.length === 0) fail(`${IMAGE_MANIFEST} lists zero images — refusing`);
 
-    const imagesDir = path.join(PUBLIC_DIR, 'images', 'blog');
+    const imagesDir = path.join(PUBLIC_DIR, 'images');
     const seen = new Set();
     let fetched = 0;
     let present = 0;
@@ -666,7 +668,7 @@ for (const name of FEEDS) {
       if (typeof relPath !== 'string' || !IMAGE_PATH_RE.test(relPath)) {
         fail(
           `${IMAGE_MANIFEST}: '${id}' has path ${JSON.stringify(relPath)}, which is not an ` +
-            `images/blog/<name>.webp path — refusing`,
+            `images/blog/<name>.webp or images/generated/<name>.webp path — refusing`,
         );
       }
       if (seen.has(relPath)) fail(`${IMAGE_MANIFEST}: ${relPath} listed twice — refusing`);
@@ -674,9 +676,9 @@ for (const name of FEEDS) {
 
       const dest = path.join(PUBLIC_DIR, relPath);
       // Belt to the regex's braces: whatever the pattern let through, the
-      // resolved destination must still land inside public/images/blog.
+      // resolved destination must still land inside public/images.
       if (path.relative(imagesDir, dest).startsWith('..')) {
-        fail(`${IMAGE_MANIFEST}: ${relPath} resolves outside public/images/blog — refusing`);
+        fail(`${IMAGE_MANIFEST}: ${relPath} resolves outside public/images — refusing`);
       }
 
       if (fs.existsSync(dest)) {
@@ -943,8 +945,8 @@ if (CHECK_ONLY) {
 }
 
 for (const [dest, body] of staged) {
-  // public/images/blog/ is the one destination that may legitimately not exist
-  // yet on a fresh checkout; everything else writes next to a committed file.
+  // The two image trees may legitimately not exist yet on a fresh checkout;
+  // everything else writes next to a committed file.
   fs.mkdirSync(path.dirname(dest), { recursive: true });
   fs.writeFileSync(dest, body);
   log(`wrote ${path.relative(ROOT, dest)}`);

@@ -1,28 +1,73 @@
 {
   "key": "sonarsource",
   "label": "SonarSource (Sonar)",
-  "generatedAt": "2026-10-05T09:27:27.067Z",
-  "total": 26,
+  "generatedAt": "2026-10-07T09:38:04.948Z",
+  "total": 25,
   "discovered": null,
-  "parsed": 26,
+  "parsed": 25,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 26,
+  "written": 25,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 26,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13303,
-  "avgDurationMs": 13303,
+  "unchangedCount": 24,
+  "durationMs": 12394,
+  "avgDurationMs": 12394,
   "durationHistory": [
-    13303
+    12394
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "sonarsource-a72b0b5febdf",
+      "slug": "cvp-di-progettazione-sonarsource-sonar-geneva",
+      "company": "SonarSource (Sonar)",
+      "companyKey": "sonarsource",
+      "companyDomain": "sonarsource.com",
+      "title": "CVP of Design",
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
+      "source": "SonarSource (Sonar) Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:37:48.101Z",
+      "addressLocality": "Geneva",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Software / Dev Tools",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
+      "firstSeenAt": "2026-09-19T23:12:21.148Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "sonarsource-572b49e7791c",
       "slug": "responsabile-del-prodotto-tecnico-codice-qualita-sonarsource-sonar-geneva",
@@ -35,7 +80,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:17.462Z",
+      "crawledAt": "2026-10-07T09:37:54.144Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -50,18 +95,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -76,7 +121,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:17.160Z",
+      "crawledAt": "2026-10-07T09:37:53.842Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -91,18 +136,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:44.922Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -117,7 +163,7 @@
       "url": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:16.857Z",
+      "crawledAt": "2026-10-07T09:37:53.541Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -132,18 +178,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T22:07:26.640Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -158,7 +205,7 @@
       "url": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:16.555Z",
+      "crawledAt": "2026-10-07T09:37:53.238Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -173,18 +220,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T22:16:07.537Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -199,7 +247,7 @@
       "url": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:16.252Z",
+      "crawledAt": "2026-10-07T09:37:52.935Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,18 +262,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:07.338Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -240,7 +289,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:15.949Z",
+      "crawledAt": "2026-10-07T09:37:52.633Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -255,18 +304,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:05:01.147Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -281,7 +331,7 @@
       "url": "https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:15.645Z",
+      "crawledAt": "2026-10-07T09:37:52.331Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -300,13 +350,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -321,7 +372,7 @@
       "url": "https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:15.342Z",
+      "crawledAt": "2026-10-07T09:37:52.029Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -336,18 +387,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:48:27.126Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -362,7 +414,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:15.035Z",
+      "crawledAt": "2026-10-07T09:37:51.727Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,13 +433,14 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -402,7 +455,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:14.731Z",
+      "crawledAt": "2026-10-07T09:37:51.426Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -417,18 +470,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:45:41.971Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -443,7 +497,7 @@
       "url": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:14.428Z",
+      "crawledAt": "2026-10-07T09:37:51.124Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -458,18 +512,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:12:24.473Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -484,7 +539,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:14.125Z",
+      "crawledAt": "2026-10-07T09:37:50.822Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -499,59 +554,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:17:42.506Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "sonarsource-0bd9e5a951ec",
-      "slug": "partner-business-manager-europa-meridionale-sonarsource-sonar-geneva",
-      "company": "SonarSource (Sonar)",
-      "companyKey": "sonarsource",
-      "companyDomain": "sonarsource.com",
-      "title": "Partner Business Manager - Southern Europe",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
-      "source": "SonarSource (Sonar) Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:13.822Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Software / Dev Tools",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T23:17:42.206Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -566,7 +581,7 @@
       "url": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:13.519Z",
+      "crawledAt": "2026-10-07T09:37:50.520Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -581,18 +596,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -607,7 +623,7 @@
       "url": "https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:13.216Z",
+      "crawledAt": "2026-10-07T09:37:50.219Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -622,18 +638,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -648,7 +664,7 @@
       "url": "https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:12.913Z",
+      "crawledAt": "2026-10-07T09:37:49.917Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -663,18 +679,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:12:22.659Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -689,7 +706,7 @@
       "url": "https://jobs.lever.co/sonarsource/04501f08-89a9-40fb-95db-778268a839d7",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:12.610Z",
+      "crawledAt": "2026-10-07T09:37:49.616Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,18 +721,18 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/04501f08-89a9-40fb-95db-778268a839d7",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:25:29.672Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -730,7 +747,7 @@
       "url": "https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:12.307Z",
+      "crawledAt": "2026-10-07T09:37:49.313Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -753,13 +770,14 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -774,7 +792,7 @@
       "url": "https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:12.004Z",
+      "crawledAt": "2026-10-07T09:37:49.010Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -789,18 +807,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:27:03.393Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -815,7 +834,7 @@
       "url": "https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:11.701Z",
+      "crawledAt": "2026-10-07T09:37:48.707Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,18 +849,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T23:46:01.360Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -856,7 +876,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:11.398Z",
+      "crawledAt": "2026-10-07T09:37:48.404Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -871,59 +891,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:04:57.212Z",
+      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "sonarsource-a72b0b5febdf",
-      "slug": "cvp-di-progettazione-sonarsource-sonar-geneva",
-      "company": "SonarSource (Sonar)",
-      "companyKey": "sonarsource",
-      "companyDomain": "sonarsource.com",
-      "title": "CVP of Design",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
-      "source": "SonarSource (Sonar) Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:11.096Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Software / Dev Tools",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:12:21.148Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -938,7 +918,7 @@
       "url": "https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:10.793Z",
+      "crawledAt": "2026-10-07T09:37:47.798Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -953,18 +933,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:26:46.382Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -979,7 +960,7 @@
       "url": "https://jobs.lever.co/sonarsource/3cae19c4-144b-41b9-89c1-03203547a8d3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:10.490Z",
+      "crawledAt": "2026-10-07T09:37:47.495Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -994,18 +975,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/3cae19c4-144b-41b9-89c1-03203547a8d3",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:25:27.555Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1020,7 +1002,7 @@
       "url": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:10.185Z",
+      "crawledAt": "2026-10-07T09:37:47.188Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1035,18 +1017,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T22:34:02.275Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1061,7 +1044,7 @@
       "url": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:27:09.879Z",
+      "crawledAt": "2026-10-07T09:37:46.883Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1076,22 +1059,21 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:43:24.888Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

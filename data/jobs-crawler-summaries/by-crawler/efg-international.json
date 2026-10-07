@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-10-05T09:10:38.649Z",
+  "generatedAt": "2026-10-07T09:14:44.437Z",
   "total": 27,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 24,
-  "durationMs": 13073,
-  "avgDurationMs": 13073,
+  "durationMs": 14850,
+  "avgDurationMs": 14850,
   "durationHistory": [
-    13073
+    14850
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,7 +56,7 @@
       "salaryMax": 150000,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-03T13:26:59.347Z",
       "salarySource": "reported",
@@ -207,7 +207,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
@@ -285,123 +285,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "efg-5969",
-      "slug": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
-      "company": "EFG International AG",
-      "title": "IT Trading & Treasury Solutions Specialist",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5969",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The IT Treasury and Trading team delivers efficient, effective support and IT solutions for applications and processes in client order execution, trading, treasury, and lending/collateral management. The team comprises both functional and technical experts supporting a Trading/Treasury room of approximately 50 traders. This role ensures continuity in client services and drives ongoing improvements in deliverable quality."
-            ],
-            "responsibilities": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "Change the Bank: development of departmental applications aimed at covering gaps of the existing IT applications, mainly in the area of system integration and reporting",
-              "Change the Bank: management of tools for the automation of health checks on trading IT platforms to eventually guarantee the service to internal clients"
-            ],
-            "requirements": [
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Very good analytic skill, tech curiosity, proactivity in identifying the best tech solution to a business need",
-              "Capability to work under constant pressure",
-              "Flexibility (request to work by shift; during bank-holiday or Saturday)",
-              "Capability to integrate in a wider IT team and good team player",
-              "Good communication skills (Italian-English are a must, French is a plus)"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<p>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</p><p style=\"margin-left: 0.375in; text-align: justify;\"> </p>"
-            ],
-            "process": [],
-            "highlights": [
-              "Run the Bank: end-to-end support on the IT trading platforms used for Securities Lending & Collateral, Islamic Finance, Securities and Derivatives execution and trading, spanning from application maintenance to analysis and resolution on daily incidents, liaising with external vendors where applicable.",
-              "Run the Bank: act as entry point to trading desk for broader issues that require liaising with other IT departments to cover the full stack (core banking and other linked applications, IT infa server, database, network, …) or with Operations teams (Securities, Derivatives, FX back office, middle office)",
-              "Change the Bank: coordinate and execute various IT projects aimed at evolving or upgrading the IT trading platforms, either developed and released internally or by application providers: collection of business needs, solution design and documentation, development where applicable and/or vendor coordination, creation of test cases catalogue and execution of IT tests, support to user acceptance test, rollout and post production support",
-              "A university degree, preferably in computer science, finance or an equivalent educational background",
-              "Very good knowledge of programming languages (Java; Pyton; C++, SQL, Powershell, …), application server (Windows mainly, Linux) and database systems (Oracle, MS SQL)",
-              "Good knowledge of financial products (Forex, Securities, Derivatives, Sec Lending) and main bank processes (order/execution on the market of the plain vanilla products)",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "A university degree",
-              "Very good knowledge of programming languages (Java",
-              "Good knowledge of financial products (Forex",
-              "Very good analytic skill",
-              "Capability to work under constant pressure",
-              "Run the Bank",
-              "Change the Bank"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-08-05T22:24:24.579Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "",
-      "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH",
-      "salarySource": "reported",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/5969",
-      "postingDateSource": "unknown",
-      "_qualityScore": 98,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "efg-6488",
@@ -437,7 +321,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.309Z",
+      "crawledAt": "2026-10-07T09:14:30.344Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -450,12 +334,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6488",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "1201",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -541,7 +426,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.305Z",
+      "crawledAt": "2026-10-07T09:14:30.325Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14T16:10:22+00:00",
@@ -554,12 +439,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6456",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "1201",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -678,7 +564,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.299Z",
+      "crawledAt": "2026-10-07T09:14:30.312Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -735,7 +621,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.289Z",
+      "crawledAt": "2026-10-07T09:14:30.298Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13T15:55:36+00:00",
@@ -748,12 +634,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6413",
       "postingDateSource": "reported",
-      "_qualityScore": 93,
+      "postalCode": "1201",
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -790,14 +677,14 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.284Z",
+      "crawledAt": "2026-10-07T09:14:30.289Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28T09:29:23+00:00",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-28T12:24:37.370Z",
@@ -918,14 +805,14 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.280Z",
+      "crawledAt": "2026-10-07T09:14:30.277Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
@@ -976,7 +863,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.276Z",
+      "crawledAt": "2026-10-07T09:14:30.269Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -1107,7 +994,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.258Z",
+      "crawledAt": "2026-10-07T09:14:30.235Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1128,6 +1015,81 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6531",
+      "slug": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Client Services Officer - Russian Speaker",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-29T15:25:56+00:00",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6531",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Within the Private Banking Department, the <strong style=\"border: 0px solid rgb(51, 60, 64); box-sizing: border-box; font-weight: bolder; margin: 0px; outline-color: oklab(0.709229 0.0116 0.0345271 / 0.5); padding: 0px; scrollbar-color: auto;\">Client Support Officer Private Banking</strong> plays a key role in delivering a high‑quality service experience to our clients and supporting our Client Relationship Officers (CROs) in the day‑to‑day management of client relationships.",
+              "You will be responsible for the full range of administrative and operational activities linked to client accounts, ensuring that all instructions are executed accurately, efficiently and in line with internal policies and regulatory requirements. Working closely with CROs and key control functions, you will help prepare client meetings, maintain up‑to‑date documentation, and contribute to the promotion of digital and paperless solutions.",
+              "This position is suited to an experienced private banking professional who enjoys working in a dynamic environment, is comfortable with complex client requests and financial instruments, and is committed to delivering excellent service with a strong risk‑aware and compliance mindset. The role requires close interaction with Russian‑speaking clients and therefore a high level of proficiency in Russian.",
+              "· Provide proactive day‑to‑day support to one or more CROs in managing a portfolio of private banking clients, ensuring seamless coordination of all client‑related activities."
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 7
+          }
+        }
+      },
+      "crawledAt": "2026-10-07T09:14:30.227Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-09-29T15:25:56+00:00",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-29T21:12:54.926Z",
+      "postingDateSource": "reported",
+      "postalCode": "1201",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 22
       }
@@ -1235,7 +1197,7 @@
           }
         }
       },
-      "crawledAt": "2026-10-05T09:10:30.252Z",
+      "crawledAt": "2026-10-07T09:14:30.212Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-09-25T07:07:02+00:00",
@@ -1246,86 +1208,13 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-25T14:39:21.479Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "8001",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "efg-6531",
-      "slug": "client-services-officer-altoparlante-russo-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Client Services Officer - Russian Speaker",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29T15:25:56+00:00",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6531",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Within the Private Banking Department, the <strong style=\"border: 0px solid rgb(51, 60, 64); box-sizing: border-box; font-weight: bolder; margin: 0px; outline-color: oklab(0.709229 0.0116 0.0345271 / 0.5); padding: 0px; scrollbar-color: auto;\">Client Support Officer Private Banking</strong> plays a key role in delivering a high‑quality service experience to our clients and supporting our Client Relationship Officers (CROs) in the day‑to‑day management of client relationships.",
-              "You will be responsible for the full range of administrative and operational activities linked to client accounts, ensuring that all instructions are executed accurately, efficiently and in line with internal policies and regulatory requirements. Working closely with CROs and key control functions, you will help prepare client meetings, maintain up‑to‑date documentation, and contribute to the promotion of digital and paperless solutions.",
-              "This position is suited to an experienced private banking professional who enjoys working in a dynamic environment, is comfortable with complex client requests and financial instruments, and is committed to delivering excellent service with a strong risk‑aware and compliance mindset. The role requires close interaction with Russian‑speaking clients and therefore a high level of proficiency in Russian.",
-              "· Provide proactive day‑to‑day support to one or more CROs in managing a portfolio of private banking clients, ensuring seamless coordination of all client‑related activities."
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 7
-          }
-        }
-      },
-      "crawledAt": "2026-10-05T09:10:30.205Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-09-29T15:25:56+00:00",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-29T21:12:54.926Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1481,7 +1370,7 @@
       "salaryMax": 306000,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
       "salarySource": "estimated",
@@ -1598,12 +1487,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6317",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "1201",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1722,7 +1612,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
@@ -1853,12 +1743,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6384",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -1977,12 +1868,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -2026,7 +1918,7 @@
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-20T22:46:49.521Z",
@@ -2190,7 +2082,7 @@
       "salaryMax": 107500,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-06-24T11:14:17.928Z",
       "salarySource": "estimated",
@@ -2487,7 +2379,7 @@
       "salaryMax": 91500,
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "country": "CH",
       "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "salarySource": "estimated",
@@ -2737,12 +2629,13 @@
       "applyUrl": "https://www.efginternational.com/us/about/careers",
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6142",
       "postingDateSource": "unknown",
-      "_qualityScore": 92,
+      "postalCode": "8001",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -2786,7 +2679,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "streetAddress": "",
-      "postalCode": "1204",
+      "postalCode": "1201",
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
@@ -2804,5 +2697,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

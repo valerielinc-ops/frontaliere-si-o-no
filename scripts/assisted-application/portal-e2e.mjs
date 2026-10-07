@@ -38,7 +38,7 @@ const UMANTIS_CLOSED_FORM = '/Vacancies/718/Application/New/2';
 const umantisOrigin = (server) => `http://recruitingapp-0000.umantis.localhost:${server.address().port}`;
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false, unverifiedLoginStaysOnSignIn: false, omitNextRegistrationSubmit: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
   const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0, cvUploads: 0, validationRefusals: 0, flaky: false, cookieManager: '' };
   // umantis, 2026-10-03: the application form itself asks for the account's password.
@@ -322,13 +322,16 @@ function fakePortal() {
       const body = new URLSearchParams(await readBody(req));
       const email = body.get('email');
       if (state.accounts.get(email) !== body.get('password')) return send(page('Anmelden', '<p role="alert">Falsches Kennwort</p>'));
+      if (state.unverifiedLoginStaysOnSignIn && !state.verified.has(email)) return send(page('Anmelden', '<p role="alert">Ungültige Anmeldedaten</p>'));
       if (!state.verified.has(email)) return send(page('Bestätigung', '<p>Bitte bestätigen Sie zuerst Ihre E-Mail-Adresse.</p>'));
       const sid = Math.random().toString(36).slice(2);
       state.sessions.add(sid);
       return redirect('/apply', { 'set-cookie': `sid=${sid}; Path=/` });
     }
     if (route === 'GET /register') {
-      return send(page('Registrieren', form('/register', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label><button type="submit">Konto erstellen</button>')));
+      const submit = state.omitNextRegistrationSubmit ? '' : '<button type="submit">Konto erstellen</button>';
+      state.omitNextRegistrationSubmit = false;
+      return send(page('Registrieren', form('/register', `<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p1">Kennwort</label><input id="p1" type="password" name="p1" required><label for="p2">Kennwort bestätigen</label><input id="p2" type="password" name="p2" required><label><input type="checkbox" name="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label><label><input type="checkbox" name="news"> Newsletter abonnieren</label>${submit}`)));
     }
     if (route === 'POST /register') {
       const body = new URLSearchParams(await readBody(req));
@@ -521,6 +524,9 @@ async function main() {
   const { server, state, coop, umantis } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
+  const otpBase = `http://career5.successfactors.localhost:${server.address().port}`;
+  const accountHost = '127.0.0.1';
+  const otpAccountHost = 'career5.successfactors.localhost';
   const saved = new Map();
   const accounts = {
     async load(host) { return saved.get(host) || null; },
@@ -567,14 +573,29 @@ async function main() {
     // The portal refuses the registration once: no account is kept, so the next run creates it again.
     state.refuseNextRegistration = true;
     const refused = await run();
-    check('a refused registration hands off and keeps no account', refused.event.type === 'submit_handoff' && refused.event.reason === 'account_create_refused' && !saved.has('127.0.0.1') && state.accounts.size === 0);
+    check('a refused registration hands off and keeps no account', refused.event.type === 'submit_handoff' && refused.event.reason === 'account_create_refused' && !saved.has(accountHost) && state.accounts.size === 0);
     const first = await run();
     check('the first run creates the account on the alias, verifies it and applies', first.event.type === 'submit_succeeded' && state.accounts.has(ALIAS) && state.verified.has(ALIAS));
-    check('the password is stored and the account marked verified', Boolean(saved.get('127.0.0.1')?.password) && Boolean(saved.get('127.0.0.1')?.verifiedAt));
+    check('the password is stored and the account marked verified', Boolean(saved.get(accountHost)?.password) && Boolean(saved.get(accountHost)?.verifiedAt));
     const again = await run();
     const auth = again.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
     check('a later run signs in with the stored account', again.event.type === 'submit_succeeded' && auth.join(',') === 'sign_in' && state.accounts.size === 1);
     check('both applications carry the CV and the name', state.applications.length === 2 && state.applications.every((item) => item.hasCv && item.first === 'Luca'));
+    // OTP-based SuccessFactors only creates the external account after code
+    // verification. Reproduce a run that saved its password but lost the OTP
+    // page: login stays on the generic sign-in error, so the runner must
+    // restart registration with the same credential and consume a fresh code.
+    state.verified.delete(ALIAS);
+    state.sessions.clear();
+    state.unverifiedLoginStaysOnSignIn = true;
+    saved.set(otpAccountHost, { ...saved.get(accountHost), verifiedAt: null });
+    state.omitNextRegistrationSubmit = true;
+    const missingRetryButton = await run({ applyUrl: `${otpBase}/job` });
+    check('a missing retry button hands off without discarding the saved credential', missingRetryButton.event.type === 'submit_handoff'
+      && missingRetryButton.event.reason === 'account' && Boolean(saved.get(otpAccountHost)?.password) && saved.get(otpAccountHost)?.verifiedAt === null);
+    const recovered = await run({ applyUrl: `${otpBase}/job` });
+    check('an unverified saved account restarts registration and verifies before applying', recovered.event.type === 'submit_succeeded' && state.verified.has(ALIAS) && Boolean(saved.get(otpAccountHost)?.verifiedAt) && state.applications.length === 3);
+    state.unverifiedLoginStaysOnSignIn = false;
     check('the evidence names the files the form received', first.evidence.uploads?.some((item) => item.document === 'cv'));
     check('the newsletter box is left alone', !state.newsletter);
     // The agentic fallback on a custom calendar (Playwright's snapshot refs, a real browser).

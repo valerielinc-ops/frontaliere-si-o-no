@@ -83,8 +83,7 @@ export interface AdPageDiagHandle {
 
 type DiagWindow = Window & {
   adsbygoogle?: { loaded?: boolean; push?: unknown };
-  googlefc?: { getAdBlockerStatus?: unknown; showRevocationMessage?: unknown };
-  __tcfapi?: unknown;
+  googlefc?: { getAdBlockerStatus?: unknown; showRevocationMessage?: unknown; MessageTypeEnum?: unknown };
   __ftOfferwallGate?: { state?: string; release?: unknown };
   __ftAdBlock?: { blocked?: boolean };
   __ftAdDiag?: AdPageDiagHandle;
@@ -140,18 +139,29 @@ export function collectAdPageDiag(
   const ads = win.adsbygoogle;
   const adsLoaded = !!ads && (ads.loaded === true || (typeof ads.push === 'function' && ads.push !== Array.prototype.push));
   const fc = win.googlefc;
+  // Funding Choices' own API on `googlefc`. Until 2026-10-07 a `__tcfapi`
+  // function counted too, but Google's ad script installs a `__tcfapi` stub by
+  // itself: with the Funding Choices script blocked this read 1 (live), so the
+  // earlier series overcounts. The page's own `googlefc` object (the gate, the
+  // consent bridge) has none of these.
   const fcLoaded =
-    (!!fc && (typeof fc.getAdBlockerStatus === 'function' || typeof fc.showRevocationMessage === 'function')) ||
-    typeof win.__tcfapi === 'function';
+    !!fc && (
+      typeof fc.getAdBlockerStatus === 'function'
+      || typeof fc.showRevocationMessage === 'function'
+      || fc.MessageTypeEnum != null
+    );
   const gate = win.__ftOfferwallGate;
   const gateState = gate ? gate.state : undefined;
+  // `idle` reads `off_board`, as for the click (offerwallGateStatus): the gate
+  // waits after an SPA entry from an off-board page for a callback that
+  // Funding Choices does not send without a page load.
   const gateStatus: AdDiagGateStatus =
     (gateState === 'held' && typeof gate?.release === 'function') ||
     gateState === 'released' ||
     gateState === 'suppressed' ||
     gateState === 'off_board'
       ? (gateState as AdDiagGateStatus)
-      : 'absent';
+      : gateState === 'idle' ? 'off_board' : 'absent';
 
   let total = 0;
   let filled = 0;

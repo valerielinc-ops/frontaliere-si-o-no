@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * measure-job-email-ranking-reads.mjs — letture Firestore e tempo degli input
  * di ordinamento dei due invii con annunci, prima (baseline, ramo CTR) e dopo
@@ -199,7 +200,7 @@ async function main() {
   console.log(json);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(error?.message || error);
     process.exit(1);

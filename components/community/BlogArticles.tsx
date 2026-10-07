@@ -31,6 +31,11 @@ import { resolveArticleAdDensity, inlineSlotIndex, STANDARD_ARTICLE_AD_DENSITY, 
 import { collectArticleBodySegments, countArticleBodyChars, countArticleBodyWords } from '@/services/articleBodySegments';
 import { isAdStraddleBlock, isListBlock, isTableBlock, LIST_ITEM_RE, TABLE_SEPARATOR_RE } from '@/services/adPlacement';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
+import {
+ EDITORIAL_TEAM_ID,
+ WEBSITE_ID,
+ normalizeOrganizationIdentities,
+} from '@/services/seo/organizationLd';
 
 // Re-export the parser predicates for the focused renderer tests and existing
 // callers; the implementation lives in the shared, JSX-free module so the
@@ -1631,11 +1636,39 @@ function BlogArticles({
  const articleBodyText = collectArticleBodySegments(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
- // Author matches the visible byline (#3520): a named Person when the
- // article carries one (same merge the rendered byline uses), the
- // editorial Organization only as fallback — mirroring the static
- // ogPagesPlugin NewsArticle so SPA and static declare the same entity.
+ // Author matches the visible byline (#3520): a named Person or editorial
+ // Organization when the article carries one, the newsroom Organization only
+ // as fallback — mirroring the static ogPagesPlugin NewsArticle.
  const { authorSlug: ldAuthorSlug, authorName: ldAuthorName } = mergeArticleByline(articleAuthorOverride, article);
+ const ldAuthor = ldAuthorSlug ? getAuthorBySlug(ldAuthorSlug) : undefined;
+ const namedAuthorEntity: Record<string, unknown> = ldAuthor?.kind === 'real-author'
+ ? {
+ '@type': 'Person',
+ '@id': `https://frontaliereticino.ch/autori/${ldAuthor.slug}/#person`,
+ name: ldAuthorName,
+ url: `https://frontaliereticino.ch/autori/${ldAuthor.slug}/`,
+ jobTitle: ldAuthor.role,
+ sameAs: [ldAuthor.social.linkedin, ldAuthor.social.twitter, ldAuthor.social.mastodon,
+ ldAuthor.social.wikidataId ? `https://www.wikidata.org/wiki/${ldAuthor.social.wikidataId}` : undefined]
+ .filter((value): value is string => typeof value === 'string' && value.length > 0),
+ worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
+ }
+ : ldAuthor
+ ? {
+ '@type': 'Organization',
+ '@id': `https://frontaliereticino.ch/autori/${ldAuthor.slug}/#profile`,
+ name: ldAuthorName,
+ url: `https://frontaliereticino.ch/autori/${ldAuthor.slug}/`,
+ description: ldAuthor.role,
+ ...(ldAuthor.linkedin ? { sameAs: [ldAuthor.linkedin] } : {}),
+ parentOrganization: { '@type': 'Organization', '@id': EDITORIAL_TEAM_ID, name: 'Redazione Frontaliere Ticino', url: 'https://frontaliereticino.ch/chi-siamo/' },
+ }
+ : {
+ '@type': 'Organization',
+ '@id': EDITORIAL_TEAM_ID,
+ name: ldAuthorName,
+ url: 'https://frontaliereticino.ch/chi-siamo/',
+ };
  // article.image may already be an absolute CDN URL (blog heroes on jsDelivr);
  // only prefix the origin for same-origin relative paths (e.g. /images/places).
  const coverUrl = article.image.startsWith('http') ? article.image : `https://frontaliereticino.ch${article.image}`;
@@ -1671,15 +1704,10 @@ function BlogArticles({
  description: excerpt.startsWith('blog.article.') ? title : excerpt,
  ...schemaDates,
  author: ldAuthorName
- ? {
- '@type': 'Person',
- name: ldAuthorName,
- ...(ldAuthorSlug ? { url: `https://frontaliereticino.ch/autori/${ldAuthorSlug}/` } : {}),
- worksFor: { '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization', name: 'Frontaliere Ticino' },
- }
+ ? namedAuthorEntity
  : {
  '@type': 'Organization',
- '@id': 'https://frontaliereticino.ch/#organization',
+ '@id': EDITORIAL_TEAM_ID,
  name: 'Redazione Frontaliere Ticino',
  url: 'https://frontaliereticino.ch/chi-siamo/',
  },
@@ -1693,7 +1721,7 @@ function BlogArticles({
  url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
  },
  },
- isPartOf: { '@type': 'WebSite', '@id': 'https://frontaliereticino.ch/#website', name: 'Frontaliere Ticino' },
+ isPartOf: { '@type': 'WebSite', '@id': WEBSITE_ID, name: 'Frontaliere Ticino' },
  mainEntityOfPage: canonicalUrl,
  // The photo's own creator and licence when the cover is credited (P14),
  // else the bare URL as before (services/imageCredits.ts).
@@ -1714,7 +1742,7 @@ function BlogArticles({
  el.type = 'application/ld+json';
  document.head.appendChild(el);
  }
- el.textContent = JSON.stringify(jsonLd);
+ el.textContent = JSON.stringify(normalizeOrganizationIdentities(jsonLd));
 
  // FAQ schema for evergreen (non-novita) articles with question-like H2 headings.
  // Skip if a static FAQPage JSON-LD already exists (from ogPagesPlugin) to avoid
@@ -2126,10 +2154,10 @@ function BlogArticles({
  // The disclosure below is the only place on the page that states HOW an
  // article came to exist, so it splits on the article's own provenance:
  // `aiAssisted` when the article declares it, otherwise the registry default
- // (`uid` ⇒ guest journalist ⇒ human contributor). The declaration exists
- // because the registry alone answers a per-article question with a
- // per-author property — see services/articleProvenance.ts.
- const bylineAuthor = effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined;
+ // (the registry default for a separately sourced contributor). The
+ // declaration exists because a registry entry alone cannot answer a
+ // per-article provenance question — see services/articleProvenance.ts.
+ const bylineAuthor = (effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined) as { uid?: string } | undefined;
  const isHumanContributor = !resolveArticleProvenance(article as Article & { aiAssisted?: boolean }, bylineAuthor).aiAssisted;
 
  // Wait for article body translations to load
@@ -2517,7 +2545,7 @@ function BlogArticles({
  <strong className="text-body">Trasparenza editoriale:</strong>{' '}
  {isHumanContributor
  ? `contributo originale di ${effectiveAuthorName}, pubblicato dalla redazione senza stesura assistita da intelligenza artificiale.`
- : 'contenuto prodotto con assistenza di intelligenza artificiale e controlli automatici. Questa indicazione non certifica una revisione umana.'}
+ : 'bozza assistita da intelligenza artificiale, revisionata dalla redazione. Questa indicazione non certifica una revisione umana.'}
  {' '}Le fonti utilizzate sono linkate nel testo.
  </p>
  <p className="text-xs">

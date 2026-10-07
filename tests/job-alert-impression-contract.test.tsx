@@ -31,6 +31,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { useImpressionTracker } from '../hooks/useImpressionTracker';
+import { ALERT_CTA_SURFACES } from '../scripts/campaign-goal-check.mjs';
+import { PENDING_JOB_ALERT_ORIGINS } from '../services/pendingJobAlert';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -205,13 +207,92 @@ describe('issue 10528 — job_detail_button shown/created parity', () => {
     expect(pending).toContain("'job_detail_button'");
 
     const boardFilter = fs.readFileSync(path.join(ROOT, 'components/community/JobBoardFilterAlertCta.tsx'), 'utf-8');
-    expect(boardFilter).toContain('requestJobAlertOpen(keywordLabel, formOrigin)');
+    expect(boardFilter).toContain('openJobAlertForm(keywordLabel, formOrigin)');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8'))
       .toContain('formOrigin="job_board_filters"');
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8'))
-      .toContain("origin: 'end_card'");
+      .toContain("openJobAlertForm(keyword, 'end_card')");
     expect(fs.readFileSync(path.join(ROOT, 'components/community/JobAlertStickyBanner.tsx'), 'utf-8'))
-      .toContain("origin: 'sticky_banner'");
+      .toContain("openJobAlertForm(undefined, 'sticky_banner')");
+  });
+});
+
+describe('issue 10528 — every alert surface keeps shown→created attribution', () => {
+  const source = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf-8');
+  const jobBoard = () => source('components/community/JobBoard.tsx');
+  const form = () => source('components/community/JobAlertForm.tsx');
+
+  const directCreationSurfaces = new Set([
+    'job_detail_button',
+    'job_detail_prompt',
+    'job_board_filters',
+    'job_match_pill',
+  ]);
+
+  const formHandoffNeedles: Record<string, readonly [string, string][]> = {
+    inline_card: [
+      ['components/community/JobAlertForm.tsx', "useState<PendingJobAlertOrigin>('inline_card')"],
+      ['components/community/JobAlertForm.tsx', 'savePendingJobAlert(config, ctaOrigin)'],
+      ['components/community/JobAlertForm.tsx', "persistAlert(authUser.uid, authUser.email || '', config, ctaOrigin, 'direct')"],
+    ],
+    job_detail_button: [
+      ['components/community/JobBoard.tsx', "requestJobAlertOpen(category || undefined, 'job_detail_button')"],
+    ],
+    job_board_filters: [
+      ['components/community/JobBoard.tsx', 'formOrigin="job_board_filters"'],
+      ['components/community/JobBoardFilterAlertCta.tsx', "openJobAlertForm(keywordLabel, formOrigin)"],
+    ],
+    sticky_banner: [
+      ['components/community/JobAlertStickyBanner.tsx', "openJobAlertForm(undefined, 'sticky_banner')"],
+    ],
+    end_card: [
+      ['components/community/JobAlertEndCard.tsx', "openJobAlertForm(keyword, 'end_card')"],
+    ],
+  };
+
+  const shownNeedle = (surface: string) => (
+    surface === 'job_board_filters' || surface === 'job_match_pill'
+      ? `trackJobAlertCtaShownOnce('${surface}'`
+      : `trackJobAlertCtaShown('${surface}'`
+  );
+
+  it.each(ALERT_CTA_SURFACES)('%s has a matching shown and created origin', (surface) => {
+    const allSources = [
+      jobBoard(),
+      form(),
+      source('components/community/JobAlertStickyBanner.tsx'),
+      source('components/community/JobAlertEndCard.tsx'),
+      source('components/community/JobBoardFilterAlertCta.tsx'),
+    ].join('\n');
+
+    expect(allSources).toContain(shownNeedle(surface));
+
+    if (directCreationSurfaces.has(surface)) {
+      expect(jobBoard()).toContain(`surface: '${surface}'`);
+    }
+
+    const handoff = formHandoffNeedles[surface];
+    if (handoff) {
+      for (const [rel, needle] of handoff) {
+        expect(source(rel), `${surface} origin handoff in ${rel}`).toContain(needle);
+      }
+      expect(PENDING_JOB_ALERT_ORIGINS).toContain(surface);
+    }
+
+    expect(
+      directCreationSurfaces.has(surface) || Boolean(handoff),
+      `${surface} must have a direct matching creation or a central form handoff`,
+    ).toBe(true);
+  });
+
+  it.each([
+    ['calculator_results', 'components/calculator/SalaryAlertCTA.tsx'],
+    ['saved_jobs_nudge', 'components/community/JobBoard.tsx'],
+  ] as const)('%s emits a raw shown→created pair outside the campaign allowlist', (surface, rel) => {
+    const src = source(rel);
+    expect(ALERT_CTA_SURFACES).not.toContain(surface);
+    expect(src).toContain(`trackJobAlertCtaShown('${surface}'`);
+    expect(src).toContain(`surface: '${surface}'`);
   });
 });
 

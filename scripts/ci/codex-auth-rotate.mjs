@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * codex-auth-rotate.mjs — tiene sempre fresco il login ChatGPT in `CODEX_AUTH_JSON`.
  *
@@ -68,7 +69,6 @@ import fs from 'node:fs';
 import http from 'node:http';
 import os from 'node:os';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
@@ -1344,7 +1344,7 @@ const COMMANDS = {
   report: commandReport,
 };
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const command = COMMANDS[process.argv[2]];
   if (!command) {
     out(`::error::usage: codex-auth-rotate.mjs <${Object.keys(COMMANDS).join('|')}>`);

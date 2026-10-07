@@ -153,6 +153,7 @@ jobs:
         run: node scripts/ci/report-deploy-run-failure.mjs --mode report
 
       - name: Open or update the deploy alarm issue
+        id: open
         # Il primo ramo e' la condizione di esercizio e va scritto per esteso:
         # e' quello che `isFailureGated` in
         # `scripts/ci/failure-issue-inventory.mjs` legge per far entrare questo
@@ -184,6 +185,46 @@ jobs:
             --label Bug \
             --workflow "Deploy to GitHub Pages" \
             --run-url "${ALARM_RUN_URL}"
+
+      - name: Open or update deploy alarm without the checkout (fallback)
+        # Se checkout/setup/digest falliscono, lo step principale non parte o
+        # non può leggere il creator. Il fallback scarica soltanto quel file
+        # alla SHA del workflow osservatore e mantiene titolo/dedup invariati.
+        if: >-
+          always() && !cancelled() &&
+          (github.event_name != 'workflow_dispatch' || !inputs.dry_run) &&
+          steps.open.outcome != 'success' &&
+          (github.event_name == 'workflow_dispatch' ||
+           github.event.workflow_run.conclusion == 'failure' ||
+           github.event.workflow_run.conclusion == 'timed_out' ||
+           github.event.workflow_run.conclusion == 'startup_failure' ||
+           steps.digest.outputs.verdict == 'report')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          ALARM_SHA: ${{ github.sha }}
+          ALARM_RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          creator=scripts/lib/github-issue-creator.mjs
+          if [ ! -s "$creator" ]; then
+            creator="$RUNNER_TEMP/github-issue-creator.mjs"
+            gh api -H 'Accept: application/vnd.github.raw' \
+              "repos/${GH_REPO}/contents/scripts/lib/github-issue-creator.mjs?ref=${ALARM_SHA}" \
+              > "$creator" || true
+          fi
+          if [ ! -s "$creator" ]; then
+            echo "::error title=Deploy alarm not written::il creator delle issue non è leggibile né dal checkout né via API; apri a mano ${ALARM_RUN_URL}"
+            exit 0
+          fi
+          node "$creator" \
+            --title "Workflow Failure: Deploy to GitHub Pages" \
+            --description "Il deploy osservato è rosso ma l'osservatore esterno non ha potuto preparare il digest: checkout, setup o reporter principale non disponibili. Run: ${ALARM_RUN_URL}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Deploy to GitHub Pages" \
+            --run-url "${ALARM_RUN_URL}" \
+            || echo "::error title=Deploy alarm not written::il creator è uscito non-zero; apri a mano ${ALARM_RUN_URL}"
 
       - name: Preview only (dispatch dry-run)
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run

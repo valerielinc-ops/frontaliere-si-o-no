@@ -5,7 +5,7 @@
  * for the by-construction coverage check.
  */
 
-export type WebcamAccessMethod = 'hotlink';
+export type WebcamAccessMethod = 'hotlink' | 'external-link';
 
 export type WebcamSourceStatus = 'active' | 'inactive';
 
@@ -16,7 +16,7 @@ export interface WebcamSource {
  entityName: string;
  /** Public page hosting the webcam(s) — matches a `sourceUrl` in borderCrossings.ts. */
  officialUrl: string;
- /** How the image is retrieved. All current sources are hotlinked JPEG/GIF frames. */
+ /** How the image is retrieved: embedded frame or an attribution-only external link. */
  accessMethod: WebcamAccessMethod;
  /** ISO date (YYYY-MM-DD) terms/license were last reviewed by a human. Unset = not yet reviewed. */
  termsReviewedAt?: string;
@@ -139,6 +139,15 @@ export const WEBCAM_SOURCES: WebcamSource[] = [
   entityName: 'Le Tunnel – operatore Traforo del Gran San Bernardo',
   officialUrl: 'https://letunnel.com/en/meteo/webcam/',
   accessMethod: 'hotlink',
+  status: 'active',
+ },
+ {
+  id: 'inforoute-alsace-saint-louis',
+  entityName: 'Collectivité européenne d’Alsace — Inforoute',
+  officialUrl: 'https://inforoute.alsace.eu/',
+  accessMethod: 'external-link',
+  termsReviewedAt: '2026-10-06',
+  license: 'Termini Inforoute Alsace: attribuzione richiesta; riuso non personale o incorporamento richiede autorizzazione scritta. robots.txt non vieta il percorso pubblico della webcam.',
   status: 'active',
  },
 ];

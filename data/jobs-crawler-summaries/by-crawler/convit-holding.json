@@ -1,16 +1,16 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-10-05T09:24:47.451Z",
+  "generatedAt": "2026-10-07T09:44:41.365Z",
   "total": 36,
   "newCount": 7,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 41295,
-  "avgDurationMs": 41295,
+  "durationMs": 41015,
+  "avgDurationMs": 41015,
   "durationHistory": [
-    41295
+    41015
   ],
   "newJobs": [
     {
@@ -43,13 +43,14 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 16,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -123,13 +124,14 @@
       "salaryMax": 71500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6814",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -162,13 +164,14 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6814",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -201,13 +204,14 @@
       "salaryMax": 150000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6814",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -240,13 +244,14 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6814",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -279,13 +284,14 @@
       "salaryMax": 71500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "postalCode": "6814",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "_qualityScore": 80,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
@@ -321,12 +327,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:11.834045+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "6900",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -447,12 +454,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:51:35.565029+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6825",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -483,15 +491,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:45.887119+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "6917",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -525,12 +533,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:20.701364+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6944",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -564,12 +573,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:19.192686+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6900",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -600,15 +610,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:17.544506+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6850",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -642,12 +652,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:15.482783+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6512",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -680,14 +691,13 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-27T20:50:14.663574+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -721,12 +731,13 @@
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "datePosted": "2026-09-27T20:50:11.244317+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "postalCode": "6830",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -757,15 +768,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-26T18:20:47.581527+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "6963",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -799,12 +810,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-26T18:20:41.901711+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6830",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -838,12 +850,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-26T18:20:34.391223+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6710",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -874,15 +887,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-26T18:20:08.835822+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6988",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -916,12 +929,13 @@
       "needsRetranslation": true,
       "datePosted": "2026-09-26T18:19:59.887534+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "6850",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -952,15 +966,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-26T18:19:53.308108+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6500",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -991,15 +1005,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-26T18:19:40.792503+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 83,
+      "postalCode": "6600",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1030,15 +1044,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "2026-09-26T18:19:30.816623+00:00",
       "postingDateSource": "reported",
-      "_qualityScore": 85,
+      "postalCode": "6900",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1151,15 +1165,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "6814",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -1232,15 +1246,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 85,
+      "postalCode": "6814",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -1438,14 +1452,15 @@
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 89,
+      "postalCode": "6814",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

@@ -223,10 +223,16 @@ describe('collector parity (TS ≡ inline)', () => {
     ['bot gate', () => window.localStorage.setItem(ADS_CONSENT_STORAGE_KEY, 'granted'), true, { ad_path: 'bot_gated', consent_state: 'granted' }],
     ['plain queue array = script not loaded', () => { w.adsbygoogle = []; }, false, { adsbygoogle_loaded: 0 }],
     ['library push = script loaded', () => { const q: unknown[] = []; (q as unknown as { push: unknown }).push = () => 0; w.adsbygoogle = q; }, false, { adsbygoogle_loaded: 1 }],
-    ['TCF API alone = Funding Choices loaded', () => { w.__tcfapi = () => undefined; }, false, { fc_loaded: 1 }],
+    // Google's ad script installs a `__tcfapi` stub by itself: live 2026-10-07 it was there with the
+    // Funding Choices script blocked, and `fc_loaded` read 1.
+    ['TCF API alone = Funding Choices not loaded', () => { w.__tcfapi = () => undefined; }, false, { fc_loaded: 0 }],
     ['bridge-only googlefc = not loaded', () => { w.googlefc = { callbackQueue: [] }; }, false, { fc_loaded: 0 }],
+    ['gate-only googlefc with a TCF stub = not loaded', () => { w.googlefc = { controlledMessagingFunction: () => undefined, __ftOfferwallGateInstalled: true, callbackQueue: [] }; w.__tcfapi = () => undefined; }, false, { fc_loaded: 0 }],
+    ['Funding Choices API: revocation message = loaded', () => { w.googlefc = { showRevocationMessage: () => undefined }; }, false, { fc_loaded: 1 }],
+    ['Funding Choices API: message type enum = loaded', () => { w.googlefc = { MessageTypeEnum: { OFFERWALL: 'offerwall' } }; }, false, { fc_loaded: 1 }],
     ['held without release reads absent', () => { w.__ftOfferwallGate = { state: 'held' }; }, false, { gate_status: 'absent' }],
-    ['idle reads absent', () => { w.__ftOfferwallGate = { state: 'idle' }; }, false, { gate_status: 'absent' }],
+    // The gate waits after an SPA entry from an off-board page (as offerwallGateStatus reads it).
+    ['idle reads off_board', () => { w.__ftOfferwallGate = { state: 'idle' }; }, false, { gate_status: 'off_board' }],
     ['off_board', () => { w.__ftOfferwallGate = { state: 'off_board' }; }, false, { gate_status: 'off_board' }],
     ['ad blocker', () => { w.__ftAdBlock = { blocked: true }; }, false, { ad_blocked: 1 }],
     ['anchor status is sanitised', () => { document.body.innerHTML = '<ins data-anchor-status="Ready To Display!"></ins>'; }, false, { anchor_status: 'readytodisplay' }],

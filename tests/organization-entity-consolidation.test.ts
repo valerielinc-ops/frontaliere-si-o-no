@@ -11,6 +11,7 @@ import {
   ORGANIZATION_POLICIES,
   ORGANIZATION_SAME_AS,
   ORGANIZATION_FOUNDING_DATE,
+  EDITORIAL_TEAM_ID,
 } from '../services/seo/organizationLd';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -41,6 +42,9 @@ const read = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf-8
 const INDEX_HTML = read('index.html');
 const SEO_PAGES = read('services/seo/seo-pages.ts');
 const STATIC_PAGES_PLUGIN = read('build-plugins/staticPagesPlugin.ts');
+const BLOG_ARTICLES = read('components/community/BlogArticles.tsx');
+const SEO_SERVICE = read('services/seoService.ts');
+const JOB_MARKET_SNAPSHOT = read('build-plugins/jobMarketSnapshotPlugin.ts');
 // Corpus pubblicato (`packages/articles/content/`, riscritto dal sync del
 // corpus): letto solo dentro il caso che lo verifica, che nel gate PR salta con
 // SKIP_LIVE_DATA e gira nel monitor dei dati vivi (live-data-test-guard).
@@ -284,6 +288,11 @@ describe('the canonical #organization entity', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('uses the canonical site logo in job-market snapshot publishers', () => {
+    expect(JOB_MARKET_SNAPSHOT).toContain('${BASE_URL}/icons/icon-512x512.png');
+    expect(JOB_MARKET_SNAPSHOT).not.toContain('${BASE_URL}/logo-512.png');
+  });
+
   it('emitters never put the Google-rejected news subtype in @type', () => {
     const offenders = pageEmitterFiles().filter((file) =>
       /['"]@type['"]\s*:\s*['"]NewsMediaOrganization['"]\s*[,}]/.test(read(file)),
@@ -308,13 +317,22 @@ describe('the canonical #organization entity', () => {
     }
   });
 
-  it('gives every static editorial byline the canonical microdata itemid', () => {
-    const bylines = [
-      ...STATIC_PAGES_PLUGIN.matchAll(
-        /itemprop="author"[^>]*itemid="https:\/\/frontaliereticino\.ch\/#organization"/g,
-      ),
-    ];
-    expect(bylines).toHaveLength(4);
+  it('gives every static editorial byline the editorial-team microdata itemid', () => {
+    const bylineMatches = STATIC_PAGES_PLUGIN.match(
+      /itemprop="author"[^>]*itemid="\$\{authorItemId\}"/g,
+    ) ?? [];
+    expect(bylineMatches).toHaveLength(4);
+    expect(STATIC_PAGES_PLUGIN).not.toContain('itemprop="author" itemscope itemtype="https://schema.org/Organization" itemid="https://frontaliereticino.ch/#organization"');
+  });
+
+  it('keeps the SPA editorial fallback separate from the publisher entity', () => {
+    expect(BLOG_ARTICLES).toContain(`'@id': EDITORIAL_TEAM_ID`);
+    expect(BLOG_ARTICLES).not.toContain("'@id': 'https://frontaliereticino.ch/#organization',\n name: 'Redazione Frontaliere Ticino'");
+  });
+
+  it('keeps runtime editorial authors separate from the publisher entity', () => {
+    expect(SEO_SERVICE.match(/"@id": EDITORIAL_TEAM_ID/g) ?? []).toHaveLength(2);
+    expect(SEO_SERVICE).not.toContain('"@id": `${BASE_URL}/#organization`,\n "name": "Redazione Frontaliere Ticino"');
   });
 });
 

@@ -49,6 +49,8 @@ vi.mock('../functions/src/emailI18n.js', () => ({
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   bridgeEmailCascadeCredentialsToEnv: vi.fn(async () => {}),
+  getNewsletterTokenPolicyConfig: vi.fn(async () => ({})),
+  getNewsletterConfirmationCopyConfig: vi.fn(async () => ({ NEWSLETTER_CONFIRMATION_COPY_ROLLOUT: '0' })),
 }));
 
 vi.mock('../functions/src/emailCascade.js', () => ({

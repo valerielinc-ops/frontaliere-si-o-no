@@ -1,20 +1,144 @@
 {
   "key": "delvitech-sa",
   "label": "Delvitech SA",
-  "generatedAt": "2026-10-05T09:27:19.039Z",
-  "total": 7,
+  "generatedAt": "2026-10-07T09:21:21.905Z",
+  "total": 10,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 0,
+  "newCount": 3,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 47775,
-  "avgDurationMs": 47775,
+  "durationMs": 25384,
+  "avgDurationMs": 25384,
   "durationHistory": [
-    47775
+    25384
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Mechanical Engineer",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
+      "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
+      "applyUrl": "https://legacy.delvi.tech/mechanical-engineer-2/",
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "companyDomain": "delvi.tech",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "delvitech-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "contactEmail": "career@delvi.tech",
+      "id": "delvitech-sa-d624f7e54b9b",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-07T09:21:09.415Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Software Development and Validation Engineer",
+      "slug": "software-development-and-validation-engineer-delvitech-mendrisio",
+      "url": "https://legacy.delvi.tech/software-development-and-validation-engineer-2/",
+      "applyUrl": "https://legacy.delvi.tech/software-development-and-validation-engineer-2/",
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "companyDomain": "delvi.tech",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "delvitech-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "contactEmail": "career@delvi.tech",
+      "id": "delvitech-sa-bfc600631968",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-07T09:21:09.415Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Customer Support Manager",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
+      "url": "https://legacy.delvi.tech/customer-support-manager/",
+      "applyUrl": "https://legacy.delvi.tech/customer-support-manager/",
+      "company": "Delvitech SA",
+      "companyKey": "delvitech-sa",
+      "companyDomain": "delvi.tech",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Tecnologia & IT",
+      "source": "delvitech-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "contactEmail": "career@delvi.tech",
+      "id": "delvitech-sa-572058706020",
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-10-07T09:21:09.415Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -50,12 +174,13 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/application-engineer-2",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -90,13 +215,14 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/back-office-specialist",
       "datePosted": "",
       "postingDateSource": "unknown",
+      "postalCode": "6850",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -131,12 +257,13 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/junior-project-manager",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -171,12 +298,13 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/front-end-sw-engineer",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -211,12 +339,13 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/firmware-embedded-developer",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -251,12 +380,13 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/devops-engineer-2",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -291,14 +421,15 @@
       "sourceIdentity": "url:https://legacy.delvi.tech/e2e-test-engineer",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "postalCode": "6850",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

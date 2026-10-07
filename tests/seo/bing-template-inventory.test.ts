@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  BING_TEMPLATE_TABLE,
   buildTemplateInventory,
   classifyBingTemplate,
+  templateIndexFor,
 } from '../../scripts/seo/bing-template-inventory.mjs';
 import {
   aggregateCrawlReports,
@@ -25,6 +27,13 @@ describe('Bing title/meta template inventory', () => {
     const result = classifyBingTemplate(`${BASE}/new-seo-family/example/`);
     expect(result.id).toBe('unknown');
     expect(result.reason).toBe('no-route-family');
+  });
+
+  it('exposes a stable compact template table for referrer attribution', () => {
+    const index = templateIndexFor(`${BASE}/en/find-jobs-geneva/example/`);
+    expect(BING_TEMPLATE_TABLE[index]).toMatchObject({ id: 'job-board-pages' });
+    expect(BING_TEMPLATE_TABLE[index].sourcePaths).toContain('build-plugins/jobsSeoPagesPlugin.ts');
+    expect(templateIndexFor(`${BASE}/not-yet-classified/`)).not.toBe(index);
   });
 
   it('groups only the two residual metadata findings and keeps bounded samples', () => {

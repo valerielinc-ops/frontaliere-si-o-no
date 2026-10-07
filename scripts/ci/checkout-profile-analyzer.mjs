@@ -59,8 +59,8 @@ export const BASELINE_MB = TABLE.baselineMb;
  *     checkout risultante   effetto reale
  *     < 300 MB              0,11x   (9x piu' veloce)
  *     300-800 MB            0,22x
- *     0,8-1,5 GB            0,79x
- *     1,5-3,5 GB            1,49x   ← PERDITA
+ *     0,8-1,0 GB            0,79x
+ *     1,0-3,5 GB            1,49x   ← PERDITA
  *     3,5-6,8 GB            2,12x   ← PERDITA
  *
  * La causa e' il meccanismo stesso: `sparse-checkout` implica `filter:blob:none`,
@@ -68,8 +68,14 @@ export const BASELINE_MB = TABLE.baselineMb;
  * arrivano con una SECONDA richiesta pigra. Quando ne servono pochi si vince
  * molto; quando ne serve gran parte, quella seconda richiesta costa piu' del
  * pack unico che si sarebbe scaricato in un colpo solo.
+ *
+ * Ricalibrato a 1.000 MB il 2026-10-05: i profili da 1.062–1.304 MB hanno
+ * impiegato 215–322 s nei run 37306401253, 37197962007 e 37347923091, mentre
+ * il checkout pieno senza filtro era a 110–127 s nei run 36707589442 e
+ * 36734404012. La soglia precedente lasciava quindi sparse proprio i job che
+ * stavano pagando la fetch pigra.
  */
-export const CROSSOVER_MB = 1500;
+export const CROSSOVER_MB = 1000;
 export const TREE_MB = TABLE.treeMb;
 
 /**

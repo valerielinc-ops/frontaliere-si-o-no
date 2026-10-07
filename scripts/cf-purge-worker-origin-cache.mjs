@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Purge the native cache entries on the Worker shard origins after a cache
  * policy rollout.
@@ -18,8 +19,6 @@
  * Auth: CF_API_TOKEN (Zone -> Cache Purge), optionally CF_ZONE_ID and
  * CF_ZONE_NAME. CI hydrates these through scripts/load-rc-env.mjs.
  */
-import { pathToFileURL } from 'node:url';
-
 import { DEFAULT_ZONE_NAME, REST_BASE, resolveZoneId } from './lib/cf-analytics.mjs';
 import { MAX_TARGETED_HOSTS } from './lib/cf-purge-limits.mjs';
 import { SECTION_ORIGIN, SHARD_ORIGIN } from '../infra/cloudflare-worker/locale-router.js';
@@ -91,7 +90,7 @@ async function main() {
   for (const host of WORKER_ORIGIN_HOSTS) console.log(`   - ${host}`);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`❌ ${error.message}`);
     process.exitCode = 1;

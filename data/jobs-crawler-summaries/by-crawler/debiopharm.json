@@ -1,19 +1,21 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-05T09:22:18.487Z",
+  "generatedAt": "2026-10-07T09:24:40.233Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3278,
-  "avgDurationMs": 3278,
+  "unchangedCount": 5,
+  "durationMs": 3674,
+  "avgDurationMs": 3674,
   "durationHistory": [
-    3278
+    3674
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "P2622 - Audit & CAPA Lead",
       "slug": "p2622-responsabilita-audit-e-capa-debiopharm-lausanne",
@@ -50,16 +52,16 @@
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/0c581ccba8",
-      "postalCode": "",
+      "postalCode": "1003",
       "streetAddress": "",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -99,17 +101,16 @@
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/59653399e4",
-      "postalCode": "",
+      "postalCode": "1003",
       "streetAddress": "",
-      "needsRetranslation": true,
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -142,16 +143,16 @@
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/d4af57df23",
-      "postalCode": "",
+      "postalCode": "1003",
       "streetAddress": "",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -181,19 +182,19 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "postalCode": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/2ebaf3007d",
       "streetAddress": "",
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -229,7 +230,7 @@
       "salaryMin": 95000,
       "salaryMax": 132500,
       "currency": "CHF",
-      "postalCode": "",
+      "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/6024013bc6",
@@ -237,16 +238,14 @@
       "datePosted": "2026-09-07T00:00:00.000Z",
       "postingDateSource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

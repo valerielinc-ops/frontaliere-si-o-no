@@ -9,7 +9,8 @@
   ],
   "detailTemplate": "/stellen/*/",
   "pagination": {
-    "maxPages": 100
+    "maxPages": 100,
+    "declaredTotalPattern": "([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate"
   },
   "sampleVacancyCount": 708,
   "sampleTitles": [

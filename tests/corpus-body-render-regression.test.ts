@@ -65,7 +65,7 @@ describe('corpus body rendering', () => {
         // budget rather than table rendering — sample-corpus-bodies.mjs caps
         // the source length to keep that out, and this says so when it slips.
         expect(html, 'sample truncated: lower MAX_LEN in sample-corpus-bodies.mjs').not.toContain('<p>…</p>');
-        expect(html).toContain('<table>');
+        expect(html).toMatch(/<table(?:\s|>)/);
         expect(SEPARATOR_RX.test(visibleText(html))).toBe(false);
       });
 

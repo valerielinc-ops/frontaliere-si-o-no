@@ -1,8 +1,9 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { verificationIsPending } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -12,6 +13,42 @@ const fields = [
   { id: 'f4', kind: 'select', label: 'Country', required: true, options: [{ label: 'Switzerland' }, { label: 'Italy' }] },
   { id: 'f5', kind: 'file', label: 'Resume/CV', required: true },
 ];
+
+describe('portal link clicks', () => {
+  it('uses a locator with a bounded timeout', async () => {
+    const link = { getAttribute: vi.fn().mockResolvedValue('/apply'), click: vi.fn().mockResolvedValue(undefined) };
+    const page = { url: () => 'https://jobs.example/careers', goto: vi.fn() };
+
+    await clickPortalLink(page, link);
+
+    expect(link.click).toHaveBeenCalledWith({ timeout: 6_000 });
+    expect(page.goto).not.toHaveBeenCalled();
+  });
+
+  it('navigates to a stable href when the live link cannot be clicked', async () => {
+    const link = { getAttribute: vi.fn().mockResolvedValue('/apply'), click: vi.fn().mockRejectedValue(new Error('element detached')) };
+    const page = { url: () => 'https://jobs.example/careers', goto: vi.fn().mockResolvedValue(undefined) };
+
+    await clickPortalLink(page, link);
+
+    expect(page.goto).toHaveBeenCalledWith('https://jobs.example/apply', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  });
+
+  it('starts the popup watcher before resolving a re-rendering apply locator', async () => {
+    const order: string[] = [];
+    const popup = { url: () => 'https://jobs.example/apply' };
+    const context = { waitForEvent: vi.fn(() => { order.push('watch'); return Promise.resolve(popup); }) };
+    const link = {
+      getAttribute: vi.fn(async () => { order.push('href'); return '/apply'; }),
+      click: vi.fn(async () => { order.push('click'); }),
+    };
+    const page = { url: () => 'https://jobs.example/careers', goto: vi.fn() };
+
+    expect(await clickPortalLink(page, link, { context })).toBe(popup);
+    expect(order).toEqual(['watch', 'href', 'click']);
+    expect(context.waitForEvent).toHaveBeenCalledWith('page', { timeout: 60_000 });
+  });
+});
 
 describe('portal plan guard (career-ops apply rules in code)', () => {
   it('drops invented sensitive answers and turns the required ones into questions', () => {
@@ -307,6 +344,33 @@ describe('portal runner helpers', () => {
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
+  });
+
+  it('recognises a resumed SuccessFactors OTP page with its code field and Continue button', () => {
+    const otpPage = {
+      fields: [{ id: 'otp', kind: 'text', inputType: 'text', label: '*Code confidentiel:', required: true }],
+      buttons: [{ id: 'continue', text: 'Continuer' }],
+      text: '',
+    };
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: 1 })).toBe(false);
+    expect(isOtpVerificationPage(otpPage, 'sunrise.wd3.myworkdayjobs.com', { verifiedAt: null })).toBe(false);
+    expect(isOtpVerificationPage({ ...otpPage, buttons: [] }, 'career5.successfactors.eu', { verifiedAt: null })).toBe(false);
+  });
+
+  it('keeps a resumed OTP page pending while SuccessFactors reports that it is loading', () => {
+    const otpPage = {
+      fields: [{ id: 'otp', kind: 'text', inputType: 'text', label: '*Code confidentiel:', required: true }],
+      buttons: [{ id: 'continue', text: 'Continuer' }],
+      text: 'Chargement en cours…',
+    };
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    expect(verificationIsPending(otpPage)).toBe(true);
+    expect(verificationIsPending({ ...otpPage, text: 'Le code est incorrect' })).toBe(false);
+    // During the post-OTP route change SuccessFactors can briefly expose a
+    // blank document; it is loading, not evidence that verification failed.
+    expect(verificationIsPending({ fields: [], buttons: [], errors: [], text: '' })).toBe(true);
+    expect(verificationIsPending({ fields: [], buttons: [], errors: [], text: 'Benvenuto' })).toBe(false);
   });
 });
 

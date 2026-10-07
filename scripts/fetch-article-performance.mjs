@@ -53,6 +53,7 @@ import {
 } from './lib/perf-sources/scoring.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { GA4_READONLY_SCOPE, getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..');
@@ -374,12 +375,7 @@ async function writeJournalistAnalyticsBack(output) {
     }
     if (!itRowById.size) return;
 
-    const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-    const { getFirestore } = await import('firebase-admin/firestore');
-    if (!getApps().length) {
-      initializeApp({ credential: applicationDefault() });
-    }
-    const db = getFirestore();
+    const db = await getFirestoreDb();
 
     const snap = await db.collection('journalist_articles').where('status', '==', 'published').get();
     const nowIso = new Date().toISOString();

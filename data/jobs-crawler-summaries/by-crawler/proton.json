@@ -1,7 +1,7 @@
 {
   "key": "proton",
   "label": "Proton",
-  "generatedAt": "2026-10-05T09:30:34.996Z",
+  "generatedAt": "2026-10-07T09:30:47.955Z",
   "total": 37,
   "discovered": null,
   "parsed": 36,
@@ -12,58 +12,16 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 34,
-  "durationMs": 14574,
-  "avgDurationMs": 14574,
+  "unchangedCount": 35,
+  "durationMs": 16392,
+  "avgDurationMs": 16392,
   "durationHistory": [
-    14574
+    16392
   ],
-  "newJobs": [
-    {
-      "id": "proton-15b36b558ab2",
-      "slug": "software-engineer-windows-vpn-proton-ch",
-      "company": "Proton",
-      "companyKey": "proton",
-      "companyDomain": "proton.me",
-      "title": "Software Engineer, Windows (VPN)",
-      "location": "Barcelona",
-      "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4767539101",
-      "source": "Proton Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:24.910Z",
-      "addressLocality": "Barcelona",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "IT & Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-01-27T07:40:08-05:00",
-      "postedDate": "2026-01-27T07:40:08-05:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4767539101",
-      "needsRetranslation": true,
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "firstSeenAt": "2026-10-05T09:30:24.910Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 19
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "proton-550dbdc996fb",
@@ -77,7 +35,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848724101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:25.513Z",
+      "crawledAt": "2026-10-07T09:30:28.376Z",
       "addressLocality": "Geneva, Switzerland, London, England, United Kingdom",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,54 +55,56 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "proton-e8fc8bcc059c",
-      "slug": "direttore-tecnico-senior-proton-geneva-switzerland-paris-france",
+      "id": "proton-413579452a2b",
+      "slug": "senior-product-designer-vpn-proton-ch",
       "company": "Proton",
       "companyKey": "proton",
       "companyDomain": "proton.me",
-      "title": "Senior Engineering Manager",
-      "location": "Geneva, Switzerland, Paris, France",
+      "title": "Senior Product Designer - (VPN)",
+      "location": "Geneva, Barcelona",
       "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
+      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:19.144Z",
-      "addressLocality": "Geneva, Switzerland, Paris, France",
+      "crawledAt": "2026-10-07T09:30:24.134Z",
+      "addressLocality": "Geneva, Barcelona",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Ingegneria",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "senior",
       "sector": "IT & Tecnologia",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-07-23T05:08:47-04:00",
-      "postedDate": "2026-07-23T05:08:47-04:00",
+      "datePosted": "2026-10-06T13:25:02-04:00",
+      "postedDate": "2026-10-06T13:25:02-04:00",
       "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-26T14:07:26.125Z",
-      "salaryMin": 97500,
-      "salaryMax": 148000,
+      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-06T21:30:27.425Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
+        "richness": 18,
+        "translation": 23,
+        "completeness": 22
       }
     }
   ],
@@ -152,7 +112,7 @@
   "unchangedJobs": [
     {
       "id": "proton-fb0c616e05fa",
-      "slug": "sre-manager-vpn-proton-ch",
+      "slug": "gestore-sre-vpn-proton-barcelona-geneva",
       "company": "Proton",
       "companyKey": "proton",
       "companyDomain": "proton.me",
@@ -162,7 +122,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4996320101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:25.212Z",
+      "crawledAt": "2026-10-07T09:30:28.073Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,13 +142,56 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 73,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 19,
-        "completeness": 19
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "proton-15b36b558ab2",
+      "slug": "software-ingegnere-windows-vpn-proton-barcelona-geneva",
+      "company": "Proton",
+      "companyKey": "proton",
+      "companyDomain": "proton.me",
+      "title": "Software Engineer, Windows (VPN)",
+      "location": "Barcelona",
+      "canton": "GE",
+      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4767539101",
+      "source": "Proton Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:30:27.770Z",
+      "addressLocality": "Barcelona",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "IT & Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-01-27T07:40:08-05:00",
+      "postedDate": "2026-01-27T07:40:08-05:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4767539101",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:30:24.910Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -203,7 +206,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:24.607Z",
+      "crawledAt": "2026-10-07T09:30:27.468Z",
       "addressLocality": "London UK, Geneva CH",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,13 +225,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -243,7 +247,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:24.304Z",
+      "crawledAt": "2026-10-07T09:30:27.164Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,53 +267,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "proton-8753976b9728",
-      "slug": "software-ingegnere-proton-geneva",
-      "company": "Proton",
-      "companyKey": "proton",
-      "companyDomain": "proton.me",
-      "title": "Software Engineer",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4941344101",
-      "source": "Proton Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:24.002Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "IT & Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-07-30T04:30:13-04:00",
-      "postedDate": "2026-07-30T04:30:13-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4941344101",
-      "firstSeenAt": "2026-09-02T23:22:10.337Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -324,7 +289,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:23.700Z",
+      "crawledAt": "2026-10-07T09:30:26.862Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -344,13 +309,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -365,7 +331,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:23.398Z",
+      "crawledAt": "2026-10-07T09:30:26.559Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -385,13 +351,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -406,7 +373,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:23.096Z",
+      "crawledAt": "2026-10-07T09:30:26.257Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -426,54 +393,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "proton-388def4c9118",
-      "slug": "senior-tax-specialista-direct-indirect-taxes-multi-jurisdiction-proton-geneva",
-      "company": "Proton",
-      "companyKey": "proton",
-      "companyDomain": "proton.me",
-      "title": "Senior Tax Specialist (Direct & Indirect Taxes, Multi Jurisdiction)",
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
-      "source": "Proton Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:22.794Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "IT & Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-09-04T02:13:59-04:00",
-      "postedDate": "2025-09-04T02:13:59-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T23:16:33.415Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -488,7 +415,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4588886101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:22.493Z",
+      "crawledAt": "2026-10-07T09:30:25.954Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -507,13 +434,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -528,7 +456,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4766179101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:22.191Z",
+      "crawledAt": "2026-10-07T09:30:25.650Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -548,13 +476,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -569,7 +498,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4777667101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:21.888Z",
+      "crawledAt": "2026-10-07T09:30:25.346Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -588,13 +517,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -609,7 +539,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4725157101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:21.584Z",
+      "crawledAt": "2026-10-07T09:30:25.043Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -628,13 +558,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -649,7 +580,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:21.282Z",
+      "crawledAt": "2026-10-07T09:30:24.740Z",
       "addressLocality": "Barcelona",
       "addressCountry": "CH",
       "country": "CH",
@@ -669,13 +600,14 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 23,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -690,7 +622,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:20.979Z",
+      "crawledAt": "2026-10-07T09:30:24.437Z",
       "addressLocality": "Geneva, Switzerland, Paris, France",
       "addressCountry": "CH",
       "country": "CH",
@@ -709,18 +641,19 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
       "id": "proton-ddd16e8c47fc",
-      "slug": "senior-product-designer-drive-proton-ch",
+      "slug": "designer-di-prodotti-senior-drive-proton-london-geneva",
       "company": "Proton",
       "companyKey": "proton",
       "companyDomain": "proton.me",
@@ -730,7 +663,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4947375101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:20.657Z",
+      "crawledAt": "2026-10-07T09:30:23.802Z",
       "addressLocality": "London, Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -750,13 +683,14 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 77,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 23,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -771,7 +705,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:20.354Z",
+      "crawledAt": "2026-10-07T09:30:23.500Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -790,13 +724,14 @@
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -811,7 +746,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4870234101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:20.052Z",
+      "crawledAt": "2026-10-07T09:30:23.197Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,13 +765,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -851,7 +787,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:19.750Z",
+      "crawledAt": "2026-10-07T09:30:22.895Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -871,13 +807,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -892,7 +829,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:19.447Z",
+      "crawledAt": "2026-10-07T09:30:22.593Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -912,13 +849,55 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "proton-e8fc8bcc059c",
+      "slug": "direttore-tecnico-senior-proton-geneva-switzerland-paris-france",
+      "company": "Proton",
+      "companyKey": "proton",
+      "companyDomain": "proton.me",
+      "title": "Senior Engineering Manager",
+      "location": "Geneva, Switzerland, Paris, France",
+      "canton": "GE",
+      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
+      "source": "Proton Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:30:22.290Z",
+      "addressLocality": "Geneva, Switzerland, Paris, France",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "IT & Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-07-23T05:08:47-04:00",
+      "postedDate": "2026-07-23T05:08:47-04:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
+      "firstSeenAt": "2026-09-26T14:07:26.125Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -933,7 +912,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953832101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:18.842Z",
+      "crawledAt": "2026-10-07T09:30:21.986Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -952,13 +931,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -973,7 +953,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4826396101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:18.540Z",
+      "crawledAt": "2026-10-07T09:30:21.683Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -992,13 +972,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1013,7 +994,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4739749101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:18.238Z",
+      "crawledAt": "2026-10-07T09:30:21.381Z",
       "addressLocality": "Paris",
       "addressCountry": "CH",
       "country": "CH",
@@ -1032,13 +1013,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1053,7 +1035,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:17.937Z",
+      "crawledAt": "2026-10-07T09:30:21.079Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1073,13 +1055,14 @@
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1094,7 +1077,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:17.633Z",
+      "crawledAt": "2026-10-07T09:30:20.776Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1114,13 +1097,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1135,7 +1119,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:17.326Z",
+      "crawledAt": "2026-10-07T09:30:20.473Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1155,13 +1139,14 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 79,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1176,7 +1161,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4903325101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:17.022Z",
+      "crawledAt": "2026-10-07T09:30:20.170Z",
       "addressLocality": "Paris, Geneva, London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1196,13 +1181,14 @@
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1217,7 +1203,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4941983101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:16.718Z",
+      "crawledAt": "2026-10-07T09:30:19.867Z",
       "addressLocality": "London",
       "addressCountry": "CH",
       "country": "CH",
@@ -1235,13 +1221,14 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -1256,7 +1243,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4555348101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:16.415Z",
+      "crawledAt": "2026-10-07T09:30:19.565Z",
       "addressLocality": "London, Paris, Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1275,13 +1262,56 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "proton-fa82de98165b",
+      "slug": "gestione-della-crescita-b2b-proton-london",
+      "company": "Proton",
+      "companyKey": "proton",
+      "companyDomain": "proton.me",
+      "title": "Growth Manager B2B",
+      "location": "London",
+      "canton": "GE",
+      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4737357101",
+      "source": "Proton Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:30:19.262Z",
+      "addressLocality": "London",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "IT & Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2025-12-15T03:26:42-05:00",
+      "postedDate": "2025-12-15T03:26:42-05:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4737357101",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T21:38:30.541Z",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1296,7 +1326,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:16.112Z",
+      "crawledAt": "2026-10-07T09:30:18.960Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1316,56 +1346,16 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
+      "postalCode": "1204",
       "addressRegion": "GE",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "proton-4715d65515fc",
-      "slug": "frontend-ingegnere-b2b-products-proton-taipei-geneva-skopje",
-      "company": "Proton",
-      "companyKey": "proton",
-      "companyDomain": "proton.me",
-      "title": "Frontend Engineer (B2B Products)",
-      "location": "Taipei",
-      "canton": "GE",
-      "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
-      "source": "Proton Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:30:15.809Z",
-      "addressLocality": "Taipei",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "IT & Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-18T00:08:10-04:00",
-      "postedDate": "2026-03-18T00:08:10-04:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4814505101",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:07:21.869Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

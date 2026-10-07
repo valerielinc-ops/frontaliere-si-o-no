@@ -37,6 +37,52 @@ set -euo pipefail
 # historical working-tree fallback.
 push_input=$(cat)
 
+# Primo commit cambiato dalla riscrittura della storia: impedisce di ripubblicare
+# una storia precedente dopo che il coordinatore avrà tolto public/images/events.
+# Potrà essere tolta solo dopo la riscrittura e la bonifica di tutti i clone e
+# worktree che possono ancora conoscere la storia precedente.
+readonly OLD_HISTORY_FIRST_CHANGED_COMMIT='dab77221540a4e369440f762228be7e0be21155d'
+
+# Prima della riscrittura origin/main contiene il marker, quindi la guardia è
+# inerte. Un tracking ref locale può però essere vecchio proprio nel clone che
+# va protetto: solo se un local sha contiene il marker aggiorniamo origin/main
+# dal remote, poi rifiutiamo la storia vecchia se il ref aggiornato non lo ha.
+if git cat-file -e "${OLD_HISTORY_FIRST_CHANGED_COMMIT}^{commit}" 2>/dev/null; then
+  old_history_is_in_local_push=0
+  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+    [ -z "$local_sha" ] && continue
+    case "$local_sha" in
+      0000000000000000000000000000000000000000) continue ;;
+    esac
+    if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" "$local_sha" 2>/dev/null; then
+      old_history_is_in_local_push=1
+      break
+    fi
+  done <<< "$push_input"
+
+  if [ "$old_history_is_in_local_push" = "1" ]; then
+    if ! node scripts/ci/pre-push-refresh-origin-main.mjs; then
+      echo "Push rifiutato: impossibile aggiornare origin/main prima del controllo della storia precedente." >&2
+      exit 1
+    fi
+    if ! git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" refs/remotes/origin/main 2>/dev/null; then
+      while read -r _local_ref local_sha _remote_ref _remote_sha; do
+        [ -z "$local_sha" ] && continue
+        case "$local_sha" in
+          0000000000000000000000000000000000000000) continue ;;
+        esac
+        if git merge-base --is-ancestor "$OLD_HISTORY_FIRST_CHANGED_COMMIT" "$local_sha" 2>/dev/null; then
+          echo "Push rifiutato: il branch contiene la storia precedente alla riscrittura."
+          echo "Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:"
+          echo "  git rebase --onto origin/main <vecchia base> <branch>"
+          echo "Non usare --no-verify."
+          exit 1
+        fi
+      done <<< "$push_input"
+    fi
+  fi
+fi
+
 # ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
 # npm ci's `prepare` script sets core.hooksPath=.githooks inside EVERY GitHub
 # Actions job as well, so this gate also fired on data-refresh workflows that

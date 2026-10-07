@@ -56,7 +56,8 @@ import {
   formatPriorityReport,
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
-import { logCascadeSummary } from './lib/free-translate.mjs';
+import { getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
+import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
@@ -2562,6 +2563,9 @@ if (invokedDirectly) {
   // direct-invocation guard, so importing this module (e.g. from the mop-up) does
   // NOT overwrite the marker with the importer's start time.
   markRunStart(RUN_START_MS);
+  // Riserva Codex della fase 2b (decisione H7, 2026-10-05): contatori del tier
+  // per la storia e per l'allarme delle credenziali, scritti su ogni uscita.
+  installCodexReserveReport('2b-cascade', () => ({ codex: getCodexTierStats(), cascade: getCascadeStats() }));
   main().catch((err) => {
     console.error('❌ Re-localization failed:', err?.message || err);
     process.exit(1);

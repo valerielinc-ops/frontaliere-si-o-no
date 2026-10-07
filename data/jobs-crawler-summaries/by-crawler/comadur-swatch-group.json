@@ -1,21 +1,60 @@
 {
   "key": "comadur-swatch-group",
   "label": "comadur-swatch-group",
-  "generatedAt": "2026-10-05T09:23:15.177Z",
-  "total": 0,
-  "authoritativeEmptySnapshot": true,
+  "generatedAt": "2026-10-07T09:25:46.713Z",
+  "total": 1,
+  "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 357031,
-  "avgDurationMs": 357031,
+  "durationMs": 392921,
+  "avgDurationMs": 392921,
   "durationHistory": [
-    357031
+    392921
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "company-7uc1k7",
+      "slug": "mecanicien-mouliste-comadur-sa-boncourt",
+      "company": "Comadur SA",
+      "title": "Mécanicien - Mouliste",
+      "location": "Boncourt",
+      "canton": "JU",
+      "category": "other",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.swatchgroup.com/fr/job/33350",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/33350",
+      "source": "Company Careers Crawler",
+      "companyKey": "comadur-swatch-group",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-10-07T09:25:35.556Z",
+      "firstSeenAt": "2026-10-06T09:19:09.285Z",
+      "sourceLang": "fr",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "addressLocality": "Boncourt",
+      "addressRegion": "JU",
+      "employmentType": "FULL_TIME",
+      "postalCode": "2926",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

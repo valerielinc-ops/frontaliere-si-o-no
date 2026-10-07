@@ -322,6 +322,54 @@ describe('prospector public-only polite transport', () => {
     expect(fetchImpl).toHaveBeenCalledWith(unrelated, expect.objectContaining({ redirect: 'manual' }));
   });
 
+  it('fails closed when a non-empty spec loses too many detail pages', async () => {
+    const seed = 'https://employer.example/careers/';
+    const details = Array.from({ length: 10 }, (_, index) => (
+      `https://employer.example/careers/detail/${index + 1}`
+    ));
+    const listing = details
+      .map((url, index) => `<a href="${url}">Platform Engineer ${index + 1}</a>`)
+      .join('');
+    const detailHtml = (index: number) => '<h1>Platform Engineer ' + (index + 1) + '</h1>'
+      + '<div class="job-location">Zürich</div>'
+      + '<article class="vacancy-description">'
+      + 'Build reliable systems for our engineering organisation, coordinate production releases, '
+      + 'improve observability, support colleagues across the platform team, and document resilient '
+      + 'operational practices for every service owner in Zürich.'
+      + '</article>';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, listing);
+      const index = details.indexOf(url);
+      if (index < 0) throw new Error(`unexpected URL ${url}`);
+      if (index >= 8) return response(url, 404, null, 'gone');
+      return response(url, 200, null, detailHtml(index));
+    });
+
+    let error: any;
+    try {
+      await runSpecInProduction({
+        companyKey: 'employer', companyName: 'Employer', companyHost: 'employer.example',
+        mode: 'template', seedUrls: [seed], detailTemplate: '/careers/detail/*',
+        detailEnrichment: true,
+      } as any, {
+        fetchImpl,
+        disableWafProxy: true,
+        retries: 0,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+      });
+    } catch (caught) {
+      error = caught;
+    }
+
+    expect(error).toMatchObject({
+      specDetailDrop: { candidates: 10, gone: 2, rejected: 0, dropped: 2 },
+      specDiscoveredCount: 10,
+    });
+    expect(error.message).toMatch(/detail snapshot incompleto: 2\/10/);
+  });
+
   it.each([
     ['a detail page without tenant evidence', false],
     ['a detail fetch error', true],

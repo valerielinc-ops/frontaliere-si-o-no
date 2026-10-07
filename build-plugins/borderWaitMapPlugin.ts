@@ -717,6 +717,10 @@ export function renderPage(opts: {
   // Build a Place[] list of the crossings for the Map structured data
   const places = TICINO_MAP_CROSSINGS.map((slug) => ({
     '@type': 'Place',
+    // The same physical crossing is listed on four localized map pages.
+    // Anchor its identity to the Italian canonical route so locale URLs do
+    // not create four anonymous Place entities per crossing.
+    '@id': `${buildCrossingLiveUrl(slug, 'it')}#place`,
     name: BORDER_CROSSING_DISPLAY[slug],
     url: buildCrossingLiveUrl(slug, locale),
     address: {

@@ -31,7 +31,12 @@ import { buildJobPostingSchema } from './shared/jobPostingSchema';
 import { composeSerpJobTitle, truncateHeadline } from './shared/titleSuffix';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
-import { resolvePublisherAdsFlushed, type EmittedPublisherAd } from './shared/buildSignals';
+import {
+  employerProfilesFlushed,
+  resolvePublisherAdsFlushed,
+  type EmittedEmployerProfile,
+  type EmittedPublisherAd,
+} from './shared/buildSignals';
 import { renderPublisherMarkdown } from '../services/publisherMarkdown';
 import { generateInitialsLogo } from '../services/logoService';
 
@@ -44,6 +49,24 @@ const OG_LOCALE: Record<AdLocale, string> = { it: 'it_CH', en: 'en_US', de: 'de_
 const localePrefix = (locale: AdLocale): string => (locale === 'it' ? '' : `/${locale}`);
 // Canonical detail path for a slug in a given locale (trailing slash — site rule).
 const detailPath = (locale: AdLocale, slug: string): string => `${localePrefix(locale)}/lavoro/${slug}/`;
+
+/**
+ * Return the canonical employer-profile slugs written by this build.
+ * `employerProfilesFlushed` deliberately carries paths rather than slugs so
+ * consumers cannot reconstruct a profile URL from an un-emitted source row.
+ * Keep one slug per profile even though the producer reports one path per
+ * locale.
+ */
+export function employerProfileSlugsFromEmittedProfiles(
+  profiles: ReadonlyArray<Pick<EmittedEmployerProfile, 'path'>>,
+): ReadonlySet<string> {
+  const slugs = new Set<string>();
+  for (const profile of profiles) {
+    const match = /^(?:\/(?:en|de|fr))?\/aziende\/([^/]+)\/$/.exec(String(profile.path || ''));
+    if (match?.[1]) slugs.add(match[1]);
+  }
+  return slugs;
+}
 
 // Per-locale job-listing root for the breadcrumb parent.
 const JOBS_ROOT: Record<AdLocale, { path: string; label: string }> = {
@@ -345,7 +368,22 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'publisher-ad-pages',
     apply: 'build',
-    async closeBundle() {
+    // employerProfilePagesPlugin owns the signal this emitter awaits below.
+    // Keep this hook in Vite's post group so the producer runs before the
+    // sequential production profile reaches this consumer. Without the
+    // group barrier, the consumer runs with the normal hooks while the
+    // producer is deferred by enforce:'post'; the unresolved signal lets
+    // Node exit 0 before staticPagesPlugin emits the critical IT landings.
+    enforce: 'post',
+    // The profile wrapper makes plain hooks sequential, but Rollup still
+    // sorts an unannotated hook into its default bucket. Keep this consumer
+    // behind the employer-profile producer at both layers: Vite's post group
+    // and Rollup's post ObjectHook bucket. `sequential:true` then makes the
+    // producer's completed promise a real ordering barrier.
+    closeBundle: {
+      order: 'post',
+      sequential: true,
+      handler: async () => {
       if (process.env.SKIP_PUBLISHER_AD_PAGES === '1') {
         console.log('\x1b[33m[publisher-ad-pages]\x1b[0m Skipped (SKIP_PUBLISHER_AD_PAGES=1)');
         resolvePublisherAdsFlushed([]);
@@ -393,6 +431,14 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'publisherAdPagesPlugin' });
+      // The JobPosting builder must only use `/aziende/<slug>/` when that
+      // profile is emitted by this build. Publisher ads can name any company,
+      // so wait for the profile producer and derive the registry from the
+      // paths it actually wrote. Loading the source profile file here would
+      // also admit rows that were filtered before emission.
+      const knownEmployerProfileSlugs = employerProfileSlugsFromEmittedProfiles(
+        await employerProfilesFlushed,
+      );
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       const emittedAds: EmittedPublisherAd[] = [];
       let pagesWritten = 0;
@@ -419,7 +465,11 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const bodyHtml = renderBody(rec, locale);
           const wordCount = countHtmlBodyWords(bodyHtml);
 
-          const jobPosting = buildJobPostingSchema(rec, { locale, url: canonicalUrl });
+          const jobPosting = buildJobPostingSchema(rec, {
+            locale,
+            url: canonicalUrl,
+            knownSlugs: knownEmployerProfileSlugs,
+          });
           const jobPostingLd = jobPosting ? inlineScriptJson(jobPosting) : null;
           const breadcrumbLd = inlineScriptJson({
             '@context': 'https://schema.org',
@@ -536,6 +586,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
         `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}${canarySkipped ? `, ${canarySkipped} canary/test excluded from sitemap` : ''}) — flushed ${written} files.`,
       );
       resolvePublisherAdsFlushed(emittedAds);
+      },
     },
   };
 }

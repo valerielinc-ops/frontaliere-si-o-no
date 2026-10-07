@@ -11,20 +11,22 @@
  */
 
 import { JSDOM } from 'jsdom';
+import {
+  safeHttpsUrl,
+  validatePharmacyEnrichmentConfig,
+  validatePharmacyEnrichmentSnapshot,
+} from './pharmacy-enrichment-validation.mjs';
+
+export { validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot };
 
 const DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 const ITALIAN_DAYS = ['lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica'];
 const ENGLISH_DAYS = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-const SOURCE_TYPES = new Set([
-  'official',
-  'association',
-  'pharmacy',
-  'verified_partner',
-  'directory',
-  'google_business_profile',
-  'facebook',
+const ITALIAN_MONTHS = new Map([
+  ['gennaio', 1], ['febbraio', 2], ['marzo', 3], ['aprile', 4],
+  ['maggio', 5], ['giugno', 6], ['luglio', 7], ['agosto', 8],
+  ['settembre', 9], ['ottobre', 10], ['novembre', 11], ['dicembre', 12],
 ]);
-const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail']);
 const SOURCE_RANK = Object.freeze({
   official: 60,
   association: 50,
@@ -50,16 +52,6 @@ function normalizedTokens(value) {
   return new Set(normalize(value)
     .split(/[^a-z0-9]+/)
     .filter((token) => token.length > 2 && !['farmacia', 'farmacie', 'dott', 'dr', 'del', 'dei', 'della', 'sas', 'srl'].includes(token)));
-}
-
-function safeHttpsUrl(value) {
-  if (typeof value !== 'string' || !value.trim()) return undefined;
-  try {
-    const url = new URL(value.trim());
-    return url.protocol === 'https:' ? url.toString() : undefined;
-  } catch {
-    return undefined;
-  }
 }
 
 function digits(value) {
@@ -126,6 +118,95 @@ export function parseItalianHours(value) {
     }
   }
   return dedupeHours(result);
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function pdfIdentityMatches(pharmacy, bodyText) {
+  const body = normalize(bodyText);
+  const city = normalize(pharmacy.city);
+  const number = (String(pharmacy.address || '').match(/\b\d+[a-z]?\b/i) || [])[0];
+  const streetTokens = [...normalizedTokens(pharmacy.address)]
+    .filter((token) => !/^(via|viale|piazza|corso|largo|strada|vicolo|contrada)$/.test(token));
+  const nameTokens = [...normalizedTokens(pharmacy.name)].filter((token) => token !== city);
+  return Boolean(
+    city
+    && body.includes(city)
+    && number
+    && body.includes(normalize(number))
+    && streetTokens.some((token) => body.includes(token))
+    && nameTokens.some((token) => body.includes(token)),
+  );
+}
+
+function pdfSourceUpdatedAt(pdfText) {
+  const match = normalize(pdfText).match(/\b(?:ed|edizione|aggiornato)\.?\s+(gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)\s+(\d{4})\b/i);
+  if (!match) return undefined;
+  const month = ITALIAN_MONTHS.get(match[1].toLowerCase());
+  const year = Number(match[2]);
+  return month && Number.isInteger(year) ? `${String(year).padStart(4, '0')}-${String(month).padStart(2, '0')}-01T00:00:00.000Z` : undefined;
+}
+
+function pdfPhoneCandidate(pdfText, pharmacy) {
+  const normalizedPdf = normalize(pdfText);
+  const currentPhone = digits(pharmacy.phone);
+  const streetToken = [...normalizedTokens(pharmacy.address)]
+    .filter((token) => !/^(via|viale|piazza|corso|largo|strada|vicolo|contrada)$/.test(token))
+    .sort((left, right) => right.length - left.length)[0];
+  const nameToken = [...normalizedTokens(pharmacy.name)]
+    .filter((token) => token !== normalize(pharmacy.city))
+    .sort((left, right) => right.length - left.length)[0];
+  const number = (String(pharmacy.address || '').match(/\b\d+[a-z]?\b/i) || [])[0];
+  const rowAnchor = nameToken && streetToken && number
+    ? new RegExp(`${escapeRegExp(nameToken)}[\\s\\S]{0,260}${escapeRegExp(streetToken)}[^0-9]{0,20}${escapeRegExp(number)}`, 'i')
+    : null;
+  const streetAnchor = streetToken && number
+    ? new RegExp(`${escapeRegExp(streetToken)}[^0-9]{0,20}${escapeRegExp(number)}`, 'i')
+    : null;
+  const anchor = rowAnchor || streetAnchor;
+  const anchorIndex = anchor ? normalizedPdf.search(anchor) : -1;
+  const context = anchorIndex >= 0 ? normalizedPdf.slice(anchorIndex, anchorIndex + 180) : normalizedPdf;
+  const candidates = [...context.matchAll(/(?:\+39[\s./-]*)?0(?:[\s./-]*\d){7,10}/g)]
+    .map((match) => ({ raw: text(match[0]), value: digits(match[0]) }))
+    .filter((candidate) => candidate.value.length >= 8 && candidate.value.length <= 12);
+  const selected = candidates.find((candidate) => currentPhone && candidate.value === currentPhone) || candidates[0];
+  return selected?.raw;
+}
+
+/** Extract only allow-listed facts from an official PDF row/list. */
+export function extractPdfFacts(pdfText, pharmacy, source) {
+  const sourceUpdatedAt = pdfSourceUpdatedAt(pdfText);
+  if (!pdfIdentityMatches(pharmacy, pdfText)) return { facts: {}, sourceUpdatedAt, matched: false };
+  const facts = {};
+  if (new Set(source.fields || []).has('phone')) {
+    const phone = pdfPhoneCandidate(pdfText, pharmacy);
+    if (phone) facts.phone = phone;
+  }
+  return { facts, sourceUpdatedAt, matched: true };
+}
+
+/** Convert PDF bytes to text without persisting the source document. */
+export async function extractPharmacyPdfText(bytes) {
+  const { extractText, getDocumentProxy } = await import('unpdf');
+  const data = bytes instanceof ArrayBuffer
+    ? new Uint8Array(bytes)
+    : ArrayBuffer.isView(bytes)
+      ? new Uint8Array(bytes.buffer, bytes.byteOffset, bytes.byteLength)
+      : null;
+  if (!data) throw new TypeError('pharmacy PDF source must be an ArrayBuffer or typed array');
+  const pdf = await getDocumentProxy(data);
+  try {
+    const extracted = await extractText(pdf, { mergePages: false });
+    return Array.isArray(extracted?.text) ? extracted.text.join('\n') : text(extracted?.text);
+  } finally {
+    try {
+      await pdf.destroy();
+    } catch {
+      /* noop */
+    }
+  }
 }
 
 function dedupeHours(hours) {
@@ -320,11 +401,29 @@ async function enrichHtmlSource(record, pharmacy, source, checkedAt, fetchDocume
       warnings.push(`${source.id}: page did not match ${pharmacy.id}; no facts published`);
       return;
     }
-    const acceptedFields = [];
-    for (const field of source.fields || []) {
-      if (setFact(record, field, parsed.facts[field], source, checkedAt)) acceptedFields.push(field);
+    const observedFields = (source.fields || []).filter((field) => hasFieldValue(parsed.facts[field]));
+    for (const field of observedFields) setFact(record, field, parsed.facts[field], source, checkedAt);
+    // Keep a matched source even when its values lose field-level precedence
+    // to an official source. The selected fact and the corroborating source
+    // are separate pieces of provenance and both help readers/agents audit
+    // the identity without allowing a lower-trust source to overwrite it.
+    addExternalSource(record, source, checkedAt, observedFields, parsed.sourceUpdatedAt);
+  } catch (error) {
+    warnings.push(`${source.id}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+async function enrichPdfSource(record, pharmacy, source, checkedAt, fetchPdfText, warnings) {
+  try {
+    const pdfText = await fetchPdfText(source.url);
+    const parsed = extractPdfFacts(pdfText, pharmacy, source);
+    if (!parsed.matched) {
+      warnings.push(`${source.id}: PDF did not match ${pharmacy.id}; no facts published`);
+      return;
     }
-    addExternalSource(record, source, checkedAt, acceptedFields, parsed.sourceUpdatedAt);
+    const observedFields = (source.fields || []).filter((field) => hasFieldValue(parsed.facts[field]));
+    for (const field of observedFields) setFact(record, field, parsed.facts[field], source, checkedAt);
+    addExternalSource(record, source, checkedAt, observedFields, parsed.sourceUpdatedAt);
   } catch (error) {
     warnings.push(`${source.id}: ${error instanceof Error ? error.message : String(error)}`);
   }
@@ -414,60 +513,15 @@ async function enrichFacebookProvider(records, pharmacies, provider, checkedAt, 
         sourceType: 'facebook',
         fields: ['phone', 'website', 'openingHours', 'contactEmail'],
       };
-      const acceptedFields = [];
-      for (const field of source.fields) {
-        if (setFact(records[pharmacy.id], field, facts[field], source, checkedAt)) acceptedFields.push(field);
-      }
-      addExternalSource(records[pharmacy.id], source, checkedAt, acceptedFields);
+      const observedFields = source.fields.filter((field) => hasFieldValue(facts[field]));
+      for (const field of observedFields) setFact(records[pharmacy.id], field, facts[field], source, checkedAt);
+      // Preserve the matched Page as corroborating provenance even when the
+      // official catalogue/municipal source remains the selected fact source.
+      addExternalSource(records[pharmacy.id], source, checkedAt, observedFields);
     } catch (error) {
       warnings.push(`facebook:${pharmacy.id}: ${error instanceof Error ? error.message : String(error)}`);
     }
   }
-}
-
-export function validatePharmacyEnrichmentConfig(config) {
-  const errors = [];
-  if (config?.schemaVersion !== 1) errors.push('enrichment source registry schemaVersion must be 1');
-  if (!Array.isArray(config?.sources)) errors.push('enrichment source registry sources must be an array');
-  for (const source of config?.sources || []) {
-    if (!source?.id) errors.push('enrichment source is missing id');
-    if (!source?.pharmacyId) errors.push(`${source?.id || '<unknown>'}: missing pharmacyId`);
-    if (!safeHttpsUrl(source?.url)) errors.push(`${source?.id || '<unknown>'}: URL must be HTTPS`);
-    if (!SOURCE_TYPES.has(source?.sourceType)) errors.push(`${source?.id || '<unknown>'}: invalid sourceType`);
-    if (!Array.isArray(source?.fields) || source.fields.some((field) => !FIELDS.has(field))) errors.push(`${source?.id || '<unknown>'}: invalid fields`);
-    if (source?.status !== 'active') errors.push(`${source?.id || '<unknown>'}: source must be active`);
-  }
-  for (const [providerName, provider] of Object.entries(config?.providers || {})) {
-    if (typeof provider?.enabled !== 'boolean') errors.push(`${providerName}: enabled must be boolean`);
-    if (!Array.isArray(provider?.pharmacyIds)) errors.push(`${providerName}: pharmacyIds must be an array`);
-    if (provider?.maxAgeDays !== undefined && (!Number.isFinite(Number(provider.maxAgeDays)) || Number(provider.maxAgeDays) <= 0)) errors.push(`${providerName}: maxAgeDays must be a positive number`);
-  }
-  return errors;
-}
-
-export function validatePharmacyEnrichmentSnapshot(snapshot) {
-  const errors = [];
-  if (snapshot?.schemaVersion !== 1) errors.push('enrichment snapshot schemaVersion must be 1');
-  if (!snapshot?.generatedAt || !Number.isFinite(Date.parse(snapshot.generatedAt))) errors.push('enrichment snapshot generatedAt is invalid');
-  if (!snapshot?.records || typeof snapshot.records !== 'object' || Array.isArray(snapshot.records)) errors.push('enrichment snapshot records must be an object');
-  for (const [id, record] of Object.entries(snapshot?.records || {})) {
-    if (!record?.checkedAt || !Number.isFinite(Date.parse(record.checkedAt))) errors.push(`${id}: checkedAt is invalid`);
-    if (record?.googlePlaceId !== undefined && !/^[A-Za-z0-9_-]+$/.test(String(record.googlePlaceId))) errors.push(`${id}: googlePlaceId is invalid`);
-    for (const [field, source] of Object.entries(record?.fieldSources || {})) {
-      if (!FIELDS.has(field)) errors.push(`${id}: invalid field ${field}`);
-      if (!safeHttpsUrl(source?.url)) errors.push(`${id}.${field}: source URL must be HTTPS`);
-      if (!SOURCE_TYPES.has(source?.sourceType)) errors.push(`${id}.${field}: invalid sourceType`);
-      if (!source?.checkedAt || !Number.isFinite(Date.parse(source.checkedAt))) errors.push(`${id}.${field}: checkedAt is invalid`);
-    }
-    for (const source of record?.externalSources || []) {
-      if (!safeHttpsUrl(source?.url)) errors.push(`${id}: external source URL must be HTTPS`);
-      if (!source?.label || !SOURCE_TYPES.has(source?.sourceType)) errors.push(`${id}: invalid external source identity`);
-      if (!Array.isArray(source?.fields) || source.fields.some((field) => !FIELDS.has(field)) || (!source.fields.length && source.sourceType !== 'google_business_profile')) errors.push(`${id}: invalid external source fields`);
-      if (source?.sourceType === 'google_business_profile' && (typeof source.placeId !== 'string' || !/^[A-Za-z0-9_-]+$/.test(source.placeId))) errors.push(`${id}: Google external source is missing a valid placeId`);
-      if (!source?.checkedAt || !Number.isFinite(Date.parse(source.checkedAt))) errors.push(`${id}: external source checkedAt is invalid`);
-    }
-  }
-  return errors;
 }
 
 export async function enrichPharmacyRecords(
@@ -477,6 +531,7 @@ export async function enrichPharmacyRecords(
     previous = { records: {} },
     checkedAt = new Date().toISOString(),
     fetchDocument,
+    fetchPdfText,
     fetchJson,
     googleApiKey,
     facebookPageId,
@@ -500,14 +555,20 @@ export async function enrichPharmacyRecords(
     if (!records[pharmacy.id]) records[pharmacy.id] = { checkedAt };
     records[pharmacy.id].checkedAt = checkedAt;
   }
-  if (typeof fetchDocument === 'function') {
-    for (const source of config?.sources || []) {
-      if (source.status !== 'active') continue;
-      const pharmacy = pharmacies.find((candidate) => candidate.id === source.pharmacyId);
-      if (!pharmacy) {
-        warnings.push(`${source.id}: pharmacyId ${source.pharmacyId} is not in the catalogue`);
+  for (const source of config?.sources || []) {
+    if (source.status !== 'active') continue;
+    const pharmacy = pharmacies.find((candidate) => candidate.id === source.pharmacyId);
+    if (!pharmacy) {
+      warnings.push(`${source.id}: pharmacyId ${source.pharmacyId} is not in the catalogue`);
+      continue;
+    }
+    if ((source.kind || 'html') === 'pdf') {
+      if (typeof fetchPdfText !== 'function') {
+        warnings.push(`${source.id}: PDF source skipped because fetchPdfText is not configured`);
         continue;
       }
+      await enrichPdfSource(records[pharmacy.id], pharmacy, source, checkedAt, fetchPdfText, warnings);
+    } else if (typeof fetchDocument === 'function') {
       await enrichHtmlSource(records[pharmacy.id], pharmacy, source, checkedAt, fetchDocument, warnings);
     }
   }

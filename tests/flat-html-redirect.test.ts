@@ -2,7 +2,12 @@ import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
-import { flatHtmlRedirectPlugin, transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
+import {
+  buildFlatBridgeFromSibling,
+  extractOgTags,
+  flatHtmlRedirectPlugin,
+  transformFlatRedirect,
+} from '../build-plugins/flatHtmlRedirectPlugin';
 
 /**
  * Verifies the redirect bridge emitted by `flatHtmlRedirectPlugin` after
@@ -134,6 +139,89 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     expect(bridge).not.toContain('twitter:title');
   });
 
+  it('ignores social preview meta inside comments, templates, and scripts', async () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><meta property="og:title" content="Stale template title"></template>' +
+        '<!-- <meta property="og:description" content="Stale comment description"> -->' +
+        '<script>const fake = \'<meta property="og:image" content="https://example.test/fake.webp">\';</script>' +
+        '<meta property="og:title" content="Live title">' +
+        '<meta property="og:description" content="Live description">' +
+        '</head><body>canonical</body></html>',
+    );
+
+    await runPluginCloseBundle(fixture.tmpRoot);
+
+    const bridge = fs.readFileSync(fixture.flatFile, 'utf-8');
+    expect(bridge).toContain('<meta property="og:title" content="Live title">');
+    expect(bridge).toContain('<meta property="og:description" content="Live description">');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment description');
+    expect(bridge).not.toContain('https://example.test/fake.webp');
+  });
+
+  it('uses the active title in the full-build transform', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><title>Stale template title</title></template>' +
+        '<!-- <title>Stale comment title</title> -->' +
+        '<title>Live title</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<title>Live title</title>');
+    expect(bridge).not.toContain('Stale template title');
+    expect(bridge).not.toContain('Stale comment title');
+  });
+
+  it('masks nested inactive templates in bridge title and OG extraction', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template><template>' +
+        '<meta property="og:title" content="inner-stale">' +
+        '</template><meta property="og:title" content="outer-stale">' +
+        '<title>outer-stale</title></template>' +
+        '<meta property="og:title" content="active">' +
+        '<title>active</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<meta property="og:title" content="active">');
+    expect(bridge).toContain('<title>active</title>');
+    expect(bridge).not.toContain('inner-stale');
+    expect(bridge).not.toContain('outer-stale');
+  });
+
+  it('keeps templates with slash-valued unquoted attributes inactive', () => {
+    fixture = setupFixture(
+      '<!DOCTYPE html><html><head><template data-src=/foo/>'
+        + '<meta property="og:title" content="stale">'
+        + '<title>stale</title></template>'
+        + '<meta property="og:title" content="active">'
+        + '<title>active</title></head><body>canonical</body></html>',
+    );
+    const bridge = transformFlatRedirect({
+      filePath: fixture.flatFile,
+      distDir: fixture.distDir,
+      trimmedBase: 'https://frontaliereticino.ch',
+      readSibling: (siblingPath: string): string | null =>
+        fs.existsSync(siblingPath) ? fs.readFileSync(siblingPath, 'utf-8') : null,
+    });
+
+    expect(bridge).toContain('<meta property="og:title" content="active">');
+    expect(bridge).toContain('<title>active</title>');
+    expect(bridge).not.toContain('content="stale"');
+  });
+
   it('skips dotfile basenames like <dir>/.html so they never get rewritten as a bridge', () => {
     // Regression: ogPagesPlugin used to concat `+ '.html'` onto a path that
     // already ended in `/` (from canonicalPath), producing
@@ -179,5 +267,41 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     // Crucially, the fallback is NOT the legacy hard-coded "Redirecting…"
     // string that produced 426 duplicate-title issues in Semrush.
     expect(bridge).not.toContain('<title>Redirecting…</title>');
+  });
+
+  it('masks the sibling once per bridge, not once per <meta>', () => {
+    // Regression for the DE build doubling (2h06 -> 5h10, 3-7 Oct 2026): the
+    // mask ran inside the `while (metaRx.exec(...))` condition, so the whole
+    // document was re-masked for every <meta>. With 4,000 metas the old code
+    // needs tens of seconds here; the fixed one a few milliseconds.
+    const metas = Array.from({ length: 4000 }, (_, i) => `<meta property="og:tag${i}" content="v${i}">`);
+    const html = `<!DOCTYPE html><html><head><title>Many metas</title>
+<!-- <meta property="og:stale" content="comment"> -->
+<script>var a = "<meta property='og:stale' content='script'>";</script>
+${metas.join('\n')}
+</head><body><template><meta property="og:stale" content="template"></template></body></html>`;
+
+    const start = performance.now();
+    const og = extractOgTags(html);
+    const bridge = buildFlatBridgeFromSibling(html, 'https://frontaliereticino.ch/de/jobs-in-bern/x/');
+    const elapsedMs = performance.now() - start;
+
+    expect(og.split('\n')).toEqual(metas);
+    expect(og).not.toContain('og:stale');
+    expect(bridge).toContain('<title>Many metas</title>');
+    expect(bridge).toContain(metas[3999]);
+    expect(elapsedMs).toBeLessThan(5000);
+  });
+
+  it('keeps the parser contract required by the mirrored fast-publish engine', () => {
+    const engine = fs.readFileSync(
+      path.resolve('packages/articles/engine/flatHtmlRedirect.ts'),
+      'utf-8',
+    );
+
+    expect(engine).toContain('const HTML_VOID_ELEMENTS = new Set([');
+    expect(engine).toContain('const HTML_INACTIVE_RAW_TEXT_ELEMENTS = new Set([');
+    expect(engine).toContain('const HTML_TEMPLATE_RAW_TEXT_ELEMENTS = new Set([');
+    expect(engine).toContain('maskInactiveMarkup(indexHtml, { maskRcdata: true })');
   });
 });

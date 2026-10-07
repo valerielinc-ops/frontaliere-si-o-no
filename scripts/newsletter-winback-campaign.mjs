@@ -37,6 +37,7 @@ import { localeOf } from './lib/subscriberLocale.mjs';
 import { localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
 import { inferInterest, selectWinnerCandidates, INTERESTS } from '../services/newsletter-segments.mjs';
 import { pathToFileURL } from 'node:url';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -59,15 +60,7 @@ const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
 let db;
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  db = getFirestore();
+  db = await getFirestoreDb();
 }
 
 /**

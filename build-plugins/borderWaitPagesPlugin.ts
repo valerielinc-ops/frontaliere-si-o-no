@@ -10,10 +10,10 @@
  *
  * Page set (per build) — counts are DERIVED from the registries in
  * borderWaitData.ts, never hand-maintained here; the figures below are an
- * illustration at the time of writing (143 crossings × 19 regions, #4545):
+ * illustration at the time of writing (160 crossings × 20 regions, BORDER2):
  *   - /traffico-dogane/                                        root hub × 4 locales = 4
  *   - /traffico-dogane/{region}/                               regional hubs × 4    = 76
- *   - /traffico-dogane/{crossing}/oggi/                        143 × 4              = 572
+ *   - /traffico-dogane/{crossing}/oggi/                        160 × 4              = 640
  *   - /traffico-dogane/{crossing}/{YYYY-MM}/ (top-5 past months)                    = 0 initially,
  *                                                                                     grows progressively
  *
@@ -645,6 +645,18 @@ function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined 
   );
 }
 
+/**
+ * Show a provider-approved webcam link in root/regional hub rows. The leaf
+ * page can render a frame only when `embedAllowed` is true; hubs always link to
+ * the official source page, so a link-only source is never hotlinked.
+ */
+function renderHubWebcamLink(slug: BorderCrossingSlug, copy: Copy): string {
+  const webcam = crossingRegistry(slug)?.webcams?.[0];
+  if (!webcam) return '';
+  const label = webcam.embedAllowed === false ? copy.webcamExternalLink : copy.webcamLabel;
+  return `<span class="bw-webcam-link"><a href="${esc(webcam.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(label)}: ${esc(webcam.label)}</a></span>`;
+}
+
 const BORDER_FRESHNESS_COPY = {
   it: { observed: 'Ultima osservazione', generated: 'Pagina generata', snapshot: 'Snapshot osservato', stale: 'Dato scaduto: non descrive il traffico attuale', missing: 'Data osservazione non disponibile', status: 'Ultima lettura disponibile' },
   en: { observed: 'Last observation', generated: 'Page generated', snapshot: 'Observed snapshot', stale: 'Outdated reading: not current traffic', missing: 'Observation date unavailable', status: 'Last available reading' },
@@ -714,6 +726,8 @@ interface Copy {
   webcamLabel: string;
   webcamNote: string;
   webcamSource: string;
+  webcamExternalLink: string;
+  webcamExternalNote: string;
   webcamDisclaimer: (sourceName: string) => string;
   webcamUnavailable: string;
   faqTitle: string;
@@ -722,6 +736,7 @@ interface Copy {
   regionalLabelTicinoVarese: string;
   regionalLabelTicinoVerbano: string;
   regionalLabelBasileaGermania: string;
+  regionalLabelBasileaFrancia: string;
   regionalLabelArgoviaGermania: string;
   regionalLabelZurigoGermania: string;
   regionalLabelSciaffusaGermania: string;
@@ -803,6 +818,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
+    webcamExternalLink: 'Apri la webcam ufficiale esterna',
+    webcamExternalNote: 'Questa fonte consente solo il collegamento esterno secondo i termini pubblicati; l’immagine non viene incorporata.',
     webcamDisclaimer: (sourceName) =>
       `Webcam gestita da ${sourceName}. Frontaliereticino.ch non è responsabile per disponibilità o contenuto.`,
     webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
@@ -812,6 +829,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
     regionalLabelBasileaGermania: 'Basilea–Germania',
+    regionalLabelBasileaFrancia: 'Basilea–Francia',
     regionalLabelArgoviaGermania: 'Argovia–Germania',
     regionalLabelZurigoGermania: 'Zurigo–Germania',
     regionalLabelSciaffusaGermania: 'Sciaffusa–Germania',
@@ -909,6 +927,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
+    webcamExternalLink: 'Open the official external webcam',
+    webcamExternalNote: 'This source permits an external link only under its published terms; the image is not embedded.',
     webcamDisclaimer: (sourceName) =>
       `Webcam operated by ${sourceName}. Frontaliereticino.ch is not responsible for its availability or content.`,
     webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
@@ -918,6 +938,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Ticino–Varese',
     regionalLabelTicinoVerbano: 'Ticino–Verbano',
     regionalLabelBasileaGermania: 'Basel–Germany',
+    regionalLabelBasileaFrancia: 'Basel–France',
     regionalLabelArgoviaGermania: 'Aargau–Germany',
     regionalLabelZurigoGermania: 'Zurich–Germany',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Germany',
@@ -1015,6 +1036,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
+    webcamExternalLink: 'Offizielle externe Webcam öffnen',
+    webcamExternalNote: 'Diese Quelle erlaubt nach ihren veröffentlichten Bedingungen nur einen externen Link; das Bild wird nicht eingebettet.',
     webcamDisclaimer: (sourceName) =>
       `Webcam betrieben von ${sourceName}. Frontaliereticino.ch ist nicht verantwortlich für Verfügbarkeit oder Inhalt.`,
     webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
@@ -1024,6 +1047,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varese',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
     regionalLabelBasileaGermania: 'Basel–Deutschland',
+    regionalLabelBasileaFrancia: 'Basel–Frankreich',
     regionalLabelArgoviaGermania: 'Aargau–Deutschland',
     regionalLabelZurigoGermania: 'Zürich–Deutschland',
     regionalLabelSciaffusaGermania: 'Schaffhausen–Deutschland',
@@ -1121,6 +1145,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
+    webcamExternalLink: 'Ouvrir la webcam officielle externe',
+    webcamExternalNote: 'Cette source autorise uniquement un lien externe selon ses conditions publiées ; l’image n’est pas intégrée.',
     webcamDisclaimer: (sourceName) =>
       `Webcam gérée par ${sourceName}. Frontaliereticino.ch n'est pas responsable de la disponibilité ou du contenu.`,
     webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
@@ -1130,6 +1156,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     regionalLabelTicinoVarese: 'Tessin–Varèse',
     regionalLabelTicinoVerbano: 'Tessin–Verbano',
     regionalLabelBasileaGermania: 'Bâle–Allemagne',
+    regionalLabelBasileaFrancia: 'Bâle–France',
     regionalLabelArgoviaGermania: 'Argovie–Allemagne',
     regionalLabelZurigoGermania: 'Zurich–Allemagne',
     regionalLabelSciaffusaGermania: 'Schaffhouse–Allemagne',
@@ -1224,6 +1251,7 @@ function regionLabel(copy: Copy, region: BorderCrossingRegion): string {
     'ticino-varese': copy.regionalLabelTicinoVarese,
     'ticino-verbano': copy.regionalLabelTicinoVerbano,
     'basilea-germania': copy.regionalLabelBasileaGermania,
+    'basilea-francia': copy.regionalLabelBasileaFrancia,
     'argovia-germania': copy.regionalLabelArgoviaGermania,
     'zurigo-germania': copy.regionalLabelZurigoGermania,
     'sciaffusa-germania': copy.regionalLabelSciaffusaGermania,
@@ -1590,12 +1618,13 @@ function renderWebcamSection(
   }
   const figures = webcams
     .map((w) => {
+      const embeddable = w.embedAllowed !== false;
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const licenseHtml = w.licenseNote
         ? `<div class="s-DEr6hT">${esc(w.licenseNote)}</div>`
         : '';
-      return `<figure class="s-WFzTLc">
-    <img
+      const mediaHtml = embeddable
+        ? `<img
       src="${esc(w.imageUrl)}"
       alt="${esc(w.label)}"
       width="640"
@@ -1608,11 +1637,15 @@ function renderWebcamSection(
       data-webcam-base-url="${esc(w.imageUrl)}"
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
-    >
+    >`
+        : `<p class="s-e9hRDW"><a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(copy.webcamExternalLink)}: ${esc(w.label)}</a></p>`;
+      return `<figure class="s-WFzTLc">
+    ${mediaHtml}
     <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
       <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
+      ${!embeddable ? `<div class="s-DEr6hT">${esc(copy.webcamExternalNote)}</div>` : ''}
       <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
     </figcaption>
   </figure>`;
@@ -1986,6 +2019,7 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
   const webcams = reg?.webcams ?? [];
+  const embeddableWebcams = webcams.filter((webcam) => webcam.embedAllowed !== false);
   const webcamHtml = renderWebcamSection(crossingDisplay, webcams, copy);
 
   // Current-status card
@@ -2076,6 +2110,13 @@ function renderLeafPage(inp: LeafInputs): string {
         locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
       )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
     );
+    if (reg.municipality) {
+      infoRows.push(
+        `<li class="s-IHVixW"><strong>${esc(
+          locale === 'it' ? 'Comune' : locale === 'de' ? 'Gemeinde' : locale === 'fr' ? 'Commune' : 'Municipality',
+        )}:</strong> ${esc(reg.municipality)}</li>`,
+      );
+    }
     infoRows.push(
       `<li class="s-IHVixW"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
     );
@@ -2188,7 +2229,7 @@ function renderLeafPage(inp: LeafInputs): string {
         url: canonicalUrl,
         address: {
           '@type': 'PostalAddress',
-          // The registry only names the foreign town; do not mix it with a Swiss address.
+          ...(reg.municipality ? { addressLocality: reg.municipality } : {}),
           addressCountry: 'CH',
           addressRegion: reg.canton,
         },
@@ -2245,18 +2286,18 @@ function renderLeafPage(inp: LeafInputs): string {
   // ImageObject with the required fields, including the GSC-required
   // license-quartet (acquireLicensePage / copyrightNotice / license / creator),
   // sourced from the webcam provider when available.
-  const imageLd = webcams.length > 0
+  const imageLd = embeddableWebcams.length > 0
     ? inlineScriptJson(imageObjectLdDocument({
-        contentUrl: webcams[0].imageUrl,
+        contentUrl: embeddableWebcams[0].imageUrl,
         caption: `${copy.webcamLabel} — ${crossingDisplay}`,
-        creditText: webcams[0].sourceName,
-        license: webcams[0].license,
-        acquireLicensePage: webcams[0].license,
-        creator: webcams[0].sourceName
-          ? { '@type': 'Organization', name: webcams[0].sourceName }
+        creditText: embeddableWebcams[0].sourceName,
+        license: embeddableWebcams[0].license,
+        acquireLicensePage: embeddableWebcams[0].license,
+        creator: embeddableWebcams[0].sourceName
+          ? { '@type': 'Organization', name: embeddableWebcams[0].sourceName }
           : undefined,
-        copyrightNotice: webcams[0].sourceName
-          ? `© ${webcams[0].sourceName}`
+        copyrightNotice: embeddableWebcams[0].sourceName
+          ? `© ${embeddableWebcams[0].sourceName}`
           : undefined,
         inLanguage: locale,
       }))
@@ -2287,7 +2328,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Webcam refresh script is plugin-specific behaviour — append it inside
   // bodyHtml (after the closing </main>) so it loads on the static shell
   // without bypassing buildSeoPageHtml's templating.
-  const webcamRefreshScript = webcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
+  const webcamRefreshScript = embeddableWebcams.length > 0 ? `\n  ${WEBCAM_REFRESH_JS}` : '';
   // Border-wait hydration: replaces pre-rendered numbers with fresh
   // Firestore values once the page is interactive. Shared external asset.
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
@@ -2432,6 +2473,7 @@ function renderRootCrossingList(inp: {
       <div class="bw-crossing-meta">
         <span>${esc(freshnessCopy.observed)} <time data-bw-field="lastUpdate"${observedAt ? ` datetime="${observedAt}"` : ''}>${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</time></span>
         <span>${esc(copy.sourceLabel)} ${sourceLink(src, sourceLabel(src, copy))}</span>
+        ${renderHubWebcamLink(c, copy)}
       </div>
     </li>`;
   }).join('');
@@ -2471,7 +2513,7 @@ function renderHubPage(inp: HubInputs): string {
 
   // Build the live crossing surface. Regional hubs use a table; the root hub
   // uses compact cards because repeating the responsive table classes and
-  // mobile labels for all 143 crossings exceeded the page-weight budget. Each
+  // mobile labels for all 160 crossings exceeded the page-weight budget. Each
   // item carries data-bw-crossing so the shared hydration asset can swap the
   // pre-rendered minute count, date and source at runtime. The source→label
   // map is locale-invariant → build once here, not per item. Live sources only
@@ -2516,6 +2558,7 @@ function renderHubPage(inp: HubInputs): string {
       <td role="cell" class="block break-words px-4 pb-4 text-sm text-subtle md:table-cell md:py-3">
         <span class="block font-semibold md:hidden" aria-hidden="true">${esc(copy.sourceLabel)}</span>
         ${sourceLink(src, sourceLabel(src, copy))}
+        ${renderHubWebcamLink(c, copy)}
       </td>
     </tr>`;
   }) : [];

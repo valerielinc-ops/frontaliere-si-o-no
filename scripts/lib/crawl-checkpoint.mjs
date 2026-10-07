@@ -16,6 +16,7 @@ import path from 'node:path';
 import { EVENTS_SLICE_DIR } from './events-utils.mjs';
 import { applyDetailFailureReuse } from './detail-failure-reuse-policy.mjs';
 import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
+import { appendPrivateEventDescriptionSources, sanitizeEventForPublication } from './event-description-policy.mjs';
 
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
 
@@ -94,11 +95,19 @@ export function mergeEventsIntoSlice({
     }
   }
 
+  // Source descriptions may exist in crawler memory, but this is the last
+  // boundary before a slice becomes versioned. Keep an opt-in private JSONL
+  // copy for the rewrite backlog, then remove the prose from both new and old
+  // rows before detail-reuse, history, and the write below.
+  appendPrivateEventDescriptionSources(freshEvents);
+  const safeFreshEvents = freshEvents.map(sanitizeEventForPublication);
+  const safeExistingEvents = existing.map(sanitizeEventForPublication);
+
   const detailReuse = applyDetailFailureReuse({
-    freshRows: freshEvents,
+    freshRows: safeFreshEvents,
     failedIdentities: detailFailureIds,
     attemptedCount: detailAttemptCount,
-    previousRows: existing,
+    previousRows: safeExistingEvents,
     identityOf: (event) => event?.id,
     requireReuse: false,
     fallbackOf: (previous) => {
@@ -121,9 +130,9 @@ export function mergeEventsIntoSlice({
     );
   }
 
-  const byId = new Map(existing.map((event) => [event.id, event]));
+  const byId = new Map(safeExistingEvents.map((event) => [event.id, event]));
   const previousRoutes = publishedEventRoutes(
-    existing,
+    safeExistingEvents,
     typeof crawledAt === 'string' ? crawledAt.slice(0, 10) : undefined,
   );
   // Deliberately retain goneIds: source disappearance is a crawl observation,

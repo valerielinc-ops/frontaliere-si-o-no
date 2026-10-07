@@ -77,7 +77,7 @@ export const OFFERWALL_GATE_WAIT_MS = 3000;
  */
 export const OFFERWALL_GATE_SCHEDULED_WAIT_MS = 6000;
 const GATE_POLL_MS = 100;
-const FUNDING_CHOICES_SCRIPT = 'script[src*="fundingchoicesmessages.google.com"]';
+export const FUNDING_CHOICES_SCRIPT = 'script[src*="fundingchoicesmessages.google.com"]';
 
 /**
  * How long this click should wait for the gate: 0 when Funding Choices is not

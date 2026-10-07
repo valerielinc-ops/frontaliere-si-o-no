@@ -1,7 +1,7 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-10-05T09:39:36.333Z",
+  "generatedAt": "2026-10-07T09:48:47.978Z",
   "total": 4,
   "discovered": 4,
   "parsed": 4,
@@ -10,10 +10,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5063,
-  "avgDurationMs": 5063,
+  "durationMs": 6094,
+  "avgDurationMs": 6094,
   "durationHistory": [
-    5063
+    6094
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-05T09:39:28.157Z",
+      "crawledAt": "2026-10-07T09:48:35.557Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -88,7 +88,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-05T09:39:28.907Z",
+      "crawledAt": "2026-10-07T09:48:36.311Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -101,7 +101,6 @@
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,7 +132,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-05T09:39:28.540Z",
+      "crawledAt": "2026-10-07T09:48:35.950Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -177,7 +176,7 @@
       "currency": "CHF",
       "postedDate": "",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-10-05T09:39:27.628Z",
+      "crawledAt": "2026-10-07T09:48:34.893Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -199,5 +198,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

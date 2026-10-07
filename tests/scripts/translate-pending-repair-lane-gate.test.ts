@@ -12,8 +12,10 @@ import {
 } from '../../scripts/translate-repair-lane-gate.mjs';
 
 /**
- * Le fasi 2d/2e di translate-pending (e il broker Codex che le serve) partono
- * solo se l'involucro run-wide di 210 minuti ha ancora almeno 15 minuti.
+ * Le fasi 2d/2e di translate-pending partono solo se l'involucro run-wide di
+ * 210 minuti ha ancora almeno 15 minuti. Il broker Codex non e' piu' sotto il
+ * gate: dalla decisione H7 (2026-10-05) parte prima della cascata 2b, che lo usa
+ * come riserva dei tier a chiave (vedi translate-pending-codex-last-tier.test.ts).
  * Misurato sul corpus: 36240711198 (2d a 215min: broker 21s, 0 tradotti, commit
  * vuoto 137s) e 36169299281 (2e a 252min: broker 22s, commit vuoto 850s, poi il
  * job ucciso al tetto dei 350min). Ogni partenza produttiva misurata aveva
@@ -27,7 +29,6 @@ const TARGETS = [
 ];
 const GATE_OUTPUT = "steps.repair_lane_budget.outputs.run == 'true'";
 const GATED = [
-  (step: Step) => step.id === 'setup_claude_haiku_fallback',
   (step: Step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)',
   (step: Step) => step.name === 'Commit title fixes',
   (step: Step) => step.name === 'Phase 2e: Fix untranslated descriptions (free cascade)',
@@ -46,12 +47,14 @@ describe.each(TARGETS)('translate-pending: gate di budget per 2d/2e (%s)', (rel)
   const gateAt = steps.findIndex((step) => step.id === 'repair_lane_budget');
   const gate = steps[gateAt];
 
-  it('il gate precede il broker Codex e usa la stessa scadenza delle fasi', () => {
+  it('il gate segue il broker Codex della 2b e usa la stessa scadenza delle fasi', () => {
     expect(gateAt).toBeGreaterThan(0);
     expect(gate.run).toBe('node scripts/translate-repair-lane-gate.mjs');
     expect(gate).not.toHaveProperty('continue-on-error');
     const brokerAt = steps.findIndex((step) => step.id === 'setup_claude_haiku_fallback');
-    expect(gateAt).toBeLessThan(brokerAt);
+    expect(brokerAt).toBeGreaterThanOrEqual(0);
+    expect(brokerAt).toBeLessThan(gateAt);
+    expect(steps[brokerAt].if ?? '').not.toContain('repair_lane_budget');
     const commitTranslationsAt = steps.findIndex((step) => step.id === 'commit_translations');
     expect(commitTranslationsAt).toBeGreaterThanOrEqual(0);
     expect(gateAt).toBeGreaterThan(commitTranslationsAt);
@@ -64,7 +67,7 @@ describe.each(TARGETS)('translate-pending: gate di budget per 2d/2e (%s)', (rel)
       .toBeGreaterThanOrEqual(Number(titleFix?.env?.FREE_TRANSLATE_CODEX_MAX_MS));
   });
 
-  it('broker, fasi 2d/2e e i loro commit partono solo col via del gate', () => {
+  it('fasi 2d/2e e i loro commit partono solo col via del gate', () => {
     for (const predicate of GATED) {
       const index = steps.findIndex(predicate);
       expect(index).toBeGreaterThan(gateAt);

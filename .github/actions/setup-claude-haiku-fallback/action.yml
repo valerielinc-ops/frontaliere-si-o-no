@@ -22,6 +22,14 @@ description: >-
   setup-omniroute/action.yml and translate-pending.yml's
   TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
 inputs:
+  codex_cli_version:
+    description: >-
+      Pinned Codex CLI version. Existing text lanes keep 0.153.4; image
+      generation lanes may opt into a feature-stable release explicitly.
+    required: false
+    default: '0.153.4'
+    # Compatibility contract: the default lane remains @openai/codex@0.153.4;
+    # image-generation callers opt into a separately attested feature release.
   codex_auth_json:
     description: >-
       Optional CODEX_AUTH_JSON secret. It is consumed only while bootstrapping
@@ -391,12 +399,21 @@ runs:
         TRUSTED_NODE_SHA256: ${{ steps.trusted_toolchain.outputs.node_sha256 }}
         TRUSTED_NPM: ${{ steps.trusted_toolchain.outputs.npm_realpath }}
         TRUSTED_NPM_SHA256: ${{ steps.trusted_toolchain.outputs.npm_sha256 }}
+        CODEX_CLI_VERSION: ${{ inputs.codex_cli_version }}
       run: |
         set +e
         trusted_node="${TRUSTED_NODE:-}"
         trusted_node_sha256="${TRUSTED_NODE_SHA256:-}"
         trusted_npm="${TRUSTED_NPM:-}"
         trusted_npm_sha256="${TRUSTED_NPM_SHA256:-}"
+        # Compatibility default retained for the rotation and action parity
+        # contracts: @openai/codex@0.153.4. Image lanes pass a newer version
+        # only after their own feature attestation.
+        requested_codex_version="${CODEX_CLI_VERSION:-0.153.4}"
+        if ! printf '%s' "$requested_codex_version" | /usr/bin/grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+          echo '::warning::Invalid Codex CLI version input; using 0.153.4'
+          requested_codex_version='0.153.4'
+        fi
         if [ -z "$trusted_node" ] || [ -z "$trusted_npm" ]; then
           echo "::warning::Codex CLI install could not resolve a trusted Node/npm runtime; the normal fallback cascade remain available"
           exit 0
@@ -460,7 +477,7 @@ runs:
           NPM_CONFIG_GLOBALCONFIG="$global_npmrc" \
           npm_config_cache="$npm_cache" \
           "$trusted_node" "$trusted_npm" install --prefix "$codex_prefix" --no-save --no-package-lock \
-            --no-fund --no-audit @openai/codex@0.153.4; then
+            --no-fund --no-audit "@openai/codex@$requested_codex_version"; then
           echo "::warning::Codex CLI install failed; the normal fallback cascade remain available"
           rm -rf -- "$codex_prefix"
           exit 0
@@ -481,7 +498,7 @@ runs:
             ;;
         esac
         codex_version="$($codex_realpath --version 2>&1)"
-        if ! printf '%s\n' "$codex_version" | grep -Eq '(^|[^0-9])0\.153\.4([^0-9]|$)'; then
+        if ! printf '%s\n' "$codex_version" | grep -Eq "(^|[^0-9])${requested_codex_version}([^0-9]|$)"; then
           echo "::warning::Pinned Codex CLI version attestation failed; the normal fallback cascade remain available"
           rm -rf -- "$codex_prefix"
           exit 0
@@ -496,7 +513,7 @@ runs:
         printf 'codex_realpath=%s\n' "$codex_realpath" >> "$GITHUB_OUTPUT"
         printf 'codex_sha256=%s\n' "$codex_sha256" >> "$GITHUB_OUTPUT"
         printf 'codex_prefix=%s\n' "$codex_prefix" >> "$GITHUB_OUTPUT"
-        echo "codex CLI installed and attested (0.153.4)"
+        echo "codex CLI installed and attested ($requested_codex_version)"
 
     # Keep the subscription secret on this one action step. Only an explicit
     # AI consumer step receives the output socket path; unrelated housekeeping
@@ -514,6 +531,7 @@ runs:
         CODEX_CLI_REALPATH: ${{ steps.install_codex_cli.outputs.codex_realpath }}
         CODEX_CLI_SHA256: ${{ steps.install_codex_cli.outputs.codex_sha256 }}
         CODEX_CLI_PREFIX: ${{ steps.install_codex_cli.outputs.codex_prefix }}
+        CODEX_CLI_VERSION: ${{ inputs.codex_cli_version }}
         TRUSTED_NODE: ${{ steps.trusted_toolchain.outputs.node_realpath }}
         TRUSTED_NODE_SHA256: ${{ steps.trusted_toolchain.outputs.node_sha256 }}
       run: |
@@ -629,6 +647,7 @@ runs:
         nohup /usr/bin/env -i PATH="$PATH" "$node_bin" "$GITHUB_ACTION_PATH/codex-auth-broker.mjs" \
           --socket "$broker_socket" --ttl-ms "$broker_ttl_ms" --max-requests 512 \
           --max-concurrency "$broker_max_concurrency" --max-timeout-ms "$broker_max_timeout_ms" \
+          --codex-cli-version "${CODEX_CLI_VERSION:-0.153.4}" \
           --codex-bin "$CODEX_CLI_BIN" --codex-realpath "$CODEX_CLI_REALPATH" \
           --codex-sha256 "$CODEX_CLI_SHA256" --codex-prefix "$CODEX_CLI_PREFIX" \
           < "$auth_fifo" > /dev/null 2>&1 &
@@ -668,12 +687,13 @@ runs:
       shell: bash
       env:
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
+        CODEX_CLI_VERSION: ${{ inputs.codex_cli_version }}
       run: |
         echo "ENABLE_CODEX_ARTICLE_FALLBACK=${ENABLE_CODEX_ARTICLE_FALLBACK:-<unset>} (resolved provider flag)"
         echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (ignored: Haiku is disabled and no longer gates Codex)"
         echo "CODEX_ARTICLE_LANE_GATE=${CODEX_ARTICLE_LANE_GATE:-<unset>} (resolved gate)"
         if [ -n "$CODEX_CLI_BIN" ]; then
-          echo "codex CLI: attested at $CODEX_CLI_BIN (version 0.153.4)"
+          echo "codex CLI: attested at $CODEX_CLI_BIN (version ${CODEX_CLI_VERSION:-0.153.4})"
         else
           echo "codex CLI: unavailable or failed attestation — the normal model chain will continue"
         fi

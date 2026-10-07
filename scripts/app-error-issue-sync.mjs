@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * app-error-issue-sync.mjs — turns the GA4 `errorHealth.appErrors` block
  * from reports/analytics-latest.json (produced by
@@ -33,7 +34,6 @@
  * exits 0 so it never paints the parent workflow red over a reporting gap.
  */
 import { readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { hasActionableErrorMessage, isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
@@ -541,7 +541,7 @@ export async function main() {
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main()/truncate() never triggers a live gh call — same guard as
 // scripts/dmarc-monitor.mjs.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const results = await main();
   if (results) {
     console.log(`[app-error-issue-sync] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);

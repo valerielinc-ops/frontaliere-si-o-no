@@ -1,25 +1,25 @@
 {
   "key": "jsafrasarasin",
   "label": "J. Safra Sarasin",
-  "generatedAt": "2026-10-05T09:11:27.142Z",
-  "total": 11,
+  "generatedAt": "2026-10-07T09:14:40.550Z",
+  "total": 13,
   "discovered": null,
-  "parsed": 11,
+  "parsed": 12,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 11,
+  "written": 13,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 19918,
-  "avgDurationMs": 19918,
+  "unchangedCount": 11,
+  "durationMs": 20622,
+  "avgDurationMs": 20622,
   "durationHistory": [
-    19918
+    20622
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:18.074Z",
+      "crawledAt": "2026-10-07T09:14:31.791Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -55,14 +55,59 @@
       "salaryMin": 109000,
       "salaryMax": 187000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "4001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
+    {
+      "id": "jsafrasarasin-f1ca17bfc4c6",
+      "slug": "senior-end-user-computing-euc-sviluppatore-j-safra-sarasin-zurich",
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Senior End-User Computing (EUC) Developer",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:14:28.460Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/530/Description/2",
+      "firstSeenAt": "2026-10-06T21:12:31.639Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "jsafrasarasin-9c72c25f05c4",
       "slug": "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano",
@@ -75,7 +120,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:17.772Z",
+      "crawledAt": "2026-10-07T09:14:31.490Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,12 +140,13 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "8001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -115,7 +161,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:17.470Z",
+      "crawledAt": "2026-10-07T09:14:31.188Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -135,12 +181,13 @@
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -155,7 +202,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/514/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:17.168Z",
+      "crawledAt": "2026-10-07T09:14:30.886Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,52 +222,13 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "8001",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "jsafrasarasin-6db08ade81a7",
-      "slug": "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch",
-      "company": "J. Safra Sarasin",
-      "companyKey": "jsafrasarasin",
-      "companyDomain": "jsafrasarasin.umantis.com",
-      "title": "Marketing Materials Designer - Fixed Term (1 year)",
-      "location": "Zurich, CH",
-      "canton": "ZH",
-      "url": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
-      "source": "J. Safra Sarasin Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:16.863Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
-      "firstSeenAt": "2026-09-19T22:50:24.814Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
-      "salarySource": "estimated",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -235,7 +243,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:16.561Z",
+      "crawledAt": "2026-10-07T09:14:30.585Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -255,12 +263,13 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "4001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -275,7 +284,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:16.259Z",
+      "crawledAt": "2026-10-07T09:14:30.284Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -295,12 +304,13 @@
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "4001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -315,7 +325,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:15.956Z",
+      "crawledAt": "2026-10-07T09:14:29.982Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -335,12 +345,13 @@
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "4001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -355,7 +366,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:15.654Z",
+      "crawledAt": "2026-10-07T09:14:29.677Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -375,12 +386,13 @@
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "4001",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
@@ -395,7 +407,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:15.351Z",
+      "crawledAt": "2026-10-07T09:14:29.367Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -415,17 +427,18 @@
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
-      "_qualityScore": 85,
+      "postalCode": "1204",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     },
     {
       "id": "jsafrasarasin-bd631f43c6b5",
-      "slug": "portfolio-manager-multi-asset-team-jsafrasarasin-ch",
+      "slug": "portfolio-manager-team-multi-asset-j-safra-sarasin-geneva",
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
       "companyDomain": "jsafrasarasin.umantis.com",
@@ -435,7 +448,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/525/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:11:15.047Z",
+      "crawledAt": "2026-10-07T09:14:29.066Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -451,21 +464,102 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/525/Description/2",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:17:03.513Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 83,
+      "postalCode": "1204",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "jsafrasarasin-53ea1d349671",
+      "slug": "vendite-trasporto-a-reddito-fisso-j-safra-sarasin-zurich-ch",
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Junior Fixed Income Sales/-trader",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/528/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T09:14:28.763Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/528/Description/2",
+      "firstSeenAt": "2026-10-05T21:24:11.336Z",
+      "salaryMin": 65500,
+      "salaryMax": 100500,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "jsafrasarasin-6db08ade81a7",
+      "slug": "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch",
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Marketing Materials Designer - Fixed Term (1 year)",
+      "location": "Zurich, CH",
+      "canton": "ZH",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-06T09:15:45.022Z",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
+      "firstSeenAt": "2026-09-19T22:50:24.814Z",
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "postalCode": "8001",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

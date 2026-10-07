@@ -81,22 +81,30 @@ export function countFiles(dir, { exclude = () => false } = {}) {
  * Recursive copy of `src` onto `dst`, deleting anything in `dst` that src lacks.
  * Paths `exclude(rel)` claims are neither copied nor kept: an excluded entry
  * already present in `dst` is removed, so the destination converges to the
- * filtered tree whatever state it started in.
+ * filtered tree whatever state it started in. `preserve(rel)` may retain
+ * explicitly approved destination-only files (and their parent directories).
  */
-export function mirrorTree(src, dst, { exclude = () => false } = {}, relBase = '') {
+export function mirrorTree(
+  src,
+  dst,
+  { exclude = () => false, preserve = () => false } = {},
+  relBase = '',
+) {
   fs.mkdirSync(dst, { recursive: true });
   const relOf = (name) => (relBase ? `${relBase}/${name}` : name);
   const want = new Set(fs.readdirSync(src).filter((name) => !exclude(relOf(name))));
   for (const name of fs.readdirSync(dst)) {
     if (name === '.git') continue;
-    if (!want.has(name)) fs.rmSync(path.join(dst, name), { recursive: true, force: true });
+    if (!want.has(name) && !preserve(relOf(name))) {
+      fs.rmSync(path.join(dst, name), { recursive: true, force: true });
+    }
   }
   for (const e of fs.readdirSync(src, { withFileTypes: true })) {
     if (!want.has(e.name)) continue;
     const s = path.join(src, e.name);
     const d = path.join(dst, e.name);
     if (e.isDirectory()) {
-      mirrorTree(s, d, { exclude }, relOf(e.name));
+      mirrorTree(s, d, { exclude, preserve }, relOf(e.name));
     } else {
       // Skip an identical file so the mtime (and any downstream cache keyed on
       // it) does not churn on every sync.

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * information-gain-live-scan.mjs — the measuring half of the self-improving
  * Information-Gain loop (issue #5002).
@@ -52,7 +53,6 @@
  *   node scripts/ci/information-gain-live-scan.mjs --json      # verdetto su stdout
  */
 
-import { fileURLToPath } from 'node:url';
 import {
   fingerprintPage,
   scoreCohorts,
@@ -354,7 +354,7 @@ async function main() {
 }
 
 // Il modulo è importabile per i test: `main()` parte solo da CLI.
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => {
     console.error('[information-gain-live-scan] fatal', err);
     // Fail loudly on an internal error — a scan that silently reports "nothing

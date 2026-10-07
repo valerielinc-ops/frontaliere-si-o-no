@@ -36,7 +36,38 @@ const BLOG_IMAGES = [
   'tariffe-usa-agenda-seco.webp',
   'ticinoskills-2026-gordola-event.webp',
   'uyba-esordio-pari-novara.webp',
+  'a4-milano-brescia-diviazione-obbligatoria-2026.webp',
+  'accordi-bilaterali-3-parlamento.webp',
+  'affitti-rialzo-crisi-ticino-2026.webp',
+  'ai-lombardia-ticino-frontaliere-2026.webp',
+  'aiuti-svizzera-ucraina-2026.webp',
+  'alluvione-lavizzara-piano-pericoli-approvato.webp',
+  'apertura-pesca-ticino.webp',
+  'bellinzona-auscultazione-2026.webp',
+  'bellinzona-crescita-qualita-vita.webp',
+  'benessere-integrita-allievi-bellinzona-2026.webp',
+  'benzina-ticino-oriente.webp',
+  'bici-bellinzona-valli-strategia.webp',
+  'borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta.webp',
+  'calcio-dnb-bellinzona-ultimo-appello.webp',
+  'cardiocentro-lugano-ristrutturazione-2026.webp',
+  'caronno-varesino-campetto-dante-mercanti-2026.webp',
 ] as const;
+
+const committedBlobSizes = (() => {
+  const refs = BLOG_IMAGES.map((filename) => `HEAD:public/images/blog/${filename}`);
+  const output = execFileSync('git', ['cat-file', '--batch-check=%(objectname) %(objecttype) %(objectsize)'], {
+    cwd: resolve(__dirname, '..'),
+    input: `${refs.join('\n')}\n`,
+    encoding: 'utf8',
+  });
+  return new Map(
+    output.trim().split('\n').map((line, index) => {
+      const parts = line.split(' ');
+      return [refs[index], parts[1] === 'blob' ? Number(parts[2]) : 0] as const;
+    }),
+  );
+})();
 
 describe('article-hub blog image payloads', () => {
   it('keeps the audited article images below the 200 KB warning threshold', () => {
@@ -47,12 +78,8 @@ describe('article-hub blog image payloads', () => {
       // materialize public/images. Read the committed blob size in that case.
       const bytes = existsSync(localPath)
         ? statSync(localPath).size
-        : Number(
-            execFileSync('git', ['cat-file', '-s', `HEAD:${relativePath}`], {
-              cwd: resolve(__dirname, '..'),
-              encoding: 'utf8',
-            }).trim(),
-          );
+        : committedBlobSizes.get(`HEAD:${relativePath}`) ?? 0;
+      expect(bytes, `${filename} must resolve to a committed image blob`).toBeGreaterThan(0);
       expect(bytes, filename).toBeLessThanOrEqual(MAX_BLOG_IMAGE_BYTES);
     }
   });

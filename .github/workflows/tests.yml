@@ -894,6 +894,7 @@ jobs:
           download_main scripts/ci/lib/pr-review-admission.mjs "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
           download_main scripts/ci/lib/review-input-revision.mjs "$policy_root/scripts/ci/lib/review-input-revision.mjs"
           download_main scripts/lib/github-issue-creator.mjs "$policy_root/scripts/lib/github-issue-creator.mjs"
+          download_main scripts/lib/is-invoked-directly.mjs "$policy_root/scripts/lib/is-invoked-directly.mjs"
           download_main scripts/lib/loop-fleet-contract.mjs "$policy_root/scripts/lib/loop-fleet-contract.mjs"
           download_main scripts/lib/pr-body-closes-check.mjs "$policy_root/scripts/lib/pr-body-closes-check.mjs"
           download_main scripts/lib/pr-body-sections-check.mjs "$policy_root/scripts/lib/pr-body-sections-check.mjs"
@@ -1253,6 +1254,9 @@ jobs:
             /packages/articles/content/blog-body/it/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body-ch/de/naturalizzazione-canton-san-gallo-procedura.ts
             /packages/articles/content/blog-body-ch/de/tassi-interesse-svizzera-bassi.ts
+            # The publication-policy tests exercise one real imageCredits record
+            # without materializing the rest of the article corpus.
+            /packages/articles/content/image-credits/**/*.json
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -1301,6 +1305,9 @@ jobs:
             # tests/authors.test.ts is part of the test-tree lint whenever a PR
             # changes tests; keep its small runtime photo fixtures materialized.
             /public/images/authors/
+            # The generated-image registry gate validates the full published
+            # place catalog and its responsive thumbnails as well.
+            /public/images/places/
             /*.cjs
             /*.js
             /*.json
@@ -1359,6 +1366,10 @@ jobs:
       - name: Setup Node.js + npm ci (una volta per tutte e quattro le famiglie)
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
         uses: ./.github/actions/ci-npm-setup
+
+      - name: Gate — event descriptions come only from rewrite cache
+        if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
+        run: npm run validate:event-descriptions
 
       - name: Cache Vitest/Vite transform cache
         id: vitest-cache
@@ -1780,6 +1791,7 @@ jobs:
           RUN_INPUT_INJECTION: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_LOCALE_SEGMENTS: ${{ steps.body_contract.outcome != 'failure' }}
           RUN_EVERGREEN_TOPICS: ${{ steps.body_contract.outcome != 'failure' }}
+          RUN_GENERATED_SITE_IMAGES: ${{ steps.body_contract.outcome != 'failure' }}
           # Solo sulle PR e nella merge queue, con la base passata esplicitamente:
           # `pull_request.base.sha` sulle PR, `merge_group.base_sha` nella coda,
           # cosi' il confronto copre tutti i commit della PR qualunque sia la
@@ -1814,6 +1826,9 @@ jobs:
           fi
           if [ "$RUN_TWIN_IMPORTS" = "true" ]; then
             expected_labels+=(twin-imports)
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            expected_labels+=(generated-site-images)
           fi
           if [ "${#expected_labels[@]}" -eq 0 ]; then
             echo "::error::independent gate roster is empty"
@@ -1872,6 +1887,9 @@ jobs:
             # in background, dall'env dello step, non qui.
             # shellcheck disable=SC2016
             start_gate twin-imports 'node scripts/ci/identical-twin-import-gate.mjs ${TWIN_GATE_BASE:+--base "$TWIN_GATE_BASE"}'
+          fi
+          if [ "$RUN_GENERATED_SITE_IMAGES" = "true" ]; then
+            start_gate generated-site-images 'npm run validate:generated-images'
           fi
 
       # ══════════════════════════════════════════════════════════════════════
@@ -2295,6 +2313,10 @@ jobs:
         run: |
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Verify published blog cover ledger
+        if: ${{ steps.body_contract.outcome != 'failure' }}
+        run: node scripts/ci/verify-blog-cover-ledger.mjs
 
       - name: vitest related (PR diff)
         id: vitest_related
@@ -3336,7 +3358,7 @@ jobs:
 
             Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage. Every non-funnel `❓ q:` in that section MUST end with the exact disposition `— deferred, non funnel-critical.`. The words `report-only`, `deferred`, or `non-funnel-critical` inside the question do not dispose it; a funnel-critical question must be promoted to `🔴 Important` instead.
 
-            **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules and never emit a `🔴 Important` about the body: a doubt about those rules is at most a `🟡 Nit` anchored as `PR body:L<n>`, and the review gate declassifies such a 🔴 on a green contract anyway. REVIEW.md step 7 (a perf claim without a baseline) is not a contract rule and still applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
+            **PR body: one source of truth.** The deterministic body contract (`scripts/lib/pr-body-sections-check.mjs`, step `PR-body completeness`) already validated sections, bullet states, `Motivo`/`Prossimo passo`, placeholders and `Closes`; its verdict is in the bundle under `## Deterministic body contract`. When it is ✅, do not re-validate those rules. A 🔴 anchored only on `PR body:L<n>` (as the prefix of its first finding line) must include one following line `Body citation: "<JSON string>"` with a short verbatim excerpt (≤240 chars) from the current PR body. The gate declassifies it only when that citation is absent from the current body after whitespace/Markdown normalization; a missing or malformed citation remains blocking. The `NON_CONTRACT_BODY_RE` filter keeps a performance/capacity claim blocking while the current cited body line still contains it; if the citation is absent because the assertion was removed, stale-body declassification applies. The states it accepts in `## Non implementato (ancora)` — `in questa PR`, `PR concatenata #N`, `per scelta`, `by construction`, `blocked: decisione del proprietario` (the five `CLOSING_STATES` of `scripts/ci/followup-has-candidates.mjs`) and any other `blocked: <causa>`, which keeps the task open without blocking the PR — are valid, e su quelli **non si emette 🔴**. A `PR concatenata` without `#N` is not a state and the contract already rejects it (non passa). Re-raising a 🔴 on a bullet the contract accepted deadlocks the loop: the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with specific fields **non è un finding**.
 
             Post exactly one review: first write the markdown body to a file with a quoted-delimiter heredoc (`cat > "$TMPDIR/review.md" <<'REVIEW_EOF'` … `REVIEW_EOF`, real newlines, never a literal `\n`), then, in a separate shell command, run `gh pr review ${PR_NUMBER} --comment --body-file "$TMPDIR/review.md"`. Never pass the body inline with `--body`: inside double quotes the shell runs the markdown backticks as command substitution and keeps `\n` as text, and the review gate then discards the review. The review body MUST contain, as its own unchanged line, `<!-- REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }} -->`; this binds the verdict to the trusted body revision supplied by the workflow. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       # The transient-error classifier invokes the fallback detector after the
@@ -3646,6 +3668,7 @@ jobs:
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/lib/github-issue-creator.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/lib/loop-fleet-contract.mjs \
             scripts/lib/pr-body-closes-check.mjs \
             scripts/lib/pr-body-sections-check.mjs; do

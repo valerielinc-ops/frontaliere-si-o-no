@@ -7947,16 +7947,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-congedo-parentale-frontalieri': {
-    title: 'Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia',
+    title: 'Congedo parentale in Svizzera: regole per frontalieri',
     description: 'Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, congedo, parentale, diritti, scopri',
-    ogTitle: 'Diritti di Maternità e Paternità per Frontalieri',
+    ogTitle: 'Congedo parentale in Svizzera: regole per frontalieri',
     ogDescription: 'Informazioni sui congedi parentali per frontalieri in Svizzera e Italia, con dettagli pratici e procedure.',
     canonicalPath: '/articoli-svizzera/congedo-parentale-frontalieri/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Congedo parentale per frontalieri: guida ai diritti in Svizzera e Italia",
+      "headline": "Congedo parentale in Svizzera: regole per frontalieri",
       "description": "Scopri i diritti relativi ai congedi parentali per i lavoratori frontalieri tra Svizzera e Italia, inclusi i dettagli delle indennità. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -10004,16 +10004,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-blocco-ristorni-ticino': {
-    title: 'Blocco ristorni, tensioni con il Ticino | Frontaliere Ticino',
+    title: 'Blocco dei ristorni in Ticino: cause e conseguenze',
     description: 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, tensioni, parte',
-    ogTitle: 'Blocco dei ristorni, rapporti tesissimi con il Ticino',
+    ogTitle: 'Blocco dei ristorni in Ticino: cause e conseguenze',
     ogDescription: 'Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni.',
     canonicalPath: '/articoli-svizzera/blocco-ristorni-ticino/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Blocco ristorni, tensioni con il Ticino",
+      "headline": "Blocco dei ristorni in Ticino: cause e conseguenze",
       "description": "Il blocco dei ristorni da parte del Canton Ticino in risposta alla tassa sulla salute italiana ha generato polemiche e tensioni. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -10857,16 +10857,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-ai-prospettive-finanziarie': {
-    title: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    title: 'AVS e AI: nuove previsioni sui conti previdenziali',
     description: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, peggiorano, prospettive, finanziarie, secondo',
-    ogTitle: 'Peggiorano le prospettive finanziarie di AVS e AI',
+    ogTitle: 'AVS e AI: nuove previsioni sui conti previdenziali',
     ogDescription: 'L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più.',
     canonicalPath: '/articoli-svizzera/avs-ai-prospettive-finanziarie/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Peggiorano le prospettive finanziarie di AVS e AI",
+      "headline": "AVS e AI: nuove previsioni sui conti previdenziali",
       "description": "L’UFAS ha pubblicato dati aggiornati che mostrano un peggioramento delle prospettive finanziarie di AVS e AI. Scopri di più. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
@@ -12329,16 +12329,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-vivere-oltre-monti-lavorare-grigioni': {
-    title: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    title: 'Vivere oltre i monti: lavorare nei Grigioni da frontaliere',
     description: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, valtellina, lavorare, grigioni',
-    ogTitle: 'Vivere in Valtellina e lavorare nei Grigioni da frontaliere',
+    ogTitle: 'Vivere oltre i monti: lavorare nei Grigioni da frontaliere',
     ogDescription: 'Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia',
     canonicalPath: '/articoli-svizzera/vivere-oltre-monti-lavorare-grigioni/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere in Valtellina e lavorare nei Grigioni da frontaliere",
+      "headline": "Vivere oltre i monti: lavorare nei Grigioni da frontaliere",
       "description": "Imposte, regolamenti e differenze rispetto al polo Ticino-Lombardia. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -12481,16 +12481,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trasferirsi-svizzera-guida': {
     title: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
-    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    description: 'Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, imposta, alla',
     ogTitle: 'Guida per trasferirsi in Svizzera da italiano non frontaliere',
-    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio',
+    ogDescription: 'Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.',
     canonicalPath: '/articoli-svizzera/trasferirsi-svizzera-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Guida per trasferirsi in Svizzera da italiano non frontaliere",
-      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° Gennaio",
+      "description": "Guida per italiani che vogliono trasferirsi in Svizzera: residenza, imposte, assicurazione sanitaria e differenze rispetto al lavoro da frontaliere.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -12704,16 +12704,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliere-insegnante-scuola-ticino-stipendio-requisiti': {
-    title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
+    title: 'Insegnare in Ticino da frontaliere: requisiti e stipendio',
     description: 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
-    ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
+    ogTitle: 'Insegnare in Ticino da frontaliere: requisiti e stipendio',
     ogDescription: 'La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino.',
     canonicalPath: '/articoli-svizzera/frontaliere-insegnante-scuola-ticino-stipendio-requisiti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
+      "headline": "Insegnare in Ticino da frontaliere: requisiti e stipendio",
       "description": "La nuova legge sulle frontalieri riconosce titolo e stipendio agli insegnanti del Cantone Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -14444,16 +14444,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-disoccupati': {
-    title: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    title: 'Disoccupazione dei frontalieri: cosa cambia con la riforma UE',
     description: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, disoccupati, approva, riforma, onerosa',
-    ogTitle: 'Frontalieri disoccupati: l\'UE approva riforma onerosa per la Svizzera',
+    ogTitle: 'Disoccupazione dei frontalieri: cosa cambia con la riforma UE',
     ogDescription: 'Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati.',
     canonicalPath: '/articoli-svizzera/frontalieri-disoccupati/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri disoccupati: l'UE approva riforma onerosa per la Svizzera",
+      "headline": "Disoccupazione dei frontalieri: cosa cambia con la riforma UE",
       "description": "Il Parlamento europeo ha approvato martedì la riforma volta a ridefinire le competenze in materia di lavoratori frontalieri disoccupati. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -15838,17 +15838,17 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-ticino-ergoterapista': {
-    title: 'Ergoterapia in Ticino: stipendio e differenze con l\'Italia',
-    description: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    title: 'Ergoterapia in Ticino: stipendio, titolo e permesso G',
+    description: 'Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l\'Italia.',
     keywords: 'frontalieri, ticino, svizzera, italia, ergoterapia, stipendio, differenze, imposta',
-    ogTitle: 'Stipendio reale di un ergoterapista frontaliere in Ticino',
-    ogDescription: 'Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO',
+    ogTitle: 'Ergoterapia in Ticino: stipendio, titolo e permesso G',
+    ogDescription: 'Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l\'Italia.',
     canonicalPath: '/articoli-svizzera/frontalieri-ticino-ergoterapista/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Ergoterapia in Ticino: stipendio e differenze con l'Italia",
-      "description": "Imposta alla fonte sul reddito da lavoro: trattenuta SOLO in Svizzera per i frontalieri. Nuovo Accordo Frontalieri: firmato 23/12/2020, in vigore dal 1° GENNAIO",
+      "headline": "Ergoterapia in Ticino: stipendio, titolo e permesso G",
+      "description": "Stipendio e requisiti per lavorare come ergoterapista in Ticino: permesso G, riconoscimento del titolo e differenze con l'Italia.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -19227,16 +19227,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trippa-futuri-mobilita-italia-grigioni': {
     title: 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
-    description: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.',
     keywords: 'frontalieri, ticino, svizzera, italia, mobilità, alpina, proietta, verso',
     ogTitle: 'La mobilità alpina si proietta verso scenari futuri: il progetto TRIP',
-    ogDescription: 'Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni.',
+    ogDescription: 'Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.',
     canonicalPath: '/articoli-svizzera/trippa-futuri-mobilita-italia-grigioni/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "La mobilità alpina si proietta verso scenari futuri: il progetto TRIP",
-      "description": "Il progetto TRIP mira a sviluppare la mobilità tra Lombardia e Grigioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Il progetto TRIP guarda alla mobilità alpina futura: dialogo transfrontaliero e sviluppo dei collegamenti tra Italia e Grigioni.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -25483,16 +25483,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo': {
-    title: 'Affitti in Svizzera 2026: prezzi e diritti | Frontaliere Ticino',
+    title: 'Affitti nel Canton San Gallo: prezzi medi e diritti',
     description: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, affitti, prezzi, diritti, medi',
-    ogTitle: 'Mercato degli affitti in Svizzera nel 2026: prezzi medi per cantone, diritti dell\'inquilino, deposito cauzionale e disdetta.',
+    ogTitle: 'Affitti nel Canton San Gallo: prezzi medi e diritti',
     ogDescription: 'Prezzi medi per affitti in Svizzera nel 2026, diritti dell\'inquilino e deposito cauzionale.',
     canonicalPath: '/articoli-svizzera/affitti-svizzera-mercato-immobiliare-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Affitti in Svizzera 2026: prezzi e diritti",
+      "headline": "Affitti nel Canton San Gallo: prezzi medi e diritti",
       "description": "Prezzi medi per affitti in Svizzera nel 2026, diritti dell'inquilino e deposito cauzionale. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -35770,16 +35770,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aprire-un-attivita-canton-uri-registro-di-commercio-e-costi': {
-    title: 'Aprire un\'attività nel Cantone di Uri: scelta e obblighi',
+    title: 'Aprire un\'attività nel Canton Uri: capitale, tasse e assicurazioni',
     description: 'I costi e le formalità per aprire un\'attività nel Cantone di Uri. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, cantone, scelta',
-    ogTitle: 'Aprire un\'attività nel Cantone di Uri: scelta della forma giuridica, iscrizione al registro di commercio, capitale minimo, tasse di iscrizione e obblighi assicurativi.',
+    ogTitle: 'Aprire un\'attività nel Canton Uri: capitale, tasse e assicurazioni',
     ogDescription: 'I costi e le formalità per aprire un\'attività nel Cantone di Uri.',
     canonicalPath: '/articoli-svizzera/aprire-un-attivita-canton-uri-registro-di-commercio-e-costi/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Aprire un'attività nel Cantone di Uri: scelta e obblighi",
+      "headline": "Aprire un'attività nel Canton Uri: capitale, tasse e assicurazioni",
       "description": "I costi e le formalità per aprire un'attività nel Cantone di Uri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
@@ -48750,16 +48750,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-prestazioni-uri-cassa': {
-    title: 'AVS e prestazioni complementari nel canton Uri',
+    title: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     description: 'Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, cassa',
-    ogTitle: 'AVS e prestazioni complementari nel canton Uri',
+    ogTitle: 'AVS Uri: cassa di compensazione e prestazioni complementari',
     ogDescription: 'Scopri come la cassa di compensazione del canton Uri calcola la tua rendita AVS, come le lacune contributive influiscono sulla pensione, e come accedere alle prestazioni complementari per garantire il minimo vitale della tua famiglia.',
     canonicalPath: '/articoli-svizzera/avs-prestazioni-uri-cassa/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari nel canton Uri",
+      "headline": "AVS Uri: cassa di compensazione e prestazioni complementari",
       "description": "Cassa di compensazione cantonale, calcolo della rendita AVS, lacune contributive e prestazioni complementari nel minimo vitale. Guida completa per Uri.",
       "image": {
         "@type": "ImageObject",
@@ -51333,16 +51333,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-soletta-affitti-canoni-diritto': {
-    title: 'Mercato affitti a Soletta: canoni medi e diritto',
+    title: 'Affitti a Soletta: prezzi medi e regole per inquilini',
     description: 'Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.',
     keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
-    ogTitle: 'Mercato degli affitti nel Cantone di Soletta: canoni medi e diritto di locazione',
+    ogTitle: 'Affitti a Soletta: prezzi medi e regole per inquilini',
     ogDescription: 'Approfondimento completo sul mercato immobiliare e delle locazioni nel Cantone di Soletta. Scopri le regole sui canoni medi, la cauzione, le contestazioni e il ruolo dell\'autorità di conciliazione.',
     canonicalPath: '/articoli-svizzera/soletta-affitti-canoni-diritto/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Mercato affitti a Soletta: canoni medi e diritto",
+      "headline": "Affitti a Soletta: prezzi medi e regole per inquilini",
       "description": "Guida al mercato immobiliare nel Cantone di Soletta: analisi dei canoni medi, deposito di garanzia, contestazione del canone e autorità di conciliazione.",
       "image": {
         "@type": "ImageObject",
@@ -53794,16 +53794,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lacune-contributive-avs-zurigo': {
-    title: 'AVS e prestazioni complementari: cassa di compensazione',
+    title: 'Lacune AVS nel Canton Zurigo: prestazioni e contributi',
     description: 'Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, cassa, compensazione',
-    ogTitle: 'AVS e prestazioni complementari nel Canton Zurigo',
+    ogTitle: 'Lacune AVS nel Canton Zurigo: prestazioni e contributi',
     ogDescription: 'Scopri come funziona il primo pilastro AVS nel Canton Zurigo. Guida completa alla cassa di compensazione, calcolo della rendita, lacune contributive e prestazioni complementari per coprire il minimo vitale. Info pratiche e procedure.',
     canonicalPath: '/articoli-svizzera/lacune-contributive-avs-zurigo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari: cassa di compensazione",
+      "headline": "Lacune AVS nel Canton Zurigo: prestazioni e contributi",
       "description": "Primo pilastro nel Canton Zurigo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo vitale.",
       "image": {
         "@type": "ImageObject",
@@ -58199,16 +58199,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-apprendistato-formazione-uri-guida': {
-    title: 'Apprendistato e formazione professionale nel Canton Uri',
+    title: 'Apprendistato nel Canton Uri: formazione e requisiti',
     description: 'Guida pratica all\'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
-    ogTitle: 'Apprendistato e formazione professionale nel Canton Uri',
+    ogTitle: 'Apprendistato nel Canton Uri: formazione e requisiti',
     ogDescription: 'Tutto sull\'apprendistato in Canton Uri: come trovare un posto di tirocinio, il contratto, la retribuzione dell\'apprendista e la maturità professionale federale. Guida pratica.',
     canonicalPath: '/articoli-svizzera/apprendistato-formazione-uri-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Apprendistato e formazione professionale nel Canton Uri",
+      "headline": "Apprendistato nel Canton Uri: formazione e requisiti",
       "description": "Guida pratica all'apprendistato in Canton Uri: contratto di tirocinio, retribuzione, maturità professionale e passi per candidarsi. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -63068,16 +63068,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-apprendistato-formazione-professionale-canton-friburgo': {
-    title: 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    title: 'Formazione professionale a Friburgo: guida all\'apprendistato',
     description: 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, cantone',
-    ogTitle: 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    ogTitle: 'Formazione professionale a Friburgo: guida all\'apprendistato',
     ogDescription: 'Esplora le opportunità di apprendistato e formazione professionale nel Cantone di Friburgo, inclusi i dettagli sui contratti di tirocinio e la retribuzione degli apprendisti.',
     canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-canton-friburgo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Apprendistato e formazione professionale nel Cantone di Friburgo",
+      "headline": "Formazione professionale a Friburgo: guida all'apprendistato",
       "description": "Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -67574,16 +67574,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-assicurazioni-tagli-occupazione-2028': {
-    title: 'Swiss Life prevede di tagliare 600 posti entro il 2028',
+    title: 'Swiss Life: riduzione dell\'organico e impatto sul lavoro',
     description: 'Swiss Life annuncia 600 tagli di posti entro il 2028 nella strategia di efficienza. Risultati finanziari positivi nel primo semestre 2026. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, swiss, life, prevede, tagliare',
-    ogTitle: 'Swiss Life taglia 600 posti entro il 2028',
+    ogTitle: 'Swiss Life: riduzione dell\'organico e impatto sul lavoro',
     ogDescription: 'Nonostante la crescita dei ricavi e l\'utile netto in aumento, Swiss Life taglierà 600 posizioni entro il 2028. La compagnia zurighese punta sulla digitalizzazione e efficienza. Scopri cosa significa per il mercato del lavoro svizzero e cosa fare',
     canonicalPath: '/articoli-svizzera/assicurazioni-tagli-occupazione-2028/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Swiss Life prevede di tagliare 600 posti entro il 2028",
+      "headline": "Swiss Life: riduzione dell'organico e impatto sul lavoro",
       "description": "Swiss Life annuncia 600 tagli di posti entro il 2028 nella strategia di efficienza. Risultati finanziari positivi nel primo semestre 2026. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
@@ -68110,16 +68110,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-avs-lacune-contributive-san-gallo': {
-    title: 'AVS e prestazioni complementari: guida San Gallo',
+    title: 'Lacune AVS a San Gallo: prestazioni e contributi',
     description: 'Guida pratica al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo',
     keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, gallo, funziona',
-    ogTitle: 'AVS e prestazioni complementari nel Canton San Gallo',
+    ogTitle: 'Lacune AVS a San Gallo: prestazioni e contributi',
     ogDescription: 'Scopri come funziona il primo pilastro nel San Gallo: ruolo della cassa di compensazione cantonale, calcolo della rendita AVS, recupero delle lacune contributive e diritto alle prestazioni complementari per garantire il minimo vitale in pensione.',
     canonicalPath: '/articoli-svizzera/avs-lacune-contributive-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "AVS e prestazioni complementari: guida San Gallo",
+      "headline": "Lacune AVS a San Gallo: prestazioni e contributi",
       "description": "Guida pratica al primo pilastro nel Canton San Gallo: cassa di compensazione, calcolo rendita AVS, lacune contributive e prestazioni complementari per il minimo",
       "image": {
         "@type": "ImageObject",
@@ -73176,16 +73176,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-fondare-impresa-appenzello-esterno': {
-    title: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    title: 'Impresa in Appenzello Esterno: forma giuridica e iscrizione',
     description: 'Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un\'attività nel cantone Appenzello Esterno in Svizzera.',
     keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
-    ogTitle: 'Aprire un\'attività in Appenzello Esterno: guida pratica',
+    ogTitle: 'Impresa in Appenzello Esterno: forma giuridica e iscrizione',
     ogDescription: 'Guida completa per avviare un\'attività nel Canton Appenzello Esterno: scopri le forme giuridiche, come iscriversi al registro di commercio, i requisiti fiscali federali e cantonali, gli obblighi previdenziali per autonomi e tutte le procedure',
     canonicalPath: '/articoli-svizzera/fondare-impresa-appenzello-esterno/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Aprire un'attività in Appenzello Esterno: guida pratica",
+      "headline": "Impresa in Appenzello Esterno: forma giuridica e iscrizione",
       "description": "Forme giuridiche, iscrizione al registro, capitale minimo, imposte e previdenza per avviare un'attività nel cantone Appenzello Esterno in Svizzera.",
       "image": {
         "@type": "ImageObject",
@@ -80792,16 +80792,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-turno-ticino-guida': {
     title: 'Farmacie di turno in Ticino: guida a fonti e copertura',
-    description: 'Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.',
+    description: 'Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l\'apertura prima di partire.',
     keywords: 'farmacie di turno Ticino, OFCT, farmacia aperta, turni regionali, Mendrisiotto, Luganese, Bellinzonese',
     ogTitle: 'Farmacie di turno in Ticino: guida a fonti e copertura',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l\'apertura prima di partire.',
     canonicalPath: '/articoli-svizzera/farmacie-turno-ticino-guida/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie di turno in Ticino: come leggere fonti e copertura",
-      "description": "Farmacie di turno in Ticino: guida a fonti e copertura: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.",
+      "description": "Turni di farmacia in Ticino: fonti ufficiali, copertura regionale e limiti del catalogo per verificare l'apertura prima di partire.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80831,16 +80831,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-ticino-elenco-contatti': {
     title: 'Farmacie in Ticino: elenco e contatti',
-    description: 'Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.',
+    description: 'Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.',
     keywords: 'farmacie Ticino elenco, contatti farmacie Ticino, lista ufficiale farmacie, farmacia Lugano, farmacia Bellinzona',
     ogTitle: 'Farmacie in Ticino: elenco e contatti',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.',
     canonicalPath: '/articoli-svizzera/farmacie-ticino-elenco-contatti/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie in Ticino: elenco ufficiale e contatti",
-      "description": "Farmacie in Ticino: elenco e contatti: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.",
+      "description": "Elenco delle farmacie in Ticino con contatti e catalogo regionale: come cercare una sede e verificare orari e turni aggiornati.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80870,16 +80870,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-confine-italia-como-varese-verbano': {
     title: 'Farmacie al confine: Como, Varese e Verbano',
-    description: 'Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.',
+    description: 'Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.',
     keywords: 'farmacie confine Italia Svizzera, farmacie Como, farmacie Varese, farmacie Verbano, farmacie Ticino',
     ogTitle: 'Farmacie al confine: Como, Varese e Verbano',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.',
     canonicalPath: '/articoli-svizzera/farmacie-confine-italia-como-varese-verbano/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie al confine: il catalogo per Como, Varese e Verbano",
-      "description": "Farmacie al confine: Como, Varese e Verbano: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi. Non è copertura nazionale.",
+      "description": "Farmacie al confine tra Ticino, Como, Varese e Verbano: cataloghi locali, fonti dei turni e indicazioni per la verifica.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -80909,16 +80909,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacia-aperta-turno-elenco': {
     title: 'Farmacia aperta o di turno: come leggere l’elenco',
-    description: 'Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.',
+    description: 'Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.',
     keywords: 'farmacia aperta Ticino, farmacia di turno, elenco farmacie, orari farmacia, OFCT',
     ogTitle: 'Farmacia aperta o di turno: come leggere l’elenco',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.',
     canonicalPath: '/articoli-svizzera/farmacia-aperta-turno-elenco/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacia aperta o di turno: come leggere l’elenco",
-      "description": "Farmacia aperta o di turno: come leggere l’elenco: 207 record Ticino e 542 in CO, VA e VB; turni verificati in 5 aree. Copertura non nazionale.",
+      "description": "Come trovare una farmacia aperta o di turno tra Ticino e province di confine, leggendo cataloghi, orari e fonti ufficiali.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -81138,16 +81138,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-farmacie-turno-svizzera-confine-italiano': {
     title: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone',
-    description: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi',
+    description: 'Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.',
     keywords: 'farmacie di turno Svizzera, farmacia di guardia cantone, farmacia aperta confine Italia, OFCT Ticino, farmacie Varese Como',
     ogTitle: 'Farmacie di turno in Svizzera e confine italiano: fonti per cantone',
-    ogDescription: 'Cataloghi farmacia per Ticino e confine italiano (207 e 542 record), con turni regionali verificati in 5 aree ticinesi. Fonti e timestamp chiari.',
+    ogDescription: 'Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.',
     canonicalPath: '/articoli-svizzera/farmacie-turno-svizzera-confine-italiano/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Farmacie di turno in Svizzera: verifica per cantone e confine italiano",
-      "description": "Farmacie di turno in Svizzera e confine italiano: fonti per cantone: 207 record Ticino e 542 in CO, VA e VB; turni regionali verificati in 5 aree ticinesi",
+      "description": "Farmacie di turno in Svizzera e al confine italiano: dove verificare le fonti cantonali e i turni prima di partire.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -90745,16 +90745,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-franchigie-lamal-basilea-citta': {
-    title: 'Premi cassa malati canton Basilea Città: riduzione premi',
+    title: 'Premi LAMal a Basilea Città: franchigia e sussidio',
     description: 'Premi cassa malati nel canton Basilea Città: franchigie adulti, modelli alternativi, obbligo LAMal entro tre mesi per residenti, riduzione cantonale dei premi.',
     keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
-    ogTitle: 'Basilea Città: premi LAMal e riduzione',
+    ogTitle: 'Premi LAMal a Basilea Città: franchigia e sussidio',
     ogDescription: 'LAMal obbligatoria per i residenti a Basilea Città: guida pratica a cantone, regione, franchigie adulte, modelli alternativi e riduzione dei premi come sussidio cantonale, con stipula entro tre mesi dall\'arrivo.',
     canonicalPath: '/articoli-svizzera/franchigie-lamal-basilea-citta/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Premi cassa malati canton Basilea Città: riduzione premi",
+      "headline": "Premi LAMal a Basilea Città: franchigia e sussidio",
       "description": "Premi cassa malati nel canton Basilea Città: franchigie adulti, modelli alternativi, obbligo LAMal entro tre mesi per residenti, riduzione cantonale dei premi.",
       "image": {
         "@type": "ImageObject",
@@ -98033,6 +98033,856 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bern-risanamento-energia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-deduzioni-3a-2027': {
+    title: 'Pilastro 3a: deduzioni fiscali massime 2027 | Frontaliere Ticino',
+    description: 'Dal 1° gennaio 2027 cambiano i limiti del pilastro 3a: 7373 franchi per chi ha un 2° pilastro e 36864 per chi non lo possiede. Confronto con gli importi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pilastro, deduzioni, fiscali, massime',
+    ogTitle: 'Pilastro 3a: deduzioni massime 2027',
+    ogDescription: 'La comunicazione pubblicata a Berna il 5 ottobre 2026 fissa i nuovi tetti della deduzione fiscale per il pilastro 3a. Dal 1° gennaio 2027 il limite sarà di 7373 franchi con un 2° pilastro e di 36864 franchi senza.',
+    canonicalPath: '/articoli-svizzera/deduzioni-3a-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pilastro 3a: deduzioni fiscali massime 2027",
+      "description": "Dal 1° gennaio 2027 cambiano i limiti del pilastro 3a: 7373 franchi per chi ha un 2° pilastro e 36864 per chi non lo possiede. Confronto con gli importi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/deduzioni-3a-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Calcolatrice e documenti fiscali svizzeri per le deduzioni del pilastro 3a"
+      },
+      "datePublished": "2026-10-05T15:21:39+00:00",
+      "dateModified": "2026-10-05T15:21:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deduzioni-3a-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-greggio-export-pre-guerra': {
+    title: 'Greggio: export mediorientale ai livelli pre-guerra',
+    description: 'Le esportazioni di greggio dal Medio Oriente, escluso l\'Iran, superano i livelli pre-guerra. Brent a 101,44 dollari e WTI a 90,02: le rotte alternative',
+    keywords: 'frontalieri, ticino, svizzera, italia, greggio, export, mediorientale, livelli',
+    ogTitle: 'Export di greggio: Medio Oriente sopra i livelli pre-guerra',
+    ogDescription: 'La media delle spedizioni ha oltrepassato per più giorni i 18 milioni di barili al giorno precedenti al conflitto. Arabia Saudita ed Emirati usano oleodotti alternativi, mentre le petroliere escono dal Golfo con scorta americana.',
+    canonicalPath: '/articoli-svizzera/greggio-export-pre-guerra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Greggio: export mediorientale ai livelli pre-guerra",
+      "description": "Le esportazioni di greggio dal Medio Oriente, escluso l'Iran, superano i livelli pre-guerra. Brent a 101,44 dollari e WTI a 90,02: le rotte alternative",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/greggio-export-pre-guerra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano associato alla lettura dei mercati energetici internazionali"
+      },
+      "datePublished": "2026-10-05T23:22:16+00:00",
+      "dateModified": "2026-10-05T23:22:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/greggio-export-pre-guerra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-patriot-bodluv-iva-attesa': {
+    title: 'Svizzera indifesa: ritardo difesa missilizia e IVA',
+    description: 'La Svizzera rischia di restare indifesa contro missili balistici a causa del ritardo nella fornitura del sistema Bodluv GR2 e del Patriot. Il finanziamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, indifesa, ritardo, difesa, missilizia',
+    ogTitle: 'Svizzera indifesa: ritardo difesa missilizia e IVA',
+    ogDescription: 'L\'articolo analizza il ritardo nella fornitura dei sistemi antimissile svizzeri Bodluv GR2 e Patriot, il possibile finanziamento tramite aumento dell\'IVA ancora da approvare dal Parlamento, i fornitori Francia e Israele e le posizioni politiche',
+    canonicalPath: '/articoli-svizzera/svizzera-patriot-bodluv-iva-attesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera indifesa: ritardo difesa missilizia e IVA",
+      "description": "La Svizzera rischia di restare indifesa contro missili balistici a causa del ritardo nella fornitura del sistema Bodluv GR2 e del Patriot. Il finanziamento",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-patriot-bodluv-iva-attesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Illustrazione di un sistema di difesa antimissile svizzero sulle Alpi con monete euro che rappresentano un possibile aumento dell'IVA"
+      },
+      "datePublished": "2026-10-05T23:53:47+00:00",
+      "dateModified": "2026-10-05T23:53:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-patriot-bodluv-iva-attesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-edilizio-berna-procedura': {
+    title: 'Autorizzazione edilizia a Berna: requisiti e procedura',
+    description: 'Autorizzazione edilizia nel Cantone di Berna: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori senza permesso.',
+    keywords: 'frontalieri, ticino, svizzera, italia, autorizzazione, edilizia, berna, requisiti',
+    ogTitle: 'Permesso edilizio nel Cantone di Berna',
+    ogDescription: 'La procedura edilizia nel Cantone di Berna parte dalla verifica del permesso e dei documenti richiesti. Comune e cantone hanno un ruolo nel percorso; opposizioni e ricorsi vanno considerati prima di iniziare i lavori.',
+    canonicalPath: '/articoli-svizzera/permesso-edilizio-berna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autorizzazione edilizia a Berna: requisiti e procedura",
+      "description": "Autorizzazione edilizia nel Cantone di Berna: requisiti, documenti, ruolo di comune e cantone, opposizioni e divieto di iniziare i lavori senza permesso.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permesso-edilizio-berna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti per una richiesta di autorizzazione edilizia nel Cantone di Berna"
+      },
+      "datePublished": "2026-10-06T01:17:07+00:00",
+      "dateModified": "2026-10-06T01:17:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-edilizio-berna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-air-baltic-tagli-swiss': {
+    title: 'Air Baltic, partner di Swiss, taglia fino a 700 posti',
+    description: 'Air Baltic, che opera anche per Swiss, prevede 500-700 tagli su circa 3\'000 posti. Il programma di voli resta invariato; coinvolte Riga, Vilnius e Tallinn.',
+    keywords: 'frontalieri, ticino, svizzera, italia, baltic, partner, swiss, taglia',
+    ogTitle: 'Air Baltic: fino a 700 tagli, partnership con Swiss',
+    ogDescription: 'Il nuovo piano aziendale della compagnia lettone punta su una flotta propria più ridotta di Airbus A220-300 e su partnership più solide durante tutto l\'anno. Cinque A220-300 erano in servizio per Swiss all\'inizio di marzo.',
+    canonicalPath: '/articoli-svizzera/air-baltic-tagli-swiss/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Air Baltic, partner di Swiss, taglia fino a 700 posti",
+      "description": "Air Baltic, che opera anche per Swiss, prevede 500-700 tagli su circa 3'000 posti. Il programma di voli resta invariato; coinvolte Riga, Vilnius e Tallinn.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/air-baltic-tagli-swiss.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Air Baltic riduce il personale mentre mantiene invariato il programma di voli."
+      },
+      "datePublished": "2026-10-06T01:43:45+00:00",
+      "dateModified": "2026-10-06T01:43:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/air-baltic-tagli-swiss/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tamedia-cancella-34-posti-lavoro': {
+    title: 'Tamedia cancella 34 posti di lavoro in cinque redazioni',
+    description: 'Tamedia sopprime 34 posti di lavoro a tempo pieno coinvolgendo 41 collaboratori a Zurigo, Berna, Basilea, Losanna e Ginevra. Scopri il piano sociale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamedia, cancella, posti, lavoro',
+    ogTitle: 'Tamedia taglia 34 posti di lavoro in Svizzera',
+    ogDescription: 'Annunciata la soppressione di 34 posizioni a tempo pieno e 41 collaboratori coinvolti nelle redazioni di Zurigo, Berna, Basilea, Losanna e Ginevra. Dettagli sul piano sociale e sulle misure di accompagnamento.',
+    canonicalPath: '/articoli-svizzera/tamedia-cancella-34-posti-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamedia cancella 34 posti di lavoro in cinque redazioni",
+      "description": "Tamedia sopprime 34 posti di lavoro a tempo pieno coinvolgendo 41 collaboratori a Zurigo, Berna, Basilea, Losanna e Ginevra. Scopri il piano sociale.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tamedia-cancella-34-posti-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio Tamedia con redazione giornalistica in Svizzera"
+      },
+      "datePublished": "2026-10-06T03:24:07+00:00",
+      "dateModified": "2026-10-06T03:24:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tamedia-cancella-34-posti-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-neutralita-svizzera-voto-costituzione': {
+    title: 'Neutralità svizzera: respinta la stretta in Costituzione',
+    description: 'Il popolo svizzero ha respinto l\'iniziativa per una neutralità più rigida nella Costituzione e confermato l\'attuale interpretazione della neutralità elvetica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, respinta, stretta, costituzione',
+    ogTitle: 'Neutralità svizzera: respinta la stretta costituzionale',
+    ogDescription: 'L\'analisi sul rifiuto dell\'iniziativa per una concezione più rigida della neutralità mostra la conferma del sostegno popolare all\'attuale interpretazione elvetica e richiama i dubbi sulle intenzioni dei sostenitori.',
+    canonicalPath: '/articoli-svizzera/neutralita-svizzera-voto-costituzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Neutralità svizzera: respinta la stretta in Costituzione",
+      "description": "Il popolo svizzero ha respinto l'iniziativa per una neutralità più rigida nella Costituzione e confermato l'attuale interpretazione della neutralità elvetica.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/neutralita-svizzera-voto-costituzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona in una scena editoriale sulla politica svizzera"
+      },
+      "datePublished": "2026-10-06T04:01:17+00:00",
+      "dateModified": "2026-10-06T04:01:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/neutralita-svizzera-voto-costituzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-elezioni-berna-guida-voto': {
+    title: 'Elezioni cantonali a Berna: guida a calendario e voto',
+    description: 'Guida ufficiale alle elezioni cantonali nel Cantone di Berna: calendario, modalità di voto, liste, competenze fiscali, previdenza e regole di locazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, elezioni, cantonali, berna, calendario',
+    ogTitle: 'Elezioni cantonali Berna: guida a calendario, voto e competenze',
+    ogDescription: 'Scopri come orientarti nelle elezioni cantonali a Berna. Una panoramica completa su calendario, modalità di voto, liste, suddivisione fiscale, previdenza e regole sulla locazione.',
+    canonicalPath: '/articoli-svizzera/elezioni-berna-guida-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Elezioni cantonali a Berna: guida a calendario e voto",
+      "description": "Guida ufficiale alle elezioni cantonali nel Cantone di Berna: calendario, modalità di voto, liste, competenze fiscali, previdenza e regole di locazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/elezioni-berna-guida-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida alle elezioni cantonali nel Cantone di Berna e competenze"
+      },
+      "datePublished": "2026-10-06T04:48:47+00:00",
+      "dateModified": "2026-10-06T04:48:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/elezioni-berna-guida-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-berna-protezione-servizio-indennita': {
+    title: 'Protezione civile canton Berna: requisiti e indennità',
+    description: 'Protezione civile nel canton Berna: legge federale, coordinamento cantonale. Convocazioni e indennità devono essere verificate presso l\'autorità competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, protezione, civile, canton, berna',
+    ogTitle: 'Protezione civile canton Berna: requisiti e indennità',
+    ogDescription: 'Nel canton Berna la protezione civile segue un coordinamento cantonale nell\'ambito della legge federale. Requisiti, convocazioni e indennità non vanno dedotti da regole generiche: il riferimento è l\'autorità competente.',
+    canonicalPath: '/articoli-svizzera/berna-protezione-servizio-indennita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protezione civile canton Berna: requisiti e indennità",
+      "description": "Protezione civile nel canton Berna: legge federale, coordinamento cantonale. Convocazioni e indennità devono essere verificate presso l'autorità competente.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/berna-protezione-servizio-indennita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protezione civile svizzera davanti a un edificio amministrativo cantonale"
+      },
+      "datePublished": "2026-10-06T05:28:53+00:00",
+      "dateModified": "2026-10-06T05:28:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/berna-protezione-servizio-indennita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-edifici-berna-obbligo-premi': {
+    title: 'Assicurazione immobili Canton Berna: obbligo e premi',
+    description: 'Assicurazione immobili nel Canton Berna: obbligo, ente competente, coperture, premi e procedura in caso di sinistro, con confronto alle altre voci svizzere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, immobili, canton, berna',
+    ogTitle: 'Assicurazione immobili Canton Berna: obbligo e premi',
+    ogDescription: 'Nel Canton Berna il primo nodo è capire se l\'assicurazione degli edifici è obbligatoria e chi la gestisce. La guida separa ente cantonale, assicuratore autorizzato, premi, coperture e sinistro dalle imposte, dalla LAMal e dalla previdenza.',
+    canonicalPath: '/articoli-svizzera/edifici-berna-obbligo-premi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione immobili Canton Berna: obbligo e premi",
+      "description": "Assicurazione immobili nel Canton Berna: obbligo, ente competente, coperture, premi e procedura in caso di sinistro, con confronto alle altre voci svizzere.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/edifici-berna-obbligo-premi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero e documenti per l'assicurazione immobiliare"
+      },
+      "datePublished": "2026-10-06T06:00:48+00:00",
+      "dateModified": "2026-10-06T06:00:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/edifici-berna-obbligo-premi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-prezzi-immobili-settembre-regioni': {
+    title: 'Prezzi case e appartamenti in Svizzera: settembre stabile',
+    description: 'A settembre i prezzi richiesti in Svizzera cambiano poco: case unifamiliari -0,1% e appartamenti +0,2%, con differenze regionali anche tra Zurigo e Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, case, appartamenti, settembre',
+    ogTitle: 'Case e appartamenti: prezzi stabili a settembre',
+    ogDescription: 'L\'analisi degli annunci Immoscout, in collaborazione con IAZI, mostra prezzi nazionali quasi stabili in settembre, ma differenze regionali: Zurigo guida il calo delle case, mentre il Ticino sale per la proprietà per piani.',
+    canonicalPath: '/articoli-svizzera/prezzi-immobili-settembre-regioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi case e appartamenti in Svizzera: settembre stabile",
+      "description": "A settembre i prezzi richiesti in Svizzera cambiano poco: case unifamiliari -0,1% e appartamenti +0,2%, con differenze regionali anche tra Zurigo e Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-immobili-settembre-regioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edifici residenziali svizzeri e andamento regionale dei prezzi immobiliari"
+      },
+      "datePublished": "2026-10-06T06:36:57+00:00",
+      "dateModified": "2026-10-06T06:36:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-immobili-settembre-regioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ostinelli-cassa-malati-udienza-pretore': {
+    title: 'Ostinelli non paga la cassa malati e va davanti al pretore',
+    description: 'Roberto Ostinelli, medico di Mendrisio, ha smesso di pagare la cassa malati svizzera da giugno 2024 e deve presentarsi davanti al pretore il 6 ottobre dopo aver',
+    keywords: 'frontalieri, ticino, svizzera, italia, ostinelli, paga, cassa, malati',
+    ogTitle: 'Ostinelli non paga la cassa malati e va davanti al pretore',
+    ogDescription: 'Il medico e parlamentare Roberto Ostinelli, residente a Mendrisio, non versa più il premio della cassa malati svizzera da giugno 2024, optando per un\'assicurazione internazionale da 140 euro al mese che dice valida anche in Svizzera. Dopo il rifiuto',
+    canonicalPath: '/articoli-svizzera/ostinelli-cassa-malati-udienza-pretore/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ostinelli non paga la cassa malati e va davanti al pretore",
+      "description": "Roberto Ostinelli, medico di Mendrisio, ha smesso di pagare la cassa malati svizzera da giugno 2024 e deve presentarsi davanti al pretore il 6 ottobre dopo aver",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ostinelli-cassa-malati-udienza-pretore.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Roberto Ostinelli, medico di Mendrisio, davanti al pretore per il mancato pagamento della cassa malati"
+      },
+      "datePublished": "2026-10-06T07:13:37+00:00",
+      "dateModified": "2026-10-06T07:13:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ostinelli-cassa-malati-udienza-pretore/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-assicurazione-base-proiezione': {
+    title: 'Premi cassa malati in aumento: verso i 1000 franchi al mese',
+    description: 'L\'anno prossimo il premio medio dell\'assicurazione base sarà 488 franchi (+23, +5%). Se il trend del 5% annuo continua, tra 14 anni si avvicinerà a 966,20',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, aumento',
+    ogTitle: 'Premi cassa malati in aumento: verso i 1000 franchi al mese',
+    ogDescription: 'L\'articolo analizza l aumento previsto dei premi dell\'assicurazione obbligatoria: 488 franchi al mese l anno prossimo (+5%, +23 franchi). Secondo la proiezione del 5% annuo, il premio potrebbe raggiungere 966,20 franchi dopo 14 anni e più del doppio',
+    canonicalPath: '/articoli-svizzera/costi-assicurazione-base-proiezione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati in aumento: verso i 1000 franchi al mese",
+      "description": "L'anno prossimo il premio medio dell'assicurazione base sarà 488 franchi (+23, +5%). Se il trend del 5% annuo continua, tra 14 anni si avvicinerà a 966,20",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/costi-assicurazione-base-proiezione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Famiglia svizzera che controlla le spese sanitarie e i premi della cassa malati sul tavolo della cucina"
+      },
+      "datePublished": "2026-10-06T07:50:50+00:00",
+      "dateModified": "2026-10-06T07:50:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/costi-assicurazione-base-proiezione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-settembre-2026': {
+    title: 'La situazione sul mercato del lavoro nel mese di settembre 2026',
+    description: 'La SECO ha pubblicato i dati di settembre 2026: 140’480 disoccupati (3%), in calo mensile dello 0,8%, ma in aumento annuo del 5,4%. Posti vacanti URC a 44’199.',
+    keywords: 'frontalieri, ticino, svizzera, italia, situazione, mercato, lavoro, mese',
+    ogTitle: 'Mercato lavoro Svizzera: dati SECO settembre 2026',
+    ogDescription: 'I dati SECO di settembre 2026 rivelano 140’480 disoccupati in Svizzera con un tasso al 3%. Registrato un calo mensile dello 0,8% ma un aumento annuo del 5,4%. I posti vacanti presso gli URC sono 44’199. L\'analisi include anche disoccupazione',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-settembre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La situazione sul mercato del lavoro nel mese di settembre 2026",
+      "description": "La SECO ha pubblicato i dati di settembre 2026: 140’480 disoccupati (3%), in calo mensile dello 0,8%, ma in aumento annuo del 5,4%. Posti vacanti URC a 44’199.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di una città svizzera che simboleggia il mercato del lavoro e l'economia nazionale."
+      },
+      "datePublished": "2026-10-06T08:45:47+00:00",
+      "dateModified": "2026-10-06T08:45:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-effettivo-esercito-2026-calo': {
+    title: 'L\'effettivo dell\'esercito è sufficiente ora ma calerà entro il 2030',
+    description: 'Al 1° marzo 2026 l\'esercito svizzero conta 147 017 militari, sufficienti per garantire il regolamentare di 100 000, ma si prevede un calo sotto 130 000 unità',
+    keywords: 'frontalieri, ticino, svizzera, italia, effettivo, dell, esercito, sufficiente',
+    ogTitle: 'Esercito svizzero: effettivo sufficiente ora, calo previsto entro 2030',
+    ogDescription: 'Il censimento dell’esercito 2026 pubblicato il 6 ottobre mostra 147 017 militari incorporati al 1° marzo, sufficienti per il regolamentare di 100 000. Tuttavia, il proscioglimento delle ultime due classi d’età con obbligo di 12 anni nel 2028‑2029',
+    canonicalPath: '/articoli-svizzera/effettivo-esercito-2026-calo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'effettivo dell'esercito è sufficiente ora ma calerà entro il 2030",
+      "description": "Al 1° marzo 2026 l'esercito svizzero conta 147 017 militari, sufficienti per garantire il regolamentare di 100 000, ma si prevede un calo sotto 130 000 unità",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/effettivo-esercito-2026-calo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista delle caserme dell'esercito svizzero vicino a Lugano con soldati in addestramento"
+      },
+      "datePublished": "2026-10-06T10:00:38+00:00",
+      "dateModified": "2026-10-06T10:00:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/effettivo-esercito-2026-calo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-perdita-ad-bilancio-2025': {
+    title: 'Assicurazione disoccupazione: perdita 249 milioni nel 2025',
+    description: 'L\'assicurazione disoccupazione chiude il 2025 con una perdita di 249 milioni. La SECO comunica uscite, entrate, disoccupati medi e capitale netto del fondo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assicurazione, disoccupazione, perdita, milioni',
+    ogTitle: 'AD: perdita di 249 milioni nel 2025',
+    ogDescription: 'Nel 2025 l\'AD ha registrato uscite per 8,69 miliardi contro 8,44 di entrate. I disoccupati medi sono saliti a 133\'712, mentre il capitale proprio netto del fondo è sceso a 7,96 miliardi; l\'approvazione formale resta pendente.',
+    canonicalPath: '/articoli-svizzera/perdita-ad-bilancio-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assicurazione disoccupazione: perdita 249 milioni nel 2025",
+      "description": "L'assicurazione disoccupazione chiude il 2025 con una perdita di 249 milioni. La SECO comunica uscite, entrate, disoccupati medi e capitale netto del fondo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/perdita-ad-bilancio-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio federale a Berna, immagine simbolica del bilancio dell'assicurazione disoccupazione"
+      },
+      "datePublished": "2026-10-06T10:41:49+00:00",
+      "dateModified": "2026-10-06T10:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/perdita-ad-bilancio-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fuochi-artificio-no': {
+    title: 'Fuochi d\'artificio, la destra lancia il no all\'iniziativa',
+    description: 'Il comitato contrario ha lanciato la campagna per il voto del 29 novembre: Centro, PLR, UDC e mondo economico contestano un divieto nazionale sproporzionato.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuochi, artificio, destra, lancia',
+    ogTitle: 'Fuochi d\'artificio: il no al divieto nazionale',
+    ogDescription: 'La campagna contraria è partita martedì. L\'iniziativa chiede più protezione da rumore ed emissioni; il fronte del no teme effetti su feste private e manifestazioni organizzate. Per i grandi eventi sovraregionali sono previste eccezioni cantonali.',
+    canonicalPath: '/articoli-svizzera/fuochi-artificio-no/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuochi d'artificio, la destra lancia il no all'iniziativa",
+      "description": "Il comitato contrario ha lanciato la campagna per il voto del 29 novembre: Centro, PLR, UDC e mondo economico contestano un divieto nazionale sproporzionato.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuochi-artificio-no.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fuochi d'artificio sopra una città svizzera durante il dibattito sull'iniziativa"
+      },
+      "datePublished": "2026-10-06T11:19:54+00:00",
+      "dateModified": "2026-10-06T11:19:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fuochi-artificio-no/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ruegsegger-candidato-federale': {
+    title: 'Rüegsegger candidato UDC per il Consiglio federale',
+    description: 'Il Canton Svitto propone André Rüegsegger per la successione di Guy Parmelin: è la prima candidatura ufficiale dopo l\'annuncio delle dimissioni a fine anno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rüegsegger, candidato, consiglio, federale',
+    ogTitle: 'Rüegsegger candidato UDC al Consiglio federale',
+    ogDescription: 'La sezione UDC del Canton Svitto propone André Rüegsegger alla commissione di ricerca nazionale come prima candidatura ufficiale per la successione di Guy Parmelin. Il consigliere di Stato, 50 anni, è nell\'esecutivo svittese dal 2012.',
+    canonicalPath: '/articoli-svizzera/ruegsegger-candidato-federale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rüegsegger candidato UDC per il Consiglio federale",
+      "description": "Il Canton Svitto propone André Rüegsegger per la successione di Guy Parmelin: è la prima candidatura ufficiale dopo l'annuncio delle dimissioni a fine anno.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ruegsegger-candidato-federale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande, immagine simbolica per la politica federale svizzera."
+      },
+      "datePublished": "2026-10-06T12:03:33+00:00",
+      "dateModified": "2026-10-06T12:03:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ruegsegger-candidato-federale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affluenza-scalo-zurigo-autunno': {
+    title: 'Aeroporto di Zurigo: record con 123\'000 passeggeri',
+    description: 'Zurigo: record con 123\'000 viaggiatori il 4 ottobre. Dati provvisori; picco dello scalo legato alle vacanze autunnali, numeri definitivi a metà novembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, zurigo, record, passeggeri',
+    ogTitle: 'Aeroporto di Zurigo: 123\'000 viaggiatori in un giorno',
+    ogDescription: 'Domenica 4 ottobre, Zurigo ha accolto 123\'000 viaggiatori: record giornaliero ancora provvisorio. L\'affluenza è legata alle vacanze scolastiche autunnali in diversi Cantoni svizzero-tedeschi; i numeri definitivi arriveranno a metà novembre.',
+    canonicalPath: '/articoli-svizzera/affluenza-scalo-zurigo-autunno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto di Zurigo: record con 123'000 passeggeri",
+      "description": "Zurigo: record con 123'000 viaggiatori il 4 ottobre. Dati provvisori; picco dello scalo legato alle vacanze autunnali, numeri definitivi a metà novembre.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/affluenza-scalo-zurigo-autunno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aeroporto di Zurigo con un aereo sulla pista e il terminale sullo sfondo"
+      },
+      "datePublished": "2026-10-06T12:52:17+00:00",
+      "dateModified": "2026-10-06T12:52:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affluenza-scalo-zurigo-autunno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rickli-tempo-candidatura-federal': {
+    title: 'Natalie Rickli prende tempo su candidatura federale',
+    description: 'Natalie Rickli, consigliera di Stato dell\'UDC, non conferma la candidatura al Consiglio federale, rimandando la decisione dopo le vacanze autunnali; il termine',
+    keywords: 'frontalieri, ticino, svizzera, italia, natalie, rickli, prende, tempo',
+    ogTitle: 'Natalie Rickli prende tempo su candidatura federale',
+    ogDescription: 'La consigliera di Stato zurighese Natalie Rickli, una delle favorite per la successione di Guy Parmelin, non ha ancora confermato la sua candidatura al Consiglio federale. Ha dichiarato di voler riflettere e di rispondere dopo le vacanze autunnali',
+    canonicalPath: '/articoli-svizzera/rickli-tempo-candidatura-federal/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Natalie Rickli prende tempo su candidatura federale",
+      "description": "Natalie Rickli, consigliera di Stato dell'UDC, non conferma la candidatura al Consiglio federale, rimandando la decisione dopo le vacanze autunnali; il termine",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/rickli-tempo-candidatura-federal.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista fotorealistica di un edificio federale svizzero al tramonto autunnale."
+      },
+      "datePublished": "2026-10-06T14:04:52+00:00",
+      "dateModified": "2026-10-06T14:04:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rickli-tempo-candidatura-federal/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-nuovi-progetti-chiave-digitali': {
+    title: 'Nuovi progetti chiave per la sovranità digitale federale',
+    description: 'Il 1° ottobre 2026 il cancelliere ha designato due nuovi progetti chiave: la postazione di lavoro sulla sovranità digitale e EasyGov 2.0. NEPRO esce',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, progetti, chiave, sovranità',
+    ogTitle: 'Nuovi progetti chiave nel settore della trasformazione digitale e dell’informatica',
+    ogDescription: 'Il comunicato del cancelliere del 1° ottobre 2026 ha inserito come progetti chiave la postazione di lavoro basata sulla sovranità digitale e EasyGov 2.0, mentre NEPRO esce dalla categoria. I 22 progetti chiave attuali costituiscono più della metà',
+    canonicalPath: '/articoli-svizzera/nuovi-progetti-chiave-digitali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi progetti chiave per la sovranità digitale federale",
+      "description": "Il 1° ottobre 2026 il cancelliere ha designato due nuovi progetti chiave: la postazione di lavoro sulla sovranità digitale e EasyGov 2.0. NEPRO esce",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuovi-progetti-chiave-digitali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto del Bundeshaus a Berna con linee digitali che simboleggiano la trasformazione informatica federale"
+      },
+      "datePublished": "2026-10-06T14:57:46+00:00",
+      "dateModified": "2026-10-06T14:57:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nuovi-progetti-chiave-digitali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-luna-opportunita-aziende-svizzere': {
+    title: 'Industrializzare la Luna: opportunità per le aziende svizzere',
+    description: 'La filiera spaziale svizzera fattura 330 milioni di franchi, impiega quasi 3000 addetti in 120 aziende e l\'economia lunare potrebbe raggiungere 343-566 miliardi',
+    keywords: 'frontalieri, ticino, svizzera, italia, industrializzare, luna, opportunità, aziende',
+    ogTitle: 'Industrializzare la Luna: opportunità per le aziende svizzere',
+    ogDescription: 'La filiera spaziale svizzera, con circa 330 milioni di franchi di fatturato e quasi 3000 addetti in 120 imprese, si prepara all\'industrializzazione della Luna. Secondo Deloitte, l\'economia lunare potrebbe valere tra 343 e 566 miliardi di dollari',
+    canonicalPath: '/articoli-svizzera/luna-opportunita-aziende-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Industrializzare la Luna: opportunità per le aziende svizzere",
+      "description": "La filiera spaziale svizzera fattura 330 milioni di franchi, impiega quasi 3000 addetti in 120 aziende e l'economia lunare potrebbe raggiungere 343-566 miliardi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/luna-opportunita-aziende-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ingegneri svizzeri che lavorano su componenti per missioni lunari in un'officina di Aigle"
+      },
+      "datePublished": "2026-10-06T15:49:22+00:00",
+      "dateModified": "2026-10-06T15:49:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/luna-opportunita-aziende-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-maiali-polmonite-enzootica-svizzera': {
+    title: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    description: 'Emergenza sanitaria suinicola in Svizzera: oltre 10\'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l\'uomo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, maiali, uccisi, polmonite, enzootica',
+    ogTitle: 'Svizzera: 10\'500 maiali uccisi per polmonite enzootica',
+    ogDescription: 'Un\'epidemia di polmonite enzootica ha colpito 60 allevamenti in 14 Cantoni svizzeri. Oltre 10\'500 suini sono stati abbattuti o macellati per fermare il contagio.',
+    canonicalPath: '/articoli-svizzera/maiali-polmonite-enzootica-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: 10'500 maiali uccisi per polmonite enzootica",
+      "description": "Emergenza sanitaria suinicola in Svizzera: oltre 10'500 maiali abbattuti in 14 Cantoni per polmonite enzootica. Nessun rischio per l'uomo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/maiali-polmonite-enzootica-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio rurale svizzero con strutture agricole own modern own"
+      },
+      "datePublished": "2026-10-06T17:19:31+00:00",
+      "dateModified": "2026-10-06T17:19:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/maiali-polmonite-enzootica-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ginevra-iniziativa-cern-fcc': {
+    title: 'Ginevra lancia voto popolare sul futuro CERN | Frontaliere Ticino',
+    description: 'Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro',
+    keywords: 'frontalieri, ticino, svizzera, italia, ginevra, lancia, voto, popolare',
+    ogTitle: 'Ginevra lancia voto popolare sul futuro CERN',
+    ogDescription: 'Il Future Circular Collider (FCC) del CERN, lungo 91 km e dal costo stimato di 15 miliardi di franchi, potrebbe essere sottoposto a un voto popolare ginevrino. L\'iniziativa Co-CERNés chiede 5’696 firme entro metà febbraio 2027 per rendere',
+    canonicalPath: '/articoli-svizzera/ginevra-iniziativa-cern-fcc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ginevra lancia voto popolare sul futuro CERN",
+      "description": "Ginevra propone un voto popolare sul Future Circular Collider del CERN: 91 km di lunghezza, 15 miliardi di franchi di costo, 5’696 firme richieste entro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ginevra-iniziativa-cern-fcc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Ginevra con il complesso del CERN sullo sfondo, luce diurna"
+      },
+      "datePublished": "2026-10-06T17:58:26+00:00",
+      "dateModified": "2026-10-06T17:58:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ginevra-iniziativa-cern-fcc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziative-mps-giustizia-respinte': {
+    title: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    description: 'Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all\'età pensionamento dei magistrati (70 anni rimane) né',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, sulla, giustizia, bocciate',
+    ogTitle: 'Iniziative MPS sulla giustizia bocciate dal Gran Consiglio',
+    ogDescription: 'A Bellinzona, il Gran Consiglio ha bocciato entrambe le proposte degli esponenti MPS Matteo Pronzini e Pino Sergi. La prima voleva ridurre l\'età di pensionamento dei giudici da 70 a 65 anni, ricevendo 41 voti contrari; la seconda intendeva attribuire',
+    canonicalPath: '/articoli-svizzera/iniziative-mps-giustizia-respinte/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative MPS sulla giustizia bocciate dal Gran Consiglio",
+      "description": "Il Gran Consiglio di Bellinzona ha respinto le due iniziative MPS sulla giustizia: nessuna modifica all'età pensionamento dei magistrati (70 anni rimane) né",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-mps-giustizia-respinte.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Gran Consiglio a Bellinzona durante una votazione sulle iniziative MPS sulla giustizia"
+      },
+      "datePublished": "2026-10-06T18:30:47+00:00",
+      "dateModified": "2026-10-06T18:30:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziative-mps-giustizia-respinte/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

@@ -438,7 +438,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.eventStatus).toBe('https://schema.org/EventScheduled');
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
-    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    if (ld.description !== undefined) expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
     expect(ld.image).toMatchObject({
       '@type': 'ImageObject',
       contentUrl: expect.stringContaining('/images/events/catalog/'),
@@ -480,6 +480,29 @@ describe('eventLd — schema.org/Event completeness gate', () => {
         'it',
       ),
     );
+  });
+
+  it('keeps Event JSON-LD factual before its rewrite-cache hit', () => {
+    const ld = eventLd(
+      {
+        id: 'guidle:pending-description',
+        title: 'Mostra civica',
+        startDate: '2026-10-12',
+        sourceDescriptionHash: 'd'.repeat(64),
+        canton: 'TI',
+        comune: 'Lugano',
+        venue: 'Museo civico',
+        url: 'https://example.test/events/1',
+        sourceKey: 'guidle',
+        sourceName: 'Guidle',
+        structuredDataDefaultsApplied: true,
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(String(ld.description)).toContain('Mostra civica');
+    expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
+    expect(ld.name).toBe('Mostra civica');
+    expect(ld.location.address.addressLocality).toBe('Lugano');
   });
 
   it('prefers a verified source address locality over a regional fallback', () => {

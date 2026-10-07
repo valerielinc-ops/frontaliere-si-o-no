@@ -105,9 +105,9 @@ export function workerRouteForUrl(url, patterns = readWorkerRoutePatterns()) {
  */
 export function shardOriginForApexUrl(url) {
   if (url.hostname !== APEX_HOST) return null;
-  // Corpus-owned canton sections are served from R2, not from a shard: their
-  // copy is keyed on the cdn URL (see corpusEdgeUrlForApexUrl). Checked first
-  // because the en/de/fr prefixes would otherwise read as origin-<loc> paths.
+  // Corpus-owned canton sections are served from R2, not from a shard. Checked
+  // first because the en/de/fr prefixes would otherwise read as origin-<loc>
+  // paths.
   if (matchCorpusSection(url.pathname)) return null;
   const section = SECTION_ROUTES.find(
     (route) =>
@@ -125,13 +125,14 @@ export function shardOriginForApexUrl(url) {
  * The `cdn.frontaliereticino.ch` URL whose cached copy a corpus-served apex
  * path is answered from, or null for any other path. Canton section pages map
  * onto `edge/sections/<dir>/index.html` (the Worker's own key function, not a
- * restatement of it) and the corpus sitemaps onto their `edge/` key. A path the
- * Worker would never serve (bad shape) has no companion.
+ * restatement of it). Sitemap keys are release-versioned and can only be
+ * resolved after reading the registry, so this static helper deliberately has
+ * no companion for them. A path the Worker would never serve (bad shape) also
+ * has no companion.
  */
 export function corpusEdgeUrlForApexUrl(url) {
   if (url.hostname !== APEX_HOST) return null;
-  const file = corpusEdgeFileForPath(url.pathname);
-  if (file) return new URL(file.cdnKey, CDN_BASE).toString();
+  if (corpusEdgeFileForPath(url.pathname)) return null;
   const route = matchCorpusSection(url.pathname);
   if (!route) return null;
   const dir = corpusSectionCanonicalDir(url.pathname, route);

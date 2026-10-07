@@ -8,13 +8,13 @@
  *
  * Input: the hand-off file written by
  *   node scripts/generate-fuel-prices-dataset.mjs --save-local --cantons-input-out <file>
- * (Swiss TCS border-strip stations + MIMIT Italian stations + ECB rate, all
- * already fetched by that run). The foreign sides are fetched here
- * (scripts/lib/fuel-foreign-sources.mjs), each failure-isolated.
+ * (MIMIT Italian stations + ECB rate, when the upstream run succeeded). The
+ * Swiss baseline comes independently from the official BFS/UST monthly feed;
+ * the remaining foreign sides are fetched here, each failure-isolated.
  *
  * The dataset is refused (exit 1, nothing written, the previous file stays
- * published) when it fails `validateFuelCantonsDataset` — too many expected
- * cantons empty, or the CH/IT input missing.
+ * published) when it fails `validateFuelCantonsDataset` — in particular when
+ * any of the 24 canton URL groups has no Swiss value.
  *
  * Usage:
  *   node scripts/build-fuel-cantons-dataset.mjs --input <hand-off.json>
@@ -28,21 +28,23 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   buildAtRecords,
-  buildChRecords,
+  buildSwissNationalRecords,
   buildDeRecords,
   buildFrRecords,
   buildFuelCantonsDataset,
   buildItRecords,
-  createStationCantonResolver,
+  DE_SOURCE_ATTRIBUTION,
   validateFuelCantonsDataset,
 } from './lib/fuel-cantons-dataset.mjs';
 import {
   AT_ECONTROL_BY_REGION_URL,
+  BFS_FUEL_PRICES_URL,
   DE_TANKERKOENIG_LIST_URL,
   FR_INSTANT_FEED_URL,
   fetchAustrianStations,
   fetchFrenchStations,
   fetchGermanStations,
+  fetchSwissNationalFuelPrices,
 } from './lib/fuel-foreign-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -67,25 +69,21 @@ function sourceSummary(result, extra) {
 
 export async function buildFromInput(input, { fetchers = {}, now = new Date() } = {}) {
   const cantonSlugFile = readJson(path.join(REPO_ROOT, 'data', 'canton-url-slugs.json'));
-  const postalIndex = readJson(path.join(REPO_ROOT, 'data', 'swiss-postal-code-index.json'));
-  const localityIndex = readJson(path.join(REPO_ROOT, 'data', 'swiss-locality-postal-codes.json'));
-  const resolveStationCanton = createStationCantonResolver({ postalIndex, localityIndex, cantonSlugFile });
+  const cantonCodes = Object.keys(cantonSlugFile.cantons);
+  const safeInput = input || {};
   const nowMs = now.getTime();
   const nowIso = now.toISOString();
 
-  const [fr, at, de] = await Promise.all([
+  const [ch, fr, at, de] = await Promise.all([
+    (fetchers.ch || fetchSwissNationalFuelPrices)(),
     (fetchers.fr || fetchFrenchStations)(),
     (fetchers.at || fetchAustrianStations)(),
     (fetchers.de || fetchGermanStations)(),
   ]);
 
   const records = [
-    ...buildChRecords({
-      swissStations: input.swissStations,
-      resolveStationCanton,
-      observedAtFallback: input.generatedAt,
-    }),
-    ...buildItRecords({ italyStations: input.italyStations, nowMs }),
+    ...buildSwissNationalRecords({ nationalPrices: ch.data, cantonCodes }),
+    ...buildItRecords({ italyStations: safeInput.italyStations, nowMs }),
     ...buildFrRecords({ frenchStations: fr.data, nowMs }),
     // E-Control and Tankerkönig list current prices without a per-price
     // timestamp: the observation time is the fetch time.
@@ -93,30 +91,32 @@ export async function buildFromInput(input, { fetchers = {}, now = new Date() } 
     ...buildDeRecords({ germanByCanton: de.data, observedAt: nowIso }),
   ];
 
-  const swissCount = (input.swissStations || []).length;
-  const italyCount = (input.italyStations || []).length;
+  const italyCount = (safeInput.italyStations || []).length;
   const dataset = buildFuelCantonsDataset({
-    cantonCodes: Object.keys(cantonSlugFile.cantons),
+    cantonCodes,
     generatedAt: nowIso,
-    exchangeRate: input.exchangeRate,
+    exchangeRate: safeInput.exchangeRate,
     sourceStatus: {
-      CH: {
-        status: swissCount ? 'ok' : 'failed',
-        provider: 'TCS Benzinpreis-Radar',
-        stationCount: swissCount,
-        snapshotAt: input.generatedAt || null,
-        scope: 'border-strip',
-        note: 'National Swiss coverage is not collected: the TCS terms of use allow private use only.',
-      },
+      CH: sourceSummary(ch, {
+        provider: 'BFS/UST LIK — Durchschnittspreise für Energie und Treibstoffe',
+        url: BFS_FUEL_PRICES_URL,
+        license: 'OPEN-BY (attribuzione obbligatoria)',
+        scope: 'national-monthly',
+      }),
       IT: {
         status: italyCount ? 'ok' : 'failed',
         provider: 'MIMIT Osservaprezzi carburanti',
         stationCount: italyCount,
-        priceSnapshotDate: input.italyExtractedAt || null,
+        priceSnapshotDate: safeInput.italyExtractedAt || null,
       },
       FR: sourceSummary(fr, { provider: 'prix-carburants.gouv.fr', url: FR_INSTANT_FEED_URL }),
       AT: sourceSummary(at, { provider: 'E-Control Spritpreisrechner', url: AT_ECONTROL_BY_REGION_URL }),
-      DE: sourceSummary(de, { provider: 'Tankerkönig', url: DE_TANKERKOENIG_LIST_URL }),
+      DE: sourceSummary(de, {
+        provider: 'Tankerkönig / MTS-K',
+        url: DE_TANKERKOENIG_LIST_URL,
+        license: 'CC BY 4.0',
+        attribution: DE_SOURCE_ATTRIBUTION,
+      }),
     },
     records,
   });
@@ -132,16 +132,21 @@ async function main() {
     process.exit(2);
   }
   if (!fs.existsSync(inputPath)) {
-    // generate-fuel-prices-dataset.mjs exits 0 without output when its
-    // upstream APIs are unreachable; nothing to build from, nothing to publish.
-    log(`input ${inputPath} not found (generator skipped this run) — keeping the published dataset`);
-    return;
+    // The Italian hand-off is optional for the Swiss baseline. The BFS fetch
+    // still runs, so a transient MIMIT/TCS generator failure cannot turn a
+    // valid national Swiss dataset into a silent no-op.
+    log(`input ${inputPath} not found (generator skipped this run) — building the BFS Swiss baseline without the foreign Italy overlay`);
   }
 
-  const dataset = await buildFromInput(readJson(inputPath));
+  const dataset = await buildFromInput(fs.existsSync(inputPath) ? readJson(inputPath) : {});
   const verdict = validateFuelCantonsDataset(dataset);
   for (const [side, info] of Object.entries(dataset.sources)) {
-    log(`source ${side}: ${info.status}${info.reason ? ` — ${info.reason}` : ''}`);
+    const health = dataset.health?.[side.toLowerCase()] || 'failed:unknown';
+    if (side === 'DE' && health !== 'ok') {
+      console.warn(`::warning::[build-fuel-cantons] source DE skipped (${health})${info.reason ? ` — ${info.reason}` : ''}; the dataset continues with the other sources`);
+    } else {
+      log(`source ${side}: ${info.status}${info.reason ? ` — ${info.reason}` : ''}`);
+    }
   }
   log(`records: ${dataset.records.length}; expected cantons with data: ${dataset.coverage.expectedCantonsWithData.length}/${dataset.coverage.expectedCantons.length} (ratio ${verdict.coverageRatio}, floor ${dataset.coverage.minExpectedCoverage}); cantons with any data: ${dataset.coverage.cantonsWithData.join(' ')}`);
   if (!verdict.ok) {

@@ -54,7 +54,10 @@ import {
 
 const CODEX_MODEL = CODEX_FALLBACK_MODEL;
 const CODEX_EFFORT = CODEX_FALLBACK_EFFORT;
-const CODEX_CLI_VERSION = '0.153.4';
+// Compatibility contract: const CODEX_CLI_VERSION = '0.153.4'; for the
+// existing text lanes. Image generation passes its explicitly attested CLI
+// version without changing that default.
+const CODEX_CLI_VERSION = argument('--codex-cli-version', '0.153.4');
 const CODEX_PROFILE = 'codex-luna-max';
 const MAX_REQUEST_BYTES = 1024 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
@@ -209,6 +212,26 @@ function safePath() {
 
 function sha256File(filePath) {
   return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+}
+
+const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
+
+function newestGeneratedImage(root, minimumMtimeMs = 0) {
+  if (!root || !fs.existsSync(root)) return '';
+  const files = [];
+  const visit = (directory) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const filePath = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(filePath);
+      else if (entry.isFile() && IMAGE_EXTENSIONS.has(path.extname(entry.name).toLowerCase())) {
+        const mtimeMs = fs.statSync(filePath).mtimeMs;
+        if (mtimeMs >= minimumMtimeMs) files.push({ filePath, mtimeMs });
+      }
+    }
+  };
+  visit(root);
+  files.sort((a, b) => b.mtimeMs - a.mtimeMs);
+  return files[0]?.filePath || '';
 }
 
 function assertOutsideWorkspace(target, label) {
@@ -464,7 +487,7 @@ function removeAuthHome() {
   }
 }
 
-function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = 'agent', onSpawn, job }) {
+function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = 'agent', imageGeneration = false, imagePath = '', imageOutputPath = '', onSpawn, job }) {
   // Per-request tree: workspace, TMPDIR and the output files. The login lives
   // in the per-job home instead (prepareAuthHome), outside this tree.
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
@@ -521,6 +544,19 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
         '-c', 'shell_environment_policy.include_only=["PATH","LANG","LC_ALL","TERM"]',
         '--output-last-message', outputPath,
       ];
+      if (imageGeneration) args.push('--enable', 'image_generation');
+      if (imagePath) {
+        const workspaceRoot = fs.realpathSync(process.cwd());
+        const sourcePath = path.resolve(imagePath);
+        const relative = path.relative(workspaceRoot, sourcePath);
+        if (relative === '' || relative.startsWith('..') || path.isAbsolute(relative)) {
+          throw new Error('imagePath must stay inside the job workspace');
+        }
+        const extension = path.extname(sourcePath).toLowerCase() || '.bin';
+        const inputPath = path.join(codexWorkspace, `input-image${extension}`);
+        fs.copyFileSync(sourcePath, inputPath);
+        args.push('--image', inputPath);
+      }
       if (schema) {
         fs.writeFileSync(schemaPath, JSON.stringify(schema), { encoding: 'utf8', mode: 0o600 });
         fs.chmodSync(schemaPath, 0o600);
@@ -547,6 +583,7 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
       if (fs.realpathSync(codexCliPath) !== codexCliPath || sha256File(codexCliPath) !== codexCliSha256) {
         throw new Error('Codex CLI changed after attestation');
       }
+      const imageGenerationStartedAt = Date.now();
       child = spawn(codexCliPath, args, {
         stdio: ['pipe', 'ignore', 'pipe'],
         env: childEnv(codexHome, codexTmp),
@@ -597,7 +634,25 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema, profile = '
         }
         try {
           const result = fs.readFileSync(outputPath, 'utf8').trim();
-          if (!result) throw new Error('Codex CLI returned an empty last message');
+          if (imageOutputPath) {
+            const workspaceRoot = fs.realpathSync(process.cwd());
+            const destination = path.resolve(imageOutputPath);
+            const relative = path.relative(workspaceRoot, destination);
+            if (relative === '' || relative.startsWith('..') || path.isAbsolute(relative)) {
+              throw new Error('imageOutputPath must stay inside the job workspace');
+            }
+            const generated = newestGeneratedImage(path.join(codexHome, 'generated_images'), imageGenerationStartedAt - 1000);
+            if (!generated) {
+              const reason = codexFailureReason(stderrTail);
+              throw new Error(`Codex completed without a generated image file${reason ? `: ${reason}` : ''}`);
+            }
+            fs.mkdirSync(path.dirname(destination), { recursive: true, mode: 0o700 });
+            fs.copyFileSync(generated, destination);
+          }
+          // Image-only Codex calls are successful even when the CLI does not
+          // write a textual last message. The generated file is the result;
+          // requiring outputPath first made the broker discard valid images.
+          if (!result && !imageOutputPath) throw new Error('Codex CLI returned an empty last message');
           resolve(result);
         } catch (error) {
           reject(error);
@@ -623,6 +678,9 @@ function validateRequest(request) {
   if (request.profile !== null && request.profile !== undefined && !REQUEST_PROFILES.has(request.profile)) {
     return 'invalid profile';
   }
+  if (request.imageGeneration !== undefined && typeof request.imageGeneration !== 'boolean') return 'invalid imageGeneration flag';
+  if (request.imagePath !== undefined && (typeof request.imagePath !== 'string' || request.imagePath.length > 4096)) return 'invalid imagePath';
+  if (request.imageOutputPath !== undefined && (typeof request.imageOutputPath !== 'string' || request.imageOutputPath.length > 4096)) return 'invalid imageOutputPath';
   return '';
 }
 
@@ -797,6 +855,9 @@ function startRequest(job) {
     timeoutMs,
     schema: job.parsed.schema ?? null,
     profile: job.parsed.profile === 'function' ? 'function' : 'agent',
+    imageGeneration: job.parsed.imageGeneration === true,
+    imagePath: job.parsed.imagePath || '',
+    imageOutputPath: job.parsed.imageOutputPath || '',
     onSpawn,
     job,
   }).then(

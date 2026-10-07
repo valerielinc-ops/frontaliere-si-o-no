@@ -41,11 +41,6 @@ import {
 } from './cityJobsHub';
 import { getCantonDisplayName } from './shared/cantonDisplay';
 import { resolveCantonSection } from './shared/cantonSection';
-import {
-  renderCantonSeoProse,
-  buildCantonSeoProseFaqItems,
-  type CantonSeoLocale,
-} from './shared/cantonSeoProse';
 import { professionSalaryPresentation } from './shared/professionSalaryPresentation';
 import {
   aggregateProfessionJobsByCity,
@@ -338,17 +333,6 @@ export function renderProfessionCityPage(opts: {
   // listing for this city (also the below-floor bridge target).
   const ctaHref = cityHubTarget(locale, def);
 
-  const proseOpts = {
-    locale: locale as CantonSeoLocale,
-    cantonDisplay: def.isTi ? (locale === 'it' || locale === 'en' ? 'Ticino' : 'Tessin') : getCantonDisplayName(def.cantonUrlKey, locale),
-    slot: 'city-landing' as const,
-    entityName: cityDisplay,
-    countHint: snapshot.liveCount,
-    ctaHref,
-    ctaLabel: c.cta(cityDisplay),
-  };
-  const prose = renderCantonSeoProse(proseOpts);
-
   // Il contenuto che solo questa coppia ha: i titoli reali delle sue offerte,
   // la stessa professione nelle altre città e le altre professioni della
   // città, nominati (#11678). Vuoto quando non c'è dato: niente sezione.
@@ -391,8 +375,7 @@ ${DRIVEBY_AD_SNIPPET}
 ${employers}
 ${insights}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>
-${professionCityInlineAd}
-${prose}</div>`;
+${professionCityInlineAd}</div>`;
   const main = mainContent.replace(
     /<\/div>$/,
     `${endOfContentMultiplexHtml({ indexable: true, contentHtml: mainContent })}</div>`,
@@ -407,12 +390,6 @@ ${prose}</div>`;
       { '@type': 'ListItem', position: 3, name: c.h1(role, cityDisplay), item: `${BASE_URL}${canonicalPath}` },
     ],
   };
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
-  };
-
   const hreflangPaths = {
     it: buildProfessionCityPath('it', cityKey, id),
     en: buildProfessionCityPath('en', cityKey, id),
@@ -439,7 +416,12 @@ ${prose}</div>`;
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
     hreflangHtml: renderHreflangTags(hreflangPaths),
     bodyHtml: main,
-    jsonLdScripts: [JSON.stringify(breadcrumbLd), JSON.stringify(faqLd)],
+    // The shared city FAQ/context belongs to the canonical city hub linked by
+    // the CTA. Keeping it on this profession×city leaf made ~45 of its 61
+    // information-gain segments identical across the family and duplicated
+    // the hub's FAQPage. The leaf's offer/employer/peer payload is the
+    // page-specific answer; the hub remains the operational context page.
+    jsonLdScripts: [JSON.stringify(breadcrumbLd)],
     ogLocale: OG_LOCALE[locale],
     robots: 'index,follow',
     distDir,

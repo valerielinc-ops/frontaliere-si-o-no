@@ -33,6 +33,9 @@ const OPTIONAL_KEYS = [
   'trafficLevel',
   'peak',
   'bazgCoverage',
+  'municipality',
+  'waitSource',
+  'sources',
   'webcams',
 ] as const;
 
@@ -45,12 +48,16 @@ const KNOWN_WEBCAM_KEYS = new Set([
   'refreshIntervalMs',
   'license',
   'licenseNote',
+  'embedAllowed',
+  'robots',
+  'updateFrequency',
   'minBytes',
 ]);
 
 const VALID_COUNTRIES = new Set(['IT', 'FR', 'DE', 'AT', 'LI']);
 const VALID_TYPES = new Set(['autostrada', 'statale', 'locale']);
 const VALID_TRAFFIC_LEVELS = new Set(['high', 'medium', 'low', 'closed']);
+const VALID_WAIT_SOURCES = new Set(['paid', 'webcam', 'none']);
 
 describe('borderCrossings — structural integrity', () => {
   it('is a non-empty array', () => {
@@ -108,7 +115,23 @@ describe('borderCrossings — structural integrity', () => {
       if (c.avgWaitMorning !== undefined) expect(typeof c.avgWaitMorning).toBe('string');
       if (c.avgWaitEvening !== undefined) expect(typeof c.avgWaitEvening).toBe('string');
       if (c.peak !== undefined) expect(typeof c.peak).toBe('string');
+      if (c.municipality !== undefined) {
+        expect(typeof c.municipality, `municipality on "${c.name}"`).toBe('string');
+        expect(c.municipality.length).toBeGreaterThan(0);
+      }
       if (c.bazgCoverage !== undefined) expect(typeof c.bazgCoverage).toBe('boolean');
+      if (c.waitSource !== undefined) {
+        expect(VALID_WAIT_SOURCES.has(c.waitSource), `invalid waitSource "${c.waitSource}" on "${c.name}"`).toBe(true);
+      }
+      if (c.sources !== undefined) {
+        expect(Array.isArray(c.sources), `sources on "${c.name}" must be an array`).toBe(true);
+        for (const source of c.sources) {
+          expect(typeof source.label, `source.label on "${c.name}"`).toBe('string');
+          expect(source.label.length).toBeGreaterThan(0);
+          expect(typeof source.url, `source.url on "${c.name}"`).toBe('string');
+          expect(['http:', 'https:']).toContain(new URL(source.url).protocol);
+        }
+      }
 
       if (c.trafficLevel !== undefined) {
         expect(VALID_TRAFFIC_LEVELS.has(c.trafficLevel), `invalid trafficLevel "${c.trafficLevel}" on "${c.name}"`).toBe(true);
@@ -137,6 +160,9 @@ describe('borderCrossings — structural integrity', () => {
             expect(['http:', 'https:']).toContain(licenseUrl.protocol);
           }
           if (cam.licenseNote !== undefined) expect(typeof cam.licenseNote).toBe('string');
+          if (cam.embedAllowed !== undefined) expect(typeof cam.embedAllowed).toBe('boolean');
+          if (cam.robots !== undefined) expect(['allowed', 'disallowed', 'unknown']).toContain(cam.robots);
+          if (cam.updateFrequency !== undefined) expect(typeof cam.updateFrequency).toBe('string');
           if (cam.minBytes !== undefined) expect(typeof cam.minBytes).toBe('number');
         }
       }
@@ -152,6 +178,15 @@ describe('borderCrossings — structural integrity', () => {
       seen.add(n);
     }
     expect(dupes, `duplicate name(s): ${dupes.join(', ')}`).toEqual([]);
+  });
+
+  it('gives every unmetered BORDER2 crossing a municipality and verification source', () => {
+    const unmetered = borderCrossings.filter((crossing) => crossing.waitSource === 'none');
+    expect(unmetered).toHaveLength(17);
+    for (const crossing of unmetered) {
+      expect(crossing.municipality, `${crossing.name} municipality`).toBeTruthy();
+      expect(crossing.sources?.length, `${crossing.name} sources`).toBeGreaterThan(0);
+    }
   });
 
   it('has no duplicate lat/lng pairs (catches a copy-pasted/misplaced entry with a stale name)', () => {

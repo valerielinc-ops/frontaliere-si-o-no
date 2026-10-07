@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * newsletter-confirmation-followups.mjs — the runner that CLOSES a double
  * opt-in nobody answered (#5692).
@@ -70,7 +71,6 @@
  * decision to reach them is a decision somebody makes on purpose, with the
  * number in front of them.
  */
-import { pathToFileURL } from 'node:url';
 import {
   decideConfirmationFollowup,
   buildConfirmationExpiryFields,
@@ -97,11 +97,22 @@ import {
 import { normalizeLocale } from '../functions/src/emailI18n.js';
 import {
   confirmationJobContextForSend,
+  resolveConfirmationJobContext,
   sanitizeConfirmationReturnPath,
 } from '../functions/src/lib/confirmationJobContext.js';
+import { makeDeliveryRefOnSent } from '../functions/src/lib/deliveryReference.js';
+import { getRemoteConfigValue } from '../functions/src/remoteConfigSecrets.js';
+import {
+  assignConfirmationCopyVariant,
+  CONFIRMATION_COPY_DEFAULTS,
+  CONFIRMATION_COPY_ROLLOUT_RC_KEY,
+  isConfirmationCopyExperimentActive,
+  readConfirmationCopyConfig,
+} from '../functions/src/lib/confirmationCopyExperiment.js';
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 
@@ -213,10 +224,10 @@ export function confirmationReturnPath(data) {
  * modules the Cloud Function uses for request #1.
  *
  * @param {{id: string, data: Record<string, any>, decision: {attempt: number}}} item
- * @param {{secret: string, tokenPolicy?: object}} ctx
+ * @param {{secret: string, tokenPolicy?: object, copyConfig?: object}} ctx
  * @returns {{payload: Record<string, unknown>, recipient: {email: string}, meta: Record<string, unknown>}}
  */
-export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
+export function buildFollowupRequest(item, { secret, tokenPolicy, copyConfig = CONFIRMATION_COPY_DEFAULTS } = {}) {
   const email = item.id;
   // Catena condivisa: qui saltava `locale`, quindi un iscritto che ha solo
   // quello riceveva il follow-up in italiano (follow-up #6273, classe gemella).
@@ -234,10 +245,18 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
   // the snapshot existed is resolved once here and frozen by the ledger write
   // below. The reminder is still the first email plus a banner, whichever
   // variant that was.
-  const { jobContext, returnPath, snapshot } = confirmationJobContextForSend(item.data, {
+  const eligibleJobContext = item.decision.attempts === 0
+    ? resolveConfirmationJobContext(item.data)
+    : null;
+  const assignedCopyVariant = eligibleJobContext && isConfirmationCopyExperimentActive(copyConfig)
+    ? assignConfirmationCopyVariant({ email, eligible: true, config: copyConfig })
+    : null;
+  const jobContextOptions = {
     attemptsBefore: item.decision.attempts,
     returnPath: confirmationReturnPath(item.data),
-  });
+  };
+  if (assignedCopyVariant) jobContextOptions.copyVariant = assignedCopyVariant;
+  const { jobContext, returnPath, snapshot, copyVariant, sourceCta } = confirmationJobContextForSend(item.data, jobContextOptions);
   const { subject, html, tags } = buildConfirmationRequestEmail({
     locale,
     confirmUrl: confirmationConfirmUrl({ email, token, sourcePath: returnPath }),
@@ -248,6 +267,8 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
     // anchor and the copy falls back to an undated wording.
     firstSentAt: confirmationFirstSentAt(item.data),
     jobContext,
+    copyVariant,
+    sourceCta,
   });
   return {
     payload: { from: CONFIRMATION_FROM_EMAIL, to: email, subject, html, tags },
@@ -306,12 +327,22 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
  *
  * @param {unknown} db
  * @param {Array<object>} due
- * @param {{nowIso: string, secret: string, tokenPolicy?: object}} ctx
+ * @param {{nowIso: string, secret: string, tokenPolicy?: object, copyConfig?: object}} ctx
  * @returns {Promise<{sent: number, ambiguous: number, failed: number}>}
  */
-export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy }) {
-  const items = due.map((it) => buildFollowupRequest(it, { secret, tokenPolicy }));
-  const { sent, failed } = await sendEmailCascade(items);
+export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenPolicy, copyConfig = CONFIRMATION_COPY_DEFAULTS }) {
+  const items = due.map((it) => buildFollowupRequest(it, { secret, tokenPolicy, copyConfig }));
+  // This runner imports the base cascade directly because a confirmation has
+  // no unsubscribe link and is not a mass-email channel. It still needs the
+  // same delivery-reference hook as the Cloud Function sender: without the
+  // campaign id persisted beside the provider message reference, engagement
+  // events cannot attribute a follow-up to its frozen copy arm.
+  const { sent, failed } = await sendEmailCascade(items, {
+    onSent: makeDeliveryRefOnSent(async () => db, {
+      defaultCampaignId: 'confirmation',
+      isJobAlert: false,
+    }),
+  });
 
   const ambiguous = failed.filter((f) => f.ambiguousDelivery);
   const definitelyNotSent = failed.filter((f) => !f.ambiguousDelivery);
@@ -358,15 +389,7 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
 }
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 async function main() {
@@ -465,7 +488,14 @@ async function main() {
       process.exitCode = 1;
     } else {
       const requests = limit ? plan.send.slice(0, limit) : plan.send;
-      const result = await sendConfirmationRequests(db, requests, { nowIso, secret, tokenPolicy });
+      let copyConfig = CONFIRMATION_COPY_DEFAULTS;
+      try {
+        const rollout = await getRemoteConfigValue(CONFIRMATION_COPY_ROLLOUT_RC_KEY);
+        copyConfig = readConfirmationCopyConfig({ [CONFIRMATION_COPY_ROLLOUT_RC_KEY]: rollout });
+      } catch (copyErr) {
+        console.warn('[confirmation-followups] confirmation copy rollout read failed, using contextual default:', copyErr?.message || copyErr);
+      }
+      const result = await sendConfirmationRequests(db, requests, { nowIso, secret, tokenPolicy, copyConfig });
       console.log(
         `✉️  confirmation requests sent: ${result.sent}, ambiguous (counted): ${result.ambiguous}, not delivered: ${result.failed}`,
       );
@@ -514,7 +544,7 @@ async function main() {
 // runner calls main() at module scope, and that is exactly why they can only
 // ever be source-scanned instead of driven.
 const invokedDirectly =
-  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+  isInvokedDirectly(import.meta.url);
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('[confirmation-followups] fatal:', err?.stack || err?.message || err);

@@ -35,26 +35,6 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 1
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/all-known-job-slugs/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
         # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -134,11 +114,12 @@ jobs:
         if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/snapshot-fuel-history.mjs
 
-      # P9b: per-canton averages (CH border strip + FR/AT/IT, DE when the
-      # Tankerkönig key exists) from the generator hand-off above plus the
-      # foreign open-data feeds. Its own failure must not cost the main fuel
-      # cache its PR, so the step is non-blocking here and reported below; a
-      # refused dataset writes nothing and the published file stays.
+      # P9b: one official BFS/UST national CH average per URL canton group,
+      # plus FR/AT/IT and the optional DE Tankerkönig overlay. The Italian
+      # hand-off above is useful when present but no longer gates the Swiss
+      # baseline. Foreign-source failures, including a missing/rejected DE
+      # key, are failure-isolated and emitted as a warning by the builder; a
+      # genuinely invalid dataset writes nothing and the published file stays.
       - name: Build cantonal fuel dataset (P9b)
         id: fuel_cantons
         if: steps.schedule.outputs.daily == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'

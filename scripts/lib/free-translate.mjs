@@ -2,12 +2,9 @@
  * Free Translation Cascade — Reusable multi-service translation utility.
  *
  * Cascade, in the order `freeTranslate` tries the tiers:
- *   1. DeepL Free API        (DEEPL_API_KEY / DEEPL_API_KEY_2, rotated on 456/429)
- *   2. Azure Translator      (AZURE_TRANSLATOR_KEY / _2, F0 free tier)
- *   3. Codex Luna Max        (ONLY when DeepL and Azure are both out for the run —
- *                             keys exhausted or not configured — and the Codex
- *                             broker lane is present; bounded per process, see
- *                             `translateWithCodex`)
+ *   1. Codex Luna Max        (private OAuth broker, bounded per process)
+ *   2. DeepL Free API        (DEEPL_API_KEY / DEEPL_API_KEY_2, rotated on 456/429)
+ *   3. Azure Translator      (AZURE_TRANSLATOR_KEY / _2, F0 free tier)
  *   4. Google Cloud Translation (OAuth, hard-capped at 16K chars/day)
  *   5. Local Opus-MT, self-hosted LibreTranslate (EN/DE/FR targets)
  *   6. MyMemory API
@@ -16,9 +13,8 @@
  *   9. Lingva, Mozhi+Google, unofficial Google Translate, Mozhi+DeepL,
  *      Mozhi+Yandex (local/dev tiers, often blocked from Actions IPs)
  *
- * With FREE_TRANSLATE_CODEX_TIER=last, Codex moves from position 3 to the very
- * end: it serves only a text that every tier above left untranslated, with no
- * DeepL/Azure condition (translate-pending, Phases 2d/2e, after Argos).
+ * `FREE_TRANSLATE_CODEX_TIER=last` remains a narrow compatibility override for
+ * an explicitly opted-in legacy caller; production workflows no longer set it.
  *
  * Features:
  *   - Instance health tracking: remembers which instances are down to skip them
@@ -326,6 +322,37 @@ export function getCascadeStats() {
       title: { ..._cascadeStats.byFieldType.title },
       description: { ..._cascadeStats.byFieldType.description },
     },
+  };
+}
+
+/**
+ * Contatori del tier Codex Luna Max in questo processo, per il report della
+ * riserva di translate-pending (scripts/lib/codex-reserve-report.mjs). Fuori
+ * dalla sezione `Codex Luna Max` di proposito: quella sezione e' byte-identica
+ * al corpus e qui si leggono soltanto le sue variabili di modulo.
+ *   - `textsSent`: testi distinti mandati a Codex;
+ *   - `accepted`: testi che Codex ha tradotto e che hanno passato i gate di
+ *     ammissione (eco del prompt e meta-risposta dentro la sezione, poi
+ *     passthrough, meta-risposta e confine di riga in `tryTier`);
+ *   - `rejected`: testi mandati e non ammessi — rifiuto o domanda del modello,
+ *     eco della sorgente o del prompt, risposta vuota, errore della chiamata.
+ *     Le meta-risposte scartate dentro la sezione non arrivano a `tryTier`,
+ *     quindi si contano per differenza e non dai bucket della cascata.
+ */
+export function getCodexTierStats() {
+  const s = _cascadeStats;
+  return {
+    position: _codexTierPosition(),
+    lanePresent: _codexSocketPresent(),
+    premiumDown: _premiumTiersDownForRun(),
+    calls: _codexCalls,
+    textsSent: _codexTexts,
+    spentMs: Math.round(_codexSpentNow()),
+    maxCalls: _codexBudget('FREE_TRANSLATE_CODEX_MAX_CALLS', CODEX_TRANSLATE_MAX_CALLS_DEFAULT),
+    maxMs: _codexBudget('FREE_TRANSLATE_CODEX_MAX_MS', CODEX_TRANSLATE_MAX_MS_DEFAULT),
+    stopReason: _codexStopReason || null,
+    accepted: s.tierHits.codex || 0,
+    rejected: Math.max(0, _codexTexts - (s.tierHits.codex || 0)),
   };
 }
 
@@ -651,6 +678,14 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
       if (res.status === 456) {
         // Real monthly quota exhausted → mark key exhausted for the run.
         throw Object.assign(new Error('DeepL 456'), { quotaExhausted: true });
+      }
+      if (res.status === 401 || res.status === 403) {
+        // Rejected credential (revoked or wrong key): as dead for this run as
+        // a 456, and the same signal Azure's 401/403 already gives. Without it
+        // a revoked DeepL key left DeepL "up" for the whole run, so the Codex
+        // reserve (decisione del proprietario H7, 2026-10-05: Codex Luna Max
+        // when the keyed tiers fail) never engaged.
+        throw Object.assign(new Error(`DeepL ${res.status}`), { quotaExhausted: true });
       }
       if (res.status === 429) {
         _deepl429TotalCount++;
@@ -1158,26 +1193,14 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
   return '';
 }
 
-// ── Codex Luna Max (decisione del proprietario, 2026-09-25) ─────────────────
+// ── Codex Luna Max (decisione del proprietario, 2026-09-25) ────────────────
 //
-// «Quando deepl e azure translation sono fuori quota USA codex luna Max».
-//
-// Due posizioni, scelte per processo con FREE_TRANSLATE_CODEX_TIER:
-//   - default: subito dopo DeepL e Azure, con le condizioni qui sotto;
-//   - `last`: in coda alla cascata, per il solo testo che OGNI altro tier ha
-//     lasciato non tradotto, senza condizioni su DeepL/Azure. La usa
-//     translate-pending nelle fasi 2d/2e, dopo Argos (decisione del
-//     proprietario del 2026-09-25: «Per il translate pending aggiungi codex ma
-//     dopo argos e i sistemi che non consumano quota»).
-//
-// Nella posizione di default il
-// tier entra SOLO quando DeepL e Azure non possono piu' servire la run: ogni
-// chiave DeepL esaurita (456) o il circuit-breaker 429 scattato, E ogni chiave
-// Azure esaurita (401/403/429) — oppure i due non sono configurati. Un errore
-// transitorio di DeepL su UN testo non basta: quel testo scende ai tier free
-// come prima. Misura sul corpus, batch-faq-articles run 36097655591
-// (2026-09-25): «DeepL: 0/2 keys active», «Azure: 0/2 keys active» (401),
-// Google Cloud 403 su 288 chiamate su 288, e 288 campi su 288 finiti su MyMemory.
+// Regola aggiornata il 2026-10-06: Codex viene tentato per primo. Se broker/auth,
+// timeout o quota lo rendono
+// inutilizzabile, ai-models.mjs apre un circuito per run e questa cascata
+// prosegue immediatamente con DeepL, Azure e gli altri tier nell'ordine
+// storico. `FREE_TRANSLATE_CODEX_TIER=last` è mantenuto solo per un caller
+// legacy esplicito, non è usato dai workflow del sito.
 //
 // La lane e' quella del corpo articolo: il broker che
 // `.github/actions/setup-claude-haiku-fallback` avvia quando c'e'
@@ -1235,13 +1258,25 @@ const CODEX_TRANSLATE_LANES_MAX = 3;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_DEFAULT = 5;
 const CODEX_TRANSLATE_BATCH_MAX_TEXTS_LIMIT = 10;
 const CODEX_TRANSLATE_BATCH_MAX_CHARS = 3000;
-// Tetto della singola chiamata: una traduzione non ha bisogno dei 10 minuti che
-// la lane concede al corpo articolo.
-const CODEX_TRANSLATE_CALL_TIMEOUT_MS = 180_000;
 // Sotto questo residuo una chiamata non ha il tempo di finire: stesso minimo
 // che ai-models.mjs applica alla lane (CODEX_CLI_MIN_TIMEOUT_MS).
 const CODEX_TRANSLATE_MIN_CALL_MS = 15_000;
+// Il default resta quello dei chiamanti generali. translate-pending imposta il
+// valore esplicito FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS; il clamp impedisce a
+// un override del workflow di oltrepassare il tetto del broker.
+const CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT = 180_000;
+const CODEX_TRANSLATE_CALL_TIMEOUT_MS_MAX = 600_000;
 const CODEX_TRANSLATE_FAILURE_LIMIT = 3;
+
+function codexTranslateCallTimeoutMs() {
+  const raw = String(process.env.FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS || '').trim();
+  if (!/^\d+$/.test(raw)) return CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT;
+  const value = Number(raw);
+  if (!Number.isSafeInteger(value) || value < CODEX_TRANSLATE_MIN_CALL_MS) {
+    return CODEX_TRANSLATE_CALL_TIMEOUT_MS_DEFAULT;
+  }
+  return Math.min(value, CODEX_TRANSLATE_CALL_TIMEOUT_MS_MAX);
+}
 
 // Scadenza ASSOLUTA (epoch ms) del processo che ospita la cascata, oltre la
 // quale nessuna chiamata Codex deve restare in volo. `null` = nessuna: e' il
@@ -1275,7 +1310,7 @@ export function setCodexTranslateProcessDeadline(deadlineMs) {
  * finire, e avviarla significa solo farsi uccidere a meta'.
  */
 export function codexCallDeadlineMs({ now, budgetRemainingMs, processDeadlineMs = _codexProcessDeadlineMs }) {
-  let windowMs = Math.min(CODEX_TRANSLATE_CALL_TIMEOUT_MS, budgetRemainingMs);
+  let windowMs = Math.min(codexTranslateCallTimeoutMs(), budgetRemainingMs);
   if (processDeadlineMs !== null && processDeadlineMs !== undefined) {
     windowMs = Math.min(windowMs, processDeadlineMs - now);
   }
@@ -1340,11 +1375,11 @@ let _codexLane = null;
 /** @type {((messages: Array<{role: string, content: string}>, opts: object) => Promise<string>) | null} */
 let _codexCallForTests = null;
 
-/** Posizione del tier in questo processo: `last` o quella di default. */
+/** Posizione del tier in questo processo: `primary` o legacy `last`. */
 function _codexTierPosition() {
   return String(process.env.FREE_TRANSLATE_CODEX_TIER ?? '').trim().toLowerCase() === 'last'
     ? 'last'
-    : 'after-premium';
+    : 'primary';
 }
 
 function _codexBudget(name, fallback) {
@@ -1448,7 +1483,7 @@ function _cleanCodexTranslation(raw, source, marker) {
   return normalizeBlock(out);
 }
 
-async function translateWithCodex(text, sourceLang, targetLang, outcome = null, position = 'after-premium') {
+async function translateWithCodex(text, sourceLang, targetLang, outcome = null, position = 'primary') {
   const clean = normalizeBlock(text);
   if (!clean || sourceLang === targetLang) return '';
   // La cascata chiama il tier in entrambe le posizioni: risponde solo quella
@@ -1582,7 +1617,7 @@ async function _translateGroupWithCodex(group) {
     _codexEngagedLogged = true;
     const why = _codexTierPosition() === 'last'
       ? 'testi che nessun altro tier ha tradotto'
-      : 'DeepL e Azure fuori gioco per questa run';
+      : 'corsia primaria prima dei provider di traduzione';
     console.log(`🤖 [codex] ${why}: traduzioni via Codex Luna Max (budget ${maxCalls} chiamate, ${Math.round(maxMs / 1000)}s)`);
   }
   // Testi identici in coda diventano una voce sola.
@@ -2007,6 +2042,47 @@ function delay(ms) {
  * @returns {Promise<string>} Translated text or ''
  */
 /**
+ * Drop the empty bold spans of ONE line (`** **`, `** : **`, `** - **`).
+ *
+ * Markers pair up left to right, so only the text BETWEEN an opening marker and
+ * its closing one is judged. A single regex over the whole text cannot tell the
+ * two apart: it matched ANY two markers with nothing but blanks or punctuation
+ * between them, and that is also the gap between the end of one bold span and
+ * the start of the next. `**a**, **b**` became `**a b**`; and since `\s`
+ * crosses line breaks, a list item ending in bold swallowed the item after it
+ * (`... **1.260 CHF/mese**\n- **LPP**: ...` came back as one line). Working
+ * line by line also makes the step unable to add or remove a line break by
+ * construction.
+ */
+function dropEmptyBoldSpansInLine(line) {
+  const parts = line.split('**');
+  if (parts.length < 3) return line;
+  let out = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const content = parts[index];
+    if (index + 1 >= parts.length) {
+      // Opening marker with no closing one on this line: the parity rule below
+      // decides what happens to it.
+      out += `**${content}`;
+      break;
+    }
+    out += /^[\s:;,.\-–—]*$/u.test(content) ? ' ' : `**${content}**`;
+    out += parts[index + 1];
+  }
+  return out;
+}
+
+/**
+ * A line made only of separator glyphs, with at least one that is not a blank:
+ * a Markdown rule (`---`) or the decoration some translators add (`______`).
+ * A line of blanks is a blank line.
+ */
+export function isSeparatorOnlyLine(line) {
+  const value = String(line ?? '');
+  return /^[\s_\-=*•·~]{3,}$/u.test(value) && /\S/u.test(value);
+}
+
+/**
  * Post-process a translator output to make sure `**bold**` markdown markers
  * stay balanced. AI translators frequently re-flow paragraphs in a way that
  * leaves orphan `**` (count parity broken) or empty `**…**` runs containing
@@ -2019,37 +2095,72 @@ function delay(ms) {
  * Exported so the same balancer can be reused outside the cascade (tests,
  * upstream sanitizers, retroactive cleanup scripts).
  *
+ * `sourceText` is optional. When the caller has the source, the rules the
+ * SOURCE owns are kept: `---` between two sections is Markdown structure, not
+ * decoration added by a translator, and dropping it took two lines away from a
+ * translation that had kept them (the rule, then one of the blank lines around
+ * it at step 5). Ownership is by COUNT, in order — as many separator-only
+ * lines as the source has — and not by position: a whole field reaches this
+ * function with the blank runs of each translated block already collapsed by
+ * the engine, so it is rarely line-aligned with the raw source, and a rule
+ * kept only "at the same line number" was dropped in exactly those fields.
+ *
  * @param {string} s
+ * @param {{ sourceText?: string|null }} [options]
  * @returns {string}
  */
-export function balanceMarkdownMarkers(s) {
+export function balanceMarkdownMarkers(s, { sourceText = null } = {}) {
   if (typeof s !== 'string' || !s) return s;
   let out = s;
+  // A rule made of asterisks (`***`, `****`) is not bold markup, but it is
+  // made of the very marker steps 1 and 2 look for: read as bold, `****` was
+  // an "empty bold" and vanished, and the single `**` inside `***` made the
+  // count odd, which stripped every real bold of the field and left a lone `*`
+  // where the rule was. Rule lines are opaque to both steps (and to step 4).
+  const exceptRules = (transform) => (line) => (isSeparatorOnlyLine(line) ? line : transform(line));
   // 1. Drop empty / whitespace-only / punctuation-only bolds (e.g. `** **`,
-  //    `**  **`, `** : **`, `** - **`).
-  out = out.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  //    `**  **`, `** : **`, `** - **`), one line at a time: see
+  //    `dropEmptyBoldSpansInLine`.
+  out = out.split('\n').map(exceptRules(dropEmptyBoldSpansInLine)).join('\n');
   // 2. If `**` count is odd, the output is unrecoverable as bold structure —
   //    strip every `**` so the renderer sees plain text instead of a half-
   //    bold span.
-  const count = (out.match(/\*\*/g) || []).length;
+  const count = out.split('\n')
+    .reduce((total, line) => total + (isSeparatorOnlyLine(line) ? 0 : (line.match(/\*\*/g) || []).length), 0);
   if (count % 2 !== 0) {
-    out = out.replace(/\*\*/g, '');
+    out = out.split('\n').map(exceptRules((line) => line.replace(/\*\*/g, ''))).join('\n');
   }
   // 3. Strip standalone separator-only lines (`______`, `======`) that some
-  //    translators emit as decoration.
-  out = out
-    .split('\n')
-    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
-    .join('\n');
+  //    translators emit as decoration — except as many rules as the source
+  //    owns. Without a source every such line goes, blank-only ones included,
+  //    as it always did.
+  const separatorOnly = (line) => /^[\s_\-=*•·~]{3,}$/.test(line);
+  const outLines = out.split('\n');
+  const sourceLines = typeof sourceText === 'string' ? sourceText.split('\n') : null;
+  const sourceRuleCount = sourceLines === null ? 0 : sourceLines.filter(isSeparatorOnlyLine).length;
+  let keptRules = 0;
+  const keptLines = outLines.filter((line) => {
+    if (!separatorOnly(line)) return true;
+    if (sourceLines === null) return false;
+    // With a source, a line of blanks is a blank line of the text.
+    if (!isSeparatorOnlyLine(line)) return true;
+    if (keptRules >= sourceRuleCount) return false;
+    keptRules += 1;
+    return true;
+  });
+  const removedSeparatorLines = outLines.length - keptLines.length;
+  out = keptLines.join('\n');
   // 4. Strip trailing inline separator runs that often hug a line end.
   out = out
     .split('\n')
-    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
+    .map((line) => (isSeparatorOnlyLine(line) ? line : line.replace(/\s+[_\-=~*]{3,}\s*$/g, '')).trimEnd())
     .join('\n');
   // 5. Collapse 3+ consecutive newlines that step 3 may have created when
   //    a separator line sat between two paragraph breaks (\n\nSEP\n\n →
-  //    \n\n\n after filter).
-  out = out.replace(/\n{3,}/g, '\n\n');
+  //    \n\n\n after filter). A text repaired against its source that lost no
+  //    line at step 3 has nothing to collapse: its blank runs are its own, and
+  //    collapsing them changed the line count of a field nobody had touched.
+  if (sourceLines === null || removedSeparatorLines > 0) out = out.replace(/\n{3,}/g, '\n\n');
   // 6. Collapse the consecutive double-spaces that step 1 may have left.
   out = out.replace(/[ \t]{2,}/g, ' ');
   return out.trim();
@@ -2148,7 +2259,7 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
   const finalize = (out) => {
     const finalized = finalizeTranslatedText({
       sourceText: sourceClean,
-      translatedText: balanceMarkdownMarkers(out),
+      translatedText: balanceMarkdownMarkers(out, { sourceText: clean }),
       targetLang,
       fieldType,
       protectedTokens,
@@ -2215,23 +2326,19 @@ async function freeTranslateCore({ text, sourceLang, targetLang, fieldType = 'ti
   }
 
   // ── CI-PROVEN TIERS (work from GitHub Actions) ─────────────────────────────
-  // Order: best quality first for short text (titles), then volume handlers for long text (descriptions)
+  // Codex is the owner-approved primary. A missing broker, disabled lane,
+  // timeout or quota opens ai-models.mjs's in-run circuit and falls through
+  // immediately to the existing translation providers below.
+  const t0 = await tryTier('codex', () => translateWithCodex(clean, sourceLang, targetLang, _outcome, 'primary'));
+  if (t0) return finalize(t0);
 
-  // Tier 1: DeepL Free API (best quality, if API key set)
+  // Tier 1 fallback: DeepL Free API (best quality, if API key set)
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang, _outcome));
   if (t1) return finalize(t1);
 
-  // Tier 2: Azure Translator (F0 Free — 2M chars/month, near-DeepL quality)
+  // Tier 2 fallback: Azure Translator (F0 Free — 2M chars/month, near-DeepL quality)
   const t1b = await tryTier('azure', () => translateWithAzure(clean, sourceLang, targetLang, _outcome));
   if (t1b) return finalize(t1b);
-
-  // Tier 2b: Codex Luna Max — solo con DeepL e Azure fuori gioco per la run e la
-  // lane Codex presente, entro il budget del processo (vedi `translateWithCodex`).
-  // Con FREE_TRANSLATE_CODEX_TIER=last qui non risponde: entra in coda alla cascata.
-  // Passa da `tryTier` e da `finalize` come ogni altro tier: passthrough
-  // rifiutato, glossario, marker Markdown e token protetti.
-  const t1c = await tryTier('codex', () => translateWithCodex(clean, sourceLang, targetLang, _outcome));
-  if (t1c) return finalize(t1c);
 
   // Tier 3: Google Cloud Translation (official API, 500K free/month, hard-capped 16K/day)
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang, _outcome));

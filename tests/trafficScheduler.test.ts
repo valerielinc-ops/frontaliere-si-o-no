@@ -48,7 +48,7 @@ import { borderCrossings } from '@/data/borderCrossings';
 
 describe('BORDER_CROSSINGS (scheduler list)', () => {
   const EXPECTED_NAMES = borderCrossings
-    .filter(c => c.trafficLevel !== 'closed')
+    .filter(c => c.trafficLevel !== 'closed' && c.waitSource !== 'none')
     .map(c => c.name);
 
   it('contains only non-closed crossings', () => {
@@ -69,6 +69,17 @@ describe('BORDER_CROSSINGS (scheduler list)', () => {
     const schedulerNames = SCHEDULER_CROSSINGS.map(c => c.name);
     for (const name of EXPECTED_NAMES) {
       expect(schedulerNames).toContain(name);
+    }
+  });
+
+  it('keeps explicitly unmetered crossings out of paid polling', () => {
+    const unmeteredNames = borderCrossings
+      .filter(c => c.waitSource === 'none')
+      .map(c => c.name);
+    const schedulerNames = new Set(SCHEDULER_CROSSINGS.map(c => c.name));
+    expect(unmeteredNames.length).toBeGreaterThan(0);
+    for (const name of unmeteredNames) {
+      expect(schedulerNames.has(name), `${name} must not enter TomTom/HERE polling`).toBe(false);
     }
   });
 

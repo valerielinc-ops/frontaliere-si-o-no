@@ -1,9 +1,31 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { read } from './helpers/senders';
+import {
+  __setFirestoreAdminForTest,
+  persistJobAlertDelivery,
+} from '../scripts/send-job-alerts.mjs';
+import { readDeliveryConsentEvidence } from '../scripts/ci/export-loop-outcomes.mjs';
 import {
   evaluateJobAlertConsent,
   hasStoredJobAlertConsent,
 } from '../functions/src/jobAlertBackfillCore.js';
+
+function createDeliveryFakeDb() {
+  const sets: Array<{ path: string; data: Record<string, unknown>; merge: boolean }> = [];
+  const docNode = (path: string): any => ({
+    collection: (name: string) => collectionNode(`${path}/${name}`),
+    set: (data: Record<string, unknown>, opts: { merge?: boolean }) => {
+      sets.push({ path, data, merge: opts?.merge === true });
+      return Promise.resolve();
+    },
+  });
+  const collectionNode = (path: string): any => ({ doc: (id: string) => docNode(`${path}/${id}`) });
+  return { db: { collection: (name: string) => collectionNode(name) }, sets };
+}
+
+afterEach(() => {
+  __setFirestoreAdminForTest(null);
+});
 
 const SILENT_AUTH_SUBSCRIBER = {
   status: 'confirmed',
@@ -129,7 +151,46 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(main).toMatch(/evaluateJobAlertConsent\(\{\s*alert: a,\s*subscriber: subscriberProfiles\.get/);
     const start = source.indexOf('async function processRetryQueue(');
     const retryBody = source.slice(start, source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start));
-    expect(retryBody).toMatch(/evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)\.allowed/);
+    expect(retryBody).toMatch(/const consent = evaluateJobAlertConsent\(\{ alert, subscriber: newsletter \}\)/);
+    expect(retryBody).toMatch(/if \(!consent\.allowed\)/);
+  });
+
+  it('persists filter-time consent proof with every job-alert delivery record', () => {
+    const source = read('scripts/send-job-alerts.mjs');
+    expect(source).toMatch(/const consentProof = item\.meta\?\.consentProof \|\| null/);
+    expect(source).toMatch(/consent_checked:\s*consentProof \? true : null/);
+    expect(source).toMatch(/consent_allowed:\s*consentProof \? consentProof\.allowed === true : null/);
+    expect(source).toMatch(/const consentCheckedAt = consentProof\?\.checkedAt \|\| null/);
+    expect(source).not.toMatch(/consentProof \? sentAt\.toISOString\(\)/);
+    expect(source).toMatch(/consent_checked_at:\s*consentCheckedAt/);
+    expect(source).toMatch(/outcome_contract_version:\s*1/);
+    expect(source).toMatch(/consentProof:\s*e\.consentProof/);
+  });
+
+  it('retains a delayed audience proof at the persisted send boundary', async () => {
+    const { db, sets } = createDeliveryFakeDb();
+    __setFirestoreAdminForTest(db);
+    const checkedAt = new Date(Date.now() - 60_000).toISOString();
+
+    await persistJobAlertDelivery({
+      recipient: { email: 'seeker@example.test' },
+      meta: {
+        alertId: 'alert-1',
+        consentProof: {
+          allowed: true,
+          basis: 'subscription',
+          checkedAt,
+        },
+      },
+    }, { provider: 'maileroo', messageId: 'ref-delayed' });
+
+    const written = sets[0].data;
+    expect(written.consent_checked_at).toBe(checkedAt);
+    expect(written.consent_checked_at).not.toBe((written.sent_at as Date).toISOString());
+    expect(readDeliveryConsentEvidence(written, written.sent_at)).toMatchObject({
+      status: 'valid',
+      basis: 'subscription',
+    });
   });
 
   it('still blocks an explicit cross-channel stop', () => {

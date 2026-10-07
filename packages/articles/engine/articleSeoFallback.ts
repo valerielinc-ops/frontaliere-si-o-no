@@ -278,6 +278,11 @@ export const renderArticleInlineMarkup = (line: string): string => {
   .replace(/`([^`]+)`/g, '<code>$1</code>')
   .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
   .replace(/\*(.*?)\*/g, '<em>$1</em>')
+  // A few archived bodies use underscore emphasis (`_Fonte: ..._`), which is
+  // valid Markdown but used to survive as literal punctuation in the static
+  // article HTML. Restrict delimiters to whitespace/punctuation boundaries so
+  // identifiers such as `MOPS_DanceSyndrome` remain intact.
+  .replace(/(^|[\s([>{\"'“‘])(_{1,3})(?=\S)([^\n]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’<])/g, '$1<em>$3</em>')
   .replace(INLINE_LINK_TOKEN_RX, (_, index: string) => links[Number(index)] ?? '');
 };
 
@@ -300,23 +305,35 @@ const TABLE_SEPARATOR_RX = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
 const parseTableCells = (line: string): string[] =>
  line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
 
-const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
+const renderTableBlock = (headerLine: string, bodyLines: string[], tableNumber: number): string => {
+ const { esc } = getSiteShell();
  const headerCells = parseTableCells(headerLine);
  const caption = headerCells.find((cell) => cell.trim()) ?? 'Table';
- const head = headerCells.map((cell) => `<th>${renderArticleInlineMarkup(cell)}</th>`).join('');
- const body = bodyLines
- .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`)
- .join('');
- return `<table><caption class="sr-only">${renderArticleInlineMarkup(caption)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+ const accessibleCaption = `Table ${tableNumber}: ${caption}`;
+ const head = headerCells.map((cell) => `<th scope="col">${renderArticleInlineMarkup(cell)}</th>`).join('');
+ const body = bodyLines.length > 0
+  ? bodyLines
+   .map((row) => {
+    const cells = parseTableCells(row);
+    // Keep every data row aligned with the header row. Archived markdown
+    // occasionally omits a trailing cell; padding it avoids leaving a
+    // column header without an associated data cell for screen readers.
+    const normalizedCells = headerCells.map((_header, index) => cells[index] ?? '—');
+    return `<tr>${normalizedCells.map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`;
+   })
+   .join('')
+  : `<tr><td colspan="${Math.max(headerCells.length, 1)}">—</td></tr>`;
+ return `<table aria-label="${esc(accessibleCaption)}"><caption class="sr-only">${renderArticleInlineMarkup(accessibleCaption)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 };
 
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)
 // into an ordered list of self-contained HTML blocks (one per heading/paragraph/list/quote).
-const buildArticleBodyBlocks = (text: string): string[] => {
+const buildArticleBodyBlocks = (text: string, tableNumberOffset = 0): string[] => {
  const lines = normalizeArticleMarkdown(text).split('\n');
  const out: string[] = [];
  let paragraphBuf: string[] = [];
  let fence: MarkdownFence | null = null;
+ let tablesRendered = 0;
 
  const flushParagraph = () => {
  if (paragraphBuf.length) {
@@ -380,7 +397,8 @@ const buildArticleBodyBlocks = (text: string): string[] => {
  if (!TABLE_SEPARATOR_RX.test(lines[i].trim())) bodyLines.push(lines[i].trim());
  i++;
  }
- out.push(renderTableBlock(headerLine, bodyLines));
+ tablesRendered += 1;
+ out.push(renderTableBlock(headerLine, bodyLines, tableNumberOffset + tablesRendered));
  continue;
  }
 
@@ -417,7 +435,8 @@ const buildArticleBodyBlocks = (text: string): string[] => {
 // summaries have their own explicit budgets in ogPagesPlugin.ts; applying one of
 // those budgets here would publish a page that visibly ends with an ellipsis and
 // under-report the article's actual word count to search engines.
-const renderArticleBodyHtml = (text: string): string => buildArticleBodyBlocks(text).join('');
+const renderArticleBodyHtml = (text: string, tableNumberOffset = 0): string =>
+ buildArticleBodyBlocks(text, tableNumberOffset).join('');
 
 const tokenizeTopic = (value: string): string[] =>
  value
@@ -632,9 +651,14 @@ export type ArticleBodySectionRendered = { key: string; html: string };
 // through both filter passes below, so a caller pairing a heading to `key`
 // never shifts onto the wrong body when an intermediate section is empty.
 export function cleanupArticleBodySections(sections: ArticleBodySectionInput[]): ArticleBodySectionRendered[] {
+ let tableNumberOffset = 0;
  return sections
  .filter((section): section is { key: string; text: string } => !!section.text)
- .map((section) => ({ key: section.key, html: renderArticleBodyHtml(section.text) }))
+ .map((section) => {
+  const html = renderArticleBodyHtml(section.text, tableNumberOffset);
+  tableNumberOffset += (html.match(/<table\b/g) ?? []).length;
+  return { key: section.key, html };
+ })
  .filter((section) => !!section.html);
 }
 

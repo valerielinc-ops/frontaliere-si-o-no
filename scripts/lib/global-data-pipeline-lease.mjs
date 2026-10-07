@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './is-invoked-directly.mjs';
 /**
  * Cross-repository Firestore lease helper for the canonical jobs-data writer
  * and other explicitly scoped cross-repository critical sections.
@@ -18,7 +19,6 @@
  */
 import fs from 'node:fs';
 import { createSign } from 'node:crypto';
-import { pathToFileURL } from 'node:url';
 import { isTransientFetchError } from './transient-fetch.mjs';
 
 export const GLOBAL_DATA_PIPELINE_LEASE_DOC = 'ci_leases/jobs-data-pipeline';
@@ -528,7 +528,7 @@ async function main() {
   console.log(action === 'acquire' ? 'global data pipeline lease acquired' : 'global data pipeline lease released');
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error('global data pipeline lease failed: ' + (error?.message || String(error)));
     process.exitCode = 1;

@@ -135,6 +135,16 @@ export const EVENT_SOURCES = {
     homepage: 'https://www.stadtluzern.ch/aktuelles/termine',
     canton: 'LU',
   },
+  // Organizer JSON-LD (owner decision D3, 2026-10-05): the Settimane Musicali
+  // di Ascona publish a schema.org MusicEvent per concert. No licence and no
+  // prohibition, so only facts are kept (title, date, venue, price, link):
+  // no organizer description, no images (scripts/crawl-classicascona-events.mjs).
+  classicascona: {
+    key: 'classicascona',
+    label: 'classicAscona — Settimane Musicali di Ascona',
+    homepage: 'https://classicascona.ch/concerti/',
+    canton: 'TI',
+  },
   // OpenAgenda API v2 (scripts/crawl-openagenda-events.mjs): Ville de Genève,
   // Association des communes genevoises and Région de Nyon, under the Licence
   // Ouverte 2.0. `canton: null` — the canton comes from the venue's comune or,
@@ -146,6 +156,31 @@ export const EVENT_SOURCES = {
     canton: null,
   },
 };
+
+// ── Event-image licence policy ───────────────────────────────
+// Event facts may be aggregated from many public agendas, but a public URL is
+// not an image licence. Keep the allowlist as a single registry so crawlers,
+// the assembler, the renderer and the CDN uploader cannot drift apart.
+//
+// OpenAgenda is the only admitted source at present: its public announcements
+// are reusable under the Licence Ouverte 2.0, and its image crawler additionally
+// requires an agenda-declared licence plus a non-rights-reserved credit before
+// mirroring an individual image (see crawl-openagenda-events.mjs).
+export const EVENT_IMAGE_LICENSES = Object.freeze({
+  openagenda: Object.freeze({
+    name: 'Licence Ouverte 2.0',
+    termsUrl: 'https://doc.openagenda.com/fr/article/conditions-generales-dutilisation-xq325m/',
+  }),
+});
+
+export function isEventImageSourceAllowed(sourceKey) {
+  return typeof sourceKey === 'string' && Object.prototype.hasOwnProperty.call(EVENT_IMAGE_LICENSES, sourceKey);
+}
+
+/** True for a safe mirrored filename whose stable-id prefix is allowlisted. */
+export function isEventImageSafeIdAllowed(safeId) {
+  return typeof safeId === 'string' && Object.keys(EVENT_IMAGE_LICENSES).some((sourceKey) => safeId.startsWith(`${sourceKey}-`));
+}
 
 // ── Localized URL path config (single source of truth, §6) ───
 // The events SSG pages live under a LOCALIZED base segment per locale (en/de/fr
@@ -385,15 +420,31 @@ export function normalizeText(value) {
  * including escaped tags such as `&lt;b&gt;...&lt;/b&gt;`. */
 export function cleanEventText(value) {
   if (typeof value !== 'string') return '';
-  const withoutRawTags = value
-    .replace(/<!--[\s\S]*?-->/g, ' ')
-    .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?\s*>/gi, ' ')
-    .replace(/<\/?[a-z][^>]*>/gi, ' ');
-  return decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
-    .replace(/<\/?[a-z][^>]*>/gi, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
+  let text = value;
+  // Crawler feeds occasionally encode the same field more than once
+  // (`&amp;auml;`). Decode until stable so a visible entity cannot survive
+  // solely because it was wrapped in another entity.
+  for (let pass = 0; pass < 3; pass += 1) {
+    const withoutRawTags = text
+      .replace(/<!--[\s\S]*?-->/g, ' ')
+      .replace(/<(script|style|noscript|template)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<br\s*\/?\s*>/gi, ' ')
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    const decoded = decodeHtmlEntities(withoutRawTags, { level: 'html5', scope: 'body' })
+      .replace(/<\/?[a-z][^>]*>/gi, ' ');
+    text = decoded;
+    if (decoded === withoutRawTags) break;
+  }
+
+  // The source fields are plain text in the rendered event cards. Remove the
+  // small Markdown subset that appears in agenda feeds while preserving
+  // ordinary hashtags such as `#batterypower` and names containing `*`.
+  text = text
+    .replace(/(^|\s)#{1,6}(?=\s)/g, '$1')
+    .replace(/(^|[\s([{\"'“‘])(\*{1,3}|_{1,3})(?=\S)([\s\S]*?\S)\2(?=$|[\s)\]}.,!?;:'\"”’])/g, '$1$3')
+    .replace(/(^|\s)(?:\*{3,}|_{3,})(?=\s|$)/g, '$1');
+
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -1005,18 +1056,24 @@ async function cancelEventImageResponse(response) {
 }
 
 /**
- * Download an event's source image once and store it locally under
+ * Download an allowlisted event source image once and store it locally under
  * `public/images/events/<sourceKey>-<rawId>.<ext>`. Returns the site-relative
- * path (e.g. `/images/events/guidle-Acv6rYJ.webp`) on success, or `null` on any
- * failure (missing URL, network error, oversized/non-image response) — callers
+ * path (e.g. `/images/events/openagenda-Acv6rYJ.webp`) on success, or `null` on any
+ * failure (unlicensed source, missing URL, network error, oversized/non-image
+ * response) — callers
  * MUST treat a null return as "no image" (never fall back to the original
  * remote URL, that would defeat the no-hotlink requirement).
  *
  * The stored extension is normally `webp` — encodeEventImage re-encodes what
  * was downloaded; the source's own extension survives only when that is
  * skipped.
+ *
+ * @param {string} sourceKey - source registry key checked against the image licence policy
  */
-export async function mirrorEventImage(sourceUrl, stableId) {
+export async function mirrorEventImage(sourceUrl, stableId, sourceKey) {
+  // Gate before manifest/disk probes: a stale entry from a previously allowed
+  // run must not resurrect an image after its source licence is revoked.
+  if (!isEventImageSourceAllowed(sourceKey)) return null;
   if (!sourceUrl || !/^https?:\/\//i.test(sourceUrl)) return null;
   const safeId = String(stableId || '').replace(/[^a-zA-Z0-9:_-]/g, '').replace(/:/g, '-');
   if (!safeId) return null;
@@ -1710,21 +1767,87 @@ export function hasParsedPrice(price) {
 }
 
 /**
- * Tariff sources admitted by the owner decision of 2026-10-04 (FU-2026-10-03-002),
- * in precedence order: MySwitzerland first, Guidle second. A source outside
- * this list (Turismo Ticino, tio.ch, Genève agenda, …) never makes a price
- * reliable until its terms of use have been verified and it is added here.
+ * Registry of publishable tariffs (rule H5): for each admitted source, the
+ * structured fields whose value may be shown, and how. A price is published
+ * only when its `priceSource` is a key here AND its `priceField` is one of
+ * that source's fields — the pair, not the two lists separately, so an
+ * Eventfrog record can never publish an `offers.price` and a classicAscona
+ * record never a `gratuit`.
+ *
+ * Owner decisions:
+ *   - 2026-10-04 (FU-2026-10-03-002): MySwitzerland, then Guidle — schema.org
+ *     JSON-LD `offers[].price` and `isAccessibleForFree`.
+ *   - 2026-10-05 (D4):
+ *     - classicAscona: JSON-LD `Offer.price` (single price) and
+ *       `AggregateOffer.lowPrice` (shown as «from CHF X»). Never «free»: a
+ *       concert without a structured price stays without a price.
+ *     - Eventfrog Public API: `lowestTicketPrice`, shown as «from CHF X». The
+ *       field carries no currency: it is CHF only because the event location
+ *       is in Switzerland (`currencySource: 'location.country'`).
+ *     - OpenAgenda: the boolean `gratuit`, shown only as «free», never as an
+ *       amount. The free-text `conditions` is never a price.
+ *
+ * Per-field rule:
+ *   - `free`: 'only' (the field can only assert free admission), 'never'
+ *     (a zero or free value from it is discarded), 'any'.
+ *   - `from`: the amount is a minimum («from CHF X», AggregateOffer.lowPrice).
+ *   - `currency` / `currencySource`: required on the price object when the
+ *     source field itself has no currency.
+ *
+ * Key order is the precedence among duplicates (assemble-events-dataset.mjs).
+ * A source outside this registry (Turismo Ticino, tio.ch, Genève agenda, …)
+ * never makes a price reliable until its terms have been verified and the
+ * owner adds it here.
  */
-export const EVENT_PRICE_SOURCES = Object.freeze(['myswitzerland', 'guidle']);
+export const EVENT_PRICE_FIELD_RULES = deepFreeze({
+  myswitzerland: {
+    'offers.price': { free: 'any', from: false },
+    isAccessibleForFree: { free: 'only', from: false },
+  },
+  guidle: {
+    'offers.price': { free: 'any', from: false },
+    isAccessibleForFree: { free: 'only', from: false },
+  },
+  classicascona: {
+    'offers.price': { free: 'never', from: false },
+    'offers.lowPrice': { free: 'never', from: true },
+  },
+  eventfrog: {
+    lowestTicketPrice: { free: 'never', from: true, currency: 'CHF', currencySource: 'location.country' },
+  },
+  openagenda: {
+    gratuit: { free: 'only', from: false },
+  },
+});
+
+function deepFreeze(value) {
+  for (const inner of Object.values(value)) {
+    if (inner && typeof inner === 'object') deepFreeze(inner);
+  }
+  return Object.freeze(value);
+}
+
+/** Admitted tariff sources, in precedence order (keys of EVENT_PRICE_FIELD_RULES). */
+export const EVENT_PRICE_SOURCES = Object.freeze(Object.keys(EVENT_PRICE_FIELD_RULES));
 
 /**
- * Source fields whose value is typed data rather than prose: the schema.org
- * Event JSON-LD `offers[].price` and `isAccessibleForFree`. Labelled HTML
+ * Every structured field admitted for at least one source. Labelled HTML
  * tariff boxes (`detail-table`, `price-accordion`), indexed copy
- * (`index-content`) and third-party ticketing pages (`booking-page`) are free
- * text read by a parser, so they are recorded but never reliable.
+ * (`index-content`), third-party ticketing pages (`booking-page`) and
+ * OpenAgenda `conditions` are free text read by a parser: recorded, never
+ * reliable. Publication is decided per source by `hasConfidentPrice`.
  */
-export const STRUCTURED_EVENT_PRICE_FIELDS = Object.freeze(['offers.price', 'isAccessibleForFree']);
+export const STRUCTURED_EVENT_PRICE_FIELDS = Object.freeze([
+  ...new Set(Object.values(EVENT_PRICE_FIELD_RULES).flatMap((fields) => Object.keys(fields))),
+]);
+
+/** The rule for a price's (source, field) pair, or undefined when not admitted. */
+export function eventPriceFieldRule(price) {
+  const fields = Object.hasOwn(EVENT_PRICE_FIELD_RULES, price?.priceSource || '')
+    ? EVENT_PRICE_FIELD_RULES[price.priceSource]
+    : undefined;
+  return fields && Object.hasOwn(fields, price?.priceField || '') ? fields[price.priceField] : undefined;
+}
 
 /** Stamp a parsed price with the source and the field it was read from. */
 export function withEventPriceSource(price, priceSource, priceField) {
@@ -1735,16 +1858,64 @@ export function withEventPriceSource(price, priceSource, priceField) {
 /**
  * Whether a price is reliable enough to publish (schema.org `offers`,
  * `isAccessibleForFree`, the visible price line): it carries a value AND was
- * read from a structured field (`STRUCTURED_EVENT_PRICE_FIELDS`) of an
- * admitted source (`EVENT_PRICE_SOURCES`). A tariff parsed from free text —
- * or a legacy record without `priceSource`/`priceField` — stays in the data
- * but is not reliable: asserting `price:"0"` or a parsed amount there would
- * publish an inference as a source fact.
+ * read from a field admitted for its source (`EVENT_PRICE_FIELD_RULES`),
+ * within that field's rule. A tariff parsed from free text — or a legacy
+ * record without `priceSource`/`priceField` — stays in the data but is not
+ * reliable: asserting `price:"0"` or a parsed amount there would publish an
+ * inference as a source fact.
  */
 export function hasConfidentPrice(price) {
-  return hasParsedPrice(price)
-    && EVENT_PRICE_SOURCES.includes(price.priceSource)
-    && STRUCTURED_EVENT_PRICE_FIELDS.includes(price.priceField);
+  if (!hasParsedPrice(price)) return false;
+  const rule = eventPriceFieldRule(price);
+  if (!rule) return false;
+  const free = price.isFree === true || price.amount === 0;
+  if (rule.free === 'only' && !(price.isFree === true && (price.amount === 0 || price.amount == null))) return false;
+  if (rule.free === 'never' && (free || !(Number.isFinite(price.amount) && price.amount > 0))) return false;
+  if (rule.currency && price.currency !== rule.currency) return false;
+  if (rule.currencySource && price.currencySource !== rule.currencySource) return false;
+  return true;
+}
+
+/** Whether a reliable price is a minimum («from CHF X», AggregateOffer.lowPrice). */
+export function isFromEventPrice(price) {
+  return hasConfidentPrice(price) && eventPriceFieldRule(price).from === true;
+}
+
+/**
+ * OpenAgenda `gratuit` → a «free» price with its provenance, or undefined.
+ * Only the boolean `true` counts; `false`, a missing field and the free-text
+ * `conditions` never produce a price (D4, 2026-10-05).
+ */
+export function openAgendaGratuitPrice(event) {
+  if (event?.gratuit !== true) return undefined;
+  return withEventPriceSource({ amount: 0, currency: 'CHF', isFree: true }, 'openagenda', 'gratuit');
+}
+
+/** Currency of an Eventfrog amount, from the location country (the API field has none). */
+const EVENTFROG_CURRENCY_BY_COUNTRY = Object.freeze({ CH: 'CHF' });
+
+/**
+ * Eventfrog `lowestTicketPrice` → a «from CHF X» price with its provenance,
+ * or undefined. The API amount carries no currency, so it is CHF only when
+ * the event location is in Switzerland (`location.country === 'CH'`); any
+ * other or missing country gives no price. Also required: a positive amount,
+ * a ticketed event (`agendaEntryOnly === false`) that is not cancelled.
+ *
+ * @param {{ lowestTicketPrice?: unknown, agendaEntryOnly?: unknown, cancelled?: unknown }} event
+ * @param {{ country?: unknown } | undefined} location - the event's Eventfrog location record.
+ */
+export function eventfrogLowestTicketPrice(event, location) {
+  const amount = event?.lowestTicketPrice;
+  if (typeof amount !== 'number' || !Number.isFinite(amount) || amount <= 0) return undefined;
+  if (event?.agendaEntryOnly !== false || event?.cancelled === true) return undefined;
+  const country = typeof location?.country === 'string' ? location.country.trim().toUpperCase() : '';
+  const currency = Object.hasOwn(EVENTFROG_CURRENCY_BY_COUNTRY, country) ? EVENTFROG_CURRENCY_BY_COUNTRY[country] : undefined;
+  if (!currency) return undefined;
+  return withEventPriceSource(
+    { amount, currency, isFree: false, currencySource: 'location.country' },
+    'eventfrog',
+    'lowestTicketPrice',
+  );
 }
 
 // ── Date helpers ─────────────────────────────────────────────

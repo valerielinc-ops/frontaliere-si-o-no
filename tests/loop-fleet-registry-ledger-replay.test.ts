@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 // Import reale: e' l'arco che fa scegliere questo test alla selezione related
 // quando cambia il validatore. Il registry e il ledger sono dati, non import:
 // li collega la voce in `sourceTreeLintTests` di scripts/ci/run-related-tests.mjs,
-// verificata per comportamento in tests/run-related-tests-github-assets.test.ts.
+// verificata per comportamento in tests/run-related-tests-selection.test.ts.
 import {
   buildLifecycleEvent,
   validateActionClassAgainstPolicy,
@@ -35,6 +35,11 @@ const OUTCOME_FILES = [
 
 const FAILURE_TITLE = "Registry loop-fleet: sourceRefs cambiati senza historicalSourceRefs, il ledger durevole non e' piu' leggibile";
 const SOURCE_REFS_HINT = "dichiara historicalSourceRefs + historicalSourceRefsBefore nel registry (outcome.historicalSourceRefs con i vecchi sourceRefs e come cutoff l'istante del cambio)";
+// Il branch durevole e' append-only: al cutover GA4 conteneva ancora record L4
+// PostHog prodotti dal codice precedente, fino a questa osservazione del 5
+// ottobre. Il cutoff deve coprire anche questo ritardo rispetto al ledger
+// seminato nel repository, che si ferma al 16 settembre.
+const L4_LAST_DURABLE_LEGACY_RECORD_AT = '2026-10-05T18:20:54.018Z';
 
 type Registry = { loops: Array<Record<string, any>> };
 type LedgerRecord = Record<string, any>;
@@ -154,6 +159,34 @@ describe('loop-fleet registry contro il ledger durevole', () => {
       && refs.every((ref) => sourceRefs.includes(ref)));
   const loopsWithHistoricalRecords = loopsWithHistory.filter((loop) => lifecycleRecords
     .some((event) => event.loopId === loop.loopId && usesHistoricalRefs(loop, event.sourceRefs)));
+
+  it('mantiene leggibili i record L4 legacy arrivati nel ledger dopo il seed', () => {
+    const l4Loop = registry.loops.find((loop) => loop.loopId === 'L4');
+    const l4Observation = outcomeRecords
+      .find(({ type }) => type === 'observation')
+      ?.records.find((record) => record.loopId === 'L4'
+        && record.outcome?.sourceRefs?.includes('posthog-return'));
+    const l4Lifecycle = lifecycleRecords.find((event) => event.loopId === 'L4'
+      && event.sourceRefs?.includes('posthog-return'));
+
+    expect(l4Loop).toBeDefined();
+    expect(l4Observation).toBeDefined();
+    expect(l4Lifecycle).toBeDefined();
+
+    const legacyRecordedAt = Date.parse(L4_LAST_DURABLE_LEGACY_RECORD_AT);
+    const cutoff = Date.parse(l4Loop!.outcome.historicalSourceRefsBefore);
+    expect(cutoff).toBeGreaterThan(legacyRecordedAt);
+
+    const observation = structuredClone(l4Observation!);
+    observation.recordedAt = L4_LAST_DURABLE_LEGACY_RECORD_AT;
+    observation.outcome.recordedAt = L4_LAST_DURABLE_LEGACY_RECORD_AT;
+    expect(() => validateHistoricalOutcomeAgainstPolicy(registry, 'L4', observation.outcome)).not.toThrow();
+
+    const lifecycle = structuredClone(l4Lifecycle!);
+    lifecycle.recordedAt = L4_LAST_DURABLE_LEGACY_RECORD_AT;
+    expect(() => validateHistoricalLifecycleEvent(registry, 'L4', lifecycle)).not.toThrow();
+  });
+
   it.skipIf(loopsWithHistoricalRecords.length === 0)(
     loopsWithHistoricalRecords.length > 0
       ? 'il replay sui record reali diventa rosso senza historicalSourceRefs'

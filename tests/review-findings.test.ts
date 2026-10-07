@@ -9,6 +9,8 @@ import {
   isMalformedReviewBody,
   isRegressionFinding,
   LEDGER_MAX_ENTRIES,
+  normalizeBodyCitationText,
+  normalizeMarkdownDestination,
   renderFindingsLedger,
   reviewBodyDefects,
   stableFindingId,
@@ -71,6 +73,13 @@ describe('identità stabile del finding', () => {
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: [regression] rotto.')).toBe('regression');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important [urgentissimo]: rotto.')).toBe('other');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: rotto.')).toBe('other');
+    // Forma con ancora di posizione senza separatore (PR 9339): per il gate e'
+    // un finding, quindi il tag va letto anche li'.
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [regression] rotto.')).toBe('regression');
+    expect(findingDeclaredClass('- `a.mjs:L1`: 🔴 **Important** [funnel] rotto.')).toBe('funnel');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [urgentissimo] rotto.')).toBe('other');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important rotto, vedi [regression] piu\' sotto.')).toBe('other');
+    expect(isRegressionFinding(finding('a.mjs:L1: 🔴 Important [regression] rotto.'))).toBe(true);
     expect(isRegressionFinding(finding('`a.mjs:L1`: 🔴 Important: [regression] rotto.'))).toBe(true);
   });
 
@@ -113,6 +122,19 @@ describe('igiene del body', () => {
 
   it('lascia passare un body normale', () => {
     expect(isMalformedReviewBody('## Findings (Important: 0, Nit: 0)\n\n- Fix di `a.mjs:L3`: ok.\n\n## LGTM')).toBe(false);
+  });
+});
+
+describe('normalizzazione Markdown della citazione body', () => {
+  it('rimuove solo delimitatori accoppiati e conserva i caratteri letterali', () => {
+    expect(normalizeBodyCitationText('**grassetto** *enfasi* ~~barrato~~')).toBe('grassetto enfasi barrato');
+    expect(normalizeBodyCitationText('field_name a*b c~d')).toBe('field_name a*b c~d');
+  });
+
+  it('bilancia le parentesi nella destinazione di link e immagini', () => {
+    const markdown = '[guida](https://example.test/a_(b)) e ![schema](<https://example.test/schema_(v2)>)';
+    expect(normalizeMarkdownDestination(markdown)).toBe('guida e schema');
+    expect(normalizeBodyCitationText(markdown)).toBe('guida e schema');
   });
 });
 

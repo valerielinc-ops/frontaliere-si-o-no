@@ -3,6 +3,8 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
+import { buildFailureBody } from '../scripts/ci/report-workflow-failure.mjs';
+import { failureSignature } from '../scripts/ci/lib/failure-signature.mjs';
 
 const root = new URL('..', import.meta.url);
 const read = (file: string) => readFileSync(new URL(file, root), 'utf8');
@@ -13,6 +15,26 @@ function reporterSteps(job: any) {
 }
 
 describe('workflow failure reporting stays coupled to the central scanner contract', () => {
+  it('persists the canonical job/step signature for the central scanner', () => {
+    const jobs = {
+      total_count: 1,
+      jobs: [{
+        name: 'live-data gates (post-merge)',
+        conclusion: 'failure',
+        steps: [{ name: 'vitest run (solo i test su dati vivi)', conclusion: 'failure' }],
+      }],
+    };
+    const signature = failureSignature(jobs);
+    const body = buildFailureBody({
+      repo: 'o/r', runId: '1', workflowName: 'live-data gates', jobName: 'live-data gates',
+      failedStep: { name: 'vitest run (solo i test su dati vivi)' },
+      repro: { commands: [], paths: [] },
+      failureSignature: signature,
+    });
+
+    expect(body).toContain(`<!-- failure-signature: ${signature} -->`);
+  });
+
   it.each(['deploy-publish', 'issue-fix'])('%s checks out the complete reporter import graph', (workflow) => {
     const source = parse(`.github/workflows/${workflow}.yml`);
     const checkout = source.jobs['report-failure'].steps.find(

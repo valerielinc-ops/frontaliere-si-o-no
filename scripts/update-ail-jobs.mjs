@@ -92,6 +92,14 @@ const AJAX_URL =
   'https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro/content/0.html?ajax=true';
 const BASE_URL = 'https://www.ail.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const AIL_EMPTY_SOURCE_RE = /^al momento\s+non ci sono\s+posizioni\s+aperte[.!]?$/i;
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+  abortKind: null,
+  authoritativeEmptySnapshot: false,
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function normalize(value = '') {
@@ -198,12 +206,21 @@ async function fetchPage(url, timeoutMs = 20_000) {
     });
     if (!res.ok) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return '';
+      return {
+        html: '',
+        fetchOutcome: res.status === 403 || res.status === 429
+          ? 'anti_bot_block'
+          : 'feed_endpoint_unavailable',
+      };
     }
-    return await res.text();
+    const html = await res.text();
+    return {
+      html,
+      fetchOutcome: html ? 'ok' : 'feed_endpoint_unavailable',
+    };
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return '';
+    return { html: '', fetchOutcome: 'connection_error' };
   } finally {
     clearTimeout(timer);
   }
@@ -245,7 +262,7 @@ function titleOverlap(expected = '', actual = '') {
   return matches / expWords.length;
 }
 
-function parseListingPage(html) {
+export function parseListingPage(html) {
   const jobs = [];
 
   // Each job is in <article class="job-position">...</article>
@@ -308,6 +325,28 @@ function parseListingPage(html) {
   return jobs;
 }
 
+/**
+ * Classify the response after the HTTP boundary has succeeded. An empty list
+ * is only publishable when AIL itself rendered its explicit no-openings
+ * message; every other zero is a fail-closed selector miss.
+ */
+export function classifyAilListingHtml(html = '') {
+  const listings = parseListingPage(html);
+  const emptyStateBlocks = html.matchAll(
+    /<div\b[^>]*(?:^|\s)class\s*=\s*(["'])([^"']*)\1[^>]*>([\s\S]*?)<\/div>/gi,
+  );
+  const authoritativeEmptySnapshot = listings.length === 0 && [...emptyStateBlocks].some(([, , classValue, content]) => {
+    if (!/(?:^|\s)inner-title(?:\s|$)/u.test(classValue)) return false;
+    const visibleText = normalizeSpace(decodeHtmlEntities(content).replace(/<[^>]*>/g, ' '));
+    return AIL_EMPTY_SOURCE_RE.test(visibleText);
+  });
+  return {
+    listings,
+    authoritativeEmptySnapshot,
+    fetchOutcome: listings.length > 0 || authoritativeEmptySnapshot ? 'ok' : 'selector_miss',
+  };
+}
+
 /* ── Category & experience detection ───────────────────────── */
 function detectCategory(title = '') {
   const t = normalize(title);
@@ -340,17 +379,41 @@ function detectEmploymentType(title = '') {
 export async function fetchAilJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
+  Object.assign(SUMMARY_COUNTS, {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+    authoritativeEmptySnapshot: false,
+  });
+
   console.log(`🔍 Fetching AIL SA jobs...`);
   console.log(`  📡 AJAX endpoint: ${AJAX_URL}`);
 
-  const ajaxHtml = await fetchPage(AJAX_URL, timeoutMs);
+  const fetchResult = await fetchPage(AJAX_URL, timeoutMs);
+  const ajaxHtml = fetchResult.html;
+  SUMMARY_COUNTS.lastFetchOutcome = fetchResult.fetchOutcome;
   if (!ajaxHtml) {
     console.warn('⚠️ Failed to fetch AJAX listing page.');
+    SUMMARY_COUNTS.abortKind = 'connection-level-fetch';
     return [];
   }
 
-  const listings = parseListingPage(ajaxHtml);
+  const classified = classifyAilListingHtml(ajaxHtml);
+  const { listings } = classified;
+  SUMMARY_COUNTS.discovered = listings.length;
+  SUMMARY_COUNTS.parsed = 0;
+  SUMMARY_COUNTS.lastFetchOutcome = classified.fetchOutcome;
+  SUMMARY_COUNTS.authoritativeEmptySnapshot = classified.authoritativeEmptySnapshot;
   console.log(`  📋 Found ${listings.length} job listing(s) on page.`);
+
+  if (listings.length === 0) {
+    if (!classified.authoritativeEmptySnapshot) {
+      SUMMARY_COUNTS.abortKind = 'no-jobs-parsed';
+      console.warn('⚠️ AIL listing page was fetched but no known job or empty-state marker matched.');
+    }
+    return [];
+  }
 
   // Fetch PDF content for each job
   const jobs = [];
@@ -423,6 +486,7 @@ export async function fetchAilJobs() {
     await new Promise((r) => setTimeout(r, 300));
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
   return jobs;
 }
 
@@ -686,6 +750,35 @@ function logStats(beforeSnapshot = new Map()) {
 
 }
 
+function writeAilSummary(crawlDiff, { writeSlice = false } = {}) {
+  const _durationMs = getCrawlerElapsedMs();
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
+  if (writeSlice) writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: 'AIL SA',
+    generatedAt: new Date().toISOString(),
+    total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+    authoritativeEmptySnapshot: SUMMARY_COUNTS.authoritativeEmptySnapshot,
+    written: _sliceJobs.length,
+    newCount: crawlDiff.newJobs.length,
+    updatedCount: crawlDiff.updatedJobs.length,
+    removedCount: crawlDiff.removedJobs.length,
+    unchangedCount: crawlDiff.unchangedCount,
+    durationMs: _durationMs,
+    avgDurationMs: _durationMs,
+    durationHistory: [_durationMs],
+    newJobs: crawlDiff.newJobs.slice(0, 30),
+    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+    removedJobs: crawlDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+  });
+}
+
 function validateLocales() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_AIL_STRICT',
@@ -716,7 +809,7 @@ function cleanStoredJobsOnSoftExit() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'AIL SA');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'AIL SA', SUMMARY_COUNTS);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  AIL SA (Aziende Industriali di Lugano) — Dedicated Crawler');
@@ -738,6 +831,7 @@ async function main() {
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     await cleanStoredJobsOnSoftExit();
+    SUMMARY_COUNTS.authoritativeEmptySnapshot && writeAilSummary(crawlDiff);
     return;
   }
 
@@ -760,6 +854,7 @@ async function main() {
 
   // Phase 6: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No AIL jobs found after crawl. No error — exiting OK.');
     await cleanStoredJobsOnSoftExit();
@@ -772,27 +867,7 @@ async function main() {
   console.log('\n✅ AIL SA crawler complete.');
 
   // Write per-crawler slice and reassemble global dataset
-  const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
-  writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({
-    key: COMPANY_KEY,
-    label: 'AIL SA',
-    generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
-    newCount: crawlDiff.newJobs.length,
-    updatedCount: crawlDiff.updatedJobs.length,
-    removedCount: crawlDiff.removedJobs.length,
-    unchangedCount: crawlDiff.unchangedCount,
-    durationMs: _durationMs,
-    avgDurationMs: _durationMs,
-    durationHistory: [_durationMs],
-    newJobs: crawlDiff.newJobs.slice(0, 30),
-    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
-    removedJobs: crawlDiff.removedJobs.slice(0, 30),
-    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
-  });
+  writeAilSummary(crawlDiff, { writeSlice: true });
   await assembleJobsDataset();
 }
 

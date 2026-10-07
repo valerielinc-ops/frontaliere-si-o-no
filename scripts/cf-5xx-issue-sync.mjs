@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * cf-5xx-issue-sync.mjs — zone-wide Cloudflare 5xx watchdog.
  *
@@ -62,7 +63,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { sanitizeUrlLikeText } from './lib/sanitizeTrackedDiagnostics.mjs';
 import { classifyCfErrorUrl, isWebhookTunnelSurface, SURFACES } from './lib/cf-error-surface.mjs';
 import { syncErrorIssues } from './lib/error-issue-sync.mjs';
@@ -529,7 +530,7 @@ export async function main() {
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main() never triggers a live CF/gh call — same guard as
 // scripts/dmarc-monitor.mjs.
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   const results = await main();
   if (results) {
     console.log(`[cf-5xx-issue-sync] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);

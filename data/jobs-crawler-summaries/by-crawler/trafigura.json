@@ -1,70 +1,28 @@
 {
   "key": "trafigura",
   "label": "Trafigura",
-  "generatedAt": "2026-10-05T09:17:24.125Z",
-  "total": 8,
+  "generatedAt": "2026-10-07T09:18:19.281Z",
+  "total": 7,
   "discovered": null,
-  "parsed": 8,
+  "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 10547,
-  "avgDurationMs": 10547,
+  "durationMs": 11714,
+  "avgDurationMs": 11714,
   "durationHistory": [
-    10547
+    11714
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "trafigura-cd289dec088a",
-      "slug": "responsabile-senior-della-conformita-trafigura-geneva",
-      "company": "Trafigura",
-      "companyKey": "trafigura",
-      "companyDomain": "trafigura.com",
-      "title": "Senior Compliance Manager",
-      "needsRetranslation": false,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
-      "source": "Trafigura Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:14.150Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Qualità / Compliance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Trading di materie prime",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-24",
-      "postedDate": "2026-08-24",
-      "postingDateSource": "reported",
-      "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
-      "jobReqId": "R-018600",
-      "firstSeenAt": "2026-09-26T13:53:38.199Z",
-      "salaryMin": 107000,
-      "salaryMax": 183000,
-      "salarySource": "estimated",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
     {
       "id": "trafigura-339b6ed93797",
       "slug": "responsabile-delle-indagini-senior-trafigura-geneva",
@@ -78,7 +36,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Investigations-Officer_R-018720",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:10.797Z",
+      "crawledAt": "2026-10-07T09:17:58.929Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -99,16 +57,62 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1204",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "trafigura-cd289dec088a",
+      "slug": "responsabile-senior-della-conformita-trafigura-geneva",
+      "company": "Trafigura",
+      "companyKey": "trafigura",
+      "companyDomain": "trafigura.com",
+      "title": "Senior Compliance Manager",
+      "needsRetranslation": false,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
+      "source": "Trafigura Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-05T21:38:45.645Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Qualità / Compliance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Trading di materie prime",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-24",
+      "postedDate": "2026-08-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
+      "jobReqId": "R-018600",
+      "firstSeenAt": "2026-09-26T13:53:38.199Z",
+      "salaryMin": 107000,
+      "salaryMax": 183000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "postalCode": "1204",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "id": "trafigura-674732b4e044",
@@ -122,7 +126,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:16.541Z",
+      "crawledAt": "2026-10-07T09:18:05.315Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -143,12 +147,13 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "1204",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -163,7 +168,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:15.744Z",
+      "crawledAt": "2026-10-07T09:18:04.479Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -184,12 +189,13 @@
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "1204",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -205,7 +211,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:14.946Z",
+      "crawledAt": "2026-10-07T09:18:03.608Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -226,12 +232,13 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1204",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -247,7 +254,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:13.318Z",
+      "crawledAt": "2026-10-07T09:18:02.309Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -267,12 +274,13 @@
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "1204",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -288,7 +296,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Head-of-Treasury---Payments-Technology_R-018663",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:12.459Z",
+      "crawledAt": "2026-10-07T09:18:01.179Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -309,12 +317,13 @@
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
-      "_qualityScore": 89,
+      "postalCode": "1204",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -330,7 +339,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Business-Developer_R-018703",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:17:11.563Z",
+      "crawledAt": "2026-10-07T09:18:00.154Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -351,14 +360,15 @@
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "1204",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

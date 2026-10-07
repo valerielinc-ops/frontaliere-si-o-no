@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * jobgate-monitor.mjs — monitor giornaliero del test A/B del job gate
  * (round e id nel piano, scripts/experiments/jobgate-plan.mjs)
@@ -35,7 +36,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
@@ -391,7 +392,7 @@ async function monitorOnce({ args, plan, rc, planned, tmpDir, now, eventName, pu
   return { exitCode: publishError ? 1 : 0, decision, alarms, state };
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   runMonitor(process.argv.slice(2))
     .then(({ exitCode }) => process.exit(exitCode))
     .catch((e) => {

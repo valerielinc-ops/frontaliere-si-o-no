@@ -14,6 +14,9 @@ import { describe, expect, it } from 'vitest';
 import {
   isNonItalianScript,
   nonItalianScriptRatio,
+  detectWrongLatinLanguage,
+  detectWrongLatinLanguageInField,
+  isCompactItalianRateTable,
 } from '../scripts/lib/itLanguageCheck.mjs';
 
 describe('non-Italian script detector', () => {
@@ -84,5 +87,19 @@ describe('non-Italian script detector', () => {
   it('flags Arabic and Hebrew too (less common but observed in some Cerebras models)', () => {
     expect(isNonItalianScript('السلام عليكم — frontaliere è una parola italiana')).toBe(true);
     expect(isNonItalianScript('שלום — ciao in ebraico')).toBe(true);
+  });
+
+  it('detects a clearly English Latin-script title without rejecting Italian text', () => {
+    expect(detectWrongLatinLanguage('Cross-border workers in Switzerland: the 2026 tax rules', 'it')?.lang)
+      .toBe('non-it');
+    expect(detectWrongLatinLanguage('Frontalieri e telelavoro: le nuove regole del 2026', 'it'))
+      .toBeNull();
+  });
+
+  it('keeps the measured rate-table exemption scoped to description fields', () => {
+    const table = 'Aliquote: AVS/AI/IPG 5,3%, AD/AC 1,1%, LAINF 0,7-1,5%';
+    expect(isCompactItalianRateTable(table)).toBe(true);
+    expect(detectWrongLatinLanguageInField(table, 'it', 'excerpt')).toBeNull();
+    expect(detectWrongLatinLanguageInField(table, 'it', 'title')).not.toBeNull();
   });
 });

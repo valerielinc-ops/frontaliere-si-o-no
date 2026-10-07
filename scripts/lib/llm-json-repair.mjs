@@ -1,7 +1,7 @@
 /**
  * Shared JSON-repair helpers for cleaning up common LLM JSON output quirks
  * (markdown fences, literal newlines inside strings, unescaped inner quotes,
- * stray markdown-bold asterisks). Used by every script that JSON.parse()s an
+ * stray markdown-bold asterisks, and omitted commas after nested values). Used by every script that JSON.parse()s an
  * LLM response so a fix to the repair logic lands once instead of drifting
  * across independent copies (create-article.mjs repairLlmJson,
  * batch-add-faq-to-articles.mjs repairJsonArray both had this inlined).
@@ -85,6 +85,20 @@ let _memoSrc = null;
 let _memoFix = null;
 let _memoQuoteCloses = null;
 let _memoStringEnd = null;
+let _scanMetrics = null;
+
+/** Test-only counters; inactive unless a test explicitly enables them. */
+export function resetLlmJsonRepairScanMetrics() {
+  _scanMetrics = { charactersExamined: 0, scannerFallbacks: 0 };
+  _memoSrc = null;
+  _memoFix = null;
+  _memoQuoteCloses = null;
+  _memoStringEnd = null;
+}
+
+export function getLlmJsonRepairScanMetrics() {
+  return _scanMetrics ? { ..._scanMetrics } : { charactersExamined: 0, scannerFallbacks: 0 };
+}
 
 /**
  * Prepara (e riempie) il memo per `str`. Il riempimento e' DAL FONDO VERSO
@@ -110,6 +124,11 @@ let _memoStringEnd = null;
  * gia' registrati: il controllo di identita' le fa uscire subito, quindi il
  * riempimento non si ri-annida. Non serve un flag di reentrancy, serve
  * assegnare `_memoSrc`/`_memoFix` PRIMA del giro (ed e' fatto).
+ *
+ * Nello stesso passaggio, per ogni quote, viene memorizzato il primo quote
+ * recuperabile alla sua destra. Se non esiste, il valore -1 e' monotono verso
+ * destra fino a EOF: le chiamate successive non devono riesaminare il
+ * suffisso.
  */
 function _memoFor(str, fixAsterisks) {
   if (_memoSrc === str && _memoFix === fixAsterisks) return;
@@ -117,11 +136,17 @@ function _memoFor(str, fixAsterisks) {
   _memoFix = fixAsterisks;
   _memoQuoteCloses = new Map();
   _memoStringEnd = new Map();
+  let nextRecoverableQuote = -1;
   for (let q = str.length - 1; q >= 0; q--) {
-    if (str[q] !== '"' || isEscapedAt(str, q)) continue;
-    if (!_memoQuoteCloses.has(q)) {
-      _memoQuoteCloses.set(q, _decideQuoteCloses(str, q, fixAsterisks));
-    }
+    if (_scanMetrics) _scanMetrics.charactersExamined++;
+    if (str[q] !== '"') continue;
+
+    _memoStringEnd.set(q, nextRecoverableQuote === -1 ? -1 : nextRecoverableQuote + 1);
+    if (isEscapedAt(str, q)) continue;
+
+    const closes = _decideQuoteCloses(str, q, fixAsterisks);
+    _memoQuoteCloses.set(q, closes);
+    if (closes) nextRecoverableQuote = q;
   }
 }
 
@@ -333,8 +358,10 @@ function scanStringEnd(str, i, fixAsterisks) {
 }
 
 function _scanStringEnd(str, i, fixAsterisks) {
+  if (_scanMetrics) _scanMetrics.scannerFallbacks++;
   let j = i + 1;
   while (j < str.length) {
+    if (_scanMetrics) _scanMetrics.charactersExamined++;
     if (str[j] === '\\') { j += 2; continue; }
     if (str[j] === '"') {
       if (decideQuoteCloses(str, j, fixAsterisks)) return j + 1;
@@ -350,8 +377,11 @@ function _scanStringEnd(str, i, fixAsterisks) {
  * field name and never legitimately contains its own embedded quote, so a
  * candidate that only "closes" by skipping past an embedded quote is
  * exactly the ambiguous prose shape afterSeparatorLooksValid's comma-branch
- * must reject, not a shortcut worth taking. */
-function scanKeyEnd(str, i) {
+ * must reject, not a shortcut worth taking.
+ * @returns {number} Index immediately after the key's closing quote, or -1 if
+ * the key is unterminated.
+ */
+function scanKeyEndAfterQuote(str, i) {
   let j = i + 1;
   while (j < str.length) {
     if (str[j] === '\\') { j += 2; continue; }
@@ -377,7 +407,7 @@ function scanKeyEnd(str, i) {
  * separator between bare VALUES, not just object entries (`["a","b"]`) —
  * rejecting outright here corrupted every bare string-array element
  * (issue #3602). But the fallback must reuse the SAME strict, no-retry
- * close (scanKeyEnd) rather than the permissive scanValueEnd/scanStringEnd
+ * close (scanKeyEndAfterQuote) rather than the permissive scanValueEnd/scanStringEnd
  * used for real values below: that permissive scanner is designed to skip
  * past an ambiguous embedded quote and keep looking for a later real
  * closer, which is exactly wrong for this candidate — it let a deliberate
@@ -459,12 +489,12 @@ function resolveLookahead(str, pos, mode, fixAsterisks) {
 
     // SEP_COMMA
     if (str[i] === '"') {
-      const keyEnd = scanKeyEnd(str, i);
-      if (keyEnd === -1) return false;
-      let k = keyEnd;
+      const afterKeyQuote = scanKeyEndAfterQuote(str, i);
+      if (afterKeyQuote === -1) return false;
+      let k = afterKeyQuote;
       while (k < str.length && /\s/.test(str[k])) k++;
       if (str[k] === ':') { p = k + 1; m = SEP_COLON; continue; }
-      p = keyEnd; m = CONTINUATION;
+      p = afterKeyQuote; m = CONTINUATION;
       continue;
     }
     const valueEnd = scanValueEnd(str, i, fixAsterisks);
@@ -568,4 +598,419 @@ export function fixJsonStringBody(input, { fixAsterisks = false } = {}) {
     out += ch;
   }
   return out;
+}
+
+// ── LLM JSON repair (handles the common LLM output quirks) ──────────────────
+//
+// Why: GitHub Models / Groq / Mistral occasionally emit markdown bold markers
+// (`**` / `***`) between JSON properties instead of commas, or wrap the payload
+// in ```json fences, or stick a preamble before the opening `{`, or echo a
+// quoted phrase from the source text unescaped (e.g. a title like
+// `..."tassa sulla salute"...`) which desyncs naive quote-toggle string
+// tracking into `Unterminated string in JSON`. The string-repair walk
+// (preserve asterisks INSIDE quoted strings — markdown bold in body1/body2 is
+// load-bearing — replace a stray `*` OUTSIDE strings with a comma, escape
+// unescaped inner quotes) is `fixJsonStringBody` above, shared with
+// `batch-add-faq-to-articles.mjs`. Truncated payloads still throw — callers
+// detect that via `parseErr.message` and retry with a larger `maxTokens`.
+/**
+ * Add the comma most often omitted between two object properties when the
+ * first value is itself an object/array. This is deliberately narrow: scalar
+ * comma insertion needs a full JSON lexer and guessing there would be more
+ * likely to alter prose inside a string than to repair a payload.
+ */
+function insertMissingPropertyCommas(input) {
+  const hasContainerPropertyAfterComma = (quoteIdx) => {
+    let separator = quoteIdx + 1;
+    while (separator < input.length && /\s/.test(input[separator])) separator++;
+    if (input[separator] !== ',') return false;
+
+    let keyStart = separator + 1;
+    while (keyStart < input.length && /\s/.test(input[keyStart])) keyStart++;
+    if (input[keyStart] !== '"') return false;
+
+    const afterKeyQuote = scanKeyEndAfterQuote(input, keyStart);
+    if (afterKeyQuote === -1) return false;
+    let colon = afterKeyQuote;
+    while (colon < input.length && /\s/.test(input[colon])) colon++;
+    if (input[colon] !== ':') return false;
+
+    let valueStart = colon + 1;
+    while (valueStart < input.length && /\s/.test(input[valueStart])) valueStart++;
+    return input[valueStart] === '{' || input[valueStart] === '[';
+  };
+
+  let out = '';
+  let inString = false;
+  let escaped = false;
+
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i];
+    out += ch;
+
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"' && (
+        decideQuoteCloses(input, i, true)
+        || hasContainerPropertyAfterComma(i)
+      )) inString = false;
+      continue;
+    }
+
+    if (ch === '"') {
+      inString = true;
+      continue;
+    }
+    if (ch !== '}' && ch !== ']') continue;
+
+    let keyStart = i + 1;
+    while (keyStart < input.length && /\s/.test(input[keyStart])) keyStart++;
+    if (input[keyStart] !== '"') continue;
+
+    let keyEnd = keyStart + 1;
+    let keyEscaped = false;
+    for (; keyEnd < input.length; keyEnd++) {
+      const keyCh = input[keyEnd];
+      if (keyEscaped) {
+        keyEscaped = false;
+      } else if (keyCh === '\\') {
+        keyEscaped = true;
+      } else if (keyCh === '"') {
+        break;
+      }
+    }
+    if (keyEnd >= input.length) continue;
+
+    let colon = keyEnd + 1;
+    while (colon < input.length && /\s/.test(input[colon])) colon++;
+    if (input[colon] === ':') out += ',';
+  }
+
+  return out;
+}
+
+function normalizeJsonCandidate(input) {
+  const out = fixJsonStringBody(input, { fixAsterisks: true });
+  return insertMissingPropertyCommas(out)
+    .replace(/,(\s*,)+/g, ',')
+    .replace(/,(\s*[}\]])/g, '$1');
+}
+
+/** Maximum number of later top-level candidate roots inspected after the first one. */
+const MAX_LATER_CANDIDATES = 24;
+/** Extra bound for malformed/unbalanced openers that are discarded. */
+const MAX_LATER_SCANNED_ROOTS = MAX_LATER_CANDIDATES * 4;
+
+/**
+ * The only safe reason to skip a valid first payload is an explicit response
+ * marker. Without this rule, a valid answer followed by a JSON example in the
+ * model's closing prose was silently replaced by that example.
+ */
+const ANSWER_CUE_RE = /(?:^|\s)(?:risposta(?:\s+finale)?|final(?:\s+answer)?|answer|response|output)(?:\s+json)?\s*[:\-]\s*$/i;
+const EXAMPLE_CUE_RE = /\b(?:esempio|example|sample|e\.g\.|for example|ad esempio)\b[^\n]{0,120}$/i;
+
+function cueBefore(source, start, pattern) {
+  const prefix = source.slice(Math.max(0, start - 240), start).replace(/\s+/g, ' ');
+  return pattern.test(prefix);
+}
+
+function firstRootStart(source, rootOpeners) {
+  return rootOpeners.reduce((first, opener) => {
+    const start = source.indexOf(opener);
+    return start === -1 ? first : first === -1 ? start : Math.min(first, start);
+  }, -1);
+}
+
+/**
+ * An unmatched preferred root may contain complete nested containers that are
+ * not response roots (for example `tags: ["a"]` in a truncated FAQ object).
+ * A malformed prose preamble can also leave an unmatched opener before the
+ * real response, so bracket depth alone cannot distinguish the two cases:
+ * `[unbalanced [` has the same depth as `[{"tags":[`. Treat a later opener as
+ * nested only when the prefix still has JSON structural context, while
+ * allowing an opener that follows the prose of a malformed preamble through.
+ */
+function isNestedRootCandidate(source, rootStart, candidate) {
+  if (!candidate.prefixJsonLike) return false;
+  if (candidate.depth > 1) return true;
+
+  let previous = candidate.start - 1;
+  while (previous > rootStart && /\s/.test(source[previous])) previous--;
+  return source[rootStart] === '[' || [':', '[', '{', ','].includes(source[previous]);
+}
+
+/**
+ * Scan structural bracket intervals once. Recoverable quoted strings are
+ * skipped as a whole, so openers in their contents never become candidates.
+ * An unclosed/non-recoverable string is left as prose: later roots remain
+ * discoverable through the historical fallback path.
+ */
+function scanStructuralRootCandidates(source, rootOpeners, start) {
+  const targetOpeners = new Set(rootOpeners);
+  const structuralStack = [];
+  const candidates = [];
+  let firstRoot = null;
+  let firstCloseIdx = -1;
+  let firstClosed = false;
+  let recordedTopLevelRoots = 0;
+  let prefixJsonLike = true;
+  let prefixInString = false;
+  let prefixTokenEnd = start + 1;
+
+  const recordCandidate = (frame) => {
+    // After the first root closes, depth zero is the top-level boundary for
+    // later candidates. The outer frame's `end` lets the collector skip all
+    // nested frames without spending the budget on them.
+    if (firstClosed && frame.depth > 0) return;
+    // For an unbalanced first root, discard nested intervals before applying
+    // the scan budget. This keeps deeply nested malformed containers from
+    // hiding a later root that follows corrupted prose.
+    if (!firstClosed && isNestedRootCandidate(source, start, frame)) return;
+    if (recordedTopLevelRoots >= MAX_LATER_SCANNED_ROOTS) return;
+    candidates.push(frame);
+    recordedTopLevelRoots++;
+  };
+
+  for (let i = start; i < source.length; i++) {
+    const ch = source[i];
+    if (ch === '"' && !isEscapedAt(source, i)) {
+      // A malformed value must not make the lenient quote lookahead swallow
+      // the next object key (for example `"bad":[1} [{"q":...`). Keys are
+      // unambiguous here, so close them strictly before scanning values.
+      let stringEnd = -1;
+      const top = structuralStack.at(-1);
+      let previous = i - 1;
+      while (previous >= start && /\s/.test(source[previous])) previous--;
+      if (top?.open === '{' && ['{', ','].includes(source[previous])) {
+        const afterKeyQuote = scanKeyEndAfterQuote(source, i);
+        // afterKeyQuote è già oltre la virgoletta di chiusura: qui leggiamo il primo carattere dopo la chiave.
+        let afterKeyLookahead = afterKeyQuote;
+        while (afterKeyLookahead !== -1 && afterKeyLookahead < source.length && /\s/.test(source[afterKeyLookahead])) afterKeyLookahead++;
+        if (afterKeyQuote !== -1 && source[afterKeyLookahead] === ':') stringEnd = afterKeyQuote;
+      }
+      if (stringEnd === -1) stringEnd = scanStringEnd(source, i, true);
+      if (stringEnd !== -1) {
+        if (i > start) prefixInString = false;
+        i = stringEnd - 1;
+        continue;
+      }
+      if (i > start) prefixInString = !prefixInString;
+      continue;
+    }
+
+    if (i > start && i >= prefixTokenEnd && !prefixInString && prefixJsonLike) {
+      if (/\s/.test(ch) || '{}[],:'.includes(ch)) {
+        // JSON structural punctuation and whitespace are valid prefix syntax.
+      } else {
+        const number = /^-?(?:0|[1-9]\d*)(?:\.\d+)?(?:[eE][+-]?\d+)?/.exec(source.slice(i));
+        const literal = /^(?:true|false|null)\b/.exec(source.slice(i));
+        if (number) prefixTokenEnd = i + number[0].length;
+        else if (literal) prefixTokenEnd = i + literal[0].length;
+        else prefixJsonLike = false;
+      }
+    }
+
+    if (ch === '{' || ch === '[') {
+      const frame = {
+        open: ch,
+        start: i,
+        end: -1,
+        depth: structuralStack.length,
+        prefixJsonLike: prefixJsonLike && !prefixInString,
+      };
+      structuralStack.push(frame);
+
+      if (!firstRoot) firstRoot = frame;
+      else if (targetOpeners.has(ch)) recordCandidate(frame);
+      continue;
+    }
+
+    if (ch !== '}' && ch !== ']') continue;
+    const opener = ch === '}' ? '{' : '[';
+    const frame = structuralStack.at(-1);
+    if (!frame || frame.open !== opener) {
+      if (!firstClosed) {
+        // The closer is corrupt relative to the current nested branch. Keep
+        // it outside the first-root boundary, but discard stale nested
+        // frames so a later root is not mistaken for another nested value.
+        structuralStack.length = firstRoot ? 1 : 0;
+        prefixJsonLike = false;
+        prefixInString = false;
+        prefixTokenEnd = i + 1;
+      }
+      continue;
+    }
+    structuralStack.pop();
+    frame.end = i;
+
+    if (frame === firstRoot) {
+      firstCloseIdx = i;
+      firstClosed = true;
+      candidates.length = 0;
+      recordedTopLevelRoots = 0;
+      structuralStack.length = 0;
+      prefixJsonLike = true;
+      prefixInString = false;
+      prefixTokenEnd = i + 1;
+    }
+  }
+
+  return { firstCloseIdx, candidates };
+}
+
+function collectJsonCandidates(source, rootOpeners, { preferredRoot = null } = {}) {
+  const start = firstRootStart(source, rootOpeners);
+  if (start === -1) return { start, candidates: [] };
+
+  const opener = source[start];
+  const { firstCloseIdx, candidates: laterRootCandidates } = scanStructuralRootCandidates(
+    source,
+    rootOpeners,
+    start,
+  );
+
+  const candidates = [];
+  const addCandidate = (candidateStart, candidateEnd, balanced) => {
+    candidates.push({
+      start: candidateStart,
+      end: candidateEnd,
+      balanced,
+      input: source.slice(candidateStart, candidateEnd + 1),
+    });
+  };
+
+  const collectLaterBalancedCandidates = (from, { skipUnbalanced = false, skipNested = false } = {}) => {
+    let cursor = from;
+    let scanned = 0;
+    let examined = 0;
+    for (const candidate of laterRootCandidates) {
+      if (candidate.start < cursor || candidate.start < from) continue;
+      if (scanned >= MAX_LATER_SCANNED_ROOTS || examined >= MAX_LATER_CANDIDATES) break;
+      scanned++;
+
+      if (skipNested && isNestedRootCandidate(source, start, candidate)) {
+        cursor = candidate.end === -1 ? candidate.start + 1 : candidate.end + 1;
+        continue;
+      }
+      if (candidate.end === -1) {
+        if (!skipUnbalanced) break;
+        cursor = candidate.start + 1;
+        continue;
+      }
+      examined++;
+      addCandidate(candidate.start, candidate.end, true);
+      cursor = candidate.end + 1;
+    }
+  };
+
+  if (firstCloseIdx !== -1) {
+    addCandidate(start, firstCloseIdx, true);
+  } else {
+    // In array mode, a malformed root in a prose preamble can precede the
+    // real FAQ array. Keep the historical truncated fallback for retry/error
+    // diagnostics, but inspect later roots so a balanced preferred array is
+    // not hidden by that unmatched opener (including an unmatched array).
+    // Keep it first: if every later candidate fails validation, the fallback
+    // path must still return the original truncated payload.
+    const closer = opener === '[' ? ']' : '}';
+    const end = source.lastIndexOf(closer);
+    addCandidate(start, end > start ? end : source.length - 1, false);
+    if (preferredRoot) {
+      collectLaterBalancedCandidates(start + 1, { skipUnbalanced: true, skipNested: true });
+    }
+  }
+
+  // A later root can be the real response after an example in a prose
+  // preamble. Inspect only a bounded number of TOP-LEVEL roots. Advancing
+  // past each matching close prevents nested objects in an example consuming
+  // the whole candidate budget before the real response is considered.
+  if (firstCloseIdx !== -1) {
+    collectLaterBalancedCandidates(firstCloseIdx + 1);
+  }
+
+  return { start, candidates };
+}
+
+function selectJsonCandidate(source, parseable, { preferredRoot = null } = {}) {
+  const balanced = parseable.filter((candidate) => candidate.balanced);
+  const pool = balanced.length > 0 ? balanced : parseable;
+  const topLevel = pool
+    .filter((candidate) => !pool.some((other) => (
+      other.start < candidate.start && other.end >= candidate.end
+    )))
+    .sort((a, b) => a.start - b.start || b.end - a.end);
+  if (!topLevel.length) return null;
+
+  // Prefer a candidate explicitly introduced as the answer. This preserves
+  // the useful "example ... Risposta finale: payload" recovery case.
+  const markedAnswers = topLevel.filter((candidate) => cueBefore(source, candidate.start, ANSWER_CUE_RE));
+  if (markedAnswers.length) return markedAnswers[markedAnswers.length - 1];
+
+  // A response can contain a valid wrapper followed by a JSON example. Filter
+  // explicit examples before preferring the root shape; otherwise the example
+  // array wins over the real wrapper simply because arrays are preferred.
+  const nonExamples = topLevel.filter((candidate) => !cueBefore(source, candidate.start, EXAMPLE_CUE_RE));
+  const selectionCandidates = nonExamples.length ? nonExamples : topLevel;
+
+  // Array-shaped callers must not let a parseable object preamble hide a
+  // later direct array payload. Keep wrapped object responses supported by
+  // falling back to the complete top-level candidate list when no preferred
+  // root is present.
+  const preferred = preferredRoot
+    ? selectionCandidates.filter((candidate) => source[candidate.start] === preferredRoot)
+    : selectionCandidates;
+  const selectionPool = preferred.length ? preferred : selectionCandidates;
+
+  // If the first candidate is explicitly an example, a later top-level
+  // candidate is the only plausible answer. In every other case the first
+  // valid candidate wins, so trailing examples cannot overwrite a response.
+  if (cueBefore(source, selectionPool[0].start, EXAMPLE_CUE_RE)) {
+    return selectionPool[1] ?? selectionPool[0];
+  }
+  return selectionPool[0];
+}
+
+function repairJsonDocument(raw, {
+  rootOpeners = ['{'],
+  preferredRoot = null,
+  validateCandidate = null,
+} = {}) {
+  const c = insertMissingPropertyCommas(stripCodeFences(raw));
+  const { start, candidates } = collectJsonCandidates(c, rootOpeners, { preferredRoot });
+  if (start === -1) return normalizeJsonCandidate(c);
+
+  const parseable = [];
+  for (const candidate of candidates) {
+    const repaired = normalizeJsonCandidate(candidate.input);
+    try {
+      const parsed = JSON.parse(repaired);
+      if (validateCandidate && !validateCandidate(parsed, candidate)) continue;
+      parseable.push({ ...candidate, repaired });
+    } catch {
+      // Callers still receive the repaired first candidate below so their
+      // existing retry/diagnostic path remains unchanged for truncated JSON.
+    }
+  }
+
+  const best = selectJsonCandidate(c, parseable, { preferredRoot });
+  if (best !== null) return best.repaired;
+  return normalizeJsonCandidate(candidates[0]?.input ?? c);
+}
+
+export function repairLlmJson(raw) {
+  return repairJsonDocument(raw);
+}
+
+/**
+ * Shared repair/extraction for array-shaped LLM responses. `validateCandidate`
+ * is intentionally supplied by the caller: the generic repair module cannot
+ * know whether an array is FAQ data, translations, or another contract.
+ */
+export function repairLlmJsonArray(raw, { validateCandidate = null } = {}) {
+  return repairJsonDocument(raw, {
+    rootOpeners: ['[', '{'],
+    preferredRoot: '[',
+    validateCandidate,
+  });
 }

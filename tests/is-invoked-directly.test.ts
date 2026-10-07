@@ -1,12 +1,17 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { isInvokedDirectly } from '../scripts/lib/is-invoked-directly.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SHARED_HELPER = 'scripts/lib/is-invoked-directly.mjs';
 const LOCAL_DEFINITION_RE = /\b(?:function\s*\*?|const|let|var)\s+isInvokedDirectly\b/;
+const NAIVE_GUARD_PATTERNS = [
+  /import\.meta\.url\s*===\s*pathToFileURL\(process\.argv\[1\]\)\.href/,
+  /fileURLToPath\(import\.meta\.url\)\s*===\s*process\.argv\[1\]/,
+];
 
 function listScriptSources(dir: string): string[] {
   const out: string[] = [];
@@ -34,6 +39,19 @@ describe('isInvokedDirectly', () => {
     )).toBe(true);
   });
 
+  it('matches a symlinked argv path to the real module', () => {
+    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'is-invoked-directly-'));
+    const target = path.join(tempDir, 'module.mjs');
+    const link = path.join(tempDir, 'entry.mjs');
+    try {
+      fs.writeFileSync(target, '');
+      fs.symlinkSync(target, link);
+      expect(isInvokedDirectly(pathToFileURL(target).href, link)).toBe(true);
+    } finally {
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
+  });
+
   it('does not identify an imported module as the entry point', () => {
     expect(isInvokedDirectly(
       'file:///workspace/scripts/update-example-jobs.mjs',
@@ -59,5 +77,17 @@ describe('isInvokedDirectly', () => {
       .filter((file) => LOCAL_DEFINITION_RE.test(fs.readFileSync(file, 'utf8')))
       .map((file) => path.relative(ROOT, file).split(path.sep).join('/'));
     expect(definers).toEqual([SHARED_HELPER]);
+  });
+
+  it('does not reintroduce either naive direct-invocation guard form', () => {
+    const violations = listScriptSources(path.join(ROOT, 'scripts'))
+      .filter((file) => file.endsWith('.mjs'))
+      .flatMap((file) => {
+        const source = fs.readFileSync(file, 'utf8');
+        return NAIVE_GUARD_PATTERNS.some((pattern) => pattern.test(source))
+          ? [path.relative(ROOT, file).split(path.sep).join('/')]
+          : [];
+      });
+    expect(violations).toEqual([]);
   });
 });

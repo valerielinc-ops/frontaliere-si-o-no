@@ -56,6 +56,7 @@ import {
   UNSUB_RATE_CAP_PCT,
   MissingIndexError,
 } from './lib/newsletter-ab-data.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -80,15 +81,7 @@ function currentWeeklyCampaignId() {
 }
 
 async function initFirebase() {
-  const { applicationDefault, getApps, initializeApp } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    initializeApp({
-      credential: applicationDefault(),
-      projectId: process.env.GCLOUD_PROJECT || process.env.GOOGLE_CLOUD_PROJECT || 'frontaliere-ticino',
-    });
-  }
-  return getFirestore();
+  return getFirestoreDb();
 }
 
 const pct = (n, d) => (d > 0 ? (100 * n / d) : 0);

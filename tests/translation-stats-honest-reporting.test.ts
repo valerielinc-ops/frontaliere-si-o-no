@@ -209,6 +209,23 @@ describe('summarizeJobs / formatReport — presence is separated from translatio
     expect(entry.verifiedTranslated).toBe(1);
   });
 
+  it('records the Codex reserve of the run on `after` rows only (owner decision H7, 2026-10-05)', () => {
+    const counters = summarizeJobs([slotComplete()]);
+    const before = finalizeEntry(counters, { label: 'before', timestamp: 'T' });
+    expect(before).not.toHaveProperty('codexReserve');
+
+    const codexReserve = { calls: 12, textsSent: 20, translated: 17, rejected: 3, spentMs: 240000, verdict: 'covered', byPhase: {} };
+    const after = finalizeEntry(counters, { label: 'after', timestamp: 'T', codexReserve });
+    expect(after.codexReserve).toEqual(codexReserve);
+    const row = formatReport(after).join('\n').split('\n').find((line) => line.includes('Codex reserve:'));
+    expect(row).toContain('17 translated, 3 rejected');
+
+    // A run that left no report reads "not measured", never zero translations.
+    const unmeasured = finalizeEntry(counters, { label: 'after', timestamp: 'T', codexReserve: null });
+    expect(unmeasured.codexReserve).toBeNull();
+    expect(formatReport(unmeasured).join('\n')).toMatch(/Codex reserve:\s+not measured/);
+  });
+
   it('reports the wired language check as a ratio against presence, not "not measured"', () => {
     const entry = finalizeEntry(summarizeJobs([slotComplete()]), { label: 'test', timestamp: 'T' });
     expect(entry.slotsPresentByLength).toBe(1);

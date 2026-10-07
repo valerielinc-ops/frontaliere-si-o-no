@@ -44,7 +44,7 @@ import { SOCIAL_CHANNELS, resolveSocialRobotMode } from '../lib/social-publish-q
 import { acquireLock, defaultStateDir, diagnosticsDir, downloadsDir, openProfile, resolveBrowserLaunch } from './lib/browser.mjs';
 import { START_JITTER_MAX_MS, fileJournalStore, randomBetween } from './lib/cadence.mjs';
 import { FLOWS, INSTAGRAM_HOME, TIKTOK_UPLOAD, captureDiagnostics, classifyError, stepTracker } from './lib/flows.mjs';
-import { SITE_REPO, downloadImages, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
+import { SITE_REPO, downloadEntryFiles, ghConfirmDispatcher, gitMainReader, runRobot } from './lib/robot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -112,7 +112,7 @@ async function main() {
         platforms: opts.platforms,
         reader: gitMainReader({ repoDir }),
         journalStore: fileJournalStore(stateDir),
-        fetchImages: (entry) => downloadImages(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
+        fetchImages: (entry) => downloadEntryFiles(entry, path.join(downloadsDir(stateDir), entry.channel, entry.id)),
         // --jitter marks the unattended launchd run: there a queue entry gets
         // one dry run, not one per window; by hand every --dry-run runs.
         repeatDryRun: !opts.jitter,
@@ -122,7 +122,7 @@ async function main() {
           const step = stepTracker();
           const snap = (label) => captureDiagnostics(p, dir, label, { channel, queueId: entry.id, step: step.get() });
           try {
-            return await FLOWS[channel]({ page: p, files, caption: entry.caption, dryRun, human, snap, step });
+            return await FLOWS[channel]({ page: p, files, caption: entry.caption, video: entry.video, dryRun, human, snap, step });
           } catch (err) {
             const e = classifyError(err);
             e.step ||= step.get();

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * purge-changed-cdn-assets.mjs — targeted Cloudflare purge for the CDN keys an
  * R2 sync actually re-uploaded.
@@ -120,7 +121,7 @@
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { appendFileSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 // The purge cap lives in ONE place (AGENTS.md #6). cf-purge-cache.mjs — which
 // enforces the same cap — cannot be imported for it: that script does its work
@@ -631,6 +632,6 @@ function main(argv) {
   writeLedger(purgedKeys);
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main(process.argv.slice(2));
 }

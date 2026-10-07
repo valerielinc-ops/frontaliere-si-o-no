@@ -21,7 +21,7 @@
 
 import { JSDOM } from 'jsdom';
 import { XMLParser } from 'fast-xml-parser';
-import { eventStableId, cleanEventText, resolveComuneNationwide, resolveComune, loadCantonComuni } from './events-utils.mjs';
+import { eventStableId, cleanEventText, resolveComuneNationwide, resolveComune, loadCantonComuni, isEventImageSourceAllowed } from './events-utils.mjs';
 
 const ISO_DAY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
 
@@ -186,7 +186,9 @@ export function parseIcmsTermineRss(xml, { sourceKey, canton }) {
     const end = parseRssEventDate(textOf(item?.['ev:enddate']));
     const descriptionHtml = textOf(item?.description);
     const description = cleanEventText(descriptionHtml);
-    const imageUrl = /<img[^>]+src="(https:\/\/[^"]+)"/i.exec(descriptionHtml)?.[1];
+    const imageUrl = isEventImageSourceAllowed(sourceKey)
+      ? /<img[^>]+src="(https:\/\/[^"]+)"/i.exec(descriptionHtml)?.[1]
+      : undefined;
     const { comune, method } = resolveComune({ venue: description, title }, comuni);
     events.push({
       id: eventStableId(sourceKey, rawId),

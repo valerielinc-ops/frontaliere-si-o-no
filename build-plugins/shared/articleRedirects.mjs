@@ -52,7 +52,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
-import { ARTICLE_SECTION_CORE_LIST } from './articleSectionCore.mjs';
+import { SITE_RENDERED_ARTICLE_SECTIONS } from './articleSectionCore.mjs';
 import { parseSlugRegistry } from '../../scripts/lib/article-slug-registry.mjs';
 
 /** Repo-relative path of the redirect map. */
@@ -71,15 +71,15 @@ export const ARTICLE_LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
 /**
  * Every article-detail URL prefix that exists, derived from
- * `ARTICLE_SECTION_CORE` so a renamed section slug cannot desync this map
- * (AGENTS.md #6). Eight entries: 2 sections × 4 locales.
+ * `SITE_RENDERED_ARTICLE_SECTIONS` so a renamed section slug cannot desync
+ * this map (AGENTS.md #6). Eight entries: 2 site sections × 4 locales.
  *
  * @returns {Map<string, {locale: string, section: 'frontaliere'|'svizzera'}>}
  */
 export function articleSectionPrefixes() {
   /** @type {Map<string, {locale: string, section: 'frontaliere'|'svizzera'}>} */
   const out = new Map();
-  for (const { section, indexSlug } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { section, indexSlug } of SITE_RENDERED_ARTICLE_SECTIONS) {
     for (const locale of ARTICLE_LOCALES) {
       const hub = indexSlug[locale];
       const prefix = locale === 'it' ? `/${hub}/` : `/${locale}/${hub}/`;
@@ -470,7 +470,7 @@ export function loadArticleRedirects(rootDir, io = {}) {
 /**
  * Every article-detail path currently PUBLISHED, read from the two slug
  * registries under `packages/articles/content/` (via the `slugDataFile` of
- * `ARTICLE_SECTION_CORE`, which are symlinks into that corpus copy).
+ * `SITE_RENDERED_ARTICLE_SECTIONS`, which are symlinks into that corpus copy.
  *
  * Used by the tests to decide, for each redirect entry, which phase of a
  * rename it is in — see the truth table in
@@ -494,7 +494,7 @@ export function readPublishedArticlePaths(rootDir, io = {}) {
   /** @type {string[]} */
   const missing = [];
 
-  for (const { indexSlug, slugDataFile, slugConst } of ARTICLE_SECTION_CORE_LIST) {
+  for (const { indexSlug, slugDataFile, slugConst } of SITE_RENDERED_ARTICLE_SECTIONS) {
     const abs = path.join(rootDir, slugDataFile);
     if (!exists(abs)) {
       missing.push(slugDataFile);

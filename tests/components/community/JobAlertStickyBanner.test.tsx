@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import JobAlertStickyBanner from '@/components/community/JobAlertStickyBanner';
+import { consumeJobAlertOpen } from '@/services/jobAlertOpenSignal';
 
 const { trackJobAlertCtaClick } = vi.hoisted(() => ({
  trackJobAlertCtaClick: vi.fn(),
@@ -61,6 +62,7 @@ describe('JobAlertStickyBanner', () => {
 
  afterEach(() => {
  cleanup();
+ consumeJobAlertOpen();
  vi.restoreAllMocks();
  vi.useRealTimers();
  });
@@ -106,5 +108,6 @@ describe('JobAlertStickyBanner', () => {
 
  expect(trackJobAlertCtaClick).toHaveBeenCalledWith('sticky_banner', 'open');
  expect(dispatchSpy.mock.calls.some(([event]) => event.type === 'openJobAlert')).toBe(true);
+ expect(consumeJobAlertOpen()).toEqual({ origin: 'sticky_banner' });
  });
 });

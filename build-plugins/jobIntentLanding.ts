@@ -1,5 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { resolveJobCanton } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import type { JobLandingLocale, LandingJobLink } from './jobEditorialLanding';
 
 /**
@@ -177,11 +178,18 @@ function ensureTrailingSlash(value: string): string {
 
 function buildJobHref(
   baseUrl: string,
-  localePrefix: string,
-  sectionSlug: string,
+  locale: JobLandingLocale,
+  job: JobLike,
   jobSlug: string,
+  legacySectionSlug: string,
 ): string {
-  return ensureTrailingSlash(`${baseUrl.replace(/\/+$/, '')}${`${localePrefix}/${sectionSlug}/${jobSlug}`.replace(/\/+/g, '/')}`);
+  return `${baseUrl.replace(/\/+$/, '')}${buildCanonicalJobDetailPath(
+    locale,
+    job,
+    jobSlug,
+    undefined,
+    legacySectionSlug,
+  )}`;
 }
 
 function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
@@ -206,7 +214,13 @@ function toLinkedJobs(
       title: normalizeSpace(localizedTitles && typeof localizedTitles[locale] === 'string' ? localizedTitles[locale] : job.title || 'Offerta lavoro'),
       company: normalizeSpace(job.company),
       location: normalizeSpace(job.location),
-      href: buildJobHref(options.baseUrl, options.localePrefix, options.sectionSlug, options.localizedSlug(job, locale)),
+      href: buildJobHref(
+        options.baseUrl,
+        locale,
+        job,
+        options.localizedSlug(job, locale),
+        options.sectionSlug,
+      ),
       postingDateSource: job.postingDateSource,
       datePosted: freshnessDate(job, now)?.toISOString(),
       titleByLocale: Object.fromEntries(Object.entries(localizedTitles || {}).filter(([, value]) => typeof value === 'string')) as Partial<Record<JobLandingLocale, string>>,

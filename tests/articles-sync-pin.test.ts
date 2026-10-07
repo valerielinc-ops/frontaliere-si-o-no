@@ -47,6 +47,7 @@ import {
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CORPUS_SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-corpus.mjs');
+const CHUNKER_SCRIPT = path.join(ROOT, 'scripts', 'lib', 'blog-article-registry-chunker.mjs');
 const API_SCRIPT = path.join(ROOT, 'scripts', 'pull-articles-api.mjs');
 const WORKFLOW = path.join(ROOT, '.github', 'workflows', 'sync-articles-sitemaps.yml');
 
@@ -394,17 +395,39 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
   const byName = (fragment: string) =>
     steps.jobs.sync.steps.find((s) => s.name?.includes(fragment));
 
-  it('bounds the generated blog registry after the mirror and snapshot replay', () => {
+  it('bounds every generated article registry after the mirror and snapshot replay', () => {
     const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    const chunker = fs.readFileSync(CHUNKER_SCRIPT, 'utf-8');
     expect(script).toContain(
-      "import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';",
+      "ARTICLE_REGISTRY_CHUNK_CONFIGS,\n  chunkArticleRegistry,\n} from './lib/blog-article-registry-chunker.mjs';",
     );
+    expect(script).toContain('ARTICLE_REGISTRY_CHUNK_CONFIGS.map((config) =>');
+    expect(chunker).toContain("declarationName: 'RAW_ARTICLES'");
+    expect(chunker).toContain("declarationName: 'RAW_SWISS_ARTICLES'");
     const mirrorIndex = script.indexOf('mirrorTree(src, DEST');
-    const chunkIndex = script.indexOf('const registryChunks = splitBlogArticleRegistry();');
+    const chunkIndex = script.indexOf('for (const { file, chunkCount } of splitArticleRegistries())');
     const publishIndex = script.indexOf("publishPin(TARGET, { tag: 'pull-articles-corpus' });");
     expect(mirrorIndex).toBeGreaterThanOrEqual(0);
     expect(chunkIndex).toBeGreaterThan(mirrorIndex);
     expect(publishIndex).toBeGreaterThan(chunkIndex);
+  });
+
+  it('treats only corpus-generated image-credit files as count-only churn', () => {
+    const script = fs.readFileSync(CORPUS_SCRIPT, 'utf-8');
+    expect(script).toContain('isPreservedTreePath,');
+    const countIndex = script.indexOf('const churnOnlyDestinationFiles = destinationOnlyPaths');
+    const shrinkIndex = script.indexOf('if (comparableDstN > 0 && srcN < comparableDstN)');
+    const mirrorIndex = script.indexOf('mirrorTree(src, DEST');
+    expect(countIndex).toBeGreaterThanOrEqual(0);
+    expect(shrinkIndex).toBeGreaterThan(countIndex);
+    expect(mirrorIndex).toBeGreaterThan(shrinkIndex);
+    // The allowlist itself lives in the tested corpus helper; keeping the
+    // consumer dependent on that helper prevents a broad file-count exemption.
+    expect(fs.readFileSync(
+      path.join(ROOT, 'scripts', 'lib', 'corpus-local-preserve.mjs'),
+      'utf-8',
+    )).toContain("'image-credits/'");
+    expect(script).toContain('preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles)');
   });
 
   it('does not pull the published surface once the corpus pull has given up', () => {

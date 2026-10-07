@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * report-live-data-test-files.mjs — una issue per FILE di test rosso in
  * `.github/workflows/live-data-gates.yml`, chiusa alla prima run in cui quel
@@ -44,8 +45,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-
+import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 export const ISSUE_TITLE_PREFIX = 'Live-data test rosso: ';
@@ -350,7 +350,7 @@ async function main(argv = process.argv.slice(2)) {
   return result.closeErrors.length ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().then((code) => { process.exitCode = code; }, (err) => {
     console.error(err);
     process.exitCode = 1;

@@ -67,7 +67,10 @@ import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
 import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
-import { chunkBlogArticleRegistry } from './lib/blog-article-registry-chunker.mjs';
+import {
+  ARTICLE_REGISTRY_CHUNK_CONFIGS,
+  chunkArticleRegistry,
+} from './lib/blog-article-registry-chunker.mjs';
 import {
   ARTICLE_REGISTRY_FILES,
   ARTICLE_SECTION_KEYS,
@@ -75,7 +78,12 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
-import { collectPreserveSnapshots, dropLedgeredRetirements } from './lib/corpus-local-preserve.mjs';
+import {
+  collectPreserveSnapshots,
+  destinationOnlyPaths,
+  dropLedgeredRetirements,
+  isPreservedTreePath,
+} from './lib/corpus-local-preserve.mjs';
 import {
   RETIRED_LOCALE_GROUPS_FILE,
   parseRetiredLocaleGroups,
@@ -108,7 +116,7 @@ const BRANCH = process.env.ARTICLES_CORPUS_BRANCH ?? 'main';
 const ROOT = process.cwd();
 const DEST = path.join(ROOT, 'packages', 'articles', 'content');
 const CHECK_ONLY = process.argv.includes('--check');
-const BLOG_REGISTRY_CHUNK_SIZE = 250;
+const ARTICLE_REGISTRY_CHUNK_SIZE = 250;
 
 /** Body files below this count mean something went wrong upstream, not a real shrink. */
 const MIN_BODY_FILES = 5000;
@@ -197,13 +205,19 @@ async function fetchManifest(attempts = 3) {
   return null;
 }
 
-/** Keep the generated blog registry below TypeScript's inferred-union limit. */
-function splitBlogArticleRegistry() {
-  const file = path.join(DEST, 'blog-articles-data.ts');
-  const source = fs.readFileSync(file, 'utf8');
-  const result = chunkBlogArticleRegistry(source, BLOG_REGISTRY_CHUNK_SIZE);
-  if (result.source !== source) fs.writeFileSync(file, result.source);
-  return result.chunkCount;
+/** Keep every generated article registry below TypeScript's inferred-union limit. */
+function splitArticleRegistries() {
+  return ARTICLE_REGISTRY_CHUNK_CONFIGS.map((config) => {
+    const file = path.join(DEST, config.file);
+    const source = fs.readFileSync(file, 'utf8');
+    const result = chunkArticleRegistry(source, {
+      ...config,
+      fileName: config.file,
+      chunkSize: ARTICLE_REGISTRY_CHUNK_SIZE,
+    });
+    if (result.source !== source) fs.writeFileSync(file, result.source);
+    return { ...config, ...result };
+  });
 }
 
 /** Top-level SEO entries that are site-owned additions to the mirrored file. */
@@ -300,14 +314,21 @@ try {
 
   const srcN = countFiles(src, TREE_OPTS);
   const dstN = fs.existsSync(DEST) ? countFiles(DEST, TREE_OPTS) : 0;
+  const churnOnlyDestinationFiles = destinationOnlyPaths({ src, dest: DEST });
+  const comparableDstN = dstN - churnOnlyDestinationFiles.size;
 
   if (srcN < MIN_BODY_FILES) {
     console.error(`[pull-articles-corpus] upstream corpus has only ${srcN} files (< ${MIN_BODY_FILES}) — refusing`);
     process.exit(1);
   }
   // A shrink is the dangerous direction: this content feeds the site's own
-  // article lists, so losing entries here un-lists live articles. Nothing is
-  // written on either reading — the only question is which alarm to raise.
+  // article lists, so losing entries here un-lists live articles. Generated
+  // image-credit records are corpus-owned and can churn between the checkout
+  // and an older API-pinned snapshot, so compare the article tree after
+  // removing only those destination-only paths. The registry/manifest gate
+  // below remains authoritative for article loss. Keep those explicitly
+  // identified local records during the mirror until the source carries them:
+  // the current site's cover ledger still references some of them.
   //
   // Since the pin (#5298) this branch has a BENIGN cause it never had before,
   // and it is the normal state rather than an edge case: the checkout is at the
@@ -323,17 +344,22 @@ try {
   // again and again and the workflow's escalation opens an issue on the third.
   // What changes is the alarm's shape and latency, never whether a shrunken
   // corpus can reach packages/articles/content/ — it cannot, on either path.
-  if (dstN > 0 && srcN < dstN) {
+  if (comparableDstN > 0 && srcN < comparableDstN) {
     skipSync(
       `the published API is built from ${TARGET.slice(0, 8)}, whose corpus carries ${srcN} files, ` +
-      `while packages/articles/content/ already holds ${dstN}. Either the API has not caught up ` +
+      `while packages/articles/content/ holds ${dstN} files (${comparableDstN} comparable after excluding ` +
+      `${churnOnlyDestinationFiles.size} destination-only image-credit file(s)). Either the API has not caught up ` +
       'with the corpus committed here, or upstream truncated at that commit — neither is ' +
       'something to mirror. If this keeps repeating it is the second one.',
     );
   }
 
-  const delta = srcN - dstN;
-  console.log(`[pull-articles-corpus] upstream ${srcN} files, local ${dstN} (${delta >= 0 ? '+' : ''}${delta})`);
+  const delta = srcN - comparableDstN;
+  console.log(
+    `[pull-articles-corpus] upstream ${srcN} files, local ${dstN} `
+    + `(${churnOnlyDestinationFiles.size} destination-only image-credit; comparable ${comparableDstN}; `
+    + `${delta >= 0 ? '+' : ''}${delta})`,
+  );
 
   // ── Registry gate: no article leaves the site unless a human said so ────────
   //
@@ -513,7 +539,10 @@ try {
     }
 
 
-  mirrorTree(src, DEST, TREE_OPTS);
+  mirrorTree(src, DEST, {
+    ...TREE_OPTS,
+    preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles),
+  });
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────
@@ -566,11 +595,12 @@ try {
   // Chunk only after replaying local snapshots: a snapshot can add a
   // site-owned article back to the upstream registry, and that final output
   // must receive the same TS2590-safe representation as a clean pull.
-  const registryChunks = splitBlogArticleRegistry();
-  if (registryChunks > 0) {
-    console.log(
-      `[pull-articles-corpus] split blog article registry into ${registryChunks} typed chunks`,
-    );
+  for (const { file, chunkCount } of splitArticleRegistries()) {
+    if (chunkCount > 0) {
+      console.log(
+        `[pull-articles-corpus] split ${file} into ${chunkCount} typed chunks`,
+      );
+    }
   }
 
   // Hand the pin to pull-articles-api.mjs. Published only now, on the success

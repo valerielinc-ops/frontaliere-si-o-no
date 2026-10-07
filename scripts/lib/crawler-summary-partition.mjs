@@ -30,11 +30,39 @@ import { ambiguousJobIdentities } from './first-seen-history.mjs';
 export const SUMMARY_LIST_CAP = 30;
 
 /**
+ * Keep the first row for every logical posting key.
+ *
+ * A source listing can repeat the same posting row (for example once per
+ * location variant). Summary partitions describe postings, not raw source
+ * rows, so retaining the first occurrence makes the result deterministic and
+ * prevents one posting from appearing twice in an evidence list. A missing
+ * key is deliberately kept: malformed rows must remain visible to the
+ * quality gates instead of being silently hidden by this helper.
+ *
+ * @param {object[]} jobs
+ * @param {(job: object) => string|null|undefined} keyOf
+ * @returns {object[]}
+ */
+export function deduplicateJobsByKey(jobs, keyOf) {
+  const seen = new Set();
+  const unique = [];
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    const key = keyOf(job);
+    if (key !== null && key !== undefined && key !== '') {
+      if (seen.has(key)) continue;
+      seen.add(key);
+    }
+    unique.push(job);
+  }
+  return unique;
+}
+
+/**
  * Partition the published jobs against the previous slice.
  *
- * Iterates the published ARRAY (not an identity map), so
- * `newJobs + updatedJobs + unchangedJobs` always has exactly
- * `afterJobs.length` rows, duplicates included.
+ * Iterates the published ARRAY (not an identity map), after removing repeated
+ * rows for the same logical posting. Thus `newJobs + updatedJobs +
+ * unchangedJobs` describes each published posting exactly once.
  *
  * @param {object[]} beforeJobs jobs of the previous run's slice
  * @param {object[]} afterJobs jobs this run wrote to the slice
@@ -47,18 +75,20 @@ export function computeSlicePartition(beforeJobs, afterJobs) {
   const shared = ambiguousJobIdentities(beforeJobs, afterJobs);
   const keyOf = (job) => {
     const identity = buildStableJobIdentity(job);
-    if (!identity || !shared.has(identity)) return identity;
     const id = String(job?.id ?? '').trim();
     const slug = String(job?.slug ?? '').trim().toLowerCase();
-    return `${identity}\u0000${id ? `id:${id}` : `slug:${slug}`}`;
+    const postingKey = id ? `id:${id}` : slug ? `slug:${slug}` : '';
+    if (!postingKey) return '';
+    if (!identity || !shared.has(identity)) return identity;
+    return `${identity}\u0000${postingKey}`;
   };
   const before = new Map();
-  for (const job of Array.isArray(beforeJobs) ? beforeJobs : []) {
+  for (const job of deduplicateJobsByKey(beforeJobs, keyOf)) {
     if (!job || typeof job !== 'object') continue;
     const identity = keyOf(job);
     if (!before.has(identity)) before.set(identity, job);
   }
-  const after = Array.isArray(afterJobs) ? afterJobs : [];
+  const after = deduplicateJobsByKey(afterJobs, keyOf);
   const afterIdentities = new Set();
   const newJobs = [];
   const updatedJobs = [];

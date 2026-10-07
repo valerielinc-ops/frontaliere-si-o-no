@@ -61,6 +61,13 @@ import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from 
 import { normalizeShellTitle } from './titleSuffix';
 import { minifyHtml } from './htmlMinify';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenames';
+import {
+  SITE_URL,
+  WEBSITE_ID,
+  TICINO_CUSTOMS_DEPARTMENT_ID,
+  TICINO_CUSTOMS_DEPARTMENT_NAME,
+  stableOrganizationId,
+} from '../../services/seo/organizationLd';
 
 // `normalizeShellTitle` vive ora in ./titleSuffix.ts (modulo foglia), cosi'
 // che l'invariante di round-trip col confronto h1/title di
@@ -75,6 +82,127 @@ import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from './spaEntryFilenam
 // non importato perche' titleSuffix.ts e' `mode: identical` e va copiato a
 // mano sul corpus, dove `shared/htmlEscape.ts` non esiste — vedi il suo
 // docblock. L'equivalenza fra le due copie e' pinnata dal test.
+
+type JsonLdRecord = Record<string, unknown>;
+
+function hasSchemaType(value: JsonLdRecord, expected: string): boolean {
+  const type = value['@type'];
+  return Array.isArray(type) ? type.includes(expected) : type === expected;
+}
+
+function isSiteWebSite(value: JsonLdRecord): boolean {
+  if (!hasSchemaType(value, 'WebSite')) return false;
+  if (value['@id'] === WEBSITE_ID) return true;
+  return value.name === 'Frontaliere Ticino'
+    && (value.url === SITE_URL || value.url === SITE_URL.slice(0, -1));
+}
+
+function schemaReferenceUrl(value: unknown): string | undefined {
+  const candidate = typeof value === 'string'
+    ? value
+    : value && typeof value === 'object' && !Array.isArray(value)
+      ? (() => {
+        const ref = value as JsonLdRecord;
+        return typeof ref.url === 'string' ? ref.url : ref['@id'];
+      })()
+      : undefined;
+  if (typeof candidate !== 'string' || !candidate.trim()) return undefined;
+  const withoutFragment = candidate.split('#', 1)[0];
+  return withoutFragment || undefined;
+}
+
+/**
+ * Complete WebPage identity fields when an SEO emitter already supplied the
+ * equivalent headline or page reference.  The shell receives serialized JSON
+ * from several feature plugins, so this keeps their output consistent with
+ * the static-page normalizer without requiring each plugin to duplicate it.
+ */
+function normalizeWebPageIdentity(value: JsonLdRecord): boolean {
+  if (!hasSchemaType(value, 'WebPage')) return false;
+  let changed = false;
+  if (!value.name) {
+    const fallbackName = typeof value.headline === 'string'
+      ? value.headline
+      : typeof value.title === 'string'
+        ? value.title
+        : undefined;
+    if (fallbackName) {
+      value.name = fallbackName;
+      changed = true;
+    }
+  }
+  if (!value.url) {
+    const referenceUrl = schemaReferenceUrl(value.mainEntityOfPage)
+      ?? schemaReferenceUrl(value['@id']);
+    if (referenceUrl) {
+      value.url = referenceUrl;
+      changed = true;
+    }
+  }
+  return changed;
+}
+
+/**
+ * Add stable identities to the two repeated entities emitted by static SEO
+ * generators. The shell receives already-serialized JSON-LD, so this one
+ * pass also covers generators whose source is on another workstream (for
+ * example job and border-wait pages) without changing their emitters.
+ */
+export function normalizeStaticJsonLdScripts(
+  scripts: readonly string[] | undefined,
+): string[] {
+  return (scripts ?? []).map((raw) => {
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      return raw;
+    }
+
+    let changed = false;
+    const visit = (value: unknown): void => {
+      if (Array.isArray(value)) {
+        value.forEach(visit);
+        return;
+      }
+      if (!value || typeof value !== 'object') return;
+      const record = value as JsonLdRecord;
+
+      if (normalizeWebPageIdentity(record)) changed = true;
+
+      if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
+        record['@id'] = WEBSITE_ID;
+        changed = true;
+      }
+      if (
+        hasSchemaType(record, 'Organization')
+        && record.name === TICINO_CUSTOMS_DEPARTMENT_NAME
+        && (!record['@id'] || record['@id'] === TICINO_CUSTOMS_DEPARTMENT_ID)
+      ) {
+        if (record['@id'] !== TICINO_CUSTOMS_DEPARTMENT_ID) {
+          record['@id'] = TICINO_CUSTOMS_DEPARTMENT_ID;
+          changed = true;
+        }
+        if (record.url !== TICINO_CUSTOMS_DEPARTMENT_ID) {
+          record.url = TICINO_CUSTOMS_DEPARTMENT_ID;
+          changed = true;
+        }
+      }
+
+      if (hasSchemaType(record, 'Organization')) {
+        const stableId = stableOrganizationId(record);
+        if (stableId && record['@id'] !== stableId) {
+          record['@id'] = stableId;
+          changed = true;
+        }
+      }
+
+      Object.values(record).forEach(visit);
+    };
+    visit(parsed);
+    return changed ? JSON.stringify(parsed).replace(/</g, '\\u003c') : raw;
+  });
+}
 
 /** Cached entry-asset resolution, keyed by distDir absolute path. */
 interface EntryAssets {
@@ -105,6 +233,76 @@ export function resolveEntryAssets(distDir: string): EntryAssets {
 /** Clear the entry-assets cache (used by tests so repeated runs re-resolve). */
 export function clearEntryAssetsCache(): void {
   ENTRY_CACHE.clear();
+}
+
+/**
+ * Read one HTML attribute from a tag without depending on the minifier's
+ * choice of quoted or unquoted values. Build-time callers pass generated HTML
+ * here, so a small attribute reader is enough and avoids pulling a DOM parser
+ * into every SEO build.
+ */
+function htmlAttribute(tag: string, name: string): string | undefined {
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = tag.match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, 'i'),
+  );
+  return match?.[1] ?? match?.[2] ?? match?.[3];
+}
+
+/**
+ * Return the URL path used for comparing same-resource preload hints.
+ *
+ * Hero markup uses a site-relative `/og/` path while a few older emitters use
+ * an origin-absolute URL. Comparing the parsed path keeps those forms from
+ * producing duplicate preloads and also remains correct after the deploy
+ * step rewrites `/og/` to the image CDN.
+ */
+function resourcePath(value: string): string {
+  const decoded = value.replace(/&amp;/g, '&');
+  try {
+    const parsed = new URL(decoded, 'https://frontaliere.local');
+    return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  } catch {
+    return decoded;
+  }
+}
+
+/**
+ * Build the LCP preload for the shared generated SEO hero, when present.
+ *
+ * `renderSeoHeroImage()` deliberately owns only the body `<img>` because its
+ * callers do not have access to the final document head. The shell is the one
+ * place all those pages share, so it can derive the hint from the marker that
+ * already identifies the generated card. Existing callers that supplied the
+ * same hero preload (the annual report page, for example) are left untouched.
+ */
+export function buildSeoHeroPreload(
+  bodyHtml: string,
+  extraHeadHtml = '',
+): string {
+  const imageTags = bodyHtml.match(/<img\b[^>]*>/gi) ?? [];
+  const heroTag = imageTags.find((tag) => htmlAttribute(tag, 'data-seo-hero') !== undefined);
+  if (!heroTag) return '';
+
+  const heroSrc = htmlAttribute(heroTag, 'src');
+  if (!heroSrc) return '';
+  const heroPath = resourcePath(heroSrc);
+
+  const existingImagePreload = (extraHeadHtml.match(/<link\b[^>]*>/gi) ?? []).some((tag) => {
+    const rel = htmlAttribute(tag, 'rel');
+    const as = htmlAttribute(tag, 'as');
+    return rel?.toLowerCase() === 'preload'
+      && as?.toLowerCase() === 'image'
+      && resourcePath(htmlAttribute(tag, 'href') ?? '') === heroPath;
+  });
+  if (existingImagePreload) return '';
+
+  const escapedSrc = heroSrc
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return `<link rel="preload" as="image" href="${escapedSrc}" type="image/webp" fetchpriority="high">`;
 }
 
 export interface SeoPageShellOpts {
@@ -259,6 +457,8 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
       })
     : { subnavHtml: '', bodyHtml };
 
+  const heroPreload = buildSeoHeroPreload(wrappedBody, extraHeadHtml ?? '');
+
   const simpleOpts: SimplePageOpts = {
     locale,
     title: normalizeShellTitle(title),
@@ -273,8 +473,8 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogImageHeight,
     ogImageType,
     ogImageAlt,
-    extraHeadHtml: `${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
-    jsonLdScripts: jsonLdScripts ?? [],
+    extraHeadHtml: `${heroPreload}${extraHeadHtml ?? ''}${jobBoardHeadTags(canonicalUrl)}`,
+    jsonLdScripts: normalizeStaticJsonLdScripts(jsonLdScripts),
     entryJs: assets.entryJs || undefined,
     entryCss: assets.entryCss || undefined,
     bodyHtml: wrappedBody,

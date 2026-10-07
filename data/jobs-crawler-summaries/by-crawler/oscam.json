@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-05T09:13:50.120Z",
+  "generatedAt": "2026-10-07T09:14:43.204Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4505,
-  "avgDurationMs": 4505,
+  "durationMs": 4598,
+  "avgDurationMs": 4598,
   "durationHistory": [
-    4505
+    4598
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-05T09:13:42.531Z",
+      "crawledAt": "2026-10-07T09:14:30.625Z",
       "id": "oscam-e59e5b8effd4",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -48,12 +48,15 @@
       "firstSeenAt": "2026-09-30T21:14:17.301Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 88,
+      "streetAddress": "Nucleo 30",
+      "postalCode": "6980",
+      "addressCountry": "CH",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 14
+        "completeness": 20
       }
     },
     {
@@ -77,13 +80,13 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-05T09:13:42.339Z",
+      "crawledAt": "2026-10-07T09:14:30.361Z",
       "id": "oscam-90801fb9d04f",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "6500",
+      "streetAddress": "Nucleo 30",
+      "postalCode": "6980",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -91,14 +94,14 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

@@ -110,6 +110,55 @@ export function officialLocalityPostalCode(locality = '', canton = '') {
 }
 
 /**
+ * Whether the official directory recognises a locality, even when its name
+ * maps to more than one CAP and therefore cannot produce one unambiguous
+ * answer. Callers may use this to distinguish "unknown place" (where a
+ * conservative canton fallback can still be useful) from "known place but
+ * ambiguous" (where inventing the canton capital would be wrong).
+ *
+ * @param {string} locality
+ * @param {string} canton — retained for the resolver API; a canton mismatch
+ * is still a known locality conflict, not an unknown free-text label.
+ * @returns {boolean}
+ */
+export function hasOfficialSwissLocality(locality = '', canton = '') {
+  const key = directoryKey(locality);
+  if (!key) return false;
+  // Do not turn a known locality plus a contradictory canton into an
+  // invitation to use that canton's capital CAP. The contradiction needs
+  // review; it is not the same as source free text that the directory cannot
+  // identify at all.
+  return (swissLocalityDirectory().byName.get(key) || []).length > 0;
+}
+
+/**
+ * Resolve the CAP from the locality text that a crawler emitted. The return
+ * value deliberately carries `known`: a known locality without one unique
+ * CAP must block the later canton-capital fallback, while an unknown source
+ * label may still use the legacy fallback for backward-compatible coverage.
+ *
+ * @param {string} location
+ * @param {string} canton
+ * @returns {{ postalCode: string, known: boolean }}
+ */
+export function officialPostalCodeForLocation(location = '', canton = '') {
+  const raw = String(location || '').trim();
+  if (!raw) return { postalCode: '', known: false };
+  const withoutPostal = raw.replace(/\b\d{4}\b/g, ' ').replace(/\s+/g, ' ').trim();
+  const candidates = [
+    withoutPostal,
+    ...withoutPostal.split(/[,·\-/]/).map((part) => part.trim()),
+  ].filter(Boolean);
+  let known = false;
+  for (const candidate of candidates) {
+    const postalCode = officialLocalityPostalCode(candidate, canton);
+    if (postalCode) return { postalCode, known: true };
+    if (hasOfficialSwissLocality(candidate, canton)) known = true;
+  }
+  return { postalCode: '', known };
+}
+
+/**
  * The locality and canton the official directory gives a Swiss postal code,
  * or null when the code is unknown or not unique (data/swiss-postal-code-index.json,
  * scripts/generate-swiss-postal-code-index.mjs): a code shared by several

@@ -36,6 +36,7 @@
  */
 
 import fs from 'node:fs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const COLLECTION = 'employer_crawled_traffic';
 const PRUNE_FLOOR_PCT = Number(process.env.EMPLOYER_TRAFFIC_PRUNE_FLOOR_PCT) || 50;
@@ -73,23 +74,8 @@ export function buildTrafficDocs(report) {
 }
 
 async function getDb() {
-  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
-    const os = await import('node:os');
-    const path = await import('node:path');
-    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
-    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
-    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
-  }
-  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-  if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
-  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    if (cred.project_id) initializeApp({ credential: cert(cred) });
-    else initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
-  }
-  return { db: getFirestore(), FieldValue };
+  const { FieldValue } = await import('firebase-admin/firestore');
+  return { db: await getFirestoreDb(), FieldValue };
 }
 
 async function run() {

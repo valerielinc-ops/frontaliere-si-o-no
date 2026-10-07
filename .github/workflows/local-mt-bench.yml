@@ -1,0 +1,112 @@
+# Bench of the Argos worker (scripts/local-mt-translate.py) on the runner the
+# translation pipeline uses (ubuntu-latest, 4 vCPU), against real queued work.
+#
+# Why a workflow: the worker's throughput decides how much of the translation
+# backlog each translate-pending run clears (run 37272320066: 4169 of 14512
+# requests in 70 minutes), and it cannot be measured on a developer laptop
+# (macOS + torch + CTranslate2 load two OpenMP runtimes and hang). The bench
+# runs the base worker and the head worker on the same deterministic sample,
+# under the same cap, and reports throughput and byte-identical responses.
+# Optional variants rerun the head worker with one knob changed (legacy
+# per-unit path, bulk sentence split, Argos' 32-token batches) to tell which
+# part of the engine moves the output.
+# Read-only: no secrets, no writes, nothing pushed.
+name: Local MT worker bench
+
+on:
+  pull_request:
+    paths:
+      - scripts/local-mt-translate.py
+      - scripts/research/local-mt-engine-bench.mjs
+      - .github/workflows/local-mt-bench.yml
+  workflow_dispatch:
+    inputs:
+      requests:
+        description: Requests in the sample
+        default: '400'
+      cap_seconds:
+        description: Wall-clock cap per worker (seconds)
+        default: '600'
+      variants:
+        description: Extra `--variant name:ENV=VAL,...` arguments for the bench
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: local-mt-bench-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout (scripts, article engine helpers, job slices)
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            packages/articles/engine
+            data/jobs/by-crawler
+          persist-credentials: false
+
+      # No `cache: npm`: on pull_request it would save a per-ref npm cache
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        # --ignore-scripts keeps the sparse checkout out of the repo's
+        # lifecycle scripts; the semantic judge needs the native binaries of
+        # onnxruntime-node (and sharp, its image dependency), rebuilt here.
+        run: |
+          npm ci --ignore-scripts
+          npm rebuild onnxruntime-node sharp || true
+
+      - name: Cache Argos Translate models
+        uses: actions/cache@v6
+        with:
+          path: ~/.local/share/argos-translate/packages
+          key: argos-translate-models-v1
+          restore-keys: argos-translate-models-
+
+      # e5 model of the semantic judge (restore only: translate-pending owns
+      # the save of this key).
+      - name: Restore semantic judge model
+        continue-on-error: true
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache/transformers
+          key: local-mt-models-v2-opus-e5
+          restore-keys: local-mt-models-
+
+      - name: Install Argos Translate
+        run: |
+          python3 -m pip install --quiet --upgrade pip==26.2.1
+          python3 -m pip install --quiet argostranslate==1.11.0
+          python3 scripts/local-mt-translate.py --install
+
+      - name: Base worker
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.sha || 'origin/main' }}
+        run: git show "$BASE_REF:scripts/local-mt-translate.py" > "$RUNNER_TEMP/base-worker.py"
+
+      - name: Bench base vs head
+        env:
+          BENCH_REQUESTS: ${{ inputs.requests || '400' }}
+          BENCH_CAP: ${{ inputs.cap_seconds || '600' }}
+          # Extra head runs. Default: the same engine with another chunk size,
+          # to show how much of the difference from base is batch composition.
+          BENCH_VARIANTS: ${{ inputs.variants || '--variant chunk-1024:LOCAL_MT_BATCH_UNITS=1024' }}
+          TRANSFORMERS_CACHE: .cache/transformers
+        run: |
+          node scripts/research/local-mt-engine-bench.mjs \
+            --base "$RUNNER_TEMP/base-worker.py" \
+            --requests "$BENCH_REQUESTS" \
+            --cap-seconds "$BENCH_CAP" --judge $BENCH_VARIANTS

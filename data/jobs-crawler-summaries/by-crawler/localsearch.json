@@ -1,10 +1,10 @@
 {
   "key": "localsearch",
   "label": "localsearch",
-  "generatedAt": "2026-10-05T09:16:54.500Z",
+  "generatedAt": "2026-10-07T09:18:59.385Z",
   "total": 22,
   "discovered": null,
-  "parsed": 21,
+  "parsed": 22,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,16 +13,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 22,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 30693,
-  "avgDurationMs": 30693,
+  "unchangedCount": 22,
+  "durationMs": 24705,
+  "avgDurationMs": 24705,
   "durationHistory": [
-    30693
+    24705
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "localsearch-6d1ddda45eca",
       "slug": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
@@ -35,7 +37,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:43.225Z",
+      "crawledAt": "2026-10-07T09:18:42.301Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -54,13 +56,14 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
+      "postalCode": "7000",
       "addressRegion": "GR",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 20,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -75,7 +78,7 @@
       "url": "https://emp.jobylon.com/jobs/376664-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:39.569Z",
+      "crawledAt": "2026-10-07T09:18:41.472Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,13 +97,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8810",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -115,7 +119,7 @@
       "url": "https://emp.jobylon.com/jobs/376665-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:38.608Z",
+      "crawledAt": "2026-10-07T09:18:40.663Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -134,13 +138,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8604",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -155,7 +160,7 @@
       "url": "https://emp.jobylon.com/jobs/376668-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:37.542Z",
+      "crawledAt": "2026-10-07T09:18:39.760Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -174,13 +179,14 @@
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
+      "postalCode": "6033",
       "addressRegion": "LU",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -195,7 +201,7 @@
       "url": "https://emp.jobylon.com/jobs/376669-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:36.587Z",
+      "crawledAt": "2026-10-07T09:18:38.888Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,13 +220,14 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
+      "postalCode": "7302",
       "addressRegion": "GR",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -235,7 +242,7 @@
       "url": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:35.267Z",
+      "crawledAt": "2026-10-07T09:18:38.016Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -254,13 +261,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -275,7 +283,7 @@
       "url": "https://emp.jobylon.com/jobs/376671-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:33.691Z",
+      "crawledAt": "2026-10-07T09:18:37.215Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -315,7 +323,7 @@
       "url": "https://emp.jobylon.com/jobs/376672-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:32.650Z",
+      "crawledAt": "2026-10-07T09:18:36.364Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -334,13 +342,14 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
+      "postalCode": "3004",
       "addressRegion": "BE",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -355,7 +364,7 @@
       "url": "https://emp.jobylon.com/jobs/376674-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:31.686Z",
+      "crawledAt": "2026-10-07T09:18:35.403Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,13 +383,14 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
+      "postalCode": "4132",
       "addressRegion": "BL",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -395,7 +405,7 @@
       "url": "https://emp.jobylon.com/jobs/376675-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:30.769Z",
+      "crawledAt": "2026-10-07T09:18:34.583Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -414,13 +424,14 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
+      "postalCode": "5035",
       "addressRegion": "AG",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -435,7 +446,7 @@
       "url": "https://emp.jobylon.com/jobs/376676-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:29.785Z",
+      "crawledAt": "2026-10-07T09:18:33.760Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -454,13 +465,14 @@
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
+      "postalCode": "4001",
       "addressRegion": "BS",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -475,7 +487,7 @@
       "url": "https://emp.jobylon.com/jobs/376679-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:28.856Z",
+      "crawledAt": "2026-10-07T09:18:32.826Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -494,13 +506,14 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
+      "postalCode": "4900",
       "addressRegion": "BE",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -515,7 +528,7 @@
       "url": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:27.956Z",
+      "crawledAt": "2026-10-07T09:18:31.793Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -534,13 +547,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8902",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -555,7 +569,7 @@
       "url": "https://emp.jobylon.com/jobs/376682-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:27.028Z",
+      "crawledAt": "2026-10-07T09:18:30.934Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -574,13 +588,14 @@
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
+      "postalCode": "3930",
       "addressRegion": "VS",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -595,7 +610,7 @@
       "url": "https://emp.jobylon.com/jobs/376683-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:26.004Z",
+      "crawledAt": "2026-10-07T09:18:29.951Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -614,13 +629,14 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
+      "postalCode": "3600",
       "addressRegion": "BE",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -635,7 +651,7 @@
       "url": "https://emp.jobylon.com/jobs/376693-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:24.655Z",
+      "crawledAt": "2026-10-07T09:18:29.030Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -654,13 +670,14 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
+      "postalCode": "3421",
       "addressRegion": "BE",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -675,7 +692,7 @@
       "url": "https://emp.jobylon.com/jobs/376694-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:23.688Z",
+      "crawledAt": "2026-10-07T09:18:28.139Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -694,13 +711,14 @@
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
+      "postalCode": "8640",
       "addressRegion": "SG",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -715,7 +733,7 @@
       "url": "https://emp.jobylon.com/jobs/376697-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:22.788Z",
+      "crawledAt": "2026-10-07T09:18:27.309Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -734,13 +752,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8105",
       "addressRegion": "ZH",
-      "_qualityScore": 89,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -755,7 +774,7 @@
       "url": "https://emp.jobylon.com/jobs/376738-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:21.759Z",
+      "crawledAt": "2026-10-07T09:18:26.368Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -775,13 +794,14 @@
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
+      "postalCode": "3421",
       "addressRegion": "BE",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -796,7 +816,7 @@
       "url": "https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:20.835Z",
+      "crawledAt": "2026-10-07T09:18:25.542Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -816,13 +836,14 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -837,7 +858,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:16:19.810Z",
+      "crawledAt": "2026-10-07T09:18:24.207Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -856,29 +877,30 @@
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
+      "postalCode": "8001",
       "addressRegion": "ZH",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 20,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
-      "id": "localsearch-b4af8ae7bdb9",
-      "slug": "venditore-nel-settore-localsearch-fehraltorf",
+      "id": "localsearch-5ac107f55084",
+      "slug": "venditore-venditore-nel-settore-localsearch-sirnach",
       "company": "localsearch",
       "companyKey": "localsearch",
       "companyDomain": "localsearch.ch",
-      "title": "Verkäufer/in im Aussendienst",
-      "location": "Fehraltorf",
-      "canton": "ZH",
-      "url": "https://emp.jobylon.com/jobs/376689-localsearch-verkauferin-im-aussendienst/",
+      "title": "Verkäuferin / Verkäufer im Aussendienst",
+      "location": "Sirnach",
+      "canton": "TG",
+      "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-04T21:13:18.365Z",
-      "addressLocality": "Fehraltorf",
+      "crawledAt": "2026-10-07T09:18:23.319Z",
+      "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Commerciale",
@@ -888,26 +910,24 @@
       "sector": "Marketing digitale / Tecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "",
-      "applyUrl": "https://emp.jobylon.com/jobs/376689-localsearch-verkauferin-im-aussendienst/",
-      "firstSeenAt": "2026-08-18T09:51:29.066Z",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
+      "datePosted": "2026-10-06T07:58:37+00:00",
+      "postedDate": "2026-10-06T07:58:37+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
+      "firstSeenAt": "2026-10-06T09:17:28.006Z",
+      "salaryMin": 68500,
+      "salaryMax": 105000,
       "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 87,
+      "postalCode": "8370",
+      "addressRegion": "TG",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

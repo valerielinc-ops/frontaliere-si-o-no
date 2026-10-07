@@ -1,0 +1,452 @@
+name: Rewrite event descriptions (Codex Luna Max)
+
+# The source prose is consumed only from a private Firebase backlog or a
+# short-lived, encrypted Actions artifact emitted by crawl-events. It is never
+# staged, committed, copied to public/data or uploaded by the shard jobs. The
+# only shard artifact is the accepted rewrite cache delta plus numeric stats.
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Select the queue without calling Codex or opening a PR.'
+        required: false
+        default: false
+        type: boolean
+      shards:
+        description: 'Requested parallel Codex shards (adaptive, 1..4).'
+        required: false
+        default: '3'
+        type: choice
+        options: ['1', '2', '3', '4']
+      events_per_shard:
+        description: 'Requested maximum events per shard (adaptive).'
+        required: false
+        default: '40'
+        type: number
+
+concurrency:
+  group: event-description-rewrite
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      effective_shards: ${{ steps.plan.outputs.effective_shards }}
+      events_per_shard: ${{ steps.plan.outputs.events_per_shard }}
+      quota_error_threshold: ${{ steps.plan.outputs.quota_error_threshold }}
+      circuit_breaker_threshold: ${{ steps.plan.outputs.circuit_breaker_threshold }}
+      shard_matrix: ${{ steps.plan.outputs.shard_matrix }}
+      direction: ${{ steps.plan.outputs.direction }}
+      reason: ${{ steps.plan.outputs.reason }}
+    env:
+      REQUESTED_SHARDS: ${{ inputs.shards || '3' }}
+      REQUESTED_EVENTS_PER_SHARD: ${{ inputs.events_per_shard || '40' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Read previous run state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/event-description-previous-state"
+          mkdir -p "$state_dir"
+          previous_run="$(gh run list \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow event-description-rewrite.yml \
+            --status completed \
+            --limit 20 \
+            --json databaseId,conclusion \
+            --jq 'map(select(.databaseId != (env.GITHUB_RUN_ID | tonumber) and .conclusion == "success")) | .[0].databaseId // empty')"
+          if [ -n "$previous_run" ]; then
+            gh run download "$previous_run" \
+              --repo "$GITHUB_REPOSITORY" \
+              --name "event-description-run-state-${previous_run}" \
+              --dir "$state_dir" \
+              >/dev/null 2>&1 || true
+          fi
+          state_file="$(find "$state_dir" -type f -name 'event-description-rewrite-stats.json' -print -quit)"
+          if [ -n "$state_file" ]; then
+            cp "$state_file" "$RUNNER_TEMP/event-description-previous-state.json"
+          fi
+
+      - name: Compute adaptive shard plan
+        id: plan
+        run: |
+          node scripts/plan-event-description-rewrite.mjs \
+            --requested-shards "$REQUESTED_SHARDS" \
+            --requested-events-per-shard "$REQUESTED_EVENTS_PER_SHARD" \
+            --previous-state "$RUNNER_TEMP/event-description-previous-state.json" \
+            --plan-output "$RUNNER_TEMP/throughput-plan.json" \
+            --github-output "$GITHUB_OUTPUT"
+
+  rewrite:
+    needs: plan
+    if: ${{ needs.plan.result == 'success' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.plan.outputs.shard_matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      EFFECTIVE_SHARDS: ${{ needs.plan.outputs.effective_shards }}
+      EVENTS_PER_SHARD: ${{ needs.plan.outputs.events_per_shard }}
+      CIRCUIT_BREAKER_THRESHOLD: ${{ needs.plan.outputs.circuit_breaker_threshold }}
+      REWRITE_DRY_RUN: ${{ inputs.dry_run || 'false' }}
+      EVENT_DESCRIPTION_SHARD_INDEX: ${{ matrix.shard }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Initialize private shard artifact
+        run: |
+          mkdir -p "$RUNNER_TEMP/event-description-shard"
+          node scripts/event-description-rewrite.mjs \
+            --empty \
+            --shard-count "$EFFECTIVE_SHARDS" \
+            --shard-index "$EVENT_DESCRIPTION_SHARD_INDEX" \
+            --limit "$EVENTS_PER_SHARD" \
+            --circuit-breaker-threshold "$CIRCUIT_BREAKER_THRESHOLD" \
+            --output-cache "$RUNNER_TEMP/event-description-shard/cache.json" \
+            --stats-output "$RUNNER_TEMP/event-description-shard/stats.json"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Prepare Firebase credentials for private source backlog
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the private source backlog'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Fetch private initial event-description backlog
+        id: seed
+        run: |
+          set -euo pipefail
+          seed_file="$RUNNER_TEMP/event-description-seed.jsonl"
+          node scripts/fetch-private-event-description-sources.mjs --out "$seed_file"
+          if [ -s "$seed_file" ]; then
+            echo 'has_seed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'has_seed=false' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Locate latest private crawl input
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          source_dir="$RUNNER_TEMP/event-description-source"
+          mkdir -p "$source_dir"
+          run_id="$(gh run list \
+            --repo "$GITHUB_REPOSITORY" \
+            --workflow crawl-events.yml \
+            --status success \
+            --limit 1 \
+            --json databaseId \
+            --jq '.[0].databaseId // empty')"
+          if [ -z "$run_id" ]; then
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! gh run download "$run_id" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name "event-description-sources-${run_id}" \
+            --dir "$source_dir"; then
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          source_file="$(find "$source_dir" -type f -name '*.jsonl.enc' -print -quit)"
+          if [ -z "$source_file" ]; then
+            echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "SOURCE_EXPORT_ENCRYPTED=$source_file" >> "$GITHUB_ENV"
+          echo 'has_incremental=true' >> "$GITHUB_OUTPUT"
+
+      - name: Decrypt private crawl input
+        if: steps.source.outputs.has_incremental == 'true'
+        env:
+          EVENT_DESCRIPTION_ARTIFACT_KEY: ${{ secrets.CODEX_AUTH_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "$EVENT_DESCRIPTION_ARTIFACT_KEY" ]; then
+            echo '::error::CODEX_AUTH_JSON is required to decrypt the private event-description input'
+            exit 1
+          fi
+          source_file="$RUNNER_TEMP/event-description-sources.jsonl"
+          openssl enc -d -aes-256-cbc -pbkdf2 -iter 200000 \
+            -in "$SOURCE_EXPORT_ENCRYPTED" -out "$source_file" \
+            -pass env:EVENT_DESCRIPTION_ARTIFACT_KEY
+          chmod 600 "$source_file"
+
+      - name: Combine private backlog and crawl input
+        id: input
+        if: steps.seed.outputs.has_seed == 'true' || steps.source.outputs.has_incremental == 'true'
+        run: |
+          set -euo pipefail
+          combined="$RUNNER_TEMP/event-description-sources-combined.jsonl"
+          : > "$combined"
+          if [ "${{ steps.seed.outputs.has_seed }}" = 'true' ]; then
+            cat "$RUNNER_TEMP/event-description-seed.jsonl" >> "$combined"
+          fi
+          if [ "${{ steps.source.outputs.has_incremental }}" = 'true' ]; then
+            cat "$RUNNER_TEMP/event-description-sources.jsonl" >> "$combined"
+          fi
+          chmod 600 "$combined"
+          echo "SOURCE_EXPORT=$combined" >> "$GITHUB_ENV"
+          echo 'has_input=true' >> "$GITHUB_OUTPUT"
+
+      - name: Setup Codex Luna Max broker
+        if: steps.input.outputs.has_input == 'true' && env.REWRITE_DRY_RUN != 'true'
+        id: setup_codex
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_max_concurrency: '1'
+          broker_max_timeout_ms: '180000'
+
+      - name: Rewrite deterministic shard
+        if: steps.input.outputs.has_input == 'true'
+        id: rewrite
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: |
+          set -euo pipefail
+          args=(
+            --source-export "$SOURCE_EXPORT"
+            --limit "$EVENTS_PER_SHARD"
+            --shard-count "$EFFECTIVE_SHARDS"
+            --shard-index "$EVENT_DESCRIPTION_SHARD_INDEX"
+            --max-input-chars 50000
+            --max-total-input-chars 150000
+            --max-attempts 3
+            --circuit-breaker-threshold "$CIRCUIT_BREAKER_THRESHOLD"
+            --output-cache "$RUNNER_TEMP/event-description-shard/cache.json"
+            --stats-output "$RUNNER_TEMP/event-description-shard/stats.json"
+          )
+          if [ "$REWRITE_DRY_RUN" = 'true' ]; then args+=(--dry-run); fi
+          node scripts/event-description-rewrite.mjs "${args[@]}"
+
+      - name: Publish private shard artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: event-description-shard-${{ github.run_id }}-${{ matrix.shard }}
+          path: ${{ runner.temp }}/event-description-shard
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Cleanup Codex auth broker
+        if: always() && steps.setup_codex.outputs.codex_auth_broker_socket != ''
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
+        run: node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo '::warning::Codex auth broker cleanup did not complete'
+
+  merge:
+    needs: [plan, rewrite]
+    if: ${{ always() && needs.plan.result == 'success' && needs.rewrite.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      REWRITE_DRY_RUN: ${{ inputs.dry_run || 'false' }}
+      EFFECTIVE_SHARDS: ${{ needs.plan.outputs.effective_shards }}
+      EVENTS_PER_SHARD: ${{ needs.plan.outputs.events_per_shard }}
+      QUOTA_ERROR_THRESHOLD: ${{ needs.plan.outputs.quota_error_threshold }}
+      PLAN_DIRECTION: ${{ needs.plan.outputs.direction }}
+      PLAN_REASON: ${{ needs.plan.outputs.reason }}
+    steps:
+      - name: Checkout main snapshot
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Download private shard artifacts
+        uses: actions/download-artifact@v8
+        with:
+          pattern: event-description-shard-${{ github.run_id }}-*
+          path: ${{ runner.temp }}/event-description-shards
+          merge-multiple: false
+
+      - name: Write run plan metadata
+        env:
+          PLAN_PATH: ${{ runner.temp }}/throughput-plan.json
+        run: |
+          # shellcheck disable=SC2016 # These ${...} expressions are JavaScript template literals.
+          node --input-type=module -e 'import { writeFileSync } from "node:fs"; writeFileSync(process.env.PLAN_PATH, `${JSON.stringify({ effectiveShards: Number(process.env.EFFECTIVE_SHARDS), eventsPerShard: Number(process.env.EVENTS_PER_SHARD), quotaErrorThreshold: Number(process.env.QUOTA_ERROR_THRESHOLD), direction: process.env.PLAN_DIRECTION, reason: process.env.PLAN_REASON })}\n`)'
+
+      - name: Merge shard cache deltas
+        id: merge
+        env:
+          PLAN_PATH: ${{ runner.temp }}/throughput-plan.json
+        run: |
+          set -euo pipefail
+          node scripts/merge-event-description-rewrites.mjs \
+            --base data/events-description-rewrites.json \
+            --shards-dir "$RUNNER_TEMP/event-description-shards" \
+            --output data/events-description-rewrites.json \
+            --dataset data/events.json \
+            --plan "$PLAN_PATH" \
+            --stats-output "$RUNNER_TEMP/event-description-rewrite-stats.json"
+          accepted="$(node -e "console.log(require(process.argv[1]).accepted)" "$RUNNER_TEMP/event-description-rewrite-stats.json")"
+          echo "accepted=$accepted" >> "$GITHUB_OUTPUT"
+
+      - name: Assemble and validate public data
+        env:
+          ACCEPTED: ${{ steps.merge.outputs.accepted }}
+        run: |
+          set -euo pipefail
+          if [ "$ACCEPTED" != '0' ]; then
+            node scripts/assemble-events-dataset.mjs --stats
+            npx vitest run tests/event-description-policy.test.ts tests/event-description-assembly.test.ts tests/events-pipeline.test.ts tests/events-detail-pages.test.ts --reporter=dot
+          fi
+          npm run validate:event-descriptions
+          node --test tests/event-description-throughput.test.mjs
+
+      - name: Publish throughput summary
+        if: always()
+        run: |
+          if [ -f "$RUNNER_TEMP/event-description-rewrite-stats.json" ]; then
+            # shellcheck disable=SC2016 # These ${...} expressions are JavaScript template literals.
+            node --input-type=module -e '
+              import { appendFileSync, readFileSync } from "node:fs";
+              const s = JSON.parse(readFileSync(process.argv[1], "utf8"));
+              const duration = (Number(s.durationMs || 0) / 1000).toFixed(1);
+              const rejectionCodes = Object.entries(s.rejectionCodes || {}).map(([code, count]) => `${code}: ${count}`).join(", ") || "nessuno";
+              const days = s.estimatedDaysRemaining == null ? "n/d (nessuna accettazione)" : `${s.estimatedDaysRemaining}`;
+              appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Event description throughput\n\n- Piano: ${s.effectiveShards} shard × ${s.eventsPerShard} eventi/shard (${s.direction}: ${s.planReason})\n- Accettate: ${s.accepted}\n- Rifiuti: ${s.rejected} (${rejectionCodes})\n- Chiamate: ${s.calls}; retry: ${s.retries}; errori quota: ${s.quotaErrors}; timeout broker: ${s.timeoutErrors}; circuit breaker: ${s.circuitBreakerTrips}\n- Durata: ${duration}s\n- Coda residua stimata: ${s.queueRemaining}; giorni residui stimati a ${s.acceptedPerDay}/giorno: ${days}\n`);
+            ' "$RUNNER_TEMP/event-description-rewrite-stats.json"
+          fi
+
+      - name: Prepare Firebase credentials for data PR
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load data-PR credentials'
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load data-PR credentials from Remote Config
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Publish one reconciled data PR
+        if: env.REWRITE_DRY_RUN != 'true' && steps.merge.outputs.accepted != '0'
+        env:
+          ACCEPTED: ${{ steps.merge.outputs.accepted }}
+        run: |
+          set -euo pipefail
+          : "${GITHUB_PAT_NANAKO:?GITHUB_PAT_NANAKO was not loaded from Remote Config}"
+          stats="$RUNNER_TEMP/event-description-rewrite-stats.json"
+          body="$RUNNER_TEMP/event-description-rewrite-pr-body.md"
+          # shellcheck disable=SC2016 # These ${...} expressions are JavaScript template literals.
+          node --input-type=module -e '
+            import { readFileSync, writeFileSync } from "node:fs";
+            const s = JSON.parse(readFileSync(process.argv[1], "utf8"));
+            const duration = (Number(s.durationMs || 0) / 1000).toFixed(1);
+            const rejectionCodes = Object.entries(s.rejectionCodes || {}).map(([code, count]) => `${code}: ${count}`).join(", ") || "nessuno";
+            const days = s.estimatedDaysRemaining == null ? "non calcolabile" : s.estimatedDaysRemaining;
+            const body = [
+              `Auto-generated by [workflow run ${process.env.GITHUB_RUN_ID}](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}).`,
+              "",
+              "## Implementato",
+              `- Cadenza oraria con ${s.effectiveShards} shard paralleli effettivi e tetto ${s.eventsPerShard} eventi per shard; gli eventi sono partizionati in modo disgiunto ed esaustivo per hash stabile dell\u0027id, mantenendo l\u0027ordinamento per prossimità temporale e priorità TI/GR/VS/ZH.`,
+              `- Ogni shard usa il proprio broker Codex seriale e pubblica solo un delta di cache nell\u0027artifact privato; il job finale unisce i delta in modo deterministico e idempotente, riassembla il dataset, esegue validate:event-descriptions e apre una sola PR dati.`,
+              `- Il broker riconosce quota/rate-limit, timeout e indisponibilità transitoria: applica backoff esponenziale, apre il circuit breaker per shard al superamento della soglia quota o dopo errori transienti ripetuti e chiude verde conservando quanto prodotto; il piano successivo scende dopo errori quota e risale gradualmente senza errori.`,
+              `- Run reale: ${s.accepted} accettate, ${s.rejected} rifiuti (${rejectionCodes}), ${s.calls} chiamate, ${s.retries} retry, ${s.quotaErrors} errori quota, durata ${duration}s; coda residua ${s.queueRemaining}, stima ${days} giorni a ${s.acceptedPerDay}/giorno.`,
+              "",
+              "## Non implementato (ancora)",
+              "- Parametro Remote Config aggiuntivo: per scelta: rinviato per non toccare il loader del corpus in parallelo a un altro lavoro. Motivo: il loader è già oggetto di un lavoro concorrente nel corpus. Prossimo passo: mantenerlo fuori da questa PR e riesaminarlo solo dopo il riallineamento del loader.",
+            ].join("\n");
+            writeFileSync(process.argv[2], `${body}\n`);
+          ' "$stats" "$body"
+          node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
+          GH_TOKEN="$GITHUB_PAT_NANAKO" bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events-description-rewrites.json \
+            --path data/events.json \
+            --path public/data/events.json \
+            --branch chore/event-description-rewrite \
+            --commit-message "chore(events): increase description rewrite throughput" \
+            --title "chore(data): increase event description rewrite throughput" \
+            --body-file "$body"
+
+      - name: Publish machine-readable run state
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: event-description-run-state-${{ github.run_id }}
+          path: ${{ runner.temp }}/event-description-rewrite-stats.json
+          if-no-files-found: ignore
+          retention-days: 7

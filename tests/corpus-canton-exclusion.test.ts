@@ -16,6 +16,7 @@ import {
   isCantonCorpusPath,
   mirrorTree,
 } from '../scripts/lib/corpus-canton-exclusion.mjs';
+import { destinationOnlyPaths, isPreservedTreePath } from '../scripts/lib/corpus-local-preserve.mjs';
 import { CANTON_ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/cantonArticleSectionCore.generated.mjs';
 import { ARTICLE_SECTION_CORE } from '../packages/articles/engine/shared/articleSectionCore.mjs';
 
@@ -69,7 +70,7 @@ describe('isCantonCorpusPath', () => {
   });
 
   it('keeps every file of the two historical sections', () => {
-    for (const e of Object.values(ARTICLE_SECTION_CORE)) {
+    for (const e of Object.values(ARTICLE_SECTION_CORE).filter((entry) => entry.kind !== 'canton')) {
       expect(isCantonCorpusPath(`${e.bodyDir}/it/x.ts`)).toBe(false);
       expect(isCantonCorpusPath(`${e.metaPrefix}-it.ts`)).toBe(false);
     }
@@ -122,5 +123,36 @@ describe('mirrorTree / countFiles with the canton exclusion', () => {
     expect(fs.readFileSync(path.join(dst, 'a/b.ts'), 'utf-8')).toBe('new');
     expect(fs.existsSync(path.join(dst, 'stale.ts'))).toBe(false);
     expect(fs.existsSync(path.join(dst, '.git'))).toBe(true);
+  });
+
+  it('deletes destination-only corpus-generated records so the pinned tree converges', () => {
+    const src = path.join(tmp, 'src');
+    const dst = path.join(tmp, 'dst');
+    write(src, 'routerBlogData.ts', 'new');
+    write(dst, 'routerBlogData.ts', 'old');
+    write(dst, 'image-credits/blog/retired.json');
+
+    mirrorTree(src, dst);
+
+    expect(fs.existsSync(path.join(dst, 'image-credits/blog/retired.json'))).toBe(false);
+    expect(fs.readFileSync(path.join(dst, 'routerBlogData.ts'), 'utf-8')).toBe('new');
+  });
+
+  it('preserves approved destination-only image credits while deleting unrelated stale files', () => {
+    const src = path.join(tmp, 'src');
+    const dst = path.join(tmp, 'dst');
+    write(src, 'routerBlogData.ts', 'new');
+    write(dst, 'routerBlogData.ts', 'old');
+    write(dst, 'image-credits/blog/legacy.json', 'needed by current cover ledger');
+    write(dst, 'blog-body/it/stale.ts', 'must be removed');
+
+    const preserved = destinationOnlyPaths({ src, dest: dst });
+    mirrorTree(src, dst, {
+      preserve: (rel) => isPreservedTreePath(rel, preserved),
+    });
+
+    expect(fs.existsSync(path.join(dst, 'image-credits/blog/legacy.json'))).toBe(true);
+    expect(fs.existsSync(path.join(dst, 'blog-body/it/stale.ts'))).toBe(false);
+    expect(fs.readFileSync(path.join(dst, 'routerBlogData.ts'), 'utf-8')).toBe('new');
   });
 });

@@ -1,5 +1,5 @@
 /**
- * Credits of the Wikimedia Commons cover photos, for the SPA article page (P14).
+ * Credits of published blog cover images, for the SPA article page (P14).
  *
  * The static article page reads one credit record per cover file from disk
  * (packages/articles/engine/shared/imageCredits.mjs). The SPA cannot: the
@@ -8,11 +8,14 @@
  * its blog index (frontaliere-articles `scripts/build-blog-index.mjs`, same
  * upload, `public,max-age=600`):
  *
- *   data/image-credits-<section>.json
+ *   data/image-credits-<section>.json (corpus section indexes)
+ *   data/image-credits-blog.json (site-owned generated/inferred bridge)
  *   { schema: 1, commit, section,
  *     files:  { <Commons title>: { pageUrl, author{name,url,type}, attribution,
  *                                  licence{name,url,family,attributionRequired}, fetchedAt } },
- *     covers: { <cover key>: { file: <Commons title>, modified } } }
+ *     covers: { <cover key>: { file: <Commons title>, modified } |
+ *                              { evidence: 'inferred', provider: null,
+ *                                verifiedAt, status: 'no-credit' } } }
  *
  * Fetched in the background, so a credit added to a fresh article reaches the
  * page within minutes instead of waiting for a site deploy. For one cover this
@@ -38,6 +41,7 @@ import {
 
 /** Schema of the published file this module understands. */
 const IMAGE_CREDITS_INDEX_SCHEMA = 1;
+type ImageCreditsSection = ArticleSection | 'blog';
 
 /** Beyond this the fetch is abandoned — same budget as the article overlay. */
 const TIMEOUT_MS = 4000;
@@ -46,7 +50,7 @@ const TIMEOUT_MS = 4000;
 export interface ImageCreditsIndex {
   schema: 1;
   commit: string | null;
-  section: ArticleSection;
+  section: ImageCreditsSection;
   files: Record<string, unknown>;
   covers: Record<string, unknown>;
 }
@@ -60,7 +64,7 @@ function ownValue(object: Record<string, unknown>, key: string): unknown {
   return Object.prototype.hasOwnProperty.call(object, key) ? object[key] : undefined;
 }
 
-function isImageCreditsIndex(body: unknown, section: ArticleSection): body is ImageCreditsIndex {
+function isImageCreditsIndex(body: unknown, section: ImageCreditsSection): body is ImageCreditsIndex {
   return isPlainObject(body)
     && body.schema === IMAGE_CREDITS_INDEX_SCHEMA
     && body.section === section
@@ -69,7 +73,7 @@ function isImageCreditsIndex(body: unknown, section: ArticleSection): body is Im
 }
 
 /** One fetch of a section's file. `null` on any problem. */
-async function loadImageCredits(section: ArticleSection): Promise<ImageCreditsIndex | null> {
+async function loadImageCredits(section: ImageCreditsSection): Promise<ImageCreditsIndex | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
@@ -87,14 +91,14 @@ async function loadImageCredits(section: ArticleSection): Promise<ImageCreditsIn
   }
 }
 
-const pendingBySection = new Map<ArticleSection, Promise<ImageCreditsIndex | null>>();
+const pendingBySection = new Map<ImageCreditsSection, Promise<ImageCreditsIndex | null>>();
 
 /**
  * The credits file of a section, fetched once per session and shared by every
  * caller. A failure is not remembered: the next article view asks again, so a
  * slow network on the first article does not cost the credits of every other.
  */
-export function fetchImageCredits(section: ArticleSection): Promise<ImageCreditsIndex | null> {
+export function fetchImageCredits(section: ImageCreditsSection): Promise<ImageCreditsIndex | null> {
   const known = pendingBySection.get(section);
   if (known) return known;
   const pending = loadImageCredits(section);
@@ -120,30 +124,68 @@ export function imageCreditFromIndex(index: ImageCreditsIndex, cover: string | n
   const key = coverKey(cover);
   if (!key || typeof cover !== 'string') return null;
   const entry = ownValue(index.covers, key);
-  if (!isPlainObject(entry) || typeof entry.file !== 'string') return null;
+  if (!isPlainObject(entry)) return null;
+  if (entry.evidence === 'inferred' && entry.status === 'no-credit') {
+    // A valid audit record, deliberately not a public credit claim.
+    return null;
+  }
+  if (typeof entry.file !== 'string') return null;
   const file = ownValue(index.files, entry.file);
   if (!isPlainObject(file) || !isPlainObject(file.author) || !isPlainObject(file.licence)) return null;
   // The site path of this cover, whatever host or query the caller's URL had.
   const sitePath = cover.slice(cover.lastIndexOf('/images/blog/')).replace(/[?#].*$/, '');
-  const record = {
-    schema: 1,
-    cover: sitePath,
-    source: 'wikimedia-commons',
-    commons: { title: entry.file, pageUrl: file.pageUrl },
-    author: { text: null, name: file.author.name, url: file.author.url, type: file.author.type },
-    attribution: file.attribution,
-    licence: {
-      name: file.licence.name,
-      url: file.licence.url,
-      family: file.licence.family,
-      attributionRequired: file.licence.attributionRequired,
-    },
-    restrictions: [],
-    modified: entry.modified,
-    fetchedAt: file.fetchedAt,
-    status: 'ok',
-    curation: null,
-  };
+  const generated = file.source === 'generated-provider' && isPlainObject(file.generated)
+    ? file.generated
+    : null;
+  const commons = isPlainObject(file.commons) ? file.commons : {};
+  const record = generated
+    ? {
+      schema: 1,
+      cover: sitePath,
+      source: 'generated-provider',
+      commons: {
+        title: typeof commons.title === 'string' ? commons.title : 'Generated editorial illustration',
+        pageUrl: typeof commons.pageUrl === 'string'
+          ? commons.pageUrl
+          : typeof generated.licenseUrl === 'string' ? generated.licenseUrl : '',
+        ...(typeof commons.width === 'number' ? { width: commons.width } : {}),
+        ...(typeof commons.height === 'number' ? { height: commons.height } : {}),
+        ...(typeof commons.revision === 'string' ? { revision: commons.revision } : {}),
+      },
+      author: { text: file.author?.text ?? file.author?.name ?? null, name: file.author.name, url: file.author.url, type: file.author.type },
+      attribution: file.attribution ?? null,
+      licence: {
+        name: file.licence.name,
+        url: file.licence.url,
+        family: file.licence.family,
+        attributionRequired: file.licence.attributionRequired,
+      },
+      restrictions: Array.isArray(file.restrictions) ? file.restrictions : [],
+      modified: entry.modified,
+      fetchedAt: file.fetchedAt,
+      status: 'ok',
+      curation: null,
+      generated,
+    }
+    : {
+      schema: 1,
+      cover: sitePath,
+      source: 'wikimedia-commons',
+      commons: { title: entry.file, pageUrl: file.pageUrl },
+      author: { text: file.author.text ?? null, name: file.author.name, url: file.author.url, type: file.author.type },
+      attribution: file.attribution,
+      licence: {
+        name: file.licence.name,
+        url: file.licence.url,
+        family: file.licence.family,
+        attributionRequired: file.licence.attributionRequired,
+      },
+      restrictions: [],
+      modified: entry.modified,
+      fetchedAt: file.fetchedAt,
+      status: 'ok',
+      curation: null,
+    };
   if (coverKey(sitePath) !== key || !validateImageCreditRecord(record).valid) return null;
   return record as ImageCreditRecord;
 }
@@ -158,7 +200,14 @@ export async function fetchImageCredit(
 ): Promise<ImageCreditRecord | null> {
   if (!coverKey(cover)) return null;
   const index = await fetchImageCredits(section);
-  return index ? imageCreditFromIndex(index, cover) : null;
+  if (!index) return null;
+  const sectionRecord = imageCreditFromIndex(index, cover);
+  if (sectionRecord) return sectionRecord;
+  // The historical section indexes are published by the corpus. The unified
+  // blog index is the site-owned bridge for generated/inferred records and is
+  // deliberately consulted only when the section surface has no usable entry.
+  const blogIndex = await fetchImageCredits('blog');
+  return blogIndex ? imageCreditFromIndex(blogIndex, cover) : null;
 }
 
 /**

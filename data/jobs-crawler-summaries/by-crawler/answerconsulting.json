@@ -1,7 +1,7 @@
 {
   "key": "answerconsulting",
   "label": "AnswerConsulting SA",
-  "generatedAt": "2026-10-05T09:19:55.962Z",
+  "generatedAt": "2026-10-07T09:42:18.275Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,22 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3168,
-  "avgDurationMs": 3168,
+  "unchangedCount": 1,
+  "durationMs": 3350,
+  "avgDurationMs": 3350,
   "durationHistory": [
-    3168
+    3350
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "answerconsulting-010b54d7365f",
-      "slug": "r-d-software-engineer-answerconsulting-mendrisio",
+      "slug": "r-d-software-ingegnere-answerconsulting-sa-mendrisio",
       "company": "AnswerConsulting SA",
       "companyKey": "answerconsulting",
       "companyDomain": "answerconsulting.ch",
@@ -34,7 +37,7 @@
       "url": "https://apply.workable.com/answermodules/j/096C324702/",
       "source": "AnswerConsulting Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:19:45.396Z",
+      "crawledAt": "2026-10-07T09:42:02.885Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "Ticino",
       "streetAddress": "Via Penate 4",
@@ -53,22 +56,18 @@
       "postingDateSource": "reported",
       "applyUrl": "https://apply.workable.com/answermodules/j/096C324702/",
       "jobReqId": "096C324702",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:19:45.396Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-05T09:19:45.396Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

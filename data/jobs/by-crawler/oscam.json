@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-10-05T09:13:47.429Z",
+  "assembledAt": "2026-10-07T09:14:35.785Z",
   "jobs": [
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
@@ -42,7 +42,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-05T09:13:42.531Z",
+      "crawledAt": "2026-10-07T09:14:30.625Z",
       "id": "oscam-e59e5b8effd4",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -62,7 +62,10 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-09-30T21:14:17.301Z",
       "datePosted": "",
-      "postingDateSource": "unknown"
+      "postingDateSource": "unknown",
+      "streetAddress": "Nucleo 30",
+      "postalCode": "6980",
+      "addressCountry": "CH"
     },
     {
       "title": "Concorso generale 2026",
@@ -104,7 +107,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-05T09:13:42.339Z",
+      "crawledAt": "2026-10-07T09:14:30.361Z",
       "id": "oscam-90801fb9d04f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -119,8 +122,8 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "",
-      "postalCode": "6500",
+      "streetAddress": "Nucleo 30",
+      "postalCode": "6980",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",

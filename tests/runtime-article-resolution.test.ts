@@ -368,7 +368,7 @@ describe('articleBodyPartsFromStaticArticle', () => {
     const source = '| Valico | Attesa |\n|---|---|\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |';
     document.body.innerHTML = renderStaticArticle([source]);
     // Sanity: the production renderer emitted a real table, not a <p> of pipes.
-    expect(document.body.innerHTML).toContain('<table>');
+    expect(document.body.innerHTML).toMatch(/<table(?:\s|>)/);
 
     const [part] = articleBodyPartsFromStaticArticle(staticArticle());
     expect(part).toBe('| Valico | Attesa |\n| --- | --- |\n| Chiasso | 12 min |\n| Ponte Tresa | 0 min |');

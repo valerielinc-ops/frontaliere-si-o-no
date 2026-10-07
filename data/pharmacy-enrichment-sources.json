@@ -11,6 +11,16 @@
       "sourceType": "official",
       "fields": ["phone", "openingHours", "services", "contactEmail"],
       "status": "active"
+    },
+    {
+      "id": "casciago-ats-insubria-2025",
+      "pharmacyId": "it-msal-3907",
+      "kind": "pdf",
+      "url": "https://www.ats-insubria.it/documentazione?catid=1048&id=3760&m=0&task=download.send",
+      "label": "ATS Insubria — elenco farmacie (luglio 2025)",
+      "sourceType": "official",
+      "fields": ["phone"],
+      "status": "active"
     }
   ],
   "providers": {

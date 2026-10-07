@@ -163,6 +163,46 @@ describe('plate-auction ingest resilience', () => {
     expect(snapshot.history.find((auction) => auction.id === 'ur-timed')).toBeUndefined();
   });
 
+  it.each(['ag', 'be', 'sh', 'tg', 'vd', 'zh'] as const)('accepts a measured timed-card turnover for %s', async (sourceKey) => {
+    const sourceCode = sourceKey.toUpperCase();
+    const endsAt = new Date(NOW.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString();
+    const previousCatalogue = Array.from({ length: 40 }, (_unused, index) => ({
+      ...previousRow,
+      id: `${sourceKey}-${index}`,
+      sourceKey: sourceCode,
+      canton: sourceCode,
+      platePrefix: sourceCode,
+      plateNumber: String(index),
+      normalizedPlate: `${sourceCode}${index}`,
+      listingType: 'auction',
+      auctionStatus: 'active',
+      endsAt,
+      sourceFetchedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+      lastVerifiedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+      lastSeenAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(),
+    }));
+    // Eight cards roll off while 32/40 remain: the measured 75% floor and
+    // 25% turnover cap accept the board refresh, but still preserve the cards
+    // with missingSince instead of treating them as sales.
+    const stillListed = previousCatalogue.slice(8).map((row) => ({
+      ...row,
+      sourceFetchedAt: NOW.toISOString(),
+      lastVerifiedAt: NOW.toISOString(),
+      lastSeenAt: NOW.toISOString(),
+    }));
+    const snapshot = await collectPlateAuctions({
+      selectedCantons: [sourceKey],
+      fetchers: { [sourceKey]: async () => stillListed },
+      previous: { generatedAt: new Date(NOW.getTime() - 6 * 60 * 60 * 1000).toISOString(), auctions: previousCatalogue },
+      now: NOW,
+    });
+
+    expect(snapshot.sources[sourceKey]).toMatchObject({ status: 'active', rowCount: 40 });
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === sourceCode)).toHaveLength(40);
+    expect(snapshot.auctions.filter((auction) => auction.sourceKey === sourceCode && auction.missingSince)).toHaveLength(8);
+    expect(snapshot.history.filter((auction) => auction.sourceKey === sourceCode)).toEqual([]);
+  });
+
   it('never reads a malformed timed-auction row as a fixed-price sale', async () => {
     // An `auction` row whose endsAt is unparseable has no usable deadline, but
     // it is not a fixed-price catalogue entry and must not be stamped closed.

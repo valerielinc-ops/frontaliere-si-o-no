@@ -108,6 +108,7 @@ import {
   resolveJobCanton,
   type CantonLocale,
 } from './shared/cantonSection';
+import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import type { Locale } from '../services/i18n';
 import {
   COPY,
@@ -1028,6 +1029,13 @@ interface ClusterContext {
   legacyCantonGroup: string;
 }
 
+export interface ClusterContextBuildOptions {
+  /** Maximum jobs to retain for this context. */
+  readonly maxJobs?: number;
+  /** Stop matching once this many valid jobs are proven. */
+  readonly stopWhenAtLeast?: number;
+}
+
 interface RelatedJobFingerprint {
   id: string;
   digest: string;
@@ -1213,29 +1221,51 @@ export class TokenIndex {
    * corpus-order tie breaks. The page only renders MAX_JOBS_PER_PAGE jobs, so
    * avoid materializing/sorting the full match universe for every candidate.
    */
-  matchingJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore = 1, accept: (job: RawJob) => boolean = () => true): RawJob[] {
+  matchingJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore = 1,
+    accept: (job: RawJob) => boolean = () => true,
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
     const __tPostings = profileStart();
     const lists = tokens.map((tok) => this.postings(locale, tok));
     profileRecord('bc:mj-postings-batch', __tPostings);
     if (lists.length === 0) return [];
+
+    // The probe is deliberately capped at the same floor used by the page
+    // emission predicate. Once it reaches that floor the caller rebuilds the
+    // full result; below it, the complete result has already been enumerated.
+    const resultLimit = options.stopWhenAtLeast === undefined
+      ? maxJobs
+      : Math.min(maxJobs, options.stopWhenAtLeast);
 
     if (lists.length === 1) {
       const __tSingle = profileStart();
       const out: RawJob[] = [];
       for (const idx of lists[0]) {
         if (accept(this.jobs[idx])) out.push(this.jobs[idx]);
-        if (out.length >= maxJobs) break;
+        if (out.length >= resultLimit) break;
       }
       profileRecord('bc:mj-single', __tSingle);
       return out;
     }
 
     const __tAnd = profileStart();
-    const matchingIdx = this.firstAndMatches(lists, maxJobs, accept);
+    const matchingIdx = this.firstAndMatches(lists, resultLimit, accept);
     profileRecord('bc:mj-and', __tAnd);
-    if (matchingIdx.length < maxJobs) {
+    if (matchingIdx.length < resultLimit) {
       const __tOr = profileStart();
-      this.fillOrMatches(lists, tokens.length, matchingIdx, maxJobs, minOrScore, accept);
+      this.fillOrMatches(
+        lists,
+        tokens.length,
+        matchingIdx,
+        resultLimit,
+        minOrScore,
+        accept,
+        options.stopWhenAtLeast,
+      );
       profileRecord('bc:mj-or', __tOr);
     }
 
@@ -1243,8 +1273,15 @@ export class TokenIndex {
   }
 
   /** Keep occupational filtering before the result cap, without retokenizing each job per query. */
-  matchingOccupationJobs(locale: Locale, tokens: readonly string[], maxJobs: number, minOrScore: number, roles: readonly string[]): RawJob[] {
-    if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore);
+  matchingOccupationJobs(
+    locale: Locale,
+    tokens: readonly string[],
+    maxJobs: number,
+    minOrScore: number,
+    roles: readonly string[],
+    options: { readonly stopWhenAtLeast?: number } = {},
+  ): RawJob[] {
+    if (roles.length === 0) return this.matchingJobs(locale, tokens, maxJobs, minOrScore, undefined, options);
     let prepared = this.occupationTermsByLocale.get(locale);
     if (!prepared) {
       prepared = new WeakMap<RawJob, readonly string[]>();
@@ -1258,7 +1295,7 @@ export class TokenIndex {
         termsByJob.set(job, terms);
       }
       return matchesPreparedJobOccupation(terms, roles);
-    });
+    }, options);
   }
 
   /** Free the haystack + postings cache once index queries are complete. */
@@ -1371,15 +1408,63 @@ export class TokenIndex {
     maxJobs: number,
     minScore: number,
     accept: (job: RawJob) => boolean,
+    stopWhenAtLeast?: number,
   ): void {
     const scores = this.scratchScores;
     const touched = this.touchedIdx;
     touched.length = 0;
 
-    for (const list of lists) {
-      for (const idx of list) {
-        if (scores[idx] === 0) touched.push(idx);
-        scores[idx]++;
+    // With no possible OR score, do not even walk the posting lists. This is
+    // the common two-content-token case (fullScore=2, floor=2) and is the
+    // largest avoidable part of the per-candidate cost in the production
+    // profile.
+    const scoreLevels = fullScore - minScore;
+    if (scoreLevels <= 0) return;
+
+    const clearScratch = () => {
+      for (const idx of touched) scores[idx] = 0;
+      touched.length = 0;
+    };
+
+    // A floor probe only needs to prove that enough distinct OR matches
+    // exist. Keep speculative matches out of `out` until the cap is reached;
+    // otherwise a probe that finishes below the cap would duplicate them in
+    // the exact score-ordered pass below.
+    if (stopWhenAtLeast !== undefined) {
+      const selected = new Set(out);
+      const probeMatches: number[] = [];
+      let probeCount = out.length;
+      for (const list of lists) {
+        for (const idx of list) {
+          const previous = scores[idx];
+          if (previous === 0) touched.push(idx);
+          const score = previous + 1;
+          scores[idx] = score;
+          if (
+            score >= minScore
+            && score < fullScore
+            && !selected.has(idx)
+            && accept(this.jobs[idx])
+          ) {
+            selected.add(idx);
+            probeMatches.push(idx);
+            probeCount++;
+            if (probeCount >= stopWhenAtLeast) {
+              out.push(...probeMatches);
+              clearScratch();
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    if (stopWhenAtLeast === undefined) {
+      for (const list of lists) {
+        for (const idx of list) {
+          if (scores[idx] === 0) touched.push(idx);
+          scores[idx]++;
+        }
       }
     }
 
@@ -1393,12 +1478,6 @@ export class TokenIndex {
     // when that is cheaper than scanning every job; retain the dense scan for
     // genuinely dense merges. The score buckets and accept predicate are
     // unchanged, so this is an execution-plan fix, not a ranking change.
-    const scoreLevels = fullScore - minScore;
-    if (scoreLevels <= 0) {
-      for (const idx of touched) scores[idx] = 0;
-      touched.length = 0;
-      return;
-    }
     const touchedSortCost = touched.length > 1 ? Math.ceil(Math.log2(touched.length)) : 0;
     const useTouchedOrder =
       touched.length * (scoreLevels + touchedSortCost) < scores.length * scoreLevels;
@@ -1423,8 +1502,7 @@ export class TokenIndex {
       }
     }
 
-    for (const idx of touched) scores[idx] = 0;
-    touched.length = 0;
+    clearScratch();
   }
 }
 
@@ -1499,6 +1577,7 @@ export function buildClusterContext(
   candidate: CandidateEntry,
   index: TokenIndex,
   jobs: ReadonlyArray<RawJob>,
+  options: ClusterContextBuildOptions = {},
 ): ClusterContext | null {
   const __tTokenize = profileStart();
   const sampleTerm = (candidate.sampleTerms || [])[0] || '';
@@ -1572,7 +1651,14 @@ export function buildClusterContext(
 
   const __tMatch = profileStart();
   const roles = getJobSearchRoleTokens(keyword);
-  const matching = index.matchingOccupationJobs(candidate.locale, tokens, MAX_JOBS_PER_PAGE, minOrScore, roles);
+  const matching = index.matchingOccupationJobs(
+    candidate.locale,
+    tokens,
+    options.maxJobs ?? MAX_JOBS_PER_PAGE,
+    minOrScore,
+    roles,
+    { stopWhenAtLeast: options.stopWhenAtLeast },
+  );
   profileRecord('bc:match', __tMatch);
 
   if (matching.length < MIN_MATCHING_JOBS) return null;
@@ -1690,6 +1776,41 @@ const BELOW_FLOOR_BRIDGE_COPY: Record<Locale, {
 export function isClusterBelowFloor(ctx: ClusterContext, enriched: EnrichedEntry | undefined): boolean {
   return (hasSalaryIntent(ctx.keyword) || !hasUsableEnrichedIntro(enriched))
     && ctx.matchingJobs.length < MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+}
+
+/**
+ * A capped probe needs a full rebuild only after it proves the indexability
+ * floor. Keep the shared floor predicate outside `closeBundle`: the sitemap
+ * producers must continue to derive their noindex decision exclusively from
+ * `decideClusterEmission`.
+ */
+function shouldExpandClusterMatchProbe(
+  ctx: ClusterContext,
+  enriched: EnrichedEntry | undefined,
+): boolean {
+  return !isClusterBelowFloor(ctx, enriched)
+    && ctx.matchingJobs.length >= MIN_JOBS_FOR_INDEXABLE_CLUSTER;
+}
+
+/**
+ * Select the "Ricerche correlate" anchors without linking to a below-floor
+ * cluster that this same build will emit as a noindex bridge. The floor check
+ * deliberately goes through isClusterBelowFloor: the link selector and the
+ * renderer must share the exact exemption for substantive enrichment.
+ */
+export function selectRelatedClusterLinks(
+  ctx: ClusterContext,
+  sameCityList: ReadonlyArray<ClusterContext>,
+  enriched: Readonly<Record<string, EnrichedEntry | undefined>>,
+): Array<{ keyword: string; url: string }> {
+  return sameCityList
+    .filter((other) => other.candidate.slug !== ctx.candidate.slug)
+    .filter((other) => !isClusterBelowFloor(other, enriched[`${other.candidate.locale}::${other.candidate.slug}`]))
+    .slice(0, 8)
+    .map((other) => ({
+      keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
+      url: `${BASE_URL}${buildClusterPath(other.candidate.locale, other.candidate.slug, other.cantonGroup)}`,
+    }));
 }
 
 /**
@@ -2450,15 +2571,8 @@ function reapplyRetiredManifestFiles(
  * resolution mirrors the emit side.
  */
 function jobLocalizedUrl(job: RawJob, locale: Locale): string {
-  const prefix = LOCALE_PREFIX[locale];
-  const jobCantonGroup = resolveJobCanton(job);
-  const section = resolveCantonSection(locale as CantonLocale, jobCantonGroup);
   const slug = job.slugByLocale?.[locale] || job.slug || '';
-  // Collapse only the path portion — a naive replace on the whole URL
-  // would turn `https://` into `https:/` (the original prior-to-call bug
-  // was masked because no caller exercised this helper).
-  const collapsedPath = `${prefix}/${section}/${slug ? `${slug}/` : ''}`.replace(/\/+/g, '/');
-  return `${BASE_URL}${collapsedPath}`;
+  return `${BASE_URL}${buildCanonicalJobDetailPath(locale, job, slug)}`;
 }
 
 // Locale-specific preposition used to join keyword + city ("Globus a
@@ -4715,8 +4829,20 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       const __tContextBuild = profileStart();
       const contextStartedAt = Date.now();
       let processedContexts = 0;
+      const floorProbeOptions = {
+        maxJobs: MIN_JOBS_FOR_INDEXABLE_CLUSTER,
+        stopWhenAtLeast: MIN_JOBS_FOR_INDEXABLE_CLUSTER,
+      } as const;
       for (const cand of candidates) {
-        const ctx = buildClusterContext(cand, tokenIndex, jobs);
+        // Most candidates are below the indexability floor. Probe only until
+        // that floor is proven; a probe that stays below it is already the
+        // complete match set, while a probe that reaches it is rebuilt once
+        // with the normal n=30 cap so ordering and rendered HTML stay exact.
+        let ctx = buildClusterContext(cand, tokenIndex, jobs, floorProbeOptions);
+        if (ctx && shouldExpandClusterMatchProbe(ctx, enriched[`${cand.locale}::${cand.slug}`])) {
+          const fullContext = buildClusterContext(cand, tokenIndex, jobs);
+          if (fullContext) ctx = fullContext;
+        }
         if (ctx) contexts.push(ctx);
         if (++processedContexts % 10_000 === 0) {
           console.log(`[related-search-clusters] contexts ${processedContexts}/${candidates.length} elapsed_ms=${Date.now() - contextStartedAt} heap_mb=${Math.round(process.memoryUsage().heapUsed / 1048576)}`);
@@ -5008,13 +5134,7 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
         const cityIdx = byLocaleCity.get(locale);
         const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
-        const related = sameCityList
-          .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-          .slice(0, 8)
-          .map((other) => ({
-            keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug, other.cantonGroup)}`,
-          }));
+        const related = selectRelatedClusterLinks(ctx, sameCityList, enriched);
 
         const enrichedKey = `${locale}::${ctx.candidate.slug}`;
         const out = renderClusterPage({

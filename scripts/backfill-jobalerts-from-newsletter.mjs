@@ -28,7 +28,6 @@
  *     node scripts/backfill-jobalerts-from-newsletter.mjs --write
  */
 
-import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { handleNewsletterSubscriberCreated } from '../functions/src/jobAlertBackfillTrigger.js';
 import {
@@ -43,6 +42,7 @@ import {
   buildAlertPayload,
   resolveSignalTier,
 } from './lib/jobalert-backfill-core.mjs';
+import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 export {
   MAX_ALERTS_PER_USER,
@@ -59,17 +59,7 @@ export {
 let _db = null;
 async function getFirestoreAdmin() {
   if (_db) return _db;
-  const { initializeApp, cert, getApps } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (getApps().length === 0) {
-    const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    if (!credPath || !fs.existsSync(credPath)) {
-      throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
-    }
-    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    initializeApp({ credential: cert(cred), projectId: cred.project_id });
-  }
-  _db = getFirestore();
+  _db = await getFirestoreDb();
   return _db;
 }
 

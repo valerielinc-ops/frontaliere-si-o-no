@@ -20,6 +20,24 @@ Ogni item ha ID stabile `FU-YYYY-MM-DD-NNN` e campi `State`, `Sources`, `Target 
 
 Il drainer promuove bucket `sealed` con item `open` senza PR che ne dichiari l'ID; `issue-fix` ne seleziona uno per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude solo con tutti gli item validi `done` e provati; body/stato/acceptance/prova non affidabili lasciano aperto (§ Stati dell'item, scrittori e chiusura).
 
+### Ciclo del padre decomposto e PARENT-REARM
+
+Un padre con `decomposed:1` resta un tracker: il PARENT-DEQUEUE toglie il
+routing del fixer e il PARENT-CLOSE lo chiude soltanto quando tutte le figlie
+dell’ultimo `DECOMPOSED_INTO` sono chiuse. Se un monitor riapre o riconferma la
+condizione dopo quel marker (`🔁 **Reopened**` oppure `🔁 Recurrence on workflow
+run.`), il drainer non richiude il padre: dopo aver verificato le figlie,
+PARENT-REARM scrive un marker HTML `PARENT_REARM`, rimuove `decomposed:1` e
+`agent:triaged` (oltre a eventuale routing stale), quindi lascia che il
+`triage-sweep` già esistente lo classifichi e lo instradi via App/PAT. Non esiste
+una coda speciale per il riarmo.
+
+Il marker rende il pass idempotente per quella riapertura. Il default è al
+massimo 2 riarmi per issue negli ultimi 30 giorni e 2 riarmi per run; marker,
+date o stato di una figlia illeggibili sono fail-closed. Un nuovo
+`DECOMPOSED_INTO` successivo al riarmo torna a essere l’autorità del
+PARENT-CLOSE, così il ciclo non può né bloccarsi né ricorrere senza tetto.
+
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
 `post-merge-followup.yml` gira su OGNI PR mergiata dall'owner, **incluse le fix di follow-up**: senza guardia ogni merge può generarne altri.

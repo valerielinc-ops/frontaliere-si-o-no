@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-10-05T09:35:48.510Z",
+  "generatedAt": "2026-10-07T09:29:43.737Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4722,
-  "avgDurationMs": 4722,
+  "unchangedCount": 1,
+  "durationMs": 5364,
+  "avgDurationMs": 5364,
   "durationHistory": [
-    4722
+    5364
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "amina-bank-43d485a2b0f5",
       "slug": "strategie-di-pagamento-e-sviluppo-commerciale-amina-bank-zug",
@@ -37,7 +35,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:35:43.201Z",
+      "crawledAt": "2026-10-07T09:29:28.122Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -53,8 +51,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://amina.jobs.personio.com/job/2752820",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:35:16.318Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -66,7 +64,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "amina-bank-6dc97b03283f",
       "slug": "executive-director-b2b-sales-amina-bank-zug",
@@ -79,7 +80,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-05T09:35:42.278Z",
+      "crawledAt": "2026-10-07T09:29:27.633Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -95,7 +96,6 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://amina.jobs.personio.com/job/2558847",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -110,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

@@ -25,11 +25,27 @@ export interface RailGutters {
   close: string;
 }
 
+export type RailGutterVariant = 'default' | 'job-board';
+
 const RAIL_GUTTERS: RailGutters = {
   open: ` <div class="ft-rail-grid xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-4 xlw:mx-auto xlw:max-w-[1768px]">
  <aside id="rail-left-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>`,
   close: `
  <aside id="rail-right-root" class="ft-rail-aside hidden xlw:flex xlw:flex-col" aria-hidden="true"></aside>
+ </div>`,
+};
+
+/**
+ * Job-board static fallbacks use the same three-tier grid as
+ * `components/shared/useRailGridCollapse.ts`. Keep the legacy
+ * `ft-rail-grid` hook as well: the handoff uses it to identify the wrapper,
+ * while the `-x` hook supplies the 180/300px tiers used by the SPA.
+ */
+const JOB_BOARD_RAIL_GUTTERS: RailGutters = {
+  open: ` <div class="ft-rail-grid ft-rail-grid-x job-board-static-rail-shell xl:grid xl:max-xlw:grid-cols-[var(--ft-rail-w-m-l,180px)_minmax(0,1fr)_var(--ft-rail-w-m-r,180px)] xl:gap-4 xlw:grid-cols-[var(--ft-rail-w-l,300px)_minmax(0,1fr)_var(--ft-rail-w-r,300px)]">
+ <aside id="rail-left-root" class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>`,
+  close: `
+ <aside id="rail-right-root" class="ft-rail-aside ft-rail-aside-x hidden xl:max-xlw:block xlw:flex xlw:flex-col" aria-hidden="true"></aside>
  </div>`,
 };
 
@@ -42,6 +58,7 @@ const EMPTY_GUTTERS: RailGutters = { open: '', close: '' };
  *   no-ad pages (`disableAutoAds`) opt out by passing `false`; mirrors the
  *   `seoContentOutsideRoot && !disableAutoAds` gate in htmlTemplate.ts.
  */
-export function railGutters(enabled: boolean): RailGutters {
-  return enabled ? RAIL_GUTTERS : EMPTY_GUTTERS;
+export function railGutters(enabled: boolean, variant: RailGutterVariant = 'default'): RailGutters {
+  if (!enabled) return EMPTY_GUTTERS;
+  return variant === 'job-board' ? JOB_BOARD_RAIL_GUTTERS : RAIL_GUTTERS;
 }

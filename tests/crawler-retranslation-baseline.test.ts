@@ -248,6 +248,11 @@ describe('wiring in the crawler slice writer', () => {
     expect(body).toMatch(/options\.retranslationBaseline \?\? getRetranslationBaseline\(crawlerKey\)/);
   });
 
+  it('writer scans stale claimant slices when the stable URL owner arrives later', () => {
+    const body = fnBody(read('scripts/assemble-jobs-dataset.mjs'), 'export function writeJobsCrawlerSlice(');
+    expect(body).toMatch(/sourceEntries: \[\.\.\.fleetEntries, currentEntry\], apply: true/);
+  });
+
   it('translate-pending and the slice writer share ONE completeness predicate', () => {
     expect(read('scripts/relocalize-pending-jobs.mjs'))
       .toContain("import { isIncomplete } from './lib/translation-incomplete.mjs';");

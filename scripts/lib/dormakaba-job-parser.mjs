@@ -389,7 +389,7 @@ export async function fetchAllDormakabaJobs() {
     const postalCode = sourcePostalCode
       || (realCity ? officialLocalityPostalCode(realCity, canton) : '')
       || resolved?.postalCode
-      || (realCity ? getCantonPostalFallback(canton) : '')
+      || (realCity ? getCantonPostalFallback(canton, realCity) : '')
       || HQ.postalCode;
     const streetAddress = sourceStreetAddress
       || resolved?.streetAddress

@@ -114,6 +114,8 @@ describe('translation observability workflow', () => {
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
     expect(titleFixScript).toContain('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
+    expect(titleFixScript).toContain('isTitleRepairQueueVerdict');
+    expect(titleFixScript).toContain('const currentVerdict = titleLooksUntranslated({');
     expect(titleFixScript).toContain('const translatedVerdict = titleLooksUntranslated({');
     expect(titleFixScript).toContain('if (translatedVerdict.untranslated)');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');

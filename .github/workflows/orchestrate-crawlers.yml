@@ -101,6 +101,7 @@ jobs:
             .github/corpus-workflows/contract.json
             .github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml
             data/canton-municipalities.json
+            data/swiss-locality-postal-codes.json
             functions/src/githubApiHeaders.js
             scripts
             scripts/lib

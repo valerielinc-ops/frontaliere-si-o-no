@@ -33,9 +33,10 @@
  * 2026-10-05, issue #10710): the detail pages only are requested with a fixed
  * desktop-browser User-Agent, because the CDN refuses identifying clients
  * with HTTP 406. It lives in lib/myswitzerland-detail-transport.mjs with its
- * limits and stop rules; do not copy it to any other crawler or request. Every event image is mirrored
- * once via `mirrorEventImage` (see scripts/lib/events-utils.mjs) — the output
- * slice NEVER references a myswitzerland.com/cloudfront image URL directly.
+ * limits and stop rules; do not copy it to any other crawler or request. Image
+ * URLs pass through the shared licence gate and are currently dropped because
+ * MySwitzerland provides no open image licence — the output slice NEVER
+ * references a myswitzerland.com/cloudfront image URL directly.
  *
  * No artificial cap: the full catalog (tens of thousands of records across
  * ~20 Algolia buckets x 4 locales, then one detail-page fetch per unique
@@ -77,6 +78,7 @@ import {
   resolveComuneNationwide,
   resolveItalianFrontierComuni,
   mirrorEventImage,
+  isEventImageSourceAllowed,
   cleanEventText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
@@ -89,6 +91,7 @@ import {
   withEventPriceSource,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { sanitizeEventForPublication, stripDescriptionTranslationCache } from './lib/event-description-policy.mjs';
 import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
@@ -352,6 +355,14 @@ function cleanText(value) {
   return cleanEventText(value);
 }
 
+const REPLACEMENT_CHARACTER = '\uFFFD';
+
+/** Keep corrupt source bytes from entering the published event slice. */
+function cleanSourceField(value) {
+  const cleaned = cleanText(value);
+  return cleaned && !cleaned.includes(REPLACEMENT_CHARACTER) ? cleaned : undefined;
+}
+
 function extractGeo(hit) {
   const g = hit?._geoloc;
   if (!g || typeof g.lat !== 'number' || typeof g.lng !== 'number') return undefined;
@@ -532,10 +543,10 @@ export function mergePriceBackfillRecords(freshEvents, ...backfillGroups) {
 export function extractAddress(ld) {
   const addr = ld?.location?.address;
   if (!addr || typeof addr !== 'object') return undefined;
-  const street = typeof addr.streetAddress === 'string' && addr.streetAddress.trim() ? addr.streetAddress.trim() : undefined;
-  const postalCode = typeof addr.postalCode === 'string' && addr.postalCode.trim() ? addr.postalCode.trim() : undefined;
-  const locality = typeof addr.addressLocality === 'string' && addr.addressLocality.trim() ? addr.addressLocality.trim() : undefined;
-  const region = typeof addr.addressRegion === 'string' && addr.addressRegion.trim() ? addr.addressRegion.trim() : undefined;
+  const street = cleanSourceField(addr.streetAddress);
+  const postalCode = cleanSourceField(addr.postalCode);
+  const locality = cleanSourceField(addr.addressLocality);
+  const region = cleanSourceField(addr.addressRegion);
   if (!street && !postalCode && !locality && !region) return undefined;
   return { street, postalCode, locality, region };
 }
@@ -570,18 +581,18 @@ function matchesPersonField(name, field) {
 }
 
 function extractVenue(ld, fallbackPlace) {
-  const name = ld?.location?.name;
-  if (typeof name === 'string' && name.trim()) {
-    const trimmed = name.trim();
+  const name = cleanSourceField(ld?.location?.name);
+  const locality = cleanSourceField(ld?.location?.address?.addressLocality);
+  if (name) {
+    const trimmed = name;
     // Reject location.name that matches a performer or organizer name — implausible as a venue
     if (!matchesPersonField(trimmed, ld?.performer) && !matchesPersonField(trimmed, ld?.organizer)) {
       return trimmed;
     }
     // Implausible: fall back to addressLocality as a useful venue label
-    const locality = ld?.location?.address?.addressLocality;
-    if (typeof locality === 'string' && locality.trim()) return locality.trim();
+    if (locality) return locality;
   }
-  return fallbackPlace || undefined;
+  return cleanSourceField(fallbackPlace) || locality;
 }
 
 const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
@@ -684,8 +695,9 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit) continue;
-    if (typeof hit.title === 'string' && hit.title.trim()) titleByLocale[locale] = hit.title.trim();
-    const desc = cleanText(hit.leadText) || cleanText(hit.content);
+    const title = cleanSourceField(hit.title);
+    if (title) titleByLocale[locale] = title;
+    const desc = cleanSourceField(hit.leadText) || cleanSourceField(hit.content);
     if (desc) descriptionByLocale[locale] = desc;
   }
   const title = titleByLocale.it || titleByLocale.en || titleByLocale.de || titleByLocale.fr;
@@ -717,10 +729,10 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   const addressSource = ldAddress || htmlAddress || detailAddress;
   const address = addressSource
     ? {
-        street: ldAddress?.street || htmlAddress?.street || detailAddress?.street,
-        postalCode: ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode,
-        locality: ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality,
-        region: ldAddress?.region || htmlAddress?.region || detailAddress?.region,
+        street: cleanSourceField(ldAddress?.street || htmlAddress?.street || detailAddress?.street),
+        postalCode: cleanSourceField(ldAddress?.postalCode || htmlAddress?.postalCode || detailAddress?.postalCode),
+        locality: cleanSourceField(ldAddress?.locality || htmlAddress?.locality || detailAddress?.locality),
+        region: cleanSourceField(ldAddress?.region || htmlAddress?.region || detailAddress?.region),
       }
     : undefined;
   const imageSourceUrl =
@@ -1070,7 +1082,9 @@ async function main() {
       );
       event.comune = comune || undefined;
       event.canton = canton || '';
-      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id)) || undefined;
+      if (isEventImageSourceAllowed(SOURCE.key)) {
+        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+      }
       const frontier = resolveItalianFrontierComuni(event.geo);
       if (frontier.length) event.italianFrontierComuni = frontier;
       events.push(event);
@@ -1126,10 +1140,11 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3).map(sanitizeEventForPublication), null, 2));
     return;
   }
 
+  stripDescriptionTranslationCache(translationCache);
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 

@@ -279,7 +279,7 @@ export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'sala
  * both sides.
  *
  * As of #4545 this array mirrors the complete `data/borderCrossings.ts`
- * set (143). Sempione and the rest of the Grigioni/Vallese alpine corridor,
+ * set (160). Sempione and the rest of the Grigioni/Vallese alpine corridor,
  * previously called out here as a known gap, are now wired.
  */
 export const ALL_BORDER_CROSSING_IDS = [
@@ -309,6 +309,21 @@ export const ALL_BORDER_CROSSING_IDS = [
  'dumenza-cassinone',
  'camedo',
  'piaggio-valmara',
+ // Francia — BL (5), SO (4), BS (5)
+ 'biel-benken-leymen',
+ 'neuwiller-benken',
+ 'neuwiller-allschwil',
+ 'neuwiller-schonenbuch',
+ 'allschwil-hegenheim',
+ 'battwil-leymen',
+ 'rodersdorf-leymen',
+ 'rodersdorf-biederthal',
+ 'kleinlutzel-kiffis',
+ 'basel-saint-louis-a35',
+ 'basel-bourgfelden-burgfelderstrasse',
+ 'basel-saint-louis-elsasserstrasse',
+ 'basel-saint-louis-flughafenstrasse',
+ 'basel-huningue-kohlenstrasse',
  // Germania — BS (7)
  'basel-weil-am-rhein-hiltalingerstrasse',
  'basel-weil-am-rhein-autostrada-a2-a5',
@@ -427,6 +442,8 @@ export const ALL_BORDER_CROSSING_IDS = [
  'boncourt-delle',
  'fahy-abbevillers',
  'goumois',
+ 'lucelle',
+ 'miecourt-courtavon',
  // Francia — VS (3)
  'le-chatelard-vallorcine',
  'saint-gingolph',
@@ -438,6 +455,7 @@ export const ALL_BORDER_CROSSING_IDS = [
  'tunnel-munt-la-schera',
  'forcola-di-livigno',
  'giogo-di-santa-maria',
+ 'mustair-taufers',
  // Italia — VS (2)
  'sempione',
  'traforo-del-gran-san-bernardo',

@@ -141,6 +141,10 @@ export function extractEventBookingPrice(html, bookingUrl, event, { venueMatcher
   }
 }
 
+async function cancelReaderOnReadError(reader) {
+  try { await reader.cancel(); } catch { /* the read verdict stays authoritative */ }
+}
+
 /** Bounded, public, allowlisted reads; failed or unrelated pages leave the price unknown. */
 export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fetch, venueMatcher } = {}) {
   let url = supportedEventBookingUrl(bookingUrl);
@@ -163,18 +167,27 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
       const reader = res.body.getReader();
       const chunks = [];
       let size = 0;
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        size += value.byteLength;
-        if (size > MAX_HTML_BYTES) { await reader.cancel(); return undefined; }
-        // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
-        // shares the producer's memory, which a reader may reuse (#7483).
-        chunks.push(Buffer.from(value instanceof ArrayBuffer
-          ? value.slice(0)
-          : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
+      let body;
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          size += value.byteLength;
+          if (size > MAX_HTML_BYTES) throw new Error('event_booking_response_too_large');
+          // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
+          // shares the producer's memory, which a reader may reuse (#7483).
+          chunks.push(Buffer.from(value instanceof ArrayBuffer
+            ? value.slice(0)
+            : value.buffer.slice(value.byteOffset, value.byteOffset + value.byteLength)));
+        }
+        body = Buffer.concat(chunks).toString('utf8');
+      } catch (error) {
+        await cancelReaderOnReadError(reader);
+        throw error;
+      } finally {
+        try { reader.releaseLock(); } catch { /* the read verdict stays authoritative */ }
       }
-      return extractEventBookingPrice(Buffer.concat(chunks).toString('utf8'), url, event, { venueMatcher });
+      return extractEventBookingPrice(body, url, event, { venueMatcher });
     }
   } catch { /* Best-effort enrichment; never fabricate a tariff on failure. */ }
   return undefined;

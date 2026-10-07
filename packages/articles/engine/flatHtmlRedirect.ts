@@ -40,6 +40,213 @@ function stripScriptsAndStyles(html = '') {
     .replace(/<style[\s\S]*?<\/style>/gi, '');
 }
 
+function findTagEnd(html: string, start: number): number {
+  let quote = '';
+  for (let index = start + 1; index < html.length; index += 1) {
+    const char = html[index];
+    if (quote) {
+      if (char === quote) quote = '';
+    } else if (char === '"' || char === "'") {
+      quote = char;
+    } else if (char === '>') {
+      return index;
+    }
+  }
+  return -1;
+}
+
+function isHtmlWhitespace(char: string | undefined): boolean {
+  return char === ' ' || char === '\t' || char === '\n' || char === '\r' || char === '\f';
+}
+
+const HTML_VOID_ELEMENTS = new Set([
+  'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
+  'param', 'source', 'track', 'wbr',
+]);
+// `<title>` and `<textarea>` are active document content at the top level;
+// they are raw-text only while nested in a template. Keeping the sets apart
+// prevents the metadata bridge from masking the page's real title.
+const HTML_INACTIVE_RAW_TEXT_ELEMENTS = new Set([
+  'script', 'style', 'noscript', 'iframe', 'xmp', 'noembed', 'noframes',
+]);
+const HTML_TEMPLATE_RAW_TEXT_ELEMENTS = new Set([
+  ...HTML_INACTIVE_RAW_TEXT_ELEMENTS, 'textarea', 'title',
+]);
+
+function isSelfClosingStartTag(html: string, nameEnd: number, end: number): boolean {
+  let index = nameEnd;
+  while (index < end) {
+    while (index < end && isHtmlWhitespace(html[index])) index += 1;
+    if (index >= end) return false;
+    if (html[index] === '/') {
+      return index + 1 === end;
+    }
+
+    while (
+      index < end &&
+      !isHtmlWhitespace(html[index]) &&
+      html[index] !== '=' &&
+      html[index] !== '/' &&
+      html[index] !== '>'
+    ) index += 1;
+    if (html[index] !== '=') continue;
+
+    index += 1;
+    while (index < end && isHtmlWhitespace(html[index])) index += 1;
+    if (index >= end) return false;
+    const quote = html[index];
+    if (quote === '"' || quote === "'") {
+      index += 1;
+      while (index < end && html[index] !== quote) index += 1;
+      if (index >= end) return false;
+      index += 1;
+      continue;
+    }
+    // In HTML's unquoted attribute-value state `/` belongs to the value.
+    while (index < end && !isHtmlWhitespace(html[index]) && html[index] !== '>') index += 1;
+  }
+  return false;
+}
+
+// Sticky, so a tag name is read in place: slicing the rest of the document
+// for every `<` made the scan quadratic on a 30 KB page.
+const TAG_NAME_RX = /[A-Za-z][A-Za-z0-9:_-]*/y;
+
+function readTag(html: string, start: number): { closing: boolean; end: number; name: string; selfClosing: boolean } | null {
+  if (html[start] !== '<') return null;
+  const closing = html[start + 1] === '/';
+  const nameStart = start + (closing ? 2 : 1);
+  TAG_NAME_RX.lastIndex = nameStart;
+  const nameMatch = TAG_NAME_RX.exec(html);
+  if (!nameMatch) return null;
+  const nameEnd = nameStart + nameMatch[0].length;
+  const boundary = html[nameEnd] ?? '';
+  if (boundary && !/[\s/>]/.test(boundary)) return null;
+  const end = findTagEnd(html, start);
+  if (end < 0) return null;
+  const name = nameMatch[0].toLowerCase();
+  return {
+    closing,
+    end,
+    name,
+    selfClosing: !closing && HTML_VOID_ELEMENTS.has(name)
+      && isSelfClosingStartTag(html, nameEnd, end),
+  };
+}
+
+function skipComment(html: string, start: number): number {
+  const end = html.indexOf('-->', start + 4);
+  return end < 0 ? -1 : end + 3;
+}
+
+const RAW_TEXT_CLOSING_RX = new Map<string, RegExp>();
+
+function skipRawTextElement(html: string, afterOpening: number, name: string): number {
+  let closing = RAW_TEXT_CLOSING_RX.get(name);
+  if (!closing) {
+    closing = new RegExp(`</${name}\\s*>`, 'ig');
+    RAW_TEXT_CLOSING_RX.set(name, closing);
+  }
+  closing.lastIndex = afterOpening;
+  const match = closing.exec(html);
+  return match ? match.index + match[0].length : -1;
+}
+
+function skipTemplateElement(html: string, afterOpening: number): number {
+  let depth = 1;
+  let cursor = afterOpening;
+  while (cursor < html.length) {
+    const start = html.indexOf('<', cursor);
+    if (start < 0) return html.length;
+    if (html.startsWith('<!--', start)) {
+      const afterComment = skipComment(html, start);
+      if (afterComment < 0) return html.length;
+      cursor = afterComment;
+      continue;
+    }
+    const tag = readTag(html, start);
+    if (!tag) {
+      cursor = start + 1;
+      continue;
+    }
+    if (tag.name === 'template') {
+      if (tag.closing) {
+        depth -= 1;
+        if (depth === 0) return tag.end + 1;
+      } else if (!tag.selfClosing) {
+        depth += 1;
+      }
+    } else if (!tag.closing && !tag.selfClosing && HTML_TEMPLATE_RAW_TEXT_ELEMENTS.has(tag.name)) {
+      const afterRawText = skipRawTextElement(html, tag.end + 1, tag.name);
+      if (afterRawText < 0) return html.length;
+      cursor = afterRawText;
+      continue;
+    }
+    cursor = tag.end + 1;
+  }
+  return html.length;
+}
+
+/**
+ * Keep only active document markup when extracting metadata. Comments,
+ * scripts, styles, and templates can contain stale OG tags that are not part
+ * of the rendered page but would otherwise be copied into the redirect
+ * bridge. Template depth is tracked so nested templates remain inactive.
+ */
+function maskInactiveMarkup(html = '', options: { maskRcdata?: boolean } = {}) {
+  const source = String(html || '');
+  const maskRcdata = options.maskRcdata === true;
+  // Blanked ranges only ever move forward, so the result is assembled from
+  // slices of the source. The previous one-entry-per-character array cost
+  // milliseconds per call, and this runs for every flat bridge of the build.
+  const parts: string[] = [];
+  let emitted = 0;
+  const blank = (start: number, end: number) => {
+    if (end <= start) return;
+    parts.push(source.slice(emitted, start), ' '.repeat(end - start));
+    emitted = end;
+  };
+  let cursor = 0;
+  while (cursor < source.length) {
+    const start = source.indexOf('<', cursor);
+    if (start < 0) break;
+    if (source.startsWith('<!--', start)) {
+      const afterComment = skipComment(source, start);
+      if (afterComment < 0) {
+        blank(start, source.length);
+        break;
+      }
+      blank(start, afterComment);
+      cursor = afterComment;
+      continue;
+    }
+    const tag = readTag(source, start);
+    if (!tag) {
+      cursor = start + 1;
+      continue;
+    }
+    const isRcdata = maskRcdata && (tag.name === 'title' || tag.name === 'textarea');
+    if (!tag.closing && !tag.selfClosing
+      && (HTML_INACTIVE_RAW_TEXT_ELEMENTS.has(tag.name) || isRcdata)) {
+      const afterRawText = skipRawTextElement(source, tag.end + 1, tag.name);
+      const afterInactive = afterRawText < 0 ? source.length : afterRawText;
+      blank(start, afterInactive);
+      cursor = afterInactive;
+      continue;
+    }
+    if (tag.name === 'template' && !tag.closing && !tag.selfClosing) {
+      const afterTemplate = skipTemplateElement(source, tag.end + 1);
+      blank(start, afterTemplate);
+      cursor = afterTemplate;
+      continue;
+    }
+    cursor = tag.end + 1;
+  }
+  if (emitted === 0) return source;
+  parts.push(source.slice(emitted));
+  return parts.join('');
+}
+
 /**
  * Extract og:* / description meta tags from the sibling index.html
  * so the bridge can serve them to crawlers (Facebook, Twitter, LinkedIn, Slack…)
@@ -61,7 +268,14 @@ export function extractOgTags(indexHtml: string): string {
   const metaRx = /<meta\b[^>]*\/?>/gi;
   const attrRx = /([^\s=/>]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
   let match: RegExpExecArray | null;
-  while ((match = metaRx.exec(indexHtml))) {
+  // RCDATA is rendered as text, so a literal `<meta>` inside the page title
+  // or a textarea is not active metadata. Title extraction below uses the
+  // default mask and therefore still sees the real document title.
+  // Masked ONCE: with the call inside the loop condition the whole document
+  // was re-masked for every <meta> it contains (~40 per job page), which
+  // turned the ~300k flat bridges of a locale shard into hours of build.
+  const activeMarkup = maskInactiveMarkup(indexHtml, { maskRcdata: true });
+  while ((match = metaRx.exec(activeMarkup))) {
     const tag = match[0];
     attrRx.lastIndex = 0;
     const attrs: Record<string, string> = {};
@@ -119,7 +333,7 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   let title = `Redirecting to ${slashUrl}`;
   let ogTags = '';
   try {
-    const titleMatch = stripScriptsAndStyles(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
+    const titleMatch = maskInactiveMarkup(siblingHtml).match(/<title[^>]*>([^<]+)<\/title>/i);
     if (titleMatch && titleMatch[1]) {
       const extracted = titleMatch[1].trim();
       if (extracted.length > 0) {
@@ -133,4 +347,4 @@ export function buildFlatBridgeFromSibling(siblingHtml: string, slashUrl: string
   return NOINDEX_BRIDGE(slashUrl, title, ogTags);
 }
 
-export { stripScriptsAndStyles };
+export { maskInactiveMarkup, stripScriptsAndStyles };

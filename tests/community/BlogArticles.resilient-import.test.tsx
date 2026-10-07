@@ -76,4 +76,14 @@ describe('BlogArticles — data chunk import is stale-deploy resilient (#4176)',
       expect(read(rel)).toMatch(/resilientImport\b/);
     },
   );
+
+  it('consumes the terminal data-chunk rejection in the search effect', () => {
+    const source = read('components/shared/SiteSearch.tsx');
+    const loadEffect = source.match(
+      /resilientImport\(\(\)\s*=>\s*import\(['"]@\/data\/blog-articles-data['"]\)[\s\S]*?\n\s*\}, \[isOpen\]\);/,
+    )?.[0];
+
+    expect(loadEffect).toBeDefined();
+    expect(loadEffect).toMatch(/\.catch\(\(\)\s*=>\s*\{/);
+  });
 });

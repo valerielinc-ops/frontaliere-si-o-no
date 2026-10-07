@@ -16,6 +16,7 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import {
   isReviewerBot,
+  formatSquashCommitSubject,
   VITEST_CHECK_NAME,
 } from './lib/constants.mjs';
 import {
@@ -1253,12 +1254,14 @@ export function bodyRecoveryBarrierDecision({
 }
 
 /** Bind the native opt-in to the exact HEAD that passed the gate. */
-export function nativeAutoMergeArgs({ repo, prNumber, headSha } = {}) {
+export function nativeAutoMergeArgs({ repo, prNumber, title, headSha } = {}) {
   if (!/^[0-9a-f]{40}$/i.test(headSha || '')) {
     throw new Error('HEAD SHA verificato mancante o non valido');
   }
+  const subject = formatSquashCommitSubject({ prNumber, title });
   return [
-    'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--delete-branch',
+    'pr', 'merge', prNumber, '--repo', repo, '--auto', '--squash', '--subject', subject,
+    '--delete-branch',
     '--match-head-commit', headSha,
   ];
 }
@@ -1742,7 +1745,12 @@ function main() {
 
   try {
     const output = withNativeAutoMergeMutationRetry(
-      () => execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid }), {
+      () => execFileSync('gh', nativeAutoMergeArgs({
+        repo,
+        prNumber,
+        title: beforeMutation.title,
+        headSha: beforeMutation.headRefOid,
+      }), {
         encoding: 'utf8',
         stdio: ['ignore', 'pipe', 'pipe'],
         env: { ...process.env },

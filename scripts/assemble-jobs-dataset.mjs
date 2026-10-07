@@ -52,14 +52,19 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { archiveRecordNamesPosting, buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
-import { applyDeclaredBrandRelabel } from './lib/crawler-brand-relabel.mjs';
+import {
+  applyDeclaredBrandRelabel,
+  refreshDeclaredBrandSlugs,
+  declaredBrandLabels,
+  BRAND_RELABELLED_CRAWLER_KEYS,
+} from './lib/crawler-brand-relabel.mjs';
 import { localeMapKey } from './lib/locale-map-diff.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks, mergeBaselinePublicationEvidence } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator, isLikelyJobDetailUrl } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, isKnownSwissLocationFieldToken, isKnownSwissMunicipalityInCanton, locationFieldHasSwissSignal, normalizeSwissTargetLocationText, swissCityFromLocationField, rescueSwissCityFromText, isTargetCanton, TARGET_CANTONS } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { getCantonDisplayName, markLocationDerivedFromVacancyText } from './lib/crawler-location-config.mjs';
@@ -75,14 +80,14 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
-import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import { archiveFilteredJobsToSlices, archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
 import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
 import { stampCodeCommit } from './lib/checkout-code-commit.mjs';
 import { alignSummaryWithPublishedSlice, publishedSliceFor, recordPublishedSlice } from './lib/crawler-summary-partition.mjs';
-import { decontaminateEntries } from './decontaminate-prev-slugs.mjs';
+import { decontaminateEntries, decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { extractNarrativeJobTitle } from './lib/job-title-normalization.mjs';
 import { migrateLegacyCantonPins } from './lib/job-canton-pin-migration.mjs';
 import {
@@ -100,6 +105,7 @@ import {
 } from './lib/crawler-retranslation-baseline.mjs';
 import { previousRunSliceJobs, recordPreviousRunSlice } from './lib/crawler-previous-run-slice.mjs';
 import { isIncomplete } from './lib/translation-incomplete.mjs';
+import { officialPostalCodeForLocation } from './lib/swiss-locality-directory.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -810,6 +816,8 @@ export function computeAssembleInputFingerprint() {
 export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/job-canton-pins.json',
   'data/swiss-postal-codes.json',
+  'data/swiss-locality-postal-codes.json',
+  'data/swiss-postal-code-index.json',
   'data/orphan-indexed-job-slugs.json',
   'data/orphan-enriched-data.json',
   'data/orphan-enriched-data',
@@ -1928,7 +1936,9 @@ export function acceptBadLocalityViaCanton(canton, postalCode, haystack, rescueO
  * @returns {{ foreignContext: boolean, isForeignPlace: (item: string) => boolean }}
  */
 export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
-  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton) || isSwissPostalCode(postalCode);
+  const knownGeography = locationFieldHasSwissSignal(primaryLoc, canton, {
+    includeOfficialLocality: true,
+  }) || isSwissPostalCode(postalCode);
   return { foreignContext: !knownGeography, isForeignPlace: isLocationExplicitlyForeign };
 }
 
@@ -1937,9 +1947,29 @@ export function textRescueOptionsForLocality(primaryLoc, postalCode, canton) {
 const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Italien|France|Frankreich|Francia|Germany|Deutschland|Allemagne|Germania|Austria|Österreich|Autriche|Spagna|España|Spain|Espagne|Portugal|United Kingdom|UK\b|Belgium|Belgio|Belgien|Belgique|Netherlands|Nederland|Pays-Bas)\b/i;
 
 /**
+ * A location field can be an office list rather than the job's locality
+ * ("Paris, Geneva, London"). Once an English/French/German exonym is added to
+ * the Swiss whitelist, blindly extracting the first Swiss token would make
+ * that list look like a Swiss address. Keep the existing description-rescue
+ * path for such mixed lists; a single foreign segment is enough to make the
+ * field ambiguous, while "Geneva, Switzerland" remains a valid decorated
+ * Swiss locality.
+ */
+function locationFieldContainsForeignSegment(value = '') {
+  return String(value || '')
+    .split(/[,;|/]/)
+    .map((segment) => segment.trim())
+    .filter(Boolean)
+    .some((segment) => isLocationExplicitlyForeign(segment));
+}
+
+/**
  * Foreign filter + Swiss-municipality whitelist of the assembly, as a pure
  * function over the deduped jobs. Mutates the locality of a job the whitelist
- * rescues (step 4) and returns the survivors with the per-reason counts.
+ * rescues (step 4) and returns the survivors with per-reason counts plus the
+ * full dropped rows. The dropped rows are retained by the caller for the
+ * expired archive; filtering an indexed job must never silently delete its
+ * soft-landing page.
  *
  * Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
  * should not appear on the Swiss job board, so they are dropped before they
@@ -1961,12 +1991,17 @@ const FOREIGN_ADDRESS_RE = /\b\d{5}\b[\s\S]{0,40}?\b(?:Italy|Italia|Italie|Itali
  *      record OR a known Swiss city of ≥4 chars in description.
  *
  * @param {object[]} jobs
- * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number }}
+ * @returns {{ jobs: object[], foreignCount: number, droppedBadSwissCity: number, droppedCantonOnlyNoCity: number, droppedForeignAddress: number, dropped: Array<{ job: object, reason: string }> }}
  */
 export function applySwissLocationGate(jobs) {
+  const dropped = [];
   const foreignFiltered = jobs.filter((job) => {
     const loc = String(job.addressLocality || job.location || '');
-    return !isLocationExplicitlyForeign(loc);
+    if (isLocationExplicitlyForeign(loc)) {
+      dropped.push({ job, reason: 'foreign-location' });
+      return false;
+    }
+    return true;
   });
   const foreignCount = jobs.length - foreignFiltered.length;
 
@@ -1981,17 +2016,41 @@ export function applySwissLocationGate(jobs) {
     // if metadata fields claim Switzerland — those are likely forged.
     if (FOREIGN_ADDRESS_RE.test(haystack)) {
       droppedForeignAddress++;
+      dropped.push({ job, reason: 'foreign-address-in-description' });
       return false;
     }
 
     const primaryLoc = String(job.addressLocality || job.location || '').trim();
-    if (!primaryLoc) return false; // no location at all → drop
+    if (!primaryLoc) {
+      dropped.push({ job, reason: 'missing-locality' });
+      return false;
+    }
 
-    // (2) Strong positive: primary location names a known Swiss city.
-    if (isKnownSwissCity(primaryLoc)) return true;
+    // (2) Strong positive: primary location names a known Swiss city. The
+    // record's canton disambiguates BFS names stored as "City (XX)"
+    // (Bremgarten, Gossau, Altdorf, …); omitting it caused the false-negative
+    // class measured on 2026-10-05.
+    if (isKnownSwissCity(primaryLoc, job.canton)) {
+      // Official locality directories also contain quarters/sub-localities
+      // (e.g. Estavayer-le-Lac). Keep the published schema at the canonical
+      // municipality level, as the decorated-locality path already does.
+      const canonicalLocality = swissCityFromLocationField(primaryLoc, job.canton);
+      if (canonicalLocality) {
+        job.addressLocality = canonicalLocality;
+        job.location = canonicalLocality;
+      }
+      return true;
+    }
 
     // (3) Canton-only labels need a Swiss anchor.
-    if (isCantonOnlyLabel(primaryLoc)) {
+    // The canton keyword table deliberately remains conservative for parsers
+    // and free text. An explicit locality field is stronger evidence: the
+    // official postal directory rescues real localities such as Biel that are
+    // also used as a canton keyword, without weakening isCantonOnlyLabel()
+    // for source parsers that must reject a bare canton-like label. Let those
+    // field values continue into step (4), where stale-canton reconciliation
+    // can still prefer a city named in the job's own-canton description.
+    if (isCantonOnlyLabel(primaryLoc) && !isKnownSwissLocationFieldToken(primaryLoc, job.canton)) {
       if (isSwissPostalCode(job.postalCode)) return true;
       // Look for a real Swiss city in the description. rescueSwissCityFromText
       // is the single source of truth for description scanning: it applies both
@@ -2000,15 +2059,51 @@ export function applySwissLocationGate(jobs) {
       // how "alle"/"rolle" descriptions anchored non-Swiss postings.
       if (rescueSwissCityFromText(haystack)) return true;
       droppedCantonOnlyNoCity++;
+      dropped.push({ job, reason: 'canton-only-without-anchor' });
       return false;
     }
 
     // (4) primaryLoc is neither a known city nor a canton-only label —
-    // likely garbage (e.g. a company name leaking through a free-text
-    // intake field instead of a real location). Give the structured
-    // `canton` field the same second chance as a canton-only label. When
-    // primaryLoc carries no Swiss signal it is unknown geography, and the
-    // description rescue runs with the foreign-context guards (#9846).
+    // likely a decorated locality or garbage (e.g. a company name leaking
+    // through a free-text intake field). A Swiss-signed decorated locality is
+    // authoritative on its own: `Switzerland (Mex)` must not depend on a
+    // description or postal code. Mixed office lists remain ambiguous so a
+    // Swiss exonym cannot mask a foreign segment.
+    const listedLocalityCity = swissCityFromLocationField(primaryLoc, job.canton);
+    const mixedForeignLocality = locationFieldContainsForeignSegment(primaryLoc);
+    const directLocalityCity = !mixedForeignLocality
+      && locationFieldHasSwissSignal(primaryLoc, job.canton, {
+        includeOfficialLocality: true,
+      })
+      ? listedLocalityCity
+      : '';
+    if (directLocalityCity) {
+      // A stale canton can coexist with a real Swiss locality in the field
+      // (the Roche replay has Rotkreuz on a BS record). If the description
+      // explicitly names a city owned by that record canton, retain the
+      // established rescue result; otherwise the authoritative field wins.
+      const localityBelongsToAnotherCanton = Boolean(job.canton)
+        && !isKnownSwissMunicipalityInCanton(primaryLoc, job.canton, {
+          allowOfficialLocality: true,
+        });
+      if (localityBelongsToAnotherCanton) {
+        const cantonCity = rescueSwissCityFromText(haystack);
+        if (cantonCity && isKnownSwissCity(cantonCity, job.canton)) {
+          job.addressLocality = cantonCity;
+          job.location = cantonCity;
+          markLocationDerivedFromVacancyText(job);
+          return true;
+        }
+      }
+      job.addressLocality = directLocalityCity;
+      job.location = directLocalityCity;
+      return true;
+    }
+
+    // Give the structured `canton` field the same second chance as a
+    // canton-only label. When primaryLoc carries no Swiss signal it is
+    // unknown geography, and the description rescue runs with the
+    // foreign-context guards (#9846).
     const rescueOptions = textRescueOptionsForLocality(primaryLoc, job.postalCode, job.canton);
     if (acceptBadLocalityViaCanton(job.canton, job.postalCode, haystack, rescueOptions)) {
       // Sanitize: never ship the garbage primaryLoc verbatim — it would
@@ -2027,8 +2122,15 @@ export function applySwissLocationGate(jobs) {
       // No blocklist on primaryLoc: an explicit locality field naming "Rolle"
       // or "Fully" is a location the author typed on purpose. The blocklist
       // exists for free-text description scanning only.
-      const cityFromLocalityField = swissCityFromLocationField(primaryLoc);
-      const cityFromVacancyText = cityFromLocalityField ? '' : rescueSwissCityFromText(haystack, rescueOptions);
+      const cityFromLocalityField = mixedForeignLocality ? '' : listedLocalityCity;
+      const cityFromVacancyText = cityFromLocalityField
+        ? ''
+        : rescueSwissCityFromText(haystack, {
+          ...rescueOptions,
+          ...(mixedForeignLocality && listedLocalityCity
+            ? { skipTokens: new Set([normalizeSwissTargetLocationText(listedLocalityCity)]) }
+            : {}),
+        });
       const rescuedCity = cityFromLocalityField || cityFromVacancyText;
       if (rescuedCity) {
         job.addressLocality = rescuedCity;
@@ -2042,9 +2144,10 @@ export function applySwissLocationGate(jobs) {
     // canton — likely a non-Swiss locality that escaped the explicit-
     // foreign blacklist (e.g. small Italian town).
     droppedBadSwissCity++;
+    dropped.push({ job, reason: 'unknown-locality' });
     return false;
   });
-  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress };
+  return { jobs: swissValidated, foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress, dropped };
 }
 
 /**
@@ -2916,6 +3019,23 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     );
   }
 
+  // A crawler rerun can carry a previously published brand-bearing slug
+  // through the merge's identity-preservation net. Keep the declared brand
+  // and its active routes atomic at the slice-write boundary; waiting for the
+  // separate post-translation regeneration pass leaves live-data gates with a
+  // window in which company and slug disagree.
+  if (BRAND_RELABELLED_CRAWLER_KEYS.includes(crawlerKey)) {
+    const writerBrandLabels = declaredBrandLabels();
+    const writerRelabel = applyDeclaredBrandRelabel(finalJobs, writerBrandLabels);
+    const writerSlugRefresh = refreshDeclaredBrandSlugs(finalJobs, writerBrandLabels);
+    if (writerRelabel.relabelled > 0 || writerSlugRefresh.refreshed > 0) {
+      console.log(
+        `  🏷️  Write-time brand relabel: ${writerRelabel.relabelled} label(s), `
+          + `${writerSlugRefresh.refreshed} active slug(s) refreshed`,
+      );
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),
@@ -2928,9 +3048,12 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // guard runs would make the guard recapture the same contamination onto the
   // claimant. Include every existing slice in the owner index so the writer
   // covers cross-file owners as well as the current payload's same-file ones.
-  // The fresh payload is the only source entry: unrelated claimant slices are
-  // not rewritten by every crawler run, while a target slice is written first
-  // by decontaminateEntries before the claimant's deliberate guard-off write.
+  // Scan every active slice as a source as well as an owner namespace. A new
+  // posting can appear after its old alias was attached to a sibling slice;
+  // restricting the source set to the fresh payload leaves that stale claimant
+  // in place forever. The pass only writes entries with a redirect or pruned
+  // bucket, so the fleet-wide scan is order-independent without rewriting
+  // unrelated slices.
   const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
     .filter((filePath) => filePath !== slicePath)
     .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
@@ -2938,7 +3061,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   const currentEntry = { filePath: slicePath, slice: payload };
   const ownership = decontaminateEntries(
     [...fleetEntries, currentEntry],
-    { sourceEntries: [currentEntry], apply: true },
+    { sourceEntries: [...fleetEntries, currentEntry], apply: true },
   );
   if (ownership.moved > 0 || ownership.emptyLocaleBucketsPruned > 0) {
     console.log(`  🧭 prev-slug ownership: redirected ${ownership.moved} confirmed foreign route(s), pruned ${ownership.emptyLocaleBucketsPruned} empty locale bucket(s)`);
@@ -3299,15 +3422,19 @@ async function assembleJobs() {
   // 404 on an indexed route plus a sitemap exit. Reconciling at assembly makes
   // the swap atomic: one deploy flips both slices, whatever order the crawlers
   // happen to run in. See scripts/lib/crawler-brand-relabel.mjs.
-  const relabel = applyDeclaredBrandRelabel(deduped);
-  if (relabel.relabelled > 0) {
+  const brandLabels = declaredBrandLabels();
+  const relabel = applyDeclaredBrandRelabel(deduped, brandLabels);
+  const slugRefresh = refreshDeclaredBrandSlugs(deduped, brandLabels);
+  if (relabel.relabelled > 0 || slugRefresh.refreshed > 0) {
     const perKey = Object.entries(relabel.byKey).map(([k, n]) => `${k}×${n}`).join(', ');
-    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey})`);
+    const refreshed = slugRefresh.refreshed > 0 ? `; refreshed ${slugRefresh.refreshed} slug(s)` : '';
+    console.log(`  🏷️  Brand relabel: realigned ${relabel.relabelled} job(s) to the label their parser declares (${perKey || 'slug-only'})${refreshed}`);
   }
 
   // ── Foreign filter + Swiss-municipality whitelist ───────────────────
-  // See applySwissLocationGate() for the rules; it is a pure function so the
-  // #9846 replay test runs the exact gate this assembly runs.
+  // See applySwissLocationGate() for the rules; the gate itself remains pure so
+  // replay tests run the exact filtering logic, while this assembly boundary
+  // preserves an expired route for every filtered job.
   const swissGate = applySwissLocationGate(deduped);
   let swissValidated = swissGate.jobs;
   const { foreignCount, droppedBadSwissCity, droppedCantonOnlyNoCity, droppedForeignAddress } = swissGate;
@@ -3317,6 +3444,10 @@ async function assembleJobs() {
   const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
+  }
+  const filteredArchive = archiveFilteredJobsToSlices(swissGate.dropped);
+  if (filteredArchive.added > 0) {
+    console.log(`  📦 Archived ${filteredArchive.added} Swiss-gate exclusion(s) → data/jobs/expired/by-crawler (soft-landing pages preserved).`);
   }
 
   // ── Publisher supersedes crawled (anti double-listing) ───────────────
@@ -3768,7 +3899,9 @@ function assembleExpiredJobs() {
   // sit under the same employer brand. Reconcile them in the same pass so a
   // corrected label does not read one way on the active page and another on
   // the expired one.
-  applyDeclaredBrandRelabel(assembled);
+  const expiredBrandLabels = declaredBrandLabels();
+  applyDeclaredBrandRelabel(assembled, expiredBrandLabels);
+  refreshDeclaredBrandSlugs(assembled, expiredBrandLabels);
 
   console.log(`  📄 ${sliceFiles.length} expired slices: ${totalSliceEntries} entries → ${assembled.length} unique slugs`);
   return assembled;
@@ -3796,7 +3929,16 @@ function assembleExpiredJobs() {
  * Returns: { driftCount, mergedSlugs }.
  */
 export function trackSlugHistoryDrift(priorJobs, activeJobs) {
+  if (!Array.isArray(activeJobs)) {
+    return { driftCount: 0, mergedSlugs: 0 };
+  }
+
   if (!Array.isArray(priorJobs) || priorJobs.length === 0) {
+    // The assembled writer can receive a snapshot without a prior run (or a
+    // partially recovered one). Still apply the ownership ratchet: an alias
+    // whose URL-derived hash identifies a different active job must never be
+    // left on the claimant merely because there was no carry-forward pass.
+    decontaminateJobs(activeJobs);
     return { driftCount: 0, mergedSlugs: 0 };
   }
 
@@ -3876,6 +4018,12 @@ export function trackSlugHistoryDrift(priorJobs, activeJobs) {
 
     if (driftedThisJob) driftCount++;
   }
+
+  // Carry-forward is deliberately defensive and may replay a contaminated
+  // assembled snapshot. Reconcile after the whole fleet is present, so the
+  // stable URL-derived owner wins regardless of crawler/job iteration order.
+  // The helper is idempotent: a second writer pass sees no redirect plan.
+  decontaminateJobs(activeJobs);
 
   return { driftCount, mergedSlugs };
 }
@@ -4030,7 +4178,10 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
     // vacancy housekeeping archived as a duplicate. Merging it would hand the
     // active job another posting's routes, including its hash-tailed slug,
     // which becomes cross-job contamination once that posting is re-listed
-    // (#11596). Records without any identity keep the legacy evidence rules.
+    // (#11596). An identity-less archive record is therefore ambiguous when
+    // the active match has a stable URL; the shared helper fails closed there.
+    // The bounded legacy evidence rules remain only when neither side has a
+    // stable identity.
     if (!archiveRecordNamesPosting(ej, match)) continue;
 
     // Mark as ghost
@@ -4432,29 +4583,37 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
 
     // --- PostalCode enrichment (ensures 100% postalCode for JobPosting schema) ---
     const plzPath = path.join(ROOT, 'data', 'swiss-postal-codes.json');
-    if (fs.existsSync(plzPath)) {
-      const plz = JSON.parse(fs.readFileSync(plzPath, 'utf-8'));
-      const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', SO: '4500', BL: '4001', BS: '4001', AR: '9100', AI: '9050', GL: '8750', SH: '8200', TG: '8500', ZG: '6300', SZ: '6430', NW: '6370', OW: '6060', UR: '6460', FR: '1700', NE: '2000', JU: '2800', VD: '1003', GE: '1201' };
-      let postalFilled = 0;
-      for (const job of assembled) {
-        if (job.postalCode) continue;
-        const loc = (job.addressLocality || job.location || '').trim();
-        if (!loc) continue;
-        if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
-        const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
-        let found = false;
-        for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
-        if (found) continue;
-        const m = loc.match(/\b(\d{4})\b/);
-        if (m && !(Number(m[1]) >= 2020 && Number(m[1]) <= 2039)) { job.postalCode = m[1]; postalFilled++; continue; }
-        const canton = (job.canton || '').toUpperCase();
-        if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+    const plz = fs.existsSync(plzPath)
+      ? JSON.parse(fs.readFileSync(plzPath, 'utf-8'))
+      : {};
+    const cantonCapitals = { TI: '6500', GR: '7000', VS: '1950', ZH: '8001', BE: '3001', SG: '9000', LU: '6003', AG: '5000', SO: '4500', BL: '4001', BS: '4001', AR: '9100', AI: '9050', GL: '8750', SH: '8200', TG: '8500', ZG: '6300', SZ: '6430', NW: '6370', OW: '6060', UR: '6460', FR: '1700', NE: '2000', JU: '2800', VD: '1003', GE: '1201' };
+    let postalFilled = 0;
+    for (const job of assembled) {
+      const loc = (job.addressLocality || job.location || '').trim();
+      if (!loc) continue;
+      const official = officialPostalCodeForLocation(loc, job.canton);
+      if (official.postalCode) {
+        if (job.postalCode !== official.postalCode) {
+          job.postalCode = official.postalCode;
+          postalFilled++;
+        }
+        continue;
       }
-      if (postalFilled > 0) {
-        writeJson(DATA_JOBS, assembled, { compact: true });
-        writeJson(PUBLIC_JOBS, assembled, { compact: true });
-        console.log(`  📮 PostalCode enrichment: filled ${postalFilled}/${assembled.length} jobs`);
-      }
+      if (official.known || job.postalCode) continue;
+      if (plz[loc]) { job.postalCode = plz[loc]; postalFilled++; continue; }
+      const parts = loc.split(/[,·\-/]/).map(s => s.trim()).filter(Boolean);
+      let found = false;
+      for (const p of parts) { if (plz[p]) { job.postalCode = plz[p]; postalFilled++; found = true; break; } }
+      if (found) continue;
+      const m = loc.match(/\b(\d{4})\b/);
+      if (m && !(Number(m[1]) >= 2020 && Number(m[1]) <= 2039)) { job.postalCode = m[1]; postalFilled++; continue; }
+      const canton = (job.canton || '').toUpperCase();
+      if (canton && cantonCapitals[canton]) { job.postalCode = cantonCapitals[canton]; postalFilled++; }
+    }
+    if (postalFilled > 0) {
+      writeJson(DATA_JOBS, assembled, { compact: true });
+      writeJson(PUBLIC_JOBS, assembled, { compact: true });
+      console.log(`  📮 PostalCode enrichment: corrected/filled ${postalFilled}/${assembled.length} jobs`);
     }
 
     // --- Quality score enrichment (persisted for frontend sorting) ---

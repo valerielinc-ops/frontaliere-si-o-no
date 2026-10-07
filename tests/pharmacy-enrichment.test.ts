@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import enrichmentConfig from '../data/pharmacy-enrichment-sources.json';
 import enrichmentSnapshot from '../data/pharmacy-enrichment.json';
-import { buildPharmacyEnrichmentSnapshot, enrichPharmacyRecords, parseItalianHours, validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from '../scripts/lib/pharmacy-enrichment.mjs';
+import { buildPharmacyEnrichmentSnapshot, enrichPharmacyRecords, extractPdfFacts, parseItalianHours, validatePharmacyEnrichmentConfig, validatePharmacyEnrichmentSnapshot } from '../scripts/lib/pharmacy-enrichment.mjs';
+import { validatePharmacyEnrichmentConfig as validateDependencyFreeConfig, validatePharmacyEnrichmentSnapshot as validateDependencyFreeSnapshot } from '../scripts/lib/pharmacy-enrichment-validation.mjs';
 import { mergePharmacyEnrichment } from '../services/pharmacies/enrichment';
 import { pharmacyById } from '../services/pharmacies/data';
 import { buildPharmacyTitle, pharmacyNameForSeo } from '../services/pharmacies/title';
@@ -24,6 +25,14 @@ const municipalityHtml = `
   </html>
 `;
 
+const atsPdfText = `
+  SEDE TERRITORIALE DI VARESE
+  ed. luglio 2025
+  COMUNE RAGIONE SOCIALE INDIRIZZO TELEFONO DESCRIZIONE DISTRETTO
+  CASCIAGO FARMACIA INTERNAZIONALE DI CASCIAGO DEL DOTT. MASSIMO DE BERNARDI & C. S.A.S.
+  VIA MATTEOTTI, 43 0332227362 VARESE
+`;
+
 function localConfig(overrides: Record<string, unknown> = {}) {
   return {
     schemaVersion: 1,
@@ -40,6 +49,8 @@ describe('pharmacy enrichment', () => {
   it('validates the checked-in registry and snapshot', () => {
     expect(validatePharmacyEnrichmentConfig(enrichmentConfig)).toEqual([]);
     expect(validatePharmacyEnrichmentSnapshot(enrichmentSnapshot)).toEqual([]);
+    expect(validateDependencyFreeConfig(enrichmentConfig)).toEqual([]);
+    expect(validateDependencyFreeSnapshot(enrichmentSnapshot)).toEqual([]);
     expect(enrichmentSnapshot.records['it-msal-3907']).toMatchObject({
       phone: '+39 0332 227362',
       contactEmail: 'farmaciadicasciago@enterpoint.it',
@@ -87,6 +98,57 @@ describe('pharmacy enrichment', () => {
 
     expect(result.records[pharmacy.id]).toEqual({ checkedAt });
     expect(result.warnings).toEqual([expect.stringContaining('page did not match it-msal-3907')]);
+  });
+
+  it('extracts only the matched phone from an allow-listed official PDF row', async () => {
+    const source = {
+      id: 'casciago-ats-insubria-2025',
+      pharmacyId: pharmacy.id,
+      kind: 'pdf',
+      url: 'https://www.ats-insubria.it/documentazione?catid=1048&id=3760&m=0&task=download.send',
+      label: 'ATS Insubria',
+      sourceType: 'official',
+      fields: ['phone'],
+      status: 'active',
+    } as const;
+    expect(extractPdfFacts(atsPdfText, pharmacy, source)).toMatchObject({
+      matched: true,
+      facts: { phone: '0332227362' },
+      sourceUpdatedAt: '2025-07-01T00:00:00.000Z',
+    });
+
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({ sources: [source] }), {
+      checkedAt,
+      fetchPdfText: async () => atsPdfText,
+    });
+    expect(result.warnings).toEqual([]);
+    expect(result.records[pharmacy.id]).toMatchObject({ phone: '0332227362' });
+    expect(result.records[pharmacy.id].externalSources).toEqual([expect.objectContaining({
+      label: 'ATS Insubria',
+      sourceType: 'official',
+      fields: ['phone'],
+      sourceUpdatedAt: '2025-07-01T00:00:00.000Z',
+    })]);
+  });
+
+  it('rejects an official PDF row that lacks the pharmacy identity anchors', async () => {
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({
+      sources: [{
+        id: 'wrong-pdf',
+        pharmacyId: pharmacy.id,
+        kind: 'pdf',
+        url: 'https://example.com/pharmacies.pdf',
+        label: 'Unrelated PDF',
+        sourceType: 'official',
+        fields: ['phone'],
+        status: 'active',
+      }],
+    }), {
+      checkedAt,
+      fetchPdfText: async () => 'CASCIAGO FARMACIA DEL BORGO VIA MATTEOTTI, 43 0332111222 VARESE',
+    });
+    expect(result.records[pharmacy.id]).toEqual({ checkedAt });
+    expect(result.warnings).toEqual([expect.stringContaining('PDF did not match it-msal-3907')]);
   });
 
   it('uses Google Places only through the authorised API adapter and excludes ratings', async () => {
@@ -194,6 +256,60 @@ describe('pharmacy enrichment', () => {
     });
     expect(JSON.stringify(result.records[pharmacy.id])).not.toContain('reviews');
     expect(result.records[pharmacy.id].externalSources).toEqual([expect.objectContaining({ sourceType: 'facebook' })]);
+  });
+
+  it('keeps a matched Facebook source as corroboration when official facts win', async () => {
+    const result = await enrichPharmacyRecords([pharmacy], localConfig({
+      providers: {
+        googlePlaces: { enabled: false, pharmacyIds: [] },
+        facebook: { enabled: true, pharmacyIds: [pharmacy.id] },
+      },
+    }), {
+      previous: {
+        records: {
+          [pharmacy.id]: {
+            checkedAt,
+            phone: '+39 0332 227362',
+            fieldSources: {
+              phone: {
+                url: enrichmentConfig.sources[0].url,
+                sourceType: 'official',
+                checkedAt,
+              },
+            },
+            externalSources: [{
+              url: enrichmentConfig.sources[0].url,
+              label: enrichmentConfig.sources[0].label,
+              sourceType: 'official',
+              checkedAt,
+              fields: ['phone'],
+              status: 'verified',
+            }],
+          },
+        },
+      },
+      checkedAt,
+      facebookPageId: 'page-3907',
+      facebookAccessToken: 'test-page-token',
+      fetchJson: async () => ({
+        name: pharmacy.name,
+        link: 'https://www.facebook.com/farmaciainternazionaledicasciago',
+        phone: '+39 0332 227362',
+        location: { city: pharmacy.city, street: pharmacy.address },
+      }),
+    });
+
+    expect(result.warnings).toEqual([]);
+    expect(result.records[pharmacy.id].phone).toBe('+39 0332 227362');
+    expect(result.records[pharmacy.id].fieldSources?.phone).toMatchObject({ sourceType: 'official' });
+    expect(result.records[pharmacy.id].externalSources).toEqual(expect.arrayContaining([
+      expect.objectContaining({ sourceType: 'official' }),
+      expect.objectContaining({
+        sourceType: 'facebook',
+        fields: ['phone'],
+        url: 'https://www.facebook.com/farmaciainternazionaledicasciago',
+      }),
+    ]));
   });
 
   it('allows an official enrichment to replace a directory value, but not the reverse', () => {

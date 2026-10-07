@@ -1,30 +1,29 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-05T09:16:29.300Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-10-07T09:18:24.216Z",
+  "total": 12,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 9,
-  "durationMs": 15629,
-  "avgDurationMs": 15629,
+  "removedCount": 0,
+  "unchangedCount": 11,
+  "durationMs": 10992,
+  "avgDurationMs": 10992,
   "durationHistory": [
-    15629
+    10992
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
-      "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
-      "slug": "responsabile-del-gruppo-di-ricerca-extension-orticoltura-agroscope-8046-zurich",
-      "url": "https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17900",
+      "title": "Hoch-/Fachhochschulpraktikant/-in: PhenoMix - Leguminosen",
+      "slug": "hoch-fachhochschulpraktikant-in-phenomix-leguminosen-agroscope-zurich",
+      "url": "https://jobs.admin.ch/posti-vacanti/hoch-fachhochschulpraktikant-in-phenomix-leguminosen/c27b9a22-e080-4459-93b1-3f7615b855b6",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20593",
       "company": "Agroscope",
       "companyKey": "agroscope",
       "companyDomain": "admin.ch",
       "location": "Zürich",
       "addressLocality": "Zürich",
+      "postalCode": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -33,34 +32,113 @@
       "sector": "Pubblica amministrazione",
       "source": "agroscope-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-25T22:00:00Z",
-      "validThrough": "2026-10-20",
+      "datePosted": "2026-10-07T08:26:19Z",
+      "postedDate": "2026-10-07T08:26:19Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "agroscope-7cdf4cd694c5",
+      "id": "agroscope-1d5f571cbf6f",
+      "needsRetranslation": true,
       "salaryMin": 95500,
       "salaryMax": 159000,
       "currency": "CHF",
-      "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "salarySource": "reported",
-      "postalCode": "8046",
-      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0",
-      "needsRetranslation": true,
-      "datePosted": "2026-08-25T22:00:00Z",
-      "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-07T09:18:10.929Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 16,
         "completeness": 22
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
+      "title": "Technische/r Mitarbeiter/in - Abwaschküche",
+      "slug": "technische-r-collaboratore-trice-abwaschkuche-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/technische-r-mitarbeiter-in-abwaschkueche/f5ff8a14-c4d8-4cdf-ac9b-a7e8e59910ad",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20553",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "1725",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-06T09:00:06Z",
+      "postedDate": "2026-10-06T09:00:06Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-08",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-61101aa18510",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-06T09:14:40.752Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Postdoktorand/-in zum Thema \"Metaboliten von Pflanzenschutzmitteln im Grundwasser\"",
+      "slug": "ricercatore-post-dottorato-sul-tema-metaboliti-dei-prodotti-per-la-protezione-delle-piante-nelle-acque-sotterranee",
+      "url": "https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-metaboliten-von-pflanzenschutzmitteln-im-grundwasser/e028e811-d953-49c3-9ecd-723157bcc123",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20580",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Wädenswil",
+      "addressLocality": "Wädenswil",
+      "postalCode": "8820",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-05T11:36:49Z",
+      "postedDate": "2026-10-05T11:36:49Z",
+      "postingDateSource": "reported",
+      "validThrough": "2026-11-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-2d8958858207",
+      "salaryMin": 95500,
+      "salaryMax": 159000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-05T21:27:52.359Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Sanitär- und Heizungstechniker/in",
-      "slug": "sanitar-e-heizungstechniker-in-agroscope-posieux",
+      "slug": "tecnico-sanitario-e-di-riscaldamento-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
       "company": "Agroscope",
@@ -68,7 +146,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -82,7 +160,6 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-7ef1058e63a6",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
@@ -91,17 +168,17 @@
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
       "datePosted": "2026-09-29T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 89,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
       "title": "Technisch-wissenschaftliche/-r Mitarbeiter/-in im Bereich Pflanzenpathologie",
-      "slug": "technisch-wissenschaftliche-r-collaboratore-trice-in-im-bereich-pflanzenpathologie-agroscope-nyon",
+      "slug": "collaboratore-trice-tecnico-scientifico-a-nel-settore-della-patologia-vegetale-agroscope-nyon",
       "url": "https://jobs.admin.ch/posti-vacanti/technisch-wissenschaftliche-r-mitarbeiter-in-im-bereich-pflanzenpathologie/d5204047-e4d2-401a-891e-c8cbb0667ea9",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20395",
       "company": "Agroscope",
@@ -109,7 +186,7 @@
       "companyDomain": "admin.ch",
       "location": "Nyon",
       "addressLocality": "Nyon",
-      "postalCode": "",
+      "postalCode": "1260",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "canton": "VD",
@@ -128,21 +205,20 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/technisch-wissenschaftliche-r-mitarbeiter-in-im-bereich-pflanzenpathologie/d5204047-e4d2-401a-891e-c8cbb0667ea9",
       "datePosted": "2026-09-25T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
       "title": "Leiter/in Forschungsgruppe Klima und Landwirtschaft",
-      "slug": "responsabile-forschungsgruppe-klima-e-landwirtschaft-agroscope-zurich-geplant-arbeitsort-ab-2028-posieux",
+      "slug": "responsabile-del-gruppo-di-ricerca-sul-clima-e-l-agricoltura-agroscope-zurich-geplant-arbeitsort-ab-2028-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20374",
       "company": "Agroscope",
@@ -150,7 +226,7 @@
       "companyDomain": "admin.ch",
       "location": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
       "addressLocality": "Zürich, Geplant Arbeitsort ab 2028 : Posieux",
-      "postalCode": "",
+      "postalCode": "8001",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "canton": "ZH",
@@ -169,16 +245,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
       "datePosted": "2026-09-22T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -209,17 +284,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
-      "postalCode": "",
+      "postalCode": "8001",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-entscheidungsunterstuetzung-landwirtschaftliches-wassermanagement/8956961b-b686-4d77-986d-0912616e26df",
-      "needsRetranslation": true,
       "datePosted": "2026-09-15T14:24:35Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -250,17 +324,16 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
-      "postalCode": "",
+      "postalCode": "1260",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-zu-wertschoepfungsketten-fuer-huelsenfruechte-in-der-schweiz/f81977d9-6003-49d6-84ba-8397a36e8d31",
-      "needsRetranslation": true,
       "datePosted": "2026-09-14T12:54:23Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -293,20 +366,19 @@
       "firstSeenAt": "2026-09-11T13:34:01.138Z",
       "postalCode": "8356",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-modellbasierte-bewertung-von-ernaehrungssystemen/e5aa02a8-7175-48a9-bfab-c308bfdca70b",
-      "needsRetranslation": true,
       "datePosted": "2026-09-11T12:05:25Z",
       "postingDateSource": "reported",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
     {
       "title": "Wissenschaftlicher Mitarbeiter/-in im Bereich Graslandsysteme",
-      "slug": "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux",
+      "slug": "collaboratore-trice-scientifico-a-nel-settore-dei-sistemi-erbosi-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20283",
       "company": "Agroscope",
@@ -314,7 +386,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -333,16 +405,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-23T23:34:58.444Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
       "datePosted": "2026-09-20T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -355,7 +426,7 @@
       "companyDomain": "admin.ch",
       "location": "Posieux",
       "addressLocality": "Posieux",
-      "postalCode": "",
+      "postalCode": "1725",
       "addressRegion": "FR",
       "addressCountry": "CH",
       "canton": "FR",
@@ -374,16 +445,15 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-09T13:44:14.822Z",
-      "needsRetranslation": true,
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
       "datePosted": "2026-09-09T08:05:21Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -414,19 +484,18 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-04T13:27:18.232Z",
-      "postalCode": "",
+      "postalCode": "8820",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/1b44425b-ad7c-4a43-9795-972b21b47f66",
-      "needsRetranslation": true,
       "datePosted": "2026-09-03T22:00:00Z",
       "postingDateSource": "reported",
-      "_qualityScore": 87,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 19
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

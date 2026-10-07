@@ -355,11 +355,15 @@ export function renderPeerComparison(params: {
   const tableRows = peerWindow(ranked, currentKey, windowSize)
     .map((row) => {
       const isCurrent = row.key === currentKey;
+      // The first column is a value under the table's "peer" column header,
+      // so it must stay a data cell. Using row-header <th> cells here leaves
+      // that column without any associated <td> values for automated and
+      // assistive-table checks (a11y/th-has-data-cells).
       const nameCell = isCurrent
-        ? `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></th>`
+        ? `<td class="px-3 py-2 text-left font-semibold text-heading">${esc(row.name)} <span class="font-normal text-muted">(${esc(COPY.thisPage[locale])})</span></td>`
         : row.href
-          ? `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></th>`
-          : `<th scope="row" role="rowheader" class="px-3 py-2 text-left font-normal">${esc(row.name)}</th>`;
+          ? `<td class="px-3 py-2 text-left font-normal"><a class="font-semibold text-accent hover:underline" href="${esc(row.href)}">${esc(row.name)}</a></td>`
+          : `<td class="px-3 py-2 text-left font-normal">${esc(row.name)}</td>`;
       return `<tr role="row" class="${isCurrent ? 'bg-surface-raised' : ''}">${nameCell}<td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(String(row.rank))}</td><td role="cell" class="px-3 py-2 text-right tabular-nums">${esc(formatValue(row.value, locale))}</td></tr>`;
     })
     .join('\n            ');

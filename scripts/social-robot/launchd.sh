@@ -38,10 +38,12 @@ sa_file=${SR_SERVICE_ACCOUNT:-$home_dir/.config/frontaliere/sa-frontaliere-ticin
 windows=${SR_WINDOWS:-11:30 18:30}
 max_log_lines=4000
 
-# The robot's import closure, extracted from origin/main for every run.
+# The robot's import closure, extracted from the destination SHA's launcher
+# for every run. The installed copy can be one run behind while it refreshes.
 # tests/social-robot.test.ts checks that it covers every relative import of
 # run.mjs and of the loader, so a new import cannot silently break the Mac host.
-snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+snapshot_paths="scripts/social-robot scripts/lib/social-publish-queue.mjs scripts/lib/social-carousel-video.mjs scripts/lib/github-issue-creator.mjs scripts/load-rc-env.mjs scripts/lib/google-service-account-token.mjs"
+social_robot_issue_title='Social robot Mac host failure'
 
 script_dir=$(CDPATH="" cd -- "$(dirname -- "$0")" && pwd -P) || exit 1
 site=${SR_SITE_REPO:-$(CDPATH="" cd -- "$script_dir/../.." && pwd -P)}
@@ -63,21 +65,69 @@ g() {
   git -C "$site" "$@"
 }
 
+snapshot_paths_for_sha() {
+  sha=$1
+  destination_launcher=$(g show "${sha}:scripts/social-robot/launchd.sh" 2>/dev/null) || return 1
+  destination_paths=$(printf '%s\n' "$destination_launcher" | /usr/bin/sed -n 's/^snapshot_paths="\([^"]*\)"$/\1/p' | /usr/bin/head -n 1)
+  [ -n "$destination_paths" ] || return 1
+  printf '%s\n' "$destination_paths"
+}
+
+verify_snapshot() {
+  snapshot_root=$1
+  node "$snapshot_root/scripts/social-robot/verify-snapshot.mjs" "$snapshot_root"
+}
+
+alarm_issue() {
+  errors=''
+  if [ -f "$log_file" ]; then
+    errors=$(
+      /usr/bin/tail -n 80 "$log_file" |
+        /usr/bin/grep -E -i 'error|failed|failure|exception|fatal|cannot|not found|missing|exit [1-9]' |
+        /usr/bin/sed -E \
+          -e 's#/(Users|home)/[^/ ]+#~#g' \
+          -e 's/([A-Za-z0-9_]*(TOKEN|SECRET|PASSWORD|PRIVATE_KEY|API_KEY)[A-Za-z0-9_]*[=:])[^[:space:]]*/\1[REDACTED]/g' \
+          -e 's/(Bearer[[:space:]]+)[^[:space:]]+/\1[REDACTED]/g' |
+        /usr/bin/cut -c1-400 || true
+    )
+  fi
+  [ -n "$errors" ] || errors='(no error lines captured)'
+  repo=${GH_REPO:-valerielinc-ops/frontaliere-si-o-no}
+  body=$(printf 'Mac host social robot failure.\n\nError lines from the local log:\n%s' "$errors")
+  issue_number=$(
+    gh issue list --repo "$repo" --state open --search "\"$social_robot_issue_title\" in:title" --limit 1 --json number --jq '.[0].number' 2>/dev/null
+  ) || issue_number=''
+  if [ -n "$issue_number" ]; then
+    gh issue comment "$issue_number" --repo "$repo" --body "$body" >/dev/null 2>&1 || true
+  else
+    gh issue create --repo "$repo" --title "$social_robot_issue_title" --body "$body" >/dev/null 2>&1 || true
+  fi
+  return 0
+}
+
 # Extract the robot of origin/main into $state_dir/runner/<sha>; print its path.
 snapshot() {
   sha=$1
   runner_root="$state_dir/runner"
   dest="$runner_root/$sha"
-  if [ ! -f "$dest/scripts/social-robot/run.mjs" ]; then
+  marker="$dest/.snapshot-verified"
+  if [ ! -f "$dest/scripts/social-robot/run.mjs" ] || [ ! -f "$dest/scripts/load-rc-env.mjs" ] || [ ! -f "$marker" ]; then
+    destination_snapshot_paths=$(snapshot_paths_for_sha "$sha") || return 1
     /bin/mkdir -p "$runner_root" || return 1
     tmp="$runner_root/.tmp-$sha-$$"
-    /bin/rm -rf "$tmp" && /bin/mkdir -p "$tmp" || return 1
+    /bin/rm -rf "$tmp" "$dest" && /bin/mkdir -p "$tmp" || return 1
     # shellcheck disable=SC2086 # snapshot_paths is a word list by design
-    if ! g archive --format=tar "$sha" -- $snapshot_paths | /usr/bin/tar -x -C "$tmp"; then
+    if ! g archive --format=tar "$sha" -- $destination_snapshot_paths | /usr/bin/tar -x -C "$tmp"; then
       /bin/rm -rf "$tmp"
       return 1
     fi
-    /bin/rm -rf "$dest" && /bin/mv "$tmp" "$dest" || return 1
+    if ! verification_output=$(verify_snapshot "$tmp" 2>&1); then
+      log "snapshot verification failed for ${sha:0:8}: $(printf '%s' "$verification_output" | /usr/bin/tr '\n' ' ' | /usr/bin/cut -c1-300)"
+      /bin/rm -rf "$tmp" "$dest"
+      return 1
+    fi
+    printf '%s\n' "$sha" >"$tmp/.snapshot-verified" || { /bin/rm -rf "$tmp" "$dest"; return 1; }
+    /bin/mv "$tmp" "$dest" || { /bin/rm -rf "$tmp" "$dest"; return 1; }
   fi
   /bin/ln -sfn "$site/node_modules" "$dest/node_modules"
   # launchd runs the copy in the state folder, never the checkout's working
@@ -113,12 +163,14 @@ cmd_run() {
   fi
   ref=${SR_REF:-origin/main} # SR_REF: another commit, only to try a branch by hand
   sha=$(g rev-parse --verify -q "$ref^{commit}") || { log "$ref unknown in $site: nothing run"; return 0; }
-  runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; return 0; }
+  runner=$(snapshot "$sha") || { log "snapshot of ${sha:0:8} failed: nothing run"; alarm_issue; trim_log; return 0; }
   mode=$(rc_mode "$runner")
   log "run ${sha:0:8} SOCIAL_ROBOT_MODE=${mode:-<absent>}"
+  run_status=0
   SOCIAL_ROBOT_MODE="$mode" SOCIAL_ROBOT_SITE_REPO="$site" SOCIAL_ROBOT_STATE_DIR="$state_dir" GH_REPO=valerielinc-ops/frontaliere-si-o-no \
-    node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1
-  log "exit $?"
+    node "$runner/scripts/social-robot/run.mjs" --publish --jitter >>"$log_file" 2>&1 || run_status=$?
+  log "exit $run_status"
+  [ "$run_status" -eq 0 ] || alarm_issue
   trim_log
   return 0
 }

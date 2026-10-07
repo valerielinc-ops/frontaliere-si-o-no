@@ -54,8 +54,10 @@ export const CDN_OFFLOADED_IMAGE_PREFIXES = [
   '/images/logos/',
   '/images/authors/',
   '/images/publisher/',
-  // Nationwide events feature (issue #3125): mirrored source images written by
-  // scripts/lib/events-utils.mjs mirrorEventImage() to public/images/events/.
+  // Event bytes are published additively by the crawler/library uploaders.
+  // The image-policy gate, not this transport prefix, decides which source
+  // paths may enter the public dataset; this preserves admitted OpenAgenda
+  // mirrors alongside catalog and generated library assets.
   '/images/events/',
 ] as const;
 

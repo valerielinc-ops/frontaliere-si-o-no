@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Guard on the Google Cloud usage that becomes the bill. Runs every 6 hours
  * (Cloud Scheduler, see functions/src/gcpCostMonitorDispatch.js) over a
@@ -20,11 +21,11 @@
  * Usage: node scripts/monitor-gcp-costs.mjs [--dry-run]
  */
 import { appendFileSync, readFileSync } from 'node:fs';
-import { pathToFileURL } from 'node:url';
 import { getServiceAccountAccessToken } from './lib/google-service-account-token.mjs';
 
 export const GCP_COST_ISSUE_TITLE = 'Costi GCP sopra la soglia giornaliera (monitor-gcp-costs)';
 export const GCP_PROJECT_ID = 'frontaliere-ticino';
+export const FIRESTORE_READ_ATTRIBUTION_METRIC = 'custom.googleapis.com/firestore/reads_by_caller';
 const MONITORING_SCOPE = 'https://www.googleapis.com/auth/monitoring.read';
 const MONITORING_API = 'https://monitoring.googleapis.com/v3';
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -183,8 +184,38 @@ export function formatAmount(value, unit) {
   return Math.round(value).toLocaleString('it-CH');
 }
 
+function markdownSafe(value) {
+  return String(value).replace(/[|`\r\n]/g, '_');
+}
+
+function renderFirestoreReadAttribution(lines, evaluation, { firestoreAttribution, totalFirestoreReads } = {}) {
+  const readsRow = evaluation.rows.find((row) => row.driver.key === 'firestore-reads');
+  if (readsRow?.status !== 'over') return;
+
+  const total = Number.isFinite(totalFirestoreReads) ? totalFirestoreReads : readsRow.value;
+  const attributed = Number.isFinite(firestoreAttribution?.attributed) ? firestoreAttribution.attributed : 0;
+  const unallocated = Math.max(0, total - attributed);
+  const callers = firestoreAttribution?.callers || [];
+  const callerText = callers.length
+    ? callers.map((item) => `\`${markdownSafe(item.name)}\` ${formatAmount(item.value, 'count')}`).join(', ')
+    : 'nessun chiamante nella metrica';
+  lines.push(
+    '',
+    `**Attribuzione letture Firestore, primi 5 chiamanti:** ${callerText}.`,
+    `**Quota non attribuita:** ${formatAmount(unallocated, 'count')} (totale ${formatAmount(total, 'count')} meno attribuito ${formatAmount(attributed, 'count')}); comprende chiamanti fuori contabilità, per esempio Cloud Functions o browser.`,
+  );
+  if (firestoreAttribution?.unavailable) {
+    lines.push('La metrica custom non era leggibile in questa finestra: tutta la quota resta quindi non attribuita.');
+  }
+}
+
 /** Markdown report used for the step summary and as the issue body. */
-export function renderCostReport(evaluation, { windowEnd, runUrl } = {}) {
+export function renderCostReport(evaluation, {
+  windowEnd,
+  runUrl,
+  firestoreAttribution,
+  totalFirestoreReads,
+} = {}) {
   const lines = [
     `Finestra: 24 h fino a ${windowEnd || 'adesso'} (Cloud Monitoring, progetto \`${GCP_PROJECT_ID}\`).`,
     '',
@@ -201,9 +232,11 @@ export function renderCostReport(evaluation, { windowEnd, runUrl } = {}) {
     if (!row.breakdown.length) continue;
     lines.push('', `**${row.driver.label}, primi contributori:** ${row.breakdown.map((item) => `\`${item.name}\` ${formatAmount(item.value, row.driver.unit)}`).join(', ')}`);
   }
-  // Firestore cannot name its callers (no Data Access audit logs). Rank by
-  // work, not by calls: on 2026-10-01 getplateauctions made ~6'000 calls, out
-  // of the top five by count, yet led instance time 24'174 s to 3'085 s.
+  renderFirestoreReadAttribution(lines, evaluation, { firestoreAttribution, totalFirestoreReads });
+
+  // Rank Cloud Run services by work, not by calls: on 2026-10-01
+  // getplateauctions made ~6'000 calls, out of the top five by count, yet led
+  // instance time 24'174 s to 3'085 s.
   const instanceTime = evaluation.rows.find((row) => row.driver.key === 'cloud-run-instance-time');
   if (instanceTime?.breakdown.length && evaluation.breaches.some((row) => row.driver.key.startsWith('firestore-'))) {
     lines.push('', `**Servizi Cloud Run con più tempo istanza nelle 24 h:** ${instanceTime.breakdown.map((item) => `\`${item.name}\` ${formatAmount(item.value, 'seconds')}`).join(', ')}`);
@@ -211,7 +244,7 @@ export function renderCostReport(evaluation, { windowEnd, runUrl } = {}) {
   if (evaluation.breaches.length) {
     lines.push(
       '',
-      '**1-CAUSA (ipotesi):** un servizio chiamato molto più del normale, o un lavoro che rilegge/riscrive una collection intera. Le letture Firestore non sono attribuibili per chiamante (i Data Access audit log sono spenti): confronta l\'andamento orario con `run.googleapis.com/request_count` per `service_name`; il servizio che segue la curva è il candidato.',
+      '**1-CAUSA (ipotesi):** un servizio chiamato molto più del normale, un lavoro che rilegge/riscrive una collection intera, oppure letture di chiamanti fuori contabilità. La quota non attribuita comprende per esempio Cloud Functions o browser; i Data Access audit log sono spenti. Confronta l\'andamento orario con `run.googleapis.com/request_count` per `service_name`; il servizio che segue la curva è il candidato.',
       `**3-METRICA:** soglie e valori nella tabella. Comando: \`node scripts/monitor-gcp-costs.mjs --dry-run\` con \`FIREBASE_SERVICE_ACCOUNT_JSON\`.`,
       '**4-OSSERVATORE:** questo monitor gira ogni 6 ore e chiude la issue da solo quando tutte le voci rientrano.',
       '**Precedente:** settembre 2026, `getPlateAuctions` da 75-90 M letture/giorno (PR #10800).',
@@ -268,6 +301,24 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
   return series;
 }
 
+/** Read script-side Firestore attribution only when the total reads breach. */
+export async function measureFirestoreReadAttribution({ fetchImpl = fetch, token, start, end }) {
+  const series = await listTimeSeries(fetchImpl, token, {
+    metric: FIRESTORE_READ_ATTRIBUTION_METRIC,
+    start,
+    end,
+    alignmentSeconds: DAY_MS / 1000,
+    aligner: 'ALIGN_SUM',
+    reducer: 'REDUCE_SUM',
+    groupBy: ['metric.label.caller'],
+  });
+  const attributed = sumSeries(series);
+  return {
+    callers: breakdownSeries(series, 'metric.label.caller', 5),
+    attributed: Number.isFinite(attributed) ? attributed : 0,
+  };
+}
+
 /** Measure every driver over the 24 hours ending at `now`. */
 export async function measureCostDrivers({ fetchImpl = fetch, token, now = new Date() }) {
   const end = new Date(now.getTime());
@@ -299,7 +350,7 @@ export async function measureCostDrivers({ fetchImpl = fetch, token, now = new D
   });
   const growth = dailyGrowth(storage);
   measurements[STORAGE_DRIVER.key] = { value: growth.perDay, level: growth.level };
-  return { measurements, windowEnd: end.toISOString() };
+  return { measurements, windowStart: start.toISOString(), windowEnd: end.toISOString() };
 }
 
 async function main(argv = process.argv.slice(2)) {
@@ -307,12 +358,31 @@ async function main(argv = process.argv.slice(2)) {
   const credentials = await readCredentials();
   if (!credentials) throw new Error('FIREBASE_SERVICE_ACCOUNT_JSON is missing or is not a service account JSON');
   const token = await getServiceAccountAccessToken(credentials, MONITORING_SCOPE);
-  const { measurements, windowEnd } = await measureCostDrivers({ token });
+  const { measurements, windowStart, windowEnd } = await measureCostDrivers({ token });
   const evaluation = evaluateCostDrivers(measurements);
+  let firestoreAttribution = null;
+  const firestoreReads = evaluation.rows.find((row) => row.driver.key === 'firestore-reads');
+  if (firestoreReads?.status === 'over') {
+    try {
+      firestoreAttribution = await measureFirestoreReadAttribution({
+        token,
+        start: new Date(windowStart),
+        end: new Date(windowEnd),
+      });
+    } catch (error) {
+      console.warn(`[monitor-gcp-costs] Firestore caller metric unavailable: ${error instanceof Error ? error.message : String(error)}`);
+      firestoreAttribution = { callers: [], attributed: 0, unavailable: true };
+    }
+  }
   const runUrl = process.env.GITHUB_RUN_ID
     ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
     : undefined;
-  const report = renderCostReport(evaluation, { windowEnd, runUrl });
+  const report = renderCostReport(evaluation, {
+    windowEnd,
+    runUrl,
+    firestoreAttribution,
+    totalFirestoreReads: firestoreReads?.value,
+  });
   console.log(report);
   if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Costi GCP\n\n${report}\n`);
   if (evaluation.missing.length) {
@@ -330,7 +400,7 @@ async function main(argv = process.argv.slice(2)) {
   }
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error(`[monitor-gcp-costs] ${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);

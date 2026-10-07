@@ -341,18 +341,17 @@ describe('the decision is actually WIRED into the close path', () => {
     expect(branch).not.toContain('resolveGithubIssue(');
   });
 
-  it('comments are fetched lazily, inside the green branch only', () => {
+  it('comments are fetched lazily, for branch evidence or the recovered decision', () => {
     // Fetching for all 300 open issues on every pass would be the same reconciler with a
-    // 300x API bill. The call must sit behind the green/afterFailure gate, which is
-    // now classifyDecidingRun() === 'recovered' — and it must be the ONLY call. Only the
-    // structure is asserted here (one call, after the classification); that the fetch
-    // really happens for recovered issues alone is proved by behaviour, with a fake `gh`,
-    // in tests/close-recovered-decision.test.ts.
+    // 300x API bill. The two legitimate reads are the branch/PR fallback (which needs the
+    // failure scope) and the recovered decision (which needs the structural/chronic gates).
+    // Neither read runs on a normal red or pre-issue-green path; behaviour is pinned with
+    // a fake `gh` in tests/close-recovered-decision.test.ts.
     const classify = mainBody.indexOf('classifyDecidingRun(');
     const fetch = mainBody.indexOf('fetchIssueComments(');
     expect(classify).toBeGreaterThan(-1);
-    expect(fetch).toBeGreaterThan(classify);
-    expect(mainBody.split('fetchIssueComments(').length - 1).toBe(1);
+    expect(fetch).toBeGreaterThan(-1);
+    expect(mainBody.split('fetchIssueComments(').length - 1).toBe(2);
   });
 });
 

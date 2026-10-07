@@ -26,7 +26,8 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
-import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats, logCascadeSummary } from './lib/free-translate.mjs';
+import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isAcceptableTranslation, MIN_TRANSLATION_CHARS } from './lib/translation-quality.mjs';
 import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -195,5 +196,6 @@ const isMainModule =
   process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMainModule) {
+  installCodexReserveReport('2e-descriptions', () => ({ codex: getCodexTierStats(), cascade: getCascadeStats() }));
   main().catch(err => { console.error('❌', err.message); process.exit(1); });
 }

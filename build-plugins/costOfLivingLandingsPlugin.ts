@@ -563,7 +563,10 @@ function renderPage(opts: {
     </section>`;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</main>`;
+  // `buildSeoPageHtml` supplies the page's single outer `<main>`. Keep the
+  // static landing content on a neutral wrapper so the SEO shell does not
+  // emit nested main landmarks (a11y/landmark-regions).
+  const bodyHtml = `<div class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS, contentHtml: body })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,

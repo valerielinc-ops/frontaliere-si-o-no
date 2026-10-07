@@ -41,6 +41,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { readAttr, scanStartTags } from '../lib/html-attr.mjs';
 
 const distDir = path.resolve(process.argv[2] || 'dist');
 const rawLocale = (process.env.BUILD_LOCALE || '').trim().toLowerCase();
@@ -174,6 +175,13 @@ for (const loc of ALL) {
   }
 }
 
+/** Read real alternate links, including HTML5-safe unquoted minifier output. */
+function alternateLocales(markup, tagName = 'link') {
+  return new Set(scanStartTags(markup, tagName)
+    .filter(({ raw }) => readAttr(raw, 'rel') === 'alternate' && readAttr(raw, 'href').trim())
+    .map(({ raw }) => readAttr(raw, 'hreflang')));
+}
+
 // (3) hreflang completeness on a sampled page from each emitted locale
 for (const loc of emit) {
   const sample = samples[loc];
@@ -182,8 +190,9 @@ for (const loc of emit) {
   }
   const html = fs.readFileSync(sample, 'utf-8');
   const rel = path.relative(distDir, sample);
-  const missing = ALL.filter((l) => !new RegExp(`hreflang=["']${l}["']`).test(html));
-  const hasXDefault = /hreflang=["']x-default["']/.test(html);
+  const alternates = alternateLocales(html);
+  const missing = ALL.filter((l) => !alternates.has(l));
+  const hasXDefault = alternates.has('x-default');
   if (missing.length || !hasXDefault) {
     errors.push(
       `sample ${rel} (locale ${loc}) has incomplete hreflang: ` +
@@ -212,7 +221,8 @@ if (emit.includes('it')) {
     console.log('ℹ (4) no root sitemap with xhtml:link alternates found — skipping sitemap-completeness check');
   } else {
     const xml = fs.readFileSync(smWithAlts, 'utf-8');
-    const missingSm = ALL.filter((l) => !new RegExp(`hreflang=["']${l}["']`).test(xml));
+    const alternates = alternateLocales(xml, 'xhtml:link');
+    const missingSm = ALL.filter((l) => !alternates.has(l));
     if (missingSm.length) {
       errors.push(`root sitemap ${path.basename(smWithAlts)} missing cross-locale alternates for [${missingSm.join(', ')}] — shard build dropped sibling-locale sitemap entries`);
     } else {

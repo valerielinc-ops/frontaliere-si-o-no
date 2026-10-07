@@ -55,11 +55,11 @@
  * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
  * requests bypass this Worker entirely.
  *
- *   /rss-en.xml, /sitemap-*  -> tiny root files kept in the main repo (passthrough)
- *   EXCEPT the handful of exact paths in EDGE_PUSHED_FILES below (issue #4881
- *   Fase 3) — these are served from a pushable R2 origin when a fresher copy
- *   has been PUT there by the fast-publish path, falling open to the same
- *   passthrough above on any miss/error.
+ *   /rss-en.xml, standard /sitemap-* -> tiny root files kept in the main repo
+ *   (passthrough), EXCEPT the handful of exact paths in EDGE_PUSHED_FILES below
+ *   (issue #4881 Fase 3), served from a pushable R2 origin when a fresher copy
+ *   has been PUT there by the fast-publish path. Canton sitemaps are separate:
+ *   their versioned release key comes from edge/sections/registry.json.
  */
 
 // Named export for the same reason SECTION_ROUTES below carries one: the
@@ -1604,6 +1604,9 @@ export const CORPUS_SECTION_STATUSES = Object.freeze(['live', 'draft', 'retired'
 // corpus commit, and it must reach the edge in about a minute, not in hours.
 export const CORPUS_REGISTRY_TTL_MS = 60_000;
 const CORPUS_REGISTRY_CDN_TTL = 60;
+export const CORPUS_RELEASE_CACHE_CONTROL =
+  `public, max-age=${CORPUS_REGISTRY_CDN_TTL}, s-maxage=${CORPUS_REGISTRY_CDN_TTL}`;
+const CORPUS_RELEASE_EDGE_FETCH_CF = cacheEverythingWithout5xx(CORPUS_REGISTRY_CDN_TTL);
 // After a FAILED refresh the last-known-good copy keeps serving and the next
 // attempt waits this long, so an R2 outage is not one extra subrequest per
 // request.
@@ -1632,6 +1635,9 @@ const CORPUS_SEGMENT_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const CORPUS_MAX_SEGMENTS = 4;
 const CORPUS_MAX_PATH_LENGTH = 512;
 const CORPUS_COMMIT_RE = /^[0-9a-f]{7,40}$/;
+const CORPUS_RELEASE_BASE_PREFIX = 'edge/sections/_releases/';
+const CORPUS_RELEASE_BASE_RE = /^edge\/sections\/_releases\/[0-9a-f]{7,40}\/$/;
+const CORPUS_RELEASE_SHA256_RE = /^[0-9a-f]{64}$/;
 
 /**
  * The canonical directory form of a corpus section path, or null when the path
@@ -1691,6 +1697,48 @@ function isPlainObject(value) {
 }
 
 /**
+ * Validate and normalise the D20 versioned release pointer. The file names
+ * are only looked up from the closed sitemap route table below; the manifest
+ * can therefore carry additional attestations without giving the Worker a
+ * second path-building surface.
+ */
+export function parseCorpusSectionRelease(raw) {
+  if (!isPlainObject(raw)) return null;
+  if (typeof raw.commit !== 'string' || !CORPUS_COMMIT_RE.test(raw.commit)) return null;
+  const expectedBase = `${CORPUS_RELEASE_BASE_PREFIX}${raw.commit}/`;
+  if (
+    typeof raw.base !== 'string' ||
+    raw.base !== expectedBase ||
+    !raw.base.startsWith(CORPUS_RELEASE_BASE_PREFIX) ||
+    raw.base.includes('..') ||
+    !CORPUS_RELEASE_BASE_RE.test(raw.base)
+  ) {
+    return null;
+  }
+  if (!isPlainObject(raw.files)) return null;
+
+  const files = Object.create(null);
+  for (const [name, metadata] of Object.entries(raw.files)) {
+    if (
+      !isPlainObject(metadata) ||
+      typeof metadata.sha256 !== 'string' ||
+      !CORPUS_RELEASE_SHA256_RE.test(metadata.sha256) ||
+      !Number.isSafeInteger(metadata.bytes) ||
+      metadata.bytes < 0
+    ) {
+      return null;
+    }
+    files[name] = Object.freeze({ sha256: metadata.sha256, bytes: metadata.bytes });
+  }
+
+  return Object.freeze({
+    commit: raw.commit,
+    base: raw.base,
+    files: Object.freeze(files),
+  });
+}
+
+/**
  * Validate and normalise `edge/sections/registry.json`. Returns the frozen
  * registry, or null when ANYTHING in it is off — a half-trusted registry is
  * worse than none, because "none" is the fail-closed state.
@@ -1700,6 +1748,11 @@ function isPlainObject(value) {
  *   {
  *     "schema": 1,
  *     "commit": "<corpus commit sha, 7-40 hex>",
+ *     "release": {
+ *       "commit": "<release sha, 7-40 hex>",
+ *       "base": "edge/sections/_releases/<release sha>/",
+ *       "files": { "sitemap-cantons.xml": { "sha256": "<64 hex>", "bytes": 123 } }
+ *     },
  *     "sections": {
  *       "canton-ti": {
  *         "status": "live" | "draft" | "retired",
@@ -1718,6 +1771,12 @@ export function parseCorpusSectionRegistry(raw) {
   if (!isPlainObject(raw) || raw.schema !== 1) return null;
   if (typeof raw.commit !== 'string' || !CORPUS_COMMIT_RE.test(raw.commit)) return null;
   if (!isPlainObject(raw.sections)) return null;
+  // `release` is optional for backwards compatibility with the HTML section
+  // contract. Sitemaps require a valid release below; an invalid explicit
+  // pointer rejects this refresh so loadCorpusSectionRegistry can retain the
+  // last-known-good registry, including its release.
+  const release = raw.release === undefined ? null : parseCorpusSectionRelease(raw.release);
+  if (raw.release !== undefined && !release) return null;
   const sections = {};
   for (const [id, entry] of Object.entries(raw.sections)) {
     if (!Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, id)) return null;
@@ -1748,7 +1807,7 @@ export function parseCorpusSectionRegistry(raw) {
     sections[id] = Object.freeze({ status: entry.status, redirects, gone });
   }
   if (hasRedirectCycle(sections)) return null;
-  return Object.freeze({ commit: raw.commit, sections: Object.freeze(sections) });
+  return Object.freeze({ commit: raw.commit, sections: Object.freeze(sections), release });
 }
 
 // Isolate-global memo. `value` is the last-known-good registry: it survives a
@@ -1956,8 +2015,8 @@ export async function serveCorpusSection(request, url, ctx) {
 // the pages. EDGE_PUSHED_FILES is exact-path by design; these follow ONE rule,
 // validated against the closed set, so a new canton needs no entry here:
 //
-//   /sitemap-cantons.xml               → edge/sitemap-cantons.xml (index, in robots.txt)
-//   /sitemap-articles-<canton-id>.xml  → edge/sitemap-articles-<canton-id>.xml
+//   /sitemap-cantons.xml               → release.base + sitemap-cantons.xml
+//   /sitemap-articles-<canton-id>.xml  → release.base + sitemap-articles-<canton-id>.xml
 //
 // A per-section sitemap is served only while that section is `live` (same
 // fail-closed rule as its pages). Not published yet → a plain 404 with a short
@@ -1968,16 +2027,22 @@ export async function serveCorpusSection(request, url, ctx) {
 export const CORPUS_SITEMAP_INDEX_PATH = '/sitemap-cantons.xml';
 const CORPUS_SECTION_SITEMAP_RE = /^\/sitemap-articles-(canton-[a-z]+)\.xml$/;
 
-/** `{ cdnKey, section }` for a corpus sitemap path, or null for any other path. */
+/** `{ name, section }` for a corpus sitemap path, or null for any other path. */
 export function corpusEdgeFileForPath(pathname) {
   if (pathname === CORPUS_SITEMAP_INDEX_PATH) {
-    return { cdnKey: '/edge/sitemap-cantons.xml', section: null };
+    return { name: 'sitemap-cantons.xml', section: null };
   }
   const m = CORPUS_SECTION_SITEMAP_RE.exec(pathname);
   if (m && Object.prototype.hasOwnProperty.call(CORPUS_CANTON_SECTION_SLUGS, m[1])) {
-    return { cdnKey: `/edge/sitemap-articles-${m[1]}.xml`, section: m[1] };
+    return { name: `sitemap-articles-${m[1]}.xml`, section: m[1] };
   }
   return null;
+}
+
+function corpusReleaseCdnKey(registry, name) {
+  const release = registry?.release;
+  if (!release || !Object.prototype.hasOwnProperty.call(release.files, name)) return null;
+  return `/${release.base}${name}`;
 }
 
 function corpusSitemapNotFound(request) {
@@ -1996,16 +2061,19 @@ export async function serveCorpusEdgeFile(request, url) {
   const file = corpusEdgeFileForPath(url.pathname);
   if (!file) return null;
   if (request.method !== 'GET' && request.method !== 'HEAD') return null;
+  const registry = await loadCorpusSectionRegistry();
+  if (!registry) return corpusSitemapNotFound(request);
   if (file.section) {
-    const registry = await loadCorpusSectionRegistry();
     if (registry?.sections[file.section]?.status !== 'live') return corpusSitemapNotFound(request);
   }
+  const cdnKey = corpusReleaseCdnKey(registry, file.name);
+  if (!cdnKey) return corpusSitemapNotFound(request);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), CORPUS_EDGE_FETCH_TIMEOUT_MS);
   try {
-    const resp = await fetch(new URL(file.cdnKey, CDN_BASE).toString(), {
+    const resp = await fetch(new URL(cdnKey, CDN_BASE).toString(), {
       signal: controller.signal,
-      cf: CORPUS_EDGE_FETCH_CF,
+      cf: CORPUS_RELEASE_EDGE_FETCH_CF,
     });
     if (resp.status >= 500) throw new Error(`edge ${resp.status}`);
     if (!resp.ok) return corpusSitemapNotFound(request);
@@ -2014,7 +2082,7 @@ export async function serveCorpusEdgeFile(request, url) {
       status: 200,
       headers: {
         'Content-Type': 'application/xml; charset=utf-8',
-        'Cache-Control': `public, max-age=${EDGE_PUSHED_CACHE_TTL}`,
+        'Cache-Control': CORPUS_RELEASE_CACHE_CONTROL,
       },
     });
   } catch {

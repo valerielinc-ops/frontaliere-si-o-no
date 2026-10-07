@@ -44,6 +44,7 @@ const ADMIN_DATA_FILES = [
  */
 const RUNTIME_DATA_FILES = [
  'data/job-popularity.json',
+ 'data/image-credits-blog.json',
 ];
 
 /** Every file this plugin copies, in one list for the copy loop + dev middleware. */

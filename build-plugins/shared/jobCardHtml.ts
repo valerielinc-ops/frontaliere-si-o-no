@@ -376,7 +376,11 @@ export function renderJobCardHtml(
   // ≈ ~25 MB on the dist artifact.
   const relativeHref = href.replace(/^https:\/\/frontaliereticino\.ch/, '');
 
-  return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h3 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h3><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
+ // Job cards are direct children of the page's listing sections on many SEO
+ // landings. Use h2 so a card title never skips from the page h1 to h3 when
+ // the listing has no separate section heading; the class keeps the visual
+ // treatment unchanged wherever the card is reused.
+ return `<article class="${articleClasses}"><a href="${escHtml(relativeHref)}" class="jc-link"><div class="jc-row">${renderLogoSlot(job, logoSrc)}<div class="jc-meta"><h2 class="jc-title">${escHtml(title)}${featuredBadge}${newBadge}</h2><p class="jc-sub">${companyAndLocation}</p>${salaryHtml}</div></div><div class="jc-chips">${locChip}${contractChip}${postedChip}</div></a></article>`;
 }
 
 // ── List renderer ────────────────────────────────────────────────────

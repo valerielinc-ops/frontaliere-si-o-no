@@ -34,26 +34,10 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          # The builder needs the complete job identity catalog. Keep the
-          # heavy unrelated trees out, but deliberately retain data/jobs/.
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/seo-404-compat/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/data/orphan-enriched-data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/jobs-ai-cache.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
+          # checkout profile: intentionally full
+          # The builder needs the complete job identity catalog and the
+          # measured residual is above the lazy-blob crossover: full checkout
+          # is faster and safer than excluding unrelated trees here.
 
       - name: Validate selected source
         run: |

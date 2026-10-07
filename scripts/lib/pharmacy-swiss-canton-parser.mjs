@@ -100,8 +100,17 @@ const MOUTIER_SOURCE_NAME_BY_COLOUR = Object.freeze({
   red: { id: 'ju-moutier-gare', name: 'Gare', city: 'Moutier' },
 });
 
+const AJOIE_AMAVITA_PORRENTRUY = Object.freeze({
+  id: 'ju-ajoie-amavita-porrentruy',
+  name: 'Amavita Porrentruy',
+  city: 'Porrentruy',
+});
 const AJOIE_IDENTITIES = Object.freeze({
-  AMAVITA: { id: 'ju-ajoie-amavita-porrentruy', name: 'Amavita Porrentruy', city: 'Porrentruy' },
+  AMAVITA: AJOIE_AMAVITA_PORRENTRUY,
+  // The official Ajoie PDF now qualifies the same Porrentruy identity with
+  // its street name. Keep the source alias on the canonical record instead of
+  // treating the address-qualified label as a new pharmacy.
+  'AMAVITA - MALVOISINS 1': AJOIE_AMAVITA_PORRENTRUY,
   'MILLIET VILLE': { id: 'ju-ajoie-milliet-ville', name: 'Amavita Milliet Ville', city: 'Porrentruy' },
   BENU: { id: 'ju-ajoie-benu-porrentruy', name: 'Benu Porrentruy', city: 'Porrentruy' },
   ERARD: { id: 'ju-ajoie-erard-alle', name: 'Pharmacie Erard', city: 'Alle' },

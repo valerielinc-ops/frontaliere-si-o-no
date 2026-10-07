@@ -1,0 +1,60 @@
+{
+  "listingResponse": {
+    "total": 2,
+    "jobPostings": [
+      {
+        "title": "HR Project Manager",
+        "externalPath": "/job/Warren-NJ/HR-Project-Manager_R7423",
+        "timeType": "Full time",
+        "locationsText": "Warren, NJ",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": ["R7423"]
+      },
+      {
+        "title": "Master and Reference Data Management Lead",
+        "externalPath": "/job/Warren-NJ/Master-and-Reference-Data-Management-Lead_R7416",
+        "timeType": "Full time",
+        "locationsText": "Warren, NJ",
+        "postedOn": "Posted Yesterday",
+        "bulletFields": ["R7416"]
+      }
+    ],
+    "facets": [
+      {
+        "facetParameter": "locationMainGroup",
+        "values": [
+          { "id": "warren-nj", "descriptor": "Warren, NJ", "count": 2 }
+        ]
+      }
+    ],
+    "userAuthenticated": false
+  },
+  "detailResponses": {
+    "/job/Warren-NJ/HR-Project-Manager_R7423": {
+      "jobPostingInfo": {
+        "title": "HR Project Manager",
+        "location": "Warren, NJ",
+        "jobRequisitionLocation": {
+          "country": {
+            "descriptor": "United States of America",
+            "alpha2Code": "US"
+          }
+        },
+        "jobDescription": "<p>This role coordinates people, planning, reporting, and delivery work for a global insurance organization.</p>"
+      }
+    },
+    "/job/Warren-NJ/Master-and-Reference-Data-Management-Lead_R7416": {
+      "jobPostingInfo": {
+        "title": "Master and Reference Data Management Lead",
+        "location": "Warren, NJ",
+        "jobRequisitionLocation": {
+          "country": {
+            "descriptor": "United States of America",
+            "alpha2Code": "US"
+          }
+        },
+        "jobDescription": "<p>This role leads reference-data governance, quality, and delivery across the organization's systems.</p>"
+      }
+    }
+  }
+}

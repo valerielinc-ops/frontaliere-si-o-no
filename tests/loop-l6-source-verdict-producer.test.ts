@@ -314,6 +314,31 @@ describe('produceVerdicts', () => {
     expect(rows.map((row) => row.articleId)).toEqual(['notizia-recente', 'notizia-recente', 'notizia-recente', 'notizia-recente']);
   });
 
+  it('cancels an invalid streamed chunk before recording fetch-failed', async () => {
+    const root = tempRoot([{ id: 'notizia-recente' }]);
+    let cancelled = 0;
+    let released = 0;
+    const reader = {
+      read: async () => ({ done: false, value: '{"invalid":true}' }),
+      cancel: async () => { cancelled += 1; },
+      releaseLock: () => { released += 1; },
+    };
+    const response = {
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/html' }),
+      body: { getReader: () => reader },
+    };
+    const { rows, summary } = await produceVerdicts({
+      root,
+      ids: ['notizia-recente'],
+      fetchImpl: async () => response,
+    });
+    expect(rows).toEqual([]);
+    expect(summary.skipped['fetch-failed']).toBe(1);
+    expect(cancelled).toBe(1);
+    expect(released).toBe(1);
+  });
+
   it('refuses a redirect towards an IP literal and records a followed third-party redirect', async () => {
     const root = tempRoot([{ id: 'notizia-recente' }]);
     const toIp = await produceVerdicts({

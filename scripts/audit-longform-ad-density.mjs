@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 /**
  * Reports the distribution of inline-ad placement on longform `it` articles.
  *
@@ -15,7 +16,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { AD_SLOTS } from '../services/adsenseSlots.ts';
 import {
   AD_ELIGIBLE_MIN_CHARS,
@@ -270,4 +271,4 @@ function main() {
   printReport(auditLongformAdDensity(bodyDirFromArgs()));
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
+if (isInvokedDirectly(import.meta.url)) main();

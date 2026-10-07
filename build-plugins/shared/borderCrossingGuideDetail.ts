@@ -6,7 +6,7 @@
  * `/guida-frontaliere/tempi-attesa-dogana/<valico>/` (and the en/de/fr
  * equivalents under `cross-border-guide/border-waiting-times/`,
  * `grenzgaenger-ratgeber/wartezeiten-grenze/`, `guide-frontalier/
- * temps-attente-douane/`) is one SSG page per crossing — 143 crossings × 4
+ * temps-attente-douane/`) is one SSG page per crossing — 160 crossings × 4
  * locales — whose body was the section editorial of the guide, identical on
  * every crossing, with only the name in the `<h1>` changing. On a French or a
  * German crossing that shared text even talked about «controlli doganali

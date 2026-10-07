@@ -219,10 +219,46 @@ function preprocess(raw: string): string {
   return s.trim();
 }
 
+/**
+ * Drop the empty bold spans of a text (`** **`, `** : **`, `** - **`), one line
+ * at a time.
+ *
+ * Markers pair up left to right on each line, so only the text BETWEEN an
+ * opening marker and its closing one is judged. The single regex this replaces
+ * matched ANY two markers with nothing but blanks or punctuation between them,
+ * which is also the gap between the end of one bold span and the start of the
+ * next: `**a**, **b**` rendered as one bold `a b`, and — `\s` crosses line
+ * breaks — a line ending in bold swallowed the bold-labelled line after it.
+ * The same step lives in `scripts/lib/crawler-template.mjs` and
+ * `scripts/lib/free-translate.mjs`, which cannot import TypeScript:
+ * `tests/empty-bold-spans-parity.test.ts` holds the three together.
+ */
+export function dropEmptyBoldSpans(text: string): string {
+  return text.split('\n').map(dropEmptyBoldSpansInLine).join('\n');
+}
+
+function dropEmptyBoldSpansInLine(line: string): string {
+  const parts = line.split('**');
+  if (parts.length < 3) return line;
+  let out = parts[0];
+  for (let index = 1; index < parts.length; index += 2) {
+    const content = parts[index];
+    if (index + 1 >= parts.length) {
+      // Opening marker with no closing one on this line: the parity rule of
+      // the caller decides what happens to it.
+      out += `**${content}`;
+      break;
+    }
+    out += /^[\s:;,.\-–—]*$/u.test(content) ? ' ' : `**${content}**`;
+    out += parts[index + 1];
+  }
+  return out;
+}
+
 export function parseInline(text: string): Inline[] {
   if (!text) return [];
 
-  let s = text.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+  let s = dropEmptyBoldSpans(text);
 
   const doubleStars = (s.match(/\*\*/g) || []).length;
   if (doubleStars % 2 !== 0) {

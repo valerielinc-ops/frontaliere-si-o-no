@@ -1,28 +1,71 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-10-05T09:30:56.492Z",
-  "total": 1,
+  "generatedAt": "2026-10-07T09:32:21.498Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5145,
-  "avgDurationMs": 5145,
+  "durationMs": 5759,
+  "avgDurationMs": 5759,
   "durationHistory": [
-    5145
+    5759
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "clinique-de-montchoisi-bdfb3af7be68",
+      "slug": "infermiera-clinique-de-montchoisi-lausanne",
+      "company": "Clinique de Montchoisi",
+      "companyKey": "clinique-de-montchoisi",
+      "companyDomain": "swissmedical.net",
+      "title": "Infirmier(ère)",
+      "needsRetranslation": true,
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153754749-infirmier-ere-",
+      "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-07T09:32:05.247Z",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1003",
+      "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-06T12:52:14.246Z",
+      "postedDate": "2026-10-06T12:52:14.246Z",
+      "postingDateSource": "reported",
+      "firstSeenAt": "2026-10-06T21:31:24.492Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -39,12 +82,12 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-05T09:30:46.647Z",
+      "crawledAt": "2026-10-07T09:32:05.248Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1006",
+      "postalCode": "1003",
       "streetAddress": "Chemin des Allinges 10, 1006 Lausanne",
       "category": "Sanità / Ospedali",
       "employmentType": "FULL_TIME",
@@ -68,5 +111,5 @@
       }
     }
   ],
-  "codeCommit": "676e064b5160ef5fa442ff6a8ee437da5de2c2b7"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

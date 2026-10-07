@@ -3,7 +3,8 @@
  *
  * Per platform: pick the next post from the queue on origin/main (the same
  * queue the API posters fill — scripts/lib/social-publish-queue.mjs), download
- * its slides from the site's CDN, drive the platform's web flow in the owner's
+ * its slides (Instagram) or verified MP4 (TikTok) from the site's CDN, drive
+ * the platform's web flow in the owner's
  * profile, and:
  *   - dry run: stop at the publish button (screenshot), record nothing but a
  *     `dry-run` line in the local journal;
@@ -18,6 +19,7 @@
  * no retry in the same run; a login wall or a challenge pauses the platform.
  */
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import path from 'node:path';
@@ -25,6 +27,7 @@ import path from 'node:path';
 import {
   SOCIAL_CHANNELS,
   isAllowedImageUrl,
+  isAllowedVideoUrl,
   isConfirmedInLedger,
   parseLedger,
   parseQueue,
@@ -46,6 +49,7 @@ import {
   randomBetween,
   unsettledLedgerKeys,
 } from './cadence.mjs';
+import { TIKTOK_VIDEO_CONTENT_TYPE } from '../../lib/social-carousel-video.mjs';
 import { PRESSED_STEPS, classifyError, RobotError } from './flows.mjs';
 
 export const SITE_REPO = 'valerielinc-ops/frontaliere-si-o-no';
@@ -65,6 +69,7 @@ const NEXT_STEP = {
   challenge: 'Il proprietario apre il profilo (`node scripts/social-robot/run.mjs --login`) e supera la verifica della piattaforma. Il robot resta in pausa sulla piattaforma per 12 ore.',
   'confirmation-missing': 'Controllare a mano sul profilo se il post è online. Se sì, registrarlo con `gh workflow run social-robot-confirm.yml` (input del journal); se no, aggiungere `resolvedAt` alla riga `unconfirmed` del journal del robot (o cancellarla). Il robot non ripubblica questo post da solo e resta fermo su questa piattaforma finché la riga non è risolta.',
   'selector-missing': 'Confrontare screenshot e HTML della diagnosi con i selettori di `scripts/social-robot/lib/flows.mjs`, aggiornarli e coprirli in `scripts/social-robot/robot-e2e.mjs`.',
+  'interstitial-unknown': 'Confrontare screenshot e HTML della diagnosi con gli interstitial registrati in `scripts/social-robot/lib/flows.mjs`; aggiungere un’azione esplicitamente sicura e uno scenario E2E prima di riprovare.',
   'upload-unsupported': 'La pagina non accetta foto: verificare il flusso di caricamento dal web della piattaforma.',
   download: 'Le immagini della coda non sono scaricabili dalla CDN: verificare `images/social/` su R2.',
 };
@@ -111,6 +116,45 @@ export async function downloadImages(entry, dir, { fetchImpl = fetch, timeoutMs 
     files.push(file);
   }
   return files;
+}
+
+function downloadTimeoutForVideo(video, baseMs = 30_000) {
+  const bytes = Number(video?.bytes);
+  if (!Number.isFinite(bytes) || bytes <= 0) return baseMs;
+  return Math.min(120_000, Math.max(baseMs, 10_000 + Math.ceil(bytes / (512 * 1024)) * 1_000));
+}
+
+/** Download and verify the MP4 signed by the poster before Playwright sees it. */
+export async function downloadVideo(entry, dir, { fetchImpl = fetch, timeoutMs = 30_000 } = {}) {
+  const video = entry?.video;
+  if (!video || !isAllowedVideoUrl(video.url)) {
+    throw new RobotError('download', `video outside the site's CDN: ${video?.url || 'missing'}`);
+  }
+  mkdirSync(dir, { recursive: true });
+  let res;
+  try {
+    res = await fetchImpl(video.url, { signal: AbortSignal.timeout(downloadTimeoutForVideo(video, timeoutMs)) });
+  } catch (err) {
+    throw new RobotError('download', `GET ${video.url} failed: ${err.message}`);
+  }
+  const type = String(res.headers?.get?.('content-type') || '').split(';', 1)[0].trim().toLowerCase();
+  if (!res.ok || type !== TIKTOK_VIDEO_CONTENT_TYPE) throw new RobotError('download', `GET ${video.url} → ${res.status} ${type}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  if (buf.length === 0 || buf.length !== video.bytes) {
+    throw new RobotError('download', `GET ${video.url} → byte count ${buf.length}, expected ${video.bytes}`);
+  }
+  const sha256 = createHash('sha256').update(buf).digest('hex');
+  if (sha256 !== video.sha256) throw new RobotError('download', `GET ${video.url} → sha256 mismatch`);
+  const stem = String(entry?.id || 'video').replace(/[^a-z0-9._-]+/gi, '-').replace(/^-+|-+$/g, '') || 'video';
+  const file = path.join(dir, `${stem}.mp4`);
+  writeFileSync(file, buf);
+  return file;
+}
+
+/** TikTok consumes the verified MP4; Instagram keeps its existing slide list. */
+export async function downloadEntryFiles(entry, dir, opts = {}) {
+  if (entry?.video) return [await downloadVideo(entry, dir, opts)];
+  return downloadImages(entry, dir, opts);
 }
 
 /**
@@ -174,7 +218,7 @@ export function ghConfirmDispatcher({ ghBin = 'gh', exec = execFileSync, repo = 
  * @param {{ readQueue: Function, readLedger: Function }} deps.reader
  * @param {{ load: Function, save: Function }} deps.journalStore
  * @param {(entry: object) => Promise<string[]>} deps.fetchImages
- * @param {(channel: string, entry: object, files: string[], opts: { dryRun: boolean, human: object, diagnosticsDir: string }) => Promise<{status: string, evidence?: string}>} deps.publishWith
+ * @param {(channel: string, entry: object, files: string[], opts: { dryRun: boolean, human: object, diagnosticsDir: string, video?: object }) => Promise<{status: string, evidence?: string}>} deps.publishWith
  * @param {(args: object) => Promise<{ok: boolean, reason?: string}>} deps.dispatchConfirm
  * @param {(args: { title: string, description: string, labels: string[] }) => Promise<unknown>} deps.reportIssue
  * @param {(channel: string, entry: object|null, at: number) => string} deps.diagnosticsFor
@@ -261,18 +305,29 @@ export async function runRobot(deps) {
       continue;
     }
 
-    for (let n = 0; n < MAX_POSTS_PER_RUN_PER_PLATFORM; n++) {
+    const skippedIds = new Set();
+    let postsThisRun = 0;
+    while (postsThisRun < MAX_POSTS_PER_RUN_PER_PLATFORM) {
       const entry = selectNextPending(reader.readQueue(channel), {
         channel,
         now: at,
         ledger: ledgerOf(channel),
-        blockedIds: blockedQueueIds(journal, channel, { skipDryRun: dryRun && !repeatDryRun }),
+        blockedIds: new Set([
+          ...blockedQueueIds(journal, channel, { skipDryRun: dryRun && !repeatDryRun }),
+          ...skippedIds,
+        ]),
         blockedLedgerKeys: unsettledLedgerKeys(journal, channel, confirmedOn(channel)),
       });
       if (!entry) {
         log.log(`ℹ️  ${channel}: nothing ready in data/${channel}-queue.json on origin/main`);
         results.push({ channel, outcome: 'empty' });
         break;
+      }
+      if (channel === 'tiktok' && !entry.video) {
+        skippedIds.add(entry.id);
+        log.log(`⏭️  tiktok: ${entry.id} skipped (no-video legacy queue entry)`);
+        results.push({ channel, outcome: 'skipped', reason: 'no-video', queueId: entry.id });
+        continue;
       }
       if (acted) await sleep(randomBetween(rng, BETWEEN_PLATFORMS_MS));
       acted = true;
@@ -281,8 +336,9 @@ export async function runRobot(deps) {
       log.log(`▶️  ${channel}: ${entry.id} (${entry.imageUrls.length} slides) — ${dryRun ? 'dry run' : 'publish'}`);
       try {
         const files = await fetchImages(entry);
-        const res = await publishWith(channel, entry, files, { dryRun, human, diagnosticsDir: diagnostics });
+        const res = await publishWith(channel, entry, files, { dryRun, human, diagnosticsDir: diagnostics, video: entry.video });
         if (res.status === 'published') {
+          postsThisRun += 1;
           const attempt = {
             channel,
             queueId: entry.id,
@@ -307,6 +363,7 @@ export async function runRobot(deps) {
           log.log(`✅ ${channel}: published ${entry.id} (${attempt.evidence})${dispatched.ok ? '' : ` — confirm dispatch failed, retried next run: ${dispatched.reason}`}`);
           results.push({ channel, outcome: 'published', queueId: entry.id, confirmDispatched: dispatched.ok });
         } else if (res.status === 'dry-run') {
+          postsThisRun += 1;
           journal.attempts.push({ channel, queueId: entry.id, at: new Date(now()).toISOString(), outcome: 'dry-run' });
           journalStore.save(journal);
           log.log(`🧪 ${channel}: ${entry.id} ready at the publish button (not pressed) — screenshot in ${displayPath(diagnostics)}`);
@@ -316,8 +373,9 @@ export async function runRobot(deps) {
         }
       } catch (raw) {
         const error = classifyError(raw);
-        // Second layer behind the flows' own marking: an error raised at or
-        // after the press step is a press, whatever the error says.
+        // Second layer behind the flows' own marking: an error in the
+        // confirmation step is a press; the publish step is still before the
+        // click marker and must stay retryable when that click was blocked.
         if (PRESSED_STEPS.includes(error.step)) error.pressed = true;
         const outcome = error.pressed ? 'unconfirmed' : 'error';
         journal.attempts.push({

@@ -209,9 +209,8 @@ describe('parseGeneveAgendaHtml', () => {
       comuneMatch: 'region',
       canton: 'GE',
       url: 'https://www.geneve.ch/agenda/atelier-initiation-ecriture-braille-7-grand-juillet-gratuit-0',
-      imageUrl:
-        'https://www.geneve.ch/sites/default/files/styles/1_48_445x300/public/openagenda/oa-48925009.jpg.webp?itok=6fZquLMj',
     });
+    expect(events[0]).not.toHaveProperty('imageUrl');
     expect(events[0].endDate).toBeUndefined();
   });
 

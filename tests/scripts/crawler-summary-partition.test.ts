@@ -253,15 +253,28 @@ describe('summary del crawler: una sola slice per total e partizione', () => {
 });
 
 describe('computeSlicePartition', () => {
-  it('partiziona l array pubblicato: la somma è sempre la sua lunghezza, duplicati compresi', () => {
+  it('preserva tutte le righe senza chiave di posting condivisa', () => {
+    const rows = [
+      { url: 'https://example.test/jobs', sourceUrl: 'https://example.test/jobs', title: 'a' },
+      { url: 'https://example.test/jobs', sourceUrl: 'https://example.test/jobs', title: 'b' },
+    ];
+    const partition = computeSlicePartition([], rows);
+
+    expect(partition.total).toBe(rows.length);
+    expect(partition.newJobs).toEqual(rows);
+    expect(partition.updatedJobs).toEqual([]);
+    expect(partition.unchangedJobs).toEqual([]);
+  });
+
+  it('partiziona l array pubblicato una volta per posting, accorpando i duplicati', () => {
     const before = [job('p', 1), job('p', 2), job('p', 3)];
     const after = [job('p', 1), job('p', 2, { title: 'Altro titolo' }), job('p', 5), job('p', 5)];
     const partition = computeSlicePartition(before, after);
-    expect(partition.total).toBe(after.length);
-    expect(partition.newJobs.length + partition.updatedJobs.length + partition.unchangedJobs.length).toBe(after.length);
+    expect(partition.total).toBe(3);
+    expect(partition.newJobs.length + partition.updatedJobs.length + partition.unchangedJobs.length).toBe(3);
     expect(ids(partition.unchangedJobs)).toEqual(['p-1']);
     expect(ids(partition.updatedJobs)).toEqual(['p-2']);
-    expect(ids(partition.newJobs)).toEqual(['p-5', 'p-5']);
+    expect(ids(partition.newJobs)).toEqual(['p-5']);
     expect(ids(partition.removedJobs)).toEqual(['p-3']);
   });
 });

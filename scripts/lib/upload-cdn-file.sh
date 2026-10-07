@@ -63,21 +63,31 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
-if [ "$#" -lt 2 ] || [ "$#" -gt 3 ]; then
+check_mode=0
+if [ "$#" -eq 2 ] && [ "$1" = "--check" ]; then
+  check_mode=1
+  cdn_key="${2#/}"
+elif [ "$#" -ge 2 ] && [ "$#" -le 3 ]; then
+  local_file="$1"
+  cdn_key="${2#/}"
+  cache_control="${3:-public, max-age=86400}"
+else
   echo "Usage: upload-cdn-file.sh <local_file> <cdn_key> [cache_control]" >&2
+  echo "       upload-cdn-file.sh --check <cdn_key>" >&2
   exit 1
 fi
-local_file="$1"
-cdn_key="${2#/}"
-cache_control="${3:-public, max-age=86400}"
 
-if [ ! -f "$local_file" ]; then
+if [ "$check_mode" -eq 0 ] && [ ! -f "$local_file" ]; then
   echo "notice: local file not found: $local_file — skipping CDN upload"
   exit 0
 fi
 
 if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
    || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
+  if [ "$check_mode" -eq 1 ]; then
+    echo "⚠️ check indeterminate for $cdn_key: R2_* credentials missing"
+    exit 0
+  fi
   echo "notice: R2_* credentials missing — skipping CDN upload of $cdn_key (client-side raw.githubusercontent.com fallback covers this)"
   exit 0
 fi
@@ -108,6 +118,7 @@ _content_type_for() {
   local ext="${1##*.}"
   ext="$(printf '%s' "$ext" | tr 'A-Z' 'a-z')"
   case "$ext" in
+    mp4) printf '%s' "video/mp4" ;;
     webp) printf '%s' "image/webp" ;;
     png) printf '%s' "image/png" ;;
     jpg|jpeg) printf '%s' "image/jpeg" ;;
@@ -127,7 +138,10 @@ _content_type_for() {
     *) printf '%s' "application/octet-stream" ;;
   esac
 }
-content_type="$(_content_type_for "$local_file")"
+content_type=""
+if [ "$check_mode" -eq 0 ]; then
+  content_type="$(_content_type_for "$local_file")"
+fi
 
 rtmp="${RUNNER_TEMP:-/tmp}"
 # An earlier invocation in the same job may have already installed rclone: the
@@ -160,6 +174,10 @@ if ! command -v rclone >/dev/null 2>&1; then
     fi
   fi
   if ! command -v rclone >/dev/null 2>&1; then
+    if [ "$check_mode" -eq 1 ]; then
+      echo "⚠️ check indeterminate for $cdn_key: rclone installation failed"
+      exit 0
+    fi
     echo "::warning::[cdn-upload] rclone install failed — skipping CDN upload of $cdn_key"
     exit 0
   fi
@@ -199,13 +217,35 @@ RC=(rclone
   # redundant-PUT cost to guard against.
   --ignore-times)
 bkt=":s3:$R2_BUCKET"
+# One limit for every per-object R2 call in this script, resolved once: the
+# lookup below and the upload further down. Keeping it in a variable is also
+# what lets tests/r2-calls-bounded.test.ts read the bound in front of each
+# call — a limit written as a nested command substitution was not recognised,
+# and the lookup added with the governed image engine looked unbounded.
+r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
+
+if [ "$check_mode" -eq 1 ]; then
+  # `lsf` returns no rows for a missing object on R2. A non-zero result is a
+  # transport/authentication failure, so the caller must upload defensively.
+  check_output=""
+  check_status=0
+  check_output="$(timeout -k 10 "$r2_timeout_object_s" \
+    "${RC[@]}" lsf --files-only "$bkt/$cdn_key" 2>/dev/null)" || check_status=$?
+  if [ "$check_status" -ne 0 ]; then
+    echo "⚠️ check indeterminate for $cdn_key: R2 lookup failed (exit $check_status)"
+  elif [ -n "$check_output" ]; then
+    echo "✅ exists $cdn_key"
+  else
+    echo "❌ missing $cdn_key"
+  fi
+  exit 0
+fi
 
 # One retry on transient network blips (same rationale as the curl --retry
 # above the rclone-install block, and _publish_cdn_r2's own comment on
 # run-28599750786): a single-shot upload with no fallback previously failed
 # the whole deploy prep step on a bare connection reset even though nothing
 # else was wrong. Still never fatal — see header "Failure posture".
-r2_timeout_object_s="$(_r2_timeout_s R2_TIMEOUT_OBJECT_S 120)"
 attempt_ok=0
 for try in 1 2; do
   if timeout -k 10 "$r2_timeout_object_s" "${RC[@]}" copyto "$local_file" "$bkt/$cdn_key" \

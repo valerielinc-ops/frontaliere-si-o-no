@@ -84,3 +84,104 @@ Scripts that read `data/` JSON files committed to the repo (baselines —
 NOT need the resolver: the file is always at `<repo>/data/<file>` because
 checkout populates it. If a baseline is ever moved to be runtime-generated
 (gitignored), the corresponding audit MUST switch to the resolver.
+
+## generated-image-engine.mjs — governed generated imagery
+
+`packages/articles/engine/shared/generatedImageRegistry.mjs` is the provider-
+independent contract mirrored to the corpus. It owns the prompt policy,
+registry validation and `verifyPublishedEventImages()` gate. The mirrored Node
+adapter `packages/articles/engine/shared/generatedImageEngine.mjs` is the only
+provider boundary; `scripts/lib/generated-image-engine.mjs` is a site-side
+compatibility re-export:
+
+- `generateImageFromSpec(spec, options)` accepts `scope`, `subject`, `area`,
+  `season` and a WebP format, then returns `{ filePath, record, prompt }`.
+- The primary transport is `codex exec --enable image_generation`, using the
+  Codex OAuth broker when `CODEX_AUTH_BROKER_SOCKET` is present. The broker
+  copies the generated file from its private `CODEX_HOME/generated_images/`
+  directory to the requested workspace output. Without the broker, the local
+  CLI uses the same command and resolves the image under
+  `$CODEX_HOME/generated_images/<thread-id>/`.
+- The bounded fallback is Gemini `gemini-3.1-flash-image` via `GEMINI_API_KEY`.
+  Secrets are loaded by Remote Config and never belong in the registry or PR.
+- Every result is converted to 1200×675 WebP (≤220 KiB), marked with
+  `trainedAlgorithmicMedia` plus the site credit, vision-checked and returned
+  with its registry record. A record is the permission to publish the bytes.
+- Provider attempts are bounded to three per asset and the event-library
+  process has a hard 150-attempt budget; callers may still choose a lower
+  `maxAttempts` for article, place or OG work.
+
+The event-library CLI is:
+
+```bash
+node scripts/generate-event-image-library.mjs --limit 20
+node scripts/upload-event-image-library-cdn.mjs --before-registry /tmp/previous.json
+node scripts/verify-event-images.mjs
+```
+
+`--limit` is a count of new verified assets (the CLI accepts 0–150); the
+workflow deliberately clamps it to 20 per run.
+
+The first command writes local bytes to `.cache/event-image-library/` and the
+versioned registry to `data/event-image-library.json`; the uploader publishes
+only `images/events/library/<assetId>.webp` to R2. When `--before-registry` is
+provided, unchanged records are retained only after an R2 existence check, so
+a deleted object is scheduled for repair. The weekly workflow uses the same
+interface with the OAuth broker and opens a data PR. The site article generator
+also calls `generateImageFromSpec()` and persists its `article-hero` record;
+future place/corpus generators must use the same contract rather than add a
+second provider path.
+
+The site's editorial-profile and place catalogue uses the same boundary:
+
+```bash
+npm run generate:editorial-images -- --only authors
+npm run generate:editorial-images -- --only places
+npm run validate:generated-images
+```
+
+The generator writes three 400×400 illustrated profile avatars, sixteen
+1200×675 place views and their sixteen 480×270 thumbnails, keeping the
+existing filenames and recording each byte in
+`data/generated-image-registry.json`. The validator checks every file under
+`public/images/authors/` and `public/images/places/` against that registry,
+including the XMP/IPTC-marked WebP byte hash and dimensions. Author images are
+uploaded to the existing CDN during deployment; place images and thumbnails
+remain same-origin by contract.
+
+The historical blog-cover repair lane uses the same contract with
+`scope: 'article-hero'`: its verified bytes live at
+`public/images/blog/<assetId>.webp`, while the matching `generated-provider`
+record is written to
+`packages/articles/content/image-credits/blog/`. The audit and queue scripts
+are deliberately sparse-checkout friendly:
+
+```bash
+node scripts/audit/blog-cover-ledger.mjs --write data/blog-cover-ledger.json
+node scripts/audit/materialize-blog-cover-ledger.mjs
+node scripts/audit/generate-blog-cover-queue.mjs --limit 20
+node scripts/audit/build-blog-image-credits-index.mjs
+npm run validate:blog-cover-ledger
+```
+
+The queue has a hard 150-asset budget, prioritizes level-5 historical
+replacements and then level-6 inferred covers by traffic/recency, and publishes
+remaining work only through the scheduled data-PR workflow. Level-6 covers
+remain on their article URL with an explicit `inferred`/`no-credit` entry until
+generation completes. The SPA consumes the site-owned
+`data/image-credits-blog.json` bridge when a section index does not yet contain
+a generated article-hero record.
+
+## published-image-policy.mjs — no unrecorded image leaves the site
+
+`scripts/lib/published-image-policy.mjs` is the Node-side publication gate. A
+third-party uploader must use `checkPublishedImageUrl(..., { requireCdn: true })`:
+only CDN `/images/blog/`, `/images/events/library/` and `/images/generated/`
+URLs with a valid generated-image registry record or an `imageCredits` record
+whose status is `ok` pass. A CDN host or a file extension is not a licence.
+
+The `og:image` build gate (`scripts/verify-og-images.mjs`) additionally permits
+only the documented site-owned exceptions: `/og-image.png`, generated
+`/og/jobs/`, `/og/seo/` and `/og/border-wait/` cards, author photos,
+`/images/places/` and event catalog cards. Those exceptions are explicit in
+`SITE_OWNED_OG_IMAGE_ALLOWLIST`; they are not accepted by LinkedIn uploads.
