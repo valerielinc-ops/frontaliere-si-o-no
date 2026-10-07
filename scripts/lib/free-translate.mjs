@@ -1199,8 +1199,9 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 // timeout o quota lo rendono
 // inutilizzabile, ai-models.mjs apre un circuito per run e questa cascata
 // prosegue immediatamente con DeepL, Azure e gli altri tier nell'ordine
-// storico. `FREE_TRANSLATE_CODEX_TIER=last` è mantenuto solo per un caller
-// legacy esplicito, non è usato dai workflow del sito.
+// storico. `FREE_TRANSLATE_CODEX_TIER=last` resta un override esplicito del
+// caller: la corsia di riparazione titoli lo usa quando Codex deve essere
+// l'ultimo fallback invece del tier primario della cascata generale.
 //
 // La lane e' quella del corpo articolo: il broker che
 // `.github/actions/setup-claude-haiku-fallback` avvia quando c'e'

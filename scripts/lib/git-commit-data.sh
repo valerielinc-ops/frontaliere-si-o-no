@@ -1069,6 +1069,61 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
   bank(localObj?.slug, '');
 }
 
+// A crawler can legitimately omit translations from its fresh record, but it
+// must not turn an already translated locale back into an exact source copy
+// while resolving a stale 3-way snapshot. The generic scalar rule below keeps
+// local on a title conflict; that was the cause of the observed ping-pong:
+// Fix untranslated titles wrote the target-language value, then a later crawl
+// supplied the source title in the same locale and won the merge. Protect only
+// exact normalized copies and only when the other side has a non-empty,
+// non-source value; all other title conflicts retain the existing local-wins
+// semantics.
+function normalizedMergeTitle(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function preserveTranslatedTitlesAgainstSourceCopy(baseObj, remoteObj, localObj, merged, warnings, pathLabel) {
+  if (!isPlainObject(merged)) return;
+  const objects = [localObj, remoteObj, baseObj].filter(isPlainObject);
+  const sourceLang = objects
+    .map((obj) => String(obj.sourceLang || '').trim().toLowerCase())
+    .find(Boolean);
+  if (!sourceLang) return;
+
+  const sourceTitle = objects
+    .map((obj) => String(obj.title || obj.titleByLocale?.[sourceLang] || '').trim())
+    .find(Boolean);
+  if (!sourceTitle || !isPlainObject(merged.titleByLocale)) return;
+
+  const titleMaps = objects.map((obj) => (isPlainObject(obj.titleByLocale) ? obj.titleByLocale : {}));
+  const locales = new Set([
+    ...titleMaps.flatMap((map) => Object.keys(map)),
+    ...Object.keys(merged.titleByLocale),
+  ]);
+  const sourceFingerprint = normalizedMergeTitle(sourceTitle);
+  if (!sourceFingerprint) return;
+
+  for (const locale of locales) {
+    if (locale === sourceLang) continue;
+    const localTitle = String(titleMaps[0][locale] || '').trim();
+    const remoteTitle = String(titleMaps[1][locale] || '').trim();
+    const localIsSourceCopy = normalizedMergeTitle(localTitle) === sourceFingerprint;
+    const remoteIsSourceCopy = normalizedMergeTitle(remoteTitle) === sourceFingerprint;
+
+    if (localIsSourceCopy && remoteTitle && !remoteIsSourceCopy) {
+      merged.titleByLocale[locale] = remoteTitle;
+      warnings.push(`Preserved translated title at ${pathLabel}.titleByLocale.${locale} over a local source copy`);
+    } else if (remoteIsSourceCopy && localTitle && !localIsSourceCopy) {
+      merged.titleByLocale[locale] = localTitle;
+      warnings.push(`Preserved translated title at ${pathLabel}.titleByLocale.${locale} over a remote source copy`);
+    }
+  }
+}
+
 // The usual object-recursion path above is skipped when mergeValue() takes a
 // base-equality fast path. Job slices are root arrays, so walk matching job
 // objects explicitly before returning a cloned remote/local value. This keeps
@@ -1076,6 +1131,41 @@ function preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathL
 function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey = '') {
   if (isPlainObject(merged)) {
     preserveDroppedActiveSlugs(remoteValue, localValue, merged, warnings, pathLabel);
+    preserveTranslatedTitlesAgainstSourceCopy(
+      undefined,
+      remoteValue,
+      localValue,
+      merged,
+      warnings,
+      pathLabel,
+    );
+    // A root object such as { jobs: [...] } can itself take the base-equality
+    // fast path. Descend into keyed arrays so the job-level title safeguard is
+    // not skipped merely because the wrapper object was unchanged.
+    for (const key of Object.keys(merged)) {
+      if (!Array.isArray(merged[key])) continue;
+      const keyHint = detectArrayKey([
+        remoteValue?.[key],
+        localValue?.[key],
+        merged[key],
+      ], forcedKey);
+      if (!keyHint) continue;
+      const remoteData = arrayToMap(Array.isArray(remoteValue?.[key]) ? remoteValue[key] : [], keyHint);
+      const localData = arrayToMap(Array.isArray(localValue?.[key]) ? localValue[key] : [], keyHint);
+      const mergedData = arrayToMap(merged[key], keyHint);
+      for (const itemKey of new Set([...remoteData.map.keys(), ...localData.map.keys()])) {
+        const mergedObj = mergedData.map.get(itemKey);
+        if (!isPlainObject(mergedObj)) continue;
+        preserveTranslatedTitlesAgainstSourceCopy(
+          undefined,
+          remoteData.map.get(itemKey),
+          localData.map.get(itemKey),
+          mergedObj,
+          warnings,
+          `${pathLabel}.${key}[${keyHint}=${itemKey}]`,
+        );
+      }
+    }
     return;
   }
   if (!Array.isArray(merged)) return;
@@ -1089,6 +1179,14 @@ function preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warn
     const mergedObj = mergedData.map.get(key);
     if (!isPlainObject(mergedObj)) continue;
     preserveDroppedActiveSlugs(
+      remoteData.map.get(key),
+      localData.map.get(key),
+      mergedObj,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+    );
+    preserveTranslatedTitlesAgainstSourceCopy(
+      undefined,
       remoteData.map.get(key),
       localData.map.get(key),
       mergedObj,
@@ -1214,6 +1312,25 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
   }
 
   const merged = mergedKeys.map((key) => clone(mergedMap.get(key)));
+  // A one-sided item skips recursive mergeValue() above because the unchanged
+  // side is deliberately treated as untouched. Apply the title safeguard to
+  // that fast path too; otherwise a remote crawler source-copy can still
+  // replace the translated local/base item wholesale.
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of mergedKeys) {
+    if (!isSame(baseData.map.get(key), localData.map.get(key))
+      && !isSame(baseData.map.get(key), remoteData.map.get(key))) continue;
+    const mergedObj = mergedData.map.get(key);
+    if (!isPlainObject(mergedObj)) continue;
+    preserveTranslatedTitlesAgainstSourceCopy(
+      baseData.map.get(key),
+      remoteData.map.get(key),
+      localData.map.get(key),
+      mergedObj,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+    );
+  }
   warnings.push(`Array merge at ${pathLabel} using key '${keyHint}' (${baseArr.length}/${remoteArr.length}/${localArr.length} -> ${merged.length})`);
   return merged;
 }
@@ -1287,6 +1404,7 @@ function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, for
       if (next !== undefined) merged[key] = next;
     }
     preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathLabel);
+    preserveTranslatedTitlesAgainstSourceCopy(baseObj, remoteObj, localObj, merged, warnings, pathLabel);
     return merged;
   }
 
