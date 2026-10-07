@@ -182,28 +182,34 @@ describe('published image policy', () => {
     }
   });
 
-  it('stops remembering URLs past the de-duplication cap', () => {
-    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-seen-cap-'));
+  it('keeps de-duplication exact however many distinct URLs came before', () => {
+    // A capped string set was tried and was wrong: past the cap a repeated URL
+    // counted as new, so in `…, A, B, A` the last distinct row became A and
+    // the invalid B escaped the sample.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-og-exact-'));
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
     try {
-      const metas = Array.from({ length: 30 }, (_, i) => `<meta property="og:image" content="${SITE_ORIGIN}/cards/${i}.png">`);
-      // Every URL appears twice: the 10 remembered ones are de-duplicated, the
-      // other 20 count again, so the distinct count is an upper bound.
-      fs.writeFileSync(path.join(dist, 'index.html'), [...metas, ...metas].join('\n'), 'utf8');
+      fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+      const meta = (url: string) => `<meta property="og:image" content="${url}">`;
+      const valid = Array.from({ length: 100_050 }, (_, i) => meta(`${SITE_ORIGIN}/og-image.png?v=${i}`));
+      const a = meta(`${SITE_ORIGIN}/og-image.png?v=A`);
+      const b = meta('https://images.example.com/not-ours.png');
+      fs.writeFileSync(path.join(root, 'dist', 'index.html'), [...valid, a, b, a].join('\n'), 'utf8');
 
-      const capped = collectOgImageReferences(dist, { seenCap: 10 });
-      expect(capped.total).toBe(60);
-      expect(capped.distinctCapped).toBe(true);
-      expect(capped.counts.static).toBe(50);
-      expect(capped.references).toHaveLength(3);
-      expect(capped.references[0].url).toBe(`${SITE_ORIGIN}/cards/0.png`);
+      const { references, total, counts } = collectOgImageReferences(path.join(root, 'dist'));
+      expect(total).toBe(100_053);
+      expect(counts.static).toBe(100_052);
+      expect(references.at(-1)?.url).toBe('https://images.example.com/not-ours.png');
 
-      const exact = collectOgImageReferences(dist);
-      expect(exact.distinctCapped).toBe(false);
-      expect(exact.counts.static).toBe(30);
+      expect(runOgImageGate(['--dist', 'dist', '--allow-missing-families'], { root })).toBe(1);
+      expect(errorSpy.mock.calls.flat().join('\n')).toContain('not-ours.png');
     } finally {
-      fs.rmSync(dist, { recursive: true, force: true });
+      errorSpy.mockRestore();
+      logSpy.mockRestore();
+      fs.rmSync(root, { recursive: true, force: true });
     }
-  });
+  }, 60_000);
 
   it('walks the dist in the order of a global path sort', () => {
     // `a.html` sorts before `a/z.html` in a sort over full paths; a naive

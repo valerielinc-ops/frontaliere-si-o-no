@@ -8,6 +8,7 @@
  * site-owned exceptions in published-image-policy.mjs.
  */
 
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,11 +90,58 @@ const FAMILIES = ['events', 'articles', 'static'];
 // family is held in full and the sample is exact; beyond it the stride doubles
 // and only the middle pick becomes approximate (first and last stay exact).
 const FAMILY_BUFFER_CAP = 1024;
-// Distinct URLs remembered for de-duplication. Past it a URL that was not
-// remembered counts as new each time it shows up, so the distinct counts become
-// upper bounds (flagged in the log); the walk stays deterministic and memory
-// stops growing with the corpus.
-const SEEN_URL_CAP = 100_000;
+
+/**
+ * Exact-membership set of URLs that stores a 64-bit fingerprint per entry in
+ * typed arrays (open addressing) instead of the strings themselves: about 16
+ * bytes of table per distinct URL at the 50% load ceiling, i.e. ~60 MB for the
+ * 3.8M pages of the production dist even if every page had its own image. A
+ * capped set of strings was tried first and was wrong: once full, a repeated
+ * URL counted as new and could displace the sampled row. Two different URLs
+ * sharing a fingerprint (odds around 1e-6 at that size) would merge into one.
+ */
+class UrlFingerprintSet {
+  constructor(capacity = 1 << 16) {
+    this.size = 0;
+    this.#allocate(capacity);
+  }
+
+  #allocate(capacity) {
+    this.mask = capacity - 1;
+    this.hi = new Uint32Array(capacity);
+    this.lo = new Uint32Array(capacity);
+  }
+
+  #insert(hi, lo) {
+    let slot = lo & this.mask;
+    while (this.hi[slot] !== 0 || this.lo[slot] !== 0) {
+      if (this.hi[slot] === hi && this.lo[slot] === lo) return false;
+      slot = (slot + 1) & this.mask;
+    }
+    this.hi[slot] = hi;
+    this.lo[slot] = lo;
+    this.size += 1;
+    return true;
+  }
+
+  /** Adds the URL; returns false when it was already present. */
+  add(url) {
+    const digest = crypto.createHash('sha1').update(url).digest();
+    const hi = digest.readUInt32LE(0);
+    // (0, 0) marks an empty slot.
+    const lo = digest.readUInt32LE(4) || (hi === 0 ? 1 : 0);
+    if (!this.#insert(hi, lo)) return false;
+    if (this.size * 2 > this.mask + 1) {
+      const { hi: oldHi, lo: oldLo } = this;
+      this.size = 0;
+      this.#allocate((this.mask + 1) * 2);
+      for (let slot = 0; slot < oldHi.length; slot += 1) {
+        if (oldHi[slot] !== 0 || oldLo[slot] !== 0) this.#insert(oldHi[slot], oldLo[slot]);
+      }
+    }
+    return true;
+  }
+}
 
 /**
  * Streams the dist and returns the representative rows of each family (first,
@@ -101,15 +149,13 @@ const SEEN_URL_CAP = 100_000;
  * family has at most `sampleSize` of them), the distinct count per family and
  * the total number of references seen.
  *
- * Memory is bounded whatever the corpus looks like: the first version kept a
- * `{ file, url }` row for every og:image tag and aborted on the full
- * production dist. Rows are capped by FAMILY_BUFFER_CAP per family and the
- * de-duplication set by `seenCap`. Each row names the first page that
- * references its URL.
+ * Nothing is retained per page: the first version kept a `{ file, url }` row
+ * for every og:image tag and aborted on the full production dist. Rows are
+ * capped by FAMILY_BUFFER_CAP per family; de-duplication stays exact through
+ * UrlFingerprintSet. Each row names the first page that references its URL.
  */
-export function collectOgImageReferences(distDir, { sampleSize = 3, seenCap = SEEN_URL_CAP } = {}) {
-  const seen = new Set();
-  let distinctCapped = false;
+export function collectOgImageReferences(distDir, { sampleSize = 3 } = {}) {
+  const seen = new UrlFingerprintSet();
   const state = new Map(FAMILIES.map((family) => [family, { count: 0, stride: 1, buffer: [], last: null }]));
   let total = 0;
   for (const filePath of walkHtml(distDir)) {
@@ -118,9 +164,7 @@ export function collectOgImageReferences(distDir, { sampleSize = 3, seenCap = SE
     const html = fs.readFileSync(filePath, 'utf8');
     for (const url of extractOgImageUrls(html, pageUrl)) {
       total += 1;
-      if (seen.has(url)) continue;
-      if (seen.size < seenCap) seen.add(url);
-      else distinctCapped = true;
+      if (!seen.add(url)) continue;
       const family = state.get(familyFor(url));
       const row = { file: relative, url };
       // buffer[i] always holds the row with ordinal i * stride.
@@ -150,7 +194,7 @@ export function collectOgImageReferences(distDir, { sampleSize = 3, seenCap = SE
     const middle = family.buffer[Math.floor(Math.floor((family.count - 1) / 2) / family.stride)];
     references.push(...new Set([family.buffer[0], middle, family.last]));
   }
-  return { references, total, counts, distinctCapped };
+  return { references, total, counts };
 }
 
 function representative(rows, sampleSize) {
@@ -209,14 +253,14 @@ export function run(argv = process.argv.slice(2), { root = ROOT } = {}) {
   const sampleSize = Number(argValue(argv, '--sample-size', '3')) || 3;
   const requireFamilies = !argv.includes('--allow-missing-families');
   const policy = loadPublishedImagePolicy({ root });
-  const { references, total, counts, distinctCapped } = collectOgImageReferences(distDir, { sampleSize });
+  const { references, total, counts } = collectOgImageReferences(distDir, { sampleSize });
   const result = verifyOgImageReferences(references, { policy, sampleSize, requireFamilies, counts });
   if (policy.registryErrors.length > 0) {
     result.valid = false;
     result.errors.unshift(...policy.registryErrors.map((error) => `registry: ${error}`));
   }
 
-  console.log(`og:image references: ${total}; distinct${distinctCapped ? ' (upper bound, de-duplication cap reached)' : ''} events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
+  console.log(`og:image references: ${total}; distinct events=${result.counts.events} articles=${result.counts.articles} static=${result.counts.static}`);
   for (const sample of result.samples) console.log(`  sample ${sample.family}: ${sample.file} → ${sample.url}`);
   if (!result.valid) {
     for (const error of result.errors) console.error(`::error::og-image gate: ${error}`);
