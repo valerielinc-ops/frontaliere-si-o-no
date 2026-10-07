@@ -738,4 +738,94 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
     expect(output).not.toContain('undefined');
     expect(elapsedMs).toBeLessThan(1000);
   });
+
+  // A scan that fails must not make the scanner skip text: the first version
+  // of the scanner resumed at the end of the text (or at the next `>`) after
+  // an unterminated title or a `<` of prose, and every URL after that point
+  // lost its protection — `/wiki/Perch A9` again, a regression against the
+  // regular expression it replaced.
+  const RELATIVE = '/wiki/Perch%C3%A9';
+  const ABSOLUTE = 'https://it.wikipedia.org/wiki/Citt%C3%A0_(Svizzera)';
+  const AFTER_MALFORMED_CASES = [
+    {
+      name: 'a link title whose quote never closes, links two lines below',
+      input: `Vedi [a](/x "titolo non chiuso\n\nSegnaposto %COMPANY% qui.\n\nPoi [città](${RELATIVE}) e ${ABSOLUTE} fine.`,
+    },
+    {
+      name: 'a "<" of prose with no ">" on its line, links two lines below',
+      input: `Soglia <CHF 3.000 al mese %COMPANY%.\n\nPoi [città](${RELATIVE}) e ${ABSOLUTE} fine.`,
+    },
+    {
+      name: 'a "<" of prose with a ">" further on the same line',
+      input: `Se x <y allora [città](${RELATIVE}) e z> w %COMPANY% fine.`,
+    },
+    {
+      name: 'an angle destination that never closes, link below',
+      input: `Vedi [a](</x non chiusa %COMPANY%\n\nPoi [città](${RELATIVE}) fine.`,
+    },
+    {
+      name: 'a valid link on the same line, after the malformed one',
+      input: `Vedi [a](/x "non chiuso e poi [città](${RELATIVE}) %COMPANY% fine.`,
+    },
+    {
+      name: 'the destination of a malformed link is itself a bare URL',
+      input: `Vedi [a](${ABSOLUTE} "titolo" extra) %COMPANY% fine.`,
+    },
+    {
+      name: 'an unquoted attribute soup that is not a tag',
+      input: `Prezzo <b [non un tag] %COMPANY% e poi ${ABSOLUTE} > fine.`,
+    },
+  ];
+
+  it.each(AFTER_MALFORMED_CASES)('keeps protecting what follows $name', ({ input }) => {
+    const output = stripPlaceholderTokens(input);
+    expect(output).not.toContain('%COMPANY%');
+    for (const url of [RELATIVE, ABSOLUTE]) {
+      if (input.includes(url)) expect(output).toContain(url);
+    }
+  });
+
+  it('still reads a real HTML tag, and only its href/src values, as opaque', () => {
+    const input = `<a class="(AZIENDA)" href="/x/(AZIENDA)/y" title=ok>link</a> <img src='/i/(AZIENDA).png'/> %COMPANY%`;
+    const output = stripPlaceholderTokens(input);
+    expect(output).toContain('href="/x/(AZIENDA)/y"');
+    expect(output).toContain("src='/i/(AZIENDA).png'");
+    expect(output).not.toContain('class="(AZIENDA)"');
+    expect(output).not.toContain('%COMPANY%');
+  });
+
+  it('protects a destination longer than the scan cap as a bare URL', () => {
+    const absolute = `https://example.org/${'a'.repeat(700)}/Perch%C3%A9?x=${'b'.repeat(300)}`;
+    const relative = `/wiki/${'a'.repeat(700)}/Perch%C3%A9`;
+    const output = stripPlaceholderTokens(`Vedi [qui](${absolute}) e [qua](${relative}) %COMPANY% fine.`);
+    expect(output).toContain(absolute);
+    expect(output).toContain(relative);
+    expect(output).not.toContain('%COMPANY%');
+  });
+
+  // Linearity without skipping: each shape below made a naive "retry from the
+  // next character" scanner quadratic, and made the regular expression it
+  // replaced take tens of seconds.
+  const PATHOLOGICAL_SHAPES = [
+    ['unbalanced openers after "]("', `[x](${'('.repeat(200_000)}`],
+    ['"](" repeated with no closer at all', '](a'.repeat(66_000)],
+    ['"](" repeated, one closer at the very end', `${']('.repeat(100_000)})`],
+    // The worst shape: closers everywhere, never one that balances. No
+    // per-line memory can answer it in advance; the length cap bounds it.
+    ['closers that never balance from any start', `${']('.repeat(499)}))`.repeat(200)],
+    ['"<a " repeated with no ">"', '<a '.repeat(66_000)],
+    ['a title quote that never closes, repeated', '](a "b '.repeat(28_000)],
+    ['a parenthesized title that never balances', `${'](a (('.repeat(33_000)})`],
+    ['an attribute value whose quote never closes', '<a href="x '.repeat(18_000)],
+  ] as const;
+
+  it.each(PATHOLOGICAL_SHAPES)('stays within the linearity budget on %s', (_name, shape) => {
+    const input = `${shape} %COMPANY% ${ABSOLUTE}`;
+    const startedAt = performance.now();
+    const output = stripPlaceholderTokens(input);
+    const elapsedMs = performance.now() - startedAt;
+    expect(output).not.toContain('%COMPANY%');
+    expect(output).toContain(ABSOLUTE);
+    expect(elapsedMs).toBeLessThan(1000);
+  });
 });
