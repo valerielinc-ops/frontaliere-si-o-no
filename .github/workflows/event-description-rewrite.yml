@@ -407,7 +407,7 @@ jobs:
           ACCEPTED: ${{ steps.merge.outputs.accepted }}
         run: |
           set -euo pipefail
-          : "${GITHUB_PAT_NANAKO:?GITHUB_PAT_NANAKO was not loaded from Remote Config}"
+          : "${GITHUB_PAT:?GITHUB_PAT was not loaded from Remote Config}"
           stats="$RUNNER_TEMP/event-description-rewrite-stats.json"
           body="$RUNNER_TEMP/event-description-rewrite-pr-body.md"
           # shellcheck disable=SC2016 # These ${...} expressions are JavaScript template literals.
@@ -432,7 +432,7 @@ jobs:
             writeFileSync(process.argv[2], `${body}\n`);
           ' "$stats" "$body"
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
-          GH_TOKEN="$GITHUB_PAT_NANAKO" bash scripts/lib/open-data-refresh-pr.sh \
+          GH_TOKEN="$GITHUB_PAT" bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \
             --path data/events-description-rewrites.json \
             --path data/events.json \
