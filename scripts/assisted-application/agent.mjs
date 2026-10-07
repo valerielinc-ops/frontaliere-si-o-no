@@ -24,6 +24,7 @@ import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
 import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
 import { readPortalQuestions } from './lib/portal/portal.mjs';
+import { questionTopic } from './lib/portal/plan.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -255,8 +256,8 @@ async function main() {
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
     if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
-      const known = new Set((previousDraft.questions || []).map((question) => question.id));
-      const added = event.questions.filter((question) => !known.has(question.id));
+      const known = new Set((previousDraft.questions || []).map((question) => questionTopic(question.question) || question.id));
+      const added = event.questions.filter((question) => !known.has(questionTopic(question.question) || question.id));
       await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });
       event.questions = event.questions.map((question) => ({ id: question.id }));
     }
