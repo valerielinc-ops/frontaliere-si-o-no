@@ -25,4 +25,5 @@ type _BlogId5 = 'assistente-ai-frontalieri' | 'costi-cure-domocilio-ticino-2026'
 
 type _BlogId6 = 'pedemontana-falso-pedaggio-sms' | 'aggressione-van-villa-olmo' | 'furto-van-cernobbio-21enne' | 'notte-bper-gallarate-bancomat' | 'cantello-teatro-dialettale-ottobre-2026' | 'vendemmia-mendrisiotto-lavoratori-terra' | 'lifestyle-innovation-hub-chiasso' | 'coda-a8-castronno-solbiate';
 
+// Runtime twin: ALL_BLOG_ARTICLE_IDS must also retain 'caduta-scala-locate-varesino'.
 export type BlogArticleId = _BlogId1 | _BlogId2 | _BlogId3 | _BlogId4 | _BlogId5 | _BlogId6;
