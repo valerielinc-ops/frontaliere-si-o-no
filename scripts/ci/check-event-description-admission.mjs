@@ -21,13 +21,13 @@ const result = assessEventDescriptionRewriteAdmission({
   dataPullRequests: readJson(argument('--pull-requests-file')),
   branch: argument('--branch', EVENT_DESCRIPTION_REWRITE_BRANCH),
 });
-const outputPath = argument('--github-output');
-if (outputPath) {
+function writeAdmissionOutput(outputPath, admission) {
   writeFileSync(outputPath, [
-    `admitted=${result.admitted}`,
-    `admission_reason=${result.reason}`,
-    `admission_detail=${result.detail}`,
+    `admitted=${admission.admitted}`,
+    `admission_reason=${admission.reason}`,
+    `admission_detail=${admission.detail}`,
     '',
   ].join('\n'));
 }
+if (argument('--github-output')) writeAdmissionOutput(argument('--github-output'), result);
 console.log(JSON.stringify(result));

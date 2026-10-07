@@ -438,14 +438,14 @@ jobs:
             const ids = runs.filter((run) => Date.parse(run.createdAt || "") >= cutoff).map((run) => run.databaseId);
             writeFileSync(process.argv[2], `${ids.join("\\n")}\\n`);
           ' "$RUNNER_TEMP/event-description-recent-runs.json" "$RUNNER_TEMP/event-description-recent-run-ids.txt"
-          while IFS= read -r run_id; do
+          while IFS= read -r -u 9 run_id; do
             [ -n "$run_id" ] || continue
             gh run download "$run_id" \
               --repo "$GITHUB_REPOSITORY" \
               --name "event-description-run-state-${run_id}" \
               --dir "$recent_dir/$run_id" \
               >/dev/null 2>&1 || true
-          done < "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          done 9< "$RUNNER_TEMP/event-description-recent-run-ids.txt"
 
       - name: Write run plan metadata
         env:
