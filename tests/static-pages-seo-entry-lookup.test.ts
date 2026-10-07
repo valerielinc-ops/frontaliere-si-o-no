@@ -48,6 +48,25 @@ describe('staticPagesPlugin seoMap key normalization', () => {
   });
 });
 
+describe('Fox Town locale SEO metadata', () => {
+  it('gives each translated route a distinct, capped title', () => {
+    const copyBlock = pluginSource.match(/const FOX_TOWN_LOCALE_COPY[\s\S]*?\n};/)?.[0] ?? '';
+    const titles = [...copyBlock.matchAll(/title: '([^']+)'/g)].map((match) => match[1]);
+
+    expect(titles).toHaveLength(3);
+    expect(new Set(titles).size).toBe(titles.length);
+    for (const title of titles) {
+      expect(title).toContain('Fox Town Outlet Mendrisio');
+      expect(`${title} | Frontaliere Ticino`.length).toBeLessThanOrEqual(66);
+    }
+  });
+
+  it('keeps the override attached to the Italian source path', () => {
+    expect(pluginSource).toContain("sourceCanonicalPath === FOX_TOWN_SOURCE_PATH");
+    expect(pluginSource).toContain("const FOX_TOWN_SOURCE_PATH = '/vita-in-ticino/outlet-svizzera-fox-town-mendrisio/'");
+  });
+});
+
 describe('llmsTxtPlugin seo lookup key normalization', () => {
   // Same slash-divergence class: parseSitemapUrls strips trailing slashes,
   // so parseSeoEntries must key the map in the same slash-less form or every
