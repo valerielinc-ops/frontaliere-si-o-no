@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "suedhang-c5cfbbeecd8d",
-      "slug": "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach",
+      "slug": "collaboratore-tricein-pulizia-klinik-sudhang-kirchlindach",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach",
+        "it": "collaboratore-tricein-pulizia-klinik-sudhang-kirchlindach",
         "en": "cleaning-staff-klinik-sudhang-kirchlindach",
         "de": "mitarbeiter-in-reinigung-suedhang-ch",
         "fr": "employe-e-de-nettoyage-klinik-sudhang-kirchlindach"
@@ -56,11 +56,13 @@
       "pensum": "50%",
       "previousSlugs": [
         "mitarbeiter-in-reinigung-suedhang-ch",
-        "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"
+        "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach",
+        "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-suedhang-ch"
+          "mitarbeiter-in-reinigung-suedhang-ch",
+          "collaboratore-trice-in-reinigung-klinik-sudhang-kirchlindach"
         ],
         "en": [
           "mitarbeiter-in-reinigung-klinik-sudhang-kirchlindach"

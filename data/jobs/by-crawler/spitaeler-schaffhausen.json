@@ -2646,7 +2646,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeute-spitaler-schaffhausen"
+        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2695,7 +2695,6 @@
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
-        "physiotherapeutes-spitaler-schaffhausen-schaffhausen",
         "physiotherapeute-spitaler-schaffhausen"
       ],
       "previousSlugsByLocale": {
@@ -2706,7 +2705,6 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeutes-spitaler-schaffhausen-schaffhausen",
           "physiotherapeute-spitaler-schaffhausen"
         ]
       },
@@ -4454,12 +4452,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-a2a712d5c72e",
-      "slug": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
+      "slug": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
-        "it": "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen",
-        "en": "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
-        "fr": "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
+        "it": "assistente-infermieristico-assistente-infermieristico-srk-spitaler-schaffhausen-schaffhausen",
+        "en": "nursing-assistant-nursing-assistant-srk-spitaler-schaffhausen-schaffhausen",
+        "fr": "assistant-infirmier-assistant-infirmier-srk-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4507,11 +4505,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
+          "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen"
+        "pflegehelferin-pflegehelfer-srk-spitaeler-schaffhausen-schaffhausen",
+        "pflegehelferin-pflegehelfer-srk-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

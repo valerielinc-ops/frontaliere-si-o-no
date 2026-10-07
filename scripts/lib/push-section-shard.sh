@@ -265,6 +265,7 @@ push_section_shard() {
         && verify_dcount="$SHARD_VERIFY_DCOUNT" \
         && shard_delta_add_text "$verify_stage" .shard-filecount "$verify_n" 0 \
         && shard_delta_add_text "$verify_stage" .shard-deploys "$((verify_dcount + 1))" 0 \
+        && shard_delta_add_text "$verify_stage" .shard-source "$(shard_source_stamp)" 0 \
         && verify_base_tree="$SHARD_VERIFY_BASE_TREE" \
         && verify_plan_tree="$(git -C "$verify_stage" write-tree --missing-ok)"; then
         verify_plan_seconds="$((SECONDS - verify_started))"
@@ -345,6 +346,7 @@ push_section_shard() {
             incremental=1
             if ! shard_delta_add_text "$stage" .shard-filecount "$n" 0; then delta_apply_ok=0; fi
             if ! shard_delta_add_text "$stage" .shard-deploys "$((dcount + 1))" 0; then delta_apply_ok=0; fi
+            if ! shard_delta_add_text "$stage" .shard-source "$(shard_source_stamp)" 1; then delta_apply_ok=0; fi
           fi
           if [ "$delta_apply_ok" != 1 ] && [ -z "$delta_fallback_reason" ]; then
             delta_fallback_reason='delta index update failed'
@@ -487,6 +489,7 @@ push_section_shard() {
     fi
     printf '%s' "$n" > "$stage/.shard-filecount"
     printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"
+    shard_source_stamp > "$stage/.shard-source"
     echo "$section-$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
     fi
 

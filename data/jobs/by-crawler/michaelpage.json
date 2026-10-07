@@ -1010,12 +1010,12 @@
     },
     {
       "id": "michaelpage-efd613c2eff1",
-      "slug": "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2",
+      "slug": "direttore-di-care-michael-page-geneva-switzerland-efd613c2",
       "slugByLocale": {
         "fr": "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2",
-        "it": "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2",
-        "en": "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2",
-        "de": "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2"
+        "it": "direttore-di-care-michael-page-geneva-switzerland-efd613c2",
+        "en": "director-of-care-michael-page-geneva-switzerland-efd613c2",
+        "de": "direktor-von-care-michael-page-geneva-switzerland-efd613c2"
       },
       "slugDisambiguator": "efd613c2",
       "company": "Michael Page",
@@ -1074,7 +1074,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-07T09:52:06.413Z"
+      "firstSeenAt": "2026-10-07T09:52:06.413Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2"
+        ],
+        "en": [
+          "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2"
+        ],
+        "de": [
+          "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-ou-directrice-des-soins-michael-page-geneva-switzerland-efd613c2"
+      ]
     }
   ]
 }

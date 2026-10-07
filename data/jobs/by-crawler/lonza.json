@@ -333,7 +333,7 @@
       "slug": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
       "slugByLocale": {
         "it": "praktikum-betriebsengineering-per-6-12-monate-m-w-d-lonza-ch",
-        "en": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp",
+        "en": "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "de": "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
         "fr": "genie-du-travail-pour-6-a-12-mois-m-f-j-lonza-ch"
       },
@@ -379,7 +379,6 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
@@ -388,7 +387,6 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
@@ -13596,7 +13594,7 @@
         "it": "lead-technician-coordinator-workshop-80-100-m-f-d-lonza-stein",
         "en": "lead-technician-workshop-coordinator-80-100-m-f-d-lonza-stein",
         "de": "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch",
-        "fr": "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
+        "fr": "lead-technician-coordinateur-atelier-80-100-h-f-d-lonza-stein"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -13646,6 +13644,9 @@
           "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
         ],
         "en": [
+          "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "lead-technician-koordinator-werkstatt-80-100-m-w-d-lonza-ch"
         ]
       },
@@ -15367,12 +15368,12 @@
     },
     {
       "id": "lonza-64b64723c608",
-      "slug": "technology-transfer-lead-80-100-m-f-d-lonza-ch",
+      "slug": "trasferimento-di-tecnologia-piombo-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "en": "technology-transfer-lead-80-100-m-f-d-lonza-ch",
-        "it": "technology-transfer-lead-80-100-m-f-d-lonza-ch",
-        "de": "technology-transfer-lead-80-100-m-f-d-lonza-ch",
-        "fr": "technology-transfer-lead-80-100-m-f-d-lonza-ch"
+        "it": "trasferimento-di-tecnologia-piombo-80-100-m-f-d-lonza-visp",
+        "de": "technologietransfer-lead-80-100-m-w-d-lonza-visp",
+        "fr": "transfert-de-technologie-plomb-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15431,7 +15432,21 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-07T09:18:17.265Z"
+      "firstSeenAt": "2026-10-07T09:18:17.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-transfer-lead-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "technology-transfer-lead-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "technology-transfer-lead-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technology-transfer-lead-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-f1495849e5ba",
@@ -15615,7 +15630,7 @@
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-w-d-lonza-visp",
+        "en": "biotechn-dlz-m-f-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
       },
@@ -15669,8 +15684,7 @@
         "biotechnologist-m-f-d-lonza-ch-j4go5d",
         "biotechn-dlz-m-w-d-lonza-visp",
         "biotechnologist-m-f-d-lonza-ch-3yq0nb",
-        "biotechnologist-m-f-d-lonza-ch-3ypftx",
-        "biotechn-dlz-m-f-d-lonza-visp"
+        "biotechnologist-m-f-d-lonza-ch-3ypftx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15686,7 +15700,6 @@
         ],
         "en": [
           "biotechnologist-m-f-d-lonza-ch-2",
-          "biotechn-dlz-m-f-d-lonza-visp",
           "biotechnologist-m-w-d-lonza-visp"
         ],
         "fr": [
@@ -15800,7 +15813,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15844,7 +15857,6 @@
       "jobReqId": "R79521",
       "previousSlugs": [
         "senior-director-strategy-lonza-ch",
-        "directeur-principal-strategie-lonza-basel",
         "senior-director-strategy-lonza-basel"
       ],
       "previousSlugsByLocale": {
@@ -15855,7 +15867,6 @@
           "senior-director-strategy-lonza-ch"
         ],
         "fr": [
-          "directeur-principal-strategie-lonza-basel",
           "senior-director-strategy-lonza-basel"
         ]
       },

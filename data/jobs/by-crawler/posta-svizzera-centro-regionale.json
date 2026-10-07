@@ -789,7 +789,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -813,7 +813,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
@@ -6534,7 +6533,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -6558,7 +6557,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -6567,8 +6565,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -14650,7 +14647,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
-        "en": "courierletters-and-parcels-die-schweizerische-post-kublis",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
         "de": "zusteller-in-briefe-und-pakete-post-apujwm",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kublis"
       },
@@ -14680,7 +14677,6 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-          "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
           "courierletters-and-parcels-die-schweizerische-post-kublis"
         ],
         "fr": [
@@ -14690,7 +14686,6 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-        "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
         "courierletters-and-parcels-die-schweizerische-post-kublis"
       ],
       "id": "posta-svizzera-centro-regionale-d5882d13279d",
@@ -15434,7 +15429,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-        "en": "courierletters-and-parcels-die-schweizerische-post-munsingen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen",
         "de": "zusteller-in-briefe-und-pakete-post-onda5b",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen"
       },
@@ -15464,7 +15459,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-          "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+          "courierletters-and-parcels-die-schweizerische-post-munsingen"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen"
@@ -15473,7 +15468,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-        "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+        "courierletters-and-parcels-die-schweizerische-post-munsingen"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-e284265aa262",
@@ -15522,8 +15517,8 @@
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-post",
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-goldau-kussnacht-am-rigi-muotathal-steinen",
-        "en": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "en": "courierletters-and-parcels-die-schweizerische-post-goldau-kussnacht-am-rigi-muotathal-steinen",
+        "fr": "distributeur-dans-les-lettres-et-les-colis-die-schweizerische-post-goldau-kussnacht-am-rigi-muotathal-steinen"
       },
       "sourceLang": "de",
       "department": "",
@@ -15546,6 +15541,12 @@
       "id": "posta-svizzera-centro-regionale-fe83518e35c5",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -15597,8 +15598,8 @@
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-post",
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-solothurn",
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
       },
       "sourceLang": "de",
       "department": "",
@@ -15622,16 +15623,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-solothurn",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-32f37d392976",

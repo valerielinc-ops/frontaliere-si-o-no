@@ -241,7 +241,7 @@
       "slugByLocale": {
         "it": "ingegnere-sistemi-automazione-piattaforma-eth-zurich-lugano",
         "en": "systems-engineer-platform-automation-eth-zurich-ch",
-        "de": "systems-ingenieur-platform-automation-eth-zurich-lugano",
+        "de": "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "fr": "ingenieur-de-systemes-automatisation-de-plate-forme-eth-zurich-lugano"
       },
       "company": "ETH Zürich",
@@ -285,7 +285,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "systems-engineer-platform-automation-eth-zurich-ch",
-        "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
         "systems-ingenieur-platform-automation-eth-zurich-lugano"
       ],
       "previousSlugsByLocale": {
@@ -293,7 +292,6 @@
           "systems-engineer-platform-automation-eth-zurich-ch"
         ],
         "de": [
-          "systemingenieur-plattformautomatisierung-eth-zurich-lugano",
           "systems-ingenieur-platform-automation-eth-zurich-lugano"
         ]
       },
@@ -7274,7 +7272,7 @@
       "slug": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
       "slugByLocale": {
         "it": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
-        "en": "brandschutzfachfrau-mann-m-w-d-eth-zurich",
+        "en": "fire-protection-specialist-m-f-d-eth-zurich-zurich",
         "de": "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
         "fr": "specialiste-de-la-protection-contre-l-incendie-h-f-d-eth-zurich-zurich"
       },
@@ -7318,16 +7316,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-        "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+        "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "en": [
-          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch",
-          "fire-protection-specialist-m-f-d-eth-zurich-zurich"
+          "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
         ],
         "fr": [
           "brandschutzfachfrau-mann-m-w-d-eth-zurich-ch"
@@ -9197,16 +9193,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "natural-hazards-mission-lead-eth-zurich-ch",
-        "natural-hazards-mission-lead-eth-zurich",
-        "missionsleiter-fur-naturliche-gefahren-eth-zurich-zurich"
+        "natural-hazards-mission-lead-eth-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "natural-hazards-mission-lead-eth-zurich-ch"
         ],
         "de": [
-          "natural-hazards-mission-lead-eth-zurich",
-          "missionsleiter-fur-naturliche-gefahren-eth-zurich-zurich"
+          "natural-hazards-mission-lead-eth-zurich"
         ]
       },
       "firstSeenAt": "2026-07-14T11:18:17.995Z",
@@ -9375,12 +9369,12 @@
     },
     {
       "id": "eth-zurich-615d4aab6d37",
-      "slug": "research-engineer-for-visual-programming-eth-zurich-ch",
+      "slug": "ricerca-ingegnere-for-visual-programming-eth-zurich-zurich",
       "slugByLocale": {
         "en": "research-engineer-for-visual-programming-eth-zurich-ch",
-        "it": "research-engineer-for-visual-programming-eth-zurich-ch",
-        "de": "research-engineer-for-visual-programming-eth-zurich-ch",
-        "fr": "research-engineer-for-visual-programming-eth-zurich-ch"
+        "it": "ricerca-ingegnere-for-visual-programming-eth-zurich-zurich",
+        "de": "forschung-ingenieur-for-visual-programming-eth-zurich-zurich",
+        "fr": "recherche-ingenieur-for-visual-programming-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -9438,7 +9432,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-10-07T09:44:06.089Z"
+      "firstSeenAt": "2026-10-07T09:44:06.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-for-visual-programming-eth-zurich-ch"
+        ],
+        "de": [
+          "research-engineer-for-visual-programming-eth-zurich-ch"
+        ],
+        "fr": [
+          "research-engineer-for-visual-programming-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-engineer-for-visual-programming-eth-zurich-ch"
+      ]
     }
   ]
 }

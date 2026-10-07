@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "apleona-schweiz-ag-ecb002b77ea9",
-      "slug": "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag",
+      "slug": "elettricista-aziendale-elettricista-afc-nella-gestione-degli-edifici-m-f-d-apleona-schweiz-ag-baden",
       "slugByLocale": {
         "de": "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag",
-        "it": "betriebselektriker-installatore-trice-elettrico-a-cfc-im-gebaudemanagement-m-w-d-apleona-schweiz-ag-baden",
+        "it": "elettricista-aziendale-elettricista-afc-nella-gestione-degli-edifici-m-f-d-apleona-schweiz-ag-baden",
         "en": "company-electrician-electrical-installer-efz-in-building-management-m-f-d-apleona-schweiz-ag-baden",
         "fr": "entreprise-electricien-installateur-electrique-efz-dans-la-gestion-du-batiment-h-f-d-apleona-schweiz-ag-baden"
       },
@@ -65,7 +65,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-installatore-trice-elettrico-a-cfc-im-gebaudemanagement-m-w-d-apleona-schweiz-ag-baden",
+          "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-installatore-trice-elettrico-a-cfc-im-gebaudemanagement-m-w-d-apleona-schweiz-ag-baden",
+        "betriebselektriker-elektroinstallateur-efz-im-gebaudemanagement-m-w-d-apleona-schweiz-ag"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-60cb8adce92f",
@@ -377,8 +387,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel",
         "it": "collaboratore-trice-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel",
-        "en": "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel",
-        "fr": "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel"
+        "en": "laboratory-services-associate-pharma-life-science-m-f-d-apleona-schweiz-ag-basel",
+        "fr": "employe-e-de-services-de-laboratoire-pharma-life-science-h-f-d-apleona-schweiz-ag-basel"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -424,6 +434,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel"
+        ],
+        "en": [
+          "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel"
+        ],
+        "fr": [
           "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-basel"
         ]
       },
@@ -521,7 +537,7 @@
         "de": "business-solution-manager-w-m-d-apleona-schweiz-ag-basel",
         "it": "business-solution-manager-w-m-d-apleona-schweiz-ag-basel",
         "en": "business-solution-manager-w-m-d-apleona-schweiz-ag-basel",
-        "fr": "business-solution-manager-w-m-d-apleona-schweiz-ag-basel"
+        "fr": "gestionnaire-de-solutions-d-affaires-h-f-d-apleona-schweiz-ag-basel"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -583,12 +599,12 @@
     },
     {
       "id": "apleona-schweiz-ag-d0c055535b68",
-      "slug": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
+      "slug": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen",
       "slugByLocale": {
         "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
-        "it": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
-        "en": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
-        "fr": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        "it": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen",
+        "en": "customer-accountant-m-f-d-apleona-schweiz-ag-wallisellen",
+        "fr": "comptable-client-h-f-d-apleona-schweiz-ag-wallisellen"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -647,16 +663,30 @@
         }
       },
       "postalCode": "8304",
-      "firstSeenAt": "2026-09-28T21:25:51.028Z"
+      "firstSeenAt": "2026-09-28T21:25:51.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "en": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "fr": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-480f8fb65147",
-      "slug": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
+      "slug": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
       "slugByLocale": {
         "de": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-kh0ug5",
-        "it": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
-        "en": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2",
-        "fr": "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
+        "it": "contabile-cliente-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
+        "en": "customer-accountant-m-f-d-apleona-schweiz-ag-wallisellen-7341e4",
+        "fr": "comptable-client-h-f-d-apleona-schweiz-ag-wallisellen-7341e4"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -719,10 +749,20 @@
       "previousSlugsByLocale": {
         "de": [
           "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        ],
+        "it": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
+        ],
+        "en": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
+        ],
+        "fr": [
+          "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
         ]
       },
       "previousSlugs": [
-        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen"
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen",
+        "kundenbuchhalter-m-w-d-apleona-schweiz-ag-wallisellen-2"
       ]
     },
     {
@@ -960,10 +1000,10 @@
     },
     {
       "id": "apleona-schweiz-ag-0361c7e4f51c",
-      "slug": "mitarbeiter-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen",
+      "slug": "personale-di-sicurezza-in-servizio-24-ore-su-24-m-f-d-apleona-schweiz-ag-schaffhausen",
       "slugByLocale": {
         "de": "mitarbeiter-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen",
-        "it": "collaboratore-trice-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen",
+        "it": "personale-di-sicurezza-in-servizio-24-ore-su-24-m-f-d-apleona-schweiz-ag-schaffhausen",
         "en": "employee-security-service-in-24-hour-operation-m-f-d-apleona-schweiz-ag-schaffhausen",
         "fr": "service-de-securite-des-employes-en-exploitation-24-heures-sur-24-h-f-d-apleona-schweiz-ag-schaffhausen"
       },
@@ -1022,7 +1062,17 @@
         }
       },
       "postalCode": "8200",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen",
+          "mitarbeiter-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen",
+        "mitarbeiter-sicherheitsdienst-im-24-stunden-betrieb-m-w-d-apleona-schweiz-ag-schaffhausen"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-c79a2a42a614",

@@ -651,10 +651,10 @@
     },
     {
       "id": "institution-lavigny-49e5f041ace6",
-      "slug": "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne",
+      "slug": "80-computer-workshop-speaker-institution-de-lavigny-lausanne",
       "slugByLocale": {
         "fr": "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne",
-        "it": "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne",
+        "it": "80-computer-workshop-speaker-institution-de-lavigny-lausanne",
         "en": "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne",
         "de": "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne"
       },
@@ -715,7 +715,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:44:15.222Z"
+      "firstSeenAt": "2026-10-07T09:44:15.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "intervenant-e-en-atelier-informatique-a-80-institution-lavigny-lausanne"
+      ]
     }
   ]
 }
