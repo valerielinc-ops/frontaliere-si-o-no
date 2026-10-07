@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-im-hasel",
-  "assembledAt": "2026-10-06T21:13:32.046Z",
+  "assembledAt": "2026-10-07T09:14:11.239Z",
   "jobs": [
     {
       "id": "klinik-im-hasel-b4882cfaff23",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/330/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:27.263Z",
+      "crawledAt": "2026-10-07T09:14:06.795Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/413/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:26.678Z",
+      "crawledAt": "2026-10-07T09:14:06.045Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -213,7 +213,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/475/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:25.954Z",
+      "crawledAt": "2026-10-07T09:14:05.292Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/470/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:25.228Z",
+      "crawledAt": "2026-10-07T09:14:04.664Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -379,7 +379,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/477/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:24.709Z",
+      "crawledAt": "2026-10-07T09:14:04.043Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -458,7 +458,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/478/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:23.990Z",
+      "crawledAt": "2026-10-07T09:14:03.429Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -538,7 +538,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/479/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:23.287Z",
+      "crawledAt": "2026-10-07T09:14:02.680Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -619,7 +619,7 @@
       "url": "https://recruitingapp-2912.umantis.com/Vacancies/484/Description/1",
       "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:22.580Z",
+      "crawledAt": "2026-10-07T09:14:01.953Z",
       "addressLocality": "Gontenschwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -663,6 +663,140 @@
           "@type": "QuantitativeValue",
           "minValue": 49600,
           "maxValue": 75200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-im-hasel-31b60d50340b",
+      "slug": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "en": "accountant-m-f-d-80-100-klinik-im-hasel-gontenschwil",
+        "de": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "fr": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil"
+      },
+      "company": "Klinik im Hasel",
+      "companyKey": "klinik-im-hasel",
+      "companyDomain": "klinikimhasel.ch",
+      "title": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100 %",
+      "titleByLocale": {
+        "it": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100%",
+        "en": "Accountant (m/f/d), 80-100%",
+        "de": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100 %",
+        "fr": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100%"
+      },
+      "description": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nSachbearbeiter:in Buchhaltung (w/m/d), 80-100 %\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung Unterstützung für unseren Standort in Lenzburg.\n\nDeine Aufgaben\n\n• Selbstständige Führung der Kreditoren- und Debitorenbuchhaltung inklusive Zahlungsverkehr und Mahnwesen\n• Verbuchung der Bank- und Kassentransaktionen sowie Abstimmung der Bankkonten\n• Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen\n• Mitarbeit im Controlling sowie aktive Unterstützung bei der Erstellung der Kostenrechnung\n• Enge Zusammenarbeit mit Patientenadministration, Leistungsmanagement und weiteren Bereichen bei finanziellen Fragestellungen, inklusive Unterstützung bei der Patientenabrechnung sowie selbstständige Bearbeitung allgemeiner administrativer Tätigkeiten\n\nDein Profil\n\n• Abgeschlossene kaufmännische Lehre oder gleichwertige Qualifikation; Weiterbildung im Bereich Buchhaltung von Vorteil, jedoch nicht Bedingung\n• Erste Berufserfahrung in der Buchhaltung, Interesse an einer Weiterentwicklung in diesem Bereich – auch Lehrabgänger:innen und Wiedereinsteiger:innen sind ausdrücklich willkommen\n• Du arbeitest zuverlässig und selbstständig, denkst mit und erkennst Zusammenhänge\n• Gute IT-Anwenderkenntnisse, Erfahrung mit Microsoft Dynamics 365 Business Central von Vorteil\n• Eine Grundhaltung geprägt von Wertschätzung und Respekt – gegenüber Kolleg:innen wie auch Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsort direkt am Bahnhof Lenzburg",
+      "descriptionByLocale": {
+        "it": "Klinik Im Hasel AG è una clinica specializzata psichiatrica-psicoterapeutica con un mandato di servizio cantonale per il trattamento di disturbi della dipendenza e del trauma. Come istituzione di assicurazione sanitaria approvata e parte della lista ospedaliera cantonale, offriamo trattamenti di alta qualità, basati su prove e orientati all'uomo per i nostri pazienti.\nCon circa 170 dipendenti dedicati in tre sedi – la nostra clinica ospedaliera a Gontenschwil, l'imbolatorium e la clinica diurna a Lenzburg e l'imboslatorium trauma-specifico a Baden – uniamo competenza professionale con una cooperazione apprezzativa e interdisciplinare.\n\nPersonale: nella contabilità (m/f/d), 80-100 %\n\nI tuoi compiti\n\n• Gestione indipendente dei conti pagabili e pagabili, compresi i pagamenti e l'esecuzione\n• Contabilità delle operazioni bancarie e di cassa e riconciliazione dei conti bancari\n• Partecipazione a conti mensili, trimestrali e annuali\n• Partecipazione al controllo e al sostegno attivo nella preparazione della contabilità dei costi\n• Una stretta collaborazione con l'amministrazione dei pazienti, la gestione delle prestazioni e altre aree in materia finanziaria, tra cui il supporto per la fatturazione dei pazienti e il trattamento indipendente delle attività amministrative generali\n\nIl tuo profilo\n\n• Apprendistato commerciale o qualifica equivalente; formazione complementare in contabilità benefica, ma non condizione\n• Prima esperienza professionale nella contabilità, interesse per un ulteriore sviluppo in questo settore – anche apprendisti: interni e rientro: sono espressamente benvenuti\n• Lavori in modo affidabile e indipendente, pensa e riconosce le connessioni\n• Buona conoscenza degli utenti IT, esperienza con Microsoft Dynamics 365 Business Central\n• Un atteggiamento di base caratterizzato da apprezzamento e rispetto – verso colleghi e pazienti:\n\nLa nostra offerta\n\n• Attività indipendenti e responsabili\n• Team dedicato e consolidato\n• Ulteriori opportunità di istruzione e benefici per i dipendenti\n• Gestione della salute professionale ben sviluppata\n• Posto centrale di lavoro direttamente alla stazione di Lenzburg",
+        "en": "Klinik Im Hasel AG is a psychiatric-psychotherapeutic specialist clinic with a cantonal service mandate for the treatment of addiction and trauma disorders. As a health insurance-approved institution and part of the cantonal hospital list, we offer high-quality, evidence-based and human-oriented treatment for our patients.\nWith around 170 dedicated employees at three locations – our inpatient clinic in Gontenschwil, the ambulatorium and the day clinic in Lenzburg and the trauma-specific ambulatorium in Baden – we combine professional competence with an appreciative and interdisciplinary cooperation.\n\nPersonnel:in accounting (m/f/d), 80-100 %\n\nYour tasks\n\n• Independent management of accounts payable and payable, including payments and dunning\n• Accounting of bank and cash transactions and reconciliation of bank accounts\n• Participation in monthly, quarterly and annual accounts\n• Participation in controlling and active support in the preparation of cost accounting\n• Close cooperation with patient administration, performance management and other areas in financial matters, including patient billing support and independent processing of general administrative activities\n\nYour profile\n\n• Commercial apprenticeship or equivalent qualification; Further education in accounting beneficial, but not condition\n• First professional experience in accounting, interest in further development in this area – also apprentices:inside and re-entry:inside are expressly welcome\n• You work reliably and independently, think along and recognize connections\n• Good IT user knowledge, experience with Microsoft Dynamics 365 Business Central\n• A basic attitude characterized by appreciation and respect – towards colleagues as well as patients:\n\nOur offer\n\n• Self-employed and responsible activities\n• Dedicated and established team\n• Further education opportunities and employee benefits\n• Well-developed occupational health management\n• Centrally located place of work directly at Lenzburg station",
+        "de": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nSachbearbeiter:in Buchhaltung (w/m/d), 80-100 %\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung Unterstützung für unseren Standort in Lenzburg.\n\nDeine Aufgaben\n\n• Selbstständige Führung der Kreditoren- und Debitorenbuchhaltung inklusive Zahlungsverkehr und Mahnwesen\n• Verbuchung der Bank- und Kassentransaktionen sowie Abstimmung der Bankkonten\n• Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen\n• Mitarbeit im Controlling sowie aktive Unterstützung bei der Erstellung der Kostenrechnung\n• Enge Zusammenarbeit mit Patientenadministration, Leistungsmanagement und weiteren Bereichen bei finanziellen Fragestellungen, inklusive Unterstützung bei der Patientenabrechnung sowie selbstständige Bearbeitung allgemeiner administrativer Tätigkeiten\n\nDein Profil\n\n• Abgeschlossene kaufmännische Lehre oder gleichwertige Qualifikation; Weiterbildung im Bereich Buchhaltung von Vorteil, jedoch nicht Bedingung\n• Erste Berufserfahrung in der Buchhaltung, Interesse an einer Weiterentwicklung in diesem Bereich – auch Lehrabgänger:innen und Wiedereinsteiger:innen sind ausdrücklich willkommen\n• Du arbeitest zuverlässig und selbstständig, denkst mit und erkennst Zusammenhänge\n• Gute IT-Anwenderkenntnisse, Erfahrung mit Microsoft Dynamics 365 Business Central von Vorteil\n• Eine Grundhaltung geprägt von Wertschätzung und Respekt – gegenüber Kolleg:innen wie auch Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsort direkt am Bahnhof Lenzburg",
+        "fr": "Klinik Im Hasel AG est une clinique psychiatrique-psychothérapeute spécialisée ayant un mandat cantonal de service pour le traitement des toxicomanies et des traumatismes. En tant qu'institution d'assurance maladie agréée et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de haute qualité, basé sur des données probantes et orienté vers l'humain pour nos patients.\nAvec environ 170 employés dévoués dans trois endroits – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire.\n\nPersonnel:en comptabilité (h/f/d), 80-100 %\n\nVos tâches\n\n• Gestion indépendante des comptes créditeurs et créditeurs, y compris les paiements et la dunning\n• Comptabilisation des opérations bancaires et en espèces et rapprochement des comptes bancaires\n• Participation aux comptes mensuels, trimestriels et annuels\n• Participation au contrôle et appui actif à la préparation de la comptabilité analytique\n• Coopération étroite avec l'administration des patients, la gestion du rendement et d'autres domaines en matière financière, y compris l'appui à la facturation des patients et le traitement indépendant des activités administratives générales\n\nVotre profil\n\n• Apprentissage commercial ou qualification équivalente; Formation continue en comptabilité bénéfique, mais non condition\n• Première expérience professionnelle en comptabilité, intérêt pour le développement dans ce domaine – également apprentis: à l'intérieur et ré-entrée: à l'intérieur sont expressément bienvenus\n• Vous travaillez de façon fiable et indépendante, réfléchissez et reconnaissez les connexions\n• Bonne connaissance de l'utilisateur informatique, expérience avec Microsoft Dynamics 365 Business Central\n• Une attitude de base caractérisée par l'appréciation et le respect – envers les collègues et les patients:\n\nNotre offre\n\n• Activités indépendantes et responsables\n• Équipe dédiée et établie\n• Possibilités de formation continue et avantages sociaux\n• Gestion bien développée de la santé au travail\n• Lieu de travail situé directement à la gare de Lenzburg"
+      },
+      "needsRetranslation": true,
+      "location": "Gontenschwil",
+      "canton": "AG",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/486/Description/1",
+      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:01.437Z",
+      "addressLocality": "Gontenschwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5728",
+      "category": "Amministrazione",
+      "department": "Finanzen / Rechnungswesen",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/486/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-29T21:15:01.427Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "klinik-im-hasel-ae8b00a3b9af",
+      "slug": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+      "slugByLocale": {
+        "it": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "en": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "de": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+        "fr": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil"
+      },
+      "company": "Klinik im Hasel",
+      "companyKey": "klinik-im-hasel",
+      "companyDomain": "klinikimhasel.ch",
+      "title": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
+      "titleByLocale": {
+        "it": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
+        "en": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
+        "de": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
+        "fr": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%"
+      },
+      "description": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nTeamleiter:in Sekretariat Ambulant (w/m/d), 80-100%\n\nWir suchen per sofort oder nach Vereinbarung eine:n Teamleiter:in Sekretariat Ambulant für unsere Standorte Lenzburg und Baden\n\nDeine Aufgaben\n\n• Fachliche und personelle Führung des 7köpfiges Sekretariatsteams an den Standorten Lenzburg und Baden\n• Personaleinsatz-, Ferien- und Absenzenplanung sowie Sicherstellung der Präsenz und Stellvertretungen\n• Einarbeitung, Schulung und Entwicklung der Mitarbeitenden inkl. Mitarbeitergespräche und Mitwirkung bei der Rekrutierung\n• Umsetzung und Weiterentwicklung der Prozesse und Standards im Sekretariat, inkl. Mitwirkung bei der Digitalisierung\n• Drehscheibe zwischen Leitung Praxismanagement, Ärzt:innen, Psychotherapeut:innen, Zuweisenden und externen Stellen\n• Aktive Mitarbeit im Tagesgeschäft: Patientenempfang, Termin- und Agendaplanung, Sprechstundenassistenz sowie Einholen von Kostengutsprachen\n\nDein Profil\n\n• Abgeschlossene kaufmännische Ausbildung oder Ausbildung als Medizinische Praxisassistentin (MPA) mit mehrjähriger Erfahrung im Sekretariat oder in der Praxisadministration im Gesundheitswesen, idealerweise im psychiatrischen oder ambulanten Bereich\n• Mindestens 3 Jahre Führungserfahrung, Führungsweiterbildung (z.B. Teamleiter:in SVF) von Vorteil\n• Sicherer Umgang mit MS Office und Klinikinformationssystemen, Kenntnisse in der ambulanten Abrechnung (2 x von Vorteil…)\n• Kooperativer und wertschätzender Führungsstil mit Kommunikationsstärke und Durchsetzungsvermögen gepaart mit Organisationstalent, Belastbarkeit und Flexibilität\n• Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsorte direkt am Bahnhof Lenzburg und Baden",
+      "descriptionByLocale": {
+        "it": "Klinik Im Hasel AG è una clinica specializzata psichiatrica-psicoterapeutica con un mandato di servizio cantonale per il trattamento di disturbi della dipendenza e del trauma. Come istituzione di assicurazione sanitaria approvata e parte della lista ospedaliera cantonale, offriamo trattamenti di alta qualità, basati su prove e orientati all'uomo per i nostri pazienti.\nCon circa 170 dipendenti dedicati in tre sedi – la nostra clinica ospedaliera a Gontenschwil, l'ambulatorium e la clinica diurna a Lenzburg e l'imboslatorium trauma-specifico a Baden – uniamo competenza professionale con una cooperazione apprezzativa e interdisciplinare.\n\nTeam Leader: in Segreteria Ambulant (m/f/d), 80-100 %\n\nSiamo alla ricerca di un team leader immediatamente o d'accordo: in Secretariat Ambulant per le nostre sedi Lenzburg e Baden\n\nI tuoi compiti\n\n• Gestione professionale e personale del team di segretariato di 7 membri presso le sedi di Lenzburg e Baden\n• Distribuzione del personale, pianificazione delle vacanze e degli assenti e garanzia della presenza e dei deputati\n• Formazione, formazione e sviluppo dei dipendenti incl. Riunioni del personale e partecipazione al reclutamento\n• Attuazione e ulteriore sviluppo di processi e standard nel segretariato, compresa la partecipazione alla digitalizzazione\n• Mozzo tra gestione della pratica, medici: interno, psicoterapeuti: interno, assegnazione e corpi esterni\n• Partecipazione attiva al business quotidiano: accoglienza del paziente, pianificazione degli appuntamenti e degli ordini del giorno, assistenza alla consultazione e ottenere la lingua dei costi\n\nIl tuo profilo\n\n• Formazione commerciale completata o formazione come assistente di pratica medica (MPA) con diversi anni di esperienza nel segretariato o nella pratica amministrazione nel settore sanitario, idealmente nella zona psichiatrica o ambulatorio\n• Almeno 3 anni di esperienza manageriale, ulteriore formazione (ad esempio leader del team: in SVF) è utile\n• Gestione sicura di MS Office e sistemi informativi clinici, conoscenza della fatturazione ambulatoria (2 x benefico...)\n• Stile di leadership cooperativo e apprezzativo con comunicazione e assertivitÃ abbinato a talenti organizzativi, resilienza e flessibilitÃ\n• Vogliamo un atteggiamento di base che è caratterizzato da apprezzamento e rispetto nel trattare con i nostri pazienti:\n\nLa nostra offerta\n\n• Attività indipendenti e responsabili\n• Team dedicato e consolidato\n• Ulteriori opportunità di istruzione e benefici per i dipendenti\n• Gestione della salute professionale ben sviluppata\n• Posti di lavoro situati in posizione centrale direttamente presso la stazione ferroviaria di Lenzburg e Baden",
+        "en": "Klinik Im Hasel AG is a psychiatric-psychotherapeutic specialist clinic with a cantonal service mandate for the treatment of addiction and trauma disorders. As a health insurance-approved institution and part of the cantonal hospital list, we offer high-quality, evidence-based and human-oriented treatment for our patients.\nWith around 170 dedicated employees at three locations – our inpatient clinic in Gontenschwil, the ambulatorium and the day clinic in Lenzburg and the trauma-specific ambulatorium in Baden – we combine professional competence with an appreciative and interdisciplinary cooperation.\n\nTeam Leader: in Secretariat Ambulant (m/f/d), 80-100 %\n\nWe are looking for a team leader immediately or by agreement: in Secretariat Ambulant for our locations Lenzburg and Baden\n\nYour tasks\n\n• Professional and personnel management of the 7-member secretarial team at the Lenzburg and Baden locations\n• Personnel deployment, holiday and absentee planning and ensuring presence and deputies\n• Training, training and development of employees incl. Staff meetings and participation in recruitment\n• Implementation and further development of processes and standards in the secretariat, including participation in digitalization\n• Hub between management practice management, doctors:inside, psychotherapists:inside, assignment and external bodies\n• Active participation in day-to-day business: patient reception, scheduling of appointments and agendas, consultation assistance as well as obtaining cost language\n\nYour profile\n\n• Completed commercial training or training as a medical practice assistant (MPA) with several years of experience in the secretariat or in the practice administration in the health care sector, ideally in the psychiatric or outpatient area\n• At least 3 years of management experience, further training (e.g. team leader: in SVF) is beneficial\n• Secure handling of MS Office and clinic information systems, knowledge of ambulatory billing (2 x beneficial...)\n• Cooperative and appreciative leadership style with communication and assertiveness paired with organizational talent, resilience and flexibility\n• We want a basic attitude that is characterized by appreciation and respect in dealing with our patients:\n\nOur offer\n\n• Self-employed and responsible activities\n• Dedicated and established team\n• Further education opportunities and employee benefits\n• Well-developed occupational health management\n• Centrally located places of work directly at the Lenzburg and Baden railway station",
+        "de": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nTeamleiter:in Sekretariat Ambulant (w/m/d), 80-100%\n\nWir suchen per sofort oder nach Vereinbarung eine:n Teamleiter:in Sekretariat Ambulant für unsere Standorte Lenzburg und Baden\n\nDeine Aufgaben\n\n• Fachliche und personelle Führung des 7köpfiges Sekretariatsteams an den Standorten Lenzburg und Baden\n• Personaleinsatz-, Ferien- und Absenzenplanung sowie Sicherstellung der Präsenz und Stellvertretungen\n• Einarbeitung, Schulung und Entwicklung der Mitarbeitenden inkl. Mitarbeitergespräche und Mitwirkung bei der Rekrutierung\n• Umsetzung und Weiterentwicklung der Prozesse und Standards im Sekretariat, inkl. Mitwirkung bei der Digitalisierung\n• Drehscheibe zwischen Leitung Praxismanagement, Ärzt:innen, Psychotherapeut:innen, Zuweisenden und externen Stellen\n• Aktive Mitarbeit im Tagesgeschäft: Patientenempfang, Termin- und Agendaplanung, Sprechstundenassistenz sowie Einholen von Kostengutsprachen\n\nDein Profil\n\n• Abgeschlossene kaufmännische Ausbildung oder Ausbildung als Medizinische Praxisassistentin (MPA) mit mehrjähriger Erfahrung im Sekretariat oder in der Praxisadministration im Gesundheitswesen, idealerweise im psychiatrischen oder ambulanten Bereich\n• Mindestens 3 Jahre Führungserfahrung, Führungsweiterbildung (z.B. Teamleiter:in SVF) von Vorteil\n• Sicherer Umgang mit MS Office und Klinikinformationssystemen, Kenntnisse in der ambulanten Abrechnung (2 x von Vorteil…)\n• Kooperativer und wertschätzender Führungsstil mit Kommunikationsstärke und Durchsetzungsvermögen gepaart mit Organisationstalent, Belastbarkeit und Flexibilität\n• Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsorte direkt am Bahnhof Lenzburg und Baden",
+        "fr": "Klinik Im Hasel AG est une clinique spécialisée en psychothérapie psychiatrique ayant un mandat cantonal pour le traitement des toxicomanies et des traumatismes. En tant qu'institution agréée par l'assurance maladie et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de qualité, fondé sur des données probantes et axé sur l'humain à nos patients.\nAvec environ 170 employés dévoués dans trois sites – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire.\n\nChef d'équipe: dans le Secrétariat Ambulant (h/f/d), 80-100 %\n\nNous sommes à la recherche d'un chef d'équipe immédiatement ou par accord: au Secrétariat Ambulant pour nos emplacements Lenzburg et Baden\n\nVos tâches\n\n• Gestion professionnelle et du personnel de l ' équipe de secrétariat composée de sept membres sur les sites de Lenzburg et de Baden\n• Déploiement du personnel, planification des vacances et des absences et garantie de la présence et des adjoints\n• Formation, formation et perfectionnement des employés, y compris Réunions du personnel et participation au recrutement\n• Mise en œuvre et mise au point de procédures et de normes au secrétariat, y compris la participation à la numérisation\n• Hub entre la gestion des pratiques de gestion, les médecins:à l'intérieur, les psychothérapeutes:à l'intérieur, l'affectation et les organismes externes\n• Participation active aux activités quotidiennes: accueil des patients, calendrier des rendez-vous et des ordres du jour, aide à la consultation et obtention d'une langue de coût\n\nVotre profil\n\n• Achevé une formation commerciale ou une formation en tant qu'assistant à la pratique médicale avec plusieurs années d'expérience au secrétariat ou dans l'administration de la pratique dans le secteur des soins de santé, idéalement dans le domaine psychiatrique ou ambulatoire\n• Au moins 3 ans d'expérience en gestion, la formation continue (par exemple chef d'équipe: en SVF) est bénéfique\n• Gestion sécuritaire des systèmes d'information du bureau et des cliniques, connaissance de la facturation ambulatoire (2 x bénéfiques...)\n• Style de leadership coopératif et appréciatif associé à la communication et à l'affirmation de soi au talent organisationnel, à la résilience et à la flexibilité\n• Nous voulons une attitude de base caractérisée par l'appréciation et le respect envers nos patients:\n\nNotre offre\n\n• Activités indépendantes et responsables\n• Équipe dédiée et établie\n• Possibilités de formation continue et avantages sociaux\n• Gestion bien développée de la santé au travail\n• Lieux de travail situés au centre directement à la gare de Lenzburg et Baden"
+      },
+      "needsRetranslation": true,
+      "location": "Gontenschwil",
+      "canton": "AG",
+      "url": "https://recruitingapp-2912.umantis.com/Vacancies/487/Description/1",
+      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:14:00.710Z",
+      "addressLocality": "Gontenschwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5728",
+      "category": "Amministrazione",
+      "department": "Sekretariat",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/487/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-06T21:13:21.119Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -746,143 +880,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "klinik-im-hasel-31b60d50340b",
-      "slug": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-      "slugByLocale": {
-        "it": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "en": "accountant-m-f-d-80-100-klinik-im-hasel-gontenschwil",
-        "de": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "fr": "sachbearbeiter-in-buchhaltung-w-m-d-80-100-klinik-im-hasel-gontenschwil"
-      },
-      "company": "Klinik im Hasel",
-      "companyKey": "klinik-im-hasel",
-      "companyDomain": "klinikimhasel.ch",
-      "title": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100 %",
-      "titleByLocale": {
-        "it": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100%",
-        "en": "Accountant (m/f/d), 80-100%",
-        "de": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100 %",
-        "fr": "Sachbearbeiter:in Buchhaltung (w/m/d), 80-100%"
-      },
-      "description": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nSachbearbeiter:in Buchhaltung (w/m/d), 80-100 %\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung Unterstützung für unseren Standort in Lenzburg.\n\nDeine Aufgaben\n\n• Selbstständige Führung der Kreditoren- und Debitorenbuchhaltung inklusive Zahlungsverkehr und Mahnwesen\n• Verbuchung der Bank- und Kassentransaktionen sowie Abstimmung der Bankkonten\n• Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen\n• Mitarbeit im Controlling sowie aktive Unterstützung bei der Erstellung der Kostenrechnung\n• Enge Zusammenarbeit mit Patientenadministration, Leistungsmanagement und weiteren Bereichen bei finanziellen Fragestellungen, inklusive Unterstützung bei der Patientenabrechnung sowie selbstständige Bearbeitung allgemeiner administrativer Tätigkeiten\n\nDein Profil\n\n• Abgeschlossene kaufmännische Lehre oder gleichwertige Qualifikation; Weiterbildung im Bereich Buchhaltung von Vorteil, jedoch nicht Bedingung\n• Erste Berufserfahrung in der Buchhaltung, Interesse an einer Weiterentwicklung in diesem Bereich – auch Lehrabgänger:innen und Wiedereinsteiger:innen sind ausdrücklich willkommen\n• Du arbeitest zuverlässig und selbstständig, denkst mit und erkennst Zusammenhänge\n• Gute IT-Anwenderkenntnisse, Erfahrung mit Microsoft Dynamics 365 Business Central von Vorteil\n• Eine Grundhaltung geprägt von Wertschätzung und Respekt – gegenüber Kolleg:innen wie auch Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsort direkt am Bahnhof Lenzburg",
-      "descriptionByLocale": {
-        "it": "Klinik Im Hasel AG è una clinica specializzata psichiatrica-psicoterapeutica con un mandato di servizio cantonale per il trattamento di disturbi della dipendenza e del trauma. Come istituzione di assicurazione sanitaria approvata e parte della lista ospedaliera cantonale, offriamo trattamenti di alta qualità, basati su prove e orientati all'uomo per i nostri pazienti.\nCon circa 170 dipendenti dedicati in tre sedi – la nostra clinica ospedaliera a Gontenschwil, l'imbolatorium e la clinica diurna a Lenzburg e l'imboslatorium trauma-specifico a Baden – uniamo competenza professionale con una cooperazione apprezzativa e interdisciplinare.\n\nPersonale: nella contabilità (m/f/d), 80-100 %\n\nI tuoi compiti\n\n• Gestione indipendente dei conti pagabili e pagabili, compresi i pagamenti e l'esecuzione\n• Contabilità delle operazioni bancarie e di cassa e riconciliazione dei conti bancari\n• Partecipazione a conti mensili, trimestrali e annuali\n• Partecipazione al controllo e al sostegno attivo nella preparazione della contabilità dei costi\n• Una stretta collaborazione con l'amministrazione dei pazienti, la gestione delle prestazioni e altre aree in materia finanziaria, tra cui il supporto per la fatturazione dei pazienti e il trattamento indipendente delle attività amministrative generali\n\nIl tuo profilo\n\n• Apprendistato commerciale o qualifica equivalente; formazione complementare in contabilità benefica, ma non condizione\n• Prima esperienza professionale nella contabilità, interesse per un ulteriore sviluppo in questo settore – anche apprendisti: interni e rientro: sono espressamente benvenuti\n• Lavori in modo affidabile e indipendente, pensa e riconosce le connessioni\n• Buona conoscenza degli utenti IT, esperienza con Microsoft Dynamics 365 Business Central\n• Un atteggiamento di base caratterizzato da apprezzamento e rispetto – verso colleghi e pazienti:\n\nLa nostra offerta\n\n• Attività indipendenti e responsabili\n• Team dedicato e consolidato\n• Ulteriori opportunità di istruzione e benefici per i dipendenti\n• Gestione della salute professionale ben sviluppata\n• Posto centrale di lavoro direttamente alla stazione di Lenzburg",
-        "en": "Klinik Im Hasel AG is a psychiatric-psychotherapeutic specialist clinic with a cantonal service mandate for the treatment of addiction and trauma disorders. As a health insurance-approved institution and part of the cantonal hospital list, we offer high-quality, evidence-based and human-oriented treatment for our patients.\nWith around 170 dedicated employees at three locations – our inpatient clinic in Gontenschwil, the ambulatorium and the day clinic in Lenzburg and the trauma-specific ambulatorium in Baden – we combine professional competence with an appreciative and interdisciplinary cooperation.\n\nPersonnel:in accounting (m/f/d), 80-100 %\n\nYour tasks\n\n• Independent management of accounts payable and payable, including payments and dunning\n• Accounting of bank and cash transactions and reconciliation of bank accounts\n• Participation in monthly, quarterly and annual accounts\n• Participation in controlling and active support in the preparation of cost accounting\n• Close cooperation with patient administration, performance management and other areas in financial matters, including patient billing support and independent processing of general administrative activities\n\nYour profile\n\n• Commercial apprenticeship or equivalent qualification; Further education in accounting beneficial, but not condition\n• First professional experience in accounting, interest in further development in this area – also apprentices:inside and re-entry:inside are expressly welcome\n• You work reliably and independently, think along and recognize connections\n• Good IT user knowledge, experience with Microsoft Dynamics 365 Business Central\n• A basic attitude characterized by appreciation and respect – towards colleagues as well as patients:\n\nOur offer\n\n• Self-employed and responsible activities\n• Dedicated and established team\n• Further education opportunities and employee benefits\n• Well-developed occupational health management\n• Centrally located place of work directly at Lenzburg station",
-        "de": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nSachbearbeiter:in Buchhaltung (w/m/d), 80-100 %\n\nWir suchen per 1. Januar 2027 oder nach Vereinbarung Unterstützung für unseren Standort in Lenzburg.\n\nDeine Aufgaben\n\n• Selbstständige Führung der Kreditoren- und Debitorenbuchhaltung inklusive Zahlungsverkehr und Mahnwesen\n• Verbuchung der Bank- und Kassentransaktionen sowie Abstimmung der Bankkonten\n• Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen\n• Mitarbeit im Controlling sowie aktive Unterstützung bei der Erstellung der Kostenrechnung\n• Enge Zusammenarbeit mit Patientenadministration, Leistungsmanagement und weiteren Bereichen bei finanziellen Fragestellungen, inklusive Unterstützung bei der Patientenabrechnung sowie selbstständige Bearbeitung allgemeiner administrativer Tätigkeiten\n\nDein Profil\n\n• Abgeschlossene kaufmännische Lehre oder gleichwertige Qualifikation; Weiterbildung im Bereich Buchhaltung von Vorteil, jedoch nicht Bedingung\n• Erste Berufserfahrung in der Buchhaltung, Interesse an einer Weiterentwicklung in diesem Bereich – auch Lehrabgänger:innen und Wiedereinsteiger:innen sind ausdrücklich willkommen\n• Du arbeitest zuverlässig und selbstständig, denkst mit und erkennst Zusammenhänge\n• Gute IT-Anwenderkenntnisse, Erfahrung mit Microsoft Dynamics 365 Business Central von Vorteil\n• Eine Grundhaltung geprägt von Wertschätzung und Respekt – gegenüber Kolleg:innen wie auch Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsort direkt am Bahnhof Lenzburg",
-        "fr": "Klinik Im Hasel AG est une clinique psychiatrique-psychothérapeute spécialisée ayant un mandat cantonal de service pour le traitement des toxicomanies et des traumatismes. En tant qu'institution d'assurance maladie agréée et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de haute qualité, basé sur des données probantes et orienté vers l'humain pour nos patients.\nAvec environ 170 employés dévoués dans trois endroits – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire.\n\nPersonnel:en comptabilité (h/f/d), 80-100 %\n\nVos tâches\n\n• Gestion indépendante des comptes créditeurs et créditeurs, y compris les paiements et la dunning\n• Comptabilisation des opérations bancaires et en espèces et rapprochement des comptes bancaires\n• Participation aux comptes mensuels, trimestriels et annuels\n• Participation au contrôle et appui actif à la préparation de la comptabilité analytique\n• Coopération étroite avec l'administration des patients, la gestion du rendement et d'autres domaines en matière financière, y compris l'appui à la facturation des patients et le traitement indépendant des activités administratives générales\n\nVotre profil\n\n• Apprentissage commercial ou qualification équivalente; Formation continue en comptabilité bénéfique, mais non condition\n• Première expérience professionnelle en comptabilité, intérêt pour le développement dans ce domaine – également apprentis: à l'intérieur et ré-entrée: à l'intérieur sont expressément bienvenus\n• Vous travaillez de façon fiable et indépendante, réfléchissez et reconnaissez les connexions\n• Bonne connaissance de l'utilisateur informatique, expérience avec Microsoft Dynamics 365 Business Central\n• Une attitude de base caractérisée par l'appréciation et le respect – envers les collègues et les patients:\n\nNotre offre\n\n• Activités indépendantes et responsables\n• Équipe dédiée et établie\n• Possibilités de formation continue et avantages sociaux\n• Gestion bien développée de la santé au travail\n• Lieu de travail situé directement à la gare de Lenzburg"
-      },
-      "needsRetranslation": true,
-      "location": "Gontenschwil",
-      "canton": "AG",
-      "url": "https://recruitingapp-2912.umantis.com/Vacancies/486/Description/1",
-      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:21.853Z",
-      "addressLocality": "Gontenschwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5728",
-      "category": "Amministrazione",
-      "department": "Finanzen / Rechnungswesen",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/486/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T21:15:01.427Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-im-hasel-ae8b00a3b9af",
-      "slug": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-      "slugByLocale": {
-        "de": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "it": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "en": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil",
-        "fr": "teamleiter-in-sekretariat-ambulant-w-m-d-80-100-klinik-im-hasel-gontenschwil"
-      },
-      "company": "Klinik im Hasel",
-      "companyKey": "klinik-im-hasel",
-      "companyDomain": "klinikimhasel.ch",
-      "title": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
-      "titleByLocale": {
-        "de": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
-        "it": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
-        "en": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%",
-        "fr": "Teamleiter:in Sekretariat Ambulant (w/m/d), 80-100%"
-      },
-      "description": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nTeamleiter:in Sekretariat Ambulant (w/m/d), 80-100%\n\nWir suchen per sofort oder nach Vereinbarung eine:n Teamleiter:in Sekretariat Ambulant für unsere Standorte Lenzburg und Baden\n\nDeine Aufgaben\n\n• Fachliche und personelle Führung des 7köpfiges Sekretariatsteams an den Standorten Lenzburg und Baden\n• Personaleinsatz-, Ferien- und Absenzenplanung sowie Sicherstellung der Präsenz und Stellvertretungen\n• Einarbeitung, Schulung und Entwicklung der Mitarbeitenden inkl. Mitarbeitergespräche und Mitwirkung bei der Rekrutierung\n• Umsetzung und Weiterentwicklung der Prozesse und Standards im Sekretariat, inkl. Mitwirkung bei der Digitalisierung\n• Drehscheibe zwischen Leitung Praxismanagement, Ärzt:innen, Psychotherapeut:innen, Zuweisenden und externen Stellen\n• Aktive Mitarbeit im Tagesgeschäft: Patientenempfang, Termin- und Agendaplanung, Sprechstundenassistenz sowie Einholen von Kostengutsprachen\n\nDein Profil\n\n• Abgeschlossene kaufmännische Ausbildung oder Ausbildung als Medizinische Praxisassistentin (MPA) mit mehrjähriger Erfahrung im Sekretariat oder in der Praxisadministration im Gesundheitswesen, idealerweise im psychiatrischen oder ambulanten Bereich\n• Mindestens 3 Jahre Führungserfahrung, Führungsweiterbildung (z.B. Teamleiter:in SVF) von Vorteil\n• Sicherer Umgang mit MS Office und Klinikinformationssystemen, Kenntnisse in der ambulanten Abrechnung (2 x von Vorteil…)\n• Kooperativer und wertschätzender Führungsstil mit Kommunikationsstärke und Durchsetzungsvermögen gepaart mit Organisationstalent, Belastbarkeit und Flexibilität\n• Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsorte direkt am Bahnhof Lenzburg und Baden",
-      "descriptionByLocale": {
-        "de": "Die Klinik Im Hasel AG ist eine psychiatrisch-psychotherapeutische Fachklinik mit kantonalem Leistungsauftrag zur Behandlung von Sucht- und Traumafolgestörungen. Als krankenkassenanerkannte Einrichtung und Teil der kantonalen Spitalliste bieten wir eine hochwertige, evidenzbasierte und menschlich zugewandte Behandlung für unsere Patient:innen.\nMit rund 170 engagierten Mitarbeitenden an drei Standorten – unserer stationären Klinik in Gontenschwil, dem Ambulatorium und der Tagesklinik in Lenzburg sowie dem traumaspezifischen Ambulatorium in Baden – verbinden wir fachliche Kompetenz mit einer wertschätzenden und interdisziplinären Zusammenarbeit.\n\nTeamleiter:in Sekretariat Ambulant (w/m/d), 80-100%\n\nWir suchen per sofort oder nach Vereinbarung eine:n Teamleiter:in Sekretariat Ambulant für unsere Standorte Lenzburg und Baden\n\nDeine Aufgaben\n\n• Fachliche und personelle Führung des 7köpfiges Sekretariatsteams an den Standorten Lenzburg und Baden\n• Personaleinsatz-, Ferien- und Absenzenplanung sowie Sicherstellung der Präsenz und Stellvertretungen\n• Einarbeitung, Schulung und Entwicklung der Mitarbeitenden inkl. Mitarbeitergespräche und Mitwirkung bei der Rekrutierung\n• Umsetzung und Weiterentwicklung der Prozesse und Standards im Sekretariat, inkl. Mitwirkung bei der Digitalisierung\n• Drehscheibe zwischen Leitung Praxismanagement, Ärzt:innen, Psychotherapeut:innen, Zuweisenden und externen Stellen\n• Aktive Mitarbeit im Tagesgeschäft: Patientenempfang, Termin- und Agendaplanung, Sprechstundenassistenz sowie Einholen von Kostengutsprachen\n\nDein Profil\n\n• Abgeschlossene kaufmännische Ausbildung oder Ausbildung als Medizinische Praxisassistentin (MPA) mit mehrjähriger Erfahrung im Sekretariat oder in der Praxisadministration im Gesundheitswesen, idealerweise im psychiatrischen oder ambulanten Bereich\n• Mindestens 3 Jahre Führungserfahrung, Führungsweiterbildung (z.B. Teamleiter:in SVF) von Vorteil\n• Sicherer Umgang mit MS Office und Klinikinformationssystemen, Kenntnisse in der ambulanten Abrechnung (2 x von Vorteil…)\n• Kooperativer und wertschätzender Führungsstil mit Kommunikationsstärke und Durchsetzungsvermögen gepaart mit Organisationstalent, Belastbarkeit und Flexibilität\n• Wir wünschen uns eine Grundhaltung, die geprägt ist von Wertschätzung und Respekt im Umgang mit unseren Patient:innen\n\nUnser Angebot\n\n• Selbstständige und verantwortungsvolle Tätigkeiten\n• Engagiertes und aufgestelltes Team\n• Weiterbildungsmöglichkeiten und Mitarbeitenden-Benefits\n• Gut ausgebautes Betriebliches Gesundheitsmanagement\n• Zentral gelegener Arbeitsorte direkt am Bahnhof Lenzburg und Baden",
-        "it": "Klinik Im Hasel AG è una clinica specializzata psichiatrica-psicoterapeutica con un mandato di servizio cantonale per il trattamento di disturbi della dipendenza e del trauma. Come istituzione di assicurazione sanitaria approvata e parte della lista ospedaliera cantonale, offriamo trattamenti di alta qualità, basati su prove e orientati all'uomo per i nostri pazienti.\nCon circa 170 dipendenti dedicati in tre sedi – la nostra clinica ospedaliera a Gontenschwil, l'ambulatorium e la clinica diurna a Lenzburg e l'imboslatorium trauma-specifico a Baden – uniamo competenza professionale con una cooperazione apprezzativa e interdisciplinare.\n\nTeam Leader: in Segreteria Ambulant (m/f/d), 80-100 %\n\nSiamo alla ricerca di un team leader immediatamente o d'accordo: in Secretariat Ambulant per le nostre sedi Lenzburg e Baden\n\nI tuoi compiti\n\n• Gestione professionale e personale del team di segretariato di 7 membri presso le sedi di Lenzburg e Baden\n• Distribuzione del personale, pianificazione delle vacanze e degli assenti e garanzia della presenza e dei deputati\n• Formazione, formazione e sviluppo dei dipendenti incl. Riunioni del personale e partecipazione al reclutamento\n• Attuazione e ulteriore sviluppo di processi e standard nel segretariato, compresa la partecipazione alla digitalizzazione\n• Mozzo tra gestione della pratica, medici: interno, psicoterapeuti: interno, assegnazione e corpi esterni\n• Partecipazione attiva al business quotidiano: accoglienza del paziente, pianificazione degli appuntamenti e degli ordini del giorno, assistenza alla consultazione e ottenere la lingua dei costi\n\nIl tuo profilo\n\n• Formazione commerciale completata o formazione come assistente di pratica medica (MPA) con diversi anni di esperienza nel segretariato o nella pratica amministrazione nel settore sanitario, idealmente nella zona psichiatrica o ambulatorio\n• Almeno 3 anni di esperienza manageriale, ulteriore formazione (ad esempio leader del team: in SVF) è utile\n• Gestione sicura di MS Office e sistemi informativi clinici, conoscenza della fatturazione ambulatoria (2 x benefico...)\n• Stile di leadership cooperativo e apprezzativo con comunicazione e assertivitÃ abbinato a talenti organizzativi, resilienza e flessibilitÃ\n• Vogliamo un atteggiamento di base che è caratterizzato da apprezzamento e rispetto nel trattare con i nostri pazienti:\n\nLa nostra offerta\n\n• Attività indipendenti e responsabili\n• Team dedicato e consolidato\n• Ulteriori opportunità di istruzione e benefici per i dipendenti\n• Gestione della salute professionale ben sviluppata\n• Posti di lavoro situati in posizione centrale direttamente presso la stazione ferroviaria di Lenzburg e Baden",
-        "en": "Klinik Im Hasel AG is a psychiatric-psychotherapeutic specialist clinic with a cantonal service mandate for the treatment of addiction and trauma disorders. As a health insurance-approved institution and part of the cantonal hospital list, we offer high-quality, evidence-based and human-oriented treatment for our patients.\nWith around 170 dedicated employees at three locations – our inpatient clinic in Gontenschwil, the ambulatorium and the day clinic in Lenzburg and the trauma-specific ambulatorium in Baden – we combine professional competence with an appreciative and interdisciplinary cooperation.\n\nTeam Leader: in Secretariat Ambulant (m/f/d), 80-100 %\n\nWe are looking for a team leader immediately or by agreement: in Secretariat Ambulant for our locations Lenzburg and Baden\n\nYour tasks\n\n• Professional and personnel management of the 7-member secretarial team at the Lenzburg and Baden locations\n• Personnel deployment, holiday and absentee planning and ensuring presence and deputies\n• Training, training and development of employees incl. Staff meetings and participation in recruitment\n• Implementation and further development of processes and standards in the secretariat, including participation in digitalization\n• Hub between management practice management, doctors:inside, psychotherapists:inside, assignment and external bodies\n• Active participation in day-to-day business: patient reception, scheduling of appointments and agendas, consultation assistance as well as obtaining cost language\n\nYour profile\n\n• Completed commercial training or training as a medical practice assistant (MPA) with several years of experience in the secretariat or in the practice administration in the health care sector, ideally in the psychiatric or outpatient area\n• At least 3 years of management experience, further training (e.g. team leader: in SVF) is beneficial\n• Secure handling of MS Office and clinic information systems, knowledge of ambulatory billing (2 x beneficial...)\n• Cooperative and appreciative leadership style with communication and assertiveness paired with organizational talent, resilience and flexibility\n• We want a basic attitude that is characterized by appreciation and respect in dealing with our patients:\n\nOur offer\n\n• Self-employed and responsible activities\n• Dedicated and established team\n• Further education opportunities and employee benefits\n• Well-developed occupational health management\n• Centrally located places of work directly at the Lenzburg and Baden railway station",
-        "fr": "Klinik Im Hasel AG est une clinique spécialisée en psychothérapie psychiatrique ayant un mandat cantonal pour le traitement des toxicomanies et des traumatismes. En tant qu'institution agréée par l'assurance maladie et faisant partie de la liste des hôpitaux cantonaux, nous offrons un traitement de qualité, fondé sur des données probantes et axé sur l'humain à nos patients.\nAvec environ 170 employés dévoués dans trois sites – notre clinique d'hospitalisation à Gontenschwil, l'ambulatorium et la clinique de jour à Lenzburg et l'ambulatorium spécifique aux traumatismes à Baden – nous combinons compétence professionnelle avec une coopération appréciatrice et interdisciplinaire.\n\nChef d'équipe: dans le Secrétariat Ambulant (h/f/d), 80-100 %\n\nNous sommes à la recherche d'un chef d'équipe immédiatement ou par accord: au Secrétariat Ambulant pour nos emplacements Lenzburg et Baden\n\nVos tâches\n\n• Gestion professionnelle et du personnel de l ' équipe de secrétariat composée de sept membres sur les sites de Lenzburg et de Baden\n• Déploiement du personnel, planification des vacances et des absences et garantie de la présence et des adjoints\n• Formation, formation et perfectionnement des employés, y compris Réunions du personnel et participation au recrutement\n• Mise en œuvre et mise au point de procédures et de normes au secrétariat, y compris la participation à la numérisation\n• Hub entre la gestion des pratiques de gestion, les médecins:à l'intérieur, les psychothérapeutes:à l'intérieur, l'affectation et les organismes externes\n• Participation active aux activités quotidiennes: accueil des patients, calendrier des rendez-vous et des ordres du jour, aide à la consultation et obtention d'une langue de coût\n\nVotre profil\n\n• Achevé une formation commerciale ou une formation en tant qu'assistant à la pratique médicale avec plusieurs années d'expérience au secrétariat ou dans l'administration de la pratique dans le secteur des soins de santé, idéalement dans le domaine psychiatrique ou ambulatoire\n• Au moins 3 ans d'expérience en gestion, la formation continue (par exemple chef d'équipe: en SVF) est bénéfique\n• Gestion sécuritaire des systèmes d'information du bureau et des cliniques, connaissance de la facturation ambulatoire (2 x bénéfiques...)\n• Style de leadership coopératif et appréciatif associé à la communication et à l'affirmation de soi au talent organisationnel, à la résilience et à la flexibilité\n• Nous voulons une attitude de base caractérisée par l'appréciation et le respect envers nos patients:\n\nNotre offre\n\n• Activités indépendantes et responsables\n• Équipe dédiée et établie\n• Possibilités de formation continue et avantages sociaux\n• Gestion bien développée de la santé au travail\n• Lieux de travail situés au centre directement à la gare de Lenzburg et Baden"
-      },
-      "needsRetranslation": true,
-      "location": "Gontenschwil",
-      "canton": "AG",
-      "url": "https://recruitingapp-2912.umantis.com/Vacancies/487/Description/1",
-      "source": "Klinik im Hasel Dedicated Parser (Umantis listing tenant 2912)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:13:21.119Z",
-      "addressLocality": "Gontenschwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5728",
-      "category": "Amministrazione",
-      "department": "Sekretariat",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://recruitingapp-2912.umantis.com/Vacancies/487/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-10-06T21:13:21.119Z"
+      "crawlerMissStreak": 2
     }
   ]
 }
