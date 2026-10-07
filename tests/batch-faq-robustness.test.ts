@@ -121,6 +121,15 @@ describe('SIGTERM — la bomba che publish-journalist-article armava ogni 15 min
   });
 });
 
+describe('checkpoint main — guardia della storia precedente', () => {
+  it('controlla prima di committare e usa il wrapper comune per il push', () => {
+    expect(SCRIPT_SRC).toContain('assertOldHistorySafe({ cwd: ROOT, refreshBase: true });');
+    expect(SCRIPT_SRC).toContain('scripts/lib/git-push-with-retry.sh');
+    expect(SCRIPT_SRC).not.toMatch(/execSync\('git push origin main'/);
+    expect(SCRIPT_SRC).not.toMatch(/execSync\('git pull --rebase origin main'/);
+  });
+});
+
 // ── nanako#393 — il corpo che entra nel prompt e' quello del proprio id ──────
 //
 // MUTAZIONE: rimettere `const re = /\.body\d+'\s*:\s*(['`])((?:\\.|(?!\1)[\s\S])*?)\1/g`

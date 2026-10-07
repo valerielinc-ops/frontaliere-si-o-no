@@ -488,6 +488,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/prefetch-review-diff.mjs \
             scripts/ci/review-test-policy.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
@@ -525,14 +526,17 @@ jobs:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
 
+      # `continue-on-error` sul claim serve solo a lasciare eseguire questo
+      # guard esplicito. Un import error avviene prima degli output: in quel
+      # caso l'outcome dello step, non un output mancante, è la prova di errore.
       - name: Fail closed when redcheck claim is unreadable
-        if: steps.claim.outputs.claim_error == 'true'
+        if: steps.claim.outcome != 'success' || (steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_allowed != 'false') || steps.claim.outputs.claim_error != 'false'
         run: |
-          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile o non verificabile → nessun fixer Claude."
+          echo "::error::Claim redcheck PR+HEAD+failed-check illeggibile, con output invalido o bootstrap fallito → nessun fixer Claude."
           exit 1
 
       - name: Skip already-consumed redcheck failure (zero-Claude)
-        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
 
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
@@ -596,7 +600,7 @@ jobs:
             printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           else
-            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il push del fix userà GITHUB_TOKEN (non ri-triggera la re-review automatica)."
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il fixer resterà pending se l'App token non verifica la capacità di scrittura."
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
@@ -621,10 +625,11 @@ jobs:
       # cascade, coda congelata, routing/re-queue inerti). Alert inline
       # deterministico, dedup sul titolo canonico del monitor daily
       # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
-      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
-      # NESSUN token usabile (né App né PAT).
+      # GH_TOKEN = GITHUB_TOKEN solo per l'alert locale. Scatta quando non c'è
+      # nessun token write-capable (App verificata o PAT), non quando manca solo
+      # la stringa APP_TOKEN.
       - name: Alert token-down (dedup, zero-Claude)
-        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -634,21 +639,19 @@ jobs:
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
       # Conta i marker `<!-- REDCHECK_FIX_ROUND: N -->` già sulla PR. A N>=2 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
-      # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
-      # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
-      # un turno.
+      # Capability guard comune: senza `contents:write` + `pull_requests:write`
+      # il fixer non può creare il push che riattiva `synchronize`; la guardia
+      # workflows-specifica sotto conserva inoltre il controllo su
+      # `workflows:write` per le PR che toccano workflow.
       #
-      # HAS_PAT accetta ORA anche APP_TOKEN. Fino al 2026-08-06 era legato al solo
+      # La guardia workflows-specifica accetta ora anche l'App quando il conio
+      # verifica `workflows:write`. Fino al 2026-08-06 era legata al solo
       # GITHUB_PAT, e il commento lo giustificava con "la App installation token NON
       # ha lo scope workflows": era vero, ha smesso di esserlo quando alla App
       # `frontaliere-automation` è stato concesso `workflows: write`. Lasciarlo com'era
       # avrebbe fatto continuare a saltare i fix su .github/workflows/** con la
       # motivazione "serve un PAT abilitato" mentre il push sarebbe passato — cioè la
       # stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
-      #
-      # Allineato al push step più sotto, che era già token-aware
-      # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
-      # tenuti in disaccordo.
       #
       # 2026-08-08 (#5288): si legge la CAPACITÀ, non la presenza. Il conio riesce
       # (201, token valido) anche quando `workflows` è stato richiesto ma mai approvato
@@ -669,10 +672,31 @@ jobs:
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
           HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
           EXPECTED_REVIEW_REVISION: ${{ needs.preflight.outputs.review_revision }}
-          HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
+          HAS_WRITE_CAPABLE_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '' || env.GITHUB_PAT != '' }}
+          HAS_WORKFLOW_WRITE_TOKEN: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
           MAX_ROUNDS=2
+
+          # Nessun round costoso e nessun marker prima della guardia di
+          # capacità: senza App verificata o PAT il fixer resta pending e il
+          # retry può riprovare quando torna un'identità write-capable.
+          if [ "${HAS_WRITE_CAPABLE_TOKEN:-false}" != 'true' ]; then
+            echo "::warning::❌-fixer pending: nessun token App verificato con contents:write + pull_requests:write e GITHUB_PAT assente; nessun Claude, push o marker di round. Retry quando torna un'identita write-capable."
+            {
+              echo 'write_capable=false'
+              echo 'pending=true'
+              echo 'retry=true'
+              echo 'proceed=false'
+            } >> "$GITHUB_OUTPUT"
+            {
+              echo '### ❌-fixer pending'
+              echo '- Nessun token write-capable: il token App viene ignorato se APP_TOKEN_DATA_REFRESH non vale true; il PAT, se presente, sarebbe il fallback.'
+              echo '- Nessun marker REDCHECK_FIX_ROUND e nessuna mutation/autorebase/push sono stati avviati.'
+              echo '- Retry: rieseguire il percorso quando App/PAT con capacità di scrittura è disponibile.'
+            } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 0
+          fi
 
           # GITHUB_TOKEN è un installation token di Actions, non un token utente:
           # `gh api user` non può identificarlo e fallisce anche se le API della
@@ -785,7 +809,7 @@ jobs:
           # deve pesare come «si'»: il costo di sbagliare in questa direzione e'
           # uno skip con commento, quello opposto e' un turno Claude bruciato e
           # un push che fallisce alla fine.
-          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
+          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_WORKFLOW_WRITE_TOKEN" != "true" ]; then
             # Il commento deve dire QUALE dei due operandi ha fatto scattare lo
             # skip: affermare «la PR tocca i workflow» quando lo scatto viene
             # dall'elenco incompleto manda chi legge a cercare una modifica che
@@ -919,13 +943,12 @@ jobs:
           git config user.email "valerielinc@gmail.com"
 
       # Push via App token (primario) / PAT (fallback) — ri-attiva pr-review-loop
-      # = re-review. Senza nessuno dei due il push userebbe GITHUB_TOKEN e la
-      # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
-      # committato. Esposto come remote authenticato.
+      # = re-review. Il remote riceve solo l'identità verificata dal guard;
+      # GITHUB_TOKEN non è un fallback di push.
       - name: Configure push remote (App token / PAT)
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '')
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && (env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '' || env.GITHUB_PAT != '')
         env:
-          PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          PUSH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
         # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
         # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
@@ -1223,12 +1246,12 @@ jobs:
           exec_timeout_minutes: "25"
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
           # `github_token` alimenta gli helper provider-neutral di quota/delivery;
-          # resta allineato alla catena App/PAT del push, ma non è il bridge Codex.
-          github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # usa la stessa identità write-capable del push, ma non è il bridge Codex.
+          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           # Il bridge host-side `gh`/Git può eseguire anche operazioni mutanti: passa solo
           # l'identità operativa App/PAT. L'action esistente fa fail-closed prima di
           # `codex exec` se l'input è vuoto; il token resta fuori dall'ambiente del modello.
-          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
           # frontaliere-automation[bot] (App): le PR aggiornate via App token
           # triggerano con actor = l'App → senza whitelist la action aborta
@@ -1479,6 +1502,7 @@ jobs:
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
+            scripts/lib/is-invoked-directly.mjs \
             scripts/ci/lib/pr-review-admission.mjs \
             scripts/ci/lib/review-input-revision.mjs \
             scripts/ci/lib/constants.mjs \

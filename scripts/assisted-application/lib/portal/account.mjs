@@ -42,6 +42,16 @@ const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|con
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
+function verifiedLanding(after) {
+  const text = String(after?.text || '').trim();
+  // A verification/instructions page may expose a generic sign-in control as
+  // well; it is not proof that the OTP was accepted. A create form is also
+  // not the verified landing page, even if it has a similarly named control.
+  if ((VERIFY_PAGE_RE.test(text) && !VERIFY_OK_RE.test(text)) || authPageKind(after) === 'create' || codeField(after)) return false;
+  return (after.buttons || []).some((button) => !button.disabled
+    && [button.text, button.label].some((value) => SIGN_IN_RE.test(String(value ?? '').trim())));
+}
+
 /**
  * What the page after the "create account" click says: `refused` (still the
  * form, or its errors), `verify` (the portal asks to confirm the e-mail) or
@@ -57,19 +67,41 @@ export function registrationOutcome(after) {
 /**
  * What the page after the verification link or code says. Only a positive
  * state counts as `accepted`: a confirmation, the sign-in page or the
- * application form. An expired or wrong token is `rejected`; anything else
+ * application form. An expired or wrong token is `rejected`; `pending` is the
+ * portal's bounded loading state after an OTP click; anything else is
  * `unconfirmed`, and neither is recorded as verified.
  */
 export function verificationOutcome(after) {
-  if (after.errors?.length || VERIFY_FAILED_RE.test(after.text) || codeField(after)) return 'rejected';
-  if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
-  if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
+  const text = String(after?.text || '').trim();
+  const errors = (after.errors || []).map((error) => String(error).trim()).filter(Boolean);
+  const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
+  const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(text);
+  if (rejected) return 'rejected';
+  if (loading) return 'pending';
+  if (VERIFY_PAGE_RE.test(text) && !VERIFY_OK_RE.test(text)) return 'unconfirmed';
+  // SuccessFactors can finish the OTP route on `/career` with only a
+  // «Connexion» control visible; the password fields appear after that
+  // control is opened. That is the portal's sign-in landing state, not an
+  // unconfirmed verification.
+  if (VERIFY_OK_RE.test(text) || authPageKind(after) === 'sign_in') return 'accepted';
+  if (codeField(after)) return 'rejected';
+  if (verifiedLanding(after)) return 'accepted';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
 }
 
-/** The OTP page is still processing the click; its code field is not a rejection yet. */
+/**
+ * The OTP page is still processing the click; its code field is not a
+ * rejection yet. SuccessFactors can also briefly expose an empty document
+ * while the post-verification route is loading, so that state must not be
+ * classified as an unconfirmed verification either.
+ */
 export function verificationIsPending(after) {
+  const hasVisibleResult = Boolean(String(after?.text || '').trim())
+    || Boolean(after?.fields?.length)
+    || Boolean(after?.buttons?.length)
+    || Boolean(after?.errors?.length);
+  if (!hasVisibleResult) return true;
   if (!codeField(after)) return false;
   return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }

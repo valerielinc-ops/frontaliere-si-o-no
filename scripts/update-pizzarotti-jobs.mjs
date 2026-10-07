@@ -34,8 +34,10 @@ import {
   parsePizzarottiListings,
   parsePizzarottiPageCount,
   classifyPizzarottiListings,
+  isPizzarottiClassifiableLocation,
   inferPizzarottiCanton,
   parsePizzarottiJobDetail,
+  resolvePizzarottiLocation,
   buildPizzarottiLocalizedContent,
 } from './lib/pizzarotti-job-parser.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -87,6 +89,30 @@ async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
     timeoutMs,
     headers: { Accept: 'text/html,application/xhtml+xml' },
   });
+}
+
+async function resolveUnclassifiedPizzarottiListing(listing) {
+  if (isPizzarottiClassifiableLocation(listing.location)) return listing;
+
+  try {
+    const detailHtml = await fetchText(listing.href);
+    const detail = parsePizzarottiJobDetail(detailHtml);
+    const location = resolvePizzarottiLocation(listing, detail);
+    if (!location || location === listing.location) return listing;
+    console.log(`  🔎 Resolved ${listing.title} location from detail page: ${location}`);
+    return { ...listing, location, detailHtml };
+  } catch (error) {
+    console.warn(`⚠️  Could not resolve ${listing.title} location from detail page: ${error.message}`);
+    return listing;
+  }
+}
+
+async function resolveUnclassifiedPizzarottiListings(listings) {
+  const resolved = [];
+  for (const listing of listings) {
+    resolved.push(await resolveUnclassifiedPizzarottiListing(listing));
+  }
+  return resolved;
 }
 
 function isTargetJob(job = {}) {
@@ -142,6 +168,7 @@ async function fetchPizzarottiListings(summaryCounts = null) {
     return true;
   });
 
+  allListings = await resolveUnclassifiedPizzarottiListings(allListings);
   const discovery = classifyPizzarottiListings(allListings);
   if (summaryCounts) {
     summaryCounts.discovered = discovery.discovered;
@@ -178,16 +205,17 @@ async function fetchPizzarottiListings(summaryCounts = null) {
 }
 
 async function buildPizzarottiJob(listing) {
-  const html = await fetchText(listing.href);
+  const html = listing.detailHtml || await fetchText(listing.href);
   const detail = parsePizzarottiJobDetail(html);
-  const canton = inferPizzarottiCanton(`${detail.location} ${listing.location}`);
+  const location = resolvePizzarottiLocation(listing, detail);
+  const canton = inferPizzarottiCanton(location);
   const sourceLang = sourceLangOfBody(detail.description || listing.teaser || '', 'it');
   const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME, sourceLang);
   const sourceUrl = detail.shareUrl || listing.href;
   const canonicalTitle = detail.title || listing.title;
   const canonicalSlug =
     localized.slug ||
-    normalizeKey(`${canonicalTitle} ${COMPANY_NAME} ${detail.location || listing.location}`);
+    normalizeKey(`${canonicalTitle} ${COMPANY_NAME} ${location}`);
   return {
     title: canonicalTitle,
     slug: canonicalSlug,
@@ -196,8 +224,8 @@ async function buildPizzarottiJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: detail.location || listing.location,
-    addressLocality: detail.location || listing.location,
+    location,
+    addressLocality: location,
     addressRegion: canton,
     addressCountry: 'CH',
     canton,

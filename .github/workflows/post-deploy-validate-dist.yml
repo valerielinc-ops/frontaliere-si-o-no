@@ -84,6 +84,96 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      # DEPLOY_REF/WORKFLOW SKEW GUARD (issues 5833 and 12051). This YAML is
+      # loaded from main at workflow_run time, while the job checks out the
+      # BUILD pinned by deploy_ref: a gate added here together with its npm
+      # script (or its file) meets builds dispatched just before that merge,
+      # and fails with "Missing script" on a page that has nothing wrong.
+      # Measured twice: run 31765361020 (validate:keyword-landing-coverage)
+      # and run 37543977878 (validate:og-images), the second because the
+      # guard existed in two runners and was missing from the third.
+      #
+      # One definition, every runner. Skip only what is absent from this
+      # build AND present on origin/main; absent from both is a real bug
+      # (wrong name, or a deletion) and still runs and fails; an unreadable
+      # origin/main never widens the skip. The skip row carries a literal
+      # rc=0 because the timings parser greps rc=[0-9]+$ and counts anything
+      # else as a failure; the true state stays in the per-gate log.
+      #
+      # The file is materialized by the workflow YAML itself, never read from
+      # the checkout: a helper committed in the repository could be absent in
+      # exactly the window this guard has to cover. (The input is named
+      # without its prefix on purpose: check-workflow-input-injection.mjs
+      # counts references in comments too, and fails closed.)
+      - name: Prepare deploy-ref skew guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/deploy-ref-skew-guard.sh" <<'GUARD'
+          build_skew_guard_main_package="$RUNNER_TEMP/deploy-ref-skew-guard-main-package.json"
+          build_skew_guard_main_commit="$RUNNER_TEMP/deploy-ref-skew-guard-main-commit"
+
+          # main is read ONLY from a fetch that succeeded in this invocation
+          # (commit pinned by sha, package.json taken from it): a stale
+          # origin/main ref left by the checkout, or a file left by an earlier
+          # step, must not be able to turn a missing script into a skip. Fetch
+          # or read failed: both files are absent and nothing is skipped.
+          build_skew_guard_init() {
+            rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            if git fetch --depth=1 origin main -q 2>/dev/null; then
+              if git rev-parse --verify -q 'FETCH_HEAD^{commit}' > "$build_skew_guard_main_commit" 2>/dev/null \
+                && git show "$(cat "$build_skew_guard_main_commit"):package.json" > "$build_skew_guard_main_package" 2>/dev/null; then
+                return 0
+              fi
+              rm -f "$build_skew_guard_main_package" "$build_skew_guard_main_commit"
+            fi
+            return 0
+          }
+
+          build_skew_guard_should_skip() {
+            local kind=$1 target=$2
+            case "$kind" in
+              npm)
+                if node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$target" 2>/dev/null; then
+                  return 1
+                fi
+                if [ -s "$build_skew_guard_main_package" ] && node -e "process.exit(require(process.argv[1]).scripts?.[process.argv[2]] ? 0 : 1)" "$build_skew_guard_main_package" "$target" 2>/dev/null; then
+                  return 0
+                fi
+                ;;
+              node)
+                if [ -f "$target" ]; then
+                  return 1
+                fi
+                if [ -s "$build_skew_guard_main_commit" ] && git cat-file -e "$(cat "$build_skew_guard_main_commit"):$target" 2>/dev/null; then
+                  return 0
+                fi
+                ;;
+            esac
+            return 1
+          }
+
+          build_skew_guard_run() {
+            local kind=$1 target=$2
+            shift 2
+            BUILD_SKEW_GUARD_SKIPPED=0
+            if build_skew_guard_should_skip "$kind" "$target"; then
+              printf '[deploy-ref-skew] skip: %s "%s" is absent from this build but present on origin/main; treating as skip, not fail (skipped-deploy_ref-drift) rc=0\n' "$kind" "$target"
+              BUILD_SKEW_GUARD_SKIPPED=1
+              return 0
+            fi
+            "$@"
+          }
+
+          build_skew_guard_skip_row() {
+            local name=$1
+            awk -v n="${name}(skipped-deploy_ref-drift)" 'BEGIN{printf "%-40s %7.2f rc=0\n", n, 0}'
+          }
+          GUARD
+          chmod 700 "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_init
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -110,7 +200,9 @@ jobs:
       # That is the same fail-soft contract the deploy.yml pipeline already
       # relies on (see deploy.yml step "Load secrets from Remote Config").
       - name: Load secrets from Remote Config (FB + LinkedIn tokens)
-        run: node scripts/load-rc-env.mjs
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run node scripts/load-rc-env.mjs node scripts/load-rc-env.mjs
 
       # Download GitHub Pages artifact + run source validators sequentially.
       #
@@ -390,7 +482,9 @@ jobs:
       # the reason named, instead of shipping a fabricated structural finding.
       - name: Assert dist/ is the complete logical site
         id: assert_dist_complete
-        run: node scripts/ci/assert-dist-complete.mjs
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run node scripts/ci/assert-dist-complete.mjs node scripts/ci/assert-dist-complete.mjs
       - name: Migrate all-known-job-slugs to canton-aware paths
         id: migrate_job_slugs
         # Phase 8c: the committed `data/all-known-job-slugs.json` accumulates
@@ -404,13 +498,16 @@ jobs:
         # introduces a non-TI job whose prior tracking entry was TI-legacy
         # (cathedral-expired-tracking-canton.test.ts:95 — post-deploy run
         # 26592389280).
-        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run node scripts/migrate-all-known-job-slugs-canton-aware.mjs node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       # Source validators share the rehydrated dist and still run even when
       # a previous phase is red, so the report contains the complete verdict.
       - name: Run source validators (parallel — 4 vCPU)
         if: always() && steps.assert_dist_complete.outcome == 'success' && steps.migrate_job_slugs.outcome == 'success'
         run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           RESDIR=/tmp/source-val-results.d
           rm -rf "$RESDIR"; mkdir -p "$RESDIR"
 
@@ -422,16 +519,22 @@ jobs:
           # cats these files; a failing validator's full log is dumped (after the
           # wait, sequentially) so parallel failures stay readable.
           run_validator() {
-            local name=$1 logfile=$2; shift 2
-            local start end rc
+            local name=$1 logfile=$2 kind=$3 target=$4; shift 4
+            local start end rc skipped
             start=$(date +%s.%N)
             set +e
-            "$@" > "$logfile" 2>&1
+            build_skew_guard_run "$kind" "$target" "$@" > "$logfile" 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             set -e
             end=$(date +%s.%N)
-            awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
-              > "$RESDIR/$name"
+            if [ "$skipped" -eq 1 ]; then
+              build_skew_guard_skip_row "$name" > "$RESDIR/$name"
+            else
+              awk -v n="$name" -v start="$start" -v end="$end" -v rc="$rc" \
+                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
+                > "$RESDIR/$name"
+            fi
             return 0   # never let a single fail short-circuit the chain (rc is in the result file)
           }
 
@@ -455,13 +558,13 @@ jobs:
           # (gate:seo-source ~110s). The old "cheap-first fail-fast" ordering is
           # moot when all four run together.
           pids=()
-          run_validator validate:translation-completeness /tmp/v10.log \
+          run_validator validate:translation-completeness /tmp/v10.log node scripts/validate-translation-completeness.mjs \
             node scripts/validate-translation-completeness.mjs & pids+=("$!")
-          run_validator validate:crawler-summaries        /tmp/v11.log \
+          run_validator validate:crawler-summaries        /tmp/v11.log npm validate:crawler-summaries \
             npm run validate:crawler-summaries & pids+=("$!")
-          run_validator validate:third-party-secrets      /tmp/v12.log \
+          run_validator validate:third-party-secrets      /tmp/v12.log npm validate:third-party-secrets \
             npm run validate:third-party-secrets & pids+=("$!")
-          run_validator validate:og-images                /tmp/v13.log \
+          run_validator validate:og-images                /tmp/v13.log npm validate:og-images \
             npm run validate:og-images & pids+=("$!")
           # --maxWorkers=2: unrestrained, vitest's own thread pool (pool:
           # 'threads', isolate: true) opens up to nCPU worker threads on TOP of
@@ -473,7 +576,7 @@ jobs:
           # scheduling contention, not a defect in either test. Same lever
           # already proven in tests.yml (VITEST_MAX_WORKERS=2) for the
           # identical shape: two CPU-bound processes contending for 4 vCPU.
-          run_validator gate:seo-source                   /tmp/v27.log \
+          run_validator gate:seo-source                   /tmp/v27.log npm gate:seo-source \
             npm run gate:seo-source -- --maxWorkers=2 & pids+=("$!")
           for p in "${pids[@]}"; do wait "$p" || true; done
 
@@ -541,7 +644,9 @@ jobs:
       - name: Validate page SEO quality (report-only)
         if: always() && steps.assert_dist_complete.outcome == 'success' && steps.migrate_job_slugs.outcome == 'success'
         continue-on-error: true
-        run: npm run validate:page-seo
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run npm validate:page-seo npm run validate:page-seo
 
       # Validation pool.
       # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
@@ -567,9 +672,10 @@ jobs:
           # catches accidental side-effects during future audit migrations.
           AUDIT_STRICT: '1'
           # This dist/ is reassembled from published shards and can retain
-          # pages emitted by code that no longer exists. Only the single-H1
-          # auditor consumes this opt-in: it prints the observed rate and uses
-          # its historical-corpus ratchet, while source/local runs stay strict.
+          # pages emitted by code that no longer exists. The single-H1 auditor
+          # and validate:sitemap-pages consume this opt-in: each prints its
+          # observed rate and uses its own historical-corpus ratchet, while
+          # source/local runs stay strict.
           # The ledger is fail-closed, and its absolute noise floor is sized
           # for the sampled draw rather than used to hide a systemic emission
           # regression (AGENTS.md non-negotiable #1 exception for this corpus).
@@ -722,72 +828,28 @@ jobs:
           # the parent step prints "✅ All passed". This silently masked
           # the title-length regression in post-deploy run 25377607613.
           #
-          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833). This job's own YAML
-          # is loaded from whichever ref GitHub resolves for a `workflow_run`
-          # trigger — in practice `main` HEAD at dispatch time — while the
-          # CODE it checks out is pinned to the `deploy_ref` input, the build
-          # SHA (see the Checkout step above). A gate added to this file AND
-          # to `package.json` in the same PR therefore has a window where a
-          # build dispatched just BEFORE that PR merged is validated by a
-          # workflow definition from just AFTER it: `npm run <script>` then
-          # fails with `Missing script`, not because anything on the page is
-          # wrong, but because `deploy_ref`'s package.json genuinely predates
-          # the gate. Measured: run 31765361020, deploy_ref
-          # 0c8299133 (2026-08-14T00:38:26Z) validated by a workflow that
-          # already had `validate:keyword-landing-coverage`, added by
-          # e9a8a9e8a65 (2026-08-14T01:04:38Z, 7 commits later).
-          #
-          # Fetched ONCE, before the pool starts (not per-gate, and not
-          # unconditionally trusted): `origin/main`'s package.json is the
-          # source of truth for "does this script exist going forward". A
-          # gate missing from the pinned deploy_ref AND from origin/main is a
-          # real bug (wrong script name, or a genuine deletion) and must
-          # still fail loud — only "exists on main, not yet on this old
-          # build" is safe to treat as a skip. `|| true` on both git calls:
-          # a fetch failure (network blip, shallow-clone quirk) must fall
-          # back to the pre-existing behaviour, never widen the gate by
-          # skipping something we failed to verify.
-          #
-          # (Throughout this comment the input is named WITHOUT its prefix, on
-          # purpose. check-workflow-input-injection.mjs counts input references
-          # across the WHOLE text of a run: step, comments included, and fails
-          # CLOSED on every one it cannot locate inside an Actions expression it
-          # managed to parse. It cannot tell prose from an interpolation that
-          # escaped its parser, and it must not try: a `#` does not stop a
-          # multi-line value that leaves the comment and executes. Same lesson
-          # as PR #5817 — the gate is right, so the comment changes, not the
-          # gate.)
-          #
-          # The skip row below writes a LITERAL `rc=0`, same idiom as the
-          # report-only rows (audit:discover-eligibility, audit:job-title-
-          # locale below): the timings-file parser only ever greps
-          # `rc=[0-9]+$`, so a non-numeric sentinel would fall into ITS "no rc
-          # parsed" branch, which counts as FAIL — the opposite of what a
-          # skip must do. The true state ("skip", not "ran and passed") is
-          # preserved in the per-gate log file instead, exactly like those
-          # siblings preserve their real rc in the log after hard-coding 0.
-          git fetch --depth=1 origin main -q 2>/dev/null || true
-          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
+          # All runners in this step use the one workflow-materialized guard.
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
 
           spawn_capped() {
             local name=$1; local logfile=$2; shift 2
+            local skipped
             wait_slot
             (
               set +e
-              if ! node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$name" 2>/dev/null; then
-                if [ -s /tmp/pkg-main.json ] && node -e "process.exit(require('/tmp/pkg-main.json').scripts?.[process.argv[1]] ? 0 : 1)" "$name" 2>/dev/null; then
-                  echo "[spawn_capped] skip: npm script \"$name\" is not defined in this build's package.json (deploy_ref predates its addition) but IS present on origin/main — treating as skip, not fail. See spawn_capped's DEPLOY_REF/WORKFLOW SKEW GUARD comment (#5833)." > "$logfile"
-                  awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"$name(skipped-deploy_ref-drift)\", 0}" >> /tmp/post-build-timings.txt
-                  exit 0
-                fi
-              fi
               start=$(date +%s.%N)
-              "$@" > "$logfile" 2>&1
+              build_skew_guard_run npm "$name" "$@" > "$logfile" 2>&1
               rc=$?
+              skipped=$BUILD_SKEW_GUARD_SKIPPED
               end=$(date +%s.%N)
-              awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"$name\", $end-$start, $rc}" \
-                >> /tmp/post-build-timings.txt
-              if [ $rc -ne 0 ]; then
+              if [ "$skipped" -eq 1 ]; then
+                build_skew_guard_skip_row "$name" >> /tmp/post-build-timings.txt
+              else
+                awk -v n="$name" -v start="$start" -v end="$end" -v rc="$rc" \
+                  'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
+                  >> /tmp/post-build-timings.txt
+              fi
+              if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
                 echo "$name $logfile" >> /tmp/post-build-failures.txt
               fi
             ) &
@@ -835,12 +897,18 @@ jobs:
           (
             set +e
             start=$(date +%s.%N)
-            npm run audit:all > /tmp/g10.log 2>&1
+            build_skew_guard_run npm audit:all npm run audit:all > /tmp/g10.log 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
-            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"audit:all\", $end-$start, $rc}" \
-              >> /tmp/post-build-timings.txt
-            if [ $rc -ne 0 ]; then
+            if [ "$skipped" -eq 1 ]; then
+              build_skew_guard_skip_row audit:all >> /tmp/post-build-timings.txt
+            else
+              awk -v n=audit:all -v start="$start" -v end="$end" -v rc="$rc" \
+                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
+                >> /tmp/post-build-timings.txt
+            fi
+            if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
               echo "audit:all /tmp/g10.log" >> /tmp/post-build-failures.txt
             fi
           ) &
@@ -1000,16 +1068,24 @@ jobs:
           (
             set +e
             start=$(date +%s.%N)
-            npm run audit:discover-eligibility > /tmp/discover-eligibility.log 2>&1
+            build_skew_guard_run npm audit:discover-eligibility npm run audit:discover-eligibility > /tmp/discover-eligibility.log 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
             echo "" >> /tmp/discover-eligibility.log
-            echo "[report-only] audit:discover-eligibility exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (issue #5440)" \
-              >> /tmp/discover-eligibility.log
-            # `rc=0` is HARD-CODED on purpose — see the bullet above. The row
-            # exists only so the timings table still accounts for the wall time.
-            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:discover-eligibility(report-only)\", $end-$start}" \
-              >> /tmp/post-build-timings.txt
+            if [ "$skipped" -eq 1 ]; then
+              echo "[report-only] audit:discover-eligibility skipped because it is absent from this build but present on origin/main — NOT a gate" \
+                >> /tmp/discover-eligibility.log
+              build_skew_guard_skip_row audit:discover-eligibility >> /tmp/post-build-timings.txt
+            else
+              echo "[report-only] audit:discover-eligibility exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (issue #5440)" \
+                >> /tmp/discover-eligibility.log
+              # `rc=0` is HARD-CODED on purpose — see the bullet above. The row
+              # exists only so the timings table still accounts for the wall time.
+              awk -v start="$start" -v end="$end" \
+                'BEGIN{printf "%-40s %7.2f rc=0\n", "audit:discover-eligibility(report-only)", end-start}' \
+                >> /tmp/post-build-timings.txt
+            fi
           ) &
           else
             echo "[report-only] audit:discover-eligibility saltato (cadenza 1-su-$REPORT_ONLY_EVERY, run_number=$RUN_NUMBER). Non e' un gate." > /tmp/discover-eligibility.log
@@ -1108,16 +1184,24 @@ jobs:
           (
             set +e
             start=$(date +%s.%N)
-            npm run audit:job-title-locale -- --report /tmp/job-title-locale-audit.json \
+            build_skew_guard_run npm audit:job-title-locale npm run audit:job-title-locale -- --report /tmp/job-title-locale-audit.json \
               > /tmp/job-title-locale.log 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
             echo "" >> /tmp/job-title-locale.log
-            echo "[report-only] audit:job-title-locale exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (PR #5571)" \
-              >> /tmp/job-title-locale.log
-            # `rc=0` is HARD-CODED on purpose — see the bullet above.
-            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"audit:job-title-locale(report-only)\", $end-$start}" \
-              >> /tmp/post-build-timings.txt
+            if [ "$skipped" -eq 1 ]; then
+              echo "[report-only] audit:job-title-locale skipped because it is absent from this build but present on origin/main — NOT a gate" \
+                >> /tmp/job-title-locale.log
+              build_skew_guard_skip_row audit:job-title-locale >> /tmp/post-build-timings.txt
+            else
+              echo "[report-only] audit:job-title-locale exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates (PR #5571)" \
+                >> /tmp/job-title-locale.log
+              # `rc=0` is HARD-CODED on purpose — see the bullet above.
+              awk -v start="$start" -v end="$end" \
+                'BEGIN{printf "%-40s %7.2f rc=0\n", "audit:job-title-locale(report-only)", end-start}' \
+                >> /tmp/post-build-timings.txt
+            fi
           ) &
 
           # seo/meta-description-audit — REPORT ONLY, same idiom and same
@@ -1153,17 +1237,25 @@ jobs:
           (
             set +e
             start=$(date +%s.%N)
-            node scripts/seo/meta-description-audit.mjs \
+            build_skew_guard_run node scripts/seo/meta-description-audit.mjs node scripts/seo/meta-description-audit.mjs \
               --dist=dist --out=/tmp/meta-description-reports \
               > /tmp/meta-description-audit.log 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
             echo "" >> /tmp/meta-description-audit.log
-            echo "[report-only] seo/meta-description-audit exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates" \
-              >> /tmp/meta-description-audit.log
-            # `rc=0` is HARD-CODED on purpose — see the bullet above.
-            awk "BEGIN{printf \"%-40s %7.2f rc=0\n\", \"seo:meta-description(report-only)\", $end-$start}" \
-              >> /tmp/post-build-timings.txt
+            if [ "$skipped" -eq 1 ]; then
+              echo "[report-only] seo/meta-description skipped because it is absent from this build but present on origin/main — NOT a gate" \
+                >> /tmp/meta-description-audit.log
+              build_skew_guard_skip_row seo:meta-description >> /tmp/post-build-timings.txt
+            else
+              echo "[report-only] seo/meta-description-audit exited rc=$rc — NOT a gate; never propagated to post-build-failures.txt nor to failed_gates" \
+                >> /tmp/meta-description-audit.log
+              # `rc=0` is HARD-CODED on purpose — see the bullet above.
+              awk -v start="$start" -v end="$end" \
+                'BEGIN{printf "%-40s %7.2f rc=0\n", "seo:meta-description(report-only)", end-start}' \
+                >> /tmp/post-build-timings.txt
+            fi
           ) &
           else
             echo "[report-only] seo:meta-description saltato (cadenza 1-su-$REPORT_ONLY_EVERY, run_number=$RUN_NUMBER). Non e' un gate." > /tmp/meta-description-audit.log
@@ -1249,12 +1341,18 @@ jobs:
           (
             set +e
             start=$(date +%s.%N)
-            npm run gate:dist-quality > /tmp/g-dist-quality.log 2>&1
+            build_skew_guard_run npm gate:dist-quality npm run gate:dist-quality > /tmp/g-dist-quality.log 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
-            awk "BEGIN{printf \"%-40s %7.2f rc=%d\n\", \"dist:quality-tests\", $end-$start, $rc}" \
-              >> /tmp/post-build-timings.txt
-            if [ $rc -ne 0 ]; then
+            if [ "$skipped" -eq 1 ]; then
+              build_skew_guard_skip_row dist:quality-tests >> /tmp/post-build-timings.txt
+            else
+              awk -v n=dist:quality-tests -v start="$start" -v end="$end" -v rc="$rc" \
+                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
+                >> /tmp/post-build-timings.txt
+            fi
+            if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
               echo "dist:quality-tests /tmp/g-dist-quality.log" >> /tmp/post-build-failures.txt
             fi
           ) &
@@ -1476,39 +1574,28 @@ jobs:
           : > /tmp/bfs-timings.txt
           : > /tmp/bfs-failures.txt
           set +e
-          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833) — this job also
-          # checks out the `deploy_ref` input (a pinned build SHA) above, while
-          # its own workflow YAML is loaded fresh from main at workflow_run
-          # dispatch time (see validate-dist-postbuild's spawn_capped for the
-          # full incident writeup, and for why the input is named without its
-          # prefix here — the anti-injection gate counts references in comments
-          # too, and fails closed). A chain step added in the same PR as its
-          # npm script can therefore reference a script this older pinned
-          # checkout doesn't have yet, producing "npm error Missing script"
-          # instead of a real gate result. Same guard as spawn_capped: skip
-          # (rc=0, not fail) only when the script is confirmed missing here
-          # but present on origin/main.
-          git fetch --depth=1 origin main -q 2>/dev/null || true
-          git show origin/main:package.json > /tmp/pkg-main.json 2>/dev/null || true
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           for chain_step in \
             "audit:max-bfs-depth|/tmp/g19.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:max-bfs-depth -- --json" \
             "audit:orphan-sitemap-pages|/tmp/g9.log|NODE_OPTIONS='--max-old-space-size=8192' npm run audit:orphan-sitemap-pages -- --gate=baseline" \
           ; do
+            # The command stays a literal string on purpose: the tests that
+            # prove every audit:* script is reachable from this workflow, and
+            # that the memory-heavy ones carry an explicit heap, read it here.
             IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
-            if ! node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$step_name" 2>/dev/null; then
-              if [ -s /tmp/pkg-main.json ] && node -e "process.exit(require('/tmp/pkg-main.json').scripts?.[process.argv[1]] ? 0 : 1)" "$step_name" 2>/dev/null; then
-                echo "[BFS-chain] skip: npm script \"$step_name\" is not defined in this build's package.json (deploy_ref predates its addition) but IS present on origin/main — treating as skip, not fail. See DEPLOY_REF/WORKFLOW SKEW GUARD comment above (#5833)." > "$step_log"
-                awk -v n="$step_name(skipped-deploy_ref-drift)" "BEGIN{printf \"%-40s %7.2f rc=0\n\", n, 0}" >> /tmp/bfs-timings.txt
-                continue
-              fi
-            fi
             start=$(date +%s.%N)
-            eval "$step_cmd" > "$step_log" 2>&1
+            build_skew_guard_run npm "$step_name" eval "$step_cmd" > "$step_log" 2>&1
             rc=$?
+            skipped=$BUILD_SKEW_GUARD_SKIPPED
             end=$(date +%s.%N)
-            awk -v n="$step_name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
-              >> /tmp/bfs-timings.txt
-            if [ $rc -ne 0 ]; then
+            if [ "$skipped" -eq 1 ]; then
+              build_skew_guard_skip_row "$step_name" >> /tmp/bfs-timings.txt
+            else
+              awk -v n="$step_name" -v start="$start" -v end="$end" -v rc="$rc" \
+                'BEGIN{printf "%-40s %7.2f rc=%d\n", n, end-start, rc}' \
+                >> /tmp/bfs-timings.txt
+            fi
+            if [ "$skipped" -eq 0 ] && [ $rc -ne 0 ]; then
               echo "$step_name $step_log" >> /tmp/bfs-failures.txt
             fi
           done
@@ -1661,7 +1748,9 @@ jobs:
       - name: Sitemap diff vs live deployed site (informational)
         if: always()
         continue-on-error: true
-        run: node scripts/diff-sitemaps.mjs
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run node scripts/diff-sitemaps.mjs node scripts/diff-sitemaps.mjs
 
   validate-dist-report:
     # Centralizes GitHub Issues bookkeeping for the single dist validator

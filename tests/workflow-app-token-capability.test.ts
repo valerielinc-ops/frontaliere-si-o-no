@@ -183,10 +183,6 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'needs-human-sweep.yml :: sweep :: Run Codex Luna Max sweep': { reason: 'agent-bridge', why: 'corsia agente dello sweep' },
   'post-merge-followup.yml :: followup :: Run Codex Luna Max follow-up triage (batch)': { reason: 'agent-bridge', why: 'corsia agente del triage' },
   'pr-collision-detector.yml :: detect :: Detect funnel-critical collisions (deterministic, no Claude)': { reason: 'no-publish', why: 'commenta ed etichetta le PR' },
-  'pr-redcheck-fixer.yml :: redcheck-fix :: Run Codex Luna Max ❌-check-fix': { reason: 'agent-bridge', why: 'corsia agente; il push deterministico passa da Configure push remote' },
-  'pr-redflag-fixer.yml :: redflag-fix :: Run Codex Luna Max 🔴-fix': { reason: 'agent-bridge', why: 'corsia agente; il push deterministico passa da Configure push remote' },
-  'pr-redcheck-fixer.yml :: redcheck-fix :: Configure push remote (App token / PAT)': { reason: 'agent-lane', why: 'remote del ❌-fixer, stessa identita del bridge' },
-  'pr-redflag-fixer.yml :: redflag-fix :: Configure push remote (App token / PAT)': { reason: 'agent-lane', why: 'remote del 🔴-fixer, stessa identita del bridge' },
   'refresh-keyword-config.yml :: refresh :: Trigger deploy if config changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'refresh-search-cluster-301-map.yml :: refresh :: Trigger deploy if compat store changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'retry-code-check-after-body-edit.yml :: recover :: Retry a failed body or review gate on the current head': { reason: 'no-publish', why: 'rilancia una run' },
@@ -194,12 +190,10 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'stale-pr-rescuer.yml :: rescue :: Scan open PRs and flag stalled ones': { reason: 'no-publish', why: 'etichetta e commenta le PR ferme' },
   'stale-pr-rescuer.yml :: rescue :: Orphan PR custodian': { reason: 'no-publish', why: 'commenta ed etichetta le PR orfane' },
   'sync-gsc-orphans.yml :: sync-orphans :: Trigger deploy if data changed': { reason: 'no-publish', why: 'dispatch del deploy' },
-  'tests.yml :: vitest :: Run Codex Luna Max review': { reason: 'agent-bridge', why: 'corsia agente della review' },
-  'tests.yml :: vitest :: Repair missing Codex review marker (zero-agent)': { reason: 'no-publish', why: 'ripara il marker della review' },
   'tests.yml :: vitest :: Publish bounded ledger-only automatic LGTM': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish automatic LGTM for a tests-only PR': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
   'tests.yml :: vitest :: Publish carry-forward LGTM (code contribution unchanged)': { reason: 'no-publish', why: 'pubblica una review LGTM sulla PR' },
-  'tests.yml :: post-review :: Enable native auto-merge after the required job': { reason: 'no-publish', why: "attiva l'auto-merge nativo, non pusha" },
+  'tests.yml :: post-review :: Resolve post-review write-capable identity -> env.APP_TOKEN': { reason: 'no-publish', why: 'verifica la capacita del token prima delle mutation' },
   'traffic-data-freshness.yml :: freshness-check :: Verify token loaded (fail-loud guard)': { reason: 'no-publish', why: 'controlla solo la presenza di un token' },
   'traffic-data-freshness.yml :: freshness-check :: Self-heal — dispatch traffic-scheduler (via App token/PAT)': { reason: 'no-publish', why: 'dispatch dello scheduler' },
 };
@@ -215,13 +209,24 @@ function scanAll(): StepFinding[] {
 const describeViolation = (f: StepFinding) =>
   `${f.key} -> ${[...f.unguarded, ...(f.shellReadsUnmapped ? ['$APP_TOKEN letto dallo script'] : [])].join(' | ')}`;
 
+const violationKeys = (f: StepFinding) => [
+  ...f.unguarded.map((expression) => `${f.key} -> ${expression}`),
+  ...(f.shellReadsUnmapped ? [`${f.key} -> $APP_TOKEN letto dallo script`] : []),
+];
+
+const allowanceFor = (f: StepFinding, violationKey: string) =>
+  ALLOWED[violationKey] ?? ALLOWED[f.key];
+
+const allViolationsAllowed = (f: StepFinding) =>
+  violationKeys(f).length > 0 && violationKeys(f).every((key) => allowanceFor(f, key));
+
 describe('workflow App token capability lint', () => {
   const findings = scanAll();
 
   it("Workflow: push o PR con un token da APP_TOKEN senza la forma condizionata, fuori dall'elenco pinnato", () => {
     const violations = findings
       .filter((f) => f.publishes.length > 0 && (f.unguarded.length > 0 || f.shellReadsUnmapped))
-      .filter((f) => ALLOWED[f.key]?.reason !== 'agent-lane')
+      .filter((f) => !violationKeys(f).every((key) => allowanceFor(f, key)?.reason === 'agent-lane'))
       .map(describeViolation);
     expect(violations).toEqual([]);
   });
@@ -229,7 +234,7 @@ describe('workflow App token capability lint', () => {
   it('classifica ogni altro uso di APP_TOKEN senza capacita verificata', () => {
     const unclassified = findings
       .filter((f) => f.publishes.length === 0 && (f.unguarded.length > 0 || f.shellReadsUnmapped))
-      .filter((f) => !ALLOWED[f.key])
+      .filter((f) => !allViolationsAllowed(f))
       .map(describeViolation);
     expect(unclassified).toEqual([]);
   });
@@ -238,8 +243,12 @@ describe('workflow App token capability lint', () => {
     const byKey = new Map(findings.map((f) => [f.key, f]));
     const problems: string[] = [];
     for (const [key, entry] of Object.entries(ALLOWED)) {
-      const f = byKey.get(key);
-      if (!f || (f.unguarded.length === 0 && !f.shellReadsUnmapped)) {
+      const separator = key.indexOf(' -> ');
+      const findingKey = separator >= 0 ? key.slice(0, separator) : key;
+      const expectedViolation = separator >= 0 ? key.slice(separator + 4) : undefined;
+      const f = byKey.get(findingKey);
+      const violations = f ? violationKeys(f) : [];
+      if (!f || (expectedViolation ? !violations.includes(key) : violations.length === 0)) {
         problems.push(`${key}: voce morta, lo step non usa piu' APP_TOKEN senza capacita'`);
         continue;
       }
@@ -333,5 +342,142 @@ describe('scanWorkflow (rilevatore)', () => {
       wf(`${mint}      - name: Rebase\n        env:\n          GH_TOKEN: \${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}\n        run: node scripts/ci/pr-autorebase.mjs\n`),
     );
     expect(f.publishes.some((p) => p.startsWith('scripts/ci/pr-autorebase.mjs'))).toBe(true);
+  });
+});
+
+const WRITE_CAPABLE_TOKEN = "${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+type WorkflowStep = {
+  name?: string;
+  if?: string;
+  run?: string;
+  env?: Record<string, unknown>;
+  with?: Record<string, unknown>;
+};
+
+type Workflow = {
+  jobs?: Record<string, { steps?: WorkflowStep[] }>;
+};
+
+function namedStep(source: string, job: string, name: string): WorkflowStep {
+  const workflow = parse(source) as Workflow;
+  const found = workflow.jobs?.[job]?.steps?.find((step) => step.name === name);
+  if (!found) throw new Error(`step ${job}/${name} non trovato`);
+  return found;
+}
+
+function selectWriteCapableToken(
+  appToken: string,
+  appTokenDataRefresh: string,
+  githubPat: string,
+): string {
+  return appTokenDataRefresh === 'true' && appToken ? appToken : githubPat;
+}
+
+describe('PR loop: capacità write verificata prima delle mutation', () => {
+  const testsWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'tests.yml'), 'utf8');
+  const redflagWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pr-redflag-fixer.yml'), 'utf8');
+  const redcheckWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pr-redcheck-fixer.yml'), 'utf8');
+
+  it('distingue un App token presente ma non capace dal PAT write-capable', () => {
+    expect(selectWriteCapableToken('app-read-only', 'false', 'pat-write')).toBe('pat-write');
+    expect(selectWriteCapableToken('app-write', 'true', 'pat-write')).toBe('app-write');
+    expect(selectWriteCapableToken('app-read-only', 'false', '')).toBe('');
+  });
+
+  it('usa la stessa selezione write-capable per redflag bridge e git remote', () => {
+    const guard = namedStep(redflagWorkflow, 'redflag-fix', 'Round cap + capability guard + tier');
+    const pushRemote = namedStep(redflagWorkflow, 'redflag-fix', 'Configure push remote (App token / PAT)');
+    const fixer = namedStep(redflagWorkflow, 'redflag-fix', 'Run Codex Luna Max 🔴-fix');
+    const pushIf = String(pushRemote.if);
+    const bridgeWith = fixer.with ?? {};
+
+    expect(String(guard.env?.HAS_WRITE_CAPABLE_TOKEN)).toContain('env.APP_TOKEN_DATA_REFRESH == \'true\'');
+    expect(String(guard.env?.HAS_WRITE_CAPABLE_TOKEN)).toContain('env.GITHUB_PAT != \'\'');
+    expect(String(pushRemote.env?.PUSH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(bridgeWith.github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(bridgeWith.codex_github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(bridgeWith.codex_github_token)).toBe(String(pushRemote.env?.PUSH_TOKEN));
+    expect(pushIf).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
+    expect(pushIf).not.toContain('secrets.GITHUB_TOKEN');
+  });
+
+  it('applica la stessa guardia al gemello redcheck, senza scegliere App solo presente', () => {
+    const guard = namedStep(redcheckWorkflow, 'redcheck-fix', 'Round cap + capability guard + tier');
+    const pushRemote = namedStep(redcheckWorkflow, 'redcheck-fix', 'Configure push remote (App token / PAT)');
+    const fixer = namedStep(redcheckWorkflow, 'redcheck-fix', 'Run Codex Luna Max ❌-check-fix');
+    const source = String(guard.run);
+
+    expect(String(guard.env?.HAS_WRITE_CAPABLE_TOKEN)).toContain('env.APP_TOKEN_DATA_REFRESH == \'true\'');
+    expect(String(pushRemote.env?.PUSH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(fixer.with?.github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(fixer.with?.codex_github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(pushRemote.if)).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
+    expect(String(pushRemote.if)).not.toContain('secrets.GITHUB_TOKEN');
+    expect(source.indexOf("if [ \"${HAS_WRITE_CAPABLE_TOKEN:-false}\" != 'true' ]")).toBeGreaterThanOrEqual(0);
+    expect(source.indexOf('MARKER_BODY=')).toBeGreaterThan(source.indexOf("if [ \"${HAS_WRITE_CAPABLE_TOKEN:-false}\" != 'true' ]"));
+  });
+
+  it('non scrive il marker di round prima del guard write-capable', () => {
+    const guard = namedStep(redflagWorkflow, 'redflag-fix', 'Round cap + capability guard + tier');
+    const source = String(guard.run);
+    const capabilityGuard = source.indexOf('if [ "${HAS_WRITE_CAPABLE_TOKEN:-false}" != \'true\' ]');
+    const marker = source.indexOf('MARKER_BODY=');
+
+    expect(capabilityGuard).toBeGreaterThanOrEqual(0);
+    expect(marker).toBeGreaterThan(capabilityGuard);
+    expect(source).toContain("echo 'pending=true'");
+    expect(source).toContain("echo 'retry=true'");
+    expect(source.slice(capabilityGuard, marker)).toContain("echo 'proceed=false'");
+  });
+
+  it('tiene opt-in e autorebase pending senza token write-capable, senza GITHUB_TOKEN', () => {
+    const capability = namedStep(testsWorkflow, 'post-review', 'Resolve post-review write-capable identity');
+    const pending = namedStep(testsWorkflow, 'post-review', 'Report pending post-review mutation');
+    const autoMerge = namedStep(testsWorkflow, 'post-review', 'Enable native auto-merge after the required job');
+    const setup = namedStep(testsWorkflow, 'post-review', 'Setup Node.js + npm ci for autorebase');
+    const autorebase = namedStep(testsWorkflow, 'post-review', 'Rebase near-merge PRs after review or stale rescue');
+    const markerRepair = namedStep(testsWorkflow, 'vitest', 'Repair missing Codex review marker (zero-agent)');
+
+    expect(String(capability.run)).toContain('APP_TOKEN_DATA_REFRESH');
+    expect(String(capability.run)).toContain('APP_TOKEN_WORKFLOWS');
+    expect(String(capability.run)).toContain('GITHUB_PAT');
+    expect(String(capability.env?.APP_TOKEN_WORKFLOWS)).toContain('env.APP_TOKEN_WORKFLOWS');
+    expect(String(capability.run)).toContain('workflow_write_capable');
+    expect(String(capability.run)).toContain("echo 'retry=true'");
+    expect(String(capability.run)).toContain("echo 'workflow_write_capable=true'");
+    expect(String(capability.run)).toContain("echo 'workflow_write_capable=false'");
+    expect(String(pending.if)).toContain("steps.post_review_write_capability.outputs.write_capable != 'true'");
+    expect(String(pending.run)).toContain('retry-native-automerge.yml');
+    expect(String(autoMerge.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
+    expect(String(autoMerge.env?.POST_REVIEW_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
+    expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
+    expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
+    expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
+    expect(String(autorebase.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(autorebase.env?.GH_TOKEN)).not.toContain('GITHUB_TOKEN');
+    expect(String(markerRepair.if)).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
+    expect(String(markerRepair.if)).toContain("env.GITHUB_PAT != ''");
+    expect(String(markerRepair.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(markerRepair.env?.GH_TOKEN)).not.toContain('secrets.GITHUB_TOKEN');
+  });
+
+  it('non lascia il delivery Codex sul GITHUB_TOKEN di Actions', () => {
+    const review = namedStep(testsWorkflow, 'vitest', 'Run Codex Luna Max review');
+    expect(String(review.with?.github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(review.with?.github_token)).not.toContain('secrets.GITHUB_TOKEN');
+  });
+
+  it('non lascia selezioni APP_TOKEN||fallback non condizionate nei consumer scoped', () => {
+    const scopedExpressions = [
+      ...collectStrings(parse(testsWorkflow)).flatMap(expressionsOf),
+      ...collectStrings(parse(redflagWorkflow)).flatMap(expressionsOf),
+    ].filter((value) => value.includes('env.APP_TOKEN'));
+    const unsafe = scopedExpressions.filter(
+      (value) => /env\.APP_TOKEN\s*\|\|/.test(value)
+        && !/env\.APP_TOKEN_DATA_REFRESH\s*==\s*'true'\s*&&\s*env\.APP_TOKEN\s*\|\|/.test(value),
+    );
+    expect(unsafe).toEqual([]);
   });
 });

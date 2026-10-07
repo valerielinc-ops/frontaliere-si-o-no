@@ -425,19 +425,59 @@ describe('mark-mistranslated-jobs — idempotent title marking', () => {
     expect(DEFAULT_MARK_CAP).toBeLessThanOrEqual(cascadeDefault);
   });
 
-  it('applies backpressure: marks nothing while the retranslation queue is at its ceiling', () => {
+  it('keeps title repair flowing while the description queue is at its ceiling', () => {
     const queued = Array.from({ length: 5 }, (_, i) => ({ slug: `q-${i}`, needsRetranslation: true }));
     const fresh = Array.from({ length: 5 }, (_, i) => ({ ...brokenJob, slug: `fresh-${i}` }));
     const sel = selectMistranslatedJobs([...queued, ...fresh], { queueCeiling: 5 });
-    expect(sel.throttled).toBe(true);
+    expect(sel.throttled).toBe(false);
+    expect(sel.descriptionThrottled).toBe(true);
     expect(sel.queueDepth).toBe(5);
-    expect(sel.slugs.size).toBe(0);
+    expect(sel.slugs.size).toBe(5);
+    expect(sel.titleHits).toBe(5);
+    expect(sel.descriptionHits).toBe(0);
+
+    // Description-only work remains held while the quota-bound queue is full.
+    const germanDescription = 'Wir suchen eine engagierte Mitarbeiterin für unser Team in der Pflege. '
+      + 'Die Stelle umfasst die Betreuung von Patienten und die Zusammenarbeit mit den Ärzten der Klinik. '
+      + 'Sie arbeiten selbständig und übernehmen Verantwortung für die tägliche Organisation der Abteilung.';
+    const descriptionOnly = {
+      slug: 'description-only',
+      sourceLang: 'de',
+      descriptionByLocale: { it: germanDescription },
+    };
+    const held = selectMistranslatedJobs([...queued, descriptionOnly], {
+      titles: false,
+      queueCeiling: 5,
+    });
+    expect(held.throttled).toBe(true);
+    expect(held.descriptionThrottled).toBe(true);
+    expect(held.slugs.size).toBe(0);
 
     // Below the ceiling it works normally again.
     const ok = selectMistranslatedJobs([...queued, ...fresh], { queueCeiling: 6 });
     expect(ok.throttled).toBe(false);
     expect(ok.slugs.size).toBe(5);
     expect(DEFAULT_QUEUE_CEILING).toBeGreaterThan(0);
+  });
+
+  it('keeps gender-form title repair independent of description backpressure', () => {
+    const sel = selectMistranslatedJobs([
+      { slug: 'queued', needsRetranslation: true },
+      { slug: 'gender', sourceLang: 'de', title: 'Mitarbeiter:innen' },
+    ], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      queueCeiling: 1,
+    });
+
+    expect(sel.descriptionThrottled).toBe(true);
+    expect(sel.throttled).toBe(false);
+    expect(sel.queueDepth).toBe(1);
+    expect(sel.slugs.has('gender')).toBe(true);
+    expect(sel.genderFormHits).toBe(1);
+    expect(sel.titleHits).toBe(0);
+    expect(sel.descriptionHits).toBe(0);
   });
 
   it('still catches wrong-language descriptions when titles are switched off', () => {
@@ -478,28 +518,47 @@ describe('post-deploy-validate-dist.yml — the audit runs on every deploy, repo
 
   /**
    * The subshell that launches the audit inside the capped pool — CODE only.
-   * Anchored on a line that *starts* with the command, because the rationale
-   * comment above it quotes the same command and every flag it deliberately
-   * does not pass; slicing from the first textual occurrence would swallow the
-   * comment (and the neighbouring Discover block) and make every assertion
-   * below vacuous in the direction that matters.
+   * Anchored on the executable guard line, because the rationale comment above
+   * it quotes the same command and every flag it deliberately does not pass;
+   * slicing from the first textual occurrence would swallow the comment (and
+   * the neighbouring Discover block) and make every assertion below vacuous in
+   * the direction that matters.
    */
   const block = (() => {
     const lines = POSTDEPLOY.split('\n');
-    const cmd = lines.findIndex((l) => /^\s*npm run audit:job-title-locale\b/.test(l));
+    const cmd = lines.findIndex((l) =>
+      /^\s*build_skew_guard_run npm audit:job-title-locale\b.*\bnpm run audit:job-title-locale\b/.test(l)
+    );
     if (cmd < 0) return '';
     let start = cmd;
     while (start > 0 && !/^\s*wait_slot\s*$/.test(lines[start])) start -= 1;
     let end = cmd;
     while (end < lines.length - 1 && !/^\s*\)\s*&\s*$/.test(lines[end])) end += 1;
-    return lines.slice(start, end + 1).join('\n');
+
+    // Measure shell commands, not YAML wrapping: the skew guard keeps the
+    // audit invocation on a continuation line and the block contains one
+    // explanatory comment. The executable boundaries remain unchanged.
+    const commands: string[] = [];
+    for (const raw of lines.slice(start, end + 1)) {
+      const line = raw.replace(/\s+#.*$/, '').trim();
+      if (!line) continue;
+      const previous = commands.at(-1);
+      if (previous?.endsWith('\\')) {
+        commands[commands.length - 1] = `${previous.slice(0, -1)} ${line}`;
+      } else {
+        commands.push(line);
+      }
+    }
+    return commands.join('\n');
   })();
 
   it('the extracted block is the launch code, not the prose around it', () => {
     // Guards the guard: an empty or over-wide slice would make the
     // `not.toMatch` assertions below pass for the wrong reason.
     expect(block).toMatch(/^\s*wait_slot\s*$/m);
-    expect(block).toMatch(/^\s*npm run audit:job-title-locale\b/m);
+    expect(block).toMatch(
+      /^\s*build_skew_guard_run npm audit:job-title-locale\b.*\bnpm run audit:job-title-locale\b/m,
+    );
     expect(block.split('\n').length).toBeLessThan(20);
   });
 
