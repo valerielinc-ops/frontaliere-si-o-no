@@ -139,6 +139,9 @@ describe('what the portal answers', () => {
   it('records a verification only on a positive answer of the portal', () => {
     expect(verificationOutcome(page('Ihre E-Mail-Adresse wurde bestätigt.'))).toBe('accepted');
     expect(verificationOutcome(page('Anmelden', [field('e', 'email', 'E-Mail'), field('p', 'password', 'Kennwort')]))).toBe('accepted');
+    expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('accepted');
+    expect(verificationOutcome({ text: '', fields: [], errors: [], buttons: [{ text: 'Connexion', disabled: true }] })).toBe('unconfirmed');
+    expect(verificationOutcome({ text: '', fields: [field('c', 'text', 'Bestätigungscode')], errors: [], buttons: [{ text: 'Connexion', disabled: false }] })).toBe('rejected');
     expect(verificationOutcome(page('Bewerbung', [field('v', 'text', 'Vorname'), { ...field('cv', 'file', 'Lebenslauf'), kind: 'file' }]))).toBe('accepted');
     expect(verificationOutcome(page('Fehler: Ungültiger Link'))).toBe('rejected');
     expect(verificationOutcome(page('This link has expired. Request a new one.'))).toBe('rejected');

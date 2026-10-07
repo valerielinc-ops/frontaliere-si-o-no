@@ -42,6 +42,11 @@ const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|con
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
 const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
+function hasSignInControl(after) {
+  return (after.buttons || []).some((button) => !button.disabled
+    && SIGN_IN_RE.test(String(button.text || button.label || '').trim()));
+}
+
 /**
  * What the page after the "create account" click says: `refused` (still the
  * form, or its errors), `verify` (the portal asks to confirm the e-mail) or
@@ -67,8 +72,13 @@ export function verificationOutcome(after) {
   const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(after.text);
   if (rejected) return 'rejected';
   if (loading) return 'pending';
+  // SuccessFactors can finish the OTP route on `/career` with only a
+  // «Connexion» control visible; the password fields appear after that
+  // control is opened. That is the portal's sign-in landing state, not an
+  // unconfirmed verification.
   if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
   if (codeField(after)) return 'rejected';
+  if (hasSignInControl(after)) return 'accepted';
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
