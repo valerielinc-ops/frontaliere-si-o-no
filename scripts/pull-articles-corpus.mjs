@@ -78,7 +78,12 @@ import {
 } from './lib/article-slug-registry.mjs';
 import { evaluateCorpusRemoval, parseRedirectSources } from './lib/corpus-removal-guard.mjs';
 import { localOnlyIds, mergeEntries } from './lib/corpus-entry-merge.mjs';
-import { collectPreserveSnapshots, dropLedgeredRetirements } from './lib/corpus-local-preserve.mjs';
+import {
+  collectPreserveSnapshots,
+  destinationOnlyPaths,
+  dropLedgeredRetirements,
+  isPreservedTreePath,
+} from './lib/corpus-local-preserve.mjs';
 import {
   RETIRED_LOCALE_GROUPS_FILE,
   parseRetiredLocaleGroups,
@@ -309,14 +314,21 @@ try {
 
   const srcN = countFiles(src, TREE_OPTS);
   const dstN = fs.existsSync(DEST) ? countFiles(DEST, TREE_OPTS) : 0;
+  const churnOnlyDestinationFiles = destinationOnlyPaths({ src, dest: DEST });
+  const comparableDstN = dstN - churnOnlyDestinationFiles.size;
 
   if (srcN < MIN_BODY_FILES) {
     console.error(`[pull-articles-corpus] upstream corpus has only ${srcN} files (< ${MIN_BODY_FILES}) — refusing`);
     process.exit(1);
   }
   // A shrink is the dangerous direction: this content feeds the site's own
-  // article lists, so losing entries here un-lists live articles. Nothing is
-  // written on either reading — the only question is which alarm to raise.
+  // article lists, so losing entries here un-lists live articles. Generated
+  // image-credit records are corpus-owned and can churn between the checkout
+  // and an older API-pinned snapshot, so compare the article tree after
+  // removing only those destination-only paths. The registry/manifest gate
+  // below remains authoritative for article loss. Keep those explicitly
+  // identified local records during the mirror until the source carries them:
+  // the current site's cover ledger still references some of them.
   //
   // Since the pin (#5298) this branch has a BENIGN cause it never had before,
   // and it is the normal state rather than an edge case: the checkout is at the
@@ -332,17 +344,22 @@ try {
   // again and again and the workflow's escalation opens an issue on the third.
   // What changes is the alarm's shape and latency, never whether a shrunken
   // corpus can reach packages/articles/content/ — it cannot, on either path.
-  if (dstN > 0 && srcN < dstN) {
+  if (comparableDstN > 0 && srcN < comparableDstN) {
     skipSync(
       `the published API is built from ${TARGET.slice(0, 8)}, whose corpus carries ${srcN} files, ` +
-      `while packages/articles/content/ already holds ${dstN}. Either the API has not caught up ` +
+      `while packages/articles/content/ holds ${dstN} files (${comparableDstN} comparable after excluding ` +
+      `${churnOnlyDestinationFiles.size} destination-only image-credit file(s)). Either the API has not caught up ` +
       'with the corpus committed here, or upstream truncated at that commit — neither is ' +
       'something to mirror. If this keeps repeating it is the second one.',
     );
   }
 
-  const delta = srcN - dstN;
-  console.log(`[pull-articles-corpus] upstream ${srcN} files, local ${dstN} (${delta >= 0 ? '+' : ''}${delta})`);
+  const delta = srcN - comparableDstN;
+  console.log(
+    `[pull-articles-corpus] upstream ${srcN} files, local ${dstN} `
+    + `(${churnOnlyDestinationFiles.size} destination-only image-credit; comparable ${comparableDstN}; `
+    + `${delta >= 0 ? '+' : ''}${delta})`,
+  );
 
   // ── Registry gate: no article leaves the site unless a human said so ────────
   //
@@ -522,7 +539,10 @@ try {
     }
 
 
-  mirrorTree(src, DEST, TREE_OPTS);
+  mirrorTree(src, DEST, {
+    ...TREE_OPTS,
+    preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles),
+  });
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────

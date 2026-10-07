@@ -146,6 +146,7 @@ describe('what the portal answers', () => {
     expect(verificationOutcome(page('Bitte bestätigen Sie Ihre E-Mail-Adresse.'))).toBe('unconfirmed');
     expect(verificationOutcome(page('Willkommen'))).toBe('unconfirmed');
   });
+
 });
 
 describe('portal account store', () => {

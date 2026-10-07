@@ -58,6 +58,17 @@ describe('merge-open-data-refresh', () => {
       .toBe('base\nremote\nrefresh\n');
   });
 
+  it('restores a preserved image-credit file when the stable branch carries an old deletion', () => {
+    const base = Buffer.from('{"source":"wikimedia"}\n');
+    const file = 'packages/articles/content/image-credits/blog/cover.json';
+
+    expect(mergeRefreshContent(file, base, null, Buffer.from(base))).toEqual(base);
+    // The exception is limited to image-credit records; ordinary snapshot
+    // deletions keep the stable branch's existing precedence.
+    expect(mergeRefreshContent('packages/articles/content/blog-body/it/cover.ts', base, null, base))
+      .toBeNull();
+  });
+
   it('preserves both runs in append-only history and posted ledgers', () => {
     const baseHistory = '{"run":"base"}\n';
     const remoteHistory = `${baseHistory}{"run":"first"}\n`;

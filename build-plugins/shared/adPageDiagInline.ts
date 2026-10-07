@@ -43,7 +43,7 @@ const COLLECT_JS =
   `var an=d.querySelector('ins[data-anchor-status]');` +
   `return{page_template:(${AD_PAGE_TEMPLATE_INLINE_FN})(h.path,d),consent_state:consent,ad_path:path,` +
   `adsbygoogle_loaded:a&&(a.loaded===true||(typeof a.push==='function'&&a.push!==Array.prototype.push))?1:0,` +
-  `fc_loaded:(g&&(typeof g.getAdBlockerStatus==='function'||typeof g.showRevocationMessage==='function'))||typeof w.__tcfapi==='function'?1:0,` +
+  `fc_loaded:g&&(typeof g.getAdBlockerStatus==='function'||typeof g.showRevocationMessage==='function'||g.MessageTypeEnum!=null)?1:0,` +
   `gate_status:gate,slots_total:tot,slots_filled:fil,slots_unfilled:unf,slots_collapsed:col,` +
   `anchor_status:an?(String(an.getAttribute('data-anchor-status')||'').toLowerCase().replace(/[^a-z0-9_-]/g,'').slice(0,40)||'none'):'none',` +
   `vignette_ready:d.querySelector('ins[data-vignette-loaded="true"]')?1:0,` +

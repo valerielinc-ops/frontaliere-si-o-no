@@ -32,6 +32,11 @@ type ItemListLocaleMap = Record<string, { en: ItemListTranslation; de: ItemListT
 // ───────────────────────────────────────────────────────────────────────────
 
 export const COLLECTION_PAGE_TRANSLATIONS: BasicLocaleMap = {
+ "Comuni Italiani di Frontiera": {
+ en: { name: "Italian Border Municipalities", description: "List of Italian municipalities in the border zone with Switzerland" },
+ de: { name: "Italienische Grenzgemeinden", description: "Liste der italienischen Gemeinden im Grenzgebiet zur Schweiz" },
+ fr: { name: "Communes frontalieres italiennes", description: "Liste des communes italiennes dans la zone frontaliere avec la Suisse" }
+ },
  "Comparatori Servizi Frontalieri": {
  en: { name: "Cross-Border Worker Service Comparators", description: "Comparison tools for essential services for cross-border workers" },
  de: { name: "Vergleichstools fuer Grenzgaengerdienste", description: "Vergleichstools fuer wesentliche Dienstleistungen fuer Grenzgaenger" },

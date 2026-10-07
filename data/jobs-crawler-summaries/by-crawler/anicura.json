@@ -1,7 +1,7 @@
 {
   "key": "anicura",
   "label": "anicura",
-  "generatedAt": "2026-10-06T21:54:14.524Z",
+  "generatedAt": "2026-10-07T09:43:06.939Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5503,
-  "avgDurationMs": 5503,
+  "durationMs": 4789,
+  "avgDurationMs": 4789,
   "durationHistory": [
-    5503
+    4789
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
       "url": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
       "source": "anicura Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T21:53:59.433Z",
+      "crawledAt": "2026-10-07T09:42:56.268Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -55,19 +55,18 @@
       "postedDate": "2025-04-25T11:11:40+02:00",
       "postingDateSource": "reported",
       "applyUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:08:56.323Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }

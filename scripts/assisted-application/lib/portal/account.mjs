@@ -40,10 +40,7 @@ const PASSWORD_CODE_FIELD_RE = /one[- ]time|\botp\b|einmal|usage unique|\b(?:ver
 
 const VERIFY_OK_RE = /\b(verified|verifiziert|bestätigt|aktiviert|activated|confirmed|verificat[oa]|confermat[oa]|attivat[oa]|vérifiée?|confirmée?|activée?|erfolgreich|successfully)\b/i;
 const VERIFY_FAILED_RE = /(abgelaufen|expired|scadut[oa]|expirée?|ungültig|invalid|non valid[oa]|invalide|nicht (mehr )?gültig|falsch|incorrect|errat[oa]|wrong)/i;
-// SuccessFactors keeps the code field visible while the verification request
-// is in flight. Its live-region message is surfaced as a form error by the
-// snapshot, but it is not a rejection (career5, 2026-10-07).
-const VERIFY_LOADING_RE = /^(?:loading|chargement en cours|caricamento in corso|wird geladen|cargando|please wait)(?:\s*[.…]+)?$/i;
+const VERIFY_LOADING_RE = /(chargement en cours|loading(?:\.\.\.|…)?|caricamento in corso|wird geladen|in bearbeitung|processing|traitement en cours)/i;
 
 /**
  * What the page after the "create account" click says: `refused` (still the
@@ -69,12 +66,28 @@ export function verificationOutcome(after) {
   const loading = errors.some((error) => VERIFY_LOADING_RE.test(error));
   const rejected = errors.some((error) => !VERIFY_LOADING_RE.test(error)) || VERIFY_FAILED_RE.test(after.text);
   if (rejected) return 'rejected';
-  if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
   if (loading) return 'pending';
+  if (VERIFY_OK_RE.test(after.text) || authPageKind(after) === 'sign_in') return 'accepted';
   if (codeField(after)) return 'rejected';
   if (VERIFY_PAGE_RE.test(after.text)) return 'unconfirmed';
   const form = after.fields.filter((field) => field.inputType !== 'password');
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
+}
+
+/**
+ * The OTP page is still processing the click; its code field is not a
+ * rejection yet. SuccessFactors can also briefly expose an empty document
+ * while the post-verification route is loading, so that state must not be
+ * classified as an unconfirmed verification either.
+ */
+export function verificationIsPending(after) {
+  const hasVisibleResult = Boolean(String(after?.text || '').trim())
+    || Boolean(after?.fields?.length)
+    || Boolean(after?.buttons?.length)
+    || Boolean(after?.errors?.length);
+  if (!hasVisibleResult) return true;
+  if (!codeField(after)) return false;
+  return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }
 
 /** create: two password fields (password + repeat); sign_in: one. */

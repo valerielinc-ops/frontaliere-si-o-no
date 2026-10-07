@@ -1467,6 +1467,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // document. Keep it as WebPage until the registry supplies a real date.
  '@type': en.datePub ? 'NewsArticle' : 'WebPage',
  '@id': `${full}#article`,
+ name: localizedTitle,
  headline: localizedTitle,
  description: localizedDesc,
  // ImageObject, not the bare URL string this used to be. Google's
@@ -1508,7 +1509,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // of attached directly to this NewsArticle node — the placement schema.org
  // actually defines, not the type this PR happens to be building.
  mainEntityOfPage: reviewedByObj
- ? { '@type': 'WebPage', '@id': full, reviewedBy: reviewedByObj }
+ ? { '@type': 'WebPage', '@id': full, name: localizedTitle, url: full, reviewedBy: reviewedByObj }
  : full,
  isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
  speakable: {

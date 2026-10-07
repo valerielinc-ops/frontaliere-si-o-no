@@ -120,6 +120,21 @@ describe('static SEO JSON-LD identities', () => {
       'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe-9c3bd3af9176f96b',
     );
   });
+
+  it('completes WebPage identity fields for shell consumers', () => {
+    const [serialized] = normalizeStaticJsonLdScripts([
+      JSON.stringify({
+        '@type': 'WebPage',
+        headline: 'Mercato del lavoro in Ticino — agosto 2026',
+        mainEntityOfPage: 'https://frontaliereticino.ch/mercato-lavoro-ticino/agosto-2026/',
+      }),
+    ]);
+
+    expect(JSON.parse(serialized)).toMatchObject({
+      name: 'Mercato del lavoro in Ticino — agosto 2026',
+      url: 'https://frontaliereticino.ch/mercato-lavoro-ticino/agosto-2026/',
+    });
+  });
 });
 
 describe('static SEO hero LCP preload', () => {

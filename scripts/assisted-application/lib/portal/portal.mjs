@@ -23,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -46,15 +46,15 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = 5;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
-const VERIFICATION_OUTCOME_TIMEOUT_MS = 20_000;
-const VERIFICATION_OUTCOME_POLL_MS = 500;
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
 // «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
 // the posting for later by e-mail: never the way into the form.
 export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
 const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
-const OUTCOME_TIMEOUT_MS = 25_000;
+const OUTCOME_TIMEOUT_MS = 60_000;
+const POPUP_WAIT_TIMEOUT_MS = 60_000;
+const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
@@ -263,6 +263,41 @@ async function clickButton(page, button) {
   }
 }
 
+/**
+ * Click a portal link without pinning a stale ElementHandle. Some ATS pages
+ * re-render their navigation links while an application session starts; a
+ * locator can re-resolve the link, and its href gives us a safe navigation
+ * fallback when the click still times out.
+ */
+export async function clickPortalLink(page, link, { context = null } = {}) {
+  // Start this before reading href or clicking: an ATS can re-render the
+  // locator for several seconds before dispatching a target="_blank" popup.
+  const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
+  const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
+  try {
+    await link.click({ timeout: 6_000 });
+  } catch (error) {
+    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
+    let target;
+    try {
+      target = new URL(href, page.url()).href;
+    } catch {
+      throw error;
+    }
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  }
+  if (!popup) return null;
+  // A link without a popup should continue promptly after a short grace
+  // window; clear the timer as soon as the popup arrives.
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
+    popup.then((opened) => {
+      clearTimeout(timer);
+      resolve(opened);
+    });
+  });
+}
+
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
 // otherwise accept (the runner's own browser session, no candidate data).
 // SuccessFactors' own cookie manager (Rolex, 2026-10-03) names the cookies in
@@ -328,12 +363,18 @@ async function openApplicationForm(context, page, snapshot) {
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
-    const link = manual || apply ? null : await page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first().elementHandle().catch(() => null);
-    if (!manual && !apply && !link) return { page, snapshot };
-    const popup = context.waitForEvent('page', { timeout: 6000 }).catch(() => null);
-    if (manual || apply) await clickButton(page, manual || apply);
-    else await link.click();
-    page = (await popup) || page;
+    const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
+    const linkVisible = link
+      ? await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false)
+      : false;
+    if (!manual && !apply && !linkVisible) return { page, snapshot };
+    if (manual || apply) {
+      const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+      await clickButton(page, manual || apply);
+      page = (await popup) || page;
+    } else {
+      page = (await clickPortalLink(page, link, { context })) || page;
+    }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
@@ -500,9 +541,10 @@ async function clickFirst(page, snapshot, patterns) {
       await clickButton(page, button);
       return true;
     }
-    const link = await page.getByRole('link', { name: pattern }).first().elementHandle().catch(() => null);
-    if (link) {
-      await link.click();
+    const link = page.getByRole('link', { name: pattern }).first();
+    const linkVisible = await link.waitFor({ state: 'visible', timeout: 6_000 }).then(() => true, () => false);
+    if (linkVisible) {
+      await clickPortalLink(page, link);
       return true;
     }
   }
@@ -513,9 +555,9 @@ async function clickFirst(page, snapshot, patterns) {
 async function waitForVerificationOutcome(page) {
   let after = await extractFields(page);
   let outcome = verificationOutcome(after);
-  const deadline = Date.now() + VERIFICATION_OUTCOME_TIMEOUT_MS;
-  while (outcome === 'pending' && Date.now() < deadline) {
-    await page.waitForTimeout(Math.min(VERIFICATION_OUTCOME_POLL_MS, deadline - Date.now()));
+  const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
+  while ((outcome === 'pending' || verificationIsPending(after)) && Date.now() < deadline) {
+    await page.waitForTimeout(Math.min(1000, deadline - Date.now()));
     after = await extractFields(page);
     outcome = verificationOutcome(after);
   }

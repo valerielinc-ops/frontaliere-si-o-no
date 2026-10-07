@@ -86,6 +86,35 @@ describe('static Article JSON-LD safety net', () => {
     });
   });
 
+  it('completes WebPage identity from its headline and main entity URL', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'WebPage',
+      headline: 'Mercato del lavoro in Ticino — agosto 2026',
+      mainEntityOfPage: 'https://frontaliereticino.ch/mercato-lavoro-ticino/agosto-2026/',
+    }) as Record<string, any>;
+
+    expect(normalized).toMatchObject({
+      name: 'Mercato del lavoro in Ticino — agosto 2026',
+      url: 'https://frontaliereticino.ch/mercato-lavoro-ticino/agosto-2026/',
+    });
+  });
+
+  it('derives a nested WebPage URL from its fragment identity', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'NewsArticle',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': 'https://frontaliereticino.ch/articoli-frontaliere/example/#article',
+        headline: 'Example article',
+      },
+    }) as Record<string, any>;
+
+    expect(normalized.mainEntityOfPage).toMatchObject({
+      name: 'Example article',
+      url: 'https://frontaliereticino.ch/articoli-frontaliere/example/',
+    });
+  });
+
   it('does not assign site identities to an external WebSite', () => {
     const normalized = normalizeStructuredData({
       '@type': 'WebPage',

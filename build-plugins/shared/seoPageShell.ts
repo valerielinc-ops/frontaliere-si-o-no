@@ -97,6 +97,51 @@ function isSiteWebSite(value: JsonLdRecord): boolean {
     && (value.url === SITE_URL || value.url === SITE_URL.slice(0, -1));
 }
 
+function schemaReferenceUrl(value: unknown): string | undefined {
+  const candidate = typeof value === 'string'
+    ? value
+    : value && typeof value === 'object' && !Array.isArray(value)
+      ? (() => {
+        const ref = value as JsonLdRecord;
+        return typeof ref.url === 'string' ? ref.url : ref['@id'];
+      })()
+      : undefined;
+  if (typeof candidate !== 'string' || !candidate.trim()) return undefined;
+  const withoutFragment = candidate.split('#', 1)[0];
+  return withoutFragment || undefined;
+}
+
+/**
+ * Complete WebPage identity fields when an SEO emitter already supplied the
+ * equivalent headline or page reference.  The shell receives serialized JSON
+ * from several feature plugins, so this keeps their output consistent with
+ * the static-page normalizer without requiring each plugin to duplicate it.
+ */
+function normalizeWebPageIdentity(value: JsonLdRecord): boolean {
+  if (!hasSchemaType(value, 'WebPage')) return false;
+  let changed = false;
+  if (!value.name) {
+    const fallbackName = typeof value.headline === 'string'
+      ? value.headline
+      : typeof value.title === 'string'
+        ? value.title
+        : undefined;
+    if (fallbackName) {
+      value.name = fallbackName;
+      changed = true;
+    }
+  }
+  if (!value.url) {
+    const referenceUrl = schemaReferenceUrl(value.mainEntityOfPage)
+      ?? schemaReferenceUrl(value['@id']);
+    if (referenceUrl) {
+      value.url = referenceUrl;
+      changed = true;
+    }
+  }
+  return changed;
+}
+
 /**
  * Add stable identities to the two repeated entities emitted by static SEO
  * generators. The shell receives already-serialized JSON-LD, so this one
@@ -122,6 +167,8 @@ export function normalizeStaticJsonLdScripts(
       }
       if (!value || typeof value !== 'object') return;
       const record = value as JsonLdRecord;
+
+      if (normalizeWebPageIdentity(record)) changed = true;
 
       if (isSiteWebSite(record) && record['@id'] !== WEBSITE_ID) {
         record['@id'] = WEBSITE_ID;

@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-06T21:38:31.157Z",
+  "generatedAt": "2026-10-07T09:42:32.438Z",
   "total": 12,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 12670,
-  "avgDurationMs": 12670,
+  "durationMs": 13402,
+  "avgDurationMs": 13402,
   "durationHistory": [
-    12670
+    13402
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:08.550Z",
+      "crawledAt": "2026-10-07T09:42:08.490Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -88,10 +88,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:09.429Z",
+      "crawledAt": "2026-10-07T09:42:09.468Z",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-09-11T23:25:37.393Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:12.031Z",
+      "crawledAt": "2026-10-07T09:42:12.202Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "firstSeenAt": "2026-09-04T23:12:55.553Z",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:12.826Z",
+      "crawledAt": "2026-10-07T09:42:12.960Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:13.664Z",
+      "crawledAt": "2026-10-07T09:42:13.817Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:14.464Z",
+      "crawledAt": "2026-10-07T09:42:14.657Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -300,7 +300,7 @@
       "salarySource": "estimated",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:15.324Z",
+      "crawledAt": "2026-10-07T09:42:15.564Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -342,7 +342,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:16.173Z",
+      "crawledAt": "2026-10-07T09:42:16.428Z",
       "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -384,7 +384,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:17.035Z",
+      "crawledAt": "2026-10-07T09:42:17.271Z",
       "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -430,7 +430,7 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:10.287Z",
+      "crawledAt": "2026-10-07T09:42:10.412Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -472,7 +472,7 @@
       "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:11.159Z",
+      "crawledAt": "2026-10-07T09:42:11.347Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -513,7 +513,7 @@
       "salarySource": "reported",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-06T21:38:17.892Z",
+      "crawledAt": "2026-10-07T09:42:18.147Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -523,5 +523,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
