@@ -663,7 +663,11 @@ const templatePlaceholderRe = () => new RegExp(
     String.raw`\$\{\s*[\w. -]{1,40}\s*\}`,
     String.raw`\[\[\s*[\w. -]{1,40}\s*\]\]`,
     String.raw`\{[A-Z][A-Z0-9_ ]{1,39}\}`,
-    String.raw`%[A-Z][A-Z0-9_]{1,39}%`,
+    // `%C3%A9` is two percent-encoded bytes, not a `%C3%` token: a name of
+    // exactly two hex digits followed by another hex pair is URL encoding
+    // wherever it stands, also where no URL syntax can be recognised
+    // (`docs/Perch%C3%A9.html`, the tail of a URL cut short by a stray `)`).
+    String.raw`%(?![0-9A-F]{2}%[0-9A-Fa-f]{2})[A-Z][A-Z0-9_]{1,39}%`,
     String.raw`__[A-Z][A-Z0-9_]{1,39}__`,
   ].join('|'),
   'g',
@@ -674,6 +678,10 @@ function tidySpacing(value = '') {
   return String(value ?? '')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/\(\s*\)|\[\s*\]|\{\s*\}/g, '')
+    // Emptied brackets leave their blanks side by side: collapse them before
+    // the punctuation pass, whose `[ \t]+` would otherwise retry a long run
+    // from each of its characters (quadratic on `[] [] [] …`).
+    .replace(/[ \t]{2,}/g, ' ')
     .replace(/[ \t]+([,;:.!?])/g, '$1')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/(^|[ \t])[-–—|,/]+[ \t]*$/gm, '$1')
@@ -687,32 +695,619 @@ function tidySpacing(value = '') {
 // it rewrote the link (`Perch A9`, `l 80%99UE`) in every translated text that
 // cites such a URL: a 404 behind a source line that looked untouched.
 //
-// Both forms keep one level of balanced parentheses inside the destination,
-// the way Wikipedia-style URLs carry them (`…/Lugano_(citt%C3%A0)`,
-// `…/a(b)/Perch%C3%A9`): closing the span at the first `)` left whatever
-// followed it exposed to the strip. A lone `(` is still part of the URL, and a
-// bare URL quoted inside a parenthesis of prose still ends before the `)`.
-const LINK_SPAN_RE = /\]\((?:[^()\s]|\((?:[^()\s]*\))?)*\)|(?:https?:\/\/|www\.)(?:[^\s<>"'()\]]|\((?:[^\s<>"'()\]]*\))?)+/gi;
-const LINK_SLOT_RE = /\u0000(\d+)\u0000/g;
+// Two defences, because a scanner can only protect the syntax it recognises:
+// the placeholder pattern itself never reads a chain of percent-encoded bytes
+// as a token (see `templatePlaceholderRe`), and the scanner below keeps every
+// other placeholder shape out of URLs and link targets.
+//
+// This is deliberately a scanner, rather than an enumeration of URL syntaxes.
+//
+// Two properties hold together, and neither is bought with the other:
+//
+// 1. A failed scan never makes the caller skip text. One malformed construct
+//    (a link title whose quote never closes, a `<` of prose followed by a
+//    letter) must not leave the URLs after it exposed: the cursor moves one
+//    character and what follows is examined normally. The same holds for a
+//    token that is read but not protected (a relative path without encoded
+//    bytes): an absolute URL glued to it is still found.
+// 2. The scan is linear in the text for a fixed cap. No construct spans a line
+//    break; a destination, a title or a tag is capped in length; and each line
+//    knows where its last `)`, `>` and quotes are, so a search that cannot
+//    succeed is refused before it starts instead of being repeated from every
+//    later character.
+//
+// Naked relative paths use a conservative policy: only a token that starts at a
+// lexical boundary with `/` and contains at least one `%XX` byte is opaque.
+// Thus `/wiki/Perch%C3%A9` is protected while `e/o`, `km/h`, and `24/7` remain
+// ordinary prose.
+
+/**
+ * Longest destination, title or HTML tag scanned as one construct. The cap is
+ * what bounds the shapes no per-line memory can answer in advance: openers and
+ * closers that never balance from any starting point, attributes that never
+ * reach their `>` (worst case: the line length times this cap). A construct
+ * longer than the cap is not lost: its absolute URLs are still read as bare
+ * URLs; only the `](` … `)` or `<` … `>` wrapping stops being part of the scan.
+ */
+const MAX_LINK_PART_LENGTH = 512;
+const NOT_PROBED = -2;
+
+function isAsciiLetter(character = '') {
+  const code = character.charCodeAt(0);
+  return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+}
+
+function isAsciiDigit(character = '') {
+  const code = character.charCodeAt(0);
+  return code >= 48 && code <= 57;
+}
+
+function isHexDigit(character = '') {
+  const code = character.charCodeAt(0);
+  return (code >= 48 && code <= 57)
+    || (code >= 65 && code <= 70)
+    || (code >= 97 && code <= 102);
+}
+
+function isHorizontalWhitespace(character = '') {
+  return character === ' ' || character === '\t';
+}
+
+function isLineBreak(character = '') {
+  return character === '\r' || character === '\n';
+}
+
+function skipHorizontalWhitespace(text, index, limit = text.length) {
+  while (index < limit && isHorizontalWhitespace(text[index])) index += 1;
+  return index;
+}
+
+function startsWithIgnoreCase(text, index, value) {
+  return text.slice(index, index + value.length).toLowerCase() === value;
+}
+
+function isTokenBoundary(text, index) {
+  if (index === 0) return true;
+  const previous = text[index - 1];
+  return !isAsciiLetter(previous)
+    && !isAsciiDigit(previous)
+    && previous !== '_'
+    && previous !== '-';
+}
+
+/** What the scans know about the line the cursor is on. */
+function createLineContext(text) {
+  return {
+    text,
+    lineStart: 0,
+    lineEnd: -1,
+    // Index of the last such character on the line, -1 when there is none.
+    lastOnLine: { ')': NOT_PROBED, '>': NOT_PROBED, '"': NOT_PROBED, "'": NOT_PROBED },
+  };
+}
+
+function enterLine(context, index) {
+  if (index <= context.lineEnd) return;
+  const { text } = context;
+  let end = index;
+  while (end < text.length && !isLineBreak(text[end])) end += 1;
+  // The cursor crosses a line break one character at a time (no construct
+  // spans one), so the first index seen past the old end is the line start.
+  context.lineStart = index;
+  context.lineEnd = end;
+  const last = context.lastOnLine;
+  last[')'] = NOT_PROBED;
+  last['>'] = NOT_PROBED;
+  last['"'] = NOT_PROBED;
+  last["'"] = NOT_PROBED;
+}
+
+/**
+ * Index of the last `marker` on the current line, or -1. One backward pass per
+ * line and marker answers every later "can this still close?" exactly, from
+ * any position, so the question costs nothing to ask again.
+ */
+function lastOnLine(context, marker) {
+  const known = context.lastOnLine[marker];
+  if (known !== NOT_PROBED) return known;
+  const { text, lineStart, lineEnd } = context;
+  let cursor = lineEnd - 1;
+  while (cursor >= lineStart && text[cursor] !== marker) cursor -= 1;
+  const found = cursor >= lineStart ? cursor : -1;
+  context.lastOnLine[marker] = found;
+  return found;
+}
+
+/** Index after the closing quote, or -1. Backslash escapes the next character. */
+function scanQuotedSpan(context, start, quote) {
+  if (lastOnLine(context, quote) <= start) return -1;
+  const { text, lineEnd } = context;
+  const limit = Math.min(lineEnd, start + 1 + MAX_LINK_PART_LENGTH);
+  let index = start + 1;
+  while (index < limit) {
+    if (text[index] === '\\' && index + 1 < limit) {
+      index += 2;
+      continue;
+    }
+    if (text[index] === quote) return index + 1;
+    index += 1;
+  }
+  return -1;
+}
+
+/** Index after the balanced `)`, or -1. */
+function scanParenthesizedSpan(context, start) {
+  if (lastOnLine(context, ')') <= start) return -1;
+  const { text, lineEnd } = context;
+  const limit = Math.min(lineEnd, start + 1 + MAX_LINK_PART_LENGTH);
+  let depth = 0;
+  let index = start;
+  while (index < limit) {
+    const character = text[index];
+    if (character === '\\' && index + 1 < limit) {
+      index += 2;
+      continue;
+    }
+    if (character === '(') {
+      depth += 1;
+    } else if (character === ')') {
+      depth -= 1;
+      if (depth === 0) return index + 1;
+    }
+    index += 1;
+  }
+  return -1;
+}
+
+/** Index after the closing `>` of a `<destination>`, or -1. */
+function scanAngleDestination(context, start) {
+  if (lastOnLine(context, '>') <= start) return -1;
+  const { text, lineEnd } = context;
+  const limit = Math.min(lineEnd, start + 1 + MAX_LINK_PART_LENGTH);
+  let index = start + 1;
+  while (index < limit) {
+    if (text[index] === '\\' && index + 1 < limit) {
+      index += 2;
+      continue;
+    }
+    if (text[index] === '>') return index + 1;
+    index += 1;
+  }
+  return -1;
+}
+
+/**
+ * Scan a Markdown link/image beginning at its `](` delimiter; index after the
+ * closing `)`, or -1.
+ *
+ * A final matched `)` can be the outer link close even when the destination
+ * contains a lone `(`; this keeps the previous permissive behavior for URL
+ * paths such as `a(b/slug`.
+ */
+function scanMarkdownLink(context, start) {
+  if (lastOnLine(context, ')') < start + 2) return -1;
+  const { text, lineEnd } = context;
+  let cursor = skipHorizontalWhitespace(text, start + 2);
+  if (cursor >= lineEnd) return -1;
+  const destinationStart = cursor;
+  let depth = 0;
+  let lastClose = -1;
+
+  if (text[cursor] === '<') {
+    const destinationEnd = scanAngleDestination(context, cursor);
+    if (destinationEnd < 0) return -1;
+    cursor = destinationEnd;
+  } else {
+    const limit = Math.min(lineEnd, cursor + MAX_LINK_PART_LENGTH);
+    while (cursor < limit) {
+      const character = text[cursor];
+      if (isHorizontalWhitespace(character)) break;
+      // A backslash escapes a delimiter, never a blank: the destination still
+      // ends at the next space.
+      if (character === '\\' && cursor + 1 < limit && !isHorizontalWhitespace(text[cursor + 1])) {
+        cursor += 2;
+        continue;
+      }
+      if (character === '(') {
+        depth += 1;
+        cursor += 1;
+        continue;
+      }
+      if (character === ')') {
+        if (depth === 0) return cursor + 1;
+        depth -= 1;
+        lastClose = cursor;
+        cursor += 1;
+        continue;
+      }
+      if (character === '<') return -1;
+      cursor += 1;
+    }
+    if (cursor >= limit && limit < lineEnd) return -1;
+  }
+
+  cursor = skipHorizontalWhitespace(text, cursor);
+  if (cursor < lineEnd) {
+    const character = text[cursor];
+    if (character === '"' || character === "'" || character === '(') {
+      const titleEnd = character === '('
+        ? scanParenthesizedSpan(context, cursor)
+        : scanQuotedSpan(context, cursor, character);
+      if (titleEnd < 0) return -1;
+      cursor = skipHorizontalWhitespace(text, titleEnd);
+      return cursor < lineEnd && text[cursor] === ')' ? cursor + 1 : -1;
+    }
+    if (character === ')') return cursor + 1;
+  }
+
+  // Keep the old permissive handling of a lone `(` in a Markdown destination:
+  // if the balanced scan consumed the only `)`, treat that close as the link's
+  // outer delimiter when no title or explicit close follows it.
+  if (lastClose >= 0 && depth === 0) {
+    const afterLastClose = skipHorizontalWhitespace(text, lastClose + 1);
+    if (afterLastClose >= lineEnd || text[afterLastClose] !== '(') {
+      // That `)` was balanced inside the destination: when a URL of the
+      // destination runs past it (`](https://h/a_(b)/c`), the span must not
+      // end before the URL does, or its tail would be left to the strip.
+      return Math.max(lastClose + 1, lastOpaqueUrlEnd(text, destinationStart, lastClose + 1));
+    }
+  }
+  return -1;
+}
+
+/**
+ * The destination of a reference definition is the whole run up to the next
+ * blank: after `[id]:` nothing else can be meant. Parentheses are not weighed —
+ * stopping at a stray or backslash-escaped `)` would protect only the head of
+ * the URL and leave its tail to the strip.
+ */
+function scanReferenceDestination(text, start, lineEnd) {
+  let index = start;
+  while (index < lineEnd) {
+    if (isHorizontalWhitespace(text[index])) break;
+    // A backslash escapes a delimiter, never a blank: the destination still
+    // ends at the next space.
+    if (text[index] === '\\' && index + 1 < lineEnd && !isHorizontalWhitespace(text[index + 1])) {
+      index += 2;
+      continue;
+    }
+    index += 1;
+  }
+  return index > start ? index : -1;
+}
+
+/**
+ * `[id]: destination "title"` at the start of the current line: the span of the
+ * destination (and title), plus the end of the label, which the caller still
+ * reads for URLs — recognising the definition must not hide what the label
+ * holds.
+ */
+function scanReferenceDefinition(context, start) {
+  const { text, lineEnd } = context;
+  let cursor = start + 1;
+  while (cursor < lineEnd && text[cursor] !== ']') cursor += 1;
+  if (cursor >= lineEnd) return null;
+  const labelEnd = cursor;
+  cursor = skipHorizontalWhitespace(text, cursor + 1);
+  if (text[cursor] !== ':') return null;
+  cursor = skipHorizontalWhitespace(text, cursor + 1);
+  if (cursor >= lineEnd) return null;
+
+  const spanStart = cursor;
+  const destinationEnd = text[cursor] === '<'
+    ? scanAngleDestination(context, cursor)
+    : scanReferenceDestination(text, cursor, lineEnd);
+  if (destinationEnd < 0) return null;
+
+  cursor = skipHorizontalWhitespace(text, destinationEnd);
+  let spanEnd = destinationEnd;
+  if (cursor < lineEnd && (text[cursor] === '"' || text[cursor] === "'")) {
+    const titleEnd = scanQuotedSpan(context, cursor, text[cursor]);
+    if (titleEnd > 0) spanEnd = titleEnd;
+  } else if (cursor < lineEnd && text[cursor] === '(') {
+    const titleEnd = scanParenthesizedSpan(context, cursor);
+    if (titleEnd > 0) spanEnd = titleEnd;
+  }
+  return { start: spanStart, end: spanEnd, labelEnd };
+}
+
+function isHtmlAttributeCharacter(character = '') {
+  return isAsciiLetter(character)
+    || isAsciiDigit(character)
+    || character === ':'
+    || character === '-'
+    || character === '_';
+}
+
+/**
+ * A real HTML tag on the current line: `<name attribute…>`, where every
+ * attribute is a well-formed name or `name=value`. Anything else is prose
+ * (`soglia <CHF 3.000`, `se x <y allora [link](…) e z> w`) and returns null:
+ * treating it as a tag would swallow the links between the `<` and a later
+ * `>`. On success, the spans are the `href`/`src` values and the URLs found
+ * inside every other attribute value (`title`, `data-url`, …), whose
+ * remaining text stays open to the strip.
+ */
+function scanHtmlTag(context, start) {
+  if (lastOnLine(context, '>') <= start) return null;
+  const { text } = context;
+  const limit = Math.min(context.lineEnd, start + 1 + MAX_LINK_PART_LENGTH);
+  let cursor = start + 1;
+  if (text[cursor] === '/') cursor += 1;
+  if (cursor >= limit || !isAsciiLetter(text[cursor])) return null;
+  while (cursor < limit && (isAsciiLetter(text[cursor]) || isAsciiDigit(text[cursor]) || text[cursor] === '-')) {
+    cursor += 1;
+  }
+
+  const spans = [];
+  while (cursor < limit) {
+    const separatorStart = cursor;
+    cursor = skipHorizontalWhitespace(text, cursor, limit);
+    if (cursor >= limit) return null;
+    if (text[cursor] === '>') return { end: cursor + 1, spans };
+    if (text[cursor] === '/' && text[cursor + 1] === '>') return { end: cursor + 2, spans };
+    if (cursor === separatorStart) return null;
+
+    const nameStart = cursor;
+    while (cursor < limit && isHtmlAttributeCharacter(text[cursor])) cursor += 1;
+    if (cursor === nameStart) return null;
+    const nameLength = cursor - nameStart;
+    const isLinkAttribute = (nameLength === 4 && startsWithIgnoreCase(text, nameStart, 'href'))
+      || (nameLength === 3 && startsWithIgnoreCase(text, nameStart, 'src'));
+
+    let valueStart = skipHorizontalWhitespace(text, cursor, limit);
+    if (valueStart >= limit || text[valueStart] !== '=') continue;
+    valueStart = skipHorizontalWhitespace(text, valueStart + 1, limit);
+    if (valueStart >= limit) return null;
+
+    let valueEnd;
+    const quote = text[valueStart];
+    if (quote === '"' || quote === "'") {
+      // HTML has no backslash escape: the value ends at the next same quote.
+      if (lastOnLine(context, quote) <= valueStart) return null;
+      valueStart += 1;
+      valueEnd = valueStart;
+      while (valueEnd < limit && text[valueEnd] !== quote) valueEnd += 1;
+      if (valueEnd >= limit) return null;
+      cursor = valueEnd + 1;
+    } else {
+      valueEnd = valueStart;
+      while (valueEnd < limit && !isHorizontalWhitespace(text[valueEnd]) && text[valueEnd] !== '>') valueEnd += 1;
+      cursor = valueEnd;
+    }
+    if (valueEnd === valueStart) continue;
+    if (isLinkAttribute) {
+      spans.push({ start: valueStart, end: valueEnd });
+    } else {
+      collectBareUrlSpans(text, valueStart, valueEnd, spans);
+    }
+  }
+  return null;
+}
+
+/** `<scheme:…>` on the current line; index after the `>`, or -1. */
+function scanAutolink(context, start) {
+  if (lastOnLine(context, '>') <= start) return -1;
+  const { text, lineEnd } = context;
+  let cursor = start + 1;
+  if (cursor >= lineEnd || !isAsciiLetter(text[cursor])) return -1;
+  cursor += 1;
+  while (cursor < lineEnd) {
+    const character = text[cursor];
+    if (isAsciiLetter(character) || isAsciiDigit(character) || character === '+' || character === '-' || character === '.') {
+      cursor += 1;
+      continue;
+    }
+    break;
+  }
+  if (cursor >= lineEnd || text[cursor] !== ':') return -1;
+  cursor += 1;
+  while (cursor < lineEnd) {
+    const character = text[cursor];
+    if (isHorizontalWhitespace(character) || character === '<') return -1;
+    if (character === '>') return cursor + 1;
+    cursor += 1;
+  }
+  return -1;
+}
+
+function scanUrlToken(text, start) {
+  let cursor = start;
+  let parenthesisDepth = 0;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (isHorizontalWhitespace(character) || isLineBreak(character)
+      || character === '<' || character === '>' || character === '"'
+      || character === "'" || character === ']') break;
+    if (character === '(') {
+      parenthesisDepth += 1;
+    } else if (character === ')') {
+      if (parenthesisDepth === 0) break;
+      parenthesisDepth -= 1;
+    }
+    cursor += 1;
+  }
+  return cursor;
+}
+
+function hasPercentEncodedByte(text, start, end) {
+  for (let index = start; index + 2 < end; index += 1) {
+    if (text[index] === '%' && isHexDigit(text[index + 1]) && isHexDigit(text[index + 2])) return true;
+  }
+  return false;
+}
+
+/**
+ * A bare URL beginning at `start`, or null. `relativeScannedUntil` is the end
+ * of the last relative token found to carry no encoded byte: a path nested in
+ * it cannot carry one either, so it is not scanned again.
+ */
+function scanBareUrl(text, start, relativeScannedUntil = -1) {
+  // Asked at every character of the text: the first one decides almost always.
+  const first = text[start];
+  let kind = '';
+  if (first === '/') {
+    const next = text[start + 1];
+    if (next === '/') {
+      if (text[start + 2] && text[start + 2] !== '/') kind = 'protocol-relative';
+    } else if (next && next !== '>' && !isHorizontalWhitespace(next)) {
+      kind = 'relative';
+    }
+  } else if (first === 'h' || first === 'H') {
+    if (startsWithIgnoreCase(text, start, 'https://') || startsWithIgnoreCase(text, start, 'http://')) kind = 'absolute';
+  } else if (first === 'w' || first === 'W') {
+    if (startsWithIgnoreCase(text, start, 'www.')) kind = 'www';
+  }
+  if (!kind || !isTokenBoundary(text, start)) return null;
+
+  if (kind === 'relative' && start < relativeScannedUntil) return null;
+  const end = scanUrlToken(text, start);
+  if (end <= start + (kind === 'relative' ? 1 : 0)) return null;
+  if (kind === 'relative' && !hasPercentEncodedByte(text, start, end)) {
+    return { end, opaque: false };
+  }
+  return { end, opaque: true };
+}
+
+/** End of the last opaque bare URL beginning in `[start, end)`, or -1. */
+function lastOpaqueUrlEnd(text, start, end) {
+  let last = -1;
+  let relativeScannedUntil = -1;
+  let index = start;
+  while (index < end) {
+    const url = scanBareUrl(text, index, relativeScannedUntil);
+    if (url?.opaque) {
+      last = url.end;
+      index = url.end;
+      continue;
+    }
+    if (url) relativeScannedUntil = url.end;
+    index += 1;
+  }
+  return last;
+}
+
+/** The opaque bare URLs inside `[start, end)`, appended to `spans` in order. */
+function collectBareUrlSpans(text, start, end, spans) {
+  let index = start;
+  let relativeScannedUntil = -1;
+  while (index < end) {
+    const url = scanBareUrl(text, index, relativeScannedUntil);
+    if (url?.opaque) {
+      const urlEnd = Math.min(url.end, end);
+      spans.push({ start: index, end: urlEnd });
+      index = urlEnd;
+      continue;
+    }
+    if (url) relativeScannedUntil = url.end;
+    index += 1;
+  }
+}
+
+function findOpaqueSpans(text) {
+  const spans = [];
+  const context = createLineContext(text);
+  let relativeScannedUntil = -1;
+  let index = 0;
+  while (index < text.length) {
+    enterLine(context, index);
+    const character = text[index];
+
+    if (character === '[' && index === context.lineStart) {
+      const reference = scanReferenceDefinition(context, index);
+      if (reference) {
+        collectBareUrlSpans(text, index + 1, reference.labelEnd, spans);
+        spans.push({ start: reference.start, end: reference.end });
+        index = reference.end;
+        continue;
+      }
+    }
+
+    if (character === ']' && text[index + 1] === '(') {
+      const end = scanMarkdownLink(context, index);
+      if (end > 0) {
+        spans.push({ start: index, end });
+        index = end;
+        continue;
+      }
+    } else if (character === '<') {
+      const autolinkEnd = scanAutolink(context, index);
+      if (autolinkEnd > 0) {
+        spans.push({ start: index, end: autolinkEnd });
+        index = autolinkEnd;
+        continue;
+      }
+      const tag = scanHtmlTag(context, index);
+      if (tag) {
+        spans.push(...tag.spans);
+        index = tag.end;
+        continue;
+      }
+    } else {
+      const url = scanBareUrl(text, index, relativeScannedUntil);
+      if (url?.opaque) {
+        spans.push({ start: index, end: url.end });
+        index = url.end;
+        continue;
+      }
+      // A relative path without an encoded byte is prose: it is read on, one
+      // character at a time, so a URL glued to it (`/go?u=https://…`) is found.
+      if (url) relativeScannedUntil = url.end;
+    }
+    // A failed scan skips nothing: the next character is examined on its own.
+    index += 1;
+  }
+  return spans;
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function createOpaqueSlotPrefix(input) {
+  const base = '\u0001translation-glossary-slot-';
+  let prefix = base;
+  let suffix = 0;
+  while (input.includes(prefix)) {
+    suffix += 1;
+    prefix = `${base}${suffix}-`;
+  }
+  return prefix;
+}
+
+function maskOpaqueSpans(input, spans) {
+  if (!spans.length) return { masked: input, slots: [], prefix: '' };
+  const prefix = createOpaqueSlotPrefix(input);
+  const slots = [];
+  let cursor = 0;
+  let masked = '';
+  for (const span of spans) {
+    if (span.start < cursor) continue;
+    masked += input.slice(cursor, span.start);
+    const marker = `${prefix}${slots.length}\u0001`;
+    slots.push(input.slice(span.start, span.end));
+    masked += marker;
+    cursor = span.end;
+  }
+  return { masked: masked + input.slice(cursor), slots, prefix };
+}
+
+function restoreOpaqueSlots(value, slots, prefix) {
+  if (!slots.length) return value;
+  const slotRe = new RegExp(`${escapeRegExp(prefix)}(\\d+)\\u0001`, 'g');
+  return value.replace(slotRe, (_match, index) => slots[Number(index)] ?? '');
+}
 
 /** Remove template/placeholder tokens (see the design note above). */
 export function stripPlaceholderTokens(text = '') {
   const input = String(text ?? '');
   if (!input) return input;
-  const links = [];
-  // A text that already carries the slot character cannot be masked safely:
-  // it is processed as before.
-  const masked = input.includes('\u0000')
-    ? input
-    : input.replace(LINK_SPAN_RE, (span) => {
-      links.push(span);
-      return `\u0000${links.length - 1}\u0000`;
-    });
-  const out = masked
+  const maskedSpans = maskOpaqueSpans(input, findOpaqueSpans(input));
+  const out = maskedSpans.masked
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');
-  if (out === masked) return input;
-  return tidySpacing(out).replace(LINK_SLOT_RE, (_, index) => links[Number(index)]);
+  if (out === maskedSpans.masked) return input;
+  return restoreOpaqueSlots(tidySpacing(out), maskedSpans.slots, maskedSpans.prefix);
 }
 
 /** True when the string still carries at least one letter or digit. */
