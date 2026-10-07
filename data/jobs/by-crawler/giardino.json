@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-10-07T09:43:26.651Z",
+  "assembledAt": "2026-10-07T21:50:22.298Z",
   "jobs": [
     {
       "id": "giardino-decd4a786515",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-spa-therapist.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:43:17.484Z",
+      "crawledAt": "2026-10-07T21:50:17.412Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -134,7 +134,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang-50-hide-seek-50-ecco.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:43:17.327Z",
+      "crawledAt": "2026-10-07T21:50:17.362Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -241,7 +241,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:43:17.180Z",
+      "crawledAt": "2026-10-07T21:50:17.312Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -321,7 +321,7 @@
       "id": "giardino-e4acc19666d6",
       "slug": "chef-de-rang-giardino-group-champfer",
       "slugByLocale": {
-        "it": "capo-di-stato-maggiore-giardino-group-champfer",
+        "it": "chef-de-rang-giardino-group-champfer",
         "en": "chef-de-rang-giardino-group-champfer",
         "de": "chef-de-rang-giardino-group-champfer",
         "fr": "chef-de-rang-giardino-group-champfer"
@@ -348,7 +348,7 @@
       "url": "https://giardinohotels.ch/talents/en/job-chef-de-rang.html",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:43:17.041Z",
+      "crawledAt": "2026-10-07T21:50:17.108Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -401,11 +401,13 @@
         "capo-di-grado-giardino-group-champfer",
         "chef-de-rang-giardino-group-champfer-xfwxht",
         "chief-of-rank-giardino-group-champfer",
-        "head-of-rank-giardino-group-champfer"
+        "head-of-rank-giardino-group-champfer",
+        "capo-di-stato-maggiore-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-di-grado-giardino-group-champfer"
+          "capo-di-grado-giardino-group-champfer",
+          "capo-di-stato-maggiore-giardino-group-champfer"
         ],
         "en": [
           "chef-de-rang-giardino-group-champfer-xfwxht",

@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { ageAt, SENSITIVE, answeredByCandidate, candidateAnswerForField, candidateAnswerForQuestion, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, searchHolds } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
 const fields = [
@@ -51,6 +51,47 @@ describe('portal link clicks', () => {
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {
+  it('recognises French ATS upload controls and maps nationality aliases to the portal catalogue', () => {
+    expect(CV_UPLOAD_RE.test('Charger un CV')).toBe(true);
+    expect(COVER_LETTER_UPLOAD_RE.test('Joindre une lettre de motivation')).toBe(true);
+    expect(nationalityOptionLabel('italiana', ['allemande', 'italienne', 'suisse'])).toBe('italienne');
+    expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
+  });
+
+  it('keeps the original DOM index when a SuccessFactors picklist has a blank option', async () => {
+    let selected = '';
+    const clicked: number[] = [];
+    const control = {
+      click: vi.fn(),
+      press: vi.fn(),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const options = {
+      first: () => ({ waitFor: vi.fn(async () => {}) }),
+      allInnerTexts: vi.fn(async () => ['', 'italienne']),
+      nth: (index: number) => ({ click: vi.fn(async () => { clicked.push(index); selected = 'italienne'; }) }),
+    };
+    const list = { getByRole: vi.fn(() => options) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id') ? { first: () => control } : list),
+    };
+    const page = {
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: true,
+      ownedList: 'nationality_list',
+    }], [{ fieldId: 'nationality', action: 'select', value: 'italiana' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(clicked).toEqual([1]);
+  });
+
   it('drops invented sensitive answers and turns the required ones into questions', () => {
     const guarded = guardPlan({
       actions: [
@@ -406,6 +447,15 @@ describe('portal runner helpers', () => {
       answers: { portal_qual_e_la_tua_via_e_il_tuo_numero_civico: 'Via Test 1' },
       portalQuestionsAnswered: [],
     }, 'Qual è la tua via e il numero civico?', 'Via Test 1')).toBe(true);
+
+    // Rolex/SuccessFactors exposes the same combined field in French as
+    // «Rue et numéro»; it must reuse the saved Italian portal answer.
+    expect(questionTopic('Rue et numéro')).toBe('address');
+    expect(candidateAnswerForField({
+      answers: { portal_qual_e_la_tua_via_e_il_numero_civico: 'Via Test 1' },
+      portalQuestionsAnswered: [],
+    }, { id: 'street-number', kind: 'text', label: 'Rue et numéro', required: true, options: [] }))
+      .toEqual({ value: 'Via Test 1', source: 'answers' });
   });
 
   it('uses the alias as the e-mail and keeps sensitive data only from the candidate', () => {

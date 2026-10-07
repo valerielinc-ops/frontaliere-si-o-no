@@ -1,7 +1,7 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-10-07T09:50:51.250Z",
+  "generatedAt": "2026-10-07T21:52:17.938Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,30 +12,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6509,
-  "avgDurationMs": 6509,
+  "durationMs": 6453,
+  "avgDurationMs": 6453,
   "durationHistory": [
-    6509
+    6453
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ricola-27641e5cd373",
-      "slug": "application-technologist-sweet-confectionery-100-ricola-ch",
+      "slug": "applicazione-technologist-dolci-confetture-100-ricola-laufen",
       "company": "Ricola",
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Application Technologist Sweet Confectionery (100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1065/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:50:39.573Z",
+      "crawledAt": "2026-10-07T21:52:05.065Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -53,20 +54,19 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://career.ricola.com/Vacancies/1065/Description/2",
+      "firstSeenAt": "2026-10-07T09:50:39.573Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-07T09:50:39.573Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -81,7 +81,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:50:40.012Z",
+      "crawledAt": "2026-10-07T21:52:05.858Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -123,7 +123,7 @@
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:50:39.807Z",
+      "crawledAt": "2026-10-07T21:52:05.458Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -154,5 +154,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

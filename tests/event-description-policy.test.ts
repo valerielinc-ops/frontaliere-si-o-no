@@ -122,7 +122,7 @@ describe('event description rewrite validator', () => {
 
   it('rejects new numbers and new multi-word names', () => {
     expect(validateRewriteDescription('L\'evento si svolge nel 2027. Il programma è aperto al pubblico.', { sourceTexts: source, factTexts: facts })).toEqual({ ok: false, code: 'new-number' });
-    expect(validateRewriteDescription('La mostra ospita Palazzo Nuovo. L\'appuntamento si svolge al museo.', { sourceTexts: source, factTexts: facts })).toEqual({ ok: false, code: 'new-name' });
+    expect(validateRewriteDescription('La mostra ospita Palazzo Nuovo. L\'appuntamento si svolge al museo.', { sourceTexts: source, factTexts: facts })).toMatchObject({ ok: false, code: 'new-name' });
   });
 
   it('rejects prose shorter than the structured-data minimum', () => {
@@ -180,7 +180,31 @@ describe('event description rewrite validator', () => {
     expect(validateRewriteDescription('The event presents a cultural programme. The visit takes place at the New Palace.', {
       sourceTexts: source,
       factTexts: structuredFacts,
-    })).toEqual({ ok: false, code: 'new-name' });
+    })).toMatchObject({ ok: false, code: 'new-name' });
+  });
+
+  it('accepts common sentence-leading, inflected and translated venue names', () => {
+    const structuredFacts = ['Museo civico', 'Lugano'];
+    expect(validateRewriteDescription('L\’evento Museo Civico riunisce informazioni locali. La scheda mantiene i dati strutturati.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('La visita ai Musei civici è indicata nella scheda. Il luogo resta quello dichiarato nei dati.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+    expect(validateRewriteDescription('The event takes place at the Civic Museum. The listing keeps the declared local information.', {
+      sourceTexts: source,
+      factTexts: structuredFacts,
+    }).ok).toBe(true);
+  });
+
+  it('still rejects an unknown name after false-positive normalization', () => {
+    const result = validateRewriteDescription('La scheda cita New Palace. La descrizione mantiene i dati strutturati.', {
+      sourceTexts: source,
+      factTexts: ['Museo civico', 'Lugano'],
+    });
+    expect(result).toMatchObject({ ok: false, code: 'new-name', detail: 'multiword-unknown-name' });
   });
 
   it('accepts a factual two-sentence paraphrase in all four locales', () => {

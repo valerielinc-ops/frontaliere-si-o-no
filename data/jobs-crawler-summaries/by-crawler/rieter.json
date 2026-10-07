@@ -1,7 +1,7 @@
 {
   "key": "rieter",
   "label": "Rieter",
-  "generatedAt": "2026-10-07T09:17:05.535Z",
+  "generatedAt": "2026-10-07T21:14:33.880Z",
   "total": 10,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 12856,
-  "avgDurationMs": 12856,
+  "durationMs": 10108,
+  "avgDurationMs": 10108,
   "durationHistory": [
-    12856
+    10108
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Betriebselektriker-Elektromonteur-mwd-80-100--4080292",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:16:35.673Z",
+      "crawledAt": "2026-10-07T21:14:01.363Z",
       "addressLocality": "Rapperswil Switzerland",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -82,7 +82,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4076949",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:16:41.066Z",
+      "crawledAt": "2026-10-07T21:14:04.682Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -124,7 +124,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Security-Engineer--4066616",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:16:40.499Z",
+      "crawledAt": "2026-10-07T21:14:04.144Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -167,7 +167,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:16:39.686Z",
+      "crawledAt": "2026-10-07T21:14:03.572Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -210,7 +210,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Export-Sachbearbeiter-in-80-100-12-Monate-befristet--4073960",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:16:38.134Z",
+      "crawledAt": "2026-10-07T21:14:02.996Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -253,7 +253,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-60-100--4079319",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:16:37.359Z",
+      "crawledAt": "2026-10-07T21:14:02.458Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -296,7 +296,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Business-Controller-EMEA-and-Americas--4071513",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:16:36.632Z",
+      "crawledAt": "2026-10-07T21:14:01.912Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -339,7 +339,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4079315",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:16:34.604Z",
+      "crawledAt": "2026-10-07T21:14:00.800Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -405,7 +405,7 @@
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -449,7 +449,7 @@
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -459,5 +459,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

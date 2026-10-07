@@ -1,6 +1,6 @@
 {
   "crawlerKey": "parmag",
-  "assembledAt": "2026-10-07T09:13:07.887Z",
+  "assembledAt": "2026-10-07T21:21:06.659Z",
   "jobs": [
     {
       "id": "parmag-e93388ebfc05",
@@ -33,7 +33,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.183Z",
+      "crawledAt": "2026-10-07T21:21:00.768Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.183Z",
+      "crawledAt": "2026-10-07T21:21:00.768Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "title": "Senior Consultant SAP FI/CO (m/w/d), Ref. 1242",
       "titleByLocale": {
         "it": "Senior Consulente SAP FI/CO (m/w/d), Ref. 1242",
-        "en": "Senior Consultant SAP FI/CO (m/f/d), Ref. 1242",
+        "en": "Senior Consultant SAP FI/CO (m/w/d), Ref. 1242",
         "de": "Senior Berater SAP FI/CO (m/w/d), Ref. 1242",
         "fr": "Consultant principal SAP FI/CO (h/f/d), Réf. 1242"
       },
@@ -196,7 +196,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.182Z",
+      "crawledAt": "2026-10-07T21:21:00.767Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,39 +239,39 @@
       "postalCode": "8001"
     },
     {
-      "id": "parmag-d2899436b83e",
-      "slug": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
+      "id": "parmag-c3991a17b89b",
+      "slug": "test-ingegnere-m-w-d-ref-1266-parmag-ag-region-bern",
       "slugByLocale": {
-        "it": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
-        "en": "azure-cloud-engineer-m-w-d-ref-1251-parmag-ag-zurich",
-        "de": "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-        "fr": "azure-cloud-ingenieur-m-w-d-ref-1251-parmag-ag-zurich"
+        "it": "test-ingegnere-m-w-d-ref-1266-parmag-ag-region-bern",
+        "en": "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch",
+        "de": "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch",
+        "fr": "test-ingenieur-m-w-d-ref-1266-parmag-ag-region-bern"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
       "companyDomain": "parmag.ch",
-      "title": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+      "title": "Test Engineer (m/w/d), Ref. 1266",
       "titleByLocale": {
-        "it": "Azure Cloud Ingegnere (m/w/d), Ref. 1251",
-        "en": "Azure Cloud Engineer (m/w/d), Ref. 1251",
-        "de": "Azure Cloud Ingenieur (m/w/d), Ref. 1251",
-        "fr": "Azure Cloud Ingénieur (m/w/d), Ref. 1251"
+        "it": "Test Ingegnere (m/w/d), Ref. 1266",
+        "en": "Test Engineer (m/w/d), Ref. 1266",
+        "de": "Test Ingenieur (m/w/d), Ref. 1266",
+        "fr": "Test Ingénieur (m/w/d), Ref. 1266"
       },
-      "description": "• Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie\n• Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden\n• Ihre Herausforderung:\nSie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter.\nIhre Kompetenz:\nNach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln.\nUnser Angebot:\nEs erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie.\nIst Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
+      "description": "Sie möchten die Verbesserung von Produkten vorantreiben? Sie haben eine ISTQB-Zertifizierung?\nUnsere Kundin, eine führende IT Consultingfirma und ist auf der Suche nach einem neuen Teammitglied\nIhre Herausforderung:\nZu Ihren Hauptaufgaben gehören die Verantwortung für die manuellen Tests, die Testkoordination wie die Teststrategie. Sie planen und koordinieren die Test-Aktivitäten im und über das Entwicklungsteam hinaus (End-zu-End Sicht) und arbeiten eng mit dem Product Owner und dem Entwicklungsteam zusammen. Weiter erstellen Sie Testfälle aus \n• Anforderungen wie Features und User Stories und führen diese durch.\nIhre Kompetenz:\nNach Ihrem Hochschulabschluss (bspw. Ingenieur/in, Wirtschaftsinformatiker/in) konnten Sie einige Jahre Erfahrung als Test Engineer oder Testmanager sammlen. Sie kennen sich bestens aus mit den modernen Methoden wie Scrum, Kanban, SAFe und Tools in der Softwareentwicklung. Von Vorteil haben Sie die ISTQB-Zertifizierung. Neben Ihrer Muttersprache Deutsch sprechen Sie stilsicher in Englisch und/oder Französisch\nUnser Angebot:\nFühlen Sie sich angesprochen? Dann nichts wie los, ich freue mich über Ihre Bewerbung.\nSenden Sie noch heute Ihre Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch. Ich freue mich auf Sie!",
       "descriptionByLocale": {
-        "it": "• Cloud e Kubernets ti ispirano allo stesso modo? Allora abbiamo qui il posto ideale per voi\n• Il nostro cliente è specializzato in progetti di digitalizzazione IT per i propri clienti\n• La tua sfida:\nSono coinvolti nell'implementazione e nello sviluppo di architetture di soluzioni cloud. Si consiglia ai clienti sui progetti che utilizzano le tecnologie cloud. Sostengono i clienti nell'analisi, nel concepimento e nell'implementazione e interrogano lo status quo. Inoltre, è possibile presentare suggerimenti per i miglioramenti agli ambienti cloud di oggi e trasmettere il vostro know-how ai clienti.\nLa vostra competenza:\nDopo la tua laurea (specialista) in informatica, hai già acquisito esperienza nel campo menzionato. Sei molto familiare con Microsoft Cloud Adoption Framework per Azure e sono fiducioso nel trattare con Terraform. Sarete anche sperimentati nella costruzione di tubazioni Azure DevOps e architetture hub/spoke su Azure. Hai anche già acquisito esperienza iniziale con le architetture cloud.\nLa nostra offerta:\nPuoi aspettarti un lavoro vario in un ambiente in cui puoi contribuire e sviluppare la tua esperienza in Azure. Un team giovane e consolidato in un luogo di lavoro moderno vi aspetta.\nIl tuo interesse è stato suscitato? Sono molto soddisfatto della sua domanda. Inviami i tuoi documenti (CV, diplomi, certificati) direttamente a Patrick. brayenovitch @parmag.ch.",
-        "en": "• Does Cloud and Kubernets inspire you equally? Then we have here the optimal place for you\n• Our customer specializes in IT digitization projects for their customers\n• Your challenge:\nThey are involved in the implementation and development of cloud solution architectures. You will advise customers on projects using cloud technologies. They support customers in the analysis, conception and implementation and question the status quo. In addition, you can submit suggestions for improvements to today’s cloud environments and pass on your know-how to customers.\nYour competence:\nAfter your (specialist) university degree in computer science, you have already gained experience in the mentioned field. You are very familiar with Microsoft Cloud Adoption Framework for Azure and are confident in dealing with Terraform. You will also be experienced in building Azure DevOps pipelines and hub/spoke architectures on Azure. You have also already gained initial experience with cloud architectures.\nOur offer:\nYou can expect a varied job in an environment in which you can contribute and develop your experience in Azure. A young and established team in a modern workplace is looking forward to you.\nHas your interest been aroused? I am very pleased with your application. Send me your documents (CV, diplomas, certificates) directly to patrick.brayenovitch @parmag.ch.",
-        "de": "• Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie\n• Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden\n• Ihre Herausforderung:\nSie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter.\nIhre Kompetenz:\nNach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln.\nUnser Angebot:\nEs erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie.\nIst Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
-        "fr": "• Nuage et Kubernets vous inspirent-ils également ? Alors nous avons ici l'endroit idéal pour vous\n• Notre client se spécialise dans les projets de numérisation informatique pour ses clients\n• Votre défi :\nIls participent à la mise en œuvre et au développement d'architectures de solutions cloud. Vous conseillerez les clients sur les projets utilisant les technologies cloud. Ils soutiennent les clients dans l'analyse, la conception et la mise en oeuvre et remettent en question le statu quo. En outre, vous pouvez soumettre des suggestions d'améliorations aux environnements cloud d'aujourd'hui et transmettre votre savoir-faire aux clients.\nVotre compétence :\nAprès votre diplôme universitaire (spécialiste) en informatique, vous avez déjà acquis de l'expérience dans le domaine mentionné. Vous êtes très familier avec Microsoft Cloud Adoption Framework for Azure et êtes confiant dans le traitement de Terraform. Vous serez également expérimenté dans la construction de pipelines Azure DevOps et d'architectures sur mesure sur Azure. Vous avez également déjà acquis une expérience initiale avec les architectures cloud.\nNotre offre :\nVous pouvez vous attendre à un emploi varié dans un environnement où vous pouvez contribuer et développer votre expérience à Azure. Une équipe jeune et établie dans un milieu de travail moderne vous attend avec impatience.\nVotre intérêt a - t - il été suscité? Je suis très heureux de votre candidature. Envoyez-moi vos documents (CV, diplômes, certificats) directement à Patrick. Brayenovitch @parmag.ch."
+        "it": "Vuoi promuovere il miglioramento dei prodotti? Hai una certificazione ISTQB? Il nostro cliente, una società di consulenza IT leader e sta cercando un nuovo membro del team la vostra sfida: I vostri compiti principali includono la responsabilità di test manuali, coordinamento di test e strategia di test. Pianificano e coordinano le attività di test in e oltre il team di sviluppo (vista end-to-end) e lavorano a stretto contatto con il proprietario del prodotto e il team di sviluppo. Continua a creare casi di prova\n• Requisiti come caratteristiche e storie degli utenti e eseguirli. La vostra competenza: Dopo la laurea presso l'università (ad esempio ingegnere, specialista di informatica aziendale), avete acquisito diversi anni di esperienza come ingegnere di prova o responsabile di test. Sono molto familiari con metodi moderni come Scrum, Kanban, SAFe e strumenti nello sviluppo del software. Hai il vantaggio della certificazione ISTQB. Oltre alla lingua madre tedesco, si parla elegante in inglese e/o francese La nostra offerta: Ti senti indirizzato? Allora non mi piace andare avanti, sono felice della tua applicazione. Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Non vedo l'ora di sentirti!",
+        "en": "Do you want to promote the improvement of products? Do you have an ISTQB certification? Our customer, a leading IT consulting company and is looking for a new team member your challenge: Your main tasks include responsibility for manual testing, test coordination and testing strategy. They plan and coordinate the test activities in and beyond the development team (end-to-end view) and work closely with the product owner and the development team. Continue to create test cases\n• Requirements such as features and user stories and perform them. Your competence: After graduating from university (e.g. engineer, business informatics specialist), you have gained several years of experience as a test engineer or test manager. They are very familiar with modern methods such as Scrum, Kanban, SAFe and tools in software development. You have the advantage of the ISTQB certification. In addition to your mother tongue German, you speak stylish in English and/or French Our offer: Do you feel addressed? Then nothing like going on, I am happy about your application. Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I look forward to hearing from you!",
+        "de": "Sie möchten die Verbesserung von Produkten vorantreiben? Sie haben eine ISTQB-Zertifizierung?\nUnsere Kundin, eine führende IT Consultingfirma und ist auf der Suche nach einem neuen Teammitglied\nIhre Herausforderung:\nZu Ihren Hauptaufgaben gehören die Verantwortung für die manuellen Tests, die Testkoordination wie die Teststrategie. Sie planen und koordinieren die Test-Aktivitäten im und über das Entwicklungsteam hinaus (End-zu-End Sicht) und arbeiten eng mit dem Product Owner und dem Entwicklungsteam zusammen. Weiter erstellen Sie Testfälle aus \n• Anforderungen wie Features und User Stories und führen diese durch.\nIhre Kompetenz:\nNach Ihrem Hochschulabschluss (bspw. Ingenieur/in, Wirtschaftsinformatiker/in) konnten Sie einige Jahre Erfahrung als Test Engineer oder Testmanager sammlen. Sie kennen sich bestens aus mit den modernen Methoden wie Scrum, Kanban, SAFe und Tools in der Softwareentwicklung. Von Vorteil haben Sie die ISTQB-Zertifizierung. Neben Ihrer Muttersprache Deutsch sprechen Sie stilsicher in Englisch und/oder Französisch\nUnser Angebot:\nFühlen Sie sich angesprochen? Dann nichts wie los, ich freue mich über Ihre Bewerbung.\nSenden Sie noch heute Ihre Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch. Ich freue mich auf Sie!",
+        "fr": "Voulez-vous promouvoir l'amélioration des produits? Avez-vous une certification ISTQB? Notre client, une société de conseil informatique de premier plan et est à la recherche d'un nouveau membre de l'équipe votre défi: Vos principales tâches comprennent la responsabilité des tests manuels, la coordination des tests et la stratégie de test. Ils planifient et coordonnent les activités d'essai au sein et au-delà de l'équipe de développement (vue de bout en bout) et travaillent en étroite collaboration avec le propriétaire du produit et l'équipe de développement. Continuer à créer des cas d'essai\n• Exigences telles que les fonctionnalités et les histoires d'utilisateurs et les exécuter. Votre compétence : Après avoir obtenu votre diplôme universitaire (p. ex. ingénieur, spécialiste en informatique d'affaires), vous avez acquis plusieurs années d'expérience en tant qu'ingénieur ou gestionnaire de tests. Ils sont très familiers avec des méthodes modernes telles que Scrum, Kanban, Safe et des outils de développement logiciel. Vous avez l'avantage de la certification ISTQB. En plus de votre langue maternelle allemande, vous parlez élégant en anglais et/ou en français Notre offre : Vous sentez-vous adressé ? Alors rien de tel, je suis content de votre candidature. Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. J'ai hâte de vous entendre !"
       },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/327?view=joblisting",
+      "location": "Region Bern",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.181Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
+      "crawledAt": "2026-10-07T21:21:00.766Z",
+      "addressLocality": "Region Bern",
+      "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
@@ -284,43 +284,35 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
+      "applyUrl": "https://parmag.ch/stellen/345?view=joblisting",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-        "parmag-ag-zurich-parmag-ch"
+        "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
-          "parmag-ag-zurich-parmag-ch"
-        ],
-        "en": [
-          "parmag-ag-zurich-parmag-ch"
-        ],
-        "de": [
-          "parmag-ag-zurich-parmag-ch"
+          "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
         ],
         "fr": [
-          "parmag-ag-zurich-parmag-ch"
+          "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-21T15:58:24.810Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
+      "firstSeenAt": "2026-09-26T13:53:57.675Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
+          "minValue": 77000,
+          "maxValue": 116500,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "3001"
     },
     {
       "id": "parmag-ee7718ea35cd",
@@ -353,7 +345,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.181Z",
+      "crawledAt": "2026-10-07T21:21:00.766Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -437,7 +429,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.180Z",
+      "crawledAt": "2026-10-07T21:21:00.765Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -462,10 +454,10 @@
         "it": [
           "java-architekt-all-gender-bern-ittigen-parmag-ch"
         ],
-        "fr": [
+        "en": [
           "java-architekt-all-gender-bern-ittigen-parmag-ch"
         ],
-        "en": [
+        "fr": [
           "java-architekt-all-gender-bern-ittigen-parmag-ch"
         ]
       },
@@ -516,7 +508,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.180Z",
+      "crawledAt": "2026-10-07T21:21:00.765Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -552,39 +544,39 @@
       "postalCode": "3004"
     },
     {
-      "id": "parmag-c3991a17b89b",
-      "slug": "test-ingegnere-m-w-d-ref-1266-parmag-ag-region-bern",
+      "id": "parmag-43009ec898df",
+      "slug": "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich",
       "slugByLocale": {
-        "it": "test-ingegnere-m-w-d-ref-1266-parmag-ag-region-bern",
-        "en": "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch",
-        "de": "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch",
-        "fr": "test-ingenieur-m-w-d-ref-1266-parmag-ag-region-bern"
+        "it": "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich",
+        "en": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
+        "de": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
+        "fr": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
       },
       "company": "ParMag AG",
       "companyKey": "parmag",
       "companyDomain": "parmag.ch",
-      "title": "Test Engineer (m/w/d), Ref. 1266",
+      "title": "Application Engineer (m/w/d), Ref. 1278",
       "titleByLocale": {
-        "it": "Test Ingegnere (m/w/d), Ref. 1266",
-        "en": "Test Engineer (m/w/d), Ref. 1266",
-        "de": "Test Ingenieur (m/w/d), Ref. 1266",
-        "fr": "Test Ingénieur (m/w/d), Ref. 1266"
+        "it": "Application Ingegnere (m/w/d), Ref. 1278",
+        "en": "Application Engineer (m/w/d), Ref. 1278",
+        "de": "Application Ingenieur (m/w/d), Ref. 1278",
+        "fr": "Application Ingénieur (m/w/d), Ref. 1278"
       },
-      "description": "Sie möchten die Verbesserung von Produkten vorantreiben? Sie haben eine ISTQB-Zertifizierung?\nUnsere Kundin, eine führende IT Consultingfirma und ist auf der Suche nach einem neuen Teammitglied\nIhre Herausforderung:\nZu Ihren Hauptaufgaben gehören die Verantwortung für die manuellen Tests, die Testkoordination wie die Teststrategie. Sie planen und koordinieren die Test-Aktivitäten im und über das Entwicklungsteam hinaus (End-zu-End Sicht) und arbeiten eng mit dem Product Owner und dem Entwicklungsteam zusammen. Weiter erstellen Sie Testfälle aus \n• Anforderungen wie Features und User Stories und führen diese durch.\nIhre Kompetenz:\nNach Ihrem Hochschulabschluss (bspw. Ingenieur/in, Wirtschaftsinformatiker/in) konnten Sie einige Jahre Erfahrung als Test Engineer oder Testmanager sammlen. Sie kennen sich bestens aus mit den modernen Methoden wie Scrum, Kanban, SAFe und Tools in der Softwareentwicklung. Von Vorteil haben Sie die ISTQB-Zertifizierung. Neben Ihrer Muttersprache Deutsch sprechen Sie stilsicher in Englisch und/oder Französisch\nUnser Angebot:\nFühlen Sie sich angesprochen? Dann nichts wie los, ich freue mich über Ihre Bewerbung.\nSenden Sie noch heute Ihre Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch. Ich freue mich auf Sie!",
+      "description": "• Du bist erfahren in der Entwicklung von Web-Systemen und begeisterst dich für die neusten IT-Trends?\n• Unsere Kundin ist in der digitalen Entwicklung und Betrieb von Plattformen tätig und sucht ein neues Teammitglied.\n• Ihre Herausforderung:\nDu entwickelst gemeinsam mit einem motivierten Team spannende Webanwendungen oder Webseiten für die Kunden. Dabei erarbeitest du das Software Design und verbesserst bestehende Anwendungen, um qualitativ hochwertige Ergebnisse zu erreichen. Du entwickelst die Lösungen unter andrem in Kotlin, Scala und JavaScript.\nIhre Kompetenz:\nNach deiner IT-Ausbildung/IT-Studium hst du bereits einige Jahre Erfahrung in der Entwicklung von Web-Systemen auf Basis der JVM gesammelt und besitzt gute Kenntnisse der Webtechnologien wie HTTP, REST, HTML5, JavaScript & Co. Du begeisterst dich für Best-Practices in der Softwareentwicklung und bringst eine agile Denkweise mit. Von Vorteil sind Kenntnisse von Spring Boot, relationalen Datenbanksystemen und Container-Technologien. Auch wünschenswert wären Continuous Integration, Continuous Delivery und DevOps.\nUnser Angebot:\n• Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung.\n• Sende mir noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
       "descriptionByLocale": {
-        "it": "Vuoi promuovere il miglioramento dei prodotti? Hai una certificazione ISTQB? Il nostro cliente, una società di consulenza IT leader e sta cercando un nuovo membro del team la vostra sfida: I vostri compiti principali includono la responsabilità di test manuali, coordinamento di test e strategia di test. Pianificano e coordinano le attività di test in e oltre il team di sviluppo (vista end-to-end) e lavorano a stretto contatto con il proprietario del prodotto e il team di sviluppo. Continua a creare casi di prova\n• Requisiti come caratteristiche e storie degli utenti e eseguirli. La vostra competenza: Dopo la laurea presso l'università (ad esempio ingegnere, specialista di informatica aziendale), avete acquisito diversi anni di esperienza come ingegnere di prova o responsabile di test. Sono molto familiari con metodi moderni come Scrum, Kanban, SAFe e strumenti nello sviluppo del software. Hai il vantaggio della certificazione ISTQB. Oltre alla lingua madre tedesco, si parla elegante in inglese e/o francese La nostra offerta: Ti senti indirizzato? Allora non mi piace andare avanti, sono felice della tua applicazione. Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Non vedo l'ora di sentirti!",
-        "en": "Do you want to promote the improvement of products? Do you have an ISTQB certification? Our customer, a leading IT consulting company and is looking for a new team member your challenge: Your main tasks include responsibility for manual testing, test coordination and testing strategy. They plan and coordinate the test activities in and beyond the development team (end-to-end view) and work closely with the product owner and the development team. Continue to create test cases\n• Requirements such as features and user stories and perform them. Your competence: After graduating from university (e.g. engineer, business informatics specialist), you have gained several years of experience as a test engineer or test manager. They are very familiar with modern methods such as Scrum, Kanban, SAFe and tools in software development. You have the advantage of the ISTQB certification. In addition to your mother tongue German, you speak stylish in English and/or French Our offer: Do you feel addressed? Then nothing like going on, I am happy about your application. Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I look forward to hearing from you!",
-        "de": "Sie möchten die Verbesserung von Produkten vorantreiben? Sie haben eine ISTQB-Zertifizierung?\nUnsere Kundin, eine führende IT Consultingfirma und ist auf der Suche nach einem neuen Teammitglied\nIhre Herausforderung:\nZu Ihren Hauptaufgaben gehören die Verantwortung für die manuellen Tests, die Testkoordination wie die Teststrategie. Sie planen und koordinieren die Test-Aktivitäten im und über das Entwicklungsteam hinaus (End-zu-End Sicht) und arbeiten eng mit dem Product Owner und dem Entwicklungsteam zusammen. Weiter erstellen Sie Testfälle aus \n• Anforderungen wie Features und User Stories und führen diese durch.\nIhre Kompetenz:\nNach Ihrem Hochschulabschluss (bspw. Ingenieur/in, Wirtschaftsinformatiker/in) konnten Sie einige Jahre Erfahrung als Test Engineer oder Testmanager sammlen. Sie kennen sich bestens aus mit den modernen Methoden wie Scrum, Kanban, SAFe und Tools in der Softwareentwicklung. Von Vorteil haben Sie die ISTQB-Zertifizierung. Neben Ihrer Muttersprache Deutsch sprechen Sie stilsicher in Englisch und/oder Französisch\nUnser Angebot:\nFühlen Sie sich angesprochen? Dann nichts wie los, ich freue mich über Ihre Bewerbung.\nSenden Sie noch heute Ihre Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch. Ich freue mich auf Sie!",
-        "fr": "Voulez-vous promouvoir l'amélioration des produits? Avez-vous une certification ISTQB? Notre client, une société de conseil informatique de premier plan et est à la recherche d'un nouveau membre de l'équipe votre défi: Vos principales tâches comprennent la responsabilité des tests manuels, la coordination des tests et la stratégie de test. Ils planifient et coordonnent les activités d'essai au sein et au-delà de l'équipe de développement (vue de bout en bout) et travaillent en étroite collaboration avec le propriétaire du produit et l'équipe de développement. Continuer à créer des cas d'essai\n• Exigences telles que les fonctionnalités et les histoires d'utilisateurs et les exécuter. Votre compétence : Après avoir obtenu votre diplôme universitaire (p. ex. ingénieur, spécialiste en informatique d'affaires), vous avez acquis plusieurs années d'expérience en tant qu'ingénieur ou gestionnaire de tests. Ils sont très familiers avec des méthodes modernes telles que Scrum, Kanban, Safe et des outils de développement logiciel. Vous avez l'avantage de la certification ISTQB. En plus de votre langue maternelle allemande, vous parlez élégant en anglais et/ou en français Notre offre : Vous sentez-vous adressé ? Alors rien de tel, je suis content de votre candidature. Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. J'ai hâte de vous entendre !"
+        "it": "• Sei esperto nello sviluppo di sistemi web e entusiasta delle ultime tendenze IT?\n• Il nostro cliente è attivo nello sviluppo digitale e nel funzionamento di piattaforme e sta cercando un nuovo membro del team.\n• La tua sfida:\nInsieme a un team motivato, svilupperai interessanti applicazioni web o siti web per i clienti. Sviluppi la progettazione del software e migliora le applicazioni esistenti per ottenere risultati di alta qualità. Sviluppi le soluzioni tra gli altri in Kotlin, Scala e JavaScript.\nLa vostra competenza:\nDopo la tua formazione IT / studi IT, hai già guadagnato alcuni anni di esperienza nello sviluppo di sistemi web basati su JVM e avere una buona conoscenza delle tecnologie web come HTTP, REST, HTML5, JavaScript & Co. Sei appassionato di migliori pratiche nello sviluppo del software e portare una mentalità agile. La conoscenza del boot primaverile, dei sistemi di database relazionali e delle tecnologie dei container è vantaggiosa. Anche desiderabile sarebbe Integrazione continua, Consegna continua e DevOps.\nLa nostra offerta:\n• È questo compito emozionante e vario che vi attrae? Sono molto felice della sua applicazione.\n• Inviami i tuoi documenti (CV, certificati, diplomi) oggi a patrick.brayenovitch@parmag.ch . Non vedo l'ora di vederti!",
+        "en": "• Are you experienced in the development of web systems and enthusiastic about the latest IT trends?\n• Our customer is active in the digital development and operation of platforms and is looking for a new team member.\n• Your challenge:\nTogether with a motivated team, you will develop exciting web applications or websites for customers. You develop the software design and improve existing applications to achieve high-quality results. You develop the solutions among others in Kotlin, Scala and JavaScript.\nYour competence:\nAfter your IT training / IT studies, you have already gained some years of experience in the development of web systems based on JVM and have good knowledge of web technologies such as HTTP, REST, HTML5, JavaScript & Co. You are passionate about best practices in software development and bring an agile mindset. Knowledge of spring boot, relational database systems and container technologies is advantageous. Also desirable would be Continuous Integration, Continuous Delivery and DevOps.\nOur offer:\n• Is this exciting and varied task appealing to you? I am very happy about your application.\n• Send me your documents (CV, certificates, diplomas) today to patrick.brayenovitch@parmag.ch . I look forward to seeing you!",
+        "de": "• Du bist erfahren in der Entwicklung von Web-Systemen und begeisterst dich für die neusten IT-Trends?\n• Unsere Kundin ist in der digitalen Entwicklung und Betrieb von Plattformen tätig und sucht ein neues Teammitglied.\n• Ihre Herausforderung:\nDu entwickelst gemeinsam mit einem motivierten Team spannende Webanwendungen oder Webseiten für die Kunden. Dabei erarbeitest du das Software Design und verbesserst bestehende Anwendungen, um qualitativ hochwertige Ergebnisse zu erreichen. Du entwickelst die Lösungen unter andrem in Kotlin, Scala und JavaScript.\nIhre Kompetenz:\nNach deiner IT-Ausbildung/IT-Studium hst du bereits einige Jahre Erfahrung in der Entwicklung von Web-Systemen auf Basis der JVM gesammelt und besitzt gute Kenntnisse der Webtechnologien wie HTTP, REST, HTML5, JavaScript & Co. Du begeisterst dich für Best-Practices in der Softwareentwicklung und bringst eine agile Denkweise mit. Von Vorteil sind Kenntnisse von Spring Boot, relationalen Datenbanksystemen und Container-Technologien. Auch wünschenswert wären Continuous Integration, Continuous Delivery und DevOps.\nUnser Angebot:\n• Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung.\n• Sende mir noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
+        "fr": "• Avez-vous de l'expérience dans le développement de systèmes web et enthousiastes au sujet des dernières tendances informatiques?\n• Notre client est actif dans le développement et le fonctionnement numériques des plateformes et cherche un nouveau membre de l'équipe.\n• Votre défi :\nAvec une équipe motivée, vous développerez des applications Web passionnantes ou des sites Web pour les clients. Vous développez la conception du logiciel et améliorez les applications existantes pour obtenir des résultats de haute qualité. Vous développez les solutions entre autres en Kotlin, Scala et JavaScript.\nVotre compétence :\nAprès votre formation informatique / études informatiques, vous avez déjà acquis quelques années d'expérience dans le développement de systèmes web basés sur JVM et avez une bonne connaissance des technologies web telles que HTTP, REST, HTML5, JavaScript & Co. Vous êtes passionné par les meilleures pratiques dans le développement de logiciels et apporter un état d'esprit agile. La connaissance des systèmes de démarrage à ressort, des bases de données relationnelles et des technologies des conteneurs est avantageuse. Il serait également souhaitable de procéder à une intégration continue, à une prestation continue et à des DevOps.\nNotre offre :\n• Cette tâche passionnante et variée vous plaît - elle? Je suis très heureux de votre candidature.\n• Envoyez-moi vos documents (CV, certificats, diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch . J'ai hâte de vous voir !"
       },
-      "location": "Region Bern",
-      "canton": "BE",
-      "url": "https://parmag.ch/stellen/345?view=joblisting",
+      "location": "Bern oder Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.180Z",
-      "addressLocality": "Region Bern",
-      "addressRegion": "BE",
+      "crawledAt": "2026-10-07T21:21:00.764Z",
+      "addressLocality": "Bern oder Zürich",
+      "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Ingegneria",
@@ -597,97 +589,18 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/345?view=joblisting",
+      "applyUrl": "https://parmag.ch/stellen/360?view=joblisting",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
+        "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
-        ],
-        "fr": [
-          "test-engineer-m-w-d-ref-1266-region-bern-parmag-ch"
+          "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
         ]
       },
-      "firstSeenAt": "2026-09-26T13:53:57.675Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001"
-    },
-    {
-      "id": "parmag-a2d94efd9862",
-      "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
-      "slugByLocale": {
-        "it": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
-        "en": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-        "de": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
-        "fr": "consultant-technique-ecm-h-f-d-ref-1274-parmag-ag-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
-      "titleByLocale": {
-        "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
-        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
-        "de": "Technical Berater ECM (m/w/d), Ref. 1274",
-        "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
-      },
-      "description": "• Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden.\n• Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen.\n• Ihre Herausforderung:\nBei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung.\nIhre Kompetenz:\nDu bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting.\nUnser Angebot:\n• Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch .\n• Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
-      "descriptionByLocale": {
-        "it": "• Sei all'avanguardia nello sviluppo di soluzioni di gestione delle informazioni per i tuoi futuri clienti.\n• Il nostro partner è un fornitore di servizi IT con i clienti, soprattutto nel campo della pubblica amministrazione e della sanità.\n• La tua sfida:\nIn questa posizione emozionante, si lavora per l'analisi, la concezione e la realizzazione nei settori del documento, del processo e della gestione dei dossier. Sono inclusi anche il trattamento delle fatture e GEWER e il contratto. Si consiglia ai clienti di implementare e mantenere le soluzioni Enterprise Content Management (ECM). Inoltre, si crea documentazione, formare i clienti e accompagnarli nella soluzione ottimale di ricerca.\nLa vostra competenza:\nSei un tecnico di sistema con una laurea in Gestione delle informazioni o Informatica aziendale. Si può già avere una certa esperienza nella gestione delle informazioni e avere una grande forza di comunicazione. Hai familiarità con i progetti IT e sono esperti con applicazioni aziendali e interfacce dal business del progetto. Inoltre, sei molto familiare con ambienti client e server Microsoft, sistemi di database e scripting.\nLa nostra offerta:\n• Questo lavoro sarebbe per te? Allora non esitate e inviatemi i vostri documenti (CV, certificati e diplomi) oggi a patrick.brayenovitch@parmag.ch .\n• Non vedo l'ora che la vostra domanda, una lettera di domanda non è necessaria.",
-        "en": "• You are at the forefront of developing information management solutions for your future customers.\n• Our partner is an IT service provider with customers, especially in the field of public administration and healthcare.\n• Your challenge:\nIn this exciting position, you work for the analysis, conception and realization in the areas of document, process and dossier management. Invoice processing as well as GEWER and contracting are also included. You will advise customers on the implementation and maintenance of Enterprise Content Management (ECM) solutions. Furthermore, you create documentation, train customers and accompany them in the optimal solution finding.\nYour competence:\nYou are a system technician with a degree in Information Management or Business Informatics. You can already have some experience in information management and have a great communication strength. You are familiar with IT projects and are experienced with business applications and interfaces from the project business. Furthermore, you are very familiar with Microsoft client and server environments, database systems and scripting.\nOur offer:\n• Would this job be for you? Then do not hesitate and send me your documents (CV, certificates and diplomas) today to patrick.brayenovitch@parmag.ch .\n• I am looking forward to your application, a letter of application is not necessary.",
-        "de": "• Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden.\n• Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen.\n• Ihre Herausforderung:\nBei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung.\nIhre Kompetenz:\nDu bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting.\nUnser Angebot:\n• Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch .\n• Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
-        "fr": "• Vous êtes à l'avant-garde du développement de solutions de gestion de l'information pour vos futurs clients.\n• Notre partenaire est un fournisseur de services informatiques avec des clients, en particulier dans le domaine de l'administration publique et des soins de santé.\n• Votre défi :\nDans cette position passionnante, vous travaillez pour l'analyse, la conception et la réalisation dans les domaines de la gestion des documents, des processus et des dossiers. Le traitement des factures ainsi que le GEWER et la passation de marchés sont également inclus. Vous conseillerez les clients sur la mise en œuvre et la maintenance des solutions Enterprise Content Management (ECM). De plus, vous créez de la documentation, formez les clients et les accompagnez dans la recherche de la solution optimale.\nVotre compétence :\nVous êtes technicien système avec un diplôme en gestion de l'information ou en informatique d'affaires. Vous pouvez déjà avoir une certaine expérience en gestion de l'information et avoir une grande force de communication. Vous connaissez les projets informatiques et avez de l'expérience dans les applications et les interfaces du projet. De plus, vous connaissez très bien les environnements client et serveur de Microsoft, les systèmes de bases de données et les scripts.\nNotre offre :\n• Ce travail serait pour toi ? Alors n'hésitez pas et envoyez-moi vos documents (CV, certificats et diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch .\n• J'attends avec impatience votre demande, une lettre de demande n'est pas nécessaire."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/356?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.179Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/356?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
-        ],
-        "fr": [
-          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:58.308Z",
+      "firstSeenAt": "2026-09-26T13:53:57.670Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -698,82 +611,6 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
-      "id": "parmag-065aefb22879",
-      "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
-      "slugByLocale": {
-        "it": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
-        "en": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-        "de": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
-        "fr": "aine-consultant-ecm-h-f-d-ref-1273-parmag-ag-zurich"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
-      "titleByLocale": {
-        "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
-        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
-        "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
-        "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
-      },
-      "description": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter.\nUnsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder\nIhre Herausforderung:\nDu analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein.\nUnser Angebot:\nSende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
-      "descriptionByLocale": {
-        "it": "Vorresti essere presente alla digitalizzazione dei tuoi clienti dal vivo? Sei già esperto nel campo di ECM resp. soluzioni DMS? Allora si prega di leggere. Il nostro cliente, un fornitore di servizi IT, sta cercando nuovi membri del team motivati: Si analizza, concettualizzare e realizzare progetti nei settori del documento, del dossier e della gestione dei processi. Il tuo\n• Compiti includono anche consulenza, implementazione e supporto delle soluzioni ECM. Potrai anche moderato workshop, creare documentazione e presentazioni e accompagnare i tuoi clienti con l'implementazione della soluzione. La vostra competenza: Dopo la laurea in informatica, si può guardare indietro su diversi anni di esperienza con le soluzioni ECM e DMS. Ti piace la sfida quotidiana nei progetti IT, mantenere una testa fresca e avere un forte orientamento al cliente. Siete abituati a trattare con applicazioni aziendali e interfacce dal business del progetto e sono molto familiari con flussi di lavoro e processi aziendali. Se sei anche esperto in ambienti client/server Microsoft, sistemi di dati e scritping, potresti essere la persona ideale per questo lavoro. La nostra offerta: Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Sono felice e sarò felice di contattarti.",
-        "en": "Would you like to be present at the digitization of your customers live? Are you already experienced in the field of ECM resp. DMS solutions? Then please read on. Our customer, an IT service provider, is looking for new motivated team members: You analyze, conceptualize and realize projects in the areas of document, dossier and process management. Your\n• Tasks also include consulting, implementation and support of ECM solutions. You will also moderate workshops, create documentation and presentations and accompany your customers with the solution implementation. Your competence: After graduating in computer science, you can look back on several years of experience with ECM and DMS solutions. You like the daily challenge in IT projects, keep a cool head and have strong customer orientation. You are used to dealing with business applications and interfaces from the project business and are very familiar with workflows and business processes. If you are also experienced in Microsoft client/server environments, data systems and scritping, you could be the ideal person for this job. Our offer: Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I am happy and will be happy to contact you.",
-        "de": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter.\nUnsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder\nIhre Herausforderung:\nDu analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine \n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein.\nUnser Angebot:\nSende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
-        "fr": "Aimeriez-vous être présent à la numérisation de vos clients en direct ? Êtes-vous déjà expérimenté dans le domaine de ECM resp. Des solutions DMS ? Alors s'il vous plaît, lisez. Notre client, un fournisseur de services informatiques, recherche de nouveaux membres motivés : Vous analysez, conceptualisez et réalisez des projets dans les domaines de la gestion des documents, des dossiers et des processus. Votre\n• Les tâches comprennent également la consultation, la mise en œuvre et le soutien des solutions ECM. Vous animerez également des ateliers, créerez de la documentation et des présentations et accompagnerez vos clients dans la mise en œuvre de la solution. Votre compétence : Après avoir obtenu votre diplôme en informatique, vous pouvez revenir sur plusieurs années d'expérience avec les solutions ECM et DMS. Vous aimez le défi quotidien dans les projets informatiques, garder une tête cool et avoir une forte orientation client. Vous êtes habitué à traiter des applications et des interfaces d'affaires de l'entreprise du projet et vous connaissez très bien les flux de travail et les processus opérationnels. Si vous êtes également expérimenté dans les environnements client/serveur de Microsoft, les systèmes de données et le scritping, vous pourriez être la personne idéale pour ce travail. Notre offre : Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. Je suis heureux et je serai heureux de vous contacter."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/355?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.179Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/355?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
-        ],
-        "fr": [
-          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:58.309Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -810,7 +647,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.178Z",
+      "crawledAt": "2026-10-07T21:21:00.763Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -856,152 +693,6 @@
       "postalCode": "8001"
     },
     {
-      "id": "parmag-43009ec898df",
-      "slug": "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich",
-      "slugByLocale": {
-        "it": "application-ingegnere-m-w-d-ref-1278-parmag-ag-bern-oder-zurich",
-        "en": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
-        "de": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch",
-        "fr": "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Application Engineer (m/w/d), Ref. 1278",
-      "titleByLocale": {
-        "it": "Application Ingegnere (m/w/d), Ref. 1278",
-        "en": "Application Engineer (m/f/d), Ref. 1278",
-        "de": "Application Ingenieur (m/w/d), Ref. 1278",
-        "fr": "Application Ingénieur (m/w/d), Ref. 1278"
-      },
-      "description": "• Du bist erfahren in der Entwicklung von Web-Systemen und begeisterst dich für die neusten IT-Trends?\n• Unsere Kundin ist in der digitalen Entwicklung und Betrieb von Plattformen tätig und sucht ein neues Teammitglied.\n• Ihre Herausforderung:\nDu entwickelst gemeinsam mit einem motivierten Team spannende Webanwendungen oder Webseiten für die Kunden. Dabei erarbeitest du das Software Design und verbesserst bestehende Anwendungen, um qualitativ hochwertige Ergebnisse zu erreichen. Du entwickelst die Lösungen unter andrem in Kotlin, Scala und JavaScript.\nIhre Kompetenz:\nNach deiner IT-Ausbildung/IT-Studium hst du bereits einige Jahre Erfahrung in der Entwicklung von Web-Systemen auf Basis der JVM gesammelt und besitzt gute Kenntnisse der Webtechnologien wie HTTP, REST, HTML5, JavaScript & Co. Du begeisterst dich für Best-Practices in der Softwareentwicklung und bringst eine agile Denkweise mit. Von Vorteil sind Kenntnisse von Spring Boot, relationalen Datenbanksystemen und Container-Technologien. Auch wünschenswert wären Continuous Integration, Continuous Delivery und DevOps.\nUnser Angebot:\n• Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung.\n• Sende mir noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
-      "descriptionByLocale": {
-        "it": "• Sei esperto nello sviluppo di sistemi web e entusiasta delle ultime tendenze IT?\n• Il nostro cliente è attivo nello sviluppo digitale e nel funzionamento di piattaforme e sta cercando un nuovo membro del team.\n• La tua sfida:\nInsieme a un team motivato, svilupperai interessanti applicazioni web o siti web per i clienti. Sviluppi la progettazione del software e migliora le applicazioni esistenti per ottenere risultati di alta qualità. Sviluppi le soluzioni tra gli altri in Kotlin, Scala e JavaScript.\nLa vostra competenza:\nDopo la tua formazione IT / studi IT, hai già guadagnato alcuni anni di esperienza nello sviluppo di sistemi web basati su JVM e avere una buona conoscenza delle tecnologie web come HTTP, REST, HTML5, JavaScript & Co. Sei appassionato di migliori pratiche nello sviluppo del software e portare una mentalità agile. La conoscenza del boot primaverile, dei sistemi di database relazionali e delle tecnologie dei container è vantaggiosa. Anche desiderabile sarebbe Integrazione continua, Consegna continua e DevOps.\nLa nostra offerta:\n• È questo compito emozionante e vario che vi attrae? Sono molto felice della sua applicazione.\n• Inviami i tuoi documenti (CV, certificati, diplomi) oggi a patrick.brayenovitch@parmag.ch . Non vedo l'ora di vederti!",
-        "en": "• Are you experienced in the development of web systems and enthusiastic about the latest IT trends?\n• Our customer is active in the digital development and operation of platforms and is looking for a new team member.\n• Your challenge:\nTogether with a motivated team, you will develop exciting web applications or websites for customers. You develop the software design and improve existing applications to achieve high-quality results. You develop the solutions among others in Kotlin, Scala and JavaScript.\nYour competence:\nAfter your IT training / IT studies, you have already gained some years of experience in the development of web systems based on JVM and have good knowledge of web technologies such as HTTP, REST, HTML5, JavaScript & Co. You are passionate about best practices in software development and bring an agile mindset. Knowledge of spring boot, relational database systems and container technologies is advantageous. Also desirable would be Continuous Integration, Continuous Delivery and DevOps.\nOur offer:\n• Is this exciting and varied task appealing to you? I am very happy about your application.\n• Send me your documents (CV, certificates, diplomas) today to patrick.brayenovitch@parmag.ch . I look forward to seeing you!",
-        "de": "• Du bist erfahren in der Entwicklung von Web-Systemen und begeisterst dich für die neusten IT-Trends?\n• Unsere Kundin ist in der digitalen Entwicklung und Betrieb von Plattformen tätig und sucht ein neues Teammitglied.\n• Ihre Herausforderung:\nDu entwickelst gemeinsam mit einem motivierten Team spannende Webanwendungen oder Webseiten für die Kunden. Dabei erarbeitest du das Software Design und verbesserst bestehende Anwendungen, um qualitativ hochwertige Ergebnisse zu erreichen. Du entwickelst die Lösungen unter andrem in Kotlin, Scala und JavaScript.\nIhre Kompetenz:\nNach deiner IT-Ausbildung/IT-Studium hst du bereits einige Jahre Erfahrung in der Entwicklung von Web-Systemen auf Basis der JVM gesammelt und besitzt gute Kenntnisse der Webtechnologien wie HTTP, REST, HTML5, JavaScript & Co. Du begeisterst dich für Best-Practices in der Softwareentwicklung und bringst eine agile Denkweise mit. Von Vorteil sind Kenntnisse von Spring Boot, relationalen Datenbanksystemen und Container-Technologien. Auch wünschenswert wären Continuous Integration, Continuous Delivery und DevOps.\nUnser Angebot:\n• Reizt dich diese spannende und abwechslungsreiche Aufgabe? Dann freue ich mich sehr über deine Bewerbung.\n• Sende mir noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich auf dich!",
-        "fr": "• Avez-vous de l'expérience dans le développement de systèmes web et enthousiastes au sujet des dernières tendances informatiques?\n• Notre client est actif dans le développement et le fonctionnement numériques des plateformes et cherche un nouveau membre de l'équipe.\n• Votre défi :\nAvec une équipe motivée, vous développerez des applications Web passionnantes ou des sites Web pour les clients. Vous développez la conception du logiciel et améliorez les applications existantes pour obtenir des résultats de haute qualité. Vous développez les solutions entre autres en Kotlin, Scala et JavaScript.\nVotre compétence :\nAprès votre formation informatique / études informatiques, vous avez déjà acquis quelques années d'expérience dans le développement de systèmes web basés sur JVM et avez une bonne connaissance des technologies web telles que HTTP, REST, HTML5, JavaScript & Co. Vous êtes passionné par les meilleures pratiques dans le développement de logiciels et apporter un état d'esprit agile. La connaissance des systèmes de démarrage à ressort, des bases de données relationnelles et des technologies des conteneurs est avantageuse. Il serait également souhaitable de procéder à une intégration continue, à une prestation continue et à des DevOps.\nNotre offre :\n• Cette tâche passionnante et variée vous plaît - elle? Je suis très heureux de votre candidature.\n• Envoyez-moi vos documents (CV, certificats, diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch . J'ai hâte de vous voir !"
-      },
-      "location": "Bern oder Zürich",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/360?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.178Z",
-      "addressLocality": "Bern oder Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/360?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "application-engineer-m-w-d-ref-1278-bern-oder-zurich-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.670Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
-      "id": "parmag-e8ca7aeee784",
-      "slug": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
-      "slugByLocale": {
-        "it": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
-        "en": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-        "de": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
-        "fr": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Software Engineer Java (m/w/d), Ref. 1289",
-      "titleByLocale": {
-        "it": "Software Ingegnere Java (m/w/d), Ref. 1289",
-        "en": "Software Engineer Java (m/f/d), Ref. 1289",
-        "de": "Software Ingenieur Java (m/w/d), Ref. 1289",
-        "fr": "Software Ingénieur Java (m/w/d), Ref. 1289"
-      },
-      "description": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
-      "descriptionByLocale": {
-        "it": "• Sei una personalità Java esperta? Stai cercando un lavoro con un sacco di libertà di progettazione? Allora continua a leggere.\n• Il nostro cliente, una società di consulenza in costante crescita, sta cercando nuovi talenti\n• La tua sfida:\nPotrai aiutare a progettare e definire soluzioni e sviluppare software stabile, affidabile e potente. Si garantisce lo sviluppo del prodotto in termini di tecnologia e qualità e sono in stretta collaborazione con un team multidisciplinare di analisti, architetti e ingegneri software. Parteciperai anche all'intero ciclo di progetto, dall'analisi delle esigenze alla consegna finale di una soluzione individuale per i clienti.\nLa vostra competenza:\nDopo aver completato la tua laurea tecnica in UNI/ETH/FH, puoi già mostrare alcuni anni di analisi, sviluppo e progettazione nell'ambiente Java. Sei forte con le domande di Spring, Springboot, JPA e Angular e con esperienza con database relazionali (ad esempio Oracle o MSSQL) e SQL, oltre a strumenti di programmazione come Maven, Git, Intellji o Eclipse. Oltre alla tua lingua madre, parli inglese fluente.\nLa nostra offerta:\n• Interessante? Allora non vedo l'ora che i vostri documenti, che potete inviare immediatamente a patrick.brayenovitch@parmag.ch.\n• A presto!",
-        "en": "• Are you an experienced Java personality? Are you looking for a job with a lot of design freedom? Then read on.\n• Our customer, a consulting company that is constantly growing, is looking for new talent\n• Your challenge:\nYou will help design and define solutions and develop stable, reliable and powerful software. You ensure the development of the product in terms of technology and quality and are in close cooperation with a multidisciplinary team of business analysts, architects and software engineers. You will also participate in the entire project cycle, from needs analysis to the final delivery of an individual solution for customers.\nYour competence:\nAfter completing your technical degree at a UNI/ETH/FH, you can already show some years in analysis, development and design in the Java environment. You are strong with Spring, Springboot, JPA and Angular and experienced with relational databases (e.g. Oracle or MSSQL) and SQL queries, in addition with programming tools such as Maven, Git, Intellji or Eclipse. In addition to your native German language, you speak fluent English.\nOur offer:\n• Interested? Then I look forward to your documents, which you can send immediately to patrick.brayenovitch@parmag.ch.\n• See you soon!",
-        "de": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
-        "fr": "• Êtes-vous une personnalité Java expérimentée ? Vous cherchez un emploi avec beaucoup de liberté de conception ? Alors lisez.\n• Notre client, une société de conseil en constante croissance, cherche de nouveaux talents\n• Votre défi :\nVous aiderez à concevoir et définir des solutions et développerez des logiciels stables, fiables et puissants. Vous assurez le développement du produit en termes de technologie et de qualité et êtes en étroite collaboration avec une équipe multidisciplinaire d'analystes, d'architectes et d'ingénieurs logiciels. Vous participerez également à l'ensemble du cycle du projet, de l'analyse des besoins à la livraison finale d'une solution individuelle pour les clients.\nVotre compétence :\nAprès avoir terminé votre diplôme technique à un UNI/ETH/FH, vous pouvez déjà montrer quelques années en analyse, développement et conception dans l'environnement Java. Vous êtes fort avec Springboot, JPA et Angular et expérimenté avec les bases de données relationnelles (p. ex. Oracle ou MSSQL) et les requêtes SQL, en plus des outils de programmation tels que Maven, Git, Intellji ou Eclipse. En plus de votre langue maternelle allemande, vous parlez couramment anglais.\nNotre offre :\n• Intéressé ? Puis j'attends avec impatience vos documents, que vous pouvez envoyer immédiatement à patrick.brayenovitch@parmag.ch.\n• A bientôt !"
-      },
-      "location": "Zürich oder Bern",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/371?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.177Z",
-      "addressLocality": "Zürich oder Bern",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.667Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
       "id": "parmag-23f56667392e",
       "slug": "ict-system-specialista-m-w-d-ref-1288-parmag-ag-region-bern",
       "slugByLocale": {
@@ -1016,7 +707,7 @@
       "title": "ICT System Specialist (m/w/d), Ref. 1288",
       "titleByLocale": {
         "it": "ICT System Specialista (m/w/d), Ref. 1288",
-        "en": "ICT System Specialist (m/f/d), Ref. 1288",
+        "en": "ICT System Specialist (m/w/d), Ref. 1288",
         "de": "ICT System Spezialist (m/w/d), Ref. 1288",
         "fr": "ICT System Spécialiste (m/w/d), Ref. 1288"
       },
@@ -1032,7 +723,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.177Z",
+      "crawledAt": "2026-10-07T21:21:00.762Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1081,6 +772,231 @@
       "postalCode": "3001"
     },
     {
+      "id": "parmag-e8ca7aeee784",
+      "slug": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
+      "slugByLocale": {
+        "it": "software-ingegnere-java-m-w-d-ref-1289-parmag-ag-zurich-oder-bern",
+        "en": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
+        "de": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch",
+        "fr": "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Software Engineer Java (m/w/d), Ref. 1289",
+      "titleByLocale": {
+        "it": "Software Ingegnere Java (m/w/d), Ref. 1289",
+        "en": "Software Engineer Java (m/w/d), Ref. 1289",
+        "de": "Software Ingenieur Java (m/w/d), Ref. 1289",
+        "fr": "Software Ingénieur Java (m/w/d), Ref. 1289"
+      },
+      "description": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
+      "descriptionByLocale": {
+        "it": "• Sei una personalità Java esperta? Stai cercando un lavoro con un sacco di libertà di progettazione? Allora continua a leggere.\n• Il nostro cliente, una società di consulenza in costante crescita, sta cercando nuovi talenti\n• La tua sfida:\nPotrai aiutare a progettare e definire soluzioni e sviluppare software stabile, affidabile e potente. Si garantisce lo sviluppo del prodotto in termini di tecnologia e qualità e sono in stretta collaborazione con un team multidisciplinare di analisti, architetti e ingegneri software. Parteciperai anche all'intero ciclo di progetto, dall'analisi delle esigenze alla consegna finale di una soluzione individuale per i clienti.\nLa vostra competenza:\nDopo aver completato la tua laurea tecnica in UNI/ETH/FH, puoi già mostrare alcuni anni di analisi, sviluppo e progettazione nell'ambiente Java. Sei forte con le domande di Spring, Springboot, JPA e Angular e con esperienza con database relazionali (ad esempio Oracle o MSSQL) e SQL, oltre a strumenti di programmazione come Maven, Git, Intellji o Eclipse. Oltre alla tua lingua madre, parli inglese fluente.\nLa nostra offerta:\n• Interessante? Allora non vedo l'ora che i vostri documenti, che potete inviare immediatamente a patrick.brayenovitch@parmag.ch.\n• A presto!",
+        "en": "• Are you an experienced Java personality? Are you looking for a job with a lot of design freedom? Then read on.\n• Our customer, a consulting company that is constantly growing, is looking for new talent\n• Your challenge:\nYou will help design and define solutions and develop stable, reliable and powerful software. You ensure the development of the product in terms of technology and quality and are in close cooperation with a multidisciplinary team of business analysts, architects and software engineers. You will also participate in the entire project cycle, from needs analysis to the final delivery of an individual solution for customers.\nYour competence:\nAfter completing your technical degree at a UNI/ETH/FH, you can already show some years in analysis, development and design in the Java environment. You are strong with Spring, Springboot, JPA and Angular and experienced with relational databases (e.g. Oracle or MSSQL) and SQL queries, in addition with programming tools such as Maven, Git, Intellji or Eclipse. In addition to your native German language, you speak fluent English.\nOur offer:\n• Interested? Then I look forward to your documents, which you can send immediately to patrick.brayenovitch@parmag.ch.\n• See you soon!",
+        "de": "• Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter.\n• Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten\n• Ihre Herausforderung:\nDu hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.\nIhre Kompetenz:\nNach deinem technischen Abschluss an einer UNI/ETH/FH kannst du schon einige Jahre in der Analyse, Entwicklung und im Design im Java Umfeld vorweisen. Du bist stark mit Spring, Springboot, JPA und Angular und erfahren mit relationalen Datenbanken (z.B. Oracle oder MSSQL) und SQL queries, darüber hinaus mit Programmierwerkzeugen wie Maven, Git, Intellji oder Eclipse. Neben deiner Deutschen Muttersprache sprichst du fliessend Englisch.\nUnser Angebot:\n• Interessiert? Dann freue ich mich über deine Unterlagen, welche du gleich an patrick.brayenovitch@parmag.ch senden kannst.\n• Bis bald!",
+        "fr": "• Êtes-vous une personnalité Java expérimentée ? Vous cherchez un emploi avec beaucoup de liberté de conception ? Alors lisez.\n• Notre client, une société de conseil en constante croissance, cherche de nouveaux talents\n• Votre défi :\nVous aiderez à concevoir et définir des solutions et développerez des logiciels stables, fiables et puissants. Vous assurez le développement du produit en termes de technologie et de qualité et êtes en étroite collaboration avec une équipe multidisciplinaire d'analystes, d'architectes et d'ingénieurs logiciels. Vous participerez également à l'ensemble du cycle du projet, de l'analyse des besoins à la livraison finale d'une solution individuelle pour les clients.\nVotre compétence :\nAprès avoir terminé votre diplôme technique à un UNI/ETH/FH, vous pouvez déjà montrer quelques années en analyse, développement et conception dans l'environnement Java. Vous êtes fort avec Springboot, JPA et Angular et expérimenté avec les bases de données relationnelles (p. ex. Oracle ou MSSQL) et les requêtes SQL, en plus des outils de programmation tels que Maven, Git, Intellji ou Eclipse. En plus de votre langue maternelle allemande, vous parlez couramment anglais.\nNotre offre :\n• Intéressé ? Puis j'attends avec impatience vos documents, que vous pouvez envoyer immédiatement à patrick.brayenovitch@parmag.ch.\n• A bientôt !"
+      },
+      "location": "Zürich oder Bern",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/371?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T21:21:00.761Z",
+      "addressLocality": "Zürich oder Bern",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "software-engineer-java-m-w-d-ref-1289-zurich-oder-bern-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:57.667Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001"
+    },
+    {
+      "id": "parmag-82e65df5cf33",
+      "slug": "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern",
+      "slugByLocale": {
+        "it": "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern",
+        "en": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
+        "de": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
+        "fr": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Data Engineer (m/w/d), Ref. 1291",
+      "titleByLocale": {
+        "it": "Data Ingegnere (m/w/d), Ref. 1291",
+        "en": "Data Engineer (m/w/d), Ref. 1291",
+        "de": "Data Ingenieur (m/w/d), Ref. 1291",
+        "fr": "Data Ingénieur (m/w/d), Ref. 1291"
+      },
+      "description": "• Du bist eine erfahrene Person im Data Engineering und magst die Analyse bei deiner täglichen Arbeit.\n• Unsere Kundin ist eine im Consultingbereich tätige Unternehmung und freut sich auf ein neues Teammitglied.\n• Ihre Herausforderung:\nDu bist tätig in der Beratung der Kunden im Bereich Datenmodellierung und Datenanlyse. Weiter analysiert du die Bedürfnisse und erarbeitest konkrete Lösungen. Die Unterstützung des Account Managements bei der Akquisition von Projekten runden das spannende Aufgabengebiet ab.\nIhre Kompetenz:\nNach deinem Studium konntest du schon einige Jahre Erfarhung in SQL und PL/SQL wie mit Datenbanken (Oracle, MS-SQL, etc.) sammeln. Weiter bist du erfahren mit Python und den gängigen ETL-Werkzeugen. Deine Kenntnisse mit DWH oder Big-Data kannst du anwenden wie auch die Erfahrung mit Daten(-analyse) in der Cloud (Azure, AWS, Snowflake, …). Ebenfalls kennst du dich aus mit Datenanalyse und Reporting (MS Power BI, Tableau, …) und sprichst neben der Muttersprache Deutsch auch in Englisch.\nUnser Angebot:\nInteresse geweckt? Dann nichts wie los und bewerben. Ich freue mich auf deine Unterlagen, welche du mir gleich an patrick.brayenovitch@parmag.ch senden kannst.",
+      "descriptionByLocale": {
+        "it": "• Sei una persona esperta nell'ingegneria dei dati e come l'analisi nel tuo lavoro quotidiano.\n• Il nostro cliente è una società di consulenza e non vede l'ora di un nuovo membro del team.\n• La tua sfida:\nSei attivo nel consigliare i clienti nel campo della modellazione dei dati e dell'analisi dei dati. Inoltre, si analizzano le esigenze e si sviluppano soluzioni concrete. Il supporto della gestione account nell'acquisizione di progetti completa l'emozionante area di attività.\nLa vostra competenza:\nDopo i tuoi studi, sei stato in grado di acquisire esperienza in SQL e PL/SQL come con database (Oracle, MS-SQL, ecc.). Inoltre, sei esperto con Python e gli strumenti ETL comuni. È possibile applicare la vostra conoscenza di DWH o grandi dati così come la vostra esperienza con i dati (analisi) nel cloud (Azure, AWS, Snowflake, ...). Avrai anche familiarità con l'analisi e la segnalazione dei dati (MS Power BI, Tableau, ...) e parlerà anche inglese oltre alla lingua madre tedesca.\nLa nostra offerta:\nInteressante? Allora niente come andare e fare domanda. Attendo con ansia i vostri documenti, che potete inviare a patrick.brayenovitch@parmag.ch.",
+        "en": "• You are an experienced person in data engineering and like the analysis in your daily work.\n• Our customer is a consulting company and is looking forward to a new team member.\n• Your challenge:\nYou are active in advising customers in the field of data modeling and data analysis. Furthermore, you analyze the needs and develop concrete solutions. The support of account management in the acquisition of projects round off the exciting task area.\nYour competence:\nAfter your studies, you have been able to gain experience in SQL and PL/SQL as with databases (Oracle, MS-SQL, etc.). Furthermore, you are experienced with Python and the common ETL tools. You can apply your knowledge of DWH or big data as well as your experience with data (analysis) in the cloud (Azure, AWS, Snowflake, ...). You will also be familiar with data analysis and reporting (MS Power BI, Tableau, ...) and will also speak English in addition to the mother tongue German.\nOur offer:\nInterested? Then nothing like going and applying. I look forward to your documents, which you can send to patrick.brayenovitch@parmag.ch.",
+        "de": "• Du bist eine erfahrene Person im Data Engineering und magst die Analyse bei deiner täglichen Arbeit.\n• Unsere Kundin ist eine im Consultingbereich tätige Unternehmung und freut sich auf ein neues Teammitglied.\n• Ihre Herausforderung:\nDu bist tätig in der Beratung der Kunden im Bereich Datenmodellierung und Datenanlyse. Weiter analysiert du die Bedürfnisse und erarbeitest konkrete Lösungen. Die Unterstützung des Account Managements bei der Akquisition von Projekten runden das spannende Aufgabengebiet ab.\nIhre Kompetenz:\nNach deinem Studium konntest du schon einige Jahre Erfarhung in SQL und PL/SQL wie mit Datenbanken (Oracle, MS-SQL, etc.) sammeln. Weiter bist du erfahren mit Python und den gängigen ETL-Werkzeugen. Deine Kenntnisse mit DWH oder Big-Data kannst du anwenden wie auch die Erfahrung mit Daten(-analyse) in der Cloud (Azure, AWS, Snowflake, …). Ebenfalls kennst du dich aus mit Datenanalyse und Reporting (MS Power BI, Tableau, …) und sprichst neben der Muttersprache Deutsch auch in Englisch.\nUnser Angebot:\nInteresse geweckt? Dann nichts wie los und bewerben. Ich freue mich auf deine Unterlagen, welche du mir gleich an patrick.brayenovitch@parmag.ch senden kannst.",
+        "fr": "• Vous êtes une personne expérimentée en ingénierie des données et comme l'analyse dans votre travail quotidien.\n• Notre client est une société de conseil et attend avec impatience un nouveau membre de l'équipe.\n• Votre défi :\nVous conseillez les clients dans le domaine de la modélisation des données et de l'analyse des données. De plus, vous analysez les besoins et développez des solutions concrètes. L'appui apporté à la gestion des comptes pour l'acquisition de projets complète la tâche passionnante.\nVotre compétence :\nAprès vos études, vous avez pu acquérir de l'expérience en SQL et PL/SQL comme avec les bases de données (Oracle, MS-SQL, etc.). De plus, vous êtes expérimenté avec Python et les outils ETL communs. Vous pouvez appliquer vos connaissances en DWH ou en big data ainsi que votre expérience en matière de données (analyse) dans le cloud (Azure, AWS, Snowflake, ...). Vous serez également familier avec l'analyse des données et les rapports (MS Power BI, Tableau, ...) et parlerez aussi anglais en plus de la langue maternelle allemande.\nNotre offre :\nIntéressé ? Alors rien de tel qu'aller et postuler. J'attends avec impatience vos documents, que vous pouvez envoyer à patrick.brayenovitch@parmag.ch."
+      },
+      "location": "Zürich oder Bern",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/373?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T21:21:00.760Z",
+      "addressLocality": "Zürich oder Bern",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/373?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:53:57.665Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001"
+    },
+    {
+      "id": "parmag-241421ccf7a2",
+      "slug": "consulente-clienti-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
+      "slugByLocale": {
+        "it": "consulente-clienti-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
+        "en": "customer-advisor-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
+        "de": "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch",
+        "fr": "conseiller-client-h-f-d-bern-berner-oberland-seeland-emmental-entree-croisee-parmag-ag-bern"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Kundenberater (m/w/d) Bern, Berner Oberland, Seeland & Emmental (Quereinsteiger:in)",
+      "titleByLocale": {
+        "it": "Consulente clienti (m/f/d) Bern, Berner Oberland, Seeland & Emmental (cross-entry)",
+        "en": "Customer advisor (m/f/d) Bern, Berner Oberland, Seeland & Emmental (cross-entry)",
+        "de": "Kundenberater (m/w/d) Bern, Berner Oberland, Seeland & Emmental (Quereinsteiger:in)",
+        "fr": "Conseiller client (h/f/d) Bern, Berner Oberland, Seeland & Emmental (entrée croisée)"
+      },
+      "description": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Bern suchen wir mehrere Kundenberatende.\nIhre Herausforderung:\n- Gewinnung und Beratung von Neukunden in allen Bereichen der Krankenversicherung.\n- Aufbau und Pflege eines eigenen Netzwerks in deinem Einzugsgebiet (Bern, Berner Oberland, Seeland, Emmental).\n- Persönliche Kundengespräche führen und eine nachhaltige Kundenbindung sicherstellen.\n- Selbstständige Terminplanung und effiziente Routenorganisation.\nIhre Kompetenz:\n- Du bist motiviert, kontaktfreudig und kommunikationsstark – Erfahrung im Vertrieb ist ein Plus, aber keine Voraussetzung.\n- Du bist mindestens 25 Jahre alt und bereit, Verantwortung für deine Arbeit und deinen Erfolg zu übernehmen.\n- Du willst eigenständig arbeiten, Kundenbeziehungen aufbauen und langfristig betreuen.\nUnser Angebot:\n- Eine praxisnahe, 7-monatige Ausbildung (Theorie & Praxis) inklusive VBV-Zertifikat – speziell auf Quereinsteiger:innen zugeschnitten.\n- Attraktive Karrierechancen und Aufstiegsmöglichkeiten in einem wachsenden Unternehmen.\n- Hohe Selbstbestimmung und die Möglichkeit, dein Einkommen aktiv zu steigern.\n- Ein unterstützendes Team und qualifizierte Kundenadressen, damit du direkt durchstarten kannst.",
+      "descriptionByLocale": {
+        "it": "Sei alla ricerca di una nuova sfida di carriera nel campo in cui si può ispirare le persone mentre beneficia della stabilità e della crescita del settore assicurativo? Con noi, si avrà la possibilità di costruire una carriera di servizio di campo di successo – con formazione completa, supporto di squadra e chiare opportunità di promozione. Per quattro regioni del cantone di Berna, stiamo cercando diversi consulenti per i clienti.\nLa tua sfida:\n- Acquisizione e consulenza di nuovi clienti in tutte le aree di assicurazione sanitaria.\n- Costruisci e mantieni la tua rete nella tua area di cattura (Berne, Oberland Bernese, Seeland, Emmental).\n- Avere riunioni personali dei clienti e garantire la fedeltà dei clienti sostenibile.\n- Organizzazione di percorsi indipendente e efficiente.\nLa vostra competenza:\n- Sei motivato, socievole e forte nella comunicazione – L'esperienza nelle vendite è un plus, ma non un requisito.\n- Hai almeno 25 anni e sei pronto a prenderti la responsabilità del tuo lavoro e del tuo successo.\n- Si desidera lavorare indipendentemente, costruire relazioni con i clienti e prendersi cura di loro a lungo termine.\nLa nostra offerta:\n- Una pratica formazione di 7 mesi (teoria e pratica) tra cui il certificato VBV – appositamente adattato per i partecipanti laterali.\n- Opportunità di carriera interessanti e opportunità di avanzamento in una società in crescita.\n- Alta autodeterminazione e l'opportunità di aumentare attivamente il vostro reddito.\n- Un team di supporto e indirizzi clienti qualificati in modo da poter iniziare subito.",
+        "en": "Are you looking for a new career challenge in the field where you can inspire people while benefiting from the stability and growth of the insurance industry? With us, you will get the chance to build a successful field service career – with comprehensive training, team support and clear promotion opportunities. For four regions in the canton of Bern, we are looking for several customer advisors.\nYour challenge:\n- Acquisition and advice of new customers in all areas of health insurance.\n- Build and maintain your own network in your catchment area (Berne, Bernese Oberland, Seeland, Emmental).\n- Have personal customer meetings and ensure sustainable customer loyalty.\n- Independent scheduling and efficient route organization.\nYour competence:\n- You are motivated, sociable and strong in communication – Experience in sales is a plus, but not a requirement.\n- You are at least 25 years old and ready to take responsibility for your work and your success.\n- You want to work independently, build customer relationships and look after them in the long term.\nOur offer:\n- A practical, 7-month training (Theory & Practice) including VBV certificate – specially tailored for lateral entrants.\n- Attractive career opportunities and advancement opportunities in a growing company.\n- High self-determination and the opportunity to actively increase your income.\n- A supportive team and qualified customer addresses so you can get started right away.",
+        "de": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Bern suchen wir mehrere Kundenberatende.\nIhre Herausforderung:\n- Gewinnung und Beratung von Neukunden in allen Bereichen der Krankenversicherung.\n- Aufbau und Pflege eines eigenen Netzwerks in deinem Einzugsgebiet (Bern, Berner Oberland, Seeland, Emmental).\n- Persönliche Kundengespräche führen und eine nachhaltige Kundenbindung sicherstellen.\n- Selbstständige Terminplanung und effiziente Routenorganisation.\nIhre Kompetenz:\n- Du bist motiviert, kontaktfreudig und kommunikationsstark – Erfahrung im Vertrieb ist ein Plus, aber keine Voraussetzung.\n- Du bist mindestens 25 Jahre alt und bereit, Verantwortung für deine Arbeit und deinen Erfolg zu übernehmen.\n- Du willst eigenständig arbeiten, Kundenbeziehungen aufbauen und langfristig betreuen.\nUnser Angebot:\n- Eine praxisnahe, 7-monatige Ausbildung (Theorie & Praxis) inklusive VBV-Zertifikat – speziell auf Quereinsteiger:innen zugeschnitten.\n- Attraktive Karrierechancen und Aufstiegsmöglichkeiten in einem wachsenden Unternehmen.\n- Hohe Selbstbestimmung und die Möglichkeit, dein Einkommen aktiv zu steigern.\n- Ein unterstützendes Team und qualifizierte Kundenadressen, damit du direkt durchstarten kannst.",
+        "fr": "Vous cherchez un nouveau défi de carrière dans le domaine où vous pouvez inspirer les gens tout en bénéficiant de la stabilité et de la croissance du secteur de l'assurance? Avec nous, vous aurez la chance de bâtir une carrière de service sur le terrain réussie – avec une formation complète, un soutien d'équipe et des possibilités de promotion claires. Pour quatre régions du canton de Berne, nous recherchons plusieurs conseillers clients.\nVotre défi :\n- Acquisition et conseils de nouveaux clients dans tous les domaines de l'assurance maladie.\n- Construisez et maintenez votre propre réseau dans votre bassin versant (Berne, Oberland bernois, Seeland, Emmental).\n- Avoir des réunions personnelles de clients et assurer une fidélité durable à la clientèle.\n- Planification indépendante et organisation efficace des itinéraires.\nVotre compétence :\n- Vous êtes motivé, sociable et fort dans la communication – L'expérience dans les ventes est un plus, mais pas une exigence.\n- Vous avez au moins 25 ans et êtes prêt à assumer la responsabilité de votre travail et de votre réussite.\n- Vous voulez travailler de manière indépendante, établir des relations avec les clients et vous en occuper à long terme.\nNotre offre :\n- Une formation pratique de 7 mois (théorie et pratique) incluant le certificat VBV – spécialement adaptée aux participants latéraux.\n- Possibilités de carrière et d'avancement dans une entreprise en croissance.\n- Haute autodétermination et possibilité d'augmenter activement vos revenus.\n- Une équipe de soutien et des adresses client qualifiées pour que vous puissiez commencer immédiatement."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/384?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T21:21:00.759Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/384?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
+        ],
+        "en": [
+          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
+        ],
+        "fr": [
+          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:38:58.302Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004"
+    },
+    {
       "id": "parmag-4d45c49d418c",
       "slug": "fullstack-software-ingegnere-net-m-w-d-ref-1295-parmag-ag-stadt-zurich",
       "slugByLocale": {
@@ -1111,7 +1027,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.176Z",
+      "crawledAt": "2026-10-07T21:21:00.759Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1165,79 +1081,6 @@
       "postalCode": "8001"
     },
     {
-      "id": "parmag-82e65df5cf33",
-      "slug": "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern",
-      "slugByLocale": {
-        "it": "data-ingegnere-m-w-d-ref-1291-parmag-ag-zurich-oder-bern",
-        "en": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
-        "de": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch",
-        "fr": "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Data Engineer (m/w/d), Ref. 1291",
-      "titleByLocale": {
-        "it": "Data Ingegnere (m/w/d), Ref. 1291",
-        "en": "Data Engineer (m/f/d), Ref. 1291",
-        "de": "Data Ingenieur (m/w/d), Ref. 1291",
-        "fr": "Data Ingénieur (m/w/d), Ref. 1291"
-      },
-      "description": "• Du bist eine erfahrene Person im Data Engineering und magst die Analyse bei deiner täglichen Arbeit.\n• Unsere Kundin ist eine im Consultingbereich tätige Unternehmung und freut sich auf ein neues Teammitglied.\n• Ihre Herausforderung:\nDu bist tätig in der Beratung der Kunden im Bereich Datenmodellierung und Datenanlyse. Weiter analysiert du die Bedürfnisse und erarbeitest konkrete Lösungen. Die Unterstützung des Account Managements bei der Akquisition von Projekten runden das spannende Aufgabengebiet ab.\nIhre Kompetenz:\nNach deinem Studium konntest du schon einige Jahre Erfarhung in SQL und PL/SQL wie mit Datenbanken (Oracle, MS-SQL, etc.) sammeln. Weiter bist du erfahren mit Python und den gängigen ETL-Werkzeugen. Deine Kenntnisse mit DWH oder Big-Data kannst du anwenden wie auch die Erfahrung mit Daten(-analyse) in der Cloud (Azure, AWS, Snowflake, …). Ebenfalls kennst du dich aus mit Datenanalyse und Reporting (MS Power BI, Tableau, …) und sprichst neben der Muttersprache Deutsch auch in Englisch.\nUnser Angebot:\nInteresse geweckt? Dann nichts wie los und bewerben. Ich freue mich auf deine Unterlagen, welche du mir gleich an patrick.brayenovitch@parmag.ch senden kannst.",
-      "descriptionByLocale": {
-        "it": "• Sei una persona esperta nell'ingegneria dei dati e come l'analisi nel tuo lavoro quotidiano.\n• Il nostro cliente è una società di consulenza e non vede l'ora di un nuovo membro del team.\n• La tua sfida:\nSei attivo nel consigliare i clienti nel campo della modellazione dei dati e dell'analisi dei dati. Inoltre, si analizzano le esigenze e si sviluppano soluzioni concrete. Il supporto della gestione account nell'acquisizione di progetti completa l'emozionante area di attività.\nLa vostra competenza:\nDopo i tuoi studi, sei stato in grado di acquisire esperienza in SQL e PL/SQL come con database (Oracle, MS-SQL, ecc.). Inoltre, sei esperto con Python e gli strumenti ETL comuni. È possibile applicare la vostra conoscenza di DWH o grandi dati così come la vostra esperienza con i dati (analisi) nel cloud (Azure, AWS, Snowflake, ...). Avrai anche familiarità con l'analisi e la segnalazione dei dati (MS Power BI, Tableau, ...) e parlerà anche inglese oltre alla lingua madre tedesca.\nLa nostra offerta:\nInteressante? Allora niente come andare e fare domanda. Attendo con ansia i vostri documenti, che potete inviare a patrick.brayenovitch@parmag.ch.",
-        "en": "• You are an experienced person in data engineering and like the analysis in your daily work.\n• Our customer is a consulting company and is looking forward to a new team member.\n• Your challenge:\nYou are active in advising customers in the field of data modeling and data analysis. Furthermore, you analyze the needs and develop concrete solutions. The support of account management in the acquisition of projects round off the exciting task area.\nYour competence:\nAfter your studies, you have been able to gain experience in SQL and PL/SQL as with databases (Oracle, MS-SQL, etc.). Furthermore, you are experienced with Python and the common ETL tools. You can apply your knowledge of DWH or big data as well as your experience with data (analysis) in the cloud (Azure, AWS, Snowflake, ...). You will also be familiar with data analysis and reporting (MS Power BI, Tableau, ...) and will also speak English in addition to the mother tongue German.\nOur offer:\nInterested? Then nothing like going and applying. I look forward to your documents, which you can send to patrick.brayenovitch@parmag.ch.",
-        "de": "• Du bist eine erfahrene Person im Data Engineering und magst die Analyse bei deiner täglichen Arbeit.\n• Unsere Kundin ist eine im Consultingbereich tätige Unternehmung und freut sich auf ein neues Teammitglied.\n• Ihre Herausforderung:\nDu bist tätig in der Beratung der Kunden im Bereich Datenmodellierung und Datenanlyse. Weiter analysiert du die Bedürfnisse und erarbeitest konkrete Lösungen. Die Unterstützung des Account Managements bei der Akquisition von Projekten runden das spannende Aufgabengebiet ab.\nIhre Kompetenz:\nNach deinem Studium konntest du schon einige Jahre Erfarhung in SQL und PL/SQL wie mit Datenbanken (Oracle, MS-SQL, etc.) sammeln. Weiter bist du erfahren mit Python und den gängigen ETL-Werkzeugen. Deine Kenntnisse mit DWH oder Big-Data kannst du anwenden wie auch die Erfahrung mit Daten(-analyse) in der Cloud (Azure, AWS, Snowflake, …). Ebenfalls kennst du dich aus mit Datenanalyse und Reporting (MS Power BI, Tableau, …) und sprichst neben der Muttersprache Deutsch auch in Englisch.\nUnser Angebot:\nInteresse geweckt? Dann nichts wie los und bewerben. Ich freue mich auf deine Unterlagen, welche du mir gleich an patrick.brayenovitch@parmag.ch senden kannst.",
-        "fr": "• Vous êtes une personne expérimentée en ingénierie des données et comme l'analyse dans votre travail quotidien.\n• Notre client est une société de conseil et attend avec impatience un nouveau membre de l'équipe.\n• Votre défi :\nVous conseillez les clients dans le domaine de la modélisation des données et de l'analyse des données. De plus, vous analysez les besoins et développez des solutions concrètes. L'appui apporté à la gestion des comptes pour l'acquisition de projets complète la tâche passionnante.\nVotre compétence :\nAprès vos études, vous avez pu acquérir de l'expérience en SQL et PL/SQL comme avec les bases de données (Oracle, MS-SQL, etc.). De plus, vous êtes expérimenté avec Python et les outils ETL communs. Vous pouvez appliquer vos connaissances en DWH ou en big data ainsi que votre expérience en matière de données (analyse) dans le cloud (Azure, AWS, Snowflake, ...). Vous serez également familier avec l'analyse des données et les rapports (MS Power BI, Tableau, ...) et parlerez aussi anglais en plus de la langue maternelle allemande.\nNotre offre :\nIntéressé ? Alors rien de tel qu'aller et postuler. J'attends avec impatience vos documents, que vous pouvez envoyer à patrick.brayenovitch@parmag.ch."
-      },
-      "location": "Zürich oder Bern",
-      "canton": "ZH",
-      "url": "https://parmag.ch/stellen/373?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.176Z",
-      "addressLocality": "Zürich oder Bern",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/373?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "data-engineer-m-w-d-ref-1291-zurich-oder-bern-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:53:57.665Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
       "id": "parmag-221b51c9536f",
       "slug": "consulenza-clienti-inbound-m-f-d-parmag-ag-bern",
       "slugByLocale": {
@@ -1268,7 +1111,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.175Z",
+      "crawledAt": "2026-10-07T21:21:00.758Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1317,85 +1160,6 @@
       "postalCode": "3004"
     },
     {
-      "id": "parmag-241421ccf7a2",
-      "slug": "consulente-clienti-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
-      "slugByLocale": {
-        "it": "consulente-clienti-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
-        "en": "customer-advisor-m-f-d-bern-berner-oberland-seeland-emmental-cross-entry-parmag-ag-bern",
-        "de": "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch",
-        "fr": "conseiller-client-h-f-d-bern-berner-oberland-seeland-emmental-entree-croisee-parmag-ag-bern"
-      },
-      "company": "ParMag AG",
-      "companyKey": "parmag",
-      "companyDomain": "parmag.ch",
-      "title": "Kundenberater (m/w/d) Bern, Berner Oberland, Seeland & Emmental (Quereinsteiger:in)",
-      "titleByLocale": {
-        "it": "Consulente clienti (m/f/d) Bern, Berner Oberland, Seeland & Emmental (cross-entry)",
-        "en": "Customer advisor (m/f/d) Bern, Berner Oberland, Seeland & Emmental (cross-entry)",
-        "de": "Kundenberater (m/w/d) Bern, Berner Oberland, Seeland & Emmental (Quereinsteiger:in)",
-        "fr": "Conseiller client (h/f/d) Bern, Berner Oberland, Seeland & Emmental (entrée croisée)"
-      },
-      "description": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Bern suchen wir mehrere Kundenberatende.\nIhre Herausforderung:\n- Gewinnung und Beratung von Neukunden in allen Bereichen der Krankenversicherung.\n- Aufbau und Pflege eines eigenen Netzwerks in deinem Einzugsgebiet (Bern, Berner Oberland, Seeland, Emmental).\n- Persönliche Kundengespräche führen und eine nachhaltige Kundenbindung sicherstellen.\n- Selbstständige Terminplanung und effiziente Routenorganisation.\nIhre Kompetenz:\n- Du bist motiviert, kontaktfreudig und kommunikationsstark – Erfahrung im Vertrieb ist ein Plus, aber keine Voraussetzung.\n- Du bist mindestens 25 Jahre alt und bereit, Verantwortung für deine Arbeit und deinen Erfolg zu übernehmen.\n- Du willst eigenständig arbeiten, Kundenbeziehungen aufbauen und langfristig betreuen.\nUnser Angebot:\n- Eine praxisnahe, 7-monatige Ausbildung (Theorie & Praxis) inklusive VBV-Zertifikat – speziell auf Quereinsteiger:innen zugeschnitten.\n- Attraktive Karrierechancen und Aufstiegsmöglichkeiten in einem wachsenden Unternehmen.\n- Hohe Selbstbestimmung und die Möglichkeit, dein Einkommen aktiv zu steigern.\n- Ein unterstützendes Team und qualifizierte Kundenadressen, damit du direkt durchstarten kannst.",
-      "descriptionByLocale": {
-        "it": "Sei alla ricerca di una nuova sfida di carriera nel campo in cui si può ispirare le persone mentre beneficia della stabilità e della crescita del settore assicurativo? Con noi, si avrà la possibilità di costruire una carriera di servizio di campo di successo – con formazione completa, supporto di squadra e chiare opportunità di promozione. Per quattro regioni del cantone di Berna, stiamo cercando diversi consulenti per i clienti.\nLa tua sfida:\n- Acquisizione e consulenza di nuovi clienti in tutte le aree di assicurazione sanitaria.\n- Costruisci e mantieni la tua rete nella tua area di cattura (Berne, Oberland Bernese, Seeland, Emmental).\n- Avere riunioni personali dei clienti e garantire la fedeltà dei clienti sostenibile.\n- Organizzazione di percorsi indipendente e efficiente.\nLa vostra competenza:\n- Sei motivato, socievole e forte nella comunicazione – L'esperienza nelle vendite è un plus, ma non un requisito.\n- Hai almeno 25 anni e sei pronto a prenderti la responsabilità del tuo lavoro e del tuo successo.\n- Si desidera lavorare indipendentemente, costruire relazioni con i clienti e prendersi cura di loro a lungo termine.\nLa nostra offerta:\n- Una pratica formazione di 7 mesi (teoria e pratica) tra cui il certificato VBV – appositamente adattato per i partecipanti laterali.\n- Opportunità di carriera interessanti e opportunità di avanzamento in una società in crescita.\n- Alta autodeterminazione e l'opportunità di aumentare attivamente il vostro reddito.\n- Un team di supporto e indirizzi clienti qualificati in modo da poter iniziare subito.",
-        "en": "Are you looking for a new career challenge in the field where you can inspire people while benefiting from the stability and growth of the insurance industry? With us, you will get the chance to build a successful field service career – with comprehensive training, team support and clear promotion opportunities. For four regions in the canton of Bern, we are looking for several customer advisors.\nYour challenge:\n- Acquisition and advice of new customers in all areas of health insurance.\n- Build and maintain your own network in your catchment area (Berne, Bernese Oberland, Seeland, Emmental).\n- Have personal customer meetings and ensure sustainable customer loyalty.\n- Independent scheduling and efficient route organization.\nYour competence:\n- You are motivated, sociable and strong in communication – Experience in sales is a plus, but not a requirement.\n- You are at least 25 years old and ready to take responsibility for your work and your success.\n- You want to work independently, build customer relationships and look after them in the long term.\nOur offer:\n- A practical, 7-month training (Theory & Practice) including VBV certificate – specially tailored for lateral entrants.\n- Attractive career opportunities and advancement opportunities in a growing company.\n- High self-determination and the opportunity to actively increase your income.\n- A supportive team and qualified customer addresses so you can get started right away.",
-        "de": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Bern suchen wir mehrere Kundenberatende.\nIhre Herausforderung:\n- Gewinnung und Beratung von Neukunden in allen Bereichen der Krankenversicherung.\n- Aufbau und Pflege eines eigenen Netzwerks in deinem Einzugsgebiet (Bern, Berner Oberland, Seeland, Emmental).\n- Persönliche Kundengespräche führen und eine nachhaltige Kundenbindung sicherstellen.\n- Selbstständige Terminplanung und effiziente Routenorganisation.\nIhre Kompetenz:\n- Du bist motiviert, kontaktfreudig und kommunikationsstark – Erfahrung im Vertrieb ist ein Plus, aber keine Voraussetzung.\n- Du bist mindestens 25 Jahre alt und bereit, Verantwortung für deine Arbeit und deinen Erfolg zu übernehmen.\n- Du willst eigenständig arbeiten, Kundenbeziehungen aufbauen und langfristig betreuen.\nUnser Angebot:\n- Eine praxisnahe, 7-monatige Ausbildung (Theorie & Praxis) inklusive VBV-Zertifikat – speziell auf Quereinsteiger:innen zugeschnitten.\n- Attraktive Karrierechancen und Aufstiegsmöglichkeiten in einem wachsenden Unternehmen.\n- Hohe Selbstbestimmung und die Möglichkeit, dein Einkommen aktiv zu steigern.\n- Ein unterstützendes Team und qualifizierte Kundenadressen, damit du direkt durchstarten kannst.",
-        "fr": "Vous cherchez un nouveau défi de carrière dans le domaine où vous pouvez inspirer les gens tout en bénéficiant de la stabilité et de la croissance du secteur de l'assurance? Avec nous, vous aurez la chance de bâtir une carrière de service sur le terrain réussie – avec une formation complète, un soutien d'équipe et des possibilités de promotion claires. Pour quatre régions du canton de Berne, nous recherchons plusieurs conseillers clients.\nVotre défi :\n- Acquisition et conseils de nouveaux clients dans tous les domaines de l'assurance maladie.\n- Construisez et maintenez votre propre réseau dans votre bassin versant (Berne, Oberland bernois, Seeland, Emmental).\n- Avoir des réunions personnelles de clients et assurer une fidélité durable à la clientèle.\n- Planification indépendante et organisation efficace des itinéraires.\nVotre compétence :\n- Vous êtes motivé, sociable et fort dans la communication – L'expérience dans les ventes est un plus, mais pas une exigence.\n- Vous avez au moins 25 ans et êtes prêt à assumer la responsabilité de votre travail et de votre réussite.\n- Vous voulez travailler de manière indépendante, établir des relations avec les clients et vous en occuper à long terme.\nNotre offre :\n- Une formation pratique de 7 mois (théorie et pratique) incluant le certificat VBV – spécialement adaptée aux participants latéraux.\n- Possibilités de carrière et d'avancement dans une entreprise en croissance.\n- Haute autodétermination et possibilité d'augmenter activement vos revenus.\n- Une équipe de soutien et des adresses client qualifiées pour que vous puissiez commencer immédiatement."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://parmag.ch/stellen/384?view=joblisting",
-      "source": "ParMag AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.175Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://parmag.ch/stellen/384?view=joblisting",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
-        ],
-        "en": [
-          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
-        ],
-        "fr": [
-          "kundenberater-m-w-d-bern-berner-oberland-seeland-emmental-quereinsteiger-in-bern-parmag-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-23T23:38:58.302Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3004"
-    },
-    {
       "id": "parmag-9281ee594f8e",
       "slug": "diversi-consulenti-clienti-m-f-d-regione-biel-neuchatel-freiburg-parmag-ag-biel-neuenburg-freiburg",
       "slugByLocale": {
@@ -1426,7 +1190,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.174Z",
+      "crawledAt": "2026-10-07T21:21:00.756Z",
       "addressLocality": "Biel, Neuenburg & Freiburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -1509,7 +1273,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:13:03.173Z",
+      "crawledAt": "2026-10-07T21:21:00.753Z",
       "addressLocality": "Basel-Stadt, Basellandschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1558,6 +1322,245 @@
         }
       },
       "postalCode": "4001"
+    },
+    {
+      "id": "parmag-d2899436b83e",
+      "slug": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "azure-cloud-ingegnere-m-w-d-ref-1251-parmag-ag-zurich",
+        "en": "azure-cloud-engineer-m-w-d-ref-1251-parmag-ag-zurich",
+        "de": "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+        "fr": "azure-cloud-ingenieur-m-w-d-ref-1251-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+      "titleByLocale": {
+        "it": "Azure Cloud Ingegnere (m/w/d), Ref. 1251",
+        "en": "Azure Cloud Engineer (m/w/d), Ref. 1251",
+        "de": "Azure Cloud Ingenieur (m/w/d), Ref. 1251",
+        "fr": "Azure Cloud Ingénieur (m/w/d), Ref. 1251"
+      },
+      "description": "• Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie\n• Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden\n• Ihre Herausforderung:\nSie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter.\nIhre Kompetenz:\nNach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln.\nUnser Angebot:\nEs erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie.\nIst Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
+      "descriptionByLocale": {
+        "it": "• Cloud e Kubernets ti ispirano allo stesso modo? Allora abbiamo qui il posto ideale per voi\n• Il nostro cliente è specializzato in progetti di digitalizzazione IT per i propri clienti\n• La tua sfida:\nSono coinvolti nell'implementazione e nello sviluppo di architetture di soluzioni cloud. Si consiglia ai clienti sui progetti che utilizzano le tecnologie cloud. Sostengono i clienti nell'analisi, nel concepimento e nell'implementazione e interrogano lo status quo. Inoltre, è possibile presentare suggerimenti per i miglioramenti agli ambienti cloud di oggi e trasmettere il vostro know-how ai clienti.\nLa vostra competenza:\nDopo la tua laurea (specialista) in informatica, hai già acquisito esperienza nel campo menzionato. Sei molto familiare con Microsoft Cloud Adoption Framework per Azure e sono fiducioso nel trattare con Terraform. Sarete anche sperimentati nella costruzione di tubazioni Azure DevOps e architetture hub/spoke su Azure. Hai anche già acquisito esperienza iniziale con le architetture cloud.\nLa nostra offerta:\nPuoi aspettarti un lavoro vario in un ambiente in cui puoi contribuire e sviluppare la tua esperienza in Azure. Un team giovane e consolidato in un luogo di lavoro moderno vi aspetta.\nIl tuo interesse è stato suscitato? Sono molto soddisfatto della sua domanda. Inviami i tuoi documenti (CV, diplomi, certificati) direttamente a Patrick. brayenovitch @parmag.ch.",
+        "en": "• Does Cloud and Kubernets inspire you equally? Then we have here the optimal place for you\n• Our customer specializes in IT digitization projects for their customers\n• Your challenge:\nThey are involved in the implementation and development of cloud solution architectures. You will advise customers on projects using cloud technologies. They support customers in the analysis, conception and implementation and question the status quo. In addition, you can submit suggestions for improvements to today’s cloud environments and pass on your know-how to customers.\nYour competence:\nAfter your (specialist) university degree in computer science, you have already gained experience in the mentioned field. You are very familiar with Microsoft Cloud Adoption Framework for Azure and are confident in dealing with Terraform. You will also be experienced in building Azure DevOps pipelines and hub/spoke architectures on Azure. You have also already gained initial experience with cloud architectures.\nOur offer:\nYou can expect a varied job in an environment in which you can contribute and develop your experience in Azure. A young and established team in a modern workplace is looking forward to you.\nHas your interest been aroused? I am very pleased with your application. Send me your documents (CV, diplomas, certificates) directly to patrick.brayenovitch @parmag.ch.",
+        "de": "• Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie\n• Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden\n• Ihre Herausforderung:\nSie sind bei der Implementierung und Ausarbeitung von Cloud-Lösungsarchitekturen beteiligt. Dabei beraten Sie die Kunden in Projekten beim Einsatz von Cloud-Technologien. Sie unterstützen die Kunden bei der Analyse, Konzeption und Umsetzung und hinterfragen den Status quo. Weiter bringen Sie Verbesserungsvorschläge für die heute bestehenden Cloud-Umgebungen ein und geben Ihr Knowhow gerne den Kunden weiter.\nIhre Kompetenz:\nNach Ihrem (Fach-) Hochschulabschluss in der Informatik konnten Sie schon Erfahrung im genannten Bereich sammeln. Sie kennen sich bestens aus mit Microsoft Cloud Adoption Framework für Azure und sind sicher im Umgang mit Terraform. Weiter sind Sie erfahren im Aufbau von Azure DevOps Pipelines und Hub-/Spoke-Architekturen auf Azure. Auch konnten Sie bereits erste Erfahrungen mit Cloud-Architekturen sammeln.\nUnser Angebot:\nEs erwartet Sie eine abwechslungsreiche Tätigkeit in einem Umfeld, bei welchem Sie Ihre Erfahrungen in Azure einbringen und weiterentwickeln können. Ein junges und aufgestelltes Team an einem modernen Arbeitsplatz freut sich auf Sie.\nIst Ihr Interesse geweckt? Ich freue mich sehr über Ihre Bewerbung. Senden Sie mir Ihre Unterlagen (CV, Diplome, Zeugnisse) gleich an patrick.brayenovitch @parmag.ch.",
+        "fr": "• Nuage et Kubernets vous inspirent-ils également ? Alors nous avons ici l'endroit idéal pour vous\n• Notre client se spécialise dans les projets de numérisation informatique pour ses clients\n• Votre défi :\nIls participent à la mise en œuvre et au développement d'architectures de solutions cloud. Vous conseillerez les clients sur les projets utilisant les technologies cloud. Ils soutiennent les clients dans l'analyse, la conception et la mise en oeuvre et remettent en question le statu quo. En outre, vous pouvez soumettre des suggestions d'améliorations aux environnements cloud d'aujourd'hui et transmettre votre savoir-faire aux clients.\nVotre compétence :\nAprès votre diplôme universitaire (spécialiste) en informatique, vous avez déjà acquis de l'expérience dans le domaine mentionné. Vous êtes très familier avec Microsoft Cloud Adoption Framework for Azure et êtes confiant dans le traitement de Terraform. Vous serez également expérimenté dans la construction de pipelines Azure DevOps et d'architectures sur mesure sur Azure. Vous avez également déjà acquis une expérience initiale avec les architectures cloud.\nNotre offre :\nVous pouvez vous attendre à un emploi varié dans un environnement où vous pouvez contribuer et développer votre expérience à Azure. Une équipe jeune et établie dans un milieu de travail moderne vous attend avec impatience.\nVotre intérêt a - t - il été suscité? Je suis très heureux de votre candidature. Envoyez-moi vos documents (CV, diplômes, certificats) directement à Patrick. Brayenovitch @parmag.ch."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/327?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:13:03.181Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+        "parmag-ag-zurich-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "azure-cloud-engineer-m-w-d-ref-1251-zurich-parmag-ch",
+          "parmag-ag-zurich-parmag-ch"
+        ],
+        "en": [
+          "parmag-ag-zurich-parmag-ch"
+        ],
+        "de": [
+          "parmag-ag-zurich-parmag-ch"
+        ],
+        "fr": [
+          "parmag-ag-zurich-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.810Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "parmag-a2d94efd9862",
+      "slug": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "technical-consulente-ecm-m-w-d-ref-1274-parmag-ag-zurich",
+        "en": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+        "de": "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch",
+        "fr": "consultant-technique-ecm-h-f-d-ref-1274-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "Technical Consultant ECM (m/w/d), Ref. 1274",
+      "titleByLocale": {
+        "it": "Technical Consulente ECM (m/w/d), Ref. 1274",
+        "en": "Technical Consultant ECM (m/w/d), Ref. 1274",
+        "de": "Technical Berater ECM (m/w/d), Ref. 1274",
+        "fr": "Consultant technique ECM (h/f/d), Réf. 1274"
+      },
+      "description": "• Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden.\n• Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen.\n• Ihre Herausforderung:\nBei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung.\nIhre Kompetenz:\nDu bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting.\nUnser Angebot:\n• Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch .\n• Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
+      "descriptionByLocale": {
+        "it": "• Sei all'avanguardia nello sviluppo di soluzioni di gestione delle informazioni per i tuoi futuri clienti.\n• Il nostro partner è un fornitore di servizi IT con i clienti, soprattutto nel campo della pubblica amministrazione e della sanità.\n• La tua sfida:\nIn questa posizione emozionante, si lavora per l'analisi, la concezione e la realizzazione nei settori del documento, del processo e della gestione dei dossier. Sono inclusi anche il trattamento delle fatture e GEWER e il contratto. Si consiglia ai clienti di implementare e mantenere le soluzioni Enterprise Content Management (ECM). Inoltre, si crea documentazione, formare i clienti e accompagnarli nella soluzione ottimale di ricerca.\nLa vostra competenza:\nSei un tecnico di sistema con una laurea in Gestione delle informazioni o Informatica aziendale. Si può già avere una certa esperienza nella gestione delle informazioni e avere una grande forza di comunicazione. Hai familiarità con i progetti IT e sono esperti con applicazioni aziendali e interfacce dal business del progetto. Inoltre, sei molto familiare con ambienti client e server Microsoft, sistemi di database e scripting.\nLa nostra offerta:\n• Questo lavoro sarebbe per te? Allora non esitate e inviatemi i vostri documenti (CV, certificati e diplomi) oggi a patrick.brayenovitch@parmag.ch .\n• Non vedo l'ora che la vostra domanda, una lettera di domanda non è necessaria.",
+        "en": "• You are at the forefront of developing information management solutions for your future customers.\n• Our partner is an IT service provider with customers, especially in the field of public administration and healthcare.\n• Your challenge:\nIn this exciting position, you work for the analysis, conception and realization in the areas of document, process and dossier management. Invoice processing as well as GEWER and contracting are also included. You will advise customers on the implementation and maintenance of Enterprise Content Management (ECM) solutions. Furthermore, you create documentation, train customers and accompany them in the optimal solution finding.\nYour competence:\nYou are a system technician with a degree in Information Management or Business Informatics. You can already have some experience in information management and have a great communication strength. You are familiar with IT projects and are experienced with business applications and interfaces from the project business. Furthermore, you are very familiar with Microsoft client and server environments, database systems and scripting.\nOur offer:\n• Would this job be for you? Then do not hesitate and send me your documents (CV, certificates and diplomas) today to patrick.brayenovitch@parmag.ch .\n• I am looking forward to your application, a letter of application is not necessary.",
+        "de": "• Du bist an vordester Front bei der Entwicklung von Information Management Lösungen für deine zukünftigen Kunden.\n• Unsere Partnerin ist eine IT-Dienstleisterin mit Kunden vorallem im Bereich der öffentlichen Verwaltung und Gesundheitswesen.\n• Ihre Herausforderung:\nBei dieser spannenden Stelle bist du für die Analysierung, Konzipierung und Realisierung in den Bereichen der Dokumenten-, Prozess- und Dossierverwaltung tätig. Ebenfalls kommen die Rechnungsverarbeitung sowie GEWER und Vertragswesen dazu. Du berätst die Kunden im Bereich Implementierung und Unterhalt vom Enterprise Content Management (ECM) Lösungen. Weiter erstellst du Dokumentationen, schulst Kunden und begleitest diese bei der optimalen Lösungenfindung.\nIhre Kompetenz:\nDu bist ein System Techniker mit einem Studium in Informations Management oder Wirtschaftsinformatik. Du kann schon etwas Erfahrung im Bereich der Informations Management aufweisen und besitzt eine grosse Kommunikationsstärke. Du kennst dich aus mit IT-Projekten und bist erfahren mit Business Applikationen und Schnittstellen aus dem Projektgeschäft. Weiter kennst du dich bestens aus mit Microsoft Client-/ und Serverumgebungen, Datenbanksystemen und Scripting.\nUnser Angebot:\n• Wäre diese Stelle etwas für dich? Dann zögere nicht und sende mir noch heute deine Unterlagen (CV, Zeugnisse und Diplome) an patrick.brayenovitch@parmag.ch .\n• Ich freue mich auf deine Bewerbung, ein Bewerberbrief ist nicht nötig.",
+        "fr": "• Vous êtes à l'avant-garde du développement de solutions de gestion de l'information pour vos futurs clients.\n• Notre partenaire est un fournisseur de services informatiques avec des clients, en particulier dans le domaine de l'administration publique et des soins de santé.\n• Votre défi :\nDans cette position passionnante, vous travaillez pour l'analyse, la conception et la réalisation dans les domaines de la gestion des documents, des processus et des dossiers. Le traitement des factures ainsi que le GEWER et la passation de marchés sont également inclus. Vous conseillerez les clients sur la mise en œuvre et la maintenance des solutions Enterprise Content Management (ECM). De plus, vous créez de la documentation, formez les clients et les accompagnez dans la recherche de la solution optimale.\nVotre compétence :\nVous êtes technicien système avec un diplôme en gestion de l'information ou en informatique d'affaires. Vous pouvez déjà avoir une certaine expérience en gestion de l'information et avoir une grande force de communication. Vous connaissez les projets informatiques et avez de l'expérience dans les applications et les interfaces du projet. De plus, vous connaissez très bien les environnements client et serveur de Microsoft, les systèmes de bases de données et les scripts.\nNotre offre :\n• Ce travail serait pour toi ? Alors n'hésitez pas et envoyez-moi vos documents (CV, certificats et diplômes) aujourd'hui à patrick.brayenovitch@parmag.ch .\n• J'attends avec impatience votre demande, une lettre de demande n'est pas nécessaire."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/356?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:13:03.179Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/356?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
+        ],
+        "fr": [
+          "technical-consultant-ecm-m-w-d-ref-1274-zurich-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:38:58.308Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "parmag-065aefb22879",
+      "slug": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
+      "slugByLocale": {
+        "it": "senior-consulente-ecm-m-w-d-ref-1273-parmag-ag-zurich",
+        "en": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+        "de": "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch",
+        "fr": "aine-consultant-ecm-h-f-d-ref-1273-parmag-ag-zurich"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+      "titleByLocale": {
+        "it": "(Senior) Consulente ECM (m/w/d), Ref. 1273",
+        "en": "(Senior) Consultant ECM (m/w/d), Ref. 1273",
+        "de": "(Senior) Berater ECM (m/w/d), Ref. 1273",
+        "fr": "(Aîné) Consultant ECM (h/f/d), Réf. 1273"
+      },
+      "description": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter.\nUnsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder\nIhre Herausforderung:\nDu analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine\n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein.\nUnser Angebot:\nSende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
+      "descriptionByLocale": {
+        "it": "Vorresti essere presente alla digitalizzazione dei tuoi clienti dal vivo? Sei già esperto nel campo di ECM resp. soluzioni DMS? Allora si prega di leggere. Il nostro cliente, un fornitore di servizi IT, sta cercando nuovi membri del team motivati: Si analizza, concettualizzare e realizzare progetti nei settori del documento, del dossier e della gestione dei processi. Il tuo\n• Compiti includono anche consulenza, implementazione e supporto delle soluzioni ECM. Potrai anche moderato workshop, creare documentazione e presentazioni e accompagnare i tuoi clienti con l'implementazione della soluzione. La vostra competenza: Dopo la laurea in informatica, si può guardare indietro su diversi anni di esperienza con le soluzioni ECM e DMS. Ti piace la sfida quotidiana nei progetti IT, mantenere una testa fresca e avere un forte orientamento al cliente. Siete abituati a trattare con applicazioni aziendali e interfacce dal business del progetto e sono molto familiari con flussi di lavoro e processi aziendali. Se sei anche esperto in ambienti client/server Microsoft, sistemi di dati e scritping, potresti essere la persona ideale per questo lavoro. La nostra offerta: Invia i tuoi documenti (CV, certificati, diplomi) a patrick.brayenovitch@parmag.ch oggi. Sono felice e sarò felice di contattarti.",
+        "en": "Would you like to be present at the digitization of your customers live? Are you already experienced in the field of ECM resp. DMS solutions? Then please read on. Our customer, an IT service provider, is looking for new motivated team members: You analyze, conceptualize and realize projects in the areas of document, dossier and process management. Your\n• Tasks also include consulting, implementation and support of ECM solutions. You will also moderate workshops, create documentation and presentations and accompany your customers with the solution implementation. Your competence: After graduating in computer science, you can look back on several years of experience with ECM and DMS solutions. You like the daily challenge in IT projects, keep a cool head and have strong customer orientation. You are used to dealing with business applications and interfaces from the project business and are very familiar with workflows and business processes. If you are also experienced in Microsoft client/server environments, data systems and scritping, you could be the ideal person for this job. Our offer: Send your documents (CV, certificates, diplomas) to patrick.brayenovitch@parmag.ch today. I am happy and will be happy to contact you.",
+        "de": "Möchstest du bei der Digitalisierung deiner Kunden live dabei sein? Bist du schon erfahren im Bereich ECM resp. DMS Lösungen? Dann lies bitte weiter.\nUnsere Kundin, eine IT-Dienstleisterin ist auf der Suche nach neuen motivierten Teammitlieder\nIhre Herausforderung:\nDu analysierst, konzipiersch und realisierst Projekte in den Bereichen Dokumenten-, Dossier- und Prozessverwaltung. Deine\n• Aufgaben beinhalten ebenfalls die Beratung, Implementierung wie der Support von ECM-Lösungen. Weiter moderierst du Workshops, erstellst Dokumentationen und Präsentationen und begleitest deine Kunden bei der Lösungseinführung.\nIhre Kompetenz:\nNach deinem Abschluss in Informatik kannst du über einige Jahre Erfahrung mit ECM- und DMS-Lösungen zurückblicken. Du magst die tägliche Herausforderung in IT-Projekten, behältst einen kühlen Kopf und verfügst über starke Kundenorientierung. Du bist den Umgang mit Business Applikationen und Schnittstellen aus dem Projektgeschäft gewohnt und kennst dich bestens aus mit Workflows und Business Prozessen. Wenn du auch noch erfahren in Microsoft Client-/Serverumgebungen, Datensystemen und Scritping bist, könntest du die optimale Person für diese Stelle sein.\nUnser Angebot:\nSende noch heute deine Unterlagen (CV, Zeugnisse, Diplome) an patrick.brayenovitch@parmag.ch . Ich freue mich und werde gerne mit dir Kontakt aufnehmen.",
+        "fr": "Aimeriez-vous être présent à la numérisation de vos clients en direct ? Êtes-vous déjà expérimenté dans le domaine de ECM resp. Des solutions DMS ? Alors s'il vous plaît, lisez. Notre client, un fournisseur de services informatiques, recherche de nouveaux membres motivés : Vous analysez, conceptualisez et réalisez des projets dans les domaines de la gestion des documents, des dossiers et des processus. Votre\n• Les tâches comprennent également la consultation, la mise en œuvre et le soutien des solutions ECM. Vous animerez également des ateliers, créerez de la documentation et des présentations et accompagnerez vos clients dans la mise en œuvre de la solution. Votre compétence : Après avoir obtenu votre diplôme en informatique, vous pouvez revenir sur plusieurs années d'expérience avec les solutions ECM et DMS. Vous aimez le défi quotidien dans les projets informatiques, garder une tête cool et avoir une forte orientation client. Vous êtes habitué à traiter des applications et des interfaces d'affaires de l'entreprise du projet et vous connaissez très bien les flux de travail et les processus opérationnels. Si vous êtes également expérimenté dans les environnements client/serveur de Microsoft, les systèmes de données et le scritping, vous pourriez être la personne idéale pour ce travail. Notre offre : Envoyez vos documents (CV, certificats, diplômes) à patrick.brayenovitch@parmag.ch aujourd'hui. Je suis heureux et je serai heureux de vous contacter."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/355?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T09:13:03.179Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://parmag.ch/stellen/355?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
+        ],
+        "fr": [
+          "senior-consultant-ecm-m-w-d-ref-1273-zurich-parmag-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-23T23:38:58.309Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "crawlerMissStreak": 1
     }
   ]
 }
