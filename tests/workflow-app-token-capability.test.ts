@@ -437,18 +437,25 @@ describe('PR loop: capacità write verificata prima delle mutation', () => {
     const autoMerge = namedStep(testsWorkflow, 'post-review', 'Enable native auto-merge after the required job');
     const setup = namedStep(testsWorkflow, 'post-review', 'Setup Node.js + npm ci for autorebase');
     const autorebase = namedStep(testsWorkflow, 'post-review', 'Rebase near-merge PRs after review or stale rescue');
+    const markerRepair = namedStep(testsWorkflow, 'post-review', 'Repair missing Codex review marker (zero-agent)');
 
     expect(String(capability.run)).toContain('APP_TOKEN_DATA_REFRESH');
     expect(String(capability.run)).toContain('GITHUB_PAT');
+    expect(String(capability.env?.APP_TOKEN_WORKFLOWS)).toContain('env.APP_TOKEN_WORKFLOWS');
+    expect(String(capability.run)).toContain('workflow_write_capable');
     expect(String(capability.run)).toContain("echo 'retry=true'");
     expect(String(pending.if)).toContain("steps.post_review_write_capability.outputs.write_capable != 'true'");
     expect(String(pending.run)).toContain('retry-native-automerge.yml');
     expect(String(autoMerge.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
     expect(String(autoMerge.env?.POST_REVIEW_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
-    expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
-    expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
+    expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
+    expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
     expect(String(autorebase.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
     expect(String(autorebase.env?.GH_TOKEN)).not.toContain('GITHUB_TOKEN');
+    expect(String(markerRepair.if)).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
+    expect(String(markerRepair.if)).toContain("env.GITHUB_PAT != ''");
+    expect(String(markerRepair.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(markerRepair.env?.GH_TOKEN)).not.toContain('secrets.GITHUB_TOKEN');
   });
 
   it('non lascia selezioni APP_TOKEN||fallback non condizionate nei consumer scoped', () => {

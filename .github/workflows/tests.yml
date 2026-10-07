@@ -3764,10 +3764,12 @@ jobs:
         # the provenance marker requested in its prompt (observed on #9346).
         # Repair that formatting defect deterministically; never rerun the
         # model and never copy a stale, red, or ambiguous verdict.
-        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && steps.codex_review.outputs.primary_success == 'true' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') && ((env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN != '') || env.GITHUB_PAT != '') }}
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
-          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # Marker repair is a GitHub mutation: never publish it with the
+          # read-only Actions token when no verified App/PAT identity exists.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -4062,12 +4064,27 @@ jobs:
         env:
           APP_TOKEN: ${{ env.APP_TOKEN }}
           APP_TOKEN_DATA_REFRESH: ${{ env.APP_TOKEN_DATA_REFRESH }}
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
           GITHUB_PAT: ${{ env.GITHUB_PAT }}
         run: |
           set -euo pipefail
-          if { [ "${APP_TOKEN_DATA_REFRESH:-}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; } || [ -n "${GITHUB_PAT:-}" ]; then
+          if [ "${APP_TOKEN_DATA_REFRESH:-}" = 'true' ] && [ -n "${APP_TOKEN:-}" ]; then
             {
               echo 'write_capable=true'
+              if [ "${APP_TOKEN_WORKFLOWS:-}" = 'true' ]; then
+                echo 'workflow_write_capable=true'
+              else
+                echo 'workflow_write_capable=false'
+              fi
+              echo 'pending=false'
+              echo 'retry=false'
+            } >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            {
+              echo 'write_capable=true'
+              echo 'workflow_write_capable=true'
               echo 'pending=false'
               echo 'retry=false'
             } >> "$GITHUB_OUTPUT"
@@ -4075,6 +4092,7 @@ jobs:
           fi
           {
             echo 'write_capable=false'
+            echo 'workflow_write_capable=false'
             echo 'pending=true'
             echo 'retry=true'
           } >> "$GITHUB_OUTPUT"
@@ -4234,14 +4252,14 @@ jobs:
       # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
       # uno sweeper che fa solo git e API.
       - name: Setup Node.js + npm ci for autorebase
-        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         uses: ./.github/actions/ci-npm-setup
         with:
           npm-ci-args: --ignore-scripts
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
