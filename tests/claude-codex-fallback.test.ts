@@ -1132,7 +1132,7 @@ function codexActionStep(name: string): ActionStep {
 describe('watchdog Codex per caller', () => {
   it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
     expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');
-    const codexStep = codexActionStep('Run Codex primary (one subscription attempt)');
+    const codexStep = codexActionStep('Run Codex primary (bounded capacity retry)');
     const script = codexStep.run!;
     const start = script.indexOf('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
     const end = script.indexOf('codex_exec_kill_grace_seconds=30', start);
@@ -1161,13 +1161,37 @@ describe('watchdog Codex per caller', () => {
 
 });
 
+describe('retry Codex su capacità provider', () => {
+  const script = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
+
+  it('ritenta solo la capacità esatta quando il delivery state è invariato', () => {
+    expect(script).toContain('run_codex_once()');
+    expect(script).toContain("grep -Fxq 'ERROR: Selected model is at capacity. Please try a different model.'");
+    expect(script).toContain('&& [ ! -s "$codex_side_effect_file" ]');
+    expect(script).toContain('&& snapshot_git_delivery_state "$codex_state_after"');
+    expect(script).toContain('&& cmp -s -- "$codex_state_before" "$codex_state_after"');
+    expect(script).toContain("echo '::warning::Codex primary hit transient provider capacity; retrying once because delivery state is unchanged.'");
+    expect(script).toContain('sleep 5');
+    expect(script).toContain('retrying once');
+  });
+
+  it('mantiene il retry sullo stesso modello e non introduce un provider alternativo', () => {
+    const start = script.indexOf('codex_capacity_retry_eligible=false');
+    const end = script.indexOf('if [ "$CODEX_OUTPUT"', start);
+    const retryBlock = script.slice(start, end);
+    expect(retryBlock.match(/run_codex_once/g)).toHaveLength(1);
+    expect(retryBlock).not.toContain('claude');
+    expect(retryBlock).not.toContain('ANTHROPIC');
+  });
+});
+
 // `codex exec` riversa su stderr anche l'output dei comandi che esegue: un fix
 // che legge un documento con `401 Unauthorized` finiva classificato come auth
 // rifiutata, e il retry automatico restava fermo fino a un nuovo
 // CODEX_AUTH_JSON (4 run del 24-25/09, tutte uccise dal watchdog). Si esegue il
 // frammento vero dello step, non una copia.
 describe('classificazione auth dopo il watchdog', () => {
-  const script = codexActionStep('Run Codex primary (one subscription attempt)').run!;
+  const script = codexActionStep('Run Codex primary (bounded capacity retry)').run!;
   const start = script.indexOf('codex_auth_failure=false');
   const end = script.indexOf('stop_bridge', start);
   const classify = script.slice(start, end);
