@@ -1190,6 +1190,16 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
  * a published fake vacancy.
  *
  * @param {import('./synthesize.mjs').CrawlerSpec} spec
+ * @param {{
+ *   isExpectedDetailFilter?: (context: {
+ *     spec: import('./synthesize.mjs').CrawlerSpec,
+ *     row: Record<string, any>,
+ *     detail: Record<string, any>,
+ *     decision: Record<string, any>,
+ *     descriptionSufficient: boolean,
+ *     reason: 'geography'
+ *   }) => boolean
+ * }} [runtime]
  * @returns {Promise<Array<Record<string, any> & {
  *   title: string,
  *   url: string,
@@ -1236,6 +1246,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     let geographyDrops = 0;
     let descriptionDrops = 0;
     let detailCandidateDrops = 0;
+    let expectedGeographyFilters = 0;
     let next = 0;
     const worker = async () => {
       while (next < rows.length) {
@@ -1279,7 +1290,28 @@ export async function runSpecInProduction(spec, runtime = {}) {
           // precision/recall is not an authority for indexed job geography.
           // Keep the source-backed contract fail-closed until the experiment
           // proves it is safe to wire into publication.
-          if (!geography) { geographyDrops++; continue; }
+          if (!geography) {
+            // A generated consumer may have an explicit post-filter for rows the
+            // source lists but does not locate. That callback is deliberately
+            // narrow: it can classify only an already-extracted geography miss;
+            // fetch failures, tenant mismatches and thin descriptions remain
+            // detail failures and still trip the shared fail-closed guard.
+            const expectedDetailFilter = typeof runtime.isExpectedDetailFilter === 'function'
+              && runtime.isExpectedDetailFilter({
+                spec,
+                row,
+                detail,
+                decision,
+                descriptionSufficient: isSufficientVacancyDescription(description),
+                reason: 'geography',
+              }) === true;
+            if (expectedDetailFilter) {
+              expectedGeographyFilters++;
+            } else {
+              geographyDrops++;
+            }
+            continue;
+          }
           if (!isSufficientVacancyDescription(description)) { descriptionDrops++; continue; }
           enriched[index] = { ...publishable, ...geography };
         } catch (err) {
@@ -1300,7 +1332,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       'identità tenant assente nella pagina dettaglio source-backed');
     const publishedRows = enriched.filter(Boolean);
     const detailDrop = {
-      candidates: rows.length,
+      candidates: rows.length - expectedGeographyFilters,
       gone: detailCandidateDrops,
       rejected: geographyDrops + descriptionDrops,
       dropped: detailCandidateDrops + geographyDrops + descriptionDrops,
