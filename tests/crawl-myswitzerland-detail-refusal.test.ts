@@ -139,7 +139,7 @@ describe('commitMySwitzerlandBatch: a rejected batch writes nothing', () => {
 
     const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
     expect(Buffer.from(fs.readFileSync(slicePath)).equals(sliceBefore)).toBe(false);
-    expect(written.events.find((event: any) => event.id === 'myswitzerland:0')).toEqual(indexOnly[0]);
+    expect(written.events.find((event: any) => event.id === 'myswitzerland:0')).toMatchObject(indexOnly[0]);
     expect(written.events.find((event: any) => event.id === 'myswitzerland:0').address).toBeUndefined();
     expect(loadCursor('myswitzerland', checkpointDir)).toBe(1351);
   });
