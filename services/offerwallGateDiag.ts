@@ -17,13 +17,12 @@
  *     `+spa` when the page was reached by an SPA navigation and `+fcoec` when
  *     Google's entitlement cookie is there (Funding Choices shows no
  *     Offerwall to a visitor it already entitled);
- *   - `ad_path`, `adsbygoogle_loaded`, `ad_blocked`: as in `ad_page_diag`
- *     (services/adPageDiag.ts), read at the click;
- *   - `fc_loaded`: 1 only when Funding Choices' own API is there. Stricter
- *     than in `ad_page_diag`, which also counts `__tcfapi`: Google's ad
- *     script installs a `__tcfapi` stub by itself, so with the Funding
- *     Choices script blocked that one read 1 and the stage came out as
- *     `cmf_not_called` instead of `fc_not_loaded` (live 2026-10-07);
+ *   - `ad_path`, `fc_loaded`, `adsbygoogle_loaded`, `ad_blocked`: as in
+ *     `ad_page_diag` (services/adPageDiag.ts), read at the click.
+ *     `fc_loaded` is Funding Choices' own API: until 2026-10-07 it also
+ *     counted `__tcfapi`, which Google's ad script stubs by itself, so with
+ *     the Funding Choices script blocked the stage came out as
+ *     `cmf_not_called` instead of `fc_not_loaded` (live);
  *   - `shown_ms`: milliseconds from the page load to the decision.
  * `rewarded_offerwall_gate_late`, OFFERWALL_GATE_LATE_CHECK_MS later:
  *   - `reason` and `gate_status`: the gate status then. `held` means the
@@ -70,16 +69,10 @@ export interface OfferwallGateAbsentDiag {
 }
 
 type AdDiagWindow = Parameters<typeof collectAdPageDiag>[0];
-/**
- * The flags the inline gate leaves on `googlefc` (index.html,
- * FC_JOBBOARD_OFFERWALL_GATE_JS), and what only Funding Choices' own script
- * defines there.
- */
+/** The flags the inline gate leaves on `googlefc` (index.html, FC_JOBBOARD_OFFERWALL_GATE_JS). */
 interface GateFlags {
   __ftOfferwallGateInstalled?: boolean;
   __ftOfferwallBootstrapComplete?: boolean;
-  showRevocationMessage?: unknown;
-  MessageTypeEnum?: unknown;
 }
 
 function sinceLoadMs(win: Window): number {
@@ -107,13 +100,10 @@ export function readOfferwallGateAbsentDiag(win: Window = window, isBot?: () => 
   const flags = win as unknown as { googlefc?: GateFlags; __ftFcConsentBridge?: unknown };
   const fc = flags.googlefc;
   const gate = win.__ftOfferwallGate;
-  // Funding Choices' own API: the page's `googlefc` object and `__tcfapi`
-  // exist without its script (our bridge, Google's ad script).
-  const fcLoaded: 0 | 1 = typeof fc?.showRevocationMessage === 'function' || fc?.MessageTypeEnum != null ? 1 : 0;
   const stage =
     page.ad_path !== 'loaded' ? `ads_${page.ad_path}`
       : win.document.querySelector(FUNDING_CHOICES_SCRIPT) === null ? (flags.__ftFcConsentBridge ? 'fc_scheduled' : 'fc_no_script')
-        : !fcLoaded ? 'fc_not_loaded'
+        : !page.fc_loaded ? 'fc_not_loaded'
           : fc?.__ftOfferwallGateInstalled !== true ? 'gate_not_installed'
             : fc.__ftOfferwallBootstrapComplete !== true ? 'cmf_not_called'
               : !gate ? 'cmf_first_only'
@@ -122,7 +112,7 @@ export function readOfferwallGateAbsentDiag(win: Window = window, isBot?: () => 
   return {
     reason: `${stage}${reachedBySpaNavigation(win) ? '+spa' : ''}${hasEntitlementCookie(win) ? '+fcoec' : ''}`,
     ad_path: page.ad_path,
-    fc_loaded: fcLoaded,
+    fc_loaded: page.fc_loaded,
     adsbygoogle_loaded: page.adsbygoogle_loaded,
     ad_blocked: page.ad_blocked,
     shown_ms: sinceLoadMs(win),
