@@ -1,4 +1,8 @@
 name: production-canary
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('production-canary [loop-clock {0}]', inputs.loop_clock) || 'production-canary' }}
 
 # Agent F — 5XX hardening canary.
 # Runs `npm run probe:5xx` on a schedule and on manual dispatch. Fails the
@@ -18,7 +22,13 @@ on:
   schedule:
     # Every 15 minutes. Cron runs in UTC.
     - cron: '*/15 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   # Only one canary in flight at a time; cancel an older run if a newer one starts.

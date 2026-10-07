@@ -65,6 +65,12 @@ const TITLE_DECIDERS: Record<string, Entry> = {
     calls: 1,
     why: 'il verdetto è per famiglia: apre e chiude il titolo esatto calcolato dalla famiglia, nessun numero letto',
   },
+  'scripts/ci/loop-clock-health.mjs': {
+    // 0 chiamate dirette: l'unico uso passa dal default iniettabile
+    // `resolveIssueImpl = resolveGithubIssue` di runLoopClockHealth.
+    calls: 0,
+    why: 'osservatore dell\'orologio esterno: una voce della tabella tornata fresca, o senza issue da triagiare, chiude il titolo stabile «Loop clock stale: <id>» che lo stesso script apre; nessun numero valutato',
+  },
   'scripts/ci/orchestrator-heartbeat.mjs': {
     calls: 3,
     why: 'lo stato del heartbeat (missing/inconclusive/observed) apre e chiude due titoli stabili',

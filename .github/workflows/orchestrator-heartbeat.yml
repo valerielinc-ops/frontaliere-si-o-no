@@ -1,4 +1,8 @@
 name: Orchestrator heartbeat
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Orchestrator heartbeat [loop-clock {0}]', inputs.loop_clock) || 'Orchestrator heartbeat' }}
 
 # A scheduled run that never gets created cannot fail and cannot notify the
 # owner. This independent 15-minute read-only watchdog detects that hole after
@@ -8,7 +12,13 @@ name: Orchestrator heartbeat
 on:
   schedule:
     - cron: '*/15 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   group: orchestrator-heartbeat
@@ -31,9 +41,12 @@ jobs:
           sparse-checkout: |
             package.json
             scripts/ci/orchestrator-heartbeat.mjs
+            scripts/ci/loop-clock-health.mjs
+            scripts/ci/lib/run-listing-window.mjs
             scripts/lib/bounded-response-body.mjs
             scripts/lib/github-issue-creator.mjs
             functions/src/lib/orchestratorSlot.js
+            functions/src/loopClockTable.js
           sparse-checkout-cone-mode: false
 
       - name: Check latest orchestrator cron slot
@@ -48,6 +61,13 @@ jobs:
           mkdir -p "$RUNNER_TEMP/orchestrator-heartbeat"
           node scripts/ci/orchestrator-heartbeat.mjs \
             --output "$RUNNER_TEMP/orchestrator-heartbeat/report.json"
+
+      - name: Check loop clock freshness
+        if: always()
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/ci/loop-clock-health.mjs
 
       - name: Publish heartbeat evidence
         if: always()
