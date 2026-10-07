@@ -458,6 +458,12 @@ describe('portal runner helpers', () => {
     const disabled = [{ id: 'b3', text: 'Bewerbung senden', disabled: true }];
     expect(findButton(disabled, SUBMIT_RE)).toBeNull();
     expect(findButton(disabled, SUBMIT_RE, { includeDisabled: true })).toEqual(disabled[0]);
+    // Of two controls with the same name the page's own comes before the site header's (fields.mjs `chrome`),
+    // which is pressed only when nothing else answers to the name, or the page's one is disabled.
+    const signIn = [{ id: 'h1', text: 'Sign In', chrome: true }, { id: 'c1', text: 'Create Account' }, { id: 'c2', text: 'Sign In' }];
+    expect(findButton(signIn, /^sign in$/i)).toEqual(signIn[2]);
+    expect(findButton(signIn.slice(0, 2), /^sign in$/i)).toEqual(signIn[0]);
+    expect(findButton([signIn[0], { ...signIn[2], disabled: true }], /^sign in$/i)).toEqual(signIn[0]);
     expect(slugId('Wann können Sie beginnen?')).toBe('wann_konnen_sie_beginnen');
     expect(WAVE1_CHANNELS.has('workday')).toBe(true);
     expect(WAVE1_CHANNELS.has('linkedin')).toBe(false);
