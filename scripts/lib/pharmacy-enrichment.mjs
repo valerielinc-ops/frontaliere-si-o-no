@@ -227,16 +227,31 @@ function pdfVatNumberCandidate(pdfText, pharmacy) {
     .filter((token) => token !== normalize(pharmacy.city))
     .sort((left, right) => right.length - left.length)[0];
   if (!nameToken) return undefined;
+  const nameAnchors = [...new Set([
+    normalize(pharmacy.name),
+    `farmacia ${nameToken}`,
+  ].filter(Boolean))].sort((left, right) => right.length - left.length);
   const matches = [...normalizedPdf.matchAll(/(?:p\.?\s*iva|partita\s+iva|vat)\s*[:#-]?\s*((?:\d[\s./-]*){10}\d)/gi)];
   const candidates = matches
     .filter((match) => {
       const vatIndex = match.index ?? -1;
       if (vatIndex < 0) return false;
-      const beforeVat = normalizedPdf.slice(Math.max(0, vatIndex - 360), vatIndex);
-      const nameIndex = beforeVat.lastIndexOf(nameToken);
-      if (nameIndex < 0) return false;
-      const contextStart = Math.max(0, vatIndex - 360) + nameIndex;
-      return pdfIdentityMatches(pharmacy, normalizedPdf.slice(contextStart, vatIndex + match[0].length));
+      const beforeVat = normalizedPdf.slice(Math.max(0, vatIndex - 720), vatIndex);
+      const anchor = nameAnchors
+        .map((value) => ({ value, index: beforeVat.lastIndexOf(value) }))
+        .filter((candidate) => candidate.index >= 0)
+        .sort((left, right) => right.index - left.index)[0];
+      if (!anchor) return false;
+      const absoluteAnchorIndex = Math.max(0, vatIndex - 720) + anchor.index;
+      // A VAT is valid only inside the row that starts at this pharmacy's
+      // explicit name anchor. Stop before the next pharmacy heading so a
+      // document-wide "sole VAT" cannot leak into an adjacent row.
+      const rowUntilVat = normalizedPdf.slice(absoluteAnchorIndex, vatIndex + match[0].length);
+      const nextIdentityOffset = rowUntilVat.slice(anchor.value.length).search(/\b(?:farmacia|pharmacie|apotheke)\b/i);
+      const row = nextIdentityOffset >= 0
+        ? rowUntilVat.slice(0, anchor.value.length + nextIdentityOffset)
+        : rowUntilVat;
+      return pdfIdentityMatches(pharmacy, row);
     })
     .map((match) => vatNumber(match[1]))
     .filter(Boolean);
