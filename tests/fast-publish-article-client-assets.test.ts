@@ -199,6 +199,72 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('defers bounded mixed registry drift when the manifest count also moves', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 4 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({
+            swiss: {
+              kept: { it: 'kept' },
+              publishedA: { it: 'published-a' },
+              publishedB: { it: 'published-b' },
+              publishedC: { it: 'published-c' },
+            },
+          }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      // Corpus-main overlay: a mixed drift defers only while every id in it
+      // changed recently on corpus main. The manifest count moved by two here
+      // (4 published, 2 rendered), well inside MAX_ARTICLES_BEHIND.
+      const recent = Math.floor(Date.now() / 1000) - 60;
+      const verdict = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: {
+          kept: { it: 'kept' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+        changeAtById: {
+          publishedA: recent,
+          publishedB: recent,
+          publishedC: recent,
+          staleLocalOnly: recent,
+        },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).toBe(true);
+      for (const id of ['publishedA', 'publishedB', 'publishedC', 'staleLocalOnly']) {
+        expect(verdict.note).toContain(id);
+      }
+      expect(verdict.note).toContain('no HTML or client chunks will be published');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+
+      // The same drift with no readable corpus date is not a handoff in
+      // progress: it fails closed and names the ids.
+      __resetCorpusFreshnessCache();
+      const undated = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: {
+          kept: { it: 'kept' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+      });
+      expect(undated.ok).toBe(false);
+      expect(undated.deferred).not.toBe(true);
+      expect(undated.note).toContain('staleLocalOnly');
+      expect(undated.note).toContain('refusing to publish a non-converged client registry');
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects local article IDs absent from the published registry', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
