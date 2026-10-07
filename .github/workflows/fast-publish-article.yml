@@ -143,6 +143,27 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
+      # The static shell scripts (build-plugins/staticScriptsPlugin.ts) reach the
+      # CDN only at the end of a full deploy, hours after the merge this job
+      # publishes within minutes. A file the last deploy did not upload would be
+      # referenced by every page pushed below: on 2026-10-07 that was
+      # gtag-init-<hash>.js, a 404 on every re-rendered article (#12270). This
+      # uploads what the CDN does not have, replaces nothing, and fails the job
+      # when it cannot — scripts/lib/cdn-shell-assets.mjs.
+      #
+      # `inputs.sha` can name a commit older than this workflow file (a dispatch
+      # racing a merge): such a tree has no script to run, and its publish goes
+      # ahead as it did before this step existed instead of failing on a
+      # missing file.
+      - name: Ensure the static shell scripts are on the CDN
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          if [ ! -f scripts/ci/ensure-cdn-shell-assets.mjs ]; then
+            echo "::notice::this checkout predates scripts/ci/ensure-cdn-shell-assets.mjs — shell assets not checked"
+            exit 0
+          fi
+          npx -y tsx@4.23.15 scripts/ci/ensure-cdn-shell-assets.mjs
+
       - name: Render article (fast path)
         id: render
         env:
