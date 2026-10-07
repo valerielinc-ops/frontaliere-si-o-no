@@ -80,6 +80,27 @@ function writeFakeCodex(root: string, version = '0.153.4') {
   return fake;
 }
 
+function writeImageOnlyCodex(root: string, version = '0.153.4') {
+  const fake = path.join(root, 'image-only-codex.mjs');
+  fs.writeFileSync(fake, `#!/usr/bin/env node
+    import fs from 'node:fs';
+    import path from 'node:path';
+    if (process.argv.includes('--version')) {
+      console.log('OpenAI Codex v${version}');
+      process.exit(0);
+    }
+    process.stdin.resume();
+    process.stdin.on('end', () => {
+      const imageDir = path.join(process.env.CODEX_HOME, 'generated_images', 'thread');
+      fs.mkdirSync(imageDir, { recursive: true, mode: 0o700 });
+      fs.writeFileSync(path.join(imageDir, 'generated.png'), 'image-only-result');
+      process.exit(0);
+    });
+  `);
+  fs.chmodSync(fake, 0o700);
+  return fake;
+}
+
 function writeHangingCodex(root: string, { descendant = false } = {}) {
   const fake = path.join(root, 'hanging-codex.mjs');
   fs.writeFileSync(fake, `#!/usr/bin/env node
@@ -357,6 +378,37 @@ describe('Codex auth broker runtime contract', () => {
     ]);
     expect(fs.existsSync(socketPath)).toBe(false);
     expect(fs.existsSync(root)).toBe(false);
+  });
+
+  it('returns an image-only Codex result when last-message.txt is empty', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const outputRoot = fs.realpathSync(fs.mkdtempSync(path.join(process.cwd(), '.codex-broker-image-test-')));
+    roots.push(outputRoot);
+    const outputPath = path.join(outputRoot, 'generated.png');
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeImageOnlyCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"image-only-test"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, {
+      op: 'exec',
+      prompt: 'return only an image',
+      timeoutMs: 1000,
+      schema: null,
+      imageGeneration: true,
+      imageOutputPath: outputPath,
+    });
+    expect(response, JSON.stringify(response)).toEqual({ ok: true, result: '' });
+    expect(fs.readFileSync(outputPath, 'utf8')).toBe('image-only-result');
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
   });
 
   // A job where a slow request must finish (the assisted application at effort

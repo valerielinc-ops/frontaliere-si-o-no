@@ -101,6 +101,48 @@ function safeJsonParse(value) {
   try { return JSON.parse(value); } catch { return null; }
 }
 
+const MAX_PROVIDER_ERROR_BODY_CHARS = 600;
+
+/** Keep provider diagnostics useful without allowing credentials into logs. */
+export function summarizeProviderErrorBody(body, maxChars = MAX_PROVIDER_ERROR_BODY_CHARS) {
+  const compact = String(body || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/AIza[0-9A-Za-z_-]{20,}/g, '[redacted]')
+    .replace(/(Bearer\s+)[A-Za-z0-9._~-]+/gi, '$1[redacted]')
+    .replace(/((?:api[_-]?key|access[_-]?token|refresh[_-]?token|authorization|token)["']?\s*[:=]\s*["']?)[^,"'}\s]+/gi, '$1[redacted]');
+  return compact.slice(0, maxChars);
+}
+
+export function formatProviderHttpError(provider, status, body) {
+  const detail = summarizeProviderErrorBody(body);
+  return `${provider} image request failed with HTTP ${status}${detail ? `: ${detail}` : ''}`;
+}
+
+/** Extract the image block returned by the current Gemini Interactions API. */
+export function extractGeminiImageData(response) {
+  const stepContents = Array.isArray(response?.steps)
+    ? response.steps.flatMap((step) => Array.isArray(step?.content) ? step.content : [])
+    : [];
+  const imageData = [
+    response?.output_image?.data,
+    ...stepContents
+      .filter((content) => content?.type === 'image')
+      .map((content) => content?.data),
+  ].find((data) => typeof data === 'string' && data.trim());
+  if (!imageData) throw new Error('Gemini returned no image data');
+  return String(imageData).replace(/^data:[^;]+;base64,/i, '');
+}
+
+/** CI's broker lane is an optional capability; do not spend a second long
+ * image request when its attested runner cannot produce an image. Direct
+ * local/host execution keeps the historical Codex retry. */
+export function imageProviderSequence({ broker = Boolean(process.env.CODEX_AUTH_BROKER_SOCKET) } = {}) {
+  return broker
+    ? ['openai-codex', 'gemini']
+    : ['openai-codex', 'openai-codex', 'gemini'];
+}
+
 function parseThreadId(jsonl) {
   for (const line of String(jsonl || '').split(/\r?\n/)) {
     const event = safeJsonParse(line);
@@ -285,16 +327,17 @@ async function runGeminiImage(prompt, destination, { timeoutMs = 120_000 } = {})
       body: JSON.stringify({
         model: GEMINI_IMAGE_MODEL,
         input: prompt,
-        response_format: { type: 'image', mime_type: 'image/png', aspect_ratio: '16:9', image_size: '1K' },
+        // The current Interactions image response format accepts JPEG here;
+        // PNG remains valid for image input/content blocks, but returns HTTP
+        // 400 when requested as the generated response MIME type.
+        response_format: { type: 'image', mime_type: 'image/jpeg', aspect_ratio: '16:9', image_size: '1K' },
       }),
     });
-    if (!response.ok) throw new Error(`Gemini image request failed with HTTP ${response.status}`);
+    if (!response.ok) {
+      throw new Error(formatProviderHttpError('Gemini', response.status, await response.text()));
+    }
     const json = await response.json();
-    const stepImage = json.steps?.flatMap((step) => step.content || [])
-      .find((content) => content?.type === 'image' && typeof content.data === 'string')?.data;
-    const imageData = json.output_image?.data || stepImage;
-    if (!imageData) throw new Error('Gemini returned no image data');
-    const encoded = String(imageData).replace(/^data:[^;]+;base64,/i, '');
+    const encoded = extractGeminiImageData(json);
     fs.writeFileSync(destination, Buffer.from(encoded, 'base64'), { mode: 0o600 });
     return { imagePath: destination, model: GEMINI_IMAGE_MODEL };
   } finally {
@@ -332,7 +375,9 @@ async function runGeminiVision(filePath, { timeoutMs = 120_000 } = {}) {
         response_format: { type: 'text' },
       }),
     });
-    if (!response.ok) throw new Error(`Gemini vision request failed with HTTP ${response.status}`);
+    if (!response.ok) {
+      throw new Error(formatProviderHttpError('Gemini vision', response.status, await response.text()));
+    }
     const json = await response.json();
     const text = [
       json.output_text,
@@ -453,7 +498,7 @@ export async function generateImageFromSpec(spec, {
   fs.mkdirSync(destinationDir, { recursive: true, mode: 0o700 });
   const finalPath = path.join(destinationDir, `${finalAssetId}.webp`);
   const variationBase = normalized.variant ? `variant ${normalized.variant}` : 'balanced composition';
-  const providers = ['openai-codex', 'openai-codex', 'gemini'];
+  const providers = imageProviderSequence();
   const attemptLimit = Number.isInteger(maxAttempts) && maxAttempts > 0
     ? Math.min(maxAttempts, providers.length)
     : providers.length;
