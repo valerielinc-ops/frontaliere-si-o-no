@@ -577,11 +577,11 @@ export const CURATED_EXTERNAL_LOGO_KEYS = new Set([
  'mediamarkt',
 ]);
 
-// Overlay the locally-mirrored logo paths on top of the registry. Any slug
-// present in the manifest serves /images/brands/{slug}.{ext} instead of the
-// upstream URL — eliminating broken-image issues for the SPA and the static
-// SEO pages alike. Refresh with `node scripts/download-company-logos.mjs` or
-// the canonical audit downloader.
+// Overlay the locally-mirrored logo paths on top of the registry. Any
+// non-curated slug present in the manifest serves /images/brands/{slug}.{ext}
+// instead of the upstream URL — eliminating broken-image issues for the SPA
+// and the static SEO pages alike. Refresh with
+// `node scripts/download-company-logos.mjs` or the canonical audit downloader.
 for (const [slug, localPath] of Object.entries(
  COMPANY_LOGOS_MANIFEST as Record<string, string>,
 )) {
