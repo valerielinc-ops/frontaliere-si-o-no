@@ -505,6 +505,7 @@ async function _emitReport(passed, baselineDelta) {
     baselineDelta,
     offenders: offendersForReport,
     byFeature: groupsObject,
+    sampleRate: 1,
     extra: {
       scanned,
       skippedExplicit,

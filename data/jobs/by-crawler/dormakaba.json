@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-06T09:35:21.883Z",
+  "assembledAt": "2026-10-06T21:37:19.566Z",
   "jobs": [
     {
       "id": "dormakaba-11716",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.447Z",
+      "crawledAt": "2026-10-06T21:37:14.446Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -87,7 +87,7 @@
       "slugByLocale": {
         "de": "servicetechniker-in-w-m-d-dormakaba-ch",
         "it": "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "en": "servicetechniker-in-w-m-d-dormakaba-st-gallen",
+        "en": "service-technician-m-f-d-dormakaba-st-gallen",
         "fr": "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       },
       "company": "dormakaba",
@@ -112,7 +112,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.447Z",
+      "crawledAt": "2026-10-06T21:37:14.447Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -142,6 +142,7 @@
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
         "servicetechniker-in-w-m-d-dormakaba-ch",
+        "servicetechniker-in-w-m-d-dormakaba-st-gallen",
         "service-technician-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
@@ -152,6 +153,7 @@
         ],
         "en": [
           "service-technician-in-f-m-d-dormakaba-st-gallen",
+          "servicetechniker-in-w-m-d-dormakaba-st-gallen",
           "service-technician-m-f-d-dormakaba-st-gallen"
         ],
         "fr": [
@@ -206,7 +208,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:35:15.446Z",
+      "crawledAt": "2026-10-06T21:37:14.446Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -290,7 +292,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:35:15.442Z",
+      "crawledAt": "2026-10-06T21:37:14.446Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -369,7 +371,7 @@
       "title": "Informatiker im Aussendienst 80 - 100% (m/w/d)",
       "titleByLocale": {
         "it": "Gli scienziati del computer nel campo 80 - 100% (m/f/d)",
-        "en": "Computer Scientists in the field 80 - 100% (m/f/d)",
+        "en": "Computer Scientists in field service 80 - 100% (m/f/d)",
         "de": "Informatiker im Aussendienst 80 - 100% (m/w/d)",
         "fr": "Computer Scientists dans le domaine 80 - 100% (h/f/d)"
       },
@@ -385,7 +387,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.442Z",
+      "crawledAt": "2026-10-06T21:37:14.446Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -503,7 +505,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-18T11:21:17.626Z"
+      "firstSeenAt": "2026-07-18T11:21:17.626Z",
+      "crawlerMissStreak": 1
     },
     {
       "id": "dormakaba-11917",
@@ -536,7 +539,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:35:15.441Z",
+      "crawledAt": "2026-10-06T21:37:14.445Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -638,7 +641,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12228/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.439Z",
+      "crawledAt": "2026-10-06T21:37:14.444Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -716,7 +719,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11851/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.439Z",
+      "crawledAt": "2026-10-06T21:37:14.444Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -802,7 +805,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:35:15.438Z",
+      "crawledAt": "2026-10-06T21:37:14.443Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -880,7 +883,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.438Z",
+      "crawledAt": "2026-10-06T21:37:14.443Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -942,7 +945,7 @@
         "it": "Tecnologia della porta assistita 100% (m/f/d) East Region",
         "en": "Partner Assisted Door Technology 100% (m/f/d) East Region",
         "de": "Partnerbetreuer Türtechnik 100% (w/m/d) Region Ost",
-        "fr": "Partner Assistanced Door Technology 100% (h/f/d) East Region"
+        "fr": "Technologie de porte de service partenaire 100% (h/f/d) Région Est"
       },
       "description": "Als Partnerbetreuer:in Distribution Türtechnik begleiten Sie die zertifizierten Vertriebspartner, Architekten, Planer und Verarbeiter (Schreiner/Metallbauer) beim Technologietransfer in Richtung Türtechnik. Er/sie sorgt dafür, dass dormakaba-Produkte ihren Weg in die Vertriebskanäle finden und die notwendigen Prozesse und Strukturen – intern wie extern – aufgebaut werden. Dabei bildet die Rolle die technische und fachliche Brücke zwischen dormakaba und unseren Partnern.\n\nEine Aufgabe, die zählt: Deine Tätigkeiten\n\n- Betreuung der dormakaba Zielgruppen in technischen und fachlichen Belangen für Türtechnik (z. B. gesicherte Fluchtweglösungen, Türschliesser, Panikschlösser, AHS/DHW).\n\n- Aufbau und Weiterentwicklung eines leistungsfähigen Vertriebsnetzes im Bereich Türtechnik, abgestimmt auf die Anforderungen der Vertriebssparte.\n\n- Technische Unterstützung des Verkaufs bei Marktbearbeitung und Angebotserstellung; Unterstützung bei kundenspezifischen technischen Fragestellungen.\n\n- Begleitung von Partnern während Projektphase bis zur erfolgreichen Einführung in den operativen Betrieb (Umsetzungsbegleitung).\n\n- Marktbeobachtung und -analyse: Erkennen von Markttrends, Bewertung von Chancen und Risiken im Bereich Türtechnik.\n\n- Pflege und Ausbau langfristiger, vertrauensvoller Partnerbeziehungen; Detailkenntnisse über Partner und deren Geschäftsmodelle.\n\nEine Erfahrung, die zählt: Dein Profil\n\n- Ca. 3 Jahre Erfahrung in Bauhaupt- oder Nebengewerbe (z. B. Türtechnik, Gebäudeautomation) oder bei Fachpartnern (AD-/Aussendienst-Erfahrung sehr wünschenswert) oder ca. 3 Jahre Projektmanagement-Erfahrung\n\n- Technisches Verständnis; Erfahrung in Objektbearbeitung und Betreuung bestehender Kunden im Indirekt-Geschäft; Fähigkeit, technische Themen verständlich an Partner zu vermitteln.\n\n- Kommunikationsstärke, Eigeninitiative und strukturierte Arbeitsweise\n\n- Bereitschaft zu regelmässigen Reisen innerhalb Deutschschweiz – ca. 80%\n\nEin Arbeitsumfeld, das zählt: Unser Angebot\n\n- Beste Karrieremöglichkeiten in einem global agierenden Unternehmen mit familiärer Unternehmenskultur.\n\n- Attraktives Gehaltspaket.\n\n- Weiterentwicklungsmöglichkeiten.\n\n- Mitarbeiterunterstützungsprogramme.\n\n- Monetäre Zusatzleistungen (Online-Rabatte für Shopping, Reisen, Versicherungen etc.).\n\n- Dynamisches, internationales Arbeitsumfeld.\n\n- Flexibles Arbeiten – Kombination aus Büro- und Remote-Arbeit.\n\nDie dormakaba Group ist ein Arbeitgeber, der sich für Chancengleichheit, Vielfalt und Inklusion einsetzt. Wir fördern gleiche Chancen für alle Bewerber unabhängig von Alter, Herkunft, Hautfarbe, Religion, Geschlecht, sexueller Orientierung, Geschlechtsidentität, Behinderung, Veteranenstatus oder anderen gesetzlich geschützten Merkmalen.\n\nWIR AKZEPTIEREN KEINE BEWERBUNGEN VON PERSONALVERMITTLUNGEN FÜR DIESE POSITION.",
       "descriptionByLocale": {
@@ -956,7 +959,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.438Z",
+      "crawledAt": "2026-10-06T21:37:14.443Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -1036,7 +1039,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.435Z",
+      "crawledAt": "2026-10-06T21:37:14.438Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1117,7 +1120,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.434Z",
+      "crawledAt": "2026-10-06T21:37:14.437Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1199,7 +1202,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.434Z",
+      "crawledAt": "2026-10-06T21:37:14.438Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1275,7 +1278,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:35:15.432Z",
+      "crawledAt": "2026-10-06T21:37:14.436Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",

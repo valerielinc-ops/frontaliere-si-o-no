@@ -121,7 +121,6 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -135,7 +134,18 @@ import {
   VERDICT_STEPS,
   isVerdictOnlyFailure,
 } from './close-recovered-failure-issues.mjs';
+import {
+  failureSignature,
+  SIGNATURE_MARKER,
+  SIGNATURE_MAX_LEN,
+  signatureMarker,
+} from './lib/failure-signature.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+
+// Mantieni l'API storica dello scanner: i test e i caller continuano a
+// importare questi simboli da qui, mentre la logica canonica vive nel modulo
+// condiviso col reporter che scrive il marker.
+export { failureSignature, SIGNATURE_MARKER, SIGNATURE_MAX_LEN } from './lib/failure-signature.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
@@ -304,84 +314,6 @@ export function isCoveredIssueStale(updatedAt, nowMs = Date.now(), hours = COVER
   if (!Number.isFinite(t)) return true;
   return nowMs - t > hours * 3600_000;
 }
-
-/**
- * La FIRMA di un guasto: quali job, e in quale step, sono caduti.
- *
- * ─── Il difetto che questa funzione esiste per chiudere ─────────────────
- *
- * `isCoveredIssueStale` misura se una ISSUE è ferma. Non misura se il GUASTO
- * che la issue descrive è ancora quello. Sono due cose diverse, e la differenza
- * è costata 10 ore e 24 minuti di produzione ferma il 2026-09-19.
- *
- * Ricostruzione, dai dati: la issue #9247 («CI Failure: Deploy to GitHub
- * Pages», aperta da questo stesso scanner l'11:46Z del 19/09) descrive la run
- * 35402513584 del 18/09, dove erano caduti `build-locale (fr|en|de)` allo step
- * di build. Etichettata `needs-human` e `agent:triaged`, è rimasta aperta — e
- * VIVA, perché triage, label e commenti automatici le rinfrescano `updatedAt`
- * di continuo (all'ultima lettura: 2026-09-20T16:33Z). Alle 20:54Z del 19/09 è
- * entrato in `deploy.yml` un gate fail-closed del tutto SCORRELATO, e da lì 78
- * run consecutive sono morte in ~20 secondi nel job `approve production
- * promotion`. A ogni passata oraria questo scanner ha visto il rosso, ha
- * trovato #9247 aperta e non-stale, ha scritto «issue aperta e attiva →
- * nessun commento» ed è rimasto zitto. La rete di sicurezza globale ha girato
- * verde per dieci ore sopra un guasto nuovo, perché un guasto VECCHIO e
- * diverso aveva un thread che qualcun altro teneva caldo.
- *
- * Una issue parcheggiata `needs-human` è quindi il PEGGIOR caso possibile per
- * il guard sulla freschezza: è esattamente quella che nessuno chiude e che
- * l'automazione continua a toccare. La freschezza da sola non può distinguere
- * «l'allarme è già stato dato» da «l'allarme è stato dato per un'altra cosa».
- *
- * ─── Come è costruita ───────────────────────────────────────────────────
- *
- * L'insieme ORDINATO delle coppie `job — step` cadute, con il parentetico
- * finale tolto da entrambi i nomi: `build-locale (fr)` e `build-locale (de)`
- * sono la stessa gamba di una matrice, e una firma che li distinguesse
- * cambierebbe a ogni combinazione di locali caduti — cioè un commento per
- * passata sullo stesso guasto, che è il rumore che questo file governa.
- * Stesso trattamento per lo step (`Build (BUILD_LOCALE=fr)` → `Build`).
- *
- * Uno startup failure ha zero job e nessuna firma dai job: ne ha una propria,
- * perché «la run non è partita» è una condizione distinta e va potuta seguire.
- *
- * `null` = job illeggibili. Chi chiama NON commenta su `null`: senza la firma
- * non si può dire che il guasto sia cambiato, e affermarlo a ogni passata
- * oraria produrrebbe esattamente la valanga che la dedup evita.
- *
- * @param {{total_count?: number, jobs?: Array<{name?: string, conclusion?: string, steps?: Array<{name?: string, conclusion?: string}>}>}|null} jobs
- * @returns {string|null}
- */
-export function failureSignature(jobs) {
-  if (!jobs || typeof jobs !== 'object') return null;
-  if (Number(jobs.total_count) === 0) return 'startup-failure: zero job';
-  if (!Array.isArray(jobs.jobs)) return null;
-  const strip = (v) => String(v ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
-  const pairs = new Set();
-  for (const j of jobs.jobs) {
-    if (j?.conclusion !== 'failure') continue;
-    const step = (j.steps || []).find((st) => st?.conclusion === 'failure');
-    pairs.add(`${strip(j.name) || '(job senza nome)'} — step: ${step ? (strip(step.name) || '(step senza nome)') : '(nessuno step attribuito)'}`);
-  }
-  if (!pairs.size) return null;
-  const full = [...pairs].sort().join(' | ');
-  if (full.length <= SIGNATURE_MAX_LEN) return full;
-  // TRONCARE E BASTA sarebbe un silenzio: due guasti che condividono i primi
-  // 300 caratteri — facilissimo su una matrice larga, dove le coppie iniziali
-  // sono identiche e cambia solo la coda — collasserebbero sulla stessa firma,
-  // e il secondo verrebbe letto come «già registrato». Cioè di nuovo un
-  // allarme mancato, la classe di guasto che questo file ripara. Il prefisso
-  // resta perché la firma va anche LETTA da chi apre la issue; a renderla
-  // iniettiva ci pensa il digest della stringa intera.
-  const digest = createHash('sha256').update(full).digest('hex').slice(0, 12);
-  return `${full.slice(0, SIGNATURE_MAX_LEN)}… +${pairs.size} coppie (sha ${digest})`;
-}
-
-/** Quanto della firma resta leggibile prima del digest. */
-export const SIGNATURE_MAX_LEN = 300;
-
-/** Il marker leggibile a macchina che porta la firma dentro il thread. */
-export const SIGNATURE_MARKER = 'failure-signature:';
 
 /**
  * Il thread ha già registrato QUESTA firma?
@@ -1279,7 +1211,7 @@ function issueTexts(number) {
 
 /** La riga-marker da allegare a ogni registrazione, cosi' la prossima passata la riconosce. */
 function signatureLine(signature) {
-  return signature ? `\n\n<!-- ${SIGNATURE_MARKER} ${signature} -->` : '';
+  return signatureMarker(signature);
 }
 
 /** Riferimento stabile alla issue di dominio che non copre un crash generico. */

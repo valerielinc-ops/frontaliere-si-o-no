@@ -122,7 +122,8 @@ jobs:
         id: suite
         # Nessuna env di selezione o tolleranza (`VITEST_CORPUS_GROUP`,
         # `VITEST_DATASET_GROUP`, `VITEST_SKIP_*`), nessun `--bail`, nessun
-        # `continue-on-error`: gira TUTTO, e se un file è rosso lo step è rosso.
+        # `continue-on-error`: gira tutta la suite riproducibile, mentre i
+        # test che ricostruiscono dati/artifact generati restano targettizzati.
         # Il comando completo gira dentro `firebase emulators:exec`, così
         # l'emulator viene avviato e ripulito anche quando Vitest è rosso.
         # L'exit code viene catturato prima di stampare il log per non
@@ -134,7 +135,10 @@ jobs:
           ./node_modules/.bin/firebase emulators:exec \
             --only firestore \
             --project frontaliereticino-rules-test \
-            "npm test -- --reporter=default --reporter=json --outputFile=full-suite-report.json > full-suite-vitest.log 2>&1"
+            "npm test -- --reporter=default --reporter=json --outputFile=full-suite-report.json \
+              --exclude tests/generate-crawler-group-workflows.test.ts \
+              --exclude tests/translation-state-drainer-v2.test.ts \
+              > full-suite-vitest.log 2>&1"
           status=$?
           cat full-suite-vitest.log
           exit "$status"

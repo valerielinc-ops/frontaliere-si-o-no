@@ -9,6 +9,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   classifyColour,
+  extractAjoieRows,
   extractDelemontRows,
   parseBaselStadtDutyPage,
   parseMoutierCalendar,
@@ -160,6 +161,29 @@ describe('Swiss canton pharmacy calendar parser', () => {
       fetchedAt: FETCHED_AT,
       calendarYear: 2026,
     })).toThrow('Delémont pharmacy identity is not allowlisted: Unlisted Pharmacy');
+  });
+
+  it('maps the address-qualified Ajoie Amavita label to its canonical identity', () => {
+    const formatDate = (offset: number) => {
+      const date = new Date(Date.UTC(2026, 0, 1 + offset));
+      return `${String(date.getUTCDate()).padStart(2, '0')}.${String(date.getUTCMonth() + 1).padStart(2, '0')}.${date.getUTCFullYear()}`;
+    };
+    const text = Array.from({ length: 45 }, (_, index) =>
+      `du ${formatDate(index)} au ${formatDate(index + 1)} Pharmacie AMAVITA - MALVOISINS 1`,
+    ).join('\n');
+
+    const parsed = extractAjoieRows(text, {
+      sourceUrl: SOURCE_URL,
+      fetchedAt: FETCHED_AT,
+    });
+
+    expect(parsed.pharmacies).toEqual([expect.objectContaining({
+      id: 'ju-ajoie-amavita-porrentruy',
+      name: 'Amavita Porrentruy',
+      city: 'Porrentruy',
+    })]);
+    expect(parsed.rows).toHaveLength(45);
+    expect(new Set(parsed.rows.map((row) => row.pharmacyId))).toEqual(new Set(['ju-ajoie-amavita-porrentruy']));
   });
 
   it('rejects a Moutier crop without a unique dominant colour', () => {

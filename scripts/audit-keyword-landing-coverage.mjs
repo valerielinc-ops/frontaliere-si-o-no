@@ -295,6 +295,7 @@ async function main() {
     threshold: { metric: 'sitemappedNotGenuine', value: 0, comparator: '<=' },
     offenders,
     byFeature: { 'keyword-landing-coverage': sitemappedNotGenuine.length },
+    sampleRate: 1,
     extra: { candidateCount, checked, emittedNotSitemappedCount: emittedNotSitemapped.length },
   });
 

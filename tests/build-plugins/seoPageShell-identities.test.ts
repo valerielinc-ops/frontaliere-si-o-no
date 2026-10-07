@@ -93,7 +93,7 @@ describe('static SEO JSON-LD identities', () => {
 
     const items = JSON.parse(serialized).itemListElement;
     expect(items[0].item['@id']).toBe(
-      'https://frontaliereticino.ch/#organization-eoc-ente-ospedaliero-cantonale',
+      'https://frontaliereticino.ch/#organization-eoc-ente-ospedaliero-cantonale-50273b5f8a9088d1',
     );
     expect(items[1].item['@id']).toBe(items[0].item['@id']);
   });
@@ -117,7 +117,7 @@ describe('static SEO JSON-LD identities', () => {
     });
 
     expect(JSON.parse(serialized).image.creator['@id']).toBe(
-      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe',
+      'https://frontaliereticino.ch/#organization-european-commission-christophe-licoppe-9c3bd3af9176f96b',
     );
   });
 });

@@ -46,7 +46,11 @@
 # the locale shards):
 #   SHARD_<SECTION>_<LOCALE>_DEPLOY_KEY  — e.g. SHARD_TICINO_IT_DEPLOY_KEY. The
 #                              write deploy key for frontaliere-<section>-<loc>.
-#                              Read via indirect expansion. Missing → skip (exit 0).
+#                              Read via indirect expansion. Missing → use
+#                              SHARD_PUSH_PAT/GITHUB_PAT for a complete full
+#                              publish; if both are absent, fail closed.
+#   SHARD_PUSH_PAT/GITHUB_PAT  — HTTPS fallback token (GITHUB_PAT is hydrated
+#                                from Remote Config in the deploy workflow).
 # Optional env:
 #   RUNNER_TEMP / SHARD_HISTORY_CAP / GITHUB_SHA / GITHUB_RUN_ID — as the locale shard.
 #   SHARD_PUSH_MODE — `full` (default, current byte-identical path) or `delta`.
@@ -62,8 +66,9 @@
 #                  completed in background — see scripts/lib/shard-cdn-rewrite.sh.
 #
 # On success writes $RUNNER_TEMP/shard-ok-<section>-<locale> (consumed by the
-# strip step) and exits 0. SKIP (no key / subtree absent) exits 0 without the
-# marker. Real failure exits non-zero (the caller is continue-on-error).
+# strip step) and exits 0. A missing deploy key uses the HTTPS fallback when it
+# is available; only an absent subtree remains a clean skip. Real failure exits
+# non-zero (the caller is continue-on-error).
 #
 # Also writes $RUNNER_TEMP/shard-srcn-<section>-<locale> right after staging,
 # holding the staged subtree's file count at THIS moment (issue #6283): the
@@ -158,13 +163,19 @@ offload_delta_stage() {
 }
 
 push_section_shard() {
-  local key_var key_val stage stage_src keyfile src_n prev_n rc
+  local key_var key_val stage stage_src keyfile src_n prev_n rc missing_deploy_key
   LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
   # Per-section-per-locale deploy key via indirect expansion (mirrors push-locale-shard.sh).
   key_var="SHARD_${SECTION_UPPER}_${LOC_UPPER}_DEPLOY_KEY"
   key_val="${!key_var:-}"
+  missing_deploy_key=0
   if [ -z "$key_val" ]; then
-    echo "no $key_var secret — skipping $loc $section shard push (split disabled)"; return 0
+    if [ -z "${SHARD_PUSH_PAT:-${GITHUB_PAT:-}}" ]; then
+      echo "::error::no $key_var secret and no SHARD_PUSH_PAT/GITHUB_PAT — cannot publish $loc $section shard" >&2
+      return 1
+    fi
+    missing_deploy_key=1
+    echo "::warning::no $key_var secret — publishing $loc $section shard with the PAT fallback; provision or rotate the deploy key"
   fi
   if [ ! -d "$dist_dir/$sub" ]; then
     echo "$dist_dir/$sub absent — skipping $loc $section shard push"; return 0
@@ -198,10 +209,17 @@ push_section_shard() {
 
   stage="$RUNNER_TEMP/shard-$section-$loc"
   keyfile="$RUNNER_TEMP/shard_${section}_${loc}_key"
-  printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
-  # Keep long section pushes alive while GitHub is processing multi-GB packs;
-  # the PAT fallback still handles a remote that closes the transport.
-  export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  if [ "$missing_deploy_key" = 0 ]; then
+    printf '%s\n' "$key_val" > "$keyfile" && chmod 600 "$keyfile"
+    # Keep long section pushes alive while GitHub is processing multi-GB packs;
+    # the PAT fallback still handles a remote that closes the transport.
+    export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
+  else
+    # There is no SSH credential to use for the clone or push. The full path
+    # below reads the public shard over HTTPS and publishes the complete,
+    # freshly-built subtree with the PAT.
+    unset GIT_SSH_COMMAND
+  fi
 
   # Guarded build+push in ONE `set -e` subshell (see push-locale-shard.sh for
   # the full rationale: standalone subshell + captured $?; explicit full/delta
@@ -257,7 +275,7 @@ push_section_shard() {
       fi
     fi
 
-    if [ "$SHARD_PUSH_MODE" = delta ]; then
+    if [ "$missing_deploy_key" != 1 ] && [ "$SHARD_PUSH_MODE" = delta ]; then
       delta_sidecar="$(shard_delta_manifest_sidecar "$loc")"
       current_manifest="$manifest_dir/$loc.jsonl"
       if shard_manifest_snapshot "$current_manifest" "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output"; then
@@ -358,8 +376,16 @@ push_section_shard() {
         cdn_rewrite_deferred=0
         cdn_rewrite_partial=0
       fi
+      clone_repo="$SHARD_REPO"
+      if [ "$missing_deploy_key" = 1 ]; then
+        if ! clone_repo="$(shard_https_push_url "$SHARD_REPO")"; then
+          echo "::error::$section-$loc shard: deploy key missing and no HTTPS GitHub URL can be derived from '$SHARD_REPO' — refusing the fallback push" >&2
+          exit 1
+        fi
+        echo "$section-$loc shard: deploy key missing — reading the current tree over HTTPS before the PAT fallback"
+      fi
       if git clone -q --depth 1 --filter=blob:none --no-checkout \
-           "$SHARD_REPO" "$stage" 2>/dev/null \
+           "$clone_repo" "$stage" 2>/dev/null \
          && [ -d "$stage/.git" ]; then
         # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
         # checks — --no-checkout NEVER materializes a working-tree file, so a
@@ -370,6 +396,15 @@ push_section_shard() {
         # lazy-fetch cannot bypass SHARD_HISTORY_CAP.
         if ! dcount="$(shard_read_counter "$stage" .shard-deploys)" \
           || ! prev_n="$(shard_read_counter "$stage" .shard-filecount)"; then
+          # With a missing deploy key, an existing HEAD is the only
+          # trustworthy proof that this is not a first publish. Never turn an
+          # unreadable remote baseline into an orphan seed: the PAT fallback
+          # must fail closed before it can bypass the shrink guard.
+          if [ "$missing_deploy_key" = 1 ] \
+            && git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
+            echo "::error::$section-$loc shard: remote HEAD has an unreadable bookkeeping marker — refusing PAT fallback without the remote shrink baseline" >&2
+            exit 1
+          fi
           echo "::warning::$section-$loc shard: marker lazy-fetch failed — flattening before full overlay"
           rm -rf "$stage"; mkdir -p "$stage"
           shard_orphan_init "$stage"
@@ -385,6 +420,10 @@ push_section_shard() {
           incremental=1
         fi
       else
+        if [ "$missing_deploy_key" = 1 ]; then
+          echo "::error::$section-$loc shard: HTTPS read failed while the deploy key is missing — refusing to publish without the remote shrink baseline" >&2
+          exit 1
+        fi
         echo "$section-$loc shard: no prior clone (first push / transient) — full orphan push"
         shard_orphan_init "$stage"
       fi
@@ -502,7 +541,11 @@ push_section_shard() {
       _sha="${GITHUB_SHA:-local}"; _sha="${_sha:0:8}"
       git commit -qm "$section-$loc shard ${_sha} (run ${GITHUB_RUN_ID:-local})"
       _push_ok=0
-      if shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
+      if [ "$missing_deploy_key" = 1 ]; then
+        if shard_pat_push "$stage" "$SHARD_REPO" "main" "$section-$loc shard" 1 "deploy-key missing"; then
+          _push_ok=1
+        fi
+      elif shard_push_with_retry "$stage" "$SHARD_REPO" "main" "$section-$loc shard"; then
         _push_ok=1
       fi
       # Self-heal: 3 retries on the SAME incremental base never recover from a

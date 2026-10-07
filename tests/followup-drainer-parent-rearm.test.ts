@@ -14,6 +14,7 @@ import {
   decideParentRearm,
   parentRearmCommentBody,
 } from '../scripts/ci/lib/parent-close-recurrence.mjs';
+import { normalizeIssuePage, snapshotIssueState } from '../scripts/ci/followup-drainer.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const NOW = Date.parse('2026-10-06T20:00:00Z');
@@ -64,6 +65,72 @@ function commentsFor(parent: typeof realCases[number]) {
     },
   ];
 }
+
+/** Una riga dell'endpoint REST `issues`, nella forma che GitHub restituisce. */
+const restIssueRow = (number: number, extra: Record<string, unknown> = {}) => ({
+  number,
+  title: `padre ${number}`,
+  body: '',
+  state: 'open',
+  labels: [{ name: 'decomposed:1' }, { name: 'agent:triaged' }],
+  created_at: '2026-08-01T00:00:00Z',
+  updated_at: '2026-10-06T00:00:00Z',
+  ...extra,
+});
+
+describe('PARENT-REARM: lo stato del padre arriva dallo snapshot fino alla decisione', () => {
+  it('lo snapshot conserva lo stato e la decisione riarma con quello, senza valori scritti a mano', () => {
+    // Il difetto misurato: i test puri passavano `parentState: 'OPEN'`, ma il
+    // drainer lo prendeva dalla riga dello snapshot, che non lo portava. Qui il
+    // valore fa lo stesso percorso della produzione.
+    const parent = realCases[0];
+    const page = normalizeIssuePage([restIssueRow(parent.number)]);
+    expect(page?.rows).toHaveLength(1);
+    const parentState = snapshotIssueState(page?.rows[0]);
+    expect(parentState).toBe('open');
+
+    expect(decideParentRearm({
+      parentState,
+      comments: commentsFor(parent),
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+  });
+
+  it('una riga senza stato non diventa un padre aperto: il cablaggio rotto ha un nome suo', () => {
+    const parent = realCases[0];
+    const { state: _state, ...withoutState } = restIssueRow(parent.number);
+    const page = normalizeIssuePage([withoutState]);
+    expect(page?.rows).toHaveLength(1);
+    expect(page?.rows[0]).not.toHaveProperty('state');
+    expect(snapshotIssueState(page?.rows[0])).toBeNull();
+    // La decisione pura resta fail-closed: e' il chiamante a dire perche'.
+    expect(decideParentRearm({
+      parentState: undefined,
+      comments: commentsFor(parent),
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'unreadable' });
+  });
+
+  it('uno stato che non e\' una stringa rende malformata la pagina, non la issue aperta', () => {
+    expect(normalizeIssuePage([restIssueRow(1, { state: 1 })])).toBeNull();
+    expect(normalizeIssuePage([restIssueRow(1, { state: { name: 'open' } })])).toBeNull();
+    expect(snapshotIssueState({ state: '' })).toBeNull();
+    expect(snapshotIssueState(null)).toBeNull();
+  });
+
+  it('una issue chiusa non viene riarmata', () => {
+    const parent = realCases[0];
+    const page = normalizeIssuePage([restIssueRow(parent.number, { state: 'closed' })]);
+    expect(decideParentRearm({
+      parentState: snapshotIssueState(page?.rows[0]),
+      comments: commentsFor(parent),
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'skip' });
+  });
+});
 
 describe('PARENT-REARM: i quattro padri misurati rientrano una sola volta', () => {
   it('riarma ogni fixture quando tutte le figlie sono chiuse', () => {
@@ -135,6 +202,44 @@ describe('PARENT-REARM: i quattro padri misurati rientrano una sola volta', () =
       childStates: closedChildren(parent.children),
       now: NOW,
     })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+  });
+
+  it('un marker nello stesso secondo copre la ricorrenza solo se viene dopo nel thread', () => {
+    // Tutto nello stesso secondo: ricorrenza, marker di quella ricorrenza, e
+    // una seconda ricorrenza. Il marker PRECEDE la seconda ricorrenza: non può
+    // averla registrata. Con il solo confronto degli istanti la seconda
+    // risultava «già riarmata» e il padre usciva senza che nessuno leggesse lo
+    // stato delle figlie.
+    const parent = realCases[0];
+    const marker = {
+      body: parentRearmCommentBody({ reopenedAt: parent.reopenedAt, childNumbers: parent.children }),
+      createdAt: parent.reopenedAt,
+    };
+    const secondRecurrence = { body: reopenedBody(parent.number), createdAt: parent.reopenedAt };
+    const markerBefore = [...commentsFor(parent), marker, secondRecurrence];
+
+    const [openChild, ...rest] = parent.children;
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerBefore,
+      childStates: [{ number: openChild, state: 'OPEN' }, ...closedChildren(rest)],
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'child-open' });
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerBefore,
+      childStates: closedChildren(parent.children),
+      now: NOW,
+    })).toMatchObject({ action: 'rearm', reason: 'children-closed' });
+
+    // Lo stesso marker, scritto DOPO la seconda ricorrenza, la copre.
+    const markerAfter = [...commentsFor(parent), secondRecurrence, marker];
+    expect(decideParentRearm({
+      parentState: 'OPEN',
+      comments: markerAfter,
+      childStates: null,
+      now: NOW,
+    })).toMatchObject({ action: 'skip', reason: 'already-rearmed' });
   });
 
   it('a parità di secondo decide l\'ultima decomposizione, come nel PARENT-CLOSE', () => {

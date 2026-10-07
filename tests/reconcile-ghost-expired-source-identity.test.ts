@@ -121,8 +121,19 @@ describe('reconcileGhostExpired — source identity guard (#11596)', () => {
     expect(ghostCount).toBe(1);
   });
 
-  it('keeps legacy behaviour for archive records without any source identity', () => {
+  it('fails closed when an active URL has no archive source identity', () => {
     const active = activeSibling();
+    const expired = [archivedDuplicate({ sourceIdentity: undefined, dedupArchive: undefined })];
+
+    const { ghostCount } = reconcileGhostExpired([active], expired);
+
+    expect(ghostCount).toBe(0);
+    expect(active.previousSlugs).not.toContain('medicina-subassista-a-example-hospital-liestal-s9bict');
+  });
+
+  it('keeps the bounded legacy fallback only when both postings lack stable identity', () => {
+    const active = activeSibling();
+    delete active.url;
     const expired = [archivedDuplicate({ sourceIdentity: undefined, dedupArchive: undefined })];
 
     const { ghostCount } = reconcileGhostExpired([active], expired);

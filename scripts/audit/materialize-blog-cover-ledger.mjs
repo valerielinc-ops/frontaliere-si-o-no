@@ -2,11 +2,11 @@
 /**
  * Turn the historical cover audit into a publishable, bounded repair plan.
  *
- * This script never checks out the historical cover archive. It writes only
- * licence records for inherited evidence, chooses a recorded fallback for the
- * rest, and rewrites the two article registries so every currently published
- * reference points at a recorded cover. The generated queue is intentionally
- * capped at 150; the scheduled workflow consumes that queue later.
+ * This script never checks out the historical cover archive and never changes
+ * an article registry. It materializes defensible records, keeps uncertain
+ * covers as explicit `inferred` no-credit records, and creates only a bounded
+ * queue of article-specific generations. Every generated replacement keeps
+ * the article's own cover URL.
  */
 
 import fs from 'node:fs';
@@ -21,20 +21,16 @@ const ROOT = process.cwd();
 const INVENTORY_PATH = path.join(ROOT, 'data/blog-cover-ledger.json');
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
 const REPLACEMENTS_PATH = path.join(ROOT, 'data/blog-cover-replacements.json');
-const REGISTRIES = [
-  'packages/articles/content/blog-articles-data.ts',
-  'packages/articles/content/swiss-articles-data.ts',
-];
 const GENERATED_LIMIT = 150;
-const TODAY = new Date().toISOString().slice(0, 10);
+const TODAY = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(new Date());
+const INFERRED_REASON = 'Copertina senza prova certa; conservata con record inferred senza credito.';
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
-function coverKey(value) {
-  const match = String(value || '').match(/\/images\/blog\/([^/?#]+)\.(?:webp|png|jpe?g|avif)(?:[?#].*)?$/i);
-  return match ? match[1] : null;
+function readJsonIfPresent(file) {
+  try { return readJson(file); } catch { return null; }
 }
 
 function writeJson(file, value) {
@@ -105,108 +101,88 @@ function cloneInheritedRecord(item, inherited) {
   return { ...parent, cover: item.cover };
 }
 
-const TOKEN_CACHE = new Map();
-
-function tokens(value) {
-  const cacheKey = String(value || '');
-  const cached = TOKEN_CACHE.get(cacheKey);
-  if (cached) return cached;
-  const result = new Set(cacheKey.toLowerCase().split(/[^a-z0-9àèéìòùü]+/u)
-    .filter((token) => token.length >= 4)
-    .filter((token) => !['della', 'delle', 'degli', 'dello', 'degli', 'frontalieri', 'ticino', 'svizzera', 'svizzero', '2026', '2025'].includes(token)));
-  TOKEN_CACHE.set(cacheKey, result);
-  return result;
-}
-
-function candidateScore(item, candidate) {
-  const sourceRef = item.references?.[0] || {};
-  const targetRef = candidate.references?.[0] || {};
-  let score = 0;
-  if (sourceRef.category && sourceRef.category === targetRef.category) score += 1000;
-  if (sourceRef.section && sourceRef.section === targetRef.section) score += 100;
-  const overlap = [...tokens(sourceRef.id)].filter((token) => tokens(targetRef.id).has(token)).length;
-  score += overlap * 20;
-  score += Math.min(20, Number(candidate.priority || 0) / 1e12);
-  return score;
-}
-
-function replacementCandidates(items) {
-  return [...items.values()]
-    .filter((item) => item.published && (item.proofLevel <= 4 || item.action === 'copy-record') && item.recordFile)
-    .sort((a, b) => a.key.localeCompare(b.key));
-}
-
-function chooseFallback(item, candidates) {
-  const eligible = candidates.filter((candidate) => candidate.key !== item.key);
-  if (eligible.length === 0) throw new Error(`No recorded fallback available for ${item.key}`);
-  let best = null;
-  let bestScore = Number.NEGATIVE_INFINITY;
-  for (const candidate of eligible) {
-    const score = candidateScore(item, candidate);
-    if (score > bestScore || (score === bestScore && (!best || candidate.key.localeCompare(best.key) < 0))) {
-      best = candidate;
-      bestScore = score;
-    }
-  }
-  return best;
-}
-
-function rewriteRegistries(replacements) {
-  const pathMap = new Map();
-  const keyMap = new Map();
-  for (const item of Object.values(replacements.items)) {
-    if (item.mode !== 'fallback') continue;
-    pathMap.set(item.fromCover, item.toCover);
-    const key = coverKey(item.fromCover);
-    if (key) keyMap.set(key, item.toCover);
-  }
-  let changed = 0;
-  for (const relative of REGISTRIES) {
-    const file = path.join(ROOT, relative);
-    const before = fs.readFileSync(file, 'utf8');
-    const after = before.replace(/(\bimage:\s*')([^']+)(')/g, (whole, prefix, image, suffix) => {
-      const next = pathMap.get(image) || keyMap.get(coverKey(image));
-      if (!next || next === image) return whole;
-      changed += 1;
-      return `${prefix}${next}${suffix}`;
-    });
-    if (after !== before) fs.writeFileSync(file, after, 'utf8');
-  }
-  return changed;
+function replacementRecord(item, previous) {
+  const wasGenerated = previous?.mode === 'generated'
+    && previous.fromCover === previous.toCover
+    && previous.status === 'generated'
+    && fs.existsSync(path.join(RECORD_DIR, `${item.key}.json`));
+  return {
+    mode: 'generated',
+    status: wasGenerated ? 'generated' : 'queued',
+    fromCover: item.cover,
+    toCover: item.cover,
+    recordFile: `packages/articles/content/image-credits/blog/${item.key}.json`,
+    proofLevel: item.proofLevel,
+    reason: item.proofLevel === 5
+      ? 'Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.'
+      : 'Copertina inferred; generazione article-hero su misura ordinata per traffico/recenza.',
+    priority: item.priority,
+    references: item.references,
+    ...(wasGenerated ? {
+      generatedAssetId: previous.generatedAssetId,
+      provider: previous.provider,
+      generatedAt: previous.generatedAt,
+    } : {}),
+  };
 }
 
 function updateInventory(inventory, replacements) {
   let generated = 0;
-  let fallback = 0;
+  let completed = 0;
+  let inferred = 0;
+  const selected = new Set(Object.keys(replacements.items));
+
+  for (const [key, item] of Object.entries(inventory.covers)) {
+    if (item.replacement?.mode === 'fallback') delete item.replacement;
+    if (item.proofLevel === 6 && item.published) {
+      item.verifiedAt = TODAY;
+      item.provider = null;
+      item.status = 'no-credit';
+      item.currentlyPublished = true;
+      if (!selected.has(key)) {
+        item.action = 'record-inferred';
+        item.evidence = 'inferred';
+        item.reason = INFERRED_REASON;
+        delete item.replacement;
+        delete item.generated;
+        inferred += 1;
+      }
+    }
+  }
+
   for (const [key, replacement] of Object.entries(replacements.items)) {
     const item = inventory.covers[key];
     if (!item) throw new Error(`Replacement points at a missing inventory key: ${key}`);
-    item.replacement = {
-      mode: replacement.mode,
-      status: replacement.mode === 'generated' ? 'queued' : 'applied',
-      fromCover: replacement.fromCover,
-      toCover: replacement.toCover,
-      recordFile: replacement.recordFile,
-      reason: replacement.reason,
-      priority: replacement.priority,
-    };
-    item.currentlyPublished = replacement.mode === 'generated';
-    if (replacement.mode === 'generated') generated += 1;
-    else fallback += 1;
+    if (replacement.mode !== 'generated' || replacement.fromCover !== replacement.toCover) {
+      throw new Error(`${key}: replacement must be an article-specific generation at the same URL`);
+    }
+    item.replacement = { ...replacement };
+    item.currentlyPublished = true;
+    item.action = 'replace-generated';
+    item.verifiedAt = TODAY;
+    item.status = replacement.status === 'generated' ? 'generated' : 'no-credit';
+    generated += 1;
+    if (replacement.status === 'generated') completed += 1;
   }
+
   inventory.generatedAt = TODAY;
   inventory.repair = {
     generatedLimit: GENERATED_LIMIT,
-    generatedQueued: generated,
-    fallbackApplied: fallback,
+    generatedQueued: generated - completed,
+    generatedCompleted: completed,
+    inferredKept: inferred,
     sourceProbe: 'data/blog-cover-wikimedia-matches.json',
-    note: 'Le copertine generated restano sullo stesso URL e vengono sostituite dal workflow a PR; i fallback usano un record già verificato.',
+    note: 'Le copertine inferred restano sul proprio URL con record senza credito; la coda contiene solo generazioni article-hero su misura ordinate per traffico/recenza.',
   };
-  return { generated, fallback };
+  return { generated, completed, inferred };
 }
 
 function main() {
   const inventory = readJson(INVENTORY_PATH);
+  const previousPlan = readJsonIfPresent(REPLACEMENTS_PATH);
+  const previousItems = previousPlan?.items && typeof previousPlan.items === 'object'
+    ? previousPlan.items
+    : {};
   const items = new Map(Object.entries(inventory.covers).map(([key, item]) => [key, { ...item, key }]));
 
   // First materialize evidence that is already defensible. Existing records
@@ -225,71 +201,42 @@ function main() {
     }
   }
 
-  const replacementPool = replacementCandidates(items);
-  const repairable = [...items.values()]
-    .filter((item) => item.historicalPublished && item.proofLevel >= 5 && item.action.startsWith('replace-'));
-  const pending = repairable
-    .filter((item) => item.published)
+  const pending = [...items.values()]
+    .filter((item) => item.published && item.historicalPublished && item.proofLevel >= 5)
     .sort((a, b) => (a.proofLevel - b.proofLevel) || (b.priority - a.priority) || a.key.localeCompare(b.key));
   const generatedQueue = pending.slice(0, GENERATED_LIMIT);
-  const generatedKeys = new Set(generatedQueue.map((item) => item.key));
   const replacements = { schema: 1, generatedAt: TODAY, generatedLimit: GENERATED_LIMIT, items: {} };
-  for (const item of repairable) {
-    if (item.published && generatedKeys.has(item.key)) {
-      replacements.items[item.key] = {
-        mode: 'generated',
-        status: 'queued',
-        fromCover: item.cover,
-        toCover: item.cover,
-        recordFile: `packages/articles/content/image-credits/blog/${item.key}.json`,
-        proofLevel: item.proofLevel,
-        reason: item.proofLevel === 5 ? 'Copertina del percorso redazionale senza licenza dimostrabile; sostituzione con illustrazione generata article-hero.' : 'Copertina storica senza prova sufficiente; priorità traffico/recenza nella coda article-hero.',
-        priority: item.priority,
-        references: item.references,
-      };
-    } else {
-      const target = chooseFallback(item, replacementPool);
-      replacements.items[item.key] = {
-        mode: 'fallback',
-        status: 'applied',
-        fromCover: item.cover,
-        toCover: target.cover,
-        recordFile: target.recordFile,
-        proofLevel: item.proofLevel,
-        reason: item.proofLevel === 5 ? 'Copertina del percorso redazionale senza licenza dimostrabile; fallback immediato su copertina già registrata.' : 'Copertina storica senza prova sufficiente oltre il tetto di generazioni; fallback registrato in attesa della coda futura.',
-        priority: item.priority,
-        references: item.references,
-        fallbackKey: target.key,
-      };
-    }
+  for (const item of generatedQueue) {
+    replacements.items[item.key] = replacementRecord(item, previousItems[item.key]);
   }
 
-  const rewrittenArticles = rewriteRegistries(replacements);
   const repairCounts = updateInventory(inventory, replacements);
   inventory.counts = {
     ...inventory.counts,
     inheritedRecordsMaterialized: inherited,
     sourceRecordsMaterialized: source,
-    generatedQueued: repairCounts.generated,
-    fallbackRepointed: repairCounts.fallback,
-    publishedReplacements: repairable.length,
+    generatedQueued: repairCounts.generated - repairCounts.completed,
+    fallbackRepointed: 0,
+    publishedReplacements: repairCounts.generated,
+    inferredRecords: Object.values(inventory.covers)
+      .filter((item) => item.published
+        && item.proofLevel === 6
+        && (item.action === 'record-inferred' || item.replacement?.status !== 'generated')).length,
   };
   writeJson(REPLACEMENTS_PATH, {
     ...replacements,
-    rewrittenArticles,
+    rewrittenArticles: 0,
     generatedKeys: generatedQueue.map((item) => item.key),
-    temporaryAllowlist: generatedQueue
-      .filter((item) => item.proofLevel === 6)
-      .map((item) => ({ key: item.key, proofLevel: item.proofLevel, reason: 'inferred historical cover queued for article-hero regeneration', createdAt: TODAY })),
   });
   writeJson(INVENTORY_PATH, inventory);
   console.log(JSON.stringify({
     inherited,
     source,
-    generatedQueued: repairCounts.generated,
-    fallbackRepointed: repairCounts.fallback,
-    rewrittenArticles,
-    replacementPool: replacementPool.length,
+    generatedQueued: repairCounts.generated - repairCounts.completed,
+    generatedCompleted: repairCounts.completed,
+    fallbackRepointed: 0,
+    rewrittenArticles: 0,
+    inferredRecords: repairCounts.inferred,
   }, null, 2));
 }
 

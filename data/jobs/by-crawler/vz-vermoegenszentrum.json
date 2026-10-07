@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-10-06T09:18:37.378Z",
+  "assembledAt": "2026-10-06T21:21:14.430Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-zweisprachig/facfb110-e586-45c5-b396-8d21bc7383eb",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.143Z",
+      "crawledAt": "2026-10-06T21:21:07.739Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -127,7 +127,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center-hochdeutsch/5183c85d-3a37-457a-baee-12334360c46c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.142Z",
+      "crawledAt": "2026-10-06T21:21:07.738Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -221,7 +221,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/collaborateur-collaboratrice-contact-center/400da688-9b37-4f98-b3f4-b2d633b3b3f3",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:18:30.141Z",
+      "crawledAt": "2026-10-06T21:21:07.736Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Vaud",
@@ -330,7 +330,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-contact-center/5302e5f4-5b81-442e-8676-8872e8b64a3b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.141Z",
+      "crawledAt": "2026-10-06T21:21:07.737Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -392,7 +392,7 @@
     },
     {
       "id": "vz-vermoegenszentrum-c6c11085934c",
-      "slug": "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich",
+      "slug": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "it": "fondo-pensione-operazioni-personali-con-responsabilita-specialistica-vz-vermogenszentrum-zurich-zurich",
         "en": "personnel-in-operations-pension-fund-with-specialist-responsibility-80-100-vz-vermogenszentrum-zurich-zurich",
@@ -421,7 +421,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung/317c3f61-0a4d-4c1b-9942-ff6983b5e284",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.140Z",
+      "crawledAt": "2026-10-06T21:21:07.735Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -451,17 +451,19 @@
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
-        ],
         "de": [
           "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+        ],
+        "it": [
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
+          "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+          "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-80-100-vz",
-        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch"
+        "sachbearbeiter-in-operations-pensionskasse-mit-fachverantwortung-vz-vermoegenszentrum-ch",
+        "sachbearbeiter-in-operations-pensionskasse-con-fachverantwortung-vz-vermogenszentrum-zurich"
       ],
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
@@ -513,7 +515,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ca75c4c3-e622-428f-89e0-b099c4f6d87f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.139Z",
+      "crawledAt": "2026-10-06T21:21:07.734Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -608,7 +610,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/netzwerkmanager-mit-flair-fuer-infrastrukturprojekte/2e19b692-9c50-477b-98c6-63afe1b1a69f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.139Z",
+      "crawledAt": "2026-10-06T21:21:07.735Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -706,7 +708,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mandatsleiter-in-corporate-insurance-management/734a991b-ab1c-4d4c-ae65-937e9072ebf5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.138Z",
+      "crawledAt": "2026-10-06T21:21:07.733Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -800,7 +802,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/product-manager-products-customer-experience/6242c744-b38f-4f9b-ac48-50981c6a3448",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.137Z",
+      "crawledAt": "2026-10-06T21:21:07.733Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -897,7 +899,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/consultant-unternehmensnachfolge-m-a/add696ae-f8b3-4c02-b1b9-adf35a4e1e74",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.136Z",
+      "crawledAt": "2026-10-06T21:21:07.731Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "Bern",
@@ -1011,7 +1013,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/88021f17-636c-41cf-a978-26498edcfd5b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.136Z",
+      "crawledAt": "2026-10-06T21:21:07.732Z",
       "addressLocality": "Thun",
       "postalCode": "3600",
       "addressRegion": "Bern",
@@ -1096,7 +1098,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/779bbb02-01dd-4a21-b614-d28943d2190e",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.134Z",
+      "crawledAt": "2026-10-06T21:21:07.730Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "Zürich",
@@ -1192,7 +1194,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/ims-praktikum-software-entwicklung/3b5ae99d-59d0-46f1-bc37-a53785eee521",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.133Z",
+      "crawledAt": "2026-10-06T21:21:07.729Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -1286,7 +1288,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/a61ff8a7-ad57-425a-b81e-8d017956f1e7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.132Z",
+      "crawledAt": "2026-10-06T21:21:07.728Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -1388,7 +1390,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/b43673c1-643f-4885-88d9-db21e5b0d57f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.130Z",
+      "crawledAt": "2026-10-06T21:21:07.727Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "addressRegion": "Zürich",
@@ -1482,7 +1484,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/7a5911fc-256f-4946-9ca5-9c6c31a657c9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.129Z",
+      "crawledAt": "2026-10-06T21:21:07.725Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "Basel-Stadt",
@@ -1574,7 +1576,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-in-die-privatkundenberatung/b129d5fd-f685-48a7-b38c-178e9d4ef31d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.128Z",
+      "crawledAt": "2026-10-06T21:21:07.723Z",
       "addressLocality": "Rapperswil-Jona",
       "postalCode": "8640",
       "addressRegion": "Sankt Gallen",
@@ -1672,7 +1674,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/risk-officer-operationelle-risiken/0c1e9f94-9f3a-42bb-bea0-6a59587764f8",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.127Z",
+      "crawledAt": "2026-10-06T21:21:07.721Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -1752,7 +1754,7 @@
       "title": "Private Clients Consultant (pour Bienne)",
       "titleByLocale": {
         "it": "Consulente clienti privato (per Biel)",
-        "en": "Private Client Consultant (for Biel)",
+        "en": "Private Client Consultant (for Bienne)",
         "de": "Private Client Consultant (für Biel)",
         "fr": "Private Clients Consultant (pour Bienne)"
       },
@@ -1768,7 +1770,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-pour-bienne/54843c65-a555-4056-b115-007a676821de",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:18:30.126Z",
+      "crawledAt": "2026-10-06T21:21:07.719Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -1866,7 +1868,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/premiere-experience-en-financial-consulting-pour-bienne/883f0431-8477-4643-b194-08ac2655fdf1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-06T09:18:30.125Z",
+      "crawledAt": "2026-10-06T21:21:07.717Z",
       "addressLocality": "Biel",
       "postalCode": "2502",
       "addressRegion": "Bern",
@@ -1973,7 +1975,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/temporaerer-einsatz-stiftungsverwaltung-1-nov-1-dez-2026-bis-31-maerz-2027/c5e428f0-317d-4fbe-8235-e63dd5b72619",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.124Z",
+      "crawledAt": "2026-10-06T21:21:07.716Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -2064,7 +2066,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/2a02e572-fe1e-48ba-b3dd-fa6a725f650b",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.123Z",
+      "crawledAt": "2026-10-06T21:21:07.715Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "Thurgau",
@@ -2160,7 +2162,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-process-automation-ai-engineer-financial-services/4e1487ac-cee4-472c-a506-0b5ff119d03f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.122Z",
+      "crawledAt": "2026-10-06T21:21:07.714Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -2252,7 +2254,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/finanzmarktanalyst-in-redaktor-in/d2ecf679-4118-4daa-bdc5-15e756e51fc4",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.121Z",
+      "crawledAt": "2026-10-06T21:21:07.713Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2352,7 +2354,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net-und-web/819bba91-eeca-4415-b23d-a032ef8a69f5",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.120Z",
+      "crawledAt": "2026-10-06T21:21:07.712Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -2440,7 +2442,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/316434ed-e2af-4bfc-aed6-706661099d27",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.119Z",
+      "crawledAt": "2026-10-06T21:21:07.710Z",
       "addressLocality": "Meilen",
       "postalCode": "8706",
       "addressRegion": "Zürich",
@@ -2541,7 +2543,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant-start-januar-2027/d8935b60-c1c5-4544-846f-d005538e6749",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.118Z",
+      "crawledAt": "2026-10-06T21:21:07.709Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "Luzern",
@@ -2628,7 +2630,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/9298ae55-d19e-4a2b-a2f5-eb04605d680c",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.117Z",
+      "crawledAt": "2026-10-06T21:21:07.708Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -2725,7 +2727,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/fca6e094-6afb-42cc-a5b4-5b94a78dbc14",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.116Z",
+      "crawledAt": "2026-10-06T21:21:07.707Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2812,7 +2814,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/ac7b6302-7c87-4daf-b702-175fb76d919f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.115Z",
+      "crawledAt": "2026-10-06T21:21:07.706Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -2899,7 +2901,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/real-estate-consultant/ef19fcc9-c7ad-458b-9495-529b6c35be6d",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.114Z",
+      "crawledAt": "2026-10-06T21:21:07.704Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "Basel-Stadt",
@@ -2991,7 +2993,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/4adb9db0-0fad-4189-9f52-a2926770d004",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.113Z",
+      "crawledAt": "2026-10-06T21:21:07.703Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "addressRegion": "Aargau",
@@ -3087,7 +3089,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-in-unserer-neuen-niederlassung-in-buelach/44f34820-f24d-4614-89b4-5f05464731e9",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.112Z",
+      "crawledAt": "2026-10-06T21:21:07.702Z",
       "addressLocality": "Bülach",
       "postalCode": "8180",
       "addressRegion": "Zürich",
@@ -3176,7 +3178,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/berater-in-nachlassberatung-willensvollstreckung/eaadb916-5f9e-4c4f-a6c0-ea5f93a25405",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.111Z",
+      "crawledAt": "2026-10-06T21:21:07.700Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -3273,7 +3275,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/ba1496ff-a45a-42d8-a756-f4439fd06ca7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.110Z",
+      "crawledAt": "2026-10-06T21:21:07.699Z",
       "addressLocality": "Freienbach",
       "postalCode": "8807",
       "addressRegion": "Schwyz",
@@ -3366,7 +3368,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/f1eedd51-3b80-4b5d-828d-53990a77abc1",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.110Z",
+      "crawledAt": "2026-10-06T21:21:07.700Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "Zürich",
@@ -3457,7 +3459,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-consultant-unabhaengige-vermoegensberatung/d45047f0-e25b-4b67-8e3a-49fa07547c44",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.109Z",
+      "crawledAt": "2026-10-06T21:21:07.698Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "Sankt Gallen",
@@ -3560,7 +3562,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung/0bf486bb-732a-42cb-81c1-7e5c68ef8529",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.108Z",
+      "crawledAt": "2026-10-06T21:21:07.697Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -3651,7 +3653,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/einstieg-ins-financial-consulting-unabhaengige-vermoegensberatung-fuer-unsere-neue-niederlassung-buchs-sg/e1c45024-0784-40d9-ad01-476736434651",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.107Z",
+      "crawledAt": "2026-10-06T21:21:07.696Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -3716,14 +3718,14 @@
         "it": "associate-consulente-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "en": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
         "de": "associate-consultant-unternehmensnachfolge-vz-vermoegenszentrum-ch",
-        "fr": "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
+        "fr": "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Associate Consultant Unternehmensnachfolge",
       "titleByLocale": {
-        "it": "Associate Consulente Unternehmensnachfolge",
+        "it": "Associate Consultant Successione aziendale",
         "en": "Associate Consultant Business Succession",
         "de": "Associate Berater Unternehmensnachfolge",
         "fr": "Consultant associé Succession d'affaires"
@@ -3740,7 +3742,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/associate-consultant-unternehmensnachfolge/ff89e612-dfc8-4711-b21a-f4db480fd336",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.106Z",
+      "crawledAt": "2026-10-06T21:21:07.695Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "Bern",
@@ -3786,10 +3788,10 @@
           "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern"
         ],
         "fr": [
+          "associate-consultant-unternehmensnachfolge-vz-vermogenszentrum-bern",
           "consultant-associe-succession-d-affaires-vz-vermogenszentrum-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:33:16.194Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3836,7 +3838,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-business-analyst-in/011947f8-9a57-474a-98a5-844a4ba446ae",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.105Z",
+      "crawledAt": "2026-10-06T21:21:07.695Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -3927,7 +3929,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/professional-software-engineer-net/acd66b08-5580-42f8-a410-483ffa15a99f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.104Z",
+      "crawledAt": "2026-10-06T21:21:07.694Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -4003,17 +4005,17 @@
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Bern an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead. Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Fragen zum Geld und zur Pensionierung stehen auf dem Sorgenbarometer ganz oben. Mit deiner Arbeit leistest du einen wertvollen Beitrag dazu, dass deine Kunden die richtigen Antworten auf ihre Fragen finden.\n\n• Dass wir die Zufriedenheit unserer Kundinnen und Kunden ins Zentrum stellen, spiegelt sich in einem aussergewöhnlich hohen Net Promoter Score von weit über 70.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes oder laufendes Studium an einer Universität oder Fachhochschule\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz und Lust auf Verantwortung\n\n• Pfeiler unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur mit flachen Hierarchien und einem Altersschnitt von rund 30.\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden. Und weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen!\n\n• Die Arbeitszeiten sind flexibel, und die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Dein Arbeitsort liegt mitten in der Stadt und bietet schöne Büros, eine Cafeteria mit kostenlosen Getränken und Snacks, einen Töggelikasten und Duschen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
-        "it": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Bern an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead. Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Fragen zum Geld und zur Pensionierung stehen auf dem Sorgenbarometer ganz oben. Mit deiner Arbeit leistest du einen wertvollen Beitrag dazu, dass deine Kunden die richtigen Antworten auf ihre Fragen finden.\n\n• Dass wir die Zufriedenheit unserer Kundinnen und Kunden ins Zentrum stellen, spiegelt sich in einem aussergewöhnlich hohen Net Promoter Score von weit über 70.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes oder laufendes Studium an einer Universität oder Fachhochschule\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz und Lust auf Verantwortung\n\n• Pfeiler unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur mit flachen Hierarchien und einem Altersschnitt von rund 30.\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden. Und weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen!\n\n• Die Arbeitszeiten sind flexibel, und die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Dein Arbeitsort liegt mitten in der Stadt und bietet schöne Büros, eine Cafeteria mit kostenlosen Getränken und Snacks, einen Töggelikasten und Duschen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "en": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Bern an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead. Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Fragen zum Geld und zur Pensionierung stehen auf dem Sorgenbarometer ganz oben. Mit deiner Arbeit leistest du einen wertvollen Beitrag dazu, dass deine Kunden die richtigen Antworten auf ihre Fragen finden.\n\n• Dass wir die Zufriedenheit unserer Kundinnen und Kunden ins Zentrum stellen, spiegelt sich in einem aussergewöhnlich hohen Net Promoter Score von weit über 70.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes oder laufendes Studium an einer Universität oder Fachhochschule\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz und Lust auf Verantwortung\n\n• Pfeiler unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur mit flachen Hierarchien und einem Altersschnitt von rund 30.\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden. Und weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen!\n\n• Die Arbeitszeiten sind flexibel, und die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Dein Arbeitsort liegt mitten in der Stadt und bietet schöne Büros, eine Cafeteria mit kostenlosen Getränken und Snacks, einen Töggelikasten und Duschen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "it": "I nostri clienti si ritirano ben preparati, investono i loro soldi con successo, sono assicurati in modo ottimale e risparmiano tasse, premi e tasse. Questo ci rende il servizio di consulenza finanziaria indipendente numero uno. Se volete contribuire alla nostra storia di successo, ci troverete a Berna in una posizione centrale.\n\n• Ottimizziamo l'intera situazione patrimoniale dei nostri clienti. Questo rende il vostro lavoro più versatile e vario di altri fornitori di servizi finanziari.\n\n• Siete coinvolti in consultazioni dal primo giorno e prendere il comando sempre di più. Con consulenti esperti, lavorerai come meglio fornire ai tuoi clienti, investire denaro, finanziare immobili, regolare sconti e risparmiare tasse.\n\n• Le domande sui soldi e la pensione sono in cima al barometro di preoccupazione. Con il tuo lavoro, fai un prezioso contributo per garantire che i tuoi clienti trovino le risposte giuste alle loro domande.\n\n• Il fatto che ci concentriamo sulla soddisfazione dei nostri clienti si riflette in un eccezionalmente alto Net Promoter Score di ben oltre 70.\n\n• Il programma del tirocinante è un ingresso diretto: In 18 a 24 mesi, acquisirai tutto il necessario per il tuo lavoro come consulente.\n\n• Studi completi o in corso presso un'università o un'università di scienze applicate\n\n• Interessi in materia di denaro e piacere nel contatto con il cliente\n\n• Curiosità, ambizione e desiderio di responsabilità\n\n• I pilastri del nostro successo sono l'indipendenza, la trasparenza, la correttezza e una cultura rinfrescantemente semplice con gerarchie piatte e un'età media di circa 30 anni.\n\n• Con noi si muoverà avanti: Dopo il programma di tirocinante, si consiglia ai propri clienti. E perché cresciamo fortemente, molte porte sono aperte a te. Fate la vostra strada con noi!\n\n• Gli orari di lavoro sono flessibili, e la maggior parte delle posizioni sono aperte anche per il lavoro a tempo parziale, consentendo più tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n\n• Il vostro posto di lavoro è in mezzo alla città e offre bellissimi uffici, una caffetteria con bevande e snack gratuiti, una scatola bagagli e docce.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "Our customers retire well prepared, invest their money successfully, are optimally secured and save taxes, premiums and fees. This makes us the number one independent financial advisory service. If you would like to contribute to our success story, you will find us in Bern in a central location.\n\n• We optimize the entire asset situation of our customers. This makes your work more versatile and varied than other financial services providers.\n\n• You are involved in consultations from day one and take on the lead more and more. With experienced consultants, you will work out how best to provide for your customers, invest money, finance real estate, regulate discounts and save taxes.\n\n• Questions about money and retirement are at the top of the worry barometer. With your work, you make a valuable contribution to ensuring that your customers find the right answers to their questions.\n\n• The fact that we focus on the satisfaction of our customers is reflected in an exceptionally high Net Promoter Score of well over 70.\n\n• The trainee program is a direct entry: In 18 to 24 months, you will acquire everything you need for your work as a consultant.\n\n• Completed or ongoing studies at a university or university of applied sciences\n\n• Interest in money topics and pleasure in customer contact\n\n• Curiosity, ambition and desire for responsibility\n\n• The pillars of our success are independence, transparency, fairness and a refreshingly uncomplicated culture with flat hierarchies and an average age of around 30.\n\n• With us you will move forward: After the trainee program, you will advise your own customers. And because we grow strongly, many doors are open to you. Make your way with us!\n\n• Working hours are flexible, and most positions are also open for part-time work, allowing more time for further education, family, sports and projects that are important to you.\n\n• Your place of work is in the middle of the city and offers beautiful offices, a cafeteria with free drinks and snacks, a baggage box and showers.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
         "de": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Bern an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead. Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Fragen zum Geld und zur Pensionierung stehen auf dem Sorgenbarometer ganz oben. Mit deiner Arbeit leistest du einen wertvollen Beitrag dazu, dass deine Kunden die richtigen Antworten auf ihre Fragen finden.\n\n• Dass wir die Zufriedenheit unserer Kundinnen und Kunden ins Zentrum stellen, spiegelt sich in einem aussergewöhnlich hohen Net Promoter Score von weit über 70.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes oder laufendes Studium an einer Universität oder Fachhochschule\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz und Lust auf Verantwortung\n\n• Pfeiler unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur mit flachen Hierarchien und einem Altersschnitt von rund 30.\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden. Und weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen!\n\n• Die Arbeitszeiten sind flexibel, und die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Dein Arbeitsort liegt mitten in der Stadt und bietet schöne Büros, eine Cafeteria mit kostenlosen Getränken und Snacks, einen Töggelikasten und Duschen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Bern an zentraler Lage.\n\n• Wir optimieren die gesamte Vermögenssituation unserer Kundinnen und Kunden. Das macht deine Arbeit vielseitiger und abwechslungsreicher als bei anderen Finanzdienstleistern.\n\n• Du bist vom ersten Tag an bei Beratungsgesprächen dabei und übernimmst immer mehr den Lead. Mit erfahrenen Consultants erarbeitest du, wie deine Kunden am besten vorsorgen, Geld anlegen, Immobilien finanzieren, Nachlässe regeln und Steuern sparen.\n\n• Fragen zum Geld und zur Pensionierung stehen auf dem Sorgenbarometer ganz oben. Mit deiner Arbeit leistest du einen wertvollen Beitrag dazu, dass deine Kunden die richtigen Antworten auf ihre Fragen finden.\n\n• Dass wir die Zufriedenheit unserer Kundinnen und Kunden ins Zentrum stellen, spiegelt sich in einem aussergewöhnlich hohen Net Promoter Score von weit über 70.\n\n• Das Trainee-Programm ist ein Direkteinstieg: In 18 bis 24 Monaten eignest du dir alles an, was du für deine Arbeit als Consultant brauchst.\n\n• Abgeschlossenes oder laufendes Studium an einer Universität oder Fachhochschule\n\n• Interesse an Geldthemen und Freude am Kundenkontakt\n\n• Neugier, Ehrgeiz und Lust auf Verantwortung\n\n• Pfeiler unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur mit flachen Hierarchien und einem Altersschnitt von rund 30.\n\n• Bei uns kommst du vorwärts: Nach dem Trainee-Programm berätst du deine eigenen Kundinnen und Kunden. Und weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen!\n\n• Die Arbeitszeiten sind flexibel, und die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Dein Arbeitsort liegt mitten in der Stadt und bietet schöne Büros, eine Cafeteria mit kostenlosen Getränken und Snacks, einen Töggelikasten und Duschen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!"
+        "fr": "Nos clients se retirent bien préparés, investissent leur argent avec succès, sont parfaitement sécurisés et économisent les taxes, les primes et les frais. Cela fait de nous le premier service de conseil financier indépendant. Si vous souhaitez contribuer à notre réussite, vous nous trouverez à Berne dans un emplacement central.\n\n• Nous optimisons l'ensemble de la situation des actifs de nos clients. Cela rend votre travail plus polyvalent et varié que d'autres fournisseurs de services financiers.\n\n• Vous participez aux consultations dès le premier jour et prenez de plus en plus l'initiative. Avec des consultants expérimentés, vous travaillerez sur la meilleure façon de fournir pour vos clients, d'investir de l'argent, de financer l'immobilier, de réglementer les rabais et d'économiser des impôts.\n\n• Les questions sur l'argent et la retraite sont au sommet du baromètre. Avec votre travail, vous apportez une contribution précieuse pour que vos clients trouvent les bonnes réponses à leurs questions.\n\n• Le fait que nous nous concentrions sur la satisfaction de nos clients se reflète dans un score de promoteur net exceptionnellement élevé de bien plus de 70.\n\n• Le programme de stagiaire est une entrée directe: Dans 18 à 24 mois, vous acquerrez tout ce dont vous avez besoin pour votre travail de consultant.\n\n• Études terminées ou en cours dans une université ou une université de sciences appliquées\n\n• Intérêts sur les sujets monétaires et plaisir dans le contact client\n\n• Curiosité, ambition et désir de responsabilité\n\n• Les piliers de notre succès sont l'indépendance, la transparence, l'équité et une culture rafraîchissante et simple, avec des hiérarchies plates et un âge moyen d'environ 30 ans.\n\n• Avec nous, vous avancerez : Après le programme de stagiaire, vous conseillerez vos propres clients. Et parce que nous grandissons fortement, beaucoup de portes vous sont ouvertes. Faites votre chemin avec nous !\n\n• Les heures de travail sont flexibles, et la plupart des postes sont également ouverts pour le travail à temps partiel, ce qui laisse plus de temps pour l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n\n• Votre lieu de travail est au milieu de la ville et offre de beaux bureaux, une cafétéria avec boissons et collations gratuites, une boîte à bagages et des douches.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
       },
       "location": "Bern, Bern",
       "canton": "BE",
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/trainee-programm-unabhaengige-vermoegensberatung/82b98867-65dc-4121-8c25-f1670bcd3e66",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.103Z",
+      "crawledAt": "2026-10-06T21:21:07.692Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "Bern",
@@ -4052,7 +4054,6 @@
           "trainee-programm-unabhangige-vermogensberatung-vz-vermoegenszentrum-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:49:31.365Z",
       "salaryMin": 66000,
       "salaryMax": 112000,
@@ -4099,7 +4100,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-finanzmarktanalyst-in-redaktor-in/ed97b0b6-2388-4d48-8967-52bdd6b493a7",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.101Z",
+      "crawledAt": "2026-10-06T21:21:07.691Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4149,8 +4150,8 @@
           "junior-finanzmarktanalyst-in-redaktor-in-vz-vermogenszentrum-zug"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:18:10.079Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:18:10.079Z",
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -4196,7 +4197,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/junior-analyst-in-fixed-income-im-asset-management/bb9e7eed-10a2-4d07-a415-a0618cbe5da6",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.100Z",
+      "crawledAt": "2026-10-06T21:21:07.690Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4288,7 +4289,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/senior-investment-advisor/41a9bd42-5b12-4e3e-ab1b-345de38c499f",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.098Z",
+      "crawledAt": "2026-10-06T21:21:07.689Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4380,7 +4381,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/investment-advisor/ad9c0264-e807-489a-990c-05437f223358",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.097Z",
+      "crawledAt": "2026-10-06T21:21:07.687Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressRegion": "Zug",
@@ -4474,7 +4475,7 @@
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/mitarbeiter-in-accounting-vz-vorsorgestiftungen/6b15be30-5c78-40b8-9aa4-2e5e003773e2",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.095Z",
+      "crawledAt": "2026-10-06T21:21:07.686Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Zürich",
@@ -4543,9 +4544,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-d1531638a9ff",
-      "slug": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
+      "slug": "impiegato-per-le-pensioni-professionali-vz-vermogenszentrum-bern-bern",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern",
+        "it": "impiegato-per-le-pensioni-professionali-vz-vermogenszentrum-bern-bern",
         "en": "occupational-pensions-clerk-vz-vermogenszentrum-bern-bern",
         "de": "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
         "fr": "commis-aux-pensions-professionnelles-vz-vermogenszentrum-bern-bern"
@@ -4555,24 +4556,24 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Sachbearbeiter/-in berufliche Vorsorge",
       "titleByLocale": {
-        "it": "Sachbearbeiter/-in berufliche previdenza",
+        "it": "Impiegato per le Pensioni Professionali",
         "en": "Occupational Pensions Clerk",
         "de": "Sachbearbeiter/-in berufliche Vorsorge",
         "fr": "Commis aux pensions professionnelles"
       },
       "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
-        "it": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "en": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi per le nostre fondazioni pensionistiche nel nostro ramo in una posizione centrale a Berna.\n\n• Gestisci diversi casi di affari indipendentemente nella gestione del fondo pensione e lavori su progetti. I casi di business più comuni sono l'ingresso e l'uscita di assicurazione, i pagamenti anticipati di proprietà, gli acquisti, i pensionati e vari casi di benefici.\n\n• L'utente fornisce alle persone assicurate e ad altre parti interessate un supporto competente e indipendente in tutte le questioni amministrative. Come primo punto di contatto, assicura una gestione affidabile, orientata alla soluzione e orientata al cliente di tutte le preoccupazioni nel business quotidiano.\n\n• Sei responsabile della fatturazione dei contributi e del trattamento dei pagamenti in entrata. Inoltre, supporta la contabilità nei conti annuali.\n\n• Formazione professionale completata\n\n• Interessi nel settore delle pensioni professionali e affinità per i numeri\n\n• Rapida percezione e motivazione per imparare nuove cose\n\n• Comunicazione sicura in tedesco, buona conoscenza orale in italiano e francese benefico\n\n• Godere di un ambiente dinamico e orientato al servizio, metodi di lavoro affidabili e precisi\n\n• Dopo una formazione attenta, si lavora in modo indipendente e gradualmente assumersi più responsabilità.\n\n• Anche per la vostra formazione ulteriore siete all'indirizzo giusto con noi. Ti sosteniamo individualmente e ti sosteniamo nel contesto del tuo profilo di lavoro anche in un'ulteriore istruzione esterna.\n\n• I nostri sondaggi sulla soddisfazione confermano regolarmente che i nostri dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. As we are growing strongly, we are looking for reinforcements for our pension foundations in our branch in a central location in Bern.\n\n• You handle varied business cases independently in the pension fund administration and work on projects. The most common business cases are entry and exit of insured, homeownership advance payments, purchases, retirements and various benefit cases.\n\n• You provide insured persons and other stakeholders with competent and independent support in all administrative matters. As the first point of contact, you ensure a reliable, solution-oriented and customer-oriented handling of all concerns in day-to-day business.\n\n• You are responsible for invoicing contributions and processing incoming payments. In addition, you support the accounting in the annual accounts.\n\n• Commercial training completed\n\n• Interest in the field of occupational pensions and an affinity for numbers\n\n• Rapid perception and motivation to learn new things\n\n• Secure communication in German, good oral knowledge in Italian and French beneficial\n\n• Enjoying a dynamic and service-oriented environment, reliable and exact working methods\n\n• After careful training, you work independently and gradually take on more responsibility.\n\n• Also for your further education you are at the right address with us. We support you individually and support you in the context of your job profile also in external further education.\n\n• Our surveys on satisfaction regularly confirm that our employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
         "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unsere Vorsorgestiftungen in unserer Niederlassung an zentraler Lage in Bern.\n\n• Du wickelst in der Pensionskassenverwaltung abwechslungsreiche Geschäftsfälle selbstständig ab und arbeitest bei Projekten mit. Die häufigsten Geschäftsfälle sind Ein- und Austritte von Versicherten, Wohneigentumsvorbezüge, Einkäufe, Pensionierungen und verschiedene Leistungsfälle.\n\n• Du betreust Versicherte und weitere Anspruchsgruppen kompetent und selbstständig in allen administrativen Belangen. Als erste Anlaufstelle sorgst du im Tagesgeschäft für eine zuverlässige, lösungsorientierte und kundennahe Abwicklung aller Anliegen.\n\n• Du bist verantwortlich für die Rechnungsstellung der Beiträge und die Verarbeitung von Zahlungseingängen. Zusätzlich unterstützt Du die Buchhaltung beim Jahresabschluss.\n\n• Abgeschlossene kaufmännische Ausbildung\n\n• Interesse im Bereich der beruflichen Vorsorge Fuss zu fassen und eine Affinität für Zahlen\n\n• Rasche Auffassungsgabe und Motivation Neues dazuzulerne\n\n• Sichere Kommunikation in Deutsch, gute mündliche Kenntnisse in Italienisch und Französisch von Vorteil\n\n• Freude an einem dynamischen und dienstleistungsorientieren Umfeld, zuverlässige und exakte Arbeitsweise\n\n• Nach einer sorgfältigen Einarbeitung arbeitest du selbstständig und übernimmst sukzessive mehr Verantwortung.\n\n• Auch für Deine Weiterbildung bist du bei uns an der richtigen Adresse. Wir fördern dich individuell und unterstützen Dich im Rahmen Deines Jobprofils auch bei externen Weiterbildungen.\n\n• Unsere Umfragen zur Zufriedenheit bestätigen regelmässig, dass unsere Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!"
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Alors que nous croissons fortement, nous cherchons des renforts pour nos fondations de retraite dans notre succursale dans un emplacement central à Berne.\n\n• Vous traitez des affaires variées indépendamment dans l'administration des fonds de pension et travaillez sur des projets. Les affaires les plus courantes sont l'entrée et la sortie de l'assuré, les paiements anticipés de propriété, les achats, les retraites et divers cas de prestations.\n\n• Vous fournissez aux assurés et aux autres parties prenantes un soutien compétent et indépendant pour toutes les questions administratives. Comme premier point de contact, vous assurez une gestion fiable, orientée vers la solution et orientée vers le client de toutes les préoccupations dans les affaires quotidiennes.\n\n• Vous êtes responsable de la facturation des contributions et du traitement des paiements entrants. De plus, vous soutenez la comptabilité dans les comptes annuels.\n\n• Formation commerciale terminée\n\n• Intérêt dans le domaine des pensions professionnelles et affinité pour les chiffres\n\n• Perception et motivation rapides pour apprendre de nouvelles choses\n\n• Communication sécurisée en allemand, bonne connaissance orale en italien et français bénéfique\n\n• Profitez d'un environnement dynamique et axé sur le service, de méthodes de travail fiables et précises\n\n• Après une formation soignée, vous travaillez de manière indépendante et vous assumez progressivement plus de responsabilités.\n\n• Aussi pour votre formation complémentaire, vous êtes à la bonne adresse avec nous. Nous vous accompagnons individuellement et vous accompagnons dans le contexte de votre profil d'emploi également dans les études complémentaires externes.\n\n• Nos sondages sur la satisfaction confirment régulièrement que nos employés classent la VZ comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
       },
       "location": "Bern, Bern",
       "canton": "BE",
       "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/sachbearbeiter-in-berufliche-vorsorge/6c6cfdcb-14be-4e50-b8be-921fd6f4e408",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:18:30.092Z",
+      "crawledAt": "2026-10-06T21:21:07.685Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "Bern",
@@ -4610,14 +4611,16 @@
         "prestazioni-professionali-vz-vermogenszentrum-bern-bern",
         "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
         "formation-professionnelle-vz-vermogenszentrum-bern-bern",
-        "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
+        "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern",
+        "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-berufliche-vorsorge-vz-vermoegenszentrum-ch",
           "prestazioni-professionali-vz-vermogenszentrum-bern-bern",
           "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
-          "formation-professionnelle-vz-vermogenszentrum-bern-bern"
+          "formation-professionnelle-vz-vermogenszentrum-bern-bern",
+          "sachbearbeiter-in-berufliche-previdenza-vz-vermogenszentrum-bern"
         ],
         "en": [
           "personnel-occupational-provision-vz-vermogenszentrum-bern-bern",
@@ -4628,7 +4631,6 @@
           "sachbearbeiter-in-berufliche-vorsorge-vz-vermogenszentrum-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T23:06:36.437Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
@@ -4645,214 +4647,91 @@
       }
     },
     {
-      "id": "vz-vermoegenszentrum-209b5743974e",
-      "slug": "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich",
+      "id": "vz-vermoegenszentrum-465c4425f62b",
+      "slug": "private-clients-consultant-vz-vermogenszentrum-uster",
       "slugByLocale": {
-        "it": "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich",
-        "en": "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
-        "de": "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
-        "fr": "specialiste-de-la-souscription-80-100-vz-vermogenszentrum-zurich-zurich"
+        "de": "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "it": "private-clients-consultant-vz-vermogenszentrum-uster",
+        "en": "private-clients-consultant-vz-vermogenszentrum-uster",
+        "fr": "private-clients-consultant-vz-vermogenszentrum-uster"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
       "companyDomain": "vermoegenszentrum.ch",
-      "title": "Fachspezialist/-in Underwriting",
+      "title": "Private Clients Consultant",
       "titleByLocale": {
-        "it": "Specialista nella sottoscrizione, 80-100 %",
-        "en": "Specialist in Underwriting, 80-100 %",
-        "de": "Fachspezialist/-in Underwriting",
-        "fr": "Spécialiste de la souscription, 80-100 %"
+        "de": "Private Clients Berater",
+        "en": "Private Clients, lantern",
+        "it": "Private Clients Consulente",
+        "fr": "Consultant auprès de clients privés"
       },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unser Versicherungsteam an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst Risikoprüfungen in den Sparten Hausrat-, Privathaftpflicht-, Gebäude- und Motorfahrzeugversicherungen durch.\n\n• Du bist verantwortlich für Berechnungen sowie für die Erstellung und Tarifierung von Offerten.\n\n• Du erarbeitest Versicherungsvergleiche und stellst die gesamte Vertragsabwicklung sicher.\n\n• Du bist fachliche Ansprechperson für interne Anfragen.\n\n• Kaufmännische Lehre bei einer Versicherungsgesellschaft oder Erfahrung im Privatversicherungsbereich\n\n• Laufender oder abgeschlossener Fachausweis ist ein Plus\n\n• Sichere Kommunikation in Deutsch; Französischkenntnisse sind ein Pluspunkt\n\n• Lust auf Verantwortung und selbstständiges, proaktives Arbeiten\n\n• Freude an der Arbeit in einem dynamischen, wachsenden und jungen Umfeld\n\n• Die Chance, eine neuorganisierte Abteilung mitzugestalten und aufzubauen.\n\n• Wir sind stolz auf unsere unkomplizierte, offene Kultur. Sie gibt dir die Chance, ein einzigartiges Unternehmen mitzuprägen und weiterzuentwickeln.\n\n• Auch in Sachen Weiterbildung bist du bei uns an der richtigen Adresse: Wir fördern unsere Mitarbeitenden individuell und unterstützen sie im Rahmen des Jobprofils auch bei einer externen Weiterbildung.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+      "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Uster an zentraler Lage.\n\n• Deine Ausbildung knüpft an dem Wissen an, das du mitbringst.\n\n• In ein paar Monaten bildest du dich on- und off-the-job zum Spezialisten/zur Spezialistin im Finanzbereich weiter.\n\n• Danach übernimmst du ein bestehendes Kundenportfolio mit viel Potenzial.\n\n• Du sorgst dafür, dass deine Kundinnen und Kunden ihr Geld erfolgreicher anlegen, mehr Vermögen ansparen, optimal vorsorgen und ihre Häuser günstiger finanzieren.\n\n• Eine kaufmännische Berufsausbildung\n\n• Erfahrung in der Finanzbranche ist ein Plus\n\n• Leidenschaft für die Arbeit mit Kundinnen und Kunden\n\n• Organisationstalent\n\n• Lernbereitschaft, Neugier und Ehrgeiz\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Bei uns kommst du vorwärts: Übernimm nach und nach mehr Verantwortung in deinem Job. Dabei kannst du auch von unserer Unterstützung bei einer externen Weiterbildung profitieren.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Creiamo trasparenza nel mercato bancario e assicurativo e consigliamo ai nostri clienti in modo completo e neutrale. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi per il nostro team di assicurazione presso la nostra sede a Paradeplatz a Zurigo.\n• Effettuare valutazioni dei rischi nei settori dei contenuti domestici, della responsabilità privata, dell'edilizia e dell'assicurazione sui veicoli a motore.\n• Siete responsabili per i calcoli, nonché per la creazione e la tariffazione di offerte.\n• Sviluppi i confronti assicurativi e garantisci l'intero trattamento dei contratti.\n• Lei è la persona di contatto tecnico per le indagini interne.\n• Apprendistato commerciale con una compagnia assicurativa o un'esperienza di assicurazione privata\n• Il certificato corrente o completato è un plus\n• Comunicazione sicura in tedesco; La conoscenza del francese è un plus\n• Desiderio di responsabilità e lavoro indipendente e proattivo\n• Gioia al lavoro in un ambiente dinamico, in crescita e giovane\n• L'opportunità di aiutare a modellare e costruire un nuovo reparto organizzato.\n• Siamo orgogliosi della nostra cultura aperta e semplice. Ti dà la possibilità di modellare e sviluppare una società unica.\n• Siete anche al posto giusto quando si tratta di un'ulteriore formazione: Sosteniamo i nostri dipendenti individualmente e li sosteniamo con un'ulteriore formazione esterna nel quadro del profilo del lavoro.\n• La maggior parte delle posizioni sono anche aperte per un soggiorno part-time, in modo che ci sia più tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We create transparency in the banking and insurance market and advise our customers comprehensively and neutrally. As we are growing strongly, we are looking for reinforcements for our insurance team at our headquarters at Paradeplatz in Zurich.\n• You carry out risk assessments in the areas of household contents, private liability, building and motor vehicle insurance.\n• You are responsible for calculations as well as for the creation and tariffing of offers.\n• You develop insurance comparisons and ensure the entire contract processing.\n• You are the technical contact person for internal inquiries.\n• Commercial apprenticeship with an insurance company or private insurance experience\n• Current or completed certificate is a plus\n• Secure communication in German; Knowledge of French is a plus\n• Desire for responsibility and independent, proactive work\n• Joy at work in a dynamic, growing and young environment\n• The opportunity to help shape and build a newly organized department.\n• We are proud of our uncomplicated, open culture. It gives you the chance to shape and develop a unique company.\n• You are also at the right place when it comes to further education: We support our employees individually and support them with an external further education within the framework of the job profile.\n• Most of the positions are also open for a part-time stay, so that there is more time for further education, family, sports and projects that are important to you.\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir schaffen Transparenz im Banken- und Versicherungsmarkt und beraten unsere Kunden umfassend und neutral. Da wir kräftig wachsen, suchen wir Verstärkung für unser Versicherungsteam an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst Risikoprüfungen in den Sparten Hausrat-, Privathaftpflicht-, Gebäude- und Motorfahrzeugversicherungen durch.\n\n• Du bist verantwortlich für Berechnungen sowie für die Erstellung und Tarifierung von Offerten.\n\n• Du erarbeitest Versicherungsvergleiche und stellst die gesamte Vertragsabwicklung sicher.\n\n• Du bist fachliche Ansprechperson für interne Anfragen.\n\n• Kaufmännische Lehre bei einer Versicherungsgesellschaft oder Erfahrung im Privatversicherungsbereich\n\n• Laufender oder abgeschlossener Fachausweis ist ein Plus\n\n• Sichere Kommunikation in Deutsch; Französischkenntnisse sind ein Pluspunkt\n\n• Lust auf Verantwortung und selbstständiges, proaktives Arbeiten\n\n• Freude an der Arbeit in einem dynamischen, wachsenden und jungen Umfeld\n\n• Die Chance, eine neuorganisierte Abteilung mitzugestalten und aufzubauen.\n\n• Wir sind stolz auf unsere unkomplizierte, offene Kultur. Sie gibt dir die Chance, ein einzigartiges Unternehmen mitzuprägen und weiterzuentwickeln.\n\n• Auch in Sachen Weiterbildung bist du bei uns an der richtigen Adresse: Wir fördern unsere Mitarbeitenden individuell und unterstützen sie im Rahmen des Jobprofils auch bei einer externen Weiterbildung.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous créons la transparence sur le marché bancaire et d'assurance et conseillons nos clients de manière complète et neutre. Alors que nous croissons fortement, nous cherchons des renforts pour notre équipe d'assurance à notre siège social à Paradeplatz à Zurich.\n• Vous effectuez des évaluations des risques dans les domaines du contenu des ménages, de la responsabilité privée, de l'assurance construction et automobile.\n• Vous êtes responsable des calculs ainsi que de la création et de la tarification des offres.\n• Vous développez des comparaisons d'assurance et assurez le traitement complet du contrat.\n• Vous êtes la personne-ressource technique pour les demandes internes.\n• Apprentissage commercial avec une compagnie d'assurance ou une expérience d'assurance privée\n• Le certificat actuel ou complété est un plus\n• La communication sécurisée en allemand; La connaissance du français est un plus\n• Désir de responsabilité et travail indépendant et proactif\n• La joie au travail dans un environnement dynamique, en croissance et jeune\n• L'occasion d'aider à façonner et à construire un nouveau département.\n• Nous sommes fiers de notre culture ouverte et simple. Il vous donne la chance de façonner et de développer une entreprise unique.\n• Vous êtes également au bon endroit quand il s'agit de poursuivre l'éducation: Nous soutenons nos employés individuellement et les soutenons dans une formation externe dans le cadre du profil d'emploi.\n• La plupart des postes sont également ouverts pour un séjour à temps partiel, de sorte qu'il y a plus de temps pour poursuivre l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
+        "de": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Wenn du an unserer Erfolgsgeschichte mitschreiben möchtest, findest du uns in Uster an zentraler Lage.\n\n• Deine Ausbildung knüpft an dem Wissen an, das du mitbringst.\n\n• In ein paar Monaten bildest du dich on- und off-the-job zum Spezialisten/zur Spezialistin im Finanzbereich weiter.\n\n• Danach übernimmst du ein bestehendes Kundenportfolio mit viel Potenzial.\n\n• Du sorgst dafür, dass deine Kundinnen und Kunden ihr Geld erfolgreicher anlegen, mehr Vermögen ansparen, optimal vorsorgen und ihre Häuser günstiger finanzieren.\n\n• Eine kaufmännische Berufsausbildung\n\n• Erfahrung in der Finanzbranche ist ein Plus\n\n• Leidenschaft für die Arbeit mit Kundinnen und Kunden\n\n• Organisationstalent\n\n• Lernbereitschaft, Neugier und Ehrgeiz\n\n• Weil wir kräftig wachsen, stehen dir viele Türen offen. Gestalte deinen Weg mit uns zusammen.\n\n• Wichtige Grundsätze unseres Erfolgs sind Unabhängigkeit, Transparenz, Fairness und eine erfrischend unkomplizierte Kultur.\n\n• Bei uns kommst du vorwärts: Übernimm nach und nach mehr Verantwortung in deinem Job. Dabei kannst du auch von unserer Unterstützung bei einer externen Weiterbildung profitieren.\n\n• Die meisten Stellen sind auch für ein Teilzeit-Pensum offen, damit mehr Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "it": "I nostri clienti si ritirano ben preparati, investono con successo i loro soldi, sono assicurati in modo ottimale e risparmiano tasse, premi e tasse. Questo ci rende la consulenza finanziaria indipendente numero 1. Se volete contribuire alla nostra storia di successo, ci troverete in Uster in una posizione centrale.\n\n• La vostra formazione si basa sulla conoscenza che portate.\n\n• In pochi mesi imparerai on- e off-the-job a diventare uno specialista in finanza.\n\n• Poi si assume un portafoglio clienti esistente con un sacco di potenziale.\n\n• Assicurarsi che i vostri clienti investano i loro soldi con più successo, risparmiare più risorse, fornire una fornitura ottimale e finanziare le loro case più a buon mercato.\n\n• Formazione professionale\n\n• L'esperienza nel settore finanziario è un plus\n\n• Passione per lavorare con i clienti\n\n• Talenti organizzativi\n\n• Prontezza per imparare, curiosità e ambizione\n\n• Perché cresciamo fortemente, molte porte sono aperte a te. Fai la tua strada con noi.\n\n• I principi importanti del nostro successo sono l'indipendenza, la trasparenza, la correttezza e una cultura sempre più semplice.\n\n• Con noi si va avanti: gradualmente assumersi più responsabilità nel vostro lavoro. È inoltre possibile beneficiare del nostro sostegno in un'ulteriore formazione esterna.\n\n• La maggior parte delle posizioni sono anche aperte per un soggiorno part-time, in modo da avere più tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "Our customers retire well prepared, invest their money successfully, are optimally secured and save taxes, premiums and fees. This makes us the number 1 independent financial consultancy. If you would like to contribute to our success story, you will find us in Uster in a central location.\n\n• Your education is based on the knowledge you bring.\n\n• In a few months you will learn on- and off-the-job to become a specialist in finance.\n\n• Then you take over an existing customer portfolio with a lot of potential.\n\n• You ensure that your customers invest their money more successfully, save more assets, provide optimal provision and finance their homes cheaper.\n\n• Commercial vocational training\n\n• Experience in the financial industry is a plus\n\n• Passion for working with customers\n\n• Organisational talent\n\n• Readiness to learn, curiosity and ambition\n\n• Because we grow strongly, many doors are open to you. Make your way with us.\n\n• Important principles of our success are independence, transparency, fairness and a refreshingly straightforward culture.\n\n• With us you move forward: gradually take on more responsibility in your job. You can also benefit from our support in an external further education.\n\n• Most of the positions are also open for a part-time stay, so that you have more time for further education, family, sports and projects that are important to you.\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
+        "fr": "Nos clients se retirent bien préparés, investissent leur argent avec succès, sont parfaitement sécurisés et économisent les taxes, les primes et les frais. Cela fait de nous le numéro 1 de conseil financier indépendant. Si vous souhaitez contribuer à notre réussite, vous nous trouverez à Uster dans un emplacement central.\n\n• Votre éducation est basée sur les connaissances que vous apportez.\n\n• Dans quelques mois, vous apprendrez sur- et hors-le-emploi pour devenir un spécialiste en finance.\n\n• Ensuite, vous prenez en charge un portefeuille client existant avec beaucoup de potentiel.\n\n• Vous veillez à ce que vos clients investissent leur argent avec plus de succès, économisent plus d'actifs, fournissent une fourniture optimale et financent leur maison moins cher.\n\n• Formation professionnelle commerciale\n\n• L'expérience dans le secteur financier est un plus\n\n• Passion pour travailler avec les clients\n\n• Compétences organisationnelles\n\n• Préparation à l'apprentissage, curiosité et ambition\n\n• Parce que nous grandissons fortement, beaucoup de portes vous sont ouvertes. Fais ton chemin avec nous.\n\n• Les principes importants de notre réussite sont l'indépendance, la transparence, l'équité et une culture rafraîchissante et simple.\n\n• Avec nous, vous avancez : prenez progressivement plus de responsabilités dans votre travail. Vous pouvez également bénéficier de notre soutien dans une formation complémentaire externe.\n\n• La plupart des postes sont également ouverts pour un séjour à temps partiel, de sorte que vous avez plus de temps pour l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
       },
-      "location": "Zürich, Zürich",
+      "location": "Uster, Zürich",
       "canton": "ZH",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/fachspezialist-in-underwriting/6ba404fd-1ff7-4c04-9e57-8eb7291edcf4",
+      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ce8c5aa4-6400-4c20-9b8d-018d4004b227",
       "source": "VZ VermögensZentrum Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:20:44.049Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
+      "crawledAt": "2026-10-06T21:21:07.681Z",
+      "addressLocality": "Uster",
+      "postalCode": "8610",
       "addressRegion": "Zürich",
-      "streetAddress": "Gotthardstrasse 6",
+      "streetAddress": "Poststrasse 7",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Assicurazioni",
+      "category": "Finanza",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Finanza / Wealth Management",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-04T14:18:22Z",
-      "applyUrl": "https://app.jobportal.abaservices.ch/application-process/JobportalVZ/a8779a56-f501-0a90-451c-39fe3e7fae93?jp=ABACUS",
+      "datePosted": "2026-10-05T22:00:00Z",
+      "postedDate": "2026-10-05T22:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.vermoegenszentrum.ch/offene-stellen/private-clients-consultant/ce8c5aa4-6400-4c20-9b8d-018d4004b227",
       "requirements": [
-        "• Kaufmännische Lehre bei einer Versicherungsgesellschaft oder Erfahrung im Privatversicherungsbereich",
-        "• Laufender oder abgeschlossener Fachausweis ist ein Plus",
-        "• Sichere Kommunikation in Deutsch; Französischkenntnisse sind ein Pluspunkt",
-        "• Lust auf Verantwortung und selbstständiges, proaktives Arbeiten",
-        "• Freude an der Arbeit in einem dynamischen, wachsenden und jungen Umfeld"
+        "• Eine kaufmännische Berufsausbildung",
+        "• Erfahrung in der Finanzbranche ist ein Plus",
+        "• Leidenschaft für die Arbeit mit Kundinnen und Kunden",
+        "• Organisationstalent",
+        "• Lernbereitschaft, Neugier und Ehrgeiz"
       ],
       "requirementsByLocale": {
         "de": [
-          "• Kaufmännische Lehre bei einer Versicherungsgesellschaft oder Erfahrung im Privatversicherungsbereich",
-          "• Laufender oder abgeschlossener Fachausweis ist ein Plus",
-          "• Sichere Kommunikation in Deutsch; Französischkenntnisse sind ein Pluspunkt",
-          "• Lust auf Verantwortung und selbstständiges, proaktives Arbeiten",
-          "• Freude an der Arbeit in einem dynamischen, wachsenden und jungen Umfeld"
+          "• Eine kaufmännische Berufsausbildung",
+          "• Erfahrung in der Finanzbranche ist ein Plus",
+          "• Leidenschaft für die Arbeit mit Kundinnen und Kunden",
+          "• Organisationstalent",
+          "• Lernbereitschaft, Neugier und Ehrgeiz"
         ]
       },
       "previousSlugsByLocale": {
-        "de": [
-          "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch"
-        ],
         "it": [
-          "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
-          "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
-          "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-          "specialista-in-amministrazione-vz-vermogenszentrum-zurich-zurich",
-          "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
-          "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
-          "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
-          "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
-        ],
-        "en": [
-          "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich"
-        ],
-        "fr": [
-          "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
-          "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich"
+          "private-clients-consultant-vz-vermoegenszentrum-ch-2"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-underwriting-80-100-vz-vermogenszentrum-zurich",
-        "fachspezialist-in-underwriting-80-100-vz-vermoegenszentrum-ch",
-        "fachspezialist-in-underwriting-vz-vermoegenszentrum-ch",
-        "specialista-in-amministrazione-vz-vermogenszentrum-zurich-zurich",
-        "specialist-in-securities-administration-vz-vermogenszentrum-zurich-zurich",
-        "spezialist-in-wertschriftenadministration-vz-vermoegenszentrum-ch",
-        "specialiste-administration-des-valeurs-mobilieres-vz-vermogenszentrum-zurich-zurich",
-        "spezialist-in-wertschriftenadministration-vz-vermogenszentrum-zurich"
+        "private-clients-consultant-vz-vermoegenszentrum-ch-2"
       ],
-      "firstSeenAt": "2026-07-04T12:46:45.786Z",
-      "salaryMin": 79000,
-      "salaryMax": 131000,
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 131000,
+          "minValue": 113000,
+          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },
-      "datePosted": "2026-05-04T14:18:22Z",
-      "postingDateSource": "reported",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "vz-vermoegenszentrum-e298ff4a0d55",
-      "slug": "payroll-manager-clienti-aziendali-vz-vermogenszentrum-zurich-zurich",
-      "slugByLocale": {
-        "it": "payroll-manager-clienti-aziendali-vz-vermogenszentrum-zurich-zurich",
-        "en": "payroll-manager-corporate-clients-vz-vermogenszentrum-zurich-zurich",
-        "de": "payroll-manager-firmenkunden-vz-vermoegenszentrum-ch",
-        "fr": "gestionnaire-de-la-paie-clients-ministeriels-vz-vermogenszentrum-zurich-zurich"
-      },
-      "company": "VZ VermögensZentrum",
-      "companyKey": "vz-vermoegenszentrum",
-      "companyDomain": "vermoegenszentrum.ch",
-      "title": "Payroll Manager – Firmenkunden",
-      "titleByLocale": {
-        "it": "Payroll Manager – Clienti aziendali",
-        "en": "Payroll Manager – Corporate Clients",
-        "de": "Payroll Manager – Firmenkunden",
-        "fr": "Gestionnaire de la paie – Clients ministériels"
-      },
-      "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-      "descriptionByLocale": {
-        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Consigliamo individui e aziende di soldi, gestire le attività e offrire servizi finanziari attraenti. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi nella nostra sede di Paradeplatz a Zurigo.\n\n• Effettuate l'elaborazione mensile dei salari dei nostri clienti incl. amministrazione e fatturazione.\n\n• Si prende il controllo del vice del capo Payroll Services in loro assenza e progetti di supporto.\n\n• Aiuterai il team e i clienti come esperto in questioni riguardanti il libro paga, l'assicurazione sociale e il diritto del lavoro.\n\n• Condurre conti mensili e annuali in tutti i settori della sicurezza sociale e delle imposte.\n\n• Si assume la responsabilità di nuovi progetti e l'acquisizione dei clienti.\n\n• Contribuisci ad un ulteriore sviluppo e ottimizzazione dei processi, soprattutto attraverso iniziative di digitalizzazione.\n\n• Le risorse umane federali svizzere o il certificato di sicurezza sociale, l'ulteriore istruzione nel campo della sicurezza sociale e del diritto del lavoro sono vantaggiose\n\n• Esperienza approfondita nel libro paga\n\n• Desiderio sviluppare la zona e assumersi la responsabilità\n\n• Conoscenza sete e orientamento del cliente\n\n• Buona conoscenza IT e esperienza iniziale con Abacus\n\n• Stylistic fiducioso in tedesco e inglese, buona conoscenza del francese è un plus\n\n• Siamo orgogliosi della nostra cultura, che si concentra su uno scambio aperto: la vostra opinione conta, il feedback è desiderato, e si può partecipare allo sviluppo della nostra azienda unica.\n\n• Questa posizione è anche aperta per il lavoro part-time, in modo che ci sia tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n\n• Indagini sulla soddisfazione mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
-        "en": "VZ is the leading independent financial services provider in Switzerland. We advise individuals and companies about money, manage assets and offer attractive financial services. As we are growing strongly, we are looking for reinforcements at our headquarters at Paradeplatz in Zurich.\n\n• You carry out the monthly wage processing of our customers incl. administration and billing.\n\n• You take over the deputy from Head Payroll Services in their absence and support projects.\n\n• You will assist the team and customers as an expert in questions regarding payroll, social insurance and employment law.\n\n• You conduct monthly and year-end accounts in all areas of social security and taxes.\n\n• You take responsibility for new projects and the takeover of customers.\n\n• You contribute to further development and process optimization, especially through digitalization initiatives.\n\n• Swiss Federal HR or social security certificate, further education in the field of social security and employment law are advantageous\n\n• In-depth experience in payroll\n\n• Desire to develop the area and take responsibility\n\n• Knowledge thirst and customer orientation\n\n• Good IT knowledge and initial experience with Abacus\n\n• Stylistic confident in German and English, good knowledge of French is a plus\n\n• We are proud of our culture, which focuses on an open exchange: your opinion counts, feedback is desired, and you can participate in the development of our unique company.\n\n• This position is also open for part-time work, so that there is time for further education, family, sports and projects that are important to you.\n\n• Surveys on satisfaction regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
-        "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous conseillons les particuliers et les entreprises sur l'argent, gérons les actifs et offrons des services financiers attrayants. Alors que nous croissons fortement, nous cherchons des renforts à notre siège de Paradeplatz à Zurich.\n\n• Vous effectuez le traitement mensuel des salaires de nos clients, y compris l'administration et la facturation.\n\n• Vous remplacez l'adjoint des Services de la paye en leur absence et en soutien de projets.\n\n• Vous assisterez l'équipe et les clients en tant qu'expert en matière de rémunération, d'assurance sociale et de droit du travail.\n\n• Vous réalisez des comptes mensuels et de fin d'année dans tous les domaines de la sécurité sociale et des impôts.\n\n• Vous assumez la responsabilité de nouveaux projets et la prise de contrôle des clients.\n\n• Vous contribuez au développement et à l'optimisation des processus, notamment par des initiatives de numérisation.\n\n• Certificat fédéral de ressources humaines ou de sécurité sociale, formation complémentaire dans le domaine de la sécurité sociale et du droit du travail\n\n• Expérience approfondie en matière de paie\n\n• Désir de développer la zone et d'assumer la responsabilité\n\n• Connaissance de la soif et orientation client\n\n• Bonnes connaissances en TI et expérience initiale avec Abacus\n\n• Styliste confiant en allemand et en anglais, bonne connaissance du français est un plus\n\n• Nous sommes fiers de notre culture, qui se concentre sur un échange ouvert : votre opinion compte, votre rétroaction est souhaitée, et vous pouvez participer au développement de notre entreprise unique.\n\n• Ce poste est également ouvert au travail à temps partiel, de sorte qu'il y a du temps pour l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n\n• Les enquêtes sur la satisfaction montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.vermoegenszentrum.ch/offene-stellen/payroll-manager-firmenkunden/b2b9444b-d2f1-4e5f-85a1-686041522e81",
-      "source": "VZ VermögensZentrum Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-05T09:20:44.037Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "Zürich",
-      "streetAddress": "Gotthardstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Clienti Corporate",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Wealth Management",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24T22:00:00Z",
-      "applyUrl": "https://app.jobportal.abaservices.ch/application-process/JobportalVZ/254604a2-c53a-2fe2-9a47-af3ae342570d?jp=ABACUS",
-      "requirements": [
-        "• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil",
-        "• Fundierte Erfahrung im Bereich Payroll",
-        "• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen",
-        "• Wissensdurst und Kundenorientierung",
-        "• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus",
-        "• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Fundierte Erfahrung im Bereich Payroll",
-          "• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen",
-          "• Wissensdurst und Kundenorientierung",
-          "• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus",
-          "• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt"
-        ]
-      },
-      "previousSlugs": [
-        "payroll-manager-firmenkunden-vz-vermoegenszentrum-ch",
-        "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "payroll-manager-firmenkunden-vz-vermoegenszentrum-ch",
-          "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
-        ],
-        "en": [
-          "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
-        ],
-        "fr": [
-          "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-25T09:54:04.863Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "datePosted": "2026-08-24T22:00:00Z",
-      "postingDateSource": "reported",
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-07-10T22:31:21.324Z"
     }
   ]
 }

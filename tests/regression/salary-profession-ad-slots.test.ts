@@ -61,11 +61,16 @@ describe('salary/profession SSG landing ad slots', () => {
         locale: 'it', cantonKey: 'ZH', id: 'infermiere', snapshot: SNAPSHOT, distDir: '',
       }).html,
     );
-    expectDataFirstAdContract(
-      renderProfessionCityPage({
-        locale: 'it', cityKey: 'lugano', id: 'infermiere', snapshot: SNAPSHOT, distDir: '',
-      }).html,
-    );
+    const professionCity = renderProfessionCityPage({
+      locale: 'it', cityKey: 'lugano', id: 'infermiere', snapshot: SNAPSHOT, distDir: '',
+    }).html;
+    // The leaf no longer carries the shared city-hub prose. With this sparse
+    // fixture the static-ad safety ratio intentionally omits the end
+    // multiplex instead of emitting a manual slot on thin visible content.
+    expect(renderedSlots(professionCity)).toEqual([
+      AD_SLOTS.FT_DRIVEBY_ATF_DISPLAY.slot,
+      AD_SLOTS.ARTICLE_INLINE_MOBILE.slot,
+    ]);
     expectDataFirstAdContract(
       __renderFrSalaireNetPageForTest({ distDir: '', dateStamp: '2026-09-27' }).html,
     );

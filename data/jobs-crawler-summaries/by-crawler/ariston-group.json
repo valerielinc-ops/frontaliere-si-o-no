@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-10-06T09:44:31.192Z",
+  "generatedAt": "2026-10-06T21:41:29.590Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 6968,
-  "avgDurationMs": 6968,
+  "durationMs": 6844,
+  "avgDurationMs": 6844,
   "durationHistory": [
-    6968
+    6844
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -126,9 +126,9 @@
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
       "salarySource": "reported",
       "sourceIdentity": "url:https://careers.aristongroup.com/job/rothenburg-servicetechniker-%c3%96lgas-atmo-%28mw%29-roth-6023/1365907133",
-      "needsRetranslation": true,
       "datePosted": "",
       "postingDateSource": "unknown",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -463,5 +463,5 @@
       }
     }
   ],
-  "codeCommit": "0c3994e6ee47c63d84ee63900e27f12772dfffc3"
+  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
 }

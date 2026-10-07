@@ -1,6 +1,6 @@
 {
   "crawlerKey": "saint-gobain-weber-isover",
-  "assembledAt": "2026-10-06T09:43:08.760Z",
+  "assembledAt": "2026-10-06T21:38:17.169Z",
   "jobs": [
     {
       "id": "saint-gobain-weber-isover-83fbeed91d21",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/51f7101d-3a03-432c-acc6-c6a10ef559f7/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:43:01.446Z",
+      "crawledAt": "2026-10-06T21:38:07.753Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "source": "Saint-Gobain Weber/Isover Suisse Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:43:00.387Z",
+      "crawledAt": "2026-10-06T21:38:06.682Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,6 +137,20 @@
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/4c52349a-75f6-4f9c-87ca-db1a9bf5a083/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ],
+        "en": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ],
+        "fr": [
+          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
+        ]
+      },
       "firstSeenAt": "2026-10-03T09:29:51.331Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -150,21 +164,7 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
-        ],
-        "en": [
-          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
-        ],
-        "fr": [
-          "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "instandhalter-in-80-100-saint-gobain-weber-isover-winterthur"
-      ]
+      }
     }
   ]
 }

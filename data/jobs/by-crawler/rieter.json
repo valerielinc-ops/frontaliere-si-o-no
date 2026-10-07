@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-10-06T09:12:54.950Z",
+  "assembledAt": "2026-10-06T21:16:40.896Z",
   "jobs": [
     {
       "id": "rieter-b1e3b5b7acde",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Trainer-Customer-Training--4076949",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:45.288Z",
+      "crawledAt": "2026-10-06T21:16:28.530Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -113,7 +113,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-System-Engineer-100-wmd---4065731",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:44.181Z",
+      "crawledAt": "2026-10-06T21:16:27.743Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -180,7 +180,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Security-Engineer--4066616",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:42.875Z",
+      "crawledAt": "2026-10-06T21:16:27.054Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -247,7 +247,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:41.851Z",
+      "crawledAt": "2026-10-06T21:16:26.381Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -341,7 +341,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4065727",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:40.472Z",
+      "crawledAt": "2026-10-06T21:16:25.709Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -419,7 +419,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Export-Sachbearbeiter-in-80-100-12-Monate-befristet--4073960",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:39.524Z",
+      "crawledAt": "2026-10-06T21:16:25.038Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -483,7 +483,7 @@
       "companyDomain": "rieter.com",
       "title": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 60%-100%",
       "titleByLocale": {
-        "it": "Amministratore di Sistema ERP e Specialista di Processo (m/f/d) 60%-100%",
+        "it": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 60%-100%",
         "en": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 60%-80%",
         "de": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 60%-100%",
         "fr": "ERP System Administrator/in & Prozess Spezialist (m/w/d) 60%-80%"
@@ -500,7 +500,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/ERP-System-Administratorin-Prozess-Spezialist-mwd-60-100--4079319",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:38.506Z",
+      "crawledAt": "2026-10-06T21:16:24.331Z",
       "addressLocality": "Winterthur/ Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -520,6 +520,16 @@
       "jobReqId": "2606151538st",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "erp-system-administrator-in-prozess-spezialist-m-w-d-60-80-rieter-winterthur-wadenswil",
+        "erp-system-administrator-in-prozess-spezialist-m-w-d-60-100-rieter-winterthur-wadenswil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "erp-system-administrator-in-prozess-spezialist-m-w-d-60-80-rieter-winterthur-wadenswil",
+          "erp-system-administrator-in-prozess-spezialist-m-w-d-60-100-rieter-winterthur-wadenswil"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-04T09:14:56.179Z",
       "salaryMin": 113000,
@@ -534,15 +544,7 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "erp-system-administrator-in-prozess-spezialist-m-w-d-60-80-rieter-winterthur-wadenswil"
-        ]
-      },
-      "previousSlugs": [
-        "erp-system-administrator-in-prozess-spezialist-m-w-d-60-80-rieter-winterthur-wadenswil"
-      ]
+      }
     },
     {
       "id": "rieter-cc5f3e91984c",
@@ -575,7 +577,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Business-Controller-EMEA-and-Americas--4071513",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:37.062Z",
+      "crawledAt": "2026-10-06T21:16:23.649Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -623,9 +625,9 @@
       "id": "rieter-4cf9d8820a99",
       "slug": "azienda-elettricista-installatore-elettrico-m-f-d-80-100-rieter-rapperswil",
       "slugByLocale": {
-        "de": "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil",
         "it": "azienda-elettricista-installatore-elettrico-m-f-d-80-100-rieter-rapperswil",
         "en": "company-electrician-electrical-installer-m-f-d-80-100-rieter-rapperswil",
+        "de": "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil",
         "fr": "entreprise-electricienne-installateur-electrique-h-f-d-80-100-rieter-rapperswil"
       },
       "company": "Rieter",
@@ -633,16 +635,16 @@
       "companyDomain": "rieter.com",
       "title": "Betriebselektriker / Elektromonteur (m/w/d) 80-100%",
       "titleByLocale": {
-        "de": "Betriebselektriker / Elektromonteur (m/w/d) 80-100%",
-        "fr": "Entreprise Électricienne / Installateur électrique (h/f/d) 80-100 %",
         "it": "Azienda Elettricista / Installatore elettrico (m/f/d) 80-100 %",
-        "en": "Company Electrician / Electrical Installer (m/f/d) 80-100 %"
+        "en": "Company Electrician / Electrical Installer (m/f/d) 80-100 %",
+        "de": "Betriebselektriker / Elektromonteur (m/w/d) 80-100%",
+        "fr": "Entreprise Électricienne / Installateur électrique (h/f/d) 80-100 %"
       },
       "description": "Graf + Cie AG, weltweit führender Anbieter von Garnituren und Kämmen für Kardier- und Kämmmaschinen im Kurz- und Langstapelspinnen sowie für Produzenten und Maschinenbauer zur Herstellung von Textilverbundstoffen (Nonwovens), ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Rapperswil bietet Graf Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Kernkompetenzen des Unternehmens liegen in der Herstellung von flexiblen Deckelgarnituren, Ganzstahlgarnituren für Karden und Krempeln, im Know-how in der Metallurgie und in der präzisen Stahlverarbeitung. Die hohe Fertigungstiefe von Graf ist das Fundament für die überragende Qualität der Produkte und Dienstleistungen.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nDas ist Ihr Job\n\n• In dieser vielseitigen Funktion stellen Sie den zuverlässigen Betrieb unserer elektrischen Anlagen und Einrichtungen sicher. Zu Ihren Hauptaufgaben gehören:\n\n• Unterhalt und Wartung der elektrischen Anlagen und Installationen\n\n• Selbständige Behebung von Störungen sowie Durchführung von Reparaturen und Servicearbeiten an Sicherheitseinrichtungen sowie an der Haus- und Betriebstechnik\n\n• Arbeiten an Starkstromanlagen, Haus- und Industrieinstallationen, Steuerungstechnik sowie Telefonanlagen\n\n• Planung und Umsetzung von Elektroinstallationen\n\n• Aufbau und Realisierung von Prototypensteuerungen nach technischen Vorgaben\n\n• Pflege und Aktualisierung der elektrischen Dokumentationen\n\n• Unterstützung bei technischen Optimierungen und Weiterentwicklungen unserer Anlagen und Infrastruktur\n\nDas bringen Sie mit\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Elektromonteur / Elektroinstallateur EFZ und bringen idealerweise eine Weiterbildung bzw. Zulassung als Betriebselektriker sowie praktische Erfahrung im industriellen Umfeld mit. Wir schätzen Erfahrung: Auch erfahrene Fachkräfte und Bewerberinnen und Bewerber 50+ sind bei uns herzlich willkommen.\n\n• Darüber hinaus zeichnen Sie sich aus durch:\n\n• Eine selbständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Gute Kommunikations- und Teamfähigkeit\n\n• Freude an vielseitigen technischen Aufgaben und an der Zusammenarbeit mit unterschiedlichen Ansprechpartnern\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Gute IT-Anwenderkenntnisse\n\nUnser Angebot\n\n• Wir bieten Ihnen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem internationalen Industrieunternehmen mit kurzen Entscheidungswegen und Raum für Eigeninitiative.\n\n• Sie profitieren von:\n\n• Einer vielseitigen und technisch anspruchsvollen Aufgabe mit Gestaltungsspielraum\n\n• Einem modernen und internationalen Arbeitsumfeld\n\n• Fortschrittlichen Anstellungsbedingungen\n\n• Einer langfristigen Perspektive in einem etablierten Unternehmen\n\n• Einem kollegialen und angenehmen Arbeitsklima\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Production\n\nLevel: Berufserfahrene",
       "descriptionByLocale": {
-        "de": "Graf + Cie AG, weltweit führender Anbieter von Garnituren und Kämmen für Kardier- und Kämmmaschinen im Kurz- und Langstapelspinnen sowie für Produzenten und Maschinenbauer zur Herstellung von Textilverbundstoffen (Nonwovens), ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Rapperswil bietet Graf Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Kernkompetenzen des Unternehmens liegen in der Herstellung von flexiblen Deckelgarnituren, Ganzstahlgarnituren für Karden und Krempeln, im Know-how in der Metallurgie und in der präzisen Stahlverarbeitung. Die hohe Fertigungstiefe von Graf ist das Fundament für die überragende Qualität der Produkte und Dienstleistungen.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nDas ist Ihr Job\n\n• In dieser vielseitigen Funktion stellen Sie den zuverlässigen Betrieb unserer elektrischen Anlagen und Einrichtungen sicher. Zu Ihren Hauptaufgaben gehören:\n\n• Unterhalt und Wartung der elektrischen Anlagen und Installationen\n\n• Selbständige Behebung von Störungen sowie Durchführung von Reparaturen und Servicearbeiten an Sicherheitseinrichtungen sowie an der Haus- und Betriebstechnik\n\n• Arbeiten an Starkstromanlagen, Haus- und Industrieinstallationen, Steuerungstechnik sowie Telefonanlagen\n\n• Planung und Umsetzung von Elektroinstallationen\n\n• Aufbau und Realisierung von Prototypensteuerungen nach technischen Vorgaben\n\n• Pflege und Aktualisierung der elektrischen Dokumentationen\n\n• Unterstützung bei technischen Optimierungen und Weiterentwicklungen unserer Anlagen und Infrastruktur\n\nDas bringen Sie mit\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Elektromonteur / Elektroinstallateur EFZ und bringen idealerweise eine Weiterbildung bzw. Zulassung als Betriebselektriker sowie praktische Erfahrung im industriellen Umfeld mit. Wir schätzen Erfahrung: Auch erfahrene Fachkräfte und Bewerberinnen und Bewerber 50+ sind bei uns herzlich willkommen.\n\n• Darüber hinaus zeichnen Sie sich aus durch:\n\n• Eine selbständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Gute Kommunikations- und Teamfähigkeit\n\n• Freude an vielseitigen technischen Aufgaben und an der Zusammenarbeit mit unterschiedlichen Ansprechpartnern\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Gute IT-Anwenderkenntnisse\n\nUnser Angebot\n\n• Wir bieten Ihnen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem internationalen Industrieunternehmen mit kurzen Entscheidungswegen und Raum für Eigeninitiative.\n\n• Sie profitieren von:\n\n• Einer vielseitigen und technisch anspruchsvollen Aufgabe mit Gestaltungsspielraum\n\n• Einem modernen und internationalen Arbeitsumfeld\n\n• Fortschrittlichen Anstellungsbedingungen\n\n• Einer langfristigen Perspektive in einem etablierten Unternehmen\n\n• Einem kollegialen und angenehmen Arbeitsklima\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Production\n\nLevel: Berufserfahrene",
         "it": "Graf + Cie AG, fornitore leader mondiale di abbigliamento e pettini per cardatura e pettinatura per filatura a corto e lungo collo, nonché per produttori e ingegneri meccanici per la produzione di compositi tessili (non tessuti), è una filiale del Gruppo Rieter. Con sede a Rapperswil, Svizzera, Graf offre un valore aggiunto ai propri clienti con conoscenze di settore altamente sviluppate, soluzioni innovative, servizi post-vendita eccellenti e una presenza globale. Le principali competenze dell'azienda si trovano nella produzione di abbigliamento piatto flessibile, abbigliamento all-steel per cardatura e cardatura, in know-how nella metallurgia e nella lavorazione dell'acciaio precisa. L’elevata profondità produttiva di Graf è la base per la qualità superiore dei prodotti e dei servizi.\n\nHai il potere, sei versatile e orientato al servizio e all'obiettivo? Ti piace lavorare in un team, sei curioso e trovare sempre modi innovativi per raggiungere il tuo obiettivo? Allora si adatta perfettamente a noi e può rafforzare il nostro team come\n\nQuesto è il tuo lavoro.\n\n• In questa versatile funzione, assicurate il funzionamento affidabile dei nostri sistemi elettrici e impianti. I loro compiti principali includono:\n\n• Manutenzione e manutenzione di impianti elettrici e impianti\n\n• Rettifica indipendente di guasti, nonché l'esecuzione di riparazioni e lavori di manutenzione su dispositivi di sicurezza, nonché sulla tecnologia domestica e operativa\n\n• Lavori su centrali elettriche, impianti domestici e industriali, tecnologia di controllo e sistemi telefonici\n\n• Pianificazione e realizzazione di impianti elettrici\n\n• Costruzione e realizzazione di prototipi di controllo secondo specifiche tecniche\n\n• Manutenzione e aggiornamento della documentazione elettrica\n\n• Supporto per le ottimizzazioni tecniche e ulteriori sviluppi dei nostri impianti e infrastrutture\n\nEcco cosa portano con loro.\n\n• Hai completato la formazione come installatore elettrico / installatore elettrico EFZ e portare idealmente un'ulteriore formazione o formazione. Approvazione come elettricista aziendale e esperienza pratica nell'ambiente industriale. Apprezziamo l'esperienza: specialisti esperti e candidati 50+ sono anche benvenuti.\n\n• Inoltre, sono caratterizzati da:\n\n• Un metodo di lavoro indipendente, affidabile e orientato alla soluzione\n\n• Buona comunicazione e competenze di squadra\n\n• Godere di una vasta gamma di compiti tecnici e lavorare con diversi contatti\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\n• Buona conoscenza degli utenti IT\n\nLa nostra offerta\n\n• Vi offriamo un lavoro vario e responsabile in un'azienda industriale internazionale con brevi percorsi decisionali e spazio per l'auto-iniziativa.\n\n• Essi beneficiano di:\n\n• Un compito versatile e tecnicamente impegnativo con lo scopo di progettare\n\n• Un ambiente di lavoro moderno e internazionale\n\n• Condizioni di occupazione progressiva\n\n• Una prospettiva a lungo termine in una società consolidata\n\n• Un'atmosfera collegiale e piacevole\n\nTi senti indirizzato? Se ti riconosci in questo profilo e vuoi partecipare a una squadra di successo, non vediamo l'ora di incontrarti presto. Potete inviarci i vostri documenti applicativi completi esclusivamente online.\n\nArea di produzione\n\nLivello: professionisti esperti",
         "en": "Graf + Cie AG, the world’s leading supplier of clothing and combs for carding and combing machines for short-stack and long-stack spinning as well as for manufacturers and mechanical engineers for the production of textile composites (Nonwovens), is a subsidiary of the Rieter Group. Headquartered in Rapperswil, Switzerland, Graf offers added value to its customers with highly developed industry knowledge, innovative solutions, excellent after-sales services and a global presence. The core competencies of the company lie in the production of flexible flat clothing, all-steel clothing for carding and carding, in know-how in metallurgy and in precise steel processing. Graf’s high production depth is the foundation for the superior quality of products and services.\n\nYou have power, are versatile and service- and goal-oriented? Do you like working in a team, are curious and always find innovative ways to reach your goal? Then you fit perfectly with us and can strengthen our team as\n\nThis is your job\n\n• In this versatile function, you ensure the reliable operation of our electrical systems and facilities. Their main tasks include:\n\n• Maintenance and maintenance of electrical equipment and installations\n\n• Independent rectification of faults as well as carrying out repairs and servicing work on safety devices as well as on home and operating technology\n\n• Work on power plants, home and industrial installations, control technology and telephone systems\n\n• Planning and implementation of electrical installations\n\n• Construction and implementation of prototype controls according to technical specifications\n\n• Maintenance and updating of electrical documentation\n\n• Support for technical optimizations and further developments of our plants and infrastructure\n\nThis is what they bring with them.\n\n• You have completed training as an electric installer / electric installer EFZ and ideally bring a further education or training. Approval as a company electrician and practical experience in the industrial environment. We value experience: Experienced specialists and applicants 50+ are also welcome.\n\n• In addition, they are characterized by:\n\n• An independent, reliable and solution-oriented working method\n\n• Good communication and team skills\n\n• Enjoying a wide range of technical tasks and working with different contacts\n\n• Good knowledge of German in words and writing\n\n• Good IT user knowledge\n\nOur offer\n\n• We offer you a varied and responsible work in an international industrial company with short decision-making paths and space for self-initiative.\n\n• They benefit from:\n\n• A versatile and technically demanding task with scope for design\n\n• A modern and international working environment\n\n• Progressive conditions of employment\n\n• A long-term perspective in an established company\n\n• A collegiate and pleasant working atmosphere\n\nDo you feel addressed? If you recognize yourself in this profile and would like to participate in a successful team, we look forward to meeting you soon. You can send us your complete application documents exclusively online.\n\nArea: Production\n\nLevel: Experienced professionals",
+        "de": "Graf + Cie AG, weltweit führender Anbieter von Garnituren und Kämmen für Kardier- und Kämmmaschinen im Kurz- und Langstapelspinnen sowie für Produzenten und Maschinenbauer zur Herstellung von Textilverbundstoffen (Nonwovens), ist eine Tochtergesellschaft des Rieter-Konzerns. Mit Hauptsitz im schweizerischen Rapperswil bietet Graf Mehrwert für seine Kunden mit hoch entwickeltem Branchenwissen, innovativen Lösungen, ausgezeichneten Leistungen im After-Sales-Bereich und einer globalen Präsenz. Die Kernkompetenzen des Unternehmens liegen in der Herstellung von flexiblen Deckelgarnituren, Ganzstahlgarnituren für Karden und Krempeln, im Know-how in der Metallurgie und in der präzisen Stahlverarbeitung. Die hohe Fertigungstiefe von Graf ist das Fundament für die überragende Qualität der Produkte und Dienstleistungen.\n\nSie haben Power, sind vielseitig einsetzbar sowie dienstleistungs- und zielorientiert? Sie arbeiten gerne in einem Team, sind neugierig und finden immer wieder innovative Wege, um an Ihr Ziel zu gelangen? Dann passen Sie perfekt zu uns und können unser Team stärken als\n\nDas ist Ihr Job\n\n• In dieser vielseitigen Funktion stellen Sie den zuverlässigen Betrieb unserer elektrischen Anlagen und Einrichtungen sicher. Zu Ihren Hauptaufgaben gehören:\n\n• Unterhalt und Wartung der elektrischen Anlagen und Installationen\n\n• Selbständige Behebung von Störungen sowie Durchführung von Reparaturen und Servicearbeiten an Sicherheitseinrichtungen sowie an der Haus- und Betriebstechnik\n\n• Arbeiten an Starkstromanlagen, Haus- und Industrieinstallationen, Steuerungstechnik sowie Telefonanlagen\n\n• Planung und Umsetzung von Elektroinstallationen\n\n• Aufbau und Realisierung von Prototypensteuerungen nach technischen Vorgaben\n\n• Pflege und Aktualisierung der elektrischen Dokumentationen\n\n• Unterstützung bei technischen Optimierungen und Weiterentwicklungen unserer Anlagen und Infrastruktur\n\nDas bringen Sie mit\n\n• Sie verfügen über eine abgeschlossene Ausbildung als Elektromonteur / Elektroinstallateur EFZ und bringen idealerweise eine Weiterbildung bzw. Zulassung als Betriebselektriker sowie praktische Erfahrung im industriellen Umfeld mit. Wir schätzen Erfahrung: Auch erfahrene Fachkräfte und Bewerberinnen und Bewerber 50+ sind bei uns herzlich willkommen.\n\n• Darüber hinaus zeichnen Sie sich aus durch:\n\n• Eine selbständige, zuverlässige und lösungsorientierte Arbeitsweise\n\n• Gute Kommunikations- und Teamfähigkeit\n\n• Freude an vielseitigen technischen Aufgaben und an der Zusammenarbeit mit unterschiedlichen Ansprechpartnern\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\n• Gute IT-Anwenderkenntnisse\n\nUnser Angebot\n\n• Wir bieten Ihnen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem internationalen Industrieunternehmen mit kurzen Entscheidungswegen und Raum für Eigeninitiative.\n\n• Sie profitieren von:\n\n• Einer vielseitigen und technisch anspruchsvollen Aufgabe mit Gestaltungsspielraum\n\n• Einem modernen und internationalen Arbeitsumfeld\n\n• Fortschrittlichen Anstellungsbedingungen\n\n• Einer langfristigen Perspektive in einem etablierten Unternehmen\n\n• Einem kollegialen und angenehmen Arbeitsklima\n\nFühlen Sie sich angesprochen? Falls Sie sich in diesem Profil wiedererkennen und in einem erfolgreichen Team mitwirken möchten, freuen wir uns Sie bald kennen zu lernen. Ihre vollständigen Bewerbungsunterlagen senden Sie uns ausschliesslich online.\n\nBereich: Production\n\nLevel: Berufserfahrene",
         "fr": "Graf + Cie AG, leader mondial de l'habillement et des peignes pour cardeuses et peigneuses pour la filature courte et longue portée ainsi que pour les fabricants et les ingénieurs mécaniques pour la production de composites textiles (Nontissés), est une filiale du groupe Rieter. Basé à Rapperswil, en Suisse, Graf offre une valeur ajoutée à ses clients avec des connaissances industrielles hautement développées, des solutions innovantes, d'excellents services après-vente et une présence mondiale. Les compétences essentielles de l'entreprise sont la production de vêtements plats flexibles, de vêtements tout acier pour le cardage et le cardage, de savoir-faire en métallurgie et dans le traitement précis de l'acier. La haute profondeur de production de Graf est le fondement de la qualité supérieure des produits et des services.\n\nVous avez de la puissance, êtes-vous polyvalent et axé sur le service et le but? Vous aimez travailler en équipe, êtes curieux et trouvez toujours des façons novatrices d'atteindre votre objectif? Alors vous vous adaptez parfaitement à nous et peut renforcer notre équipe comme\n\nC'est ton boulot.\n\n• Dans cette fonction polyvalente, vous assurez le fonctionnement fiable de nos systèmes et installations électriques. Leurs principales tâches sont les suivantes :\n\n• Entretien et entretien du matériel et des installations électriques\n\n• Rectification indépendante des défauts ainsi que des travaux de réparation et d'entretien sur les dispositifs de sécurité ainsi que sur la technologie de la maison et de l'exploitation\n\n• Travaux sur les centrales électriques, les installations domestiques et industrielles, la technologie de contrôle et les systèmes téléphoniques\n\n• Planification et mise en œuvre des installations électriques\n\n• Construction et mise en œuvre de contrôles prototypes selon les spécifications techniques\n\n• Entretien et mise à jour de la documentation électrique\n\n• Soutien aux optimisations techniques et développements ultérieurs de nos installations et infrastructures\n\nC'est ce qu'ils apportent.\n\n• Vous avez terminé la formation en tant qu'installateur électrique / installateur électrique EFZ et idéalement apporter une formation supplémentaire. Approbation en tant qu'électricien d'entreprise et expérience pratique dans l'environnement industriel. Nous apprécions l'expérience : les spécialistes expérimentés et les candidats 50+ sont également les bienvenus.\n\n• En outre, ils se caractérisent par:\n\n• Une méthode de travail indépendante, fiable et orientée vers la solution\n\n• Bonnes compétences en communication et en équipe\n\n• Profiter d'un large éventail de tâches techniques et travailler avec différents contacts\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\n• Bonne connaissance de l'utilisateur informatique\n\nNotre offre\n\n• Nous vous offrons un travail varié et responsable dans une entreprise industrielle internationale avec de courts chemins de décision et un espace pour l'auto-initiative.\n\n• Ils bénéficient:\n\n• Une tâche polyvalente et techniquement exigeante avec des possibilités de conception\n\n• Un environnement de travail moderne et international\n\n• Conditions d'emploi progressives\n\n• Une perspective à long terme dans une société établie\n\n• Une atmosphère de travail collégiale et agréable\n\nVous sentez-vous adressé ? Si vous vous reconnaissez dans ce profil et souhaitez participer à une équipe réussie, nous sommes impatients de vous rencontrer bientôt. Vous pouvez nous envoyer vos documents de candidature en ligne.\n\nDomaine: Production\n\nNiveau: Professionnels expérimentés"
       },
       "location": "Rapperswil",
@@ -650,7 +652,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Betriebselektriker-Elektromonteur-mwd-80-100--4080292",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-06T09:12:35.500Z",
+      "crawledAt": "2026-10-06T21:16:22.962Z",
       "addressLocality": "Rapperswil Switzerland",
       "addressRegion": "SG",
       "streetAddress": "Bildaustrasse 6",
@@ -670,9 +672,22 @@
       "jobReqId": "2610060829ah",
       "employerBrand": "Head HR Graf Group GRAF + CIE AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
+        ],
+        "en": [
+          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
+        ],
+        "fr": [
+          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
+        ]
       },
+      "firstSeenAt": "2026-10-06T09:12:35.500Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -685,22 +700,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-06T09:12:35.500Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
-        ],
-        "en": [
-          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
-        ],
-        "fr": [
-          "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
-        ]
-      },
-      "previousSlugs": [
-        "betriebselektriker-elektromonteur-m-w-d-80-100-rieter-rapperswil"
-      ]
+      }
     },
     {
       "id": "rieter-f999ab569854",
@@ -733,7 +733,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4079315",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T09:12:34.708Z",
+      "crawledAt": "2026-10-06T21:16:22.168Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",

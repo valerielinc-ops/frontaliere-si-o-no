@@ -5,6 +5,8 @@ import { deflateRawSync, inflateRawSync } from 'node:zlib';
 
 import {
   AT_REGIONS_BY_CANTON,
+  DE_POINTS_BY_CANTON,
+  DE_SEARCH_RADIUS_KM,
   FR_DEPARTMENTS_BY_CANTON,
   GRANULARITIES,
   MIN_STATIONS_PER_RECORD,
@@ -23,11 +25,13 @@ import {
   parseFrenchTimestamp,
   parseItalianTimestamp,
   parseTankerkoenigStations,
+  sourceHealth,
   summarizePrices,
   validateFuelCantonsDataset,
 } from '../scripts/lib/fuel-cantons-dataset.mjs';
 import {
   fetchAustrianStations,
+  DE_REQUEST_INTERVAL_MS,
   fetchFrenchStations,
   fetchGermanStations,
   fetchSwissNationalFuelPrices,
@@ -296,11 +300,125 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     const secret = 'k3y-should-not-leak';
     const res = await fetchGermanStations({
       apiKey: secret,
-      retries: 1,
+      requestIntervalMs: 0,
       fetchImpl: (async (url: string) => { throw new Error(`boom ${url}`); }) as any,
     });
     expect(res.status).toBe('failed');
     expect(res.reason).not.toContain(secret);
+  });
+
+  it('stops after one ok:false response for a rejected or expired key', async () => {
+    for (const message of ['Key existiert nicht oder ist deaktiviert', 'API key expired']) {
+      let calls = 0;
+      const result = await fetchGermanStations({
+        apiKey: 'key-used-only-in-test',
+        requestIntervalMs: 0,
+        fetchImpl: (async () => {
+          calls += 1;
+          return okResponse({ ok: false, message });
+        }) as any,
+      });
+      expect(result).toMatchObject({ status: 'skipped' });
+      expect(result.reason).toContain('rejected');
+      expect(result.reason).toContain(message);
+      expect(calls).toBe(1);
+    }
+  });
+
+  it('drops a partial DE overlay when a later group rejects the key', async () => {
+    let calls = 0;
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => {
+        calls += 1;
+        if (calls === 1) return okResponse({ ok: true, stations: [{ id: 'first', e5: 1.8, diesel: 2.0 }] });
+        return okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' });
+      }) as any,
+    });
+    expect(result).toMatchObject({ status: 'skipped', data: {}, coverage: {} });
+    expect(calls).toBe(2);
+  });
+
+  it('uses one serialised request per DE group and exposes the active coverage', async () => {
+    const requests: URL[] = [];
+    const result = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async (url: string) => {
+        requests.push(new URL(url));
+        return okResponse({
+          ok: true,
+          stations: [0, 1, 2].map((i) => ({ id: `${requests.length}-${i}`, e5: 1.8 + i / 100, diesel: 2.0 + i / 100 })),
+        });
+      }) as any,
+    });
+    expect(DE_REQUEST_INTERVAL_MS).toBe(60_000);
+    expect(Object.keys(DE_POINTS_BY_CANTON)).toEqual(['BASILEA', 'AG', 'SH', 'TG', 'ZH', 'SG']);
+    expect(requests).toHaveLength(Object.keys(DE_POINTS_BY_CANTON).length);
+    expect(requests.every((url) => url.searchParams.get('rad') === String(DE_SEARCH_RADIUS_KM))).toBe(true);
+    expect(result.status).toBe('ok');
+    for (const canton of Object.keys(DE_POINTS_BY_CANTON)) {
+      expect(result.coverage[canton]).toMatchObject({ stations: 3, sp95: 3, diesel: 3 });
+    }
+
+    const dataset = await buildFromInput({}, {
+      fetchers: {
+        ch: async () => ({ status: 'ok', data: {
+          sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+          diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+        } }),
+        fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+        at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+        de: async () => result,
+      },
+    });
+    expect(dataset.health.de).toBe('ok');
+    expect(dataset.records.filter((record: any) => record.side === 'DE')).toHaveLength(12);
+    expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+  });
+
+  it('keeps the Swiss dataset valid when DE is missing, rejected, expired, or offline', async () => {
+    const fetchers = (de: any) => ({
+      ch: async () => ({ status: 'ok', data: {
+        sp95: { price: 2.02, observedAt: '2026-09-01T00:00:00.000Z' },
+        diesel: { price: 2.27, observedAt: '2026-09-01T00:00:00.000Z' },
+      } }),
+      fr: async () => ({ status: 'failed', reason: 'offline', data: [] }),
+      at: async () => ({ status: 'failed', reason: 'offline', data: {} }),
+      de: async () => de,
+    });
+    const rejected = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'Key existiert nicht oder ist deaktiviert' })) as any,
+    });
+    const expired = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => okResponse({ ok: false, message: 'API key expired' })) as any,
+    });
+    const offline = await fetchGermanStations({
+      apiKey: 'key-used-only-in-test',
+      requestIntervalMs: 0,
+      fetchImpl: (async () => { throw new Error('network offline'); }) as any,
+    });
+    const cases = [
+      { de: { status: 'skipped', reason: 'missing key', data: {} }, health: 'skipped' },
+      { de: rejected, health: 'skipped' },
+      { de: expired, health: 'skipped' },
+      { de: offline, health: 'failed:network offline' },
+    ];
+    for (const { de, health } of cases) {
+      const dataset = await buildFromInput({}, { fetchers: fetchers(de) });
+      if (health === 'failed:network offline') {
+        expect(dataset.health.de).toMatch(/^failed:.*network offline$/);
+      } else {
+        expect(dataset.health.de).toBe(health);
+      }
+      expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
+    }
+    expect(sourceHealth(offline)).toMatch(/^failed:.*network offline$/);
   });
 
   it('reads the Austrian regions and the French zip through the injected fetch', async () => {
@@ -405,6 +523,7 @@ describe('fuel cantons — producer CLI', () => {
       },
     });
     expect(dataset.records.filter((r: any) => r.side === 'CH')).toHaveLength(48);
+    expect(dataset.health.de).toBe('skipped');
     expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
   });
 });

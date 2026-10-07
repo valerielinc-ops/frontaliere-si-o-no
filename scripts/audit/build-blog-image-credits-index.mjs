@@ -9,6 +9,7 @@ import { coverKey, validateImageCreditRecord } from '../../packages/articles/eng
 const ROOT = process.cwd();
 const RECORD_DIR = path.join(ROOT, 'packages/articles/content/image-credits/blog');
 const OUTPUT = path.join(ROOT, 'data/image-credits-blog.json');
+const LEDGER = path.join(ROOT, 'data/blog-cover-ledger.json');
 const REGISTRIES = [
   'packages/articles/content/blog-articles-data.ts',
   'packages/articles/content/swiss-articles-data.ts',
@@ -29,6 +30,10 @@ function parseRegistry(file) {
 function readRecord(key) {
   const file = path.join(RECORD_DIR, `${key}.json`);
   if (!fs.existsSync(file)) return null;
+  return JSON.parse(fs.readFileSync(file, 'utf8'));
+}
+
+function readJson(file) {
   return JSON.parse(fs.readFileSync(file, 'utf8'));
 }
 
@@ -63,14 +68,38 @@ function generatedFile(record) {
 
 function main() {
   const keys = new Set(REGISTRIES.flatMap((file) => [...parseRegistry(file)]));
+  const ledger = readJson(LEDGER);
   const files = {};
   const covers = {};
   let generated = 0;
+  let inferred = 0;
   for (const key of [...keys].sort()) {
     const record = readRecord(key);
-    if (!record) continue;
+    if (!record) {
+      const item = ledger.covers?.[key];
+      if (item?.proofLevel === 6 && item.evidence === 'inferred' && item.verifiedAt) {
+        covers[key] = {
+          evidence: 'inferred',
+          provider: null,
+          verifiedAt: item.verifiedAt,
+          status: 'no-credit',
+        };
+        inferred += 1;
+      }
+      continue;
+    }
     const validation = validateImageCreditRecord(record);
     if (!validation.valid) throw new Error(`${key}: invalid record: ${validation.errors.join('; ')}`);
+    if (record.source === 'inferred') {
+      covers[key] = {
+        evidence: 'inferred',
+        provider: null,
+        verifiedAt: record.verifiedAt,
+        status: 'no-credit',
+      };
+      inferred += 1;
+      continue;
+    }
     const fileKey = record.source === 'generated-provider'
       ? `generated:${record.generated.assetId}`
       : record.commons.title;
@@ -90,7 +119,7 @@ function main() {
     covers,
   };
   fs.writeFileSync(OUTPUT, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
-  console.log(JSON.stringify({ covers: Object.keys(covers).length, files: Object.keys(files).length, generated, output: 'data/image-credits-blog.json' }, null, 2));
+  console.log(JSON.stringify({ covers: Object.keys(covers).length, files: Object.keys(files).length, generated, inferred, output: 'data/image-credits-blog.json' }, null, 2));
 }
 
 main();

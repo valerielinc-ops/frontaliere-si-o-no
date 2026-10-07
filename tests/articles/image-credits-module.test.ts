@@ -218,6 +218,27 @@ describe('generated article-hero image records', () => {
   });
 });
 
+describe('inferred cover records', () => {
+  const inferred = {
+    schema: 1,
+    cover: '/images/blog/inferred-cover.webp',
+    source: 'inferred',
+    evidence: 'inferred',
+    provider: null,
+    verifiedAt: '2026-10-07',
+    status: 'review',
+  } as unknown as ImageCreditRecord;
+
+  it('is a valid audit record without making a provider or licence claim', () => {
+    expect(validateImageCreditRecord(inferred)).toEqual({ valid: true, errors: [] });
+    expect(hasVisibleImageCredit(inferred)).toBe(false);
+    expect(imageObjectCreditFields(inferred)).toEqual({});
+    expect(imageCreditParts(inferred, 'it')).toBeNull();
+    expect(renderImageCreditHtml(inferred, 'it')).toBe('');
+    expect(mediaRssCreditXml(inferred, 'it')).toBe('');
+  });
+});
+
 describe('the design worked example (Locarno 1.jpg, CC BY-SA 3.0)', () => {
   it('is a valid schema-1 record', () => {
     expect(validateImageCreditRecord(locarno())).toEqual({ valid: true, errors: [] });
@@ -822,6 +843,22 @@ describe('createImageCreditReader', () => {
       expect(warn, label).toHaveBeenCalledTimes(1);
       expect(String(warn.mock.calls[0][0]), label).toContain(message);
     }
+  });
+
+  it('drops an inferred record silently: it is an audit record, not a credit claim', () => {
+    const warn = vi.fn();
+    const inferred = {
+      schema: 1,
+      cover: `/images/blog/${KEY}.webp`,
+      source: 'inferred',
+      evidence: 'inferred',
+      provider: null,
+      verifiedAt: '2026-10-07',
+      status: 'review',
+    };
+    const { fs } = memFs({ [`${CORPUS}/blog/${KEY}.json`]: JSON.stringify(inferred) });
+    expect(createImageCreditReader(fs, [CORPUS], { warn }).get(`/images/blog/${KEY}.webp`)).toBeNull();
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('never throws on an I/O error either', () => {

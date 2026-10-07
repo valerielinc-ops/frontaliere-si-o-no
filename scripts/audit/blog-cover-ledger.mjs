@@ -8,10 +8,11 @@
  *   node scripts/audit/blog-cover-ledger.mjs --write data/blog-cover-ledger.json
  *   node scripts/audit/blog-cover-ledger.mjs --json
  *
- * The first pass is deliberately conservative.  It can prove an existing
+ * The first pass is deliberately conservative. It can prove an existing
  * record, an exact duplicate of a recorded cover, or a newsroom byline that
- * came through the journalist path.  Everything else is marked inferred and
- * scheduled for replacement until a source-specific proof is added.
+ * came through the journalist path. Everything else is marked inferred and
+ * kept with an explicit no-credit record; only the bounded generated queue
+ * may replace a cover, and it always keeps the article's own URL.
  */
 
 import crypto from 'node:crypto';
@@ -30,7 +31,7 @@ const REGISTRIES = [
   { section: 'svizzera', file: 'packages/articles/content/swiss-articles-data.ts' },
 ];
 const RECORD_DIR = 'packages/articles/content/image-credits/blog';
-const GENERATED_AT = new Date().toISOString().slice(0, 10);
+const GENERATED_AT = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(new Date());
 
 function runGit(args, { input = undefined } = {}) {
   return new Promise((resolve, reject) => {
@@ -263,7 +264,12 @@ function readJsonIfPresent(file) {
 
 function repairPlan() {
   const plan = readJsonIfPresent(path.join(ROOT, 'data/blog-cover-replacements.json'));
-  return plan?.items && typeof plan.items === 'object' ? plan.items : {};
+  if (!plan?.items || typeof plan.items !== 'object') return {};
+  // Older plans contained fallback repointings. They are historical evidence,
+  // not an instruction: a new audit must never revive a cross-article target.
+  return Object.fromEntries(Object.entries(plan.items).filter(([, item]) => (
+    item?.mode === 'generated' && item.fromCover === item.toCover
+  )));
 }
 
 function trafficIndex() {
@@ -350,18 +356,18 @@ async function main() {
     const sourceMatch = !recordEntry && !exactDuplicate && !perceptualDuplicate ? sourceMatches[key] : null;
     const journalist = references.find((article) => article.authorSlug === 'samuele-valente');
     let proofLevel = 6;
-    let action = references.length ? 'replace-fallback' : 'retire-unpublished';
+    let action = references.length ? 'record-inferred' : 'retire-unpublished';
     let evidence = 'inferred';
     let recordFile = recordEntry?.record ? recordEntry.file : null;
     let inheritedFrom = null;
     let sourceProof = null;
     let reason = references.length
-      ? 'Nessun record o sorgente verificabile nel checkout storico; immagine da sostituire.'
+      ? 'Nessun record o sorgente verificabile nel checkout storico; copertina conservata con record inferred senza credito.'
       : 'Blob non più referenziato da un registro pubblicato.';
 
     if (repair) {
       proofLevel = Number(repair.proofLevel) || 6;
-      action = repair.mode === 'generated' ? 'replace-generated' : 'replace-fallback';
+      action = 'replace-generated';
       evidence = proofLevel === 5 ? 'journalist-author' : 'inferred';
       reason = repair.reason || reason;
     } else if (prior && Number.isInteger(prior.proofLevel) && prior.proofLevel !== 1) {
@@ -389,6 +395,10 @@ async function main() {
         }
       }
       if (prior.sourceProof) sourceProof = prior.sourceProof;
+      if (proofLevel === 6 && action === 'replace-fallback') {
+        action = 'record-inferred';
+        reason = 'Copertina senza prova certa; conservata con record inferred senza credito.';
+      }
     } else if (baselineRecord?.record) {
       proofLevel = 1;
       action = 'keep';
@@ -473,8 +483,8 @@ async function main() {
       evidence: 'missing-historical-blob',
       recordFile: null,
       inheritedFrom: null,
-      action: 'replace-fallback',
-      reason: 'Riferimento pubblicato senza blob storico nel checkout; sostituzione con una copertina già registrata.',
+      action: 'record-inferred',
+      reason: 'Riferimento pubblicato senza blob storico nel checkout; conservato con record inferred senza credito.',
       priority: Math.round(priority(references[0], traffic)),
     });
   }
