@@ -11,7 +11,7 @@ import {
   textWidth,
   wrapText,
 } from '../functions/src/assistedApplicationAiDocuments.js';
-import { buildFormAnswers, checkDraftFacts, ensureRequiredQuestions, salutationQuestion } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { buildFormAnswers, checkDraftFacts, ensureRequiredQuestions, salutationQuestion, splitName } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { documentsSystemPrompt, documentsUserText, matchSystemPrompt, matchUserText } from '../functions/src/assistedApplicationAiPrompts.js';
 import { permitOptions } from '../functions/src/lib/permitStatus.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
@@ -484,6 +484,33 @@ describe('job posting fetch', () => {
 });
 
 // umantis, 2026-10-03: «Title: Ms / Mr / Other» is required on the form and came back as a second round at submit time.
+describe('given names and surname for a form', () => {
+  it('keeps with the surname the particles that open it, and a given name for the first field', () => {
+    // A real order of 2026-10-07: the particle of the surname was typed in the form's first-name field.
+    const split = (name: string) => { const { firstName, lastName } = splitName(name); return `${firstName} | ${lastName}`; };
+    expect(split('Amina El Amrani')).toBe('Amina | El Amrani');
+    expect(split('Maria De Luca')).toBe('Maria | De Luca');
+    expect(split('Hans von Arx')).toBe('Hans | von Arx');
+    expect(split('Anna Maria van der Berg')).toBe('Anna Maria | van der Berg');
+    expect(split('Jean Pierre Le Goff')).toBe('Jean Pierre | Le Goff');
+    expect(split('Karim Ben Ali')).toBe('Karim | Ben Ali');
+    expect(split('Giulia Dalla Chiesa')).toBe('Giulia | Dalla Chiesa');
+    // Without a particle the last word is the surname, as before.
+    expect(split('Maria Luisa Rossi')).toBe('Maria Luisa | Rossi');
+    expect(split('Maria  Rossi ')).toBe('Maria | Rossi');
+    expect(split('Maria')).toBe('Maria | ');
+    expect(split('')).toBe(' | ');
+    // The first word is a given name even when it could be a particle: never a name without one.
+    expect(split('Ben Smith')).toBe('Ben | Smith');
+    expect(split('Al Di Meola')).toBe('Al | Di Meola');
+    expect(split('La Rosa')).toBe('La | Rosa');
+    // The form answers of a draft follow it; the split the candidate chose on the review page wins.
+    const fields = (identity: any) => Object.fromEntries(buildFormAnswers({ identity, profile: {}, documents: {}, answers: {}, locale: 'it' }).map((field: any) => [field.key, field.value]));
+    expect(fields({ name: 'Amina El Amrani', email: 'a@example.com', phone: '' })).toMatchObject({ firstName: 'Amina', lastName: 'El Amrani' });
+    expect(fields({ name: 'Amina El Amrani', firstName: 'Amina El', lastName: 'Amrani', email: 'a@example.com', phone: '' })).toMatchObject({ firstName: 'Amina El', lastName: 'Amrani' });
+  });
+});
+
 describe('form of address', () => {
   it('asks it on the first review of a portal application, optional and in the candidate’s language', () => {
     const portal = { type: 'employer_site', applyUrl: 'https://careers.example/vacancies/1' };

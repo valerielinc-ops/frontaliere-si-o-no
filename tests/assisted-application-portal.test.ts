@@ -352,6 +352,13 @@ describe('portal runner helpers', () => {
       portalQuestions: [{ id: 'portal_start_date', question: 'Start date?' }],
     });
     expect(candidate.identity).toMatchObject({ firstName: 'Maria Anna', lastName: 'Rossi', email: 'c-abcdefghjk@candidature.frontaliereticino.ch' });
+    // A surname keeps the particles that open it (a real order of 2026-10-07 typed the particle as a given
+    // name); the split the candidate chose on the review page wins.
+    const named = (identity: any) => candidateForForm({ identity: { email: 'a@example.com', phone: '', ...identity } }).identity;
+    expect(named({ name: 'Amina El Amrani' })).toMatchObject({ fullName: 'Amina El Amrani', firstName: 'Amina', lastName: 'El Amrani' });
+    expect(named({ name: 'Maria De Luca' })).toMatchObject({ firstName: 'Maria', lastName: 'De Luca' });
+    expect(named({ name: 'Amina El Amrani', firstName: 'Amina El', lastName: 'Amrani' })).toMatchObject({ firstName: 'Amina El', lastName: 'Amrani' });
+    expect(named({ name: 'Maria' })).toMatchObject({ firstName: 'Maria', lastName: '' });
     expect(candidate.identity.address).toEqual({ street: 'Via Roma 1', postalCode: '22100', city: 'Como', country: 'Italia' });
     expect(candidate.profile).toMatchObject({ nationality: 'italiana', dateOfBirth: '' });
     expect(candidate.portalQuestionsAnswered).toEqual([{ question: 'Start date?', answer: '1.12.2026' }]);
