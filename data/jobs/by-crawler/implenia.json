@@ -257,8 +257,8 @@
       "slugByLocale": {
         "de": "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch",
         "it": "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-o-opfikon-60-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
-        "en": "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch",
-        "fr": "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch"
+        "en": "project-management-real-estate-accounting-m-f-d-winterthur-or-opfikon-60-100-implenia-technikumstrasse-61-postfach-8400",
+        "fr": "gestion-de-projet-comptabilite-immobiliere-h-f-d-winterthur-ou-opfikon-60-100-implenia-technikumstrasse-61-postfach-8400"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -307,6 +307,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch"
+        ],
+        "en": [
+          "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch"
+        ],
+        "fr": [
           "projektleitung-immobilienbuchhaltung-m-w-d-winterthur-oder-opfikon-60-100-implenia-ch"
         ]
       },
@@ -2956,9 +2962,9 @@
       "slug": "iniziativbewerbung-implenia-opfikon",
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
-        "en": "own-initiative-application-implenia-opfikon",
+        "en": "initiativbewerbung-implenia-opfikon",
         "de": "initiativbewerbung-implenia-opfikon",
-        "fr": "demande-d-initiative-implenia-opfikon"
+        "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3012,11 +3018,9 @@
         ],
         "en": [
           "speculative-application-implenia-opfikon",
-          "initiativbewerbung-implenia-opfikon",
           "own-initiative-application-implenia-opfikon"
         ],
         "fr": [
-          "initiativbewerbung-implenia-ch",
           "demande-d-initiative-implenia-opfikon"
         ]
       },
@@ -3024,7 +3028,6 @@
         "initiativbewerbung-implenia-ch",
         "speculative-application-implenia-opfikon",
         "initiativebewerbung-implenia-opfikon",
-        "initiativbewerbung-implenia-opfikon",
         "own-initiative-application-implenia-opfikon",
         "demande-d-initiative-implenia-opfikon"
       ],

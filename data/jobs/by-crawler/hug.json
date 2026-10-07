@@ -1532,7 +1532,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1578,15 +1578,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve",
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
@@ -3534,12 +3532,12 @@
     },
     {
       "id": "hug-a2d313ef14b2",
-      "slug": "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve",
+      "slug": "mri-guidato-ultrasound-technician-40-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve",
-        "it": "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve",
-        "en": "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve",
-        "de": "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve"
+        "it": "mri-guidato-ultrasound-technician-40-hug-geneve",
+        "en": "mri-guided-ultrasound-technician-40-hug-geneve",
+        "de": "mrt-gefuhrter-ultraschalltechniker-40-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3598,7 +3596,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-07T09:24:13.342Z"
+      "firstSeenAt": "2026-10-07T09:24:13.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve"
+        ],
+        "de": [
+          "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-en-ultrasons-focalises-guides-par-irm-40-hug-geneve"
+      ]
     },
     {
       "id": "hug-eb9c4654ca7a",

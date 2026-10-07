@@ -3956,8 +3956,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich",
         "it": "mitarbeiterin-collaboratore-trice-kuche-m-w-d-100-universitatsklinik-balgrist-zurich",
-        "en": "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich"
+        "en": "employee-kitchen-m-f-d-100-universitatsklinik-balgrist-zurich",
+        "fr": "cuisine-pour-employes-h-f-d-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4006,6 +4006,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-kuche-m-w-d-100-balgrist-zurich"
         ]
       },

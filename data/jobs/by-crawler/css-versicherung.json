@@ -2364,9 +2364,9 @@
     },
     {
       "id": "css-versicherung-cbd110481c8d",
-      "slug": "kundenbetreuer-in-mit-erfahrung-im-kundenkontakt-80-100-css-versicherung-root-hybrid",
+      "slug": "account-manager-con-esperienza-nel-contatto-con-i-clienti-80-100-css-versicherung-root-hybrid",
       "slugByLocale": {
-        "it": "kundenbetreuer-in-mit-erfahrung-im-kundenkontakt-80-100-css-versicherung-root-hybrid",
+        "it": "account-manager-con-esperienza-nel-contatto-con-i-clienti-80-100-css-versicherung-root-hybrid",
         "en": "account-manager-with-experience-in-customer-contact-80-100-css-versicherung-root-hybrid",
         "de": "kundenbetreuer-in-mit-erfahrung-im-kundenkontakt-80-100-css-versicherung-root-hybrid",
         "fr": "conseiller-ere-a-la-clientele-ayant-de-l-experience-dans-le-contact-avec-la-clientele-80-100-css-versicherung-root"
@@ -2426,7 +2426,15 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenbetreuer-in-mit-erfahrung-im-kundenkontakt-80-100-css-versicherung-root-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "kundenbetreuer-in-mit-erfahrung-im-kundenkontakt-80-100-css-versicherung-root-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-b4ed94589763",
@@ -2509,9 +2517,9 @@
     },
     {
       "id": "css-versicherung-ab0c1337117c",
-      "slug": "kundenberater-in-per-privatkunden-uzwil-100-css-versicherung-uzwil",
+      "slug": "consulente-clienti-privati-uzwil-100-css-versicherung-uzwil",
       "slugByLocale": {
-        "it": "kundenberater-in-per-privatkunden-uzwil-100-css-versicherung-uzwil",
+        "it": "consulente-clienti-privati-uzwil-100-css-versicherung-uzwil",
         "en": "client-advisor-for-private-clients-uzwil-100-css-versicherung-uzwil",
         "de": "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil",
         "fr": "conseiller-ere-a-la-clientele-privee-uzwil-100-css-versicherung-uzwil"
@@ -2559,11 +2567,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil"
+        "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil",
+        "kundenberater-in-per-privatkunden-uzwil-100-css-versicherung-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil"
+          "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil",
+          "kundenberater-in-per-privatkunden-uzwil-100-css-versicherung-uzwil"
         ],
         "en": [
           "kundenberater-in-fur-privatkunden-uzwil-100-css-versicherung-uzwil"
@@ -2976,7 +2986,7 @@
         "it": "dati-del-titolare-finanziario-bi-80-90-css-versicherung-luzern-hybrid",
         "en": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
         "de": "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "fr": "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
+        "fr": "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -3022,7 +3032,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-        "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid",
         "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
       ],
       "previousSlugsByLocale": {
@@ -3031,7 +3040,6 @@
         ],
         "fr": [
           "financial-controller-data-amp-bi-80-90-css-versicherung-luzern-hybrid",
-          "donnees-du-controleur-financier-bi-80-90-css-versicherung-luzern-hybrid",
           "financial-controller-data-bi-80-90-css-versicherung-luzern-hybrid"
         ]
       },

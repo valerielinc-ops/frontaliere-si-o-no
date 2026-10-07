@@ -3245,7 +3245,7 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-f5bcec",
       "slugByLocale": {
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch-f5bcec",
-        "en": "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
         "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch-f5bcec"
       },
@@ -3293,7 +3293,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
         "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
@@ -3302,7 +3301,6 @@
         ],
         "en": [
           "ergotherapeutin-ergotherapeut-pdag-windisch",
-          "occupational-therapist-psychiatrische-dienste-aargau-pdag-windisch",
           "ergotherapeutin-ergotherapeut-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "fr": [
@@ -3648,9 +3646,9 @@
     },
     {
       "id": "pdag-c54ced79ea23",
-      "slug": "fachperson-patientenaufnahme-e-ertragssicherung-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "specialista-ammissione-del-paziente-e-garanzia-del-rendimento-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "fachperson-patientenaufnahme-e-ertragssicherung-psychiatrische-dienste-aargau-pdag-windisch",
+        "it": "specialista-ammissione-del-paziente-e-garanzia-del-rendimento-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "patient-admission-and-income-assurance-specialist-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch",
         "fr": "specialiste-de-l-admission-des-patients-et-de-l-assurance-revenu-psychiatrische-dienste-aargau-pdag-windisch"
@@ -3699,11 +3697,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch"
+        "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch",
+        "fachperson-patientenaufnahme-e-ertragssicherung-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch"
+          "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch",
+          "fachperson-patientenaufnahme-e-ertragssicherung-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "fachperson-patientenaufnahme-und-ertragssicherung-pdag-windisch"
@@ -4150,7 +4150,7 @@
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "fr": "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
+        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4196,7 +4196,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "ergotherapeutin-ergotherapeut-pdag-windisch-2",
         "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
@@ -4204,7 +4203,6 @@
           "ergotherapeutin-ergotherapeut-pdag-windisch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-pdag-windisch-2",
           "ergotherapeute-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },

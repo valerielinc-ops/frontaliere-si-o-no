@@ -9,7 +9,7 @@
         "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
         "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne",
         "en": "reference-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
+        "de": "referenz-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -55,6 +55,9 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
           "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
         ]
       },
@@ -155,7 +158,7 @@
       "slug": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "it": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapeute-m-w-d-fondation-soins-lausanne",
+        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne",
         "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
       },
@@ -204,7 +207,6 @@
       "previousSlugs": [
         "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
         "occupational-therapist-m-f-fondation-soins-lausanne-lausanne",
-        "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "ergotherapeute-m-w-d-fondation-soins-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -214,7 +216,6 @@
         "en": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
           "occupational-therapist-m-f-fondation-soins-lausanne-lausanne",
-          "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
           "ergotherapeute-m-w-d-fondation-soins-lausanne"
         ],
         "de": [
@@ -317,7 +318,7 @@
         "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
         "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
         "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
+        "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -363,6 +364,9 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
           "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
         ]
       },

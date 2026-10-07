@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "bachem-82f262190840",
-      "slug": "technical-author-a-100-bachem-ag-stein-ag",
+      "slug": "autore-tecnico-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
-        "it": "technical-author-a-100-bachem-ag-stein-ag",
+        "it": "autore-tecnico-a-100-bachem-ag-stein-ag",
         "en": "technical-author-a-100-bachem-stein-ag",
         "de": "technical-author-a-100-bachem-stein-ag",
         "fr": "auteur-technique-a-100-bachem-ag-stein-ag"
@@ -55,13 +55,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-author-a-100-bachem-stein-ag",
-        "autore-tecnico-a-100-bachem-ag-stein-ag",
         "technical-author-a-100-bachem-ag-stein-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-author-a-100-bachem-stein-ag",
-          "autore-tecnico-a-100-bachem-ag-stein-ag",
           "technical-author-a-100-bachem-ag-stein-ag"
         ],
         "fr": [
@@ -760,8 +758,7 @@
         "technical-author-bachem-ag-vionnaz",
         "technical-author-a-100-bachem-vionnaz",
         "autore-tecnico-bachem-ag-vionnaz",
-        "autore-tecnico-a-al-100-bachem-ag-vionnaz",
-        "technical-author-a-100-bachem-ag-vionnaz"
+        "autore-tecnico-a-al-100-bachem-ag-vionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -769,8 +766,7 @@
           "technical-author-bachem-ag-vionnaz",
           "technical-author-a-100-bachem-vionnaz",
           "autore-tecnico-bachem-ag-vionnaz",
-          "autore-tecnico-a-al-100-bachem-ag-vionnaz",
-          "technical-author-a-100-bachem-ag-vionnaz"
+          "autore-tecnico-a-al-100-bachem-ag-vionnaz"
         ]
       },
       "firstSeenAt": "2026-09-30T21:25:10.188Z",
@@ -4311,7 +4307,7 @@
       "slug": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "it": "scienziato-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "en": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
+        "en": "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
         "de": "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf",
         "fr": "peptide-scientifique-composes-actifs-chimie-du-flux-de-r-d-a-100-bachem-ag-bubendorf"
       },
@@ -4361,7 +4357,6 @@
         "en": [
           "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
           "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-          "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
           "scientist-peptidwirkstoffe-r-d-flow-chemie-a-100-bachem-bubendorf"
         ],
         "it": [
@@ -4385,8 +4380,7 @@
         "chemist-optimization-and-troubleshooting-laboratory-peptide-active-compounds-a-100-bachem-ag-bubendorf",
         "chemiker-optimierungs-und-troubleshootinglabor-peptidwirkstoffe-a-100-bachem-bubendorf",
         "composes-actifs-du-peptide-de-laboratoire-a-100-bachem-ag-bubendorf",
-        "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf",
-        "scientist-peptide-active-compounds-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
+        "scientist-peptide-ingredients-r-d-flow-chemistry-a-100-bachem-ag-bubendorf"
       ],
       "firstSeenAt": "2026-09-17T06:55:55.840Z",
       "salaryMin": 72500,
@@ -5011,7 +5005,7 @@
         "it": "senior-capex-controller-a-100-bachem-bubendorf",
         "en": "senior-capex-controller-a-100-bachem-bubendorf",
         "de": "senior-capex-controller-a-100-bachem-bubendorf",
-        "fr": "senior-capex-controller-a-100-bachem-ag-bubendorf"
+        "fr": "controleur-principal-capex-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5290,12 +5284,12 @@
     },
     {
       "id": "bachem-25ca654b3946",
-      "slug": "admin-support-manufacturing-a-100-bachem-bubendorf",
+      "slug": "supporto-amministrativo-produzione-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "admin-support-manufacturing-a-100-bachem-bubendorf",
-        "it": "admin-support-manufacturing-a-100-bachem-bubendorf",
+        "it": "supporto-amministrativo-produzione-a-100-bachem-ag-bubendorf",
         "en": "admin-support-manufacturing-a-100-bachem-bubendorf",
-        "fr": "admin-support-manufacturing-a-100-bachem-bubendorf"
+        "fr": "fabrication-de-soutien-administratif-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5354,7 +5348,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T22:13:47.876Z"
+      "firstSeenAt": "2026-06-10T22:13:47.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "admin-support-manufacturing-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "admin-support-manufacturing-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "admin-support-manufacturing-a-100-bachem-bubendorf"
+      ]
     }
   ]
 }
