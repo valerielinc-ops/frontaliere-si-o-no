@@ -920,11 +920,13 @@ jobs:
 
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: node scripts/regenerate-slugs-by-locale.mjs
 
       - name: Upload slug regeneration proof
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
@@ -933,13 +935,14 @@ jobs:
           if-no-files-found: error
 
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         env:
           SKIP_AI_TRANSLATION: '1'
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -947,7 +950,7 @@ jobs:
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
 
       - name: Save Argos unit cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != ''
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != ''
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
@@ -956,7 +959,7 @@ jobs:
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true
         # GITHUB_REPOSITORY overridden inline: trigger-workflow.sh (called by
         # trigger-deploy.sh) resolves its dispatch target from that env var,
         # which — like github.repository — reflects the CALLER

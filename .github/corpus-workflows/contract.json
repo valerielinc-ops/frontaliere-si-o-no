@@ -4,11 +4,11 @@
   "generatorSha256": "8c5a9624da9ced23c52d42203c87ae5cce2e6b08add966296f1f796b8aa4d98b",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "e726f40e0daf7f1c6541edece5cb8842a1b1ca1e",
+  "sourceCommit": "291c1a679cc542f07f0da18bc9de7a52fb582ecf",
   "artifactObservation": {
     "generatorSha256": "8c5a9624da9ced23c52d42203c87ae5cce2e6b08add966296f1f796b8aa4d98b",
     "sourceRef": "main",
-    "sourceCommit": "e726f40e0daf7f1c6541edece5cb8842a1b1ca1e"
+    "sourceCommit": "291c1a679cc542f07f0da18bc9de7a52fb582ecf"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -1486,8 +1486,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "86d78a19a7d535545247957ed045919082a044d27da3a3f33f6299ebc5085c0b",
-      "artifactSha256": "0f4cd15264937af14aeeb222547a06fb1eb65d18626c2ae5d60a47e176b74519",
+      "sourceSha256": "0352e6357c808e28faf0d01ad81d0da89df2c13b3d722d3cfea5c64687cc3ad7",
+      "artifactSha256": "daa717903791069f45713f3d882f95769b6443d783385232d0787fb79e297be4",
       "generatorSha256": "8c5a9624da9ced23c52d42203c87ae5cce2e6b08add966296f1f796b8aa4d98b",
       "members": []
     }
