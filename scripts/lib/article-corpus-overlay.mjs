@@ -30,6 +30,10 @@ const BODY_DIRS = [
   ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body/${locale}`),
   ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body-ch/${locale}`),
 ];
+const CORPUS_REGISTRY_FILES = Object.freeze({
+  frontaliere: 'content/routerBlogData.ts',
+  svizzera: 'content/routerSwissData.ts',
+});
 
 export function decideCorpusOverlayMode({ isCi = false, dryRun = false, explicit = false } = {}) {
   if (isCi === true || explicit === true) {
@@ -82,12 +86,39 @@ export function corpusRevisionFromCheckout(checkoutDir) {
   return { commit, contentRevision: `${epoch}.${short}` };
 }
 
+/**
+ * Return the mainline commit timestamp that last changed an article id's
+ * membership in the current corpus registry. With the id present at HEAD this
+ * is its latest introduction; with the id absent it is its latest retirement.
+ * The hub freshness guard uses this timestamp to bound a no-publish handoff.
+ */
+export function corpusArticleChangeTimestamp(checkoutDir, section, id) {
+  const registryPath = CORPUS_REGISTRY_FILES[section];
+  if (!registryPath) throw new Error(`sezione corpus sconosciuta: ${section}`);
+  const marker = `'${id}'`;
+  const timestamps = git(checkoutDir, [
+    'log',
+    '--first-parent',
+    '--format=%ct',
+    `-S${marker}`,
+    '--',
+    registryPath,
+  ])
+    .split('\n')
+    .map((value) => Number(value))
+    .filter((value) => Number.isFinite(value));
+  return timestamps[0] ?? null;
+}
+
 export function prepareCorpusContentOverlay({
   rootDir,
   remote = process.env.ARTICLES_CORPUS_REMOTE || CORPUS_REMOTE,
+  retainCheckout = false,
+  logPrefix = '[rerender-article-corpus]',
 } = {}) {
   const destination = path.join(rootDir, 'packages', 'articles', 'content');
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-corpus-overlay-'));
+  let retained = false;
   try {
     const clone = spawnSync(
       'git',
@@ -106,9 +137,17 @@ export function prepareCorpusContentOverlay({
     mirrorCorpusContent({ source, destination });
 
     const revision = corpusRevisionFromCheckout(temporary);
-    console.log(`[rerender-article-corpus] corpus content pinned to ${revision.commit} (${revision.contentRevision})`);
+    console.log(`${logPrefix} corpus content pinned to ${revision.commit} (${revision.contentRevision})`);
+    if (retainCheckout) {
+      retained = true;
+      return {
+        ...revision,
+        checkoutDir: temporary,
+        cleanup: () => fs.rmSync(temporary, { recursive: true, force: true }),
+      };
+    }
     return revision;
   } finally {
-    fs.rmSync(temporary, { recursive: true, force: true });
+    if (!retained) fs.rmSync(temporary, { recursive: true, force: true });
   }
 }

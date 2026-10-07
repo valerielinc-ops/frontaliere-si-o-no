@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 import {
+  corpusArticleChangeTimestamp,
   decideCorpusOverlayMode,
   prepareCorpusContentOverlay,
   validateCorpusContentShape,
@@ -81,6 +83,36 @@ describe('article corpus overlay mode', () => {
         rootDir: root,
         remote: path.join(root, 'missing-remote.git'),
       })).toThrow(/clone corpus fallito/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('legge dal clone il commit che ha introdotto o ritirato un id', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-id-history-'));
+    const runGit = (...args: string[]) => execFileSync('git', ['-C', root, ...args], { stdio: 'ignore' });
+    const registryPath = path.join(root, 'content/routerBlogData.ts');
+    try {
+      fs.mkdirSync(path.dirname(registryPath), { recursive: true });
+      runGit('init', '--initial-branch=main');
+      runGit('config', 'user.email', 'fixture@example.invalid');
+      runGit('config', 'user.name', 'fixture');
+      fs.writeFileSync(registryPath, "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' } };\n");
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture stable');
+      fs.writeFileSync(
+        registryPath,
+        "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' }, 'new-article': { it: 'new-article' } };\n",
+      );
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture introduce');
+      const introducedAt = corpusArticleChangeTimestamp(root, 'frontaliere', 'new-article');
+      expect(introducedAt).toEqual(expect.any(Number));
+      fs.writeFileSync(registryPath, "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' } };\n");
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture retire');
+      const retiredAt = corpusArticleChangeTimestamp(root, 'frontaliere', 'new-article');
+      expect(retiredAt).toEqual(expect.any(Number));
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
