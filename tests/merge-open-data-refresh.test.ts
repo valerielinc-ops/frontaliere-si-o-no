@@ -82,6 +82,37 @@ describe('merge-open-data-refresh', () => {
     ) as { posted: Array<{ id: string }> };
     expect(mergedLedger.posted.map((entry) => entry.id)).toEqual(['base', 'first', 'second']);
   });
+
+  it('unites event description rewrite cache entries when main and the refresh both advance', () => {
+    const base = JSON.stringify({ schemaVersion: 1, entries: { 'event:base::hash': { id: 'event:base' } } });
+    const remote = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-07T01:00:00.000Z',
+      entries: {
+        'event:base::hash': { id: 'event:base' },
+        'event:remote::hash': { id: 'event:remote' },
+      },
+    });
+    const refresh = JSON.stringify({
+      schemaVersion: 1,
+      generatedAt: '2026-10-07T02:00:00.000Z',
+      entries: {
+        'event:base::hash': { id: 'event:base' },
+        'event:refresh::hash': { id: 'event:refresh' },
+      },
+    });
+    const merged = JSON.parse(mergeRefreshContent(
+      'data/events-description-rewrites.json',
+      base,
+      remote,
+      refresh,
+    ) as string);
+    expect(Object.keys(merged.entries)).toEqual([
+      'event:base::hash',
+      'event:refresh::hash',
+      'event:remote::hash',
+    ]);
+  });
 });
 
 // crawl-events.yml publishes article surfaces through their historical
