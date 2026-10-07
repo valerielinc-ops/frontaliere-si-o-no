@@ -56,6 +56,7 @@ jobs:
           sparse-checkout: |
             /package.json
             /package-lock.json
+            /.gitignore
             /.github/actions/setup-claude-haiku-fallback/
             /.github/actions/setup-codex-sandbox/
             /scripts/
@@ -310,7 +311,7 @@ jobs:
           - Il workflow publish-api.yml pubblica sul CDN solo i file blog cambiati dal push (hero e thumbnail) e fa purge mirato dopo il PUT; questo impedisce a una ripubblicazione corpus di ripristinare il file precedente.
 
           ## Non implementato (ancora)
-          - by construction: questa PR non modifica regenerate-queued-covers.yml né i suoi test; la coda esistente resta il percorso dei nuovi articoli, mentre questa PR sincronizza esclusivamente sostituzioni già governate e assegnate allo stesso URL.
+          - by construction: in questa PR non si modifica regenerate-queued-covers.yml né i suoi test. **Motivo:** il job concorrente possiede già la coda dei nuovi articoli. **Prossimo passo:** la coda esistente resta il percorso delle future rigenerazioni non richieste dall'audit.
           EOF
           node scripts/ci/pr-body-check-gate.mjs --body-file "$body"
           export GH_TOKEN="$GITHUB_PAT_NANAKO"
