@@ -95,8 +95,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -138,7 +138,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-10-07T09:27:02.002Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -166,8 +165,6 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -177,11 +174,9 @@
           "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -362,7 +357,7 @@
       "slugByLocale": {
         "it": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "poolist-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -409,8 +404,7 @@
         "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -426,7 +420,6 @@
         ],
         "de": [
           "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "fr": [

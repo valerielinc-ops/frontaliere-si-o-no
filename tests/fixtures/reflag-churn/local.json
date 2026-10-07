@@ -1,0 +1,106 @@
+{
+  "crawlerKey": "reflag-churn-fixture",
+  "jobs": [
+    {
+      "id": "confederazione-ticino-8ca38fa2afae",
+      "url": "https://jobs.example.test/one-health-delegierte",
+      "sourceLang": "de",
+      "title": "One Health Delegierte",
+      "description": "Source description for the One Health posting.",
+      "needsRetranslation": true,
+      "titleByLocale": {
+        "it": "One Health Delegierte",
+        "en": "One Health Delegate",
+        "de": "One Health Delegierte",
+        "fr": "Un délégué de la santé"
+      },
+      "descriptionByLocale": {
+        "it": "Source description for the One Health posting.",
+        "en": "Translated English description.",
+        "de": "Source description for the One Health posting.",
+        "fr": "Description française traduite."
+      }
+    },
+    {
+      "id": "efg-6210",
+      "url": "https://jobs.example.test/general-services-employee",
+      "sourceLang": "en",
+      "title": "General Services Employee",
+      "description": "Source description for the general services posting.",
+      "needsRetranslation": true,
+      "titleByLocale": {
+        "it": "General Services Employee",
+        "en": "General Services Employee",
+        "de": "Neuer deutscher Titel",
+        "fr": "Nouveau titre français"
+      },
+      "descriptionByLocale": {
+        "it": "Source description for the general services posting.",
+        "en": "Source description for the general services posting.",
+        "de": "Source description for the general services posting.",
+        "fr": "Nouvelle description française."
+      }
+    },
+    {
+      "id": "clinique-cic-5ea73471cf90",
+      "url": "https://jobs.example.test/community-health-assistant",
+      "sourceLang": "fr",
+      "title": "Assistant-e en soins et santé communautaire (ASSC)",
+      "description": "Source description for the community health posting.",
+      "needsRetranslation": true,
+      "titleByLocale": {
+        "it": "Assistant-e en soins et santé communautaire (ASSC)",
+        "en": "Community Health and Care Assistant (CHS)",
+        "de": "Assistent-e en soins et santé communautaire (ASSC)",
+        "fr": "Assistant-e en soins et santé communautaire (ASSC)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione italiana con un rilievo genuino.",
+        "en": "Translated English description.",
+        "de": "Übersetzte deutsche Beschreibung.",
+        "fr": "Source description for the community health posting."
+      }
+    },
+    {
+      "id": "source-change-guard",
+      "url": "https://jobs.example.test/source-change-guard",
+      "sourceLang": "en",
+      "title": "New English source",
+      "description": "New English description.",
+      "needsRetranslation": true,
+      "titleByLocale": {
+        "it": "New English source",
+        "en": "New English source",
+        "de": "New English source",
+        "fr": "New English source"
+      },
+      "descriptionByLocale": {
+        "it": "New English description.",
+        "en": "New English description.",
+        "de": "New English description.",
+        "fr": "New English description."
+      }
+    },
+    {
+      "id": "blank-remote-slot",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "Addetto alla logistica"
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "no-base-evidence",
+      "url": "https://example.test/no-base-evidence",
+      "sourceLang": "it",
+      "title": "Addetto alla logistica",
+      "titleByLocale": {
+        "it": "Addetto alla logistica",
+        "de": "Addetto alla logistica"
+      },
+      "needsRetranslation": true
+    }
+  ]
+}

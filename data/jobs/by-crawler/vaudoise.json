@@ -456,7 +456,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -770,7 +769,6 @@
       "requirementsByLocale": {},
       "jobCategory": "Risorse umane",
       "firstSeenAt": "2026-09-19T22:51:56.938Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1581,7 +1579,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:07.612Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2151,7 +2148,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:17:23.233Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2232,7 +2228,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T19:54:11.393Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2307,7 +2302,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.959Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -3020,7 +3014,6 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:10:35.181Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3507,12 +3500,12 @@
     },
     {
       "id": "vaudoise-2599f35d5ed1",
-      "slug": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
+      "slug": "apprenti-dipendente-di-assicurazione-privata-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
-        "it": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
-        "en": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch",
-        "de": "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+        "it": "apprenti-dipendente-di-assicurazione-privata-m-f-x-vaudoise-assurances-lausanne",
+        "en": "apprenti-private-insurance-business-employee-m-f-x-vaudoise-assurances-lausanne",
+        "de": "auszubildender-privater-versicherungsnehmer-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3572,16 +3565,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:19:34.453Z"
+      "firstSeenAt": "2026-10-07T09:19:34.453Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-45f1c98f7b8a",
-      "slug": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
+      "slug": "operatore-informatico-di-apprendistato-cfc-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
-        "it": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
-        "en": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch",
-        "de": "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+        "it": "operatore-informatico-di-apprendistato-cfc-m-f-x-vaudoise-assurances-lausanne",
+        "en": "apprentice-computer-operator-cfc-m-f-x-vaudoise-assurances-lausanne",
+        "de": "lehrlingsrechnerbetreiber-cfc-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3640,16 +3647,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:19:34.141Z"
+      "firstSeenAt": "2026-10-07T09:19:34.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-operateur-trice-en-informatique-cfc-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-fff3dd8e313d",
-      "slug": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
+      "slug": "information-technology-learning-cfc-guida-allo-sviluppo-delle-applicazioni-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
-        "it": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
-        "en": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch",
-        "de": "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+        "it": "information-technology-learning-cfc-guida-allo-sviluppo-delle-applicazioni-m-f-x-vaudoise-assurances-lausanne",
+        "en": "information-technology-learning-cfc-application-development-guidance-m-f-x-vaudoise-assurances-lausanne",
+        "de": "information-technology-learning-cfc-application-development-guidance-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3708,16 +3729,30 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:19:33.831Z"
+      "firstSeenAt": "2026-10-07T09:19:33.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-informaticien-ne-cfc-orientation-developpement-d-applications-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-307cbb68f1a2",
-      "slug": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+      "slug": "apprenti-apprendista-relazione-cliente-cfc-m-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
-        "it": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
+        "it": "apprenti-apprendista-relazione-cliente-cfc-m-f-x-vaudoise-assurances-lausanne",
         "en": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch",
-        "de": "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch"
+        "de": "auszubildender-agent-beziehung-client-cfc-m-w-x-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3777,16 +3812,27 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:19:33.514Z"
+      "firstSeenAt": "2026-10-07T09:19:33.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch"
+        ],
+        "de": [
+          "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-apprentie-agent-relation-client-cfc-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-cd64398821a2",
-      "slug": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
+      "slug": "apprenti-logistician-apprentice-logisticista-m-f-x-100-per-il-nostro-centro-logistico-eventi-a-cheseaux-sur-lausanne",
       "slugByLocale": {
         "fr": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
-        "it": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
-        "en": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique",
-        "de": "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+        "it": "apprenti-logistician-apprentice-logisticista-m-f-x-100-per-il-nostro-centro-logistico-eventi-a-cheseaux-sur-lausanne",
+        "en": "apprenti-logistician-apprentice-logistician-m-f-x-100-for-our-event-logistics-centre-in-cheseaux-sur-lausanne-vaudoise",
+        "de": "auszubildender-logistiker-auszubildender-logistiker-m-w-x-100-fur-unser-event-logistikzentrum-in-cheseaux-sur-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3846,7 +3892,21 @@
       },
       "postalCode": "1033",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-07T09:19:33.192Z"
+      "firstSeenAt": "2026-10-07T09:19:33.192Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+        ],
+        "en": [
+          "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+        ],
+        "de": [
+          "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-apprentie-logisticien-logisticienne-h-f-x-a-100-pour-notre-centre-logistique"
+      ]
     },
     {
       "id": "vaudoise-f5047f613519",
@@ -3944,7 +4004,7 @@
       "title": "Product Owner RH (h/f/x) – 100% – CDD 1 an",
       "titleByLocale": {
         "it": "Proprietario del prodotto RH (m/f/x) – 100% – CSD 1 anno",
-        "en": "Product Owner RH (h/f/x) – 100% – CDD 1 an",
+        "en": "Product Owner RH (m/f/x) – 100% – CSD 1 year",
         "de": "Product Owner RH (m/w/x) – 100% – CSD 1 Jahr",
         "fr": "Product Owner RH (h/f/x) – 100% – CDD 1 an"
       },
@@ -4005,8 +4065,7 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

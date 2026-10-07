@@ -25,6 +25,7 @@ import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
@@ -836,6 +837,19 @@ export function collapsifySeoBlock(html: string): string {
   detailsRegex,
   '<details><summary>$1</summary><div class="seo-fb-section-body">$2</div></details>',
  );
+ // Due contenitori di layout: titolo+intro da una parte, le sezioni a
+ // scomparsa dall'altra. Servono al CSS per impaginare il pannello a due
+ // colonne senza che l'altezza dell'intro venga ripartita sulle righe delle
+ // sezioni. Idempotente come il resto della trasformazione.
+ if (!out.includes('class="seo-fb-head"')) {
+  out = out.replace(
+   /(<h2 id="[^"]+SeoTitle" class="seo-fb-title">[\s\S]*?<\/h2>\s*<p class="seo-fb-intro">[\s\S]*?<\/p>)/,
+   '<div class="seo-fb-head">$1</div>',
+  );
+ }
+ if (!out.includes('class="seo-fb-sections"')) {
+  out = out.replace(/<details>[\s\S]*<\/details>/, '<div class="seo-fb-sections">$&</div>');
+ }
 
  return out;
 }
@@ -1107,10 +1121,12 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  // visible (not collapsed) so the audit walker picks them up
  // unconditionally — `<a>` inside `<details>` is followed regardless,
  // but cross-section hubs are not a long list so we render inline.
- const xsHubsLabel = locale === 'en' ? 'Cross-section hubs'
-   : locale === 'de' ? 'Übergreifende Hubs'
-   : locale === 'fr' ? 'Hubs transversaux'
-   : 'Hub trasversali';
+ // Etichetta visibile, non solo aria-label: senza titolo il gruppo era una
+ // riga di link anonima fra due rail che invece il titolo ce l'hanno.
+ const xsHubsLabel = locale === 'en' ? 'Jobs and archives'
+   : locale === 'de' ? 'Stellen und Archive'
+   : locale === 'fr' ? 'Emplois et archives'
+   : 'Lavoro e archivi';
  const xsHubs: Array<{ href: string; label: string }> = locale === 'it' ? [
    { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
    { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
@@ -1144,7 +1160,7 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  const xsHubsHtml = xsHubs
    .map(({ href, label }) => `<a class="hp-cross-hub-link" href="${href}">${label}</a>`)
    .join('');
- const xsHubsBlock = `<nav class="hp-cross-hub-links" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
+ const xsHubsBlock = `<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">${xsHubsLabel}</h2><nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
  // state, mobile fold stays clear. When cantonRows is empty (canton job-data
  // absent at build time) the canton <details> is omitted but the xsHubs block
@@ -5334,6 +5350,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localizedBody = articleId
  ? blogBodyByLocale[localeKey as 'it' | 'en' | 'de' | 'fr'][articleId] ?? blogBodyByLocale.it[articleId]
  : undefined;
+ const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleRobots = NOINDEX_CANONICAL_PATHS.has(canonicalPath)
+ ? 'noindex, nofollow'
+ : articleBodyHasPromptPlaceholder
+ ? 'noindex,follow'
+ : ROBOTS_INDEX_ENHANCED_CONTENT;
  const blogBodySections = cleanupArticleBodySections([
  { key: 'body1', text: localizedBody?.body1 },
  { key: 'body2', text: localizedBody?.body2 },
@@ -5854,7 +5876,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+ <meta name="robots" content="${articleRobots}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
@@ -5895,7 +5917,7 @@ ${hrefTags}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+ <meta name="robots" content="${articleRobots}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">

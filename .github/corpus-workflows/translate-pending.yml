@@ -529,11 +529,18 @@ jobs:
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2a.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
         id: title_cascade_before_descriptions
         if: inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
@@ -541,6 +548,12 @@ jobs:
         env:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "6600000"
           UNTRANSLATED_TITLE_FIX_WINDOW_MS: "1500000"
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
+          FREE_TRANSLATE_CODEX_MAX_MS: "900000"
+          FREE_TRANSLATE_CODEX_LANES: "3"
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
@@ -581,12 +594,6 @@ jobs:
             --output "$RUNNER_TEMP/translation-observability-before.json" \
             --now "$started_at"
           echo "ready=true" >> "$GITHUB_OUTPUT"
-      - id: setup_claude_haiku_fallback
-        if: inputs.skip_translate != true && inputs.dry_run != true
-        uses: ./.github/actions/setup-claude-haiku-fallback
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: "12600000"
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
@@ -663,6 +670,7 @@ jobs:
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2c.json
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -874,7 +882,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
         with:
           name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+            ${{ runner.temp }}/local-mt-semantic-candidates-*.json
           retention-days: 30
           if-no-files-found: warn
       - name: Commit translation observability history
@@ -900,29 +910,40 @@ jobs:
         continue-on-error: true
         run: node scripts/release-translation-holds.mjs
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/regenerate-slugs-by-locale.mjs
+      - name: Upload slug regeneration proof
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Save Argos unit cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != '' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != '' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/local-mt-units
           key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"

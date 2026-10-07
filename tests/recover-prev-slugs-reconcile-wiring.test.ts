@@ -40,6 +40,7 @@ type Step = {
 let steps: Step[];
 let reconcile: Step;
 let scan: Step;
+let ownership: Step;
 let commit: Step;
 let workflow: { permissions?: Record<string, string> };
 
@@ -49,6 +50,7 @@ beforeAll(() => {
   steps = doc.jobs.recover.steps as Step[];
   reconcile = steps.find((s) => s.id === 'reconcile')!;
   scan = steps.find((s) => s.id === 'scan')!;
+  ownership = steps.find((s) => s.name === 'Decontaminate confirmed previousSlugs ownership')!;
   commit = steps.find((s) => s.name === 'Commit and push restored slices')!;
 });
 
@@ -74,6 +76,15 @@ describe('recover-prev-slugs.yml — wiring del reconcile duplicate stable-id', 
   it('il commit gate include anche il residuo del reconcile, non solo quello dello scan', () => {
     expect(commit.if).toContain('steps.scan.outputs.recoverable_slugs');
     expect(commit.if).toContain('steps.reconcile.outputs.reconciled_dropped');
+  });
+
+  it('decontamina gli alias dopo recovery/reconcile e prima della PR dati', () => {
+    expect(ownership).toBeTruthy();
+    expect(ownership.run).toContain('scripts/decontaminate-prev-slugs.mjs --apply');
+    expect(ownership.if).toContain('steps.scan.outputs.recoverable_slugs');
+    expect(ownership.if).toContain('steps.reconcile.outputs.reconciled_dropped');
+    expect(steps.indexOf(ownership)).toBeGreaterThan(steps.findIndex((s) => s.name === 'Backfill recoverable slugs'));
+    expect(steps.indexOf(ownership)).toBeLessThan(steps.indexOf(commit));
   });
 
   it('pubblica i dati tramite la PR stabile, non con un push diretto su main', () => {

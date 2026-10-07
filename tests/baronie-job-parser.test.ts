@@ -10,8 +10,16 @@
  * fall back to (often-empty) location-text detection and report 0 jobs.
  */
 import { describe, expect, it } from 'vitest';
-import { buildBaronieLocalizedContent, parseBaronieDetailHtml, isSwissJob } from '../scripts/lib/baronie-job-parser.mjs';
-import { dropBaronieFabricatedText } from '../scripts/update-baronie-jobs.mjs';
+import {
+  buildBaronieLocalizedContent,
+  isBaronieDetailComplete,
+  parseBaronieDetailHtml,
+  isSwissJob,
+} from '../scripts/lib/baronie-job-parser.mjs';
+import {
+  classifyBaronieEmptyResult,
+  dropBaronieFabricatedText,
+} from '../scripts/update-baronie-jobs.mjs';
 
 function detailHtml({
   title = 'IT Infrastructure Engineer',
@@ -180,5 +188,38 @@ describe('dropBaronieFabricatedText', () => {
   it('leaves a stored job with the posting text alone', () => {
     const job: any = { sourceLang: 'en', description: 'As the Plant Manager…', descriptionByLocale: { en: 'As the Plant Manager…', it: 'Come Responsabile…' } };
     expect(dropBaronieFabricatedText(job)).toBe(false);
+  });
+});
+
+describe('classifyBaronieEmptyResult', () => {
+  it('names a zero-detail run as source extraction failure', () => {
+    expect(classifyBaronieEmptyResult(5)).toBe('source-extraction-failed');
+  });
+
+  it('names an observed zero without detail failures as no-jobs-parsed', () => {
+    expect(classifyBaronieEmptyResult(0)).toBe('no-jobs-parsed');
+  });
+});
+
+describe('isBaronieDetailComplete', () => {
+  it('accepts a detail page with identity, body, and location evidence', () => {
+    const result = parseBaronieDetailHtml(detailHtml({ jsonLd: GRAPH_JSON_LD_SWISS }));
+    expect(isBaronieDetailComplete(result)).toBe(true);
+  });
+
+  it('rejects an intro-only detail when the body container is missing', () => {
+    const result = parseBaronieDetailHtml(`<!DOCTYPE html>
+      <html><head><script type="application/ld+json">${GRAPH_JSON_LD_SWISS}</script></head>
+      <body><article class="s-entry__content s-text-markup">
+        <h1 class="s-text-medium-large">Production Operator</h1>
+        <p class="s-text-medium">Intro text that is not the posting body.</p>
+      </article></body></html>`);
+
+    expect(result?.bodyMarkdown).toBe('');
+    expect(isBaronieDetailComplete(result)).toBe(false);
+  });
+
+  it('rejects a detail-shaped response that cannot be classified safely', () => {
+    expect(isBaronieDetailComplete({ detailTitle: 'Unknown', markdown: '', location: '' })).toBe(false);
   });
 });

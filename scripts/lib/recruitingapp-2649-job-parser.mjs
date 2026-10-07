@@ -19,6 +19,7 @@ import { stripHtml } from './crawler-template.mjs';
 import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import {
+  normalizeAuthoritativeNonSwissLocationPart,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -252,7 +253,9 @@ export function assertCompleteRecruitingapp2649Snapshot(jobs) {
   return proof.details.every((detail) => !detail.swiss
     && detail.locations.length > 0
     && detail.locations.every((location) => {
-      const locality = normalize(location).split(/[,;/|]/)[0].trim();
+      const locality = normalizeAuthoritativeNonSwissLocationPart(
+        String(location).split(/[,;/|]/)[0],
+      );
       return AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality);
     }));
 }

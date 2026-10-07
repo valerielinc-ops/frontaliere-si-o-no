@@ -125,6 +125,30 @@ function aggregateReleaseState(catalogueFreshness, dutiesFreshness, regions, cat
   return 'fresh';
 }
 
+function enrichmentConfigForRun(config) {
+  const rawIds = process.env.PHARMACY_GOOGLE_PLACES_IDS_JSON;
+  if (rawIds === undefined) return config;
+  let ids;
+  try {
+    ids = JSON.parse(rawIds);
+  } catch (error) {
+    throw new Error(`Invalid PHARMACY_GOOGLE_PLACES_IDS_JSON: ${error.message}`);
+  }
+  if (!Array.isArray(ids) || ids.some((id) => typeof id !== 'string' || !id)) {
+    throw new Error('PHARMACY_GOOGLE_PLACES_IDS_JSON must be a JSON array of non-empty strings');
+  }
+  return {
+    ...config,
+    providers: {
+      ...config.providers,
+      googlePlaces: {
+        ...config.providers?.googlePlaces,
+        pharmacyIds: ids,
+      },
+    },
+  };
+}
+
 /**
  * Creates the same release metadata for the two snapshots. The payload hashes
  * exclude this metadata block to avoid a circular hash; the release digest
@@ -513,6 +537,7 @@ async function main() {
   ]);
   const enrichmentConfigErrors = validatePharmacyEnrichmentConfig(enrichmentSources);
   if (enrichmentConfigErrors.length > 0) throw new Error(`Invalid pharmacy enrichment source registry:\n${enrichmentConfigErrors.join('\n')}`);
+  const enrichmentConfig = enrichmentConfigForRun(enrichmentSources);
   if (DUTY_STAGE_DIR && (!stagedStatus || typeof stagedStatus !== 'object' || Array.isArray(stagedStatus))) {
     throw new Error('Atomic pharmacy finalizer requires the duty status artifact from the same fetch job');
   }
@@ -605,14 +630,19 @@ async function main() {
 
   const enrichmentResult = await enrichPharmacyRecords(
     [...ticinoPharmacies, ...italianPharmacies],
-    enrichmentSources,
+    enrichmentConfig,
     {
       previous: previousEnrichment,
       checkedAt: fetchedAt,
       fetchDocument: (url) => fetchText(url, { accept: 'text/html' }),
       fetchPdfText: async (url) => extractPharmacyPdfText(await fetchBuffer(url)),
       fetchJson,
-      googleApiKey: process.env.GOOGLE_MAPS_API_KEY,
+      // A pending reservation owned by another serialized refresh run must
+      // not spend that run's quota from the same main snapshot. The workflow
+      // leaves all other pharmacy duties running and only disables Places.
+      googleApiKey: process.env.PHARMACY_SKIP_GOOGLE_PLACES === '1'
+        ? undefined
+        : process.env.GOOGLE_MAPS_API_KEY,
       facebookPageId: process.env.PHARMACY_FACEBOOK_PAGE_ID,
       facebookAccessToken: process.env.PHARMACY_FACEBOOK_PAGE_ACCESS_TOKEN,
     },

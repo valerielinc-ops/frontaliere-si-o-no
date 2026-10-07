@@ -7,6 +7,7 @@ import {
   isPizzarottiClassifiableLocation,
   parsePizzarottiListings,
   parsePizzarottiJobDetail,
+  resolvePizzarottiDetailUrl,
   resolvePizzarottiLocation,
 } from '../scripts/lib/pizzarotti-job-parser.mjs';
 
@@ -16,6 +17,24 @@ const PIZZAROTTI_UPDATER = fs.readFileSync(
 );
 
 describe('Pizzarotti listing classification', () => {
+  it('resolves relative InRecruiting detail links before fetching them', () => {
+    const baseUrl = 'https://inrecruiting.intervieweb.it/app.php?module=iframeAnnunci';
+
+    expect(resolvePizzarottiDetailUrl('/impresapizzarotti/job/123', baseUrl)).toBe(
+      'https://inrecruiting.intervieweb.it/impresapizzarotti/job/123',
+    );
+    expect(resolvePizzarottiDetailUrl(
+      'https://inrecruiting.intervieweb.it/impresapizzarotti/job/123',
+      baseUrl,
+    )).toBe('https://inrecruiting.intervieweb.it/impresapizzarotti/job/123');
+    expect(PIZZAROTTI_UPDATER).toContain(
+      'resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL)',
+    );
+    expect(PIZZAROTTI_UPDATER).toContain(
+      'const sourceUrl = resolvePizzarottiDetailUrl(detail.shareUrl || listing.href, LISTING_BASE_URL);',
+    );
+  });
+
   it('reports a non-empty source filtered to zero Swiss listings', () => {
     const result = classifyPizzarottiListings([
       { href: '/jobs/unknown', title: 'Site manager', location: 'A newly added place' },

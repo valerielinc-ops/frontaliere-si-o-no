@@ -211,7 +211,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "professionnel-de-soins-viva-luzern"
+        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -276,7 +276,6 @@
         "nursing-professional-hf-temporary-viva-luzern-luzern",
         "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
-        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
         "professionnel-de-soins-viva-luzern"
       ],
       "previousSlugsByLocale": {
@@ -309,7 +308,6 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
           "professionnel-de-soins-viva-luzern"
         ]
       },
@@ -1486,7 +1484,7 @@
       "slug": "cuocere-cucinare-viva-luzern-luzern",
       "slugByLocale": {
         "it": "cuocere-cucinare-viva-luzern-luzern",
-        "en": "kochin-koch-viva-luzern",
+        "en": "cook-cook-viva-luzern-luzern",
         "de": "kochin-koch-viva-luzern-luzern",
         "fr": "cuisiniere-viva-luzern-luzern"
       },
@@ -1534,7 +1532,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-viva-luzern-luzern",
-        "cook-cook-viva-luzern-luzern",
         "kochin-koch-viva-luzern"
       ],
       "previousSlugsByLocale": {
@@ -1543,7 +1540,6 @@
         ],
         "en": [
           "kochin-koch-viva-luzern-luzern",
-          "cook-cook-viva-luzern-luzern",
           "kochin-koch-viva-luzern"
         ],
         "fr": [
@@ -1877,12 +1873,12 @@
     },
     {
       "id": "viva-luzern-7defbb8717fe",
-      "slug": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
+      "slug": "capogruppo-aggiunto-viva-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
-        "it": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
-        "en": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
-        "fr": "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+        "it": "capogruppo-aggiunto-viva-luzern-luzern",
+        "en": "deputy-team-leader-care-viva-luzern-luzern",
+        "fr": "chef-d-equipe-adjoint-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1941,7 +1937,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:18:39.676Z"
+      "firstSeenAt": "2026-10-07T09:18:39.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+        ],
+        "en": [
+          "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+        ],
+        "fr": [
+          "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+      ]
     }
   ]
 }

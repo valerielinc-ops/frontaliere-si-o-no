@@ -57,7 +57,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-10-01T09:26:29.226Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -204,7 +203,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-19T23:05:16.416Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -308,7 +306,7 @@
       "id": "rheinmetall-air-defence-13cb360367bd",
       "slug": "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "specialist-customs-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "douanes-specialisees-h-f-d-rheinmetall-air-defence-ag-zurich"
@@ -317,7 +315,7 @@
       "companyKey": "rheinmetall-air-defence",
       "title": "Spezialist Zoll (m/w/d)",
       "titleByLocale": {
-        "it": "Spezialist Zoll (m/w/d)",
+        "it": "Specialista doganale (m/f/d)",
         "en": "Specialist Customs (m/f/d)",
         "de": "Spezialist Zoll (m/w/d)",
         "fr": "Douanes spécialisées (h/f/d)"
@@ -359,15 +357,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-12T13:06:54.688Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -585,7 +574,7 @@
       "title": "IT Business Relationship Manager (m/w/d)",
       "titleByLocale": {
         "it": "IT Business Relationship Manager (m/f/d)",
-        "en": "IT Business Relationship Manager (m/w/d)",
+        "en": "IT Business Relationship Manager (m/f/d)",
         "de": "IT Business Relationship Manager (m/w/d)",
         "fr": "Gestionnaire de relations d'affaires IT (h/f/d)"
       },
@@ -626,7 +615,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-11T13:53:11.403Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -655,7 +643,7 @@
       "title": "Teamlead Professional Onsite Support (m/w/d)",
       "titleByLocale": {
         "it": "Supporto professionale in loco Teamlead (m/f/d)",
-        "en": "Teamlead Professional Onsite Support (m/w/d)",
+        "en": "Teamlead Professional Onsite Support (m/f/d)",
         "de": "Teamlead Professional Onsite Support (m/w/d)",
         "fr": "Teamleader Professional Support sur place (h/f/d)"
       },
@@ -736,7 +724,7 @@
       "title": "Test Engineer C2 and Training System (m/w/d)",
       "titleByLocale": {
         "it": "Test Ingegnere C2 and Training System (m/w/d)",
-        "en": "Test Engineer C2 and Training System (m/w/d)",
+        "en": "Test Engineer C2 and Training System (m/f/d)",
         "de": "Test Ingenieur C2 and Training System (m/w/d)",
         "fr": "Test Ingénieur C2 and Training System (m/w/d)"
       },
@@ -863,7 +851,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:11.032Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -944,7 +931,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T13:06:53.356Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1025,7 +1011,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:21:23.511Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2390,7 +2375,7 @@
       "title": "Project Controller (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile del progetto (m/f/d)",
-        "en": "Project Controller (m/w/d)",
+        "en": "Project controller (m/f/d)",
         "de": "Project Controller (m/w/d)",
         "fr": "Contrôleur de projet (h/f/d)"
       },
@@ -2442,7 +2427,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:15.965Z",
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -2636,7 +2620,7 @@
       "companyKey": "rheinmetall-air-defence",
       "title": "SMD Operator (m/w/d)",
       "titleByLocale": {
-        "it": "SMD Operator (m/w/d)",
+        "it": "Operatore SMD (m/f/d)",
         "en": "SMD Operator (m/f/d)",
         "de": "SMD Operator (m/w/d)",
         "fr": "SMD Opérateur (m/w/d)"
@@ -2686,7 +2670,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:09.616Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -2756,7 +2739,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-19T23:05:11.884Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2826,7 +2808,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-26T14:10:25.807Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2938,7 +2919,7 @@
       "title": "Senior Project Manager Air Defence (m/w/d)",
       "titleByLocale": {
         "it": "Senior Project Manager Air Defence (m/f/d)",
-        "en": "Senior Project Manager Air Defence (m/w/d)",
+        "en": "Senior Project Manager Air Defence (m/f/d)",
         "de": "Senior Project Manager Air Defence (m/w/d)",
         "fr": "Directeur principal de projet Défense aérienne (h/f/d)"
       },
@@ -2979,7 +2960,6 @@
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
       "firstSeenAt": "2026-09-19T23:05:15.955Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -3526,7 +3506,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:44.706Z",
-      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -3659,7 +3638,7 @@
         "it": "senior-financial-accountant-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "senior-financial-accountant-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "senior-financial-accountant-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-financial-accountant-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "comptable-financier-principal-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3731,14 +3710,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T10:03:19.755Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "comptable-financier-principal-h-f-d-rheinmetall-air-defence-ag-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "comptable-financier-principal-h-f-d-rheinmetall-air-defence-ag-zurich"
-      ],
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -3827,7 +3798,6 @@
         "technischer-projektleiter-stationare-systeme-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "firstSeenAt": "2026-07-04T11:46:24.672Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3958,7 +3928,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:04.455Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -4063,7 +4032,7 @@
         "it": "controllore-di-produzione-montaggio-moduli-e-finale-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "production-control-of-assembly-and-final-assembly-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "unite-de-commande-de-production-et-assemblage-final-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4147,8 +4116,7 @@
         "controle-de-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
         "montage-du-controleur-de-production-et-assemblage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
         "controle-de-la-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "produktionssteuerer-baugruppen-e-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "unite-de-commande-de-production-et-assemblage-final-h-f-d-rheinmetall-air-defence-ag-zurich"
+        "produktionssteuerer-baugruppen-e-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4162,7 +4130,6 @@
           "controle-de-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
           "montage-du-controleur-de-production-et-assemblage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
           "controle-de-la-production-du-montage-et-du-montage-final-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "unite-de-commande-de-production-et-assemblage-final-h-f-d-rheinmetall-air-defence-ag-zurich",
           "produktionssteuerer-baugruppen-und-endmontage-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
@@ -4188,7 +4155,7 @@
         "it": "elettrotecnico-avviamento-in-ciclo-sistemi-di-difesa-aerea-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "electrical-technician-cyclic-commissioning-air-defence-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
-        "fr": "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "technicien-electrique-horloge-mise-en-service-systemes-anti-aeriens-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -4267,7 +4234,6 @@
         "systemes-antiaeriens-de-demarrage-d-horloges-electriques-m-f-d-rheinmetall-air-defence-ag-zurich",
         "sistemi-di-avviamento-dell-orologio-dell-ingegnere-elettrico-m-f-d-rheinmetall-air-defence-ag-zurich",
         "electrical-engineer-clock-start-up-anti-aircraft-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "technicien-electrique-horloge-mise-en-service-systemes-anti-aeriens-h-f-d-rheinmetall-air-defence-ag-zurich",
         "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
@@ -4283,7 +4249,6 @@
           "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag",
           "ingenieur-electrique-systemes-antiaeriens-de-mise-en-service-de-l-horloge-m-f-d-rheinmetall-air-defence-ag-zurich",
           "systemes-antiaeriens-de-demarrage-d-horloges-electriques-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "technicien-electrique-horloge-mise-en-service-systemes-anti-aeriens-h-f-d-rheinmetall-air-defence-ag-zurich",
           "elektrotechniker-takt-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
@@ -4539,7 +4504,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:19.530Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -5258,7 +5222,7 @@
       "id": "rheinmetall-air-defence-b4565adf0b54",
       "slug": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "metallurgy-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "laboratory-metallurgist-materials-specialist-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "metallurgiste-de-laboratoire-specialiste-des-materiaux-m-f-d-rheinmetall-air-defence-ag-zurich"
@@ -5335,13 +5299,11 @@
         ]
       },
       "previousSlugs": [
-        "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "metallurgy-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "metallurgy-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.497Z",
@@ -5559,7 +5521,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:45:49.852Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5581,7 +5542,7 @@
         "it": "tecnico-elettrotecnico-messa-in-servizio-sistemi-di-difesa-aerea-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "electrical-technician-commissioning-air-defence-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-electrique-mettant-en-service-des-systemes-antiaeriens-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -5659,8 +5620,7 @@
         "ingenieur-electrique-commandant-des-systemes-antiaeriens-m-f-d-rheinmetall-air-defence-ag-zurich",
         "genie-electrique-mettant-en-service-des-systemes-antiaeriens-m-f-d-rheinmetall-air-defence-ag-zurich",
         "ingegnere-elettrico-che-commissiona-sistemi-antiaerei-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "electrical-engineer-commissioning-anti-aircraft-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "ingenieur-electrique-mettant-en-service-des-systemes-antiaeriens-h-f-d-rheinmetall-air-defence-ag-zurich"
+        "electrical-engineer-commissioning-anti-aircraft-systems-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5674,7 +5634,6 @@
         "fr": [
           "ingenieur-electrique-commandant-des-systemes-antiaeriens-m-f-d-rheinmetall-air-defence-ag-zurich",
           "genie-electrique-mettant-en-service-des-systemes-antiaeriens-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "ingenieur-electrique-mettant-en-service-des-systemes-antiaeriens-h-f-d-rheinmetall-air-defence-ag-zurich",
           "elektrotechniker-inbetriebnahme-flugabwehrsysteme-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
@@ -5931,7 +5890,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:14.685Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",

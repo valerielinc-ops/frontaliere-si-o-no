@@ -79,67 +79,25 @@ describe('seo-static.css', () => {
     expect(appSrc).toMatch(/setProperty\(\s*'display',\s*'none',\s*'important'\s*\)/);
   });
 
-  it('keeps the homepage SEO panel editorial and responsive', () => {
+  // Il pre-footer statico (rail di discovery + pannello SEO) ha UNA sola fonte:
+  // index.css. La home e' l'index.html di Vite e non carica questo foglio, quindi
+  // una regola definita solo qui lascia i rail con i default del browser
+  // (misurato in produzione il 2026-10-07: `display: inline` su ogni link). Una
+  // seconda copia qui, oltre a non servire alla home, diverge dalla prima.
+  it('does not carry a second copy of the static pre-footer rules', () => {
     const css = fs.readFileSync(CSS_PATH, 'utf8');
     const root = postcss.parse(css, { from: CSS_PATH });
-    const rules: postcss.Rule[] = [];
+    const offenders: string[] = [];
 
     root.walkRules((rule) => {
-      if (rule.selector === 'aside.seo-footer-block' && rule.parent === root) rules.push(rule);
-    });
-
-    const panelRule = rules.at(-1);
-    expect(panelRule).toBeDefined();
-    expect(panelRule!.toString()).toContain('border-radius:16px');
-    expect(panelRule!.toString()).toContain('background:var(--color-surface-alt)');
-
-    let openDetailsRule: postcss.Rule | undefined;
-    root.walkRules((rule) => {
-      if (rule.selector === 'aside.seo-footer-block details[open]' && rule.parent === root) {
-        openDetailsRule = rule;
+      for (const selector of rule.selectors) {
+        if (/aside\.seo-footer-block|\.homepage-(discovery|language-switch|locale-main-nav)|\.hp-(language|discovery|canton|cross-hub)/.test(selector)) {
+          offenders.push(selector);
+        }
       }
     });
-    expect(openDetailsRule?.toString()).toContain('border:1px solid var(--color-accent-border)');
 
-    let desktopCardsRule: postcss.Rule | undefined;
-    root.walkRules((rule) => {
-      if (rule.selector === 'aside.seo-footer-block .seo-fb-cards' && rule.parent === root) {
-        desktopCardsRule = rule;
-      }
-    });
-    expect(desktopCardsRule?.toString()).toContain('grid-template-columns:repeat(2,minmax(0,1fr))');
-
-    let mobileCardsRule: postcss.Rule | undefined;
-    root.walkAtRules('media', (media) => {
-      if (media.params !== '(max-width:640px)') return;
-      media.walkRules((rule) => {
-        if (rule.selector === 'aside.seo-footer-block .seo-fb-cards') mobileCardsRule = rule;
-      });
-    });
-    expect(mobileCardsRule?.toString()).toContain('grid-template-columns:1fr');
-  });
-
-  it('keeps homepage discovery links at a comfortable mobile touch size', () => {
-    const css = fs.readFileSync(CSS_PATH, 'utf8');
-    const root = postcss.parse(css, { from: CSS_PATH });
-    const targetSelectors = [
-      '.hp-language-option',
-      '.hp-discovery-pill',
-      '.hp-canton-link',
-      '.hp-cross-hub-link',
-    ];
-
-    for (const selector of targetSelectors) {
-      let minHeight: string | undefined;
-      root.walkRules((candidate) => {
-        if (!candidate.selectors.includes(selector)) return;
-        candidate.walkDecls('min-height', (declaration) => {
-          minHeight = declaration.value;
-        });
-      });
-
-      expect(minHeight, `${selector} needs a 44px minimum touch target`).toBe('44px');
-    }
+    expect(offenders).toEqual([]);
   });
 });
 
@@ -220,34 +178,75 @@ describe('index.css (SPA bundle source) cascade does not re-hide the cluster bod
     });
   });
 
-  it('keeps the homepage SEO panel styling in the SPA stylesheet', () => {
+  // Contratto del pre-footer statico: le regole vivono nel foglio che la home
+  // carica davvero, i link restano comodi al tocco, il pannello va a due
+  // colonne solo se il markup porta i due contenitori di layout.
+  describe('static pre-footer (discovery rails + SEO panel)', () => {
     const css = fs.readFileSync(SPA_CSS_PATH, 'utf8');
     const root = postcss.parse(css, { from: SPA_CSS_PATH });
-    const lastRootRule = (selector: string): postcss.Rule | undefined => {
+    const rootRule = (selector: string): postcss.Rule | undefined => {
       let match: postcss.Rule | undefined;
       root.walkRules((rule) => {
-        if (rule.selector === selector && rule.parent === root) match = rule;
+        if (rule.parent === root && rule.selectors.includes(selector)) match = rule;
+      });
+      return match;
+    };
+    const mediaRule = (params: string, selector: string): postcss.Rule | undefined => {
+      let match: postcss.Rule | undefined;
+      root.walkAtRules('media', (media) => {
+        if (media.params !== params) return;
+        media.walkRules((rule) => {
+          if (rule.selectors.includes(selector)) match = rule;
+        });
       });
       return match;
     };
 
-    const panelRule = lastRootRule('aside.seo-footer-block');
-    expect(panelRule?.toString()).toContain('border-radius: 16px');
-    expect(panelRule?.toString()).toContain('background: var(--color-surface-alt)');
-
-    const openDetailsRule = lastRootRule('aside.seo-footer-block details[open]');
-    expect(openDetailsRule?.toString()).toContain('border: 1px solid var(--color-accent-border)');
-
-    const desktopCardsRule = lastRootRule('aside.seo-footer-block .seo-fb-cards');
-    expect(desktopCardsRule?.toString()).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))');
-
-    let mobileCardsRule: postcss.Rule | undefined;
-    root.walkAtRules('media', (media) => {
-      if (media.params !== '(max-width: 640px)') return;
-      media.walkRules((rule) => {
-        if (rule.selector === 'aside.seo-footer-block .seo-fb-cards') mobileCardsRule = rule;
-      });
+    it.each([
+      '.homepage-discovery',
+      '.homepage-language-switch',
+      '.homepage-locale-main-nav',
+      '.hp-discovery-heading',
+      '.hp-discovery-links',
+      '.hp-canton-summary',
+      'aside.seo-footer-block',
+      'aside.seo-footer-block .seo-fb-title',
+    ])('styles %s in the stylesheet the homepage loads', (selector) => {
+      expect(rootRule(selector), `${selector} must be styled in index.css`).toBeDefined();
     });
-    expect(mobileCardsRule?.toString()).toContain('grid-template-columns: 1fr');
+
+    it.each(['.hp-language-option', '.hp-discovery-pill', '.hp-canton-link', '.hp-cross-hub-link'])(
+      'keeps %s at a 44px minimum touch target by default',
+      (selector) => {
+        let minHeight: string | undefined;
+        rootRule(selector)?.walkDecls('min-height', (declaration) => {
+          minHeight = declaration.value;
+        });
+        expect(minHeight, `${selector} needs a 44px minimum touch target`).toBe('44px');
+        // La riga compatta e' ammessa solo dove c'e' un puntatore fine.
+        expect(mediaRule('(hover: hover) and (pointer: fine)', selector)).toBeDefined();
+      },
+    );
+
+    it('lays the SEO panel out in two columns only when the layout wrappers are present', () => {
+      const gridRule = mediaRule('(min-width: 900px)', 'aside.seo-footer-block:has(> .seo-fb-head)');
+      expect(gridRule?.toString()).toContain('display: grid');
+      // Senza i wrapper (artefatto incrementale piu' vecchio) il pannello resta a blocco.
+      expect(rootRule('aside.seo-footer-block')?.toString()).not.toContain('display: grid');
+    });
+
+    it('keeps the tools list responsive without boxing each entry', () => {
+      const cards = rootRule('aside.seo-footer-block .seo-fb-cards');
+      expect(cards?.toString()).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))');
+      expect(mediaRule('(max-width: 640px)', 'aside.seo-footer-block .seo-fb-cards')?.toString())
+        .toContain('grid-template-columns: 1fr');
+      const card = rootRule('aside.seo-footer-block .seo-fb-card')?.toString() ?? '';
+      expect(card).not.toMatch(/border|background/);
+    });
+
+    it('turns motion off for visitors who ask for less of it', () => {
+      expect(mediaRule('(prefers-reduced-motion: reduce)', 'aside.seo-footer-block details[open] > .seo-fb-section-body')?.toString())
+        .toContain('animation: none');
+    });
   });
 });

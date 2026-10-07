@@ -1889,10 +1889,10 @@
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
+        "it": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1937,16 +1937,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
         ],
         "fr": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
           "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
         ]
       },
@@ -3229,10 +3226,10 @@
       "id": "unispital-basel-c6b7a7b547f5",
       "slug": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
+        "it": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "en": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "de": "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "fr": "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
+        "fr": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3279,18 +3276,15 @@
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
         "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
         "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
           "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
@@ -6195,7 +6189,7 @@
       "title": "Nachdiplomstudium (NDS) Anästhesiepflege",
       "titleByLocale": {
         "it": "Studi post-laurea (NDS) Anesthesia Care",
-        "en": "Nachdiplomstudium (NDS) Anästhesiepflege",
+        "en": "Postgraduate Studies (NDS) Anesthesia Care",
         "de": "Nachdiplomstudium (NDS) Anästhesiepflege",
         "fr": "Soins d'anesthésie des études supérieures (END)"
       },
@@ -6270,7 +6264,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:40:34.608Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -6761,7 +6754,7 @@
         "it": "Dipl. Infermieristica HF/FH (Neurological Bed Station & Stroke Unit)",
         "en": "Dipl. Nursing specialist HF/FH (Neurological Bed Station & Stroke Unit)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (neurologische Bettenstation & Stroke Unit)",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (neurologische Bettenstation & Stroke Unit)"
+        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH (Unité de la station de lits et des accidents vasculaires cérébraux neurologiques)"
       },
       "description": "Dein Weg ins #TeamUSB\n\n## Stroke Unit\nDas Universitätsspital Basel nimmt eine führende Rolle in der (inter-)nationalen Medizin- und Forschungslandschaft ein. Unser Campus im Herzen der Stadt Basel steht für Innovationskraft, Weiterentwicklungsmöglichkeiten und interdisziplinäre Zusammenarbeit.\n01.10.2026\nPetersgraben 4, 4031 Basel\nWer beim Unispital Basel arbeitet, profitiert von attraktiven Arbeitsbedingungen und vielen Vorteilen.\n\n## Ihre Benefits am USB\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm\n\n## Das können Sie bewegen\n• Personenzentrierte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n• Beteiligung an einer optimalen, interdisziplinären Versorgung und Sicherstellung der bestmöglichen Pflegequalität\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären und interprofessionellen Behandlungsteam\n• Einsatz im Dreischichtbetrieb\n\n## Das bringen Sie mit\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann (HF/FH/DN II)\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie Angehörigen\n• Freude an der Arbeit im interprofessionellen Team\n• Ausgeglichene und lösungsorientierte Persönlichkeit\n\n## Benefits dieser Stelle\n• Möglichkeit zur Weiterbildung in Überwachungspflege mit Zertifikatsabschluss\n• Selbstplanung und aktive Mitgestaltung des eigenen Dienstplans\n• Engagiertes, professionelles Team, das Wert auf gegenseitige Unterstützung, gemeinsame Teamevents und ein kollegiales Miteinander legt\n• Vielfältiges Team aus 24 Nationen\nIm Universitätsspital arbeiten wir gemeinsam an pflegerischen und medizinischen Qualitäts- und Forschungsprojekten - immer mit dem Ziel, Patienten die beste zur Verfügung stehende Behandlung und Betreuung zu kommen zu lassen und die Patientensicherheit zu verbessern.\nAngelika Lehmann\nStationsleitung Intensivstation\nDas USB ist ein super Arbeitgeber – nicht zuletzt dank den vielen Benefits, von denen wir Mitarbeitenden profitieren. Ich denke da konkret etwa an das grosse Sportangebot, die Kantine und auch an die Vergütung. Das und mehr macht das USB zu einem mitarbeiterfreundlichen Ort.\nChristian Emsden\nPflegeexperte Intensivstation\nIch habe mich bewusst für ein Universitätsspital entschieden, weil ich hier auf schwierige und komplexe Krankheitsfälle treffe. In kleineren Spitälern werden Patientinnen und Patienten mit schwierigen Krankheitsverläufen oftmals verlegt. Hier am Unispital können wir fast alles behandeln.\nNicole Roth\nExpertin in Intensivpflege NDS HF\nZu jeder Zeit sind Babypause und Teilzeitarbeit absolut möglich. Das ist gerade in einem chirurgischen Fach nicht überall so. In unserem Team wurden und werden einem dadurch keine Steine in den Weg gelegt. Unser Chef ist sehr daran interessiert, mehr Frauen im Team zu haben, auf allen Stufen, auch auf Führungsebene.\nDr. Antje Feicke\nKaderärztin Urologie\nWichtig ist, dass hier alle Mitarbeitenden völlig unabhängig von ihrem Arbeitspensum spannende Möglichkeiten für ihre Zukunft erhalten – das leben sowohl ich wie auch meine Vorgesetzten jeden Tag vor. Das Wechselspiel zwischen Job und Familie ist sehr bereichernd.\nBritta Lünenborg\nStationsleiterin Innere Medizin\nDas Arbeitsklima ist hervorragend und ich bin umgeben von motivierten und humorvollen Mitarbeitenden. Es gibt immer was zum herzhaft Lachen.\nJasmine Joseph\nControllerin\nIm Umfeld des USB und der Medizinischen Fakultät gibt es tolle Möglichkeiten, was Forschung betrifft – ich kann hier auf sehr hohem Niveau meinen Interessen nachgehen.\nProf. mult. Florian M. Thieringer\nMHBA , Chefarzt / Co-Leiter 3D-Print Lab\nWir sind am Puls technischer Innovation: Wir arbeiten mit den modernsten Geräten und lernen immer wieder neue Systeme kennen – das fasziniert mich.\nAurore Jordan\nRadiologiefachfrau MTRA Interventionelle Radiologie\nEs ist aussergewöhnlich, wie interdisziplinär wir hier zusammenarbeiten, auch zwischen den einzelnen Kliniken. Das geschieht so nicht an vielen Orten.\nProf. Elisabeth Artemis Kappos\nKaderärztin Plastische, Rekonstruktive, Ästhetische u. Handchirurgie, Mitglied Tumorzentrum\nIch bin stolz am USB zu arbeiten. Ich habe während meiner Zeit am USB eine grosse Unterstützung – auch finanziell – erfahren, ohne die ich meine Karriere niemals hätte machen können. Dafür bin ich sehr dankbar.\nThomas Dreher-Hummel\nPflegeexperte APN (Advanced Practice Nurse)\nEs gibt viele Gründe, zu uns zu kommen: Am USB arbeiten heisst in erster Linie, Teil eines engagierten Teams aus über 7500 Mitarbeitenden aus rund 90 Nationen zu sein. Unser lebhafter Alltag ist geprägt von zukunftsweisender Forschung, Spitzenmedizin und Wissenstransfer auf höchstem Niveau. Dazu kommen eine moderne Unternehmenskultur, Inter-disziplinarität, inspirierende Innovationskraft und vielseitige Aus- und Weiterbildungsmöglichkeiten.\nMöchten Sie mit uns das Spital der Zukunft gestalten? Dann werden Sie Teil von uns! #TeamUSB\nStroke Unit\nDas können Sie bewegen\nDas bringen Sie mit",
       "descriptionByLocale": {
@@ -6820,7 +6813,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:56:59.080Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8519,7 +8511,7 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
+        "it": "Dipl. Specialista infermieristico HF/FH (chirurgia neurochirurgia/chirurgia spinale)",
         "en": "Dipl. Nursing specialist HF/FH (neurosurgery/spinal surgery)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (Neurochirurgie/Spinale Chirurgie)",
         "fr": "Dipl. Spécialiste des soins infirmiers HF/FH (neurosurgie/chirurgie spinale)"
@@ -8570,7 +8562,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:08:59.795Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8830,7 +8821,7 @@
       "id": "unispital-basel-4ea8a41de814",
       "slug": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
+        "it": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "en": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "de": "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
         "fr": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
@@ -8877,13 +8868,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-        "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+        "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-          "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+          "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
         ]
       },
       "needsRetranslation": true,
@@ -10676,7 +10665,7 @@
       "slugByLocale": {
         "de": "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
         "it": "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
-        "en": "study-nurse-study-coordinator-klinische-forschung-universitatsspital-basel-basel",
+        "en": "study-nurse-study-coordinator-clinical-research-universitatsspital-basel-basel",
         "fr": "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
@@ -10736,7 +10725,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T09:38:38.800Z"
+      "firstSeenAt": "2026-10-07T09:38:38.800Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "study-nurse-study-coordinator-klinische-forschung-universitatsspital-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-study-coordinator-klinische-forschung-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-f297ade0c52d",

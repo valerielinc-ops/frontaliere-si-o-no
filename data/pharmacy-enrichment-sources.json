@@ -27,11 +27,13 @@
     "googlePlaces": {
       "enabled": true,
       "pharmacyIds": ["it-msal-3907"],
-      "maxAgeDays": 30
+      "maxAgeDays": 30,
+      "monthlyRequestLimit": 10000
     },
     "facebook": {
       "enabled": false,
       "pharmacyIds": [],
+      "discoveryPharmacyIds": ["it-msal-3907"],
       "maxAgeDays": 30
     }
   }

@@ -53,6 +53,7 @@ import {
   buildBaronieLocalizedContent,
   titleOverlap,
   isSwissJob,
+  isBaronieDetailComplete,
 } from './lib/baronie-job-parser.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -78,6 +79,14 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
 const DETAIL_DELAY_MS = 800;
+
+/**
+ * A zero after discovering detail URLs is not a source-proven empty snapshot
+ * when any detail fetch failed: the source extraction was incomplete.
+ */
+export function classifyBaronieEmptyResult(detailFetchFailures = 0) {
+  return detailFetchFailures > 0 ? 'source-extraction-failed' : 'no-jobs-parsed';
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 function readJson(filePath, fallback) {
@@ -335,7 +344,33 @@ function cleanStoredJobsOnSoftExit() {
   });
 }
 
-async function main() {
+function writeBaronieFilteredEmptySummary(counts) {
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: 0,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    abortKind: null,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  });
+}
+
+export async function main() {
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
   // report a non-zero pre-filter count when a later "0 Swiss jobs" early
@@ -347,7 +382,7 @@ async function main() {
   // (a NON-geographic drop) reads as `discovered > 0, written === 0`, exactly
   // like a legitimate "found jobs, none Swiss" run, and check-crawler-health
   // calls a broken crawler healthy.
-  const counts = { discovered: null, parsed: null };
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Baronie — Dedicated Crawler');
@@ -360,6 +395,7 @@ async function main() {
   counts.discovered = jobUrls.length;
   console.log(`📋 Found ${jobUrls.length} job URLs`);
   if (jobUrls.length === 0) {
+    counts.abortKind = classifyBaronieEmptyResult();
     console.log('⚠️ No job URLs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;
@@ -368,15 +404,17 @@ async function main() {
   // 2. Fetch and parse each detail page
   console.log('\n📄 Fetching detail pages...');
   const parsed = [];
+  let detailFetchFailures = 0;
   for (const url of jobUrls) {
     const detail = await fetchBaronieDetailPage(url, TIMEOUT_MS);
-    if (detail) {
+    if (isBaronieDetailComplete(detail)) {
       const swiss = isSwissJob(detail);
       console.log(`  ${swiss ? '✅' : '⏭️ '} ${detail.detailTitle || '(no title)'} → ${detail.location || '(no location)'} [${detail.sectionCount} sections, ${detail.markdown.length} chars]${swiss ? '' : ' — SKIPPED (not Swiss)'}`);
       if (swiss) {
         parsed.push({ url, detail });
       }
     } else {
+      detailFetchFailures += 1;
       console.log(`  ⚠️ ${url} → detail page failed`);
     }
     if (parsed.length < jobUrls.length) await sleep(DETAIL_DELAY_MS);
@@ -384,7 +422,22 @@ async function main() {
 
   console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
   counts.parsed = parsed.length;
-  if (parsed.length === 0) {
+  if (detailFetchFailures > 0 || parsed.length === 0) {
+    if (detailFetchFailures > 0) {
+      // A single unreadable detail makes the filtered result incomplete even
+      // when another Swiss detail was usable. Do not let a partial snapshot
+      // replace the stored slice or remove jobs that were not re-read.
+      counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
+      console.log(`⚠️ ${detailFetchFailures} detail page(s) failed — preserving the stored slice and refusing partial publication.`);
+      return;
+    }
+
+    // Every detail page was parsed and classified, so this is a complete
+    // source-backed geographic filter result. Publish the heartbeat before
+    // preserving the prior slice; the exit guard would correctly classify
+    // an unreported early return as an incomplete run.
+    counts.lastFetchOutcome = 'filtered_empty';
+    writeBaronieFilteredEmptySummary(counts);
     console.log('⚠️ No Swiss jobs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;

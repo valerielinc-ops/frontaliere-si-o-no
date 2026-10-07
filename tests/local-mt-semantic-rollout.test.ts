@@ -7,6 +7,7 @@ import {
 import {
   createSemanticRollout,
   createSemanticRolloutFromEnv,
+  createSemanticCandidateRecorder,
   DEFAULT_LOCAL_MT_SEMANTIC_MAX_OVERWRITES,
   formatSemanticTelemetry,
   HARD_MAX_LOCAL_MT_SEMANTIC_OVERWRITES,
@@ -86,6 +87,11 @@ describe('semantic rollout: default-off kill-switch', () => {
     const before = structuredClone(job);
     const rollout = createSemanticRollout();
     const judge = countingJudge(ACCEPT);
+    expect(candidateFor(job)).toMatchObject({
+      languageDriven: true,
+      existingDetectorReason: expect.any(String),
+      candidateDetectorReason: 'ok',
+    });
 
     const result = await commitMopupCandidate({
       job, locale: 'it', field: 'title', candidate: candidateFor(job), judge, rollout,
@@ -167,6 +173,34 @@ describe('semantic rollout: hard cap', () => {
     expect(parseSemanticLimit('1000000', 7, 100)).toBe(100);
     const rollout = createSemanticRollout({ maxOverwrites: '999999999' });
     expect(rollout.snapshot().cap.maxOverwrites).toBe(HARD_MAX_LOCAL_MT_SEMANTIC_OVERWRITES);
+  });
+});
+
+describe('semantic candidate artifact sample', () => {
+  it('keeps only the first 200 JSON-safe judged candidates', () => {
+    const recorder = createSemanticCandidateRecorder(999);
+    const first = { sourceLang: 'de', targetLang: 'it', candidateTitle: 'Cappellano carcerario' };
+    recorder.record(first);
+    first.candidateTitle = 'mutated after recording';
+    for (let index = 1; index <= 200; index += 1) {
+      recorder.record({ index, verdict: 'accepted' });
+    }
+
+    const snapshot = recorder.snapshot();
+    expect(snapshot).toMatchObject({
+      schemaVersion: 1,
+      limit: 200,
+      seen: 201,
+      captured: 200,
+      truncated: true,
+    });
+    expect(snapshot.entries).toHaveLength(200);
+    expect(snapshot.entries[0]).toEqual({
+      sourceLang: 'de',
+      targetLang: 'it',
+      candidateTitle: 'Cappellano carcerario',
+    });
+    expect(snapshot.entries.at(-1)).toEqual({ index: 199, verdict: 'accepted' });
   });
 });
 
@@ -340,7 +374,8 @@ describe('semantic rollout: shadow sample and report', () => {
       candidate: candidateFor(overwriteJob()), rollout, sourceLang: 'de', locale: 'it', field: 'title',
       judge: countingJudge(() => { throw new Error('model download failed'); }),
     });
-    expect(outcome).toEqual({ decision: 'withheld:kill-switch', shadowBucket: 'error' });
+    expect(outcome).toMatchObject({ decision: 'withheld:kill-switch', shadowBucket: 'error' });
+    expect(outcome.judged).toMatchObject({ decision: 'skip:semantic-unavailable' });
     expect(rollout.snapshot().shadowVerdicts).toMatchObject({ error: 1, total: 1 });
   });
 
