@@ -140,8 +140,10 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   }
 
   const matchedKeys = new Set();
+  const assembledMatchCounts = new Map();
   const sliceKeys = new Set();
   let duplicateSliceKeys = 0;
+  let duplicateAssembledMatches = 0;
   let sliceJobs = 0;
   let unmatchedSliceJobs = 0;
   let missingBridges = 0;
@@ -160,6 +162,9 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
         unmatchedSliceJobs++;
         continue;
       }
+      const matchCount = (assembledMatchCounts.get(assembled) || 0) + 1;
+      assembledMatchCounts.set(assembled, matchCount);
+      if (matchCount > 1) duplicateAssembledMatches++;
       matchedKeys.add(resolveJobDiffKey(assembled));
       missingBridges += collectMissingAssembledBridges(sliceJob, assembled).length;
       if (applyAssembledToSliceJob(sliceJob, assembled).changed) pendingWrites++;
@@ -184,6 +189,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     sliceJobs,
     unmatchedSliceJobs,
     duplicateSliceKeys,
+    duplicateAssembledMatches,
     missingBridges,
     pendingWrites,
     activeSlugMismatches,
@@ -192,6 +198,7 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
     && report.unkeyedAssembledJobs === 0
     && report.duplicateAssembledKeys === 0
     && report.duplicateSliceKeys === 0
+    && report.duplicateAssembledMatches === 0
     && report.missingBridges === 0
     && report.pendingWrites === 0
     && report.activeSlugMismatches === 0;

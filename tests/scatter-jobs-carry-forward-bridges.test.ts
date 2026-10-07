@@ -79,6 +79,22 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     });
   });
 
+  it('fails parity when two distinct slices match the same assembled job by URL', () => {
+    const assembled = { id: 'assembled', url: 'https://example.test/jobs/42' };
+    const sliceEntries = [{
+      jobs: [
+        { id: 'slice-a', url: 'https://example.test/jobs/42' },
+        { id: 'slice-b', url: 'https://example.test/jobs/42' },
+      ],
+    }];
+
+    expect(verifyScatterParity([assembled], sliceEntries)).toMatchObject({
+      duplicateAssembledMatches: 1,
+      missingAssembledJobs: 0,
+      passed: false,
+    });
+  });
+
   it('fails parity when an assembled bridge is absent from the slice', () => {
     const sliceJob = { ...baseSlice() };
     const assembled = {
