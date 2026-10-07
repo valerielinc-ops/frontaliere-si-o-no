@@ -1210,6 +1210,135 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+const workflowSourceMemo = new Map();
+
+/**
+ * Read the workflow source that produced a run, not the source in today's
+ * checkout. The scanner uses a shallow checkout, so the Contents API is the
+ * only reliable way to inspect an older `head_sha`; an unreadable historical
+ * blob returns null and keeps the reporter guard fail-closed.
+ *
+ * @param {{workflowPath?: string|null, head_sha?: string|null}} run
+ * @param {{read?: Function}} [deps]
+ * @returns {string|null}
+ */
+export function workflowSourceForRun(run, { read = gh } = {}) {
+  const workflowPath = String(run?.workflowPath ?? '').trim();
+  const headSha = String(run?.head_sha ?? '').trim();
+  if (!/^[0-9a-f]{40}$/i.test(headSha)) return null;
+
+  const candidate = path.resolve(REPO_ROOT, workflowPath);
+  const relative = path.relative(WORKFLOWS_DIR, candidate);
+  if (!workflowPath || relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  const normalizedPath = path.relative(REPO_ROOT, candidate).split(path.sep).join('/');
+  if (!normalizedPath.startsWith('.github/workflows/')) return null;
+
+  const key = `${headSha}:${normalizedPath}`;
+  if (workflowSourceMemo.has(key)) return workflowSourceMemo.get(key);
+
+  const apiPath = `repos/${REPO || '{owner}/{repo}'}/contents/${normalizedPath}`
+    + `?ref=${encodeURIComponent(headSha)}`;
+  const encoded = read(
+    ['api', '-X', 'GET', apiPath, '--jq', '.content // empty'],
+    { allowFailure: true },
+  );
+  if (!encoded) {
+    workflowSourceMemo.set(key, null);
+    return null;
+  }
+  try {
+    const source = Buffer.from(String(encoded).replace(/\s/g, ''), 'base64').toString('utf8');
+    workflowSourceMemo.set(key, source);
+    return source;
+  } catch {
+    workflowSourceMemo.set(key, null);
+    return null;
+  }
+}
+
+/**
+ * Split the named steps of a workflow without pulling a YAML dependency into
+ * the no-`npm ci` scanner. A step block starts at `- name:` and ends at the
+ * next sibling `- name:` with the same indentation; that is enough to inspect
+ * the existing `id: failgate` / failure-reporter contract.
+ *
+ * @param {string|null|undefined} source
+ * @returns {Array<{name:string, text:string}>}
+ */
+function workflowStepBlocks(source) {
+  if (!source) return [];
+  const lines = String(source).split('\n');
+  const starts = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^(\s*)-\s+name:\s*(.*?)\s*$/);
+    if (!match) continue;
+    const name = match[2].replace(/^(['"])(.*)\1$/, '$2').trim();
+    starts.push({ index: i, indent: match[1].length, name });
+  }
+
+  return starts.map((step, index) => {
+    const next = starts.slice(index + 1).find((candidate) => candidate.indent === step.indent);
+    return {
+      name: step.name,
+      text: lines.slice(step.index, next ? next.index : lines.length).join('\n'),
+    };
+  });
+}
+
+function comparableStepName(name) {
+  return String(name ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+}
+
+/**
+ * Whether a failed run is the workflow's own expected condition, already
+ * surfaced by its internal issue opener.
+ *
+ * The global scanner must still report a crash before/outside detection. The
+ * safe contract is therefore deliberately narrow: the workflow source must
+ * have a `failgate` step and a `Report unexpected failure to GitHub Issues`
+ * step whose guard explicitly distinguishes a failgate failure; the Jobs API
+ * must show exactly that gate as the only failed step and the reporter must be
+ * skipped. If the issue opener fails, another step fails, or the Jobs API is
+ * unreadable, this returns false and the global alarm remains fail-closed.
+ *
+ * @param {{source?: string|null, jobs?: {jobs?: Array<{steps?: Array<{name?: string, conclusion?: string}>}>}|null}}} input
+ */
+export function isHandledExpectedFailure({ source, jobs } = {}) {
+  const blocks = workflowStepBlocks(source);
+  const gate = blocks.find((block) => /(^|\n)\s*id:\s*failgate\s*$/m.test(block.text));
+  const reporter = blocks.find((block) => block.name === 'Report unexpected failure to GitHub Issues');
+  if (!gate || !reporter) return false;
+
+  const reporterIf = reporter.text.match(/(^|\n)\s*if:\s*(.+)$/m)?.[2] || '';
+  if (!/failure\(\)/.test(reporterIf) || !/steps\.failgate\./.test(reporterIf)) return false;
+  if (!jobs || !Array.isArray(jobs.jobs)) return false;
+
+  const steps = jobs.jobs.flatMap((job) => (Array.isArray(job?.steps) ? job.steps : []));
+  const failedSteps = steps.filter((step) => step?.conclusion === 'failure');
+  const gateName = comparableStepName(gate.name);
+  const gateFailed = failedSteps.some((step) => comparableStepName(step?.name) === gateName);
+  const anotherStepFailed = failedSteps.some((step) => comparableStepName(step?.name) !== gateName);
+  const reporterSkipped = steps.some(
+    (step) => comparableStepName(step?.name) === comparableStepName(reporter.name)
+      && step?.conclusion === 'skipped',
+  );
+
+  return gateFailed && !anotherStepFailed && reporterSkipped;
+}
+
+/**
+ * Il guard del reporter interno è una deduplica secondaria per workflow che
+ * non hanno un owner registrato. Per i workflow in `VERDICT_STEPS` la prova
+ * più forte è invece separata: il monitor deve aver davvero persistito la
+ * propria issue. Se quella prova manca, non lasciare che la sola forma dei
+ * job trasformi un verdetto non consegnato in silenzio.
+ *
+ * @param {{ workflowPath?: string|null, ownerPersisted?: boolean }} run
+ */
+function maySuppressHandledExpectedFailure(run) {
+  return !VERDICT_STEPS[String(run?.workflowPath ?? '')]
+    || run?.ownerPersisted === true;
+}
 /** Memo di `readRunJobs`, svuotato all'inizio di ogni `scanFailures()`. */
 const runJobsMemo = new Map();
 
@@ -1315,6 +1444,7 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true, relatedI
 
 export async function scanFailures() {
   runJobsMemo.clear();
+  workflowSourceMemo.clear();
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
@@ -1347,8 +1477,8 @@ export async function scanFailures() {
     `repos/${REPO || '{owner}/{repo}'}/actions/runs`
       + `?created=%3E%3D${encodeURIComponent(horizon)}&status=failure&per_page=100`,
     '.workflow_runs[] | [.id, .workflow_id, .event, .head_branch, .conclusion,'
-      + ' .created_at, .updated_at, .html_url, .path] | @tsv',
-    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path'],
+      + ' .created_at, .updated_at, .html_url, .path, .head_sha] | @tsv',
+    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path', 'head_sha'],
   );
   // Lettura obbligatoria: senza l'elenco delle run non c'è niente da decidere, e
   // dichiarare «nessuna run rossa» sarebbe un verde su una misura non fatta.
@@ -1405,6 +1535,10 @@ export async function scanFailures() {
       ...run,
       workflowName,
       workflowPath: wf?.path || null,
+      workflowSource: workflowSourceForRun({
+        workflowPath: wf?.path,
+        head_sha: run.head_sha,
+      }),
       ownerPersisted,
     });
   }
@@ -1491,6 +1625,14 @@ export async function scanFailures() {
       //      segnalato. Il caso 2 è la sola cosa che poteva romperlo.
       const stale = isCoveredIssueStale(already.updatedAt);
       const { jobs: coveredJobs } = readRunJobs(run.id);
+      if (maySuppressHandledExpectedFailure(run)
+        && isHandledExpectedFailure({ source: run.workflowSource, jobs: coveredJobs })) {
+        tally.active += 1;
+        console.log(
+          `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+        );
+        continue;
+      }
       const signature = failureSignature(coveredJobs);
       const known = issueTexts(already.number);
       // Firma assente (job illeggibili) o thread illeggibile: si TACE sulla
@@ -1627,6 +1769,14 @@ export async function scanFailures() {
     }
 
     const { jobs, readable: jobsReadable } = readRunJobs(run.id);
+    if (maySuppressHandledExpectedFailure(run)
+      && isHandledExpectedFailure({ source: run.workflowSource, jobs })) {
+      tally.active += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+      );
+      continue;
+    }
     // Il marker entra nel body fin dall'apertura: senza, la passata successiva
     // non troverebbe la firma nel thread e leggerebbe come «guasto cambiato»
     // lo stesso identico guasto, a ogni ora.
