@@ -97,6 +97,7 @@ import { parseJsonLdText } from './lib/json-ld-text.mjs';
 import {
   createDetailTransportStats,
   fetchMySwitzerlandDetailPage,
+  INDEX_ONLY_FALLBACK_MODE,
   recordDetailResponse,
   reportDetailTransport,
 } from './lib/myswitzerland-detail-transport.mjs';
@@ -191,8 +192,9 @@ async function algoliaQuery(index, body) {
 
 // Counters of the detail transport for the whole run (step summary observer).
 // HTTP 406 is how the www.myswitzerland.com CDN refuses a client (2026-10-04
-// wave); a refusal stops the locale walk of the event, a 403/429/challenge or
-// 406 above the policy threshold stops the whole detail phase.
+// wave); a refusal stops the locale walk of the event. A 403/429/challenge
+// stops the whole detail phase; a 406 above the policy threshold selects the
+// explicit source-backed index fallback below.
 const detailStats = createDetailTransportStats();
 
 /**
@@ -970,6 +972,7 @@ export function commitMySwitzerlandBatch({
   crawledAt,
   detailFailureIds,
   detailAttemptCount,
+  detailFailureStrategy = 'reuse-or-reject',
   nextIndex,
   targeted = null,
   checkpointDir = CHECKPOINT_DIR,
@@ -983,6 +986,7 @@ export function commitMySwitzerlandBatch({
     crawledAt,
     detailFailureIds,
     detailAttemptCount,
+    detailFailureStrategy,
   });
   if (nextIndex !== null && nextIndex !== undefined) {
     if (targeted) {
@@ -1043,7 +1047,32 @@ async function main() {
     console.log(`[myswitzerland] resuming from checkpoint index ${startIndex}/${records.length}`);
   }
 
-  const events = [];
+  const prepareEvent = async (rec, enrichment) => {
+    const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
+    if (!mapped) return null;
+    const { event, imageSourceUrl, place } = mapped;
+    // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
+    // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
+    // high-confidence cantonHint instead of relying solely on venue/title
+    // text-matching against the current BFS comune list, which misses
+    // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
+    // toponyms (Petersplatz, a square inside Basel).
+    const { comune, canton } = resolveComuneNationwide(
+      { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
+      event.address?.region,
+    );
+    event.comune = comune || undefined;
+    event.canton = canton || '';
+    if (isEventImageSourceAllowed(SOURCE.key)) {
+      event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
+    }
+    const frontier = resolveItalianFrontierComuni(event.geo);
+    if (frontier.length) event.italianFrontierComuni = frontier;
+    return event;
+  };
+
+  let events = [];
+  const visitedRecords = [];
   const detailFailureIds = [];
   let detailOk = 0;
   let detailFail = 0;
@@ -1060,6 +1089,7 @@ async function main() {
 
     if (detailStats.stopped) break;
     const rec = records[cursor];
+    visitedRecords.push(rec);
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
     else {
@@ -1067,39 +1097,39 @@ async function main() {
       detailFailureIds.push(eventStableId(SOURCE.key, rec.objectID));
     }
 
-    const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
-    if (mapped) {
-      const { event, imageSourceUrl, place } = mapped;
-      // #3739: myswitzerland's own JSON-LD ships a clean 2-letter canton code
-      // as `location.address.addressRegion` (e.g. "SZ") — pass it as the
-      // high-confidence cantonHint instead of relying solely on venue/title
-      // text-matching against the current BFS comune list, which misses
-      // fused post-2011 comuni (Niederurnen -> Glarus Nord) and non-comune
-      // toponyms (Petersplatz, a square inside Basel).
-      const { comune, canton } = resolveComuneNationwide(
-        { venue: [event.venue, place].filter(Boolean).join(' '), title: event.title, region: undefined },
-        event.address?.region,
-      );
-      event.comune = comune || undefined;
-      event.canton = canton || '';
-      if (isEventImageSourceAllowed(SOURCE.key)) {
-        event.imageUrl = (await mirrorEventImage(imageSourceUrl, event.id, SOURCE.key)) || undefined;
-      }
-      const frontier = resolveItalianFrontierComuni(event.geo);
-      if (frontier.length) event.italianFrontierComuni = frontier;
-      events.push(event);
-    }
+    const event = await prepareEvent(rec, enrichment);
+    if (event) events.push(event);
 
     visited += 1;
     cursor = (cursor + 1) % records.length;
     if (visited < records.length) await sleep(DETAIL_DELAY_MS);
   }
 
+  const indexOnlyFallback = detailStats.stopped?.fallbackMode === INDEX_ONLY_FALLBACK_MODE;
   reportDetailTransport(detailStats);
-  if (detailStats.stopped) {
-    // Fail closed exactly like a policy rejection: nothing is written, the
-    // cursor stays put, the previous slice stays byte-for-byte on disk.
+  if (detailStats.stopped && !indexOnlyFallback) {
+    // 403/429/challenge remains fail-closed: nothing is written, the cursor
+    // stays put, and the previous slice stays byte-for-byte on disk.
     throw new Error(`[myswitzerland] detail phase stopped (${detailStats.stopped.reason}); batch not written`);
+  }
+  if (indexOnlyFallback) {
+    // The Algolia rows are independently source-backed. Rebuild every row
+    // visited in this partial batch without any detail enrichment, so a
+    // successful earlier detail page cannot leak detail-only fields into the
+    // explicitly selected fallback mode.
+    console.warn(
+      `[myswitzerland] detail phase stopped (${detailStats.stopped.reason}); `
+      + `rebuilding ${visitedRecords.length} event(s) from Algolia index fields only`,
+    );
+    events = [];
+    for (const rec of visitedRecords) {
+      const event = await prepareEvent(rec, {});
+      if (event) events.push(event);
+    }
+    detailFailureIds.length = 0;
+    detailFailureIds.push(...visitedRecords.map((rec) => eventStableId(SOURCE.key, rec.objectID)));
+    detailOk = 0;
+    detailFail = visitedRecords.length;
   }
 
   const resolved = events.filter((e) => e.comune).length;
@@ -1125,18 +1155,18 @@ async function main() {
   // title/description text across it/en/de/fr (the organizer never
   // translated it) instead of a missing locale — fill those gaps via the
   // free-translate.mjs cascade, same disk cache as crawl-tio-agenda.mjs.
-  const translationCache = loadEventTitleTranslationCache();
-  const translatedEvents = await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
-    deadline: Date.now() + TRANSLATE_BUDGET_MS,
-  });
+  const translationCache = indexOnlyFallback ? null : loadEventTitleTranslationCache();
+  const translatedEvents = indexOnlyFallback
+    ? events
+    : await enrichEventsWithLocaleFallbackTranslations(events, translationCache, {
+      deadline: Date.now() + TRANSLATE_BUDGET_MS,
+    });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
-  const freshEvents = mergePriceBackfillRecords(
-    translatedEvents,
-    knownPriceBackfills,
-    indexedPriceBackfills,
-    bookingPriceBackfills,
-  );
+  const priceBackfillGroups = indexOnlyFallback
+    ? [indexedPriceBackfills]
+    : [knownPriceBackfills, indexedPriceBackfills, bookingPriceBackfills];
+  const freshEvents = mergePriceBackfillRecords(translatedEvents, ...priceBackfillGroups);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
@@ -1144,8 +1174,10 @@ async function main() {
     return;
   }
 
-  stripDescriptionTranslationCache(translationCache);
-  saveEventTitleTranslationCache(translationCache);
+  if (translationCache) {
+    stripDescriptionTranslationCache(translationCache);
+    saveEventTitleTranslationCache(translationCache);
+  }
   saveGeocodeCache(geocodeCache);
 
   if (events.length === 0) {
@@ -1179,6 +1211,7 @@ async function main() {
     crawledAt,
     detailFailureIds,
     detailAttemptCount: visited,
+    detailFailureStrategy: indexOnlyFallback ? 'source-backed-index' : 'reuse-or-reject',
     nextIndex: !limit && records.length > 0 ? cursor : null,
     targeted: ids ? { checkpointPath: targetedCheckpointPath, selectionKey: selection.selectionKey } : null,
   });
