@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { verificationIsPending } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { candidateForForm, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -319,6 +320,17 @@ describe('portal runner helpers', () => {
     expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: 1 })).toBe(false);
     expect(isOtpVerificationPage(otpPage, 'sunrise.wd3.myworkdayjobs.com', { verifiedAt: null })).toBe(false);
     expect(isOtpVerificationPage({ ...otpPage, buttons: [] }, 'career5.successfactors.eu', { verifiedAt: null })).toBe(false);
+  });
+
+  it('keeps a resumed OTP page pending while SuccessFactors reports that it is loading', () => {
+    const otpPage = {
+      fields: [{ id: 'otp', kind: 'text', inputType: 'text', label: '*Code confidentiel:', required: true }],
+      buttons: [{ id: 'continue', text: 'Continuer' }],
+      text: 'Chargement en cours…',
+    };
+    expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    expect(verificationIsPending(otpPage)).toBe(true);
+    expect(verificationIsPending({ ...otpPage, text: 'Le code est incorrect' })).toBe(false);
   });
 });
 
