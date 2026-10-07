@@ -53,16 +53,6 @@ describe('loop clock table and cadence', () => {
     expect(LOOP_CLOCK_ENTRIES.every((entry) => entry.everyMinutes % LOOP_CLOCK_TICK_MINUTES === 0)).toBe(true);
   });
 
-  it('keeps the hourly revenue monitor on the external clock', () => {
-    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
-      id: 'site-revenue-signal-monitor',
-      repo: 'site',
-      workflow: 'revenue-signal-monitor.yml',
-      everyMinutes: 60,
-      introducedAt: '2026-10-07T16:50:03Z',
-    });
-  });
-
   it('keeps the runtime reliability watchdog on the external clock', () => {
     expect(LOOP_CLOCK_ENTRIES).toContainEqual({
       id: 'site-runtime-reliability-watch',
@@ -70,6 +60,16 @@ describe('loop clock table and cadence', () => {
       workflow: 'runtime-reliability-watch.yml',
       everyMinutes: 30,
       introducedAt: '2026-10-08T06:00:00Z',
+    });
+  });
+
+  it('keeps the hourly revenue monitor on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-revenue-signal-monitor',
+      repo: 'site',
+      workflow: 'revenue-signal-monitor.yml',
+      everyMinutes: 60,
+      introducedAt: '2026-10-07T16:50:03Z',
     });
   });
 
