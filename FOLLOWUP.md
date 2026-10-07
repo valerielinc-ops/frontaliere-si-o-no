@@ -1,7 +1,5 @@
 # Follow-up Triage Instructions
 
-Contratto per `post-merge-followup.yml`: residui di PR/review finiscono in un solo bucket giornaliero `follow-up` per repository target.
-
 ## Contratto corrente — bucket giornaliero
 
 La forma canonica è:
@@ -10,63 +8,44 @@ La forma canonica è:
 follow-up(daily:YYYY-MM-DD): N item — owner/repo
 ```
 
-Chiave = giorno della run riuscita in `Europe/Zurich`, mai `mergedAt`. Solo il successo avanza il watermark; il retry rilegge la finestra. `## Post-merge follow-up triage` è il marker idempotente per-PR, anche in bucket esistente.
+`Europe/Zurich`≠`mergedAt`; successo→watermark, retry→finestra.
 
-Una PR daily con `Addresses #<bucket>` e `Follow-up item: FU-...` cerca finding nuovi: aggiorna `Sources` per i coperti e aggiunge gli altri al padre, riaprendo `collecting` e risigillando. Padre illeggibile → blocco sulla PR, nessun contenitore alternativo.
+PR daily `Addresses #<bucket>` + `Follow-up item: FU-...`: `Sources`/padre; `State: collecting`→`State: sealed`; no `agent:fix`/`agent:fix-queued`; `hasFalsifiableAcceptance()` demota/sigilla; errore→blocco, item/watermark.
 
-Ogni bucket va da `State: collecting` a `State: sealed`. In raccolta non porta `agent:fix`/`agent:fix-queued`; il gate completa i chunk, usa `hasFalsifiableAcceptance()`, demota gli item non verificabili, sigilla e aggiunge `agent:fix-queued`. Un errore lascia `collecting`, item e watermark intatti.
-
-Ogni item ha ID stabile `FU-YYYY-MM-DD-NNN` e campi `State`, `Sources`, `Target repository`, `Target file`, `Original text`, `Suggested action`, `Acceptance token`. Dedup su `target repository + target file + token/azione normalizzata`; match → accorpa `Sources`. Append concorrenti: rileggi e ricostruisci se la baseline diverge; sealing/demozione anche in commenti append-only.
-
-Il drainer promuove bucket `sealed` con item `open` senza PR che ne dichiari l'ID; `issue-fix` ne seleziona uno per run. PR parziale: `Addresses #<bucket>` + `Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`. Il reconciler chiude solo con tutti gli item validi `done` e provati; body/stato/acceptance/prova non affidabili lasciano aperto (§ Stati dell'item, scrittori e chiusura).
+Divergenza→rebuild. Drainer `sealed`+`open` senza PR-ID→`issue-fix`/run; PR `Addresses #<bucket>`+`Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; reconciler→`done`.
 
 ### Ciclo del padre decomposto e PARENT-REARM
 
-Un padre con `decomposed:1` resta un tracker: il PARENT-DEQUEUE toglie il
-routing del fixer e il PARENT-CLOSE lo chiude soltanto quando tutte le figlie
-dell’ultimo `DECOMPOSED_INTO` sono chiuse. Se un monitor riapre o riconferma la
-condizione dopo quel marker (`🔁 **Reopened**` oppure `🔁 Recurrence on workflow
-run.`), il drainer non richiude il padre: dopo aver verificato le figlie,
-PARENT-REARM scrive un marker HTML `PARENT_REARM`, rimuove `decomposed:1` e
-`agent:triaged` (oltre a eventuale routing stale), quindi lascia che il
-`triage-sweep` già esistente lo classifichi e lo instradi via App/PAT. Non esiste
-una coda speciale per il riarmo.
+`decomposed:1` tracker: PARENT-DEQUEUE; PARENT-CLOSE dopo figlie dell’ultimo `DECOMPOSED_INTO`. Riaperta/recurrence→PARENT-REARM + `PARENT_REARM`, rimuove `decomposed:1`/`agent:triaged`/stale; `triage-sweep` App/PAT.
 
-Il marker rende il pass idempotente per quella riapertura. Il default è al
-massimo 2 riarmi per issue negli ultimi 30 giorni e 2 riarmi per run; marker,
-date o stato di una figlia illeggibili sono fail-closed. Un nuovo
-`DECOMPOSED_INTO` successivo al riarmo torna a essere l’autorità del
-PARENT-CLOSE, così il ciclo non può né bloccarsi né ricorrere senza tetto.
-
+Marker idempotente; max 2 riarmi/issue/30g, 2/run; illeggibile→fail-closed; nuovo `DECOMPOSED_INTO`→PARENT-CLOSE.
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
-`post-merge-followup.yml` gira su OGNI PR mergiata dall'owner, **incluse le fix di follow-up**: senza guardia ogni merge può generarne altri.
+`post-merge-followup.yml`: OGNI PR owner, incluse fix follow-up: anti-nipoti.
 
-Lo step zero-agente `scripts/ci/is-followup-fix-pr.mjs` precede Codex e salta i fixer branch diretti a `follow-up`. Una fix daily con `Addresses #<bucket>` + `Follow-up item: FU-...` aggiunge finding nuovi al **padre**, mai a nuova issue; scope deferred resta lì. **Proceed-safe**: branch/body illeggibile o errore `gh issue view` → triage normale.
+`is-followup-fix-pr.mjs`: `follow-up`→skip; daily marker→**padre**; **Proceed-safe** su errori→triage.
 
 ## Scopo
 
-Ogni 🟡 nit, ❓ q e voce `## Non implementato` DEVE diventare item `follow-up`, drop motivato o verifica live in `Live-verification` (nessuna issue/fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore; filtra via `REVIEW.md` → "Scopo progetto".
+Ogni 🟡 nit, ❓ domanda o voce residua `## Non implementato`→follow-up, drop esplicito o `Live-verification`; Nessun silent ignore.
 
 ## Input
-
 - PR merged: `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
-- Reviewer bot reviews: `gh api repos/$REPO/pulls/$PR_NUMBER/reviews` (filtra `user.type == "Bot"` + login `github-actions[bot]`, `frontaliere-automation[bot]` o `claude[bot]` storico)
-- Issue esistenti collegate: `gh issue list --label follow-up --state all --search "PR #$PR_NUMBER" --json number,title,body`
+- Reviewer bot: `gh api repos/$REPO/pulls/$PR_NUMBER/reviews` (Bot + login autorizzati, inclusa `claude[bot]` storico)
+- Issue collegate: `gh issue list --label follow-up --state all --search "PR #$PR_NUMBER" --json number,title,body`
 
 ## Parse rules
-
 ### Da PR body
 
-Estrai sezione `## Non implementato (ancora)`. Ogni bullet `- **X** — Y` → candidate item.
+Da `## Non implementato (ancora)`: ogni bullet `- **X** — Y` → candidate.
 
-**Post-#8 (`AGENTS.md → Non-Negotiable #8`): `## Non implementato` NON è scope-deferito-e-chiuso, è il piano di completamento di un task ancora APERTO.** Idealmente l'agente lo svuota in-task (PR concatenate) e questa sezione legge «Nessuno» → zero candidate. Quando invece resta scope dovuto, va **tracciato a completamento**, non droppato:
+**Post-#8 (`AGENTS.md → Non-Negotiable #8`): `## Non implementato` NON è chiuso scope-deferito: piano APERTO.** Svuota in-task; «Nessuno»=zero; scope **tracciato**:
 
 - `Nessuno` / sezione vuota → nessun candidate (task completo).
-- Voci `blocked: <causa esterna reale>` → candidate issue (label `blocked`), tracciate fino a sblocco.
-- **Ogni altra voce di scope dovuto → candidate issue** (il task non è chiuso finché non è fatta). Il vecchio skip su motivo `out of scope` / `posposto` è **ABOLITO**: non sono più scappatoie di chiusura. Restano fuori solo le categorie hard-exclude qui sotto (churn non-actionable / missing-test / live-verify-only), che non sono scope-feature.
+- Voci `blocked: <causa esterna reale>` → candidate issue (`blocked`), fino a sblocco.
+- **Altra voce di scope → candidate issue** (task aperto). Skip `out of scope`/`posposto` **ABOLITO**; fuori solo hard-exclude.
 
-**Il routing lo decide lo STATO LETTERALE del bullet**, ed è già codificato — `scripts/ci/followup-has-candidates.mjs` importa `bulletState()` da `scripts/lib/pr-body-sections-check.mjs`, che è la sola definizione della tassonomia. Questo elenco la descrive, non la duplica:
+**Routing = STATO LETTERALE**: `scripts/ci/followup-has-candidates.mjs` importa `bulletState()` da `scripts/lib/pr-body-sections-check.mjs`:
 
 | stato dichiarato | candidate? | perché |
 |---|---|---|
@@ -79,80 +58,68 @@ Estrai sezione `## Non implementato (ancora)`. Ogni bullet `- **X** — Y` → c
 
 ### Da reviewer bot reviews
 
-Parse il body markdown della review più recente. Per ogni riga:
-
-- `🔴 Important: ...` → SKIP. 🔴 blocca merge, se la PR è merged significa che è stato fixato in-PR o droppato consapevolmente. Non creare follow-up per 🔴 retroattivi.
-- `🟡 Nit: ...` → candidate issue.
-- `❓ q: ...` → candidate issue (rephrase come "Verifica: <q>").
-- `🟣 Pre-existing: ...` → candidate issue solo se file ancora presente nel diff (`gh pr diff`).
-- `## Adversarial check` bullets → candidate issue per ogni voce (3 typical).
+- `🔴 Important: ...` → SKIP; merged = fixato/droppato; mai retroattivo.
+- `🟡 Nit: ...` → candidate.
+- `❓ q: ...` → candidate ("Verifica: <q>").
+- `🟣 Pre-existing: ...` → candidate se file nel diff (`gh pr diff`).
+- `## Adversarial check` bullets → candidate/voce (3 typical).
 
 ## Filtro scopo
 
-Applica `REVIEW.md → "Scopo progetto"`. Item passa SE impatta monetizzazione / traffico organico / funnel reale. Altrimenti drop con rationale loggato nel commento di chiusura sulla PR.
+Scope `REVIEW.md → "Scopo progetto"`; hard-exclude:
 
 ### Hard-exclude: churn non-actionable (mai aprire follow-up)
 
-Prima del filtro funnel, **droppa senza eccezioni** gli item di manutenzione documentale o pura igiene del codice, da PR body o reviewer: non sono funnel-critici.
+Prima del funnel, **droppa senza eccezioni** (`non-actionable-churn`) doc/igiene non funnel-critici da PR body/reviewer:
 
-Droppa (reason: `non-actionable-churn`) se l'item è essenzialmente uno di:
-
-- **Doc/anchor/line-number rot**: "aggiorna line anchors", "i riferimenti `file:NNN` sono sfasati", "i link a PR #N nel commento sono stale", "de-rot comment".
-- **"Document the intent / rationale"**: aggiungere commenti che spiegano codice già funzionante, senza cambio di comportamento.
+- **Doc/anchor/line-number rot**: line anchors/`file:NNN`, link PR #N stale, "de-rot comment".
+- **"Document the intent / rationale"**: commenti senza cambio di comportamento.
 - **Pure style/leggibilità/naming/format** non legati a un bug funnel.
-- **Item che il reviewer stesso marca** `deferred` / `non funnel-critical` / `nit puro` (vedi `AGENTS.md → Post-merge feedback handling`, eccezione "drop senza issue").
+- **Reviewer marca** `deferred` / `non funnel-critical` / `nit puro` ("drop senza issue").
 
 ### Hard-exclude: missing-test nit (mai aprire follow-up)
 
-Categoria a sé, **droppata sempre** (reason: `missing-test-nit`), prima del filtro funnel, da reviewer o PR body `## Non implementato`, **anche se funnel-critica**. Il reviewer non dovrebbe emetterla (`REVIEW.md → IGNORA → test coverage`), ma la regola vale per i residui.
+**Droppa sempre** (`missing-test-nit`) missing-test da reviewer/`## Non implementato`, anche funnel-critico (`REVIEW.md → IGNORA`):
 
-Droppa se l'item è essenzialmente uno di:
+- "Manca un test per X" / "aggiungere test coverage" / "committare il test" / "pinnare comportamento" / "test mancante ramo/path Y".
+- Adversarial-check senza test, non rischio di comportamento.
 
-- "Manca un test per X" / "aggiungere test coverage" / "committare i test citati nel PR body" / "pinnare il comportamento con un test" / "test mancante sul ramo/path Y".
-- Voce adversarial-check che lamenta assenza di test invece di un rischio di comportamento.
-
-**NON droppare** (resta in scope normale): un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky che resta verde sulla regressione, fixture con date assolute (#1035) — è correttezza, non coverage.
+BUG in test ESISTENTE — assertion, regex/guard leaky, fixture date (#1035) — NON droppare: correttezza, non coverage.
 
 ### Hard-exclude: live-verification-only item (mai aprire follow-up — batch in checklist)
 
-Categoria **mai mintata come issue `follow-up`** (reason: `live-verify-only`), prima del filtro funnel, da ogni fonte (reviewer 🟡/❓/adversarial o PR body `## Non implementato`/`## Test plan` `- [ ]`). Vale quando l'**unica azione è verificare il sito deployato**, senza file da editare: `agent:fix` non può farlo.
+**Mai mintare issue `follow-up`** (`live-verify-only`) da reviewer/`## Non implementato`/`## Test plan` se unica azione è verificare il deploy senza file editabile: `agent:fix` non può farlo.
 
-Segnali `live-verify-only` (SOLO ispezione runtime, nessun edit):
+Segnali `live-verify-only` (SOLO runtime, nessun edit):
 
 - "verify live" / "verifica live" / "post-deploy" / "(post-merge, live)" / "(live)" / "controlla in prod" / "su prod" / "una volta deployato".
-- "curl" la URL di produzione / "live-200" / "live curl" / controllo HTTP status sul sito live.
-- "render at NNNpx" / "renderizza a 382px" / "apri DevTools" / "ispeziona nel browser" / "Playwright hydration" / verifica visuale o CLS a runtime.
-- Checkbox `## Test plan` `- [ ]` esplicitamente etichettata `(post-merge, live)` / `(live)` / "verifica post-deploy" e non spuntata (il reviewer la flagga 🟡 "ricorda spunta post-merge", vedi `REVIEW.md → Test plan compliance`).
+- "curl" URL produzione / "live-200" / "live curl" / HTTP status live.
+- "render at NNNpx" / "renderizza a 382px" / DevTools / browser / "ispeziona nel browser" / "Playwright hydration" / CLS runtime.
+- Checkbox `## Test plan` `- [ ]` `(post-merge, live)` / `(live)` / "verifica post-deploy" non spuntata (`REVIEW.md`).
 
-**Routing, non drop silenzioso:** niente issue; un'unica checklist `Live-verification` per PR nel `## Closing comment`, senza fixer.
+**Routing, non drop:** niente issue; checklist `Live-verification`, senza fixer.
 
-**NON `live-verify-only`** se mescola verifica e file editabile ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"): resta candidate. Solo ispezione runtime → live-only; dubbio → actionable.
+**NON `live-verify-only`** se mescola verifica + edit ("aggiungi `min-height` a `AdSlot.tsx` E poi verifica il CLS live"): candidate; solo runtime→live-only; dubbio→actionable.
 
-**Override deterministico:** un path editabile in `Original text` + `## Suggested action` (`.tsx`/`.ts`/`.mjs`/`.js`/`.yml`/`.yaml`/`.json`/`.md`/`.css`, es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`) rende **`actionable`** nonostante frasi live. `/sitemap.xml` non è path-token (`.xml`/`.html` esclusi).
+**Override:** path editabile in `Original text` + `## Suggested action` (`.tsx`/`.ts`/`.mjs`/`.js`/`.yml`/`.yaml`/`.json`/`.md`/`.css`; es. `scripts/foo.mjs`, `components/Bar.tsx`, `build-plugins/baz.ts`)→**`actionable`**; `/sitemap.xml` non-token (`.xml`/`.html` esclusi).
 
 ### Hard-exclude: no-acceptance-condition — ora ANCHE un gate deterministico dopo il conio
 
-`Suggested action` deve citare in backtick un token-codice distintivo. `no-valid-item` non si chiude MAI: `aggregateCloseGate()` la blocca per evidenza assente.
+`Suggested action` + token in backtick; `no-valid-item` non si chiude MAI: `aggregateCloseGate()`.
 
-`Gate sul conio` (`scripts/ci/gate-minted-followups.mjs`, zero-agente) rilegge la issue e usa `hasFalsifiableAcceptance()` da `scripts/ci/followup-resolution-match.mjs`. Item invalidi → **demoti** in `Live-verification`; zero item → issue **soppressa**. Corpo senza struttura → non soppresso.
+Gate zero-agente `scripts/ci/gate-minted-followups.mjs` + `hasFalsifiableAcceptance()` (`scripts/ci/followup-resolution-match.mjs`): invalidi→**demoti** `Live-verification`; zero→**soppressa**; corpo senza struttura→non soppresso.
 
-Conseguenza: senza `- Suggested action:` con token-codice l'item non sopravvive. Scrivi simbolo, costante o path che un `grep` futuro troverà.
+**Seconda strada: `COMANDO`.** `Suggested action` + token **oppure** `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` + referente file/script/test (`issue-decompose.yml`/`scripts/audit-canton-url-drift.mjs`):
 
-**Seconda strada: scheda con `COMANDO`.** L'oracolo accetta `Suggested action` + token **oppure** `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` con referente file/script/test (path con `/` ed estensione). È il `COMANDO` di `issue-decompose.yml` (`## Scheda`) e `scripts/audit-canton-url-drift.mjs`:
+- **Il referente non deve esistere ancora.** Test futuro valido; esistenza verificata alla chiusura.
+- **Metrica già al bersaglio rifiutata.** `prima=N atteso=N` rifiutato; soglia (`atteso=<N`) ammessa.
+- **Il gate non esegue il comando.** Verifica referente e forma, non il fallimento odierno.
 
-- **Il referente non deve esistere ancora.** Un test futuro è valido: l'esistenza si verifica alla chiusura.
-- **Una metrica già al bersaglio viene rifiutata.** `prima=N atteso=N` è rifiutato; una soglia (`atteso=<N`) resta ammessa.
-- **Il gate non esegue il comando.** Verifica referente e forma, non che oggi fallisca.
-
-Il ramo è in `hasFalsifiableAcceptance()`, condiviso da apertura/chiusura. Item ammesso senza token mantiene `detectAlreadyResolved()` a `false`: allarga il conio, non la chiusura.
-
-**Il metro vale sulla tua `Suggested action`, non sul grezzo; il token si DERIVA.** `suggestedActionText()` grezzo include `Original text`, la chiusura no: falso match → `no-valid-item`. `citedTokens()` può dare `["manifest.counts"]` sul grezzo e `[]` sull'item. Aggiungi file/simbolo/campo (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1`), non identificatore/path nudo rifiutato da `isDistinctiveToken()`. Rinuncia solo senza nulla da toccare.
-
-**Token assente oggi.** Il token derivato è ciò che un `grep` troverà DOPO la fix e NON trova oggi nel `Target file`. Se il residuo è già vero su `main`, niente item: motivo `already-on-main` nel commento di triage. **Instradamento dal manifest di mirror** (`routes` del bundle, regola di `bin/where-to-fix`): un file `identical` si conia nel sito col suo `sitePath`; `repo: unknown` → repository della PR con la nota `route-unverified`.
+`hasFalsifiableAcceptance()`; senza token `detectAlreadyResolved()`=`false`. Token da `Suggested action`, non raw (`suggestedActionText()` include `Original text` solo raw; `citedTokens()`, `isDistinctiveToken()`); `grep` dopo fix; main→`already-on-main`. Manifest `routes`/`bin/where-to-fix`: `identical`→sito/`sitePath`; `repo: unknown`→PR (`route-unverified`).
 
 ### Ammissione al conio: demozioni e osservazioni
 
-Il gate sul conio passa ogni item a `mintAdmission()` (`scripts/ci/lib/followup-mint-admission.mjs`). I codici sono i valori di `MINT_OBSERVATIONS`, contati nella riga `MINT_GATE_TALLY`. Un item demoto esce dal corpo e resta, integrale, nel commento sulla PR sorgente.
+Admission `mintAdmission()`/`scripts/ci/lib/followup-mint-admission.mjs`: `MINT_OBSERVATIONS`→`MINT_GATE_TALLY`; demoti nel commento.
 
 | codice | effetto | quando |
 |---|---|---|
@@ -165,23 +132,19 @@ Il gate sul conio passa ogni item a `mintAdmission()` (`scripts/ci/lib/followup-
 | `token-is-declaration` | ammesso, contato | token `nome()` con `nome` solo dichiarato nel file: diventa vero quando una fix lo chiama |
 | `admission-unknown` | ammesso, contato | manifest o lettura non disponibili: mai una demozione |
 
-**Un token già vero al conio non conferma l'item:** con `FU_ITEM_BORN_SATISFIED` non diventa `done` e blocca il bucket (`born-satisfied-token`).
+Token già vero non conferma: `FU_ITEM_BORN_SATISFIED`→non `done`, bucket `born-satisfied-token`.
 
 ## Dedup
 
-Tre livelli, in quest'ordine:
-- **PR-level**: se i commenti contengono `## Post-merge follow-up triage`, salta la PR (idempotenza re-run/backfill).
-- **Bucket-level**: calcola `(daily key, target repository)` e riusa `follow-up(daily:<key>)`; aggiungi solo item nuovi a `collecting`, senza creare un secondo bucket per la stessa finestra.
-- **Item-level**: fingerprint `target repository + target file + token/azione normalizzata`; match → accorpa in `Sources`, non duplicare.
-- **In-flight PR overlap**: per item file-specifici usa `gh pr list --state open --json number,title` + `gh pr diff <n> --name-only`; se una PR aperta modifica il target → **escludi l'item** + log "in-flight in PR #N" (vedi `ISSUES.md → "Pre-condizioni — overlap-file"`). Nel dubbio → non escludere.
+Tre livelli:
+- **PR-level**: commento `## Post-merge follow-up triage` → salta PR (idempotenza).
+- **Bucket-level**: `(daily key, target repository)` riusa `follow-up(daily:<key>)`; item nuovi a `collecting`.
+- **Item-level**: fingerprint `target repository + target file + token/azione normalizzata`; match→`Sources`, non duplicare.
+- **In-flight PR overlap**: file-specifico; `gh pr list --state open --json number,title` + `gh pr diff <n> --name-only`; target modificato→**escludi** + log "in-flight in PR #N"; dubbio→non escludere.
 
-Il gate `is-followup-fix-pr.mjs` sopprime i nipoti. Con i marker (`Addresses` + `Follow-up item`) una fix daily può cercare finding nuovi, da deduplicare e aggiungere al bucket padre; non crea una nuova issue.
-
-Se dopo il dedup zero item sopravvivono → nessuna issue, summary "zero outstanding items".
+`scripts/ci/is-followup-fix-pr.mjs`: marker (`Addresses`+`Follow-up item`)→padre; no issue.
 
 ## Issue format
-
-**Un solo bucket per giorno e repository target**: non una issue per PR/item. Sito e corpus restano separati; il bucket accetta append da più PR e il fixer lavora un item alla volta.
 
 ```markdown
 Title: follow-up(daily:<YYYY-MM-DD>): <N> item — <owner/repo>
@@ -217,15 +180,15 @@ Body:
 - Acceptance token: `otherGuard()`
 ```
 
-`Stato dichiarato nella PR` è **obbligatorio su ogni item, anche quando è `nessuno`**. Un item `nessuno` NON va filtrato: va aperto e qualificato dal fixer.
+`Stato dichiarato nella PR` è **obbligatorio**; `nessuno` NON filtra: item al fixer.
 
-Anche con un solo candidate item il bucket mantiene ID, stato e schema completo. Gli ID non vengono rinumerati quando un item viene demoto.
+Un solo candidate mantiene ID/stato/schema; ID non si rinumerano se demoto.
 
-Labels: `follow-up` + UNO tra `funnel-monetization` / `funnel-seo` / `funnel-ux` per funnel-area; mix → più funnel-* label.
+Labels: `follow-up` + UNO tra `funnel-monetization`/`funnel-seo`/`funnel-ux`; mix→più label.
 
 ## Closing comment
 
-Dopo append o drop, posta UN commento riepilogativo sulla PR; è sempre per-PR:
+OBBLIGATORIO per ogni PR: `## Post-merge follow-up triage` SEMPRE, MARKER DI IDEMPOTENZA, anche a zero candidati.
 
 ```markdown
 ## Post-merge follow-up triage
@@ -243,7 +206,7 @@ Dropped: M item
 Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 ```
 
-Item finiti in **più bucket** (per esempio uno nel corpus e uno nel sito, vedi `## Routing cross-repository`) → UNA riga di claim per bucket, ciascuna con il proprio `#<id>`, repository e conteggio:
+Più bucket → una claim line per bucket, `#<id>`, repo, conteggio:
 
 ```markdown
 Created/updated: daily bucket #<id-corpus> `follow-up(daily:<YYYY-MM-DD>)` (corpus) con K item:
@@ -252,30 +215,29 @@ Created/updated: daily bucket #<id-sito> `follow-up(daily:<YYYY-MM-DD>)` (sito) 
 - <item one-line>
 ```
 
-«Verify complete follow-up triage» unisce tutte le righe `Created/updated:` e prova OGNI bucket citato. Legge anche la forma che il triage scrive spontaneamente, conteggio in testa e un bucket per bullet (`Created/updated: 2 item.` seguito da ``- Corpus #1957 `follow-up(daily:2026-09-28)` — …``, marker di #10015): nei bullet subito sotto la riga di claim un `#<id>` vale come bucket solo se è seguito dal tag `` `follow-up(daily:<YYYY-MM-DD>)` `` sulla stessa riga. Il repository dichiarato è informativo: il numero viene cercato in entrambi i repo. La prosa dopo la lista (bucket storici, sealed) non è claim. Un marker con verdetto definitivo «non persistito» da oltre 6 ore esce dal batch come **quarantena** visibile (warning, summary, output `quarantined_prs`, issue «Post-merge follow-up: marker di triage in quarantena»), invece di tornare a ogni run.
+«Verify complete follow-up triage» prova ogni `Created/updated:` e `Created/updated: 2 item.` + ``- Corpus #1957 `follow-up(daily:2026-09-28)` — …``; `#<id>`→`` `follow-up(daily:<YYYY-MM-DD>)` ``; «non persistito» >6h→**quarantena** (`quarantined_prs`).
 
-`Live-verification` raccoglie **tutti** gli item `live-verify-only` (vedi `## Filtro scopo → Hard-exclude: live-verification-only item`) in una checklist `- [ ]`, una per PR: **nessuna issue e nessun fixer**. Ometti se Q=0; mai promuovere a issue.
+`Live-verification`: `live-verify-only` in `- [ ]`; **nessuna issue/fixer**; Q=0 omesso.
 
-Zero item dopo filtro+dedup e zero live-verify → `## Post-merge follow-up triage: zero outstanding items.` senza bucket. Solo live-verify → summary con `Live-verification` e `Created: 0 issue (solo live-verification batchata)`.
+Zero item/live-verify → `## Post-merge follow-up triage: zero outstanding items.`; solo live→`Created: 0 issue (solo live-verification batchata)`.
 
-Tutti `Dropped`/`Skipped` (zero item da QUESTA PR, anche con bucket esistente) → claim `Created/updated: 0 item.` con **0 in cifre**. «Verify complete follow-up triage» legge il numero: prosa senza cifra rende rossa la run (35904571443, 35933207218).
+Tutti `Dropped`/`Skipped` da QUESTA PR → `Created/updated: 0 item.` con **0**; senza cifra è rosso (35904571443, 35933207218).
 
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 
-**2026-06-04:** la supersede detection è in `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-agente**): per ogni issue `follow-up` aperta verifica se la fix è **presente verbatim** nel file/token citato.
+`followup-reconcile.yml`.
 
-**2026-06-10 — auto-close a due tier.** `reconcile` chiude in autonomia, ma SOLO con **doppia conferma separata nel tempo** + veti di sicurezza:
+**2026-06-10 — auto-close a due tier.** `reconcile`: SOLO **doppia conferma separata nel tempo** + veti:
 
 1. **1ª detection** (issue non ancora `maybe-resolved`) → commento advisory + label `maybe-resolved`. **Finestra di grazia**: l'umano ha fino al run successivo per obiettare (rimuovere la label, aggiungere `keep-open`/`pinned`, riaprire lo scope).
 2. **2ª conferma** (la issue porta GIÀ `maybe-resolved` da un run precedente, è ANCORA risolta, ha il nostro commento-marker, è un bucket con **tutti** gli item validi `done` — oppure una legacy **single-item** —, **non** ha label keep-open/strategica, e l'evidenza è **forte**) → **auto-close** `--reason completed` + label `fu-resolved-auto`.
 
-Per un bucket il veto è item-per-item: body/ID/stato/acceptance/item/token/evidenza invalidi impediscono la chiusura. Chiudi solo con **ogni item valido** `done` e prova `isStrongAutoCloseEvidence()`. Fix parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`. Le label **keep-open/pinned/revenue/tracker/do-not-close** sono veti umani; rimozione dopo il flag = **obiezione umana**, salvo la rimozione automatica: un bucket con `maybe-resolved` e almeno un item `open`/`in-progress` perde la label da solo (`planMaybeResolvedRelease`), ma il commento `<!-- FU_MAYBE_RESOLVED_RELEASED -->` di autore fidato viene scritto solo dopo una rilettura che conferma label presente, rimozione riuscita e label assente. Se uno di questi passaggi fallisce, il marker non si scrive e i flag precedenti restano vivi; quando il marker è confermato azzera i flag precedenti, così il ciclo flag → chiusura riparte quando gli item tornano tutti chiusi. `RECONCILE_NO_AUTOCLOSE=1` torna flag-only. Logica in `tests/reconcile-followups-decision.test.ts`; matcher `issue-fix` in `followup-resolution-match.mjs`, AGENTS.md #6.
+Veto: invalidi bloccano; `done` + `isStrongAutoCloseEvidence()`. Parziale: `Addresses #N` + `Follow-up item: FU-...`, mai `Closes #N`; **keep-open/pinned/revenue/tracker/do-not-close** = veti. `planMaybeResolvedRelease` + `<!-- FU_MAYBE_RESOLVED_RELEASED -->`; fail conserva flag, conferma azzera; `RECONCILE_NO_AUTOCLOSE=1` flag-only. Test `tests/reconcile-followups-decision.test.ts`; matcher `followup-resolution-match.mjs`, AGENTS.md #6.
 
-Gap: un refactor senza token non viene flaggato; reconcile cerca token verbatim.
 
 ## Stati dell'item, scrittori e chiusura
 
-Lo stato vive nel corpo (`- State:` dell'item), la prova nei commenti come marker: i letterali escono solo da `scripts/ci/lib/followup-item-evidence.mjs` (più `FU_BUCKET_VERIFY_REQUEST` da `scripts/ci/reconcile-followups.mjs`) e contano solo da autori fidati. Stati ammessi dal parser: `open`, `in-progress`, `done`, `blocked`. Ogni transizione automatica ha uno scrittore deterministico:
+Body `- State:`; marker `scripts/ci/lib/followup-item-evidence.mjs` + `FU_BUCKET_VERIFY_REQUEST` da `scripts/ci/reconcile-followups.mjs`; fidati. Stati ammessi dal parser: `open`, `in-progress`, `done`, `blocked`.
 
 | transizione | scrittore | condizione |
 |---|---|---|
@@ -286,9 +248,9 @@ Lo stato vive nel corpo (`- State:` dell'item), la prova nei commenti come marke
 | `blocked` → `open` | reconciler, UNA volta per item | commit nuovo su `main` che tocca il `Target file` dopo il blocco; mai con `awaiting-verification` |
 | `open`/`blocked` → `done` | reconciler (`scripts/ci/lib/followup-ci-suite-proof.mjs`), decisione del proprietario I4 del 2026-10-05 | blocco dichiarato (`Stato dichiarato nella PR`, o `Blocked on`) SOLO dalla guardia risorse locale, nessun altro blocco, item che non chiede la suite intera; suite = `COMANDO: npx vitest run <file di test>`; UNA sola PR fra le `Sources`, mergiata; la run più recente di `tests.yml` sullo sha di merge o sull'ultima head ha il job `vitest (unit + integration)` verde e ha eseguito verde ogni file della suite (report JSON di vitest, o righe per file del log); nessuna run contraddice (suite fallita, o run rossa con vitest eseguito e senza esiti leggibili). Prova mancante o ambigua → l'item resta com'è |
 
-Nessun'altra transizione è automatica: nessuno scrittore automatico porta un item a `in-progress` e il gate sul conio non tocca gli item `done`. Una persona può riportare un item a `open` o chiuderlo con evidenza.
+Nessun'altra transizione auto; persona può `open`/chiudere con prova.
 
-`FU_ITEM_BLOCKED` porta un motivo dell'insieme chiuso `ITEM_BLOCKED_REASONS`: `awaiting-verification`, `already-fixed-unverified`, `no-root-cause`, `blocked-admin-settings`. Gli ultimi due sono i verdetti non ritentabili del fixer (`ITEM_BLOCKING_OUTCOMES` in `route-already-fixed.mjs`), scritti a grana item: il bucket resta in coda per l'item successivo.
+`FU_ITEM_BLOCKED`: `ITEM_BLOCKED_REASONS` = `awaiting-verification`, `already-fixed-unverified`, `no-root-cause`, `blocked-admin-settings`; ultimi due=`ITEM_BLOCKING_OUTCOMES`.
 
 | marker | scrittore | effetto |
 |---|---|---|
@@ -301,20 +263,20 @@ Nessun'altra transizione è automatica: nessuno scrittore automatico porta un it
 | `FU_BUCKET_VERIFY_REQUEST` | reconciler, una volta per insieme di item | bucket `sealed` senza item `open`/`in-progress` ma con item non confermati: chiede la verifica con la METRICA |
 | `FU_MAYBE_RESOLVED_RELEASED` | reconciler (bucket con item `open`/`in-progress`) e `route-already-fixed.mjs` (restano item `open`), quando tolgono `maybe-resolved` | azzera i flag precedenti: non è un'obiezione umana |
 
-**Regola di chiusura.** Un bucket si chiude da solo SOLO quando ogni item è `done` confermato da un token non nato vero o, per un item bloccato solo dalla guardia risorse locale, dal marker `FU_ITEM_CI_SUITE`, con le due conferme in run separate (`maybe-resolved`, poi chiusura) e senza veti. Il secondo caso è un allargamento voluto del criterio, deciso dal proprietario il 2026-10-05 (I4): il blocco dichiarato era «serve il verdetto della CI», e la run required che ha eseguito verde la suite dell'item è quel verdetto. Fuori da quel caso un verdetto `already-fixed`, una PR mergiata, un commit o una run verde NON chiudono: annotano l'item (poi `blocked`). Un item in attesa di verifica lo chiude una persona con evidenza, misurando la `METRICA` della scheda quando esiste.
+**Regola di chiusura.** Auto-close SOLO `done` con token non nato vero o guardia locale + `FU_ITEM_CI_SUITE`, run separate (`maybe-resolved`, poi chiusura), senza veti. I4 (2026-10-05): suite verde=CI; altro→`blocked`; attesa→`METRICA`/prova.
 
-**Corpo fuori formato.** Un bucket riscritto a mano che il parser non legge apre l'allarme «Bucket follow-up illeggibile dal parser». Si ripara con `node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo>` (anteprima) e poi `--write`: titolo e corpo passano da `rebuildDailyBody`, lo `State` si riduce alla parola iniziale (il resto diventa `- Nota sullo stato:`), e uno stato non leggibile è un rifiuto, mai una scrittura a mano.
+**Corpo fuori formato.** Illeggibile→«Bucket follow-up illeggibile dal parser»; `rebuildDailyBody`/`node scripts/ci/rebuild-daily-bucket.mjs --issue <N> --repo <owner/repo>` (`--write`); rifiuto.
 
-**Finestra di gara.** Triage, reconciler e drainer condividono il mutex `followup-daily-<repo>`. `route-already-fixed.mjs` gira nel job del fixer, fuori dal mutex: rilegge titolo, corpo e label subito prima di scrivere e conferma la rimozione di `maybe-resolved` con una seconda lettura prima di firmarla (un aggiornamento perso costa una run, non un corpo rotto).
+**Finestra di gara.** Triage/reconciler/drainer condividono `followup-daily-<repo>`; `route-already-fixed.mjs` fuori mutex conferma `maybe-resolved` rimosso.
 
 ## Routing cross-repository
 
-Prima di creare una issue, risolvi il repository del file da modificare: il repo della PR sorgente non basta dopo il cutover del producer.
+Prima della issue, risolvi il repo del file, non la PR.
 
 - `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`, `generator/tests/**`, `generator/scripts/**`, `content/**`, `data/blog-articles/**`, `data/article-source-urls.json`, `data/batch-faq-progress.json`, workflow corpus e twin `scripts/create-article.mjs` per la generazione live.
 - `valerielinc-ops/frontaliere-si-o-no`: tutto il resto, inclusi deploy, sync, validation e mirror che consumano il corpus.
 
-L'issue deve contenere `Target repository:` e `Target file:`; dedup, label e commenti usano lo stesso `--repo`. Per Nanako usa `GITHUB_PAT` e `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles`; se manca, segnala il blocco sulla PR e non usare il repo Valerie come ripiego.
+Issue: `Target repository:` + `Target file:`; dedup/label/commenti stesso `--repo`. Nanako: `GITHUB_PAT` + `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles`; mancante→blocco, non Valerie.
 
 ## Constraint
 
@@ -322,7 +284,5 @@ L'issue deve contenere `Target repository:` e `Target file:`; dedup, label e com
 - Mai modificare label/state/title della PR.
 - Mai chiudere/riaprire issue.
 - Zero finding accettabile (PR LGTM puro senza Non implementato). NON inventare.
-- Incerto sul filtro scopo → crea issue comunque, rationale "needs triage". Drop è più costoso di una issue extra.
-- Nessun limite che tronchi gli item nel bucket. Se il batch supera il budget della
-  sessione, usa chunk seriali e continua ad aggiungere allo stesso bucket; il limite
-  vale soltanto per il chunk/sessione e non può perdere i residui.
+- Incerto sul filtro→issue, rationale "needs triage"; drop più costoso.
+- Oltre budget→chunk seriali nello stesso bucket; limite per chunk/sessione, nessun residuo perso.
