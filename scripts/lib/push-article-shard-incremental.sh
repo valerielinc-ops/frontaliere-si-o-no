@@ -178,28 +178,59 @@ append_remote_newer_path() {
   remote_newer_paths+=("$candidate")
 }
 
+# True when the page published from `remote` must be kept over one rendered
+# from `own`: a later epoch, or the same second with a different commit. Two
+# corpus commits of one second cannot be ordered from here, so the remote one
+# is treated as newer. The same commit (one SHA a prefix of the other) is the
+# same revision and stays replaceable: that is a re-render of the same content,
+# for instance with a newer shell.
+remote_revision_wins() {
+  local remote="$1" own="$2"
+  local remote_epoch="${remote%%.*}" own_epoch="${own%%.*}"
+  local remote_sha own_sha
+  remote_sha="$(printf '%s' "${remote#*.}" | tr 'A-F' 'a-f')"
+  own_sha="$(printf '%s' "${own#*.}" | tr 'A-F' 'a-f')"
+  if [ "$remote_epoch" -gt "$own_epoch" ]; then return 0; fi
+  if [ "$remote_epoch" -lt "$own_epoch" ]; then return 1; fi
+  case "$remote_sha" in "$own_sha"*) return 1 ;; esac
+  case "$own_sha" in "$remote_sha"*) return 1 ;; esac
+  return 0
+}
+
+# A history that cannot be read is not "nothing newer": it is exactly the case
+# in which a newer page could be overwritten without anyone noticing. The
+# attempt fails before any commit is built, the caller retries, and a history
+# that stays unreadable fails the push.
+history_unavailable() {
+  echo "::warning::monotonic guard: $1; refusing to publish without the shard history" >&2
+  last_history_warning_count=$((last_history_warning_count + 1))
+  remote_newer_paths=()
+  return 1
+}
+
 collect_remote_newer_paths() {
-  local own_epoch="$1"
-  local head_epoch boundary commits commit trailer remote_epoch parent changed_path changed_paths shallow_file
+  local own_revision="$1"
+  local own_epoch="${own_revision%%.*}"
+  local head_epoch boundary commits commit trailer parent changed_path changed_paths shallow_file
   remote_newer_paths=()
 
   head_epoch="$(git -C "$stage" show -s --format=%ct HEAD 2>/dev/null)" || {
-    echo "::warning::monotonic guard: cannot read shard HEAD timestamp; publishing current paths without history filtering" >&2
-    last_history_warning_count=$((last_history_warning_count + 1))
-    return 0
+    history_unavailable "cannot read the shard HEAD timestamp"
+    return 1
   }
   if ! [[ "$head_epoch" =~ ^[0-9]+$ ]]; then
-    echo "::warning::monotonic guard: shard HEAD timestamp is unreadable; publishing current paths without history filtering" >&2
-    last_history_warning_count=$((last_history_warning_count + 1))
-    return 0
+    history_unavailable "the shard HEAD timestamp is unreadable"
+    return 1
   fi
+  # A commit is never older than the corpus revision it publishes: if the shard
+  # head predates this revision, no commit can carry a newer or equal one, and
+  # nothing else is read.
   if [ "$head_epoch" -lt "$own_epoch" ]; then return 0; fi
 
   boundary=$((own_epoch - 3600))
   if ! git -C "$stage" fetch --quiet --filter=blob:none --shallow-since="$boundary" origin main >/dev/null 2>&1; then
-    echo "::warning::monotonic guard: shard history fetch failed; publishing current paths without history filtering" >&2
-    last_history_warning_count=$((last_history_warning_count + 1))
-    return 0
+    history_unavailable "the shard history fetch failed"
+    return 1
   fi
   # The oldest commit of that window comes without its parent, and on a quiet
   # shard that commit IS the newer publication (the one before it is hours
@@ -209,32 +240,27 @@ collect_remote_newer_paths() {
   # complete, --deepen would cut it back to one commit.
   if [ "$(git -C "$stage" rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
     if ! git -C "$stage" fetch --quiet --filter=blob:none --deepen=1 origin main >/dev/null 2>&1; then
-      echo "::warning::monotonic guard: shard history deepen failed; publishing current paths without history filtering" >&2
-      last_history_warning_count=$((last_history_warning_count + 1))
-      return 0
+      history_unavailable "the shard history deepen failed"
+      return 1
     fi
   fi
   shallow_file="$(git -C "$stage" rev-parse --absolute-git-dir 2>/dev/null)/shallow"
   commits="$(git -C "$stage" log --format=%H HEAD 2>/dev/null)" || {
-    echo "::warning::monotonic guard: shard history is unreadable; publishing current paths without history filtering" >&2
-    last_history_warning_count=$((last_history_warning_count + 1))
-    return 0
+    history_unavailable "the shard history is unreadable"
+    return 1
   }
   while IFS= read -r commit; do
     [ -n "$commit" ] || continue
     trailer="$(git -C "$stage" show -s --format='%(trailers:key=Content-Rev,valueonly)' "$commit" 2>/dev/null)" || {
-      echo "::warning::monotonic guard: cannot inspect shard commit $commit; publishing current paths without history filtering" >&2
-      last_history_warning_count=$((last_history_warning_count + 1))
-      remote_newer_paths=()
-      return 0
+      history_unavailable "cannot inspect shard commit $commit"
+      return 1
     }
     trailer="$(printf '%s' "$trailer" | sed -n '1p')"
     [[ "$trailer" =~ ^[0-9]+\.[0-9A-Fa-f]{7,40}$ ]] || continue
-    remote_epoch="${trailer%%.*}"
-    [ "$remote_epoch" -gt "$own_epoch" ] || continue
-    # A newer publication whose paths cannot be listed is never skipped in
-    # silence: either its parent is on disk, or it is a true root commit, or
-    # the history is declared unavailable (warning + counter in the summary).
+    remote_revision_wins "$trailer" "$own_revision" || continue
+    # The paths of a winning publication are always listed: either its parent
+    # is on disk, or it is a true root commit; anything else is an unreadable
+    # history, never a silent skip.
     if parent="$(git -C "$stage" rev-parse --verify --quiet "$commit^" 2>/dev/null)"; then
       changed_paths="$(git -C "$stage" diff-tree --no-commit-id --name-only -r "$parent" "$commit" 2>/dev/null)" || changed_paths='__unreadable__'
     elif [ -f "$shallow_file" ] && grep -qx "$commit" "$shallow_file" 2>/dev/null; then
@@ -243,10 +269,8 @@ collect_remote_newer_paths() {
       changed_paths="$(git -C "$stage" diff-tree --root --no-commit-id --name-only -r "$commit" 2>/dev/null)" || changed_paths='__unreadable__'
     fi
     if [ "$changed_paths" = '__unreadable__' ]; then
-      echo "::warning::monotonic guard: cannot list the paths of newer shard commit $commit; publishing current paths without history filtering" >&2
-      last_history_warning_count=$((last_history_warning_count + 1))
-      remote_newer_paths=()
-      return 0
+      history_unavailable "cannot list the paths of shard commit $commit"
+      return 1
     fi
     while IFS= read -r changed_path; do
       [ -n "$changed_path" ] || continue
@@ -307,7 +331,7 @@ _attempt() {
   last_history_warning_count=0
 
   if [ -n "$article_content_revision" ]; then
-    collect_remote_newer_paths "${article_content_revision%%.*}"
+    collect_remote_newer_paths "$article_content_revision" || return 1
   fi
   for rel in "${relpaths[@]}"; do
     local is_newer=0
@@ -337,9 +361,6 @@ _attempt() {
       shown_count=$((shown_count + 1))
     done
     echo "monotonic guard: kept remote for $last_skipped_newer_count newer article path(s): $last_skipped_newer_names"
-  fi
-  if [ "$last_history_warning_count" -gt 0 ]; then
-    echo "monotonic guard: history unavailable for $last_history_warning_count check(s); current paths were published"
   fi
 
   for rel in "${eligible_relpaths[@]}"; do

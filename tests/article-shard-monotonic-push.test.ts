@@ -63,7 +63,11 @@ function seedRemote({
   return { root, remote, head: git(['-C', remote, 'rev-parse', 'main']) };
 }
 
-function runPush(remote: string, incomingHtml: string, { revision = null, failFetch = false, trace = false }: { revision?: string | null; failFetch?: boolean; trace?: boolean } = {}) {
+function runPush(
+  remote: string,
+  incomingHtml: string,
+  { revision = null, failFetch = false, trace = false, expectFailure = false }: { revision?: string | null; failFetch?: boolean; trace?: boolean; expectFailure?: boolean } = {},
+) {
   const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'site-article-monotonic-dist-'));
   const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'site-article-monotonic-runner-'));
   const summary = path.join(runnerTemp, 'push-summary.tsv');
@@ -95,7 +99,8 @@ function runPush(remote: string, incomingHtml: string, { revision = null, failFe
     },
   });
   const output = `${result.stdout || ''}${result.stderr || ''}`;
-  expect(result.status, output).toBe(0);
+  if (expectFailure) expect(result.status, output).not.toBe(0);
+  else expect(result.status, output).toBe(0);
   const summaryText = fs.readFileSync(summary, 'utf8');
   const traceText = fs.existsSync(traceFile) ? fs.readFileSync(traceFile, 'utf8') : '';
   const head = git(['-C', remote, 'rev-parse', 'main']);
@@ -181,12 +186,28 @@ describe('monotonic article shard push', () => {
     }
   });
 
-  it('a parità di epoca con shell diversa sostituisce', () => {
+  // The same corpus commit rendered again (a newer shell, a repair) is the same
+  // revision and must stay replaceable, whatever the length of the two SHAs.
+  it('la stessa revisione, resa di nuovo, sostituisce', () => {
     const scenario = seedRemote({ body: page('remote'), remoteRevision: '2000000200.abcdef1', remoteEpoch: 2_000_000_200 });
     try {
-      const result = runPush(scenario.remote, page('incoming'), { revision: '2000000200.1234567' });
+      const result = runPush(scenario.remote, page('incoming'), { revision: '2000000200.ABCDEF123456' });
       expect(result.head).not.toBe(scenario.head);
       expect(remoteHtml(scenario.remote)).toBe(page('incoming'));
+    } finally {
+      fs.rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  // Two corpus commits of the same second cannot be ordered by the epoch: the
+  // one already on the shard is kept (review of PR 12166).
+  it('stessa epoca ma commit diverso: la pagina remota resta', () => {
+    const scenario = seedRemote({ body: page('remote'), remoteRevision: '1700000000.bbbbbbb', remoteEpoch: 1_700_000_005 });
+    try {
+      const result = runPush(scenario.remote, page('incoming'), { revision: '1700000000.aaaaaaa' });
+      expect(result.head).toBe(scenario.head);
+      expect(remoteHtml(scenario.remote)).toBe(page('remote-newer'));
+      expect(result.output).toContain('kept remote for 1 newer article path');
     } finally {
       fs.rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -203,13 +224,15 @@ describe('monotonic article shard push', () => {
     }
   });
 
-  it('storia illeggibile: warning e push corrente', () => {
+  // A history that cannot be read is exactly the case in which a newer page
+  // could be overwritten unseen: the push fails, nothing is committed.
+  it('storia illeggibile: il push fallisce e lo shard resta com\'è', () => {
     const scenario = seedRemote({ body: page('remote'), remoteEpoch: 2_000_000_100 });
     try {
-      const result = runPush(scenario.remote, page('incoming'), { revision: '2000000000.abcdef1', failFetch: true });
-      expect(result.head).not.toBe(scenario.head);
-      expect(remoteHtml(scenario.remote)).toBe(page('incoming'));
-      expect(result.output).toMatch(/history fetch failed|history unavailable/);
+      const result = runPush(scenario.remote, page('incoming'), { revision: '2000000000.abcdef1', failFetch: true, expectFailure: true });
+      expect(result.head).toBe(scenario.head);
+      expect(remoteHtml(scenario.remote)).toBe(page('remote'));
+      expect(result.output).toContain('refusing to publish without the shard history');
       expect(result.summaryText).toMatch(/\t1\n$/);
     } finally {
       fs.rmSync(scenario.root, { recursive: true, force: true });

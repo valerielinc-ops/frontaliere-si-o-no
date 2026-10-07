@@ -147,11 +147,18 @@ rc=0
   # publisher that rendered from an older revision keeps the shard as it is
   # instead of rolling pages back. Read here, while the probe clone still has
   # the history (commit messages need no blob).
+  #
+  # "Newest" is the highest epoch; among revisions of the same second, the one
+  # of the most recent shard commit (`git log` lists newest first, and only a
+  # strictly higher epoch replaces the candidate). The push guard treats a
+  # same-second revision with a different SHA as newer, so whichever of them
+  # survives keeps every other one from overwriting.
   newest_content_rev="$(
     git -C "$stage" log --format='%(trailers:key=Content-Rev,valueonly)' HEAD 2>/dev/null \
-      | grep -E '^[0-9]+\.[0-9A-Fa-f]{7,40}$' \
-      | sort -t. -k1,1n \
-      | tail -n 1
+      | awk -F. '/^[0-9]+\.[0-9A-Fa-f]+$/ && length($2) >= 7 && length($2) <= 40 {
+          if (best == "" || $1 + 0 > epoch + 0) { best = $0; epoch = $1 }
+        }
+        END { if (best != "") print best }'
   )" || newest_content_rev=''
   compaction_message="$section-$loc shard history compaction (run ${GITHUB_RUN_ID:-local}) [$n_commits -> 1 commit]"
   if [ -n "$newest_content_rev" ]; then

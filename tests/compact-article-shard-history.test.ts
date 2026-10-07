@@ -339,6 +339,21 @@ describe('compact-article-shard-history.sh keeps the newest Content-Rev across a
     expect(trailerOf(bare)).toBe('2000000100.fffffff');
   });
 
+  // Review of PR 12166: two corpus commits of the same second differ only by
+  // the SHA. The flatten keeps the one of the most recent shard commit, not
+  // whichever sorts last.
+  it('among revisions of the same second keeps the most recent shard commit', () => {
+    const bare = seedShard('same-second', [
+      { body: 'v1', epoch: 1_700_000_001, rev: '1700000000.ccccccc' },
+      { body: 'v2', epoch: 1_700_000_002, rev: '1700000000.aaaaaaa' },
+      { body: 'v3', epoch: 1_700_000_003, rev: '1700000000.bbbbbbb' },
+      { body: 'v4', epoch: 1_700_000_004, rev: '1699999999.fffffff' },
+    ]);
+    run(COMPACT, ['articolifrontaliere', 'it'], bare, { ARTICLE_SHARD_HISTORY_CAP: '2' });
+    expect(sh(`git -C "${bare}" rev-list --count main`)).toBe('1');
+    expect(trailerOf(bare)).toBe('1700000000.bbbbbbb');
+  });
+
   it('a publisher holding an older revision keeps the page after the flatten', () => {
     const bare = seedShard('guarded', [
       { body: 'v1', epoch: 2_000_000_000 },
