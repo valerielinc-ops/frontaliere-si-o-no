@@ -450,6 +450,32 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 
+  it('un\'intestazione in maiuscolo non e\' una sigla: va tradotta, la sigla vera resta', async () => {
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');
+    try {
+      const sent: string[] = [];
+      stubCodex(codexAnswer((text) => {
+        sent.push(text);
+        return `EN ${text.toLowerCase()}`;
+      }));
+      await captureLog(() => ft.freeTranslate({
+        text: '- ORARIO DI LAVORO\n- AVS\n- OFFERTA',
+        sourceLang: 'it',
+        targetLang: 'en',
+        fieldType: 'description',
+      }));
+
+      const all = sent.join('\n');
+      expect(all).toContain('ORARIO DI LAVORO');
+      expect(all).toContain('OFFERTA');
+      expect(all).not.toMatch(/\bAVS\b/);
+    } finally {
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
+    }
+  });
+
   it('tre echi di una riga invariabile non spengono Codex e vengono registrati senza errore', async () => {
     const invariant = 'Sede: Lugano';
     const calls = stubCodex((messages) => {
@@ -806,6 +832,53 @@ describe('freeTranslate — tier Codex Luna Max', () => {
       free.lingvaEcho = false;
       free.mymemoryEcho = false;
       vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+    }
+  });
+
+  it('FREE_TRANSLATE_CODEX_TIER=last: gli echi di righe diverse dello stesso campo non si sommano', async () => {
+    // Riga 1 rimandata da Google, riga 2 da MyMemory, riga 3 solo da Codex:
+    // con un insieme di motori condiviso fra le righe in corsa la terza
+    // passerebbe per «rimandata da due motori» e l'eco non conterebbe.
+    vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', 'last');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '3');
+    vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '10');
+    const [l1, l2, l3] = numbered(3);
+    const stubbedFetch = globalThis.fetch;
+    globalThis.fetch = (async (url: unknown, init?: unknown) => {
+      const u = String(url);
+      if (u.includes('translate.googleapis.com/translate_a/single')) {
+        const q = new URL(u).searchParams.get('q') || '';
+        if (q.includes('Numero 1.')) return { ok: true, status: 200, text: async () => JSON.stringify([[[q, q]]]) };
+        throw new Error('offline nel test');
+      }
+      if (u.includes('api.mymemory.translated.net')) {
+        const q = new URL(u).searchParams.get('q') || '';
+        if (q.includes('Numero 2.')) return { ok: true, json: async () => ({ responseData: { translatedText: q, match: 1 } }) };
+        throw new Error('offline nel test');
+      }
+      return (stubbedFetch as (a: unknown, b?: unknown) => unknown)(url, init);
+    }) as unknown as typeof globalThis.fetch;
+    try {
+      const sent: string[] = [];
+      stubCodex(codexAnswer((text) => {
+        sent.push(text);
+        return text.includes('Numero 3.') ? text : translationOf(text);
+      }));
+      const { lines } = await captureLog(() => ft.freeTranslate({
+        text: `- ${l1}\n- ${l2}\n- ${l3}`,
+        sourceLang: 'it',
+        targetLang: 'en',
+        fieldType: 'description',
+      }));
+
+      expect(sent.join('\n')).toContain('Numero 3.');
+      expect(lines.filter((line) => line.includes('echoed-by-2-engines'))).toHaveLength(0);
+      expect(lines.filter((line) => line.includes('reason=echo-source'))).toHaveLength(1);
+    } finally {
+      globalThis.fetch = stubbedFetch;
+      vi.stubEnv('FREE_TRANSLATE_CODEX_TIER', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
+      vi.stubEnv('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', '');
     }
   });
 

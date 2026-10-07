@@ -1502,10 +1502,12 @@ function _codexInvariantSourceReason(text) {
   if (!clean) return null;
   if (!/\p{L}/u.test(clean)) return 'no-letters';
 
+  // Solo un token a forma di sigla (AVS, CFC, SAP/R3, ISO-9001): un'intestazione
+  // in maiuscolo come «ORARIO DI LAVORO» e' testo da tradurre, e una parola
+  // maiuscola lunga («OFFERTA») pure.
   const acronymCandidate = clean.replace(/[()[\]{},:;]+/gu, ' ').trim();
-  const acronymWords = acronymCandidate.split(/\s+/u).filter(Boolean);
-  if (acronymWords.length > 0 && acronymWords.length <= 4
-    && acronymWords.every((word) => /^[\p{Lu}\p{N}][\p{Lu}\p{N}&./+_-]*$/u.test(word))) {
+  if (/^[\p{Lu}\p{N}][\p{Lu}\p{N}&./+_-]*$/u.test(acronymCandidate)
+    && (acronymCandidate.length <= 4 || /[\p{N}&./+_-]/u.test(acronymCandidate))) {
     return 'acronym';
   }
 
@@ -2638,9 +2640,21 @@ export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 
     const structureOutcome = _outcome || {};
     delete structureOutcome._structuredBoundaryMiss;
     const explicitCodexBatching = _codexBatchingExplicitlyEnabled();
-    const translated = await preserveStructuredTranslation(text, (line) => freeTranslateCore({
-      text: line, sourceLang, targetLang, fieldType, _outcome: structureOutcome,
-    }), {
+    // Un outcome per riga: le righe possono correre insieme, e l'insieme dei
+    // motori che hanno fatto eco (`_echoTiersByOutcome`) e' per outcome. Con
+    // uno condiviso gli echi di due righe farebbero passare per invariante
+    // l'eco Codex di una terza. I contatori confluiscono nel campo alla fine.
+    const translated = await preserveStructuredTranslation(text, async (line) => {
+      const lineOutcome = {};
+      try {
+        return await freeTranslateCore({
+          text: line, sourceLang, targetLang, fieldType, _outcome: lineOutcome,
+        });
+      } finally {
+        mergeTranslationOutcome(structureOutcome, lineOutcome);
+        if (lineOutcome._structuredBoundaryMiss === true) structureOutcome._structuredBoundaryMiss = true;
+      }
+    }, {
       concurrent: explicitCodexBatching && _codexSocketPresent(),
       // Nomi, sigle e righe senza lettere traducibili non devono consumare
       // quota Codex solo per essere rimandati identici. Le righe ordinarie
