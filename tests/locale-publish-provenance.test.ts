@@ -202,7 +202,7 @@ describe('locale publish admission plan', () => {
     });
   });
 
-  it('requests a current build when a legacy non-IT receipt cannot cross the split', () => {
+  it('blocks a legacy non-IT receipt and requests a current build', () => {
     const plan = resolveLocalePublishPlan({
       runConclusion: 'success',
       sourceRunId: SOURCE_RUN_ID,
@@ -217,9 +217,9 @@ describe('locale publish admission plan', () => {
       ],
     });
     expect(plan).toMatchObject({
-      allowed: true,
-      mode: 'partial',
-      healthyLocales: ['it'],
+      allowed: false,
+      mode: 'blocked',
+      healthyLocales: [],
       tailLocales: [],
       recoveryRequired: true,
       legacySourceLocales: ['en', 'de', 'fr'],
@@ -227,7 +227,7 @@ describe('locale publish admission plan', () => {
     expect(plan.reason).toContain('dispatch a current build to replay the split handoff');
   });
 
-  it('publishes healthy locales when one matrix leg is cancelled and declares it stale', () => {
+  it('blocks the snapshot when one matrix leg is cancelled', () => {
     const plan = resolveLocalePublishPlan({
       runConclusion: 'cancelled',
       sourceRunId: SOURCE_RUN_ID,
@@ -235,12 +235,12 @@ describe('locale publish admission plan', () => {
       jobs: jobs({ en: 'cancelled' }),
       provenance: manifests('it', 'de', 'fr'),
     });
-    expect(plan.allowed).toBe(true);
-    expect(plan.mode).toBe('partial');
-    expect(plan.healthyLocales).toEqual(['it', 'de', 'fr']);
-    expect(plan.staleLocales).toEqual(['en']);
+    expect(plan.allowed).toBe(false);
+    expect(plan.mode).toBe('blocked');
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.staleLocales).toEqual(['it', 'en', 'de', 'fr']);
     expect(plan.staleReasons.en).toContain('source job concluded cancelled');
-    expect(plan.reason).toContain('stale fallback for en');
+    expect(plan.reason).toContain('source locale handoff is incomplete for en');
   });
 
   it('hands source-ready non-IT locales to the post-build tail', () => {
@@ -257,16 +257,18 @@ describe('locale publish admission plan', () => {
       runConclusion: 'success',
       sourceRunId: SOURCE_RUN_ID,
       sourceSha: SOURCE_SHA,
-      jobs: jobs({ de: 'failure', fr: 'failure' }),
+      jobs: jobs(),
       provenance: [
         { file: 'it.json', manifest: receipt('it') },
         { file: 'en.json', manifest: source },
+        { file: 'de.json', manifest: receipt('de') },
+        { file: 'fr.json', manifest: receipt('fr') },
       ],
     });
     expect(plan.allowed).toBe(true);
-    expect(plan.healthyLocales).toEqual(['it']);
+    expect(plan.healthyLocales).toEqual(['it', 'de', 'fr']);
     expect(plan.tailLocales).toEqual(['en']);
-    expect(plan.staleLocales).toEqual(['en', 'de', 'fr']);
+    expect(plan.staleLocales).toEqual(['en']);
   });
 
   it('does not publish around a failed IT leg even when other locales are proven', () => {
@@ -291,9 +293,10 @@ describe('locale publish admission plan', () => {
       jobs: jobs({ en: 'failure' }),
       provenance: manifests('it', 'fr'),
     });
-    expect(plan.allowed).toBe(true);
-    expect(plan.healthyLocales).toEqual(['it', 'fr']);
-    expect(plan.staleLocales).toEqual(['en', 'de']);
+    expect(plan.allowed).toBe(false);
+    expect(plan.mode).toBe('blocked');
+    expect(plan.healthyLocales).toEqual([]);
+    expect(plan.staleLocales).toEqual(['it', 'en', 'de', 'fr']);
     expect(plan.staleReasons.de).toContain('no provenance receipt');
   });
 
@@ -330,9 +333,10 @@ describe('locale publish admission plan', () => {
         },
       }],
     });
-    expect(plan.allowed).toBe(true);
+    expect(plan.allowed).toBe(false);
     expect(plan.healthyLocales).toEqual(['it', 'en']);
     expect(plan.staleLocales).toEqual(['de', 'fr']);
+    expect(plan.reason).toContain('incomplete for de, fr');
     expect(plan.readyLocales).toEqual(['en']);
   });
 });
@@ -387,6 +391,12 @@ describe('locale publish workflow wiring', () => {
           jobs: jobs(), provenance: [
             { file: 'it.json', manifest: receipt('it') },
             { file: `${locale}.json`, manifest: source },
+            ...(['en', 'de', 'fr'] as const)
+              .filter((supportingLocale) => supportingLocale !== locale)
+              .map((supportingLocale) => ({
+                file: `${supportingLocale}.json`,
+                manifest: receipt(supportingLocale),
+              })),
           ],
         });
         expect(plan.tailLocales.includes(locale)).toBe(admitted);
@@ -401,9 +411,10 @@ describe('locale publish workflow wiring', () => {
     expect(resolver).toBeDefined();
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(resolver.outputs.recovery_required).toContain('steps.plan.outputs.recovery_required');
-    expect(deployJob.needs).toBe('resolve-publish-plan');
+    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
+    expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
     expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish']);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
