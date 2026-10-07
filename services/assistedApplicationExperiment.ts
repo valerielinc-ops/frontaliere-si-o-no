@@ -156,6 +156,7 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   // The Offerwall/GPT chain failed to load and the paid offer opened instead.
   'offerwall_paid_fallback_offered',
   'checkout_started',
+  'checkout_resumed',
   'checkout_completed',
   'checkout_failed',
   'consent_confirmed',
