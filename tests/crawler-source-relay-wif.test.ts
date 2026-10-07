@@ -59,11 +59,25 @@ describe('crawler groups: WIF auth for the jobs source relay', () => {
   });
 
   it('every relay crawler is wired in each of the three entry points', () => {
-    for (const dirKind of ['.github/corpus-workflows/', '-logic.yml']) {
+    const entryPoints = [
+      {
+        label: '.github/workflows/crawler-group-XX.yml',
+        files: /^\.github\/workflows\/crawler-group-\d{2}\.yml$/u,
+      },
+      {
+        label: '.github/workflows/crawler-group-XX-logic.yml',
+        files: /^\.github\/workflows\/crawler-group-\d{2}-logic\.yml$/u,
+      },
+      {
+        label: '.github/corpus-workflows/crawler-group-XX.yml',
+        files: /^\.github\/corpus-workflows\/crawler-group-\d{2}\.yml$/u,
+      },
+    ];
+    for (const { label, files } of entryPoints) {
       const wired = artifacts
-        .filter(({ file }) => file.includes(dirKind))
+        .filter(({ file }) => files.test(file))
         .flatMap(({ job }) => relayLaunches(job).map((step) => step.id.replace(/^crawler-launch-/u, '')));
-      expect(new Set(wired), dirKind).toEqual(RELAY_SLUGS);
+      expect(new Set(wired), label).toEqual(RELAY_SLUGS);
     }
   });
 
