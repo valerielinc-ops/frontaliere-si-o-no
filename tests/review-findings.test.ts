@@ -71,6 +71,13 @@ describe('identità stabile del finding', () => {
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: [regression] rotto.')).toBe('regression');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important [urgentissimo]: rotto.')).toBe('other');
     expect(findingDeclaredClass('`a.mjs:L1`: 🔴 Important: rotto.')).toBe('other');
+    // Forma con ancora di posizione senza separatore (PR 9339): per il gate e'
+    // un finding, quindi il tag va letto anche li'.
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [regression] rotto.')).toBe('regression');
+    expect(findingDeclaredClass('- `a.mjs:L1`: 🔴 **Important** [funnel] rotto.')).toBe('funnel');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important [urgentissimo] rotto.')).toBe('other');
+    expect(findingDeclaredClass('a.mjs:L1: 🔴 Important rotto, vedi [regression] piu\' sotto.')).toBe('other');
+    expect(isRegressionFinding(finding('a.mjs:L1: 🔴 Important [regression] rotto.'))).toBe(true);
     expect(isRegressionFinding(finding('`a.mjs:L1`: 🔴 Important: [regression] rotto.'))).toBe(true);
   });
 

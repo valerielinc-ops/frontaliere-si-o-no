@@ -379,7 +379,6 @@
       "jobReqId": "R75798",
       "previousSlugs": [
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-        "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
         "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
       ],
       "previousSlugsByLocale": {
@@ -388,7 +387,6 @@
         ],
         "en": [
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-ch",
-          "workplace-engineering-for-6-12-months-m-f-d-lonza-ch",
           "praktikum-betriebsengineering-fur-6-12-monate-m-w-d-lonza-visp"
         ]
       },
@@ -3969,7 +3967,7 @@
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-w-d-lonza-visp",
+        "en": "biotechn-dlz-m-f-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
       },
@@ -4023,8 +4021,7 @@
         "biotechnologist-m-f-d-lonza-ch-j4go5d",
         "biotechn-dlz-m-w-d-lonza-visp",
         "biotechnologist-m-f-d-lonza-ch-3yq0nb",
-        "biotechnologist-m-f-d-lonza-ch-3ypftx",
-        "biotechn-dlz-m-f-d-lonza-visp"
+        "biotechnologist-m-f-d-lonza-ch-3ypftx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4040,7 +4037,6 @@
         ],
         "en": [
           "biotechnologist-m-f-d-lonza-ch-2",
-          "biotechn-dlz-m-f-d-lonza-visp",
           "biotechnologist-m-w-d-lonza-visp"
         ],
         "fr": [
@@ -11083,7 +11079,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -11127,7 +11123,6 @@
       "jobReqId": "R79521",
       "previousSlugs": [
         "senior-director-strategy-lonza-ch",
-        "directeur-principal-strategie-lonza-basel",
         "senior-director-strategy-lonza-basel"
       ],
       "previousSlugsByLocale": {
@@ -11138,7 +11133,6 @@
           "senior-director-strategy-lonza-ch"
         ],
         "fr": [
-          "directeur-principal-strategie-lonza-basel",
           "senior-director-strategy-lonza-basel"
         ]
       },
@@ -15814,10 +15808,10 @@
     },
     {
       "id": "lonza-29dd52e91da4",
-      "slug": "vice-president-supply-chain-integrated-biologics-lonza-ch",
+      "slug": "vice-presidente-supply-chain-biologici-integrati-lonza-basel",
       "slugByLocale": {
         "en": "vice-president-supply-chain-integrated-biologics-lonza-ch",
-        "it": "vice-president-supply-chain-integrated-biologics-lonza-ch",
+        "it": "vice-presidente-supply-chain-biologici-integrati-lonza-basel",
         "de": "vice-president-supply-chain-integrated-biologics-lonza-ch",
         "fr": "vice-president-supply-chain-integrated-biologics-lonza-ch"
       },
@@ -15878,7 +15872,15 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-06T21:12:33.570Z"
+      "firstSeenAt": "2026-10-06T21:12:33.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-supply-chain-integrated-biologics-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vice-president-supply-chain-integrated-biologics-lonza-ch"
+      ]
     },
     {
       "id": "lonza-9609f6e7d42f",
@@ -15950,12 +15952,12 @@
     },
     {
       "id": "lonza-97bac8c7ee10",
-      "slug": "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch",
+      "slug": "piombo-di-progetto-phys-chem-qc-80-100-m-f-d-lonza-basel",
       "slugByLocale": {
         "en": "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch",
-        "it": "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch",
+        "it": "piombo-di-progetto-phys-chem-qc-80-100-m-f-d-lonza-basel",
         "de": "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch",
-        "fr": "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch"
+        "fr": "chef-de-projet-phys-chem-qc-80-100-h-f-d-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -16014,7 +16016,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-06T21:12:32.072Z"
+      "firstSeenAt": "2026-10-06T21:12:32.072Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-lead-phys-chem-qc-80-100-f-m-d-lonza-ch"
+      ]
     }
   ]
 }
