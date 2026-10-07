@@ -1,18 +1,19 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-10-07T09:29:09.746Z",
+  "generatedAt": "2026-10-07T21:37:05.228Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 5937,
-  "avgDurationMs": 5937,
+  "unchangedCount": 7,
+  "durationMs": 5455,
+  "avgDurationMs": 5455,
   "durationHistory": [
-    5937
+    5455
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-0e5b797d16e5",
       "slug": "collaboratore-trice-kasse-e-buffet-am-rinerhorn-davos-klosters-bergbahnen-ag-davos",
@@ -35,25 +36,65 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Kasse-und-Buffet-am-Rinerhorn_j_2449707",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:51.950Z",
+      "crawledAt": "2026-10-07T21:36:53.937Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-07T09:28:51.950Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
       "postalCode": "7270",
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Kasse-und-Buffet-am-Rinerhorn_j_2449707",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-07T09:28:51.950Z",
-      "_qualityScore": 84,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "davos-klosters-bergbahnen-de960d409527",
+      "slug": "capopartita-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos",
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Chef de Partie Mountain Plaza Hotel",
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-07T21:36:52.683Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T11:55:22.607Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "postalCode": "7270",
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
+      "addressRegion": "GR",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "davos-klosters-bergbahnen-fdba0576083b",
       "slug": "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
@@ -76,7 +117,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-Ochsen_j_3885740",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:51.723Z",
+      "crawledAt": "2026-10-07T21:36:53.732Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:06:31.130Z",
       "salaryMin": 62000,
@@ -115,7 +156,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office-Hotel-National_j_2808514",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:51.492Z",
+      "crawledAt": "2026-10-07T21:36:53.522Z",
       "firstSeenAt": "2026-10-06T21:26:48.534Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -131,48 +172,6 @@
         "completeness": 20
       }
     },
-    {
-      "id": "davos-klosters-bergbahnen-de960d409527",
-      "slug": "capopartita-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos",
-      "company": "Davos Klosters Bergbahnen AG",
-      "companyKey": "davos-klosters-bergbahnen-ag",
-      "companyDomain": "davosklosters.ch",
-      "title": "Chef de Partie Mountain Plaza Hotel",
-      "location": "Davos",
-      "canton": "GR",
-      "addressLocality": "Davos",
-      "addressCountry": "CH",
-      "category": "tourism",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
-      "source": "Davos Klosters Bergbahnen Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:50.632Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-23T11:55:22.607Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "postalCode": "7270",
-      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
-      "addressRegion": "GR",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "davos-klosters-bergbahnen-6f08343cd9a8",
       "slug": "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos",
@@ -195,7 +194,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:51.263Z",
+      "crawledAt": "2026-10-07T21:36:53.312Z",
       "firstSeenAt": "2026-10-06T09:25:37.428Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -233,7 +232,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:51.033Z",
+      "crawledAt": "2026-10-07T21:36:53.104Z",
       "firstSeenAt": "2026-10-03T09:25:10.218Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -271,7 +270,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:50.805Z",
+      "crawledAt": "2026-10-07T21:36:52.891Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -309,7 +308,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:50.402Z",
+      "crawledAt": "2026-10-07T21:36:52.473Z",
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -347,7 +346,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:28:50.167Z",
+      "crawledAt": "2026-10-07T21:36:52.262Z",
       "firstSeenAt": "2026-06-09T11:17:26.005Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -364,5 +363,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

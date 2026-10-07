@@ -1,18 +1,21 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-10-07T09:18:24.216Z",
+  "generatedAt": "2026-10-07T21:15:07.328Z",
   "total": 12,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 10992,
-  "avgDurationMs": 10992,
+  "unchangedCount": 12,
+  "durationMs": 8221,
+  "avgDurationMs": 8221,
   "durationHistory": [
-    10992
+    8221
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Hoch-/Fachhochschulpraktikant/-in: PhenoMix - Leguminosen",
       "slug": "hoch-fachhochschulpraktikant-in-phenomix-leguminosen-agroscope-zurich",
@@ -45,18 +48,14 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T09:18:10.929Z",
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 20,
         "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Technische/r Mitarbeiter/in - Abwaschküche",
       "slug": "technische-r-collaboratore-trice-abwaschkuche-agroscope-posieux",
@@ -497,5 +496,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

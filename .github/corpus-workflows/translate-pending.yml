@@ -468,7 +468,7 @@ jobs:
           elif [ -n "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" ]; then
             printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=%s\n' "$FREE_TRANSLATE_CODEX_MAX_CALLS_REPO" >> "$GITHUB_ENV"
           else
-            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=180\n' >> "$GITHUB_ENV"
+            printf 'FREE_TRANSLATE_CODEX_MAX_CALLS=350\n' >> "$GITHUB_ENV"
           fi
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-

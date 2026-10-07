@@ -1,18 +1,65 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-07T09:17:18.398Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-10-07T21:20:25.167Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 3165,
-  "avgDurationMs": 3165,
+  "durationMs": 2498,
+  "avgDurationMs": 2498,
   "durationHistory": [
-    3165
+    2498
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Product Administrator Factory Outlet Intern",
+      "slug": "product-administrator-factory-outlet-intern-guess-europe-sagl-stabio-switzerland",
+      "url": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/",
+      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/apply/",
+      "company": "Guess Europe Sagl",
+      "companyKey": "guess-europe",
+      "companyDomain": "guess.eu",
+      "location": "Stabio",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Lusso & Moda",
+      "source": "guess-europe-dedicated-crawler",
+      "sourceLang": "en",
+      "datePosted": "2026-10-07T00:00:00.000Z",
+      "postedDate": "2026-10-07T00:00:00.000Z",
+      "postingDateSource": "reported",
+      "validThrough": "",
+      "benefits": [
+        "An International, fresh and dynamic working environment",
+        "Balance between work and personal life: Smart Working (Hybrid work model) and Time flexibility",
+        "Training & Development platform and paths",
+        "Discount on our products both online and in stores"
+      ],
+      "id": "guess-europe-e41ee2b5a6e0",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "postalCode": "6855",
+      "firstSeenAt": "2026-10-07T21:20:15.058Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -467,5 +514,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

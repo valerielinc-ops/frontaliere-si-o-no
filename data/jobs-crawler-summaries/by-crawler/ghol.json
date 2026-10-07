@@ -1,7 +1,7 @@
 {
   "key": "ghol",
   "label": "Groupement Hospitalier de l'Ouest Lémanique",
-  "generatedAt": "2026-10-07T09:27:16.431Z",
+  "generatedAt": "2026-10-07T21:38:31.053Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 3923,
-  "avgDurationMs": 3923,
+  "durationMs": 4557,
+  "avgDurationMs": 4557,
   "durationHistory": [
-    3923
+    4557
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -51,7 +51,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:02.002Z",
+      "crawledAt": "2026-10-07T21:38:18.105Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
       "salaryMin": 65500,
@@ -93,7 +93,7 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:01.999Z",
+      "crawledAt": "2026-10-07T21:38:18.102Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:36:03.664Z",
       "salaryMin": 86500,
@@ -138,7 +138,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:02.003Z",
+      "crawledAt": "2026-10-07T21:38:18.106Z",
       "firstSeenAt": "2026-09-10T23:18:13.972Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -179,7 +179,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:02.001Z",
+      "crawledAt": "2026-10-07T21:38:18.104Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T11:59:27.233Z",
       "salaryMin": 86500,
@@ -221,7 +221,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:02.000Z",
+      "crawledAt": "2026-10-07T21:38:18.103Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T21:49:26.103Z",
       "salaryMin": 86500,
@@ -263,7 +263,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:01.998Z",
+      "crawledAt": "2026-10-07T21:38:18.101Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-23T23:50:08.155Z",
       "salaryMin": 116500,
@@ -305,7 +305,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T09:27:01.996Z",
+      "crawledAt": "2026-10-07T21:38:18.099Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:24:46.269Z",
       "salaryMin": 86500,
@@ -320,5 +320,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }

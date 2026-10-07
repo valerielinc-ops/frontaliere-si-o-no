@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-10-07T09:19:40.957Z",
+  "assembledAt": "2026-10-07T21:26:57.327Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617889/aiml-apple-foundation-models-senior-ml-research-scientist-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:35.624Z",
+      "crawledAt": "2026-10-07T21:26:50.981Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +118,7 @@
       "url": "https://jobs.apple.com/en-us/details/200617882/aiml-apple-foundation-models-ml-research-engineer-rl-agentic-reasoning?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:33.918Z",
+      "crawledAt": "2026-10-07T21:26:49.633Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,7 +202,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634000/applied-machine-learning-engineer-security?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:31.586Z",
+      "crawledAt": "2026-10-07T21:26:48.018Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -297,7 +297,7 @@
       "url": "https://jobs.apple.com/en-us/details/200634821/aiml-senior-ml-rl-training-infrastructure-engineer-afm?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:30.049Z",
+      "crawledAt": "2026-10-07T21:26:46.280Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -376,7 +376,7 @@
       "url": "https://jobs.apple.com/en-us/details/200643040/ai-research-scientist-multimodal-intelligence?team=HRDWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:28.427Z",
+      "crawledAt": "2026-10-07T21:26:44.694Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -455,7 +455,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664779/aiml-machine-learning-researcher-mlr?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:27.204Z",
+      "crawledAt": "2026-10-07T21:26:43.244Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,6 +483,7 @@
           "aiml-machine-learning-researcher-mlr-apple-retail-switzerland-ch"
         ]
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:19:38.768Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -498,8 +499,7 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD",
-      "needsRetranslation": true
+      "addressRegion": "VD"
     },
     {
       "id": "apple-retail-switzerland-4ca89472c6c0",
@@ -532,7 +532,7 @@
       "url": "https://jobs.apple.com/en-us/details/200664795/aiml-research-scientist-health?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:25.782Z",
+      "crawledAt": "2026-10-07T21:26:40.581Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -611,7 +611,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672455/research-scientist-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:24.338Z",
+      "crawledAt": "2026-10-07T21:26:38.896Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -695,7 +695,7 @@
       "url": "https://jobs.apple.com/en-us/details/200672941/research-scientist-engineer-special-projects?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:22.905Z",
+      "crawledAt": "2026-10-07T21:26:37.361Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -774,7 +774,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679192/content-engineering-author-developer-publications?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:21.489Z",
+      "crawledAt": "2026-10-07T21:26:35.404Z",
       "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -854,7 +854,7 @@
       "url": "https://jobs.apple.com/en-us/details/200679630/aiml-foundation-model-post-training-research-scientist?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:20.145Z",
+      "crawledAt": "2026-10-07T21:26:33.564Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -935,7 +935,7 @@
       "url": "https://jobs.apple.com/en-us/details/200680814/staff-machine-learning-engineer-siri-runtime-systems-and-interaction?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:18.591Z",
+      "crawledAt": "2026-10-07T21:26:32.027Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1008,7 +1008,7 @@
       "url": "https://jobs.apple.com/en-us/details/200683178/aiml-machine-learning-researcher-multimodal-foundation-models?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:17.256Z",
+      "crawledAt": "2026-10-07T21:26:30.452Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1087,7 +1087,7 @@
       "url": "https://jobs.apple.com/en-us/details/200684066/channel-communications-manager-switzerland?team=SLDEV",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:15.612Z",
+      "crawledAt": "2026-10-07T21:26:29.166Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1152,7 +1152,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686097/vulnerability-researcher-sear?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:14.290Z",
+      "crawledAt": "2026-10-07T21:26:27.908Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1231,7 +1231,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686336/internship-computer-vision-machine-learning-research?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:12.872Z",
+      "crawledAt": "2026-10-07T21:26:26.021Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1310,7 +1310,7 @@
       "url": "https://jobs.apple.com/en-us/details/200686571/internship-computer-vision-machine-learning-research-llm-efficiency?team=MLAI",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:11.503Z",
+      "crawledAt": "2026-10-07T21:26:24.295Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1390,7 +1390,7 @@
       "url": "https://jobs.apple.com/en-us/details/200685890/senior-ios-engineer-creativity-apps?team=SFTWR",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:10.194Z",
+      "crawledAt": "2026-10-07T21:26:22.912Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1407,8 +1407,9 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200685890/senior-ios-engineer-creativity-apps?team=SFTWR",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T09:20:12.640Z",
+      "previousSlugs": [
+        "senior-ios-engineer-creativity-apps-apple-retail-switzerland-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-ios-engineer-creativity-apps-apple-retail-switzerland-ch"
@@ -1420,9 +1421,8 @@
           "senior-ios-engineer-creativity-apps-apple-retail-switzerland-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-ios-engineer-creativity-apps-apple-retail-switzerland-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T09:20:12.640Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1438,6 +1438,74 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH"
+    },
+    {
+      "id": "apple-retail-switzerland-31ef2e5fcb43",
+      "slug": "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group",
+      "slugByLocale": {
+        "en": "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group",
+        "it": "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group",
+        "de": "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group",
+        "fr": "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group"
+      },
+      "company": "Apple Retail Switzerland",
+      "companyKey": "apple-retail-switzerland",
+      "companyDomain": "jobs.apple.com",
+      "title": "Machine Learning Engineer with Focus on Generative 3D Representations - Europe Vision Group",
+      "titleByLocale": {
+        "en": "Machine Learning Engineer with Focus on Generative 3D Representations - Europe Vision Group",
+        "it": "Machine Learning Ingegnere with Focus on Generative 3D Representations - Europe Vision Group",
+        "de": "Machine Learning Ingenieur with Focus on Generative 3D Representations - Europe Vision Group",
+        "fr": "Machine Learning Ingénieur with Focus on Generative 3D Representations - Europe Vision Group"
+      },
+      "description": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+      "descriptionByLocale": {
+        "en": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+        "it": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+        "de": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
+        "fr": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace"
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
+      "source": "Apple Retail Switzerland Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-07T21:26:21.367Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07T18:01:07.540Z",
+      "postedDate": "2026-10-07T18:01:07.540Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-10-07T21:26:21.367Z"
     },
     {
       "id": "apple-retail-switzerland-3d4b15d6efc3",
@@ -1470,7 +1538,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438204/ch-technical-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:08.646Z",
+      "crawledAt": "2026-10-07T21:26:19.541Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1541,7 +1609,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438011/ch-operations-expert-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:07.250Z",
+      "crawledAt": "2026-10-07T21:26:17.974Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1612,7 +1680,7 @@
       "url": "https://jobs.apple.com/en-us/details/114438017/ch-specialist-m-f-d?team=APPST",
       "source": "Apple Retail Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T09:19:05.865Z",
+      "crawledAt": "2026-10-07T21:26:16.257Z",
       "addressLocality": "Switzerland",
       "addressCountry": "CH",
       "country": "CH",
@@ -1730,7 +1798,7 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

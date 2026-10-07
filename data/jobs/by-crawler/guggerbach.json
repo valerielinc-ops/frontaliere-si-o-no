@@ -1,6 +1,6 @@
 {
   "crawlerKey": "guggerbach",
-  "assembledAt": "2026-10-07T09:18:07.951Z",
+  "assembledAt": "2026-10-07T21:17:50.669Z",
   "jobs": [
     {
       "id": "guggerbach-b74196236ac9",
@@ -33,7 +33,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:02.003Z",
+      "crawledAt": "2026-10-07T21:17:45.242Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:02.002Z",
+      "crawledAt": "2026-10-07T21:17:45.241Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:02.000Z",
+      "crawledAt": "2026-10-07T21:17:45.240Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -304,7 +304,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:01.999Z",
+      "crawledAt": "2026-10-07T21:17:45.239Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -370,7 +370,7 @@
       "title": "Selbständige Coiffeuse/Coiffeur",
       "titleByLocale": {
         "it": "Coiffeuse/Coiffeur autonomi",
-        "en": "Self-employed Coiffeuse/Coiffeur",
+        "en": "Selbständige Coiffeuse/Coiffeur",
         "de": "Selbständige Coiffeuse/Coiffeur",
         "fr": "Indépendants Coiffeuse/Coiffeur"
       },
@@ -386,7 +386,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T09:18:01.995Z",
+      "crawledAt": "2026-10-07T21:17:45.236Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -428,6 +428,7 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:45:47.908Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",

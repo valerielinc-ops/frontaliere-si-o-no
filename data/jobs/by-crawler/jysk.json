@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-10-07T09:32:33.092Z",
+  "assembledAt": "2026-10-07T21:22:45.367Z",
   "jobs": [
     {
       "id": "company-w76zez",
@@ -1539,7 +1539,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Baden",
-        "en": "Store Manager Trainee (a) 80-100% for the Baden region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Baden",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Baden",
         "fr": "Stagiaire de magasin (a) 80-100% pour la région de Baden"
       },
@@ -1570,7 +1570,8 @@
       "salaryMax": 78500,
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "5400"
+      "postalCode": "5400",
+      "needsRetranslation": true
     },
     {
       "id": "company-qxtrop",
@@ -1745,7 +1746,7 @@
       "firstSeenAt": "2026-08-31T17:13:00.454Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 100% per la Region Aargau",
-        "en": "Store Manager Trainee (a) 100% for the Aargau region",
+        "en": "Store Manager Trainee (a) 100% für die Region Aargau",
         "de": "Store Manager Auszubildender (a) 100% für die Region Aargau",
         "fr": "Stagiaire responsable des magasins (a) 100% pour la région d'Argovie"
       },
@@ -2513,7 +2514,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
-        "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
+        "en": "Store Manager Trainee (a) 80-100% für die Region Netstal",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
         "fr": "Stagiaire responsable des magasins (a) 80-100 % pour la région de Netstal"
       },
@@ -2815,7 +2816,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale St. Gallen",
-        "en": "Store Manager Trainee (a) 80-100% for the St. Gallen branch",
+        "en": "Store Manager Trainee (a) 80-100% für die Filiale St. Gallen",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale St. Gallen",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la succursale St. Gallen"
       },
@@ -2960,7 +2961,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale Herisau",
-        "en": "Store Manager Trainee (a) 80-100% for the Herisau branch",
+        "en": "Store Manager Trainee (a) 80-100% für die Filiale Herisau",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale Herisau",
         "fr": "Directeur de magasin Trainee (a) 80-100% pour la branche Herisau"
       },
@@ -4542,8 +4543,7 @@
       "applyUrl": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-guemligenfeld-bei-muribern",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "3074",
-      "needsRetranslation": true
+      "postalCode": "3074"
     },
     {
       "id": "company-50j6nj",

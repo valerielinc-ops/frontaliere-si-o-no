@@ -1,59 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-10-07T09:15:14.283Z",
+  "generatedAt": "2026-10-07T21:17:32.369Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 15518,
-  "avgDurationMs": 15518,
+  "unchangedCount": 12,
+  "durationMs": 17531,
+  "avgDurationMs": 17531,
   "durationHistory": [
-    15518
+    17531
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Frontoffice In-/Outbound Mitarbeiter/in (m/w/d)",
-      "slug": "frontoffice-collaboratore-trice-m-w-d-hoval-meilen",
-      "url": "https://www.hoval.it/it_IT/job/4042",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4042/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "Meilen",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "hoval-22b5bbd18ca0",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-23T23:37:10.601Z",
-      "datePosted": "",
-      "postingDateSource": "unknown",
-      "postalCode": "8706",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -88,6 +48,45 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "postalCode": "8001",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Frontoffice In-/Outbound Mitarbeiter/in (m/w/d)",
+      "slug": "frontoffice-collaboratore-trice-m-w-d-hoval-meilen",
+      "url": "https://www.hoval.it/it_IT/job/4042",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4042/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Meilen",
+      "addressLocality": "Meilen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-22b5bbd18ca0",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-23T23:37:10.601Z",
+      "datePosted": "",
+      "postingDateSource": "unknown",
+      "postalCode": "8706",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -488,5 +487,5 @@
       }
     }
   ],
-  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
+  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
 }
