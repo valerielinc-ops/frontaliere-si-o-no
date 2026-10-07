@@ -157,6 +157,31 @@ describe('optional refresh paths (sync run 37515283217)', () => {
     expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/credits.json'])).toBe('{"cover":"governed"}');
   });
 
+  it.each([false, true])('stages only a generated sparse file, never an absent tracked sibling (force=%s)', (force) => {
+    const setup = fixture();
+    write(setup.repo, 'public/images/generated/existing.json', '{"cover":"old"}\n');
+    git(setup.repo, ['add', 'public/images/generated/existing.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'tracked sparse sibling']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+    git(setup.repo, ['checkout', '-q', 'chore/refresh']);
+    write(setup.repo, 'public/images/generated/existing.json', '{"cover":"old"}\n');
+    git(setup.repo, ['add', 'public/images/generated/existing.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'tracked sparse sibling']);
+    git(setup.repo, ['push', '-q', 'origin', 'chore/refresh']);
+    git(setup.repo, ['checkout', '-q', 'main']);
+    git(setup.repo, ['sparse-checkout', 'init', '--no-cone']);
+    git(setup.repo, ['sparse-checkout', 'set', '--no-cone', '/data/', '/scripts/']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'public/images/generated/new.json', '{"cover":"new"}\n');
+    const result = publishPlain(setup, [
+      ...(force ? ['--force'] : []),
+      '--optional-path', 'public/images/generated',
+    ]);
+    expect(result.status, result.stderr).toBe(0);
+    expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/existing.json'])).toBe('{"cover":"old"}');
+    expect(git(setup.remote, ['show', 'chore/refresh:public/images/generated/new.json'])).toBe('{"cover":"new"}');
+  });
+
   it.each([
     ['plain git add', publishPlain],
     ['resolved symlinks', (setup: ReturnType<typeof fixture>, extra: string[]) => publish(setup, false, extra)],
