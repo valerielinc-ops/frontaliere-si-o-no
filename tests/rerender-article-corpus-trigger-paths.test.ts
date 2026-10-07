@@ -146,7 +146,24 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     const packageLock = JSON.parse(fs.readFileSync(path.join(ROOT, 'package-lock.json'), 'utf8'));
     const installer = fs.readFileSync(path.join(ROOT, RUNTIME_DEPS_INSTALLER), 'utf8');
 
-    expect(Object.keys(packageJson.dependencies ?? {})).toEqual(expect.arrayContaining(['html-entities']));
+    // The list stays EXACT, so the next dependency is examined instead of
+    // absorbed. `sharp` (PR 11879) belongs to the image-generation engine,
+    // which no module of the article engine loads: it is deliberately not
+    // installed before a render. The assertion below read ['html-entities']
+    // until then and has been red on main since, unseen by related-only runs.
+    const NOT_LOADED_BY_THE_RENDERER = ['sharp'];
+    expect(Object.keys(packageJson.dependencies ?? {}).sort()).toEqual(
+      ['html-entities', ...NOT_LOADED_BY_THE_RENDERER].sort(),
+    );
+    const IMAGE_ENGINE = 'packages/articles/engine/shared/generatedImageEngine.mjs';
+    const engineFiles = execFileSync('git', ['ls-files', '--', 'packages/articles/engine'], { cwd: ROOT, encoding: 'utf8' })
+      .split('\n')
+      .filter((rel) => /\.(ts|tsx|mjs|js)$/.test(rel));
+    const engineSource = (rel: string) => fs.readFileSync(path.join(ROOT, rel), 'utf8');
+    expect(engineFiles.filter((rel) => /(?:from|import\()\s*['"]sharp['"]/.test(engineSource(rel)))).toEqual([IMAGE_ENGINE]);
+    expect(
+      engineFiles.filter((rel) => rel !== IMAGE_ENGINE && engineSource(rel).includes('generatedImageEngine')),
+    ).toEqual([]);
     expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
     expect(installer).toContain('node_modules/html-entities');
     expect(installer).toContain('--workspaces=false');

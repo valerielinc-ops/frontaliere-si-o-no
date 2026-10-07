@@ -31,7 +31,13 @@ function commitSeed(seed: string, message: string, epoch: number): void {
   });
 }
 
-function seedRemote({ body, remoteRevision = null, remoteEpoch = 1_000_000_000 }: { body: string; remoteRevision?: string | null; remoteEpoch?: number }) {
+function seedRemote({
+  body,
+  remoteRevision = null,
+  remoteEpoch = 1_000_000_000,
+  seedEpoch = remoteEpoch - 10,
+  seedRevision = null,
+}: { body: string; remoteRevision?: string | null; remoteEpoch?: number; seedEpoch?: number; seedRevision?: string | null }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'site-article-monotonic-'));
   const seed = path.join(root, 'seed');
   const remote = path.join(root, 'remote.git');
@@ -41,8 +47,12 @@ function seedRemote({ body, remoteRevision = null, remoteEpoch = 1_000_000_000 }
   git(['init', '-q', '-b', 'main', seed]);
   git(['-C', seed, 'config', 'user.name', 'monotonic test']);
   git(['-C', seed, 'config', 'user.email', 'monotonic-test@example.invalid']);
-  commitSeed(seed, 'seed', remoteEpoch - 10);
+  commitSeed(seed, seedRevision ? `seed\n\nContent-Rev: ${seedRevision}` : 'seed', seedEpoch);
   git(['init', '--bare', '-q', '-b', 'main', remote]);
+  // The script clones with --depth 1 --filter=blob:none. Git ignores --depth on
+  // a plain local path, so the remote is addressed as file:// (see runPush):
+  // a guard verified only on a full clone says nothing about production.
+  git(['-C', remote, 'config', 'uploadpack.allowfilter', 'true']);
   git(['-C', seed, 'remote', 'add', 'origin', remote]);
   git(['-C', seed, 'push', '-q', 'origin', 'main']);
   if (remoteRevision) {
@@ -73,7 +83,7 @@ function runPush(remote: string, incomingHtml: string, { revision = null, failFe
     env: {
       ...process.env,
       SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: 'test-deploy-key',
-      SHARD_REPO_OVERRIDE: remote,
+      SHARD_REPO_OVERRIDE: `file://${remote}`,
       ARTICLE_PUSH_SUMMARY_FILE: summary,
       RUNNER_TEMP: runnerTemp,
       SHARD_INCREMENTAL_PUSH_MAX_ATTEMPTS: '1',
@@ -115,6 +125,45 @@ describe('monotonic article shard push', () => {
       expect(remoteHtml(scenario.remote)).toBe(page('remote-newer'));
       expect(result.output).toContain('kept remote for 1 newer article path');
       expect(result.traceText).not.toContain(`show HEAD:${REL}`);
+    } finally {
+      fs.rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  // The typical production shape: a quiet shard whose previous commit is hours
+  // old, so the newer publication is the oldest commit the window brings in and
+  // arrives without its parent. The first version of the guard could not diff
+  // it, skipped it in silence and overwrote the page (probed on a file://
+  // remote; the suite then used a local path, where the clone is never shallow).
+  it('tiene la pubblicazione più recente anche se il commit precedente è fuori dalla finestra', () => {
+    const remoteEpoch = 2_000_000_100;
+    const scenario = seedRemote({
+      body: page('remote'),
+      remoteRevision: `${remoteEpoch}.fffffff`,
+      remoteEpoch,
+      seedEpoch: remoteEpoch - 5 * 3600,
+    });
+    try {
+      const result = runPush(scenario.remote, page('incoming-older'), { revision: `${remoteEpoch - 600}.aaaaaaa`, trace: true });
+      expect(result.head).toBe(scenario.head);
+      expect(remoteHtml(scenario.remote)).toBe(page('remote-newer'));
+      expect(result.output).toContain('kept remote for 1 newer article path');
+      // Proves the shallow path ran: on a full clone there is nothing to deepen.
+      expect(result.traceText).toMatch(/fetch .*--deepen=1/);
+      expect(result.summaryText).toMatch(/\t1\t[^\t]+\t0\n$/);
+    } finally {
+      fs.rmSync(scenario.root, { recursive: true, force: true });
+    }
+  });
+
+  it('tiene la pubblicazione più recente quando è il commit radice dello shard', () => {
+    const remoteEpoch = 2_000_000_100;
+    const scenario = seedRemote({ body: page('remote'), remoteEpoch, seedEpoch: remoteEpoch, seedRevision: `${remoteEpoch}.fffffff` });
+    try {
+      const result = runPush(scenario.remote, page('incoming-older'), { revision: `${remoteEpoch - 600}.aaaaaaa` });
+      expect(result.head).toBe(scenario.head);
+      expect(remoteHtml(scenario.remote)).toBe(page('remote'));
+      expect(result.output).toContain('kept remote for 1 newer article path');
     } finally {
       fs.rmSync(scenario.root, { recursive: true, force: true });
     }

@@ -62,8 +62,6 @@ on:
       - 'packages/articles/content/**'
       - 'scripts/rerender-article-hubs.mjs'
       - 'scripts/lib/render-and-push-hubs.mjs'
-      - 'scripts/lib/article-corpus-overlay.mjs'
-      - 'scripts/lib/article-image-postcondition.mjs'
       # Self-test on change. A push touching only this file still runs the
       # whole path (render + validate + push), which is what makes an edit
       # here verifiable rather than hopeful.
