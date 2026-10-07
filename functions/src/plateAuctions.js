@@ -177,12 +177,12 @@ const CONNECTORS = {
       return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Grigioni',
         plateCode: 'GR',
-        officialAuctionUrl: 'https://eauktion.gr.ch/',
+        officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
         fetchedAt,
         auctionStatus,
         listingType,
         idPrefix,
-        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
+        detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
       })), html, tabs.map(([tab]) => tab));
     },
   },

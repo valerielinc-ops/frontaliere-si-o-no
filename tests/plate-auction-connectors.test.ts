@@ -127,6 +127,8 @@ describe('expanded plate-auction connectors', () => {
     expect(row).toMatchObject({
       id: 'gr-2230', sourceKey: 'GR', normalizedPlate: 'GR12219', startingPriceChf: 500,
       minimumIncrementChf: 50, currentBidChf: 900, bidCount: 4, endsAt: '2026-09-13T18:00:00.000Z',
+      officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
+      officialDetailUrl: 'https://eauktion.gr.ch/ecari-auction/ui/app/details/app?id=2230&locale=de_ch',
     });
     expect(JSON.stringify(row)).not.toContain('hidden-bidder');
     expect(validatePlateAuction(row)).toEqual([]);

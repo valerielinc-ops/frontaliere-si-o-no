@@ -11,7 +11,6 @@ import { GR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourc
 
 export const GR_CANTON = 'Grigioni';
 export const GR_PLATE_CODE = 'GR';
-export const GR_AUCTION_URL = 'https://eauktion.gr.ch/';
 
 export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() } = {}) {
   const tabs = [
@@ -25,12 +24,12 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
     {
       canton: GR_CANTON,
       plateCode: GR_PLATE_CODE,
-      officialAuctionUrl: GR_AUCTION_URL,
+      officialAuctionUrl: GR_ECARI_CATALOGUE_URL,
       fetchedAt,
       auctionStatus,
       listingType,
       idPrefix,
-      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_AUCTION_URL, sourceRecordId),
+      detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_ECARI_CATALOGUE_URL, sourceRecordId),
     },
   )), html, tabs.map(([tab]) => tab));
 }
