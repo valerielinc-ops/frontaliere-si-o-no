@@ -15804,10 +15804,10 @@
     },
     {
       "id": "jumbo-ab328092-4d5",
-      "slug": "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
+      "slug": "advisor-vendite-advisor-tempo-libero-m-f-d-jumbo-allaman",
       "slugByLocale": {
         "fr": "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
-        "it": "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman",
+        "it": "advisor-vendite-advisor-tempo-libero-m-f-d-jumbo-allaman",
         "en": "advisor-sales-advisor-leisure-m-f-d-jumbo-allaman",
         "de": "berater-verkaufsberater-freizeit-m-w-d-jumbo-allaman"
       },
@@ -15877,7 +15877,15 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-loisirs-f-h-d-jumbo-allaman"
+      ]
     },
     {
       "id": "jumbo-0a9379e0-fc2",
@@ -18285,12 +18293,12 @@
     },
     {
       "id": "jumbo-0112e909-b29",
-      "slug": "verkaufsberater-in-do-it-jumbo-huntwangen",
+      "slug": "consulente-commerciale-do-it-jumbo-huntwangen",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-huntwangen",
-        "it": "verkaufsberater-in-do-it-jumbo-huntwangen",
-        "en": "verkaufsberater-in-do-it-jumbo-huntwangen",
-        "fr": "verkaufsberater-in-do-it-jumbo-huntwangen"
+        "it": "consulente-commerciale-do-it-jumbo-huntwangen",
+        "en": "sales-consultant-do-it-jumbo-huntwangen",
+        "fr": "consultant-en-ventes-do-it-jumbo-huntwangen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18362,7 +18370,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-huntwangen"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-huntwangen"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-huntwangen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-huntwangen"
+      ]
     },
     {
       "id": "jumbo-9b9c14d3-3d2",
@@ -18467,7 +18489,7 @@
         "de": "verkaufer-in-kassen-services-jumbo-stans",
         "it": "vendita-cassetti-servizi-jumbo-stans",
         "en": "verkaufer-in-kassen-services-jumbo-stans",
-        "fr": "verkaufer-in-kassen-services-jumbo-stans"
+        "fr": "caisses-enregistreuses-services-du-vendeur-jumbo-stans"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18542,6 +18564,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "verkaufer-in-kassen-services-jumbo-stans"
+        ],
+        "fr": [
           "verkaufer-in-kassen-services-jumbo-stans"
         ]
       },

@@ -987,7 +987,7 @@
         "it": "junior-talent-consulente-technik-gebaudetechnik-100-m-w-yellowshark-ag-zurich",
         "en": "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch",
         "de": "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch",
-        "fr": "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch"
+        "fr": "consultant-junior-en-recrutement-technique-technique-du-batiment-100-h-f-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -1035,6 +1035,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch"
+        ],
+        "fr": [
           "junior-talent-consultant-technik-gebaudetechnik-100-m-w-zurich-zh-yellowshark-ch"
         ]
       },
@@ -56422,12 +56425,12 @@
     },
     {
       "id": "yellowshark-984a9f938008",
-      "slug": "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern",
+      "slug": "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern-lu",
       "slugByLocale": {
-        "it": "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern",
+        "it": "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern-lu",
         "en": "hr-specialist-m-f-80-100-yellowshark-ag-luzern",
         "de": "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
-        "fr": "specialiste-rh-h-f-80-100-yellowshark-ag-luzern"
+        "fr": "specialiste-rh-h-f-80-100-yellowshark-ag-luzern-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -56487,14 +56490,18 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch"
+          "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
+          "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern"
         ],
         "fr": [
-          "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch"
+          "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
+          "specialiste-rh-h-f-80-100-yellowshark-ag-luzern"
         ]
       },
       "previousSlugs": [
-        "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch"
+        "hr-fachkraft-m-w-80-100-luzern-lu-yellowshark-ch",
+        "specialista-risorse-umane-m-f-80-100-yellowshark-ag-luzern",
+        "specialiste-rh-h-f-80-100-yellowshark-ag-luzern"
       ]
     },
     {

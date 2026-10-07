@@ -12648,12 +12648,12 @@
         "de": "Mitarbeiter:in Produktion Früh Innendienst",
         "fr": "Production des employés Début de bureau"
       },
-      "slug": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
+      "slug": "produzione-per-dipendenti-inizio-ufficio-die-schweizerische-post-niederurnen",
       "slugByLocale": {
-        "it": "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
+        "it": "produzione-per-dipendenti-inizio-ufficio-die-schweizerische-post-niederurnen",
         "en": "employee-production-early-interior-service-die-schweizerische-post-niederurnen",
         "de": "mitarbeiter-in-produktion-fruh-innendienst-post",
-        "fr": "collaborateur-trice-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
+        "fr": "production-des-employes-debut-de-bureau-die-schweizerische-post-niederurnen"
       },
       "sourceLang": "de",
       "department": "",
@@ -12690,19 +12690,23 @@
       "firstSeenAt": "2026-09-28T21:43:52.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-produktion-fruh-innendienst-post"
+          "mitarbeiter-in-produktion-fruh-innendienst-post",
+          "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen"
         ],
         "en": [
           "mitarbeiter-in-produktion-fruh-innendienst-post",
           "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
         ],
         "fr": [
-          "mitarbeiter-in-produktion-fruh-innendienst-post"
+          "mitarbeiter-in-produktion-fruh-innendienst-post",
+          "collaborateur-trice-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-produktion-fruh-innendienst-post",
-        "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
+        "associate-produktion-fruh-innendienst-die-schweizerische-post-niederurnen",
+        "addetto-a-alla-produzione-fruh-servizio-interno-die-schweizerische-post-niederurnen",
+        "collaborateur-trice-produktion-fruh-innendienst-die-schweizerische-post-niederurnen"
       ],
       "postedDate": "2026-09-28",
       "postingDateSource": "reported",
@@ -14104,12 +14108,12 @@
         "de": "Betriebsleiter:in / Schichtleiter:in Sortierlogistik",
         "fr": "Responsable des opérations / Superviseur d'équipe Logistique de tri"
       },
-      "slug": "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+      "slug": "responsabile-delle-operazioni-supervisore-di-turno-logistica-di-smistamento-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
-        "it": "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen",
-        "en": "betriebsleiter-in-shift-leader-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+        "it": "responsabile-delle-operazioni-supervisore-di-turno-logistica-di-smistamento-die-schweizerische-post-zurich-mulligen",
+        "en": "operations-manager-shift-supervisor-sorting-logistics-die-schweizerische-post-zurich-mulligen",
         "de": "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
-        "fr": "betriebsleiter-in-chef-d-equipe-sortierlogistik-die-schweizerische-post-zurich-mulligen"
+        "fr": "responsable-des-operations-superviseur-d-equipe-logistique-de-tri-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -14146,17 +14150,23 @@
       "firstSeenAt": "2026-09-28T21:43:52.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+          "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen"
         ],
         "en": [
-          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+          "betriebsleiter-in-shift-leader-sortierlogistik-die-schweizerische-post-zurich-mulligen"
         ],
         "fr": [
-          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+          "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+          "betriebsleiter-in-chef-d-equipe-sortierlogistik-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
-        "betriebsleiter-in-schichtleiter-in-sortierlogistik-post"
+        "betriebsleiter-in-schichtleiter-in-sortierlogistik-post",
+        "betriebsleiter-in-capo-turno-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+        "betriebsleiter-in-shift-leader-sortierlogistik-die-schweizerische-post-zurich-mulligen",
+        "betriebsleiter-in-chef-d-equipe-sortierlogistik-die-schweizerische-post-zurich-mulligen"
       ],
       "postedDate": "2026-10-01",
       "postingDateSource": "reported",

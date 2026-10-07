@@ -36,10 +36,11 @@
  */
 export const TRAILING_STOPWORDS = new Set([
   // it
-  'e', 'ed', 'o', 'od', 'a', 'ad', 'i', 'il', 'lo', 'la', 'le', 'un', 'una',
+  'e', 'ed', 'o', 'od', 'a', 'ad', 'i', 'il', 'lo', 'la', 'le', 'gli', 'un', 'una',
   'uno', 'di', 'del', 'dello', 'della', 'dei', 'degli', 'delle', 'da', 'dal',
-  'dalla', 'in', 'nel', 'nella', 'nei', 'nelle', 'con', 'per', 'tra', 'fra',
-  'su', 'sul', 'sulla', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'che',
+  'dalla', 'dallo', 'dai', 'dagli', 'dalle', 'in', 'nel', 'nella', 'nei', 'nelle',
+  'nello', 'negli', 'con', 'col', 'coi', 'per', 'tra', 'fra',
+  'su', 'sul', 'sulla', 'sullo', 'sui', 'sugli', 'sulle', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'che',
   'come', 'quanto', 'quando', 'dove', 'cosa', 'se', 'non', 'senza', 'verso',
   // en
   'and', 'or', 'the', 'an', 'of', 'to', 'on', 'at', 'for', 'with', 'by',
@@ -49,11 +50,11 @@ export const TRAILING_STOPWORDS = new Set([
   'und', 'oder', 'der', 'die', 'das', 'ein', 'eine', 'einem', 'einen',
   'einer', 'eines', 'von', 'vom', 'zu', 'zum', 'zur', 'im', 'mit', 'für',
   'auf', 'aus', 'bei', 'beim', 'nach', 'wie', 'was', 'wann', 'wo', 'als',
-  'den', 'dem', 'des', 'ohne', 'über',
+  'den', 'dem', 'des', 'ohne', 'über', 'aber',
   // fr
   'et', 'ou', 'le', 'les', 'une', 'des', 'de', 'du', 'en', 'dans', 'pour',
   'avec', 'par', 'sur', 'sous', 'comme', 'comment', 'que', 'qui', 'quand',
-  'où', 'au', 'aux', 'à', 'sans', 'chez',
+  'où', 'au', 'aux', 'à', 'sans', 'chez', 'avant', 'mais',
 ]);
 
 /**
