@@ -49,6 +49,11 @@ test('workflow defaults stay linked to the planner defaults', () => {
   assert.match(workflow, /--recent-stats-dir/u);
 });
 
+test('generated data PR body describes deterministic rejection resolution without an unmeasured performance claim', () => {
+  assert.match(workflow, /voci accettate e quelle di rifiuto dello stesso evento sono risolte in modo deterministico/u);
+  assert.doesNotMatch(workflow, /merge elimina la memoria/u);
+});
+
 test('planner emits every workflow output without replacing existing step outputs', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'event-description-plan-'));
   const outputPath = path.join(root, 'github-output');
