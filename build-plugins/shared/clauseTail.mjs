@@ -39,7 +39,7 @@ export const TRAILING_STOPWORDS = new Set([
   'e', 'ed', 'o', 'od', 'a', 'ad', 'i', 'il', 'lo', 'la', 'le', 'gli', 'un', 'una',
   'uno', 'di', 'del', 'dello', 'della', 'dei', 'degli', 'delle', 'da', 'dal',
   'dalla', 'dallo', 'dai', 'dagli', 'dalle', 'in', 'nel', 'nella', 'nei', 'nelle',
-  'nello', 'negli', 'con', 'col', 'coi', 'per', 'tra', 'fra',
+  'nello', 'negli', 'con', 'coi', 'per', 'tra', 'fra',
   'su', 'sul', 'sulla', 'sullo', 'sui', 'sugli', 'sulle', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'che',
   'come', 'quanto', 'quando', 'dove', 'cosa', 'se', 'non', 'senza', 'verso',
   // en
@@ -56,6 +56,12 @@ export const TRAILING_STOPWORDS = new Set([
   'avec', 'par', 'sur', 'sous', 'comme', 'comment', 'que', 'qui', 'quand',
   'où', 'au', 'aux', 'à', 'sans', 'chez', 'avant', 'mais',
 ]);
+
+// `col` is the Italian contraction of "con il", but also an ordinary English
+// noun (a mountain pass). The shared helper has no locale argument, so keeping
+// it in this union would silently remove valid English snippets ending in
+// `... mountain col`; leave the ambiguous token intact rather than corrupting
+// one locale to improve another.
 
 /**
  * Trailing clause separators/delimiters that must never end a SERP title or
