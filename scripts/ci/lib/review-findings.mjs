@@ -70,11 +70,6 @@ export function stripBodyCitationLines(text) {
     .join('\n');
 }
 
-/**
- * Compare body text without treating Markdown decoration or whitespace layout
- * as content. The comparison remains case-sensitive and preserves words and
- * punctuation, so the quote is still evidence of the exact text.
- */
 function markdownBracketEnd(text, openingIndex) {
   let depth = 0;
   for (let index = openingIndex; index < text.length; index += 1) {
@@ -163,6 +158,9 @@ function stripMarkdownEmphasis(text) {
 }
 
 export function normalizeBodyCitationText(value) {
+  // Compare body text without treating Markdown decoration or whitespace
+  // layout as content. The comparison remains case-sensitive and preserves
+  // words and punctuation, so the quote is still evidence of the exact text.
   let text = String(value || '').normalize('NFKC').replace(/\r\n?/gu, '\n');
   text = text
     .replace(/<!--[\s\S]*?-->/gu, ' ');
