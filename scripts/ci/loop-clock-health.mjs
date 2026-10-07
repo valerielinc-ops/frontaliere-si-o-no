@@ -18,6 +18,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
+import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
   LOOP_CLOCK_CORPUS_REPOSITORY,
   LOOP_CLOCK_ENTRIES,
@@ -121,6 +122,9 @@ function oldestClockDispatchAt(runs, markers) {
 
 const RUN_LIST_MARGIN = 50;
 const RUN_LIST_MAX = 1000;
+const LOOP_CLOCK_RUN_WINDOW_MINUTES = Math.max(
+  ...LOOP_CLOCK_ENTRIES.map((entry) => staleThresholdMinutes(entry.everyMinutes)),
+);
 
 /**
  * How many dispatches to read for a workflow: what the entries sharing it
@@ -142,10 +146,12 @@ function windowTruncated({ rows, limit, now, thresholdMinutes }) {
   return oldest > windowStart;
 }
 
-function listDispatchRuns(repository, workflow, limit) {
+function listDispatchRuns(repository, workflow, limit, windowMinutes = LOOP_CLOCK_RUN_WINDOW_MINUTES) {
   const output = gh([
     'run', 'list', '--repo', repository, '--workflow', workflow,
-    '--event', 'workflow_dispatch', '--branch', 'main', '--limit', String(limit),
+    '--event', 'workflow_dispatch', '--branch', 'main',
+    '--created', createdFromFilter(Date.now() - windowMinutes * 60_000),
+    '--limit', String(limit),
     '--json', 'createdAt,databaseId,url,event,headBranch,displayTitle',
   ]);
   const rows = JSON.parse(output || '[]');
@@ -286,7 +292,7 @@ export async function runLoopClockHealth({
     if (runLists.has(listKey)) continue;
     const limit = loopClockRunLimit(entries.filter((other) => listKeyOf(other) === listKey), widestThreshold);
     try {
-      const rows = await listRunsImpl(repositoryOf(entry), entry.workflow, limit);
+      const rows = await listRunsImpl(repositoryOf(entry), entry.workflow, limit, widestThreshold);
       if (!Array.isArray(rows)) throw new Error('workflow run response invalid');
       runLists.set(listKey, { limit, rows });
     } catch {

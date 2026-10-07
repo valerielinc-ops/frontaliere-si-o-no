@@ -531,7 +531,7 @@ describe('loop clock observer', () => {
     expect(report.results.find((result) => result.id === pending.id)).toMatchObject({ state: 'healthy' });
     expect(report.results.find((result) => result.id === sweep.id)).toMatchObject({ state: 'stale' });
     expect(listRunsImpl).toHaveBeenCalledTimes(1);
-    expect(listRunsImpl.mock.calls[0]).toEqual(['owner/site', 'shared.yml', loopClockRunLimit([pending, sweep])]);
+    expect(listRunsImpl.mock.calls[0]).toEqual(['owner/site', 'shared.yml', loopClockRunLimit([pending, sweep]), 720]);
     // 720-minute window: 72 pending + 3 sweep dispatches, plus room for manual ones.
     expect(loopClockRunLimit([pending, sweep])).toBe(72 + 3 + 50);
     // Every workflow is read as far back as the widest threshold of the table.
