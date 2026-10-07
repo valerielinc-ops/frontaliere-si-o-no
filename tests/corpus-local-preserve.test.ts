@@ -31,6 +31,7 @@ import {
   collectPreserveSnapshots,
   destinationOnlyPaths,
   dropLedgeredRetirements,
+  isPreservedTreePath,
   listRelFiles,
 } from '../scripts/lib/corpus-local-preserve.mjs';
 
@@ -76,6 +77,10 @@ describe('destination-only generated surfaces', () => {
       const churnOnly = destinationOnlyPaths({ src, dest });
       expect([...churnOnly]).toEqual(['image-credits/blog/legacy.json']);
       expect(CORPUS_GENERATED_CHURN_PREFIXES).toEqual(['image-credits/']);
+      expect(isPreservedTreePath('image-credits', churnOnly)).toBe(true);
+      expect(isPreservedTreePath('image-credits/blog', churnOnly)).toBe(true);
+      expect(isPreservedTreePath('image-credits/blog/legacy.json', churnOnly)).toBe(true);
+      expect(isPreservedTreePath('blog-body', churnOnly)).toBe(false);
     } finally {
       rmSync(src, { recursive: true, force: true });
       rmSync(dest, { recursive: true, force: true });

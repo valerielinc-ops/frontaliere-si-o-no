@@ -82,6 +82,7 @@ import {
   collectPreserveSnapshots,
   destinationOnlyPaths,
   dropLedgeredRetirements,
+  isPreservedTreePath,
 } from './lib/corpus-local-preserve.mjs';
 import {
   RETIRED_LOCALE_GROUPS_FILE,
@@ -325,8 +326,9 @@ try {
   // image-credit records are corpus-owned and can churn between the checkout
   // and an older API-pinned snapshot, so compare the article tree after
   // removing only those destination-only paths. The registry/manifest gate
-  // below remains authoritative for article loss; mirrorTree still converges
-  // image-credit files to the pinned corpus state.
+  // below remains authoritative for article loss. Keep those explicitly
+  // identified local records during the mirror until the source carries them:
+  // the current site's cover ledger still references some of them.
   //
   // Since the pin (#5298) this branch has a BENIGN cause it never had before,
   // and it is the normal state rather than an edge case: the checkout is at the
@@ -537,7 +539,10 @@ try {
     }
 
 
-  mirrorTree(src, DEST, TREE_OPTS);
+  mirrorTree(src, DEST, {
+    ...TREE_OPTS,
+    preserve: (rel) => isPreservedTreePath(rel, churnOnlyDestinationFiles),
+  });
   console.log(`[pull-articles-corpus] synced ${srcN} files into packages/articles/content/`);
 
     // ── Put the local-only entries back ──────────────────────────────────
