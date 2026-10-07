@@ -314,7 +314,8 @@ describe('assisted application JobBoard handoff', () => {
     expect(checkout).toContain("reason: 'auth_failed'");
     expect(checkout).toContain("reason: 'auth_required'");
     expect(checkout).toContain("error_code: 'assisted_application_auth_required'");
-    expect(checkout).toContain("reason: 'session_creation_failed'");
+    expect(checkout).toContain("const failureReason = errorCode === 'assisted_application_auth_required'");
+    expect(checkout).toContain("'session_creation_failed'");
     expect(checkout).toContain('error_code: getAssistedApplicationCheckoutErrorCode(error)');
     expect(checkout).toContain("'checkout_resumed'");
     expect(checkout).toContain('saveAssistedCheckoutAuthResume(String(job.id))');
