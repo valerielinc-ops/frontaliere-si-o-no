@@ -106,7 +106,8 @@ import { realpathSync } from 'node:fs';
  *     dei job, entrambe ≤ MAX_ISSUES; in più 1 lettura dei job per ogni run rossa
  *     della finestra di un workflow in `VERDICT_STEPS` (oggi
  *     `crawler-health-monitor` e `seo-health-loop`, ~1 run al giorno ciascuno, e
- *     `refresh-plate-auctions`, 4 al giorno), memoizzata per passata.
+ *     `refresh-plate-auctions`, 4 al giorno, e `runtime-reliability-watch`,
+ *     dispatchato dai deploy e dal backstop schedulato), memoizzata per passata.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
