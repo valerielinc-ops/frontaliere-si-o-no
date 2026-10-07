@@ -650,6 +650,21 @@ jobs:
           echo "needs-human aperti: $PR_COUNT PR, $ISSUE_COUNT issue"
           [ -n "$PRS" ] || PRS='_(nessuna)_'
           [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
+          # Ensure the tracker label exists before the creator sends it in the
+          # issue payload; otherwise the first run can fail before emitting it.
+          if LABEL_CREATE_ERROR=$(gh label create "agent:no-age-out" \
+            --repo "$GH_REPO" \
+            --color "0e8a16" \
+            --description "Issue-contatore/tracker permanente: mai eleggibile all'age-out del followup-drainer (#5615)" \
+            2>&1); then
+            :
+          elif printf '%s\n' "$LABEL_CREATE_ERROR" | grep -Eqi 'already[ _-]?exists|has already been taken'; then
+            echo "La label agent:no-age-out esiste gia; proseguo."
+          else
+            echo "::error::Creazione della label agent:no-age-out fallita: il tracker non puo essere assicurato." >&2
+            printf '%s\n' "$LABEL_CREATE_ERROR" >&2
+            exit 1
+          fi
           # Markdown backticks in this literal description are intentional.
           # shellcheck disable=SC2016
           DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue indica esclusivamente una decisione reale del proprietario. I blocchi tecnici usano `automation-deferred` e rientrano nello sweep automatico.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — domande decidibili rimaste dopo la lettura di VISION.md e DECISIONS.md; richiedono una risposta esplicita del proprietario. I parcheggi tecnici del followup-drainer e del closer non compaiono qui:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human, e si richiude da sola al primo run in cui entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
@@ -661,4 +676,23 @@ jobs:
             --description "$DESC" \
             --priority 2 \
             --label automation \
+            --label agent:no-age-out \
             --workflow "Recycle stale PRs"
+
+          # `github-issue-creator` aggiunge le label solo quando apre una nuova
+          # issue: per una dedup già aperta scrive il recurrence comment ma non
+          # riconcilia le label. Il digest può quindi essere nato prima del pin
+          # o averlo perso, e tornare erroneamente nella coda del fixer. Cerca
+          # solo il titolo esatto (e scarta le PR) e riallinea il tracker nello
+          # stesso run; una risposta API illeggibile è failure, non «nessun digest».
+          if ! DEDUP_NUMBERS=$(gh api --paginate "repos/$GH_REPO/issues?state=open&per_page=100" \
+            --jq '.[] | select(.pull_request == null and .title == $ENV.DEDUP_TITLE) | .number'); then
+            echo "::error::Ricerca del digest needs-human per riallineare il pin fallita: label non verificata." >&2
+            exit 1
+          fi
+          for DEDUP_NUMBER in $DEDUP_NUMBERS; do
+            if ! gh issue edit "$DEDUP_NUMBER" --repo "$GH_REPO" --add-label agent:no-age-out; then
+              echo "::error::Pin agent:no-age-out non verificato sul digest #$DEDUP_NUMBER." >&2
+              exit 1
+            fi
+          done
