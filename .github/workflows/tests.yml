@@ -4014,24 +4014,49 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: node scripts/ci/explain-job-verdict.mjs
 
-  # `workflow_run` used to create a redcheck-fixer run for every failed tests
-  # workflow before that workflow could inspect PR eligibility. Keep the
-  # admission at the producer: only a completed failed PR job, an open
-  # autonomous non-draft PR, and a code/infra failure may emit this dispatch.
-  # The fixer itself revalidates the same facts from its trusted main policy.
-  redcheck-admission:
-    name: redcheck admission (trusted failure signal)
+  # ══════════════════════════════════════════════════════════════════════════
+  # Autorebase e opt-in all'auto-merge nativo, FUORI dal check required.
+  #
+  # Il check `vitest (unit + integration)` diventa verde (o rosso) appena test
+  # e review hanno deciso; questo job parte dopo, solo se il job required ha
+  # pubblicato una delle due decisioni, e non puo' colorare la run:
+  # `continue-on-error: true` a livello di job impedisce che un suo errore
+  # faccia fallire la run (e quindi che il redcheck-fixer o
+  # scan-unreported-failures lo leggano come un rosso della PR).
+  #
+  # Cosa cambia rispetto a quando stava in coda al job required:
+  #   - l'opt-in usa il percorso ORDINARIO del gate (check required completato
+  #     e `success` sulla HEAD), lo stesso di `retry-native-automerge.yml`,
+  #     invece del percorso in-job che confermava un check ancora in volo;
+  #   - l'opt-in viene PRIMA dell'autorebase: e' il passo che il merge aspetta,
+  #     l'autorebase riguarda le altre PR (la propria la rimanda finche' questa
+  #     run e' in volo, `testsRunInFlightOnHead`);
+  #   - token App e `pr-autorebase.mjs` arrivano da `main`, non dall'albero
+  #     della PR: prima una PR poteva eseguire la propria versione modificata
+  #     dello sweeper, che lavora su fino a 10 PR altrui, con il token App.
+  # ══════════════════════════════════════════════════════════════════════════
+  post-review:
+    name: post-review (auto-merge opt-in + autorebase)
     needs: vitest
-    if: ${{ always() && github.event_name == 'pull_request' && needs.vitest.result == 'failure' }}
+    # Il job esiste anche dopo un failure del required job per emettere il
+    # segnale redcheck solo dopo che `vitest` è davvero concluso. Gli step di
+    # autorebase/auto-merge restano gated sui due output sotto.
+    if: always() && (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' || (github.event_name == 'pull_request' && needs.vitest.result == 'failure'))
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 30
+    # Anche ogni step e' `continue-on-error`: il check-run di questo job resta
+    # verde e nessun consumatore che legge «un check rosso sulla PR» lo scambia
+    # per un guasto della PR.
     continue-on-error: true
-    permissions:
-      actions: write
-      contents: read
-      pull-requests: read
     steps:
-      - name: Dispatch trusted redcheck for an eligible code failure
+      # `workflow_run` used to create a redcheck-fixer run for every failed
+      # tests workflow before that workflow could inspect PR eligibility. Keep
+      # the admission after the completed producer job: only an open
+      # autonomous non-draft PR and a code/infra failure may emit this
+      # dispatch. The fixer itself revalidates the same facts from its trusted
+      # main policy.
+      - name: redcheck admission (trusted failure signal)
+        if: always() && github.event_name == 'pull_request' && needs.vitest.result == 'failure'
         uses: actions/github-script@v9
         continue-on-error: true
         with:
@@ -4169,41 +4194,10 @@ jobs:
             }
             core.notice(`Redcheck fixer dispatched for eligible PR #${prNumber} from tests run ${context.runId}.`);
 
-  # ══════════════════════════════════════════════════════════════════════════
-  # Autorebase e opt-in all'auto-merge nativo, FUORI dal check required.
-  #
-  # Il check `vitest (unit + integration)` diventa verde (o rosso) appena test
-  # e review hanno deciso; questo job parte dopo, solo se il job required ha
-  # pubblicato una delle due decisioni, e non puo' colorare la run:
-  # `continue-on-error: true` a livello di job impedisce che un suo errore
-  # faccia fallire la run (e quindi che il redcheck-fixer o
-  # scan-unreported-failures lo leggano come un rosso della PR).
-  #
-  # Cosa cambia rispetto a quando stava in coda al job required:
-  #   - l'opt-in usa il percorso ORDINARIO del gate (check required completato
-  #     e `success` sulla HEAD), lo stesso di `retry-native-automerge.yml`,
-  #     invece del percorso in-job che confermava un check ancora in volo;
-  #   - l'opt-in viene PRIMA dell'autorebase: e' il passo che il merge aspetta,
-  #     l'autorebase riguarda le altre PR (la propria la rimanda finche' questa
-  #     run e' in volo, `testsRunInFlightOnHead`);
-  #   - token App e `pr-autorebase.mjs` arrivano da `main`, non dall'albero
-  #     della PR: prima una PR poteva eseguire la propria versione modificata
-  #     dello sweeper, che lavora su fino a 10 PR altrui, con il token App.
-  # ══════════════════════════════════════════════════════════════════════════
-  post-review:
-    name: post-review (auto-merge opt-in + autorebase)
-    needs: vitest
-    if: ${{ always() && (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    # Anche ogni step e' `continue-on-error`: il check-run di questo job resta
-    # verde e nessun consumatore che legge «un check rosso sulla PR» lo scambia
-    # per un guasto della PR.
-    continue-on-error: true
-    steps:
       # Storia completa dei commit per i merge dell'autorebase, nessun tree
       # storico (stesso profilo `tree:0` del job required).
       - name: Checkout trusted main for autorebase and token minting
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
         uses: actions/checkout@v7
         continue-on-error: true
         with:
@@ -4224,6 +4218,7 @@ jobs:
       # Il token App e' l'identita' primaria; senza, l'opt-in viene saltato e
       # ogni mutation resta pending fino a un'identità write-capable.
       - name: Mint post-review App token
+        if: ${{ needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true' }}
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
