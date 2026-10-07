@@ -268,6 +268,8 @@ describe('translation observability workflow', () => {
         expect(env, `${label}: ${phase} duplicate error stop`).not.toHaveProperty('LOCAL_MT_SEMANTIC_MAX_CONSECUTIVE_ERRORS');
         expect(env?.LOCAL_MT_SEMANTIC_TELEMETRY_PATH, `${label}: ${phase} telemetry path`)
           .toBe(`\${{ runner.temp }}/local-mt-semantic-telemetry-${phase}.json`);
+        expect(env?.LOCAL_MT_SEMANTIC_CANDIDATES_PATH, `${label}: ${phase} candidate sample path`)
+          .toBe(`\${{ runner.temp }}/local-mt-semantic-candidates-${phase}.json`);
       }
       const upload = steps.find((step) => step.name === 'Upload Argos semantic telemetry');
       expect(upload, `${label}: semantic telemetry upload missing`).toMatchObject({
@@ -275,10 +277,9 @@ describe('translation observability workflow', () => {
         uses: `actions/upload-artifact@${UPLOAD_ARTIFACT_V7_SHA}`,
       });
       expect(String(upload?.if)).toContain('always()');
-      expect(upload?.with).toMatchObject({
-        path: '${{ runner.temp }}/local-mt-semantic-telemetry-*.json',
-        'if-no-files-found': 'warn',
-      });
+      expect(upload?.with).toMatchObject({ 'if-no-files-found': 'warn' });
+      expect(String(upload?.with?.path)).toContain('${{ runner.temp }}/local-mt-semantic-telemetry-*.json');
+      expect(String(upload?.with?.path)).toContain('${{ runner.temp }}/local-mt-semantic-candidates-*.json');
       // The e5 model shares .cache/transformers with Opus-MT: an immutable key
       // that already hits would never save it, so the key must be one the
       // e5-bearing directory was saved under.
@@ -287,6 +288,24 @@ describe('translation observability workflow', () => {
       expect(modelCache?.with, `${label}: model cache`).toMatchObject({ key: 'local-mt-models-v2-opus-e5' });
       expect(String((modelCache?.with as Record<string, unknown>)['restore-keys'])).toContain('opus-mt-models-');
       expect(document, `${label}: stale model cache key`).not.toContain('key: opus-mt-models-v1');
+    }
+  });
+
+  it('routes the pre-description title repair through the Codex Luna Max fallback', () => {
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const steps = parseTranslationSteps(document);
+      const setupIndex = steps.findIndex((step) => step.id === 'setup_claude_haiku_fallback');
+      const titleIndex = steps.findIndex((step) => step.name === 'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)');
+      expect(setupIndex, `${label}: Codex broker step missing`).toBeGreaterThanOrEqual(0);
+      expect(titleIndex, `${label}: pre-description title lane missing`).toBeGreaterThanOrEqual(0);
+      expect(setupIndex, `${label}: broker must start before title lane`).toBeLessThan(titleIndex);
+      expect(steps[titleIndex]?.env).toMatchObject({
+        CODEX_AUTH_BROKER_SOCKET: '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}',
+        FREE_TRANSLATE_CODEX_TIER: 'last',
+        FREE_TRANSLATE_CODEX_MAX_MS: '1500000',
+        FREE_TRANSLATE_CODEX_LANES: '3',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+      });
     }
   });
 

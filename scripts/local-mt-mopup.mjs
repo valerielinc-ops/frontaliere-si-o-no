@@ -83,6 +83,7 @@ import {
   POLICY_VERDICT,
 } from './lib/local-mt-semantic-policy.mjs';
 import {
+  createSemanticCandidateRecorder,
   createSemanticRolloutFromEnv,
   formatSemanticTelemetry,
   semanticBucketOf,
@@ -888,6 +889,8 @@ export function classifyMopupStructure({
         incoming,
         decision: 'skip:candidate-untranslated',
         reason: candidateVerdict.reason,
+        existingDetectorReason: existingVerdict.reason,
+        candidateDetectorReason: candidateVerdict.reason,
         languageDriven: true,
       };
     }
@@ -896,6 +899,8 @@ export function classifyMopupStructure({
       incoming,
       decision: 'write',
       reason: existingVerdict.reason,
+      existingDetectorReason: existingVerdict.reason,
+      candidateDetectorReason: candidateVerdict.reason,
       languageDriven: true,
     };
   }
@@ -1095,11 +1100,11 @@ export async function shadowWithheldOverwrite({
   if (!rollout || rollout.overwritesEnabled) return null;
   if (candidate?.decision !== 'write' || candidate.languageDriven !== true) return null;
   const decision = `withheld:${rollout.beforeJudge({ kind: 'overwrite' })}`;
-  if (!rollout.shouldShadowJudge()) return { decision, shadowBucket: null };
+  if (!rollout.shouldShadowJudge()) return { decision, shadowBucket: null, judged: null };
   const shadow = await judgeMopupWrite(candidate, { sourceLang, locale, field, judge });
   const shadowBucket = semanticBucketOf(shadow);
   rollout.recordShadowVerdict(shadowBucket);
-  return { decision, shadowBucket };
+  return { decision, shadowBucket, judged: shadow };
 }
 
 /**
@@ -1257,6 +1262,51 @@ function reportSemanticTelemetry(snapshot, env = process.env) {
   }
 }
 
+function semanticCandidateArtifactEntry({ job, locale, field, candidate, judged, mode, written }) {
+  const verdict = semanticBucketOf(judged);
+  // A cap/rollback/kill-switch decision may carry the structural candidate
+  // through the commit result without ever calling the semantic judge. It is
+  // withheld telemetry, not an accepted verdict; only folded judge results
+  // have semanticReason (including errors with a null score).
+  if (
+    !verdict
+    || typeof judged?.semanticReason !== 'string'
+    || semanticWriteKind(candidate) !== 'overwrite'
+  ) return null;
+  const score = Number.isFinite(judged?.semanticScore) ? judged.semanticScore : null;
+  const policy = judged?.semanticPolicy || null;
+  return {
+    jobKey: job?.url || job?.id || job?.slug || null,
+    sourceLang: String(job?.sourceLang || 'it'),
+    targetLang: String(locale || ''),
+    field,
+    detectorReason: candidate?.existingDetectorReason || candidate?.reason || null,
+    existingDetectorReason: candidate?.existingDetectorReason || null,
+    candidateDetectorReason: candidate?.candidateDetectorReason || null,
+    existingTitle: String(candidate?.existing || ''),
+    candidateTitle: String(candidate?.incoming || ''),
+    score,
+    verdict,
+    decision: judged?.decision || null,
+    policyVerdict: policy?.verdict || null,
+    policyReason: policy?.reason || judged?.semanticReason || null,
+    policyFindings: Array.isArray(policy?.findings) ? policy.findings.slice() : [],
+    mode,
+    written: Boolean(written),
+  };
+}
+
+/** Write the bounded per-candidate sample next to the aggregate telemetry. */
+function reportSemanticCandidates(snapshot, env = process.env) {
+  const target = String(env.LOCAL_MT_SEMANTIC_CANDIDATES_PATH || '').trim();
+  if (!target) return;
+  try {
+    writeJson(target, snapshot);
+  } catch (err) {
+    console.log(`::warning::[local-mt] could not write semantic candidate sample to ${target}: ${err?.message || err}`);
+  }
+}
+
 async function main() {
   // Parse CLI options only for direct execution. This module is imported by
   // mark-mistranslated-jobs.mjs; its flags must not configure an imported
@@ -1270,14 +1320,16 @@ async function main() {
     overwritesEnabled: LANG_AWARE_OVERWRITE,
     rollbackGuard: createSemanticRollbackGuard(),
   });
+  const candidateRecorder = createSemanticCandidateRecorder();
   try {
-    await runMopup({ dryRun, maxJobs, rollout });
+    await runMopup({ dryRun, maxJobs, rollout, candidateRecorder });
   } finally {
     reportSemanticTelemetry(rollout.snapshot());
+    reportSemanticCandidates(candidateRecorder.snapshot());
   }
 }
 
-async function runMopup({ dryRun, maxJobs, rollout }) {
+async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) {
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
   // run clock. The cascade (Phase 2b) and the leftover mop-up (Phase 2c) then bound
@@ -1645,13 +1697,23 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
           shadowWithheld++;
         }
         // Kill-switch telemetry and shadow sample (#9677). Never writes.
-        await shadowWithheldOverwrite({
+        const shadowOutcome = await shadowWithheldOverwrite({
           candidate: finalCandidate,
           rollout,
           sourceLang: srcLang,
           locale,
           field,
         });
+        const shadowEntry = semanticCandidateArtifactEntry({
+          job,
+          locale,
+          field,
+          candidate: finalCandidate,
+          judged: shadowOutcome?.judged,
+          mode: 'shadow',
+          written: false,
+        });
+        if (shadowEntry) candidateRecorder?.record(shadowEntry);
         continue;
       }
 
@@ -1708,6 +1770,16 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
           rollbackGuard: overwriteRollback,
         });
         semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
+        const candidateEntry = semanticCandidateArtifactEntry({
+          job,
+          locale,
+          field,
+          candidate,
+          judged: committed.judged,
+          mode: 'enforcing',
+          written: committed.written,
+        });
+        if (candidateEntry) candidateRecorder?.record(candidateEntry);
         if (!committed.written) continue;
 
         fileChanged = true;
