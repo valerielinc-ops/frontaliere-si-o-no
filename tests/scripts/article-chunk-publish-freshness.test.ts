@@ -15,6 +15,7 @@ import {
   isCurrentPublishSource,
 } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
 import { COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
+import { EDGE_PUSHED_FILES } from '../../infra/cloudflare-worker/locale-router.js';
 
 const OLD_SHA = 'a'.repeat(40);
 const NEW_SHA = 'b'.repeat(40);
@@ -30,11 +31,62 @@ const REPLAY_PUBLISHING_STEPS = [
   'Replay article sitemap, RSS and ticker surfaces',
 ];
 const INVOKED_SCRIPT_RE = /scripts\/[\w./-]+\.(?:mjs|cjs|js|ts|sh)/g;
-// Invoked by the same steps without writing an object: the cache purge evicts
-// edge keys, so an older copy of it cannot put older bytes at the edge. It is
-// also the one script no other script may name without the targeted flag
-// (tests/cf-zone-purge-blast-radius.test.ts), so it cannot sit in the list.
-const REPLAY_NON_WRITING_SCRIPTS = ['scripts/cf-purge-cache.mjs'];
+const LOCAL_IMPORT_RE =
+  /(?:import|export)\s[^'"`;]*?from\s*['"](\.{1,2}\/[^'"]+)['"]|import\s*['"](\.{1,2}\/[^'"]+)['"]|import\(\s*['"](\.{1,2}\/[^'"]+)['"]\s*\)/g;
+const SOURCED_SHELL_FILE_RE = /^[ \t]*(?:source|\.)[ \t]+\S/m;
+
+// Code the replay reaches without it deciding a single written byte. The walk
+// below stops at each entry, has to reach every one of them, and each carries
+// the reason it is safe to leave out of the list.
+const REPLAY_CODE_THAT_WRITES_NOTHING: Record<string, string> = {
+  // Evicts edge keys and stores nothing, so an older copy of it cannot put
+  // older bytes at the edge. It is also the one script no other script may
+  // name without the targeted flag (tests/cf-zone-purge-blast-radius.test.ts).
+  'scripts/cf-purge-cache.mjs': 'cache purge',
+  'scripts/lib/cf-analytics.mjs': 'zone lookup for the cache purge',
+  'scripts/lib/cf-purge-variants.mjs': 'request bodies of the cache purge',
+  // The replay runs the generator with --no-ticker and uploads the committed
+  // ticker file, which is an article surface of its own.
+  'build-plugins/newsTickerDataPlugin.ts': 'ticker computation, skipped by --no-ticker',
+  // Renders the llms.txt family for `generated` entries only; the replay
+  // asks for committed files.
+  'scripts/generate-llms-txt.mjs': 'llms.txt generator, never requested by the replay',
+};
+
+type ReplayStep = { name?: string; run?: string };
+
+function replaySteps(): ReplayStep[] {
+  const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
+    jobs: { 'replay-after-article-sync': { steps: ReplayStep[] } };
+  };
+  return workflow.jobs['replay-after-article-sync'].steps;
+}
+
+function codeOnly(source: string): string {
+  return source
+    .split('\n')
+    .filter((line) => {
+      const trimmed = line.trim();
+      return !(trimmed.startsWith('//') || trimmed.startsWith('*') || trimmed.startsWith('/*') || trimmed.startsWith('#'));
+    })
+    .join('\n');
+}
+
+/** Local modules a file imports, plus the scripts its code names (child processes). */
+function reachedFrom(relativePath: string): string[] {
+  const code = codeOnly(fs.readFileSync(path.join(ROOT_DIR, relativePath), 'utf8'));
+  // A sourced shell file would be code this walk cannot follow.
+  if (relativePath.endsWith('.sh')) expect(code, relativePath).not.toMatch(SOURCED_SHELL_FILE_RE);
+  const reached = new Set<string>();
+  for (const match of code.matchAll(LOCAL_IMPORT_RE)) {
+    const specifier = match[1] ?? match[2] ?? match[3];
+    const absolute = path.resolve(ROOT_DIR, path.dirname(relativePath), specifier);
+    reached.add(path.relative(ROOT_DIR, absolute).split(path.sep).join('/'));
+  }
+  for (const match of code.matchAll(INVOKED_SCRIPT_RE)) reached.add(match[0]);
+  reached.delete(relativePath);
+  return [...reached];
+}
 
 const SURFACE_PATHS = [
   ['article content glob', 'packages/articles/content/blog-body/it/x.ts'],
@@ -124,32 +176,66 @@ describe('article chunk publish freshness fence', () => {
     expect(isArticlePublishInputPath(undefined)).toBe(false);
   });
 
-  it('lists exactly the scripts the publishing steps of the replay invoke to write an object', () => {
-    const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
-      jobs: { 'replay-after-article-sync': { steps: Array<{ name?: string; run?: string }> } };
-    };
-    const steps = workflow.jobs['replay-after-article-sync'].steps;
+  it('lists exactly the code that decides what the replay writes', () => {
+    const steps = replaySteps();
     const invoked = new Set<string>();
     for (const name of REPLAY_PUBLISHING_STEPS) {
       const step = steps.find((candidate) => candidate.name === name);
       expect(step?.run, name).toBeTruthy();
       for (const match of String(step?.run).matchAll(INVOKED_SCRIPT_RE)) invoked.add(match[0]);
     }
+    expect(invoked.size).toBeGreaterThan(0);
 
-    // An exclusion the workflow no longer invokes has lost its reason.
-    for (const script of REPLAY_NON_WRITING_SCRIPTS) expect(invoked.has(script), script).toBe(true);
-    const writers = [...invoked].filter((script) => !REPLAY_NON_WRITING_SCRIPTS.includes(script));
+    const closure = new Set<string>();
+    const cut = new Set<string>();
+    const queue = [...invoked];
+    while (queue.length > 0) {
+      const current = queue.pop() as string;
+      if (current in REPLAY_CODE_THAT_WRITES_NOTHING) {
+        cut.add(current);
+        continue;
+      }
+      if (closure.has(current)) continue;
+      // An import this walk cannot resolve is a file it cannot vouch for.
+      expect(fs.existsSync(path.join(ROOT_DIR, current)), current).toBe(true);
+      closure.add(current);
+      queue.push(...reachedFrom(current));
+    }
 
-    // A publishing script added to the workflow without being listed would
-    // let a concurrent change to it pass as an unrelated advance.
-    expect(writers.sort()).toEqual([...ARTICLE_PUBLISHER_CODE_PATHS].sort());
+    // A script or module added to the publishing path without being listed
+    // would let a concurrent change to it pass as an unrelated advance.
+    expect([...closure].sort()).toEqual([...ARTICLE_PUBLISHER_CODE_PATHS].sort());
+    // An exclusion the replay no longer reaches has lost its reason.
+    expect([...cut].sort()).toEqual(Object.keys(REPLAY_CODE_THAT_WRITES_NOTHING).sort());
   });
 
-  it('does not make a replay stale for a change to the cache purge alone', () => {
-    for (const script of REPLAY_NON_WRITING_SCRIPTS) {
-      expect(fs.existsSync(path.join(ROOT_DIR, script)), script).toBe(true);
-      expect(isArticlePublishInputPath(script), script).toBe(false);
-      expect(classifyPublishSource(OLD_SHA, NEW_SHA, [script])).toBe('unrelated-advance');
+  it('keeps the two conditions the conditional exclusions rest on', () => {
+    const steps = replaySteps();
+
+    // --no-ticker on every generator run of the job, the refresh included.
+    const generatorRuns = steps
+      .flatMap((step) => String(step.run ?? '').split('\n'))
+      .filter((line) => line.includes('scripts/publish-article-chunks.mjs') && !line.trim().startsWith('#'));
+    expect(generatorRuns.length).toBeGreaterThanOrEqual(2);
+    for (const line of generatorRuns) expect(line.includes('--no-ticker'), line.trim()).toBe(true);
+
+    // Every edge path the replay asks for is a committed file, so the
+    // llms.txt generator never runs for it.
+    const edgeStep = steps.find((step) => step.name === 'Replay article sitemap, RSS and ticker surfaces');
+    const requested = [...String(edgeStep?.run).matchAll(/--only=([^\s"']+)/g)].flatMap((match) => match[1].split(','));
+    expect(requested.length).toBeGreaterThan(0);
+    const table = EDGE_PUSHED_FILES as Record<string, { source?: string }>;
+    for (const pathname of requested) {
+      expect(table[pathname], pathname).toBeTruthy();
+      expect(table[pathname]?.source === 'generated', pathname).toBe(false);
+    }
+  });
+
+  it('does not make a replay stale for a change to code that writes nothing in it', () => {
+    for (const excluded of Object.keys(REPLAY_CODE_THAT_WRITES_NOTHING)) {
+      expect(fs.existsSync(path.join(ROOT_DIR, excluded)), excluded).toBe(true);
+      expect(isArticlePublishInputPath(excluded), excluded).toBe(false);
+      expect(classifyPublishSource(OLD_SHA, NEW_SHA, [excluded])).toBe('unrelated-advance');
     }
   });
 

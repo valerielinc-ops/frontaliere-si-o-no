@@ -20,25 +20,29 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
   '.github/workflows/sync-articles-sitemaps.yml',
 ]);
 
-// The scripts the replay runs to build and upload what it publishes. A change
-// to one of them alters the published objects even when no article surface
-// moved, so a source checked out before that change is stale too. This is a
-// separate list on purpose: the one above answers "which merged change needs
-// a replay" and stays equal to the push trigger, this one answers "which
-// change makes a replay already in flight stale". The freshness test keeps it
-// complete from both ends: every script the publishing steps of the workflow
-// invoke to write an object must be listed here, and every file esbuild reads
-// for a published chunk must be covered by one of the two lists.
+// The code that decides what the replay writes: the scripts its publishing
+// steps run to build and upload, and the modules those load to choose keys
+// and headers (the edge file table). A change to one of them alters the
+// published objects even when no article surface moved, so a source checked
+// out before that change is stale too. This is a separate list on purpose:
+// the one above answers "which merged change needs a replay" and stays equal
+// to the push trigger, this one answers "which change makes a replay already
+// in flight stale". The freshness test keeps it complete from both ends: it
+// walks from the scripts the publishing steps invoke through everything they
+// import or spawn and requires exactly this list, and every file esbuild
+// reads for a published chunk must be covered by one of the two lists.
 //
-// The cache purge those steps issue is left out. It evicts edge keys and
+// What that walk reaches without it deciding a written byte is named in the
+// test, each entry with its reason: the cache purge (it evicts edge keys and
 // stores nothing, so an older copy of it cannot leave older bytes at the
-// edge; and no script may name the purge script without its targeted flag
-// (tests/cf-zone-purge-blast-radius.test.ts). The freshness test names that
-// one exclusion and fails once the workflow stops invoking it.
+// edge; no script may name the purge script without its targeted flag
+// anyway, see tests/cf-zone-purge-blast-radius.test.ts), the ticker
+// computation the replay skips and the llms.txt generator it never requests.
 export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/publish-article-chunks.mjs',
   'scripts/publish-edge-files.mjs',
   'scripts/lib/upload-cdn-file.sh',
+  'infra/cloudflare-worker/locale-router.js',
 ]);
 
 export const PUBLISH_SOURCE_VERDICTS = Object.freeze({
