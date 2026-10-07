@@ -51,6 +51,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:all/footer-root-presence': 'A/issue-on-failure',
       'audit:all/jsonld-no-nested-scripts': 'A/issue-on-failure',
       'audit:all/image-object-license': 'A/issue-on-failure',
+      'validate:og-images': 'A/issue-on-failure',
       // B — issue P2 sulla regressione, publish non bloccato (owner 2026-10-02)
       'audit:max-bfs-depth': 'B/issue-on-regression',
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
@@ -88,22 +89,26 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
   it('decisione del proprietario: nessun gate classificato blocca, nemmeno tutti insieme', () => {
     // B e C dal 2026-10-02, A dal 2026-10-03.
     const all = Object.keys(SEO_GATE_CLASSES);
-    expect(all.length).toBe(31);
+    expect(all.length).toBe(32);
     const v = evaluateIntegrity(all);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);
   });
 
-  it('un gate A non blocca ma ha la issue più pesante; un gate fuori tabella blocca ancora', () => {
+  it('un gate A non blocca ma ha la issue più pesante; fuori tabella blocca solo ciò che non è un gate', () => {
     for (const key of Object.keys(SEO_GATE_CLASSES).filter((k) => SEO_GATE_CLASSES[k].class === 'A')) {
       expect(effectiveMode(key), key).toBe('issue-on-failure');
       expect(MODE_ISSUE_PRIORITY[effectiveMode(key) as keyof typeof MODE_ISSUE_PRIORITY], key).toBe(1);
     }
-    // Default-deny invariato: il validatore non SEO e il bundle opaco audit:all.
+    // Dal 2026-10-07 («nessun gate blocca») il validatore non SEO è segnalato
+    // come non classificato e non blocca; il bundle opaco audit:all non è un
+    // gate ma un verdetto indeterminato, e chiude ancora publish.
     const v = evaluateIntegrity(['gate:seo-source', 'validate:third-party-secrets', 'audit:all']);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['validate:third-party-secrets', 'audit:all']);
+    expect(v.blocking).toEqual(['audit:all']);
+    expect(v.unclassified).toEqual(['validate:third-party-secrets']);
     expect(v.quality).toEqual(['gate:seo-source']);
+    expect(evaluateIntegrity(['gate:seo-source', 'validate:third-party-secrets']).integrityOk).toBe(true);
   });
 });
 
