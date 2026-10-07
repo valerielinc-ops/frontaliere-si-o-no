@@ -211,6 +211,7 @@ async function run() {
         detail: e.detail,
       })),
       byFeature: _byIssue,
+      sampleRate: 1,
       extra: { totalJobs: jobs.length, warnings: warnings.length },
     });
     process.exit(1);
@@ -222,6 +223,7 @@ async function run() {
     passed: true,
     threshold: { metric: 'errorCount', value: 0, comparator: '<=' },
     offenders: [],
+    sampleRate: 1,
     extra: { totalJobs: jobs.length, warnings: warnings.length },
   });
 }
