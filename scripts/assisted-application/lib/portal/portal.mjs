@@ -1645,6 +1645,23 @@ export async function submitViaPortal(ctx) {
       // Nothing the filler can read (a page of custom widgets): straight to the agent.
       let agentHint = workable(snapshot) ? 'next_disabled' : 'no_form_controls';
 
+      // A file an earlier run left on the page under the name of one of this run's (the run that stopped for
+      // a question, a dry run) is taken away before the page is planned: the page asks for the file again and
+      // this run's goes in. One CV on the application and the current one: never two, and never the one of a
+      // draft written since (a planner that sees «successfully uploaded» leaves the field alone). What this
+      // run uploaded itself stays.
+      const sentNow = new Set(evidence.uploads.map((upload) => upload.document));
+      const earlier = Object.keys(ctx.files || {}).filter((document) => !sentNow.has(document))
+        .flatMap((document) => removalsOf(snapshot.buttons, documentPaths(ctx.files, document).map((file) => path.basename(file))).map((button) => ({ document, button })));
+      if (earlier.length) {
+        for (const { button } of earlier) {
+          await clickButton(page, button).catch(() => {});
+          await page.waitForTimeout(800);
+        }
+        evidence.steps.at(-1).replaced = [...new Set(earlier.map((item) => item.document))];
+        snapshot = await extractFields(page);
+      }
+
       let after = snapshot;
       let unclearQuestions = [];
       if (workable(snapshot)) {
@@ -1671,17 +1688,6 @@ export async function submitViaPortal(ctx) {
         const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
-        // A file an earlier run left on the page under the same name (the run that stopped for a question,
-        // a dry run) is taken away before it is uploaded again: one CV on the application, and the one of
-        // this run, never two.
-        for (const action of actions.filter((item) => item.action === 'upload')) {
-          const names = documentPaths(ctx.files, action.document).map((file) => path.basename(file));
-          for (const button of removalsOf(snapshot.buttons, names)) {
-            await clickButton(page, button).catch(() => {});
-            await page.waitForTimeout(800);
-            (evidence.steps.at(-1).replaced ||= []).push(action.document);
-          }
-        }
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
           ...await applyActions(page, snapshot.fields, choices, ctx.files),
