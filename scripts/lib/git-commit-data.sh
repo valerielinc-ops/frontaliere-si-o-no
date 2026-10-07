@@ -1563,6 +1563,15 @@ ensure_git_auth() {
   bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 }
 
+old_history_guard_main() {
+  node "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs" \
+    --head HEAD \
+    --base refs/remotes/origin/main \
+    --refresh-base \
+    --remote origin \
+    --branch main
+}
+
 # GitHub concurrency groups cannot serialize the site and corpus repositories
 # together. The generated crawler groups and translate-pending therefore opt
 # into one Firestore-backed lease. Keep acquisition outside the isolated
@@ -1878,6 +1887,7 @@ commit_isolated_from_worktree() {
     push_attempt=$((push_attempt + 1))
     ensure_git_auth
     git_fetch_retry || return 1
+    old_history_guard_main || return 1
     remote_sha="$(git rev-parse origin/main)"
     remote_tree="$(git rev-parse "${remote_sha}^{tree}")"
 
@@ -2430,6 +2440,9 @@ commit_isolated_from_worktree() {
   done
 }
 
+ensure_git_auth
+old_history_guard_main
+
 if [ "$GROUPED_ISOLATED" = true ]; then
   # Both non-zero results are captured through `||` rather than a bare call:
   # under `set -e` (L31), errexit would skip the coordination mapping below.
@@ -2470,6 +2483,7 @@ while true; do
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────
 ensure_git_auth
 git_fetch_retry
+old_history_guard_main
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
 
