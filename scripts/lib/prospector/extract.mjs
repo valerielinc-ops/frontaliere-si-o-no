@@ -1239,6 +1239,18 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
   // evidence, not a default: `resolveSourceBackedSwissGeography` still has to
   // recognise the municipality, and the employer address in header/footer/nav
   // is out of scope by construction so an HQ cannot stand in for a workplace.
+  const workplaceLabels = renderedWorkplaceLabelValues(html, title);
+  // Some source pages declare the workplace as a labelled field rather than
+  // an address block (`Lieu de travail : Genève`). Keep that value as source
+  // evidence when the shared geography resolver can verify it; street-only or
+  // ambiguous labels stay out, so this cannot turn a nearby employer address
+  // into a vacancy location.
+  if (!locationCandidates.length && !ambiguousStructuredSiblings) {
+    for (const value of workplaceLabels) {
+      const decision = evaluateSourceBackedSwissGeography([{ location: value }]);
+      if (decision.geography) locationCandidates.push({ location: value });
+    }
+  }
   if (!locationCandidates.length && !ambiguousStructuredSiblings) {
     for (const candidate of renderedPostalAddressCandidates(html, title)) locationCandidates.push(candidate);
   }
@@ -1415,7 +1427,7 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
     locationCandidates,
     authoritativeLocationConflict,
     description: descriptions[0] || '',
-    workplaceLabels: renderedWorkplaceLabelValues(html, title),
+    workplaceLabels,
     ...mergeSourcePostingDates({}, structuredRecords.find((record) => record.postingDateSource === 'reported') || {}),
     employmentType: structuredRecords.find((record) => record.employmentType)?.employmentType || '',
     // Whether THIS response carried a structured vacancy at all. Both readers

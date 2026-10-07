@@ -340,6 +340,18 @@ describe('vacancy extraction', () => {
       .toMatchObject({ location: '1201 Genève', canton: 'GE' });
   });
 
+  it('uses a verified workplace label as location evidence', () => {
+    const html = `<main><article itemscope itemtype="https://schema.org/JobPosting">`
+      + `<h1 itemprop="title">Comptable</h1>`
+      + `<div itemprop="description"><p>Poste de comptable à pourvoir dans une équipe médicale.</p></div>`
+      + `<p>Lieu de travail : Genève</p></article></main>`;
+    const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/comptable-96');
+    expect(detail.workplaceLabels).toEqual(['Genève']);
+    expect(detail.locationCandidates).toEqual([{ location: 'Genève' }]);
+    expect(resolveDetailOrListingSwissGeography(detail, {}).geography)
+      .toMatchObject({ location: 'Genève', canton: 'GE' });
+  });
+
   // Regressione #7772. Una detail page che elenca anche altre posizioni porta
   // più di un container main/article: prendere il PRIMO in ordine di documento
   // corrobora la sede leggendo l'annuncio sbagliato, e il mismatch si spegne
@@ -426,6 +438,13 @@ describe('vacancy extraction', () => {
       + `</article></main>`;
     const detail = extractDetailFields(html, 'https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94');
     expect(detail.locationCandidates).toEqual([]);
+  });
+
+  it('resolves an official postal locality without treating a bare locality as Swiss', () => {
+    expect(resolveSourceBackedSwissGeography({
+      location: '1219 Le Lignon', addressLocality: 'Le Lignon', postalCode: '1219',
+    })).toMatchObject({ location: '1219 Le Lignon', canton: 'GE' });
+    expect(resolveSourceBackedSwissGeography('Le Lignon')).toBeNull();
   });
 
   // Regressione arsante.ch/gmo (#6372). Il markup microdata reale mette la
@@ -2010,6 +2029,25 @@ describe('production spec runtime', () => {
 
   it('accetta solo geografia svizzera estratta dalla sorgente', () => {
     expect(resolveSourceBackedSwissGeography('  Winterthur  ')).toEqual({ location: 'Winterthur', canton: 'ZH' });
+    expect(resolveSourceBackedSwissGeography('Zürich')).toBeNull();
+    expect(resolveSourceBackedSwissGeography({ location: 'Zürich', addressLocality: 'Zürich' }))
+      .toMatchObject({ location: 'Zürich', canton: 'ZH' });
+    for (const [locality, postalCode, canton] of [
+      ['Court', '2738', 'BE'],
+      ['Sâles', '1625', 'FR'],
+      ['Concise', '1426', 'VD'],
+      ['Le Lignon', '1219', 'GE'],
+    ]) {
+      expect(resolveSourceBackedSwissGeography({
+        location: `${postalCode} ${locality}`,
+        addressLocality: locality,
+        postalCode,
+        addressCountry: 'CH',
+      }), locality).toMatchObject({ canton });
+    }
+    for (const bareAmbiguousLocality of ['Court', 'Sâles', 'Concise']) {
+      expect(resolveSourceBackedSwissGeography(bareAmbiguousLocality), bareAmbiguousLocality).toBeNull();
+    }
     expect(resolveSourceBackedSwissGeography('Geneva, Switzerland; Paris, France')).toEqual({
       location: 'Geneva, Switzerland; Paris, France',
       canton: 'GE',

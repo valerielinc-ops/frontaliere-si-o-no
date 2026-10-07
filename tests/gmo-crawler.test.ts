@@ -2,12 +2,55 @@ import { describe, it, expect } from 'vitest';
 import {
   GMO_KEY,
   GMO_COMPANY_NAME,
+  isGmoExpectedDetailFilter,
   isGmoJob,
   isTrustedDomain,
 } from '../scripts/lib/gmo-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('gmo crawler parser', () => {
+  it('classifies only unresolved non-foreign geography as the board filter', () => {
+    expect(isGmoExpectedDetailFilter({
+      reason: 'geography', detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: false },
+    })).toBe(true);
+    for (const detailEvidence of [
+      { workplaceLabels: ['Zürich'] },
+      { locationCandidates: [{ location: 'Zürich' }] },
+      { locationCandidates: [{ addressCountry: 'CH' }] },
+      { locationCandidates: [{ postalCode: '1201' }] },
+      { locationCandidates: [{ streetAddress: 'Rue X' }] },
+    ]) {
+      expect(isGmoExpectedDetailFilter({
+        reason: 'geography',
+        detail: { hasStructuredVacancy: true, ...detailEvidence },
+        descriptionSufficient: true,
+        decision: { geography: null, explicitlyForeign: false },
+      })).toBe(false);
+    }
+    expect(isGmoExpectedDetailFilter({
+      reason: 'geography', detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: true },
+    })).toBe(false);
+    expect(isGmoExpectedDetailFilter({
+      reason: 'description', detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: false },
+    })).toBe(false);
+    expect(isGmoExpectedDetailFilter({
+      reason: 'geography', detail: { hasStructuredVacancy: true },
+      descriptionSufficient: true,
+      decision: { geography: { location: 'Onex', canton: 'GE' } },
+    })).toBe(false);
+    expect(isGmoExpectedDetailFilter({
+      reason: 'geography', detail: { hasStructuredVacancy: false },
+      descriptionSufficient: true,
+      decision: { geography: null, explicitlyForeign: false },
+    })).toBe(false);
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(GMO_KEY).toBe('gmo');
