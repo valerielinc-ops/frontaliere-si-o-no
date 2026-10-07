@@ -157,6 +157,13 @@ export const SEO_GATE_CLASSES = Object.freeze({
   'audit:all/image-object-license': gate('A',
     'ImageObject: Google richiede contentUrl + una fra creator/creditText/copyrightNotice/license; il gate chiede tutti e cinque (più severo di Google, oggi a 0 offender)',
     [SRC.imageLicense]),
+  // Classificato il 2026-10-07 (decisione del proprietario: «nessun gate
+  // dovrebbe bloccare la pubblicazione ma aprire solo una issue»). Nato con
+  // #11924 fuori tabella, per default-deny ha sequestrato `publish` nelle run
+  // 37543977878 e 37571743923 mentre il deploy era live e valido.
+  'validate:og-images': gate('A',
+    'og:image fuori dal registro delle immagini generate/accreditate: rischio di licenza su una pagina già live, non un deploy invalido; trattenere IndexNow/GSC non lo ripara',
+    [SRC.imageLicense]),
   // ── B — issue sulla regressione (non blocca publish) ─────────────────────
   'audit:max-bfs-depth': gate('B',
     'Google scopre le pagine dai link; la profondità di click da / pesa sull\'importanza (Mueller). Ratchet per-sitemap sul tasso',

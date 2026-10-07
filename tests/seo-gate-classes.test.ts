@@ -51,6 +51,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:all/footer-root-presence': 'A/issue-on-failure',
       'audit:all/jsonld-no-nested-scripts': 'A/issue-on-failure',
       'audit:all/image-object-license': 'A/issue-on-failure',
+      'validate:og-images': 'A/issue-on-failure',
       // B — issue P2 sulla regressione, publish non bloccato (owner 2026-10-02)
       'audit:max-bfs-depth': 'B/issue-on-regression',
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
@@ -88,7 +89,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
   it('decisione del proprietario: nessun gate classificato blocca, nemmeno tutti insieme', () => {
     // B e C dal 2026-10-02, A dal 2026-10-03.
     const all = Object.keys(SEO_GATE_CLASSES);
-    expect(all.length).toBe(31);
+    expect(all.length).toBe(32);
     const v = evaluateIntegrity(all);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);

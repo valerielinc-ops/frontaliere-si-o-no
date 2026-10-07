@@ -126,9 +126,14 @@ describe('validate-dist failure classification', () => {
     // classified gate is on the list. The list still cannot grow by itself:
     // a gate enters it only by being classified (with evidence) in
     // seo-gate-classes.mjs, and everything else stays default-deny.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(31);
+    //
+    // 2026-10-07: raised 31 → 32 by one deliberate owner decision
+    // («nessun gate dovrebbe bloccare la pubblicazione ma aprire solo una
+    // issue»): `validate:og-images`, added unclassified by #11924, sequestered
+    // publish on runs 37543977878 and 37571743923 while the deploy was live.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(32);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
-    expect(topLevel).toHaveLength(13);
+    expect(topLevel).toHaveLength(14);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);

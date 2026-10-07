@@ -421,9 +421,34 @@ jobs:
           # and could MASK a failure — gate must stay exact). The summary below
           # cats these files; a failing validator's full log is dumped (after the
           # wait, sequentially) so parallel failures stay readable.
+          # DEPLOY_REF/WORKFLOW SKEW GUARD (issue #5833), same rule as
+          # spawn_capped in the post-build step below, which explains it in
+          # full: this YAML comes from main at dispatch time, the code from the
+          # pinned build SHA. A validator added here together with its npm
+          # script fails with `Missing script` on every build that was already
+          # running when it merged (publish run 37543977878: validate:og-images,
+          # added by #11924 two hours after the build's commit). Only "missing
+          # in this build AND present on origin/main" is a skip; a script
+          # missing from both is a real bug and still fails. `|| true`: if the
+          # fetch fails nothing is skipped.
+          git fetch --depth=1 origin main -q 2>/dev/null || true
+          git show origin/main:package.json > /tmp/pkg-main-src.json 2>/dev/null || true
+          npm_script_drifted() {
+            node -e "process.exit(require('./package.json').scripts?.[process.argv[1]] ? 0 : 1)" "$1" 2>/dev/null && return 1
+            [ -s /tmp/pkg-main-src.json ] || return 1
+            node -e "process.exit(require('/tmp/pkg-main-src.json').scripts?.[process.argv[1]] ? 0 : 1)" "$1" 2>/dev/null
+          }
+
           run_validator() {
             local name=$1 logfile=$2; shift 2
             local start end rc
+            if [ "${1:-}" = npm ] && [ "${2:-}" = run ] && npm_script_drifted "${3:-}"; then
+              echo "[run_validator] skip: npm script \"$3\" is not defined in this build's package.json (deploy_ref predates its addition) but IS present on origin/main — treating as skip, not failure" | tee "$logfile"
+              # Literal rc=0 like the other skip rows: the summary parser reads
+              # only `rc=[0-9]+$`. The real state stays in the row name and log.
+              awk -v n="$name(skipped-deploy_ref-drift)" 'BEGIN{printf "%-40s %7.2f rc=0\n", n, 0}' > "$RESDIR/$name"
+              return 0
+            fi
             start=$(date +%s.%N)
             set +e
             "$@" > "$logfile" 2>&1
