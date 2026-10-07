@@ -1208,25 +1208,48 @@ function registeredWorkflows() {
   return byId.size ? byId : null;
 }
 
+const workflowSourceMemo = new Map();
+
 /**
- * Read a workflow source file named by the Actions workflow registry.
+ * Read the workflow source that produced a run, not the source in today's
+ * checkout. The scanner uses a shallow checkout, so the Contents API is the
+ * only reliable way to inspect an older `head_sha`; an unreadable historical
+ * blob returns null and keeps the reporter guard fail-closed.
  *
- * The registry gives us the authoritative display name and path, while the
- * local checkout contains the source that defines the failure reporter. Keep
- * the path constrained to `.github/workflows/`: a registry value must never
- * turn a diagnostic read into an arbitrary repository-file read.
- *
- * @param {string|null|undefined} workflowPath
+ * @param {{workflowPath?: string|null, head_sha?: string|null}} run
+ * @param {{read?: Function}} [deps]
  * @returns {string|null}
  */
-function workflowSourceForPath(workflowPath) {
-  if (!workflowPath) return null;
-  const candidate = path.resolve(REPO_ROOT, String(workflowPath));
+export function workflowSourceForRun(run, { read = gh } = {}) {
+  const workflowPath = String(run?.workflowPath ?? '').trim();
+  const headSha = String(run?.head_sha ?? '').trim();
+  if (!/^[0-9a-f]{40}$/i.test(headSha)) return null;
+
+  const candidate = path.resolve(REPO_ROOT, workflowPath);
   const relative = path.relative(WORKFLOWS_DIR, candidate);
-  if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  if (!workflowPath || relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  const normalizedPath = path.relative(REPO_ROOT, candidate).split(path.sep).join('/');
+  if (!normalizedPath.startsWith('.github/workflows/')) return null;
+
+  const key = `${headSha}:${normalizedPath}`;
+  if (workflowSourceMemo.has(key)) return workflowSourceMemo.get(key);
+
+  const apiPath = `repos/${REPO || '{owner}/{repo}'}/contents/${normalizedPath}`
+    + `?ref=${encodeURIComponent(headSha)}`;
+  const encoded = read(
+    ['api', '-X', 'GET', apiPath, '--jq', '.content // empty'],
+    { allowFailure: true },
+  );
+  if (!encoded) {
+    workflowSourceMemo.set(key, null);
+    return null;
+  }
   try {
-    return fs.readFileSync(candidate, 'utf8');
+    const source = Buffer.from(String(encoded).replace(/\s/g, ''), 'base64').toString('utf8');
+    workflowSourceMemo.set(key, source);
+    return source;
   } catch {
+    workflowSourceMemo.set(key, null);
     return null;
   }
 }
@@ -1419,6 +1442,7 @@ export function runBody({ run, workflowName, jobs, jobsReadable = true, relatedI
 
 export async function scanFailures() {
   runJobsMemo.clear();
+  workflowSourceMemo.clear();
   const since = new Date(Date.now() - LOOKBACK_MINUTES * 60_000).toISOString();
   const horizon = new Date(Date.now() - RUN_QUERY_HORIZON_MINUTES * 60_000).toISOString();
 
@@ -1451,8 +1475,8 @@ export async function scanFailures() {
     `repos/${REPO || '{owner}/{repo}'}/actions/runs`
       + `?created=%3E%3D${encodeURIComponent(horizon)}&status=failure&per_page=100`,
     '.workflow_runs[] | [.id, .workflow_id, .event, .head_branch, .conclusion,'
-      + ' .created_at, .updated_at, .html_url, .path] | @tsv',
-    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path'],
+      + ' .created_at, .updated_at, .html_url, .path, .head_sha] | @tsv',
+    ['id', 'workflow_id', 'event', 'head_branch', 'conclusion', 'created_at', 'updated_at', 'html_url', 'path', 'head_sha'],
   );
   // Lettura obbligatoria: senza l'elenco delle run non c'è niente da decidere, e
   // dichiarare «nessuna run rossa» sarebbe un verde su una misura non fatta.
@@ -1509,7 +1533,10 @@ export async function scanFailures() {
       ...run,
       workflowName,
       workflowPath: wf?.path || null,
-      workflowSource: workflowSourceForPath(wf?.path),
+      workflowSource: workflowSourceForRun({
+        workflowPath: wf?.path,
+        head_sha: run.head_sha,
+      }),
       ownerPersisted,
     });
   }

@@ -22,7 +22,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   isReportableRun,
   isReportableScope,
@@ -47,6 +47,7 @@ import {
   runBody,
   dormantBody,
   isHandledExpectedFailure,
+  workflowSourceForRun,
   recoveryVerdict,
   RECOVERY_LISTING_SIZE,
 } from '../scripts/ci/scan-unreported-failures.mjs';
@@ -813,6 +814,26 @@ describe('failure atteso già trattato dal monitor', () => {
         ],
       }),
     })).toBe(false);
+  });
+
+  it('usa il workflow al head_sha della run, non quello corrente', () => {
+    const currentSource = workflowSource;
+    const historicalSource = currentSource.replace(/\bid:\s*failgate\b/, 'id: historical-gate');
+    const headSha = 'a'.repeat(40);
+    const read = vi.fn(() => Buffer.from(historicalSource, 'utf8').toString('base64'));
+    const resolved = workflowSourceForRun({
+      workflowPath: '.github/workflows/crawler-health-monitor.yml',
+      head_sha: headSha,
+    }, { read });
+
+    expect(resolved).toBe(historicalSource);
+    expect(isHandledExpectedFailure({ source: currentSource, jobs: jobs() })).toBe(true);
+    expect(isHandledExpectedFailure({ source: resolved, jobs: jobs() })).toBe(false);
+    expect(read).toHaveBeenCalledWith([
+      'api', '-X', 'GET',
+      `repos/{owner}/{repo}/contents/.github/workflows/crawler-health-monitor.yml?ref=${headSha}`,
+      '--jq', '.content // empty',
+    ], { allowFailure: true });
   });
 });
 
