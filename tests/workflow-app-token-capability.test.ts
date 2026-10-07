@@ -440,15 +440,20 @@ describe('PR loop: capacità write verificata prima delle mutation', () => {
     const markerRepair = namedStep(testsWorkflow, 'vitest', 'Repair missing Codex review marker (zero-agent)');
 
     expect(String(capability.run)).toContain('APP_TOKEN_DATA_REFRESH');
+    expect(String(capability.run)).toContain('APP_TOKEN_WORKFLOWS');
     expect(String(capability.run)).toContain('GITHUB_PAT');
     expect(String(capability.env?.APP_TOKEN_WORKFLOWS)).toContain('env.APP_TOKEN_WORKFLOWS');
     expect(String(capability.run)).toContain('workflow_write_capable');
     expect(String(capability.run)).toContain("echo 'retry=true'");
+    expect(String(capability.run)).toContain("echo 'workflow_write_capable=true'");
+    expect(String(capability.run)).toContain("echo 'workflow_write_capable=false'");
     expect(String(pending.if)).toContain("steps.post_review_write_capability.outputs.write_capable != 'true'");
     expect(String(pending.run)).toContain('retry-native-automerge.yml');
     expect(String(autoMerge.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
     expect(String(autoMerge.env?.POST_REVIEW_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
     expect(String(setup.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
+    expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.write_capable == 'true'");
     expect(String(autorebase.if)).toContain("steps.post_review_write_capability.outputs.workflow_write_capable == 'true'");
     expect(String(autorebase.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
     expect(String(autorebase.env?.GH_TOKEN)).not.toContain('GITHUB_TOKEN');
@@ -456,6 +461,12 @@ describe('PR loop: capacità write verificata prima delle mutation', () => {
     expect(String(markerRepair.if)).toContain("env.GITHUB_PAT != ''");
     expect(String(markerRepair.env?.GH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
     expect(String(markerRepair.env?.GH_TOKEN)).not.toContain('secrets.GITHUB_TOKEN');
+  });
+
+  it('non lascia il delivery Codex sul GITHUB_TOKEN di Actions', () => {
+    const review = namedStep(testsWorkflow, 'vitest', 'Run Codex Luna Max review');
+    expect(String(review.with?.github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(review.with?.github_token)).not.toContain('secrets.GITHUB_TOKEN');
   });
 
   it('non lascia selezioni APP_TOKEN||fallback non condizionate nei consumer scoped', () => {

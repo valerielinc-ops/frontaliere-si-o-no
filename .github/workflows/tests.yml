@@ -3327,10 +3327,10 @@ jobs:
           REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
         with:
           # `github_token` alimenta gli helper provider-neutral della action e
-          # conserva il fallback lifecycle; il bridge host-side della review
-          # può postare una review che riattiva auto-merge e quindi usa solo
-          # App/PAT. Il mint fallisce soft, ma il bridge resta fail-closed.
-          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          # deve usare la stessa identità App/PAT verificata del bridge host-side.
+          # Quando il selettore è vuoto, l'action resta fail-closed prima del
+          # delivery: GITHUB_TOKEN non può diventare un publisher anti-recursivo.
+          github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           review_marker: '<!-- CODEX_FALLBACK_REVIEW -->'
@@ -4098,15 +4098,29 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Report pending post-review mutation
-        if: ${{ (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') && steps.post_review_write_capability.outputs.write_capable != 'true' }}
+        if: ${{ (needs.vitest.outputs.automerge == 'true' || needs.vitest.outputs.autorebase == 'true') && (steps.post_review_write_capability.outputs.write_capable != 'true' || (needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable != 'true')) }}
+        env:
+          AUTOREBASE: ${{ needs.vitest.outputs.autorebase }}
+          WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.write_capable }}
+          WORKFLOW_WRITE_CAPABLE: ${{ steps.post_review_write_capability.outputs.workflow_write_capable }}
         run: |
           set -euo pipefail
-          echo "::warning::Post-review mutation pending: no App token verified with contents:write + pull_requests:write and no PAT is available. No auto-merge opt-in, autorebase, or branch push will run."
+          if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Post-review mutation pending: no App token verified with contents:write + pull_requests:write and no PAT is available. No auto-merge opt-in, autorebase, or branch push will run."
+          elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+            echo "::warning::Autorebase pending: the selected write-capable identity has no verified workflows:write capability; pr-autorebase.mjs will not run."
+          fi
           {
             echo '### Post-review mutation pending'
-            echo '- Nessun token verificato con contents:write + pull_requests:write: nessun fallback su GITHUB_TOKEN, nessun autorebase e nessun push.'
-            echo '- Native auto-merge: retry-native-automerge.yml ritentera con il PAT caricato da Remote Config.'
-            echo "- Autorebase: resta pending e verra rivalutato dal prossimo percorso del ciclo con un'identita write-capable."
+            if [ "${WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo '- Nessun token verificato con contents:write + pull_requests:write: nessun fallback su GITHUB_TOKEN, nessun autorebase e nessun push.'
+              echo '- Native auto-merge: retry-native-automerge.yml ritentera con il PAT caricato da Remote Config.'
+            elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
+              echo '- Autorebase: resta pending perché l’identità selezionata non ha `workflows:write` verificato; `pr-autorebase.mjs` non viene eseguito.'
+            fi
+            if [ "${AUTOREBASE:-false}" = 'true' ]; then
+              echo "- Autorebase: verra rivalutato dal prossimo percorso del ciclo con un'identita write-capable e workflow-capable."
+            fi
           } >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
 
       # ── Opt-in al native auto-merge, dopo il job required ────────────────
@@ -4252,14 +4266,14 @@ jobs:
       # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
       # uno sweeper che fa solo git e API.
       - name: Setup Node.js + npm ci for autorebase
-        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         uses: ./.github/actions/ci-npm-setup
         with:
           npm-ci-args: --ignore-scripts
 
       - name: Rebase near-merge PRs after review or stale rescue
-        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
+        if: ${{ needs.vitest.outputs.autorebase == 'true' && steps.post_review_write_capability.outputs.write_capable == 'true' && steps.post_review_write_capability.outputs.workflow_write_capable == 'true' }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
