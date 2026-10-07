@@ -924,7 +924,11 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         `[refreshPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} protected=${protectedVanished.length} cap=${saleDecision.cap} `
         + `known-missing=${knownMissing.length} expired-missing=${expiredMissingIds.size} `
-        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+        + (timedTurnoverDecision
+          ? (timedTurnoverDecision.recognized
+            ? `decision=timed-turnover accepted vanished=${newlyMissing.length}`
+            : `decision=timed-turnover preserve-as-live blocked-by=${timedTurnoverDecision.blockedBy.join('+')}`)
+          : (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`)),
       );
       const recognizedSaleIds = new Set(saleDecision.recognized ? saleCandidates.map(([id]) => id) : []);
       for (const [id, old] of vanished) {

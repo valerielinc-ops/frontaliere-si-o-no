@@ -302,7 +302,11 @@ export async function collectPlateAuctions({
         `[collectPlateAuctions:${key}] sale-recognition previous=${previousLiveCount} `
         + `fetched=${rows.length} vanished=${saleCandidates.length} cap=${saleDecision.cap} `
         + `protected=${protectedRows.length} known-missing=${knownMissing.length} expired-missing=${expiredMissing.length} `
-        + (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`),
+        + (timedTurnoverDecision
+          ? (timedTurnoverDecision.recognized
+            ? `decision=timed-turnover accepted vanished=${newlyMissing.length}`
+            : `decision=timed-turnover preserve-as-live blocked-by=${timedTurnoverDecision.blockedBy.join('+')}`)
+          : (saleDecision.recognized ? `decision=sales sold=${saleCandidates.length}` : `decision=preserve-as-live blocked-by=${saleDecision.blockedBy.join('+')}`)),
       );
       // An expired known-missing row goes through the same record as a sale:
       // closed, `disappearedFromCatalogue`, last asking price, never a final.
