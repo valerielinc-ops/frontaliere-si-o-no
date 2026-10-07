@@ -7,7 +7,10 @@ export const SOURCE_RELAY_TIMEOUT_MS = 20_000;
 export const SOURCE_RELAY_MAX_ATTEMPTS = 3;
 export const SOURCE_RELAY_RETRY_DELAY_MS = 1_200;
 export const SOURCE_RELAY_MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
-const GITHUB_OIDC_REQUEST_HOST = 'token.actions.githubusercontent.com';
+const GITHUB_OIDC_REQUEST_HOSTS = new Set([
+  'token.actions.githubusercontent.com',
+  'pipelines.actions.githubusercontent.com',
+]);
 /** Workflow flag set only on the relay members' launch steps (see the crawler group generator). */
 export const SOURCE_RELAY_REQUIRED_ENV = 'JOBS_SOURCE_RELAY_REQUIRED';
 /** Google ID token minted by google-github-actions/auth for the private Cloud Run invoker gate. */
@@ -215,9 +218,12 @@ async function requestGithubOidcToken({
 
   try {
     const tokenUrl = new URL(requestUrl);
+    // WHATWG URL drops an explicit default port, so compare the raw authority too.
+    const requestAuthority = requestUrl.match(/^https:\/\/([^/?#]*)/iu)?.[1] || '';
     if (
       tokenUrl.protocol !== 'https:'
-      || tokenUrl.hostname !== GITHUB_OIDC_REQUEST_HOST
+      || !GITHUB_OIDC_REQUEST_HOSTS.has(tokenUrl.hostname)
+      || requestAuthority.toLowerCase() !== tokenUrl.hostname
       || tokenUrl.username
       || tokenUrl.password
       || tokenUrl.port
