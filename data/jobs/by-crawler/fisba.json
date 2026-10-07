@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fisba-dcae8950d89e",
-      "slug": "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen",
+      "slug": "apprendista-laboratorio-di-fisica-afc-per-il-2027-fisba-ag-st-gallen",
       "slugByLocale": {
-        "it": "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen",
-        "en": "apprentice-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen",
+        "it": "apprendista-laboratorio-di-fisica-afc-per-il-2027-fisba-ag-st-gallen",
+        "en": "learner-physics-lab-assistant-efz-for-2027-fisba-ag-st-gallen",
         "de": "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch",
-        "fr": "apprenti-e-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen"
+        "fr": "apprenti-e-laboratoire-de-physique-cfc-pour-2027-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -54,7 +54,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch",
-        "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen"
+        "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen",
+        "apprentice-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen",
+        "apprenti-e-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -62,13 +64,14 @@
           "apprendista-physiklaborant-in-cfc-per-2027-fisba-ag-st-gallen"
         ],
         "en": [
-          "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch",
+          "apprentice-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen"
         ],
         "fr": [
-          "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-physiklaborant-in-efz-fur-2027-st-gallen-fisba-ch",
+          "apprenti-e-physiklaborant-in-efz-fur-2027-fisba-ag-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:09:05.590Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -86,12 +89,12 @@
     },
     {
       "id": "fisba-ab0ce5b2ce1c",
-      "slug": "apprendista-mechanikpraktiker-in-afp-werkstoff-glas-per-2027-fisba-ag-st-gallen",
+      "slug": "apprendista-praticante-di-meccanica-eba-materiale-vetro-per-il-2027-fisba-ag-st-gallen",
       "slugByLocale": {
-        "it": "apprendista-mechanikpraktiker-in-afp-werkstoff-glas-per-2027-fisba-ag-st-gallen",
-        "en": "apprentice-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen",
+        "it": "apprendista-praticante-di-meccanica-eba-materiale-vetro-per-il-2027-fisba-ag-st-gallen",
+        "en": "learner-mechanics-practitioner-eba-glass-material-for-2027-fisba-ag-st-gallen",
         "de": "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch",
-        "fr": "apprenti-e-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen"
+        "fr": "apprenti-e-praticien-ne-en-mecanique-afp-materiau-verre-pour-2027-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -136,7 +139,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch",
-        "apprendista-mechanikpraktiker-in-afp-werkstoff-glas-per-2027-fisba-ag-st-gallen"
+        "apprendista-mechanikpraktiker-in-afp-werkstoff-glas-per-2027-fisba-ag-st-gallen",
+        "apprentice-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen",
+        "apprenti-e-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -144,13 +149,14 @@
           "apprendista-mechanikpraktiker-in-afp-werkstoff-glas-per-2027-fisba-ag-st-gallen"
         ],
         "en": [
-          "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch",
+          "apprentice-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen"
         ],
         "fr": [
-          "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-st-gallen-fisba-ch",
+          "apprenti-e-mechanikpraktiker-in-eba-werkstoff-glas-fur-2027-fisba-ag-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:09:05.591Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -168,12 +174,12 @@
     },
     {
       "id": "fisba-6e6c38da2f51",
-      "slug": "apprendista-feinwerkoptiker-in-cfc-per-2027-fisba-ag-st-gallen",
+      "slug": "apprendista-ottico-di-precisione-afc-per-il-2027-fisba-ag-st-gallen",
       "slugByLocale": {
-        "it": "apprendista-feinwerkoptiker-in-cfc-per-2027-fisba-ag-st-gallen",
-        "en": "apprentice-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen",
+        "it": "apprendista-ottico-di-precisione-afc-per-il-2027-fisba-ag-st-gallen",
+        "en": "learner-precision-optician-efz-for-2027-fisba-ag-st-gallen",
         "de": "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch",
-        "fr": "apprenti-e-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen"
+        "fr": "apprenti-e-opticien-ne-de-precision-cfc-pour-2027-fisba-ag-st-gallen"
       },
       "company": "FISBA AG",
       "companyKey": "fisba",
@@ -218,7 +224,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch",
-        "apprendista-feinwerkoptiker-in-cfc-per-2027-fisba-ag-st-gallen"
+        "apprendista-feinwerkoptiker-in-cfc-per-2027-fisba-ag-st-gallen",
+        "apprentice-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen",
+        "apprenti-e-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -226,13 +234,14 @@
           "apprendista-feinwerkoptiker-in-cfc-per-2027-fisba-ag-st-gallen"
         ],
         "en": [
-          "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch",
+          "apprentice-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen"
         ],
         "fr": [
-          "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch"
+          "lernende-r-feinwerkoptiker-in-efz-fur-2027-st-gallen-fisba-ch",
+          "apprenti-e-feinwerkoptiker-in-efz-fur-2027-fisba-ag-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:09:05.589Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -299,13 +308,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spontaneous-unsolicited-application-st-gallen-fisba-ch",
-        "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen"
+        "spontaneous-unsolicited-application-st-gallen-fisba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontaneous-unsolicited-application-st-gallen-fisba-ch",
-          "applicazione-spontanea-non-richiesta-fisba-ag-st-gallen"
+          "spontaneous-unsolicited-application-st-gallen-fisba-ch"
         ],
         "de": [
           "spontaneous-unsolicited-application-st-gallen-fisba-ch"

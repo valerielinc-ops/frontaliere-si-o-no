@@ -689,9 +689,9 @@
     },
     {
       "id": "spitex-ch-b64b2c7f4334",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh",
+      "slug": "infermiere-diplomato-sss-sup-con-gestione-dei-casi-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh",
+        "it": "infermiere-diplomato-sss-sup-con-gestione-dei-casi-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh",
         "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh"
@@ -752,7 +752,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-spitex-ch-weiningen-zh"
+      ]
     },
     {
       "id": "spitex-ch-e6a7b91ab37b",
@@ -1902,8 +1910,6 @@
       },
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
-        "certified-nurse-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
-        "infirmiere-agreee-hf-fh-h-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
         "infermiere-certificata-hf-fh-m-f-d-60-90-nel-team-di-demenza-spitex-burgdorf-oberburg-burgdorf",
         "certified-nurse-hf-fh-m-f-d-60-90-in-the-dementia-team-spitex-burgdorf-oberburg-burgdorf",
         "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-im-demenzteam-spitex-ch-burgdorf",

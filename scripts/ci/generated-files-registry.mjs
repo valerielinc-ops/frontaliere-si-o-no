@@ -22,6 +22,22 @@ const crawlerGeneratedPaths = [
   '.github/corpus-workflows/contract.json',
 ];
 
+const crawlerGeneratedOutputDirectories = [...new Set(
+  crawlerGeneratedPaths
+    .filter((path) => path.startsWith('.github/'))
+    .map((path) => `/${path.split('/').slice(0, 2).join('/')}/`),
+)];
+
+const crawlerGeneratorWorktreePaths = [
+  '/data/canton-municipalities.json',
+  '/data/swiss-locality-postal-codes.json',
+  '/data/crawler-manifest.json',
+  '/data/crawler-workflow-duration-baseline.json',
+  '/data/crawler-group-assignments.json',
+  '/data/crawler-quarantine.json',
+  ...crawlerGeneratedOutputDirectories,
+];
+
 const crawlerGeneratorDisplay = 'CRAWLER_SOURCE_REF=main CRAWLER_SOURCE_COMMIT="$(git merge-base origin/main HEAD)" node scripts/generate-crawler-group-workflows.mjs';
 
 const crawlerGenerator = Object.freeze({
@@ -47,6 +63,7 @@ export const GENERATED_FILE_REGISTRY = Object.freeze([
   Object.freeze({
     id: crawlerGenerator.id,
     pathPatterns: Object.freeze([exactPathPattern(crawlerGeneratedPaths)]),
+    worktreePaths: Object.freeze(crawlerGeneratorWorktreePaths),
     generator: crawlerGenerator,
     verifier: crawlerVerifier,
   }),
@@ -70,4 +87,12 @@ export function generatedConflictPlan(paths, registry = GENERATED_FILE_REGISTRY)
     unregistered,
     rules,
   };
+}
+
+export function generatedConflictWorktreePaths(plan) {
+  return [...new Set(
+    (plan?.rules || [])
+      .flatMap((rule) => (Array.isArray(rule.worktreePaths) ? rule.worktreePaths : []))
+      .filter((path) => typeof path === 'string' && path.length > 0),
+  )];
 }

@@ -749,12 +749,12 @@
     },
     {
       "id": "imad-9f7f2ca9d123",
-      "slug": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
+      "slug": "infermiere-clinico-ics-centro-per-le-pratiche-interprofessionali-cpi-100-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
-        "it": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
-        "en": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
-        "de": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        "it": "infermiere-clinico-ics-centro-per-le-pratiche-interprofessionali-cpi-100-cdi-imad-geneva",
+        "en": "clinician-nurse-ics-center-for-interprofessional-practices-cpi-100-cdi-imad-geneva",
+        "de": "klinikkrankenschwester-ics-center-for-interprofessional-practices-cpi-100-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -813,7 +813,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-10-06T21:28:18.815Z"
+      "firstSeenAt": "2026-10-06T21:28:18.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        ],
+        "en": [
+          "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        ],
+        "de": [
+          "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+      ]
     },
     {
       "id": "imad-d81dfa1adb8e",
@@ -821,7 +835,7 @@
       "slugByLocale": {
         "it": "infermiereclinico-specializzato-ics-centre-des-pratiques-interprofessionnelles-cpi-all-80-in-contratto-a-tempo",
         "en": "specialized-clinical-nurse-ics-center-for-interprofessional-practices-cpi-at-80-on-permanent-contract-imad-geneva",
-        "de": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
+        "de": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi-tp5cck",
         "fr": "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
       },
       "company": "imad",
@@ -867,7 +881,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi",
+        "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi-tp5cck"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -875,6 +890,12 @@
         ],
         "en": [
           "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        ],
+        "de": [
+          "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi"
+        ],
+        "fr": [
+          "infirmier-ere-clinicien-ne-specialise-e-ics-centre-des-pratiques-interprofessionnelles-cpi-tp5cck"
         ]
       },
       "firstSeenAt": "2026-09-25T14:45:32.879Z",

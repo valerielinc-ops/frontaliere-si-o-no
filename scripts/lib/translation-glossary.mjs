@@ -681,14 +681,38 @@ function tidySpacing(value = '') {
     .trim();
 }
 
+// A URL or a Markdown link target is opaque to the placeholder strip. A pair of
+// percent-encoded bytes reads exactly like a `%TOKEN%` placeholder —
+// `Perch%C3%A9` carries `%C3%`, `l%E2%80%99UE` carries `%E2%` — and stripping
+// it rewrote the link (`Perch A9`, `l 80%99UE`) in every translated text that
+// cites such a URL: a 404 behind a source line that looked untouched.
+//
+// Both forms keep one level of balanced parentheses inside the destination,
+// the way Wikipedia-style URLs carry them (`…/Lugano_(citt%C3%A0)`,
+// `…/a(b)/Perch%C3%A9`): closing the span at the first `)` left whatever
+// followed it exposed to the strip. A lone `(` is still part of the URL, and a
+// bare URL quoted inside a parenthesis of prose still ends before the `)`.
+const LINK_SPAN_RE = /\]\((?:[^()\s]|\((?:[^()\s]*\))?)*\)|(?:https?:\/\/|www\.)(?:[^\s<>"'()\]]|\((?:[^\s<>"'()\]]*\))?)+/gi;
+const LINK_SLOT_RE = /\u0000(\d+)\u0000/g;
+
 /** Remove template/placeholder tokens (see the design note above). */
 export function stripPlaceholderTokens(text = '') {
   const input = String(text ?? '');
   if (!input) return input;
-  const out = input
+  const links = [];
+  // A text that already carries the slot character cannot be masked safely:
+  // it is processed as before.
+  const masked = input.includes('\u0000')
+    ? input
+    : input.replace(LINK_SPAN_RE, (span) => {
+      links.push(span);
+      return `\u0000${links.length - 1}\u0000`;
+    });
+  const out = masked
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');
-  return out === input ? input : tidySpacing(out);
+  if (out === masked) return input;
+  return tidySpacing(out).replace(LINK_SLOT_RE, (_, index) => links[Number(index)]);
 }
 
 /** True when the string still carries at least one letter or digit. */
