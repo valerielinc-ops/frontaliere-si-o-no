@@ -244,6 +244,7 @@ export function parseJobupSearchCards(html = '') {
       uuid,
       // jobup.ch is an external portal; this URL is used for source detail
       // enrichment and is not a local route.
+      // locale-segment-ok: verified against fetchJobupDetailDescription consumers; fixed French JobUp detail path is used only for external source enrichment.
       url: `https://www.jobup.ch/fr/emplois/detail/${uuid}/`,
       title,
       company,
