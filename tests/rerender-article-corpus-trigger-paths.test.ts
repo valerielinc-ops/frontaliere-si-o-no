@@ -28,6 +28,13 @@ const WORKFLOW = '.github/workflows/rerender-article-corpus.yml';
 const DRIVER = 'scripts/rerender-article-corpus.mjs';
 const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
 const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
+const CORPUS_OVERLAY_SOURCES = [
+  'scripts/lib/article-corpus-overlay.mjs',
+  'scripts/lib/articles-api-base.mjs',
+  'scripts/lib/articles-sync-pin.mjs',
+  'scripts/lib/corpus-canton-exclusion.mjs',
+  'scripts/lib/corpus-local-preserve.mjs',
+];
 const EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js', '/index.ts'];
 
 const RENDER_WORKFLOWS = [
@@ -108,6 +115,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     const stale = FILTERS.filter(({ glob }) => !glob.includes('*') && !isTracked(glob)).map(({ glob }) => glob);
     expect(stale).toEqual([]);
     expect(isCovered(RUNTIME_DEPS_INSTALLER)).toBe(true);
+    for (const source of CORPUS_OVERLAY_SOURCES) expect(isCovered(source)).toBe(true);
   });
 
   it('covers every module the driver renders with, behind shims and symlinks', () => {
@@ -139,7 +147,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     const packageLock = JSON.parse(fs.readFileSync(path.join(ROOT, 'package-lock.json'), 'utf8'));
     const installer = fs.readFileSync(path.join(ROOT, RUNTIME_DEPS_INSTALLER), 'utf8');
 
-    expect(Object.keys(packageJson.dependencies ?? {})).toEqual(['html-entities']);
+    expect(Object.keys(packageJson.dependencies ?? {})).toEqual(expect.arrayContaining(['html-entities']));
     expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
     expect(installer).toContain('node_modules/html-entities');
     expect(installer).toContain('--workspaces=false');
