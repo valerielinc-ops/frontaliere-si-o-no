@@ -25,6 +25,7 @@ import { getStorage } from 'firebase-admin/storage';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
+import { GR_ECARI_CATALOGUE_URL } from './plateAuctionSourceUrls.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
 import {
   checkPlateAuctionQuality,
@@ -164,7 +165,7 @@ const CONNECTORS = {
   gr: {
     canton: 'Grigioni',
     plateCode: 'GR',
-    url: 'https://eauktion.gr.ch/',
+    url: GR_ECARI_CATALOGUE_URL,
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
       const tabs = [

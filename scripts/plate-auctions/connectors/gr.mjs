@@ -7,6 +7,7 @@ import {
   parseEcariAuctionRows,
   withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
+import { GR_ECARI_CATALOGUE_URL } from '../../../functions/src/plateAuctionSourceUrls.js';
 
 export const GR_CANTON = 'Grigioni';
 export const GR_PLATE_CODE = 'GR';
@@ -35,7 +36,7 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
 }
 
 export async function fetchGrPlateAuctions() {
-  const html = await fetchHtml(GR_AUCTION_URL);
+  const html = await fetchHtml(GR_ECARI_CATALOGUE_URL);
   return parseGrAuctionRows(html, { fetchedAt: new Date().toISOString() });
 }
 

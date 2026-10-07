@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
 import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -169,11 +170,17 @@ describe('plate-auction Firestore batching', () => {
       sourceFetchedAt: '2026-09-12T12:00:00.000Z', lastVerifiedAt: '2026-09-12T12:00:00.000Z',
       dataConfidence: 'partial', firstSeenAt: '2026-09-12T12:00:00.000Z',
     }]);
+    const calls: string[] = [];
     const result = await refreshPlateAuctions({
       db: firestore.db as never,
-      fetcher: async (url) => url.includes('eauktion.gr.ch') ? GR_PARTIAL_FEED : '',
+      fetcher: async (url) => {
+        calls.push(url);
+        return url === GR_ECARI_CATALOGUE_URL ? GR_PARTIAL_FEED : '';
+      },
       now: new Date('2026-09-13T12:00:00.000Z'),
     });
+    expect(calls).toContain(GR_ECARI_CATALOGUE_URL);
+    expect(calls).not.toContain('https://eauktion.gr.ch/');
     expect(firestore.deletes).not.toContain('gr-old');
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({
       value: { status: 'degraded', errorCode: 'source_disappeared' },

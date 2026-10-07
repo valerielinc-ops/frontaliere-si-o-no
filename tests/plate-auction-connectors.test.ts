@@ -14,7 +14,8 @@ import {
   parseLuFixedPricePdfText,
   parseUrFixedPricePdfText,
 } from '../functions/src/plateAuctionsCore.js';
-import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
+import { GR_ECARI_CATALOGUE_URL } from '../functions/src/plateAuctionSourceUrls.js';
+import { fetchGrPlateAuctions, parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
 import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
 import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
 import {
@@ -129,6 +130,18 @@ describe('expanded plate-auction connectors', () => {
     });
     expect(JSON.stringify(row)).not.toContain('hidden-bidder');
     expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('fetches GR from the stable eCari catalogue path', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response(GR_SAMPLE, { status: 200 }));
+
+    try {
+      await expect(fetchGrPlateAuctions()).resolves.toHaveLength(1);
+      expect(fetchMock.mock.calls[0]?.[0]).toBe(GR_ECARI_CATALOGUE_URL);
+    } finally {
+      fetchMock.mockRestore();
+    }
   });
 
   it('parses the ZH public card into a detail URL and Zurich UTC timestamp', () => {
