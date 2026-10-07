@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5039
+      "6": 5045
     },
-    "publishedCovers": 6751,
+    "publishedCovers": 6757,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179549,6 +179549,168 @@
           "id": "incidente-via-albisetti",
           "category": "novita",
           "date": "2026-10-07T22:41:48.924Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-fischiava-treno-gorla": {
+      "cover": "/images/blog/article-fischiava-treno-gorla.webp",
+      "hash": "ea1aeadf8d29e979efbdb4aa4c6b3d2e4b106c15c23c2e48c3a40a0b3c817c3b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "fischiava-treno-gorla",
+          "category": "novita",
+          "date": "2026-10-07T04:45:21.777Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-hotel-ticino-140-licenziati": {
+      "cover": "/images/blog/article-hotel-ticino-140-licenziati.webp",
+      "hash": "13169ee23e5c55ef81da36d1a63220221a4011a3b7af6e0caf255ad11040991a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "hotel-ticino-140-licenziati",
+          "category": "novita",
+          "date": "2026-10-07T06:29:50.676Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-monte-olimpino-treni-weekend": {
+      "cover": "/images/blog/article-monte-olimpino-treni-weekend.webp",
+      "hash": "149710d7ea5c6e62c536c6e3cb79e6b66e9f639d0472b60a11df69d8c196377b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "monte-olimpino-treni-weekend",
+          "category": "pratico",
+          "date": "2026-10-07T05:47:57.277Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-parmelin-avs-ue": {
+      "cover": "/images/blog/article-parmelin-avs-ue.webp",
+      "hash": "4717af76ce52ad71067da82202a321c2641d0acafcad492f90d2f9dee445dd37",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "parmelin-avs-ue",
+          "category": "novita",
+          "date": "2026-10-07T22:55:04.301Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-quattro-oggetti-urne-novembre": {
+      "cover": "/images/blog/article-quattro-oggetti-urne-novembre.webp",
+      "hash": "3ea8fef7c5160f0caf4a72fa926ff1681b77a6b82bebdc4802768fc4a1118d64",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "quattro-oggetti-urne-novembre",
+          "category": "novita",
+          "date": "2026-10-07T06:42:41.631Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-raffineria-cressier-carburanti": {
+      "cover": "/images/blog/article-raffineria-cressier-carburanti.webp",
+      "hash": "ce9361801990379c263fab8f9ad0da2ade67e45a46dd2658757483812c1a78e2",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "raffineria-cressier-carburanti",
+          "category": "novita",
+          "date": "2026-10-07T05:28:44.247Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
