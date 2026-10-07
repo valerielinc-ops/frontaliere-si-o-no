@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import fs from 'node:fs';
 
@@ -158,7 +160,7 @@ function main(args = process.argv.slice(2)) {
   process.stdout.write(`${isCurrentPublishSource(sourceSha, mainSha)}\n`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

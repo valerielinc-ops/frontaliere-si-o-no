@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -386,7 +388,7 @@ async function main() {
   console.log(`manifest delta: mode=${args.snapshotOnly ? 'snapshot' : 'delta'} scope=${scope || '/'} current=${currentEntries.size} previous=${previousEntries.size} changed=${changed.length} unchanged=${unchangedFiles.length} unmanifested=${unmanifestedFiles.length} removed=${removed.length}${renderStaleLog}`);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error(`shard-manifest-delta: ${error?.message || error}`);
     process.exitCode = 1;

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Local/CI snapshot builder for the public plate-auction API.
  *
@@ -420,7 +422,7 @@ async function main() {
   console.log(JSON.stringify({ outputPath, generatedAt: snapshot.generatedAt, counts: snapshot.counts, sources: Object.fromEntries(Object.entries(snapshot.sources).filter(([key]) => selectedCantons.includes(key)).map(([key, value]) => [key, { status: value.status, rowCount: value.rowCount, errorCode: value.errorCode }])) }, null, 2));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('Plate-auction ingest failed:', error instanceof Error ? error.message : String(error));
     process.exitCode = 1;

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Audit the public company websites published by the crawler registry.
  *
@@ -475,7 +477,7 @@ export async function runCompanyWebsiteReachabilityAudit(argv = process.argv.sli
   return report;
 }
 
-if (resolve(process.argv[1] || '') === fileURLToPath(import.meta.url)) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runCompanyWebsiteReachabilityAudit().catch((error) => {
     console.error(`Company website reachability audit failed: ${error?.message || error}`);
     process.exitCode = 2;

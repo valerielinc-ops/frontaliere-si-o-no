@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Backfill: correct STALE auto-derived sector fields on subscriber profiles
  * (issue #2993, follow-up to #3146).
@@ -198,6 +199,6 @@ async function main() {
 }
 
 // Run only when invoked directly (not when imported by tests).
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().then(() => process.exit(0)).catch((err) => { console.error(err); process.exit(1); });
 }

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * triage-sweep.mjs — self-healing del TAGGING (zero-Claude, deterministico).
  *
@@ -526,6 +528,6 @@ function main() {
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
-if (process.argv[1]?.endsWith('triage-sweep.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

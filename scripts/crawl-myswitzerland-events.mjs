@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — MySwitzerland (Switzerland Tourism nationwide events, issue #3125).
  *
@@ -1187,7 +1188,7 @@ async function main() {
 
 // Only crawl when invoked directly (`node scripts/crawl-myswitzerland-events.mjs`),
 // so tests can import the pure mapping functions without triggering a live crawl.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[myswitzerland] crawl failed: ${err?.message || err}`);
     process.exit(1);

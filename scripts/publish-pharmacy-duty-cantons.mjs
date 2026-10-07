@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * publish-pharmacy-duty-cantons.mjs — i turni farmacia gia' importati dal sito,
  * per gruppo cantonale, in un artefatto pubblico piccolo:
@@ -211,4 +213,4 @@ function main() {
   console.log(`[publish-pharmacy-duty-cantons] scritto ${path.relative(ROOT, OUT_PATH)}`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

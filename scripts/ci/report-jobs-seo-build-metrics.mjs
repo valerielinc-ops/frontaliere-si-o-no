@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Parse and report the jobs SEO memory/bridge checkpoints emitted by
  * jobsSeoPagesPlugin.
@@ -15,7 +17,6 @@
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 const ANSI_RE = /\u001b\[[0-?]*[ -\/]*[@-~]/gu;
 const MARKER_RE = /^\[(?:mem|jobs-seo-profile|jobs-seo-sample|build-stop-after|incremental-manifest|post-walk|jobs-seo-reuse)/u;
@@ -369,7 +370,7 @@ function main() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

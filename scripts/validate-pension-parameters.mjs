@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Valida i mirror dei parametri previdenziali dopo il producer
  * (`fetch-pension-parameters.mjs`), prima del commit del workflow.
@@ -50,7 +51,7 @@ export function validatePensionParameters({ root = ROOT, now = new Date() } = {}
   return { year, paths };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     const { year, paths } = validatePensionParameters();
     console.log(`✅ pension-parameters ${year}: ${paths.length} mirror validi e identici`);

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /** Svitto public eCari connector. */
 import {
   fetchEcariCantonAuctions,
@@ -42,7 +44,7 @@ export async function fetchSzPlateAuctions({ fetcher = fetchEcariCantonAuctions,
   });
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchSzPlateAuctions()
     .then((auctions) => console.log(JSON.stringify(auctions, null, 2)))
     .catch((error) => {

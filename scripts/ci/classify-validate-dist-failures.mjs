@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Classify `validate-dist` gate failures: does this red run invalidate the
  * DEPLOY, or does it report a QUALITY defect on pages that are already live?
@@ -240,5 +242,5 @@ async function main() {
 }
 
 const isMain =
-  process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href;
+  process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) await main();

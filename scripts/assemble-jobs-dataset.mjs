@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import { hasPostingDateProvenance, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 /**
  * scripts/assemble-jobs-dataset.mjs
@@ -4817,13 +4819,13 @@ export function parseAssembleCliArgs(argv = []) {
   };
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--print-cache-key')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })() && process.argv.includes('--print-cache-key')) {
   // Prints ONLY the key on stdout (last line), assembles nothing. Workflows
   // use it as the actions/cache key: see .github/workflows/send-*.yml.
   const { cacheKey } = computeAssembleCacheKey(parseAssembleCliArgs(process.argv.slice(2)));
   process.stdout.write(`${cacheKey}\n`);
   process.exit(0);
-} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
+} else if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   assembleJobsDataset(parseAssembleCliArgs(process.argv.slice(2)))
     .then(() => {
       // Some optional SDKs imported during assembly can leave idle handles

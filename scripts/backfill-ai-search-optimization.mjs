@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * backfill-ai-search-optimization.mjs — Retrofit existing blog articles
  * with AI Search optimization signals (TL;DR + Fatti chiave) so that the
@@ -512,7 +514,7 @@ async function runLocaleBackfill(locale, callLLM, AI_MODELS) {
 
 // Allow import without execution (for tests)
 const isDirectRun = (() => {
-  try { return process.argv[1] && path.resolve(process.argv[1]) === __filename; }
+  try { return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })(); }
   catch { return false; }
 })();
 

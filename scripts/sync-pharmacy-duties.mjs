@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /** Scheduler entry point kept separate from the importer so CI can invoke the
  * same guarded operation locally and from the daily workflow. */
 import { spawn } from 'node:child_process';
@@ -32,4 +33,4 @@ function run() {
   });
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) run();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) run();

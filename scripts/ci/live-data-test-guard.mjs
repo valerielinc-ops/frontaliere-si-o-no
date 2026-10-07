@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Guard: un test del job bloccante non puo' leggere DATI VIVI.
  *
@@ -682,8 +684,7 @@ export function listNonLiveDataTestsForCi() {
  * futura che sfiori questo meccanismo.
  */
 if (process.argv[1] && process.argv.includes('--monitor-files')) {
-  const self = path.resolve(process.argv[1]);
-  if (self === fileURLToPath(import.meta.url)) {
+  if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
     process.stdout.write(`${listLiveDataMonitorTests().join('\n')}\n`);
   }
 }

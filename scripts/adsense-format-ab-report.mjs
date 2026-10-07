@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * AdSense in-feed format A/B reports
  *
@@ -1061,7 +1063,7 @@ async function main() {
 }
 
 // Only run main() when invoked directly (not when imported by tests).
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((e) => {
     console.error('adsense-format-ab-report failed:', e.message);

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   createTranslationObservabilitySnapshot,
@@ -12,7 +13,6 @@ import {
 } from './lib/translation-observability.mjs';
 import { readRunPhases } from './lib/translate-run-clock.mjs';
 
-const SELF = fileURLToPath(import.meta.url);
 function args(argv) {
   const out = {};
   for (let index = 0; index < argv.length; index += 2) {
@@ -87,7 +87,7 @@ function run(argv) {
   }
   throw new TypeError('Usage: --mode start|finish|finalize with required paths');
 }
-if (path.resolve(process.argv[1] || '') === SELF) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try { const report = run(process.argv.slice(2)); process.stdout.write(`${report.digest || report.jobSetDigest}\n`); }
   catch (error) { process.stderr.write(`${error.message}\n`); process.exitCode = 1; }
 }

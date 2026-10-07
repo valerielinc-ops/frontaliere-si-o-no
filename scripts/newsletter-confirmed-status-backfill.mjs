@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * newsletter-confirmed-status-backfill.mjs — repair the STATUS WORD on the
  * documents a retired script overwrote, and repair nothing else (#5692).
@@ -496,7 +497,7 @@ async function main() {
 // Guarded, never called at module scope: the sibling runner documents why
 // (importing scripts/newsletter-sunset.mjs RUNS it), and every exported symbol
 // above is imported by tests/newsletter-confirmation-followup.test.ts.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error('[confirmed-status-backfill] failed:', err);
     process.exit(1);

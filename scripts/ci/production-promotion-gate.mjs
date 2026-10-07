@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Fail-closed admission checks for production promotion workflows.
  *
@@ -335,4 +337,4 @@ function runCli(mode) {
   fail([`unknown mode ${mode || '<missing>'}`]);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) runCli(process.argv[2]);
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) runCli(process.argv[2]);

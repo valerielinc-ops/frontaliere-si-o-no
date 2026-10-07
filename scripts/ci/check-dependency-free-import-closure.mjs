@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Verify the transitive import closure used by followup-drainer.yml without
  * installing node_modules. Relative imports must resolve inside this checkout;
@@ -218,4 +220,4 @@ export function main() {
   }
 }
 
-if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1] || '')) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

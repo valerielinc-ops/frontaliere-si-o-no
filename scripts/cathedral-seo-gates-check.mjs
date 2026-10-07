@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * cathedral-seo-gates-check.mjs — detect rebaseline opportunities + regressions.
  *
@@ -759,7 +761,7 @@ async function main() {
 // `GATES` are exported for tests/cathedral-seo-gates-extractors.test.ts, and an
 // import must not spawn six audits over dist/ as a side effect.
 const invokedDirectly =
-  process.argv[1] !== undefined && path.resolve(process.argv[1]) === __filename;
+  process.argv[1] !== undefined && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('[seo-gates-check] fatal:', err instanceof Error ? err.stack : err);

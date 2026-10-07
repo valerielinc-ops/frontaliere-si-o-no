@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
@@ -1679,4 +1681,4 @@ function runCli() {
   process.exitCode = runCrawlerSliceIntegrityCli(process.argv.slice(2));
 }
 
-if (process.argv[1]?.endsWith('crawler-slice-integrity.mjs')) runCli();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) runCli();

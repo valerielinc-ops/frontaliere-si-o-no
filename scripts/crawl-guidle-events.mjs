@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crawler — Guidle (nationwide Switzerland events aggregator, issue #3125).
  *
@@ -892,7 +893,7 @@ async function main() {
 // Only crawl when invoked directly (`node scripts/crawl-guidle-events.mjs`),
 // so tests can import the pure parsing/mapping functions without triggering a
 // live crawl.
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => {
     console.error(`[guidle] crawl failed: ${err?.message || err}`);
     process.exit(1);

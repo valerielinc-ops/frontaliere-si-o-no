@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * detect-aggregate.mjs — the issue-fix workflow's aggregate detector.
  *
@@ -15,7 +17,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { appendFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+
 import { isAggregate } from './check-issue-already-resolved.mjs';
 
 export function detectAggregate({ title = '', body = '', readable = true } = {}) {
@@ -91,7 +93,7 @@ function emitSafeFallback(issue, error) {
   }
 }
 
-if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (err) {

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * Successor guard for the standalone corpus translate workflow.
@@ -16,8 +18,6 @@
  */
 
 import { createHash } from 'node:crypto';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 export const CLAIM_SCHEMA = 'translate-queue-recovery-claim/v1';
 export const CLAIM_ROOT = 'data/translation-queue-recovery/claims/v1';
@@ -267,7 +267,7 @@ export async function verifyRecoverySuccessor({
 }
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   verifyRecoverySuccessor()
     .then((result) => {

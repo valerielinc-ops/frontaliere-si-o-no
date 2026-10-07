@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Lighthouse runner-class observer (advisory, issue 11666).
  *
@@ -105,6 +106,6 @@ function main(argv) {
   return 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   process.exitCode = main(process.argv.slice(2));
 }

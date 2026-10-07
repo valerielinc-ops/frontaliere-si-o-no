@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * scan-unreported-failures.mjs — la rete di sicurezza GLOBALE sui workflow rossi.
  *
@@ -1782,7 +1784,7 @@ async function main() {
   return DORMANT_MODE ? scanDormant() : scanFailures();
 }
 
-if (process.argv[1]?.endsWith('scan-unreported-failures.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main()
     .then((code) => process.exit(code))
     .catch((e) => {

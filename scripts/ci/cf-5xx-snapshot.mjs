@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * cf-5xx-snapshot.mjs — persist a classified daily 5xx snapshot, so this zone's error
  * history outlives Cloudflare's retention.
@@ -442,7 +444,7 @@ async function main() {
   }
 }
 
-const invokedDirectly = process.argv[1] && process.argv[1].endsWith('cf-5xx-snapshot.mjs');
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) {
   main().catch((err) => {
     // PROCEED-SAFE: see docblock.

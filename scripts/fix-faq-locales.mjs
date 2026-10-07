@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * fix-faq-locales.mjs
  * 
@@ -239,7 +241,7 @@ async function main() {
   logCascadeSummary();
 }
 
-const shouldRunFaqLocaleScript = process.argv[1] && resolve(process.argv[1]) === __filename;
+const shouldRunFaqLocaleScript = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (shouldRunFaqLocaleScript) main().catch(err => {
   console.error('Fatal error:', err);
   process.exit(1);
