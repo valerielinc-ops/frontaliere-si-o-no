@@ -9,6 +9,8 @@ import {
   formPostingMatch,
   namesAnotherEmployer,
   sameEmployerFamily,
+  REFRESH_ASKED_RE,
+  removalsOf,
   ownAccountForm,
   sendsApplication,
   privacyConsentControls,
@@ -431,5 +433,34 @@ describe('portal: one employer under two names', () => {
     // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).
     expect(namesAnotherEmployer(`${form}\nRituals Franchise Partner AG`, job)).toBe(true);
     expect(namesAnotherEmployer(`${form}\nRituals Retail`, { ...job, organization: 'Lush Retail GmbH' })).toBe(true);
+  });
+});
+
+// 2026-10-07 (Workday): a run finds the application an earlier run left in progress.
+describe('portal: an application in progress from an earlier run', () => {
+  it('knows the portal’s own «refresh the page» from a page that only mentions a refresh', () => {
+    for (const text of [
+      'Something went wrong Please refresh the page and then try again. Error Code: VPS|0000',
+      'Ein Fehler ist aufgetreten. Bitte laden Sie die Seite neu.',
+      'Si è verificato un errore: ricarica la pagina e riprova.',
+      'Une erreur est survenue. Veuillez actualiser la page.',
+    ]) expect(REFRESH_ASKED_RE.test(text)).toBe(true);
+    for (const text of ['Refresh your skills with our training', 'My Information Save and Continue', 'Seite 2 von 4']) expect(REFRESH_ASKED_RE.test(text)).toBe(false);
+  });
+
+  it('takes away only the file of the same name, by the button that names it', () => {
+    const buttons = [
+      { id: 'b1', text: 'Select files' },
+      { id: 'b2', text: 'Delete CV_Luca_Bianchi.pdf' },
+      { id: 'b3', text: 'Delete Zeugnis_2019.pdf' },
+      { id: 'b4', text: 'CV_Luca_Bianchi.pdf entfernen' },
+      { id: 'b5', text: 'Download CV_Luca_Bianchi.pdf' },
+      { id: 'b6', text: 'Delete CV_Luca_Bianchi.pdf', disabled: true },
+      { id: 'b7', text: 'Delete' },
+    ];
+    expect(removalsOf(buttons, ['CV_Luca_Bianchi.pdf']).map((button: any) => button.id)).toEqual(['b2', 'b4']);
+    expect(removalsOf(buttons, ['Anschreiben_Luca_Bianchi.pdf'])).toEqual([]);
+    expect(removalsOf(buttons, [''])).toEqual([]);
+    expect(removalsOf(undefined as any, ['CV_Luca_Bianchi.pdf'])).toEqual([]);
   });
 });

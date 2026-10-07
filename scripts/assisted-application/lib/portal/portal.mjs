@@ -22,6 +22,7 @@
  * career-ops drives Playwright MCP. Next and the final submit stay here.
  */
 
+import path from 'node:path';
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, RESEND_VERIFICATION_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, usesOtpAccountCreation, verificationIsPending, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
@@ -32,7 +33,7 @@ import { splitName } from '../../../../functions/src/assistedApplicationAiDraftC
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { isoDateOf } from '../../../../functions/src/lib/cvPeriod.js';
 import { permitStatement, printedPermitText } from '../../../../functions/src/lib/permitStatus.js';
-import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, documentPaths, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
@@ -66,6 +67,19 @@ const AUTH_TYPED_WAIT_MS = 600;
 // How long a choice gets to redraw the form it belongs to, and how often one page is planned again for it.
 const REDRAW_WAIT_MS = 3000;
 const MAX_REDRAWS_PER_PAGE = 2;
+// A page with nothing to fill on which the portal itself asks to be loaded again («Something went wrong.
+// Please refresh the page and then try again»: Workday, when the account already holds an application in
+// progress for the posting; its first request for a new one is refused, and the page loaded next is the
+// application), and how often one address is loaded again for it.
+export const REFRESH_ASKED_RE = /(refresh (the|this) page|reload (the|this) page|seite (neu laden|aktualisieren)|laden sie die seite neu|aktualisieren sie die seite|ricaric(a|are|hi) la pagina|aggiorn(a|are|i) la pagina|(actualise[rz]|rafra[iî]chi(r|ssez)|recharge[rz]) la page)/i;
+const MAX_REFRESHES_PER_PAGE = 2;
+// The control that takes an uploaded file away again, by its name next to the file's («Delete CV_….pdf»).
+export const REMOVE_FILE_RE = /(^|\b)(delete|remove|löschen|entfernen|elimina|rimuovi|supprimer|retirer)\b/i;
+
+/** The buttons that remove a file of one of these names: the same document, uploaded by an earlier run. */
+export function removalsOf(buttons, names) {
+  return (buttons || []).filter((button) => !button.disabled && REMOVE_FILE_RE.test(button.text) && names.some((name) => name && button.text.includes(name)));
+}
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -1432,6 +1446,16 @@ export async function submitViaPortal(ctx) {
     const uploaded = new Set();
     // How often a page was planned again because a choice redrew it, by address.
     const redraws = new Map();
+    // How often a page was loaded again because the portal asked for it, by address.
+    const refreshes = new Map();
+    const refreshed = async (current) => {
+      const url = page.url();
+      if (current.fields.length || (refreshes.get(url) || 0) >= MAX_REFRESHES_PER_PAGE || !REFRESH_ASKED_RE.test(await pageText(page))) return null;
+      refreshes.set(url, (refreshes.get(url) || 0) + 1);
+      await page.reload({ waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      return awaitFields(page, await extractFields(page));
+    };
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
     const openTries = new Map();
@@ -1489,6 +1513,14 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
+      // The portal's own «refresh the page and try again»: loaded again, as it asks.
+      const again = await refreshed(snapshot);
+      if (again) {
+        evidence.steps.at(-1).refreshed = true;
+        snapshot = again;
+        step -= 1;
+        continue;
+      }
       // SuccessFactors can resume directly on its one-time-code page after a
       // previous run saved the password but did not consume the OTP. It has no
       // password field, so it must be handled before the application planner.
@@ -1578,6 +1610,13 @@ export async function submitViaPortal(ctx) {
           return { event: { type: 'dry_run_ready', stage: 'account' }, evidence };
         }
         snapshot = auth.snapshot;
+        // The page a sign-in lands on may be the portal's «refresh the page» (see REFRESH_ASKED_RE): loaded
+        // again here, before it is taken for a home page and left for the posting.
+        const signedInPage = await refreshed(snapshot);
+        if (signedInPage) {
+          evidence.steps.at(-1).refreshed = true;
+          snapshot = signedInPage;
+        }
         // After a sign-in or a verification link the portal may land on its
         // home page: back to the posting and its form.
         if (auth.reopen && !hasApplicationForm(snapshot) && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE)) {
@@ -1632,6 +1671,17 @@ export async function submitViaPortal(ctx) {
         const isChoice = (action) => action.action !== 'skip' && ['select', 'listbox'].includes(fieldOf(action)?.kind);
         const shown = (action) => isChoice(action) && Boolean(tidy(action.value)) && tidy(fieldOf(action)?.value) === tidy(action.value);
         const choices = actions.filter((action) => isChoice(action) && !shown(action));
+        // A file an earlier run left on the page under the same name (the run that stopped for a question,
+        // a dry run) is taken away before it is uploaded again: one CV on the application, and the one of
+        // this run, never two.
+        for (const action of actions.filter((item) => item.action === 'upload')) {
+          const names = documentPaths(ctx.files, action.document).map((file) => path.basename(file));
+          for (const button of removalsOf(snapshot.buttons, names)) {
+            await clickButton(page, button).catch(() => {});
+            await page.waitForTimeout(800);
+            (evidence.steps.at(-1).replaced ||= []).push(action.document);
+          }
+        }
         const results = [
           ...actions.filter(shown).map((action) => ({ fieldId: action.fieldId, ok: true })),
           ...await applyActions(page, snapshot.fields, choices, ctx.files),

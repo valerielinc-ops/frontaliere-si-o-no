@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
+import { LIST_PROMPT_RE, extractFieldsInPage } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
 
@@ -301,6 +301,12 @@ describe('portal field extraction', () => {
         <label id="c">Country*</label><button type="button" aria-haspopup="listbox" aria-labelledby="c" aria-label="Country*">Switzerland</button>
       </form></main>`);
     expect(page.fields.map((field: any) => `${field.label} (${field.kind})`)).toEqual(['Country* (listbox)']);
+  });
+
+  // «Select One» was offered to the candidate as a marital status (dry run of 2026-10-07).
+  it('knows a list’s prompt from its options', () => {
+    for (const prompt of ['Select One', 'Select one', 'Please select', 'Bitte auswählen', 'Bitte wählen', 'Seleziona', 'Sélectionnez', 'Choisir']) expect(LIST_PROMPT_RE.test(prompt)).toBe(true);
+    for (const option of ['Single (Switzerland)', 'Married (Switzerland)', 'Switzerland', 'Mobile', 'Selbständig']) expect(LIST_PROMPT_RE.test(option)).toBe(false);
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {

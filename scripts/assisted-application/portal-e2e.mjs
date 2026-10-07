@@ -44,7 +44,7 @@ function fakePortal() {
   // umantis, 2026-10-03: the application form itself asks for the account's password.
   const umantis = { accounts: new Map(), applications: [], refused: [] };
   // Workday, 2026-10-07: one page for «Create Account» and «Sign In», answered by script after the click.
-  const workday = { accounts: new Map(), silent: false, cover: false, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
+  const workday = { accounts: new Map(), silent: false, cover: false, resumed: false, refusedOnce: new Set(), deletedFiles: 0, dropped: 0, registrations: 0, logins: 0, headerSignIns: 0, forms: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   // The form as read on 2026-10-03: one <form>, one password among the applicant's data and the
@@ -405,8 +405,17 @@ function fakePortal() {
     // was typed before is gone. Its phone code is a search box whose chosen value is a pill next to it: two
     // seconds after Enter the only match is taken by itself and shown as that pill (also an «option» on the
     // page); several matches are listed to choose from (Workday's «My Information», 2026-10-07).
+    // `workday.resumed`: the account already holds an application in progress. The first load of the form in
+    // a session is then the portal's own «Something went wrong. Please refresh the page and then try again»
+    // (its request for a new application is refused), the load after it is the application, and the CV an
+    // earlier run uploaded is listed with its «Delete» button.
     if (route === 'GET /wd/form') {
       if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
+      if (workday.resumed && !workday.refusedOnce.has(sessionOf(req))) {
+        workday.refusedOnce.add(sessionOf(req));
+        return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
+          <header><p>Acme Careers</p></header><main><h1>Verkaufsberater/in</h1><h2>Something went wrong</h2><p>Please refresh the page and then try again.</p><p>Error Code: VPS|0000</p></main></body></html>`);
+      }
       return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
         <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
         <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>
@@ -417,7 +426,9 @@ function fakePortal() {
           <label for="pcode">Country Phone Code*</label><input id="pcode" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="pc1" autocomplete="off">
           <ul role="listbox"><li id="pill" role="option" data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="pc1">United States of America (+1)</li></ul>
           <input type="hidden" name="phoneCode" id="phoneCodeValue" value="United States of America (+1)">
-          <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>
+          <label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required>
+          ${workday.resumed ? '<div id="kept"><span>CV_Luca_Bianchi.pdf successfully uploaded</span><input type="hidden" name="kept" value="CV_Luca_Bianchi.pdf"><button type="button" id="del" aria-label="Delete CV_Luca_Bianchi.pdf" style="width:24px;height:24px"></button></div>' : ''}
+          <button type="submit">Bewerbung absenden</button>
         </form>
         <ul id="countries" role="listbox" style="display:none"><li role="option">Switzerland</li><li role="option">United States of America</li></ul>
         <ul id="codes" role="listbox" style="display:none"></ul></main>
@@ -431,6 +442,7 @@ function fakePortal() {
             el('country').onkeydown = (event) => { if (event.key === 'Escape') el('countries').style.display = 'none'; };
           };
           draw('United States of America');
+          if (el('del')) el('del').onclick = () => { fetch('/wd/delete-file', { method: 'POST' }); el('kept').remove(); };
           for (const option of el('countries').children) {
             option.onclick = () => { el('countries').style.display = 'none'; el('countryValue').value = option.textContent; setTimeout(() => draw(option.textContent), 400); };
           }
@@ -451,9 +463,14 @@ function fakePortal() {
     if (route === 'POST /wd/submit') {
       const raw = await readBody(req);
       const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
-      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode') });
+      workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept') });
       state.applications.push({ hasCv: /filename="CV_/.test(raw), first: part('first') });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    if (route === 'POST /wd/delete-file') {
+      workday.deletedFiles += 1;
+      res.writeHead(204);
+      return res.end();
     }
     if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
       workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
@@ -787,6 +804,18 @@ async function workdayAccountChecks({ base, state, workday, files, executablePat
   const afterCover = await run();
   check('Workday: the run after that stop creates the account and sends the application',
     afterCover.event.type === 'submit_succeeded' && workday.accounts.get(ALIAS) === saved.get(host)?.password && saved.get(host)?.status === 'created');
+  // An application in progress from an earlier run (the one that stopped for a question, a dry run): the page
+  // after the sign-in asks to be refreshed and is, and the CV that run left is taken away before this run's
+  // goes in — one CV on the application, never two.
+  state.sessions.clear();
+  workday.resumed = true;
+  const resumed = await run();
+  workday.resumed = false;
+  const kept = workday.forms.at(-1) || {};
+  check('Workday: an application in progress is opened by the refresh the portal asks for, and its old CV replaced, not doubled',
+    resumed.event.type === 'submit_succeeded' && resumed.evidence.steps.some((step) => step.refreshed)
+    && workday.deletedFiles === 1 && kept.kept === '' && state.applications.at(-1)?.hasCv === true
+    && resumed.evidence.steps.some((step) => (step.replaced || []).includes('cv')));
 }
 
 async function main() {

@@ -419,6 +419,9 @@ export function extractFieldsInPage() {
 }
 /* eslint-enable no-undef */
 
+// What a list shows before anything is chosen: «Select One», «Bitte auswählen», «Seleziona».
+export const LIST_PROMPT_RE = /^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i;
+
 /** Open a listbox button, read its options, close it again. */
 export async function readListboxOptions(frame, aaId) {
   const button = frame.locator(`[data-aa-id="${aaId}"]`).first();
@@ -430,7 +433,8 @@ export async function readListboxOptions(frame, aaId) {
     const hasList = await list.waitFor({ state: 'visible', timeout: 4000 }).then(() => true, () => false);
     const options = hasList ? list.locator('[role="option"]') : frame.locator('[role="option"]:visible');
     await options.first().waitFor({ state: 'attached', timeout: 4000 });
-    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter(Boolean).slice(0, 300);
+    // The list's prompt is no option of it («Select One» was offered to the candidate as a marital status).
+    const labels = (await options.allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim()).filter((label) => label && !LIST_PROMPT_RE.test(label)).slice(0, 300);
     await button.press('Escape').catch(() => {});
     return labels.map((label) => ({ value: label, label }));
   } catch {
@@ -451,7 +455,7 @@ export async function readOwnedListOptions(frame, field) {
     await input.click({ timeout: 5000 });
     await list.locator('[role="option"]').first().waitFor({ state: 'attached', timeout: 8000 });
     const labels = (await list.locator('[role="option"]').allInnerTexts()).map((text) => text.replace(/\s+/g, ' ').trim())
-      .filter((label) => label && !/^(bitte (aus)?wählen|please select|select|seleziona(re)?|sélectionne[rz]?|choisi(r|ssez))\b/i.test(label));
+      .filter((label) => label && !LIST_PROMPT_RE.test(label));
     await input.press('Escape').catch(() => {});
     return labels.slice(0, 300).map((label) => ({ value: label, label }));
   } catch {
