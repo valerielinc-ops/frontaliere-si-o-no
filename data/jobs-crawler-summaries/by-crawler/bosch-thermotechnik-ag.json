@@ -1,60 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-06T21:10:49.934Z",
+  "generatedAt": "2026-10-07T09:15:15.641Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 21177,
-  "avgDurationMs": 21177,
+  "unchangedCount": 8,
+  "durationMs": 19122,
+  "avgDurationMs": 19122,
   "durationHistory": [
-    21177
+    19122
   ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
-      "slug": "internship-gestione-del-progetto-acquisizione-degli-strumenti-di-potere-accessori-ref297531b-bosch-thermotechnik-ag",
-      "url": "https://jobs.bosch.com/en/job/REF297531B-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921319-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-0bab547c7e47",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "4500",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -217,6 +176,46 @@
       }
     },
     {
+      "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
+      "slug": "internship-gestione-del-progetto-acquisizione-degli-strumenti-di-potere-accessori-ref297531b-bosch-thermotechnik-ag",
+      "url": "https://jobs.bosch.com/en/job/REF297531B-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921319-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-0bab547c7e47",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T09:12:47.552Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "4500",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Logisitker (w/m/div.) - REF297188H",
       "slug": "logisitker-f-m-div-ref297188-hh-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
@@ -334,5 +333,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
