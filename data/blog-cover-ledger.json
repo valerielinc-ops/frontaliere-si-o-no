@@ -2,10 +2,10 @@
   "schema": 1,
   "generatedAt": "2026-10-07",
   "source": {
-    "gitCommit": "c2a5225cc00b64b411476652199d71e615bf7fac",
-    "heroFiles": 6816,
-    "publishedHeroFiles": 6736,
-    "registryArticles": 6748,
+    "gitCommit": "7c8bdf2de2cfb1e12b15db19ba8171a57162d8dd",
+    "heroFiles": 6818,
+    "publishedHeroFiles": 6738,
+    "registryArticles": 6768,
     "recordsOnDisk": 1796,
     "duplicateMethod": "sha256 of Git blob bytes; no public/images/blog checkout"
   },
@@ -16,16 +16,16 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5024
+      "6": 5026
     },
-    "publishedCovers": 6736,
+    "publishedCovers": 6738,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
     "sourceRecordsMaterialized": 0,
     "generatedQueued": 129,
     "fallbackRepointed": 0,
-    "inferredRecords": 4946
+    "inferredRecords": 4948
   },
   "covers": {
     "139-frontalieri-ticino-special-olympics": {
@@ -11267,6 +11267,60 @@
           }
         ]
       },
+      "status": "no-credit"
+    },
+    "article-furto-van-cernobbio-21enne": {
+      "cover": "/images/blog/article-furto-van-cernobbio-21enne.webp",
+      "hash": "1c45d5bce074120ae65b47bb446be7c72b8fecec91221878d2baaabd83cf7606",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "furto-van-cernobbio-21enne",
+          "category": "novita",
+          "date": "2026-10-07T11:25:53.162Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0": {
+      "cover": "/images/blog/article-rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0.webp",
+      "hash": "477e06f87459d6567e4e8654c70fb2302701a55cda8ca32bb7b8b0acea3816ca",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "rendimenti-titoli-svizzeri-in-rialzo-bns-allo-0",
+          "category": "novita",
+          "date": "2026-10-07T12:04:10.925Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-07",
+      "provider": null,
+      "currentlyPublished": true,
       "status": "no-credit"
     },
     "arte-anima-ticino-frontalieri": {
@@ -179165,7 +179219,7 @@
     "generatedLimit": 150,
     "generatedQueued": 129,
     "generatedCompleted": 21,
-    "inferredKept": 4817,
+    "inferredKept": 4819,
     "sourceProbe": "data/blog-cover-wikimedia-matches.json",
     "note": "Le copertine inferred restano sul proprio URL con record senza credito; la coda contiene solo generazioni article-hero su misura ordinate per traffico/recenza."
   }
