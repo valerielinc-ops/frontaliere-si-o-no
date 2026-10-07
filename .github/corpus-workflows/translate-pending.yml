@@ -910,29 +910,40 @@ jobs:
         continue-on-error: true
         run: node scripts/release-translation-holds.mjs
       - name: "Phase 3: Regenerate locale slugs"
+        id: slug_regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/regenerate-slugs-by-locale.mjs
+      - name: Upload slug regeneration proof
+        id: slug_regeneration_proof
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: slug-regeneration-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/slug-regeneration-proof.json
+          retention-days: 14
+          if-no-files-found: error
       - name: Commit slug regeneration
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        id: commit_slug_regeneration
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
       - name: Save per-company translation cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: data/translation-cache
           key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Save Argos unit cache
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != '' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && hashFiles('.cache/local-mt-units/units.jsonl') != '' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: .cache/local-mt-units
           key: local-mt-units-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Trigger deploy
-        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && steps.slug_regeneration.outcome == 'success' && steps.slug_regeneration_proof.outcome == 'success' && steps.commit_slug_regeneration.outcome == 'success' && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
             echo "✅ All translations complete — triggering deploy"
