@@ -33,9 +33,9 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { isSoftMissing } from './cdn-asset-existence.mjs';
-import { DEFAULT_LIVE_CHECK_TIMEOUT_MS, DEFAULT_LIVE_CHECK_USER_AGENT } from './live-link-check.mjs';
-
+// Node built-ins and upload-cdn-file.sh only, on purpose: this file travels
+// byte-identical to the publisher repository, whose copies of the sibling
+// modules differ or do not exist.
 const UPLOAD_HELPER = path.join(path.dirname(fileURLToPath(import.meta.url)), 'upload-cdn-file.sh');
 
 /** Origin the shell assets are served from; the `assets/<name>` keys hang off it. */
@@ -47,6 +47,15 @@ export const SHELL_ASSET_CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
  * deploy are served alike. tests/cdn-shell-assets.test.ts compares the two.
  */
 export const SHELL_ASSET_CACHE_CONTROL = 'public,max-age=604800';
+
+// fetch() sends no User-Agent of its own, and the zone challenges a request
+// without one: the probe would read every file as not served.
+const PROBE_USER_AGENT = 'FrontaliereTicino-ShellAssets/1.0 (+https://frontaliereticino.ch)';
+const PROBE_TIMEOUT_MS = 8_000;
+
+// A 200 whose body is HTML is not a script or a stylesheet: an origin that
+// serves the SPA on any path answers that way for a file it does not have.
+const isHtml = (contentType) => /^\s*text\/html\b/i.test(String(contentType || ''));
 
 // upload-cdn-file.sh bounds each rclone call itself (R2_TIMEOUT_OBJECT_S, two
 // attempts on the upload) and may first download rclone; this is the backstop.
@@ -83,17 +92,15 @@ export async function probeCdnAsset(key, {
   cdnOrigin = SHELL_ASSET_CDN_ORIGIN,
   fetchImpl = fetch,
   now = Date.now,
-  timeoutMs = DEFAULT_LIVE_CHECK_TIMEOUT_MS,
+  timeoutMs = PROBE_TIMEOUT_MS,
 } = {}) {
-  const url = `${cdnOrigin}/${key}`;
   try {
-    const response = await fetchImpl(`${url}?ensure=${now()}`, {
+    const response = await fetchImpl(`${cdnOrigin}/${key}?ensure=${now()}`, {
       method: 'HEAD',
-      headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+      headers: { 'User-Agent': PROBE_USER_AGENT },
       signal: AbortSignal.timeout(timeoutMs),
     });
-    const softMissing = isSoftMissing(url, response.headers?.get?.('content-type'));
-    if (response.ok) return softMissing ? 'absent' : 'present';
+    if (response.ok) return isHtml(response.headers?.get?.('content-type')) ? 'absent' : 'present';
     return response.status === 404 || response.status === 410 ? 'absent' : 'unknown';
   } catch {
     return 'unknown';
