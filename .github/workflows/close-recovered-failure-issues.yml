@@ -1,4 +1,8 @@
 name: Close Recovered Failure Issues
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Close Recovered Failure Issues [loop-clock {0}]', inputs.loop_clock) || 'Close Recovered Failure Issues' }}
 
 # Zero-Claude reconciler: auto-closes the auto-generated `Workflow Failure: <name>` /
 # `Crawler Failure: <name>` / `CI Failure: <name>` issues once the workflow has recovered (its next run after
@@ -33,6 +37,11 @@ on:
         required: false
         type: boolean
         default: false
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   group: close-recovered-failure-issues

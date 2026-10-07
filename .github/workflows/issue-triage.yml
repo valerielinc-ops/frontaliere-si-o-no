@@ -1,4 +1,8 @@
 name: Issue triage (deterministic classify + route)
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Issue triage (deterministic classify + route) [loop-clock {0}]', inputs.loop_clock) || github.event.issue.title || 'Issue triage (deterministic classify + route)' }}
 
 on:
   issues:
@@ -22,6 +26,11 @@ on:
         required: false
         type: boolean
         default: false
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 # Anti-storm: una run triage alla volta. I monitor (post-deploy validate,
 # crawler-health) aprono issue in burst; serializzare evita race sul routing.
