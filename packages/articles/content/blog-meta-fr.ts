@@ -12759,6 +12759,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Frontaliers des vendanges : 15 francs de l\'heure',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## En bref - Environ 50 frontaliers animent les vendanges dans le Mendrisiotto - Ils viennent principalement de la province de Varese - Le salaire est d\'environ 15 francs nets',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Des travailleurs frontaliers vendangent sur les collines du Mendrisiotto',
+    'blog.article.lifestyle-innovation-hub-chiasso.title': 'Lifestyle Innovation Hub à Chiasso : 30 millions investis',
+    'blog.article.lifestyle-innovation-hub-chiasso.excerpt': '## En bref - Transformation de l\'ancien siège de Credit Suisse avec un investissement total de 30 millions de francs - Inauguré à Chiasso le 7 octobre 2026',
+    'blog.article.lifestyle-innovation-hub-chiasso.imageAlt': 'Le Lifestyle Innovation Hub inauguré à Chiasso le 7 octobre 2026, un immeuble de six étages de plus de 10 000 m² dédié à l\'innovation, à l\'IA et aux secteurs du voyage, de l\'hôtellerie, du design et des médias.',
 };
 
 export default blogMetaFr;

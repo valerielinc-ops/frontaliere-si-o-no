@@ -12758,6 +12758,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Frontalieri della vendemmia: 15 franchi l\'ora',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## In breve - Circa 50 frontalieri animano la vendemmia nel Mendrisiotto - Arrivano soprattutto dalla provincia di Varese - La paga è di circa 15 franchi netti',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Lavoratori frontalieri raccolgono uva sui colli del Mendrisiotto durante la vendemmia',
+    'blog.article.lifestyle-innovation-hub-chiasso.title': 'Lifestyle Innovation Hub a Chiasso: 30 milioni investiti',
+    'blog.article.lifestyle-innovation-hub-chiasso.excerpt': '## In breve - Trasformazione dell\'ex sede di Credit Suisse con un investimento complessivo di 30 milioni di franchi - Inaugurato a Chiasso il 7 ottobre 2026',
+    'blog.article.lifestyle-innovation-hub-chiasso.imageAlt': 'Il Lifestyle Innovation Hub inaugurato a Chiasso il 7 ottobre 2026, edificio di sei piani oltre 10\'000 mq dedicato a innovazione, IA e settori travel, hospitality, design e media.',
 };
 
 export default blogMetaIt;

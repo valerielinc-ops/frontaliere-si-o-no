@@ -12757,6 +12757,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.title': 'Cross-border grape harvest workers: 15 francs an hour',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.excerpt': '## TL;DR - Around 50 cross-border commuters bring the grape harvest to life in Mendrisiotto - They come mainly from the province of Varese - Pay is around 15 net francs',
     'blog.article.vendemmia-mendrisiotto-lavoratori-terra.imageAlt': 'Frontier workers harvest grapes on the Mendrisiotto hills during the grape harvest',
+    'blog.article.lifestyle-innovation-hub-chiasso.title': 'Lifestyle Innovation Hub in Chiasso: 30 million invested',
+    'blog.article.lifestyle-innovation-hub-chiasso.excerpt': '## TL;DR - Transformation of the former Credit Suisse headquarters with a total investment of 30 million francs - Inaugurated in Chiasso on October 7, 2026',
+    'blog.article.lifestyle-innovation-hub-chiasso.imageAlt': 'The Lifestyle Innovation Hub inaugurated in Chiasso on 7 October 2026, a six‑story building over 10,000 m² focused on innovation, AI and the travel, hospitality, design and media sectors.',
 };
 
 export default blogMetaEn;
