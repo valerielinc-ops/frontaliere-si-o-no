@@ -180,14 +180,8 @@ function resolveProtonSourceGeography(rawLocation = '') {
     if (!partHasForeignCountry && nextPartHasForeignCountry) index += 1;
   }
 
-  const uniqueCandidates = new Map(
-    swissCandidates.map((candidate) => [
-      `${candidate.location.toLowerCase()}\u0000${candidate.canton}`,
-      candidate,
-    ]),
-  );
-  if (uniqueCandidates.size !== 1) return null;
-  return !hasForeignOffice && direct ? direct : [...uniqueCandidates.values()][0];
+  if (swissCandidates.length !== 1) return null;
+  return !hasForeignOffice && direct ? direct : swissCandidates[0];
 }
 
 async function fetchJobListings() {

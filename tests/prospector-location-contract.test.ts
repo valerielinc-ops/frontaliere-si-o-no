@@ -729,6 +729,19 @@ describe('prospector location and identity contract', () => {
     ]);
   });
 
+  it('drops repeated Swiss offices instead of deduplicating them', async () => {
+    fetchGreenhouseJobs.mockResolvedValue([
+      {
+        title: 'Repeated Swiss office',
+        location: 'Geneva, Switzerland, Geneva, Switzerland',
+        applyUrl: 'https://job-boards.eu.greenhouse.io/proton/jobs/12',
+        descriptionHtml: DESCRIPTION,
+      },
+    ]);
+
+    await expect(fetchAllProtonJobs()).resolves.toEqual([]);
+  });
+
   it('drops Mabetex rows instead of substituting its Lugano headquarters', async () => {
     fetchHtml.mockResolvedValue(
       `<div class="et_pb_text_inner">Job offers ${'role '.repeat(50)}` +
