@@ -1,0 +1,24 @@
+{
+  "companyKey": "fineskin-ch",
+  "companyName": "FineSkin Group AG",
+  "companyHost": "fineskin.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://fineskin.ch/karriere/"
+  ],
+  "detailTemplate": "/karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Facharzt/-ärztin plastische Chirurgie",
+    "Facharzt/-ärztin Dermatologie",
+    "Nail-Designerin",
+    "Interview lesen",
+    "Interview lesen"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-07T12:17:05.596Z"
+}

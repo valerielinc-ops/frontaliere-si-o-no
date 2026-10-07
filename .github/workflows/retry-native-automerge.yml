@@ -1,4 +1,8 @@
 name: Retry native auto-merge opt-in
+# The loop clock (functions/src/loopClockDispatch.js) names its own dispatches:
+# scripts/ci/loop-clock-health.mjs counts a run as the clock's only by this
+# marker. Every other run keeps the title GitHub would give it.
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.loop_clock != '' && format('Retry native auto-merge opt-in [loop-clock {0}]', inputs.loop_clock) || 'Retry native auto-merge opt-in' }}
 
 # This is a bounded recovery loop for a transient GitHub API failure while
 # opting a PR into native auto-merge. Native auto-merge still owns the wait and
@@ -7,6 +11,12 @@ on:
   schedule:
     - cron: '*/20 * * * *'
   workflow_dispatch:
+    inputs:
+      loop_clock:
+        description: 'Set only by the Cloud Scheduler loop clock (entry id @ slot): it names the run, nothing else reads it'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read

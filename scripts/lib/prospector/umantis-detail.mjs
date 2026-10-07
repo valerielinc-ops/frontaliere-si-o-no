@@ -10,6 +10,10 @@ import { readAttr, readMetaContent, scanHtmlTags } from '../html-attr.mjs';
 import { decodeEntities } from './entities.mjs';
 
 const VOID_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const POSTAL_LOCALITY_LINE_RX = /^([1-9]\d{3})\s+([\p{Lu}][\p{L}.'’\-]*(?:\s+[\p{L}.'’\-]+){0,5})\s*$/u;
+const LOCATION_FIELD_RX = /(?:^|[\s_-])(?:location|locality|standort|arbeitsort|arbeitsplatz|lieu(?:[\s_-]+de)?[\s_-]+travail)(?:$|[\s_-])/i;
+const KNOWN_LOCATION_FIELD_RX = /\btableaslist_element_26476\b/i;
+const FIELD_DESCRIPTOR_ATTRS = ['id', 'class', 'title', 'aria-label', 'aria-labelledby', 'name', 'data-field', 'data-column', 'data-name'];
 
 /** @param {string} raw */
 function classTokens(raw) {
@@ -79,6 +83,57 @@ function cleanLocation(value = '') {
     .trim();
 }
 
+/**
+ * Read the postal/locality pair used by Umantis' newer `column-value` rows.
+ * This deliberately accepts a complete metadata value only: a four-digit
+ * number in arbitrary row text is not enough to become workplace evidence.
+ * @param {string} value
+ * @returns {string}
+ */
+function postalLocalityValue(value = '') {
+  const text = cleanLocation(value).replace(/^\s*\|\s*/, '').trim();
+  if (!text || /(?:online seit|art|befristung|berufsgruppe|unternehmensbereich)\s*:/i.test(text)) return '';
+  const match = POSTAL_LOCALITY_LINE_RX.exec(text);
+  return match ? `${match[1]} ${match[2].trim()}` : '';
+}
+
+/** @param {any} tag */
+function fieldDescriptor(tag) {
+  return FIELD_DESCRIPTOR_ATTRS.map((name) => readAttr(tag.raw, name)).filter(Boolean).join(' ');
+}
+
+/** @param {any} tag @param {ReturnType<typeof indexContainers>} index */
+function containingListItem(tag, index) {
+  return index.tags
+    .filter((candidate) => candidate.name === 'li' && candidate.index < tag.index)
+    .filter((candidate) => tag.index < (index.bounds.get(candidate.index)?.contentEnd ?? -1))
+    .sort((a, b) => b.index - a.index)[0] || null;
+}
+
+/** @param {any} tag @param {ReturnType<typeof indexContainers>} rowIndex @param {string} row */
+function hasProvenLocationField(tag, rowIndex, row = '') {
+  const descriptor = fieldDescriptor(tag);
+  if (LOCATION_FIELD_RX.test(descriptor) || KNOWN_LOCATION_FIELD_RX.test(descriptor)) return true;
+
+  const item = containingListItem(tag, rowIndex);
+  if (!item) return false;
+  const itemDescriptor = fieldDescriptor(item);
+  if (LOCATION_FIELD_RX.test(itemDescriptor) || KNOWN_LOCATION_FIELD_RX.test(itemDescriptor)) return true;
+
+  const itemBound = rowIndex.bounds.get(item.index);
+  if (!itemBound) return false;
+  return rowIndex.tags.some((label) => {
+    if (!['label', 'span'].includes(label.name)
+      || label.index <= item.index || label.index >= itemBound.contentEnd) return false;
+    const labelId = readAttr(label.raw, 'id');
+    const labelClasses = classTokens(label.raw);
+    if (!labelClasses.includes('visually-hidden') && !/(?:^|[_-])label(?:$|[_-])/i.test(labelId)) return false;
+    const labelBound = rowIndex.bounds.get(label.index);
+    const labelText = labelBound ? structuredText(row.slice(label.end, labelBound.contentEnd)) : '';
+    return LOCATION_FIELD_RX.test(`${fieldDescriptor(label)} ${labelText}`);
+  });
+}
+
 /** @param {string} value */
 function locationCandidate(value = '') {
   const location = cleanLocation(value);
@@ -111,9 +166,10 @@ export function umantisVacancyIdentity(url = '') {
 }
 
 /**
- * Read row-scoped listing location evidence. Older Umantis tenants commonly
- * publish the authoritative postal locality beside the vacancy link, while
- * the detail page contains only prose.
+ * Read row-scoped listing location evidence. Umantis tenants publish the
+ * authoritative postal locality beside the vacancy link, while the detail
+ * page often contains only prose. Both the older pipe-style span and the
+ * newer `column-value` metadata value are supported.
  * @param {string} html
  * @param {string} baseUrl
  * @returns {Map<string, ReturnType<typeof locationCandidate>>}
@@ -142,6 +198,33 @@ export function extractUmantisListingEvidence(html = '', baseUrl = '') {
         || classes.some((token) => token === 'tableaslist_element_26476')) {
         rawLocation = value.replace(/^\s*\|\s*/, '');
         if (rawLocation) break;
+      }
+      // The newer Umantis table keeps row metadata in generic `column-value`
+      // spans. A postal/locality pair is the source's workplace field here;
+      // accept it only from that metadata element, never from arbitrary row
+      // prose or a neighbouring vacancy.
+      if (classes.includes('column-value') && hasProvenLocationField(span, rowIndex, row)) {
+        const postalValue = postalLocalityValue(value);
+        if (postalValue) {
+          rawLocation = postalValue;
+          break;
+        }
+      }
+    }
+    if (!rawLocation) {
+      // Some Umantis themes put the value directly in a location-labelled list
+      // item while the nested span has no stable class. Generic list items are
+      // intentionally ignored: a postal/locality-shaped title or category is
+      // not workplace evidence.
+      for (const item of rowIndex.tags.filter((tag) => tag.name === 'li')) {
+        if (!hasProvenLocationField(item, rowIndex, row)) continue;
+        const bound = rowIndex.bounds.get(item.index);
+        if (!bound) continue;
+        const postalValue = postalLocalityValue(structuredText(row.slice(item.end, bound.contentEnd)));
+        if (postalValue) {
+          rawLocation = postalValue;
+          break;
+        }
       }
     }
     if (!rawLocation) {
