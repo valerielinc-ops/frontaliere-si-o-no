@@ -140,6 +140,9 @@ beforeAll(() => {
     GIT_COMMITTER_EMAIL: 'fixture@example.invalid',
     FAKE_GH_FIXTURE: path.join(root, 'gh-fixture.json'),
     FAKE_LSOF_CWDS: '',
+    // Questo fixture verifica le prove di contenuto esistenti; la scadenza
+    // viene coperta dal test E2E dedicato e qui resta fuori dal caso in esame.
+    PRUNE_WORKTREE_EXPIRY_DAYS: '10',
   };
 
   const origin = path.join(root, 'origin.git');
