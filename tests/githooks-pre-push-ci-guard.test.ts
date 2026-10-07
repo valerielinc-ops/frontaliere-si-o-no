@@ -16,7 +16,7 @@ import { join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const HOOK = resolve(ROOT, '.githooks/pre-push');
-const REFRESH_HELPER = resolve(ROOT, 'scripts/ci/pre-push-refresh-origin-main.mjs');
+const OLD_HISTORY_GUARD = resolve(ROOT, 'scripts/lib/old-history-guard.mjs');
 const SINGLE_FLIGHT_LOCK = resolve(ROOT, 'scripts/lib/single-flight-lock.mjs');
 const ZERO_SHA = '0'.repeat(40);
 
@@ -30,7 +30,7 @@ function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRe
   const argsFile = join(stubDir, 'gate-args');
   writeFileSync(
     join(stubDir, 'node'),
-    `#!/usr/bin/env bash\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
+    `#!/usr/bin/env bash\nif [[ "\${1:-}" == *old-history-guard.mjs ]]; then exit 0; fi\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
   try {
@@ -85,10 +85,7 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
     runGit(remote, ['init', '--bare', '-q']);
     mkdirSync(join(repo, 'scripts', 'ci'), { recursive: true });
     mkdirSync(join(repo, 'scripts', 'lib'), { recursive: true });
-    writeFileSync(
-      join(repo, 'scripts', 'ci', 'pre-push-refresh-origin-main.mjs'),
-      readFileSync(REFRESH_HELPER),
-    );
+    const oldHistoryGuardSource = readFileSync(OLD_HISTORY_GUARD, 'utf8');
     writeFileSync(
       join(repo, 'scripts', 'lib', 'single-flight-lock.mjs'),
       readFileSync(SINGLE_FLIGHT_LOCK),
@@ -102,6 +99,15 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
     const marker = includeMarker
       ? runGit(repo, ['commit-tree', emptyTree, '-m', 'pre-rewrite marker'])
       : undefined;
+    writeFileSync(
+      join(repo, 'scripts', 'lib', 'old-history-guard.mjs'),
+      marker
+        ? oldHistoryGuardSource.replace(
+          /export const OLD_HISTORY_FIRST_CHANGED_COMMIT = '[0-9a-f]{40}';/,
+          `export const OLD_HISTORY_FIRST_CHANGED_COMMIT = '${marker}';`,
+        )
+        : oldHistoryGuardSource,
+    );
     const localHead = marker
       ? runGit(repo, ['commit-tree', emptyTree, '-p', marker, '-m', 'legacy branch'])
       : runGit(repo, ['commit-tree', emptyTree, '-m', 'current branch']);
@@ -117,16 +123,7 @@ function createHistoryGuardFixture({ includeMarker }: { includeMarker: boolean }
     runGit(repo, ['update-ref', 'refs/heads/test-branch', localHead]);
     runGit(repo, ['update-ref', 'refs/remotes/origin/main', marker ? localHead : rewrittenMain]);
 
-    const hookSource = readFileSync(HOOK, 'utf8');
-    const markerDeclaration = hookSource.match(
-      /readonly OLD_HISTORY_FIRST_CHANGED_COMMIT='([0-9a-f]{40})'/,
-    );
-    if (!markerDeclaration) {
-      throw new Error('pre-push hook marker declaration not found');
-    }
-    const hook = marker
-      ? hookSource.replace(markerDeclaration[1], marker)
-      : hookSource;
+    const hook = readFileSync(HOOK, 'utf8');
     const hookPath = join(repo, 'pre-push');
     writeFileSync(hookPath, hook);
     chmodSync(hookPath, 0o755);
@@ -225,9 +222,9 @@ describe('.githooks/pre-push old-history rewrite guard', () => {
     );
 
     expect(result.code).toBe(1);
-    expect(result.stdout).toContain('il branch contiene la storia precedente alla riscrittura');
+    expect(result.stdout).toContain('storia precedente');
+    expect(result.stdout).toContain('base aggiornato non la contiene');
     expect(result.stdout).toContain('git rebase --onto origin/main <vecchia base> <branch>');
-    expect(result.stdout).toContain('Non usare --no-verify');
   });
 
   it('leaves the push alone while origin/main still contains the marker', () => {

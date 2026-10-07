@@ -3,6 +3,7 @@ import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { subscribeJobAlertOneTap } from '@/services/jobAlertService';
+import ConsentNotice from '@/components/shared/ConsentNotice';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
 
@@ -251,6 +252,13 @@ export default function JobDetailAlertPrompt({
                 </>
               )}
             </div>
+            {status === 'idle' && (
+              <ConsentNotice
+                consentKey="communicationsOptIn"
+                locale={locale}
+                className="mt-2 text-[10px] text-muted leading-tight block"
+              />
+            )}
           </div>
         </div>
       </div>

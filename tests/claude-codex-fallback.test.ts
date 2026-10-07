@@ -158,6 +158,14 @@ const highConcurrencyReviewWorkflows = new Set([
   'pr-redcheck-fixer.yml',
 ]);
 
+const capabilityAwareBridgeWorkflows = new Set(['tests.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']);
+const legacyBridgeToken = 'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}';
+const writeCapableBridgeToken = "codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+function bridgeTokenExpression(workflowName: string): string {
+  return capabilityAwareBridgeWorkflows.has(workflowName) ? writeCapableBridgeToken : legacyBridgeToken;
+}
+
 const repoRoot = resolve(import.meta.dirname, '..');
 
 describe('decisione Claude → Codex', () => {
@@ -849,7 +857,7 @@ describe('copertura workflow diretti', () => {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
       const bridgeLine = workflow.split('\n').find((line) => line.trim().startsWith('codex_github_token:'));
       expect(bridgeLine, `${workflowName} deve dichiarare il token bridge`).toContain(
-        'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}',
+        bridgeTokenExpression(workflowName),
       );
       expect(bridgeLine).not.toContain('secrets.GITHUB_TOKEN');
     }
@@ -861,7 +869,9 @@ describe('copertura workflow diretti', () => {
       const actionWith = codexFallbackWith(workflow);
       const bridgeToken = String(actionWith.codex_github_token ?? '');
       const helperToken = String(actionWith.github_token ?? '');
-      expect(bridgeToken, `${workflowName} deve avere il bridge`).toContain('env.APP_TOKEN || env.GITHUB_PAT');
+      expect(bridgeToken, `${workflowName} deve avere il bridge`).toContain(
+        bridgeTokenExpression(workflowName).replace('codex_github_token: ', ''),
+      );
       expect(helperToken, `${workflowName} deve conservare il lifecycle helper`).not.toBe('');
     }
     const issueFix = readFileSync(resolve(repoRoot, '.github', 'workflows', 'issue-fix.yml'), 'utf8');
@@ -886,11 +896,12 @@ describe('copertura workflow diretti', () => {
   it('colloca mint/load del bridge nello stesso job del consumer YAML', () => {
     for (const workflowName of mutatingBridgeWorkflows) {
       const workflow = readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8');
-      const job = jobBlockContaining(workflow, 'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+      const bridgeExpression = bridgeTokenExpression(workflowName);
+      const job = jobBlockContaining(workflow, bridgeExpression);
       expect(job, `${workflowName} deve avere consumer e job riconoscibili`).not.toBe('');
       const mintMatch = job.match(/Mint(?: GitHub)? App token/u);
       const mint = mintMatch?.index ?? -1;
-      const bridge = job.indexOf('codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+      const bridge = job.indexOf(bridgeExpression);
       expect(mint, `${workflowName} deve caricare App/PAT nello stesso job`).toBeGreaterThanOrEqual(0);
       expect(mint, `${workflowName} deve caricare App/PAT prima del consumer`).toBeLessThan(bridge);
     }

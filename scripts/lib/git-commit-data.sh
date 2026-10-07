@@ -1218,20 +1218,144 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
   return merged;
 }
 
+const LOCALE_TRANSLATION_KEYS = ['it', 'en', 'de', 'fr'];
+
+function normalizeLocaleMergeText(value) {
+  return String(value ?? '').normalize('NFKC').replace(/\s+/g, ' ').trim();
+}
+
+function sameNonEmptyLocaleMergeText(left, right) {
+  const a = normalizeLocaleMergeText(left);
+  const b = normalizeLocaleMergeText(right);
+  return a.length > 0 && a === b;
+}
+
+/**
+ * A crawler can rebuild a non-source locale as a copy of the source text while
+ * a translation writer is publishing the same job. Generic 3-way semantics
+ * treat that copy as an intentional edit whenever the remote side equals the
+ * merge base (or as the winner of a scalar conflict), which regresses a valid
+ * translation and re-queues the job on the next scan.
+ *
+ * Protect only the narrow, observable regression:
+ * - sourceLang is present in the merge base and the same on remote and local;
+ * - the source field is present in the merge base and unchanged on both sides;
+ * - local non-source slot is a normalized copy of that source field; and
+ * - remote has a non-empty, different value for the same slot.
+ *
+ * If the source or source language changed, the local copy remains authoritative
+ * and the normal retranslation marker is retained.
+ */
+function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
+  const sourceLang = String(
+    remoteObj.sourceLang || localObj.sourceLang || baseObj.sourceLang || '',
+  ).trim();
+  if (!LOCALE_TRANSLATION_KEYS.includes(sourceLang)) return [];
+  if (
+    remoteObj.sourceLang && localObj.sourceLang
+    && String(remoteObj.sourceLang).trim() !== String(localObj.sourceLang).trim()
+  ) return [];
+  // No merge-base evidence means no proof that the source stayed put: leave
+  // the generic merge alone instead of assuming "unchanged".
+  if (
+    !sameNonEmptyLocaleMergeText(baseObj.sourceLang, remoteObj.sourceLang)
+    || !sameNonEmptyLocaleMergeText(baseObj.sourceLang, localObj.sourceLang)
+  ) return [];
+
+  const repairs = [];
+  for (const { field, mapKey } of [
+    { field: 'title', mapKey: 'titleByLocale' },
+    { field: 'description', mapKey: 'descriptionByLocale' },
+  ]) {
+    const remoteSource = remoteObj[field];
+    const localSource = localObj[field];
+    if (!sameNonEmptyLocaleMergeText(remoteSource, localSource)) continue;
+    if (!sameNonEmptyLocaleMergeText(baseObj[field], remoteSource)) continue;
+    const remoteMap = isPlainObject(remoteObj[mapKey]) ? remoteObj[mapKey] : {};
+    const localMap = isPlainObject(localObj[mapKey]) ? localObj[mapKey] : {};
+    for (const locale of LOCALE_TRANSLATION_KEYS) {
+      if (locale === sourceLang) continue;
+      const localValue = localMap[locale];
+      const remoteValue = remoteMap[locale];
+      if (!sameNonEmptyLocaleMergeText(localValue, localSource)) continue;
+      if (normalizeLocaleMergeText(remoteValue).length === 0) continue;
+      if (sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
+      if (sameNonEmptyLocaleMergeText(localValue, remoteValue)) continue;
+      repairs.push({ mapKey, locale, value: remoteValue });
+    }
+  }
+  return repairs;
+}
+
+function applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, warnings, pathLabel) {
+  const repairs = planLocaleTranslationProtection(baseObj, remoteObj, localObj);
+  if (repairs.length === 0) return false;
+
+  for (const { mapKey, locale, value } of repairs) {
+    if (!isPlainObject(merged[mapKey])) merged[mapKey] = {};
+    merged[mapKey][locale] = clone(value);
+  }
+
+  // A crawler flag caused only by the source-copy regression is stale once both
+  // locale maps are exactly the pipeline's remote maps. Do not clear a marker
+  // for a different detector finding or when the remote writer still has it.
+  const mapsMatchRemote = ['titleByLocale', 'descriptionByLocale'].every((mapKey) => {
+    return isSame(merged[mapKey], remoteObj[mapKey]);
+  });
+  const clearLocalFlag = localObj.needsRetranslation === true
+    && remoteObj.needsRetranslation !== true
+    && mapsMatchRemote;
+  if (clearLocalFlag) {
+    if (remoteObj.needsRetranslation === undefined) delete merged.needsRetranslation;
+    else merged.needsRetranslation = clone(remoteObj.needsRetranslation);
+  }
+
+  const fields = repairs.map(({ mapKey, locale }) => `${mapKey}.${locale}`).join(', ');
+  warnings.push(
+    `Preserved remote locale translation at ${pathLabel} (${fields}) because the local source copy had unchanged source text.`
+  );
+  if (clearLocalFlag) {
+    warnings.push(`Preserved remote needsRetranslation state at ${pathLabel} after source-copy repair.`);
+  }
+  return clearLocalFlag;
+}
+
+function applyLocaleTranslationProtectionToValue(
+  baseValue,
+  remoteValue,
+  localValue,
+  merged,
+  warnings,
+  pathLabel,
+) {
+  if (!isPlainObject(merged)) return;
+  applyLocaleTranslationProtection(
+    isPlainObject(baseValue) ? baseValue : {},
+    isPlainObject(remoteValue) ? remoteValue : {},
+    isPlainObject(localValue) ? localValue : {},
+    merged,
+    warnings,
+    pathLabel,
+  );
+}
+
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
   if (isSame(localValue, baseValue)) {
     const merged = clone(remoteValue);
     preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    applyLocaleTranslationProtectionToValue(baseValue, remoteValue, localValue, merged, warnings, pathLabel);
     return merged;
   }
   if (isSame(remoteValue, baseValue)) {
     const merged = clone(localValue);
     preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    applyLocaleTranslationProtectionToValue(baseValue, remoteValue, localValue, merged, warnings, pathLabel);
     return merged;
   }
   if (isSame(localValue, remoteValue)) {
     const merged = clone(localValue);
     preserveDroppedActiveSlugsInValue(remoteValue, localValue, merged, warnings, pathLabel, forcedKey);
+    applyLocaleTranslationProtectionToValue(baseValue, remoteValue, localValue, merged, warnings, pathLabel);
     return merged;
   }
 
@@ -1287,6 +1411,7 @@ function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, for
       if (next !== undefined) merged[key] = next;
     }
     preserveDroppedActiveSlugs(remoteObj, localObj, merged, warnings, pathLabel);
+    applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, warnings, pathLabel);
     return merged;
   }
 
@@ -1561,6 +1686,15 @@ git config user.email "github-actions[bot]@users.noreply.github.com"
 # script so in-repo merge/push tests keep their temp remotes.
 ensure_git_auth() {
   bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
+}
+
+old_history_guard_main() {
+  node "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs" \
+    --head HEAD \
+    --base refs/remotes/origin/main \
+    --refresh-base \
+    --remote origin \
+    --branch main
 }
 
 # GitHub concurrency groups cannot serialize the site and corpus repositories
@@ -1878,6 +2012,7 @@ commit_isolated_from_worktree() {
     push_attempt=$((push_attempt + 1))
     ensure_git_auth
     git_fetch_retry || return 1
+    old_history_guard_main || return 1
     remote_sha="$(git rev-parse origin/main)"
     remote_tree="$(git rev-parse "${remote_sha}^{tree}")"
 
@@ -2430,6 +2565,9 @@ commit_isolated_from_worktree() {
   done
 }
 
+ensure_git_auth
+old_history_guard_main
+
 if [ "$GROUPED_ISOLATED" = true ]; then
   # Both non-zero results are captured through `||` rather than a bare call:
   # under `set -e` (L31), errexit would skip the coordination mapping below.
@@ -2470,6 +2608,7 @@ while true; do
 # ── 3. Sync with remote (stash → rebase → pop → merge if needed) ──────────
 ensure_git_auth
 git_fetch_retry
+old_history_guard_main
 LOCAL=$(git rev-parse HEAD)
 REMOTE=$(git rev-parse origin/main)
 

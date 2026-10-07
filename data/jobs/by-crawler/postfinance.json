@@ -101,7 +101,7 @@
       },
       "titleByLocale": {
         "it": "Senior DevOps Software & Specification Ingegnere (w/m/d)",
-        "en": "Senior DevOps Software & Specification Engineer (w/m/d)",
+        "en": "Senior DevOps Software & Specification Engineer (m/f/d)",
         "de": "Senior DevOps Software & Specification Ingenieur (w/m/d)",
         "fr": "Senior DevOps Software & Specification Ingénieur (w/m/d)"
       },
@@ -589,7 +589,7 @@
       },
       "titleByLocale": {
         "it": "BI & Data Analista Project Portfolio Steering (w/m/d)",
-        "en": "BI & Data Analyst Project Portfolio Steering (w/m/d)",
+        "en": "BI & Data Analyst Project Portfolio Steering (m/f/d)",
         "de": "BI & Data Analyst Project Portfolio Steering (w/m/d)",
         "fr": "BI & Data Analyste Project Portfolio Steering (w/m/d)"
       },
@@ -903,16 +903,16 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice Compliance Office Firmenkunden",
-        "en": "Associate Compliance Office Firmenkunden",
+        "en": "Corporate Customer Compliance Office Associate",
         "de": "Mitarbeiter:in Compliance Office Firmenkunden",
-        "fr": "Collaborateur/trice Compliance Office Firmenkunden"
+        "fr": "Employé :dans le bureau de conformité des entreprises clientes"
       },
       "slug": "collaboratore-trice-compliance-office-firmenkunden-postfinance-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-compliance-office-firmenkunden-postfinance-bern",
         "en": "associate-compliance-office-firmenkunden-postfinance-bern",
         "de": "mitarbeiter-in-compliance-office-firmenkunden-postfinance",
-        "fr": "collaborateur-trice-compliance-office-firmenkunden-postfinance-bern"
+        "fr": "employe-dans-le-bureau-de-conformite-des-entreprises-clientes-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -937,7 +937,8 @@
       },
       "id": "postfinance-d0faf69cadb4",
       "previousSlugs": [
-        "mitarbeiter-in-compliance-office-firmenkunden-postfinance"
+        "mitarbeiter-in-compliance-office-firmenkunden-postfinance",
+        "collaborateur-trice-compliance-office-firmenkunden-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -947,7 +948,8 @@
           "mitarbeiter-in-compliance-office-firmenkunden-postfinance"
         ],
         "fr": [
-          "mitarbeiter-in-compliance-office-firmenkunden-postfinance"
+          "mitarbeiter-in-compliance-office-firmenkunden-postfinance",
+          "collaborateur-trice-compliance-office-firmenkunden-postfinance-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1613,14 +1615,12 @@
       "id": "postfinance-2e73af385b97",
       "previousSlugs": [
         "traineeprogramm-interne-revision-w-m-d-postfinance",
-        "programma-traine-revisione-interna-m-f-d-postfinance-bern",
-        "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
+        "programma-traine-revisione-interna-m-f-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "traineeprogramm-interne-revision-w-m-d-postfinance",
-          "programma-traine-revisione-interna-m-f-d-postfinance-bern",
-          "traineeprogramm-interne-revision-m-w-d-postfinance-bern"
+          "programma-traine-revisione-interna-m-f-d-postfinance-bern"
         ],
         "en": [
           "traineeprogramm-interne-revision-w-m-d-postfinance"
@@ -1800,8 +1800,7 @@
       "id": "postfinance-45a5161f48b7",
       "previousSlugs": [
         "athletenprogramm-asset-management-w-m-d-postfinance",
-        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern",
-        "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+        "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1812,8 +1811,7 @@
         ],
         "fr": [
           "athletenprogramm-asset-management-w-m-d-postfinance",
-          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern",
-          "athletenprogramm-asset-management-m-w-d-postfinance-bern"
+          "programme-sportif-gestion-d-actifs-h-f-d-postfinance-bern"
         ]
       },
       "needsRetranslation": true,

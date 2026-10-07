@@ -462,8 +462,8 @@
       "slugByLocale": {
         "fr": "constructeur-mouvements-h-f-d-chopard-fleurier",
         "it": "constructeur-mouvements-h-f-d-chopard-fleurier",
-        "en": "constructeur-mouvements-h-f-d-chopard-fleurier",
-        "de": "constructeur-mouvements-h-f-d-chopard-fleurier"
+        "en": "manufacturer-movements-m-f-d-chopard-fleurier",
+        "de": "hersteller-uhrwerke-m-w-d-chopard-fleurier"
       },
       "company": "Chopard",
       "companyKey": "chopard",
@@ -472,15 +472,15 @@
       "titleByLocale": {
         "fr": "Constructeur Mouvements (H/F/D)",
         "it": "Constructeur Mouvements (f/m/d)",
-        "en": "Constructeur Mouvements (H/F/D)",
-        "de": "Constructeur Mouvements (H/F/D)"
+        "en": "Manufacturer Movements (M/F/D)",
+        "de": "Hersteller Uhrwerke (M/W/D)"
       },
       "description": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
       "descriptionByLocale": {
         "fr": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
-        "it": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
-        "en": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation.",
-        "de": "Votre mission Développer des mouvements horlogers afin de les concrétiser en documentation et plans pour permettre leur réalisation, dans le respect des processus SQS en vigueur. \n• Vos responsabilités majeures Construire et développer des calibres horlogers mécaniques et modules additionnels. Réaliser des calculs de fonctionnement et des simulations. Etablir les dossiers de plans, en assurer le suivi et la gestion des modifications. Participer à la mise au point des produits jusqu'à leur mise en production. Réaliser les améliorations techniques sur nos calibres existants. Participer aux différentes phases de développements et collaborer avec les divers départements concernés. Rédiger les rapports et compte-rendu de situation."
+        "it": "La tua missione Sviluppare movimenti di orologi al fine di tradurli in documentazione e piani per consentire loro di essere realizzati, in conformità con i processi SQS in vigore.\n• Costruire e sviluppare calibri di orologi meccanici e moduli aggiuntivi. Eseguire calcoli operativi e simulazioni. Stabilire, monitorare e gestire i file di piano. Partecipate allo sviluppo dei prodotti fino alla loro produzione. Miglioramento tecnico dei nostri calibri esistenti. Partecipa a varie fasi di sviluppo e collabora con i vari dipartimenti interessati. Scrivi report e report di stato.",
+        "en": "Your mission To develop watch movements in order to translate them into documentation and plans to enable them to be realized, in accordance with the SQS processes in force.\n• Your major responsibilities Build and develop mechanical watch calibres and additional modules. Perform operating calculations and simulations. Establish, track and manage plan files. Participate in the development of products until they are put into production. Make technical improvements on our existing calibres. Participate in various stages of development and collaborate with the various departments concerned. Write reports and status reports.",
+        "de": "Deine Mission Entwicklung von Uhrwerken, um sie in Dokumentationen und Pläne zu übersetzen, damit sie gemäß den geltenden SQS-Prozessen realisiert werden können.\n• Ihre Hauptaufgaben Bauen und entwickeln mechanische Uhrenkaliber und zusätzliche Module. Durchführung von Betriebsberechnungen und Simulationen. Erstellen, verfolgen und verwalten Sie Plandateien. Beteiligen Sie sich an der Entwicklung von Produkten, bis sie in Produktion gehen. Führen Sie technische Verbesserungen an unseren vorhandenen Kalibern durch. Beteiligen Sie sich an verschiedenen Entwicklungsphasen und arbeiten Sie mit den verschiedenen betroffenen Abteilungen zusammen. Schreiben Sie Berichte und Statusberichte."
       },
       "location": "Fleurier",
       "canton": "GE",
@@ -510,7 +510,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

@@ -36,6 +36,7 @@ export const MYSWITZERLAND_DETAIL_BROWSER_UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36';
 
 export const MYSWITZERLAND_DETAIL_TRANSPORT_MODE = 'browser-UA (eccezione D1)';
+export const INDEX_ONLY_FALLBACK_MODE = 'index-only';
 
 const DETAIL_HOST = 'www.myswitzerland.com';
 const DETAIL_TIMEOUT_MS = 20_000;
@@ -103,6 +104,7 @@ export function recordDetailResponse(stats, response, url) {
     stats.stopped = {
       reason: `HTTP 406 above the ${Math.round(DETAIL_FAILURE_RATIO_THRESHOLD * 100)}% policy threshold (${stats.refused}/${stats.attempted})`,
       url,
+      fallbackMode: INDEX_ONLY_FALLBACK_MODE,
     };
   }
   return kind;
@@ -140,7 +142,10 @@ export function formatDetailTransportSummary(stats) {
     `- 200: ${stats.ok} · 406: ${stats.refused} · 403/429/challenge: ${stats.escalation} · altro: ${stats.other}`,
   ];
   if (stats.stopped) {
-    lines.push(`- Fase dettagli FERMATA: ${stats.stopped.reason} (${stats.stopped.url}); batch non scritto, slice invariato`);
+    const outcome = stats.stopped.fallbackMode === INDEX_ONLY_FALLBACK_MODE
+      ? 'fallback ai soli campi indicizzati selezionato; dati di dettaglio esclusi'
+      : 'batch non scritto, slice invariato';
+    lines.push(`- Fase dettagli FERMATA: ${stats.stopped.reason} (${stats.stopped.url}); ${outcome}`);
   }
   return `${lines.join('\n')}\n`;
 }
@@ -151,7 +156,10 @@ export function reportDetailTransport(stats, { env = process.env, log = console.
   log(`[myswitzerland] detail transport ${MYSWITZERLAND_DETAIL_TRANSPORT_MODE}: attempted ${stats.attempted}, 200 ${stats.ok}, 406 ${stats.refused}, 403/429/challenge ${stats.escalation}, other ${stats.other}`);
   let annotation = null;
   if (stats.stopped) {
-    annotation = `::error::MySwitzerland detail phase stopped: ${stats.stopped.reason} at ${stats.stopped.url}; batch not written`;
+    const outcome = stats.stopped.fallbackMode === INDEX_ONLY_FALLBACK_MODE
+      ? 'index-only fallback selected; detail-only fields omitted'
+      : 'batch not written';
+    annotation = `::error::MySwitzerland detail phase stopped: ${stats.stopped.reason} at ${stats.stopped.url}; ${outcome}`;
     log(annotation);
   }
   if (env.GITHUB_STEP_SUMMARY) {

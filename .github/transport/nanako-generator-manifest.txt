@@ -142,6 +142,11 @@ scripts/lib/sanitize-body-braces.mjs
 # rompe quel run con ERR_MODULE_NOT_FOUND prima di main(). Il file e' puro e
 # non importa nulla.
 scripts/lib/borderWaitSections.mjs
+# Added 2026-10-07: batch-add-faq-to-articles.mjs performs the same
+# non-destructive history check before its checkpoint writer; carry the guard
+# and its lock closure so the transported generator resolves before main().
+scripts/lib/old-history-guard.mjs
+scripts/lib/single-flight-lock.mjs
 
 # --- !rewired: reachable by import, deliberately NOT moved -------------------
 #
