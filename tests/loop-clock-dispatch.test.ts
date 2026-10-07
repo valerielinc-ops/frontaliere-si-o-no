@@ -683,6 +683,53 @@ describe('loop clock observer', () => {
       expect(verdictOf(blind.report, established)).toMatchObject({ state: 'healthy' });
     });
 
+    // The entry of the runtime watchdog carried `introducedAt: 2026-10-08T06:00Z`,
+    // a date in the future that read like an activation. It never was one: the
+    // dispatcher does not read the field, and dispatched the entry from the
+    // deploy that carried it (first marked run 2026-10-07T22:35:04Z). These are
+    // the inputs the review of this change asked about.
+    it('owes nothing at 23:30Z to a 30-minute entry of a table changed at 22:22:51Z, and does not wait for a declared date', async () => {
+      const watchdog = { ...customEntry('site-runtime-reliability-watch'), everyMinutes: 30 };
+      const markedAt = (entry: { id: string }, iso: string) => ({
+        createdAt: iso,
+        databaseId: 1,
+        url: 'https://example.invalid/runs/1',
+        event: 'workflow_dispatch',
+        headBranch: 'main',
+        displayTitle: `Workflow ${LOOP_CLOCK_RUN_MARKER_PREFIX}${loopClockInputValue(entry, iso)}]`,
+      });
+      const observeAt = (now: string) => {
+        const createIssueImpl = vi.fn(async () => ({ number: 1 }));
+        return runLoopClockHealth({
+          now,
+          entries: [established, watchdog],
+          repository: 'owner/site',
+          listRunsImpl: async (_repository: string, workflow: string) => (
+            workflow === established.workflow
+              ? [markedAt(established, '2026-10-07T12:20:00.000Z'), markedAt(established, new Date(Date.parse(now) - 5 * 60_000).toISOString())]
+              : []
+          ),
+          untriagedIssuesImpl: async () => ({ count: 0 }),
+          tableChangedAtImpl: async () => Date.parse('2026-10-07T22:22:51Z'),
+          createIssueImpl,
+          resolveIssueImpl: async () => ({ resolved: 0 }),
+        }).then((report) => ({ report, createIssueImpl }));
+      };
+
+      const asked = await observeAt('2026-10-07T23:30:00Z');
+      expect(verdictOf(asked.report, watchdog)).toMatchObject({
+        state: 'too_early',
+        reason: 'table_younger_than_threshold',
+      });
+      expect(asked.createIssueImpl).not.toHaveBeenCalled();
+
+      // Ninety minutes after the change the entry is owed its dispatches: an
+      // entry the clock does not run is reported that night, not after 06:00Z.
+      const later = await observeAt('2026-10-08T00:00:00Z');
+      expect(verdictOf(later.report, watchdog)).toMatchObject({ state: 'stale', reason: 'no_marked_run_observed' });
+      expect(later.createIssueImpl).toHaveBeenCalledTimes(1);
+    });
+
     it('does not shelter a clock that never dispatched, or one younger than the entry threshold', async () => {
       const tableChangedAtImpl = vi.fn(async () => Date.parse(minutesAgo(5)));
 

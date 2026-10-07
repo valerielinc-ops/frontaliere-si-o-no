@@ -12,7 +12,9 @@ const entries = [
   { id: 'site-production-canary', repo: 'site', workflow: 'production-canary.yml', everyMinutes: 15 },
   // An entry that joins the running clock needs nothing here to be given its
   // first slots: the observer dates the table from its last change on main
-  // (scripts/ci/loop-clock-health.mjs).
+  // (scripts/ci/loop-clock-health.mjs). There is no later activation to
+  // declare either: the dispatcher runs an entry from the deploy that carries
+  // it, whatever a field says.
   { id: 'site-revenue-signal-monitor', repo: 'site', workflow: 'revenue-signal-monitor.yml', everyMinutes: 60 },
   { id: 'site-event-description-rewrite', repo: 'site', workflow: 'event-description-rewrite.yml', everyMinutes: 60 },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
