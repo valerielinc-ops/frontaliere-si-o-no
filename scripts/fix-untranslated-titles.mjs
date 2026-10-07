@@ -7,8 +7,9 @@
  * free-translate cascade (DeepL → MyMemory → etc).
  *
  * Uses the free cascade. In translate-pending, the workflow supplies the
- * Codex Luna Max broker and sets it as the final fallback; without that
- * broker the ordinary free tiers remain the complete cascade.
+ * Codex Luna Max broker, which is the first tier of the cascade (owner
+ * decision 2026-10-06); without that broker the ordinary free tiers remain
+ * the complete cascade.
  * Does NOT modify descriptions, slugs, or needsRetranslation flags.
  *
  * Usage:
@@ -21,8 +22,6 @@
  *     closed if its marker is missing.
  *   UNTRANSLATED_TITLE_FIX_WINDOW_MS — optional window from this process's
  *     start; the lane stops at min(deadline, elapsed at start + window).
- *   FREE_TRANSLATE_CODEX_TIER — set to `last` by translate-pending so Codex is
- *     used only after the other cascade tiers have failed.
  */
 
 import fs from 'node:fs';

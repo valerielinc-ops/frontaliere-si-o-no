@@ -549,9 +549,8 @@ jobs:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "6600000"
           UNTRANSLATED_TITLE_FIX_WINDOW_MS: "1500000"
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-          FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: "480000"
-          FREE_TRANSLATE_CODEX_MAX_MS: "1500000"
+          FREE_TRANSLATE_CODEX_MAX_MS: "900000"
           FREE_TRANSLATE_CODEX_LANES: "3"
           FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: "10"
           TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
