@@ -33,7 +33,7 @@ describe('AI answer check', () => {
     const result = await checkAnswersWithAi(input({ availability: '2027-01-01', salary: 'boh' }, codex));
     expect(result).toEqual({ ok: false, fields: { salary: 'Indica un importo, per esempio CHF 80’000.' }, checkedBy: 'codex' });
     const request = codex.mock.calls[0][0];
-    expect(request).toMatchObject({ schema: ANSWER_CHECK_SCHEMA, name: 'answer_check', timeoutMs: 45_000 });
+    expect(request).toMatchObject({ schema: ANSWER_CHECK_SCHEMA, name: 'answer_check', timeoutMs: 20_000 });
     expect(JSON.parse(request.userText)).toMatchObject({
       today: '2026-09-30',
       answers: [{ id: 'availability', answer: '2027-01-01' }, { id: 'salary', answer: 'boh' }],

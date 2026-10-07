@@ -19,8 +19,9 @@ export const ANSWER_CHECK_SCHEMA = OBJ({
   results: LIST(OBJ({ id: S, ok: { type: 'boolean' }, message: S })),
 });
 
-// The candidate waits on the page for this check.
-export const ANSWER_CHECK_TIMEOUT_MS = 45_000;
+// The review Function has a 60 s total budget. Keep 40 s for rebuilding and
+// saving the candidate's answers after the provider timeout.
+export const ANSWER_CHECK_TIMEOUT_MS = 20_000;
 
 const LANGUAGE_NAMES = { it: 'Italian', de: 'German', fr: 'French', en: 'English' };
 const FALLBACK_MESSAGES = {
