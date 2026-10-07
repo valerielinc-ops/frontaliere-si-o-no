@@ -1,7 +1,7 @@
 {
   "key": "prosenectute-ti",
   "label": "Pro Senectute Ticino e Moesano",
-  "generatedAt": "2026-10-06T21:16:05.472Z",
+  "generatedAt": "2026-10-07T09:10:14.119Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4409,
-  "avgDurationMs": 4409,
+  "durationMs": 5135,
+  "avgDurationMs": 5135,
   "durationHistory": [
-    4409
+    5135
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:8cf58760-f8fd-4d50-bdda-32a602558644/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:15:47.982Z",
+      "crawledAt": "2026-10-07T09:09:58.284Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a071b88f-e067-4c3d-a090-ae4e7a288402/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:15:47.850Z",
+      "crawledAt": "2026-10-07T09:09:58.086Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a5bb2937-0e37-4696-b1fe-abe3c778aa15/Concorso%20generale%202026_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:15:47.616Z",
+      "crawledAt": "2026-10-07T09:09:57.827Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -164,7 +164,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:23640a07-34bb-4681-90f3-c7d9ee01290a/Concorso%20generale%202026_Op.socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-06T21:15:47.369Z",
+      "crawledAt": "2026-10-07T09:09:57.537Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -194,5 +194,5 @@
       }
     }
   ],
-  "codeCommit": "cd7e50ee6db3bbbc763064550d264171dc853fd2"
+  "codeCommit": "2d81a1e47475a954203dc46c943087de3efe1073"
 }
