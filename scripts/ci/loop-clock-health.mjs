@@ -341,8 +341,22 @@ export async function runLoopClockHealth({
         results.push({ id: entry.id, state: 'inconclusive', reason: 'run_window_truncated' });
         continue;
       }
-      if (clockSeenSince !== null && ageMinutes(clockSeenSince) < freshness.thresholdMinutes) {
-        results.push({ id: entry.id, state: 'too_early', reason: 'clock_younger_than_threshold' });
+      let warmupSince = clockSeenSince;
+      let warmupReason = 'clock_younger_than_threshold';
+      if (Object.prototype.hasOwnProperty.call(entry, 'introducedAt')) {
+        const introducedAt = Date.parse(String(entry.introducedAt ?? ''));
+        if (!Number.isFinite(introducedAt)) {
+          errors += 1;
+          results.push({ id: entry.id, state: 'inconclusive', reason: 'entry_introduced_at_unreadable' });
+          continue;
+        }
+        if (warmupSince !== null && introducedAt > warmupSince) {
+          warmupSince = introducedAt;
+          warmupReason = 'entry_younger_than_threshold';
+        }
+      }
+      if (warmupSince !== null && ageMinutes(warmupSince) < freshness.thresholdMinutes) {
+        results.push({ id: entry.id, state: 'too_early', reason: warmupReason });
         continue;
       }
       if (clockSeenSince === null) freshness.reason = 'clock_never_dispatched';
