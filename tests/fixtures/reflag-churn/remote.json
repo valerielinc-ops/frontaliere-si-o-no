@@ -1,0 +1,81 @@
+{
+  "crawlerKey": "reflag-churn-fixture",
+  "jobs": [
+    {
+      "id": "confederazione-ticino-8ca38fa2afae",
+      "url": "https://jobs.example.test/one-health-delegierte",
+      "sourceLang": "de",
+      "title": "One Health Delegierte",
+      "description": "Source description for the One Health posting.",
+      "titleByLocale": {
+        "it": "Un delegato di salute",
+        "en": "One Health Delegate",
+        "de": "One Health Delegierte",
+        "fr": "Un délégué de la santé"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione italiana tradotta.",
+        "en": "Translated English description.",
+        "de": "Source description for the One Health posting.",
+        "fr": "Description française traduite."
+      }
+    },
+    {
+      "id": "efg-6210",
+      "url": "https://jobs.example.test/general-services-employee",
+      "sourceLang": "en",
+      "title": "General Services Employee",
+      "description": "Source description for the general services posting.",
+      "titleByLocale": {
+        "it": "Nuovo titolo italiano",
+        "en": "General Services Employee",
+        "de": "Neuer deutscher Titel",
+        "fr": "Nouveau titre français"
+      },
+      "descriptionByLocale": {
+        "it": "Nuova descrizione italiana.",
+        "en": "Source description for the general services posting.",
+        "de": "Neue deutsche Beschreibung.",
+        "fr": "Nouvelle description française."
+      }
+    },
+    {
+      "id": "clinique-cic-5ea73471cf90",
+      "url": "https://jobs.example.test/community-health-assistant",
+      "sourceLang": "fr",
+      "title": "Assistant-e en soins et santé communautaire (ASSC)",
+      "description": "Source description for the community health posting.",
+      "titleByLocale": {
+        "it": "Assistente per la salute e la cura della comunità (CHS)",
+        "en": "Community Health and Care Assistant (CHS)",
+        "de": "Assistent-e en soins et santé communautaire (ASSC)",
+        "fr": "Assistant-e en soins et santé communautaire (ASSC)"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione italiana tradotta.",
+        "en": "Translated English description.",
+        "de": "Übersetzte deutsche Beschreibung.",
+        "fr": "Source description for the community health posting."
+      }
+    },
+    {
+      "id": "source-change-guard",
+      "url": "https://jobs.example.test/source-change-guard",
+      "sourceLang": "en",
+      "title": "New English source",
+      "description": "New English description.",
+      "titleByLocale": {
+        "it": "Nuova fonte inglese",
+        "en": "New English source",
+        "de": "Neue englische Quelle",
+        "fr": "Nouvelle source anglaise"
+      },
+      "descriptionByLocale": {
+        "it": "Nuova descrizione inglese.",
+        "en": "New English description.",
+        "de": "Neue englische Beschreibung.",
+        "fr": "Nouvelle description anglaise."
+      }
+    }
+  ]
+}

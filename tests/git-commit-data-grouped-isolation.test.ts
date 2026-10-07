@@ -1480,3 +1480,75 @@ exec ${JSON.stringify(process.execPath)} "$@"
     });
   }
 });
+
+describe('git-commit-data.sh locale translation protection', () => {
+  it('does not let a crawler source-copy replace concurrent translated locale slots', () => {
+    const { originDir, repoDir } = initClonePair();
+    const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');
+    const base = readFileSync(join(fixtureDir, 'base.json'), 'utf8');
+    const remote = readFileSync(join(fixtureDir, 'remote.json'), 'utf8');
+    const local = readFileSync(join(fixtureDir, 'local.json'), 'utf8');
+
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/reflag-churn-fixture.json'), base);
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed translation fixtures'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      const otherDir = mkdtempSync(join(tmpdir(), 'gcd-locale-other-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
+        const otherClone = join(otherDir, 'clone');
+        execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
+        execFileSync('git', ['config', 'user.name', 'Other'], { cwd: otherClone });
+        writeFileSync(join(otherClone, 'data/jobs/by-crawler/reflag-churn-fixture.json'), remote);
+        execFileSync('git', ['add', '.'], { cwd: otherClone });
+        execFileSync('git', ['commit', '-q', '-m', 'pipeline translations'], { cwd: otherClone });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
+      } finally {
+        rmSync(otherDir, { recursive: true, force: true });
+      }
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/reflag-churn-fixture.json'), local);
+      runScript(repoDir, 'data/jobs/by-crawler/reflag-churn-fixture.json');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const merged = JSON.parse(execFileSync(
+        'git',
+        ['show', 'origin/main:data/jobs/by-crawler/reflag-churn-fixture.json'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ));
+      const byId = new Map(merged.jobs.map((job: { id: string }) => [job.id, job]));
+
+      expect(byId.get('confederazione-ticino-8ca38fa2afae')).toMatchObject({
+        titleByLocale: { it: 'Un delegato di salute' },
+      });
+      expect(byId.get('confederazione-ticino-8ca38fa2afae')).not.toHaveProperty('needsRetranslation');
+      expect(byId.get('efg-6210')).toMatchObject({
+        titleByLocale: { it: 'Nuovo titolo italiano' },
+        descriptionByLocale: { it: 'Nuova descrizione italiana.' },
+      });
+      expect(byId.get('efg-6210')).not.toHaveProperty('needsRetranslation');
+      // A source-copy repair must not clear a marker caused by a different
+      // field: the title is repaired, but the genuine description finding keeps
+      // the job queued.
+      expect(byId.get('clinique-cic-5ea73471cf90')).toMatchObject({
+        titleByLocale: { it: 'Assistente per la salute e la cura della comunità (CHS)' },
+        descriptionByLocale: { it: 'Descrizione italiana con un rilievo genuino.' },
+        needsRetranslation: true,
+      });
+      // A changed source is outside the protection rule and remains queued for
+      // retranslation even when the local crawler supplied source copies.
+      expect(byId.get('source-change-guard')).toMatchObject({
+        sourceLang: 'en',
+        title: 'New English source',
+        needsRetranslation: true,
+      });
+      expect(byId.get('source-change-guard').titleByLocale.it).toBe('New English source');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+});
