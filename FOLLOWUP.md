@@ -8,24 +8,26 @@ La forma canonica è:
 follow-up(daily:YYYY-MM-DD): N item — owner/repo
 ```
 
-`Europe/Zurich`≠`mergedAt`; successo→watermark, retry→finestra; marker `## Post-merge follow-up triage`.
+`Europe/Zurich`≠`mergedAt`; successo→watermark, retry→finestra.
 
 PR daily `Addresses #<bucket>` + `Follow-up item: FU-...`: `Sources`/padre; `State: collecting`→`State: sealed`; no `agent:fix`/`agent:fix-queued`; `hasFalsifiableAcceptance()` demota/sigilla; errore→blocco, item/watermark.
 
-Baseline diverge→rebuild. Drainer `sealed`+`open` senza PR-ID→`issue-fix` uno/run; PR `Addresses #<bucket>`+`Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; reconciler validi `done`.
+Divergenza→rebuild. Drainer `sealed`+`open` senza PR-ID→`issue-fix`/run; PR `Addresses #<bucket>`+`Follow-up item: FU-YYYY-MM-DD-NNN`, mai `Closes #<bucket>`; reconciler→`done`.
 
 ### Ciclo del padre decomposto e PARENT-REARM
 
-`decomposed:1` tracker: PARENT-DEQUEUE; PARENT-CLOSE dopo figlie dell’ultimo `DECOMPOSED_INTO`. Dopo `🔁 **Reopened**`/`🔁 Recurrence on workflow run.`, PARENT-REARM scrive `PARENT_REARM`, rimuove `decomposed:1`/`agent:triaged`/stale; `triage-sweep` App/PAT.
+`decomposed:1` tracker: PARENT-DEQUEUE; PARENT-CLOSE dopo figlie dell’ultimo `DECOMPOSED_INTO`. Riaperta/recurrence→PARENT-REARM + `PARENT_REARM`, rimuove `decomposed:1`/`agent:triaged`/stale; `triage-sweep` App/PAT.
 
-Marker idempotente; max 2 riarmi/issue/30 giorni e 2/run; marker/date/stato illeggibili→fail-closed; nuovo `DECOMPOSED_INTO`→PARENT-CLOSE.
+Marker idempotente; max 2 riarmi/issue/30g, 2/run; illeggibile→fail-closed; nuovo `DECOMPOSED_INTO`→PARENT-CLOSE.
 ## Gate grandchild-suppression (zero-agente, PRIMA del triage)
 
-`post-merge-followup.yml` gira su OGNI PR owner, **incluse le fix di follow-up**: anti-nipoti.
+`post-merge-followup.yml`: OGNI PR owner, incluse fix follow-up: anti-nipoti.
 
-`is-followup-fix-pr.mjs`: fixer `follow-up`→skip; daily marker→**padre**, no issue; **Proceed-safe** su illeggibile/errore `gh issue view`→triage.
+`is-followup-fix-pr.mjs`: `follow-up`→skip; daily marker→**padre**; **Proceed-safe** su errori→triage.
 
 ## Scopo
+
+Ogni 🟡 nit, ❓ domanda o voce residua `## Non implementato`→follow-up, drop esplicito o `Live-verification`; Nessun silent ignore.
 
 ## Input
 - PR merged: `gh pr view $PR_NUMBER --json number,title,body,mergedAt,mergeCommit,url`
@@ -186,6 +188,8 @@ Labels: `follow-up` + UNO tra `funnel-monetization`/`funnel-seo`/`funnel-ux`; mi
 
 ## Closing comment
 
+OBBLIGATORIO per ogni PR: `## Post-merge follow-up triage` SEMPRE, MARKER DI IDEMPOTENZA, anche a zero candidati.
+
 ```markdown
 ## Post-merge follow-up triage
 
@@ -211,7 +215,7 @@ Created/updated: daily bucket #<id-sito> `follow-up(daily:<YYYY-MM-DD>)` (sito) 
 - <item one-line>
 ```
 
-«Verify complete follow-up triage» prova OGNI `Created/updated:` e `Created/updated: 2 item.` + ``- Corpus #1957 `follow-up(daily:2026-09-28)` — …`` (#10015); `#<id>` richiede `` `follow-up(daily:<YYYY-MM-DD>)` ``; «non persistito» >6 ore→**quarantena** (`quarantined_prs`, issue «Post-merge follow-up: marker di triage in quarantena»).
+«Verify complete follow-up triage» prova ogni `Created/updated:` e `Created/updated: 2 item.` + ``- Corpus #1957 `follow-up(daily:2026-09-28)` — …``; `#<id>`→`` `follow-up(daily:<YYYY-MM-DD>)` ``; «non persistito» >6h→**quarantena** (`quarantined_prs`).
 
 `Live-verification`: `live-verify-only` in `- [ ]`; **nessuna issue/fixer**; Q=0 omesso.
 
