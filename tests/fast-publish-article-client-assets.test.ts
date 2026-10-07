@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import {
+  MAX_CORPUS_DRIFT_AGE_SECONDS,
   __resetCorpusFreshnessCache,
   checkCorpusFreshness,
   pushRenderedLocales,
@@ -62,7 +63,7 @@ describe('rerender article hubs workflow', () => {
   it('preflights every rendered section before publishing client chunks, then pushes hubs', () => {
     const publishAt = hubDriver.indexOf('await publishClientChunks(sections, args.dryRun);');
     const renderAt = hubDriver.indexOf('await renderHubsAndOffload({');
-    const freshnessAt = hubDriver.indexOf('const freshness = await checkCorpusFreshness(section, itemCount);');
+    const freshnessAt = hubDriver.indexOf('const freshness = await checkCorpusFreshness(section, itemCount, {');
     const pushAt = hubDriver.indexOf('// ── Push: ONE invocation per (section, locale)');
     const fatalExitAt = hubDriver.indexOf("console.error(`${LOG} validation failed — nothing pushed`);");
 
@@ -79,19 +80,15 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain('refusing to move the client behind the hub');
   });
 
-  it('defers armed rerenders while the stable corpus sync PR is open', () => {
-    expect(hubWorkflow).toContain('id: corpus_sync');
-    expect(hubWorkflow).toContain('--head chore/sync-articles-sitemaps');
-    expect(hubWorkflow).toContain('echo "deferred=true" >> "$GITHUB_OUTPUT"');
-    expect(hubWorkflow).toContain(
-      "if: steps.corpus_sync.outputs.deferred != 'true' && steps.mode.outputs.dry != 'true'",
-    );
-    expect(hubWorkflow).toContain(
-      "if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
-    );
-    expect(hubWorkflow).toContain(
-      "if: failure() && steps.corpus_sync.outputs.deferred != 'true'",
-    );
+  it('uses the corpus-main overlay and leaves handoff decisions to the driver', () => {
+    expect(hubDriver).toContain('decideCorpusOverlayMode');
+    expect(hubDriver).toContain('prepareCorpusContentOverlay');
+    expect(hubDriver).toContain('corpusCheckoutDir: corpusOverlay.checkoutDir');
+    expect(hubWorkflow).not.toContain('id: corpus_sync');
+    expect(hubWorkflow).not.toContain('--head chore/sync-articles-sitemaps');
+    expect(hubWorkflow).toContain("- 'scripts/lib/article-corpus-overlay.mjs'");
+    expect(hubWorkflow).toContain("- 'scripts/lib/corpus-canton-exclusion.mjs'");
+    expect(hubWorkflow).toContain("- 'scripts/lib/corpus-local-preserve.mjs'");
   });
 
   it('defers a published-ahead ID gap even when the manifest count still matches', async () => {
@@ -117,6 +114,9 @@ describe('rerender article hubs workflow', () => {
     try {
       const verdict = await checkCorpusFreshness('svizzera', 2, {
         localRegistry: { kept: { it: 'kept' } },
+        changeAtById: {
+          publishedAfterSync: Math.floor(Date.now() / 1000) - MAX_CORPUS_DRIFT_AGE_SECONDS + 1,
+        },
       });
       expect(verdict.ok).toBe(false);
       expect(verdict.deferred).toBe(true);
@@ -182,12 +182,16 @@ describe('rerender article hubs workflow', () => {
           kept: { it: 'kept' },
           staleLocalOnly: { it: 'stale-local-only' },
         },
+        changeAtById: {
+          publishedReplacement: Math.floor(Date.now() / 1000) - MAX_CORPUS_DRIFT_AGE_SECONDS + 1,
+          staleLocalOnly: Math.floor(Date.now() / 1000) - MAX_CORPUS_DRIFT_AGE_SECONDS + 1,
+        },
       });
       expect(verdict.ok).toBe(false);
       expect(verdict.deferred).toBe(true);
       expect(verdict.note).toContain('publishedReplacement');
       expect(verdict.note).toContain('staleLocalOnly');
-      expect(verdict.note).toContain('no bytes published');
+      expect(verdict.note).toContain('no HTML or client chunks will be published');
       expect(fetchMock).toHaveBeenCalledTimes(2);
     } finally {
       __resetCorpusFreshnessCache();
@@ -218,18 +222,43 @@ describe('rerender article hubs workflow', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     try {
+      // Corpus-main overlay: a mixed drift defers only while every id in it
+      // changed recently on corpus main. The manifest count moved by two here
+      // (4 published, 2 rendered), well inside MAX_ARTICLES_BEHIND.
+      const recent = Math.floor(Date.now() / 1000) - 60;
       const verdict = await checkCorpusFreshness('svizzera', 2, {
         localRegistry: {
           kept: { it: 'kept' },
           staleLocalOnly: { it: 'stale-local-only' },
         },
+        changeAtById: {
+          publishedA: recent,
+          publishedB: recent,
+          publishedC: recent,
+          staleLocalOnly: recent,
+        },
       });
       expect(verdict.ok).toBe(false);
       expect(verdict.deferred).toBe(true);
-      expect(verdict.note).toContain('bounded mixed drift');
-      expect(verdict.note).toContain('manifest delta 2');
-      expect(verdict.note).toContain('no bytes published');
+      for (const id of ['publishedA', 'publishedB', 'publishedC', 'staleLocalOnly']) {
+        expect(verdict.note).toContain(id);
+      }
+      expect(verdict.note).toContain('no HTML or client chunks will be published');
       expect(fetchMock).toHaveBeenCalledTimes(2);
+
+      // The same drift with no readable corpus date is not a handoff in
+      // progress: it fails closed and names the ids.
+      __resetCorpusFreshnessCache();
+      const undated = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: {
+          kept: { it: 'kept' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+      });
+      expect(undated.ok).toBe(false);
+      expect(undated.deferred).not.toBe(true);
+      expect(undated.note).toContain('staleLocalOnly');
+      expect(undated.note).toContain('refusing to publish a non-converged client registry');
     } finally {
       __resetCorpusFreshnessCache();
       vi.unstubAllGlobals();
@@ -277,9 +306,7 @@ describe('rerender article hubs workflow', () => {
     expect(deferAt).toBeLessThan(publishAt);
     expect(hubDriver).toContain("fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\\n')");
     expect(hubWorkflow).toContain("steps.render.outputs.deferred != 'true'");
-    expect(hubWorkflow).toContain(
-      "if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
-    );
+    expect(hubWorkflow).toContain("if: success() && steps.render.outputs.deferred != 'true'");
   });
 
   it('rejects a live hub card absent from the local registry', async () => {
@@ -403,9 +430,7 @@ describe('rerender article hubs workflow', () => {
     expect(hubWorkflow).toContain('r2-section-lock.mjs renew');
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_ENFORCE=true');
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_FAILURE_FILE');
-    expect(hubWorkflow).toContain(
-      "if: always() && steps.corpus_sync.outputs.deferred != 'true' && steps.acquire_chunk_lock.outcome == 'success'",
-    );
+    expect(hubWorkflow).toContain("if: always() && steps.acquire_chunk_lock.outcome == 'success'");
   });
 
   it('keeps the renewer pid attached to the live process in every article publisher', () => {

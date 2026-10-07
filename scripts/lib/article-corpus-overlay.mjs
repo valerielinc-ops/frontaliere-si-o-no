@@ -30,6 +30,10 @@ const BODY_DIRS = [
   ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body/${locale}`),
   ...['it', 'en', 'de', 'fr'].map((locale) => `blog-body-ch/${locale}`),
 ];
+const CORPUS_REGISTRY_FILES = Object.freeze({
+  frontaliere: 'content/routerBlogData.ts',
+  svizzera: 'content/routerSwissData.ts',
+});
 
 export function decideCorpusOverlayMode({ isCi = false, dryRun = false, explicit = false } = {}) {
   if (isCi === true || explicit === true) {
@@ -82,12 +86,42 @@ export function corpusRevisionFromCheckout(checkoutDir) {
   return { commit, contentRevision: `${epoch}.${short}` };
 }
 
+/**
+ * Return the mainline commit timestamp that last changed an article id's
+ * membership in the current corpus registry. With the id present at HEAD this
+ * is its latest introduction; with the id absent it is its latest retirement.
+ * The hub freshness guard uses this timestamp to bound a no-publish handoff.
+ *
+ * The search is bounded on purpose. The CI clone has no blobs, and a pickaxe
+ * needs the registry at every commit it visits: over the whole history that is
+ * one lazy download per article ever generated. Only the newest change counts,
+ * and only inside the window the caller can still act on, so the walk stops at
+ * the first match and never looks before `sinceEpochSeconds`. A change that is
+ * not in the window is reported as one second before it: older than anything
+ * the caller tolerates, which is all it needs to know.
+ */
+export function corpusArticleChangeTimestamp(checkoutDir, section, id, { sinceEpochSeconds = null } = {}) {
+  const registryPath = CORPUS_REGISTRY_FILES[section];
+  if (!registryPath) throw new Error(`sezione corpus sconosciuta: ${section}`);
+  const marker = `'${id}'`;
+  const bounded = Number.isFinite(sinceEpochSeconds);
+  const args = ['log', '--first-parent', '--max-count=1', '--format=%ct'];
+  if (bounded) args.push(`--since=${new Date(Math.floor(sinceEpochSeconds) * 1000).toISOString()}`);
+  args.push(`-S${marker}`, '--', registryPath);
+  const newest = Number(git(checkoutDir, args).split('\n')[0]);
+  if (Number.isFinite(newest) && newest > 0) return newest;
+  return bounded ? Math.floor(sinceEpochSeconds) - 1 : null;
+}
+
 export function prepareCorpusContentOverlay({
   rootDir,
   remote = process.env.ARTICLES_CORPUS_REMOTE || CORPUS_REMOTE,
+  retainCheckout = false,
+  logPrefix = '[rerender-article-corpus]',
 } = {}) {
   const destination = path.join(rootDir, 'packages', 'articles', 'content');
   const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-corpus-overlay-'));
+  let retained = false;
   try {
     const clone = spawnSync(
       'git',
@@ -106,9 +140,17 @@ export function prepareCorpusContentOverlay({
     mirrorCorpusContent({ source, destination });
 
     const revision = corpusRevisionFromCheckout(temporary);
-    console.log(`[rerender-article-corpus] corpus content pinned to ${revision.commit} (${revision.contentRevision})`);
+    console.log(`${logPrefix} corpus content pinned to ${revision.commit} (${revision.contentRevision})`);
+    if (retainCheckout) {
+      retained = true;
+      return {
+        ...revision,
+        checkoutDir: temporary,
+        cleanup: () => fs.rmSync(temporary, { recursive: true, force: true }),
+      };
+    }
     return revision;
   } finally {
-    fs.rmSync(temporary, { recursive: true, force: true });
+    if (!retained) fs.rmSync(temporary, { recursive: true, force: true });
   }
 }
