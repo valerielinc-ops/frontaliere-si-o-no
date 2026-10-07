@@ -6,7 +6,10 @@
  * marker-backed partial copy of the source title and translates them using the
  * free-translate cascade (DeepL → MyMemory → etc).
  *
- * Does NOT use AI/LLM — only the free cascade. Fast, cheap, reliable.
+ * Uses the free cascade. In translate-pending, the workflow supplies the
+ * Codex Luna Max broker, which is the first tier of the cascade (owner
+ * decision 2026-10-06); without that broker the ordinary free tiers remain
+ * the complete cascade.
  * Does NOT modify descriptions, slugs, or needsRetranslation flags.
  *
  * Usage:

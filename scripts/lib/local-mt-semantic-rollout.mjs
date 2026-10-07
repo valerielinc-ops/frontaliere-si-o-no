@@ -38,6 +38,9 @@ export const LOCAL_MT_SEMANTIC_TELEMETRY_SCHEMA_VERSION = 2;
 export const DEFAULT_LOCAL_MT_SEMANTIC_MAX_OVERWRITES = 100;
 export const HARD_MAX_LOCAL_MT_SEMANTIC_OVERWRITES = 2000;
 export const LOCAL_MT_SEMANTIC_KILL_SWITCH_VARIABLE = 'LOCAL_MT_LANG_AWARE_OVERWRITE';
+export const LOCAL_MT_SEMANTIC_CANDIDATE_SCHEMA_VERSION = 1;
+export const DEFAULT_LOCAL_MT_SEMANTIC_CANDIDATE_LIMIT = 200;
+export const HARD_MAX_LOCAL_MT_SEMANTIC_CANDIDATES = 200;
 
 export const SEMANTIC_BUCKETS = Object.freeze(['accepted', 'rejected', 'unclear', 'error']);
 export const SEMANTIC_WITHHELD_REASONS = Object.freeze(['kill-switch', 'cap', 'rollback']);
@@ -109,6 +112,43 @@ export function semanticBucketOfVerdict(verdict) {
 export function semanticWriteKind(candidate) {
   if (candidate?.languageDriven === true) return 'overwrite';
   return String(candidate?.existing || '').trim() ? 'repair' : 'fill';
+}
+
+/**
+ * Keep a bounded, JSON-safe sample of judged overwrite candidates. The
+ * aggregate telemetry answers "how many"; this companion sample answers
+ * "which detector/policy decision produced it" without putting every public
+ * title from a run into the artifact. The hard cap is deliberate: callers
+ * cannot accidentally turn candidate telemetry into a full corpus dump.
+ */
+export function createSemanticCandidateRecorder(limit = DEFAULT_LOCAL_MT_SEMANTIC_CANDIDATE_LIMIT) {
+  const maxEntries = parseSemanticLimit(
+    limit,
+    DEFAULT_LOCAL_MT_SEMANTIC_CANDIDATE_LIMIT,
+    HARD_MAX_LOCAL_MT_SEMANTIC_CANDIDATES,
+  );
+  const entries = [];
+  let seen = 0;
+
+  return {
+    record(entry) {
+      if (!entry || typeof entry !== 'object') return;
+      seen += 1;
+      if (entries.length >= maxEntries) return;
+      entries.push(JSON.parse(JSON.stringify(entry)));
+    },
+
+    snapshot() {
+      return {
+        schemaVersion: LOCAL_MT_SEMANTIC_CANDIDATE_SCHEMA_VERSION,
+        limit: maxEntries,
+        seen,
+        captured: entries.length,
+        truncated: seen > entries.length,
+        entries: entries.slice(),
+      };
+    },
+  };
 }
 
 /**
