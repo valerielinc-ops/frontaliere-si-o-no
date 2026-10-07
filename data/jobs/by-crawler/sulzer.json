@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sulzer",
-  "assembledAt": "2026-10-06T21:42:24.196Z",
+  "assembledAt": "2026-10-07T09:41:33.334Z",
   "jobs": [
     {
       "id": "sulzer-afada70e7cca",
@@ -33,7 +33,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:42:10.135Z",
+      "crawledAt": "2026-10-07T09:41:25.756Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:42:09.335Z",
+      "crawledAt": "2026-10-07T09:41:24.885Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Digital-Internal-Communications-Working-Student--Trainee-_JR105047",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-06T21:42:08.511Z",
+      "crawledAt": "2026-10-07T09:41:24.078Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -208,7 +208,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR105047",
-      "firstSeenAt": "2026-10-06T09:30:49.988Z",
+      "previousSlugs": [
+        "digital-internal-communications-working-student-trainee-sulzer-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "digital-internal-communications-working-student-trainee-sulzer-ch"
@@ -220,9 +222,7 @@
           "digital-internal-communications-working-student-trainee-sulzer-ch"
         ]
       },
-      "previousSlugs": [
-        "digital-internal-communications-working-student-trainee-sulzer-ch"
-      ],
+      "firstSeenAt": "2026-10-06T09:30:49.988Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",

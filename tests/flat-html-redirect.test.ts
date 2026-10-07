@@ -2,7 +2,12 @@ import { describe, expect, it, beforeEach, afterEach } from 'vitest';
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
-import { flatHtmlRedirectPlugin, transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
+import {
+  buildFlatBridgeFromSibling,
+  extractOgTags,
+  flatHtmlRedirectPlugin,
+  transformFlatRedirect,
+} from '../build-plugins/flatHtmlRedirectPlugin';
 
 /**
  * Verifies the redirect bridge emitted by `flatHtmlRedirectPlugin` after
@@ -262,6 +267,30 @@ describe('flatHtmlRedirectPlugin redirect bridge', () => {
     // Crucially, the fallback is NOT the legacy hard-coded "Redirecting…"
     // string that produced 426 duplicate-title issues in Semrush.
     expect(bridge).not.toContain('<title>Redirecting…</title>');
+  });
+
+  it('masks the sibling once per bridge, not once per <meta>', () => {
+    // Regression for the DE build doubling (2h06 -> 5h10, 3-7 Oct 2026): the
+    // mask ran inside the `while (metaRx.exec(...))` condition, so the whole
+    // document was re-masked for every <meta>. With 4,000 metas the old code
+    // needs tens of seconds here; the fixed one a few milliseconds.
+    const metas = Array.from({ length: 4000 }, (_, i) => `<meta property="og:tag${i}" content="v${i}">`);
+    const html = `<!DOCTYPE html><html><head><title>Many metas</title>
+<!-- <meta property="og:stale" content="comment"> -->
+<script>var a = "<meta property='og:stale' content='script'>";</script>
+${metas.join('\n')}
+</head><body><template><meta property="og:stale" content="template"></template></body></html>`;
+
+    const start = performance.now();
+    const og = extractOgTags(html);
+    const bridge = buildFlatBridgeFromSibling(html, 'https://frontaliereticino.ch/de/jobs-in-bern/x/');
+    const elapsedMs = performance.now() - start;
+
+    expect(og.split('\n')).toEqual(metas);
+    expect(og).not.toContain('og:stale');
+    expect(bridge).toContain('<title>Many metas</title>');
+    expect(bridge).toContain(metas[3999]);
+    expect(elapsedMs).toBeLessThan(5000);
   });
 
   it('keeps the parser contract required by the mirrored fast-publish engine', () => {
