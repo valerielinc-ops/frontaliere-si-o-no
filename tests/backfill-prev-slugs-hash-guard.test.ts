@@ -41,6 +41,21 @@ describe('resolveRecoveryTarget', () => {
     expect(result.targetJob).toBe(basel);
   });
 
+  it('does not redirect a route the hash owner already serves', () => {
+    const bySuffixHash = new Map([
+      [stableSlugHash(zurich), zurich],
+      [stableSlugHash(basel), { ...basel, previousSlugs: [] }],
+    ]);
+    const owner = bySuffixHash.get(stableSlugHash(basel));
+    const baselSlug = `verkaufer-in-food-coop-basel-stadt-${stableSlugHash(basel)}`;
+    owner.previousSlugs = [baselSlug];
+
+    const result = resolveRecoveryTarget(zurich, baselSlug, bySuffixHash);
+
+    expect(result.redirected).toBe(false);
+    expect(result.targetJob).toBe(zurich);
+  });
+
   it('trusts a slug whose tail matches the resolved job\'s own hash', () => {
     const bySuffixHash = new Map([
       [stableSlugHash(zurich), zurich],

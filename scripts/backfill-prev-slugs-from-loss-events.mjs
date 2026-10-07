@@ -150,6 +150,24 @@ function detectLocaleFromSlug(slug) {
 
 const HASH_TAIL_RE = /-([a-z0-9]{6})$/;
 
+/**
+ * Whether a job already serves a route, either as an active slug or as a
+ * previous-slug bridge. A repost collapse can leave the same route on both
+ * records while the older keeper still carries the route that was transferred
+ * from the repost. In that state redirecting the keeper's copy again is
+ * destructive churn, not recovery: the target already has the route.
+ */
+function jobHasRoute(job, slug) {
+  const route = String(slug || '');
+  if (!route || !job || typeof job !== 'object') return false;
+  if (job.slug === route) return true;
+  if (Object.values(job.slugByLocale || {}).includes(route)) return true;
+  if (Array.isArray(job.previousSlugs) && job.previousSlugs.includes(route)) return true;
+  return Object.values(job.previousSlugsByLocale || {}).some((slugs) => (
+    Array.isArray(slugs) && slugs.includes(route)
+  ));
+}
+
 /** Build hash → file only when exactly one current record owns that hash. */
 export function buildUniqueSuffixOwnerFiles(slices) {
   const owners = new Map();
@@ -199,7 +217,15 @@ export function resolveRecoveryTarget(job, slug, bySuffixHash) {
   const ownHash = stableSlugHash(job);
   if (!ownHash || tail === ownHash) return { targetJob: job, skip: false, redirected: false };
   const owner = bySuffixHash.get(tail);
-  if (owner && owner !== job) return { targetJob: owner, skip: false, redirected: true };
+  if (owner && owner !== job) {
+    // The route is already reachable from its hash owner. This occurs when a
+    // source-backed repost was collapsed into an older keeper but both current
+    // records still retain the transferred bridge. Removing the keeper copy
+    // would lose locale attribution and cannot improve ownership, while
+    // repeatedly planning the same move keeps the live-data observer red.
+    if (jobHasRoute(owner, slug)) return { targetJob: job, skip: false, redirected: false };
+    return { targetJob: owner, skip: false, redirected: true };
+  }
   return { targetJob: job, skip: false, redirected: false };
 }
 
