@@ -43,6 +43,7 @@ const RECORD = {
     contains_logo: false,
     contains_recognizable_face: false,
     looks_like_specific_real_event: false,
+    is_photograph: false,
     notes: 'safe fixture',
   },
   scope: 'event-library',
@@ -73,8 +74,11 @@ const PHOTO_RECORD = {
   author: { name: 'Ada Wikimedia', url: 'https://commons.wikimedia.org/wiki/User:Ada' },
   sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
   sourceImageUrl: 'https://upload.wikimedia.org/lago.jpg',
+  sourceWidth: 2400,
+  sourceHeight: 1600,
   copyrightNotice: '© Ada Wikimedia',
   acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Lago.jpg',
+  modifications: ['cropped', 'resized', 'converted-to-webp'],
   restrictions: [...LICENSED_PHOTO_RESTRICTIONS],
   vision: {
     ok: true,
@@ -82,6 +86,7 @@ const PHOTO_RECORD = {
     contains_logo: false,
     contains_recognizable_face: false,
     looks_like_specific_real_event: false,
+    is_photograph: true,
     notes: 'safe licensed landscape fixture',
   },
   imageUrl: '/images/events/library/event-lago-laghi-primavera-v02.webp',
@@ -167,6 +172,7 @@ describe('generated event image policy', () => {
       author: { name: 'Ada Pixabay', url: 'https://cdn.pixabay.com/user/avatar' },
       sourcePageUrl: 'https://pixabay.com/photos/lago-123/',
     }).errors).toContain('pixabay author.url must use the pixabay domain');
+    expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, modifications: undefined }).valid).toBe(false);
   });
 });
 
@@ -257,9 +263,36 @@ describe('published event image gate', () => {
       imageSourcePageUrl: PHOTO_RECORD.sourcePageUrl,
       imageCopyrightNotice: PHOTO_RECORD.copyrightNotice,
       imageAcquireLicensePage: PHOTO_RECORD.acquireLicensePage,
+      imageModifications: PHOTO_RECORD.modifications,
     };
     expect(verifyPublishedEventImages([event], [PHOTO_RECORD])).toEqual({ valid: true, errors: [] });
     expect(verifyPublishedEventImages([{ ...event, imageLicense: 'generated-provider' }], [PHOTO_RECORD]).valid).toBe(false);
+    expect(verifyPublishedEventImages([{ ...event, imageModifications: undefined }], [PHOTO_RECORD]).valid).toBe(false);
+  });
+
+  it('fails the registry gate when a scope reuses a photo hash or source page', () => {
+    const duplicateHash = {
+      ...PHOTO_RECORD,
+      assetId: 'event-lago-laghi-primavera-v03',
+      imageUrl: '/images/events/library/event-lago-laghi-primavera-v03.webp',
+      sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Another-Lago.jpg',
+    };
+    const duplicateSource = {
+      ...PHOTO_RECORD,
+      assetId: 'event-lago-laghi-primavera-v04',
+      imageUrl: '/images/events/library/event-lago-laghi-primavera-v04.webp',
+      sha256: '2'.repeat(64),
+    };
+    const result = validateGeneratedImageRegistry({
+      schema: 1,
+      libraryVersion: '2026-10-07',
+      cdnPrefix: '/images/events/library/',
+      assetCount: 3,
+      assets: [PHOTO_RECORD, duplicateHash, duplicateSource],
+    }, { scope: 'event-library' });
+    expect(result.valid).toBe(false);
+    expect(result.errors.join('\n')).toContain('duplicate sha256');
+    expect(result.errors.join('\n')).toContain('duplicate sourcePageUrl');
   });
 
   it('rejects generated event fields that drift from the registry record', () => {

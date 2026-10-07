@@ -3,7 +3,7 @@
   "libraryVersion": "2026-10-06",
   "cdnPrefix": "/images/events/library/",
   "assetCount": 120,
-  "generatedAt": "2026-10-07T18:00:45.098Z",
+  "generatedAt": "2026-10-07T19:46:33.326Z",
   "assets": [
     {
       "schema": 1,
@@ -2730,28 +2730,39 @@
     {
       "schema": 1,
       "assetId": "event-musica-alpi-montagna-primavera-estate-v02",
-      "kind": "generated",
-      "provider": "openai-codex",
-      "model": "gpt-image-2.5",
-      "executorModel": "gpt-5.6-luna",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "b14fdeb2e14b2de4307a71408543b022011f3971dfc6ac7e6ef311468460f1cc",
-      "license": "generated-provider",
-      "licenseUrl": "https://openai.com/policies/terms-of-use/",
-      "credit": "frontaliereticino.ch",
-      "sha256": "aa023ce4b01f263ebb12d7f30dfaf84603aa01a1f83053b71a8a58f718818779",
-      "bytes": 182314,
+      "kind": "photo",
+      "provider": "wikimedia",
+      "model": "Wikimedia Commons file mirror",
+      "executorModel": "Wikimedia Commons file mirror",
+      "license": "CC BY 4.0",
+      "licenseFamily": "cc-by",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "credit": "Swphotouk · CC BY 4.0",
+      "author": {
+        "name": "Swphotouk"
+      },
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Les_Moleson_Switzerland_Alps_01.jpg",
+      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Les_Moleson_Switzerland_Alps_01.jpg/1920px-Les_Moleson_Switzerland_Alps_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 6000,
+      "sourceHeight": 4000,
+      "copyrightNotice": "© Swphotouk",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Les_Moleson_Switzerland_Alps_01.jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "a59d8f33b80cd837abcd61757106971980a7f5ef8846f8c4e7fc362e0f7563ea",
+      "bytes": 110822,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:37:46.136Z",
-      "verifiedAt": "2026-10-07T17:37:58.141Z",
+      "generatedAt": "2026-10-07T19:39:00.507Z",
+      "verifiedAt": "2026-10-07T19:39:10.125Z",
       "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
       ],
       "scope": "event-library",
       "imageUrl": "/images/events/library/event-musica-alpi-montagna-primavera-estate-v02.webp",
@@ -2765,7 +2776,8 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Generic original-style Alpine music illustration; no visible text, logos, recognizable faces, or depiction of a specific real event."
+        "is_photograph": true,
+        "notes": "Fotografia reale di paesaggio alpino; nessuna persona riconoscibile, logo, marchio o testo visibile."
       }
     },
     {
@@ -2852,28 +2864,35 @@
     {
       "schema": 1,
       "assetId": "event-musica-laghi-autunno-inverno-v02",
-      "kind": "generated",
-      "provider": "openai-codex",
-      "model": "gpt-image-2.5",
-      "executorModel": "gpt-5.6-luna",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "0ea2c695c419b2e4bf78921b1390203f0fd47d7fd2cb9c26ac6c07c2ef74ec6d",
-      "license": "generated-provider",
-      "licenseUrl": "https://openai.com/policies/terms-of-use/",
-      "credit": "frontaliereticino.ch",
-      "sha256": "e6ac1296937004f264d6413eefc935b4eabf3a4eaae74b43c58d3138d7e70531",
-      "bytes": 146082,
+      "kind": "photo",
+      "provider": "pixabay",
+      "model": "Pixabay photo search",
+      "executorModel": "Pixabay photo search",
+      "license": "Pixabay Content License",
+      "licenseFamily": "pixabay",
+      "licenseUrl": "https://pixabay.com/service/license-summary/",
+      "credit": "Makalu · Pixabay",
+      "author": {
+        "name": "Makalu",
+        "url": "https://pixabay.com/users/Makalu-680451/"
+      },
+      "sourcePageUrl": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "sourceImageUrl": "https://pixabay.com/get/ga287d8ef0e76b2e810ae58e45055f619ae2f95158fff93ab938f6f2378a6992d75db17a277ee6213de254216c4b305fab37030b69022ec53c4ac9242a22b22a1_1280.jpg",
+      "sourceWidth": 4802,
+      "sourceHeight": 3180,
+      "copyrightNotice": "© Makalu",
+      "acquireLicensePage": "https://pixabay.com/photos/italy-porto-ceresio-lake-lugano-4584512/",
+      "sha256": "a19614496ea25847d6febe6ae0195744661195bdc40ecc272b3ce135e6866c8e",
+      "bytes": 201258,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:46:21.362Z",
-      "verifiedAt": "2026-10-07T17:46:32.350Z",
+      "generatedAt": "2026-10-07T19:42:48.232Z",
+      "verifiedAt": "2026-10-07T19:43:18.133Z",
       "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
       ],
       "scope": "event-library",
       "imageUrl": "/images/events/library/event-musica-laghi-autunno-inverno-v02.webp",
@@ -2883,11 +2902,12 @@
       "variant": "02",
       "vision": {
         "ok": true,
-        "contains_text": false,
+        "contains_text": true,
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Illustrazione generica e originale di un concerto sul lungolago; nessun testo, logo o volto riconoscibile."
+        "is_photograph": true,
+        "notes": "Fotografia paesaggistica di un lago e un paese; eventuale testo è distante e non chiaramente leggibile. Nessun volto riconoscibile, logo o marchio evidente."
       }
     },
     {
@@ -3110,6 +3130,8 @@
       },
       "sourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "sourceImageUrl": "https://pixabay.com/get/gf3e2a151252a9c6fd9314bb6929fe1a643c5a63c91c220f4087abc8c26c40a31155f39b1d012f0266397b52f3f9231dea59127d7700ec41fc06bd904a137e3b6_1280.jpg",
+      "sourceWidth": 5184,
+      "sourceHeight": 3456,
       "copyrightNotice": "© GPhotography",
       "acquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
       "sha256": "1e834d2c258642bdd291926b8abd70aede4887c4018ceecc5165caa10366e667",
@@ -3136,6 +3158,7 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
+        "is_photograph": true,
         "notes": "Panoramic cityscape of a real place; no recognizable foreground people, logos, brands, trademarks, or specific event visible."
       }
     },
@@ -3149,21 +3172,28 @@
       "license": "CC BY-SA 4.0",
       "licenseFamily": "cc-by-sa",
       "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "credit": "Philippe Moret · CC BY-SA 4.0",
+      "credit": "Kuhnmi · CC BY-SA 4.0",
       "author": {
-        "name": "Philippe Moret"
+        "name": "Kuhnmi"
       },
-      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Panorama_of_Lugano_at_Sunset.jpg",
-      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Panorama_of_Lugano_at_Sunset.jpg/1920px-Panorama_of_Lugano_at_Sunset.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "copyrightNotice": "© Philippe Moret",
-      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Panorama_of_Lugano_at_Sunset.jpg",
-      "sha256": "94f499006973c16acb5cbdfb4aabaadb86fb2426b060243621874dfdd45af4be",
-      "bytes": 94714,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zurich_skyline_blue_hour.jpg",
+      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Zurich_skyline_blue_hour.jpg/1920px-Zurich_skyline_blue_hour.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 7666,
+      "sourceHeight": 4312,
+      "copyrightNotice": "© Kuhnmi",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Zurich_skyline_blue_hour.jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "84ab198a409dc20070ecf8679f868a86e2724571aebba6108066b9675562cf35",
+      "bytes": 101946,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T18:00:35.927Z",
-      "verifiedAt": "2026-10-07T18:00:45.090Z",
+      "generatedAt": "2026-10-07T19:38:26.684Z",
+      "verifiedAt": "2026-10-07T19:38:43.769Z",
       "restrictions": [
         "licensed-source",
         "no-recognizable-foreground-person",
@@ -3181,7 +3211,8 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Aerial cityscape/landscape with no visible text, logos, brands, trademarks, or recognizable people."
+        "is_photograph": true,
+        "notes": "Fotografia di paesaggio urbano senza persone riconoscibili, loghi o marchi visibili."
       }
     },
     {
@@ -3228,28 +3259,34 @@
       "schema": 1,
       "assetId": "event-musica-svizzera-urbana-primavera-estate-v02",
       "kind": "photo",
-      "provider": "pixabay",
-      "model": "Pixabay photo search",
-      "executorModel": "Pixabay photo search",
-      "license": "Pixabay Content License",
-      "licenseFamily": "pixabay",
-      "licenseUrl": "https://pixabay.com/service/license-summary/",
-      "credit": "GPhotography · Pixabay",
+      "provider": "wikimedia",
+      "model": "Wikimedia Commons file mirror",
+      "executorModel": "Wikimedia Commons file mirror",
+      "license": "CC BY-SA 4.0",
+      "licenseFamily": "cc-by-sa",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Aabdul1 · CC BY-SA 4.0",
       "author": {
-        "name": "GPhotography",
-        "url": "https://pixabay.com/users/GPhotography-19753942/"
+        "name": "Aabdul1"
       },
-      "sourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
-      "sourceImageUrl": "https://pixabay.com/get/gf3e2a151252a9c6fd9314bb6929fe1a643c5a63c91c220f4087abc8c26c40a31155f39b1d012f0266397b52f3f9231dea59127d7700ec41fc06bd904a137e3b6_1280.jpg",
-      "copyrightNotice": "© GPhotography",
-      "acquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
-      "sha256": "1e834d2c258642bdd291926b8abd70aede4887c4018ceecc5165caa10366e667",
-      "bytes": 212452,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Lake_Zurich_Fresh_Bright_Day_Landscape.jpg",
+      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Lake_Zurich_Fresh_Bright_Day_Landscape.jpg/1920px-Lake_Zurich_Fresh_Bright_Day_Landscape.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 4000,
+      "sourceHeight": 1800,
+      "copyrightNotice": "© Aabdul1",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Lake_Zurich_Fresh_Bright_Day_Landscape.jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "c77d2d66f4fad6cf4bc60f4d161671ece397adc7e3ddc8c119f7fee674ec62c7",
+      "bytes": 112926,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:35:12.424Z",
-      "verifiedAt": "2026-10-07T17:35:21.211Z",
+      "generatedAt": "2026-10-07T19:46:26.843Z",
+      "verifiedAt": "2026-10-07T19:46:33.325Z",
       "restrictions": [
         "licensed-source",
         "no-recognizable-foreground-person",
@@ -3267,35 +3304,42 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Panoramica urbana di un luogo reale; non si vedono persone in primo piano riconoscibili, loghi o marchi."
+        "is_photograph": true,
+        "notes": "Fotografia paesaggistica reale; nessuna persona in primo piano riconoscibile, nessun logo o marchio visibile."
       }
     },
     {
       "schema": 1,
       "assetId": "event-musica-svizzera-urbana-primavera-estate-v03",
       "kind": "photo",
-      "provider": "pixabay",
-      "model": "Pixabay photo search",
-      "executorModel": "Pixabay photo search",
-      "license": "Pixabay Content License",
-      "licenseFamily": "pixabay",
-      "licenseUrl": "https://pixabay.com/service/license-summary/",
-      "credit": "GPhotography · Pixabay",
+      "provider": "wikimedia",
+      "model": "Wikimedia Commons file mirror",
+      "executorModel": "Wikimedia Commons file mirror",
+      "license": "CC BY-SA 4.0",
+      "licenseFamily": "cc-by-sa",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "Armineaghayan · CC BY-SA 4.0",
       "author": {
-        "name": "GPhotography",
-        "url": "https://pixabay.com/users/GPhotography-19753942/"
+        "name": "Armineaghayan"
       },
-      "sourcePageUrl": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
-      "sourceImageUrl": "https://pixabay.com/get/gf3e2a151252a9c6fd9314bb6929fe1a643c5a63c91c220f4087abc8c26c40a31155f39b1d012f0266397b52f3f9231dea59127d7700ec41fc06bd904a137e3b6_1280.jpg",
-      "copyrightNotice": "© GPhotography",
-      "acquireLicensePage": "https://pixabay.com/photos/buildings-city-architecture-bern-6262595/",
-      "sha256": "1e834d2c258642bdd291926b8abd70aede4887c4018ceecc5165caa10366e667",
-      "bytes": 212452,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Zurich_Lake_and_Meilen.jpg",
+      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Zurich_Lake_and_Meilen.jpg/1920px-Zurich_Lake_and_Meilen.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 4032,
+      "sourceHeight": 1960,
+      "copyrightNotice": "© Armineaghayan",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Zurich_Lake_and_Meilen.jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "da6de54fcc8790e7460ed9b3bf4c6b122f3dd6ffe734224c73cc36a936b282a1",
+      "bytes": 174924,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:35:21.678Z",
-      "verifiedAt": "2026-10-07T17:35:32.954Z",
+      "generatedAt": "2026-10-07T19:35:32.312Z",
+      "verifiedAt": "2026-10-07T19:36:13.391Z",
       "restrictions": [
         "licensed-source",
         "no-recognizable-foreground-person",
@@ -3313,7 +3357,8 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Cityscape photograph with no recognizable foreground people, logos, brands, trademarks, or event-specific content."
+        "is_photograph": true,
+        "notes": "Fotografia paesaggistica reale; nessun volto riconoscibile, logo o marchio visibile."
       }
     },
     {
@@ -3401,28 +3446,34 @@
       "schema": 1,
       "assetId": "event-musica-ticino-confine-autunno-inverno-v03",
       "kind": "photo",
-      "provider": "pexels",
-      "model": "Pexels photo search",
-      "executorModel": "Pexels photo search",
-      "license": "Pexels License",
-      "licenseFamily": "pexels",
-      "licenseUrl": "https://www.pexels.com/license/",
-      "credit": "Jean-Paul Wettstein · Pexels",
+      "provider": "wikimedia",
+      "model": "Wikimedia Commons file mirror",
+      "executorModel": "Wikimedia Commons file mirror",
+      "license": "CC BY-SA 4.0",
+      "licenseFamily": "cc-by-sa",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "credit": "André Corboz · CC BY-SA 4.0",
       "author": {
-        "name": "Jean-Paul Wettstein",
-        "url": "https://www.pexels.com/@jean-paul-wettstein-677916508"
+        "name": "André Corboz"
       },
-      "sourcePageUrl": "https://www.pexels.com/photo/scenic-view-of-lake-lugano-from-morcote-switzerland-33820231/",
-      "sourceImageUrl": "https://images.pexels.com/photos/33820231/pexels-photo-33820231.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "copyrightNotice": "© Jean-Paul Wettstein",
-      "acquireLicensePage": "https://www.pexels.com/photo/scenic-view-of-lake-lugano-from-morcote-switzerland-33820231/",
-      "sha256": "cd62f95d6613a38951f7600871fc2c1f5e8bf8f7b1857aa79bd9bb78533fafa7",
-      "bytes": 208566,
+      "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Veduta_di_Melide_da_Castagnola.jpg",
+      "sourceImageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Veduta_di_Melide_da_Castagnola.jpg/1920px-Veduta_di_Melide_da_Castagnola.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "sourceWidth": 3000,
+      "sourceHeight": 2047,
+      "copyrightNotice": "© André Corboz",
+      "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Veduta_di_Melide_da_Castagnola.jpg",
+      "modifications": [
+        "cropped",
+        "resized",
+        "converted-to-webp"
+      ],
+      "sha256": "1bf1689b84c6e825f895e7098ea3436bf6ba60a3ef576678ee4ee0619acd30a2",
+      "bytes": 111912,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:34:53.644Z",
-      "verifiedAt": "2026-10-07T17:35:01.514Z",
+      "generatedAt": "2026-10-07T19:34:43.112Z",
+      "verifiedAt": "2026-10-07T19:34:56.241Z",
       "restrictions": [
         "licensed-source",
         "no-recognizable-foreground-person",
@@ -3440,7 +3491,8 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Paesaggio naturale senza persone riconoscibili, loghi, marchi o testo visibile."
+        "is_photograph": true,
+        "notes": "Fotografia reale di paesaggio lacustre e montano; nessuna persona riconoscibile, logo, marchio o testo visibile."
       }
     },
     {
@@ -4652,28 +4704,35 @@
     {
       "schema": 1,
       "assetId": "event-teatro-spettacolo-ticino-confine-autunno-inverno-v02",
-      "kind": "generated",
-      "provider": "openai-codex",
-      "model": "gpt-image-2.5",
-      "executorModel": "gpt-5.6-luna",
-      "promptVersion": "frontaliereticino.generated-image-policy.v1",
-      "promptHash": "0e10723024441993bf04aca6bd083908494c02653520ba21641a1c1817b9640d",
-      "license": "generated-provider",
-      "licenseUrl": "https://openai.com/policies/terms-of-use/",
-      "credit": "frontaliereticino.ch",
-      "sha256": "f8e1715aa5492d88dd0a32a891655d3c093718e34da92fc34dc02265bd413779",
-      "bytes": 97462,
+      "kind": "photo",
+      "provider": "pexels",
+      "model": "Pexels photo search",
+      "executorModel": "Pexels photo search",
+      "license": "Pexels License",
+      "licenseFamily": "pexels",
+      "licenseUrl": "https://www.pexels.com/license/",
+      "credit": "Hugo Sykes · Pexels",
+      "author": {
+        "name": "Hugo Sykes",
+        "url": "https://www.pexels.com/@hugosykes"
+      },
+      "sourcePageUrl": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "sourceImageUrl": "https://images.pexels.com/photos/15276621/pexels-photo-15276621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "sourceWidth": 9203,
+      "sourceHeight": 6135,
+      "copyrightNotice": "© Hugo Sykes",
+      "acquireLicensePage": "https://www.pexels.com/photo/dawn-sky-above-mountains-15276621/",
+      "sha256": "f27ec4aa66bd4110d176564d6ec6890a29259e1589e8c1ffc6cbfa247ab89876",
+      "bytes": 43298,
       "width": 1200,
       "height": 675,
       "format": "webp",
-      "generatedAt": "2026-10-07T17:53:19.163Z",
-      "verifiedAt": "2026-10-07T17:53:27.166Z",
+      "generatedAt": "2026-10-07T19:45:53.886Z",
+      "verifiedAt": "2026-10-07T19:46:02.128Z",
       "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
+        "licensed-source",
+        "no-recognizable-foreground-person",
+        "no-logo-brand-or-trademark"
       ],
       "scope": "event-library",
       "imageUrl": "/images/events/library/event-teatro-spettacolo-ticino-confine-autunno-inverno-v02.webp",
@@ -4687,7 +4746,8 @@
         "contains_logo": false,
         "contains_recognizable_face": false,
         "looks_like_specific_real_event": false,
-        "notes": "Illustrazione editoriale generica e coerente; nessun testo, logo, volto riconoscibile o evento reale specifico."
+        "is_photograph": true,
+        "notes": "Fotografia paesaggistica di montagne senza persone riconoscibili, testo, loghi o marchi."
       }
     },
     {

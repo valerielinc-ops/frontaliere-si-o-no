@@ -63,6 +63,11 @@ export const LICENSED_PHOTO_RESTRICTIONS = Object.freeze([
   'no-recognizable-foreground-person',
   'no-logo-brand-or-trademark',
 ]);
+export const LICENSED_PHOTO_MODIFICATIONS = Object.freeze([
+  'cropped',
+  'resized',
+  'converted-to-webp',
+]);
 
 export const GENERATED_IMAGE_POLICY = Object.freeze([
   'Illustrative editorial scene, never a documentary or journalistic photograph of a specific real event.',
@@ -353,6 +358,16 @@ export function validateGeneratedImageRecord(record) {
     if (record.sourceImageUrl !== undefined && !/^https:\/\//i.test(String(record.sourceImageUrl))) {
       errors.push('photo sourceImageUrl must be https');
     }
+    if (!positiveInteger(record.sourceWidth) || !positiveInteger(record.sourceHeight)) {
+      errors.push('photo sourceWidth/sourceHeight must be positive integers');
+    } else if (Math.max(record.sourceWidth, record.sourceHeight) < 1600 || record.sourceWidth / record.sourceHeight < 1.2) {
+      errors.push('photo source dimensions are too small or not landscape');
+    }
+    if (['cc-by', 'cc-by-sa'].includes(normalizedPhotoLicenseFamily(record))
+      && (!Array.isArray(record.modifications)
+        || !LICENSED_PHOTO_MODIFICATIONS.every((item) => record.modifications.includes(item)))) {
+      errors.push('CC BY photo modifications must document crop, resize and WebP conversion');
+    }
   } else {
     if (record.kind !== undefined && record.kind !== GENERATED_IMAGE_KIND) errors.push('generated record kind must be generated');
     if (!GENERATED_IMAGE_PROVIDERS.includes(record.provider)) errors.push('provider is not allowed');
@@ -388,6 +403,7 @@ export function validateGeneratedImageRecord(record) {
     || record.vision.ok !== true
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
+    || (isPhoto ? record.vision.is_photograph !== true : false)
     || (isPhoto ? typeof record.vision.contains_text !== 'boolean' : record.vision.contains_text !== false)
     || (isPhoto ? typeof record.vision.looks_like_specific_real_event !== 'boolean' : record.vision.looks_like_specific_real_event !== false)
     || !nonEmpty(record.vision.notes))) {
@@ -421,6 +437,8 @@ export function validateGeneratedImageRegistry(registry, { scope } = {}) {
   }
   const assetIds = new Set();
   const imageUrls = new Set();
+  const hashesByScope = new Map();
+  const sourcePagesByScope = new Map();
   for (const record of assets) {
     const validation = validateGeneratedImageRecord(record);
     if (!validation.valid) errors.push(`${record?.assetId || '<unknown>'}: ${validation.errors.join(', ')}`);
@@ -428,6 +446,28 @@ export function validateGeneratedImageRegistry(registry, { scope } = {}) {
     if (imageUrls.has(record?.imageUrl)) errors.push(`${record?.assetId || '<unknown>'}: duplicate imageUrl`);
     assetIds.add(record?.assetId);
     imageUrls.add(record?.imageUrl);
+    const scopeKey = String(record?.scope || '');
+    if (scopeKey && record?.sha256) {
+      const seenHashes = hashesByScope.get(scopeKey) || new Map();
+      const previousAssetId = seenHashes.get(record.sha256);
+      if (previousAssetId) {
+        errors.push(`${record?.assetId || '<unknown>'}: duplicate sha256 in scope ${scopeKey} (already used by ${previousAssetId})`);
+      } else {
+        seenHashes.set(record.sha256, record?.assetId || '<unknown>');
+      }
+      hashesByScope.set(scopeKey, seenHashes);
+    }
+    const sourcePageUrl = record?.sourcePageUrl || record?.pageUrl;
+    if (scopeKey && sourcePageUrl) {
+      const seenSources = sourcePagesByScope.get(scopeKey) || new Map();
+      const previousAssetId = seenSources.get(sourcePageUrl);
+      if (previousAssetId) {
+        errors.push(`${record?.assetId || '<unknown>'}: duplicate sourcePageUrl in scope ${scopeKey} (already used by ${previousAssetId})`);
+      } else {
+        seenSources.set(sourcePageUrl, record?.assetId || '<unknown>');
+      }
+      sourcePagesByScope.set(scopeKey, seenSources);
+    }
     if (scope !== undefined && record?.scope !== scope) {
       errors.push(`${record?.assetId || '<unknown>'}: registry record does not match the requested scope`);
     }
@@ -481,6 +521,7 @@ export function verifyPublishedEventImages(events, records) {
           event.imageSourcePageUrl !== (record.sourcePageUrl || record.pageUrl) ? 'imageSourcePageUrl does not match registry' : '',
           event.imageCopyrightNotice !== record.copyrightNotice ? 'imageCopyrightNotice does not match registry' : '',
           event.imageAcquireLicensePage !== record.acquireLicensePage ? 'imageAcquireLicensePage does not match registry' : '',
+          JSON.stringify(event.imageModifications || null) !== JSON.stringify(record.modifications || null) ? 'imageModifications does not match registry' : '',
         ].filter(Boolean)
         : [];
       const propagationErrors = record
