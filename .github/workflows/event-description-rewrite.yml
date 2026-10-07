@@ -87,6 +87,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          run_timed_download() {
+            local label="$1" seconds=120 status
+            shift
+            echo "Starting ${label} (timeout ${seconds}s)"
+            set +e
+            /usr/bin/timeout --signal=TERM --kill-after=5s "${seconds}s" "$@"
+            status=$?
+            set -e
+            if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+              echo "::error::${label} timed out after ${seconds} seconds"
+              return 124
+            fi
+            return "$status"
+          }
           state_dir="$RUNNER_TEMP/event-description-previous-state"
           mkdir -p "$state_dir"
           previous_run="$(gh run list \
@@ -97,11 +111,10 @@ jobs:
             --json databaseId,conclusion \
             --jq 'map(select(.databaseId != (env.GITHUB_RUN_ID | tonumber) and .conclusion == "success")) | .[0].databaseId // empty')"
           if [ -n "$previous_run" ]; then
-            gh run download "$previous_run" \
+            run_timed_download 'gh run download previous event-description state' gh run download "$previous_run" \
               --repo "$GITHUB_REPOSITORY" \
               --name "event-description-run-state-${previous_run}" \
-              --dir "$state_dir" \
-              >/dev/null 2>&1 || true
+              --dir "$state_dir" || echo '::warning::Previous event-description state was not downloaded; continuing without it'
           fi
           state_file="$(find "$state_dir" -type f -name 'event-description-rewrite-stats.json' -print -quit)"
           if [ -n "$state_file" ]; then
@@ -191,6 +204,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          run_timed_download() {
+            local label="$1" seconds=120 status
+            shift
+            echo "Starting ${label} (timeout ${seconds}s)"
+            set +e
+            /usr/bin/timeout --signal=TERM --kill-after=5s "${seconds}s" "$@"
+            status=$?
+            set -e
+            if [ "$status" -eq 124 ] || [ "$status" -eq 137 ]; then
+              echo "::error::${label} timed out after ${seconds} seconds"
+              return 124
+            fi
+            return "$status"
+          }
           source_dir="$RUNNER_TEMP/event-description-source"
           mkdir -p "$source_dir"
           run_id="$(gh run list \
@@ -204,7 +231,7 @@ jobs:
             echo 'has_incremental=false' >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          if ! gh run download "$run_id" \
+          if ! run_timed_download "gh run download event-description sources ${run_id}" gh run download "$run_id" \
             --repo "$GITHUB_REPOSITORY" \
             --name "event-description-sources-${run_id}" \
             --dir "$source_dir"; then
@@ -261,8 +288,14 @@ jobs:
           broker_max_concurrency: '1'
           broker_max_timeout_ms: '120000'
 
+      - name: Require Codex Luna Max broker for event rewrite
+        if: always() && steps.input.outputs.has_input == 'true' && env.REWRITE_DRY_RUN != 'true' && steps.setup_codex.outputs.codex_auth_broker_socket == ''
+        run: |
+          echo '::error::Codex Luna Max broker unavailable; refusing to rewrite event descriptions.'
+          exit 1
+
       - name: Rewrite deterministic shard
-        if: steps.input.outputs.has_input == 'true'
+        if: steps.input.outputs.has_input == 'true' && (env.REWRITE_DRY_RUN == 'true' || steps.setup_codex.outputs.codex_auth_broker_socket != '')
         id: rewrite
         env:
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_codex.outputs.codex_auth_broker_socket }}
