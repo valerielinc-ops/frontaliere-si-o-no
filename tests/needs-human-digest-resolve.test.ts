@@ -45,6 +45,8 @@ printf 'gh %s\\n' "$*" >>"$FAKE_LOG"
 case "$1 $2" in
   "pr list") kind=pr ;;
   "issue list") kind=issue ;;
+  "issue edit") exit 0 ;;
+  "label create") exit 0 ;;
   api\\ *) kind=api ;;
   *) echo "unexpected gh $*" >&2; exit 97 ;;
 esac
@@ -169,7 +171,9 @@ describe('recycle-stale-prs — digest needs-human a liste vuote', () => {
     });
     expect(run.status, run.output).toBe(0);
     expect(run.resolves).toEqual([]);
-    expect(run.calls.some((call) => call.startsWith('gh api'))).toBe(false);
+    expect(run.calls.some((call) => call.startsWith('gh api'))).toBe(true);
+    expect(run.calls).toContain('gh issue edit 6458 --repo owner/repo --add-label agent:no-age-out');
+    expect(run.calls.some((call) => call.includes('issue edit 7002'))).toBe(false);
     expect(run.creates).toHaveLength(1);
     expect(run.creates[0]).toContain(`--title ${TITLE}`);
     expect(run.creates[0]).toContain('#11398');
