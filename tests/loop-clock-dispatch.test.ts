@@ -53,6 +53,15 @@ describe('loop clock table and cadence', () => {
     expect(LOOP_CLOCK_ENTRIES.every((entry) => entry.everyMinutes % LOOP_CLOCK_TICK_MINUTES === 0)).toBe(true);
   });
 
+  it('keeps the hourly revenue monitor on the external clock', () => {
+    expect(LOOP_CLOCK_ENTRIES).toContainEqual({
+      id: 'site-revenue-signal-monitor',
+      repo: 'site',
+      workflow: 'revenue-signal-monitor.yml',
+      everyMinutes: 60,
+    });
+  });
+
   it('aligns every entry to a tick and visits the whole table over its longest period', () => {
     const observed = new Set<string>();
     const longestCadence = Math.max(...LOOP_CLOCK_ENTRIES.map((entry) => entry.everyMinutes));

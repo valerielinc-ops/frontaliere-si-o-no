@@ -193,6 +193,27 @@ describe('groupHandoffs: duplicati della stessa PR di origine (#10586/#10587)', 
     expect(groups.find((g) => g.origin === 10655)!.duplicates).toEqual([]);
   });
 
+  it('non chiude come duplicati due HEAD diverse della stessa origine', () => {
+    const oldEvidence = buildConflictHandoffIssue({
+      num: 10569,
+      branch: 'fix/old',
+      head: NEW_HEAD,
+      files: ['old.ts'],
+    });
+    const currentEvidence = buildConflictHandoffIssue({
+      num: 10569,
+      branch: 'fix/current',
+      head: HEAD,
+      files: ['current.ts'],
+    });
+    const groups = groupHandoffs([
+      { number: 10586, ...oldEvidence, labels: [], created_at: OPENED },
+      { number: 10587, ...currentEvidence, labels: [], created_at: OPENED },
+    ]);
+    expect(groups).toHaveLength(2);
+    expect(groups.every((group) => group.origin === 10569 && group.duplicates.length === 0)).toBe(true);
+  });
+
   it('il lavoro avviato vince sull\'età: claim o PR in volo sulla più recente', () => {
     const claimed = groupHandoffs([handoff(10586, 10569), handoff(10587, 10569, { labels: ['agent:in-progress'] })]);
     expect(claimed[0].keeper.number).toBe(10587);

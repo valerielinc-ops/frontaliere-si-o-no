@@ -10,6 +10,7 @@ const entries = [
   { id: 'site-closer', repo: 'site', workflow: 'close-recovered-failure-issues.yml', everyMinutes: 60 },
   { id: 'site-retry-automerge', repo: 'site', workflow: 'retry-native-automerge.yml', everyMinutes: 20 },
   { id: 'site-production-canary', repo: 'site', workflow: 'production-canary.yml', everyMinutes: 15 },
+  { id: 'site-revenue-signal-monitor', repo: 'site', workflow: 'revenue-signal-monitor.yml', everyMinutes: 60 },
   // `mode: failures`: a bare dispatch defaults to `both`, and the dormant pass
   // (one Actions call per scheduled workflow) is budgeted once a day on the
   // native cron of that workflow, not once an hour.
