@@ -1339,15 +1339,13 @@ export const Analytics = {
   generatedPageViewEmissionId ??= createAnalyticsEmissionIdSource();
   return generatedPageViewEmissionId;
  };
- const requestedPageViewEmissionId = typeof emissionId === 'string' && emissionId.trim().length > 0
-  ? emissionId
+ const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const requestedPageViewEmissionId = typeof pageViewEmissionId === 'string' && pageViewEmissionId.trim().length > 0
+  ? pageViewEmissionId
   : undefined;
- const pageViewEmissionId = requestedPageViewEmissionId === undefined
-  ? createAnalyticsEmissionId()
-  : requestedPageViewEmissionId;
- const resolvedPageViewEmissionId = requestedPageViewEmissionId === undefined
+ const resolvedPageViewEmissionId = emissionId === undefined
   ? staticPageViewEmissionId || pageViewEmissionId
-  : pageViewEmissionId;
+  : requestedPageViewEmissionId || createAnalyticsEmissionId();
  const now = Date.now();
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
