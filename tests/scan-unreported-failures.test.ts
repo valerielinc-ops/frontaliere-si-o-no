@@ -820,6 +820,7 @@ describe('failure atteso già trattato dal monitor', () => {
     const currentSource = workflowSource;
     const historicalSource = currentSource.replace(/\bid:\s*failgate\b/, 'id: historical-gate');
     const headSha = 'a'.repeat(40);
+    const repo = process.env.GH_REPO || '{owner}/{repo}';
     const read = vi.fn(() => Buffer.from(historicalSource, 'utf8').toString('base64'));
     const resolved = workflowSourceForRun({
       workflowPath: '.github/workflows/crawler-health-monitor.yml',
@@ -831,7 +832,7 @@ describe('failure atteso già trattato dal monitor', () => {
     expect(isHandledExpectedFailure({ source: resolved, jobs: jobs() })).toBe(false);
     expect(read).toHaveBeenCalledWith([
       'api', '-X', 'GET',
-      `repos/{owner}/{repo}/contents/.github/workflows/crawler-health-monitor.yml?ref=${headSha}`,
+      `repos/${repo}/contents/.github/workflows/crawler-health-monitor.yml?ref=${headSha}`,
       '--jq', '.content // empty',
     ], { allowFailure: true });
   });
