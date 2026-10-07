@@ -231,8 +231,8 @@ describe('Bing-compatible full-tree crawler', () => {
       },
       {
         url: `${BASE}/en/find-jobs-switzerland/search-migros/`,
-        canonical: `${BASE}/en/find-jobs-switzerland/other/`,
-        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-switzerland/other/`),
+        canonical: `${BASE}/en/find-jobs-geneva/other/`,
+        html: bridgeMarkerHtml(`${BASE}/en/find-jobs-geneva/other/`),
       },
       {
         url: `${BASE}/en/find-jobs-switzerland/search-migros/`,
