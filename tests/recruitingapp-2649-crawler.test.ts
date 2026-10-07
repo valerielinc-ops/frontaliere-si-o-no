@@ -229,6 +229,21 @@ describe('Alexander von Humboldt-Stiftung Stellen crawler parser', () => {
       expect(requested).toContain('https://recruitingapp-2649.umantis.com/Vacancies/4018/Description/1');
     });
 
+    it('accepts a source postal code attached to the allowlisted foreign locality', async () => {
+      const postalBonnDetail = BONN_DETAIL.replace('Arbeitsort: Bonn', 'Arbeitsort: 53113 Bonn');
+      const { runtime } = sourceRuntime({
+        '3705': { body: postalBonnDetail },
+        '4018': { body: postalBonnDetail },
+      });
+
+      const jobs = await fetchAllRecruitingapp2649Jobs(runtime);
+
+      expect(assertCompleteRecruitingapp2649Snapshot(jobs)).toBe(true);
+      expect(jobs.authoritativeSnapshotProof.details).toEqual(expect.arrayContaining([
+        expect.objectContaining({ locations: ['53113 Bonn'] }),
+      ]));
+    });
+
     it('fails the whole batch when one canonical detail request is unavailable', async () => {
       const { runtime } = sourceRuntime({
         '3705': { body: BONN_DETAIL },
