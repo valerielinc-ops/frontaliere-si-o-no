@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "apleona-schweiz-ag-1e3e59689efa",
-      "slug": "technischer-experte-tur-und-tor-m-w-d-apleona-schweiz-ag-zurich",
+      "slug": "esperto-tecnico-porta-e-cancello-m-f-d-apleona-schweiz-ag-zurich",
       "slugByLocale": {
         "de": "technischer-experte-tur-und-tor-m-w-d-apleona-schweiz-ag-zurich",
-        "it": "technischer-experte-tur-e-tor-m-w-d-apleona-schweiz-ag-zurich",
+        "it": "esperto-tecnico-porta-e-cancello-m-f-d-apleona-schweiz-ag-zurich",
         "en": "technical-expert-door-and-gate-m-f-d-apleona-schweiz-ag-zurich",
         "fr": "porte-et-portail-technique-expert-h-f-d-apleona-schweiz-ag-zurich"
       },
@@ -51,7 +51,6 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2571/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T14:10:43.449Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -66,7 +65,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-experte-tur-e-tor-m-w-d-apleona-schweiz-ag-zurich",
+          "technischer-experte-tur-und-tor-m-w-d-apleona-schweiz-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-experte-tur-e-tor-m-w-d-apleona-schweiz-ag-zurich",
+        "technischer-experte-tur-und-tor-m-w-d-apleona-schweiz-ag-zurich"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-63d8c33be11b",
