@@ -202,6 +202,14 @@ interface Copy {
   rentMetric: string;
   populationMetric: string;
   rentObservation: (observations: number) => string;
+  noPeer: string;
+  departmentPopulationMetric: (department: string) => string;
+  departmentDistanceMetric: (department: string) => string;
+  departmentRentMetric: (department: string) => string;
+  crossingPopulationMetric: (crossing: string) => string;
+  profileCrossing: (crossing: string, peers: string, hasPeers: boolean) => string;
+  profileNearbyCrossings: (crossings: string) => string;
+  profileRoute: (department: string, canton: string, crossing: string) => string;
   faqTitle: string;
   faqQ1: (name: string) => string;
   faqA1: (name: string, regime: string) => string;
@@ -264,6 +272,16 @@ const COPY: Record<FrenchLocale, Copy> = {
     rentMetric: "l'affitto mensile indicativo",
     populationMetric: 'la popolazione',
     rentObservation: (observations) => `Stima del canone su ${intFmt(observations, 'it')} osservazioni DGALN/DHUP.`,
+    noPeer: 'nessun comune',
+    departmentPopulationMetric: (department) => `la popolazione nel dipartimento ${department}`,
+    departmentDistanceMetric: (department) => `la distanza nel dipartimento ${department}`,
+    departmentRentMetric: (department) => `l'affitto nel dipartimento ${department}`,
+    crossingPopulationMetric: (crossing) => `la popolazione tra i comuni serviti da ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Il valico ${crossing} è condiviso anche da ${peers}.` : `Il valico ${crossing} è il riferimento per questa pagina.`,
+    profileNearbyCrossings: (crossings) => `I sei comuni più vicini usano questi valichi di riferimento: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Il dataset collega il dipartimento ${department} al canton ${canton} attraverso il valico ${crossing}; il cantone di lavoro, non questa rotta, determina il regime fiscale.`,
     faqTitle: 'Domande frequenti',
     faqQ1: (n) => `Che regime fiscale si applica a ${n}?`,
     faqA1: (n, r) =>
@@ -330,6 +348,16 @@ const COPY: Record<FrenchLocale, Copy> = {
     rentMetric: 'indicative monthly rent',
     populationMetric: 'population',
     rentObservation: (observations) => `Rent estimate based on ${intFmt(observations, 'en')} DGALN/DHUP observations.`,
+    noPeer: 'no town',
+    departmentPopulationMetric: (department) => `population in ${department}`,
+    departmentDistanceMetric: (department) => `distance in ${department}`,
+    departmentRentMetric: (department) => `rent in ${department}`,
+    crossingPopulationMetric: (crossing) => `population among towns served by ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `The ${crossing} crossing also serves ${peers}.` : `The ${crossing} crossing is the reference for this page.`,
+    profileNearbyCrossings: (crossings) => `The six nearest towns use these reference crossings: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `The dataset links the ${department} department to canton ${canton} through the ${crossing} crossing; the canton where you work, not this route, determines the tax regime.`,
     faqTitle: 'FAQ',
     faqQ1: (n) => `Which tax regime applies in ${n}?`,
     faqA1: (n, r) =>
@@ -396,6 +424,16 @@ const COPY: Record<FrenchLocale, Copy> = {
     rentMetric: 'die monatliche Richtmiete',
     populationMetric: 'die Einwohnerzahl',
     rentObservation: (observations) => `Mietschätzung auf Basis von ${intFmt(observations, 'de')} Beobachtungen von DGALN/DHUP.`,
+    noPeer: 'keine Gemeinde',
+    departmentPopulationMetric: (department) => `die Einwohnerzahl im Departement ${department}`,
+    departmentDistanceMetric: (department) => `die Entfernung im Departement ${department}`,
+    departmentRentMetric: (department) => `die Miete im Departement ${department}`,
+    crossingPopulationMetric: (crossing) => `die Einwohnerzahl der vom Übergang ${crossing} bedienten Gemeinden`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Der Übergang ${crossing} bedient auch ${peers}.` : `Der Übergang ${crossing} ist der Referenzübergang für diese Seite.`,
+    profileNearbyCrossings: (crossings) => `Die sechs nächstgelegenen Gemeinden führen zu diesen Referenzübergängen: ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Der Datensatz ordnet das Departement ${department} über ${crossing} dem Kanton ${canton} zu; das Steuerregime bestimmt jedoch der Arbeitskanton, nicht diese Route.`,
     faqTitle: 'Häufige Fragen',
     faqQ1: (n) => `Welches Steuerregime gilt in ${n}?`,
     faqA1: (n, r) =>
@@ -462,6 +500,16 @@ const COPY: Record<FrenchLocale, Copy> = {
     rentMetric: 'le loyer mensuel indicatif',
     populationMetric: 'la population',
     rentObservation: (observations) => `Loyer estimé sur la base de ${intFmt(observations, 'fr')} observations DGALN/DHUP.`,
+    noPeer: 'aucune commune',
+    departmentPopulationMetric: (department) => `la population dans le département ${department}`,
+    departmentDistanceMetric: (department) => `la distance dans le département ${department}`,
+    departmentRentMetric: (department) => `le loyer dans le département ${department}`,
+    crossingPopulationMetric: (crossing) => `la population des communes desservies par ${crossing}`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Le passage ${crossing} dessert aussi ${peers}.` : `Le passage ${crossing} est le passage de référence pour cette page.`,
+    profileNearbyCrossings: (crossings) => `Les six communes les plus proches utilisent ces passages de référence : ${crossings}.`,
+    profileRoute: (department, canton, crossing) =>
+      `Le jeu de données relie le département ${department} au canton ${canton} par le passage ${crossing} ; le régime fiscal dépend du canton de travail, pas de cet itinéraire.`,
     faqTitle: 'Questions fréquentes',
     faqQ1: (n) => `Quel régime fiscal s'applique à ${n} ?`,
     faqA1: (n, r) =>
@@ -513,6 +561,175 @@ function breadcrumbLd(locale: FrenchLocale, name: string, canonicalUrl: string):
       { '@type': 'ListItem', position: 3, name, item: canonicalUrl },
     ],
   });
+}
+
+const FRENCH_POPULATION_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => b.population - a.population || a.slug.localeCompare(b.slug),
+);
+const FRENCH_DISTANCE_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => a.distanceKm - b.distanceKm || a.slug.localeCompare(b.slug),
+);
+const FRENCH_RENT_RANK = [...FRENCH_ABOVE_FLOOR].sort(
+  (a, b) => a.avgRentMonthly - b.avgRentMonthly || a.slug.localeCompare(b.slug),
+);
+
+function groupFrenchMunicipalities<T extends 'dept' | 'nearestCrossing'>(
+  field: T,
+): Map<FrenchBorderMunicipality[T], FrenchBorderMunicipality[]> {
+  const groups = new Map<FrenchBorderMunicipality[T], FrenchBorderMunicipality[]>();
+  for (const municipality of FRENCH_ABOVE_FLOOR) {
+    const group = groups.get(municipality[field]);
+    if (group) group.push(municipality);
+    else groups.set(municipality[field], [municipality]);
+  }
+  return groups;
+}
+
+const FRENCH_BY_DEPT = groupFrenchMunicipalities('dept');
+const FRENCH_BY_CROSSING = groupFrenchMunicipalities('nearestCrossing');
+
+function joinFrenchNames(names: readonly string[], locale: FrenchLocale, fallback: string): string {
+  if (names.length === 0) return fallback;
+  if (names.length === 1) return names[0];
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
+function buildFrenchMetricProse(params: {
+  locale: FrenchLocale;
+  rows: readonly FrenchBorderMunicipality[];
+  current: FrenchBorderMunicipality;
+  metricLabel: string;
+  valueOf: (municipality: FrenchBorderMunicipality) => number;
+  higherIsBetter: boolean;
+  formatValue: (value: number, locale: FrenchLocale) => string;
+}): string[] {
+  const { locale, rows, current, metricLabel, valueOf, higherIsBetter, formatValue } = params;
+  return buildPeerProse({
+    locale,
+    ranked: rankPeerRows(
+      rows.map((municipality) => ({
+        key: municipality.slug,
+        name: municipality.name,
+        value: valueOf(municipality),
+      })),
+      higherIsBetter,
+    ),
+    currentKey: current.slug,
+    labels: { heading: '', metricLabel, peerNoun: COPY[locale].comparisonPeerNoun },
+    formatValue,
+    higherIsBetter,
+  });
+}
+
+/**
+ * The previous French fix named only the six nearest communes and ranked rent
+ * and population inside that small window. The remaining boilerplate was the
+ * same tax explanation on every page, so the coorte stopped at about 22%.
+ * These summaries expose the relationships already present in the sourced
+ * dataset: full-corridor ranks, department peers, and communes using the same
+ * crossing. Each claim is computed at build time and names the rows involved;
+ * no new municipal fact is invented or copied from an adjacent field.
+ */
+function buildFrenchProfileProse(
+  locale: FrenchLocale,
+  current: FrenchBorderMunicipality,
+  neighbours: Array<{ place: FrenchBorderMunicipality }>,
+): string[] {
+  const c = COPY[locale];
+  const formatNames = (names: readonly string[]) => joinFrenchNames(names, locale, c.noPeer);
+  const formatInt = (value: number, valueLocale: FrenchLocale) => intFmt(value, valueLocale);
+  const formatKm = (value: number, valueLocale: FrenchLocale) => `${intFmt(value, valueLocale)} km`;
+  const formatRent = (value: number, valueLocale: FrenchLocale) => eur(value, valueLocale);
+  const department = departmentLabel(current.dept, locale);
+  const departmentPeers = FRENCH_BY_DEPT.get(current.dept) ?? [];
+  const crossingRows = FRENCH_BY_CROSSING.get(current.nearestCrossing) ?? [];
+  const crossingPeers = crossingRows.filter((municipality) => municipality.slug !== current.slug);
+  const nearbyCrossings = [...new Set(neighbours.map(({ place }) => place.nearestCrossing))];
+
+  const prose = [
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_POPULATION_RANK,
+      current,
+      metricLabel: c.populationMetric,
+      valueOf: (municipality) => municipality.population,
+      higherIsBetter: true,
+      formatValue: formatInt,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_DISTANCE_RANK,
+      current,
+      metricLabel: c.spreadComparison,
+      valueOf: (municipality) => municipality.distanceKm,
+      higherIsBetter: false,
+      formatValue: formatKm,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: FRENCH_RENT_RANK,
+      current,
+      metricLabel: c.rentMetric,
+      valueOf: (municipality) => municipality.avgRentMonthly,
+      higherIsBetter: false,
+      formatValue: formatRent,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentPopulationMetric(department),
+      valueOf: (municipality) => municipality.population,
+      higherIsBetter: true,
+      formatValue: formatInt,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentDistanceMetric(department),
+      valueOf: (municipality) => municipality.distanceKm,
+      higherIsBetter: false,
+      formatValue: formatKm,
+    }),
+    ...buildFrenchMetricProse({
+      locale,
+      rows: departmentPeers,
+      current,
+      metricLabel: c.departmentRentMetric(department),
+      valueOf: (municipality) => municipality.avgRentMonthly,
+      higherIsBetter: false,
+      formatValue: formatRent,
+    }),
+    c.profileCrossing(
+      current.nearestCrossing,
+      formatNames(crossingPeers.map((municipality) => municipality.name)),
+      crossingPeers.length > 0,
+    ),
+    c.profileNearbyCrossings(formatNames(nearbyCrossings)),
+    c.profileRoute(department, getCantonDisplayName(current.canton, locale), current.nearestCrossing),
+  ];
+
+  // A shared crossing is itself a useful local relationship. Keep the ranking
+  // fail-closed for singleton/pair groups: a two-row comparison is not enough
+  // to support the peer prose contract, while the explicit crossing sentence
+  // above remains true for every page.
+  if (crossingPeers.length >= 2) {
+    prose.push(
+      ...buildFrenchMetricProse({
+        locale,
+        rows: crossingRows,
+        current,
+        metricLabel: c.crossingPopulationMetric(current.nearestCrossing),
+        valueOf: (municipality) => municipality.population,
+        higherIsBetter: true,
+        formatValue: formatInt,
+      }),
+    );
+  }
+
+  return prose;
 }
 
 // ── Page renderers ──────────────────────────────────────────────
@@ -589,6 +806,7 @@ function renderRelated(locale: FrenchLocale, current: FrenchBorderMunicipality):
       return [
         ...proseFor('avgRentMonthly', c.rentMetric, (value, valueLocale) => eur(value, valueLocale), false),
         ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale), true),
+        ...buildFrenchProfileProse(locale, self, neighbours),
       ];
     },
   });
