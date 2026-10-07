@@ -10,12 +10,18 @@ import { main as ensureMain } from '../scripts/ci/ensure-cdn-shell-assets.mjs';
 import {
   SHELL_ASSET_CACHE_CONTROL,
   SHELL_ASSET_CDN_ORIGIN,
+  SHELL_ASSET_PAGE_ORIGIN,
+  SHELL_ASSET_PURGE_BATCH,
   checkStoredAsset,
+  confirmCdnAsset,
   ensureCdnShellAssets,
   probeCdnAsset,
+  purgeCdnAssets,
   shellAssetsFromStaticScripts,
   uploadShellAsset,
 } from '../scripts/lib/cdn-shell-assets.mjs';
+import { MAX_TARGETED_FILES } from '../scripts/lib/cf-purge-limits.mjs';
+import { VARY_ORIGINS } from '../scripts/lib/cf-purge-variants.mjs';
 
 /**
  * #12270 — a fast emitter never publishes HTML that references a static shell
@@ -42,16 +48,32 @@ type Outcome = { key: string; outcome: string };
 type Probed = 'present' | 'absent' | 'unknown';
 type Stored = 'exists' | 'missing' | 'indeterminate';
 
-/** A CDN and a bucket that hold `stored`, as the three collaborators the library takes. */
+/**
+ * A CDN and a bucket that hold `stored`, as the collaborators the library
+ * takes. The edge of this CDN keeps the 404 it gave for a key that was missing
+ * (`edge404`) until that key is purged, as the real one does for minutes.
+ */
 function fakeCdn(stored: Iterable<string>, {
   probeAnswer = (_key: string, has: boolean): Probed => (has ? 'present' : 'absent'),
   storeAnswer = (_key: string, has: boolean): Stored => (has ? 'exists' : 'missing'),
   uploadWorks = true,
+  purgeWorks = true,
+  // What the pages' URL answers once the object is on R2 and the 404 is gone.
+  confirmAnswer = (_key: string, _pageOrigin: string | undefined, _attempt: number): Probed => 'present',
 } = {}) {
   const bucket = new Set(stored);
-  const calls = { probe: [] as string[], checkStored: [] as string[], upload: [] as Array<[string, string]> };
+  const edge404 = new Set<string>();
+  const calls = {
+    probe: [] as string[],
+    checkStored: [] as string[],
+    upload: [] as Array<[string, string]>,
+    purge: [] as string[][],
+    confirm: [] as Array<[string, string | undefined]>,
+    wait: [] as number[],
+  };
   return {
     bucket,
+    edge404,
     calls,
     probe: async (key: string) => {
       calls.probe.push(key);
@@ -65,6 +87,20 @@ function fakeCdn(stored: Iterable<string>, {
       calls.upload.push([key, content]);
       if (uploadWorks) bucket.add(key);
       return uploadWorks;
+    },
+    purge: (keys: string[]) => {
+      calls.purge.push([...keys]);
+      if (purgeWorks) for (const key of keys) edge404.delete(key);
+      return purgeWorks;
+    },
+    confirm: async (key: string, { pageOrigin }: { pageOrigin?: string } = {}) => {
+      const attempt = calls.confirm.filter(([seen, origin]) => seen === key && origin === pageOrigin).length;
+      calls.confirm.push([key, pageOrigin]);
+      if (!bucket.has(key) || edge404.has(key)) return 'absent' as Probed;
+      return confirmAnswer(key, pageOrigin, attempt);
+    },
+    wait: async (ms: number) => {
+      calls.wait.push(ms);
     },
     log: () => {},
   };
@@ -93,6 +129,8 @@ describe('ensureCdnShellAssets', () => {
     expect(results.map((result) => result.outcome)).toEqual(['served', 'served']);
     expect(cdn.calls.checkStored).toEqual([]);
     expect(cdn.calls.upload).toEqual([]);
+    expect(cdn.calls.purge).toEqual([]);
+    expect(cdn.calls.confirm).toEqual([]);
   });
 
   it('uploads the file the CDN does not have, with the content it was given', async () => {
@@ -113,16 +151,83 @@ describe('ensureCdnShellAssets', () => {
     expect(message).toContain('assets/two.js');
     expect(message).toContain('the upload failed');
     expect(message).toContain('must not be published');
+    expect(cdn.calls.purge).toEqual([]);
   });
 
-  // A runner the edge challenges gets 403 for a file that is there. R2 decides:
-  // nothing is replaced, and publishing goes on.
+  // A runner the edge challenges gets 403 for a file that is there. R2 decides
+  // the upload: nothing is replaced. The URL is still purged and asked again.
   it.each(['unknown', 'absent'] as const)('never replaces an object R2 holds when the probe says %s', async (answer) => {
     const cdn = fakeCdn(['assets/one.js', 'assets/two.js'], { probeAnswer: () => answer });
     const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
 
     expect(results.map((result) => result.outcome)).toEqual(['stored', 'stored']);
     expect(cdn.calls.upload).toEqual([]);
+    expect(cdn.calls.purge).toEqual([['assets/one.js', 'assets/two.js']]);
+    expect(cdn.calls.confirm.map(([key]) => key)).toEqual(['assets/one.js', 'assets/one.js', 'assets/two.js', 'assets/two.js']);
+  });
+
+  // The object is on R2, yet the edge goes on answering with the 404 it gave
+  // while the file was missing: that copy is purged, in one call for all the
+  // files, before the pages' URL is asked in both cache variants.
+  it('purges the 404 the edge kept for an uploaded file, then asks the URL the pages use', async () => {
+    const cdn = fakeCdn(['assets/one.js']);
+    cdn.edge404.add('assets/two.js');
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
+
+    expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
+    expect(cdn.calls.purge).toEqual([['assets/two.js']]);
+    expect(cdn.edge404.has('assets/two.js')).toBe(false);
+    expect(cdn.calls.confirm).toEqual([
+      ['assets/two.js', undefined],
+      ['assets/two.js', SHELL_ASSET_PAGE_ORIGIN],
+    ]);
+    expect(cdn.calls.wait).toEqual([]);
+  });
+
+  it('stops when the edge cannot be purged, without asking the URL the pages use', async () => {
+    const cdn = fakeCdn(['assets/one.js'], { purgeWorks: false });
+    cdn.edge404.add('assets/two.js');
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets: ASSETS, ...cdn }));
+
+    expect(message).toContain('assets/two.js');
+    expect(message).toContain('could not be purged');
+    expect(message).toContain('must not be published');
+    // Uploaded all the same: the next run finds the file there.
+    expect(cdn.bucket.has('assets/two.js')).toBe(true);
+    expect(cdn.calls.confirm).toEqual([]);
+  });
+
+  it('asks again while the purge reaches the edge', async () => {
+    const cdn = fakeCdn(['assets/one.js'], {
+      confirmAnswer: (_key, _pageOrigin, attempt) => (attempt === 0 ? 'absent' : 'present'),
+    });
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
+
+    expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
+    expect(cdn.calls.confirm).toHaveLength(4);
+    expect(cdn.calls.wait).toEqual([5_000, 5_000]);
+  });
+
+  it.each([
+    ['still answers 404', 'absent', undefined, 'no Origin: absent'],
+    ['cannot be read', 'unknown', undefined, 'no Origin: unknown'],
+    ['is served only without Origin', 'absent', SHELL_ASSET_PAGE_ORIGIN, `Origin ${SHELL_ASSET_PAGE_ORIGIN}: absent`],
+  ] as const)('stops when the URL the pages use %s after the purge', async (_label, answer, failingOrigin, expected) => {
+    const cdn = fakeCdn(['assets/one.js'], {
+      confirmAnswer: (_key, pageOrigin) => (pageOrigin === failingOrigin ? answer : 'present'),
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets: ASSETS, ...cdn }));
+
+    expect(message).toContain('assets/two.js');
+    expect(message).toContain('still does not serve it');
+    expect(message).toContain(expected);
+    expect(message).toContain('must not be published');
+    // Four requests over the span a purge takes to reach every location.
+    expect(cdn.calls.wait).toEqual([5_000, 15_000, 30_000]);
   });
 
   it.each(['unknown', 'absent'] as const)('stops without uploading when the probe says %s and R2 cannot be read', async (answer) => {
@@ -217,6 +322,108 @@ describe('probeCdnAsset', () => {
   });
 });
 
+describe('confirmCdnAsset', () => {
+  type Seen = { url: string; init: { method?: string; headers?: Record<string, string> } };
+  const answering = (status: number, contentType: string) => {
+    const seen: Seen[] = [];
+    const fetchImpl = (async (url: string, init: Seen['init']) => {
+      seen.push({ url, init });
+      return { ok: status >= 200 && status < 300, status, headers: new Headers({ 'content-type': contentType }) };
+    }) as unknown as typeof fetch;
+    return { seen, fetchImpl };
+  };
+
+  it('asks for the URL the pages reference: a GET, no query, with a User-Agent', async () => {
+    const { seen, fetchImpl } = answering(200, 'text/javascript; charset=utf-8');
+
+    expect(await confirmCdnAsset('assets/a.js', { fetchImpl })).toBe('present');
+    expect(seen[0].url).toBe(`${SHELL_ASSET_CDN_ORIGIN}/assets/a.js`);
+    expect(seen[0].init.method).toBe('GET');
+    expect(String(seen[0].init.headers?.['User-Agent'])).toMatch(/FrontaliereTicino/);
+    expect(seen[0].init.headers?.Origin).toBeUndefined();
+  });
+
+  it('sends the page origin only to read the cross-origin cache entry', async () => {
+    const { seen, fetchImpl } = answering(200, 'text/css');
+
+    await confirmCdnAsset('assets/critical.css', { fetchImpl, pageOrigin: SHELL_ASSET_PAGE_ORIGIN });
+    expect(seen[0].init.headers?.Origin).toBe(SHELL_ASSET_PAGE_ORIGIN);
+  });
+
+  it.each([
+    [404, 'text/html', 'absent'],
+    [200, 'text/html; charset=utf-8', 'absent'],
+    [403, 'text/html', 'unknown'],
+    [503, 'text/html', 'unknown'],
+  ])('reads HTTP %i %s as %s', async (status, contentType, expected) => {
+    expect(await confirmCdnAsset('assets/a.js', { fetchImpl: answering(status, contentType).fetchImpl })).toBe(expected);
+  });
+
+  it('reads a request that does not complete as unknown', async () => {
+    const fetchImpl = (async () => {
+      throw new Error('timeout');
+    }) as unknown as typeof fetch;
+    expect(await confirmCdnAsset('assets/a.js', { fetchImpl })).toBe('unknown');
+  });
+
+  it('leaves the body unread', async () => {
+    let cancelled = 0;
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/javascript' }),
+      body: { cancel: async () => { cancelled += 1; } },
+    })) as unknown as typeof fetch;
+
+    expect(await confirmCdnAsset('assets/a.js', { fetchImpl })).toBe('present');
+    expect(cancelled).toBe(1);
+  });
+});
+
+describe('cf-purge-cache.mjs adapter', () => {
+  const PURGED = '✅ Cloudflare edge cache purged for 1 URL(s) × 2 variant(s) (zone z):\n';
+  const scriptSays = (status: number | null, output: string) => {
+    const calls: Array<{ command: string; args: string[] }> = [];
+    const spawn = (command: string, args: string[]) => {
+      calls.push({ command, args });
+      return { status, stdout: output, stderr: '' };
+    };
+    return { calls, spawn };
+  };
+
+  it('purges the URL the pages use, through the purge script of the repository', () => {
+    const script = scriptSays(0, PURGED);
+
+    expect(purgeCdnAssets(['assets/a.js', 'assets/b.css'], { spawn: script.spawn, env: {} })).toBe(true);
+    expect(script.calls).toHaveLength(1);
+    expect(script.calls[0].command).toBe(process.execPath);
+    expect(script.calls[0].args[0]).toMatch(/cf-purge-cache\.mjs$/);
+    expect(script.calls[0].args[1]).toBe(`--files=${SHELL_ASSET_CDN_ORIGIN}/assets/a.js,${SHELL_ASSET_CDN_ORIGIN}/assets/b.css`);
+  });
+
+  it.each([
+    // The script's own posture when the token is missing: exit 0, nothing purged.
+    ['exits 0 without a token', 0, '⚠️  CF_API_TOKEN not set — skipping Cloudflare cache purge (non-fatal).\n'],
+    ['fails', 1, '❌ 1 file(s) [no Origin (CI/curl variant)] failed: [{"code":10000}]\n'],
+    ['prints its success line and fails all the same', 1, PURGED],
+    ['is killed', null, ''],
+  ])('reports no purge when the script %s', (_label, status, output) => {
+    expect(purgeCdnAssets(['assets/a.js'], { spawn: scriptSays(status, output).spawn, env: {} })).toBe(false);
+  });
+
+  it('never hands the script more URLs than one purge takes, and stops at the first failed batch', () => {
+    const keys = Array.from({ length: SHELL_ASSET_PURGE_BATCH * 2 + 1 }, (_unused, index) => `assets/f${index}.js`);
+
+    const working = scriptSays(0, PURGED);
+    expect(purgeCdnAssets(keys, { spawn: working.spawn, env: {} })).toBe(true);
+    expect(working.calls.map((call) => call.args[1].split(',').length)).toEqual([SHELL_ASSET_PURGE_BATCH, SHELL_ASSET_PURGE_BATCH, 1]);
+
+    const failing = scriptSays(1, '');
+    expect(purgeCdnAssets(keys, { spawn: failing.spawn, env: {} })).toBe(false);
+    expect(failing.calls).toHaveLength(1);
+  });
+});
+
 describe('upload-cdn-file.sh adapters', () => {
   const helperSays = (output: string) => {
     const calls: string[][] = [];
@@ -270,6 +477,31 @@ describe('lockstep with the full deploy', () => {
   it('probes the origin the runtime watchdog walks', () => {
     const walked = /export const CDN_ASSETS_BASE = '([^']+)'/.exec(read('scripts/ci/cdn-chunk-graph.mjs'))?.[1];
     expect(walked).toBe(`${SHELL_ASSET_CDN_ORIGIN}/assets/`);
+  });
+});
+
+/**
+ * The library runs cf-purge-cache.mjs as a command and reads one line of its
+ * output. No import carries that contract, and the library cannot take one: it
+ * is the same file in the publisher repository, whose purge script is its own.
+ */
+describe('lockstep with cf-purge-cache.mjs', () => {
+  const script = read('scripts/cf-purge-cache.mjs');
+
+  it('batches a purge at the cap the script enforces', () => {
+    expect(SHELL_ASSET_PURGE_BATCH).toBe(MAX_TARGETED_FILES);
+  });
+
+  it('asks the script for a mode it has, and reads a line it prints only after a purge', () => {
+    expect(script).toContain("arg.startsWith('--files=')");
+    expect(script).toMatch(/console\.log\(`✅ Cloudflare edge cache purged for \$\{targetFiles\.length\} URL\(s\)/);
+    // Exit 0 with nothing purged: why the exit code alone is not the signal.
+    expect(script).toMatch(/CF_API_TOKEN not set — skipping[^\n]*\n\s*process\.exit\(0\)/);
+  });
+
+  it('confirms the two cache entries the script purges', () => {
+    expect(script).toContain('purgeBodiesForUrls(');
+    expect(VARY_ORIGINS).toEqual([SHELL_ASSET_PAGE_ORIGIN]);
   });
 });
 
@@ -348,5 +580,22 @@ describe('fast emitters run the ensure step before they publish', () => {
       }
     }
     expect(offenders).toEqual([]);
+  });
+
+  // The step reads R2 and purges the edge: without the credentials it can only
+  // stop the run on the day a file is missing.
+  it('every job that publishes loads the Remote Config secrets before the ensure step', () => {
+    const loadsSecrets = invocationOf(['scripts/load-rc-env.mjs']);
+    const offenders: string[] = [];
+    for (const { workflow, job, steps } of publishingJobs) {
+      const ensure = steps.findIndex((step) => ensures.test(commands(step)));
+      const secrets = steps.findIndex((step) => loadsSecrets.test(commands(step)));
+      if (ensure === -1) continue;
+      if (secrets === -1 || secrets > ensure) offenders.push(`${workflow} › ${job}: the ensure step runs without the Remote Config secrets`);
+    }
+    expect(offenders).toEqual([]);
+    for (const name of ['CF_API_TOKEN', 'R2_ACCESS_KEY_ID']) {
+      expect(read('scripts/load-rc-env.mjs')).toMatch(new RegExp(String.raw`^\s*${name}:\s*\[`, 'm'));
+    }
   });
 });
