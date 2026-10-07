@@ -2651,6 +2651,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'marcel-salathe-ia-commento': { it: 'marcel-salathe-ia-commento', en: 'artificial-intelligence-will-not-kill-us-all', de: 'kunstliche-intelligenz-wird-uns-nicht-alle-toten', fr: 'l-intelligence-artificielle-ne-nous-tuera-pas-tous' },
  'carriere-politica-economica': { it: 'carriere-politica-economica', en: 'careers-swiss-economic-policy', de: 'karriere-schweizer-wirtschaftspolitik', fr: 'carrieres-politique-economique-suisse' },
  'parmelin-avs-ue': { it: 'parmelin-avs-ue', en: 'parmelin-avs-eu', de: 'parmelin-avs-eu', fr: 'parmelin-quitte-le-conseil-federal-le-31-decembre-2026' },
+ 'lavaggio-denaro-avvocatura': { it: 'lavaggio-denaro-avvocatura', en: 'money-laundering-lawyer-rules', de: 'geldwaesche-regeln-anwaelte', fr: 'regles-blanchiment-avocats' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

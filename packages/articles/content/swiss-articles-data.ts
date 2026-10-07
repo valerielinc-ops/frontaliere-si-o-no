@@ -26317,6 +26317,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lavaggio-denaro-avvocatura',
+    category: 'novita',
+    date: '2026-10-07T23:29:16.083Z',
+    image: '/images/blog/article-lavaggio-denaro-avvocatura.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [
