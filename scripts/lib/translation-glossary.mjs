@@ -687,32 +687,484 @@ function tidySpacing(value = '') {
 // it rewrote the link (`Perch A9`, `l 80%99UE`) in every translated text that
 // cites such a URL: a 404 behind a source line that looked untouched.
 //
-// Both forms keep one level of balanced parentheses inside the destination,
-// the way Wikipedia-style URLs carry them (`…/Lugano_(citt%C3%A0)`,
-// `…/a(b)/Perch%C3%A9`): closing the span at the first `)` left whatever
-// followed it exposed to the strip. A lone `(` is still part of the URL, and a
-// bare URL quoted inside a parenthesis of prose still ends before the `)`.
-const LINK_SPAN_RE = /\]\((?:[^()\s]|\((?:[^()\s]*\))?)*\)|(?:https?:\/\/|www\.)(?:[^\s<>"'()\]]|\((?:[^\s<>"'()\]]*\))?)+/gi;
-const LINK_SLOT_RE = /\u0000(\d+)\u0000/g;
+// This is deliberately a scanner, rather than an enumeration of URL syntaxes.
+// Each candidate is consumed once, and every delimiter scan advances its cursor
+// monotonically, so an unclosed parenthesis or quote remains O(n) on long input.
+// Naked relative paths use a conservative policy: only a token that starts at a
+// lexical boundary with `/` and contains at least one `%XX` byte is opaque.
+// Thus `/wiki/Perch%C3%A9` is protected while `e/o`, `km/h`, and `24/7` remain
+// ordinary prose.
+
+function isAsciiLetter(character = '') {
+  const code = character.charCodeAt(0);
+  return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+}
+
+function isAsciiDigit(character = '') {
+  const code = character.charCodeAt(0);
+  return code >= 48 && code <= 57;
+}
+
+function isHexDigit(character = '') {
+  const code = character.charCodeAt(0);
+  return (code >= 48 && code <= 57)
+    || (code >= 65 && code <= 70)
+    || (code >= 97 && code <= 102);
+}
+
+function isHorizontalWhitespace(character = '') {
+  return character === ' ' || character === '\t';
+}
+
+function isLineBreak(character = '') {
+  return character === '\r' || character === '\n';
+}
+
+function isHtmlWhitespace(character = '') {
+  return isHorizontalWhitespace(character) || isLineBreak(character);
+}
+
+function skipHtmlWhitespace(text, index) {
+  while (index < text.length && isHtmlWhitespace(text[index])) index += 1;
+  return index;
+}
+
+function skipHorizontalWhitespace(text, index) {
+  while (index < text.length && isHorizontalWhitespace(text[index])) index += 1;
+  return index;
+}
+
+function startsWithIgnoreCase(text, index, value) {
+  return text.slice(index, index + value.length).toLowerCase() === value;
+}
+
+function isTokenBoundary(text, index) {
+  if (index === 0) return true;
+  const previous = text[index - 1];
+  return !isAsciiLetter(previous)
+    && !isAsciiDigit(previous)
+    && previous !== '_'
+    && previous !== '-';
+}
+
+function scanQuotedSpan(text, start, quote) {
+  let index = start + 1;
+  while (index < text.length) {
+    if (text[index] === '\\' && index + 1 < text.length) {
+      index += 2;
+      continue;
+    }
+    if (isLineBreak(text[index])) return -1;
+    if (text[index] === quote) return index + 1;
+    index += 1;
+  }
+  return -1;
+}
+
+function scanParenthesizedSpan(text, start) {
+  let depth = 0;
+  let index = start;
+  while (index < text.length) {
+    const character = text[index];
+    if (character === '\\' && index + 1 < text.length) {
+      index += 2;
+      continue;
+    }
+    if (isLineBreak(character)) return -1;
+    if (character === '(') {
+      depth += 1;
+    } else if (character === ')') {
+      depth -= 1;
+      if (depth === 0) return index + 1;
+    }
+    index += 1;
+  }
+  return -1;
+}
+
+function scanAngleDestination(text, start) {
+  let index = start + 1;
+  while (index < text.length) {
+    if (text[index] === '\\' && index + 1 < text.length) {
+      index += 2;
+      continue;
+    }
+    if (isLineBreak(text[index])) return -1;
+    if (text[index] === '>') return index + 1;
+    index += 1;
+  }
+  return -1;
+}
+
+/**
+ * Scan a Markdown link/image beginning at its `](` delimiter.
+ *
+ * `resumeAt` is returned on failure so the caller does not retry the same
+ * pathological suffix at every character. A final matched `)` can be the
+ * outer link close even when the destination contains a lone `(`; this keeps
+ * the previous permissive behavior for URL paths such as `a(b/slug`.
+ */
+function scanMarkdownLink(text, start) {
+  let cursor = skipHorizontalWhitespace(text, start + 2);
+  let depth = 0;
+  let lastClose = -1;
+
+  if (cursor >= text.length) return { resumeAt: text.length };
+
+  if (text[cursor] === '<') {
+    const destinationEnd = scanAngleDestination(text, cursor);
+    if (destinationEnd < 0) return { resumeAt: text.length };
+    cursor = destinationEnd;
+  } else {
+    while (cursor < text.length) {
+      const character = text[cursor];
+      if (isLineBreak(character)) return { resumeAt: cursor + 1 };
+      if (isHorizontalWhitespace(character)) break;
+      if (character === '\\' && cursor + 1 < text.length) {
+        cursor += 2;
+        continue;
+      }
+      if (character === '(') {
+        depth += 1;
+        cursor += 1;
+        continue;
+      }
+      if (character === ')') {
+        if (depth === 0) return { end: cursor + 1 };
+        depth -= 1;
+        lastClose = cursor;
+        cursor += 1;
+        continue;
+      }
+      if (character === '<') return { resumeAt: cursor + 1 };
+      cursor += 1;
+    }
+  }
+
+  cursor = skipHorizontalWhitespace(text, cursor);
+  if (text[cursor] === '"' || text[cursor] === "'") {
+    const titleEnd = scanQuotedSpan(text, cursor, text[cursor]);
+    if (titleEnd < 0) return { resumeAt: text.length };
+    cursor = skipHorizontalWhitespace(text, titleEnd);
+    return text[cursor] === ')'
+      ? { end: cursor + 1 }
+      : { resumeAt: text.length };
+  }
+  if (text[cursor] === '(') {
+    const titleEnd = scanParenthesizedSpan(text, cursor);
+    if (titleEnd < 0) return { resumeAt: text.length };
+    cursor = skipHorizontalWhitespace(text, titleEnd);
+    return text[cursor] === ')'
+      ? { end: cursor + 1 }
+      : { resumeAt: text.length };
+  }
+  if (text[cursor] === ')') return { end: cursor + 1 };
+
+  // Keep the old permissive handling of a lone `(` in a Markdown destination:
+  // if the balanced scan consumed the only `)`, treat that close as the link's
+  // outer delimiter when no title or explicit close follows it.
+  if (lastClose >= 0 && depth === 0) {
+    const afterLastClose = skipHorizontalWhitespace(text, lastClose + 1);
+    if (afterLastClose >= text.length || text[afterLastClose] !== '(') {
+      return { end: lastClose + 1 };
+    }
+  }
+  return { resumeAt: text.length };
+}
+
+function scanReferenceDestination(text, start, lineEnd) {
+  let index = start;
+  let depth = 0;
+  while (index < lineEnd) {
+    const character = text[index];
+    if (isHorizontalWhitespace(character)) break;
+    if (character === '(') {
+      depth += 1;
+    } else if (character === ')') {
+      if (depth === 0) break;
+      depth -= 1;
+    }
+    index += 1;
+  }
+  return index > start && depth === 0 ? index : -1;
+}
+
+function scanReferenceDefinition(text, start) {
+  if (start > 0 && text[start - 1] !== '\n') return null;
+  const lineEndIndex = text.indexOf('\n', start);
+  const lineEnd = lineEndIndex < 0 ? text.length : lineEndIndex;
+  let cursor = start + 1;
+  while (cursor < lineEnd && text[cursor] !== ']') cursor += 1;
+  if (cursor >= lineEnd) return null;
+  cursor = skipHorizontalWhitespace(text, cursor + 1);
+  if (text[cursor] !== ':') return null;
+  cursor = skipHorizontalWhitespace(text, cursor + 1);
+  if (cursor >= lineEnd) return null;
+
+  const spanStart = cursor;
+  const destinationEnd = text[cursor] === '<'
+    ? scanAngleDestination(text, cursor)
+    : scanReferenceDestination(text, cursor, lineEnd);
+  if (destinationEnd < 0 || destinationEnd > lineEnd) return null;
+
+  cursor = skipHorizontalWhitespace(text, destinationEnd);
+  let spanEnd = destinationEnd;
+  if (text[cursor] === '"' || text[cursor] === "'") {
+    const titleEnd = scanQuotedSpan(text, cursor, text[cursor]);
+    if (titleEnd > 0 && titleEnd <= lineEnd) spanEnd = titleEnd;
+  } else if (text[cursor] === '(') {
+    const titleEnd = scanParenthesizedSpan(text, cursor);
+    if (titleEnd > 0 && titleEnd <= lineEnd) spanEnd = titleEnd;
+  }
+  return { start: spanStart, end: spanEnd };
+}
+
+function isHtmlTagStart(text, start) {
+  let index = start + 1;
+  if (text[index] === '/') index += 1;
+  return isAsciiLetter(text[index]);
+}
+
+function scanHtmlTag(text, start) {
+  let index = start + 1;
+  let quote = '';
+  while (index < text.length) {
+    const character = text[index];
+    if (quote) {
+      if (character === quote) quote = '';
+    } else if (character === '"' || character === "'") {
+      quote = character;
+    } else if (character === '>') {
+      return { end: index + 1, closed: true };
+    }
+    index += 1;
+  }
+  return { end: text.length, closed: false };
+}
+
+function isHtmlAttributeCharacter(character = '') {
+  return isAsciiLetter(character)
+    || isAsciiDigit(character)
+    || character === ':'
+    || character === '-'
+    || character === '_';
+}
+
+function scanHtmlAttributeSpans(text, start, end) {
+  const spans = [];
+  let cursor = start + 1;
+  if (text[cursor] === '/') cursor += 1;
+  while (cursor < end && !isHtmlWhitespace(text[cursor]) && text[cursor] !== '>') cursor += 1;
+
+  while (cursor < end - 1) {
+    while (cursor < end - 1 && (isHtmlWhitespace(text[cursor]) || text[cursor] === '/')) cursor += 1;
+    const nameStart = cursor;
+    while (cursor < end - 1 && isHtmlAttributeCharacter(text[cursor])) cursor += 1;
+    if (cursor === nameStart) {
+      cursor += 1;
+      continue;
+    }
+
+    const name = text.slice(nameStart, cursor).toLowerCase();
+    cursor = skipHtmlWhitespace(text, cursor);
+    if (text[cursor] !== '=') continue;
+    cursor = skipHtmlWhitespace(text, cursor + 1);
+    if (cursor >= end - 1) break;
+
+    let valueStart = cursor;
+    let valueEnd = cursor;
+    if (text[cursor] === '"' || text[cursor] === "'") {
+      const quote = text[cursor];
+      valueStart = cursor + 1;
+      cursor = valueStart;
+      while (cursor < end - 1 && text[cursor] !== quote) cursor += 1;
+      valueEnd = cursor;
+      if (cursor < end - 1) cursor += 1;
+    } else {
+      while (cursor < end - 1 && !isHtmlWhitespace(text[cursor]) && text[cursor] !== '>') cursor += 1;
+      valueEnd = cursor;
+    }
+    if ((name === 'href' || name === 'src') && valueEnd > valueStart) {
+      spans.push({ start: valueStart, end: valueEnd });
+    }
+  }
+  return spans;
+}
+
+function scanAutolink(text, start) {
+  let cursor = start + 1;
+  if (!isAsciiLetter(text[cursor])) return null;
+  cursor += 1;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (isAsciiLetter(character) || isAsciiDigit(character) || character === '+' || character === '-' || character === '.') {
+      cursor += 1;
+      continue;
+    }
+    break;
+  }
+  if (text[cursor] !== ':') return null;
+  cursor += 1;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (isLineBreak(character) || isHorizontalWhitespace(character) || character === '<') {
+      return { resumeAt: cursor + 1 };
+    }
+    if (character === '>') return { end: cursor + 1 };
+    cursor += 1;
+  }
+  return { resumeAt: text.length };
+}
+
+function scanUrlToken(text, start) {
+  let cursor = start;
+  let parenthesisDepth = 0;
+  while (cursor < text.length) {
+    const character = text[cursor];
+    if (isHorizontalWhitespace(character) || isLineBreak(character)
+      || character === '<' || character === '>' || character === '"'
+      || character === "'" || character === ']') break;
+    if (character === '(') {
+      parenthesisDepth += 1;
+    } else if (character === ')') {
+      if (parenthesisDepth === 0) break;
+      parenthesisDepth -= 1;
+    }
+    cursor += 1;
+  }
+  return cursor;
+}
+
+function hasPercentEncodedByte(text, start, end) {
+  for (let index = start; index + 2 < end; index += 1) {
+    if (text[index] === '%' && isHexDigit(text[index + 1]) && isHexDigit(text[index + 2])) return true;
+  }
+  return false;
+}
+
+function scanBareUrl(text, start) {
+  if (!isTokenBoundary(text, start)) return null;
+
+  let kind = '';
+  if (startsWithIgnoreCase(text, start, 'https://')) kind = 'absolute';
+  else if (startsWithIgnoreCase(text, start, 'http://')) kind = 'absolute';
+  else if (startsWithIgnoreCase(text, start, 'www.')) kind = 'www';
+  else if (text[start] === '/' && text[start + 1] === '/' && text[start + 2] && text[start + 2] !== '/') kind = 'protocol-relative';
+  else if (text[start] === '/' && text[start + 1] && text[start + 1] !== '/' && text[start + 1] !== '>' && !isHorizontalWhitespace(text[start + 1])) kind = 'relative';
+  else return null;
+
+  const end = scanUrlToken(text, start);
+  if (end <= start + (kind === 'relative' ? 1 : 0)) return null;
+  if (kind === 'relative' && !hasPercentEncodedByte(text, start, end)) {
+    return { end, opaque: false };
+  }
+  return { end, opaque: true };
+}
+
+function findOpaqueSpans(text) {
+  const spans = [];
+  let index = 0;
+  while (index < text.length) {
+    if (text[index] === '[' && (index === 0 || text[index - 1] === '\n')) {
+      const reference = scanReferenceDefinition(text, index);
+      if (reference) {
+        spans.push(reference);
+        index = reference.end;
+        continue;
+      }
+    }
+
+    if (text[index] === ']' && text[index + 1] === '(') {
+      const link = scanMarkdownLink(text, index);
+      if (link.end) {
+        spans.push({ start: index, end: link.end });
+        index = link.end;
+        continue;
+      }
+      if (link.resumeAt > index) {
+        index = link.resumeAt;
+        continue;
+      }
+    }
+
+    if (text[index] === '<') {
+      const autolink = scanAutolink(text, index);
+      if (autolink?.end) {
+        spans.push({ start: index, end: autolink.end });
+        index = autolink.end;
+        continue;
+      }
+      if (autolink?.resumeAt > index) {
+        index = autolink.resumeAt;
+        continue;
+      }
+      if (isHtmlTagStart(text, index)) {
+        const tag = scanHtmlTag(text, index);
+        if (tag.closed) spans.push(...scanHtmlAttributeSpans(text, index, tag.end));
+        index = tag.end;
+        continue;
+      }
+    }
+
+    const url = scanBareUrl(text, index);
+    if (url) {
+      if (url.opaque) spans.push({ start: index, end: url.end });
+      index = url.end;
+      continue;
+    }
+    index += 1;
+  }
+  return spans;
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function createOpaqueSlotPrefix(input) {
+  const base = '\u0001translation-glossary-slot-';
+  let prefix = base;
+  let suffix = 0;
+  while (input.includes(prefix)) {
+    suffix += 1;
+    prefix = `${base}${suffix}-`;
+  }
+  return prefix;
+}
+
+function maskOpaqueSpans(input, spans) {
+  if (!spans.length) return { masked: input, slots: [], prefix: '' };
+  const prefix = createOpaqueSlotPrefix(input);
+  const slots = [];
+  let cursor = 0;
+  let masked = '';
+  for (const span of spans) {
+    if (span.start < cursor) continue;
+    masked += input.slice(cursor, span.start);
+    const marker = `${prefix}${slots.length}\u0001`;
+    slots.push(input.slice(span.start, span.end));
+    masked += marker;
+    cursor = span.end;
+  }
+  return { masked: masked + input.slice(cursor), slots, prefix };
+}
+
+function restoreOpaqueSlots(value, slots, prefix) {
+  if (!slots.length) return value;
+  const slotRe = new RegExp(`${escapeRegExp(prefix)}(\\d+)\\u0001`, 'g');
+  return value.replace(slotRe, (_match, index) => slots[Number(index)] ?? '');
+}
 
 /** Remove template/placeholder tokens (see the design note above). */
 export function stripPlaceholderTokens(text = '') {
   const input = String(text ?? '');
   if (!input) return input;
-  const links = [];
-  // A text that already carries the slot character cannot be masked safely:
-  // it is processed as before.
-  const masked = input.includes('\u0000')
-    ? input
-    : input.replace(LINK_SPAN_RE, (span) => {
-      links.push(span);
-      return `\u0000${links.length - 1}\u0000`;
-    });
-  const out = masked
+  const maskedSpans = maskOpaqueSpans(input, findOpaqueSpans(input));
+  const out = maskedSpans.masked
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');
-  if (out === masked) return input;
-  return tidySpacing(out).replace(LINK_SLOT_RE, (_, index) => links[Number(index)]);
+  if (out === maskedSpans.masked) return input;
+  return restoreOpaqueSlots(tidySpacing(out), maskedSpans.slots, maskedSpans.prefix);
 }
 
 /** True when the string still carries at least one letter or digit. */

@@ -553,6 +553,88 @@ describe('translation glossary — customs-role veto on the frontalieri rule', (
 describe('translation glossary — placeholder strip leaves links alone', () => {
   const RSI = 'https://www.rsi.ch/info/dialogo/Perch%C3%A9-sviluppare-nuovi-farmaci-costa-sempre-di-pi%C3%B9--4071262.html';
 
+  const OPAQUE_SPAN_CASES = [
+    {
+      name: 'Markdown destination with a double-quoted title',
+      input: 'Prima [città](/wiki/Perch%C3%A9 "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima [città](/wiki/Perch%C3%A9 "titolo") dopo e basta.',
+    },
+    {
+      name: 'Markdown destination with a single-quoted title',
+      input: "Prima [città](/wiki/Perch%C3%A9 'titolo') dopo %COMPANY% e basta.",
+      expected: "Prima [città](/wiki/Perch%C3%A9 'titolo') dopo e basta.",
+    },
+    {
+      name: 'Markdown destination with a parenthesized title',
+      input: 'Prima [città](/wiki/Perch%C3%A9 (titolo)) dopo %COMPANY% e basta.',
+      expected: 'Prima [città](/wiki/Perch%C3%A9 (titolo)) dopo e basta.',
+    },
+    {
+      name: 'angle-bracket Markdown destination with a title',
+      input: 'Prima [città](</wiki/Perch%C3%A9> "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima [città](</wiki/Perch%C3%A9> "titolo") dopo e basta.',
+    },
+    {
+      name: 'Markdown image destination',
+      input: 'Prima immagine:![mappa](/img/Perch%C3%A9.png "titolo") dopo %COMPANY% e basta.',
+      expected: 'Prima immagine:![mappa](/img/Perch%C3%A9.png "titolo") dopo e basta.',
+    },
+    {
+      name: 'reference definition with a title',
+      input: 'Prima\n[id]: /wiki/Perch%C3%A9 "titolo" %COMPANY%\nDopo.',
+      expected: 'Prima\n[id]: /wiki/Perch%C3%A9 "titolo"\nDopo.',
+    },
+    {
+      name: 'protocol-relative naked URL',
+      input: 'Prima //host/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima //host/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'absolute naked URL',
+      input: 'Prima https://example.test/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima https://example.test/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'www naked URL',
+      input: 'Prima www.example.test/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima www.example.test/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'relative naked path with an encoded byte',
+      input: 'Prima /wiki/Perch%C3%A9 dopo %COMPANY% e basta.',
+      expected: 'Prima /wiki/Perch%C3%A9 dopo e basta.',
+    },
+    {
+      name: 'double-quoted href attribute',
+      input: 'Prima <a href="/wiki/Perch%C3%A9">link</a> dopo %COMPANY% e basta.',
+      expected: 'Prima <a href="/wiki/Perch%C3%A9">link</a> dopo e basta.',
+    },
+    {
+      name: 'single-quoted src attribute',
+      input: "Prima <img src='/img/Perch%C3%A9.png'> dopo %COMPANY% e basta.",
+      expected: "Prima <img src='/img/Perch%C3%A9.png'> dopo e basta.",
+    },
+    {
+      name: 'unquoted src attribute',
+      input: 'Prima <img src=/img/Perch%C3%A9.png> dopo %COMPANY% e basta.',
+      expected: 'Prima <img src=/img/Perch%C3%A9.png> dopo e basta.',
+    },
+    {
+      name: 'schema autolink',
+      input: 'Prima <https://example.test/Perch%C3%A9> dopo %COMPANY% e basta.',
+      expected: 'Prima <https://example.test/Perch%C3%A9> dopo e basta.',
+    },
+    {
+      name: 'more than one balanced parenthesis level',
+      input: 'Prima [x](https://example.test/a(b(c))/Perch%C3%A9) dopo %COMPANY% e basta.',
+      expected: 'Prima [x](https://example.test/a(b(c))/Perch%C3%A9) dopo e basta.',
+    },
+  ] as const;
+
+  it.each(OPAQUE_SPAN_CASES)('preserves the opaque destination: $name', ({ input, expected }) => {
+    expect(stripPlaceholderTokens(input)).toBe(expected);
+  });
+
   it('keeps percent-encoded bytes inside a Markdown link target', () => {
     const text = `*Fonte: [rsi.ch](${RSI})*`;
     expect(stripPlaceholderTokens(text)).toBe(text);
@@ -609,5 +691,51 @@ describe('translation glossary — placeholder strip leaves links alone', () => 
         fieldType: 'description',
       }),
     ).toBe(`*Quelle: [rsi.ch](${RSI})*`);
+  });
+
+  it('preserves ordinary slash prose and keeps the placeholder vocabulary case-sensitive', () => {
+    expect(stripPlaceholderTokens('e/o km/h 24/7 (AZIENDA) (azienda) %COMPANY%')).toBe('e/o km/h 24/7 (azienda)');
+  });
+
+  const NUL = '\u0000';
+  const EXISTING_SLOT_SHAPED_NUL = `${NUL}7${NUL}`;
+  const NUL_CASES = [
+    {
+      name: 'NUL without a link or placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL}dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL}dopo`,
+    },
+    {
+      name: 'NUL with a placeholder but no link',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} %COMPANY% dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} dopo`,
+    },
+    {
+      name: 'NUL with a link but no placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+    },
+    {
+      name: 'NUL with a link and a placeholder',
+      input: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) %COMPANY% dopo`,
+      expected: `prima${EXISTING_SLOT_SHAPED_NUL} [link](/wiki/Perch%C3%A9) dopo`,
+    },
+  ] as const;
+
+  it.each(NUL_CASES)('restores only its own slots: $name', ({ input, expected }) => {
+    const output = stripPlaceholderTokens(input);
+    expect(output).toBe(expected);
+    expect(output).not.toContain('undefined');
+  });
+
+  it('scans 200 KB of unclosed parentheses and quotes within the linearity budget', () => {
+    const pathological = `[x](${`(`.repeat(100_000)}\n<a href="${'x'.repeat(100_000)} %COMPANY%`;
+    const startedAt = performance.now();
+    const output = stripPlaceholderTokens(pathological);
+    const elapsedMs = performance.now() - startedAt;
+
+    expect(output).not.toContain('%COMPANY%');
+    expect(output).not.toContain('undefined');
+    expect(elapsedMs).toBeLessThan(1000);
   });
 });
