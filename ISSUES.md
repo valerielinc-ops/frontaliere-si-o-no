@@ -4,7 +4,7 @@ Contratto: `issue-triage.yml` (**deterministico, senza agente**), `issue-fix.yml
 
 ## Scopo
 
-Flussi:
+Flussi —
 
 **Dedup a MONTE:** `scripts/lib/github-issue-creator.mjs`, **titolo stabile** + 🔁. `post-merge-followup`/`FOLLOWUP.md`: bucket `Europe/Zurich` per target; sito/corpus separati. Triage: **`scripts/lib/classify-issue.mjs` + shell, zero agente/quota**.
 
