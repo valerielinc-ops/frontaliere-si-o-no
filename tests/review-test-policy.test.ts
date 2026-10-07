@@ -587,7 +587,7 @@ describe('owner policy excluding test files from review', () => {
     const unknownExit = ledgerScope.run.slice(ledgerScope.run.indexOf('*)'));
     expect(unknownExit).toContain('exit "$status"');
     expect(unknownExit).not.toContain('ledger_only=false');
-    expect(workflow.jobs.vitest.steps.find((step: any) => step.uses === 'actions/checkout@v7').if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
+    expect(workflow.jobs.vitest.steps.find((step: any) => step.uses === 'actions/checkout@v7').if).toContain('!cancelled()');
     expect(workflow.jobs.vitest.steps[setupIndex].if).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
     for (const id of ['source-guards', 'independent-gates', 'assemble', 'collect-independent-gates', 'resolve', 'review_gate']) {
       expect(workflow.jobs.vitest.steps.find((step: any) => step.id === id).if, id).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");

@@ -159,6 +159,21 @@ bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 # shellcheck source=scripts/lib/git-push-rejection.sh
 source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/git-push-rejection.sh"
 
+old_history_guard_main() {
+  [ "$BRANCH" = "main" ] || return 0
+  node "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs" \
+    --head HEAD \
+    --base refs/remotes/origin/main \
+    --refresh-base \
+    --remote origin \
+    --branch main
+}
+
+# Guard non distruttivo prima di qualsiasi reset, rebase o push. Se il checkout
+# conserva la storia precedente ma origin/main è già riscritto, il job termina
+# qui e non prova a ripubblicarla.
+old_history_guard_main
+
 run_regenerate_with_retry() {
   local regenerate_attempt=1
   while true; do
@@ -372,6 +387,7 @@ until push_head; do
   fi
   echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS); rebasing onto origin/${BRANCH}..."
   git fetch origin "$BRANCH"
+  old_history_guard_main
   stashed=0
   if [ -n "$STASH_DIRTY" ]; then
     # Preserve leftover dirty/untracked state instead of discarding it — a
