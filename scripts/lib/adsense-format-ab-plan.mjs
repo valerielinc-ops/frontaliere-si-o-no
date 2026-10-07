@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Weekly plan of the AdSense format A/B monitor: which experiments are active
  * right now, and therefore whether the workflow has anything to do.
@@ -30,8 +32,6 @@
  */
 
 import { appendFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import { isInfeedAdExperimentSurface } from '../../services/adExperiment.ts';
 
@@ -78,5 +78,5 @@ export function publishReportPlan(plan, env = process.env) {
   console.log(plan.message);
 }
 
-const invokedDirectly = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) publishReportPlan(buildReportPlan());

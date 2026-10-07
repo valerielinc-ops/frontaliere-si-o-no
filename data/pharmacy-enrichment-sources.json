@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T11:45:03.719Z",
+  "generatedAt": "2026-10-07T15:50:04.000Z",
   "sources": [
     {
       "id": "casciago-municipality",
@@ -20,6 +20,26 @@
       "label": "ATS Insubria — elenco farmacie (luglio 2025)",
       "sourceType": "official",
       "fields": ["phone"],
+      "status": "active"
+    },
+    {
+      "id": "casciago-pnrr-2026-0218",
+      "pharmacyId": "it-msal-3907",
+      "kind": "pdf",
+      "url": "https://www.strutturapnrr.gov.it/media/2ilmk4mv/260310-decreto-n-32-2026-di-erogazione-fr25-ddg-40-n-01-signed.pdf",
+      "label": "Struttura di missione PNRR — decreto 32/2026",
+      "sourceType": "official",
+      "fields": ["vatNumber"],
+      "status": "active"
+    },
+    {
+      "id": "casciago-atoka-legal-entity",
+      "pharmacyId": "it-msal-3907",
+      "kind": "html",
+      "url": "https://atoka.io/public/it/azienda/farmacia-internazionale-di-casciago-del-dott-massimo-de-bernardi-c-sas/7601ad2f09a8",
+      "label": "Atoka — scheda impresa pubblica",
+      "sourceType": "directory",
+      "fields": ["vatNumber"],
       "status": "active"
     }
   ],

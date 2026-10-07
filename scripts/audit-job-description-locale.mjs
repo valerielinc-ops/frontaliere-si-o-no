@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-job-description-locale — the measurement behind
  * tests/job-locale-consistency.test.ts's DESCRIPTIONS ratchet, run on a
@@ -456,7 +458,7 @@ async function main() {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const isMain = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMain) {
   // main() is async only because it lazily imports the BFS predicate; an
   // unhandled rejection here would exit 0 with no report, which reads as a

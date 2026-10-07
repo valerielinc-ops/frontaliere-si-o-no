@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Crea (o riallinea) la chiave API usata per PageSpeed Insights e Chrome UX
  * Report e la scrive in Remote Config come `PAGESPEED_API_KEY`.
@@ -218,4 +219,4 @@ async function main() {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) await main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) await main();

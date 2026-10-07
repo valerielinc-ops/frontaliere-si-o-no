@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Vallese (VS) eCari connector.
  *
@@ -52,7 +54,7 @@ export async function fetchVsPlateAuctions() {
   ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   fetchVsPlateAuctions()
     .then((auctions) => {
       console.log(JSON.stringify(auctions, null, 2));

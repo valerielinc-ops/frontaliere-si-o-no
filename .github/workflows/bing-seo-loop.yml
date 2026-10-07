@@ -284,6 +284,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/redirectStubMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -343,6 +344,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/redirectStubMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -412,6 +414,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/redirectStubMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -482,6 +485,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/redirectStubMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs
@@ -547,6 +551,7 @@ jobs:
           # shared article registry; materialize that closure explicitly.
           sparse-checkout: |
             /scripts/seo/
+            /build-plugins/shared/redirectStubMarker.mjs
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
             /scripts/lib/professionLandingsSections.mjs

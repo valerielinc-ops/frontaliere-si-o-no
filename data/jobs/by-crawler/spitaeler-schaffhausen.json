@@ -3783,9 +3783,9 @@
     },
     {
       "id": "spitaeler-schaffhausen-969536106e2d",
-      "slug": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
+      "slug": "medico-specialista-in-medicina-nucleare-con-interesse-per-la-formazione-di-doppio-specialista-in-radiologia-e-medicina",
       "slugByLocale": {
-        "it": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
+        "it": "medico-specialista-in-medicina-nucleare-con-interesse-per-la-formazione-di-doppio-specialista-in-radiologia-e-medicina",
         "en": "specialist-specialist-nuclear-medicine-with-interest-in-dual-specialist-training-radiology-and-nuclear-medicine-spitaler",
         "de": "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie",
         "fr": "specialiste-specialiste-medecine-nucleaire-avec-interet-dans-la-formation-double-specialiste-radiologie-et-medecine"
@@ -3795,7 +3795,7 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Fachärztin / Facharzt Nuklearmedizin mit Interesse an Doppel-Facharztausbildung Radiologie und Nuklearmedizin",
       "titleByLocale": {
-        "it": "Fachärztin / Facharzt Nuklearmedizin con Interesse an Doppel-Facharztausbildung Radiologie e Nuklearmedizin",
+        "it": "Medico specialista in medicina nucleare con interesse per la formazione di doppio specialista in radiologia e medicina nucleare",
         "en": "Specialist / Specialist Nuclear Medicine with interest in dual specialist training Radiology and Nuclear Medicine",
         "de": "Fachärztin / Facharzt Nuklearmedizin mit Interesse an Doppel-Facharztausbildung Radiologie und Nuklearmedizin",
         "fr": "Spécialiste / Spécialiste Médecine nucléaire avec intérêt dans la formation double spécialiste Radiologie et médecine nucléaire"
@@ -3846,7 +3846,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-f23d39a4d737",

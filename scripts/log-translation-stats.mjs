@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Append a translation stats snapshot to data/translation-stats-history.json.
  * Called by translate-pending.yml after each run to build a monitoring history.
@@ -65,7 +67,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
 import {
   titleOffence,
@@ -1150,5 +1152,5 @@ function main() {
 // tests that import this module red in a sparse worktree missing data/,
 // green in CI and in any full checkout — not a regression introduced here.
 const isMainModule = process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+  (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (isMainModule) main();

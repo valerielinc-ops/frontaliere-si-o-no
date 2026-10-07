@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 /**
  * send-newsletter.mjs — v2 (AI-powered personalized newsletter)
@@ -2984,7 +2986,7 @@ async function main() {
 }
 
 // Only run main() when executed directly — allows import for tests / dry-run.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(async (e) => {
     // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
     // errore butta via gli esiti dei modelli accumulati dalla run \u2014 per lo

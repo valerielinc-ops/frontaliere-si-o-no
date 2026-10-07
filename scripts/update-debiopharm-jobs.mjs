@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Dedicated Debiopharm crawler runner.
  *
@@ -670,6 +672,6 @@ async function main() {
 // Guard top-level execution so the module can be imported by tests (e.g.
 // buildDebiopharmJob's skip-guard wiring test) without triggering a live
 // crawl. Run only when invoked directly via `node scripts/update-debiopharm-jobs.mjs`.
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((err) => exitCrawlerOnError(err, 'Debiopharm'));
 }

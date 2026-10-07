@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Sweep open GitHub secret-scanning alerts for every repository owned by one
  * GitHub account. The script prints repository/alert metadata only — never the
@@ -196,7 +197,7 @@ export async function runSweep({
   return result;
 }
 
-if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runSweep().catch((error) => {
     process.stderr.write(`[secret-alert-sweep] fallimento: ${error.message}\n`);
     process.exitCode = error.code === 'OPEN_SECRET_ALERTS' || error.code === 'UNMONITORED_REPOSITORIES' ? 1 : 2;

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * local-mt-mopup.mjs — IN-PROCESS, $0, no-external-API translation MOP-UP tier.
  *
@@ -1869,7 +1871,7 @@ const invokedDirectly = (() => {
   try {
     const entry = process.argv[1];
     if (!entry) return false; // node REPL / no script → not a direct invocation
-    return import.meta.url === `file://${entry}` || import.meta.url.endsWith(entry);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch { return false; }
 })();
 

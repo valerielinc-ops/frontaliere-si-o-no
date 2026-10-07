@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Per ogni JOB di ogni workflow: quali foglie pesanti del checkout tocca davvero.
  *
@@ -573,7 +575,7 @@ export function analyzeAll() {
     .map((f) => analyzeWorkflow(path.join(WF_DIR, f), pkg.scripts));
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const all = analyzeAll();
   const jobs = all.flatMap((w) => w.jobs.filter((j) => j.hasCheckout).map((j) => ({ ...j, file: w.file })));
   const avg = jobs.reduce((a, j) => a + j.checkoutMb, 0) / jobs.length;

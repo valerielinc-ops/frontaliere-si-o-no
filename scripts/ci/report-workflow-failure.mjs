@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * report-workflow-failure.mjs — il reporter diagnostico di #5423, reso
  * invocabile da QUALUNQUE workflow (issue #5437).
@@ -585,7 +587,7 @@ export function resolveMode({ dryRun }) {
 /* ── CLI ─────────────────────────────────────────────────────────────── */
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const args = process.argv.slice(2);

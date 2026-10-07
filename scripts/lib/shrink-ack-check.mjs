@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * shrink-ack-check.mjs — decide whether a tripped section-shard shrink guard is
  * covered by a pinned, human-verified acknowledgement.
@@ -117,4 +118,4 @@ function main() {
   process.exit(acknowledged ? 0 : 1);
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();

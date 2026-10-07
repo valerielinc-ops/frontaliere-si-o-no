@@ -1,3 +1,4 @@
+import { realpathSync } from 'node:fs';
 /**
  * check-pharmacy-data-health.mjs — Dashboard interna sulla qualità del dato
  * della verticale farmacie (#6753, item "dashboard interna" di #6400).
@@ -721,5 +722,5 @@ function main() {
   process.exit(1);
 }
 
-const invokedDirectly = import.meta.url === pathToFileURL(process.argv[1] ?? '').href;
+const invokedDirectly = (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 if (invokedDirectly) main();

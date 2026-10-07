@@ -4,7 +4,7 @@ import { createMemoryFirestore } from './helpers/memoryFirestore';
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue: vi.fn(async () => '') }));
 
 const { atsReport, keywordCoverage, structuralCheck, titlePhrases } = await import('../functions/src/assistedApplicationAts.js');
-const { assessLegitimacy, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
+const { assessLegitimacy, isSeasonalTitle, salaryRange } = await import('../functions/src/assistedApplicationLegitimacy.js');
 const { buildTailoredCvPdf, checkTailoredCvFacts, sanitizeTailoredCv, tailoredCvPlainText, withoutWorkload } = await import('../functions/src/assistedApplicationTailoredCv.js');
 const { employerReplied, followupDueAt, sanitizeFollowup, scheduleFollowups, DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decideFollowup, followupReviewPayload, runFollowupSweep, sendFollowup } = await import('../functions/src/assistedApplicationFollowupSweep.js');
@@ -67,6 +67,36 @@ describe('posting legitimacy (career-ops Block G)', () => {
     expect(publicSector.tier).not.toBe('suspicious');
     const rolling = assess({ posting: { postingDateSource: 'reported', postedDate: '2026-05-01', text: long }, legitimacy: { specificity: 'mixed', rolling: true } });
     expect(rolling.signals.find((signal: any) => signal.key === 'age')?.weight).toBe('neutral');
+  });
+
+  it('knows a job for a season is advertised months ahead: its age is no ghost sign until the season', () => {
+    // A real order of 2026-10-07: «Weihnachtsaushilfe», published on 5 August, a generic text.
+    const posting = (postedDate: string, titles: Record<string, string> = {}) => ({ postingDateSource: 'reported', postedDate, text: long, titles });
+    const vague = { specificity: 'vague' };
+    const christmas = assess({ posting: posting('2026-07-29', { it: 'Aiuto natalizio (m/f/d)', de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague });
+    expect(christmas.signals.find((signal: any) => signal.key === 'age')).toMatchObject({ weight: 'neutral', detail: '63' });
+    expect(christmas.tier).toBe('caution');
+    expect(christmas.notes.map((note: any) => note.key)).toContain('seasonal');
+    // The title the order or the requirements give counts as the posting's own.
+    expect(assess({ posting: posting('2026-07-29'), legitimacy: vague, titles: ['Collaboratore stagionale'] }).tier).toBe('caution');
+    // Past four months it is old like any other; and a job of every season is judged as before.
+    expect(assess({ posting: posting('2026-05-20', { de: 'Weihnachtsaushilfe (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    expect(assess({ posting: posting('2026-07-29', { de: 'Verkaufsberater (m/w/d)' }), legitimacy: vague }).tier).toBe('suspicious');
+    for (const title of [
+      'Aide de Noël', 'Vendeur·euse saisonnier·ère', 'Christmas Sales Assistant', 'Cameriere per la stagione invernale', 'Seasonal Associate', 'Sommersaison: Servicemitarbeiter',
+      // Summer and winter, in the four languages and in English (review of #12225).
+      'Summer sales assistant', 'Addetto estivo', 'Sommerhilfe', 'Employé d’hiver', 'Bagnino per l’estate', 'Animatrice estate 2027', 'Job d\'été', 'Aushilfe Sommer 2027',
+      'Sommerferienjob Lager', 'Mitarbeiter Winterdienst', 'Winter season staff', 'Cameriere inverno 2026/27', 'Serveur·euse saison estivale',
+    ]) {
+      expect(isSeasonalTitle([title]), title).toBe(true);
+    }
+    // The start of another word is no season («Winterthur», a city many Swiss titles name), nor is the English «estate».
+    for (const title of [
+      'Addetto alla stagionatura', 'Seasoned Sales Manager', 'Natalia Rossi Assistant', 'Infermiera 80-100%', '',
+      'Pflegefachfrau HF, Winterthur', 'Monteur Wintergarten', 'Real Estate Agent', 'Estate Manager', 'Responsable hivernage',
+    ]) {
+      expect(isSeasonalTitle([title]), title).toBe(false);
+    }
   });
 
   it('reports self-employment, a wide pay range and text aimed at an AI apart, without changing the tier', () => {
@@ -203,6 +233,84 @@ describe('follow-ups (career-ops modes/followup.md)', () => {
     expect(sanitizeFollowup({ body: GOOD_FOLLOWUP }, { n: 1 }).violations).toEqual([]);
     expect(employerReplied([{ receivedAt: 5, category: 'auto_acknowledgement' }, { receivedAt: 6, category: 'verification' }], 0)).toBe(false);
     expect(employerReplied([{ receivedAt: 5, category: 'question' }], 0)).toBe(true);
+  });
+
+  it('writes once more a follow-up the fact gate stops, and holds it for the owner only when the repair fails too', async () => {
+    // As the draft does for the letter (2026-10-07): one warning held the follow-up for the owner, never sent.
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const drafted = async (repair: () => any) => {
+      const store = followupStore();
+      await scheduleFollowups(store.db, ORDER, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: '<aa-1@candidature.frontaliereticino.ch>', sentAt: T0 });
+      const codex = vi.fn(async (request: any) => (request.userText.includes('"factCheckFindings"') ? repair() : { body: invented }));
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS });
+      return { followup: store.read(`${ORDER_PATH}/automation/followup`), requests: (codex.mock.calls as any[]).map(([request]) => request) };
+    };
+    const fixed = await drafted(() => ({ body: GOOD_FOLLOWUP }));
+    expect(fixed.followup).toMatchObject({ state: 'awaiting_candidate', pending: { n: 1, body: GOOD_FOLLOWUP } });
+    expect(fixed.requests).toHaveLength(2);
+    expect(fixed.requests[0].userText).not.toContain('"factCheckFindings"');
+    expect(JSON.parse(fixed.requests[1].userText).factCheckFindings).toEqual([expect.objectContaining({ kind: 'number', token: '9' })]);
+    expect(fixed.requests[1].timeoutMs).toBeLessThan(fixed.requests[0].timeoutMs);
+    // The repair still invents, breaks a rule of the follow-up, or does not come: held for the owner, as before.
+    for (const repair of [() => ({ body: invented }), () => ({ body: 'Buongiorno, volevo solo sapere se avete novità.' }), () => { throw new Error('codex unavailable'); }]) {
+      const held = await drafted(repair);
+      expect(held.followup).toMatchObject({ state: 'stopped', stopReason: 'fact_check', pending: { n: 1, body: invented } });
+      expect(held.requests).toHaveLength(2);
+    }
+  });
+
+  it('keeps the whole sweep inside its time: a follow-up it has no time to draft stays due for the next sweep', async () => {
+    // The scheduled function has 540 s for every follow-up due (review of #12244): five slow ones, each with
+    // its repair, would take four times that.
+    const ids = ['order_SWEEP1', 'order_SWEEP2', 'order_SWEEP3', 'order_SWEEP4', 'order_SWEEP5'];
+    const invented = GOOD_FOLLOWUP.replace('Sarei disponibile', 'Ho 9 anni di esperienza. Sarei disponibile');
+    const sweep = async (firstMs: number, repairMs: number) => {
+      const seed: Record<string, any> = {};
+      for (const id of ids) {
+        const path = `assisted_applications/${id}`;
+        seed[path] = { submissionStatus: 'submitted', locale: 'it', applicantName: 'Maria Rossi', customerEmail: 'maria.rossi@example.com', jobTitle: 'Infermiera', companyName: 'Ospedale' };
+        seed[`${path}/ai_drafts/current`] = {
+          language: 'it', job: { title: 'Infermiera' }, profile: { fullName: 'Maria Rossi' }, applicationEmail: { body: 'Gentili Signori, in allegato la mia candidatura.' },
+          matches: [], factSources: { text: CV_TEXT, posting: 'Ospedale cerca infermiera', order: 'Infermiera\nOspedale\nMaria Rossi', answers: '' },
+        };
+        seed[`${path}/automation/flow`] = { answers: {} };
+      }
+      const store = createMemoryFirestore(seed);
+      for (const id of ids) await scheduleFollowups(store.db, id, { to: 'hr@ospedale.ch', subject: 'Candidatura infermiera', messageId: `<aa-${id}@candidature.frontaliereticino.ch>`, sentAt: T0 });
+      // The time the sweep takes is the time its calls take: a clock of the test's own.
+      let elapsed = 0;
+      const requests: any[] = [];
+      const codex = vi.fn(async (request: any) => {
+        requests.push(request);
+        elapsed += request.userText.includes('"factCheckFindings"') ? repairMs : firstMs;
+        return { body: invented };
+      });
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend' }] }));
+      const summary = await runFollowupSweep({ db: store.db, codex, sendCascade, getSecret: async () => SECRET, isEnabled: async () => true, nowMs: T0 + 7 * DAY_MS, clock: () => elapsed });
+      return { summary, elapsed, requests, followup: (id: string) => store.read(`assisted_applications/${id}/automation/followup`), order: (id: string) => store.read(`assisted_applications/${id}`) };
+    };
+
+    // Five follow-ups due, 179 s for each first writing and 120 s for each repair: one fits, four stay due.
+    const slow = await sweep(179_000, 120_000);
+    expect(slow.elapsed).toBe(299_000);
+    expect(slow.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slow.summary.results.map((result: any) => result.deferred || 'drafted')).toEqual(['drafted', 'sweep_budget', 'sweep_budget', 'sweep_budget', 'sweep_budget']);
+    expect(slow.followup(ids[0])).toMatchObject({ state: 'stopped', stopReason: 'fact_check' });
+    for (const id of ids.slice(1)) {
+      expect(slow.followup(id)).toMatchObject({ state: 'scheduled' });
+      expect(slow.order(id).followupDueAt).toBeLessThanOrEqual(T0 + 7 * DAY_MS);
+    }
+    // Quick ones all fit: four with their repair, the fifth while the sweep still has the time for it.
+    const quick = await sweep(20_000, 20_000);
+    expect(quick.summary.results.every((result: any) => !result.deferred)).toBe(true);
+    expect(quick.elapsed).toBe(200_000);
+    // A first writing that takes almost all the sweep has gets no repair, and never more time than is left.
+    const slowest = await sweep(400_000, 120_000);
+    expect(slowest.requests).toHaveLength(1);
+    expect(slowest.requests[0].timeoutMs).toBeLessThanOrEqual(420_000);
+    expect(slowest.elapsed).toBeLessThanOrEqual(540_000);
+    expect(slowest.summary.results.slice(1).every((result: any) => result.deferred === 'sweep_budget')).toBe(true);
   });
 
   it('drafts on day 7, sends after the 12 hours, then the day-14 one, then stops', async () => {

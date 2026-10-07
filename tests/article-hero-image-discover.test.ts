@@ -53,7 +53,7 @@ describe('article pages emit a real hero image element (#5005)', () => {
     // alt="" would be a decorative-image assertion — it would tell Discover
     // this image is not about the article, which is the opposite of the point.
     expect(SOURCE).toMatch(/heroFigureHtml\s*=\s*[\s\S]{0,400}?alt="\$\{esc\(heroAlt\)\}"/);
-    expect(SOURCE).toContain('const heroAlt = localizedMeta?.imageAlt || localizedTitle');
+    expect(SOURCE).toContain('const heroAlt = localizedMeta?.imageAlt || socialTitle');
   });
 
   it('renders the hero in BOTH emit branches, not just the rich one', () => {

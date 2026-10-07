@@ -96,6 +96,7 @@ import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 import { fillEventPeopleDefaults, normalizeEventPeople } from '../scripts/lib/event-metadata.mjs';
 import { assignEventImageAsset } from '../packages/articles/engine/shared/eventImageLibrary.mjs';
+import { LICENSED_PHOTO_PROVIDERS } from '../packages/articles/engine/shared/generatedImageRegistry.mjs';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 type EventEntity = { '@type'?: string; name: string; url?: string };
@@ -135,6 +136,11 @@ interface SiteEvent {
   imageLicense?: string;
   imageLicenseUrl?: string;
   imageProvider?: string;
+  imageAuthor?: { name: string; url?: string };
+  imageSourcePageUrl?: string;
+  imageCopyrightNotice?: string;
+  imageAcquireLicensePage?: string;
+  imageModifications?: string[];
   sourceKey: string;
   sourceName: string;
   // Nationwide sources (guidle, myswitzerland — issue #3125) carry richer
@@ -249,8 +255,47 @@ function isGeneratedEventImage(event: SiteEvent): boolean {
   );
 }
 
+function isLicensedEventLibraryPhoto(event: SiteEvent): boolean {
+  return Boolean(
+    event.imageLicense !== 'generated-provider'
+    && typeof event.imageProvider === 'string'
+    && LICENSED_PHOTO_PROVIDERS.includes(event.imageProvider)
+    && event.imageAssetId
+    && typeof event.imageUrl === 'string'
+    && event.imageUrl.startsWith('/images/events/library/')
+    && event.imageUrl.endsWith('.webp')
+    && typeof event.imageLicense === 'string'
+    && event.imageLicense.trim().length > 0
+    && typeof event.imageLicenseUrl === 'string'
+    && /^https:\/\//i.test(event.imageLicenseUrl)
+    && typeof event.imageCredit === 'string'
+    && event.imageCredit.trim().length > 0
+    && typeof event.imageAuthor?.name === 'string'
+    && event.imageAuthor.name.trim().length > 0
+    && typeof event.imageSourcePageUrl === 'string'
+    && /^https:\/\//i.test(event.imageSourcePageUrl)
+    && typeof event.imageCopyrightNotice === 'string'
+    && event.imageCopyrightNotice.trim().length > 0
+    && typeof event.imageAcquireLicensePage === 'string'
+    && /^https:\/\//i.test(event.imageAcquireLicensePage),
+  );
+}
+
 function hasPublishedEventImage(event: SiteEvent): boolean {
-  return isGeneratedEventImage(event) || hasLicensedSourceEventImage(event);
+  return isGeneratedEventImage(event) || isLicensedEventLibraryPhoto(event) || hasLicensedSourceEventImage(event);
+}
+
+function renderLicensedEventImageCredit(event: SiteEvent, locale: Locale): string {
+  if (!isLicensedEventLibraryPhoto(event)) return '';
+  const author = event.imageAuthor?.name || event.imageCredit || '';
+  const authorLink = event.imageSourcePageUrl
+    ? `<a href="${esc(event.imageSourcePageUrl)}" rel="nofollow noopener" target="_blank">${esc(author)}</a>`
+    : esc(author);
+  const licenseLink = `<a href="${esc(event.imageLicenseUrl!)}" rel="license nofollow noopener" target="_blank">${esc(event.imageLicense!)}</a>`;
+  const modification = Array.isArray(event.imageModifications) && event.imageModifications.length
+    ? ` · ${esc(COPY[locale].modifiedImageLabel)}`
+    : '';
+  return `<span class="ev-img-credit" data-event-image-credit="licensed">${esc(COPY[locale].licensedImageLabel)}: ${authorLink} · ${licenseLink}${modification}</span>`;
 }
 
 /** Materialize the shared assignment for both fresh and pre-library snapshots. */
@@ -511,6 +556,8 @@ interface Copy {
   noEventsSoon: string;
   at: string;
   generatedImageLabel: string;
+  licensedImageLabel: string;
+  modifiedImageLabel: string;
   exploreMore: string;
   methodologyTitle: string;
   methodology: string;
@@ -568,6 +615,8 @@ const COPY: Record<Locale, Copy> = {
     noEventsSoon: 'Nessun evento in agenda nei prossimi giorni. Torna a trovarci: l\'agenda si aggiorna ogni giorno.',
     at: 'presso',
     generatedImageLabel: 'Immagine illustrativa generata con IA',
+    licensedImageLabel: 'Foto',
+    modifiedImageLabel: 'ritagliata, ridimensionata e convertita in WebP',
     exploreMore: 'Esplora anche',
     methodologyTitle: 'Come raccogliamo gli eventi',
     methodology: 'Gli eventi sono raccolti automaticamente dalle agende pubbliche del Ticino e aggiornati ogni giorno. Ogni evento è attribuito al comune in base al luogo o alla regione indicata dalla fonte. Verifica sempre data, orario e luogo sulla pagina originale dell\'organizzatore prima di metterti in viaggio: orari e disponibilità possono cambiare.',
@@ -618,6 +667,8 @@ const COPY: Record<Locale, Copy> = {
     noEventsSoon: 'No events in the agenda for the coming days. Check back soon: the agenda refreshes daily.',
     at: 'at',
     generatedImageLabel: 'Illustrative image generated with AI',
+    licensedImageLabel: 'Photo',
+    modifiedImageLabel: 'cropped, resized and converted to WebP',
     exploreMore: 'Explore also',
     methodologyTitle: 'How we collect events',
     methodology: 'Events are gathered automatically from public Ticino agendas and refreshed every day. Each event is attributed to a municipality based on the venue or the region given by the source. Always verify date, time and venue on the organiser\'s original page before travelling: times and availability can change.',
@@ -668,6 +719,8 @@ const COPY: Record<Locale, Copy> = {
     noEventsSoon: 'Keine Veranstaltungen in den nächsten Tagen. Schau bald wieder vorbei: Die Agenda wird täglich aktualisiert.',
     at: 'im',
     generatedImageLabel: 'Illustrative KI-generierte Abbildung',
+    licensedImageLabel: 'Foto',
+    modifiedImageLabel: 'zugeschnitten, skaliert und in WebP konvertiert',
     exploreMore: 'Ebenfalls entdecken',
     methodologyTitle: 'Wie wir Veranstaltungen sammeln',
     methodology: 'Die Veranstaltungen werden automatisch aus öffentlichen Tessiner Agenden gesammelt und täglich aktualisiert. Jeder Anlass wird anhand des Veranstaltungsorts oder der angegebenen Region einer Gemeinde zugeordnet. Prüfe Datum, Zeit und Ort immer auf der Originalseite des Veranstalters: Zeiten und Verfügbarkeit können sich ändern.',
@@ -718,6 +771,8 @@ const COPY: Record<Locale, Copy> = {
     noEventsSoon: 'Aucun événement à l\'agenda dans les prochains jours. Revenez bientôt: l\'agenda se met à jour chaque jour.',
     at: 'à',
     generatedImageLabel: 'Image illustrative générée par IA',
+    licensedImageLabel: 'Photo',
+    modifiedImageLabel: 'recadrée, redimensionnée et convertie en WebP',
     exploreMore: 'À explorer aussi',
     methodologyTitle: 'Comment nous recueillons les événements',
     methodology: 'Les événements sont recueillis automatiquement dans les agendas publics du Tessin et actualisés chaque jour. Chaque événement est attribué à une commune selon le lieu ou la région indiquée par la source. Vérifiez toujours date, horaire et lieu sur la page d\'origine de l\'organisateur avant de vous déplacer: horaires et disponibilités peuvent changer.',
@@ -1555,22 +1610,41 @@ function mirroredEventImageObject(event: SiteEvent): ImageObjectLd | null {
   const raw = event.imageUrl;
   if (!raw || !raw.startsWith('/') || !hasPublishedEventImage(event)) return null;
   const generated = isGeneratedEventImage(event);
+  const licensedPhoto = isLicensedEventLibraryPhoto(event);
   const licenseUrl = eventImageLicenseUrl(event);
+  const creator = licensedPhoto && event.imageAuthor
+    ? {
+      '@type': 'Person' as const,
+      name: event.imageAuthor.name,
+      ...(event.imageAuthor.url ? { url: event.imageAuthor.url } : {}),
+    }
+    : undefined;
   return imageObjectLd({
     contentUrl: `${BASE_URL}${raw}`,
     caption: cleanEventText(event.title),
-    creditText: event.imageCredit || event.sourceName,
+    creditText: [
+      event.imageCredit || event.sourceName,
+      ...(Array.isArray(event.imageModifications) && event.imageModifications.length
+        ? ['cropped, resized and converted to WebP']
+        : []),
+    ].join(' · '),
     width: 1200,
     height: 675,
+    ...(creator ? { creator } : {}),
     ...(licenseUrl
       ? {
         license: licenseUrl,
-        // This points to the provider's terms, never to a fictitious
-        // acquisition page for a generated or OpenAgenda asset.
-        acquireLicensePage: licenseUrl,
-        copyrightNotice: generated
-          ? `Generated by ${event.imageProvider || 'the image provider'}; provider terms apply.`
-          : `${event.imageCredit || event.sourceName}; provider licence applies.`,
+        // Generated and OpenAgenda images point to their terms. A real
+        // licensed photo keeps the per-image acquisition page from its
+        // verified registry record.
+        acquireLicensePage: licensedPhoto
+          ? event.imageAcquireLicensePage || event.imageSourcePageUrl || licenseUrl
+          : licenseUrl,
+        copyrightNotice: licensedPhoto
+          ? event.imageCopyrightNotice || event.imageCredit || event.sourceName
+          : generated
+            ? `Generated by ${event.imageProvider || 'the image provider'}; provider terms apply.`
+            : `${event.imageCredit || event.sourceName}; provider licence applies.`,
       }
       : {}),
   });
@@ -1707,6 +1781,7 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
       ${media}
       <span class="ev-chip ${TONE_CHIP_ATOM[visual.tone]}">${visual.emoji} ${esc(cat)}</span>
       ${generated ? `<span class="ev-img-note">${esc(COPY[locale].generatedImageLabel)}</span>` : ''}
+      ${renderLicensedEventImageCredit(event, locale)}
     </div>
     <div class="p-4">
       <h3 class="ev-t">
@@ -3434,7 +3509,7 @@ function renderLocationCard(event: SiteEvent, comune: string, dc: DetailCopy, ma
   </section>`;
 }
 
-function renderEventHero(event: SiteEvent, title: string, category: string, when: string, place: string, generatedImageLabel: string): string {
+function renderEventHero(event: SiteEvent, locale: Locale, title: string, category: string, when: string, place: string, generatedImageLabel: string): string {
   const hasEventImage = hasPublishedEventImage(event);
   const generated = isGeneratedEventImage(event);
   const imageSrc = hasEventImage ? event.imageUrl! : catalogImagePath(event.category);
@@ -3452,6 +3527,7 @@ function renderEventHero(event: SiteEvent, title: string, category: string, when
         <span class="ev-hero-caption-kicker">${esc(category)}</span>
         <span>${esc(eventMeta)}</span>
         ${generated ? `<span class="ev-hero-image-note">${esc(generatedImageLabel)}</span>` : ''}
+        ${renderLicensedEventImageCredit(event, locale)}
       </figcaption>
     </div>
   </figure>`;
@@ -3507,7 +3583,7 @@ export function renderEventDetailPage(params: {
   // `imageUrl` only ever holds a mirrored site-relative path from the image
   // allowlist — see the same guard in `renderEventCard`/`mirroredEventImageObject`.
   // Non-allowlisted sources use the existing site-owned category placeholder.
-  const heroImage = renderEventHero(event, title, cat, when, displayComune, copy.generatedImageLabel);
+  const heroImage = renderEventHero(event, locale, title, cat, when, displayComune, copy.generatedImageLabel);
   const inlineAdMarker = '<!-- EVENT_INLINE_AD -->';
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="ev-wrap3" data-events-page="event_detail" data-events-path="${esc(canonicalPath)}" data-events-lifecycle="${isPast ? 'past' : 'active'}">

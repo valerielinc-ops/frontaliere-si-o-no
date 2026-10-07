@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Extract the small, binding document sections needed by automated fixers.
  *
@@ -6,7 +8,7 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+
 import { resolve } from 'node:path';
 
 export const REQUIRED_SECTIONS = Object.freeze([
@@ -216,7 +218,7 @@ export function buildIssueFixAgentContract({ read } = {}) {
 }
 
 const invokedDirectly = process.argv[1]
-  && fileURLToPath(import.meta.url) === resolve(process.argv[1]);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (invokedDirectly) {
   try {

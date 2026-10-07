@@ -113,6 +113,14 @@ const publishedSlugs = {
     de: {},
     fr: {},
   },
+  cantons: {
+    'canton-zh': {
+      'mappa-affitti-zurigo-trasloco': {
+        it: 'mappa-affitti-zurigo-trasloco',
+        en: 'zurich-rent-map-moving-guide',
+      },
+    },
+  },
 };
 
 type Responder = (url: string) => { ok?: boolean; status?: number; body?: unknown; text?: string } | Promise<never>;
@@ -837,6 +845,17 @@ describe('publishedSlugsForIds — the forward map that keeps a new card clickab
     stubFetch(fullyPublished);
     const pairs = await publishedSlugsForIds('svizzera', ['come-funzionano-votazioni-federali-ch']);
     expect(pairs[0][1].de).toBe('wie-funktionieren-eidgenoessische-abstimmungen');
+  });
+
+  it('reads a nested canton section for a corpus-owned article', async () => {
+    stubFetch(fullyPublished);
+    const pairs = await publishedSlugsForIds('canton-zh', ['mappa-affitti-zurigo-trasloco']);
+    expect(pairs).toEqual([
+      ['mappa-affitti-zurigo-trasloco', {
+        it: 'mappa-affitti-zurigo-trasloco',
+        en: 'zurich-rent-map-moving-guide',
+      }],
+    ]);
   });
 
   it('skips an id the published maps do not know, rather than inventing one', async () => {

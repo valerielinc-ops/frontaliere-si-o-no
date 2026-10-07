@@ -125,6 +125,8 @@ describe('pharmacy directory page matrix', () => {
     const faqSchema = schemas.find((schema) => schema['@type'] === 'FAQPage');
     const expectedRegion = descriptor!.pharmacy!.canton || descriptor!.pharmacy!.province || descriptor!.pharmacy!.region;
     expect(pharmacySchema.address.addressRegion).toBe(expectedRegion);
+    expect(pharmacySchema.dateModified).toBe(descriptor!.pharmacy!.lastVerifiedAt);
+    expect(JSON.stringify(pharmacySchema.identifier)).toContain(descriptor!.pharmacy!.ministryId);
     expect(faqSchema.mainEntity).toEqual(expect.arrayContaining([
       expect.objectContaining({ name: expect.stringContaining(descriptor!.pharmacy!.name) }),
     ]));
@@ -138,6 +140,7 @@ describe('pharmacy directory page matrix', () => {
     const page = buildPharmacyDirectoryPage(descriptor!, 'it', '');
 
     expect(page.html).toContain('farmaciadicasciago@enterpoint.it');
+    expect(page.html).toContain('04109170128');
     expect(page.html).toContain('08:30');
     expect(page.html).toContain('data-pharmacy-facts');
     expect(page.html).toMatch(/https:\/\/www\.google\.com\/maps\/search\/\?api=1(?:&amp;|&)query=/);

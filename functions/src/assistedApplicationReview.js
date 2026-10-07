@@ -793,6 +793,20 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (action === 'answers') {
       const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it', flow.answers || {});
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
+      // The questions are dynamic (one set per posting), so the fixed rules
+      // above cannot catch placeholders or answers of the wrong kind. The
+      // dependency is injected by functions/index.js so unit tests never call
+      // a real provider and older callers remain fail-open when it is absent.
+      if (deps.checkAnswers) {
+        const check = await deps.checkAnswers({
+          questions: (draft?.questions || []).filter((question) => Object.hasOwn(answers, question.id)),
+          answers,
+          locale: order?.locale || 'it',
+          job: { title: draft?.job?.title || order?.jobTitle || '', company: order?.companyName || '' },
+          todayIso: zurichToday(nowMs),
+        });
+        if (!check.ok) throw new ReviewError('invalid_answers', 400, { fields: check.fields });
+      }
       // A status or an availability the tailored CV prints: rebuilt and committed with the answers, before the
       // event can dispatch the submission (decision 7).
       await saveAnswersWithCv({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, answers, nowMs });

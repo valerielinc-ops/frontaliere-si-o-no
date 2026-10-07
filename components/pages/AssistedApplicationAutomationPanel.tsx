@@ -574,7 +574,12 @@ export default function AssistedApplicationAutomationPanel({
               {spinner('automationRegenerate') || <RefreshCw size={14} aria-hidden="true" />} Rigenera
             </button>
           )}
-          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
+          {/* The robot sends only a round the candidate approved (flow.roundSent). A real order of 2026-10-07,
+              taken over while in the owner's review, showed this button and its draft went to the portal. */}
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && !flow.roundSent && (
+            <p className="w-full text-xs text-subtle">Il candidato non ha ancora approvato la bozza di questo giro: l’invio automatico non è disponibile. «Riprendi automazione» la rimette in revisione.</p>
+          )}
+          {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && flow.roundSent && (
             <>
               {needsFactAck && (
                 <div className="w-full text-xs text-body">
@@ -584,7 +589,7 @@ export default function AssistedApplicationAutomationPanel({
                   </label>
                 </div>
               )}
-              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
+              <button type="button" className={primary} disabled={Boolean(busy) || (needsFactAck && !ackFacts)} onClick={() => { if (window.confirm(`Rilanciare l’invio automatico di «${order.jobTitle}» presso ${order.companyName}? Il robot riparte subito sul portale del datore.`)) void act('automationRetrySubmit', needsFactAck ? { acknowledgeFactWarnings: ackFacts } : {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
                 {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
               </button>
             </>

@@ -219,8 +219,7 @@
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-        "comptable-financier-pantr-gmbh-zurich-fa865fd8b331",
-        "financial-accountant-pantr-gmbh-zurich"
+        "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -232,8 +231,7 @@
         "fr": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
           "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
-          "comptable-financier-pantr-gmbh-zurich-fa865fd8b331",
-          "financial-accountant-pantr-gmbh-zurich"
+          "comptable-financier-pantr-gmbh-zurich-fa865fd8b331"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
@@ -410,9 +408,9 @@
     },
     {
       "id": "pantr-ch-a6cd462ca484",
-      "slug": "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern",
+      "slug": "revisore-contabile-diplomato-a-in-qualita-di-responsabile-del-mandato-pantr-gmbh-bern-bern-a6cd462ca484",
       "slugByLocale": {
-        "it": "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern",
+        "it": "revisore-contabile-diplomato-a-in-qualita-di-responsabile-del-mandato-pantr-gmbh-bern-bern-a6cd462ca484",
         "en": "certified-public-accountant-as-head-of-mandate-pantr-gmbh-bern-bern-a6cd462ca484",
         "de": "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
         "fr": "expert-comptable-diplome-e-en-tant-que-responsable-de-mandat-pantr-gmbh-bern-bern-a6cd462ca484"
@@ -423,7 +421,7 @@
       "companyDomain": "pantr.ch",
       "title": "Dipl. Wirtschaftsprüfer/in als Mandatsleiter/in",
       "titleByLocale": {
-        "it": "Dipl. Wirtschaftsprüfer/in come Mandatsleiter/in",
+        "it": "Revisore contabile diplomato/a in qualità di responsabile del mandato",
         "en": "Certified Public Accountant as Head of Mandate",
         "de": "Dipl. Wirtschaftsprüfer/in als Mandatsleiter/in",
         "fr": "Expert-comptable diplômé (e) en tant que responsable de mandat"
@@ -461,11 +459,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
+        "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
+          "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
         ],
         "en": [
           "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
@@ -474,7 +474,6 @@
           "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:35:20.251Z",
       "salaryMin": 94500,
       "salaryMax": 143000,

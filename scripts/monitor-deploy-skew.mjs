@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * monitor-deploy-skew.mjs
  *
@@ -119,6 +120,6 @@ export async function runMonitor({ argv = [], env = process.env, now = new Date(
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runMonitor({ argv: process.argv.slice(2) }).then((code) => process.exit(code));
 }

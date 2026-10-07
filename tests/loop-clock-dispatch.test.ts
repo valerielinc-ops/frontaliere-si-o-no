@@ -59,6 +59,7 @@ describe('loop clock table and cadence', () => {
       repo: 'site',
       workflow: 'revenue-signal-monitor.yml',
       everyMinutes: 60,
+      introducedAt: '2026-10-07T16:50:03Z',
     });
   });
 
@@ -551,6 +552,40 @@ describe('loop clock observer', () => {
     });
     expect(old.createIssueImpl).toHaveBeenCalledTimes(1);
     expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${slow.id}`);
+  });
+
+  it('gives a newly introduced entry its own warm-up window after the clock is established', async () => {
+    const established = { ...customEntry('established'), everyMinutes: 15 };
+    const newcomer = {
+      ...customEntry('newcomer'),
+      everyMinutes: 60,
+      introducedAt: minutesAgo(30),
+    };
+    const runsOf = (workflow: string) => (
+      workflow === established.workflow
+        ? [clockRun(established, 400), clockRun(established, 5)]
+        : [otherRun(1)]
+    );
+    const young = await observe([established, newcomer], [], {
+      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+    });
+
+    expect(young.report.results.find((result) => result.id === established.id)).toMatchObject({ state: 'healthy' });
+    expect(young.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
+      state: 'too_early',
+      reason: 'entry_younger_than_threshold',
+    });
+    expect(young.createIssueImpl).not.toHaveBeenCalled();
+
+    const old = await observe([established, { ...newcomer, introducedAt: minutesAgo(200) }], [], {
+      listRunsImpl: vi.fn(async (_repository: string, workflow: string) => runsOf(workflow)),
+    });
+    expect(old.report.results.find((result) => result.id === newcomer.id)).toMatchObject({
+      state: 'stale',
+      reason: 'no_marked_run_observed',
+    });
+    expect(old.createIssueImpl).toHaveBeenCalledTimes(1);
+    expect((old.createIssueImpl.mock.calls[0] as unknown as [{ title: string }])[0].title).toBe(`Loop clock stale: ${newcomer.id}`);
   });
 
   it('keeps an entry healthy on its own marked dispatch and resolves its issue', async () => {

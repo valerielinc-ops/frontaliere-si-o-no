@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-body-generator-contract.mjs — il lato GENERATORE del contratto sul body.
  *
@@ -189,10 +191,7 @@ export function closingRefFor(issue) {
 // CLI
 // ---------------------------------------------------------------------------
 
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   const argv = process.argv.slice(2);
   const asJson = argv.includes('--json');
 

@@ -61,11 +61,12 @@ import {
   tailoredCvSystemPrompt,
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
-import { readCvText } from './cv-text.mjs';
+import { CV_TEXT_VERSION, readCvText } from './cv-text.mjs';
 import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
+import { questionTopic } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
@@ -74,7 +75,16 @@ const MAX_POSTING_EXCERPT = 6_000;
 // A slow call at effort max must finish rather than fail the draft: the
 // broker of assisted-application-agent.yml allows 30 min per request.
 const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
+// One repair of a text the fact gate stopped (the letter, the tailored CV). Shorter than a first writing:
+// profile ∥ requirements, match, documents and the repair still fit the job's 120 minutes.
+const REPAIR_TIMEOUT_MS = 10 * 60 * 1000;
+const MAX_REPAIR_FINDINGS = 12;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
+
+/** What the fact gate did not find, as the model is told it for the one repair. */
+function findingsOf(facts) {
+  return (facts?.unsupported || []).slice(0, MAX_REPAIR_FINDINGS).map(({ field, kind, token, context }) => ({ field, kind, token, context }));
+}
 
 export class DraftAbort extends Error {
   constructor(eventType, code) {
@@ -125,6 +135,8 @@ export async function buildDraft(ctx) {
     && previousDraft.cvKey === order.cvStorageKey
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
+    // A CV text read before a fix of the reading is read again, and the profile with it.
+    && previousDraft.cvTextVersion === CV_TEXT_VERSION
     // Requirements read before the requested documents existed are read again.
     && Array.isArray(previousDraft.requirementsRaw.requestedDocuments)
     // So is a profile read before the kinds of experience: an internship would count as a job.
@@ -192,42 +204,7 @@ export async function buildDraft(ctx) {
   const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
   const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale });
 
-  const documentsRaw = await codex({
-    prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
-      candidateName: identity.name,
-      candidateType: kind.type,
-      profile,
-      requirements,
-      matches: match.matches,
-      answers,
-      candidateNotes,
-      feedback: flow?.feedback || [],
-      posting: {
-        title,
-        company: order.companyName,
-        location: posting.location,
-        contactPerson: requirements.contactPerson || posting.contactPerson,
-        applicationInstructions: requirements.applicationInstructions,
-      },
-      postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
-      language,
-    })),
-    schema: DOCUMENTS_SCHEMA,
-    timeoutMs: CODEX_TIMEOUT_MS,
-  });
-  const documents = sanitizeDocuments(documentsRaw);
-  if (!documents.coverLetter.paragraphs.length || !documents.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
-  // Swiss conventions in code (study 2026-10-02): salutation and closing per
-  // language, no "ß", no line break inside "81 %".
   const contactPerson = requirements.contactPerson || posting.contactPerson;
-  documents.coverLetter = applyLetterConventions(documents.coverLetter, { language, contactPerson });
-  // The e-mail framed like the letter: the model writes only the message (2026-10-03).
-  documents.emailBody = applicationEmailText(documents.emailBody, { language, contactPerson, signature: [identity.name, identity.email, identity.phone] });
-  if (!documents.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
-  for (const key of ['motivationShort', 'whyCompany']) documents[key] = swissTypography(documents[key], language);
-  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
-  const letterAddress = letterAddressOf(posting, contactPerson);
-
   // The CV text is the strict source of facts; the answers the candidate gave
   // are facts too. A CV with no readable text never gets here.
   const factSources = {
@@ -250,15 +227,74 @@ export async function buildDraft(ctx) {
     // judges on the Swiss permit, with the status of the day (factSourcesNow).
     permitStatus: profile.permitStatus || '',
   };
-  const letterBody = letterText(documents.coverLetter);
-  const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject, kind.type), language);
-  const factCheck = checkDraftTexts({
-    coverLetter: letterBody,
-    emailSubject,
-    emailBody: documents.emailBody,
-    motivationShort: documents.motivationShort,
-    whyCompany: documents.whyCompany,
-  }, factSources, { language });
+  /**
+   * The letter, the e-mail and the two short texts, as the fact gate reads them. `findings`: what the gate
+   * did not find in the version before, for the one repair.
+   */
+  const writeDocuments = async (findings = [], timeoutMs = CODEX_TIMEOUT_MS) => {
+    const written = sanitizeDocuments(await codex({
+      prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
+        candidateName: identity.name,
+        candidateType: kind.type,
+        profile,
+        requirements,
+        matches: match.matches,
+        answers,
+        candidateNotes,
+        feedback: flow?.feedback || [],
+        posting: {
+          title,
+          company: order.companyName,
+          location: posting.location,
+          contactPerson,
+          applicationInstructions: requirements.applicationInstructions,
+        },
+        postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+        language,
+        factCheckFindings: findings,
+      })),
+      schema: DOCUMENTS_SCHEMA,
+      timeoutMs,
+    }));
+    if (!written.coverLetter.paragraphs.length || !written.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+    // Swiss conventions in code (study 2026-10-02): salutation and closing per
+    // language, no "ß", no line break inside "81 %".
+    written.coverLetter = applyLetterConventions(written.coverLetter, { language, contactPerson });
+    // The e-mail framed like the letter: the model writes only the message (2026-10-03).
+    written.emailBody = applicationEmailText(written.emailBody, { language, contactPerson, signature: [identity.name, identity.email, identity.phone] });
+    if (!written.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+    for (const key of ['motivationShort', 'whyCompany']) written[key] = swissTypography(written[key], language);
+    const body = letterText(written.coverLetter);
+    const subject = swissTypography(applicationEmailSubject(language, title, identity.name, written.emailSubject, kind.type), language);
+    const facts = checkDraftTexts({
+      coverLetter: body,
+      emailSubject: subject,
+      emailBody: written.emailBody,
+      motivationShort: written.motivationShort,
+      whyCompany: written.whyCompany,
+    }, factSources, { language });
+    return { documents: written, letterBody: body, emailSubject: subject, factCheck: facts };
+  };
+  let texts = await writeDocuments();
+  // Self-repair (2026-10-07): texts the gate stops are written once more, the model told what the gate did
+  // not find. A warning stopped the draft at the owner with no clock, and most are a rule of the prompt the
+  // model missed (a job title translated, a figure rounded): the gate stays as strict, and the owner is
+  // asked only for what a second writing does not solve. Never fails the draft: a repair that is not
+  // better, or does not come, leaves the first version.
+  let factRepair = null;
+  if (!texts.factCheck.ok) {
+    const before = texts.factCheck.unsupported.length;
+    const repaired = await writeDocuments(findingsOf(texts.factCheck), REPAIR_TIMEOUT_MS).catch((error) => {
+      log('fact repair failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
+      return null;
+    });
+    if (repaired && repaired.factCheck.unsupported.length < before) texts = repaired;
+    factRepair = { before, after: texts.factCheck.unsupported.length };
+    log('fact repair', `${before} → ${factRepair.after}`);
+  }
+  const { documents, letterBody, emailSubject, factCheck } = texts;
+  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
+  const letterAddress = letterAddressOf(posting, contactPerson);
 
   let channel = classifyApplicationChannel({
     applyUrl: posting.applyUrl || order.jobUrl,
@@ -292,8 +328,8 @@ export async function buildDraft(ctx) {
       codex,
       log,
     });
-    const known = new Set(questions.map((question) => question.id));
-    questions.push(...portal.filter((question) => !known.has(question.id)));
+    const known = new Set(questions.map((question) => questionTopic(question.question) || question.id));
+    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question) || question.id)));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
@@ -319,7 +355,8 @@ export async function buildDraft(ctx) {
     ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf', baselineText: cvText }) } : {}),
   };
   const legitimacy = assessLegitimacy({
-    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
+    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName,
+    titles: [title, order.jobTitle, requirements.roleTitle], nowMs,
   });
   log('ats', ats.original.structural.grade, `${ats.original.keywords.coverage ?? '-'}%`, 'tailored', tailored.record.status, 'legitimacy', legitimacy.tier);
 
@@ -329,6 +366,7 @@ export async function buildDraft(ctx) {
     round,
     cvKey: order.cvStorageKey,
     cvTextMethod: cvMethod,
+    cvTextVersion: CV_TEXT_VERSION,
     postingHash: hashText(postingText),
     model: 'codex-cli/gpt-5.6-luna',
     effort: 'max',
@@ -362,6 +400,8 @@ export async function buildDraft(ctx) {
     formAnswers,
     profile,
     factCheck: { ...factCheck, basis: cvMethod },
+    // The one repair of the texts, when the gate asked for it: its warnings before and after.
+    ...(factRepair ? { factRepair } : {}),
     factSources,
     coverLetterPdfKey: pdfKey,
     ats,
@@ -392,16 +432,31 @@ export async function buildDraft(ctx) {
  */
 async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow, cvBuffer, cvType, cvKey, inPlace = inPlaceCvRecord }) {
   try {
-    const raw = await codex({
-      prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
-        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type,
-      })),
-      schema: TAILORED_CV_SCHEMA,
-      timeoutMs: CODEX_TIMEOUT_MS,
-    });
-    const cv = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
+    const write = async (findings = [], timeoutMs = CODEX_TIMEOUT_MS) => {
+      const raw = await codex({
+        prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
+          profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type, factCheckFindings: findings,
+        })),
+        schema: TAILORED_CV_SCHEMA,
+        timeoutMs,
+      });
+      const written = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
+      return { cv: written, facts: checkTailoredCvFacts(written, { cvText, profile, answers: { ...answers, notes: candidateNotes } }) };
+    };
+    let { cv, facts } = await write();
+    // Self-repair (2026-10-07): one warning dropped the whole tailored CV for the original one (a real
+    // draft: the summary named the posting's company). It is written once more, the model told what the
+    // gate did not find; only a repair the gate passes is kept.
+    let repaired = false;
+    if (!facts.ok) {
+      log('tailored cv: fact gate failed, one repair');
+      const again = await write(findingsOf(facts), REPAIR_TIMEOUT_MS).catch(() => null);
+      if (again?.facts.ok) {
+        ({ cv, facts } = again);
+        repaired = true;
+      }
+    }
     const text = tailoredCvPlainText(cv, { identity, profile });
-    const facts = checkTailoredCvFacts(cv, { cvText, profile, answers: { ...answers, notes: candidateNotes } });
     if (!facts.ok) {
       log('tailored cv: fact gate failed, the original CV will be sent');
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
@@ -415,7 +470,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const inplace = await inPlace({ cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
     // `photo`: this PDF carries it (not what was given: the standard-font writer prints none).
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}) }, text };
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photoPrinted ? { photo: true } : {}), ...(inplace ? { inplace } : {}), ...(repaired ? { repaired: true } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };
@@ -423,7 +478,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
 }
 
 // Fields every profile read by this version has (sanitizeProfile writes them, even empty).
-const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence'];
+const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence', 'currentEducation'];
 
 function profileOfThisVersion(profile) {
   return PROFILE_FIELDS.every((key) => key in profile) && (profile.experience || []).every((role) => typeof role?.kind === 'string');

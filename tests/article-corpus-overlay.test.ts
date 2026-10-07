@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 import {
+  corpusArticleChangeTimestamp,
   decideCorpusOverlayMode,
   prepareCorpusContentOverlay,
   validateCorpusContentShape,
@@ -81,6 +83,72 @@ describe('article corpus overlay mode', () => {
         rootDir: root,
         remote: path.join(root, 'missing-remote.git'),
       })).toThrow(/clone corpus fallito/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('legge dal clone il commit che ha introdotto o ritirato un id', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-id-history-'));
+    const runGit = (...args: string[]) => execFileSync('git', ['-C', root, ...args], { stdio: 'ignore' });
+    const registryPath = path.join(root, 'content/routerBlogData.ts');
+    try {
+      fs.mkdirSync(path.dirname(registryPath), { recursive: true });
+      runGit('init', '--initial-branch=main');
+      runGit('config', 'user.email', 'fixture@example.invalid');
+      runGit('config', 'user.name', 'fixture');
+      fs.writeFileSync(registryPath, "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' } };\n");
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture stable');
+      fs.writeFileSync(
+        registryPath,
+        "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' }, 'new-article': { it: 'new-article' } };\n",
+      );
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture introduce');
+      const introducedAt = corpusArticleChangeTimestamp(root, 'frontaliere', 'new-article');
+      expect(introducedAt).toEqual(expect.any(Number));
+      fs.writeFileSync(registryPath, "export const BLOG_SLUGS = { 'stable-article': { it: 'stable-article' } };\n");
+      runGit('add', 'content/routerBlogData.ts');
+      runGit('commit', '-m', 'fixture retire');
+      const retiredAt = corpusArticleChangeTimestamp(root, 'frontaliere', 'new-article');
+      expect(retiredAt).toEqual(expect.any(Number));
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('la ricerca si ferma al cambio più recente e non guarda prima della finestra', () => {
+    // Nel clone di CI, senza blob, ogni commit visitato dal pickaxe è uno
+    // scaricamento: la storia intera del registro vale migliaia di richieste.
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-id-window-'));
+    const registryPath = path.join(root, 'content/routerBlogData.ts');
+    const commitAt = (epoch: number, message: string, content: string) => {
+      fs.writeFileSync(registryPath, content);
+      const env = { ...process.env, GIT_AUTHOR_DATE: `@${epoch} +0000`, GIT_COMMITTER_DATE: `@${epoch} +0000` };
+      execFileSync('git', ['-C', root, 'add', 'content/routerBlogData.ts'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'commit', '-m', message], { stdio: 'ignore', env });
+    };
+    const now = 1_791_400_000;
+    const day = 24 * 60 * 60;
+    try {
+      fs.mkdirSync(path.dirname(registryPath), { recursive: true });
+      execFileSync('git', ['-C', root, 'init', '--initial-branch=main'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'config', 'user.email', 'fixture@example.invalid'], { stdio: 'ignore' });
+      execFileSync('git', ['-C', root, 'config', 'user.name', 'fixture'], { stdio: 'ignore' });
+      commitAt(now - 10 * day, 'old', "export const BLOG_SLUGS = { 'old-article': { it: 'old-article' } };\n");
+      commitAt(
+        now - 3600,
+        'recent',
+        "export const BLOG_SLUGS = { 'old-article': { it: 'old-article' }, 'recent-article': { it: 'recent-article' } };\n",
+      );
+      const since = now - 2 * day;
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'recent-article', { sinceEpochSeconds: since })).toBe(now - 3600);
+      // Fuori dalla finestra: più vecchio di tutto ciò che il chiamante tollera.
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'old-article', { sinceEpochSeconds: since })).toBe(since - 1);
+      // Senza finestra la ricerca resta completa.
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'old-article')).toBe(now - 10 * day);
+      expect(corpusArticleChangeTimestamp(root, 'frontaliere', 'never-seen')).toBeNull();
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }

@@ -1,4 +1,6 @@
 #!/usr/bin/env -S npx -y tsx
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 // check-article-byte-identity.mjs (#4837 stream A — Deliverable 4)
 //
 // Byte-identity gate for scripts/publish-article-fast.mjs: renders one
@@ -597,7 +599,7 @@ const invokedDirectly = (() => {
   try {
     const entry = process.argv[1];
     if (!entry) return false;
-    return path.resolve(entry) === fileURLToPath(import.meta.url) || import.meta.url.endsWith(entry);
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

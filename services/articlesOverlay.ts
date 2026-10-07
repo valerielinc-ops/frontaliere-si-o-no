@@ -26,6 +26,7 @@
 import { cdnDataUrl, cdnFreshUrl } from '@/services/cdnDataBase';
 import { mergeArticleMetaOverlay } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
+import type { ArticleSection } from '@/services/articleSections';
 
 /** Mirrors one entry of the published index; every field beyond id/title optional. */
 export interface OverlayArticle {
@@ -54,9 +55,12 @@ export interface OverlayArticle {
    * components/community/BlogArticles.tsx).
    */
   slug?: string;
+  /** Optional corpus classification fields carried by newer indexes. */
+  articleType?: 'news' | 'evergreen';
+  canton?: string[];
 }
 
-export type OverlaySection = 'frontaliere' | 'svizzera';
+export type OverlaySection = ArticleSection;
 
 /** Beyond this the fetch is abandoned — a blog list must not wait on it. */
 const TIMEOUT_MS = 4000;

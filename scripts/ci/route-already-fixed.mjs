@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * Post-step di `issue-fix.yml` (#9742): instrada verso la verifica una issue su
  * cui il fixer ha concluso `FIX_OUTCOME: already-fixed` CON evidenza
@@ -68,7 +70,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+
 // Contratto del marker e allowlist dei bot che possono emetterlo: una sola
 // copia, condivisa con drainer/backoff (AGENTS.md #6), niente regex duplicate.
 import { FIX_OUTCOME_RE } from './claude-rate-limit-contract.mjs';
@@ -877,7 +879,7 @@ function main() {
   console.log(`route-already-fixed: #${issue} → ${VERIFY_LABEL} (fix ${verified.fixSha.slice(0, 12)}, run ${decision.evidence.run}).`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (e) {

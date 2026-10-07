@@ -1325,8 +1325,8 @@ export const Analytics = {
  identity?: AnalyticsPageViewIdentity | null,
  // Omitted (`undefined`) means this call is a new act and must coin its own
  // id. `string` is an explicit id for a retry of the same act. `null` means
- // the caller could not determine an id and must remain "dedup non
- // disponibile" — never a guessed value.
+ // the caller could not determine an id, so this boundary coins a fresh one;
+ // a runtime page_view must never be emitted without an identity.
  emissionId?: string | null,
  ) => {
  const staticPageViewEmissionId = consumeStaticGtagPageViewEmissionId(path);
@@ -1340,9 +1340,12 @@ export const Analytics = {
   return generatedPageViewEmissionId;
  };
  const pageViewEmissionId = emissionId === undefined ? createAnalyticsEmissionId() : emissionId;
+ const requestedPageViewEmissionId = typeof pageViewEmissionId === 'string' && pageViewEmissionId.trim().length > 0
+  ? pageViewEmissionId
+  : undefined;
  const resolvedPageViewEmissionId = emissionId === undefined
-  ? staticPageViewEmissionId || createAnalyticsEmissionId()
-  : pageViewEmissionId;
+  ? staticPageViewEmissionId || pageViewEmissionId
+  : requestedPageViewEmissionId || createAnalyticsEmissionId();
  const now = Date.now();
  // Calculate time spent on previous page (for pagesPerSession accuracy)
  const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;

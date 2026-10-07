@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
 /**
  * wait-for-pages-propagation.mjs — Poll the GitHub Pages CDN for the freshly
  * deployed build-id.txt. Returns as soon as the live URL serves the same value
@@ -345,7 +346,7 @@ async function main() {
 // realpath-based guard as scripts/send-job-alerts.mjs.
 const isEntryPoint = (() => {
   try {
-    return process.argv[1] && realpathSync(process.argv[1]) === fileURLToPath(import.meta.url);
+    return process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

@@ -1,6 +1,6 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import fs, { realpathSync } from 'node:fs';
 import process from 'node:process';
+import { pathToFileURL } from 'node:url';
 
 export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = 10_000;
 
@@ -205,7 +205,7 @@ function main() {
   console.log(`[reserve-pharmacy-google-budget] ${plan.reason}; reserved ${plan.reservedRequests}/${MAX_GOOGLE_PLACES_MONTHLY_REQUESTS}`);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     main();
   } catch (error) {

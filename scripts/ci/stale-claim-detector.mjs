@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * stale-claim-detector.mjs — rilascia i lock `agent:in-progress` rimasti appesi
  * su issue aperte (zero-Claude, deterministico).
@@ -486,6 +488,6 @@ function main() {
   console.log('stale-claim scan completo.');
 }
 
-if (process.argv[1]?.endsWith('stale-claim-detector.mjs')) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

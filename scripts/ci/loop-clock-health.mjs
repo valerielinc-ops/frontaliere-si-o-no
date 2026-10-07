@@ -15,8 +15,8 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 import { createdFromFilter } from './lib/run-listing-window.mjs';
 import {
@@ -341,8 +341,22 @@ export async function runLoopClockHealth({
         results.push({ id: entry.id, state: 'inconclusive', reason: 'run_window_truncated' });
         continue;
       }
-      if (clockSeenSince !== null && ageMinutes(clockSeenSince) < freshness.thresholdMinutes) {
-        results.push({ id: entry.id, state: 'too_early', reason: 'clock_younger_than_threshold' });
+      let warmupSince = clockSeenSince;
+      let warmupReason = 'clock_younger_than_threshold';
+      if (Object.prototype.hasOwnProperty.call(entry, 'introducedAt')) {
+        const introducedAt = Date.parse(String(entry.introducedAt ?? ''));
+        if (!Number.isFinite(introducedAt)) {
+          errors += 1;
+          results.push({ id: entry.id, state: 'inconclusive', reason: 'entry_introduced_at_unreadable' });
+          continue;
+        }
+        if (warmupSince !== null && introducedAt > warmupSince) {
+          warmupSince = introducedAt;
+          warmupReason = 'entry_younger_than_threshold';
+        }
+      }
+      if (warmupSince !== null && ageMinutes(warmupSince) < freshness.thresholdMinutes) {
+        results.push({ id: entry.id, state: 'too_early', reason: warmupReason });
         continue;
       }
       if (clockSeenSince === null) freshness.reason = 'clock_never_dispatched';
@@ -407,7 +421,7 @@ async function main() {
   if (report.errors > 0) process.exitCode = 1;
 }
 
-if (process.argv[1] && path.resolve(fileURLToPath(import.meta.url)) === path.resolve(process.argv[1])) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch(() => {
     console.error('[loop-clock-health] observer failed');
     process.exitCode = 1;

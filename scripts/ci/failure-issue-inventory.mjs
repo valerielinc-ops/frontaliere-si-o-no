@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * failure-issue-inventory.mjs — chi APRE una issue di fallimento, e chi la CHIUDE.
  *
@@ -463,7 +465,7 @@ export function coverageReport(dir = WORKFLOWS_DIR) {
 /* ── CLI ─────────────────────────────────────────────────────────────── */
 
 const isMain = process.argv[1]
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
 
 if (isMain) {
   const rows = coverageReport();

@@ -6,13 +6,16 @@
  */
 
 export type BlogBodyTranslations = Record<string, string>;
+import type { ArticleSection } from './articleSections';
+import { isCantonArticleSection } from './runtimeArticleSections';
 
 export async function loadBlogBodyChunk(
   locale: string,
   articleId: string,
-  section: 'frontaliere' | 'svizzera' = 'frontaliere',
+  section: ArticleSection = 'frontaliere',
 ): Promise<BlogBodyTranslations | null> {
-  try {
+ try {
+    if (isCantonArticleSection(section)) return null;
     // Two distinct literal globs so Vite emits a resolution table per section.
     const mod = section === 'svizzera'
       ? await import(`./locales/blog-body-ch/${locale}/${articleId}.ts`)

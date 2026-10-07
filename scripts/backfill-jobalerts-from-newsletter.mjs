@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Backfill the base job-alert relationship for existing registrations.
  *
@@ -198,7 +199,7 @@ export async function runBackfill({
   return { counts, consent, byChannel };
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   runBackfill()
     .then(() => process.exit(0))
     .catch((err) => {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { realpathSync } from 'node:fs';
 /**
  * Custode delle PR orfane (zero-Claude, deterministico).
  *
@@ -67,7 +68,7 @@
  * del marker 🔴 arrivano da `scripts/ci/lib/constants.mjs` di ciascun lato.
  */
 import { execFileSync } from 'node:child_process';
-import { resolve } from 'node:path';
+
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
 import {
@@ -599,7 +600,7 @@ function main() {
 
 const isDirectRun = (() => {
   try {
-    return import.meta.url === pathToFileURL(resolve(process.argv[1] || '')).href;
+    return (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
   } catch {
     return false;
   }

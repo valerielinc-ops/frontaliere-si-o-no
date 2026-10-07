@@ -71,7 +71,7 @@ describe('page-view emission identity', () => {
     expect(emissionIdSource).not.toContain('pushState');
     expect(emissionIdSource).not.toContain('replaceState');
     expect(analyticsSource).toContain('emissionId === undefined');
-    expect(analyticsSource).toContain('staticPageViewEmissionId || createAnalyticsEmissionId()');
+    expect(analyticsSource).toContain('staticPageViewEmissionId || pageViewEmissionId');
   });
 
   it('returns distinct non-empty ids when Web Crypto is unavailable', () => {
@@ -194,14 +194,14 @@ describe('page-view emission identity', () => {
     })))).toMatchObject({ observed: 1, removed: 1, dedupUnavailable: 0 });
   });
 
-  it('propagates null as dedup unavailable to both providers', async () => {
+  it.each([null, '', '   '])('coins an identity when the caller cannot provide %j', async (missingEmissionId) => {
     const { Analytics } = await loadAnalytics();
-    const emissionId = Analytics.trackPageView('/non-determinabile/', undefined, null, null);
+    const emissionId = Analytics.trackPageView('/non-determinabile/', undefined, null, missingEmissionId);
 
-    expect(emissionId).toBeNull();
+    expect(emissionId).toEqual(expect.any(String));
     await waitForProviders(1);
-    expect(posthogPageViews()[0][1].emission_id).toBeNull();
-    expect(firebasePageViews()[0][2].emission_id).toBeNull();
+    expect(posthogPageViews()[0][1].emission_id).toBe(emissionId);
+    expect(firebasePageViews()[0][2].emission_id).toBe(emissionId);
     expect(emissionId).not.toBe(0);
   });
 

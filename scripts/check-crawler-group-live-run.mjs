@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 
 // Guard against #7091: the disabled workflow_dispatch file and the live
 // workflow_call sibling are separate entry points, and the latter is invoked
@@ -265,7 +267,7 @@ async function main() {
   if (!result.proceed) process.exitCode = 1;
 }
 
-if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((errorValue) => {
     console.error(`::error::cross-entry crawler guard failed: ${errorValue?.message || String(errorValue)}`);
     process.exitCode = 1;

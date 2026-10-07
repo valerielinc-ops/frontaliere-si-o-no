@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3987.title': "Artikel nach Kanton mit derselben vollständigen Erfahrung",
+ 'whatsNew.v3987.cantonArticles.title': "Artikel der Kantone lesen und entdecken",
+ 'whatsNew.v3987.cantonArticles.desc': "Aktive Kantonsbereiche verwenden jetzt dieselbe interaktive Ansicht wie die Grenzgänger- und Schweiz-Artikel: Archiv, Lesewerkzeuge, verwandte Artikel, Teilen und Navigation ohne Neuladen.",
  'whatsNew.v3985.title': "Begleitete Bewerbung: Deine Unterlagen bleiben bei dir",
  'whatsNew.v3985.keptDocuments.title': "Schreiben und Lebenslauf auch nach dem Versand, und in Word",
  'whatsNew.v3985.keptDocuments.desc': "Nach dem Versand führt dich die Bestätigungs-E-Mail zur Seite deiner Bewerbung: Dort findest du das Motivationsschreiben und den Lebenslauf zum Herunterladen. Vom Schreiben und vom angepassten Lebenslauf gibt es auch eine Word-Kopie zum Aufbewahren und Bearbeiten: Sie ist nie die Datei, die an das Unternehmen geht.",
@@ -950,6 +953,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Ja",
  'jobBoard.assisted.review.no': "Nein",
  'jobBoard.assisted.review.saveAnswers': "Antworten speichern",
+ 'jobBoard.assisted.review.checkingAnswers': "Antworten werden geprüft…",
  'jobBoard.assisted.review.answersSaved': "Antworten gespeichert.",
  'jobBoard.assisted.review.answersStillOpen': "Antworten gespeichert, aber eine Pflichtantwort (*) fehlt noch.",
  'jobBoard.assisted.review.edit': "Bearbeiten",

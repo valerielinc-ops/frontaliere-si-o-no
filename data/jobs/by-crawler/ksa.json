@@ -1519,7 +1519,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1565,8 +1565,9 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1576,7 +1577,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "nursing-specialist-kantonsspital-aarau-ksa-aarau"
@@ -7720,9 +7721,9 @@
     },
     {
       "id": "ksa-d413f64f2efc",
-      "slug": "stv-leitung-prozess-qualitats-e-risikomanagement-kantonsspital-aarau-ksa-aarau",
+      "slug": "vicedirettore-della-gestione-dei-processi-della-qualita-e-dei-rischi-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "stv-leitung-prozess-qualitats-e-risikomanagement-kantonsspital-aarau-ksa-aarau",
+        "it": "vicedirettore-della-gestione-dei-processi-della-qualita-e-dei-rischi-kantonsspital-aarau-ksa-aarau",
         "en": "stv-head-of-process-quality-and-risk-management-kantonsspital-aarau-ksa-aarau",
         "de": "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch",
         "fr": "chef-du-processus-de-la-qualite-et-de-la-gestion-des-risques-kantonsspital-aarau-ksa-aarau"
@@ -7732,8 +7733,8 @@
       "companyDomain": "ksa.ch",
       "title": "Stv. Leitung Prozess-, Qualitäts- und Risikomanagement",
       "titleByLocale": {
-        "it": "Stv. Leitung Prozess-, Qualitäts- e Risikomanagement",
-        "en": "Stv. Head of Process, Quality and Risk Management",
+        "it": "Vicedirettore della gestione dei processi, della qualità e dei rischi",
+        "en": "Deputy Head of Process, Quality and Risk Management",
         "de": "Stv. Leitung Prozess-, Qualitäts- und Risikomanagement",
         "fr": "Chef du processus, de la qualité et de la gestion des risques"
       },
@@ -7770,11 +7771,13 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch"
+        "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch",
+        "stv-leitung-prozess-qualitats-e-risikomanagement-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch"
+          "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch",
+          "stv-leitung-prozess-qualitats-e-risikomanagement-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch"
@@ -7783,7 +7786,6 @@
           "stv-leitung-prozess-qualitats-und-risikomanagement-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:54.190Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -8126,9 +8128,9 @@
     },
     {
       "id": "ksa-e9924a031af8",
-      "slug": "arztsekretar-in-o-medizinische-r-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+      "slug": "segretario-medico-o-assistente-medico-ambulatoriale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "arztsekretar-in-o-medizinische-r-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "segretario-medico-o-assistente-medico-ambulatoriale-kantonsspital-aarau-ksa-aarau",
         "en": "medical-secretary-or-medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch",
         "fr": "secretaire-medical-e-ou-assistant-e-medical-e-kantonsspital-aarau-ksa-aarau"
@@ -8138,7 +8140,7 @@
       "companyDomain": "ksa.ch",
       "title": "Arztsekretär/in oder Medizinische/r Praxisassistent/in",
       "titleByLocale": {
-        "it": "Arztsekretär/in o Medizinische/r Praxisassistent/in",
+        "it": "Segretario medico o assistente medico ambulatoriale",
         "en": "Medical secretary or medical practice assistant",
         "de": "Arztsekretär/in oder Medizinische/r Praxisassistent/in",
         "fr": "Secrétaire médical (e) ou assistant (e) médical (e)"
@@ -8176,11 +8178,13 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch"
+        "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch",
+        "arztsekretar-in-o-medizinische-r-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch"
+          "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch",
+          "arztsekretar-in-o-medizinische-r-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch"
@@ -8189,7 +8193,6 @@
           "arztsekretar-in-oder-medizinische-r-praxisassistent-in-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:54.191Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -8285,9 +8288,9 @@
     },
     {
       "id": "ksa-196da50b930d",
-      "slug": "oberarztin-oberarzt-o-fellow-neonatologie-kantonsspital-aarau-ksa-aarau",
+      "slug": "capoclinica-capoclinica-o-fellow-neonatologia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-o-fellow-neonatologie-kantonsspital-aarau-ksa-aarau",
+        "it": "capoclinica-capoclinica-o-fellow-neonatologia-kantonsspital-aarau-ksa-aarau",
         "en": "senior-physician-senior-physician-or-fellow-neonatology-kantonsspital-aarau-ksa-aarau",
         "de": "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch",
         "fr": "medecin-principal-medecin-principal-ou-membre-de-la-neonatologie-kantonsspital-aarau-ksa-aarau"
@@ -8297,7 +8300,7 @@
       "companyDomain": "ksa.ch",
       "title": "Oberärztin / Oberarzt oder Fellow Neonatologie",
       "titleByLocale": {
-        "it": "Oberärztin / Oberarzt o Fellow Neonatologie",
+        "it": "Capoclinica / Capoclinica o Fellow Neonatologia",
         "en": "Senior physician / Senior physician or Fellow Neonatology",
         "de": "Oberärztin / Oberarzt oder Fellow Neonatologie",
         "fr": "Médecin principal / Médecin principal ou membre de la néonatologie"
@@ -8335,11 +8338,13 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch"
+        "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch",
+        "oberarztin-oberarzt-o-fellow-neonatologie-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch"
+          "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch",
+          "oberarztin-oberarzt-o-fellow-neonatologie-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch"
@@ -8348,7 +8353,6 @@
           "oberarztin-oberarzt-oder-fellow-neonatologie-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:54.190Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
@@ -8366,9 +8370,9 @@
     },
     {
       "id": "ksa-60550f6dd241",
-      "slug": "assistenzarztin-assistenzarzt-o-oberarztin-oberarzt-integrative-onkologie-kantonsspital-aarau-ksa-aarau",
+      "slug": "medico-assistente-o-capoclinica-capoclinica-oncologia-integrativa-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-o-oberarztin-oberarzt-integrative-onkologie-kantonsspital-aarau-ksa-aarau",
+        "it": "medico-assistente-o-capoclinica-capoclinica-oncologia-integrativa-kantonsspital-aarau-ksa-aarau",
         "en": "assistant-doctor-assistant-doctor-or-senior-doctor-senior-doctor-integrative-oncology-kantonsspital-aarau-ksa-aarau",
         "de": "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch",
         "fr": "assistant-medecin-assistant-medecin-ou-senior-medecin-senior-medecin-oncologie-integrative-kantonsspital-aarau-ksa-aarau"
@@ -8378,7 +8382,7 @@
       "companyDomain": "ksa.ch",
       "title": "Assistenzärztin / Assistenzarzt oder Oberärztin / Oberarzt Integrative Onkologie",
       "titleByLocale": {
-        "it": "Assistenzärztin / Assistenzarzt o Oberärztin / Oberarzt Integrative Onkologie",
+        "it": "Medico assistente o capoclinica / capoclinica oncologia integrativa",
         "en": "Assistant doctor / Assistant doctor or senior doctor / senior doctor Integrative Oncology",
         "de": "Assistenzärztin / Assistenzarzt oder Oberärztin / Oberarzt Integrative Onkologie",
         "fr": "Assistant médecin / Assistant médecin ou senior médecin / senior médecin Oncologie intégrative"
@@ -8416,11 +8420,13 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch"
+        "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch",
+        "assistenzarztin-assistenzarzt-o-oberarztin-oberarzt-integrative-onkologie-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch"
+          "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch",
+          "assistenzarztin-assistenzarzt-o-oberarztin-oberarzt-integrative-onkologie-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch"
@@ -8429,7 +8435,6 @@
           "assistenzarztin-assistenzarzt-oder-oberarztin-oberarzt-integrative-onkologie-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:11:54.189Z",
       "salaryMin": 119000,
       "salaryMax": 166000,

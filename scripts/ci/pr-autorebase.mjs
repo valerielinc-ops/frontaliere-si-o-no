@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * pr-autorebase.mjs — rebase reale delle PR a un passo dal merge (zero-Claude).
  *
@@ -3196,6 +3198,6 @@ async function main() {
 
 // Esegui solo come CLI (non quando importato dai test → resolveImportConflictsInText
 // testabile in isolamento, come classify-issue.mjs / alert-pat-down.mjs).
-if (process.argv[1] && process.argv[1].endsWith('pr-autorebase.mjs')) {
+if (process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main();
 }

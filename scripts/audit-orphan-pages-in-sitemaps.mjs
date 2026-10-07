@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * audit-orphan-pages-in-sitemaps.mjs
  *
@@ -934,9 +936,8 @@ async function main() {
 // tests via dynamic import).
 const invokedDirectly = (() => {
   try {
-    const thisFile = fileURLToPath(import.meta.url);
     const argv1 = process.argv[1] ? process.argv[1] : '';
-    return argv1 && (argv1 === thisFile || argv1.endsWith('audit-orphan-pages-in-sitemaps.mjs'));
+    return argv1 && ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })());
   } catch {
     return false;
   }

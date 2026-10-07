@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 /**
  * seed-daily-brief-tiers.mjs — give every subscriber a starting cadence for the
  * daily brief, from the engagement history the provider webhooks already wrote
@@ -176,7 +178,7 @@ async function main() {
   console.log(`✅ seeded ${writes.length} subscribers.`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   main().catch((error) => {
     console.error('❌ seed-daily-brief-tiers.mjs failed:', error);
     process.exitCode = 1;

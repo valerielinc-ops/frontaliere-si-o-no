@@ -1,8 +1,10 @@
 #!/usr/bin/env node
+import { pathToFileURL } from 'node:url';
+import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   GROUP_MANIFEST_REASON_CODES,
@@ -19,7 +21,6 @@ import {
 } from './lib/crawler-generation-receipt.mjs';
 import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
-const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
 export const CRAWLER_GENERATION_LEDGER_PATH = 'data/crawler-generation-ledger.jsonl';
 const LEDGER_COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
@@ -430,7 +431,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
   return manifest;
 }
 
-if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
   try {
     runCrawlerGroupGenerationFinalizerCli();
   } catch (error) {

@@ -274,7 +274,7 @@ jobs:
               echo "::error::durable ledger branch contains non-JSONL files: $invalid_ledger_files"
               exit 1
             fi
-            if bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
+            if bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
               exit 0
             fi
             if bounded_remote git fetch origin "$ledger_branch"; then
