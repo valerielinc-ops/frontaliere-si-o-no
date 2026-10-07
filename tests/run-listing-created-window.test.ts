@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  createdFromFilter,
   createdSince,
   createdSinceFilter,
   createdSinceQuery,
@@ -212,6 +213,9 @@ describe('run-listing-window', () => {
   it('filtro per `gh run list --created` e parametro REST codificato', () => {
     expect(createdSinceFilter(9, now)).toBe('>=2030-01-01');
     expect(createdSinceQuery(9, now)).toBe('created=%3E%3D2030-01-01');
+    expect(createdFromFilter('2030-01-05T12:00:00Z')).toBe('>=2030-01-05');
+    expect(createdFromFilter(Date.UTC(2030, 0, 6))).toBe('>=2030-01-06');
+    expect(() => createdFromFilter('not-a-date')).toThrow(TypeError);
   });
 
   it('newestFirst ordina entrambe le forme e non muta l\'ingresso', () => {
