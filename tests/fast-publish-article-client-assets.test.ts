@@ -195,6 +195,47 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('defers bounded mixed registry drift when the manifest count also moves', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 4 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({
+            swiss: {
+              kept: { it: 'kept' },
+              publishedA: { it: 'published-a' },
+              publishedB: { it: 'published-b' },
+              publishedC: { it: 'published-c' },
+            },
+          }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: {
+          kept: { it: 'kept' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).toBe(true);
+      expect(verdict.note).toContain('bounded mixed drift');
+      expect(verdict.note).toContain('manifest delta 2');
+      expect(verdict.note).toContain('no bytes published');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects local article IDs absent from the published registry', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
