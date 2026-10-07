@@ -134,6 +134,13 @@ describe('what the portal answers', () => {
     expect(registrationOutcome(page('Wir haben Ihnen eine E-Mail gesendet. Bitte bestätigen Sie Ihre E-Mail-Adresse.'))).toBe('verify');
     expect(registrationOutcome(page('Enter the code', [field('c', 'text', 'Bestätigungscode')]))).toBe('verify');
     expect(registrationOutcome(page('Bewerbung', [field('v', 'text', 'Vorname'), field('n', 'text', 'Nachname'), field('m', 'email', 'E-Mail')]))).toBe('created');
+    // Workday (2026-10-07) sends a new account to its sign-in form, under a notice of its own: the notice is no
+    // refusal, the sign-in that follows says whether the account is there. The same form asking to confirm the
+    // address is still a verification, and the registration form with a message is still a refusal.
+    const signIn = [field('e', 'text', 'Email Address'), field('p', 'password', 'Password')];
+    expect(registrationOutcome(page('Sign In Your account has been created.', signIn, ['Your account has been created.']))).toBe('created');
+    expect(registrationOutcome(page('Sign In Please verify your email address to activate your account.', signIn, ['Please verify your email address.']))).toBe('verify');
+    expect(registrationOutcome(page('Create Account', createForm, ['An account already exists for this email address.']))).toBe('refused');
   });
 
   it('records a verification only on a positive answer of the portal', () => {
@@ -167,6 +174,10 @@ describe('portal account store', () => {
     expect(mask).toHaveBeenCalledWith('Secret123Aa7!');
     await accounts.mark(HOST, { verifiedAt: 2000 });
     expect(store.read(ACCOUNTS)?.[hostKey(HOST)]).toMatchObject({ verifiedAt: 2000, createdAt: 1000 });
+    // A registration the portal never answered keeps its password and says so: the next run signs in with
+    // it, and creates the account again only if that fails (portal.mjs).
+    await accounts.mark(HOST, { status: 'unanswered' });
+    expect(await accounts.load(HOST)).toMatchObject({ password: 'Secret123Aa7!', status: 'unanswered' });
     expect(await accounts.load('other.example')).toBeNull();
     // A dry run's password is typed and never stored: masked in the log all the same.
     accounts.mask('DryRunOnlyAa7!');

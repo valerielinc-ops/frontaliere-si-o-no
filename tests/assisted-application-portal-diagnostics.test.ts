@@ -74,6 +74,26 @@ describe('encrypted portal diagnostics', () => {
     expect(popup.listenerCount('pageerror')).toBe(0);
   });
 
+  // Workday, 2026-10-07: the page loaded forty requests by itself, so the registration's own was never kept and
+  // the evidence could not say whether it had left.
+  it('makes room for a click that decides the run before the final one, and marks what follows with its phase', async () => {
+    const { context, request } = fixture();
+    const diagnostics = startPortalDiagnostics(context);
+    for (let i = 0; i < 100; i += 1) context.emit('request', request);
+    expect(diagnostics.data.requests).toHaveLength(40);
+    context.emit('request', request);
+    expect(diagnostics.data.requests).toHaveLength(40);
+    diagnostics.beforeClick('account');
+    expect(diagnostics.data.requests).toHaveLength(10);
+    context.emit('request', request);
+    expect(diagnostics.data.requests).toHaveLength(11);
+    expect(diagnostics.data.requests.at(-1).phase).toBe('account');
+    diagnostics.afterClick();
+    context.emit('request', request);
+    expect(diagnostics.data.requests.at(-1).phase).toBe('navigation');
+    await diagnostics.finish();
+  });
+
   // Lever, TSMG 2026-10-01: an hCaptcha challenge after SUBMIT APPLICATION, gone by the end of the wait.
   it('knows a human challenge served after the final click, even once the capped lists are full', async () => {
     expect(isChallengeRequest('https://api.hcaptcha.com/getcaptcha/e33f87f8-88ec-4e1a-9a13-df9bbb1d8120?s=x')).toBe(true);

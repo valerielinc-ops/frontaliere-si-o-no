@@ -1,10 +1,18 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T19:02:51.007Z",
-  "commit": "334c2d49c5d91398c25969163445b29a38245c84",
+  "generatedAt": "2026-10-07T20:56:08.780Z",
+  "commit": "5e8c0ec78016a7b6abd9673fe6519ddce6b3b8e7",
   "mainRef": "origin/main",
   "refsInspected": [
-    "origin/main"
+    "origin/main",
+    "refs/audit/pr-12266",
+    "refs/audit/pr-12264",
+    "refs/audit/pr-12263",
+    "refs/audit/pr-12255",
+    "refs/audit/pr-12251",
+    "refs/audit/pr-12235",
+    "refs/audit/pr-12214",
+    "refs/audit/pr-12200"
   ],
   "sections": [
     "A",
@@ -74,14 +82,14 @@
       "status": "fail",
       "counts": {
         "files": 11268,
-        "published": 11107,
+        "published": 11094,
         "ok": 3429,
         "inferred": 7659,
-        "withoutRecord": 19,
+        "withoutRecord": 6,
         "unlicensed": 0,
         "orphan": 174,
         "autoRepairable": 0,
-        "nonRemediable": 19
+        "nonRemediable": 6
       },
       "examples": [
         {
@@ -133,36 +141,24 @@
           "protectedRealAuthor": false
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/142-linea-aiuto-vittime-violenza-ticino.webp",
+          "status": "inferred"
         },
         {
-          "family": "social",
-          "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
-          "status": "senza record",
-          "reason": "no valid image record",
-          "autoRepairable": false,
-          "protectedRealAuthor": false
+          "family": "blog",
+          "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
+          "status": "inferred"
         }
       ],
       "alarm": true,
@@ -291,12 +287,12 @@
       "status": "warn",
       "counts": {
         "events": 11970,
-        "withoutDescription": 11722,
-        "rewritten": 248
+        "withoutDescription": 11642,
+        "rewritten": 328
       },
       "examples": [
         {
-          "count": 11722
+          "count": 11642
         }
       ],
       "alarm": false,
@@ -309,7 +305,7 @@
       "threshold": "entries without complete rewrite = 0",
       "status": "pass",
       "counts": {
-        "entries": 249,
+        "entries": 329,
         "residual": 0
       },
       "examples": [],
@@ -367,7 +363,7 @@
       "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
       "status": "pass",
       "counts": {
-        "refsInspected": 1,
+        "refsInspected": 9,
         "refsContainingMarker": 0,
         "markerObjectUnavailable": 0
       },
@@ -386,7 +382,7 @@
         "httpProbes": 8,
         "httpLive": 0,
         "r2Keys": 0,
-        "r2Available": 0
+        "r2Available": 1
       },
       "examples": [],
       "alarm": false,
@@ -403,12 +399,12 @@
       }
     },
     "images": {
-      "inventory": 11281,
+      "inventory": 11268,
       "statusCounts": {
         "ok": 3429,
         "inferred": 7659,
         "orfano": 174,
-        "senza record": 19
+        "senza record": 6
       },
       "orphanRecords": 0
     },
@@ -417,8 +413,8 @@
         "ok": true,
         "datasets": 1,
         "events": 11970,
-        "rewritten": 248,
-        "cacheEntries": 249
+        "rewritten": 328,
+        "cacheEntries": 329
       }
     },
     "history": {
@@ -428,7 +424,7 @@
   "remediation": {
     "candidateCount": 0,
     "autoRepairableCount": 0,
-    "nonRemediableCount": 19,
+    "nonRemediableCount": 6,
     "candidates": []
   },
   "alarm": {
@@ -491,39 +487,27 @@
       },
       {
         "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-0.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
+        "family": "blog",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "status": "inferred"
       },
       {
         "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-1.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
+        "family": "blog",
+        "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
+        "status": "inferred"
       },
       {
         "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-2.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
+        "family": "blog",
+        "imageUrl": "/images/blog/142-linea-aiuto-vittime-violenza-ticino.webp",
+        "status": "inferred"
       },
       {
         "control": "B.published-image-records",
-        "family": "social",
-        "imageUrl": "/images/social/tiktok/border-2026-09-28-3.jpg",
-        "status": "senza record",
-        "reason": "no valid image record",
-        "autoRepairable": false,
-        "protectedRealAuthor": false
+        "family": "blog",
+        "imageUrl": "/images/blog/142-numero-aiuto-vittime-ticino.webp",
+        "status": "inferred"
       }
     ]
   },

@@ -352,7 +352,14 @@ function equivalentAnswer(question, left, right) {
 
 /** The candidate already answered this question, including a wording/ID variant. */
 export function candidateAnswerForQuestion(candidate, question) {
-  const items = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  const recorded = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  // A portal can discover a new question while submitting, after the draft's
+  // question list was built. Keep the semantic fallback usable in that path
+  // too: the answer id still carries the portal question's wording as a slug.
+  const fromAnswerIds = Object.entries(candidate?.answers || {})
+    .filter(([id, answer]) => /^portal_/i.test(id) && String(answer || '').trim())
+    .map(([id, answer]) => ({ question: id.replace(/^portal_/i, '').replace(/_/g, ' '), answer }));
+  const items = [...recorded, ...fromAnswerIds];
   const normalized = comparableAnswer(questionFromLabel(question));
   const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
   if (exact) return String(exact.answer).trim();
@@ -419,12 +426,8 @@ export function candidateAnswerForField(candidate, field) {
 /** The candidate already answered this very question with this answer (review page). */
 export function answeredByCandidate(candidate, question, answer) {
   const given = String(answer || '').trim();
-  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
-    .some((item) => {
-      const sameQuestion = comparableAnswer(questionFromLabel(item.question)) === comparableAnswer(questionFromLabel(question))
-        || (questionTopic(item.question) && questionTopic(item.question) === questionTopic(question));
-      return sameQuestion && equivalentAnswer(question, item.answer, given);
-    });
+  const previous = candidateAnswerForQuestion(candidate, question);
+  return Boolean(given && previous) && equivalentAnswer(question, previous, given);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
