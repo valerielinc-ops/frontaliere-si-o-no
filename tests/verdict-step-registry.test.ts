@@ -42,7 +42,11 @@ const {
   verdictOnlyThreadNote,
   verdictStepEntryForWorkflowName,
 } = await import('../scripts/ci/close-recovered-failure-issues.mjs');
-const { scanFailures, ownerSignalPersisted } = await import('../scripts/ci/scan-unreported-failures.mjs');
+const {
+  scanFailures,
+  ownerSignalPersisted,
+  closedOwnerSignalPersisted,
+} = await import('../scripts/ci/scan-unreported-failures.mjs');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOWS_DIR = path.join(ROOT, '.github', 'workflows');
@@ -582,6 +586,65 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     }
   });
 
+  it('un owner di aste chiuso dopo la run copre ancora il verdetto storico', async () => {
+    const platePath = '.github/workflows/refresh-plate-auctions.yml';
+    const plateName = 'Refresh Plate Auctions';
+    const plateRun = {
+      id: '37579268484',
+      event: 'schedule',
+      head_branch: 'main',
+      created_at: '2026-10-07T06:01:27Z',
+      updated_at: '2026-10-07T06:06:43Z',
+      html_url: 'https://github.com/o/r/actions/runs/37579268484',
+    };
+    const plateJobs = {
+      total_count: 1,
+      jobs: [{
+        name: 'refresh-plate-auctions',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Fail closed on source health or snapshot drift', conclusion: 'success' },
+          { name: 'Fail the run on the source-health verdict', conclusion: 'failure' },
+        ],
+      }],
+    };
+    const closedOwner = {
+      number: 12058,
+      title: 'Plate auction source degraded: TG',
+      created_at: '2026-10-07T06:06:35Z',
+      updated_at: '2026-10-07T07:38:19Z',
+      closed_at: '2026-10-07T07:38:19Z',
+      body: `**Workflow:** ${plateName}`,
+    };
+
+    vi.setSystemTime(new Date('2026-10-07T09:15:00Z'));
+    execFileSync.mockReset();
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return '[]';
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ body: '', comments: [] });
+      if (args[0] === 'api') {
+        const p = String(args[1]);
+        if (p.includes('/actions/workflows?')) {
+          return tsv([['plate-workflow', plateName, platePath, 'active', '2026-01-01T00:00:00Z']]);
+        }
+        if (p.includes('/actions/runs?created=')) {
+          return tsv([[plateRun.id, 'plate-workflow', plateRun.event, plateRun.head_branch, 'failure',
+            plateRun.created_at, plateRun.updated_at, plateRun.html_url, platePath]]);
+        }
+        if (p.includes(`/actions/runs/${plateRun.id}/jobs`)) return JSON.stringify(plateJobs);
+        if (p.includes('/issues?state=closed')) return JSON.stringify([closedOwner]);
+        return '';
+      }
+      if (args[0] === 'issue' && ['reopen', 'comment', 'create', 'edit'].includes(args[1])) {
+        return 'https://github.com/o/r/issues/12079';
+      }
+      return '';
+    });
+
+    await scanFailures();
+    expect(issueCalls('create')).toEqual([]);
+  });
+
   it('ownerSignalPersisted: solo una issue della famiglia aggiornata dall\'inizio della run è una prova', () => {
     const entry = VERDICT_STEPS[MONITOR_PATH];
     const run = { created_at: RED_RUN.created_at };
@@ -592,6 +655,28 @@ describe('scan-unreported-failures — una run di solo verdetto non è un fallim
     expect(ownerSignalPersisted(entry, [{ ...OWNER_WRITTEN, title: 'CI Failure: crawler-health-monitor' }], run)).toBe(false);
     expect(ownerSignalPersisted(entry, [OWNER_WRITTEN], { created_at: '' })).toBe(false);
     expect(ownerSignalPersisted(null, [OWNER_WRITTEN], run)).toBe(false);
+  });
+
+  it('closedOwnerSignalPersisted richiede l\'intersezione temporale con la run', () => {
+    const entry = VERDICT_STEPS['.github/workflows/refresh-plate-auctions.yml'];
+    const run = {
+      created_at: '2026-10-07T06:01:27Z',
+      updated_at: '2026-10-07T06:06:43Z',
+    };
+    const owner = {
+      title: 'Plate auction source degraded: TG',
+      createdAt: '2026-10-07T06:06:35Z',
+      closedAt: '2026-10-07T07:38:19Z',
+    };
+    expect(closedOwnerSignalPersisted(entry, [owner], run)).toBe(true);
+    expect(closedOwnerSignalPersisted(entry, [{
+      ...owner,
+      createdAt: '2026-10-07T06:06:44Z',
+    }], run)).toBe(false);
+    expect(closedOwnerSignalPersisted(entry, [{
+      ...owner,
+      closedAt: '2026-10-07T06:01:26Z',
+    }], run)).toBe(false);
   });
 });
 
