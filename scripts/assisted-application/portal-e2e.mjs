@@ -396,14 +396,15 @@ function fakePortal() {
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
     // The posting names the brand, never the company the order names; the form behind the account keeps
-    // the account page's title, and the site's language menu sits in its header (Workday, 2026-10-07).
+    // the account page's title, and the site's language menu sits in its header (Workday, 2026-10-07). Its
+    // «Postal Code» is no verification code: taken for one, the run waited for an e-mail nobody sends.
     if (route === 'GET /wd/job') return send(page('Verkaufsberater/in', '<p>Acme Careers</p><h1>Verkaufsberater/in</h1><a href="/wd/apply">Apply</a>'));
     if (route === 'GET /wd/apply') return state.sessions.has(sessionOf(req)) ? redirect('/wd/form') : send(workdayAccountPage());
     if (route === 'GET /wd/form') {
       if (!state.sessions.has(sessionOf(req))) return redirect('/wd/apply');
       return send(`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Create Account</title></head><body>
         <header><button type="button" aria-haspopup="listbox" aria-label="settingsSelectorButton">English</button><p>Acme Careers</p></header>
-        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>${form('/apply', '<label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>', true)}</main></body></html>`);
+        <main><h1>Verkaufsberater/in</h1><h2>My Information</h2>${form('/apply', '<label for="v">Vorname *</label><input id="v" name="first" required><label for="n">Nachname *</label><input id="n" name="last" required><label for="pc">Postal Code</label><input id="pc" name="postalCode"><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Bewerbung absenden</button>', true)}</main></body></html>`);
     }
     if (route === 'POST /wd/dropped' || route === 'POST /wd/header') {
       workday[route.endsWith('header') ? 'headerSignIns' : 'dropped'] += 1;
