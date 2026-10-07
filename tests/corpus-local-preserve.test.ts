@@ -27,7 +27,9 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
+  CORPUS_GENERATED_CHURN_PREFIXES,
   collectPreserveSnapshots,
+  destinationOnlyPaths,
   dropLedgeredRetirements,
   listRelFiles,
 } from '../scripts/lib/corpus-local-preserve.mjs';
@@ -54,6 +56,41 @@ describe('listRelFiles', () => {
       expect(rel).toEqual(new Set(['routerBlogData.ts', 'blog-body/it/foo.ts', 'blog-body/de/foo.ts']));
     } finally {
       rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('destination-only generated surfaces', () => {
+  it('finds only image-credit files absent from the pinned source tree', () => {
+    const src = makeTree({
+      'routerBlogData.ts': 'upstream',
+      'image-credits/blog/current.json': 'upstream credit',
+    });
+    const dest = makeTree({
+      'routerBlogData.ts': 'local',
+      'image-credits/blog/legacy.json': 'legacy credit',
+      'blog-body/it/stale.ts': 'article content must not be silently kept',
+    });
+
+    try {
+      const churnOnly = destinationOnlyPaths({ src, dest });
+      expect([...churnOnly]).toEqual(['image-credits/blog/legacy.json']);
+      expect(CORPUS_GENERATED_CHURN_PREFIXES).toEqual(['image-credits/']);
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+      rmSync(dest, { recursive: true, force: true });
+    }
+  });
+
+  it('does not classify a destination file once the source carries that path', () => {
+    const src = makeTree({ 'image-credits/blog/cover.json': 'upstream credit' });
+    const dest = makeTree({ 'image-credits/blog/cover.json': 'old credit' });
+
+    try {
+      expect(destinationOnlyPaths({ src, dest })).toEqual(new Set());
+    } finally {
+      rmSync(src, { recursive: true, force: true });
+      rmSync(dest, { recursive: true, force: true });
     }
   });
 });
