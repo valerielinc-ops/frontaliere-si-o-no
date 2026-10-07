@@ -1496,10 +1496,10 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
 
 
  'blog-apprendisti-frontalieri-permessi-g': {
- title: 'Apprendisti frontalieri verso il permesso G per tutta',
+ title: 'Apprendisti frontalieri: permesso G per il tirocinio',
  description: 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
  keywords: 'frontalieri, ticino, svizzera, italia, apprendisti, verso, permesso, tutta',
- ogTitle: 'Apprendisti frontalieri verso il permesso G per tutta la durata del tirocinio',
+ ogTitle: 'Apprendisti frontalieri: permesso G per il tirocinio',
  ogDescription: 'Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.',
  canonicalPath: '/articoli-frontaliere/apprendisti-frontalieri-permessi-g/',
  structuredData: {
@@ -1936,11 +1936,11 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "FAQPage",
  "mainEntity": [
- { "@type": "Question", "name": "Qual è la differenza tra LAMal e SSN per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "LAMal è l'assicurazione sanitaria obbligatoria svizzera con premi fissi (CHF 200-600/mese) e franchigia; il SSN italiano è basato su contributi proporzionali al reddito (~7.5%) senza franchigia. Il frontaliere ha diritto di opzione entro 3 mesi dall'inizio dell'attività." } },
- { "@type": "Question", "name": "Quanto costa la LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 200 a CHF 600 al mese a seconda della cassa malati, del modello assicurativo (standard, telmed, HMO) e della franchigia scelta (CHF 300-2.500 per adulti)." } },
- { "@type": "Question", "name": "Posso curarmi in Svizzera con il SSN italiano?", "acceptedAnswer": { "@type": "Answer", "text": "Con il SSN italiano e la tessera TEAM si ha copertura per emergenze in tutta l'UE e Svizzera, ma le cure programmate in Svizzera non sono coperte. Per cure non urgenti serve la LAMal o un'assicurazione privata." } },
- { "@type": "Question", "name": "Quando conviene scegliere la LAMal rispetto al SSN?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal conviene per single con reddito superiore a CHF 5.000/mese, per chi necessita di cure frequenti in Svizzera, e per chi vuole accesso diretto a specialisti svizzeri senza lunghe attese." } },
- { "@type": "Question", "name": "Il diritto di opzione LAMal/SSN è irreversibile?", "acceptedAnswer": { "@type": "Answer", "text": "La scelta iniziale è valida per tutto il periodo di lavoro in Svizzera con lo stesso datore. Si può cambiare in caso di nuovo rapporto di lavoro, cambio di cantone o variazioni familiari significative." } }
+ { "@type": "Question", "name": "Qual è la differenza tra LAMal e SSN per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal è l'assicurazione malattia obbligatoria svizzera: chi risiede in Italia paga il premio che ogni assicuratore calcola per l'Italia (nel 2026 da CHF 279,00 a CHF 487,20 al mese per un adulto), con una franchigia di CHF 300 e una partecipazione del 10% fino a CHF 700 l'anno. Il Servizio sanitario italiano resta quello dello Stato di residenza. Il frontaliere ha il diritto di opzione entro tre mesi dall'inizio dell'attività e la scelta è definitiva." } },
+ { "@type": "Question", "name": "Quanto costa la LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Chi risiede in Italia non paga i premi del Canton Ticino ma quelli che i 14 assicuratori calcolano per l'Italia: nel 2026 un adulto paga da CHF 279,00 a CHF 487,20 al mese senza copertura infortuni, un minorenne da CHF 64,20 a CHF 203,70. Le franchigie opzionali e i modelli Telmed e HMO non sono disponibili: la franchigia è una sola, di CHF 300 l'anno." } },
+ { "@type": "Question", "name": "Posso curarmi in Svizzera con il SSN italiano?", "acceptedAnswer": { "@type": "Answer", "text": "Con la tessera europea di assicurazione malattia (TEAM) hai diritto in Svizzera alle cure medicalmente necessarie durante il soggiorno, pagando una partecipazione di CHF 92 ogni 30 giorni di cura. Le cure programmate in Svizzera richiedono l'autorizzazione preventiva dell'ASL con il modello S2." } },
+ { "@type": "Question", "name": "Quando conviene scegliere la LAMal rispetto al SSN?", "acceptedAnswer": { "@type": "Answer", "text": "Non esiste una soglia di reddito valida per tutti. La LAMal è da valutare se ti curi soprattutto in Svizzera, se vuoi accedere alle cure nei due Paesi o se ti servono cure programmate in Svizzera; il Servizio sanitario italiano se ti curi soprattutto in Italia. Contano il regime in cui rientri, la famiglia e il luogo delle cure." } },
+ { "@type": "Question", "name": "Il diritto di opzione LAMal/SSN è irreversibile?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: la scelta è definitiva per tutta la durata dell'attività ininterrotta come frontaliere. Non la riaprono il cambio di datore di lavoro o di Cantone né la variazione del reddito. Si riapre solo dopo un periodo di assoggettamento in un altro Stato o quando si diventa beneficiari di rendita." } }
  ]
  }
  ]

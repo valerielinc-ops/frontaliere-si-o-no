@@ -245,6 +245,7 @@ jobs:
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2a.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
@@ -439,6 +440,7 @@ jobs:
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2c.json
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         # --max-jobs is DECOUPLED from the `max_jobs` input (which caps the quota-bound
@@ -451,7 +453,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+            ${{ runner.temp }}/local-mt-semantic-candidates-*.json
           retention-days: 30
           if-no-files-found: warn
 

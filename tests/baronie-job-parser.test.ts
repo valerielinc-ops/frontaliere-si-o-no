@@ -11,7 +11,10 @@
  */
 import { describe, expect, it } from 'vitest';
 import { buildBaronieLocalizedContent, parseBaronieDetailHtml, isSwissJob } from '../scripts/lib/baronie-job-parser.mjs';
-import { dropBaronieFabricatedText } from '../scripts/update-baronie-jobs.mjs';
+import {
+  classifyBaronieEmptyResult,
+  dropBaronieFabricatedText,
+} from '../scripts/update-baronie-jobs.mjs';
 
 function detailHtml({
   title = 'IT Infrastructure Engineer',
@@ -180,5 +183,15 @@ describe('dropBaronieFabricatedText', () => {
   it('leaves a stored job with the posting text alone', () => {
     const job: any = { sourceLang: 'en', description: 'As the Plant Manager…', descriptionByLocale: { en: 'As the Plant Manager…', it: 'Come Responsabile…' } };
     expect(dropBaronieFabricatedText(job)).toBe(false);
+  });
+});
+
+describe('classifyBaronieEmptyResult', () => {
+  it('names a zero-detail run as source extraction failure', () => {
+    expect(classifyBaronieEmptyResult(5)).toBe('source-extraction-failed');
+  });
+
+  it('names an observed zero without detail failures as no-jobs-parsed', () => {
+    expect(classifyBaronieEmptyResult(0)).toBe('no-jobs-parsed');
   });
 });

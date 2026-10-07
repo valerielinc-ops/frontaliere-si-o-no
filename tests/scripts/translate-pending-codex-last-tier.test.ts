@@ -5,13 +5,13 @@ import YAML from 'yaml';
 
 /**
  * Dove translate-pending usa Codex Luna Max. Decisione del proprietario
- * 2026-10-06: la corsia Codex è primaria in tutte le fasi; DeepL, Azure e i
- * sistemi gratuiti restano ripieghi nell'ordine storico. `last` resta solo un
- * override legacy esplicito e nessun workflow di produzione lo imposta.
+ * 2026-10-06: la corsia Codex è primaria nelle fasi articolo; DeepL, Azure e
+ * i sistemi gratuiti restano ripieghi nell'ordine storico. La riparazione dei
+ * titoli usa invece `last`, così Codex resta il fallback finale di quella corsia.
  * Vale per la logica del sito e per l'artifact generato che gira sul pool del
  * corpus:
  *   · il broker parte dopo il passaggio Argos bulk (2a) e prima della 2b;
- *   · il socket arriva solo alle fasi 2b, 2d e 2e, ognuna con un budget per
+ *   · il socket arriva alle fasi 2a.2, 2b, 2d e 2e, ognuna con un budget per
  *     run ereditato dal resolver comune;
  *   · nessuno step imposta AI_MODELS_PREFER;
  *   · TTL del broker che copre la finestra delle fasi.
@@ -22,6 +22,7 @@ const TARGETS = [
   '.github/workflows/translate-pending-logic.yml',
   '.github/corpus-workflows/translate-pending.yml',
 ];
+const PHASE_2A2 = 'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)';
 const PHASE_2B = 'Phase 2b: Translate pending jobs (cascade top-up)';
 const PHASE_2D = 'Phase 2d: Fix untranslated titles (free cascade)';
 const PHASE_2E = 'Phase 2e: Fix untranslated descriptions (free cascade)';
@@ -50,9 +51,11 @@ function expectBudget(step: Step) {
   // una nuova decisione, non da un refuso.
   expect(calls, step.name).toBeLessThanOrEqual(180);
   expect(ms, step.name).toBeGreaterThan(0);
-  // La 2b ha una finestra di 30 minuti e puo' spenderne 25; le corsie di
-  // riparazione partono con almeno 15 minuti residui (gate) e restano a 15.
-  const maxMs = step.name === PHASE_2B ? 25 * 60 * 1000 : 15 * 60 * 1000;
+  // La 2a.2 e la 2b hanno una finestra di almeno 25 minuti; le corsie di
+  // riparazione successive partono con almeno 15 minuti residui (gate).
+  const maxMs = [PHASE_2A2, PHASE_2B].includes(step.name ?? '')
+    ? 25 * 60 * 1000
+    : 15 * 60 * 1000;
   expect(ms, step.name).toBeLessThanOrEqual(maxMs);
 }
 
@@ -74,11 +77,11 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(Number(setup.with?.broker_idle_ttl_ms)).toBeGreaterThanOrEqual(12_600_000);
   });
 
-  it('il socket arriva solo alle fasi 2b/2d/2e, che ereditano il budget per run', () => {
+  it('il socket arriva alle fasi titolo e articolo, che ereditano il budget per run', () => {
     const consumers = steps.filter((step) => step.env
       && Object.prototype.hasOwnProperty.call(step.env, 'CODEX_AUTH_BROKER_SOCKET')
       && step.name !== 'Cleanup Codex auth broker');
-    expect(consumers.map((step) => step.name)).toEqual([PHASE_2B, PHASE_2D, PHASE_2E]);
+    expect(consumers.map((step) => step.name)).toEqual([PHASE_2A2, PHASE_2B, PHASE_2D, PHASE_2E]);
     const resolver = steps.find((step) => step.name === CODEX_BUDGET_RESOLVER);
     expect(resolver?.env?.FREE_TRANSLATE_CODEX_MAX_CALLS_REPO).toBe(CODEX_MAX_CALLS_REPO_EXPR);
     expect(resolver?.run).toContain('FREE_TRANSLATE_CODEX_MAX_CALLS');
@@ -89,14 +92,15 @@ describe.each(TARGETS)('translate-pending: dove entra Codex (%s)', (rel) => {
     expect(steps.some((step) => step.env && Object.prototype.hasOwnProperty.call(step.env, 'AI_MODELS_PREFER'))).toBe(false);
   });
 
-  it('tutte le fasi usano il default Codex-primary senza override legacy', () => {
+  it('solo la riparazione titoli forza Codex-last; le altre fasi usano il default primary', () => {
+    expect(steps.find((step) => step.name === PHASE_2A2)?.env?.FREE_TRANSLATE_CODEX_TIER).toBe('last');
     for (const name of [PHASE_2B, PHASE_2D, PHASE_2E]) {
       expect(steps.find((step) => step.name === name)?.env?.FREE_TRANSLATE_CODEX_TIER).toBeUndefined();
     }
   });
 
   it('le fasi che usano Codex e le statistiche condividono la cartella dei report della riserva', () => {
-    const dirs = [PHASE_2B, PHASE_2D, PHASE_2E, 'Log translation stats (after)']
+    const dirs = [PHASE_2A2, PHASE_2B, PHASE_2D, PHASE_2E, 'Log translation stats (after)']
       .map((name) => steps.find((step) => step.name === name)?.env?.TRANSLATE_CODEX_RESERVE_DIR);
     expect(dirs[0]).toBe('${{ runner.temp }}/translation-codex-reserve');
     expect(new Set(dirs).size).toBe(1);

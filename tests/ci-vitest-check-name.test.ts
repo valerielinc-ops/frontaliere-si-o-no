@@ -463,6 +463,7 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     // Non l'intera cartella: 140 MB su 142,8 sono artefatti di docs/newsletter-qa.
     expect(TESTS_YML).not.toMatch(/^\s+\/docs\/\s*$/m);
     expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
+    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts');
     expect(TESTS_YML).toContain('hard repository-tool budget');
   });
 

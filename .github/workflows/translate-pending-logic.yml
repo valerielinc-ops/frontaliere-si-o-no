@@ -379,9 +379,11 @@ jobs:
           # overwrites one phase may write (hard max 2000 in the script). The
           # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
           # Counts per verdict and per withheld reason land in the log line
-          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded). The
+          # companion path carries the first 200 judged overwrite candidates.
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2a.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -390,11 +392,22 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
+      # ── Codex Luna Max: available to the title repair lane as last resort ──
+      # Start the broker after the Argos bulk pass and BEFORE Phase 2a.2. The
+      # title lane therefore gets the same final Codex tier as 2b/2d/2e when
+      # provider keys fail, while the existing cascade and its guards remain
+      # unchanged when the broker is unavailable or disabled.
+      - id: setup_claude_haiku_fallback
+        if: inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
       # ── Phase 2a.2: title residue to the free cascade, before descriptions ──
       # Titles Argos left as source copies go to the free cascade (DeepL →
-      # Azure → …) BEFORE the job cascade (2b) and the description lanes spend
-      # time and premium quota on descriptions. No Codex here: no broker socket,
-      # so Codex stays where the owner placed it (2d/2e, after Argos). Writes
+      # Azure → … → Codex Luna Max) BEFORE the job cascade (2b) and the
+      # description lanes spend time and premium quota on descriptions. Writes
       # slices only; the re-assemble and the Argos commit below pick it up, and
       # it is gated like them so 2b never scatters a stale dataset over it.
       - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
@@ -404,6 +417,13 @@ jobs:
         env:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '6600000' # 110 * 60 * 1000 run-wide ceiling
           UNTRANSLATED_TITLE_FIX_WINDOW_MS: '1500000'   # 25 * 60 * 1000 from this step's start
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_TIER: 'last'
+          FREE_TRANSLATE_CODEX_CALL_TIMEOUT_MS: '480000'
+          FREE_TRANSLATE_CODEX_MAX_MS: '1500000'
+          FREE_TRANSLATE_CODEX_LANES: '3'
+          FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10'
+          TRANSLATE_CODEX_RESERVE_DIR: ${{ runner.temp }}/translation-codex-reserve
         run: node scripts/fix-untranslated-titles.mjs
 
       # Keep this re-assemble on the default full form. The baseline and Phase
@@ -461,9 +481,9 @@ jobs:
 
       # ── Codex Luna Max: reserve of Phase 2b, last-resort tier of 2d/2e ───
       # Owner decision H7 (2026-10-05): «utilizza codex luna max per le
-      # traduzioni quando falliscono le chiavi». The broker starts after the
-      # Argos bulk pass (Phase 2a) and before the cascade, so Phase 2b gets its
-      # socket with the DEFAULT tier position of free-translate.mjs: Codex
+      # traduzioni quando falliscono le chiavi». The broker was started before
+      # the title repair lane above and remains available for Phase 2b, so it
+      # gets its socket with the DEFAULT tier position of free-translate.mjs: Codex
       # translates a text only once DeepL and Azure can no longer serve the
       # run (every key rejected or out of quota, or not configured — Azure is
       # blanked in 2b, see there), and before Google Cloud and the free tiers.
@@ -475,13 +495,6 @@ jobs:
       # the 210-minute envelope. Without the secret, or with
       # ENABLE_CODEX_ARTICLE_FALLBACK=0 in Remote Config, the step does nothing
       # and every phase keeps the cascade it had.
-      - id: setup_claude_haiku_fallback
-        if: inputs.skip_translate != true && inputs.dry_run != true
-        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
-        with:
-          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
-          broker_idle_ttl_ms: '12600000'
-
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
         id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
@@ -588,9 +601,11 @@ jobs:
           # overwrites one phase may write (hard max 2000 in the script). The
           # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
           # Counts per verdict and per withheld reason land in the log line
-          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded). The
+          # companion path carries the first 200 judged overwrite candidates.
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          LOCAL_MT_SEMANTIC_CANDIDATES_PATH: ${{ runner.temp }}/local-mt-semantic-candidates-phase-2c.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -882,7 +897,9 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+            ${{ runner.temp }}/local-mt-semantic-candidates-*.json
           retention-days: 30
           if-no-files-found: warn
 

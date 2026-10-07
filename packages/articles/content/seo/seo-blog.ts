@@ -4036,16 +4036,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
  'blog-assicurazione-malattia-famiglia': {
  title: 'Assicurazione malattia famiglia | Frontaliere Ticino',
- description: 'Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.',
- keywords: 'assicurazione malattia, frontalieri, ticino, LAMal, EHIC, polizze integrative, sanitario, famiglia',
+ description: 'Frontalieri in Ticino con famiglia: LAMal svizzera o Servizio sanitario italiano? Premi 2026, regole per coniuge e figli, tessera europea e integrative.',
+ keywords: 'assicurazione malattia, frontalieri, ticino, LAMal, servizio sanitario italiano, tessera europea, polizze integrative, famiglia',
  ogTitle: 'Assicurazione malattia per tutta la famiglia',
- ogDescription: 'Proteggi la tua famiglia con le migliori opzioni di assicurazione malattia per frontalieri in Ticino: LAMal, EHIC e integrative.',
+ ogDescription: 'LAMal svizzera o Servizio sanitario italiano per tutta la famiglia: premi 2026 per adulti e minorenni, regole per coniuge e figli, tessera europea e polizze integrative.',
  canonicalPath: '/articoli-frontaliere/assicurazione-malattia-famiglia/',
  structuredData: {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Assicurazione malattia per tutta la famiglia",
- "description": "Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.",
+ "description": "Frontalieri in Ticino con famiglia: LAMal svizzera o Servizio sanitario italiano? Premi 2026, regole per coniuge e figli, tessera europea e integrative.",
  "image": {
  "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/assicurazione-malattia-famiglia.webp`,
  "width": 1344,
@@ -6997,7 +6997,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "NewsArticle",
  "headline": "Controlli polizia al confine Ticino: +2mila veicoli nel 2025",
- "description": "Polizia di frontiera lariana controlla 6'212 veicoli nel 2025, +47% rispetto al 2023. 42 arresti, 405 espulsioni e 315 denunce a piede libero. Impatto sui",
+ "description": "Polizia di frontiera lariana controlla 6'212 veicoli nel 2025, +47% rispetto al 2023. 42 arresti, 405 espulsioni e 315 denunce a piede libero. Impatto",
  "image": {
  "@type": "ImageObject", "url": `${BASE_URL}/images/blog/controlli-frontalieri-ponte-chiasso-2025.webp`,
  "width": 1200,
@@ -9815,16 +9815,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-militari-treni-ticino-20-euro': {
     title: 'Militari sui treni Trenord: 20 euro | Frontaliere Ticino',
-    description: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    description: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza',
     keywords: 'frontalieri, ticino, svizzera, italia, militari, treni, trenord, euro',
     ogTitle: 'Militari sui treni Trenord: 20 euro all\'anno per maggiore',
-    ogDescription: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui',
+    ogDescription: 'Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza',
     canonicalPath: '/articoli-frontaliere/militari-treni-ticino-20-euro/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Militari sui treni Trenord: 20 euro all'anno per maggiore sicurezza",
-      "description": "Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza sui",
+      "description": "Dal 1° maggio 2026, i militari potranno viaggiare su Trenord in Lombardia con un abbonamento agevolato di 20 euro annui per incrementare la sicurezza",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/militari-treni-ticino-20-euro.webp`,
         "width": 1200,
@@ -10290,7 +10290,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bellinzona-calcio-licenza-negata-finanze': {
-    title: 'Calcio Dnb: licenza negata al Bellinzona per dubbi sulle',
+    title: 'Calcio Dnb: licenza negata al Bellinzona per dubbi',
     description: 'Il Bellinzona non ottiene la licenza Dnb a causa di dubbi sulle finanze, sollevando nuove preoccupazioni sul futuro del club. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, calcio, licenza, negata, bellinzona',
     ogTitle: 'Bellinzona: licenza negata, dubbi sulle finanze |',
@@ -14974,7 +14974,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-incidenti-mortali-lavoro-svizzera-2026': {
-    title: 'SUVA: incidenti mortali sul lavoro in Svizzera -80% dagli',
+    title: 'SUVA: incidenti mortali sul lavoro in Svizzera -80%',
     description: 'Dati SUVA: infortuni mortali sul lavoro ridotti dell\'80% dal 1986-1990 al 2020-2024, nonostante aumento occupati. Innovazione e formazione chiave.',
     keywords: 'frontalieri, ticino, svizzera, italia, suva, incidenti, mortali, lavoro',
     ogTitle: 'SUVA: incidenti mortali sul lavoro -80% | Frontaliere Ticino',
@@ -15982,7 +15982,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-svizzeri-contributo-clima-acquisti-online-2026': {
-    title: 'Sempre meno svizzeri pagano il contributo clima sugli',
+    title: 'Sempre meno svizzeri pagano il contributo clima',
     description: 'Dati Galaxus: nel 2026 solo il 9% degli ordini online in Svizzera include il contributo volontario per il clima, contro l\'11% del 2024 e il 12% del 2022.',
     keywords: 'frontalieri, ticino, svizzera, italia, sempre, meno, svizzeri, pagano',
     ogTitle: 'Contributo clima online | Frontaliere Ticino',
@@ -16123,16 +16123,16 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-carburanti-tpl-ticino-2026': {
     title: 'Caro carburanti, rischio stop trasporto | Frontaliere Ticino',
-    description: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    description: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto',
     keywords: 'frontalieri, ticino, svizzera, italia, caro, carburanti, rischio, stop',
     ogTitle: 'Caro carburanti, rischio stop trasporto pubblico in Ticino',
-    ogDescription: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto sui',
+    ogDescription: 'Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l\'impatto',
     canonicalPath: '/articoli-frontaliere/carburanti-tpl-ticino-2026/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Caro carburanti, rischio stop trasporto pubblico in Ticino",
-      "description": "Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l'impatto sui",
+      "description": "Il caro carburanti minaccia il trasporto pubblico locale, con costi aggiuntivi stimati in 0,54 milioni di euro al giorno per il diesel. Scopri l'impatto",
       "image": {
         "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini", "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carburanti-tpl-ticino-2026.webp`,
         "width": 1200,
@@ -32197,7 +32197,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     title: 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
     description: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, lostallo, soazza, mesocco, titolo',
-    ogTitle: 'Lostallo, Soazza e Mesocco per il titolo di "Comune più attivo della Svizzera"',
+    ogTitle: 'Lostallo, Soazza e Mesocco per il titolo di comune più attivo',
     ogDescription: 'Lostallo, Soazza e Mesocco partecipano alla "Coop sfida fra comuni" per promuovere l\'attività fisica durante il mese di maggio 2026.',
     canonicalPath: '/articoli-frontaliere/alta-mesolcina-sfida-movimento-2026/',
     structuredData: {
@@ -36058,10 +36058,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-a4-milano-brescia-diviazione-obbligatoria-2026': {
-    title: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    title: 'A4 Milano-Brescia: deviazione verso Varese (5-6 maggio)',
     description: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, milano-brescia, deviazione, obbligatoria, verso',
-    ogTitle: 'A4 Milano-Brescia: deviazione obbligatoria verso Varese dal 5 al 6 maggio 2026',
+    ogTitle: 'A4 Milano-Brescia: deviazione verso Varese (5-6 maggio)',
     ogDescription: 'Dalla notte tra il 5 e il 6 maggio 2026, la A4 Milano-Brescia sarà chiusa per lavori. Ecco cosa cambia per i frontalieri.',
     canonicalPath: '/articoli-frontaliere/a4-milano-brescia-diviazione-obbligatoria-2026/',
     structuredData: {
@@ -36142,10 +36142,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-a4-milano-brescia-chiusura-notturna-2026': {
-    title: 'A4 chiusa tra Sesto e Monza: notti interessate | Frontaliere Ticino',
+    title: 'A4 chiusa tra Sesto e Monza: notti interessate',
     description: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, chiusa, sesto, monza, notti',
-    ogTitle: 'A4 Milano-Brescia chiusa tra Sesto San Giovanni e Monza: tutte le notti interessate',
+    ogTitle: 'A4 chiusa tra Sesto e Monza: notti interessate',
     ogDescription: 'Chiusura notturna del tratto tra Sesto San Giovanni e Monza per lavori alle barriere di sicurezza. Percorsi alternativi segnalati.',
     canonicalPath: '/articoli-frontaliere/a4-milano-brescia-chiusura-notturna-2026/',
     structuredData: {

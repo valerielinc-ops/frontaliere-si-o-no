@@ -21,6 +21,7 @@ import {
   umantisAuthoritativeEmptyOrNull,
 } from './umantis-empty-listing.mjs';
 import {
+  normalizeAuthoritativeNonSwissLocationPart,
   resolveDetailOrListingSwissGeography,
   resolveSourceBackedSwissGeography,
   sourceBackedSwissGeographyFields,
@@ -316,7 +317,7 @@ export function assertCompleteRecruitingapp2677Snapshot(jobs) {
   return proof.details.every((detail) => !detail.swiss
     && detail.locations.length > 0
     && detail.locations.every((location) => location.split(/[,;&/|]/)
-      .map(normalize)
+      .map(normalizeAuthoritativeNonSwissLocationPart)
       .filter(Boolean)
       .every((locality) => AUTHORITATIVE_NON_SWISS_LOCATIONS.has(locality))));
 }
