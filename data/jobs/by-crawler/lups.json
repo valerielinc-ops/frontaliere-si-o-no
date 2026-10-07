@@ -407,7 +407,7 @@
       "slug": "arztsekretarin-70-m-w-d-lups-luzern",
       "slugByLocale": {
         "it": "segretario-medico-70-m-f-d-luzerner-psychiatrie-lups-luzern",
-        "en": "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern",
+        "en": "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern",
         "de": "arztsekretarin-70-m-w-d-lups-luzern",
         "fr": "secretaire-medical-70-h-f-d-luzerner-psychiatrie-lups-luzern"
       },
@@ -453,11 +453,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern"
+        "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern",
+        "arztsekretarin-70-m-w-d-lups-luzern",
+        "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "medical-secretary-70-m-f-d-luzerner-psychiatrie-lups-luzern"
+          "arztsekretarin-70-m-w-d-luzerner-psychiatrie-lups-luzern"
         ]
       },
       "firstSeenAt": "2026-09-29T09:12:40.116Z"

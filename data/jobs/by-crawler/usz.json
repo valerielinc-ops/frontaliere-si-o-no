@@ -16651,9 +16651,9 @@
       "slug": "collaboratore-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "associate-medizintechnik-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "medical-technology-associate-80-100-universitatsspital-zurich-usz-zurich",
         "de": "mitarbeiter-in-medizintechnik-80-100-usz-ch",
-        "fr": "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich"
+        "fr": "employe-dans-la-technologie-medicale-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16697,17 +16697,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-medizintechnik-80-100-usz-ch"
+        "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+        "associate-medizintechnik-80-100-universitatsspital-zurich-usz-zurich",
+        "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-medizintechnik-80-100-usz-ch"
         ],
         "en": [
-          "mitarbeiter-in-medizintechnik-80-100-usz-ch"
+          "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+          "associate-medizintechnik-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "fr": [
-          "mitarbeiter-in-medizintechnik-80-100-usz-ch"
+          "mitarbeiter-in-medizintechnik-80-100-usz-ch",
+          "collaborateur-trice-medizintechnik-80-100-universitatsspital-zurich-usz-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -17040,9 +17044,9 @@
     },
     {
       "id": "usz-17304e0a70b4",
-      "slug": "verwaltungssekretar-in-per-la-klinik-per-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "segretario-amministrativo-per-la-clinica-di-oncologia-medica-ed-ematologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "verwaltungssekretar-in-per-la-klinik-per-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich",
+        "it": "segretario-amministrativo-per-la-clinica-di-oncologia-medica-ed-ematologia-80-100-universitatsspital-zurich-usz-zurich",
         "en": "administrative-secretary-for-the-clinic-for-medical-oncology-and-hematology-80-100-universitatsspital-zurich-usz-zurich",
         "de": "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100",
         "fr": "secretaire-administratif-pour-la-clinique-d-oncologie-medicale-et-d-hematologie-80-100-universitatsspital-zurich-usz"
@@ -17089,11 +17093,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
+        "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100",
+        "verwaltungssekretar-in-per-la-klinik-per-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"
+          "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100",
+          "verwaltungssekretar-in-per-la-klinik-per-medizinische-onkologie-e-hamatologie-80-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "verwaltungssekretar-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100"

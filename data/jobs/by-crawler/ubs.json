@@ -2152,9 +2152,9 @@
     },
     {
       "id": "ubs-27532b50fb0e",
-      "slug": "2027-graduate-talent-program-internal-audit-opfikon-ubs-zurich",
+      "slug": "2027-programma-di-immatricolazione-di-diplomi-audit-interno-opfikon-ubs-zurich",
       "slugByLocale": {
-        "it": "2027-graduate-talent-program-internal-audit-opfikon-ubs-zurich",
+        "it": "2027-programma-di-immatricolazione-di-diplomi-audit-interno-opfikon-ubs-zurich",
         "en": "2027-graduate-talent-program-internal-audit-opfikon-ubs-zurich",
         "de": "2027-graduate-talent-program-interne-revision-opfikon-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-verification-interne-opfikon-ubs-zurich"
@@ -2222,7 +2222,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-internal-audit-opfikon-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-internal-audit-opfikon-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-5df4f0e3710c",

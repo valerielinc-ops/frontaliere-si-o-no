@@ -615,9 +615,9 @@
     },
     {
       "id": "spitex-ch-e6a7b91ab37b",
-      "slug": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+      "slug": "infermiere-diplomato-sss-specializzazione-in-psichiatria-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
+        "it": "infermiere-diplomato-sss-specializzazione-in-psichiatria-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "en": "dipl-nurse-hf-department-of-psychiatry-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "de": "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
         "fr": "dipl-infirmiere-hf-departement-de-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln"
@@ -666,11 +666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
+        "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
+        "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
+          "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln",
+          "dipl-pflegefachperson-hf-specializzazione-psychiatrie-40-60-spitex-pratteln-augst-giebenach-gmbh-pratteln"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fachrichtung-psychiatrie-40-60-spitex-ch-pratteln"
@@ -1007,9 +1009,9 @@
     },
     {
       "id": "spitex-ch-a6123ca55200",
-      "slug": "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken",
+      "slug": "infermiere-diplomato-sss-60-100-con-possibilita-di-sviluppo-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken",
+        "it": "infermiere-diplomato-sss-60-100-con-possibilita-di-sviluppo-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
         "en": "graduated-nurse-hf-60-100-with-development-opportunities-spitex-dulliken-obergosgen-starrkirch-wil-dulliken",
         "de": "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken",
         "fr": "infirmiere-diplomee-hf-60-100-avec-des-possibilites-de-developpement-spitex-dulliken-obergosgen-starrkirch-wil-dulliken"
@@ -1069,7 +1071,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-60-100-mit-entwicklungsmoglichkeiten-spitex-ch-dulliken"
+      ]
     },
     {
       "id": "spitex-ch-b9743e176c6f",

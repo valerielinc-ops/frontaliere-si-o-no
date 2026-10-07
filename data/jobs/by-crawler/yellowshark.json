@@ -57100,9 +57100,9 @@
     },
     {
       "id": "yellowshark-a47d0192614f",
-      "slug": "schaler-m-w-st-gallen-sg-yellowshark-ch",
+      "slug": "shell-m-f-yellowshark-ag-st-gallen-sg",
       "slugByLocale": {
-        "it": "schaler-m-w-st-gallen-sg-yellowshark-ch",
+        "it": "shell-m-f-yellowshark-ag-st-gallen-sg",
         "en": "bowl-m-f-yellowshark-ag-st-gallen-sg",
         "de": "schaler-m-w-st-gallen-sg-yellowshark-ch",
         "fr": "echarpe-h-f-yellowshark-ag-st-gallen-sg"
@@ -57151,17 +57151,17 @@
       "previousSlugs": [
         "shell-m-f-yellowshark-ag-st-gallen",
         "shell-h-f-yellowshark-ag-st-gallen",
-        "shell-m-f-yellowshark-ag-st-gallen-sg",
         "shell-h-f-yellowshark-ag-st-gallen-sg",
-        "schaler-m-w-yellowshark-ag-st-gallen"
+        "schaler-m-w-yellowshark-ag-st-gallen",
+        "schaler-m-w-st-gallen-sg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "shell-m-f-yellowshark-ag-st-gallen",
           "shell-h-f-yellowshark-ag-st-gallen",
-          "shell-m-f-yellowshark-ag-st-gallen-sg",
           "shell-h-f-yellowshark-ag-st-gallen-sg",
-          "schaler-m-w-yellowshark-ag-st-gallen"
+          "schaler-m-w-yellowshark-ag-st-gallen",
+          "schaler-m-w-st-gallen-sg-yellowshark-ch"
         ],
         "fr": [
           "shell-h-f-yellowshark-ag-st-gallen"
@@ -64281,9 +64281,9 @@
     },
     {
       "id": "yellowshark-cb3cc95c6948",
-      "slug": "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch",
+      "slug": "informatico-con-responsabilita-di-progetto-m-f-100-yellowshark-ag-wettingen-ag",
       "slugByLocale": {
-        "it": "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch",
+        "it": "informatico-con-responsabilita-di-progetto-m-f-100-yellowshark-ag-wettingen-ag",
         "en": "computer-scientist-with-project-responsibility-m-f-100-yellowshark-ag-wettingen-ag",
         "de": "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch",
         "fr": "informatique-responsable-du-projet-h-f-100-yellowshark-ag-wettingen-ag"
@@ -64343,7 +64343,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "informatiker-mit-projektverantwortung-m-w-100-wettingen-ag-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-c1adb9c41253",

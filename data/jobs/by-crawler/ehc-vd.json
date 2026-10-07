@@ -7,7 +7,7 @@
       "slugByLocale": {
         "it": "infermiera-chirurgica-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "surgical-nurse-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-en-chirurgie-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -52,11 +52,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+        "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "chirurgische-krankenschwester-m-w-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "infirmier-en-chirurgie-f-h-ehc-vd-morges",
+          "infirmier-en-chirurgie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-09-29T21:11:56.245Z"

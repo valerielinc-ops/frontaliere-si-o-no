@@ -843,7 +843,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "dipl-infermieristica-specialista-hf-fh-stazione-privata-spital-muri-muri-ag",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag",
+        "en": "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
         "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-poste-prive-spital-muri-muri-ag"
       },
@@ -894,12 +894,16 @@
       "pensum": "60%",
       "previousSlugs": [
         "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
-        "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag"
+        "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "en": [
           "dipl-nursing-specialist-hf-fh-private-station-spital-muri-muri-ag",
-          "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag"
+          "qualified-nurse-nurse-hf-fh-private-ward-spital-muri-muri-ag",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-muri-ag",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-privatstation-spital-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:38.734Z"
@@ -1422,7 +1426,7 @@
       "slug": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
       "slugByLocale": {
         "it": "fisioterapista-fh-spital-muri-muri-ag",
-        "en": "physiotherapeutin-physiotherapeut-fh-spital-muri-ag",
+        "en": "physiotherapist-fh-spital-muri-muri-ag",
         "de": "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
         "fr": "physiotherapeute-fh-spital-muri-muri-ag"
       },
@@ -1472,11 +1476,15 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "physiotherapist-fh-spital-muri-muri-ag"
+        "physiotherapist-fh-spital-muri-muri-ag",
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+        "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "physiotherapist-fh-spital-muri-muri-ag"
+          "physiotherapist-fh-spital-muri-muri-ag",
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-muri-ag",
+          "physiotherapeutin-physiotherapeut-fh-spital-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:45.311Z"
@@ -1726,9 +1734,9 @@
     },
     {
       "id": "spital-muri-cd78c07ee04a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
+      "slug": "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag",
+        "it": "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
         "en": "dipl-nursing-professional-hf-emergency-spital-muri-muri-ag",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
         "fr": "dipl-soins-infirmiers-professionnels-hf-urgence-spital-muri-muri-ag"
@@ -1779,15 +1787,15 @@
       "pensumMax": 100,
       "pensum": "40 - 100%",
       "previousSlugs": [
-        "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
         "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
-        "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag"
+        "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag",
+        "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermieristica-professionale-hf-emergenza-spital-muri-muri-ag",
           "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-muri-ag",
-          "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag"
+          "infermiere-diplomato-infermiere-sss-emergenza-spital-muri-muri-ag",
+          "dipl-pflegefachfrau-pflegefachmann-hf-notfall-spital-muri-ag"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:48.765Z"

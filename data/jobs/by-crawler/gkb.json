@@ -1903,9 +1903,9 @@
       "slug": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
       "slugByLocale": {
         "it": "nnh-holding-ag-collaboratore-trice-qualitats-e-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
-        "en": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich",
+        "en": "nnh-holding-ag-employee-quality-and-contract-management-80-100-zurich-graubundner-kantonalbank-zurich",
         "de": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
-        "fr": "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
+        "fr": "nnh-holding-ag-employe-en-gestion-de-la-qualite-et-des-contrats-80-100-zurich-graubundner-kantonalbank-zurich"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -1951,11 +1951,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch",
+        "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-gkb-ch"
+        ],
+        "en": [
+          "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
+        ],
+        "fr": [
+          "nnh-holding-ag-mitarbeiter-in-qualitats-und-vertragsmanagement-80-100-zurich-graubundner-kantonalbank-zurich"
         ]
       },
       "needsRetranslation": true,
