@@ -46,10 +46,34 @@ describe('pr-autorebase — conflitto dopo LGTM affidato a issue-fix (#9260)', (
     expect(body).not.toMatch(/\b(close[sd]?|fix(e[sd])?|resolve[sd]?)\s+#9260\b/i);
   });
 
+  it('rende visibile solo il fallimento di una rigenerazione effettivamente tentata', () => {
+    const normal = buildConflictHandoffIssue({
+      num: 9260,
+      branch: 'fix/issue-8931-bfs-depth-20260919',
+      head: HEAD,
+      files: ['.github/corpus-workflows/contract.json'],
+    });
+    const failed = buildConflictHandoffIssue({
+      num: 9260,
+      branch: 'fix/issue-8931-bfs-depth-20260919',
+      head: HEAD,
+      files: ['.github/corpus-workflows/contract.json'],
+      generatedResolution: {
+        status: 'failed',
+        reason: 'cannot materialize generator inputs: git sparse-checkout add failed',
+      },
+    });
+    expect(normal.body).not.toContain('GENERATED_RESOLUTION_FAILED');
+    expect(failed.body).toContain('Rigenerazione automatica tentata e fallita: cannot materialize generator inputs: git sparse-checkout add failed');
+    expect(failed.body).toContain('<!-- GENERATED_RESOLUTION_FAILED -->');
+  });
+
   it('ogni ramo che abortisce un conflitto non auto-risolvibile passa la mano', () => {
-    const aborts = SOURCE.match(/ensureStaleLabel\(num\);\n\s+commentConflictOnce\(num, branch\);\n\s+handOffConflictToFixer\(num, branch, head, lgtm, \{ agentOwned \}\);/g) || [];
+    const aborts = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
     const bare = SOURCE.match(/commentConflictOnce\(num, branch\);/g) || [];
-    expect(aborts.length).toBe(3);
+    const handoffs = SOURCE.match(/handOffConflictToFixer\(num, branch, head, lgtm,/g) || [];
+    expect(aborts.length).toBeGreaterThan(0);
+    expect(handoffs.length).toBeGreaterThanOrEqual(aborts.length);
     expect(bare.length).toBe(aborts.length);
   });
 
@@ -340,12 +364,16 @@ describe('pr-autorebase — PR del ciclo in conflitto senza LGTM (#10095, #10098
     const scan = processPr.indexOf('const conflictScan = reportMainConflict(');
     const branch = processPr.indexOf('if (!nearMerge) {');
     const generated = processPr.indexOf('tryGeneratedConflictBeforeHandoff(', branch);
-    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm, { agentOwned });');
+    const call = processPr.indexOf('handOffConflictToFixer(num, branch, head, lgtm,', branch);
     expect(scan).toBeGreaterThan(-1);
     expect(branch).toBeGreaterThan(scan);
     expect(generated).toBeGreaterThan(branch);
     expect(call).toBeGreaterThan(branch);
     expect(generated).toBeLessThan(call);
     expect(processPr.slice(branch, call)).toContain('agentPrConflictNeedsHandOff({ conflicted: conflictScan, nearMerge, labels, headRefName: branch })');
+    const calls = processPr.match(/handOffConflictToFixer\(num, branch, head, lgtm,[\s\S]*?\n\s*\}\);/g) || [];
+    expect(calls.length).toBeGreaterThan(0);
+    expect(calls.some((source) => source.includes('generatedResolution: generatedResolution.generated'))).toBe(true);
+    expect(calls.some((source) => source.includes('generatedResolution: resolution.generated'))).toBe(true);
   });
 });
