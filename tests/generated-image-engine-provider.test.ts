@@ -66,6 +66,7 @@ describe('generated image provider contracts', () => {
     const encoded = Buffer.from('fake-image').toString('base64');
     expect(extractTogetherImageData({ data: [{ b64_json: encoded }] })).toBe(encoded);
     expect(extractFalImageData({ images: [{ url: 'https://fal.example/image.png' }] })).toBe('https://fal.example/image.png');
+    expect(extractFalImageData({ images: [{ url: `data:image/png;base64,${encoded}` }] })).toBe(encoded);
     expect(extractPexelsPhoto({
       photos: [{
         photographer: 'Ada Foto',

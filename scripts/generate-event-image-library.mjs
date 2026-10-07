@@ -18,7 +18,7 @@ const outputDir = argument('--output-dir', '.cache/event-image-library');
 const provider = argument('--provider', 'auto');
 const chain = argument('--chain', '');
 const requestedProviders = chain || provider;
-const kind = argument('--kind', ['wikimedia', 'pexels', 'pixabay'].includes(requestedProviders.split(/[>,\s]+/)[0]) ? 'photo' : 'generated');
+const kind = argument('--kind', ['wikimedia', 'pexels', 'pixabay'].includes(requestedProviders.split(/[,\s]+/)[0]) ? 'photo' : 'generated');
 
 try {
   const result = await generateEventImageLibrary({

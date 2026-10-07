@@ -171,7 +171,7 @@ export function extractGeminiImageData(response) {
 }
 
 function normalizeProviderList(value) {
-  const values = Array.isArray(value) ? value : String(value || '').split(/[>,\s]+/);
+  const values = Array.isArray(value) ? value : String(value || '').split(/[,\s]+/);
   return [...new Set(values.map((item) => String(item).trim().toLowerCase()).filter((item) => IMAGE_PROVIDERS.includes(item)))];
 }
 
@@ -422,7 +422,8 @@ export function extractFalImageData(response) {
   const encoded = item?.b64_json || item?.base64 || response?.data?.[0]?.b64_json;
   if (typeof encoded === 'string' && encoded.trim()) return encoded.replace(/^data:[^;]+;base64,/i, '');
   const url = item?.url || response?.data?.[0]?.url;
-  return typeof url === 'string' && url.trim() ? url : null;
+  if (typeof url !== 'string' || !url.trim()) return null;
+  return url.replace(/^data:[^;]+;base64,/i, '');
 }
 
 async function downloadImageToFile(url, destination, { provider, timeoutMs, headers = {} } = {}) {
@@ -1057,7 +1058,7 @@ export async function generateEventImageLibrary({
   const boundedLimit = Math.min(MAX_LIBRARY_GENERATIONS, Math.max(0, Number(limit) || 0));
   const resolvedRegistryPath = path.resolve(registryPath || 'data/event-image-library.json');
   const resolvedOutputDir = path.resolve(outputDir || '.cache/event-image-library');
-  const firstRequestedProvider = String(chain || provider || '').split(/[>,\s]+/)[0].trim().toLowerCase();
+  const firstRequestedProvider = String(chain || provider || '').split(/[,\s]+/)[0].trim().toLowerCase();
   const resolvedKind = kind || (LICENSED_PHOTO_PROVIDERS.includes(firstRequestedProvider) ? LICENSED_PHOTO_KIND : GENERATED_IMAGE_KIND);
   const registry = readRegistry(resolvedRegistryPath);
   const assetsById = new Map(registry.assets.map((record) => [record.assetId, record]));

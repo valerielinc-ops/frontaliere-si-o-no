@@ -83,7 +83,7 @@ jobs:
           export IMAGE_PROVIDER
           node --input-type=module -e '
             const allowed = new Set(["auto", "openai-codex", "gemini", "fal", "together", "pollinations", "wikimedia", "pexels", "pixabay"]);
-            const requested = process.env.IMAGE_PROVIDER.split(/[>,\s]+/).filter(Boolean);
+            const requested = process.env.IMAGE_PROVIDER.split(/[,\s]+/).filter(Boolean);
             if (!requested.length || requested.some((provider) => !allowed.has(provider))) {
               console.error(`::error::provider must contain only auto, openai-codex, gemini, fal, together, pollinations, wikimedia, pexels or pixabay; got ${process.env.IMAGE_PROVIDER}`);
               process.exit(2);
