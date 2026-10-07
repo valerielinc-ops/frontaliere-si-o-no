@@ -99,6 +99,11 @@ import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmail
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
+import { checkAnswersWithAi } from './src/assistedApplicationAnswerCheck.js';
+import {
+  ASSISTED_APPLICATION_ANSWER_AI_RC_KEY,
+  assistedApplicationAnswerAiEnabled,
+} from './src/assistedApplicationAnswerCheckConfig.js';
 import { sendEmailCascade as sendAssistedApplicationCascade } from './src/emailCascade.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './src/assistedApplicationCvCheck.js';
 import { getStorage as getAssistedApplicationStorage } from 'firebase-admin/storage';
@@ -133,6 +138,29 @@ import { GCP_COST_MONITOR_CLOUD_SCHEDULE, dispatchGcpCostMonitorWorkflow } from 
 import { LOOP_CLOCK_CLOUD_SCHEDULE, dispatchLoopClock as runLoopClock } from './src/loopClockDispatch.js';
 
 ensureAdminApp();
+
+/**
+ * The AI answer check is a server-side gate even though the flag is public:
+ * the browser's allowlisted Remote Config value is only presentation state.
+ * An absent, invalid or unreadable value keeps the local default OFF.
+ */
+async function checkAssistedApplicationAnswers(input) {
+  let configured = '';
+  try {
+    configured = await getRemoteConfigValue(ASSISTED_APPLICATION_ANSWER_AI_RC_KEY);
+  } catch (error) {
+    console.warn('[assistedApplicationReview] answer-check flag unavailable, keeping it disabled:', error instanceof Error ? error.message : String(error));
+  }
+  if (!assistedApplicationAnswerAiEnabled(configured)) {
+    return { ok: true, fields: {}, checkedBy: 'disabled' };
+  }
+  return checkAnswersWithAi({
+    ...input,
+    // The existing structured router selects Codex Luna Max by default
+    // (CODEX_FALLBACK_MODEL may override it through Remote Config).
+    codex: (request) => codexStructured(request),
+  });
+}
 
 // Narrow, authenticated fetch relay for the two job sources that reject
 // datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
@@ -2448,7 +2476,7 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
 // Candidate review page API (signed link from the review e-mails, no login).
 export const assistedApplicationReview = onRequest(
   // 512MiB: an edit by the candidate rebuilds the letter PDF.
-  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 90, cors: true },
   async (req, res) => {
     try {
       // JSON, or an editable Word copy as a download (file=letter.docx|cv.docx).
@@ -2457,6 +2485,7 @@ export const assistedApplicationReview = onRequest(
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
+        checkAnswers: (input) => checkAssistedApplicationAnswers(input),
         // A follow-up the candidate sends right away (af1 link).
         sendCascade: async (emails, options) => {
           await bridgeEmailCascadeCredentialsToEnv();

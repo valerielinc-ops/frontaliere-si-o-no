@@ -950,6 +950,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Ja",
  'jobBoard.assisted.review.no': "Nein",
  'jobBoard.assisted.review.saveAnswers': "Antworten speichern",
+ 'jobBoard.assisted.review.checkingAnswers': "Antworten werden geprüft…",
  'jobBoard.assisted.review.answersSaved': "Antworten gespeichert.",
  'jobBoard.assisted.review.answersStillOpen': "Antworten gespeichert, aber eine Pflichtantwort (*) fehlt noch.",
  'jobBoard.assisted.review.edit': "Bearbeiten",
