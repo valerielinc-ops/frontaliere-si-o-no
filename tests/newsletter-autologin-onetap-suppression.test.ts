@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve(__dirname, '..');
+const appSource = readFileSync(resolve(root, 'App.tsx'), 'utf8');
+const jobBoardSource = readFileSync(resolve(root, 'components/community/JobBoard.tsx'), 'utf8');
 
 // The newsletter-autologin-in-flight signal is computed at module load from
 // window.location.search (before App.tsx strips the newsletter params), so each
@@ -116,6 +118,46 @@ describe('promptOneTap suppression wiring', () => {
  );
  expect(source).toMatch(
   /from\s+['"](?:@\/services\/|\.\/)?newsletterAutologinSignal['"]/,
+ );
+ });
+
+ it('App settles every autologin outcome in finally, after the exchange and URL cleanup', () => {
+ const effectStart = appSource.indexOf('// Auto-login via HMAC autologin code or legacy custom token in newsletter URL');
+ const effectEnd = appSource.indexOf('// LinkedIn OAuth2 callback handler', effectStart);
+ const effect = appSource.slice(effectStart, effectEnd);
+ const finallyStart = effect.indexOf('} finally {');
+ const firstAwait = effect.indexOf('await ');
+ const firstDelete = effect.indexOf('u.searchParams.delete(');
+ const settleCall = effect.indexOf('settleNewsletterAutologin();');
+
+ expect(effectStart).toBeGreaterThanOrEqual(0);
+ expect(effectEnd).toBeGreaterThan(effectStart);
+ expect(finallyStart).toBeGreaterThanOrEqual(0);
+ expect(firstAwait).toBeGreaterThanOrEqual(0);
+ expect(firstDelete).toBeGreaterThan(firstAwait);
+ expect(settleCall).toBeGreaterThan(finallyStart);
+ expect(effect.slice(0, finallyStart)).not.toContain('settleNewsletterAutologin();');
+ expect(effect.slice(finallyStart, settleCall)).toContain('window.history.replaceState');
+ });
+
+ it('the app-level interaction replay stays disabled until the signal settles', () => {
+ const oneTapStart = appSource.indexOf('// Google One Tap: prompt on first user interaction');
+ const replayStart = appSource.indexOf('// If the first interaction happened while auth was still loading', oneTapStart);
+ const oneTapEffects = appSource.slice(oneTapStart, replayStart);
+ const replayEffect = appSource.slice(replayStart, appSource.indexOf('// Reader no-ads entitlement', replayStart));
+
+ expect(oneTapEffects).toMatch(/if \(newsletterAutologinInFlight\) return;/);
+ expect(oneTapEffects).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight\]/);
+ expect(replayEffect).toMatch(/if \(newsletterAutologinInFlight\) return;/);
+ expect(replayEffect).toMatch(/\[authLoading, authUser, newsletterAutologinInFlight\]/);
+ });
+
+ it('the job detail holds the layout-matching skeleton instead of flashing its auth gate', () => {
+ expect(jobBoardSource).toMatch(
+  /import \{ useNewsletterAutologinInFlight \} from ['"]@\/hooks\/useNewsletterAutologinInFlight['"]/,
+ );
+ expect(jobBoardSource).toMatch(
+  /if \(!authResolved \|\| newsletterAutologinInFlight\) \{[\s\S]*?return <SkeletonJobDetail \/>;/,
  );
  });
 });

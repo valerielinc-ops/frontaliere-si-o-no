@@ -122,6 +122,28 @@ describe('commitMySwitzerlandBatch: a rejected batch writes nothing', () => {
     expect(loadCursor('myswitzerland', checkpointDir)).toBe(1331);
   });
 
+  it('writes an explicit source-backed index fallback after the 406 stop', () => {
+    const sliceBefore = fs.readFileSync(slicePath);
+    const refused = previousEvents.slice(0, 4).map((event) => event.id);
+
+    commitMySwitzerlandBatch({
+      slicePath,
+      freshEvents: indexOnly,
+      crawledAt: '2026-10-04T05:40:00.000Z',
+      detailFailureIds: refused,
+      detailAttemptCount: previousEvents.length,
+      detailFailureStrategy: 'source-backed-index',
+      nextIndex: 1351,
+      checkpointDir,
+    });
+
+    const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+    expect(Buffer.from(fs.readFileSync(slicePath)).equals(sliceBefore)).toBe(false);
+    expect(written.events.find((event: any) => event.id === 'myswitzerland:0')).toMatchObject(indexOnly[0]);
+    expect(written.events.find((event: any) => event.id === 'myswitzerland:0').address).toBeUndefined();
+    expect(loadCursor('myswitzerland', checkpointDir)).toBe(1351);
+  });
+
   it('never treats a refused detail as a disappeared event', () => {
     const refused = [previousEvents[0].id];
     // The refused event is missing from the fresh batch entirely: still kept.

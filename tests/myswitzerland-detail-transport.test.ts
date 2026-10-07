@@ -126,6 +126,17 @@ describe('stop of the detail phase (escalation)', () => {
     }
     recordDetailResponse(stats, { status: 406, html: null }, DETAIL_URL);
     expect(stats.stopped?.reason).toMatch(/HTTP 406 above the 15% policy threshold/);
+    expect(stats.stopped?.fallbackMode).toBe('index-only');
+  });
+
+  it('labels the 406 stop as an index-only fallback while keeping escalation stops hard', () => {
+    const stats = createDetailTransportStats();
+    for (let i = 0; i < 20; i += 1) recordDetailResponse(stats, { status: 406, html: null }, DETAIL_URL);
+    expect(stats.stopped?.fallbackMode).toBe('index-only');
+
+    const escalation = createDetailTransportStats();
+    recordDetailResponse(escalation, { status: 429, html: null }, DETAIL_URL);
+    expect(escalation.stopped?.fallbackMode).toBeUndefined();
   });
 
   it('a 406 rate within the threshold over a large sample keeps going', () => {
