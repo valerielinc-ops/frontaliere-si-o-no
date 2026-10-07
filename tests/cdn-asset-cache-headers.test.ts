@@ -1,5 +1,7 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { readFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 // @ts-expect-error — plain .mjs script, no type declarations
 import {
@@ -29,6 +31,7 @@ import {
  */
 const ROOT = resolve(import.meta.dirname, '..');
 const PREP = readFileSync(resolve(ROOT, 'scripts/lib/deploy-it-pages-prep.sh'), 'utf-8');
+const PREP_SH = resolve(ROOT, 'scripts/lib/deploy-it-pages-prep.sh');
 
 /**
  * Resolve shell line-continuations (`cmd \` + indented next line) into one
@@ -53,7 +56,41 @@ describe('deploy-it-pages-prep.sh — R2 /assets/ cache policy', () => {
   it('fails closed unless both GA4 bootstrap paths are staged', () => {
     expect(PREP).toContain('CDN asset stage is missing dist/assets and cannot publish the GA4 producer');
     expect(PREP).toContain("-f \"$stage/assets/gtag-init.js\"");
-    expect(PREP).toContain("-name 'gtag-init-*.js'");
+    expect(PREP).toContain("grep -RhoE --include='*.html' 'gtag-init-[0-9a-f]+\\.js' dist");
+    expect(PREP).toContain('the current HTML producer $gtag_versioned_filename');
+  });
+
+  it('rejects a stale content-addressed producer even when the legacy alias is staged', () => {
+    const root = mkdtempSync(join(tmpdir(), 'cdn-gtag-contract-'));
+    const assets = join(root, 'dist', 'assets');
+    mkdirSync(assets, { recursive: true });
+    writeFileSync(
+      join(root, 'dist', 'index.html'),
+      '<script defer src="/assets/gtag-init-bbbbbbbbbbbb.js"></script>',
+    );
+    writeFileSync(join(assets, 'gtag-init.js'), 'legacy alias');
+    writeFileSync(join(assets, 'gtag-init-aaaaaaaaaaaa.js'), 'stale producer');
+    try {
+      let status: number | undefined;
+      try {
+        execFileSync('bash', ['-c', `source ${PREP_SH} && step_push_cdn`], {
+          cwd: root,
+          env: {
+            PATH: process.env.PATH ?? '',
+            RUNNER_TEMP: root,
+            CDN_STAGE_DIR: join(root, 'cdn-stage'),
+            CDN_TARGET: 'pages',
+          },
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'pipe'],
+        });
+      } catch (error: unknown) {
+        status = (error as { status?: number }).status;
+      }
+      expect(status, 'the stale producer must fail step_push_cdn before publish').toBe(1);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('never publishes /assets/ as immutable (filenames are stable, bytes are not)', () => {
