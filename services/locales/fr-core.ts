@@ -927,6 +927,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Oui",
  'jobBoard.assisted.review.no': "Non",
  'jobBoard.assisted.review.saveAnswers': "Enregistrer les réponses",
+ 'jobBoard.assisted.review.checkingAnswers': "Vérification des réponses…",
  'jobBoard.assisted.review.answersSaved': "Réponses enregistrées.",
  'jobBoard.assisted.review.answersStillOpen': "Réponses enregistrées, mais il manque encore une réponse obligatoire (*).",
  'jobBoard.assisted.review.edit': "Modifier",

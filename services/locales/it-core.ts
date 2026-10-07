@@ -989,6 +989,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.yes': "Sì",
  'jobBoard.assisted.review.no': "No",
  'jobBoard.assisted.review.saveAnswers': "Salva le risposte",
+ 'jobBoard.assisted.review.checkingAnswers': "Controllo le risposte…",
  'jobBoard.assisted.review.answersSaved': "Risposte salvate.",
  'jobBoard.assisted.review.answersStillOpen': "Risposte salvate, ma manca ancora una risposta obbligatoria (*).",
  'jobBoard.assisted.review.edit': "Modifica",
