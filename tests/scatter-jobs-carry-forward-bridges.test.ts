@@ -21,7 +21,9 @@
 import { describe, it, expect } from 'vitest';
 import {
   applyAssembledToSliceJob,
+  buildAssembledJobIndex,
   collectMissingAssembledBridges,
+  matchAssembledJob,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
 import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
@@ -38,6 +40,27 @@ const baseSlice = () => ({
 });
 
 describe('scatter carry-forward of assembled previousSlugs bridges', () => {
+  it('matches an assembly-stamped id-less slice job by URL, not synthetic id', () => {
+    const sliceJob = { ...baseSlice() };
+    delete sliceJob.id;
+    const assembled = { ...sliceJob, id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+
+    expect(matchAssembledJob(sliceJob, index)).toBe(assembled);
+  });
+
+  it('rejects a stable-key collision when the URLs identify different postings', () => {
+    const assembled = { ...baseSlice(), id: 'company-synthetic-id' };
+    const index = buildAssembledJobIndex([assembled]);
+    const sibling = {
+      ...baseSlice(),
+      url: 'https://example.test/another-posting',
+      id: 'company-synthetic-id',
+    };
+
+    expect(matchAssembledJob(sibling, index)).toBeNull();
+  });
+
   it('does not turn another job canonical into claimant history after collision disambiguation (#6784)', () => {
     const owner = {
       id: 'company-owner',

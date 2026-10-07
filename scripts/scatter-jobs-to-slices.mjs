@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { addPreviousSlugForLocale, restoreLocaleSlug, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP, LOCALES } from './lib/dedicated-crawler-common.mjs';
-import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { extractStableJobId, resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { localeMapsEqual } from './lib/locale-map-diff.mjs';
 import { decontaminateSliceDirectory } from './decontaminate-prev-slugs.mjs';
 
@@ -27,6 +27,88 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.join(ROOT, 'data', 'jobs.json');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+
+function normalizedJobUrl(job) {
+  return String(job?.url || '').trim().toLowerCase();
+}
+
+function addToIndex(index, key, job) {
+  if (!key) return;
+  const entries = index.get(key);
+  if (entries) entries.push(job);
+  else index.set(key, [job]);
+}
+
+function uniqueIndexEntry(index, key) {
+  if (!key || !index.has(key)) return { found: false, job: null };
+  const entries = index.get(key);
+  return { found: true, job: entries.length === 1 ? entries[0] : null };
+}
+
+/**
+ * Build the assembled-job indexes used by the assembled→slice writer.
+ *
+ * `assemble-jobs-dataset.mjs` stamps a synthetic `.id` on records that did
+ * not have one in their crawler slice. An index keyed only by
+ * `resolveJobDiffKey()` therefore misses the same record on the slice side:
+ * the assembled record resolves to its synthetic id while the slice resolves
+ * to its URL. URL identity is the strongest join key here, followed by the
+ * stable URL token and only then the generic diff key. Every index retains
+ * ambiguity instead of silently choosing a sibling.
+ *
+ * @param {Array<object>} assembledJobs
+ * @returns {{byUrl: Map<string, object[]>, byStableUrl: Map<string, object[]>, byDiffKey: Map<string, object[]>}}
+ */
+export function buildAssembledJobIndex(assembledJobs) {
+  const index = {
+    byUrl: new Map(),
+    byStableUrl: new Map(),
+    byDiffKey: new Map(),
+  };
+  for (const job of Array.isArray(assembledJobs) ? assembledJobs : []) {
+    const url = normalizedJobUrl(job);
+    if (url) {
+      addToIndex(index.byUrl, url, job);
+      const stableUrl = extractStableJobId(url);
+      if (stableUrl) addToIndex(index.byStableUrl, stableUrl, job);
+    }
+    addToIndex(index.byDiffKey, resolveJobDiffKey(job), job);
+  }
+  return index;
+}
+
+/**
+ * Match one per-crawler slice job to its assembled counterpart.
+ *
+ * URL identity wins over the assembled-only synthetic id. A stable URL token
+ * handles URL decoration changes, while the generic diff key remains the
+ * final fallback for records with no usable URL. Ambiguous indexes and
+ * contradictory URL identities are rejected: assigning a translation or SEO
+ * bridge to a sibling is worse than leaving that record for a later run.
+ *
+ * @param {object} sliceJob
+ * @param {{byUrl: Map<string, object[]>, byStableUrl: Map<string, object[]>, byDiffKey: Map<string, object[]>}} index
+ * @returns {object|null}
+ */
+export function matchAssembledJob(sliceJob, index) {
+  const sliceUrl = normalizedJobUrl(sliceJob);
+  const exact = uniqueIndexEntry(index?.byUrl, sliceUrl);
+  if (exact.found) return exact.job;
+
+  const stableUrl = extractStableJobId(sliceUrl);
+  const stable = uniqueIndexEntry(index?.byStableUrl, stableUrl);
+  if (stable.found) return stable.job;
+
+  const byDiffKey = uniqueIndexEntry(index?.byDiffKey, resolveJobDiffKey(sliceJob));
+  if (!byDiffKey.found || !byDiffKey.job) return null;
+
+  const assembledUrl = normalizedJobUrl(byDiffKey.job);
+  if (sliceUrl && assembledUrl) {
+    const assembledStableUrl = extractStableJobId(assembledUrl);
+    if (sliceUrl !== assembledUrl && (!stableUrl || stableUrl !== assembledStableUrl)) return null;
+  }
+  return byDiffKey.job;
+}
 
 function readJson(filePath, fallback) {
   try {
@@ -261,17 +343,10 @@ function main() {
     process.exit(0);
   }
 
-  // Index assembled jobs by stable diff key (id / url / slug fallback — see
-  // resolveJobDiffKey) — NOT bare .slug. Bare-slug keying collides across
-  // companies whenever two jobs compute the same slug (463 live collisions
-  // confirmed in data/jobs/by-crawler/*.json, e.g. klinik-sonnenhalde vs.
-  // allianz-suisse), silently merging wrong-company locale/slug data into a
-  // slice (previousSlugs writer regression, issue #3734).
-  const jobIndex = new Map();
-  for (const job of jobs) {
-    const key = resolveJobDiffKey(job);
-    if (key) jobIndex.set(key, job);
-  }
+  // URL-first matching is required because assembly stamps synthetic ids on
+  // records that were id-less in their crawler slice. The identity guard also
+  // prevents a colliding id/slug from assigning one job's bridges to another.
+  const jobIndex = buildAssembledJobIndex(jobs);
 
   // Read each slice, update jobs with matching slugs, write back if changed
   const sliceFiles = fs.existsSync(SLICES_DIR)
@@ -288,9 +363,7 @@ function main() {
 
     let sliceChanged = false;
     const updatedSliceJobs = slice.jobs.map((sliceJob) => {
-      const sliceKey = resolveJobDiffKey(sliceJob);
-      if (!sliceKey) return sliceJob;
-      const assembled = jobIndex.get(sliceKey);
+      const assembled = matchAssembledJob(sliceJob, jobIndex);
       if (!assembled) return sliceJob;
 
       const { job, changed } = applyAssembledToSliceJob(sliceJob, assembled);
