@@ -349,6 +349,17 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # Recovery writes historical aliases directly to slices, so it must run
+      # the same fleet-wide ownership pass as the normal crawler and slug
+      # regeneration writers. Otherwise a stale hash-tagged alias can be
+      # restored onto its historical claimant and leave the live observer red.
+      - name: Decontaminate confirmed previousSlugs ownership
+        if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && (inputs.dry_run != true && inputs.dry_run != 'true')
+        run: |
+          set -euo pipefail
+          node scripts/decontaminate-prev-slugs.mjs --apply \
+            | tee -a /tmp/prev-slug-recovery/scan-report.txt
+
       - name: Commit and push restored slices
         if: (steps.scan.outputs.recoverable_slugs != '0' || steps.reconcile.outputs.reconciled_dropped != '0') && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
