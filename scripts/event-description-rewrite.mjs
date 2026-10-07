@@ -34,11 +34,11 @@ const REPO_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), 
 const DEFAULT_DATASET = path.join(REPO_ROOT, 'data', 'events.json');
 const DEFAULT_CACHE = path.join(REPO_ROOT, 'data', 'events-description-rewrites.json');
 const DEFAULT_LIMIT = 100;
-const DEFAULT_BATCH_SIZE = 10;
+const DEFAULT_BATCH_SIZE = 4;
 const DEFAULT_MAX_INPUT_CHARS = 60_000;
 const DEFAULT_MAX_TOTAL_INPUT_CHARS = 1_000_000;
 const DEFAULT_MAX_ATTEMPTS = 3;
-const DEFAULT_TIMEOUT_MS = 180_000;
+const DEFAULT_TIMEOUT_MS = 120_000;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const OUTPUT_SCHEMA = {
@@ -72,10 +72,11 @@ Options:
   --cache PATH               Rewrite cache (default: data/events-description-rewrites.json)
   --limit N                  Maximum events selected for this run (default: 100)
   --days N                   Restrict selection to the next N days; 0 means all
-  --batch-size N             Events per Codex call (default: 10)
+  --batch-size N             Events per Codex call (default: 4)
   --max-input-chars N        Prompt input cap per call (default: 60000)
   --max-total-input-chars N  Prompt input cap for the complete run (default: 1000000)
   --max-attempts N           Calls per invalid batch/item (default: 3)
+  --timeout-ms N             Timeout per Codex call in milliseconds (default: 120000)
   --shard-count N            Number of deterministic queue shards (default: 1)
   --shard-index N            Zero-based shard index (default: 0)
   --circuit-breaker-threshold N  Transient broker errors before this shard stops (default: 2)
@@ -123,6 +124,7 @@ function parseArgs(argv) {
     maxInputChars: numberOption(argv, '--max-input-chars', DEFAULT_MAX_INPUT_CHARS, { min: 10_000, max: 500_000 }),
     maxTotalInputChars: numberOption(argv, '--max-total-input-chars', DEFAULT_MAX_TOTAL_INPUT_CHARS, { min: 50_000, max: 10_000_000 }),
     maxAttempts: numberOption(argv, '--max-attempts', DEFAULT_MAX_ATTEMPTS, { min: 1, max: 5 }),
+    timeoutMs: numberOption(argv, '--timeout-ms', DEFAULT_TIMEOUT_MS, { min: 30_000, max: 600_000 }),
     shardCount,
     shardIndex,
     circuitBreakerThreshold: numberOption(argv, '--circuit-breaker-threshold', CIRCUIT_BREAKER_THRESHOLD, { min: 1, max: 10 }),
@@ -212,21 +214,87 @@ function factsContext(facts) {
   });
 }
 
+const POOR_SOURCE_MAX_WORDS = 7;
+const POOR_SOURCE_MAX_CHARS = 60;
+
+function isPoorSource(sourceTextsForRecord) {
+  const richest = (sourceTextsForRecord || []).reduce((best, value) => {
+    const text = typeof value === 'string' ? value.trim() : '';
+    return text.length > best.length ? text : best;
+  }, '');
+  const words = richest ? richest.split(/\s+/u).filter(Boolean).length : 0;
+  return words <= POOR_SOURCE_MAX_WORDS || richest.length < POOR_SOURCE_MAX_CHARS;
+}
+
+function displayFactValue(value) {
+  if (typeof value === 'string') return value.replace(/\s+/gu, ' ').trim();
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const result = displayFactValue(item);
+      if (result) return result;
+    }
+    return '';
+  }
+  if (!value || typeof value !== 'object') return '';
+  for (const key of ['name', 'label', 'title', 'value', 'street', 'locality', 'address']) {
+    const result = displayFactValue(value[key]);
+    if (result) return result;
+  }
+  for (const nested of Object.values(value)) {
+    const result = displayFactValue(nested);
+    if (result) return result;
+  }
+  return '';
+}
+
+function fallbackFact(record) {
+  const facts = record.facts || {};
+  for (const field of ['venue', 'comune', 'region', 'canton', 'organizer', 'performer']) {
+    const value = displayFactValue(facts[field]);
+    if (value) return value.replace(/[.!?]+$/u, '').trim();
+  }
+  return '';
+}
+
+function buildMinimalRewriteDescriptions(record) {
+  const fact = fallbackFact(record);
+  const suffixes = fact
+    ? {
+      it: `Il luogo o riferimento strutturato indicato è ${fact}.`,
+      en: `The structured place or reference recorded is ${fact}.`,
+      de: `Als strukturierter Ort oder Bezug ist ${fact} angegeben.`,
+      fr: `Le lieu ou repère structuré indiqué est ${fact}.`,
+    }
+    : {
+      it: 'La scheda riporta le informazioni essenziali disponibili.',
+      en: 'The listing contains the essential available information.',
+      de: 'Der Eintrag enthält die verfügbaren wesentlichen Informationen.',
+      fr: 'La fiche contient les informations essentielles disponibles.',
+    };
+  return {
+    it: `L'evento è registrato nelle informazioni disponibili. ${suffixes.it}`,
+    en: `The event is recorded in the available information. ${suffixes.en}`,
+    de: `Die Veranstaltung ist in den verfügbaren Informationen erfasst. ${suffixes.de}`,
+    fr: `L'événement est enregistré dans les informations disponibles. ${suffixes.fr}`,
+  };
+}
+
 function buildBatchPrompt(batch, retryReasons = new Map()) {
   const records = batch.map((record) => ({
     id: record.id,
     facts: record.facts,
     sourceDescriptions: record.sourceDescriptionByLocale || (record.sourceDescription ? { source: record.sourceDescription } : {}),
+    sourceQuality: record.sourceQuality,
     retry: retryReasons.get(record.id) || undefined,
   }));
   return [
     `You are Codex Luna Max (${EVENT_DESCRIPTION_REWRITE_MODEL}) rewriting event descriptions. Prompt version: ${EVENT_DESCRIPTION_PROMPT_VERSION}.`,
     'Return exactly the JSON object required by the supplied schema.',
     'For every input id, return it, en, de and fr. Each value must contain 2 or 3 original, neutral, informative sentences.',
-    'Use only facts present in the supplied event facts or source descriptions. Do not add names, dates, times, prices, places, performers or organisers that are not present there.',
+    'Use only facts present in the supplied event facts or source descriptions. Structured fields (title, venue, municipality, canton, region, organiser, performer, date, time and price) are authoritative and may be expressed in the target language with equivalent spelling, inflection or date/number format. Do not add names, dates, times, prices, places, performers or organisers that are not present there.',
     'Do not copy any sequence of eight consecutive normalized words from any source description. Dates, times, prices and full addresses are already shown as factual metadata: normally omit them from the prose, especially day/date/time combinations. Never reproduce a long event title verbatim; if the title itself is long, refer to the event generically (for example “l’appuntamento”, “the concert”, “die Veranstaltung” or “le rendez-vous”). Paraphrase the facts; never translate by sentence substitution.',
     'Do not use promotional superlatives, calls to action, invented context, citations, Markdown, HTML, bullet lists or labels.',
-    'On a retry for source-ngram-8, change the wording and sentence structure completely, omit dates/times/addresses and long title fragments, and use only broad factual statements. On a retry for new-name, keep proper names only when they occur exactly in the supplied facts or source context. On a retry for sentence-count, return exactly two complete sentences per language.',
+    'On a retry for source-ngram-8, change the wording and sentence structure completely, omit dates/times/addresses and long title fragments, and use only broad factual statements. On a retry for new-name, keep proper names only when they occur in the supplied facts or source context, or use an obvious translation/inflection of a structured place or venue. On a retry for sentence-count, return exactly two complete sentences per language. For sourceQuality=poor, write the shortest safe two-sentence factual description using only structured fields; do not invent context merely to make the source sound richer.',
     'The source descriptions are private inputs. They must not be returned, quoted or mentioned.',
     JSON.stringify({ events: records }),
   ].join('\n\n');
@@ -271,7 +339,7 @@ function runProcess(command, args, { input, timeoutMs, cwd, env = process.env })
   });
 }
 
-async function requestDirectCodex(prompt) {
+async function requestDirectCodex(prompt, timeoutMs) {
   const tempDir = mkdtempSync(path.join(os.tmpdir(), 'event-description-rewrite-'));
   const outputPath = path.join(tempDir, 'last-message.json');
   try {
@@ -294,7 +362,7 @@ async function requestDirectCodex(prompt) {
         '--output-schema', schemaPath,
         '-',
       ],
-      { input: prompt, timeoutMs: DEFAULT_TIMEOUT_MS, cwd: tempDir, env: directEnv },
+      { input: prompt, timeoutMs, cwd: tempDir, env: directEnv },
     );
     const output = existsSync(outputPath) ? readFileSync(outputPath, 'utf8') : stdout;
     return JSON.parse(output);
@@ -303,12 +371,12 @@ async function requestDirectCodex(prompt) {
   }
 }
 
-async function requestCodex(prompt) {
+async function requestCodex(prompt, timeoutMs) {
   if (process.env.CODEX_AUTH_BROKER_SOCKET) {
     const { requestCodexBrokerJson } = await import('./lib/ai-models.mjs');
-    return requestCodexBrokerJson({ prompt, schema: OUTPUT_SCHEMA, timeoutMs: DEFAULT_TIMEOUT_MS });
+    return requestCodexBrokerJson({ prompt, schema: OUTPUT_SCHEMA, timeoutMs });
   }
-  return requestDirectCodex(prompt);
+  return requestDirectCodex(prompt, timeoutMs);
 }
 
 function normalizeModelResult(result) {
@@ -375,6 +443,7 @@ function selectQueue(records, dataset, cache, options) {
       sourceDescriptionHash: hash,
       facts: sourceFacts(record, current),
       sourceTexts: sourceTexts(record),
+      sourceQuality: isPoorSource(sourceTexts(record)) ? 'poor' : 'normal',
       currentEvent: current,
     };
     const cached = cache.entries?.[rewriteCacheKey(candidate.id, hash)];
@@ -409,26 +478,53 @@ function buildBatches(queue, options) {
   return { batches, inputBudgetSkipped };
 }
 
+function rejectRecords(stats, records, code) {
+  stats.rejected += records.length;
+  stats.rejectionCodes[code] = (stats.rejectionCodes[code] || 0) + records.length;
+}
+
+function acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback = false } = {}) {
+  const entry = makeCacheEntry(record, descriptions);
+  cache.entries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
+  acceptedEntries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
+  stats.accepted += 1;
+  if (fallback) stats.acceptedByFallback += 1;
+  else stats.acceptedByModel += 1;
+}
+
 async function processBatch(batch, cache, options, stats, acceptedEntries, breaker) {
-  let pending = [...batch];
-  let retryReasons = new Map();
-  for (let attempt = 1; attempt <= options.maxAttempts && pending.length; attempt += 1) {
-    const prompt = buildBatchPrompt(pending, retryReasons);
+  // The first call keeps the throughput benefit of a batch. Every retry is a
+  // singleton, so one invalid event can never make accepted neighbours repeat
+  // or disappear. A timed-out batch is also split before its first retry.
+  const work = batch.map((record) => ({ record, attempt: 0, retryReason: '' }));
+  let firstCall = true;
+  while (work.length && !breaker.open) {
+    const group = firstCall ? work.splice(0, work.length) : [work.shift()];
+    firstCall = false;
+    const attempt = group[0].attempt + 1;
+    const retryReasons = new Map(group.filter((item) => item.retryReason).map((item) => [item.record.id, item.retryReason]));
+    const records = group.map((item) => item.record);
+    const prompt = buildBatchPrompt(records, retryReasons);
     if (prompt.length > options.maxInputChars) {
-      stats.inputBudgetSkipped += pending.length;
+      const skipped = work.length + group.length;
+      stats.inputBudgetSkipped += skipped;
+      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget');
       break;
     }
     if (stats.inputChars + prompt.length > options.maxTotalInputChars) {
-      stats.inputBudgetSkipped += pending.length;
+      const skipped = work.length + group.length;
+      stats.inputBudgetSkipped += skipped;
+      rejectRecords(stats, records.concat(work.map((item) => item.record)), 'input-budget');
       break;
     }
     stats.calls += 1;
     stats.attempts += 1;
+    stats.eventAttempts += group.length;
     stats.inputChars += prompt.length;
     const started = Date.now();
     let result;
     try {
-      result = await requestCodex(prompt);
+      result = await requestCodex(prompt, options.timeoutMs);
       stats.elapsedMs += Date.now() - started;
       breaker.failureStreak = 0;
     } catch (error) {
@@ -439,31 +535,37 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
       if (failureKind === 'timeout') stats.timeoutErrors += 1;
       if (failureKind === 'transport') stats.brokerErrors += 1;
 
-      if (isCircuitBreakerFailure(failureKind)) breaker.failureStreak += 1;
+      // A timeout on a multi-event request is treated as a batch-size signal,
+      // not as evidence that the provider is unavailable. Singleton failures
+      // still trip the existing circuit breaker after repeated errors.
+      const breakerEligible = failureKind === 'quota' || group.length === 1;
+      if (breakerEligible && isCircuitBreakerFailure(failureKind)) breaker.failureStreak += 1;
       else breaker.failureStreak = 0;
-      retryReasons = new Map(pending.map((record) => [record.id, `codex-${failureKind}`]));
       const quotaCircuitOpen = failureKind === 'quota' && stats.quotaErrors >= options.circuitBreakerThreshold;
       const transientCircuitOpen = failureKind !== 'quota'
+        && breakerEligible
         && isCircuitBreakerFailure(failureKind)
         && breaker.failureStreak >= options.circuitBreakerThreshold;
+      const rejectionCode = `${failureKind}-circuit-open`;
       if (quotaCircuitOpen || transientCircuitOpen) {
         breaker.open = true;
         breaker.reason = failureKind;
         stats.circuitBreakerTrips += 1;
         stats.circuitOpen = true;
         stats.circuitReason = failureKind;
-        stats.rejected += pending.length;
-        const rejectionCode = `${failureKind}-circuit-open`;
-        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + pending.length;
+        rejectRecords(stats, records, rejectionCode);
         break;
       }
-      if (attempt === options.maxAttempts) {
-        stats.rejected += pending.length;
-        const rejectionCode = `codex-${failureKind}`;
-        stats.rejectionCodes[rejectionCode] = (stats.rejectionCodes[rejectionCode] || 0) + pending.length;
-        break;
-      }
-      stats.retries += pending.length;
+      const retryable = group.filter((item) => item.attempt + 1 < options.maxAttempts);
+      const exhausted = group.filter((item) => item.attempt + 1 >= options.maxAttempts);
+      if (exhausted.length) rejectRecords(stats, exhausted, `codex-${failureKind}`);
+      if (!retryable.length) break;
+      stats.retries += retryable.length;
+      work.unshift(...retryable.map((item) => ({
+        ...item,
+        attempt: item.attempt + 1,
+        retryReason: `codex-${failureKind}`,
+      })).reverse());
       const backoffMs = isCircuitBreakerFailure(failureKind)
         ? exponentialBackoffMs(breaker.failureStreak, options.quotaBackoffBaseMs, options.quotaBackoffMaxMs)
         : Math.min(60_000, 5_000 * (2 ** (attempt - 1)));
@@ -474,38 +576,36 @@ async function processBatch(batch, cache, options, stats, acceptedEntries, break
     const resultText = JSON.stringify(result);
     stats.outputChars += resultText.length;
     const outputById = normalizeModelResult(result);
-    const nextPending = [];
-    const nextReasons = new Map();
-    for (const record of pending) {
+    const retryable = [];
+    for (const item of group) {
+      const { record } = item;
       const descriptions = outputById.get(record.id);
       const validation = validateRewriteBundle(descriptions, {
         sourceTexts: record.sourceTexts,
         factTexts: factsContext(record.facts),
       });
       if (!validation.ok) {
-        nextPending.push(record);
         const code = Object.values(validation.errors || {})[0] || 'missing-output';
-        nextReasons.set(record.id, code);
-        if (attempt === options.maxAttempts) {
-          stats.rejected += 1;
-          stats.rejectionCodes[code] = (stats.rejectionCodes[code] || 0) + 1;
+        if (attempt >= options.maxAttempts) {
+          rejectRecords(stats, [record], code);
+        } else {
+          stats.retries += 1;
+          retryable.push({ record, attempt, retryReason: code });
         }
         continue;
       }
-      const entry = makeCacheEntry(record, descriptions);
-      cache.entries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
-      acceptedEntries[rewriteCacheKey(record.id, record.sourceDescriptionHash)] = entry;
-      stats.accepted += 1;
+      acceptRecord(record, descriptions, cache, acceptedEntries, stats);
     }
-    pending = nextPending;
-    retryReasons = nextReasons;
-    if (pending.length && attempt < options.maxAttempts) stats.retries += pending.length;
-    if (pending.length && attempt < options.maxAttempts) {
+    work.unshift(...retryable.reverse());
+    if (retryable.length) {
       const backoffMs = Math.min(60_000, 5_000 * (2 ** (attempt - 1)));
       stats.backoffMs += backoffMs;
       await sleep(backoffMs);
     }
     if (!options.dryRun && stats.accepted) writeCache(options.cache, cache);
+  }
+  if (breaker.open && work.length) {
+    rejectRecords(stats, work.map((item) => item.record), `${breaker.reason}-circuit-open`);
   }
 }
 
@@ -525,6 +625,7 @@ function finishStats(stats, queue, options) {
     model: EVENT_DESCRIPTION_REWRITE_MODEL,
     promptVersion: EVENT_DESCRIPTION_PROMPT_VERSION,
     batchSize: options.batchSize,
+    timeoutMs: options.timeoutMs,
     maxInputChars: options.maxInputChars,
     maxTotalInputChars: options.maxTotalInputChars,
     shardIndex: options.shardIndex,
@@ -534,6 +635,9 @@ function finishStats(stats, queue, options) {
     circuitBreakerThreshold: options.circuitBreakerThreshold,
     callsPerHour: Number((stats.calls / elapsedHours).toFixed(2)),
     acceptedPerCall: Number((stats.accepted / Math.max(stats.calls, 1)).toFixed(2)),
+    eventAttemptsPerSelected: Number((stats.eventAttempts / Math.max(stats.selected || queue.length, 1)).toFixed(2)),
+    eventAttemptsPerAccepted: Number((stats.eventAttempts / Math.max(stats.accepted, 1)).toFixed(2)),
+    observedMsPerAccepted: Number((observedElapsedMs / Math.max(stats.accepted, 1)).toFixed(1)),
     elapsedHours: Number(elapsedHours.toFixed(4)),
     quota: {
       lunaCalls: stats.calls,
@@ -590,8 +694,11 @@ async function main() {
     startedAt: new Date().toISOString(),
     calls: 0,
     attempts: 0,
+    eventAttempts: 0,
     retries: 0,
     accepted: 0,
+    acceptedByModel: 0,
+    acceptedByFallback: 0,
     rejected: 0,
     quotaErrors: 0,
     timeoutErrors: 0,
@@ -608,10 +715,28 @@ async function main() {
     rejectionCodes: {},
     totalCandidateRecords: totalPending,
   };
-  const { batches, inputBudgetSkipped } = buildBatches(selectedQueue, options);
-  stats.inputBudgetSkipped += inputBudgetSkipped.length;
-  const processQueue = batches.flat();
   const acceptedEntries = {};
+  const modelQueue = [];
+  if (!options.dryRun) {
+    for (const record of selectedQueue) {
+      if (record.sourceQuality !== 'poor') {
+        modelQueue.push(record);
+        continue;
+      }
+      const descriptions = buildMinimalRewriteDescriptions(record);
+      const validation = validateRewriteBundle(descriptions, {
+        sourceTexts: record.sourceTexts,
+        factTexts: factsContext(record.facts),
+      });
+      if (validation.ok) acceptRecord(record, descriptions, cache, acceptedEntries, stats, { fallback: true });
+      else modelQueue.push(record);
+    }
+  } else {
+    modelQueue.push(...selectedQueue);
+  }
+  const { batches, inputBudgetSkipped } = buildBatches(modelQueue, options);
+  stats.inputBudgetSkipped += inputBudgetSkipped.length;
+  if (inputBudgetSkipped.length) rejectRecords(stats, inputBudgetSkipped, 'input-budget');
   const breaker = { failureStreak: 0, open: false, reason: '' };
   if (!options.dryRun) {
     for (let index = 0; index < batches.length; index += 1) {
@@ -637,7 +762,7 @@ async function main() {
       tokenCountersExposed: false,
       note: 'Codex OAuth broker/CLI non espone un contatore token; il gate misura chiamate, errori, caratteri e backoff.',
     },
-  }, processQueue, options);
+  }, selectedQueue, options);
   if (options.statsOutput) {
     writeFileSync(path.resolve(options.statsOutput), `${JSON.stringify(finalStats, null, 2)}\n`, { mode: 0o600 });
   }
