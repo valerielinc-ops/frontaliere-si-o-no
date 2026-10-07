@@ -98,6 +98,11 @@ function isRemoteObjectUnavailable(detail) {
 }
 
 function fetchCommitObject({ cwd, remote, commitRef }) {
+  // A zero object ID is Git's deletion sentinel, not a fetchable commit. The
+  // pre-push caller normally filters it, but the library also accepts direct
+  // callers; classify it as an unavailable marker without asking the remote
+  // to resolve an invalid ref.
+  if (/^0{40}$/u.test(commitRef)) return false;
   try {
     runGit([
       'fetch',
