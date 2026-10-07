@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T06:29:49.351Z",
+  "generatedAt": "2026-10-07T11:15:04.035Z",
   "sources": {
     "aargau": {
       "canton": "Argovia",
@@ -98,7 +98,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "BS",
       "notes": "La pagina ufficiale cantonale identifica la 24 Stunden Apotheke Basel AG (Petersgraben 3, 4051 Basel) e dichiara apertura lun-dom 24 ore, 365 giorni inclusi i festivi; l'adattatore verifica identità, indirizzo e dichiarazione di apertura prima di generare il calendario annuale.",
-      "sourceFetchedAt": "2026-10-07T06:29:49.351Z"
+      "sourceFetchedAt": "2026-10-07T11:15:04.035Z"
     },
     "fribourg": {
       "canton": "Friburgo",
@@ -296,7 +296,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "SO",
       "notes": "La fonte associativa AVSO pubblica il calendario corrente con identità, indirizzi e date per tutte le tre regioni del cantone; l'adattatore verifica le identità allowlistate. Le fasce correnti sono verificate sulla pagina ufficiale del Gesundheitsamt SO (Olten/Solothurn 10:00-12:00) e sulla pagina corrente Saner Dornach (Dorneck-Thierstein 09:00-12:00).",
-      "sourceFetchedAt": "2026-10-07T06:29:49.351Z"
+      "sourceFetchedAt": "2026-10-07T11:15:04.035Z"
     },
     "schwyz": {
       "canton": "Svitto",
@@ -447,7 +447,7 @@
       "dutiesPath": "data/pharmacy-duties-swiss-cantons.json",
       "dutiesKey": "ZH",
       "notes": "La pagina dell'Apothekerverband des Kantons Zürich e della Notfalldienst-Kommission identifica la Bellevue Apotheke (Theaterstrasse 14, Zürich) come aperta ogni giorno 24 ore e dichiara la disponibilità delle farmacie di emergenza per l'intero cantone; l'adattatore verifica identità, indirizzo e dichiarazioni 24h/365 prima di generare il calendario annuale.",
-      "sourceFetchedAt": "2026-10-07T06:29:49.351Z"
+      "sourceFetchedAt": "2026-10-07T11:15:04.035Z"
     }
   }
 }
