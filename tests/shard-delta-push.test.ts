@@ -199,7 +199,16 @@ function makeRemoteMarkerUnreadable(scenario: Scenario, marker = '.shard-deploys
   const corruptHead = execFileSync(
     'git',
     ['-C', scenario.remote, 'commit-tree', tree, '-p', head, '-m', `corrupt ${marker}`],
-    { encoding: 'utf8' },
+    {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        GIT_AUTHOR_NAME: 'shard-delta test',
+        GIT_AUTHOR_EMAIL: 'shard-delta-test@example.invalid',
+        GIT_COMMITTER_NAME: 'shard-delta test',
+        GIT_COMMITTER_EMAIL: 'shard-delta-test@example.invalid',
+      },
+    },
   ).trim();
   git(['-C', scenario.remote, 'update-ref', 'refs/heads/main', corruptHead]);
   return corruptHead;
