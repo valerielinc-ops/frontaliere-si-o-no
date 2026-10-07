@@ -42,18 +42,37 @@ describe('resolveRecoveryTarget', () => {
   });
 
   it('does not redirect a route the hash owner already serves', () => {
+    const repost = {
+      title: 'Transportdisponent:in',
+      description: 'Touren planen und Transporte am Standort koordinieren.',
+      location: 'Gossau',
+      company: 'Coop Genossenschaft',
+      companyKey: 'coop-ticino',
+      postalCode: '9200',
+      streetAddress: 'Industriestrasse 109',
+    };
+    const claimant = {
+      ...zurich,
+      ...repost,
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/old',
+    };
+    const ownerRecord = {
+      ...basel,
+      ...repost,
+      url: 'https://jobs.coopjobs.ch/offene-stellen/transportdisponent-in/new',
+      previousSlugs: [],
+    };
     const bySuffixHash = new Map([
-      [stableSlugHash(zurich), zurich],
-      [stableSlugHash(basel), { ...basel, previousSlugs: [] }],
+      [stableSlugHash(claimant), claimant],
+      [stableSlugHash(ownerRecord), ownerRecord],
     ]);
-    const owner = bySuffixHash.get(stableSlugHash(basel));
-    const baselSlug = `verkaufer-in-food-coop-basel-stadt-${stableSlugHash(basel)}`;
-    owner.previousSlugs = [baselSlug];
+    const route = `transportdisponent-in-coop-gossau-${stableSlugHash(ownerRecord)}`;
+    ownerRecord.previousSlugs = [route];
 
-    const result = resolveRecoveryTarget(zurich, baselSlug, bySuffixHash);
+    const result = resolveRecoveryTarget(claimant, route, bySuffixHash);
 
     expect(result.redirected).toBe(false);
-    expect(result.targetJob).toBe(zurich);
+    expect(result.targetJob).toBe(claimant);
   });
 
   it('trusts a slug whose tail matches the resolved job\'s own hash', () => {

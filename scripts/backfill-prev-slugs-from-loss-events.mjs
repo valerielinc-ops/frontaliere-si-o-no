@@ -168,6 +168,40 @@ function jobHasRoute(job, slug) {
   ));
 }
 
+function normalizedIdentityValue(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+/**
+ * Prove that two records are the same source posting under different URLs.
+ * The proof is deliberately narrower than a title/company duplicate: it needs
+ * the same source host, employer identity, full store address, title, place,
+ * and body. That is the evidence used by the Coop repost collapse; without it
+ * a target-side write followed by a claimant-write failure must still retry.
+ */
+function jobsShareRepublishedIdentity(left, right) {
+  let leftHost = '';
+  let rightHost = '';
+  try { leftHost = new URL(String(left?.url || '')).hostname.toLowerCase(); } catch { /* no strong URL identity */ }
+  try { rightHost = new URL(String(right?.url || '')).hostname.toLowerCase(); } catch { /* no strong URL identity */ }
+  if (!leftHost || leftHost !== rightHost) return false;
+
+  const leftCompanyKey = normalizedIdentityValue(left?.companyKey);
+  const rightCompanyKey = normalizedIdentityValue(right?.companyKey);
+  if (leftCompanyKey && rightCompanyKey && leftCompanyKey !== rightCompanyKey) return false;
+
+  const leftCompany = normalizedIdentityValue(left?.company || left?.companyKey);
+  const rightCompany = normalizedIdentityValue(right?.company || right?.companyKey);
+  if (!leftCompany || leftCompany !== rightCompany) return false;
+
+  const requiredFields = ['title', 'description', 'location', 'postalCode', 'streetAddress'];
+  return requiredFields.every((field) => {
+    const leftValue = normalizedIdentityValue(left?.[field]);
+    const rightValue = normalizedIdentityValue(right?.[field]);
+    return leftValue !== '' && leftValue === rightValue;
+  });
+}
+
 /** Build hash → file only when exactly one current record owns that hash. */
 export function buildUniqueSuffixOwnerFiles(slices) {
   const owners = new Map();
@@ -218,12 +252,16 @@ export function resolveRecoveryTarget(job, slug, bySuffixHash) {
   if (!ownHash || tail === ownHash) return { targetJob: job, skip: false, redirected: false };
   const owner = bySuffixHash.get(tail);
   if (owner && owner !== job) {
-    // The route is already reachable from its hash owner. This occurs when a
-    // source-backed repost was collapsed into an older keeper but both current
-    // records still retain the transferred bridge. Removing the keeper copy
-    // would lose locale attribution and cannot improve ownership, while
-    // repeatedly planning the same move keeps the live-data observer red.
-    if (jobHasRoute(owner, slug)) return { targetJob: job, skip: false, redirected: false };
+    // The route is already reachable from the hash owner and both records are
+    // proven copies of the same source posting. This occurs when a repost was
+    // collapsed into an older keeper but both current records still retain the
+    // transferred bridge. Removing the keeper copy would lose locale
+    // attribution and cannot improve ownership, while repeatedly planning the
+    // same move keeps the live-data observer red. A target-only route is not
+    // enough: an interrupted target-first write must still converge on retry.
+    if (jobHasRoute(owner, slug) && jobsShareRepublishedIdentity(job, owner)) {
+      return { targetJob: job, skip: false, redirected: false };
+    }
     return { targetJob: owner, skip: false, redirected: true };
   }
   return { targetJob: job, skip: false, redirected: false };
