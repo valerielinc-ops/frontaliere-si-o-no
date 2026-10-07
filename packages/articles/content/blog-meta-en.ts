@@ -12763,6 +12763,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coda-a8-castronno-solbiate.title': 'Accident on the A8 between Castronno and Solbiate: traffic jams',
     'blog.article.coda-a8-castronno-solbiate.excerpt': 'From 18 on Wednesday, October 7, the accident between Castronno and Solbiate Arno paralyzed traffic between Varese and Gallarate. Normal conditions at 20.',
     'blog.article.coda-a8-castronno-solbiate.imageAlt': 'Road queue after the crash on the A8 between Castronno and Solbiate Arno.',
+    'blog.article.incidente-via-albisetti.title': 'Tradate, pedestrian hit: 58-year-old man injured',
+    'blog.article.incidente-via-albisetti.excerpt': '## TL;DR - A 58-year-old man hit at Tradate - Accident shortly before 20 on Via Albisetti - Assistance from the Busto Red Cross and a medical car',
+    'blog.article.incidente-via-albisetti.imageAlt': 'Urban street at dusk, stock image for the report on the accident in Tradate',
 };
 
 export default blogMetaEn;

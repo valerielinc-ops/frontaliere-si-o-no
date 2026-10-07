@@ -12765,6 +12765,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coda-a8-castronno-solbiate.title': 'Accident sur l\'A8 entre Castronno et Solbiate : embouteillages',
     'blog.article.coda-a8-castronno-solbiate.excerpt': 'À partir de 18 heures le mercredi 7 octobre, l\'accident entre Castronno et Solbiate Arno a paralysé la circulation entre Varese et Gallarate. Retour à la normale à 20 heures.',
     'blog.article.coda-a8-castronno-solbiate.imageAlt': 'Bouchon après l\'accident sur l\'A8 entre Castronno et Solbiate Arno.',
+    'blog.article.incidente-via-albisetti.title': 'Tradate, piéton renversé : un homme de 58 ans blessé',
+    'blog.article.incidente-via-albisetti.excerpt': '## En bref - Un homme de 58 ans renversé à Tradate - Accident peu avant 20 heures dans la rue Albisetti - Secours de la Croix-Rouge de Busto et d\'une ambulance médicalisée',
+    'blog.article.incidente-via-albisetti.imageAlt': 'Rue urbaine au crépuscule, image d\'illustration pour l\'accident de Tradate',
 };
 
 export default blogMetaFr;
