@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T23:45:44.805Z",
+  "generatedAt": "2026-10-07T00:37:19.457Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v1",
   "entries": {
@@ -59,6 +59,34 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:22:11.668Z"
+    },
+    "classicascona:next-generation-xvii-ascona-choral-academy-evensong::cfe32f98218abd2f1f0663462eb0310b3e45ef8463b7eafa4d362bf00234e400": {
+      "id": "classicascona:next-generation-xvii-ascona-choral-academy-evensong",
+      "sourceDescriptionHash": "cfe32f98218abd2f1f0663462eb0310b3e45ef8463b7eafa4d362bf00234e400",
+      "description": "Il concerto fa parte delle Settimane Musicali di Ascona e si svolge nella Chiesa del Collegio Papio, Ascona. L’appuntamento è curato da classicAscona.",
+      "descriptionByLocale": {
+        "it": "Il concerto fa parte delle Settimane Musicali di Ascona e si svolge nella Chiesa del Collegio Papio, Ascona. L’appuntamento è curato da classicAscona.",
+        "en": "The concert is part of the Ascona Music Weeks and takes place at Chiesa del Collegio Papio, Ascona. It is presented by classicAscona.",
+        "de": "Das Konzert gehört zu den Musikwochen Ascona und findet in der Chiesa del Collegio Papio, Ascona, statt. Veranstalter ist classicAscona.",
+        "fr": "Le concert s’inscrit dans les Semaines musicales d’Ascona et a lieu à la Chiesa del Collegio Papio, Ascona. Il est proposé par classicAscona."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:21:17.824Z"
+    },
+    "classicascona:next-generation-xviii-ascona-choral-academy-sing-along::d912d74679e6924e0783e18514c50372d130fbd7db015f7000baf885cba981ac": {
+      "id": "classicascona:next-generation-xviii-ascona-choral-academy-sing-along",
+      "sourceDescriptionHash": "d912d74679e6924e0783e18514c50372d130fbd7db015f7000baf885cba981ac",
+      "description": "Il concerto fa parte della programmazione musicale di classicAscona e si svolge nella Chiesa del Collegio Papio ad Ascona. Nigel Short e Pubblico sono indicati tra gli interpreti.",
+      "descriptionByLocale": {
+        "it": "Il concerto fa parte della programmazione musicale di classicAscona e si svolge nella Chiesa del Collegio Papio ad Ascona. Nigel Short e Pubblico sono indicati tra gli interpreti.",
+        "en": "The concert is part of the music programme of classicAscona and takes place at Chiesa del Collegio Papio in Ascona. Nigel Short and Pubblico are listed as performers.",
+        "de": "Das Konzert gehört zum Musikprogramm von classicAscona und findet in der Chiesa del Collegio Papio in Ascona statt. Nigel Short und Pubblico werden als Mitwirkende genannt.",
+        "fr": "Le concert s’inscrit dans la programmation musicale de classicAscona et a lieu à la Chiesa del Collegio Papio, à Ascona. Nigel Short et Pubblico sont indiqués parmi les interprètes."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.012Z"
     },
     "classicascona:next-generation-xx-ascona-choral-academy-cantare-per-le-strade::05b77796c6717c17aa6eeb3b355a88a225b0ccc672233d75169545b4224c56fe": {
       "id": "classicascona:next-generation-xx-ascona-choral-academy-cantare-per-le-strade",
@@ -410,6 +438,48 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:49:15.872Z"
     },
+    "ge-agenda:cite-seniors-fete-20-exposition-photographique-voyage-urbain-entre-passe-present::0de40e233851fcc035342526f9258ba12c2999c37a608bf88ef6276d78655059": {
+      "id": "ge-agenda:cite-seniors-fete-20-exposition-photographique-voyage-urbain-entre-passe-present",
+      "sourceDescriptionHash": "0de40e233851fcc035342526f9258ba12c2999c37a608bf88ef6276d78655059",
+      "description": "La mostra di Olivier Urfer presenta fotografie in bianco e nero dedicate ai quartieri di Genève. Il percorso mette a confronto il passato e il presente della città.",
+      "descriptionByLocale": {
+        "it": "La mostra di Olivier Urfer presenta fotografie in bianco e nero dedicate ai quartieri di Genève. Il percorso mette a confronto il passato e il presente della città.",
+        "en": "The exhibition by Olivier Urfer presents black-and-white photographs of the neighbourhoods of Genève. It places the city’s past alongside its present.",
+        "de": "Die Ausstellung von Olivier Urfer zeigt Schwarz-Weiss-Fotografien aus den Quartieren von Genève. Sie stellt die Vergangenheit der Stadt ihrer Gegenwart gegenüber.",
+        "fr": "L’exposition d’Olivier Urfer présente des photographies en noir et blanc consacrées aux quartiers de Genève. Elle met en regard le passé et le présent de la ville."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.016Z"
+    },
+    "ge-agenda:climat-emballe-faim-persiste-cultivons-autrement::4c721362729505dc99d0b4ddcdeba95b3f8c0af616874a4de05900dc0787e2ae": {
+      "id": "ge-agenda:climat-emballe-faim-persiste-cultivons-autrement",
+      "sourceDescriptionHash": "4c721362729505dc99d0b4ddcdeba95b3f8c0af616874a4de05900dc0787e2ae",
+      "description": "L’incontro esamina il ruolo dell’agroecologia rispetto alla fame e alla crisi climatica, guardando a una realtà che va dal Kenya a Genève. Action de Carême e SWISSAID invitano a questo appuntamento presso Foound, a Genève.",
+      "descriptionByLocale": {
+        "it": "L’incontro esamina il ruolo dell’agroecologia rispetto alla fame e alla crisi climatica, guardando a una realtà che va dal Kenya a Genève. Action de Carême e SWISSAID invitano a questo appuntamento presso Foound, a Genève.",
+        "en": "The event examines agroecology’s response to hunger and the climate crisis, with a focus extending from Kenya to Genève. Action de Carême and SWISSAID invite people to the meeting at Foound in Genève.",
+        "de": "Die Veranstaltung untersucht, wie Agroökologie auf Hunger und die Klimakrise reagieren kann, mit einem Blick von Kenia bis Genève. Action de Carême und SWISSAID laden zu dem Treffen bei Foound in Genève ein.",
+        "fr": "Le rendez-vous examine la contribution de l’agroécologie aux questions de faim et de crise climatique, dans une perspective allant du Kenya à Genève. Action de Carême et SWISSAID invitent à cette rencontre à Foound, à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.017Z"
+    },
+    "ge-agenda:collision-enquete-futur-collisionneur-cern::e79be2ae6b55634799831755a2d78885df5a928a299e096def67d0d5a47057e9": {
+      "id": "ge-agenda:collision-enquete-futur-collisionneur-cern",
+      "sourceDescriptionHash": "e79be2ae6b55634799831755a2d78885df5a928a299e096def67d0d5a47057e9",
+      "description": "La conferenza-incontro esamina un’indagine sul futuro collisore del CERN. L’appuntamento è proposto a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La conferenza-incontro esamina un’indagine sul futuro collisore del CERN. L’appuntamento è proposto a Ginevra e l’ingresso è gratuito.",
+        "en": "This conference and discussion focuses on an inquiry into CERN’s future collider. It is offered in Geneva with free admission.",
+        "de": "Die Konferenz mit Gesprächsformat befasst sich mit einer Untersuchung zum künftigen Teilchenbeschleuniger des CERN. Die Veranstaltung findet in Genf statt und ist kostenlos.",
+        "fr": "Cette conférence-rencontre porte sur une enquête consacrée au futur collisionneur du CERN. L’événement est proposé à Genève et l’entrée est gratuite."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.859Z"
+    },
     "ge-agenda:communiquer-greenwashing::ec301d292f3e7c7e3875bdcf1cb08115343a0ab975ac5a8fc7e7b0f93d7085ca": {
       "id": "ge-agenda:communiquer-greenwashing",
       "sourceDescriptionHash": "ec301d292f3e7c7e3875bdcf1cb08115343a0ab975ac5a8fc7e7b0f93d7085ca",
@@ -437,6 +507,48 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:13:24.399Z"
+    },
+    "ge-agenda:cosmic-murmures::91ae68096c2baafe83e6736a56bf3c71b5857b1211729fa066f25d97b3537ca1": {
+      "id": "ge-agenda:cosmic-murmures",
+      "sourceDescriptionHash": "91ae68096c2baafe83e6736a56bf3c71b5857b1211729fa066f25d97b3537ca1",
+      "description": "Questa serata teatrale mette in dialogo Cosmic Impro e la Compagnie des Murmures. L’evento si svolge a Ginevra ed è gratuito.",
+      "descriptionByLocale": {
+        "it": "Questa serata teatrale mette in dialogo Cosmic Impro e la Compagnie des Murmures. L’evento si svolge a Ginevra ed è gratuito.",
+        "en": "This theatre evening brings Cosmic Impro together with Compagnie des Murmures. The event takes place in Geneva and is free to attend.",
+        "de": "Der Theaterabend bringt Cosmic Impro und die Compagnie des Murmures zusammen. Die Veranstaltung findet in Genf statt und ist kostenlos.",
+        "fr": "Cette soirée de théâtre réunit Cosmic Impro et la Compagnie des Murmures. Elle est proposée à Genève et l’accès est gratuit."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.859Z"
+    },
+    "ge-agenda:cours-tango-argentin-niveau-debutant-3::c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73": {
+      "id": "ge-agenda:cours-tango-argentin-niveau-debutant-3",
+      "sourceDescriptionHash": "c095bab9aa691296e1674d872617fa0621e858af5560775b0ecc8a2499f71e73",
+      "description": "Il corso di tango argentino è rivolto a chi parte da zero e si tiene a Plainpalais. Esteban García e Dorotea Schepens lo guidano con un contributo a scelta.",
+      "descriptionByLocale": {
+        "it": "Il corso di tango argentino è rivolto a chi parte da zero e si tiene a Plainpalais. Esteban García e Dorotea Schepens lo guidano con un contributo a scelta.",
+        "en": "For beginners, this Argentine tango course is held in Plainpalais. Esteban García and Dorotea Schepens lead it, with a pay-what-you-choose fee.",
+        "de": "Der argentinische Tangokurs richtet sich an Anfängerinnen und Anfänger und findet in Plainpalais statt. Esteban García und Dorotea Schepens unterrichten ihn zu einem frei wählbaren Beitrag.",
+        "fr": "Ce cours de tango argentin s’adresse aux débutants et se déroule à Plainpalais. Esteban García et Dorotea Schepens l’animent, avec une participation à prix libre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.860Z"
+    },
+    "ge-agenda:course-equipe-afterwork-team-building-geneve::ecfa629286fd2c03152c23c1f100f420648abc237bdd9c5fe3b9a0d5ac94ef36": {
+      "id": "ge-agenda:course-equipe-afterwork-team-building-geneve",
+      "sourceDescriptionHash": "ecfa629286fd2c03152c23c1f100f420648abc237bdd9c5fe3b9a0d5ac94ef36",
+      "description": "La Nocturne des Evaux consiste in una sfida di corsa a squadre di 5 km, da affrontare con lampade frontali. L’attività combina sport, team building e convivialità e prevede una quota di 175 CHF.",
+      "descriptionByLocale": {
+        "it": "La Nocturne des Evaux consiste in una sfida di corsa a squadre di 5 km, da affrontare con lampade frontali. L’attività combina sport, team building e convivialità e prevede una quota di 175 CHF.",
+        "en": "The Nocturne des Evaux is a 5-kilometre team running challenge completed with headlamps. It combines sport, team building and conviviality, and the listed price is CHF 175.",
+        "de": "Bei der Nocturne des Evaux wird eine 5-Kilometer-Laufchallenge im Team mit Stirnlampen absolviert. Das Angebot verbindet Sport, Teambuilding und Geselligkeit; der angegebene Preis beträgt 175 CHF.",
+        "fr": "La Nocturne des Evaux propose un défi de course en équipe sur 5 km, à la lampe frontale. L’activité associe sport, team building et convivialité; le tarif indiqué est de 175 CHF."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.861Z"
     },
     "ge-agenda:decide-lance-clarifier-motivations-affirmer-legitimite::cc61325e30f5a582b9ee6214a6a8671b7df8598b1eabd2064828ca2b7a709a15": {
       "id": "ge-agenda:decide-lance-clarifier-motivations-affirmer-legitimite",
@@ -494,6 +606,48 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T11:03:18.360Z"
     },
+    "ge-agenda:detroit-legends-cybotron-dopplereffekt::a49810731c39fabade6af8b50bbb4c3a7ac743fe3ece845cc5308fb86d5a8252": {
+      "id": "ge-agenda:detroit-legends-cybotron-dopplereffekt",
+      "sourceDescriptionHash": "a49810731c39fabade6af8b50bbb4c3a7ac743fe3ece845cc5308fb86d5a8252",
+      "description": "Il concerto riunisce Cybotron, Dopplereffekt e Orphia. Electron Festival lo presenta all’Alhambra, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il concerto riunisce Cybotron, Dopplereffekt e Orphia. Electron Festival lo presenta all’Alhambra, a Ginevra.",
+        "en": "The concert features Cybotron, Dopplereffekt and Orphia. Electron Festival presents it at Alhambra in Geneva.",
+        "de": "Bei dem Konzert treten Cybotron, Dopplereffekt und Orphia auf. Electron Festival präsentiert die Veranstaltung im Alhambra in Genf.",
+        "fr": "Le concert réunit Cybotron, Dopplereffekt et Orphia. Electron Festival le présente à l’Alhambra, à Genève."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.861Z"
+    },
+    "ge-agenda:detroit-legends-cybotron-live-dopplereffekt-live::af5af9f27ab562a173b7818da0853f51a45f28a0bc0ae5f25b58020cc03bf793": {
+      "id": "ge-agenda:detroit-legends-cybotron-live-dopplereffekt-live",
+      "sourceDescriptionHash": "af5af9f27ab562a173b7818da0853f51a45f28a0bc0ae5f25b58020cc03bf793",
+      "description": "È un concerto a Ginevra con Cybotron e Dopplereffekt. Cybotron si esibisce dal vivo, mentre Dopplereffekt presenta una performance audiovisiva dal vivo.",
+      "descriptionByLocale": {
+        "it": "È un concerto a Ginevra con Cybotron e Dopplereffekt. Cybotron si esibisce dal vivo, mentre Dopplereffekt presenta una performance audiovisiva dal vivo.",
+        "en": "This concert takes place in Geneva and features Cybotron and Dopplereffekt. Cybotron performs live, while Dopplereffekt presents an audiovisual live performance.",
+        "de": "Das Konzert findet in Genf statt und umfasst Beiträge von Cybotron und Dopplereffekt. Cybotron tritt live auf, während Dopplereffekt eine audiovisuelle Live-Performance präsentiert.",
+        "fr": "Ce concert se déroule à Genève et réunit Cybotron et Dopplereffekt. Cybotron se produit en live, tandis que Dopplereffekt propose une performance audiovisuelle en direct."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:37:19.457Z"
+    },
+    "ge-agenda:entre-preserver-intervenir-avenir-plantes-menacees-geneve::4801a589dfb3b46886a190d7072da765127d278c774d85fe5b3be99027f3c0f2": {
+      "id": "ge-agenda:entre-preserver-intervenir-avenir-plantes-menacees-geneve",
+      "sourceDescriptionHash": "4801a589dfb3b46886a190d7072da765127d278c774d85fe5b3be99027f3c0f2",
+      "description": "La tavola rotonda esamina strategie per proteggere la flora locale. Affronta anche il futuro delle piante minacciate a Ginevra e l’ingresso è gratuito.",
+      "descriptionByLocale": {
+        "it": "La tavola rotonda esamina strategie per proteggere la flora locale. Affronta anche il futuro delle piante minacciate a Ginevra e l’ingresso è gratuito.",
+        "en": "This roundtable examines strategies for protecting local plant life. It also addresses the future of threatened plants in Geneva and is free to attend.",
+        "de": "Die Podiumsrunde untersucht Strategien zum Schutz der lokalen Flora. Außerdem geht es um die Zukunft gefährdeter Pflanzen in Genf; der Eintritt ist frei.",
+        "fr": "Cette table ronde examine des stratégies destinées à préserver la flore locale. Elle aborde aussi l’avenir des plantes menacées à Genève et l’accès est gratuit."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:36:39.862Z"
+    },
     "ge-agenda:exploring-creation-process-exhibition-futur-quoi::e8f7cd39ad2e3d24d92109276b29d75d5ba14ba8268149d8be922e070666c326": {
       "id": "ge-agenda:exploring-creation-process-exhibition-futur-quoi",
       "sourceDescriptionHash": "e8f7cd39ad2e3d24d92109276b29d75d5ba14ba8268149d8be922e070666c326",
@@ -521,6 +675,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:22:53.415Z"
+    },
+    "ge-agenda:festival-chopin-2026-recital-piano-mertol-demirelli::2ce96e857ebb7d0d50d66fb4583926c1d190f8186b081e7132d8e36e449d9df9": {
+      "id": "ge-agenda:festival-chopin-2026-recital-piano-mertol-demirelli",
+      "sourceDescriptionHash": "2ce96e857ebb7d0d50d66fb4583926c1d190f8186b081e7132d8e36e449d9df9",
+      "description": "È previsto un recital di pianoforte nell’ambito di un festival. MERTOL DEMIRELLI è indicato come interprete.",
+      "descriptionByLocale": {
+        "it": "È previsto un recital di pianoforte nell’ambito di un festival. MERTOL DEMIRELLI è indicato come interprete.",
+        "en": "A piano recital is scheduled as part of a festival. MERTOL DEMIRELLI is listed as the performer.",
+        "de": "Im Rahmen eines Festivals ist ein Klavierrezital vorgesehen. MERTOL DEMIRELLI ist als Interpret angegeben.",
+        "fr": "Un récital de piano est prévu dans le cadre d’un festival. MERTOL DEMIRELLI est indiqué comme interprète."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:37:00.000Z"
     },
     "ge-agenda:forum-public-quartiers-solidaires-initiatives-vie-quartier::cdd95753d24fdf6539afd665042e2ecc0872c2579575a1ee8fd5a65bdb444c72": {
       "id": "ge-agenda:forum-public-quartiers-solidaires-initiatives-vie-quartier",
@@ -1277,6 +1445,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T10:51:07.492Z"
+    },
+    "guidle:Awrt7GK::5e32b6cc4f352ab76098b927767c2dc720c9e5a59ba120af271dbb0f599e6b83": {
+      "id": "guidle:Awrt7GK",
+      "sourceDescriptionHash": "5e32b6cc4f352ab76098b927767c2dc720c9e5a59ba120af271dbb0f599e6b83",
+      "description": "Martha Argerich e Renaud Capuçon si esibiscono insieme alla Tonhalle Zürich. L’evento appartiene alla categoria della musica da camera.",
+      "descriptionByLocale": {
+        "it": "Martha Argerich e Renaud Capuçon si esibiscono insieme alla Tonhalle Zürich. L’evento appartiene alla categoria della musica da camera.",
+        "en": "Martha Argerich and Renaud Capuçon perform together at Tonhalle Zürich. The event is listed under chamber music.",
+        "de": "Martha Argerich und Renaud Capuçon treten gemeinsam in der Tonhalle Zürich auf. Die Veranstaltung ist der Kammermusik zugeordnet.",
+        "fr": "Martha Argerich et Renaud Capuçon se produisent ensemble à la Tonhalle Zürich. Le rendez-vous relève de la musique de chambre."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.015Z"
     },
     "guidle:AYHpdhT::1e784e22360e654b111de6c7f611690d0793bb2985e258f0d0559d59ac408763": {
       "id": "guidle:AYHpdhT",
@@ -2314,6 +2496,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:24:03.970Z"
     },
+    "myswitzerland:b80bf72618444969b1ca432c204f6f47::0c957497f2185a9f3370cd9cc6bc07bcdd64e25b70bf1a252eb6c91aff58fc25": {
+      "id": "myswitzerland:b80bf72618444969b1ca432c204f6f47",
+      "sourceDescriptionHash": "0c957497f2185a9f3370cd9cc6bc07bcdd64e25b70bf1a252eb6c91aff58fc25",
+      "description": "Il concerto di Valchava propone un repertorio da Bach a Boccherini. Per i posti è fortemente consigliata la prenotazione.",
+      "descriptionByLocale": {
+        "it": "Il concerto di Valchava propone un repertorio da Bach a Boccherini. Per i posti è fortemente consigliata la prenotazione.",
+        "en": "The concert in Valchava presents a repertoire ranging from Bach to Boccherini. Seat reservations are strongly recommended.",
+        "de": "Das Konzert in Valchava umfasst ein Repertoire von Bach bis Boccherini. Eine Platzreservation wird dringend empfohlen.",
+        "fr": "Le concert de Valchava propose un répertoire allant de Bach à Boccherini. Il est vivement recommandé de réserver sa place."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.013Z"
+    },
     "myswitzerland:bc25fdb4ab7b4615a8fde3f0f0db6d18::642f3a4b3b4ef4b230fc28177a84abc121f7848f02cfe5c826d6738cff97b824": {
       "id": "myswitzerland:bc25fdb4ab7b4615a8fde3f0f0db6d18",
       "sourceDescriptionHash": "642f3a4b3b4ef4b230fc28177a84abc121f7848f02cfe5c826d6738cff97b824",
@@ -2566,6 +2762,20 @@
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T12:01:57.920Z"
     },
+    "myswitzerland:e0ed6632126b4cd4b8a2c6ec2d02ed37::3374d3ccf3b9389c99ea3c010df8074d540831ab747b0f9f4f7db3d12bb74a73": {
+      "id": "myswitzerland:e0ed6632126b4cd4b8a2c6ec2d02ed37",
+      "sourceDescriptionHash": "3374d3ccf3b9389c99ea3c010df8074d540831ab747b0f9f4f7db3d12bb74a73",
+      "description": "A Chur l’appuntamento è dedicato all’osservazione di «Reiter», opera di Ernst Ludwig Kirchner. Il lavoro indicato nel titolo costituisce il tema della sessione.",
+      "descriptionByLocale": {
+        "it": "A Chur l’appuntamento è dedicato all’osservazione di «Reiter», opera di Ernst Ludwig Kirchner. Il lavoro indicato nel titolo costituisce il tema della sessione.",
+        "en": "In Chur, the event examines «Reiter», a work by Ernst Ludwig Kirchner. The work named in the title is the subject of the session.",
+        "de": "In Chur steht die Betrachtung von «Reiter», einem Werk von Ernst Ludwig Kirchner, im Mittelpunkt. Das im Titel genannte Werk ist Gegenstand des Termins.",
+        "fr": "À Chur, le rendez-vous est consacré à l’observation de «Reiter», une œuvre d’Ernst Ludwig Kirchner. Cette œuvre constitue le sujet de la séance."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:24:01.212Z"
+    },
     "myswitzerland:e40d97c5678d425d9f9c79d84a4ca88e::dc3aa93e93df585a31aa8010a3d05711efa4761c0bb4a3562297b0331ec19109": {
       "id": "myswitzerland:e40d97c5678d425d9f9c79d84a4ca88e",
       "sourceDescriptionHash": "dc3aa93e93df585a31aa8010a3d05711efa4761c0bb4a3562297b0331ec19109",
@@ -2649,6 +2859,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v1",
       "rewrittenAt": "2026-10-06T09:09:03.138Z"
+    },
+    "myswitzerland:efa1f48f8c3e4a3cbbfcc2373478e045::5ec61f5c162fa9d17013e6072654aa3454c01de056c0025e511140bbed088965": {
+      "id": "myswitzerland:efa1f48f8c3e4a3cbbfcc2373478e045",
+      "sourceDescriptionHash": "5ec61f5c162fa9d17013e6072654aa3454c01de056c0025e511140bbed088965",
+      "description": "L’attività alla Médiathèque Valais - Sion fa scoprire libri facili da leggere. Ogni incontro combina lettura, gioco e condivisione, con un’attività diversa a ogni appuntamento.",
+      "descriptionByLocale": {
+        "it": "L’attività alla Médiathèque Valais - Sion fa scoprire libri facili da leggere. Ogni incontro combina lettura, gioco e condivisione, con un’attività diversa a ogni appuntamento.",
+        "en": "The activity at Médiathèque Valais - Sion introduces easy-to-read books. Each session combines reading, play and sharing, with a different activity from one meeting to the next.",
+        "de": "In der Médiathèque Valais - Sion werden leicht lesbare Bücher vorgestellt. Die wiederkehrenden Treffen verbinden Lesen, Spielen und Austausch; jedes Mal gibt es eine andere Aktivität.",
+        "fr": "À la Médiathèque Valais - Sion, l’activité fait découvrir des livres faciles à lire. Chaque rendez-vous associe lecture, jeu et partage, avec une activité différente à chaque séance."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v1",
+      "rewrittenAt": "2026-10-07T00:35:35.014Z"
     },
     "myswitzerland:f55b41f24a524a78804537c3e48c6845::72118db3a425fd4b07261898046e8f3cf39e66bc207e42c9342aa3aeadc4493b": {
       "id": "myswitzerland:f55b41f24a524a78804537c3e48c6845",
