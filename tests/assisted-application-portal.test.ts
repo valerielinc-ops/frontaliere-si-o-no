@@ -33,6 +33,21 @@ describe('portal link clicks', () => {
 
     expect(page.goto).toHaveBeenCalledWith('https://jobs.example/apply', { waitUntil: 'domcontentloaded', timeout: 60_000 });
   });
+
+  it('starts the popup watcher before resolving a re-rendering apply locator', async () => {
+    const order: string[] = [];
+    const popup = { url: () => 'https://jobs.example/apply' };
+    const context = { waitForEvent: vi.fn(() => { order.push('watch'); return Promise.resolve(popup); }) };
+    const link = {
+      getAttribute: vi.fn(async () => { order.push('href'); return '/apply'; }),
+      click: vi.fn(async () => { order.push('click'); }),
+    };
+    const page = { url: () => 'https://jobs.example/careers', goto: vi.fn() };
+
+    expect(await clickPortalLink(page, link, { context })).toBe(popup);
+    expect(order).toEqual(['watch', 'href', 'click']);
+    expect(context.waitForEvent).toHaveBeenCalledWith('page', { timeout: 60_000 });
+  });
 });
 
 describe('portal plan guard (career-ops apply rules in code)', () => {

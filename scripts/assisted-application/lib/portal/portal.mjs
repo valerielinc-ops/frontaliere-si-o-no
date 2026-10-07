@@ -53,6 +53,8 @@ export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\
 export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
 const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
 const OUTCOME_TIMEOUT_MS = 60_000;
+const POPUP_WAIT_TIMEOUT_MS = 60_000;
+const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
@@ -267,11 +269,13 @@ async function clickButton(page, button) {
  * locator can re-resolve the link, and its href gives us a safe navigation
  * fallback when the click still times out.
  */
-export async function clickPortalLink(page, link) {
+export async function clickPortalLink(page, link, { context = null } = {}) {
+  // Start this before reading href or clicking: an ATS can re-render the
+  // locator for several seconds before dispatching a target="_blank" popup.
+  const popup = context?.waitForEvent('page', { timeout: POPUP_WAIT_TIMEOUT_MS }).catch(() => null);
   const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
   try {
     await link.click({ timeout: 6_000 });
-    return;
   } catch (error) {
     if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
     let target;
@@ -282,6 +286,16 @@ export async function clickPortalLink(page, link) {
     }
     await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   }
+  if (!popup) return null;
+  // A link without a popup should continue promptly after a short grace
+  // window; clear the timer as soon as the popup arrives.
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(null), POPUP_GRACE_MS);
+    popup.then((opened) => {
+      clearTimeout(timer);
+      resolve(opened);
+    });
+  });
 }
 
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
@@ -352,10 +366,13 @@ async function openApplicationForm(context, page, snapshot) {
     const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
     const linkCount = link ? await link.count() : 0;
     if (!manual && !apply && !linkCount) return { page, snapshot };
-    const popup = context.waitForEvent('page', { timeout: 6000 }).catch(() => null);
-    if (manual || apply) await clickButton(page, manual || apply);
-    else await clickPortalLink(page, link);
-    page = (await popup) || page;
+    if (manual || apply) {
+      const popup = context.waitForEvent('page', { timeout: POPUP_GRACE_MS }).catch(() => null);
+      await clickButton(page, manual || apply);
+      page = (await popup) || page;
+    } else {
+      page = (await clickPortalLink(page, link, { context })) || page;
+    }
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
