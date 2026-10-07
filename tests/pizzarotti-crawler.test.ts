@@ -30,6 +30,9 @@ describe('Pizzarotti listing classification', () => {
     expect(PIZZAROTTI_UPDATER).toContain(
       'resolvePizzarottiDetailUrl(listing.href, LISTING_BASE_URL)',
     );
+    expect(PIZZAROTTI_UPDATER).toContain(
+      'const sourceUrl = resolvePizzarottiDetailUrl(detail.shareUrl || listing.href, LISTING_BASE_URL);',
+    );
   });
 
   it('reports a non-empty source filtered to zero Swiss listings', () => {

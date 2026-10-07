@@ -214,7 +214,7 @@ async function buildPizzarottiJob(listing) {
   const canton = inferPizzarottiCanton(location);
   const sourceLang = sourceLangOfBody(detail.description || listing.teaser || '', 'it');
   const localized = buildPizzarottiLocalizedContent(detail, COMPANY_NAME, sourceLang);
-  const sourceUrl = detail.shareUrl || listing.href;
+  const sourceUrl = resolvePizzarottiDetailUrl(detail.shareUrl || listing.href, LISTING_BASE_URL);
   const canonicalTitle = detail.title || listing.title;
   const canonicalSlug =
     localized.slug ||
