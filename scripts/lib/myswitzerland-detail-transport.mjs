@@ -143,7 +143,7 @@ export function formatDetailTransportSummary(stats) {
   ];
   if (stats.stopped) {
     const outcome = stats.stopped.fallbackMode === INDEX_ONLY_FALLBACK_MODE
-      ? 'fallback ai soli campi indicizzati scritto; dati di dettaglio esclusi'
+      ? 'fallback ai soli campi indicizzati selezionato; dati di dettaglio esclusi'
       : 'batch non scritto, slice invariato';
     lines.push(`- Fase dettagli FERMATA: ${stats.stopped.reason} (${stats.stopped.url}); ${outcome}`);
   }
@@ -157,7 +157,7 @@ export function reportDetailTransport(stats, { env = process.env, log = console.
   let annotation = null;
   if (stats.stopped) {
     const outcome = stats.stopped.fallbackMode === INDEX_ONLY_FALLBACK_MODE
-      ? 'index-only fallback written; detail-only fields omitted'
+      ? 'index-only fallback selected; detail-only fields omitted'
       : 'batch not written';
     annotation = `::error::MySwitzerland detail phase stopped: ${stats.stopped.reason} at ${stats.stopped.url}; ${outcome}`;
     log(annotation);

@@ -958,12 +958,12 @@ export function targetedMySwitzerlandResumeIndex(checkpoint, selectionKey) {
 }
 
 /**
- * Write one crawl batch: slice first, cursor second, and only if the shared
- * detail-failure policy accepts the batch. mergeEventsIntoSlice throws BEFORE
- * writing when the policy rejects it (e.g. the 2026-10-04 HTTP 406 wave,
- * 52/139 detail failures > 15%), so a rejected batch leaves the previous slice
- * byte-for-byte on disk and the cursor where it was: the next run retries the
- * same records. `goneIds` is always empty: a refused detail page is a detail
+ * Write one crawl batch: slice first, cursor second. The shared detail-failure
+ * policy rejects a batch before writing (e.g. the 2026-10-04 HTTP 406 wave,
+ * 52/139 detail failures > 15%), except when the caller explicitly supplies
+ * the MySwitzerland source-backed index fallback. That fallback is permitted
+ * only for fresh rows covering every failed identity; 403/429/challenge never
+ * use it. `goneIds` is always empty: a refused detail page is a detail
  * failure, never evidence that the event disappeared.
  */
 export function commitMySwitzerlandBatch({
