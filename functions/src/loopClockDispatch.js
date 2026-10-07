@@ -1,7 +1,12 @@
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
-import { LOOP_CLOCK_ENTRIES } from './loopClockTable.js';
+import {
+  LOOP_CLOCK_CORPUS_REPOSITORY,
+  LOOP_CLOCK_ENTRIES,
+  LOOP_CLOCK_INPUT,
+  loopClockInputValue,
+} from './loopClockTable.js';
 
 export { LOOP_CLOCK_ENTRIES } from './loopClockTable.js';
 
@@ -11,8 +16,7 @@ export const LOOP_CLOCK_CLOUD_SCHEDULE = '*/5 * * * *';
 const MINUTE_MS = 60_000;
 const SITE_DEFAULT_OWNER = 'valerielinc-ops';
 const SITE_DEFAULT_REPO = 'frontaliere-si-o-no';
-const CORPUS_OWNER = 'nanakokyobashi-rgb';
-const CORPUS_REPO = 'frontaliere-articles';
+const [CORPUS_OWNER, CORPUS_REPO] = LOOP_CLOCK_CORPUS_REPOSITORY.split('/');
 
 function validDate(value) {
   const date = value instanceof Date ? new Date(value.getTime()) : new Date(value);
@@ -36,6 +40,13 @@ function validateEntries(entries) {
       || entry.everyMinutes % LOOP_CLOCK_TICK_MINUTES !== 0) {
       throw new TypeError(`invalid loop clock cadence: ${entry.id}`);
     }
+    if (entry.inputs !== undefined) {
+      const inputs = entry.inputs;
+      if (!inputs || typeof inputs !== 'object' || Array.isArray(inputs) || LOOP_CLOCK_INPUT in inputs
+        || Object.values(inputs).some((value) => typeof value !== 'string')) {
+        throw new TypeError(`invalid loop clock inputs: ${entry.id}`);
+      }
+    }
     ids.add(entry.id);
   }
 }
@@ -53,13 +64,21 @@ export function loopClockOffsetMinutes(entry) {
   return (stableHash(entry.id) % slots) * LOOP_CLOCK_TICK_MINUTES;
 }
 
-export function isLoopClockEntryDue(entry, scheduledAt) {
-  const date = validDate(scheduledAt);
-  const minute = Math.floor(date.getTime() / MINUTE_MS);
+function slotMinute(scheduledAt) {
+  const minute = Math.floor(validDate(scheduledAt).getTime() / MINUTE_MS);
   // Cloud Scheduler hands over the nominal slot, but a delayed or hand-fired
   // tick can land a minute or two inside it: snap to the five-minute grid so
   // the entries of that slot still run instead of silently matching nothing.
-  const slot = minute - (minute % LOOP_CLOCK_TICK_MINUTES);
+  return minute - (minute % LOOP_CLOCK_TICK_MINUTES);
+}
+
+/** The five-minute slot a tick belongs to; it names the dispatched runs. */
+export function loopClockSlot(scheduledAt) {
+  return new Date(slotMinute(scheduledAt) * MINUTE_MS);
+}
+
+export function isLoopClockEntryDue(entry, scheduledAt) {
+  const slot = slotMinute(scheduledAt);
   const offset = loopClockOffsetMinutes(entry);
   return ((slot - offset) % entry.everyMinutes + entry.everyMinutes) % entry.everyMinutes === 0;
 }
@@ -116,8 +135,7 @@ async function searchUntriagedIssues({ owner, repo, token, fetchImpl }) {
   return Number(body.total_count);
 }
 
-async function dispatchEntry({ entry, context, fetchImpl, conditionLookup }) {
-  if (context.skipReason) return makeResult(entry, { dispatched: false, reason: context.skipReason });
+async function dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup }) {
   if (context.failureReason) {
     return makeResult(entry, { dispatched: false, failed: true, reason: context.failureReason });
   }
@@ -142,7 +160,13 @@ async function dispatchEntry({ entry, context, fetchImpl, conditionLookup }) {
     const response = await fetchImpl(url, {
       method: 'POST',
       headers: githubApiHeaders(context.pat, { 'Content-Type': 'application/json' }),
-      body: JSON.stringify({ ref: 'main' }),
+      // The marker input only names the run; the observer counts a dispatch
+      // as the clock's own by that marker alone. Entry inputs come first so
+      // nothing in the table can overwrite it.
+      body: JSON.stringify({
+        ref: 'main',
+        inputs: { ...entry.inputs, [LOOP_CLOCK_INPUT]: loopClockInputValue(entry, slot) },
+      }),
     });
     if (!response.ok) {
       return makeResult(entry, {
@@ -191,6 +215,7 @@ export async function dispatchLoopClock({
 } = {}) {
   const tick = validDate(scheduledAt);
   validateEntries(entries);
+  const slot = loopClockSlot(tick);
   const due = dueLoopClockEntries(tick, entries);
   const warnings = [];
   const disabledRaw = await readRemoteConfig('LOOP_CLOCK_DISABLED', getRemoteConfigValueImpl, warnings);
@@ -223,12 +248,15 @@ export async function dispatchLoopClock({
     try {
       if (isDisabled(disabled, entry.id)) return makeResult(entry, { dispatched: false, reason: 'disabled' });
 
+      // A missing corpus token is a failure, exactly like a missing site
+      // token: as a plain skip every corpus entry would stop dispatching
+      // while the tick keeps reporting success.
       const context = entry.repo === 'site'
         ? siteContext
         : corpusToken
           ? { pat: corpusToken, owner: CORPUS_OWNER, repo: CORPUS_REPO }
-          : { skipReason: 'corpus_token_missing' };
-      return await dispatchEntry({ entry, context, fetchImpl, conditionLookup });
+          : { failureReason: 'corpus_token_missing' };
+      return await dispatchEntry({ entry, slot, context, fetchImpl, conditionLookup });
     } catch {
       return makeResult(entry, {
         dispatched: false,
