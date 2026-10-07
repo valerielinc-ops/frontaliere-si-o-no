@@ -63,6 +63,7 @@ export function candidateRules(candidateLocale) {
 - Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
 - Swiss work permit, work authorisation, residence status, visa or sponsorship: swissStatus.statement is the candidate's own statement of their Swiss status today (null: the candidate did not choose one; then only what profile.workPermit states). Choose the option, or write the value, that says exactly that status, never one that says more (a permit pending, to be requested or not needed); never answer whether the candidate needs a permit, a visa or sponsorship, and never infer a status from the nationality, the address or the place of birth. When no option says it, the field is missing (required) or skipped (optional).
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
+- Age-threshold questions (for example, "under 26" / "meno di 26 anni"): derive the yes/no answer only from an explicit profile.dateOfBirth, calculated against today's date. If the date of birth is absent or invalid, put the required question in missingRequired; never infer age from education, dates of study, the name or the current year.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
@@ -115,7 +116,11 @@ export function planUserText({ snapshot, candidate }) {
 // JOIN asks "Che sesso sei?": sex in Italian and French is demographic too.
 // The permit, work-authorisation, nationality and citizenship wordings of the four languages
 // (lib/permitStatus.js: «Arbeitserlaubnis», «authorised to work», «Nazionalità», «Cittadinanza»…).
-export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}`, 'i');
+// Keep this narrower than a generic "years" matcher: "less than 26 years of
+// experience" is an eligibility question, not an age question.
+const AGE_UNDER_RE = /\b(?:(?:under|below)(?:\s+the\s+age\s+of)?|younger\s+than|less\s+than|moins\s+de|moins\s+d['’]|unter|j(?:ü|ue)nger\s+als|weniger\s+als|meno\s+di|minore\s+di|inferiore\s+a|sotto\s+(?:i|ai?))\s*(\d{1,3})\b/i;
+const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|of\s+work|di\s+lavoro|d['’]exp[ée]rience)\b/i;
+export const SENSITIVE = new RegExp(String.raw`permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|${BIRTH_FIELD_RE.source}|${PERMIT_FIELD_RE.source}|${NATIONALITY_FIELD_RE.source}|${AGE_UNDER_RE.source}`, 'i');
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
@@ -144,6 +149,7 @@ export function evidenceInData(knownValues, evidence) {
 }
 
 const YES_RE = /^(ja|sì|si|yes|oui|vero|true|✓)$/i;
+const NO_RE = /^(nein|no|non|ne|falso|false|✕|x)$/i;
 const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
 const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
 // One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
@@ -190,6 +196,7 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   if (!candidate) return null;
   const profile = candidate.profile || {};
   const same = (left, right) => Boolean(String(left || '').trim()) && String(left).trim().toLowerCase() === String(right || '').trim().toLowerCase();
+  if (ageQuestionTopic(label)) return ageAnswerMatches(candidate, label, value);
   if (isPermitField(label)) {
     // Whether the candidate needs a permit, a visa or sponsorship is never answered from the data: they say it.
     if (!asksHeldStatus(questionFromLabel(label))) return false;
@@ -234,6 +241,8 @@ export function questionTopic(label) {
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
+  const ageTopic = ageQuestionTopic(text);
+  if (ageTopic) return ageTopic;
   const addressTopic = addressQuestionTopic(text);
   if (addressTopic) return addressTopic;
   if (EDUCATION_QUESTION_RE.test(text) && CURRENT_EDUCATION_RE.test(text)) return 'current_school';
@@ -242,6 +251,79 @@ export function questionTopic(label) {
 
 function comparableAnswer(value) {
   return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function ageQuestionTopic(text) {
+  const value = String(text || '');
+  if (AGE_EXPERIENCE_RE.test(value)) return '';
+  const match = AGE_UNDER_RE.exec(value);
+  if (!match) return '';
+  const threshold = Number(match[1]);
+  return threshold > 0 && threshold < 150 ? `age_under_${threshold}` : '';
+}
+
+function ageThreshold(topic) {
+  const match = /^age_under_(\d+)$/.exec(topic);
+  return match ? Number(match[1]) : null;
+}
+
+function parseDateOfBirth(value) {
+  const text = String(value || '').trim();
+  let year;
+  let month;
+  let day;
+  let match = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(text);
+  if (match) {
+    [, year, month, day] = match;
+  } else {
+    match = /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.exec(text);
+    if (!match) return null;
+    [, day, month, year] = match;
+  }
+  const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
+  if (date.getUTCFullYear() !== Number(year) || date.getUTCMonth() !== Number(month) - 1 || date.getUTCDate() !== Number(day)) return null;
+  return date;
+}
+
+/** The candidate's age from an explicit date of birth, or null when unusable. */
+export function ageAt(dateOfBirth, now = new Date()) {
+  const birth = parseDateOfBirth(dateOfBirth);
+  const today = now instanceof Date ? now : new Date(now);
+  if (!birth || !Number.isFinite(today.getTime())) return null;
+  let age = today.getUTCFullYear() - birth.getUTCFullYear();
+  const beforeBirthday = today.getUTCMonth() < birth.getUTCMonth()
+    || (today.getUTCMonth() === birth.getUTCMonth() && today.getUTCDate() < birth.getUTCDate());
+  if (beforeBirthday) age -= 1;
+  return age >= 0 && age < 150 ? age : null;
+}
+
+function booleanAnswer(value) {
+  const text = comparableAnswer(value);
+  if (YES_RE.test(text)) return true;
+  if (NO_RE.test(text)) return false;
+  return null;
+}
+
+function ageAnswerText(question, underThreshold) {
+  const text = String(question || '');
+  if (/moins\s+de|moins\s+d['’]|\b(?:âge|age)\b|\bans\b/i.test(text)) return underThreshold ? 'Oui' : 'Non';
+  if (/unter|j(?:ü|ue)nger\s+als|weniger\s+als|\b(?:alter|jahre)\b/i.test(text)) return underThreshold ? 'Ja' : 'Nein';
+  if (/under|below|younger\s+than|less\s+than|\byears?\b/i.test(text)) return underThreshold ? 'Yes' : 'No';
+  return underThreshold ? 'Sì' : 'No';
+}
+
+function ageAnswerForQuestion(candidate, question) {
+  const topic = ageQuestionTopic(question);
+  const threshold = ageThreshold(topic);
+  if (threshold === null) return null;
+  const age = ageAt(candidate?.profile?.dateOfBirth);
+  return age === null ? null : ageAnswerText(question, age < threshold);
+}
+
+function ageAnswerMatches(candidate, question, answer) {
+  const expected = ageAnswerForQuestion(candidate, question);
+  const actual = booleanAnswer(answer);
+  return expected !== null && actual !== null && actual === booleanAnswer(expected);
 }
 
 function equivalentAnswer(question, left, right) {
@@ -259,6 +341,11 @@ function equivalentAnswer(question, left, right) {
     const leftCode = permitStatusOf(left) || permitOptionCode(left);
     const rightCode = permitStatusOf(right) || permitOptionCode(right);
     return Boolean(leftCode && rightCode && leftCode === rightCode);
+  }
+  if (topic.startsWith('age_under_')) {
+    const leftBoolean = booleanAnswer(left);
+    const rightBoolean = booleanAnswer(right);
+    return leftBoolean !== null && leftBoolean === rightBoolean;
   }
   return false;
 }
@@ -291,6 +378,11 @@ function optionForAnswer(field, answer) {
     const match = options.find((option) => answerCode && (permitStatusOf(option.label) || permitOptionCode(option.label)) === answerCode);
     if (match) return match.label;
   }
+  if (topic.startsWith('age_under_')) {
+    const answerBoolean = booleanAnswer(answer);
+    const match = options.find((option) => answerBoolean !== null && booleanAnswer(option.label) === answerBoolean);
+    if (match) return match.label;
+  }
   return '';
 }
 
@@ -305,6 +397,14 @@ export function candidateAnswerForField(candidate, field) {
       const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
       if (other) return { value: other.label, source: 'answers' };
     }
+  }
+  if (topic.startsWith('age_under_')) {
+    const answer = ageAnswerForQuestion(candidate, field?.label);
+    if (answer !== null) {
+      const value = optionForAnswer(field, answer);
+      if (value) return { value, source: 'profile' };
+    }
+    return null;
   }
   if (topic !== 'current_school') return null;
   const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();

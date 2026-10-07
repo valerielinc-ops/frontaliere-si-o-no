@@ -32,7 +32,7 @@ import { factCheckAcknowledged } from '../../../functions/src/assistedApplicatio
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
@@ -163,7 +163,25 @@ export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
   const { cvBuffer, cvType, cvSent, cvKey } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType, cvKey: order?.cvStorageKey || null });
   const nowMs = ctx.nowMs || Date.now();
-  const answers = flow?.answers || {};
+  // Resolve facts that the CV already states before the generic required-question gate.
+  // Older drafts can contain a newly discovered portal question with an empty answer;
+  // waiting for the planner would never work because the gate returns first.
+  const initialEdited = candidateWithEdits({ order, draft, flow });
+  const portalQuestions = (draft?.questions || []).filter((question) => question.source === 'portal');
+  const initialCandidate = candidateForForm({
+    identity: initialEdited.identity,
+    profile: initialEdited.profile,
+    answers: initialEdited.answers,
+    draft,
+    portalQuestions,
+    language: draft?.language,
+  });
+  const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
+  const submitFlow = Object.keys(autoAnswers).length
+    ? { ...(flow || {}), answers: { ...(flow?.answers || {}), ...autoAnswers } }
+    : (flow || {});
+  const answers = submitFlow.answers || {};
+  const edited = candidateWithEdits({ order, draft, flow: submitFlow });
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
   // The record of a send whose outcome may stay unknown, on the draft (agent.mjs: `sentAttempt`), or null
   // once the send failed for certain. It becomes the record of what left when the owner or the employer's
@@ -192,7 +210,7 @@ export async function submitApplication(ctx) {
   if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
 
   const open = openRequiredQuestions(draft, answers);
-  const missingDocuments = openRequiredDocuments(draft, flow?.documents || {});
+  const missingDocuments = openRequiredDocuments(draft, submitFlow.documents || {});
   if (open.length || missingDocuments.length) {
     return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
   }
@@ -202,7 +220,7 @@ export async function submitApplication(ctx) {
     coverLetter: draft.coverLetter?.text,
     emailSubject: draft.applicationEmail?.subject,
     emailBody: draft.applicationEmail?.body,
-  }, factSourcesNow({ order, draft, flow }), { language: draft.language });
+  }, factSourcesNow({ order, draft, flow: submitFlow }), { language: draft.language });
   // The gate of the day may be stricter than the one the draft was written with. Its result travels
   // next to the failure: agent.mjs stores it with the draft, so the owner sees the tokens and can
   // confirm them (the stored result alone would show nothing to confirm); it never reaches the event.
@@ -212,10 +230,10 @@ export async function submitApplication(ctx) {
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
   if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
-    const { identity } = candidateWithEdits({ order, draft, flow });
-    const letter = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
+    const { identity } = edited;
+    const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
     const stem = safeFileStem(identity.name);
-    const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
+    const extras = await downloadExtraDocuments({ bucket, draft, flow: submitFlow, orderId, name: identity.name });
     // How the files leave (dossier.mjs): the posting's own instruction, then the switch; by
     // default the CV and the letter apart and the requested documents grouped.
     const packaged = await packageAttachments({
@@ -346,8 +364,8 @@ export async function submitApplication(ctx) {
       if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true, ...(claim.record?.sent ? { sent: claim.record.sent } : {}) };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
-    // With the candidate's corrections from the review page.
-    const edited = candidateWithEdits({ order, draft, flow });
+    // With the candidate's corrections from the review page and any portal facts
+    // resolved from the CV before the required-question gate.
     const { identity } = edited;
     let dir = null;
     // Set once `clickedAt` is on record, right before the final click.
@@ -358,7 +376,7 @@ export async function submitApplication(ctx) {
     let attemptNotStored = false;
     try {
       dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
-      const letter = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
+      const letter = await letterForSubmission({ bucket, order, orderId, draft, flow: submitFlow, nowMs });
       const files = {
         cv: path.join(dir, applicationFileName('cv', { name: identity.name, language: draft.language, extension: EXTENSION[cvType] || 'pdf' })),
         cover_letter: path.join(dir, applicationFileName('letter', { name: identity.name, language: draft.language, extension: 'pdf' })),
@@ -366,7 +384,7 @@ export async function submitApplication(ctx) {
       await writeFile(files.cv, cvBuffer);
       await writeFile(files.cover_letter, letter.pdf);
       // The requested documents: one slot each (extra_1…), all its files.
-      const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
+      const extras = await downloadExtraDocuments({ bucket, draft, flow: submitFlow, orderId, name: identity.name });
       for (const document of extras) {
         files[document.slot] = [];
         for (const file of document.files) {
@@ -398,12 +416,11 @@ export async function submitApplication(ctx) {
         await guard.release(reason);
         if (attemptKept) await keepAttempt(null);
       };
-      const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
         // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
         job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '' },
-        skipPostingCheck: flow?.dispatch?.reason === 'owner_retry',
+        skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language }),
@@ -488,7 +505,7 @@ export async function submitApplication(ctx) {
     bucket,
     orderId,
     name: 'submit-handoff',
-    payload: { channel, applyUrl, formAnswers: formAnswersWithEdits({ order, draft, flow }), answers },
+    payload: { channel, applyUrl, formAnswers: formAnswersWithEdits({ order, draft, flow: submitFlow }), answers },
     key: runKey,
     nowMs,
   });
