@@ -227,6 +227,24 @@ export function decideCorpusRegistryDrift({
     };
   }
 
+  // The quantity alone decides: an oversized handoff is refused without
+  // consulting a commit date, each of which is a history lookup for the caller.
+  if (driftIds.length > maxDriftIds) {
+    return {
+      action: 'fail',
+      ok: false,
+      deferred: false,
+      missingIds,
+      unpublishedIds,
+      driftIds,
+      staleIds: [],
+      unknownTimestampIds: [],
+      note:
+        `${section}: ${details}; drift contains ${driftIds.length} id(s), limit ${maxDriftIds}; `
+        + 'refusing to publish a non-converged client registry',
+    };
+  }
+
   const timestampFor = (id) => {
     const value = typeof changeAtById === 'function' ? changeAtById(id) : changeAtById[id];
     if (value === null || value === undefined || value === '') return null;
@@ -243,9 +261,6 @@ export function decideCorpusRegistryDrift({
       && nowEpochSeconds - timestamp > maxDriftAgeSeconds;
   });
   const reasons = [];
-  if (driftIds.length > maxDriftIds) {
-    reasons.push(`drift contains ${driftIds.length} id(s), limit ${maxDriftIds}`);
-  }
   if (unknownTimestampIds.length > 0) {
     reasons.push(`no valid corpus commit timestamp for ${unknownTimestampIds.join(', ')}`);
   }
@@ -546,6 +561,7 @@ export async function checkCorpusFreshness(
     corpusCheckoutDir = null,
     changeAtById = {},
     nowEpochSeconds = Math.floor(Date.now() / 1000),
+    articleChangeTimestamp = corpusArticleChangeTimestamp,
   } = {},
 ) {
   let manifest;
@@ -580,29 +596,13 @@ export async function checkCorpusFreshness(
   }
   const missingIds = missingPublishedIds(localRegistry, publishedIds);
   const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
-  const driftTimestamps = { ...changeAtById };
-  for (const id of [...missingIds, ...unpublishedIds]) {
-    if (Object.prototype.hasOwnProperty.call(driftTimestamps, id) || !corpusCheckoutDir) continue;
-    try {
-      // Twice the tolerated age: enough to tell a recent handoff from a
-      // stale one, without walking the whole registry history.
-      driftTimestamps[id] = corpusArticleChangeTimestamp(corpusCheckoutDir, section, id, {
-        sinceEpochSeconds: nowEpochSeconds - 2 * MAX_CORPUS_DRIFT_AGE_SECONDS,
-      });
-    } catch {
-      driftTimestamps[id] = null;
-    }
-  }
-  const drift = decideCorpusRegistryDrift({
-    section,
-    localRegistry,
-    publishedIds,
-    changeAtById: driftTimestamps,
-    nowEpochSeconds,
-  });
+  const driftIds = [...new Set([...missingIds, ...unpublishedIds])];
+  // The two quantity limits come first. Neither needs a commit date, and each
+  // date is a history lookup in the blobless corpus clone: a handoff too large
+  // to defer is refused before the first one.
   if (behind > MAX_ARTICLES_BEHIND) {
-    const identityNote = drift.driftIds.length > 0
-      ? ` Registry drift: ${driftDetails(drift.missingIds, drift.unpublishedIds)}.`
+    const identityNote = driftIds.length > 0
+      ? ` Registry drift: ${driftDetails(missingIds, unpublishedIds)}.`
       : '';
     return {
       ok: false,
@@ -613,6 +613,28 @@ export async function checkCorpusFreshness(
         + identityNote,
     };
   }
+  const driftTimestamps = { ...changeAtById };
+  if (driftIds.length <= MAX_ARTICLES_BEHIND) {
+    for (const id of driftIds) {
+      if (Object.prototype.hasOwnProperty.call(driftTimestamps, id) || !corpusCheckoutDir) continue;
+      try {
+        // Twice the tolerated age: enough to tell a recent handoff from a
+        // stale one, without walking the whole registry history.
+        driftTimestamps[id] = articleChangeTimestamp(corpusCheckoutDir, section, id, {
+          sinceEpochSeconds: nowEpochSeconds - 2 * MAX_CORPUS_DRIFT_AGE_SECONDS,
+        });
+      } catch {
+        driftTimestamps[id] = null;
+      }
+    }
+  }
+  const drift = decideCorpusRegistryDrift({
+    section,
+    localRegistry,
+    publishedIds,
+    changeAtById: driftTimestamps,
+    nowEpochSeconds,
+  });
   if (drift.action !== 'proceed') {
     return { ok: false, deferred: drift.deferred, note: drift.note };
   }

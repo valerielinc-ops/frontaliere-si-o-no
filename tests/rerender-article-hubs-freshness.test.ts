@@ -171,3 +171,93 @@ describe('hub freshness regression from the stale site copy', () => {
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 });
+
+describe('hub freshness quantity limits come before any history lookup', () => {
+  // Review of the PR that moved the hubs onto corpus main: a commit date is a
+  // history lookup in the blobless corpus clone, and an oversized handoff ran
+  // one per drift id before being refused on its size alone.
+  function stubPublished(ids: string[]) {
+    const fetchMock = vi.fn(async (input: string | URL) => {
+      const url = String(input);
+      if (url.endsWith('/manifest.json')) {
+        return { ok: true, json: async () => ({ counts: { articles: ids.length } }) };
+      }
+      if (url.endsWith('/slugs.json')) {
+        return { ok: true, json: async () => ({ blog: Object.fromEntries(ids.map((id) => [id, { it: id }])) }) };
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+  }
+
+  function countingLookup() {
+    const lookedUp: string[] = [];
+    const lookup = (_checkoutDir: string, _section: string, id: string) => {
+      lookedUp.push(id);
+      return freshTimestamp();
+    };
+    return { lookedUp, lookup };
+  }
+
+  const overLimit = MAX_ARTICLES_BEHIND + 1;
+
+  afterEach(() => {
+    __resetCorpusFreshnessCache();
+    vi.unstubAllGlobals();
+  });
+
+  it('refuses a published corpus over the limit ahead, drift ids included, without a lookup', async () => {
+    const publishedOnly = Array.from({ length: overLimit }, (_, index) => `published-only-${index}`);
+    stubPublished(['stable-article', ...publishedOnly]);
+    const { lookedUp, lookup } = countingLookup();
+
+    const verdict = await checkCorpusFreshness('frontaliere', 1, {
+      localRegistry: registryFor(['stable-article']),
+      corpusCheckoutDir: 'corpus-checkout-never-read',
+      articleChangeTimestamp: lookup,
+    });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.deferred).not.toBe(true);
+    expect(verdict.note).toContain(`${overLimit} behind, tolerance ${MAX_ARTICLES_BEHIND}`);
+    expect(verdict.note).toContain(publishedOnly[0]);
+    expect(lookedUp).toEqual([]);
+  });
+
+  it('refuses a drift over the limit at an equal article count without a lookup', async () => {
+    const half = overLimit / 2;
+    const publishedOnly = Array.from({ length: half }, (_, index) => `published-only-${index}`);
+    const localOnly = Array.from({ length: half }, (_, index) => `local-only-${index}`);
+    stubPublished(['stable-article', ...publishedOnly]);
+    const { lookedUp, lookup } = countingLookup();
+
+    const verdict = await checkCorpusFreshness('frontaliere', 1 + half, {
+      localRegistry: registryFor(['stable-article', ...localOnly]),
+      corpusCheckoutDir: 'corpus-checkout-never-read',
+      articleChangeTimestamp: lookup,
+    });
+
+    expect(Number.isInteger(half)).toBe(true);
+    expect(verdict.ok).toBe(false);
+    expect(verdict.deferred).not.toBe(true);
+    expect(verdict.note).toContain(`drift contains ${overLimit} id(s), limit ${MAX_ARTICLES_BEHIND}`);
+    // No date was looked up, so none may be reported as missing.
+    expect(verdict.note).not.toContain('no valid corpus commit timestamp');
+    expect(lookedUp).toEqual([]);
+  });
+
+  it('looks each date up once when the drift is within the limit, then defers', async () => {
+    stubPublished(['stable-article', 'published-only']);
+    const { lookedUp, lookup } = countingLookup();
+
+    const verdict = await checkCorpusFreshness('frontaliere', 2, {
+      localRegistry: registryFor(['stable-article', 'local-only']),
+      corpusCheckoutDir: 'corpus-checkout-never-read',
+      articleChangeTimestamp: lookup,
+    });
+
+    expect(verdict.ok).toBe(false);
+    expect(verdict.deferred).toBe(true);
+    expect([...lookedUp].sort()).toEqual(['local-only', 'published-only']);
+  });
+});
