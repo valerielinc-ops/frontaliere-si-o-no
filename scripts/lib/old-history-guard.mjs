@@ -22,6 +22,14 @@ const OLD_HISTORY_REMEDIATION = [
 
 const OLD_HISTORY_BLOCK_MESSAGE = 'Controllo storia precedente fallito: il branch della PR contiene la storia precedente alla riscrittura, ma il base aggiornato non la contiene.';
 
+function safeGitErrorDetail(error) {
+  return [error?.stderr, error?.stdout, error?.message]
+    .filter(Boolean)
+    .join('\n')
+    .replace(/https:\/\/x-access-token:[^@\s]+@/gu, 'https://x-access-token:[REDACTED]@')
+    .trim();
+}
+
 function runGit(args, { cwd, stdio = 'ignore', timeout } = {}) {
   const output = execFileSync('git', args, {
     cwd,
@@ -55,6 +63,78 @@ function isAncestor(ancestor, descendant, cwd) {
   throw new Error(`Impossibile verificare l'ascendenza git (${ancestor} -> ${descendant}): ${detail}`);
 }
 
+function isShallowRepository(cwd) {
+  return runGit(['rev-parse', '--is-shallow-repository'], {
+    cwd,
+    stdio: ['ignore', 'pipe', 'ignore'],
+  }) === 'true';
+}
+
+function historyGuardLockPath(cwd) {
+  return resolve(cwd, gitCommonDir(cwd), 'frontaliere-old-history-guard.lock');
+}
+
+function withHistoryGuardLock(cwd, fn) {
+  const result = withSingleFlightLock(historyGuardLockPath(cwd), fn);
+  if (!result.acquired) {
+    throw new Error('non è stato possibile acquisire il lock per aggiornare il grafo della storia.');
+  }
+  return result.value;
+}
+
+function isRemoteObjectUnavailable(detail) {
+  const normalized = detail.toLowerCase();
+  return normalized.includes('not our ref')
+    || normalized.includes("couldn't find remote ref")
+    || normalized.includes('could not find remote ref')
+    || normalized.includes('no such remote ref');
+}
+
+function fetchCommitObject({ cwd, remote, commitRef }) {
+  try {
+    runGit([
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      '--no-write-fetch-head',
+      '--filter=tree:0',
+      remote,
+      commitRef,
+    ], { cwd, timeout: FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (error) {
+    const detail = safeGitErrorDetail(error);
+    if (isRemoteObjectUnavailable(detail)) return commitExists(commitRef, cwd);
+    throw new Error(`Impossibile recuperare il commit del marker dal remoto: ${detail || 'errore git sconosciuto'}`);
+  }
+  return commitExists(commitRef, cwd);
+}
+
+function remoteHeadRef({ headRef, branch }) {
+  const match = /^refs\/remotes\/[^/]+\/(.+)$/u.exec(headRef);
+  return `refs/heads/${match?.[1] || branch}`;
+}
+
+function completeShallowHistory({ cwd, remote, headRef, branch }) {
+  try {
+    runGit([
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      '--no-write-fetch-head',
+      '--unshallow',
+      '--filter=tree:0',
+      remote,
+      remoteHeadRef({ headRef, branch }),
+    ], { cwd, timeout: FETCH_TIMEOUT_MS, stdio: ['ignore', 'pipe', 'pipe'] });
+  } catch (error) {
+    const detail = safeGitErrorDetail(error);
+    throw new Error(`Impossibile completare il grafo della storia per verificare il marker: ${detail || 'errore git sconosciuto'}`);
+  }
+  if (isShallowRepository(cwd)) {
+    throw new Error('Il checkout resta shallow dopo il fetch del grafo della storia; controllo non verificabile.');
+  }
+}
+
 function markerIsAncestorOfHead({ cwd, markerRef, headRef }) {
   if (!commitExists(markerRef, cwd)) return { markerAvailable: false, markerInHead: false };
   if (!commitExists(headRef, cwd)) {
@@ -65,8 +145,10 @@ function markerIsAncestorOfHead({ cwd, markerRef, headRef }) {
 
 /**
  * Answers the history question without changing refs or the working tree.
- * `base-unavailable` lets the CLI refresh the base before deciding; a missing
- * marker is an intentional pass because GitHub may already have discarded it.
+ * `base-unavailable` lets the CLI refresh the base before deciding. This pure
+ * inspection deliberately reports a missing marker; `checkOldHistory` probes
+ * the remote first when refresh is enabled, then passes only if it is still
+ * unavailable after that probe.
  */
 export function inspectOldHistory({
   cwd = process.cwd(),
@@ -91,7 +173,10 @@ export function inspectOldHistory({
 }
 
 function gitCommonDir(cwd) {
-  return runGit(['rev-parse', '--git-common-dir'], { cwd });
+  return runGit(['rev-parse', '--git-common-dir'], {
+    cwd,
+    stdio: ['ignore', 'pipe', 'ignore'],
+  });
 }
 
 /**
@@ -104,19 +189,19 @@ export function refreshOriginBranch({
   branch = 'main',
   destinationRef = `refs/remotes/origin/${branch}`,
 } = {}) {
-  const lockPath = resolve(cwd, gitCommonDir(cwd), 'frontaliere-old-history-guard.lock');
-  const result = withSingleFlightLock(lockPath, () => {
-    runGit([
-      'fetch',
-      '--quiet',
-      '--no-tags',
-      '--filter=tree:0',
-      remote,
-      `+refs/heads/${branch}:${destinationRef}`,
-    ], { cwd, timeout: FETCH_TIMEOUT_MS });
-  });
-  if (!result.acquired) {
-    throw new Error('non è stato possibile acquisire il lock per aggiornare il base ref.');
+  try {
+    withHistoryGuardLock(cwd, () => {
+      runGit([
+        'fetch',
+        '--quiet',
+        '--no-tags',
+        '--filter=tree:0',
+        remote,
+        `+refs/heads/${branch}:${destinationRef}`,
+      ], { cwd, timeout: FETCH_TIMEOUT_MS });
+    });
+  } catch (error) {
+    throw new Error(`Impossibile aggiornare il base ref: ${safeGitErrorDetail(error) || 'errore git sconosciuto'}`);
   }
 }
 
@@ -130,6 +215,15 @@ export function checkOldHistory({
   branch = 'main',
 } = {}) {
   let result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
+  if (result.reason === 'marker-unavailable' && refreshBase) {
+    const markerFetched = withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef }));
+    if (!markerFetched) return result;
+    result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
+  }
+  if (refreshBase && result.reason !== 'marker-unavailable' && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
+    withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
+    result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
+  }
   const baseNeedsRefresh = result.reason === 'marker-in-base'
     || result.outcome === 'blocked'
     || result.outcome === 'base-unavailable';

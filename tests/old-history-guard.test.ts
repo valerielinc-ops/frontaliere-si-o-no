@@ -7,6 +7,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import {
   assertOldHistorySafe,
+  checkOldHistory,
   inspectOldHistory,
   OLD_HISTORY_FIRST_CHANGED_COMMIT,
 } from '../scripts/lib/old-history-guard.mjs';
@@ -103,11 +104,21 @@ describe('old-history-guard', () => {
   });
 
   it('lascia passare quando il marker non è più disponibile', () => {
+    const missingMarker = '0'.repeat(40);
     expect(inspectOldHistory({
       cwd: repo,
-      markerRef: '0'.repeat(40),
+      markerRef: missingMarker,
       headRef: oldPrHead,
       baseRef: rewrittenBase,
+    })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
+    expect(checkOldHistory({
+      cwd: repo,
+      markerRef: missingMarker,
+      headRef: oldPrHead,
+      baseRef: rewrittenBase,
+      refreshBase: true,
+      remote: repo,
+      branch: 'main',
     })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
   });
 
@@ -122,5 +133,50 @@ describe('old-history-guard', () => {
 
   it('mantiene una sola costante di produzione per il marker', () => {
     expect(OLD_HISTORY_FIRST_CHANGED_COMMIT).toMatch(/^[0-9a-f]{40}$/);
+  });
+
+  it('completa la storia prima di classificare il marker oltre il confine shallow', () => {
+    const root = mkdtempSync(join(tmpdir(), 'old-history-guard-shallow-'));
+    const seed = join(root, 'seed');
+    const remote = join(root, 'remote.git');
+    const shallow = join(root, 'shallow');
+    try {
+      git(root, 'init', '--bare', '--quiet', remote);
+      git(root, 'init', '--quiet', '--initial-branch=main', seed);
+      git(seed, 'config', 'user.name', 'old-history-guard-test');
+      git(seed, 'config', 'user.email', 'old-history-guard-test@example.invalid');
+      git(seed, 'commit', '--allow-empty', '-m', 'root');
+      git(seed, 'commit', '--allow-empty', '-m', 'marker');
+      const shallowMarker = git(seed, 'rev-parse', 'HEAD');
+      git(seed, 'commit', '--allow-empty', '-m', 'old one');
+      git(seed, 'commit', '--allow-empty', '-m', 'old two');
+      git(seed, 'branch', '-M', 'main');
+      git(seed, 'push', '--quiet', remote, 'main');
+      git(seed, 'push', '--quiet', remote, 'main:old-branch');
+      git(seed, 'switch', '--quiet', '--orphan', 'rewritten-main');
+      git(seed, 'commit', '--allow-empty', '-m', 'rewritten main');
+      git(seed, 'push', '--quiet', remote, '+HEAD:main');
+
+      execFileSync('git', ['clone', '--quiet', '--depth', '1', '--branch', 'old-branch', `file://${remote}`, shallow], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      git(shallow, 'fetch', '--quiet', '--depth', '1', 'origin', 'main:refs/remotes/origin/main');
+      expect(() => git(shallow, 'cat-file', '-e', `${shallowMarker}^{commit}`)).toThrow();
+
+      expect(checkOldHistory({
+        cwd: shallow,
+        markerRef: shallowMarker,
+        headRef: 'refs/remotes/origin/old-branch',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'main',
+      })).toMatchObject({ outcome: 'blocked' });
+      expect(git(shallow, 'rev-parse', '--is-shallow-repository')).toBe('false');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 });
