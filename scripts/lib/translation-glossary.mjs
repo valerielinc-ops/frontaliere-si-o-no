@@ -682,7 +682,9 @@ function tidySpacing(value = '') {
     // the punctuation pass, whose `[ \t]+` would otherwise retry a long run
     // from each of its characters (quadratic on `[] [] [] …`).
     .replace(/[ \t]{2,}/g, ' ')
-    .replace(/[ \t]+([,;:.!?])/g, '$1')
+    // `![` opens an image: the blank in front of it is not a blank before
+    // an exclamation mark.
+    .replace(/[ \t]+([,;:.?]|!(?!\[))/g, '$1')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/(^|[ \t])[-–—|,/]+[ \t]*$/gm, '$1')
     .replace(/[ \t]+$/gm, '')
@@ -1226,7 +1228,10 @@ function findOpaqueSpans(text) {
     if (character === ']' && text[index + 1] === '(') {
       const end = scanMarkdownLink(context, index);
       if (end > 0) {
-        spans.push({ start: index, end });
+        // Only the destination is opaque. The label and its closing bracket
+        // stay readable, so a placeholder used as link text (`[COMPANY](…)`)
+        // is still recognised as one.
+        spans.push({ start: index + 1, end, linkDestination: true });
         index = end;
         continue;
       }
@@ -1276,26 +1281,139 @@ function createOpaqueSlotPrefix(input) {
 }
 
 function maskOpaqueSpans(input, spans) {
-  if (!spans.length) return { masked: input, slots: [], prefix: '' };
+  if (!spans.length) return { masked: input, slots: [], prefix: '', linkSlots: new Set() };
   const prefix = createOpaqueSlotPrefix(input);
   const slots = [];
+  const linkSlots = new Set();
   let cursor = 0;
   let masked = '';
   for (const span of spans) {
     if (span.start < cursor) continue;
     masked += input.slice(cursor, span.start);
     const marker = `${prefix}${slots.length}\u0001`;
+    if (span.linkDestination) linkSlots.add(slots.length);
     slots.push(input.slice(span.start, span.end));
     masked += marker;
     cursor = span.end;
   }
-  return { masked: masked + input.slice(cursor), slots, prefix };
+  return { masked: masked + input.slice(cursor), slots, prefix, linkSlots };
 }
 
 function restoreOpaqueSlots(value, slots, prefix) {
   if (!slots.length) return value;
   const slotRe = new RegExp(`${escapeRegExp(prefix)}(\\d+)\\u0001`, 'g');
   return value.replace(slotRe, (_match, index) => slots[Number(index)] ?? '');
+}
+
+// Both walks go backwards from a link destination, stay on its line and stop
+// after MAX_LINK_PART_LENGTH characters: a label longer than the cap of every
+// other link part is left alone, and a line of thousands of links stays linear.
+function matchingOpenBracket(text, closeIndex) {
+  const floor = Math.max(0, closeIndex - MAX_LINK_PART_LENGTH);
+  let depth = 0;
+  for (let index = closeIndex; index >= floor && text[index] !== '\n'; index -= 1) {
+    if (text[index] === ']') depth += 1;
+    else if (text[index] === '[') {
+      depth -= 1;
+      if (depth === 0) return index;
+    }
+  }
+  return -1;
+}
+
+/** Nearest `[` before `end` that no `]` closes. */
+function lastUnclosedBracket(text, end) {
+  const floor = Math.max(0, end - MAX_LINK_PART_LENGTH);
+  let depth = 0;
+  for (let index = end - 1; index >= floor && text[index] !== '\n'; index -= 1) {
+    if (text[index] === ']') depth += 1;
+    else if (text[index] === '[') {
+      if (depth === 0) return index;
+      depth -= 1;
+    }
+  }
+  return -1;
+}
+
+/**
+ * What is left in front of a link destination once the placeholders are gone.
+ * The destination itself is never dropped: a URL must come back intact.
+ *
+ * - label with text: untouched, apart from the blanks a removed placeholder
+ *   left at its edges, and closed again when the placeholder took the closing
+ *   bracket with it (`[x [COMPANY]](…)` → `[x](…)`);
+ * - label emptied: the link keeps an empty label (`[COMPANY](…)` → `[](…)`,
+ *   `![COMPANY](…)` → `![](…)`), which is what a template placeholder in a
+ *   label has always produced. The empty brackets move into the opaque slot,
+ *   out of reach of the spacing pass that removes empty brackets.
+ */
+function repairLabelBefore(before) {
+  if (before.endsWith(']')) {
+    const empty = before.match(/(!?)\[[ \t]*\]$/);
+    if (empty) return { text: before.slice(0, empty.index), slotPrefix: `${empty[1]}[]` };
+    const open = matchingOpenBracket(before, before.length - 1);
+    if (open < 0) return { text: before, slotPrefix: '' };
+    const label = before.slice(open + 1, -1);
+    const trimmedLabel = label.replace(/^[ \t]+|[ \t]+$/g, '');
+    return {
+      text: trimmedLabel === label ? before : `${before.slice(0, open + 1)}${trimmedLabel}]`,
+      slotPrefix: '',
+    };
+  }
+  // The placeholder took the closing bracket of the label with it.
+  const trimmed = before.replace(/[ \t]+$/, '');
+  const open = lastUnclosedBracket(trimmed, trimmed.length);
+  if (open < 0) {
+    return trimmed.endsWith('!')
+      ? { text: trimmed.slice(0, -1), slotPrefix: '![]' }
+      : { text: before, slotPrefix: '[]' };
+  }
+  if (/[^ \t]/.test(trimmed.slice(open + 1))) return { text: `${trimmed}]`, slotPrefix: '' };
+  return trimmed[open - 1] === '!'
+    ? { text: trimmed.slice(0, open - 1), slotPrefix: '![]' }
+    : { text: trimmed.slice(0, open), slotPrefix: '[]' };
+}
+
+// How much text in front of a destination the repair may need: the label cap
+// plus the few characters of an image opener and its blanks.
+const LABEL_WINDOW = MAX_LINK_PART_LENGTH + 16;
+
+/**
+ * Walks the link destinations left to right and repairs what precedes each.
+ * The text already emitted is kept in `head`; only a short `tail` is ever
+ * re-read, so the pass stays linear on a line of tens of thousands of links
+ * (an anchored regular expression over the whole text, once per link, is not).
+ */
+function repairLinkLabels(value, maskedSpans) {
+  const { prefix, slots, linkSlots } = maskedSpans;
+  if (!linkSlots.size) return value;
+  const markerRe = new RegExp(`${escapeRegExp(prefix)}(\\d+)\\u0001`, 'g');
+  const head = [];
+  let tail = '';
+  let cursor = 0;
+  for (const match of value.matchAll(markerRe)) {
+    const segment = value.slice(cursor, match.index);
+    cursor = match.index + match[0].length;
+    if (segment.length > LABEL_WINDOW) {
+      head.push(tail, segment.slice(0, segment.length - LABEL_WINDOW));
+      tail = segment.slice(segment.length - LABEL_WINDOW);
+    } else {
+      tail += segment;
+    }
+    const slot = Number(match[1]);
+    if (linkSlots.has(slot)) {
+      const repaired = repairLabelBefore(tail);
+      tail = repaired.text;
+      if (repaired.slotPrefix) slots[slot] = repaired.slotPrefix + slots[slot];
+    }
+    tail += match[0];
+    if (tail.length > 4 * LABEL_WINDOW) {
+      head.push(tail.slice(0, tail.length - LABEL_WINDOW));
+      tail = tail.slice(tail.length - LABEL_WINDOW);
+    }
+  }
+  head.push(tail, value.slice(cursor));
+  return head.join('');
 }
 
 /** Remove template/placeholder tokens (see the design note above). */
@@ -1307,7 +1425,11 @@ export function stripPlaceholderTokens(text = '') {
     .replace(templatePlaceholderRe(), ' ')
     .replace(placeholderVocabRe(), ' ');
   if (out === maskedSpans.masked) return input;
-  return restoreOpaqueSlots(tidySpacing(out), maskedSpans.slots, maskedSpans.prefix);
+  return restoreOpaqueSlots(
+    tidySpacing(repairLinkLabels(out, maskedSpans)),
+    maskedSpans.slots,
+    maskedSpans.prefix,
+  );
 }
 
 /** True when the string still carries at least one letter or digit. */
