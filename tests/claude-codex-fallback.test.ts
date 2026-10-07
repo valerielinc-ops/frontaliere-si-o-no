@@ -158,7 +158,7 @@ const highConcurrencyReviewWorkflows = new Set([
   'pr-redcheck-fixer.yml',
 ]);
 
-const capabilityAwareBridgeWorkflows = new Set(['tests.yml', 'pr-redflag-fixer.yml']);
+const capabilityAwareBridgeWorkflows = new Set(['tests.yml', 'pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml']);
 const legacyBridgeToken = 'codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}';
 const writeCapableBridgeToken = "codex_github_token: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
 

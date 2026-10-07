@@ -183,8 +183,6 @@ const ALLOWED: Record<string, { reason: AllowReason; why: string }> = {
   'needs-human-sweep.yml :: sweep :: Run Codex Luna Max sweep': { reason: 'agent-bridge', why: 'corsia agente dello sweep' },
   'post-merge-followup.yml :: followup :: Run Codex Luna Max follow-up triage (batch)': { reason: 'agent-bridge', why: 'corsia agente del triage' },
   'pr-collision-detector.yml :: detect :: Detect funnel-critical collisions (deterministic, no Claude)': { reason: 'no-publish', why: 'commenta ed etichetta le PR' },
-  'pr-redcheck-fixer.yml :: redcheck-fix :: Configure push remote (App token / PAT)': { reason: 'agent-lane', why: 'remote del ❌-fixer, stessa identita del bridge' },
-  'pr-redcheck-fixer.yml :: redcheck-fix :: Run Codex Luna Max ❌-check-fix': { reason: 'agent-bridge', why: 'corsia agente; il push deterministico passa da Configure push remote' },
   'refresh-keyword-config.yml :: refresh :: Trigger deploy if config changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'refresh-search-cluster-301-map.yml :: refresh :: Trigger deploy if compat store changed': { reason: 'no-publish', why: 'dispatch del deploy' },
   'retry-code-check-after-body-edit.yml :: recover :: Retry a failed body or review gate on the current head': { reason: 'no-publish', why: 'rilancia una run' },
@@ -364,6 +362,7 @@ function selectWriteCapableToken(
 describe('PR loop: capacità write verificata prima delle mutation', () => {
   const testsWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'tests.yml'), 'utf8');
   const redflagWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pr-redflag-fixer.yml'), 'utf8');
+  const redcheckWorkflow = fs.readFileSync(path.join(WORKFLOWS_DIR, 'pr-redcheck-fixer.yml'), 'utf8');
 
   it('distingue un App token presente ma non capace dal PAT write-capable', () => {
     expect(selectWriteCapableToken('app-read-only', 'false', 'pat-write')).toBe('pat-write');
@@ -386,6 +385,22 @@ describe('PR loop: capacità write verificata prima delle mutation', () => {
     expect(String(bridgeWith.codex_github_token)).toBe(String(pushRemote.env?.PUSH_TOKEN));
     expect(pushIf).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
     expect(pushIf).not.toContain('secrets.GITHUB_TOKEN');
+  });
+
+  it('applica la stessa guardia al gemello redcheck, senza scegliere App solo presente', () => {
+    const guard = namedStep(redcheckWorkflow, 'redcheck-fix', 'Round cap + capability guard + tier');
+    const pushRemote = namedStep(redcheckWorkflow, 'redcheck-fix', 'Configure push remote (App token / PAT)');
+    const fixer = namedStep(redcheckWorkflow, 'redcheck-fix', 'Run Codex Luna Max ❌-check-fix');
+    const source = String(guard.run);
+
+    expect(String(guard.env?.HAS_WRITE_CAPABLE_TOKEN)).toContain('env.APP_TOKEN_DATA_REFRESH == \'true\'');
+    expect(String(pushRemote.env?.PUSH_TOKEN)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(fixer.with?.github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(fixer.with?.codex_github_token)).toBe(WRITE_CAPABLE_TOKEN);
+    expect(String(pushRemote.if)).toContain("env.APP_TOKEN_DATA_REFRESH == 'true'");
+    expect(String(pushRemote.if)).not.toContain('secrets.GITHUB_TOKEN');
+    expect(source.indexOf("if [ \"${HAS_WRITE_CAPABLE_TOKEN:-false}\" != 'true' ]")).toBeGreaterThanOrEqual(0);
+    expect(source.indexOf('MARKER_BODY=')).toBeGreaterThan(source.indexOf("if [ \"${HAS_WRITE_CAPABLE_TOKEN:-false}\" != 'true' ]"));
   });
 
   it('non scrive il marker di round prima del guard write-capable', () => {
