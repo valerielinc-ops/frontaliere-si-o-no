@@ -65,6 +65,7 @@ export function candidateRules(candidateLocale) {
 - Nationality or citizenship: only profile.nationality, choosing the option that names the same country (italiana = Italien = Italy); never from the address, the languages or the place of birth.
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
+- Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): only from what the candidate said (answers.salutation, or an answer in portalQuestionsAnswered), choosing the option that means the same in the form's language. Never guess it from the first name: when the candidate has not said, a required one is missing.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
@@ -208,21 +209,116 @@ export function ownStatusAnswer(candidate, label, value, { option = false } = {}
   return null;
 }
 
-/** The candidate already answered this very question with this answer (review page). */
-export function answeredByCandidate(candidate, question, answer) {
-  const asked = questionFromLabel(question).toLowerCase();
-  const given = String(answer || '').trim().toLowerCase();
-  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
-    .some((item) => questionFromLabel(item.question).toLowerCase() === asked && String(item.answer || '').trim().toLowerCase() === given);
-}
-
-// Declining to answer invents nothing: the one sensitive answer a rule may give.
-export const PREFER_NOT = /prefer not|rather not|decline to|^\s*n\.?\s?\/\s?a\.?\s*$|non specificato|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
-
 /** "Geschlecht* (erforderlich)" → "Geschlecht": the form's own label, without the required markers. */
 export function questionFromLabel(label) {
   return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
 }
+
+const ADDRESS_QUESTION_RE = /\b(address|adresse|indirizzo|via|rue|strasse|straße|street|civico|hausnummer)\b/i;
+const EDUCATION_QUESTION_RE = /\b(school|scuola|école|ecole|schule|university|universit[àaé]|universität|ausbildung|formation|education|études|etudes|stud(?:y|ies|io|i))\b/i;
+const CURRENT_EDUCATION_RE = /\b(current(?:ly)?|attual(?:e|mente)?|actuellement|en ce moment|derzeit|zurzeit|gegenwärtig|maintenant|present(?:ly)?|frequent(?:a|e|ano|ing)?|attend(?:s|ing)?|besuch(?:e|t|en|st)?|stud(?:y|ying|io|ia|iano|i))\b/i;
+const OTHER_OPTION_RE = /\b(other|autre|altro|altra|andere|autres|sonstiges|sonstige)\b/i;
+
+/** A stable topic for portal questions whose wording/field id varies by ATS or language. */
+export function questionTopic(label) {
+  const text = questionFromLabel(label);
+  if (isNationalityField(text)) return 'nationality';
+  if (isPermitField(text)) return 'permit';
+  if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
+  if (ADDRESS_QUESTION_RE.test(text)) return 'address';
+  if (EDUCATION_QUESTION_RE.test(text) && CURRENT_EDUCATION_RE.test(text)) return 'current_school';
+  return '';
+}
+
+function comparableAnswer(value) {
+  return String(value || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function equivalentAnswer(question, left, right) {
+  const a = comparableAnswer(left);
+  const b = comparableAnswer(right);
+  if (!a || !b) return false;
+  if (a === b) return true;
+  const topic = questionTopic(question);
+  if (topic === 'nationality') {
+    const leftCode = nationalityOf(left)?.code;
+    const rightCode = nationalityOf(right)?.code;
+    return Boolean(leftCode && rightCode && leftCode === rightCode);
+  }
+  if (topic === 'permit') {
+    const leftCode = permitStatusOf(left) || permitOptionCode(left);
+    const rightCode = permitStatusOf(right) || permitOptionCode(right);
+    return Boolean(leftCode && rightCode && leftCode === rightCode);
+  }
+  return false;
+}
+
+/** The candidate already answered this question, including a wording/ID variant. */
+export function candidateAnswerForQuestion(candidate, question) {
+  const items = (candidate?.portalQuestionsAnswered || []).filter((item) => String(item?.answer || '').trim());
+  const normalized = comparableAnswer(questionFromLabel(question));
+  const exact = items.find((item) => comparableAnswer(questionFromLabel(item.question)) === normalized);
+  if (exact) return String(exact.answer).trim();
+  const topic = questionTopic(question);
+  if (!topic) return '';
+  const semantic = items.find((item) => questionTopic(item.question) === topic);
+  return semantic ? String(semantic.answer).trim() : '';
+}
+
+function optionForAnswer(field, answer) {
+  const options = Array.isArray(field?.options) ? field.options : [];
+  if (!options.length) return String(answer || '').trim();
+  const exact = options.find((option) => comparableAnswer(option.label) === comparableAnswer(answer));
+  if (exact) return exact.label;
+  const topic = questionTopic(field.label);
+  if (topic === 'nationality') {
+    const answerCode = nationalityOf(answer)?.code;
+    const match = options.find((option) => answerCode && nationalityOf(option.label)?.code === answerCode);
+    if (match) return match.label;
+  }
+  if (topic === 'permit') {
+    const answerCode = permitStatusOf(answer) || permitOptionCode(answer);
+    const match = options.find((option) => answerCode && (permitStatusOf(option.label) || permitOptionCode(option.label)) === answerCode);
+    if (match) return match.label;
+  }
+  return '';
+}
+
+/** A safe answer already stated by the candidate, or the current institution from the CV. */
+export function candidateAnswerForField(candidate, field) {
+  const previous = candidateAnswerForQuestion(candidate, field?.label);
+  const topic = questionTopic(field?.label);
+  if (previous) {
+    const value = optionForAnswer(field, previous);
+    if (value) return { value, source: 'answers' };
+    if (topic === 'current_school' && field?.options?.length) {
+      const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
+      if (other) return { value: other.label, source: 'answers' };
+    }
+  }
+  if (topic !== 'current_school') return null;
+  const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();
+  if (!institution) return null;
+  if (!field?.options?.length) return { value: institution, source: 'profile' };
+  const exact = optionForAnswer(field, institution);
+  if (exact) return { value: exact, source: 'profile' };
+  const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
+  return other ? { value: other.label, source: 'profile' } : null;
+}
+
+/** The candidate already answered this very question with this answer (review page). */
+export function answeredByCandidate(candidate, question, answer) {
+  const given = String(answer || '').trim();
+  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
+    .some((item) => {
+      const sameQuestion = comparableAnswer(questionFromLabel(item.question)) === comparableAnswer(questionFromLabel(question))
+        || (questionTopic(item.question) && questionTopic(item.question) === questionTopic(question));
+      return sameQuestion && equivalentAnswer(question, item.answer, given);
+    });
+}
+
+// Declining to answer invents nothing: the one sensitive answer a rule may give.
+export const PREFER_NOT = /prefer not|rather not|decline to|^\s*n\.?\s?\/\s?a\.?\s*$|non specificato|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
 
 /** Every date written in the text, as YYYY-MM-DD (1990-05-12, 12.05.1990, 12/5/1990). */
 export function isoDates(text) {
@@ -335,6 +431,22 @@ export function guardPlan(plan, fields, candidate = null) {
   }
   // A skip answers nothing, and neither does an unchecked box.
   const answered = new Set(actions.filter((action) => !['skip', 'uncheck'].includes(action.action)).map((action) => action.fieldId));
+  // The page may expose a renamed/reworded version of a question already
+  // answered in the review. Reuse it before turning the field into a new hold.
+  for (const field of fields) {
+    if (!field.required || answered.has(field.id) || holdsValue(field)) continue;
+    const answer = candidateAnswerForField(candidate, field);
+    if (!answer) continue;
+    actions.push({
+      fieldId: field.id,
+      action: field.options?.length ? 'select' : 'fill',
+      value: answer.value,
+      document: 'none',
+      source: answer.source,
+      evidence: '',
+    });
+    answered.add(field.id);
+  }
   // A required field the plan leaves empty (omitted or skipped) is never
   // submitted blank: unless the page already holds a value, it is a question.
   for (const field of fields) {

@@ -66,6 +66,7 @@ import { inPlaceCvRecord } from './docx-inplace.mjs';
 import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
+import { questionTopic } from './portal/plan.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
@@ -292,8 +293,8 @@ export async function buildDraft(ctx) {
       codex,
       log,
     });
-    const known = new Set(questions.map((question) => question.id));
-    questions.push(...portal.filter((question) => !known.has(question.id)));
+    const known = new Set(questions.map((question) => questionTopic(question.question) || question.id));
+    questions.push(...portal.filter((question) => !known.has(questionTopic(question.question) || question.id)));
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
   // A portal's form asks the form of address («Title: Ms / Mr / Other»): asked
@@ -423,7 +424,7 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
 }
 
 // Fields every profile read by this version has (sanitizeProfile writes them, even empty).
-const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence'];
+const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence', 'currentEducation'];
 
 function profileOfThisVersion(profile) {
   return PROFILE_FIELDS.every((key) => key in profile) && (profile.experience || []).every((role) => typeof role?.kind === 'string');

@@ -76,6 +76,7 @@ export const PROFILE_SCHEMA = OBJ({
     highlights: LIST(S()),
   })),
   education: LIST(OBJ({ degree: S(), institution: S(), start: S(), end: S(), grade: S('Grade or average as written, else ""') })),
+  currentEducation: OBJ({ degree: S(), institution: S('Institution currently attended, as written, else ""'), start: S(), end: S(), grade: S() }),
   certifications: LIST(S()),
   // What the Swiss CV of an apprentice, of a health or an IT professional also carries (SDBB/CSFO templates).
   aptitudeTests: LIST(OBJ({ name: S('Multicheck, Basic-Check, Stellwerk, EVA, GRI… as written'), date: S(), results: S('Results as written') })),
@@ -104,6 +105,7 @@ Field rules:
 - experience.highlights: at most 6 per role, copied or minimally shortened; keep every number exactly as written.
 - experience.kind: job (employment), apprenticeship (a Lehre/apprendistato being done or done), internship, trial_apprenticeship (Schnupperlehre, stage d'orientation, stage di orientamento: a few days to try a trade), side_job (Nebenjob, petit job, lavoretto), volunteer.
 - aptitudeTests, recognitions, projects, interests (Hobbys, loisirs, tempo libero), references, drivingLicence: only what the CV states, copied.
+- currentEducation: only an education entry the CV explicitly says is current, ongoing or being attended now; copy its institution and wording exactly. Leave the whole object empty when the CV does not state that it is current. Do not infer it from the most recent date alone.
 - cvLanguage: ISO 639-1 code of the language the CV is written in.
 
 Reading the document:
@@ -230,6 +232,7 @@ questions: what ONLY the candidate can answer and the application needs, written
 - salary_expectation when the posting asks for it (type text, required true);
 - availability when the posting mentions a start date or notice period and the profile does not state it;
 - one question for each critical or high requirement whose status is missing only because the profile is silent on it (for example a driving licence, a certificate, a language level) — required true;
+- never ask which school or institution the candidate currently attends when profile.currentEducation.institution is non-empty; the portal runner maps that field from the profile;
 - nothing else. Keep at most 6 questions. required is true only when the application cannot honestly go out without the answer.
 validation (for every question): the rule the answer must satisfy, checked on the page while the candidate types. pattern = a JavaScript regular expression the WHOLE answer must match, "" when the type already says enough (choice, yes_no, date); keep it simple: no lookbehind, no backreferences, no nested quantifiers. minLength/maxLength in characters (0 when none). min/max for a number (null when none). minDate "today" for a start date, else "". example = one valid answer in the expected format. message = one short sentence in ${questionLanguage} on what a valid answer looks like.
 
