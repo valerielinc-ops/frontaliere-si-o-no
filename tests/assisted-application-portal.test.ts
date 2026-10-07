@@ -2,7 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { SENSITIVE, guardPlan, holdsValue, knownValuesOf, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { verificationIsPending } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { candidateForForm, clickPortalLink, isOtpVerificationPage, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -353,6 +353,13 @@ describe('portal runner helpers', () => {
       text: '',
     };
     expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: null })).toBe(true);
+    // Loading must win over the generic "successfully" match while the OTP
+    // request is still in flight, even if the transient snapshot has no fields.
+    expect(verificationOutcome({
+      errors: ['Chargement en cours…'],
+      text: 'Code successfully sent',
+      fields: [],
+    })).toBe('pending');
     expect(isOtpVerificationPage(otpPage, 'career5.successfactors.eu', { verifiedAt: 1 })).toBe(false);
     expect(isOtpVerificationPage(otpPage, 'sunrise.wd3.myworkdayjobs.com', { verifiedAt: null })).toBe(false);
     expect(isOtpVerificationPage({ ...otpPage, buttons: [] }, 'career5.successfactors.eu', { verifiedAt: null })).toBe(false);
