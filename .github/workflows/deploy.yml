@@ -1,81 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-    # paths-ignore è una DENYLIST applicata solo se TUTTI i file del push
-    # matchano (un push misto docs+codice deploya comunque). Sicuro per
-    # definizione: un path dimenticato deploya, non viene saltato.
-    # Obiettivo: non bruciare un build SEO da ~25min su merge che NON cambiano
-    # il dist deployato (deploy-starvation: build lungo vs merge ~5min via
-    # auto-merge PAT). I path sotto non sono letti dalla build del dist:
-    #   - docs/markdown, file CI/workflow, test, config agent: nessun output dist.
-    #   - telemetry/evidence-only data elencati più sotto: nessun import in
-    #     vite.config.ts o nei build-plugins; i commit misti con contenuto
-    #     restano deploy-bound.
-    # NON ignorati (toccano il dist): build-plugins/, services/, components/,
-    # scripts/ (assemble-jobs gira a build-time), data/jobs*, vite/index/package.
-    # NB: usiamo `*.md` (root) + `docs/**`, NON `**/*.md`: `public/**/*.md`
-    # (es. press-kit) è copiato verbatim da Vite (publicDir) nel dist → resta
-    # dist-bound e deve poter deployare.
-    #
-    # ⚠️ NON allargare questa lista con dati che possono alimentare il dist per
-    # curare la "deploy starvation" — è la leva sbagliata, misurato il
-    # 2026-08-06 sulle ultime 48h (#5251):
-    #   - 141 run di deploy: 121 cancellati, 10 success, 8 failure, 2 attivi.
-    #   - `paths-ignore` NON si applica a `workflow_dispatch`, e 40 dei 141 run
-    #     (28%) arrivano proprio da lì: 15 workflow di dati chiamano
-    #     scripts/lib/trigger-deploy.sh dopo aver committato (i push fatti con
-    #     GITHUB_TOKEN non innescano workflow, quindi dispatchano a mano).
-    #     Publisher jobs sync, Auto-translate, prezzi carburante, newsletter QA,
-    #     ALTEN, 404 sweep — sono TUTTI di quella famiglia. Allargare la
-    #     denylist ne intercetta zero.
-    #   - Dei 101 run da `push`, solo 2 hanno un commit di dati automatico:
-    #     su quel canale questa lista sta già facendo il suo lavoro.
-    #   - E i 121 run cancellati sono GRATIS: verificati uno per uno via REST,
-    #     121 su 121 avevano zero job avviati (cancellati mentre erano ancora
-    #     `pending`). Zero minuti-runner, e newest-wins garantisce che il build
-    #     successivo contenga comunque ogni commit superato.
-    # Il limite vero è la durata del build: mediana 130 min, e mediana del
-    # divario fra due build che PARTONO 128 min — la coda è satura, non affamata.
-    paths-ignore:
-      - 'data/border-wait-current.json'
-      # Browser-servable copy of the same file (services/borderWaitCurrentService.ts,
-      # issue #4892), written in the SAME commit/call as data/border-wait-current.json
-      # by scripts/snapshot-border-wait-history.mjs. Ignored for the same reason as
-      # the line above: traffic-scheduler.yml commits it on each scheduled collection, and a
-      # full SEO deploy per commit would be a deploy-storm. Accepted tradeoff:
-      # freshness = as fresh as the next deploy triggered by something else (same
-      # contract already accepted for data/border-wait-current.json's SSG usage).
-      - 'public/data/border-wait-current.json'
-      - 'data/border-wait-history/**'
-      - 'data/build-history/**'
-      # The SEO health loop persists evidence/state with an App-token push,
-      # but those files are not part of the dist.  Keep recovery state from
-      # consuming a full Pages build slot; a compat-shard change still stays
-      # deploy-bound through its own path.
-      - 'data/seo-health-state.json'
-      - 'data/seo-health/**'
-      - 'data/border-wait-averages.json'
-      - 'public/data/border-wait-averages.json'
-      # collect-road-events.yml commits these every 3 hours; no build plugin
-      # reads them (the articles repo reads the CDN copy), so they ride the
-      # next deploy instead of starting one each.
-      - 'data/road-events.json'
-      - 'public/data/road-events.json'
-      - 'data/weather-snapshot.json'
-      # Telemetria/evidence-only: se lo stesso push contiene anche data/jobs,
-      # articoli o altri input della build, GitHub non applica paths-ignore.
-      - 'data/loop-fleet/**'
-      - 'data/translation-observability-history.json'
-      - 'data/translation-observability-state.json'
-      - 'data/translation-stats-history.json'
-      - '*.md'
-      - 'docs/**'
-      - '.github/**'
-      - 'tests/**'
-      - '.claude/**'
+  # Pushes are admitted by deploy-request.yml, a short control-plane workflow
+  # that coalesces requests without occupying the build lock. Keeping this
+  # workflow dispatch-only is the important invariant: a push can never enter
+  # GitHub's one-running/one-pending replacement queue and cancel a production
+  # build before its first job starts.
   workflow_dispatch:
     inputs:
       article_id:
@@ -133,10 +63,11 @@ permissions:
   issues: write     # for github-issue-creator on build/deploy failure
 
 # Workflow-level serialisation of the BUILD block (matrix-setup → prep →
-# build-locale ×4). Exactly one build run is active at a time; newer pushes
-# queue as pending and, on the 1-running-+-1-pending cap, the superseded middle
-# run is dropped (newest-wins — correct for a cumulative cron-driven site where
-# the latest build already contains the intermediate commits).
+# build-locale ×4). Exactly one build run is active at a time. Normal push
+# admission happens in deploy-request.yml, which coalesces a continuous stream
+# before it reaches this expensive workflow; if multiple explicit dispatches
+# race, GitHub may still retain one pending run and replace only that pending
+# member. The in-progress build is never cancelled.
 #
 # Crucially, this run now ENDS at the build: deploy / validate / publish moved to
 # the separate `deploy-publish.yml` workflow (triggered by this run's success via
@@ -2617,7 +2548,7 @@ jobs:
   # THE HOLE. `pages-build-run` keeps 1 running + 1 pending and drops the
   # superseded middle. That is newest-wins and it is correct — on a linear
   # `main` the newer build already contains what it superseded, and the
-  # paths-ignore comment at the top of this file records that those
+  # paths-ignore comment in deploy-request.yml records that those
   # cancellations start zero jobs and cost nothing. But nothing in the design
   # restarts the pipeline when it reaches a terminal state with NOTHING queued
   # behind it. Measured across the 100 runs from 2026-08-06T12:37Z to

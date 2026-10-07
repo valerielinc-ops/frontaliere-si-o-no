@@ -20,6 +20,7 @@ import YAML from 'yaml';
 const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const DEPLOY_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy.yml'), 'utf-8');
+const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 // Every workflow that uploads dist/audit-reports/** as an artifact — the
 // directory scripts/lib/auditReport.mjs writes to (discover-eligibility.json
@@ -622,13 +623,13 @@ describe('deploy.yml — wall-time delle fasi post-build nella storia committata
   });
 
   it('#7548 — gli append di build-history non riattivano un deploy completo', () => {
-    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const workflow = YAML.parse(DEPLOY_REQUEST_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toContain('data/build-history/**');
   });
 
   it('ignora solo i commit di telemetria che non alimentano il dist', () => {
-    const workflow = YAML.parse(DEPLOY_YML) as any;
+    const workflow = YAML.parse(DEPLOY_REQUEST_YML) as any;
     const ignored = workflow.on?.push?.['paths-ignore'] ?? [];
     expect(ignored).toEqual(expect.arrayContaining([
       'data/loop-fleet/**',

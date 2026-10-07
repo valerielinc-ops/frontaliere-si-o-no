@@ -6,12 +6,13 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * ── WHAT ACTUALLY GOES WRONG ────────────────────────────────────────────────
  * deploy.yml serialises the build under `pages-build-run` with
  * `cancel-in-progress: false`, so GitHub keeps 1 running + 1 pending and drops
- * the superseded middle. That is newest-wins and it is CORRECT on a linear
- * `main`: the newer build already contains the commits it superseded.
+ * only a superseded pending dispatch. That is newest-wins and it is CORRECT on
+ * a linear `main`: the newer build already contains the commits it superseded;
+ * deploy-request.yml keeps ordinary push bursts out of this expensive queue.
  *
  * Measured over the 100 deploy.yml runs from 2026-08-06T12:37Z to
  * 2026-08-08T05:58Z (~41 h): 82 cancelled, 10 success, 6 failure, 2 in flight.
- * The 82 cancellations are the design working — deploy.yml's own paths-ignore
+ * The 82 cancellations are the design working — deploy-request.yml's paths-ignore
  * comment records that 121/121 of them started zero jobs, i.e. they were
  * cancelled while still pending and cost nothing. Chasing that number is the
  * wrong lever, and this script does not try to.
