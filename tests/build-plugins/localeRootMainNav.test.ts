@@ -171,6 +171,9 @@ describe('locale-root SPA shells — internal links (#5428)', () => {
     expect(discovery).toContain('id="hp-related-guides"');
     expect(discovery).toContain('id="hp-directory-hubs"');
     expect(discovery).toContain('id="hp-canton-nav"');
+    // Il gruppo di hub ha un titolo visibile, come gli altri due rail.
+    expect(discovery).toContain('<h2 class="hp-discovery-heading" id="hpCrossHubsTitle">Lavoro e archivi</h2>');
+    expect(discovery).toContain('<nav class="hp-cross-hub-links" aria-labelledby="hpCrossHubsTitle">');
     expect(discovery).not.toContain(' style=');
   });
 

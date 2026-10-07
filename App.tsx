@@ -288,6 +288,7 @@ import { isSiteAdminUid } from '@/services/adminIdentity';
 import { FOOTER_LINK_GROUP_CLASS } from '@/components/footer/footerLinkGroup';
 import type { FuelStationMapPayload } from '@/components/pages/FuelStationMap';
 
+import StaticPrefooterSlot from '@/components/shared/StaticPrefooterSlot';
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
 
 const LazyFallback = () => <SkeletonFallback />;
@@ -3406,6 +3407,11 @@ const App: React.FC = () => {
    // rendered height (lazy weather/newsletter/donation/sponsor logos) diverged
    // too much from the 1600px intrinsic-size. Widgets stay Suspense-lazy.
    const footerJsx = (
+ <>
+ {/* I blocchi statici che il build emette dopo #root (rail di discovery,
+     pannello SEO) vengono adottati qui, subito sopra il footer: restano
+     nell'HTML servito per i crawler ma non compaiono piu' dopo il copyright. */}
+ <StaticPrefooterSlot pathname={typeof window !== 'undefined' ? window.location.pathname : '/'} />
  <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10">
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
@@ -4197,6 +4203,7 @@ const App: React.FC = () => {
  </div>
  </div>
  </footer>
+ </>
    );
    return footerPortalTarget ? createPortal(footerJsx, footerPortalTarget) : footerJsx;
  })()}
