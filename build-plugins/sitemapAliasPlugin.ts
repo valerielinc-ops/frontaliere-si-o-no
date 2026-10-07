@@ -61,6 +61,8 @@ const EXCLUDED_SITEMAP_FILES = new Set<string>([
 
 /** Match `sitemap-<name>.xml` — underscore separator is reserved for legacy. */
 const SITEMAP_FILE_PATTERN = /^sitemap-[a-z0-9][a-z0-9-]*\.xml$/i;
+const ARTICLE_SITEMAP_FILE_PATTERN = /^sitemap-(?:blog(?:-ch)?|locale-variants(?:-\d+)?|news)\.xml$/i;
+const NOINDEX_ROBOTS_RE = /<meta(?=[^>]*name=["']?robots["']?)(?=[^>]*content=["']?[^"'>]*noindex)/i;
 
 export interface DiscoveredSitemap {
   file: string;
@@ -100,6 +102,72 @@ export async function discoverSitemapFiles(distDir: string): Promise<DiscoveredS
   // Alphabetical sort — stable, deterministic output across builds.
   discovered.sort((a, b) => a.file.localeCompare(b.file));
   return discovered;
+}
+
+/**
+ * Remove noindex article URLs from the article sitemap families.
+ *
+ * Article pages can be temporarily noindex while an upstream corpus repair
+ * replaces a prompt placeholder. The HTML remains live for users and links,
+ * but a noindex URL must not remain in `sitemap-blog*`, the locale-variant
+ * backfill, or the news sitemap. Missing HTML is kept: a locale shard may
+ * own that page in another artifact, so absence in this dist is not evidence
+ * that the URL is invalid.
+ */
+export async function reconcileArticleSitemapsWithDist(distDir: string): Promise<number> {
+  if (!fs.existsSync(distDir)) return 0;
+
+  const files = fs
+    .readdirSync(distDir)
+    .filter((file) => ARTICLE_SITEMAP_FILE_PATTERN.test(file))
+    .map((file) => ({ file, xml: fs.readFileSync(path.join(distDir, file), 'utf-8') }));
+  if (files.length === 0) return 0;
+
+  const locs = [...new Set(files.flatMap(({ xml }) => extractSitemapLocs(xml)))];
+  const noindexLocs = new Set<string>();
+  await Promise.all(locs.map(async (loc) => {
+    let pathname: string;
+    try {
+      pathname = new URL(loc).pathname.replace(/\/+$/, '');
+    } catch {
+      return;
+    }
+    const relative = pathname.replace(/^\/+/, '');
+    if (!relative) return;
+    const candidates = [
+      path.join(distDir, relative, 'index.html'),
+      path.join(distDir, `${relative}.html`),
+    ];
+    for (const candidate of candidates) {
+      try {
+        const html = await fs.promises.readFile(candidate, 'utf-8');
+        if (NOINDEX_ROBOTS_RE.test(html)) noindexLocs.add(loc);
+        return;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error;
+        // A missing page may belong to another locale shard; retain its loc.
+      }
+    }
+  }));
+
+  if (noindexLocs.size === 0) return 0;
+
+  let dropped = 0;
+  for (const { file, xml } of files) {
+    const next = dropUrlBlocksByLoc(xml, [...noindexLocs]);
+    if (next.dropped === 0) continue;
+    dropped += next.dropped;
+    const target = path.join(distDir, file);
+    if (extractSitemapLocs(next.xml).length === 0) fs.rmSync(target, { force: true });
+    else fs.writeFileSync(target, next.xml, 'utf-8');
+  }
+
+  if (dropped > 0) {
+    console.log(
+      `\x1b[33m[sitemap-alias]\x1b[0m removed ${dropped} noindex article URL(s) from sitemap dist output`,
+    );
+  }
+  return dropped;
 }
 
 /**
@@ -420,6 +488,11 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         //    stale foreign-locale shard before the jobs writer resolves.
         await jobsSeoPagesFlushed;
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
+
+        // Article translations can be temporarily quarantined with
+        // `noindex,follow` while the corpus retranslation lands. Keep those
+        // live recovery pages out of the article sitemap families.
+        await reconcileArticleSitemapsWithDist(distDir);
 
         // 1. Hreflang-reciprocity sanitizer (issue #3474). Runs BEFORE the
         //    legacy alias copy so sitemap_news.xml inherits sanitized
