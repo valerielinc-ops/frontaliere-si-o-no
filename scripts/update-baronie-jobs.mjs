@@ -53,6 +53,7 @@ import {
   buildBaronieLocalizedContent,
   titleOverlap,
   isSwissJob,
+  isBaronieDetailComplete,
 } from './lib/baronie-job-parser.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
@@ -343,6 +344,32 @@ function cleanStoredJobsOnSoftExit() {
   });
 }
 
+function writeBaronieFilteredEmptySummary(counts) {
+  const durationMs = getCrawlerElapsedMs();
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: 0,
+    lastFetchOutcome: counts.lastFetchOutcome,
+    abortKind: null,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: 0,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: [],
+    unchangedJobs: [],
+  });
+}
+
 async function main() {
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
@@ -355,7 +382,7 @@ async function main() {
   // (a NON-geographic drop) reads as `discovered > 0, written === 0`, exactly
   // like a legitimate "found jobs, none Swiss" run, and check-crawler-health
   // calls a broken crawler healthy.
-  const counts = { discovered: null, parsed: null, abortKind: null };
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Baronie', counts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Baronie — Dedicated Crawler');
@@ -380,7 +407,7 @@ async function main() {
   let detailFetchFailures = 0;
   for (const url of jobUrls) {
     const detail = await fetchBaronieDetailPage(url, TIMEOUT_MS);
-    if (detail) {
+    if (isBaronieDetailComplete(detail)) {
       const swiss = isSwissJob(detail);
       console.log(`  ${swiss ? '✅' : '⏭️ '} ${detail.detailTitle || '(no title)'} → ${detail.location || '(no location)'} [${detail.sectionCount} sections, ${detail.markdown.length} chars]${swiss ? '' : ' — SKIPPED (not Swiss)'}`);
       if (swiss) {
@@ -396,7 +423,16 @@ async function main() {
   console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
   counts.parsed = parsed.length;
   if (parsed.length === 0) {
-    counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
+    if (detailFetchFailures === 0) {
+      // Every detail page was parsed and classified, so this is a complete
+      // source-backed geographic filter result. Publish the heartbeat before
+      // preserving the prior slice; the exit guard would correctly classify
+      // an unreported early return as an incomplete run.
+      counts.lastFetchOutcome = 'filtered_empty';
+      writeBaronieFilteredEmptySummary(counts);
+    } else {
+      counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
+    }
     console.log('⚠️ No Swiss jobs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;
