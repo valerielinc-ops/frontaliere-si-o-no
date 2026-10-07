@@ -68,8 +68,18 @@ export function verificationOutcome(after) {
   return form.some((field) => field.kind === 'file') || form.length >= 3 ? 'accepted' : 'unconfirmed';
 }
 
-/** The OTP page is still processing the click; its code field is not a rejection yet. */
+/**
+ * The OTP page is still processing the click; its code field is not a
+ * rejection yet. SuccessFactors can also briefly expose an empty document
+ * while the post-verification route is loading, so that state must not be
+ * classified as an unconfirmed verification either.
+ */
 export function verificationIsPending(after) {
+  const hasVisibleResult = Boolean(String(after?.text || '').trim())
+    || Boolean(after?.fields?.length)
+    || Boolean(after?.buttons?.length)
+    || Boolean(after?.errors?.length);
+  if (!hasVisibleResult) return true;
   if (!codeField(after)) return false;
   return VERIFY_LOADING_RE.test([after.text, ...(after.errors || [])].filter(Boolean).join(' '));
 }

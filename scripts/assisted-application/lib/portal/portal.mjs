@@ -52,7 +52,7 @@ export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\
 // the posting for later by e-mail: never the way into the form.
 export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
 const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
-const OUTCOME_TIMEOUT_MS = 25_000;
+const OUTCOME_TIMEOUT_MS = 60_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
@@ -261,6 +261,29 @@ async function clickButton(page, button) {
   }
 }
 
+/**
+ * Click a portal link without pinning a stale ElementHandle. Some ATS pages
+ * re-render their navigation links while an application session starts; a
+ * locator can re-resolve the link, and its href gives us a safe navigation
+ * fallback when the click still times out.
+ */
+export async function clickPortalLink(page, link) {
+  const href = await link.getAttribute('href', { timeout: 6_000 }).catch(() => null);
+  try {
+    await link.click({ timeout: 6_000 });
+    return;
+  } catch (error) {
+    if (!href || /^(?:#|javascript:|mailto:|tel:)/i.test(String(href).trim())) throw error;
+    let target;
+    try {
+      target = new URL(href, page.url()).href;
+    } catch {
+      throw error;
+    }
+    await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  }
+}
+
 // Cookie banners: refuse the non-essential cookies when the banner offers it,
 // otherwise accept (the runner's own browser session, no candidate data).
 // SuccessFactors' own cookie manager (Rolex, 2026-10-03) names the cookies in
@@ -326,11 +349,12 @@ async function openApplicationForm(context, page, snapshot) {
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
     const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
-    const link = manual || apply ? null : await page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first().elementHandle().catch(() => null);
-    if (!manual && !apply && !link) return { page, snapshot };
+    const link = manual || apply ? null : page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first();
+    const linkCount = link ? await link.count() : 0;
+    if (!manual && !apply && !linkCount) return { page, snapshot };
     const popup = context.waitForEvent('page', { timeout: 6000 }).catch(() => null);
     if (manual || apply) await clickButton(page, manual || apply);
-    else await link.click();
+    else await clickPortalLink(page, link);
     page = (await popup) || page;
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
@@ -498,9 +522,9 @@ async function clickFirst(page, snapshot, patterns) {
       await clickButton(page, button);
       return true;
     }
-    const link = await page.getByRole('link', { name: pattern }).first().elementHandle().catch(() => null);
-    if (link) {
-      await link.click();
+    const link = page.getByRole('link', { name: pattern }).first();
+    if (await link.count()) {
+      await clickPortalLink(page, link);
       return true;
     }
   }
