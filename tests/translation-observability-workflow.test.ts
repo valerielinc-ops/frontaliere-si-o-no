@@ -291,7 +291,7 @@ describe('translation observability workflow', () => {
     }
   });
 
-  it('routes the pre-description title repair through the Codex Luna Max fallback', () => {
+  it('routes the pre-description title repair through Codex Luna Max in its default position', () => {
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
       const setupIndex = steps.findIndex((step) => step.id === 'setup_claude_haiku_fallback');
@@ -301,11 +301,11 @@ describe('translation observability workflow', () => {
       expect(setupIndex, `${label}: broker must start before title lane`).toBeLessThan(titleIndex);
       expect(steps[titleIndex]?.env).toMatchObject({
         CODEX_AUTH_BROKER_SOCKET: '${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}',
-        FREE_TRANSLATE_CODEX_TIER: 'last',
-        FREE_TRANSLATE_CODEX_MAX_MS: '1500000',
+        FREE_TRANSLATE_CODEX_MAX_MS: '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
         FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
       });
+      expect(steps[titleIndex]?.env).not.toHaveProperty('FREE_TRANSLATE_CODEX_TIER');
     }
   });
 

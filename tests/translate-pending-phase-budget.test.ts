@@ -124,14 +124,14 @@ describe.each(TARGETS)('translate-pending phase budget (%s)', (rel) => {
     expect(decision.remainingMs).toBeGreaterThanOrEqual(30 * MIN);
   });
 
-  it('sends the title residue to the free cascade with Codex only as its last tier, gated like the re-assemble that keeps its writes', () => {
+  it('sends the title residue to the cascade with Codex in its default position, gated like the re-assemble that keeps its writes', () => {
     expect(titlesEarly.step.run).toBe('node scripts/fix-untranslated-titles.mjs');
-    // Codex Luna Max reaches the title lane after Argos (2a) and only once the
-    // free tiers gave nothing: never the primary tier here, and never past the
-    // window of the lane itself.
+    // Codex Luna Max reaches the title lane after Argos (2a), in the default
+    // position of the cascade (no legacy override), and leaves part of the
+    // lane's window to the other tiers.
     expect(titlesEarly.step.env?.CODEX_AUTH_BROKER_SOCKET).toContain('steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket');
-    expect(titlesEarly.step.env?.FREE_TRANSLATE_CODEX_TIER).toBe('last');
-    expect(Number(titlesEarly.step.env?.FREE_TRANSLATE_CODEX_MAX_MS)).toBeLessThanOrEqual(titlesWindowMs);
+    expect(titlesEarly.step.env).not.toHaveProperty('FREE_TRANSLATE_CODEX_TIER');
+    expect(Number(titlesEarly.step.env?.FREE_TRANSLATE_CODEX_MAX_MS)).toBeLessThan(titlesWindowMs);
     expect(titlesEarly.step.env).not.toHaveProperty('AZURE_TRANSLATOR_KEY');
     for (const clause of String(reassemble.step.if).split(' && ')) {
       expect(titlesEarly.step.if).toContain(clause);
