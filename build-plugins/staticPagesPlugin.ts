@@ -25,6 +25,7 @@ import { stableChunkFile, stableChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
 import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { hasArticleBodyPromptPlaceholder } from '../packages/articles/engine/shared/articleBodyQuality';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
@@ -5334,6 +5335,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localizedBody = articleId
  ? blogBodyByLocale[localeKey as 'it' | 'en' | 'de' | 'fr'][articleId] ?? blogBodyByLocale.it[articleId]
  : undefined;
+ const articleBodyHasPromptPlaceholder = isBlogDetailPage && hasArticleBodyPromptPlaceholder(localizedBody);
+ const articleRobots = NOINDEX_CANONICAL_PATHS.has(canonicalPath)
+ ? 'noindex, nofollow'
+ : articleBodyHasPromptPlaceholder
+ ? 'noindex,follow'
+ : ROBOTS_INDEX_ENHANCED_CONTENT;
  const blogBodySections = cleanupArticleBodySections([
  { key: 'body1', text: localizedBody?.body1 },
  { key: 'body2', text: localizedBody?.body2 },
@@ -5854,7 +5861,7 @@ ${staticHubMainHtml}${isJobBoardHub ? '' : railGridClose}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+ <meta name="robots" content="${articleRobots}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
@@ -5895,7 +5902,7 @@ ${hrefTags}
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
  <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
- <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
+ <meta name="robots" content="${articleRobots}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
