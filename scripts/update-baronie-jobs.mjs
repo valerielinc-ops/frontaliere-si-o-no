@@ -370,7 +370,7 @@ function writeBaronieFilteredEmptySummary(counts) {
   });
 }
 
-async function main() {
+export async function main() {
   setCrawlerStartTime();
   // `counts.discovered` (issue #5945) lets the summary-guard exit fallback
   // report a non-zero pre-filter count when a later "0 Swiss jobs" early
@@ -422,17 +422,22 @@ async function main() {
 
   console.log(`\n🇨🇭 Swiss jobs: ${parsed.length} / ${jobUrls.length} total`);
   counts.parsed = parsed.length;
-  if (parsed.length === 0) {
-    if (detailFetchFailures === 0) {
-      // Every detail page was parsed and classified, so this is a complete
-      // source-backed geographic filter result. Publish the heartbeat before
-      // preserving the prior slice; the exit guard would correctly classify
-      // an unreported early return as an incomplete run.
-      counts.lastFetchOutcome = 'filtered_empty';
-      writeBaronieFilteredEmptySummary(counts);
-    } else {
+  if (detailFetchFailures > 0 || parsed.length === 0) {
+    if (detailFetchFailures > 0) {
+      // A single unreadable detail makes the filtered result incomplete even
+      // when another Swiss detail was usable. Do not let a partial snapshot
+      // replace the stored slice or remove jobs that were not re-read.
       counts.abortKind = classifyBaronieEmptyResult(detailFetchFailures);
+      console.log(`⚠️ ${detailFetchFailures} detail page(s) failed — preserving the stored slice and refusing partial publication.`);
+      return;
     }
+
+    // Every detail page was parsed and classified, so this is a complete
+    // source-backed geographic filter result. Publish the heartbeat before
+    // preserving the prior slice; the exit guard would correctly classify
+    // an unreported early return as an incomplete run.
+    counts.lastFetchOutcome = 'filtered_empty';
+    writeBaronieFilteredEmptySummary(counts);
     console.log('⚠️ No Swiss jobs found — skipping.');
     await cleanStoredJobsOnSoftExit();
     return;

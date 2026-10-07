@@ -207,6 +207,18 @@ describe('isBaronieDetailComplete', () => {
     expect(isBaronieDetailComplete(result)).toBe(true);
   });
 
+  it('rejects an intro-only detail when the body container is missing', () => {
+    const result = parseBaronieDetailHtml(`<!DOCTYPE html>
+      <html><head><script type="application/ld+json">${GRAPH_JSON_LD_SWISS}</script></head>
+      <body><article class="s-entry__content s-text-markup">
+        <h1 class="s-text-medium-large">Production Operator</h1>
+        <p class="s-text-medium">Intro text that is not the posting body.</p>
+      </article></body></html>`);
+
+    expect(result?.bodyMarkdown).toBe('');
+    expect(isBaronieDetailComplete(result)).toBe(false);
+  });
+
   it('rejects a detail-shaped response that cannot be classified safely', () => {
     expect(isBaronieDetailComplete({ detailTitle: 'Unknown', markdown: '', location: '' })).toBe(false);
   });

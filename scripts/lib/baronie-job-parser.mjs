@@ -114,7 +114,8 @@ function extractParagraphs(html) {
 
 /**
  * Parse a Baronie detail page HTML into structured content.
- * Returns { detailTitle, introText, sections[], markdown, sectionCount, location, company, sourceTextLength }
+ * Returns { detailTitle, introText, preambleText, sections[], bodyMarkdown,
+ * markdown, sectionCount, location, company, sourceTextLength }
  */
 export function parseBaronieDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
@@ -177,17 +178,23 @@ export function parseBaronieDetailHtml(html) {
     }
   }
 
-  // Build markdown
-  const parts = [];
-  if (introText) parts.push(introText);
-  if (preambleText && preambleText !== introText) parts.push(preambleText);
+  // Keep the body separate from the intro. The aggregate `markdown` is used
+  // for the published description, but it must not be used as evidence that
+  // the source body was parsed: an intro-only response can otherwise look
+  // complete when the body container disappears after a markup drift.
+  const bodyParts = [];
+  if (preambleText) bodyParts.push(preambleText);
   for (const sec of sections) {
     if (sec.items.length > 0) {
-      parts.push(`\n## ${sec.heading}\n${sec.items.map((it) => `- ${it}`).join('\n')}`);
+      bodyParts.push(`\n## ${sec.heading}\n${sec.items.map((it) => `- ${it}`).join('\n')}`);
     } else if (sec.paragraphs.length > 0) {
-      parts.push(`\n## ${sec.heading}\n${sec.paragraphs.join('\n')}`);
+      bodyParts.push(`\n## ${sec.heading}\n${sec.paragraphs.join('\n')}`);
     }
   }
+  const bodyMarkdown = bodyParts.join('\n').trim();
+  const parts = [];
+  if (introText) parts.push(introText);
+  if (bodyMarkdown && bodyMarkdown !== introText) parts.push(bodyMarkdown);
   const markdown = parts.join('\n').trim();
 
   // Extract JSON-LD for location and company info
@@ -228,6 +235,7 @@ export function parseBaronieDetailHtml(html) {
     introText,
     preambleText,
     sections,
+    bodyMarkdown,
     markdown,
     sectionCount: sections.length,
     location,
@@ -248,7 +256,7 @@ export function isBaronieDetailComplete(detail) {
     detail
       && typeof detail === 'object'
       && String(detail.detailTitle || '').trim()
-      && String(detail.markdown || '').trim()
+      && String(detail.bodyMarkdown || '').trim()
       && (String(detail.addressCountry || '').trim() || String(detail.location || '').trim()),
   );
 }
