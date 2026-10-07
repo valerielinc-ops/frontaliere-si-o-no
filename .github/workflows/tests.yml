@@ -1249,6 +1249,10 @@ jobs:
             # bundles change. The services/locales/blog-body symlink is in the
             # checkout, but its corpus target is otherwise excluded.
             /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            # The prompt-placeholder quarantine tests render this article's
+            # real body in every locale; keep their runtime input in the sparse
+            # checkout instead of silently exercising the generic SEO fallback.
+            /packages/articles/content/blog-body/*/como-fai-giornate-autunno.ts
             /packages/articles/content/blog-body/de/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body/en/simulazione-fiscale-frontaliere-2026.ts
             /packages/articles/content/blog-body/fr/simulazione-fiscale-frontaliere-2026.ts
@@ -1366,6 +1370,7 @@ jobs:
           guard_base_ref: ${{ github.base_ref || github.event.merge_group.base_ref || 'main' }}
         run: |
           set -euo pipefail
+          guard_base_ref="${guard_base_ref:?guard_base_ref is required}"
           # Il checkout è tree:0 e conserva il grafo dei commit. Aggiorniamo il
           # solo remote-tracking ref del base senza depth: il marker e ogni
           # antenato necessario alla domanda restano risolvibili, senza scaricare
@@ -1970,7 +1975,11 @@ jobs:
         # `git merge-base` che gli step più in basso usano come fallback. Senza
         # `--depth` il fetch è quasi gratis: i commit ci sono già dal checkout,
         # qui manca solo il NOME del ref.
-        run: git fetch --no-tags origin "+refs/heads/${{ github.base_ref || 'main' }}:refs/remotes/origin/${{ github.base_ref || 'main' }}" || true
+        env:
+          TESTS_GUARD_REF: ${{ github.base_ref || 'main' }}
+        run: |
+          tests_guard_ref="${TESTS_GUARD_REF:?TESTS_GUARD_REF is required}"
+          git fetch --no-tags origin "+refs/heads/${tests_guard_ref}:refs/remotes/origin/${tests_guard_ref}" || true
 
       - name: Gate factuality of changed articles
         # Deterministic guard (incident 2026-07-28, article
@@ -1987,7 +1996,11 @@ jobs:
         # Each failure prints the required correction. Fix the content — never
         # loosen a threshold or delete the passage to get the gate green.
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_scope.outputs.ledger_only != 'true' }}
-        run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
+        env:
+          FACTUALITY_REF: ${{ github.base_ref || 'main' }}
+        run: |
+          factuality_ref="${FACTUALITY_REF:?FACTUALITY_REF is required}"
+          node scripts/audit-article-factuality.mjs --changed "origin/${factuality_ref}"
 
       - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
@@ -2398,15 +2411,18 @@ jobs:
       - name: Collect independent source gates
         id: collect-independent-gates
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && always() }}
+        env:
+          SOURCE_GUARDS_OUTCOME: ${{ steps.source-guards.outcome }}
+          INDEPENDENT_GATES_OUTCOME: ${{ steps.independent-gates.outcome }}
         run: |
           set +e
           state_dir="${RUNNER_TEMP}/tests-independent-gates"
           failures=0
-          if [ "${{ steps.source-guards.outcome }}" = "failure" ]; then
+          if [ "$SOURCE_GUARDS_OUTCOME" = "failure" ]; then
             echo "source guards failed"
             failures=1
           fi
-          if [ "${{ steps.independent-gates.outcome }}" != "skipped" ]; then
+          if [ "$INDEPENDENT_GATES_OUTCOME" != "skipped" ]; then
             expected_file="$state_dir/expected-labels"
             if [ ! -s "$expected_file" ]; then
               echo "::error::independent gate expected roster is missing or empty"
@@ -3940,8 +3956,10 @@ jobs:
           set -euo pipefail
           automerge=false
           autorebase=false
-          [ "$AUTOMERGE" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
-          [ "$AUTOREBASE" = "true" ] && autorebase=true
+          automerge_requested="${AUTOMERGE:-false}"
+          autorebase_requested="${AUTOREBASE:-false}"
+          [ "$automerge_requested" = "true" ] && [[ "$PR_NUMBER" =~ ^[1-9][0-9]*$ ]] && automerge=true
+          [ "$autorebase_requested" = "true" ] && autorebase=true
           {
             echo "automerge=$automerge"
             echo "autorebase=$autorebase"
@@ -4116,7 +4134,7 @@ jobs:
               echo '- Nessun token verificato con contents:write + pull_requests:write: nessun fallback su GITHUB_TOKEN, nessun autorebase e nessun push.'
               echo '- Native auto-merge: retry-native-automerge.yml ritentera con il PAT caricato da Remote Config.'
             elif [ "${AUTOREBASE:-false}" = 'true' ] && [ "${WORKFLOW_WRITE_CAPABLE:-false}" != 'true' ]; then
-              echo '- Autorebase: resta pending perché l’identità selezionata non ha `workflows:write` verificato; `pr-autorebase.mjs` non viene eseguito.'
+              echo "- Autorebase: resta pending perché l’identità selezionata non ha \`workflows:write\` verificato; \`pr-autorebase.mjs\` non viene eseguito."
             fi
             if [ "${AUTOREBASE:-false}" = 'true' ]; then
               echo "- Autorebase: verra rivalutato dal prossimo percorso del ciclo con un'identita write-capable e workflow-capable."

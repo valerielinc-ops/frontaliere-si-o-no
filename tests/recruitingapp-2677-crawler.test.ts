@@ -239,6 +239,21 @@ describe('E-Recruiting LLB-Gruppe Stellen crawler parser', () => {
       expect(requested).toContain('https://recruitingapp-2677.umantis.com/Vacancies/1983/Description/1');
     });
 
+    it('accepts a source postal code attached to an allowlisted foreign locality', async () => {
+      const { runtime } = sourceRuntime({
+        '1994': { title: 'Kundenberater:in', body: foreignDetail('Kundenberater:in', '9490 Vaduz') },
+        '1983': { title: 'Associate Institutional Banking', body: foreignDetail('Associate Institutional Banking', '9490 Eschen') },
+      });
+
+      const jobs = await fetchAllRecruitingapp2677Jobs(runtime);
+
+      expect(assertCompleteRecruitingapp2677Snapshot(jobs)).toBe(true);
+      expect(jobs.authoritativeSnapshotProof.details).toEqual(expect.arrayContaining([
+        expect.objectContaining({ locations: ['9490 Vaduz'] }),
+        expect.objectContaining({ locations: ['9490 Eschen'] }),
+      ]));
+    });
+
     it('preserves the generic rendered-empty proof for a genuinely empty board', async () => {
       const { runtime } = sourceRuntime({}, '<div>Es wurden noch keine Einträge erfasst</div>');
 
