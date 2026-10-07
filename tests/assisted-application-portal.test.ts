@@ -58,6 +58,40 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
   });
 
+  it('keeps the original DOM index when a SuccessFactors picklist has a blank option', async () => {
+    let selected = '';
+    const clicked: number[] = [];
+    const control = {
+      click: vi.fn(),
+      press: vi.fn(),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const options = {
+      first: () => ({ waitFor: vi.fn(async () => {}) }),
+      allInnerTexts: vi.fn(async () => ['', 'italienne']),
+      nth: (index: number) => ({ click: vi.fn(async () => { clicked.push(index); selected = 'italienne'; }) }),
+    };
+    const list = { getByRole: vi.fn(() => options) };
+    const frame = {
+      locator: vi.fn((selector: string) => selector.includes('data-aa-id') ? { first: () => control } : list),
+    };
+    const page = {
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: vi.fn(async () => {}),
+    };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: true,
+      ownedList: 'nationality_list',
+    }], [{ fieldId: 'nationality', action: 'select', value: 'italiana' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(clicked).toEqual([1]);
+  });
+
   it('drops invented sensitive answers and turns the required ones into questions', () => {
     const guarded = guardPlan({
       actions: [

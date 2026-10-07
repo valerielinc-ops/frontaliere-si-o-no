@@ -182,19 +182,22 @@ async function chooseInOwnedList(page, field, locator, value) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
-    const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(value));
-    const selectedLabel = exact || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+    const entries = (await options.allInnerTexts())
+      .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
+      .filter(({ label }) => Boolean(label));
+    const labels = entries.map(({ label }) => label);
+    const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
+    const selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
     if (!selectedLabel) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    const index = labels.findIndex((label) => normalizedChoice(label) === normalizedChoice(selectedLabel));
-    if (index < 0) {
+    const selected = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(selectedLabel));
+    if (!selected) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');
     }
-    await options.nth(index).click({ timeout: ACTION_TIMEOUT_MS });
+    await options.nth(selected.index).click({ timeout: ACTION_TIMEOUT_MS });
     // SuccessFactors writes the choice into the input a moment after the
     // click (Coop, 2026-10-03: «Nein» was there, the check had looked too
     // early). A Rolex picklist can also re-render once before committing the
