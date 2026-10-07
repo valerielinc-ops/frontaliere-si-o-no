@@ -661,4 +661,28 @@ jobs:
             --description "$DESC" \
             --priority 2 \
             --label automation \
+            --label agent:no-age-out \
             --workflow "Recycle stale PRs"
+
+          # `github-issue-creator` aggiunge le label solo quando apre una nuova
+          # issue: per una dedup già aperta scrive il recurrence comment ma non
+          # riconcilia le label. Il digest può quindi essere nato prima del pin
+          # o averlo perso, e tornare erroneamente nella coda del fixer. Cerca
+          # solo il titolo esatto (e scarta le PR) e riallinea il tracker nello
+          # stesso run; una risposta API illeggibile è failure, non «nessun digest».
+          gh label create "agent:no-age-out" \
+            --repo "$GH_REPO" \
+            --color "0e8a16" \
+            --description "Issue-contatore/tracker permanente: mai eleggibile all'age-out del followup-drainer (#5615)" \
+            2>/dev/null || true
+          if ! DEDUP_NUMBERS=$(gh api --paginate "repos/$GH_REPO/issues?state=open&per_page=100" \
+            --jq '.[] | select(.pull_request == null and .title == $ENV.DEDUP_TITLE) | .number'); then
+            echo "::error::Ricerca del digest needs-human per riallineare il pin fallita: label non verificata." >&2
+            exit 1
+          fi
+          for DEDUP_NUMBER in $DEDUP_NUMBERS; do
+            if ! gh issue edit "$DEDUP_NUMBER" --repo "$GH_REPO" --add-label agent:no-age-out; then
+              echo "::error::Pin agent:no-age-out non verificato sul digest #$DEDUP_NUMBER." >&2
+              exit 1
+            fi
+          done

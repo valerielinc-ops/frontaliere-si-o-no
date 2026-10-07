@@ -133,6 +133,15 @@ describe('recycle-stale-prs — digest needs-human a liste vuote', () => {
     expect(stepScript()).not.toContain(`"${TITLE}"`);
   });
 
+  it('crea e riallinea il digest come tracker esente dal fixer', () => {
+    const workflow = readFileSync(WORKFLOW_PATH, 'utf8');
+    const step = stepScript();
+    expect(step).toContain('--label agent:no-age-out');
+    expect(step).toContain('gh label create "agent:no-age-out"');
+    expect(step).toContain('select(.pull_request == null and .title == $ENV.DEDUP_TITLE)');
+    expect(step).toContain('--add-label agent:no-age-out');
+  });
+
   it('liste vuote: chiude il digest per NUMERO e titolo esatto, senza ripubblicarlo', () => {
     const run = runStep({ api: [PREFIX_TWIN, DIGEST, SAME_TITLE_PR] });
     expect(run.status, run.output).toBe(0);
