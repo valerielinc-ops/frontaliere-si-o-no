@@ -47,6 +47,7 @@ import {
   type JobsSnapshot,
   type WeeklyCountableJob,
 } from '../build-plugins/weeklyEmployersPlugin';
+import { stableOrganizationId } from '../services/seo/organizationLd';
 import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -487,6 +488,11 @@ describe('renderWeeklyEmployersPage', () => {
     const knownEmployerProfileSlugs = new Set<string>();
     const expectedBrandUrl =
       'https://frontaliereticino.ch/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/';
+    const expectedUnknownId = stableOrganizationId({
+      '@type': 'Organization',
+      name: unknown.employer,
+    });
+    expect(expectedUnknownId).toBeTruthy();
 
     const topHubHtml = renderTopHubPage({
       locale: 'it',
@@ -499,7 +505,7 @@ describe('renderWeeklyEmployersPage', () => {
     });
     const topHubOrganizations = extractOrganizationItems(topHubHtml);
     expect(topHubOrganizations).toHaveLength(2);
-    expect(topHubOrganizations[0]).not.toHaveProperty('@id');
+    expect(topHubOrganizations[0]).toMatchObject({ '@id': expectedUnknownId });
     expect(topHubOrganizations[0]).not.toHaveProperty('url');
     expect(topHubHtml).not.toContain(
       'https://frontaliereticino.ch/aziende-che-assumono/ticino/settimana-corrente/#organization',
@@ -530,7 +536,7 @@ describe('renderWeeklyEmployersPage', () => {
     });
     const cityOrganizations = extractOrganizationItems(cityHtml);
     expect(cityOrganizations).toHaveLength(2);
-    expect(cityOrganizations[0]).not.toHaveProperty('@id');
+    expect(cityOrganizations[0]).toMatchObject({ '@id': expectedUnknownId });
     expect(cityOrganizations[0]).not.toHaveProperty('url');
     expect(cityHtml).not.toContain(
       'https://frontaliereticino.ch/aziende-che-assumono/lugano/settimana-corrente/#organization',

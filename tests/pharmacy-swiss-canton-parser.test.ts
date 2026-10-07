@@ -163,13 +163,14 @@ describe('Swiss canton pharmacy calendar parser', () => {
     })).toThrow('Delémont pharmacy identity is not allowlisted: Unlisted Pharmacy');
   });
 
-  it('maps the address-qualified Ajoie Amavita label to its canonical identity', () => {
+  it('maps both current Ajoie Amavita labels to their canonical identity', () => {
     const formatDate = (offset: number) => {
       const date = new Date(Date.UTC(2026, 0, 1 + offset));
       return `${String(date.getUTCDate()).padStart(2, '0')}.${String(date.getUTCMonth() + 1).padStart(2, '0')}.${date.getUTCFullYear()}`;
     };
+    const labels = ['AMAVITA - MALVOISINS 1', 'AMAVITA PORRENTRUY'];
     const text = Array.from({ length: 45 }, (_, index) =>
-      `du ${formatDate(index)} au ${formatDate(index + 1)} Pharmacie AMAVITA - MALVOISINS 1`,
+      `du ${formatDate(index)} au ${formatDate(index + 1)} Pharmacie ${labels[index % labels.length]}`,
     ).join('\n');
 
     const parsed = extractAjoieRows(text, {

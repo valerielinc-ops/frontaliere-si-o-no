@@ -107,6 +107,9 @@ const AJOIE_AMAVITA_PORRENTRUY = Object.freeze({
 });
 const AJOIE_IDENTITIES = Object.freeze({
   AMAVITA: AJOIE_AMAVITA_PORRENTRUY,
+  // The source alternates between the bare town label and the street-qualified
+  // label for the same allowlisted Porrentruy pharmacy.
+  'AMAVITA PORRENTRUY': AJOIE_AMAVITA_PORRENTRUY,
   // The official Ajoie PDF now qualifies the same Porrentruy identity with
   // its street name. Keep the source alias on the canonical record instead of
   // treating the address-qualified label as a new pharmacy.
