@@ -1085,9 +1085,9 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-f233a1a05822",
-      "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -1146,7 +1146,15 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-7389cb34bec7",
@@ -1881,9 +1889,9 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-7066cac2481f",
-      "slug": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3",
+      "slug": "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3",
+        "it": "assistente-ambulatoriale-medico-mpa-afc-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
         "en": "medical-practice-assistant-mpa-efz-m-f-d-gesundheitszentrum-fricktal-rheinfelden-686009",
         "de": "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-89ualp",
         "fr": "assistant-e-medical-e-au-cabinet-medical-mpa-cfc-h-f-d-gesundheitszentrum-fricktal-rheinfelden-686009"
@@ -1930,11 +1938,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden-3"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-mpa-efz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"

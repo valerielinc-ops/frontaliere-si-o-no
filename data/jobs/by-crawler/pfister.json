@@ -141,7 +141,6 @@
       "pensum": "80%",
       "previousSlugs": [
         "it-systemadministrator-und-applikationsmanagerin-w-m-d-pfister-thorishaus",
-        "administrateur-du-systeme-informatique-et-gestionnaire-d-applications-h-f-d-mobel-pfister-ag-thorishaus",
         "it-systemadministrator-und-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus"
       ],
       "previousSlugsByLocale": {
@@ -153,7 +152,6 @@
         ],
         "fr": [
           "it-systemadministrator-und-applikationsmanagerin-w-m-d-pfister-thorishaus",
-          "administrateur-du-systeme-informatique-et-gestionnaire-d-applications-h-f-d-mobel-pfister-ag-thorishaus",
           "it-systemadministrator-und-applikationsmanagerin-m-w-d-mobel-pfister-ag-thorishaus"
         ]
       },
@@ -5932,9 +5930,9 @@
       "slug": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "it": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
-        "en": "immobilien-administrator-mobel-pfister-ag-suhr",
+        "en": "real-estate-management-business-mobel-pfister-ag-suhr",
         "de": "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "fr": "administrateur-immobilier-mobel-pfister-ag-suhr"
+        "fr": "gestion-immobiliere-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -5990,8 +5988,6 @@
         "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
         "immobilien-accountant-mobel-pfister-ag-suhr",
         "comptable-immobilier-mobel-pfister-ag-suhr",
-        "real-estate-management-business-mobel-pfister-ag-suhr",
-        "gestion-immobiliere-mobel-pfister-ag-suhr",
         "immobilien-administrator-mobel-pfister-ag-suhr",
         "administrateur-immobilier-mobel-pfister-ag-suhr"
       ],
@@ -6008,7 +6004,6 @@
         ],
         "en": [
           "personnel-real-estate-accountants-mobel-pfister-ag-suhr",
-          "real-estate-management-business-mobel-pfister-ag-suhr",
           "immobilien-administrator-mobel-pfister-ag-suhr"
         ],
         "de": [
@@ -6016,7 +6011,6 @@
         ],
         "fr": [
           "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
-          "gestion-immobiliere-mobel-pfister-ag-suhr",
           "administrateur-immobilier-mobel-pfister-ag-suhr"
         ]
       },
@@ -6118,7 +6112,7 @@
       "id": "pfister-0d61f03b0343",
       "slug": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
+        "it": "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
         "en": "installer-carpenter-f-m-d-mobel-pfister-ag-suhr",
         "de": "monteurin-schreinerin-w-m-d-pfister-suhr",
         "fr": "installateur-menuisier-f-m-d-mobel-pfister-ag-suhr"
@@ -6171,14 +6165,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "monteurin-schreinerin-w-m-d-pfister-suhr",
-        "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-        "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+        "montatore-falegname-f-m-d-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "monteurin-schreinerin-w-m-d-pfister-suhr",
-          "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-          "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+          "montatore-falegname-f-m-d-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:18.345Z",
@@ -6337,7 +6329,6 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
-        "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
         "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
@@ -6345,7 +6336,6 @@
           "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach"
         ],
         "en": [
-          "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
           "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
         ]
       },
@@ -6527,7 +6517,7 @@
       "id": "pfister-4bb75534ef3a",
       "slug": "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "responsabile-di-reparto-assortimenti-specialistici-m-w-d-mobel-pfister-ag-affoltern-am-albis",
+        "it": "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis",
         "en": "head-of-department-in-specialist-range-f-m-d-mobel-pfister-ag-affoltern-am-albis",
         "de": "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
         "fr": "chef-de-departement-dans-la-gamme-specialisee-f-m-d-mobel-pfister-ag-affoltern-am-albis"
@@ -6580,14 +6570,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
-        "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis",
-        "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis"
+        "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiterin-fachsortimente-w-m-d-pfister-affoltern-am-albis",
-          "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis",
-          "capo-dipartimento-di-specializzazione-f-m-d-mobel-pfister-ag-affoltern-am-albis"
+          "responsabile-di-reparto-assortimenti-specialistici-f-m-d-mobel-pfister-ag-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:11.801Z",

@@ -9130,9 +9130,9 @@
     },
     {
       "id": "ubs-ae672ac8b5f1",
-      "slug": "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich",
+      "slug": "ubs-card-center-ag-business-analyst-con-competenze-di-project-management-80-ubs-zurich",
       "slugByLocale": {
-        "it": "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich",
+        "it": "ubs-card-center-ag-business-analyst-con-competenze-di-project-management-80-ubs-zurich",
         "en": "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich",
         "de": "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich",
         "fr": "ubs-card-center-ag-analyste-d-affaires-avec-competences-en-gestion-de-projet-80-ubs-zurich"
@@ -9200,7 +9200,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ubs-card-center-ag-business-analyst-mit-projektmanagement-skills-80-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-d5bb4d07ea17",

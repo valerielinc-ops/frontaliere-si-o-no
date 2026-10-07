@@ -32436,7 +32436,7 @@
       "slug": "facade-fitter-m-f-yellowshark-ag-zurich-zh",
       "slugByLocale": {
         "it": "facade-fitter-m-f-yellowshark-ag-zurich-zh",
-        "en": "facade-fitter-m-w-d-yellowshark-ag-zurich",
+        "en": "fassadenmonteur-m-w-yellowshark-ag-zurich",
         "de": "fassadenmonteur-m-w-zurich-zh-yellowshark-ch",
         "fr": "fixeur-de-facade-h-f-yellowshark-ag-zurich-zh"
       },
@@ -32495,7 +32495,6 @@
           "fassadenmonteur-m-w-yellowshark-ag-zurich"
         ],
         "en": [
-          "fassadenmonteur-m-w-yellowshark-ag-zurich",
           "facade-fitter-m-w-d-yellowshark-ag-zurich"
         ],
         "de": [
@@ -53775,9 +53774,9 @@
     },
     {
       "id": "yellowshark-933675a5f05d",
-      "slug": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
+      "slug": "progettista-ingegnere-meccanico-con-mansioni-avor-m-f-80-100-yellowshark-ag-baar-zg",
       "slugByLocale": {
-        "it": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
+        "it": "progettista-ingegnere-meccanico-con-mansioni-avor-m-f-80-100-yellowshark-ag-baar-zg",
         "en": "designer-mechanical-engineer-with-avor-tasks-m-f-80-100-yellowshark-ag-baar-zg",
         "de": "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch",
         "fr": "concepteur-technicien-en-genie-mecanique-avec-taches-prealables-h-f-80-100-yellowshark-ag-baar-zg"
@@ -53825,12 +53824,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "engineer-mechanical-engineer-with-avor-tasks-m-f-80-100-yellowshark-ag-baar-zg",
-        "ingenieur-ingenieur-mecanique-avec-taches-avor-h-f-80-100-yellowshark-ag-baar-zg"
+        "ingenieur-ingenieur-mecanique-avec-taches-avor-h-f-80-100-yellowshark-ag-baar-zg",
+        "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineer-mechanical-engineer-with-avor-tasks-m-f-80-100-yellowshark-ag-baar-zg",
-          "ingenieur-ingenieur-mecanique-avec-taches-avor-h-f-80-100-yellowshark-ag-baar-zg"
+          "ingenieur-ingenieur-mecanique-avec-taches-avor-h-f-80-100-yellowshark-ag-baar-zg",
+          "konstrukteur-maschinenbautechniker-mit-avor-aufgaben-m-w-80-100-baar-zg-yellowshark-ch"
         ],
         "en": [
           "engineer-mechanical-engineer-with-avor-tasks-m-f-80-100-yellowshark-ag-baar-zg"
@@ -55752,16 +55753,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-        "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
+        "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
         ],
         "de": [
-          "hr-specialist-m-w-d-zug-zg-yellowshark-ch",
-          "personalwesen-spezialist-m-w-d-yellowshark-ag-zug"
+          "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
         ],
         "fr": [
           "hr-specialist-m-w-d-zug-zg-yellowshark-ch"
@@ -68207,7 +68206,7 @@
         "it": "controllore-esperto-80-yellowshark-ag-horgen-zh",
         "en": "experienced-controller-80-yellowshark-ag-horgen-zh",
         "de": "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-        "fr": "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
+        "fr": "controleur-experimente-80-yellowshark-ag-horgen-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -68252,7 +68251,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-        "controleur-experimente-80-yellowshark-ag-horgen-zh"
+        "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -68263,7 +68262,7 @@
         ],
         "fr": [
           "erfahrerne-r-controller-in-80-horgen-zh-yellowshark-ch",
-          "controleur-experimente-80-yellowshark-ag-horgen-zh"
+          "erfahrerne-r-controller-in-80-yellowshark-ag-horgen"
         ]
       },
       "needsRetranslation": true,
@@ -71880,12 +71879,12 @@
     },
     {
       "id": "yellowshark-8b49ea1c1e1b",
-      "slug": "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch",
+      "slug": "elettricisti-80-100-m-f-yellowshark-ag-rotkreuz-zg",
       "slugByLocale": {
         "de": "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "it": "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "en": "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "fr": "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        "it": "elettricisti-80-100-m-f-yellowshark-ag-rotkreuz-zg",
+        "en": "electricians-80-100-m-f-yellowshark-ag-rotkreuz-zg",
+        "fr": "electriciens-80-100-h-f-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -71943,16 +71942,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T22:04:37.047Z"
+      "firstSeenAt": "2026-10-06T22:04:37.047Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "en": [
+          "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-a6aadd0b56b2",
-      "slug": "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch",
+      "slug": "ingegneria-meccanica-automatica-m-f-100-yellowshark-ag-rotkreuz-zg",
       "slugByLocale": {
         "de": "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch",
-        "it": "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch",
-        "en": "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch",
-        "fr": "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch"
+        "it": "ingegneria-meccanica-automatica-m-f-100-yellowshark-ag-rotkreuz-zg",
+        "en": "automatic-mechanical-engineering-m-f-100-yellowshark-ag-rotkreuz-zg",
+        "fr": "ingenierie-mecanique-automatique-h-f-100-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72010,16 +72023,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T22:04:37.038Z"
+      "firstSeenAt": "2026-10-06T22:04:37.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch"
+        ],
+        "en": [
+          "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-maschinenbau-m-w-100-rotkreuz-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-e71fd757e2ca",
-      "slug": "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch",
+      "slug": "ingegneria-degli-ingegneri-80-100-m-f-yellowshark-ag-rotkreuz-zg",
       "slugByLocale": {
         "de": "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "it": "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "en": "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch",
-        "fr": "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        "it": "ingegneria-degli-ingegneri-80-100-m-f-yellowshark-ag-rotkreuz-zg",
+        "en": "engineer-engineering-80-100-m-f-yellowshark-ag-rotkreuz-zg",
+        "fr": "ingenieur-ingenierie-80-100-h-f-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72077,7 +72104,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T22:04:37.005Z"
+      "firstSeenAt": "2026-10-06T22:04:37.005Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "en": [
+          "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "konstrukteur-technik-80-100-m-w-rotkreuz-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-a55719aabbf6",
@@ -72085,8 +72126,8 @@
       "slugByLocale": {
         "de": "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch",
         "it": "leiter-elektro-technik-100-m-w-d-yellowshark-ag-rotkreuz",
-        "en": "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch",
-        "fr": "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
+        "en": "head-of-electrical-technology-100-m-f-d-yellowshark-ag-rotkreuz-zg",
+        "fr": "responsable-electrique-technologie-100-h-f-d-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72133,6 +72174,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
+        ],
+        "en": [
+          "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
           "leiter-elektro-technik-100-m-w-d-rotkreuz-zg-yellowshark-ch"
         ]
       },
@@ -72223,12 +72270,12 @@
     },
     {
       "id": "yellowshark-3ba49d282fc6",
-      "slug": "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch",
+      "slug": "consigliere-tecnico-del-cliente-m-f-yellowshark-ag-rotkreuz-zg",
       "slugByLocale": {
         "de": "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch",
-        "it": "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch",
-        "en": "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch",
-        "fr": "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch"
+        "it": "consigliere-tecnico-del-cliente-m-f-yellowshark-ag-rotkreuz-zg",
+        "en": "technical-customer-advisor-m-f-yellowshark-ag-rotkreuz-zg",
+        "fr": "conseiller-technique-client-h-f-yellowshark-ag-rotkreuz-zg"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72286,7 +72333,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T22:04:36.846Z"
+      "firstSeenAt": "2026-10-06T22:04:36.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "en": [
+          "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch"
+        ],
+        "fr": [
+          "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technischer-kundenberater-m-w-rotkreuz-zg-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-981d2f001a19",
@@ -72362,7 +72423,7 @@
       "slugByLocale": {
         "de": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
         "it": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
-        "en": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch",
+        "en": "hr-specialist-m-f-80-100-yellowshark-ag-rotkreuz-zg",
         "fr": "hr-fachperson-m-w-80-100-rotkreuz-zg-yellowshark-ch"
       },
       "company": "yellowshark AG",
@@ -72430,8 +72491,8 @@
       "slugByLocale": {
         "de": "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch",
         "it": "wirtschaftsinformatiker-projektleiter-erp-yellowshark-ag-emmen",
-        "en": "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch",
-        "fr": "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch"
+        "en": "business-informatics-specialist-project-manager-erp-yellowshark-ag-emmen-lu",
+        "fr": "specialiste-en-informatique-d-affaires-gestionnaire-de-projet-erp-yellowshark-ag-emmen-lu"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72479,6 +72540,12 @@
       "previousSlugsByLocale": {
         "it": [
           "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch"
+        ],
+        "en": [
+          "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch"
+        ],
+        "fr": [
+          "wirtschaftsinformatiker-projektleiter-erp-emmen-lu-yellowshark-ch"
         ]
       },
       "previousSlugs": [
@@ -72505,8 +72572,8 @@
       "slugByLocale": {
         "de": "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag",
         "it": "servicetechniker-inbetriebnehmer-per-weltweite-projekte-80-100-m-w-d-yellowshark-ag-wohlen-ag",
-        "en": "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag",
-        "fr": "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag"
+        "en": "service-technician-contractor-for-worldwide-projects-80-100-m-f-yellowshark-ag-wohlen-ag-ag",
+        "fr": "technicien-de-service-entrepreneur-pour-des-projets-mondiaux-80-100-h-f-yellowshark-ag-wohlen-ag-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72555,6 +72622,12 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag"
+        ],
+        "en": [
+          "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag"
+        ],
+        "fr": [
+          "servicetechniker-inbetriebnehmer-fur-weltweite-projekte-80-100-m-w-wohlen-ag-ag"
         ]
       },
       "previousSlugs": [
@@ -72577,12 +72650,12 @@
     },
     {
       "id": "yellowshark-7828d793d328",
-      "slug": "sap-key-user-m-w-100-trimbach-so-yellowshark-ch",
+      "slug": "utente-chiave-sap-m-f-100-yellowshark-ag-trimbach-so",
       "slugByLocale": {
         "de": "sap-key-user-m-w-100-trimbach-so-yellowshark-ch",
-        "it": "sap-key-user-m-w-100-trimbach-so-yellowshark-ch",
+        "it": "utente-chiave-sap-m-f-100-yellowshark-ag-trimbach-so",
         "en": "sap-key-user-m-w-100-trimbach-so-yellowshark-ch",
-        "fr": "sap-key-user-m-w-100-trimbach-so-yellowshark-ch"
+        "fr": "utilisateur-de-cle-sap-h-f-100-yellowshark-ag-trimbach-so"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72640,7 +72713,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T22:04:36.537Z"
+      "firstSeenAt": "2026-10-06T22:04:36.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sap-key-user-m-w-100-trimbach-so-yellowshark-ch"
+        ],
+        "fr": [
+          "sap-key-user-m-w-100-trimbach-so-yellowshark-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sap-key-user-m-w-100-trimbach-so-yellowshark-ch"
+      ]
     },
     {
       "id": "yellowshark-6fcee6c72e2e",
@@ -72648,8 +72732,8 @@
       "slugByLocale": {
         "de": "polymechaniker-efz-maschinenmonteur-sondermaschinen-100-m-w-lenzburg-ag-yellowshark-ch",
         "it": "polymechaniker-efz-maschinenmonteur-sondermaschinen-100-m-w-lenzburg-ag-yellowshark-ch",
-        "en": "polymechaniker-efz-maschinenmonteur-sondermaschinen-100-m-w-lenzburg-ag-yellowshark-ch",
-        "fr": "polymechaniker-efz-maschinenmonteur-sondermaschinen-100-m-w-lenzburg-ag-yellowshark-ch"
+        "en": "polymechanic-efz-special-machine-assembly-100-m-f-yellowshark-ag-lenzburg-ag",
+        "fr": "efz-polymecanique-montage-de-machine-special-100-h-f-yellowshark-ag-lenzburg-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72717,7 +72801,7 @@
         "de": "leiter-business-applikationen-crm-hubspot-salesforce-bsi-langenthal-be-yellowshark-ch",
         "it": "leiter-business-applikationen-crm-hubspot-salesforce-bsi-yellowshark-ag-langenthal",
         "en": "leiter-business-applikationen-crm-hubspot-salesforce-bsi-langenthal-be-yellowshark-ch",
-        "fr": "leiter-business-applikationen-crm-hubspot-salesforce-bsi-langenthal-be-yellowshark-ch"
+        "fr": "chef-des-applications-commerciales-crm-hubspot-salesforce-bsi-yellowshark-ag-langenthal-be"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -72763,6 +72847,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-business-applikationen-crm-hubspot-salesforce-bsi-langenthal-be-yellowshark-ch"
+        ],
+        "fr": [
           "leiter-business-applikationen-crm-hubspot-salesforce-bsi-langenthal-be-yellowshark-ch"
         ]
       },
@@ -72993,8 +73080,8 @@
       "slugByLocale": {
         "de": "automatiker-efz-elektromonteur-spezialmaschinen-100-m-w-wohlen-ag-ag-yellowshark-ch",
         "it": "automatiker-efz-elektromonteur-spezialmaschinen-100-m-w-wohlen-ag-ag-yellowshark-ch",
-        "en": "automatiker-efz-elektromonteur-spezialmaschinen-100-m-w-wohlen-ag-ag-yellowshark-ch",
-        "fr": "automatiker-efz-elektromonteur-spezialmaschinen-100-m-w-wohlen-ag-ag-yellowshark-ch"
+        "en": "automatic-engineer-efz-electro-installer-special-machines-100-m-f-yellowshark-ag-wohlen-ag-ag",
+        "fr": "ingenieur-automatique-efz-electro-installateur-machines-speciales-100-h-f-yellowshark-ag-wohlen-ag-ag"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",
@@ -73130,7 +73217,7 @@
         "de": "account-038-client-manager-80-100-zurich-zh-yellowshark-ch",
         "it": "account-038-client-manager-80-100-zurich-zh-yellowshark-ch",
         "en": "account-038-client-manager-80-100-zurich-zh-yellowshark-ch",
-        "fr": "account-038-client-manager-80-100-zurich-zh-yellowshark-ch"
+        "fr": "gestionnaire-de-comptes-et-clients-80-100-yellowshark-ag-zurich-zh"
       },
       "company": "yellowshark AG",
       "companyKey": "yellowshark",

@@ -707,7 +707,7 @@
         "it": "cuocere-cuocere-dietetico-80-senevita-be-muri-b",
         "en": "diet-cook-diet-cook-80-senevita-be-muri-b",
         "de": "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "fr": "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
+        "fr": "diete-cuisine-diete-cuisine-80-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -757,7 +757,6 @@
         "cook-culinary-80-senevita-be-muri-b",
         "cuisson-culinaire-80-senevita-be-muri-b",
         "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-        "diete-cuisine-diete-cuisine-80-senevita-be-muri-b",
         "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
       ],
       "previousSlugsByLocale": {
@@ -778,7 +777,6 @@
           "koch-kochin-80-senevita-be-muri-b-bern",
           "cuisson-culinaire-80-senevita-be-muri-b",
           "diatkochin-diatkoch-80-senevita-be-muri-b-bern",
-          "diete-cuisine-diete-cuisine-80-senevita-be-muri-b",
           "cuisinier-cuisiniere-dietetique-80-senevita-be-muri-b-bern"
         ]
       },
@@ -8370,8 +8368,7 @@
         ],
         "en": [
           "cook-chef-senevita-ag-wohlen",
-          "cook-senevita-ag-wohlen",
-          "koch-kochin-senevita-ag-wohlen"
+          "cook-senevita-ag-wohlen"
         ],
         "fr": [
           "koch-kochin-senevita-ag-wohlen"
@@ -8481,7 +8478,7 @@
       "slug": "cuocere-cucinare-80-senevita-be-bern",
       "slugByLocale": {
         "it": "cuocere-cucinare-80-senevita-be-bern",
-        "en": "kochin-koch-80-senevita-be-bern",
+        "en": "cook-cook-80-senevita-be-bern",
         "de": "kochin-koch-80-senevita-be-bern",
         "fr": "cuire-cuir-80-senevita-be-bern"
       },
@@ -8528,15 +8525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-senevita-be-bern",
-        "cook-cook-80-senevita-be-bern"
+        "kochin-koch-80-senevita-be-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-senevita-be-bern"
         ],
         "en": [
-          "cook-cook-80-senevita-be-bern",
           "kochin-koch-80-senevita-be-bern"
         ],
         "fr": [
@@ -11785,9 +11780,9 @@
       "slug": "apprendistato-koch-kochin-cfc-senevita-so-olten",
       "slugByLocale": {
         "it": "apprendistato-koch-kochin-cfc-senevita-so-olten",
-        "en": "lehrstelle-koch-kochin-efz-senevita-so-olten",
+        "en": "apprenticeship-as-a-chef-efz-senevita-so-olten",
         "de": "lehrstelle-koch-kochin-efz-senevita-so-olten",
-        "fr": "lehrstelle-koch-kochin-efz-senevita-so-olten"
+        "fr": "place-d-apprentissage-de-cuisinier-cfc-senevita-so-olten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -11836,6 +11831,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-koch-kochin-efz-senevita-so-olten"
+        ],
+        "en": [
+          "lehrstelle-koch-kochin-efz-senevita-so-olten"
+        ],
+        "fr": [
           "lehrstelle-koch-kochin-efz-senevita-so-olten"
         ]
       },

@@ -9,7 +9,7 @@
         "it": "partner-delle-persone-in-holcim-group-eclepens",
         "en": "people-partner-holcim-group-eclepens",
         "de": "people-partner-in-holcim-ch",
-        "fr": "people-partner-50-holcim-group-eclepens"
+        "fr": "personnes-partenaire-in-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -54,7 +54,6 @@
       "previousSlugs": [
         "people-partner-in-50-holcim-ch",
         "people-partner-in-50-holcim-group-eclepens",
-        "personnes-partenaire-in-holcim-group-eclepens",
         "people-partner-50-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
@@ -66,7 +65,6 @@
         ],
         "fr": [
           "people-partner-in-50-holcim-group-eclepens",
-          "personnes-partenaire-in-holcim-group-eclepens",
           "people-partner-50-holcim-group-eclepens"
         ]
       },
@@ -1420,15 +1418,13 @@
       "previousSlugs": [
         "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
         "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
-        "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
-        "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
+        "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch",
           "lavoratore-multiuso-manutenzione-industriale-holcim-group-eclepens",
-          "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens",
-          "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-group-eclepens"
+          "collaboratore-polivalente-manutenzione-industriale-holcim-group-eclepens"
         ],
         "en": [
           "collaborateur-trice-polyvalent-e-entretien-industriel-holcim-ch"
@@ -2828,9 +2824,9 @@
       "slug": "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil",
       "slugByLocale": {
         "it": "vendita-e-stoffstrommanager-region-nordost-holcim-group-wil",
-        "en": "sales-und-stoffstrommanager-region-nordost-holcim-group-wil",
+        "en": "sales-and-material-flow-manager-northeast-region-holcim-group-wil",
         "de": "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
-        "fr": "vente-und-stoffstrommanager-region-nordost-holcim-group-wil"
+        "fr": "ventes-et-gestion-des-flux-de-materiaux-region-nord-est-holcim-group-wil"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -2873,17 +2869,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+        "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+        "sales-und-stoffstrommanager-region-nordost-holcim-group-wil",
+        "vente-und-stoffstrommanager-region-nordost-holcim-group-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
         ],
         "en": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+          "sales-und-stoffstrommanager-region-nordost-holcim-group-wil"
         ],
         "fr": [
-          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch"
+          "verkauf-und-stoffstrommanager-region-nordost-holcim-ch",
+          "vente-und-stoffstrommanager-region-nordost-holcim-group-wil"
         ]
       },
       "firstSeenAt": "2026-09-26T14:04:07.905Z",

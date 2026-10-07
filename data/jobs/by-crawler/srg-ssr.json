@@ -1064,12 +1064,12 @@
     },
     {
       "id": "srg-ssr-80dd3ee11db5",
-      "slug": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+      "slug": "tirocinio-hms-impiegato-a-di-commercio-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-        "en": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "it": "tirocinio-hms-impiegato-a-di-commercio-srg-ssr-zurich",
+        "en": "hms-internship-businesswoman-businessman-srg-ssr-zurich",
         "de": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
-        "fr": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+        "fr": "stage-hms-employe-e-de-commerce-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -1146,7 +1146,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+        ],
+        "en": [
+          "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+        ],
+        "fr": [
+          "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-ebc63f83bc71",

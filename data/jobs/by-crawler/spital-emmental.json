@@ -1998,9 +1998,9 @@
       "slug": "stv-ristorante-di-gestione-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "it": "stv-ristorante-di-gestione-a-spital-emmental-burgdorf-langnau",
-        "en": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
+        "en": "deputy-head-of-restaurant-a-spital-emmental-burgdorf-langnau",
         "de": "stv-leitung-restaurant-a-spital-emmental-burgdorf",
-        "fr": "stv-leitung-restaurant-a-spital-emmental-burgdorf"
+        "fr": "direction-adjointe-du-restaurant-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2054,6 +2054,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "stv-leitung-restaurant-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "stv-leitung-restaurant-a-spital-emmental-burgdorf"
         ]
       },

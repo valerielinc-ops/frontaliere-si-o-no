@@ -1560,7 +1560,7 @@
       "slug": "studente-medico-studente-di-dottorato-universitat-bern-bern",
       "slugByLocale": {
         "it": "studente-medico-studente-di-dottorato-universitat-bern-bern",
-        "en": "doktorand-doktorandin-universitat-bern",
+        "en": "doctoral-student-doctoral-student-universitat-bern-bern",
         "de": "doktorand-doktorandin-unibe-bern",
         "fr": "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern"
       },
@@ -1617,7 +1617,6 @@
         "etudiant-au-doctorat-en-histoire-universitat-bern-bern",
         "doktorand-doktorandin-unibe-bern",
         "doktorand-doktorandin-universitat-bern-bern",
-        "doctoral-student-doctoral-student-universitat-bern-bern",
         "doktorand-doktorandin-universitat-bern"
       ],
       "previousSlugsByLocale": {
@@ -1635,7 +1634,6 @@
         "en": [
           "doktorandin-doktorand-psychologie-universitat-bern-bern",
           "doktorand-doktorandin-universitat-bern-bern",
-          "doctoral-student-doctoral-student-universitat-bern-bern",
           "doktorand-doktorandin-universitat-bern"
         ],
         "de": [
@@ -1897,7 +1895,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1944,7 +1942,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern",
         "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       ],
       "previousSlugsByLocale": {
@@ -1952,7 +1949,6 @@
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern",
           "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
         ]
       },
@@ -2149,10 +2145,10 @@
       "id": "unibe-d8e0f02fa4d1",
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
-        "it": "artigiano-specializzato-ii-universitat-bern-bern",
+        "it": "spezialhandwerker-in-ii-universitat-bern-bern",
         "en": "spezialhandwerker-in-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
-        "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
+        "fr": "spezialhandwerker-in-ii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2201,18 +2197,15 @@
         "spezialhandwerker-in-ii-unibe-bern",
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
-        "spezialhandwerker-in-ii-universitat-bern-bern",
         "artisan-ne-specialise-e-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern"
+          "artigiani-specializzati-ii-universitat-bern-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern",
           "artisan-ne-specialise-e-ii-universitat-bern-bern"
         ]
       },
@@ -2720,7 +2713,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2768,7 +2761,6 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern",
         "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
@@ -2780,7 +2772,6 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern",
           "data-science-officer-universitat-bern"
         ]
       },
@@ -3211,9 +3202,9 @@
       "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-system-administrator-universitat-bern-bern",
+        "en": "it-systemadministrator-in-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
+        "fr": "it-systemadministrator-in-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -5098,12 +5089,12 @@
     },
     {
       "id": "unibe-00624c45f05a",
-      "slug": "studentische-assistenz-unibe-bern",
+      "slug": "assistenza-agli-studenti-universitat-bern-bern",
       "slugByLocale": {
         "de": "studentische-assistenz-unibe-bern",
-        "it": "studentische-assistenz-unibe-bern",
-        "en": "studentische-assistenz-unibe-bern",
-        "fr": "studentische-assistenz-unibe-bern"
+        "it": "assistenza-agli-studenti-universitat-bern-bern",
+        "en": "student-assistance-universitat-bern-bern",
+        "fr": "aide-aux-etudiants-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -5162,7 +5153,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:47:38.894Z"
+      "firstSeenAt": "2026-10-06T21:47:38.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-assistenz-unibe-bern"
+        ],
+        "en": [
+          "studentische-assistenz-unibe-bern"
+        ],
+        "fr": [
+          "studentische-assistenz-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-assistenz-unibe-bern"
+      ]
     }
   ]
 }

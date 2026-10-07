@@ -5371,10 +5371,10 @@
     },
     {
       "id": "epfl-7a2635896b84",
-      "slug": "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne",
+      "slug": "posizione-postdoc-in-litio-integrato-fotonici-niobate-epfl-lausanne",
       "slugByLocale": {
         "en": "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne",
-        "it": "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne",
+        "it": "posizione-postdoc-in-litio-integrato-fotonici-niobate-epfl-lausanne",
         "de": "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne",
         "fr": "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne"
       },
@@ -5437,15 +5437,23 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-06T21:20:16.115Z"
+      "firstSeenAt": "2026-10-06T21:20:16.115Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-in-integrated-lithium-niobate-photonics-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-c5b6134454af",
-      "slug": "robotics-engineer-epfl-lausanne",
+      "slug": "robotics-ingegnere-epfl-lausanne",
       "slugByLocale": {
         "en": "robotics-engineer-epfl-lausanne",
-        "it": "robotics-engineer-epfl-lausanne",
-        "de": "robotics-engineer-epfl-lausanne",
+        "it": "robotics-ingegnere-epfl-lausanne",
+        "de": "robotics-ingenieur-epfl-lausanne",
         "fr": "robotics-engineer-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5507,7 +5515,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-06T21:20:15.468Z"
+      "firstSeenAt": "2026-10-06T21:20:15.468Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "robotics-engineer-epfl-lausanne"
+        ],
+        "de": [
+          "robotics-engineer-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "robotics-engineer-epfl-lausanne"
+      ]
     }
   ]
 }

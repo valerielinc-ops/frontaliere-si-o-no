@@ -85,9 +85,9 @@
       "slug": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
       "slugByLocale": {
         "it": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
-        "en": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
-        "de": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino",
-        "fr": "specialista-in-indennita-giornaliera-di-malattia-ap-m-f-d-zurich-insurance-sede-ticino"
+        "en": "specialist-in-daily-sickness-benefit-ap-m-f-d-zurich-insurance-lugano-1374082457",
+        "de": "spezialist-im-taglichen-krankengeld-ap-m-w-d-zurich-insurance-lugano-1374082457",
+        "fr": "specialiste-des-prestations-journalieres-de-maladie-ap-h-f-d-zurich-insurance-lugano-1374082457"
       },
       "slugDisambiguator": "1374082457",
       "company": "Zurich Insurance",
@@ -220,12 +220,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1374049657",
-      "slug": "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich",
+      "slug": "gestione-strategica-supporto-vita-m-f-d-zurich-insurance-zurich-1374049657",
       "slugByLocale": {
         "de": "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "it": "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich",
+        "it": "gestione-strategica-supporto-vita-m-f-d-zurich-insurance-zurich-1374049657",
         "en": "strategic-management-support-life-m-w-d-zurich-insurance-zurich-1374049657",
-        "fr": "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich"
+        "fr": "gestion-strategique-soutien-vie-h-f-d-zurich-insurance-zurich-1374049657"
       },
       "slugDisambiguator": "1374049657",
       "company": "Zurich Insurance",
@@ -286,7 +286,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:30:36.717Z"
+      "firstSeenAt": "2026-10-06T21:30:36.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-management-support-life-m-w-d-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1374041557",
@@ -376,7 +387,7 @@
       "slug": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
       "slugByLocale": {
         "it": "rechtskonsulent-previdenza-m-w-d-zurich-insurance-zurich",
-        "en": "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757",
+        "en": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "de": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
         "fr": "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757"
       },
@@ -424,7 +435,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich",
-        "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
         "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
       ],
       "previousSlugsByLocale": {
@@ -432,7 +442,6 @@
           "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-sede-ticino-zurich"
         ],
         "en": [
-          "rechtskonsulent-vorsorge-m-w-d-zurich-insurance-zurich-1373916757",
           "legal-consultant-provision-m-f-d-zurich-insurance-zurich-1373916757"
         ]
       },
