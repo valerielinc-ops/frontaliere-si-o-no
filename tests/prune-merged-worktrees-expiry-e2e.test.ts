@@ -223,6 +223,7 @@ process.exit(result.status ?? 1);
 
   makeBranch('fix/issue-126-push-fail', 'fail.txt', 'fail\n');
   addWorktree('push-fail', 'fix/issue-126-push-fail');
+  ageWorktree('push-fail');
   ageBranch('fix/issue-126-push-fail');
   const updateHook = path.join(origin, 'hooks', 'update');
   fs.writeFileSync(updateHook, '#!/bin/sh\ncase "$1" in refs/tags/*) exit 1;; esac\nexit 0\n');
