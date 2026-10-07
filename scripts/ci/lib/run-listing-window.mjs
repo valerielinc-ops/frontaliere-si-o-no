@@ -39,6 +39,21 @@ export function createdSinceQuery(days, nowMs = Date.now()) {
   return `created=${encodeURIComponent(createdSinceFilter(days, nowMs))}`;
 }
 
+/**
+ * Data UTC di un istante gia' noto, per un filtro `created` inclusivo.
+ * L'API di GitHub accetta una data, non un timestamp: il giorno viene quindi
+ * conservato per intero e la selezione precisa resta al chiamante.
+ */
+export function createdFromFilter(value) {
+  const timestamp = value instanceof Date ? value.getTime()
+    : typeof value === 'number' ? value
+      : Date.parse(String(value ?? ''));
+  if (!Number.isFinite(timestamp)) {
+    throw new TypeError(`createdFromFilter: invalid timestamp, got ${value}`);
+  }
+  return `>=${new Date(timestamp).toISOString().slice(0, 10)}`;
+}
+
 function createdAtMs(run) {
   const value = Date.parse(run?.created_at ?? run?.createdAt ?? '');
   return Number.isFinite(value) ? value : -Infinity;
