@@ -50,9 +50,9 @@ import { checkRunApiPath } from './ci/close-recovered-failure-issues.mjs';
 import {
   isTransientGithubMutationError,
   withTransientGithubMutationRetry,
-} from './lib/github-transient-retry.mjs';
+} from './lib/github-issue-creator.mjs';
 
-export { isTransientGithubMutationError, withTransientGithubMutationRetry } from './lib/github-transient-retry.mjs';
+export { isTransientGithubMutationError, withTransientGithubMutationRetry } from './lib/github-issue-creator.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(SCRIPT_PATH), '..');
