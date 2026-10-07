@@ -5577,12 +5577,12 @@
     },
     {
       "id": "zurzach-care-e72a3f597af7",
-      "slug": "logopadin-logopade-80-zurzach-care-baden-dattwil",
+      "slug": "terapeuta-del-discorso-terapeuta-del-discorso-80-zurzach-care-baden-dattwil",
       "slugByLocale": {
         "de": "logopadin-logopade-80-zurzach-care-baden-dattwil",
-        "it": "logopadin-logopade-80-zurzach-care-baden-dattwil",
-        "en": "logopadin-logopade-80-zurzach-care-baden-dattwil",
-        "fr": "logopadin-logopade-80-zurzach-care-baden-dattwil"
+        "it": "terapeuta-del-discorso-terapeuta-del-discorso-80-zurzach-care-baden-dattwil",
+        "en": "speech-therapist-speech-therapist-80-zurzach-care-baden-dattwil",
+        "fr": "orthophoniste-orthophoniste-80-zurzach-care-baden-dattwil"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -5640,7 +5640,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:15:53.655Z"
+      "firstSeenAt": "2026-10-06T21:15:53.655Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopadin-logopade-80-zurzach-care-baden-dattwil"
+        ],
+        "en": [
+          "logopadin-logopade-80-zurzach-care-baden-dattwil"
+        ],
+        "fr": [
+          "logopadin-logopade-80-zurzach-care-baden-dattwil"
+        ]
+      },
+      "previousSlugs": [
+        "logopadin-logopade-80-zurzach-care-baden-dattwil"
+      ]
     }
   ]
 }

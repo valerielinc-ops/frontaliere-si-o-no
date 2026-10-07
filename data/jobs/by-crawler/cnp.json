@@ -922,7 +922,7 @@
       "slugByLocale": {
         "it": "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "chief-resident-physician-or-deputy-chief-resident-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -969,7 +969,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel",
-        "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
@@ -977,7 +976,6 @@
           "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
         ],
         "de": [
-          "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
@@ -1169,7 +1167,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1220,7 +1218,6 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
@@ -1234,7 +1231,6 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
           "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
@@ -2498,11 +2494,11 @@
     },
     {
       "id": "cnp-e168731a3acd",
-      "slug": "assistant-e-des-directions-administratives-cnp-marin-epagnier",
+      "slug": "assistente-amministrativo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "assistant-e-des-directions-administratives-cnp-marin-epagnier",
-        "it": "assistant-e-des-directions-administratives-cnp-marin-epagnier",
-        "en": "assistant-e-des-directions-administratives-cnp-marin-epagnier",
+        "it": "assistente-amministrativo-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "administrative-assistant-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "de": "assistant-e-des-directions-administratives-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2561,7 +2557,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-06T21:19:23.296Z"
+      "firstSeenAt": "2026-10-06T21:19:23.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-des-directions-administratives-cnp-marin-epagnier"
+        ],
+        "en": [
+          "assistant-e-des-directions-administratives-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-des-directions-administratives-cnp-marin-epagnier"
+      ]
     }
   ]
 }
