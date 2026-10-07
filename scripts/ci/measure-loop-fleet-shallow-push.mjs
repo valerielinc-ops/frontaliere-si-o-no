@@ -12,10 +12,9 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, cpSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { performance } from 'node:perf_hooks';
-
-const SCRIPT = fileURLToPath(import.meta.url);
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 function git(cwd, args, env = {}) {
   return execFileSync('git', args, {
@@ -100,7 +99,7 @@ export function measureLoopFleetShallowPush() {
   }
 }
 
-if (pathToFileURL(process.argv[1] || '').href === pathToFileURL(SCRIPT).href) {
+if (isInvokedDirectly(import.meta.url)) {
   try {
     console.log(JSON.stringify(measureLoopFleetShallowPush()));
   } catch (error) {

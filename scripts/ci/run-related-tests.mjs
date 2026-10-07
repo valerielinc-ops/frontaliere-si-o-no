@@ -214,6 +214,16 @@ const sourceTreeLintTests = new Map([
   ['tests/score-ledger-persistence.test.ts', /^scripts\/.+\.mjs$/],
   ['tests/undici-dispatcher-fetch-pairing.test.ts', /^scripts\/.+\.(?:mjs|js)$/],
   ['tests/is-invoked-directly.test.ts', /^scripts\/.+\.(?:mjs|cjs|js|ts)$/],
+  // Il censimento dei guard di entrypoint legge da disco ogni file di codice
+  // sotto le sue radici: uno script NUOVO con un guard non canonico non importa
+  // niente che il test conosca. Dopo la PR 12043 tre script sono entrati cosi'
+  // in tre ore (PR 12223, 12232, 12266) e main e' rimasto rosso in latenza.
+  // Il perimetro e' quello dello scan (CENSUS_ROOTS e CODE_FILE_RE del test);
+  // il file intero gira in sei secondi.
+  [
+    'tests/entrypoint-guard-identity.test.ts',
+    /^(?:scripts|build-plugins|packages\/articles\/engine|functions|infra)\/.+\.(?:mjs|js|ts|tsx)$/,
+  ],
   ['tests/translation-protected-tokens.test.ts', /^scripts\/.+\.mjs$/],
   // Lo UA da browser dei dettagli MySwitzerland e' un'eccezione del
   // proprietario (D1, 2026-10-05) confinata a quel crawler: il guard legge da

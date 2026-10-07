@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { EVENT_IMAGE_LICENSES, isEventImageSourceAllowed } from '../lib/events-utils.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
@@ -2034,13 +2035,7 @@ async function main() {
   if (report.overall === 'fail' || report.alarm?.required) process.exitCode = 1;
 }
 
-const isDirectRun = (() => {
-  try {
-    return import.meta.url === new URL('file://' + process.argv[1]).href;
-  } catch {
-    return false;
-  }
-})();
+const isDirectRun = isInvokedDirectly(import.meta.url);
 
 if (isDirectRun) {
   main().catch((error) => {
