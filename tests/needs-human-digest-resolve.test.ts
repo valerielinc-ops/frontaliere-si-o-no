@@ -140,6 +140,9 @@ describe('recycle-stale-prs — digest needs-human a liste vuote', () => {
     const step = stepScript();
     expect(step).toContain('--label agent:no-age-out');
     expect(step).toContain('gh label create "agent:no-age-out"');
+    expect(step.indexOf('gh label create "agent:no-age-out"')).toBeLessThan(
+      step.indexOf(`node ${CREATOR}`),
+    );
     expect(step).toContain('select(.pull_request == null and .title == $ENV.DEDUP_TITLE)');
     expect(step).toContain('--add-label agent:no-age-out');
   });
