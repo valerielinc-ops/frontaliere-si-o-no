@@ -17,6 +17,7 @@ export const SOURCE_TYPES = new Set([
 ]);
 export const SOURCE_KINDS = new Set(['html', 'pdf']);
 export const FIELDS = new Set(['address', 'phone', 'website', 'openingHours', 'services', 'contactEmail']);
+export const MAX_GOOGLE_PLACES_MONTHLY_REQUESTS = 10_000;
 
 export function safeHttpsUrl(value) {
   if (typeof value !== 'string' || !value.trim()) return undefined;
@@ -45,6 +46,16 @@ export function validatePharmacyEnrichmentConfig(config) {
     if (typeof provider?.enabled !== 'boolean') errors.push(`${providerName}: enabled must be boolean`);
     if (!Array.isArray(provider?.pharmacyIds)) errors.push(`${providerName}: pharmacyIds must be an array`);
     if (provider?.maxAgeDays !== undefined && (!Number.isFinite(Number(provider.maxAgeDays)) || Number(provider.maxAgeDays) <= 0)) errors.push(`${providerName}: maxAgeDays must be a positive number`);
+    if (provider?.discoveryPharmacyIds !== undefined && !Array.isArray(provider.discoveryPharmacyIds)) {
+      errors.push(`${providerName}: discoveryPharmacyIds must be an array`);
+    }
+    if (provider?.monthlyRequestLimit !== undefined) {
+      const limit = Number(provider.monthlyRequestLimit);
+      if (!Number.isInteger(limit) || limit <= 0) errors.push(`${providerName}: monthlyRequestLimit must be a positive integer`);
+      if (providerName === 'googlePlaces' && limit > MAX_GOOGLE_PLACES_MONTHLY_REQUESTS) {
+        errors.push(`${providerName}: monthlyRequestLimit cannot exceed ${MAX_GOOGLE_PLACES_MONTHLY_REQUESTS}`);
+      }
+    }
   }
   return errors;
 }
@@ -54,6 +65,16 @@ export function validatePharmacyEnrichmentSnapshot(snapshot) {
   if (snapshot?.schemaVersion !== 1) errors.push('enrichment snapshot schemaVersion must be 1');
   if (!snapshot?.generatedAt || !Number.isFinite(Date.parse(snapshot.generatedAt))) errors.push('enrichment snapshot generatedAt is invalid');
   if (!snapshot?.records || typeof snapshot.records !== 'object' || Array.isArray(snapshot.records)) errors.push('enrichment snapshot records must be an object');
+  if (snapshot?.providerUsage !== undefined) {
+    const usage = snapshot.providerUsage;
+    if (!/^\d{4}-(?:0[1-9]|1[0-2])$/.test(String(usage?.month || ''))) {
+      errors.push('enrichment snapshot providerUsage month is invalid');
+    }
+    const googleRequests = usage?.googlePlaces?.requests;
+    if (!Number.isInteger(googleRequests) || googleRequests < 0 || googleRequests > MAX_GOOGLE_PLACES_MONTHLY_REQUESTS) {
+      errors.push(`enrichment snapshot googlePlaces requests must be an integer between 0 and ${MAX_GOOGLE_PLACES_MONTHLY_REQUESTS}`);
+    }
+  }
   for (const [id, record] of Object.entries(snapshot?.records || {})) {
     if (!record?.checkedAt || !Number.isFinite(Date.parse(record.checkedAt))) errors.push(`${id}: checkedAt is invalid`);
     if (record?.googlePlaceId !== undefined && !/^[A-Za-z0-9_-]+$/.test(String(record.googlePlaceId))) errors.push(`${id}: googlePlaceId is invalid`);
