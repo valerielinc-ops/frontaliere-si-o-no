@@ -12830,6 +12830,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-bocciato-piano-scuole.title': 'Côme, rejeté le plan écoles du maire Rapinese',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'Le Conseil provincial rejette la proposition de la municipalité de Como.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Hôtel de ville de Como, siège de l\'administration municipale',
+    'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, fête pour trois : Tours absolues, Rouges et Blancs dans le Pied d\'Or',
+    'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Plus de 300 au Trophée Rodero du 4 octobre Torri remporte l\'absolue ; Rossi et Bianchi le Pied d\'Or Départ et arrivée au terrain de sport municipal Il reste deux courses',
+    'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Coureurs lors du Trofeo Rodero dans le paysage automnal du Tessin',
 };
 
 export default blogMetaFr;

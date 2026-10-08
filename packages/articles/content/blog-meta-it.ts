@@ -12829,6 +12829,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-bocciato-piano-scuole.title': 'Como, bocciato il piano scuole del sindaco Rapinese',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'Il Consiglio provinciale boccia la proposta del Comune di Como.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Palazzo municipale di Como, sede dell\'amministrazione comunale',
+    'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, festa per tre: Torri assoluta, Rossi e Bianchi nel Piede d\'Oro',
+    'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Oltre 300 al Trofeo Rodero del 4 ottobre Torri vince l\'assoluta; Rossi e Bianchi il Piede d\'Oro Partenza e arrivo al campo sportivo comunale Restano due gare',
+    'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Corridori durante il Trofeo Rodero nel paesaggio autunnale del Ticino',
 };
 
 export default blogMetaIt;

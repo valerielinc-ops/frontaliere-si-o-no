@@ -12828,6 +12828,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-bocciato-piano-scuole.title': 'Como, rejected the school plan of the mayor of Rapinese',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'The Provincial Council rejects the Municipality\'s proposal of Como.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Como city hall, seat of the municipal administration',
+    'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, party for three: Absolute Towers, Reds and Whites in the Golden Foot',
+    'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Over 300 at the Trophy Rodero of 4 October Torri wins the absolute; Rossi and Bianchi the Golden Foot Departure and arrival at the municipal sports field Two races remain',
+    'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Runners during Trofeo Rodero in Ticino\'s autumn landscape',
 };
 
 export default blogMetaEn;

@@ -103504,6 +103504,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trofeo-rodero-corsa-piede-oro': {
+    title: 'Rodero, festa per tre: Torri assoluta, Rossi e Bianchi nel Piede d\'Oro',
+    description: 'Oltre 300 al Trofeo Rodero del 4 ottobre Torri vince l\'assoluta; Rossi e Bianchi il Piede d\'Oro Partenza e arrivo al campo sportivo comunale Restano due gare',
+    keywords: 'frontalieri, ticino, svizzera, italia, rodero, festa, torri, assoluta',
+    ogTitle: 'Rodero, festa per tre: Torri assoluta, Rossi e Bianchi nel Piede d\'Oro',
+    ogDescription: 'Oltre 300 al Trofeo Rodero del 4 ottobre Torri vince l\'assoluta; Rossi e Bianchi il Piede d\'Oro Partenza e arrivo al campo sportivo comunale Restano due gare',
+    canonicalPath: '/articoli-frontaliere/trofeo-rodero-corsa-piede-oro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rodero, festa per tre: Torri assoluta, Rossi e Bianchi nel Piede d'Oro",
+      "description": "Oltre 300 al Trofeo Rodero del 4 ottobre Torri vince l'assoluta; Rossi e Bianchi il Piede d'Oro Partenza e arrivo al campo sportivo comunale Restano due gare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-trofeo-rodero-corsa-piede-oro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Corridori durante il Trofeo Rodero nel paesaggio autunnale del Ticino"
+      },
+      "datePublished": "2026-10-08T20:50:29+00:00",
+      "dateModified": "2026-10-08T20:50:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trofeo-rodero-corsa-piede-oro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

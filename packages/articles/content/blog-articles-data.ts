@@ -43301,6 +43301,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trofeo-rodero-corsa-piede-oro',
+ category: 'novita',
+ date: '2026-10-08T20:50:29.394Z',
+ image: '/images/blog/article-trofeo-rodero-corsa-piede-oro.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

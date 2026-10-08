@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5090
+      "6": 5091
     },
-    "publishedCovers": 6802,
+    "publishedCovers": 6803,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180898,6 +180898,33 @@
           "id": "treno-foliage-locarno-2026",
           "category": "novita",
           "date": "2026-10-08T16:34:16.718Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-trofeo-rodero-corsa-piede-oro": {
+      "cover": "/images/blog/article-trofeo-rodero-corsa-piede-oro.webp",
+      "hash": "0e7be7b33fb4c0d8a6f0bf48672f1dfea42b386134c08c2c0a3c4ec4b4cb5fbd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "trofeo-rodero-corsa-piede-oro",
+          "category": "novita",
+          "date": "2026-10-08T20:50:29.394Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

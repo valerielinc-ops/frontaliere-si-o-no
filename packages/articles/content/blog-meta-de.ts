@@ -12827,6 +12827,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-bocciato-piano-scuole.title': 'Como, lehnte den Schulplan des Bürgermeisters Rapinese ab',
     'blog.article.como-bocciato-piano-scuole.excerpt': 'Der Landtag lehnt den Vorschlag der Gemeinde von Como ab.',
     'blog.article.como-bocciato-piano-scuole.imageAlt': 'Rathaus von Como, Sitz der Stadtverwaltung',
+    'blog.article.trofeo-rodero-corsa-piede-oro.title': 'Rodero, Party für drei: absolute Türme, Rote und Weiße im Goldenen Fuß',
+    'blog.article.trofeo-rodero-corsa-piede-oro.excerpt': 'Über 300 bei der Trophäe Rodero am 4.',
+    'blog.article.trofeo-rodero-corsa-piede-oro.imageAlt': 'Läufer beim Trofeo Rodero im Herbstpanorama des Tessins',
 };
 
 export default blogMetaDe;
