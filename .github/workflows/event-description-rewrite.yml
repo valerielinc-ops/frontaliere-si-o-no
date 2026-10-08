@@ -436,16 +436,34 @@ jobs:
             const cutoff = Date.now() - 24 * 60 * 60 * 1000;
             const runs = JSON.parse(readFileSync(process.argv[1], "utf8"));
             const ids = runs.filter((run) => Date.parse(run.createdAt || "") >= cutoff).map((run) => run.databaseId);
-            writeFileSync(process.argv[2], `${ids.join("\\n")}\\n`);
+            writeFileSync(process.argv[2], ids.map(String).join("\n") + (ids.length ? "\n" : ""));
           ' "$RUNNER_TEMP/event-description-recent-runs.json" "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          recent_run_count="$(wc -l < "$RUNNER_TEMP/event-description-recent-run-ids.txt" | tr -d '[:space:]')"
+          downloaded_count=0
+          failed_download_count=0
           while IFS= read -r -u 9 run_id; do
             [ -n "$run_id" ] || continue
-            gh run download "$run_id" \
-              --repo "$GITHUB_REPOSITORY" \
-              --name "event-description-run-state-${run_id}" \
-              --dir "$recent_dir/$run_id" \
-              >/dev/null 2>&1 || true
+            if gh run download "$run_id" \
+                --repo "$GITHUB_REPOSITORY" \
+                --name "event-description-run-state-${run_id}" \
+                --dir "$recent_dir/$run_id" \
+                >/dev/null 2>&1; then
+              state_file=""
+              if [ -d "$recent_dir/$run_id" ]; then
+                state_file="$(find "$recent_dir/$run_id" -type f -name 'event-description-rewrite-stats.json' -print -quit)"
+              fi
+              if [ -n "$state_file" ]; then
+                downloaded_count=$((downloaded_count + 1))
+              else
+                failed_download_count=$((failed_download_count + 1))
+                echo '::warning::A recent event-description state artifact was empty or missing; continuing without it.'
+              fi
+            else
+              failed_download_count=$((failed_download_count + 1))
+              echo '::warning::A recent event-description state download failed; continuing without it.'
+            fi
           done 9< "$RUNNER_TEMP/event-description-recent-run-ids.txt"
+          echo "Recent successful runs found: $recent_run_count; states downloaded: $downloaded_count; downloads failed: $failed_download_count."
 
       - name: Write run plan metadata
         env:
@@ -483,7 +501,10 @@ jobs:
             npx vitest run tests/event-description-policy.test.ts tests/event-description-assembly.test.ts tests/events-pipeline.test.ts tests/events-detail-pages.test.ts --reporter=dot
           fi
           npm run validate:event-descriptions
-          node --test tests/event-description-throughput.test.mjs
+          node --test \
+            tests/event-description-throughput.test.mjs \
+            tests/event-description-recent-stats-workflow.test.mjs \
+            tests/merge-event-description-rewrites.test.mjs
 
       - name: Publish throughput summary
         if: always()

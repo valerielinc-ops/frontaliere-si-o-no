@@ -71,3 +71,71 @@ test('merge computes the estimate from successful runs in the last 24 hours', ()
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test('merge counts recent accepted runs once, ignores skipped runs and keeps the observed window', () => {
+  const root = mkdtempSync(path.join(os.tmpdir(), 'event-description-merge-recent-test-'));
+  try {
+    const now = Date.now();
+    const shardDir = path.join(root, 'shards');
+    const recentDir = path.join(root, 'recent');
+    const output = path.join(root, 'cache.json');
+    const statsOutput = path.join(root, 'stats.json');
+    const datasetPath = path.join(root, 'events.json');
+    const planPath = path.join(root, 'plan.json');
+    mkdirSync(shardDir, { recursive: true });
+    const queueHash = sourceDescriptionHash({ description: 'Synthetic event for the observed-window test.' });
+    writeFileSync(datasetPath, `${JSON.stringify({
+      events: Array.from({ length: 434 }, (_, index) => ({ id: `synthetic-${index}`, sourceDescriptionHash: queueHash })),
+    })}\n`);
+    writeFileSync(path.join(root, 'base.json'), `${JSON.stringify({ schemaVersion: 1, entries: {}, rejections: {} })}\n`);
+    writeFileSync(path.join(shardDir, 'stats.json'), `${JSON.stringify({
+      shardIndex: 0,
+      selected: 79,
+      accepted: 79,
+      rejected: 0,
+      eventAttempts: 79,
+      observedElapsedMs: 10,
+      rejectionCodes: {},
+      rejectionDetails: {},
+    })}\n`);
+    writeFileSync(planPath, JSON.stringify({ effectiveShards: 1, eventsPerShard: 79 }));
+
+    const recentRuns = [
+      ['current-run', 79, 2],
+      ['run-73', 73, 6],
+      ['run-65', 65, 12],
+      ['admission-skip', 0, 3],
+      ['outside-window', 999, 26],
+    ];
+    for (const [runId, accepted, hoursAgo] of recentRuns) {
+      const runDir = path.join(recentDir, runId);
+      mkdirSync(runDir, { recursive: true });
+      writeFileSync(path.join(runDir, 'event-description-rewrite-stats.json'), `${JSON.stringify({
+        runId,
+        completedAt: new Date(now - hoursAgo * 60 * 60 * 1000).toISOString(),
+        accepted,
+      })}\n`);
+    }
+
+    const result = JSON.parse(execFileSync('node', [
+      'scripts/merge-event-description-rewrites.mjs',
+      '--base', path.join(root, 'base.json'),
+      '--shards-dir', shardDir,
+      '--output', output,
+      '--dataset', datasetPath,
+      '--plan', planPath,
+      '--recent-stats-dir', recentDir,
+      '--stats-output', statsOutput,
+    ], {
+      cwd: process.cwd(),
+      env: { ...process.env, GITHUB_RUN_ID: 'current-run' },
+      encoding: 'utf8',
+    }));
+
+    assert.equal(result.acceptedPerDay, 217);
+    assert.equal(result.recentSuccessfulRuns, 3);
+    assert.equal(result.estimatedDaysRemaining, 2);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
