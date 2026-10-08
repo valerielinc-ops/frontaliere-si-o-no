@@ -220,7 +220,7 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T09:17:27.423Z"
     },
     {
@@ -386,7 +386,7 @@
       "slug": "tax-specialist-ubp-ch",
       "slugByLocale": {
         "it": "tax-specialista-union-bancaire-privee-geneva-switzerland",
-        "en": "tax-specialist-ubp-ch",
+        "en": "tax-specialist-union-bancaire-privee-geneva-switzerland",
         "de": "tax-spezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "tax-specialiste-union-bancaire-privee-geneva-switzerland"
       },
@@ -430,15 +430,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tax-specialist-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "tax-specialist-union-bancaire-privee-geneva-switzerland"
-        ]
-      }
+      "requirementsByLocale": {}
     },
     {
       "id": "ubp-0483a51134e0",
@@ -525,7 +517,7 @@
       "slug": "client-documentation-specialist-temporary-7-months-ubp-ch",
       "slugByLocale": {
         "it": "risanamento-dati-cliente-temporaria-7-mesi-union-bancaire-privee-geneva-switzerland",
-        "en": "client-documentation-specialist-temporary-7-months-ubp-ch",
+        "en": "client-data-remediation-temporary-7-months-ubp-ch",
         "de": "kundendatenbehebung-vorubergehende-7-monate-union-bancaire-privee-geneva-switzerland",
         "fr": "reparation-des-donnees-du-client-periode-de-7-mois-union-bancaire-privee-geneva-switzerland"
       },
@@ -580,8 +572,7 @@
           "client-record-remediation-specialist-temporary-7-months-ubp-ch"
         ],
         "en": [
-          "client-record-remediation-specialist-temporary-7-months-ubp-ch",
-          "client-data-remediation-temporary-7-months-ubp-ch"
+          "client-record-remediation-specialist-temporary-7-months-ubp-ch"
         ],
         "de": [
           "client-data-remediation-temporary-7-months-ubp-ch"
@@ -597,7 +588,7 @@
       "slug": "internship-6-months-private-equity-ubp-ch",
       "slugByLocale": {
         "it": "private-equity-tirocinante-union-bancaire-privee-geneva-switzerland",
-        "en": "internship-6-months-private-equity-ubp-ch",
+        "en": "private-equity-intern-ubp-ch",
         "de": "private-equity-praktikant-union-bancaire-privee-geneva-switzerland",
         "fr": "private-equity-stagiaire-union-bancaire-privee-geneva-switzerland"
       },
@@ -647,9 +638,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "private-equity-intern-ubp-ch"
-        ],
-        "en": [
           "private-equity-intern-ubp-ch"
         ]
       },
@@ -1446,7 +1434,7 @@
       "slug": "senior-cash-projects-coordination-manager-ubp-ch",
       "slugByLocale": {
         "it": "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
-        "en": "senior-cash-projects-coordination-manager-ubp-ch",
+        "en": "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
         "de": "teamleiter-cash-services-union-bancaire-privee-geneva-switzerland",
         "fr": "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
       },
@@ -1500,7 +1488,6 @@
         "programme-pmo-and-delivery-lead-consultant-ubp-ch",
         "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
         "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
-        "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
         "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
@@ -1514,8 +1501,7 @@
           "responsabile-senior-dei-progetti-di-cassa-e-del-coordinamento-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
-          "programme-pmo-and-delivery-lead-ubp-ch",
-          "team-head-cash-services-union-bancaire-privee-geneva-switzerland"
+          "programme-pmo-and-delivery-lead-ubp-ch"
         ],
         "de": [
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland"
@@ -1533,7 +1519,7 @@
       "slug": "system-engineer-ad-consultant-ubp-ch",
       "slugByLocale": {
         "it": "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "en": "system-engineer-ad-consultant-ubp-ch",
+        "en": "system-engineer-ubp-ch",
         "de": "system-ingenieur-union-bancaire-privee-geneva-switzerland",
         "fr": "system-ingenieur-union-bancaire-privee-geneva-switzerland"
       },
@@ -1587,8 +1573,7 @@
           "system-engineer-ubp-ch"
         ],
         "en": [
-          "system-engineer-union-bancaire-privee-geneva-switzerland",
-          "system-engineer-ubp-ch"
+          "system-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -2199,7 +2184,7 @@
       "slug": "senior-database-engineer-consultant-ubp-ch",
       "slugByLocale": {
         "it": "bi-controlling-sviluppatore-union-bancaire-privee-geneva-switzerland",
-        "en": "senior-database-engineer-consultant-ubp-ch",
+        "en": "bi-controlling-developer-ubp-ch",
         "de": "bi-controlling-entwickler-union-bancaire-privee-geneva-switzerland",
         "fr": "bi-controlling-developpeur-union-bancaire-privee-geneva-switzerland"
       },
@@ -2254,8 +2239,7 @@
           "senior-database-engineer-ubp-ch"
         ],
         "en": [
-          "senior-database-engineer-ubp-ch",
-          "bi-controlling-developer-ubp-ch"
+          "senior-database-engineer-ubp-ch"
         ],
         "de": [
           "bi-controlling-developer-ubp-ch"
@@ -2427,7 +2411,7 @@
       "slug": "entreprise-functional-architect-consultant-ubp-ch",
       "slugByLocale": {
         "it": "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland",
-        "en": "entreprise-functional-architect-consultant-ubp-ch",
+        "en": "enterprise-functional-architect-ubp-ch",
         "de": "enterprise-functional-architekt-union-bancaire-privee-geneva-switzerland",
         "fr": "enterprise-functional-architecte-union-bancaire-privee-geneva-switzerland"
       },
@@ -2480,9 +2464,6 @@
         "it": [
           "enterprise-functional-architect-ubp-ch",
           "enterprise-functional-architect-consultant-ubp-ch"
-        ],
-        "en": [
-          "enterprise-functional-architect-ubp-ch"
         ],
         "de": [
           "enterprise-functional-architect-ubp-ch"
@@ -3020,7 +3001,7 @@
       "slug": "system-engineer-active-directory-specialist-ubp-ch",
       "slugByLocale": {
         "it": "system-ingegnere-active-directory-specialista-union-bancaire-privee-geneva-switzerland",
-        "en": "system-engineer-active-directory-specialist-ubp-ch",
+        "en": "system-engineer-union-bancaire-privee-geneva-switzerland",
         "de": "system-ingenieur-active-directory-spezialist-union-bancaire-privee-geneva-switzerland",
         "fr": "system-ingenieur-active-directory-specialiste-union-bancaire-privee-geneva-switzerland"
       },
@@ -3066,15 +3047,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-engineer-ubp-ch",
-        "system-engineer-union-bancaire-privee-geneva-switzerland"
+        "system-engineer-ubp-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-ubp-ch"
-        ],
-        "en": [
-          "system-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -3209,7 +3186,9 @@
           "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
         ]
       },
-      "firstSeenAt": "2026-06-16T14:38:07.956Z"
+      "firstSeenAt": "2026-06-16T14:38:07.956Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "ubp-f1a75ee19e2a",
@@ -3346,7 +3325,7 @@
       "slug": "structured-product-engineer-ubp-ch",
       "slugByLocale": {
         "it": "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "en": "structured-product-engineer-ubp-ch",
+        "en": "structured-product-engineer-union-bancaire-privee-geneva-switzerland",
         "de": "structured-product-ingenieur-union-bancaire-privee-geneva-switzerland",
         "fr": "structured-product-ingenieur-union-bancaire-privee-geneva-switzerland"
       },
@@ -3391,14 +3370,6 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "structured-product-engineer-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "structured-product-engineer-union-bancaire-privee-geneva-switzerland"
-        ]
-      },
       "firstSeenAt": "2026-05-17T11:17:32.358Z"
     },
     {
@@ -3406,7 +3377,7 @@
       "slug": "it-business-analyst-credit-it-ubp-ch",
       "slugByLocale": {
         "it": "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland",
-        "en": "it-business-analyst-credit-it-ubp-ch",
+        "en": "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
         "de": "it-business-analyst-kredit-it-union-bancaire-privee-geneva-switzerland",
         "fr": "it-business-analyste-credit-it-union-bancaire-privee-geneva-switzerland"
       },
@@ -3452,15 +3423,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
-        "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland"
+        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
-        ],
-        "en": [
-          "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-05-17T11:17:35.564Z"

@@ -1797,7 +1797,7 @@ jobs:
           needs.resolve-nonit-publish.result == 'success' &&
           needs.resolve-nonit-publish.outputs.allowed == 'true' }}
     # This is intentionally a different lock from pages-deploy. The complete
-    # logical-dist rehydrate can use the full five-hour validator budget; it
+    # logical-dist rehydrate can use the full 350-minute validator budget; it
     # must not serialize the Pages upload that already completed for its run.
     concurrency:
       group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && 'dist-validation' || format('dist-validation-noop-{0}', github.run_id) }}

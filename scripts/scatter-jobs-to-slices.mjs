@@ -110,23 +110,15 @@ function buildSliceOwnershipIndex(sliceEntries) {
   return { entries, ownersByEntry };
 }
 
-function targetAlreadyServesBridge(job, assembled, slug) {
+function targetAlreadyServesBridge(job, slug) {
   const value = String(slug || '');
   if (!value || !job || typeof job !== 'object') return false;
   if (String(job.slug || '') === value) return true;
   if (Object.values(job.slugByLocale || {}).some((active) => String(active || '') === value)) return true;
-
-  const attributedLocales = Object.entries(assembled?.previousSlugsByLocale || {})
-    .filter(([, slugs]) => (Array.isArray(slugs) ? slugs : []).includes(value))
-    .map(([locale]) => locale);
-  if (attributedLocales.length > 0) {
-    return (Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value)
-      && attributedLocales.every((locale) => (
-        Array.isArray(job.previousSlugsByLocale?.[locale])
-        && job.previousSlugsByLocale[locale].includes(value)
-      ));
-  }
-  return (Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value);
+  if ((Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value)) return true;
+  return Object.values(job.previousSlugsByLocale || {}).some((slugs) => (
+    Array.isArray(slugs) && slugs.includes(value)
+  ));
 }
 
 function assembledBridgeSlugs(assembled) {
@@ -150,7 +142,12 @@ function bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership) {
   const owned = new Set();
   for (const slug of assembledBridgeSlugs(assembled)) {
     const { targetJob, redirected } = resolveRecoveryTarget(sliceJob, slug, owners);
-    if (redirected && targetJob !== sliceJob && targetAlreadyServesBridge(targetJob, assembled, slug)) owned.add(slug);
+    // `resolveRecoveryTarget()` is the same suffix-owner proof used by the
+    // decontaminator. Once that owner already serves the bridge in ANY locale,
+    // another assembled locale attribution is a duplicate claim, not a missing
+    // projection. Requiring every attributed locale here made the writer and
+    // verifier disagree with the persisted owner state (Aldi vx06v8).
+    if (redirected && targetJob !== sliceJob && targetAlreadyServesBridge(targetJob, slug)) owned.add(slug);
   }
   return owned;
 }

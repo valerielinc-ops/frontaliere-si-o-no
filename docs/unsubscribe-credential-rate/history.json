@@ -820,17 +820,17 @@
       "windowHours": 168,
       "counts": {
         "autologin_code": 1,
-        "email_token": 208,
+        "email_token": 203,
         "legacy_auth_token": 0,
         "missing": 0
       },
       "writerCounts": {
-        "cloud_function": 209,
+        "cloud_function": 204,
         "spa": 0,
         "unknown": 0
       },
-      "graded": 209,
-      "fallbackRate": 0.004784688995215311,
+      "graded": 204,
+      "fallbackRate": 0.004901960784313725,
       "findings": []
     }
   ]

@@ -7797,6 +7797,7 @@ ${staticAnalyticsHtml}
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
  const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const cityHubIndexable = meetsCantonThreshold && !isCityEmpty;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -7820,7 +7821,10 @@ ${staticAnalyticsHtml}
  canonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
- jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
+ // Noindex rescue pages stay live for users and job-detail links, but rich
+ // JSON-LD on a blocked page creates a schema/noindex conflict in crawlers.
+ // Keep the collection schema on indexable city hubs only.
+ jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],
  bodyHtml,
  hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' },
  distDir,
@@ -7831,7 +7835,7 @@ ${staticAnalyticsHtml}
  // EXCEPT when the whole canton is below MIN_JOBS_FOR_CANTON_PAGE: its
  // canton hub already ships noindex,follow (line ~8722), so keep the
  // sub-threshold city hubs consistent (thin canton → noindex, #2348).
- robots: (!meetsCantonThreshold || isCityEmpty) ? 'noindex,follow' : 'index,follow',
+ robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;

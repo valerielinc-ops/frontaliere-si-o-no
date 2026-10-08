@@ -33,6 +33,7 @@ import {
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
 import { LEGACY_PREV_SLUGS_CAP, cleanPreviousSlugsPerLocale, isSelfCanonicalPreviousSlug, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { decontaminateEntries } from '../scripts/decontaminate-prev-slugs.mjs';
 
 const baseSlice = () => ({
   id: 'company-abc',
@@ -171,6 +172,129 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('treats an Aldi bridge already served by its hash owner in another locale as owned', () => {
+    // Reduced from origin/main:data/jobs/by-crawler/aldi-suisse.json at the
+    // 37756583870 input state. Both records deliberately keep the same master
+    // slug; only the URL-derived stable hash identifies the owner of vx06v8.
+    const bridge = 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vx06v8';
+    const claimant = {
+      id: 'aldi-suisse-b678db8da4ef',
+      url: 'https://www.jobs.aldi.ch/job/1421213133',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-martigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-martigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+        fr: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwi61l'],
+      },
+    };
+    const owner = {
+      id: 'aldi-suisse-3cf969335f77',
+      url: 'https://www.jobs.aldi.ch/job/1421220833',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bussigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-bussigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-bussigny',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: [bridge],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5'],
+        de: ['lehrlingsausbildung-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny'],
+        fr: [bridge],
+      },
+    };
+    expect(stableSlugHash(claimant)).toBe('vwi61l');
+    expect(stableSlugHash(owner)).toBe('vx06v8');
+
+    // The real decontaminator moves an already-persisted IT claim to the
+    // suffix owner in IT while retaining the owner's existing FR claim. The
+    // scatter edge below is different: A's IT claim exists only in the
+    // assembled duplicate and must not be created on disk again.
+    const contaminatedClaimant = structuredClone(claimant);
+    contaminatedClaimant.previousSlugs = [];
+    contaminatedClaimant.previousSlugsByLocale = { it: [bridge] };
+    const contaminatedOwner = structuredClone(owner);
+    const contaminationEntries = [
+      { filePath: null, slice: { jobs: [contaminatedClaimant] } },
+      { filePath: null, slice: { jobs: [contaminatedOwner] } },
+    ];
+    expect(decontaminateEntries(contaminationEntries, { apply: false })).toMatchObject({ moved: 1 });
+    expect(contaminatedClaimant.previousSlugsByLocale?.it || []).not.toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.it || []).toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+
+    const assembledClaimant = structuredClone(claimant);
+    assembledClaimant.previousSlugsByLocale.it.push(bridge);
+    const assembled = [assembledClaimant, structuredClone(owner)];
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-aldi-ownership-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'aldi-suisse.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [claimant, owner] }, null, 2)}\n`);
+      const read = () => [{ file: 'aldi-suisse.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const persistedEntries = () => read().map(({ file, slice }) => ({ file, jobs: slice.jobs }));
+      const first = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterFirst = read();
+      const firstOwner = afterFirst[0].slice.jobs.find((job) => job.id === owner.id);
+      const firstClaimant = afterFirst[0].slice.jobs.find((job) => job.id === claimant.id);
+
+      // The bridge is already served by its unique hash owner in FR. A's IT
+      // attribution is a duplicate assembled claim, not a missing projection.
+      expect(first.updatedJobs).toBe(0);
+      expect(first.ownership.moved).toBe(0);
+      expect(firstClaimant.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+
+      const firstDisk = JSON.stringify(afterFirst[0].slice);
+      const second = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterSecond = read();
+      expect(second.updatedJobs).toBe(0);
+      expect(second.ownership.moved).toBe(0);
+      expect(second.changedEntries).toHaveLength(0);
+      expect(JSON.stringify(afterSecond[0].slice)).toBe(firstDisk);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a genuinely ownerless bridge as a parity failure', () => {
+    const sliceJob = { ...baseSlice(), previousSlugs: [], previousSlugsByLocale: {} };
+    const assembled = {
+      ...sliceJob,
+      previousSlugs: [],
+      previousSlugsByLocale: { it: ['legacy-route-without-owner'] },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      missingBridges: 1,
+      pendingWrites: 1,
+      passed: false,
+    });
   });
 
   // Reduced from translate-pending run 37723588903 (arxada.json, R53358): the

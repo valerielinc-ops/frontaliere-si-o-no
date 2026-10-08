@@ -1458,7 +1458,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -1654,9 +1653,9 @@
       "slug": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
       "slugByLocale": {
         "it": "sito-di-simulazione-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
         "de": "famulatur-stelle-cseb-ch",
-        "fr": "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
+        "fr": "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol"
       },
       "company": "Center da Sanadad Engiadina Bassa",
       "companyKey": "cseb",
@@ -1706,8 +1705,8 @@
         "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
         "famulatur-stelle-center-da-sanadad-engiadina-bassa-scuol",
         "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
-        "famulature-site-center-da-sanadad-engiadina-bassa-scuol",
-        "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol"
+        "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol",
+        "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1716,17 +1715,17 @@
         ],
         "en": [
           "famulature-position-center-da-sanadad-engiadina-bassa-scuol",
-          "famulature-site-center-da-sanadad-engiadina-bassa-scuol"
+          "clinical-traineeship-position-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "de": [
           "famulatur-stelle-center-da-sanadad-engiadina-bassa-scuol"
         ],
         "fr": [
           "poste-de-famulature-center-da-sanadad-engiadina-bassa-scuol",
-          "site-de-la-famille-center-da-sanadad-engiadina-bassa-scuol"
+          "poste-de-stage-clinique-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
@@ -1741,7 +1740,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 0
     },
     {
       "id": "cseb-781bb83526e4",

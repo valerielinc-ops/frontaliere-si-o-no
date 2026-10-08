@@ -507,6 +507,12 @@ export function useNavigationState(): NavigationState {
  // Skip if modifier keys are held (user wants new tab/window)
  if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
 
+ // A component-level link handler may already own this click (for example an
+ // article card that selects a live canton article). Do not reinterpret its
+ // href a second time: doing so races the component state update with the
+ // generic route parser and can send the user to a different section.
+ if (e.defaultPrevented) return;
+
  // Walk up from target to find the nearest <a> element
  let anchor = e.target as HTMLElement | null;
  while (anchor && anchor.tagName !== 'A') anchor = anchor.parentElement;

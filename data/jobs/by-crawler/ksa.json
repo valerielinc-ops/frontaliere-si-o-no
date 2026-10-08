@@ -9,7 +9,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -56,7 +56,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +64,7 @@
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -446,7 +446,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
+        "it": "Dipl. Infermiera / Infermiera specialista dialisi",
         "en": "Dipl. Nurse / nurse specialist Dialysis",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Dialyse",
         "fr": "Dipl. Infirmière / Infirmière spécialiste Dialyse"
@@ -495,7 +495,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.793Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -515,7 +514,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
@@ -524,7 +523,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Nursing specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "infirmière / Infirmier"
@@ -563,8 +562,8 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -575,6 +574,9 @@
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -590,8 +592,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksa-e64a36808add",
@@ -844,7 +845,7 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
       "titleByLocale": {
         "it": "Dipl. Infermiera / chirurgia dell'infermiera",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
+        "en": "Dipl. Nurse/nurse specialist surgery",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann Chirurgie",
         "fr": "Dipl. Chirurgie infirmière/infirmière"
       },
@@ -906,7 +907,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1111,7 +1111,7 @@
       "slug": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
       "slugByLocale": {
         "it": "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau-4b8fef",
-        "en": "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau",
+        "en": "care-expert-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "pflegeexpertin-pflegeexperte-ksa-ch",
         "fr": "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau-4b8fef"
       },
@@ -1121,7 +1121,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -1163,7 +1163,7 @@
         "esperto-di-cura-esperto-di-cura-kantonsspital-aarau-ksa-aarau",
         "expert-en-soins-expert-en-soins-kantonsspital-aarau-ksa-aarau",
         "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci",
-        "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+        "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1173,7 +1173,7 @@
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztkci"
         ],
         "en": [
-          "care-expert-care-expert-kantonsspital-aarau-ksa-aarau"
+          "pflegeexpertin-pflegeexperte-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "pflegeexpertin-pflegeexperte-ksa-ch-9ztiyo"
@@ -1184,7 +1184,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1562,7 +1561,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -1615,7 +1614,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -1637,7 +1635,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1684,7 +1682,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1692,7 +1690,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -2057,7 +2055,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -2103,7 +2101,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2286,7 +2283,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Radiologiefachfrau / Radiologiefachmann",
       "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann",
+        "it": "Dipl. Specialista di radiologia / Specialista di radiologia",
         "en": "Dipl. Radiology specialist / Radiology specialist",
         "de": "Dipl. Radiologiefachfrau / Radiologiefachmann",
         "fr": "Dipl. Spécialiste en radiologie / Spécialiste en radiologie"
@@ -2332,7 +2329,6 @@
         ]
       },
       "firstSeenAt": "2026-09-18T13:41:14.672Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2352,19 +2348,19 @@
       "slug": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "assistente-alla-pratica-medica-kantonsspital-aarau-ksa-aarau",
-        "en": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "en": "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
       "companyDomain": "ksa.ch",
       "title": "Med. Praxisassistent/in",
       "titleByLocale": {
-        "it": "Med. Praxisassistent/in",
-        "en": "Med. Praxisassistent/in",
+        "it": "Assistente medico",
+        "en": "Medical practice assistant",
         "de": "Med. Praxisassistent/in",
-        "fr": "Med. Praxisassistent/in"
+        "fr": "Assistant (e) médical (e)"
       },
       "description": "Ambulatorium, Dermatologie & Allergologie\n\nStellenantritt: Ab sofort oder nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie sind verantwortlich für das zuverlässige Planen, Organisieren und Vorbereiten von Sprechstunden.\n\n• Sie sind am Empfang und am Telefon die Ansprechperson für unsere Patientinnen und Patienten und deren Angehörige sowie für interne und externe Stellen.\n\n• Das Schreiben und Bearbeiten von medizinischen Berichten sowie die Abrechnung via IBI-Care und weitere administrative Aufgaben wie Bearbeitung der Post gehören zu Ihrem Alltag.\n\n• Sie pflegen eine kooperative Zusammenarbeit im Pflege-, Arzt- sowie im interdisziplinären Team.\n\n• Durchführen von Prick Testungen, Blutentnahmen, Atemtestungen und Injektionen\n\n• Bei Abwesenheiten von Teamkolleginnen übernehmen Sie stellvertretende Aufgaben.\n\nAnforderungen:\n• Sie verfügen über eine Ausbildung als medizinische Praxisassistent/in mit idealerweise Weiterbildung als Arztsekretär/in.\n\n• Sie bringen gute Deutsch- und IT-Kenntnisse mit und Englisch in Sprache und Schrift ist von Vorteil.\n\n• Sie besitzen eine schnelle Auffassungsgabe, sind loyal und zuverlässig.\n\n• Zu Ihren Stärken gehören das Organisieren und Planen sowie eine genaue und speditive Arbeitsweise.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
@@ -2401,8 +2397,7 @@
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
         "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
-        "medical-practice-assistant-kantonsspital-aarau-ksa-aarau",
-        "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2410,14 +2405,13 @@
         ],
         "en": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
-          "medical-practice-assistant-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlsy",
-          "assistant-en-pratique-medicale-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2515,7 +2509,7 @@
       "id": "ksa-dfb6babcadae",
       "slug": "business-controller-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "business-controller-kantonsspital-aarau-ksa-aarau",
+        "it": "controllore-in-affari-kantonsspital-aarau-ksa-aarau",
         "en": "business-controller-kantonsspital-aarau-ksa-aarau",
         "de": "business-controller-in-ksa-ch",
         "fr": "business-controller-in-kantonsspital-aarau-ksa-aarau"
@@ -2564,14 +2558,12 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "business-controller-in-ksa-ch",
-        "business-controller-in-kantonsspital-aarau-ksa-aarau",
-        "controllore-in-affari-kantonsspital-aarau-ksa-aarau"
+        "business-controller-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-controller-in-ksa-ch",
-          "business-controller-in-kantonsspital-aarau-ksa-aarau",
-          "controllore-in-affari-kantonsspital-aarau-ksa-aarau"
+          "business-controller-in-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "business-controller-in-ksa-ch"
@@ -2608,7 +2600,7 @@
       "title": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -2659,7 +2651,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -2935,7 +2926,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Intensive Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Intensive Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Intensivpflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Soins intensifs NDS HF"
       },
@@ -2980,7 +2971,6 @@
         "nachdiplomstudiengang-dipl-expertin-experte-intensivpflege-nds-hf-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-09-08T13:32:49.217Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3002,7 +2992,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3048,7 +3038,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-ksa-ch",
-        "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+        "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3059,7 +3050,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -3082,7 +3073,7 @@
       "slug": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "still-e-laktationsberater-in-kantonsspital-aarau-ksa-aarau",
-        "en": "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau",
+        "en": "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in",
         "de": "still-und-laktationsberater-in-ksa-ch",
         "fr": "still-und-laktationsberater-in-kantonsspital-aarau-ksa-aarau"
       },
@@ -3130,14 +3121,14 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "still-und-laktationsberater-in-ksa-ch",
-        "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+        "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "still-und-laktationsberater-in-ksa-ch"
         ],
         "en": [
-          "the-commission-shall-adopt-the-necessary-measures-to-ensure-that-the-measures-taken-by-the-member-states-are-taken-in"
+          "breastfeeding-and-lactation-consultant-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -3254,7 +3245,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -3300,7 +3291,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3559,7 +3549,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -3609,14 +3599,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -3737,7 +3725,7 @@
       "title": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Laurea specialistica Dipl. Expert / Expert Emergency Care NDS HF",
-        "en": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Postgraduate degree Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Diplôme supérieur Dipl. Expert / Expert Soins d'urgence NDS HF"
       },
@@ -3788,7 +3776,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3818,7 +3805,7 @@
       "title": "Dipl. Expertin / Experte Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Certificato esperto / certificato di assistenza di emergenza NDS HF",
-        "en": "Dipl. Expertin / Experte Notfallpflege NDS HF",
+        "en": "Dipl. Expert / Expert Emergency Care NDS HF",
         "de": "Dipl. Expertin / Experte Notfallpflege NDS HF",
         "fr": "Expert certifié / Expert certifié Soins d'urgence NDS HF"
       },
@@ -3873,7 +3860,6 @@
         "dipl-expertin-experte-notfallpflege-nds-hf-ksa-ch"
       ],
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3903,7 +3889,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care",
-        "en": "Dipl. Expertin / Experte Intensivpflege",
+        "en": "Dipl. Expert / Expert Intensive Care",
         "de": "Dipl. Expertin / Experte Intensivpflege",
         "fr": "Dipl. Expert / Expert soins intensifs"
       },
@@ -3940,7 +3926,6 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4285,7 +4270,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -4331,7 +4316,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5231,7 +5215,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Nursing specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "infirmière / Infirmier"
@@ -5280,7 +5264,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5309,7 +5292,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Dipl. Nursing professional / nursing professional",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -5365,7 +5348,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5395,7 +5377,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Infermiera /Esperto infermieristico",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Experte /Experte en soins infirmiers"
       },
@@ -5440,7 +5422,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -5645,7 +5626,7 @@
         "it": "controller-di-cura-kantonsspital-aarau-ksa-aarau",
         "en": "care-controller-in-kantonsspital-aarau-ksa-aarau",
         "de": "pflegecontroller-in-ksa-ch",
-        "fr": "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "controleur-in-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5691,14 +5672,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "pflegecontroller-in-ksa-ch",
-        "controleur-in-kantonsspital-aarau-ksa-aarau"
+        "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegecontroller-in-ksa-ch"
         ],
         "fr": [
-          "controleur-in-kantonsspital-aarau-ksa-aarau"
+          "pflegecontroller-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -7664,7 +7645,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -7717,14 +7698,12 @@
         ],
         "it": [
           "ergotherapeut-in-ksa-ch",
-          "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-ksa-ch",
-        "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-kantonsspital-aarau-ksa-aarau"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
@@ -7747,7 +7726,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
-        "en": "nursing-specialist-kantonsspital-aarau-ksa-aarau",
+        "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-7"
       },
@@ -7756,7 +7735,7 @@
       "companyDomain": "ksa.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
+        "it": "Dipl. Infermieristica professionale / infermieristica",
         "en": "Nursing specialist",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
         "fr": "infirmière / Infirmier"
@@ -7794,7 +7773,8 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "nursing-specialist-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7802,10 +7782,12 @@
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "en": [
+          "nursing-specialist-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7907,7 +7889,7 @@
         "it": "risorse-umane-business-partner-kantonsspital-aarau-ksa-aarau",
         "en": "hr-business-partner-ksa-ch",
         "de": "hr-business-partner-ksa-ch",
-        "fr": "hr-business-partner-kantonsspital-aarau-ksa-aarau"
+        "fr": "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7953,14 +7935,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "hr-business-partner-ksa-ch",
-        "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+        "hr-business-partner-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-ksa-ch"
         ],
         "fr": [
-          "partenaire-d-affaires-rh-kantonsspital-aarau-ksa-aarau"
+          "hr-business-partner-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-10-06T09:16:55.314Z",
@@ -8389,9 +8371,9 @@
       "slug": "berufsbildende-r-pflege-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "berufsbildende-r-pflege-ksa-ch",
-        "it": "berufsbildende-r-pflege-kantonsspital-aarau-ksa-aarau",
-        "en": "berufsbildende-r-pflege-kantonsspital-aarau-ksa-aarau",
-        "fr": "berufsbildende-r-pflege-kantonsspital-aarau-ksa-aarau"
+        "it": "istruzione-professionale-kantonsspital-aarau-ksa-aarau-b71808",
+        "en": "vocational-education-kantonsspital-aarau-ksa-aarau-b71808",
+        "fr": "enseignement-professionnel-kantonsspital-aarau-ksa-aarau-b71808"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8399,16 +8381,16 @@
       "title": "Berufsbildende/r Pflege",
       "titleByLocale": {
         "de": "Berufsbildende/r Pflege",
-        "it": "Berufsbildende/r Pflege",
-        "en": "Berufsbildende/r Pflege",
-        "fr": "Berufsbildende/r Pflege"
+        "it": "Istruzione professionale",
+        "en": "Vocational education",
+        "fr": "Enseignement professionnel"
       },
       "description": "Stellenantritt: nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie begleiten und fördern Lernende (FaGe) sowie Studierende der Pflege HF/FH auf ihrem Weg zur Pflegefachperson.\n\n• Sie gestalten den Lernprozess aktiv mit – von der Planung über die Begleitung bis zur Evaluation – und tragen so zu einer praxisnahen und erfolgreichen Ausbildung bei.\n\n• Mit Engagement führen Sie Bildungszonen durch und wirken als Expertin oder Experte bei Ausbildungsabschlüssen mit.\n\n• Als kompetente Ansprechperson beraten Sie Pflegefachpersonen in Ausbildungsfragen und unterstützen neue Mitarbeitende bei der Begleitung von Lernenden und Studierenden.\n\n• Gemeinsam mit der Stationsleitung und den Fachexperten bringen Sie sich in die Organisation und Weiterentwicklung der Abteilung ein und gestalten die Zukunft der Ausbildung aktiv mit.\n\n• Feste Begleittage, individuelle Einzelbegleitungen sowie regelmässige Bürotage.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH und bringen idealerweise mindestens zwei Jahre Berufserfahrung mit.\n\n• Eine pädagogische Weiterbildung (SVEB I) haben Sie bereits absolviert oder Sie sind motiviert, diese zu erwerben.\n\n• Erfahrung in der Begleitung von Lernenden und Studierenden, beispielsweise als Tagesbegleitperson, ist von Vorteil.\n\n• Sie überzeugen durch Ihre fachliche Kompetenz, Ihre Teamfähigkeit und Ihre ausgeprägten Kommunikationsfähigkeiten.\n\n• Im Umgang mit Lernenden und Studierenden treten Sie wertschätzend, fördernd und als authentisches Vorbild auf.\n\n• Organisationsgeschick, Sozial- und Selbstkompetenz sowie ein sicherer Umgang mit den gängigen Office-Anwendungen runden Ihr Profil ab.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Stellenantritt: nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie begleiten und fördern Lernende (FaGe) sowie Studierende der Pflege HF/FH auf ihrem Weg zur Pflegefachperson.\n\n• Sie gestalten den Lernprozess aktiv mit – von der Planung über die Begleitung bis zur Evaluation – und tragen so zu einer praxisnahen und erfolgreichen Ausbildung bei.\n\n• Mit Engagement führen Sie Bildungszonen durch und wirken als Expertin oder Experte bei Ausbildungsabschlüssen mit.\n\n• Als kompetente Ansprechperson beraten Sie Pflegefachpersonen in Ausbildungsfragen und unterstützen neue Mitarbeitende bei der Begleitung von Lernenden und Studierenden.\n\n• Gemeinsam mit der Stationsleitung und den Fachexperten bringen Sie sich in die Organisation und Weiterentwicklung der Abteilung ein und gestalten die Zukunft der Ausbildung aktiv mit.\n\n• Feste Begleittage, individuelle Einzelbegleitungen sowie regelmässige Bürotage.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH und bringen idealerweise mindestens zwei Jahre Berufserfahrung mit.\n\n• Eine pädagogische Weiterbildung (SVEB I) haben Sie bereits absolviert oder Sie sind motiviert, diese zu erwerben.\n\n• Erfahrung in der Begleitung von Lernenden und Studierenden, beispielsweise als Tagesbegleitperson, ist von Vorteil.\n\n• Sie überzeugen durch Ihre fachliche Kompetenz, Ihre Teamfähigkeit und Ihre ausgeprägten Kommunikationsfähigkeiten.\n\n• Im Umgang mit Lernenden und Studierenden treten Sie wertschätzend, fördernd und als authentisches Vorbild auf.\n\n• Organisationsgeschick, Sozial- und Selbstkompetenz sowie ein sicherer Umgang mit den gängigen Office-Anwendungen runden Ihr Profil ab.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Stellenantritt: nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie begleiten und fördern Lernende (FaGe) sowie Studierende der Pflege HF/FH auf ihrem Weg zur Pflegefachperson.\n\n• Sie gestalten den Lernprozess aktiv mit – von der Planung über die Begleitung bis zur Evaluation – und tragen so zu einer praxisnahen und erfolgreichen Ausbildung bei.\n\n• Mit Engagement führen Sie Bildungszonen durch und wirken als Expertin oder Experte bei Ausbildungsabschlüssen mit.\n\n• Als kompetente Ansprechperson beraten Sie Pflegefachpersonen in Ausbildungsfragen und unterstützen neue Mitarbeitende bei der Begleitung von Lernenden und Studierenden.\n\n• Gemeinsam mit der Stationsleitung und den Fachexperten bringen Sie sich in die Organisation und Weiterentwicklung der Abteilung ein und gestalten die Zukunft der Ausbildung aktiv mit.\n\n• Feste Begleittage, individuelle Einzelbegleitungen sowie regelmässige Bürotage.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH und bringen idealerweise mindestens zwei Jahre Berufserfahrung mit.\n\n• Eine pädagogische Weiterbildung (SVEB I) haben Sie bereits absolviert oder Sie sind motiviert, diese zu erwerben.\n\n• Erfahrung in der Begleitung von Lernenden und Studierenden, beispielsweise als Tagesbegleitperson, ist von Vorteil.\n\n• Sie überzeugen durch Ihre fachliche Kompetenz, Ihre Teamfähigkeit und Ihre ausgeprägten Kommunikationsfähigkeiten.\n\n• Im Umgang mit Lernenden und Studierenden treten Sie wertschätzend, fördernd und als authentisches Vorbild auf.\n\n• Organisationsgeschick, Sozial- und Selbstkompetenz sowie ein sicherer Umgang mit den gängigen Office-Anwendungen runden Ihr Profil ab.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Stellenantritt: nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie begleiten und fördern Lernende (FaGe) sowie Studierende der Pflege HF/FH auf ihrem Weg zur Pflegefachperson.\n\n• Sie gestalten den Lernprozess aktiv mit – von der Planung über die Begleitung bis zur Evaluation – und tragen so zu einer praxisnahen und erfolgreichen Ausbildung bei.\n\n• Mit Engagement führen Sie Bildungszonen durch und wirken als Expertin oder Experte bei Ausbildungsabschlüssen mit.\n\n• Als kompetente Ansprechperson beraten Sie Pflegefachpersonen in Ausbildungsfragen und unterstützen neue Mitarbeitende bei der Begleitung von Lernenden und Studierenden.\n\n• Gemeinsam mit der Stationsleitung und den Fachexperten bringen Sie sich in die Organisation und Weiterentwicklung der Abteilung ein und gestalten die Zukunft der Ausbildung aktiv mit.\n\n• Feste Begleittage, individuelle Einzelbegleitungen sowie regelmässige Bürotage.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH und bringen idealerweise mindestens zwei Jahre Berufserfahrung mit.\n\n• Eine pädagogische Weiterbildung (SVEB I) haben Sie bereits absolviert oder Sie sind motiviert, diese zu erwerben.\n\n• Erfahrung in der Begleitung von Lernenden und Studierenden, beispielsweise als Tagesbegleitperson, ist von Vorteil.\n\n• Sie überzeugen durch Ihre fachliche Kompetenz, Ihre Teamfähigkeit und Ihre ausgeprägten Kommunikationsfähigkeiten.\n\n• Im Umgang mit Lernenden und Studierenden treten Sie wertschätzend, fördernd und als authentisches Vorbild auf.\n\n• Organisationsgeschick, Sozial- und Selbstkompetenz sowie ein sicherer Umgang mit den gängigen Office-Anwendungen runden Ihr Profil ab.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Stellenantritt: nach Vereinbarung, unbefristet\n\nAufgaben:\n• Sie begleiten und fördern Lernende (FaGe) sowie Studierende der Pflege HF/FH auf ihrem Weg zur Pflegefachperson.\n\n• Sie gestalten den Lernprozess aktiv mit – von der Planung über die Begleitung bis zur Evaluation – und tragen so zu einer praxisnahen und erfolgreichen Ausbildung bei.\n\n• Mit Engagement führen Sie Bildungszonen durch und wirken als Expertin oder Experte bei Ausbildungsabschlüssen mit.\n\n• Als kompetente Ansprechperson beraten Sie Pflegefachpersonen in Ausbildungsfragen und unterstützen neue Mitarbeitende bei der Begleitung von Lernenden und Studierenden.\n\n• Gemeinsam mit der Stationsleitung und den Fachexperten bringen Sie sich in die Organisation und Weiterentwicklung der Abteilung ein und gestalten die Zukunft der Ausbildung aktiv mit.\n\n• Feste Begleittage, individuelle Einzelbegleitungen sowie regelmässige Bürotage.\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH und bringen idealerweise mindestens zwei Jahre Berufserfahrung mit.\n\n• Eine pädagogische Weiterbildung (SVEB I) haben Sie bereits absolviert oder Sie sind motiviert, diese zu erwerben.\n\n• Erfahrung in der Begleitung von Lernenden und Studierenden, beispielsweise als Tagesbegleitperson, ist von Vorteil.\n\n• Sie überzeugen durch Ihre fachliche Kompetenz, Ihre Teamfähigkeit und Ihre ausgeprägten Kommunikationsfähigkeiten.\n\n• Im Umgang mit Lernenden und Studierenden treten Sie wertschätzend, fördernd und als authentisches Vorbild auf.\n\n• Organisationsgeschick, Sozial- und Selbstkompetenz sowie ein sicherer Umgang mit den gängigen Office-Anwendungen runden Ihr Profil ab.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Apertura del lavoro: per accordo, a tempo indeterminato\n\nCompiti:\n• Essi accompagnano e sostengono gli studenti (FaGe) così come gli studenti della cura HF/FH sulla loro strada per diventare uno specialista di assistenza.\n\n• Formano attivamente il processo di apprendimento – dalla pianificazione all'accompagnamento e alla valutazione – e contribuiscono così ad una formazione pratica e di successo.\n\n• Con impegno, si effettuano zone educative e partecipare come esperto in gradi di formazione.\n\n• Come persona di contatto competente, si consiglia alle infermiere su problemi di formazione e sostenere nuovi dipendenti in accompagnatori e studenti.\n\n• Insieme con la gestione della stazione e gli specialisti, contribuirai all'organizzazione e allo sviluppo ulteriore del dipartimento e formerà attivamente il futuro della formazione.\n\n• Giorni di escort fissi, singole escort individuali e giorni di ufficio regolari.\n\nRequisiti\n• Hanno completato la formazione come infermiera qualificata HF/FH e portano idealmente almeno due anni di esperienza professionale.\n\n• Avere una formazione educativa (SVEB I) Hai già laureato o sei motivato ad acquisire.\n\n• L'esperienza nell'accompagnare studenti e studenti, per esempio come fornitore di asilo nido, è un vantaggio.\n\n• Convinci con la tua competenza professionale, il tuo lavoro di squadra e le tue forti capacità di comunicazione.\n\n• Nel trattare con studenti e studenti, si agisce come un modello di ruolo apprezzativo, di supporto e autentico.\n\n• Capacità organizzative, social e auto-competenza, nonché una gestione sicura delle applicazioni di ufficio comuni completano il vostro profilo.\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Job opening: by agreement, indefinitely\n\nTasks:\n• They accompany and support learners (FaGe) as well as students of the care HF/FH on their way to becoming a care specialist.\n\n• They actively shape the learning process – from planning to accompaniment and evaluation – and thus contribute to a practical and successful training.\n\n• With commitment, you carry out educational zones and participate as an expert in training degrees.\n\n• As a competent contact person, you advise nurses on training issues and support new employees in accompanying learners and students.\n\n• Together with the station management and the specialists, you will contribute to the organization and further development of the department and actively shape the future of training.\n\n• Fixed escort days, individual individual escorts and regular office days.\n\nRequirements\n• They have completed training as a qualified nurse HF/FH and ideally bring at least two years of professional experience.\n\n• Have an educational training (SVEB I) You have already graduated or you are motivated to acquire it.\n\n• Experience in accompanying learners and students, for example as a day-care provider, is an advantage.\n\n• You convince with your professional competence, your teamwork and your strong communication skills.\n\n• In dealing with learners and students, you act as an appreciative, supportive and authentic role model.\n\n• Organizational skills, social and self-competence as well as a secure handling of the common office applications round off your profile.\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Ouverture d'emploi: par accord, indéfiniment\n\nTâches :\n• Ils accompagnent et soutiennent les apprenants (FaGe) ainsi que les étudiants des soins HF/FH en voie de devenir un spécialiste des soins.\n\n• Ils façonnent activement le processus d'apprentissage – de la planification à l'accompagnement et à l'évaluation – et contribuent ainsi à une formation pratique et réussie.\n\n• Avec engagement, vous réalisez des zones éducatives et participez comme un expert en diplômes de formation.\n\n• En tant que personne-ressource compétente, vous conseillez les infirmières sur les questions de formation et aidez les nouveaux employés à accompagner les apprenants et les étudiants.\n\n• En collaboration avec la direction de la station et les spécialistes, vous contribuerez à l'organisation et au développement du département et façonnerez activement l'avenir de la formation.\n\n• Nombre de jours d'escorte, d'escortes individuelles et de jours de travail réguliers.\n\nExigences\n• Ils ont terminé leur formation d'infirmière qualifiée HF/FH et apportent idéalement au moins deux ans d'expérience professionnelle.\n\n• Avoir une formation (SVEB I) Vous avez déjà obtenu votre diplôme ou vous êtes motivé à l'acquérir.\n\n• L'expérience de l'accompagnement des apprenants et des étudiants, par exemple en tant que gardienne de jour, est un avantage.\n\n• Vous convainquez avec votre compétence professionnelle, votre travail d'équipe et vos compétences en communication.\n\n• En traitant avec les apprenants et les étudiants, vous agissez comme un modèle d'appréciation, de soutien et d'authenticité.\n\n• Les compétences organisationnelles, sociales et d'auto-compétence ainsi que le traitement sécurisé des applications communes de bureau complètent votre profil.\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8437,24 +8419,13 @@
         "de": []
       },
       "department": "Pilot ohne Motivationsbrief",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildende-r-pflege-ksa-ch",
-          "istruzione-professionale-kantonsspital-aarau-ksa-aarau-b71808"
-        ],
-        "en": [
-          "vocational-education-kantonsspital-aarau-ksa-aarau-b71808"
-        ],
-        "fr": [
-          "enseignement-professionnel-kantonsspital-aarau-ksa-aarau-b71808"
+          "berufsbildende-r-pflege-ksa-ch"
         ]
       },
       "previousSlugs": [
-        "berufsbildende-r-pflege-ksa-ch",
-        "istruzione-professionale-kantonsspital-aarau-ksa-aarau-b71808",
-        "vocational-education-kantonsspital-aarau-ksa-aarau-b71808",
-        "enseignement-professionnel-kantonsspital-aarau-ksa-aarau-b71808"
+        "berufsbildende-r-pflege-ksa-ch"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

@@ -789,7 +789,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -813,11 +813,12 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+          "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
@@ -4730,9 +4731,9 @@
       },
       "titleByLocale": {
         "it": "Apprendistato come impiegata/impiegato in logistica CFC Distribuzione recapito misto (lettere e pacchi)",
-        "en": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
+        "en": "Apprenticeship as a logistics specialist: mixed delivery in EFZ Distribution (letters and parcels)",
         "de": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
-        "fr": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)"
+        "fr": "Apprentissage de logisticien : distribution mixte CFC (lettres et colis)"
       },
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-rapperswil-sg",
       "slugByLocale": {
@@ -6459,14 +6460,14 @@
       },
       "titleByLocale": {
         "it": "Corso di laurea integrato nella scienza informatica",
-        "en": "Praxisintegriertes Bachelorstudium in Informatik",
+        "en": "Practice-integrated Bachelor's degree in Computer Science",
         "de": "Praxisintegriertes Bachelorstudium in Informatik",
         "fr": "Licence en informatique intégrée à la pratique"
       },
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -6490,7 +6491,7 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
@@ -6498,8 +6499,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -6521,8 +6521,7 @@
       "firstSeenAt": "2026-09-11T23:19:01.011Z",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "postalCode": "3004",
-      "needsRetranslation": true
+      "postalCode": "3004"
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73889-de_DE",
@@ -11040,7 +11039,7 @@
       },
       "titleByLocale": {
         "it": "Rete EngOps Engineer",
-        "en": "EngOps Engineer Netzwerk",
+        "en": "EngOps Engineer Network",
         "de": "EngOps Ingenieur Netzwerk",
         "fr": "Réseau d'ingénieurs EngOps"
       },
@@ -11104,8 +11103,7 @@
         "engops-ingegnere-netzwerk-die-schweizerische-post-bellinzona"
       ],
       "postedDate": "2026-09-22",
-      "postingDateSource": "reported",
-      "needsRetranslation": true
+      "postingDateSource": "reported"
     },
     {
       "url": "https://job.post.ch/default/job/SAP-HCM-Payroll-Modulberaterin/74811-de_DE",
@@ -13861,7 +13859,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
-        "en": "courierletters-and-parcels-die-schweizerische-post-kublis",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
         "de": "zusteller-in-briefe-und-pakete-post-apujwm",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kublis"
       },
@@ -13891,7 +13889,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-          "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
+          "courierletters-and-parcels-die-schweizerische-post-kublis"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis"
@@ -13900,7 +13898,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-        "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
+        "courierletters-and-parcels-die-schweizerische-post-kublis"
       ],
       "id": "posta-svizzera-centro-regionale-d5882d13279d",
       "salaryMin": 57500,
@@ -14663,7 +14661,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-        "en": "courierletters-and-parcels-die-schweizerische-post-munsingen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen",
         "de": "zusteller-in-briefe-und-pakete-post-onda5b",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen"
       },
@@ -14693,7 +14691,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-          "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+          "courierletters-and-parcels-die-schweizerische-post-munsingen"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen"
@@ -14702,7 +14700,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-        "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+        "courierletters-and-parcels-die-schweizerische-post-munsingen"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-e284265aa262",
@@ -14831,7 +14829,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
-        "en": "courierletters-and-parcels-die-schweizerische-post-solothurn",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-solothurn",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
       },
@@ -14858,7 +14856,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-          "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
+          "courierletters-and-parcels-die-schweizerische-post-solothurn"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
@@ -14867,7 +14865,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-        "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
+        "courierletters-and-parcels-die-schweizerische-post-solothurn"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-32f37d392976",
@@ -15146,22 +15144,22 @@
       "description": "Für unser Briefzentrum Zürich-Mülligen suchen wir eine dynamische und engagierte Persönlichkeit, die die Rolle des Teamleads im Team «Frankieren Post» übernehmen möchte. Mit dir als Teamleader:in sind unsere Mitarbeitenden in besten Händen und wir schaffen es weiterhin, jeden Tag ca. 5.5 Millionen Briefe und Sendungen ohne Adresse zu verarbeiten.\n\nDas kannst du bewirken\n\n- Du führst ein Team von ca. 16 engagierten Mitarbeitenden sowohl fachlich als auch personell und sorgst für einen wirtschaftlichen Personaleinsatz.\n\n- Gemeinsam mit deiner Stellvertretung bildest du ein starkes Führungsduo, ihr erstellt die kurz- und langfristige Einsatzplanung, führt Mitarbeitergespräche und leitet Teamsitzungen.\n\n- Du schaffst die Rahmenbedingungen für eine gute Team-Performance, legst Wert auf Qualität und die Einhaltung der Sicherheitsvorschriften.\n\n- Mit deinem Engagement führst und entwickelst du dein Team mit konkreten Zielen weiter und du agierst als Ansprechperson und Coach.\n\n- Um deiner Vorbildfunktion gerecht zu werden, packst du im Tagesgeschäft aktiv mit an. Die Arbeitszeiten sind im Spätdienst (14:00-23:00 Uhr) und werden in einer 5-Tagewoche von Montag bis Freitag erbracht.\n\nDas bringst du mit\n\n- Du verfügst über einen eidgenössischen Fachausweis im Bereich Logistik oder eine vergleichbare Ausbildung. Zudem bist du bereit, dich im Bereich Führung/Logistik weiterzubilden. Idealerweise bringst du bereits erste Führungserfahrung in einem ähnlichen Bereich mit.\n\n- Deine Führungserfahrung hilft dir, rasch in der neuen Funktion Fuss zu fassen. Organisatorisches Flair, Flexibilität und die Fähigkeit, in hektischen Situationen den Überblick zu behalten, zeichnen dich aus.\n\n- Du stellst den Beitrag als Team über deine eigenen Ziele, setzt die richtigen Prioritäten und kommunizierst sachlich und transparent.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie erweiterte MS-Office Kenntnisse runden dein Profil ab.\n\nMit dir wird Flexibilität zum Alltag. Wir fördern eine fortschrittliche Teamarbeit und legen Wert auf ein ausgewogenes Arbeitsleben. Diese Stelle kann auch von zwei Personen in «Co-Leitung» übernommen werden. Ihr könnt euch direkt als Duo bewerben oder wir unterstützen dich bei der Suche nach einer passenden Person",
       "descriptionByLocale": {
         "de": "Für unser Briefzentrum Zürich-Mülligen suchen wir eine dynamische und engagierte Persönlichkeit, die die Rolle des Teamleads im Team «Frankieren Post» übernehmen möchte. Mit dir als Teamleader:in sind unsere Mitarbeitenden in besten Händen und wir schaffen es weiterhin, jeden Tag ca. 5.5 Millionen Briefe und Sendungen ohne Adresse zu verarbeiten.\n\nDas kannst du bewirken\n\n- Du führst ein Team von ca. 16 engagierten Mitarbeitenden sowohl fachlich als auch personell und sorgst für einen wirtschaftlichen Personaleinsatz.\n\n- Gemeinsam mit deiner Stellvertretung bildest du ein starkes Führungsduo, ihr erstellt die kurz- und langfristige Einsatzplanung, führt Mitarbeitergespräche und leitet Teamsitzungen.\n\n- Du schaffst die Rahmenbedingungen für eine gute Team-Performance, legst Wert auf Qualität und die Einhaltung der Sicherheitsvorschriften.\n\n- Mit deinem Engagement führst und entwickelst du dein Team mit konkreten Zielen weiter und du agierst als Ansprechperson und Coach.\n\n- Um deiner Vorbildfunktion gerecht zu werden, packst du im Tagesgeschäft aktiv mit an. Die Arbeitszeiten sind im Spätdienst (14:00-23:00 Uhr) und werden in einer 5-Tagewoche von Montag bis Freitag erbracht.\n\nDas bringst du mit\n\n- Du verfügst über einen eidgenössischen Fachausweis im Bereich Logistik oder eine vergleichbare Ausbildung. Zudem bist du bereit, dich im Bereich Führung/Logistik weiterzubilden. Idealerweise bringst du bereits erste Führungserfahrung in einem ähnlichen Bereich mit.\n\n- Deine Führungserfahrung hilft dir, rasch in der neuen Funktion Fuss zu fassen. Organisatorisches Flair, Flexibilität und die Fähigkeit, in hektischen Situationen den Überblick zu behalten, zeichnen dich aus.\n\n- Du stellst den Beitrag als Team über deine eigenen Ziele, setzt die richtigen Prioritäten und kommunizierst sachlich und transparent.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie erweiterte MS-Office Kenntnisse runden dein Profil ab.\n\nMit dir wird Flexibilität zum Alltag. Wir fördern eine fortschrittliche Teamarbeit und legen Wert auf ein ausgewogenes Arbeitsleben. Diese Stelle kann auch von zwei Personen in «Co-Leitung» übernommen werden. Ihr könnt euch direkt als Duo bewerben oder wir unterstützen dich bei der Suche nach einer passenden Person",
-        "it": "Für unser Briefzentrum Zürich-Mülligen suchen wir eine dynamische und engagierte Persönlichkeit, die die Rolle des Teamleads im Team «Frankieren Post» übernehmen möchte. Mit dir als Teamleader:in sind unsere Mitarbeitenden in besten Händen und wir schaffen es weiterhin, jeden Tag ca. 5.5 Millionen Briefe und Sendungen ohne Adresse zu verarbeiten.\n\nDas kannst du bewirken\n\n- Du führst ein Team von ca. 16 engagierten Mitarbeitenden sowohl fachlich als auch personell und sorgst für einen wirtschaftlichen Personaleinsatz.\n\n- Gemeinsam mit deiner Stellvertretung bildest du ein starkes Führungsduo, ihr erstellt die kurz- und langfristige Einsatzplanung, führt Mitarbeitergespräche und leitet Teamsitzungen.\n\n- Du schaffst die Rahmenbedingungen für eine gute Team-Performance, legst Wert auf Qualität und die Einhaltung der Sicherheitsvorschriften.\n\n- Mit deinem Engagement führst und entwickelst du dein Team mit konkreten Zielen weiter und du agierst als Ansprechperson und Coach.\n\n- Um deiner Vorbildfunktion gerecht zu werden, packst du im Tagesgeschäft aktiv mit an. Die Arbeitszeiten sind im Spätdienst (14:00-23:00 Uhr) und werden in einer 5-Tagewoche von Montag bis Freitag erbracht.\n\nDas bringst du mit\n\n- Du verfügst über einen eidgenössischen Fachausweis im Bereich Logistik oder eine vergleichbare Ausbildung. Zudem bist du bereit, dich im Bereich Führung/Logistik weiterzubilden. Idealerweise bringst du bereits erste Führungserfahrung in einem ähnlichen Bereich mit.\n\n- Deine Führungserfahrung hilft dir, rasch in der neuen Funktion Fuss zu fassen. Organisatorisches Flair, Flexibilität und die Fähigkeit, in hektischen Situationen den Überblick zu behalten, zeichnen dich aus.\n\n- Du stellst den Beitrag als Team über deine eigenen Ziele, setzt die richtigen Prioritäten und kommunizierst sachlich und transparent.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie erweiterte MS-Office Kenntnisse runden dein Profil ab.\n\nMit dir wird Flexibilität zum Alltag. Wir fördern eine fortschrittliche Teamarbeit und legen Wert auf ein ausgewogenes Arbeitsleben. Diese Stelle kann auch von zwei Personen in «Co-Leitung» übernommen werden. Ihr könnt euch direkt als Duo bewerben oder wir unterstützen dich bei der Suche nach einer passenden Person",
-        "en": "Für unser Briefzentrum Zürich-Mülligen suchen wir eine dynamische und engagierte Persönlichkeit, die die Rolle des Teamleads im Team «Frankieren Post» übernehmen möchte. Mit dir als Teamleader:in sind unsere Mitarbeitenden in besten Händen und wir schaffen es weiterhin, jeden Tag ca. 5.5 Millionen Briefe und Sendungen ohne Adresse zu verarbeiten.\n\nDas kannst du bewirken\n\n- Du führst ein Team von ca. 16 engagierten Mitarbeitenden sowohl fachlich als auch personell und sorgst für einen wirtschaftlichen Personaleinsatz.\n\n- Gemeinsam mit deiner Stellvertretung bildest du ein starkes Führungsduo, ihr erstellt die kurz- und langfristige Einsatzplanung, führt Mitarbeitergespräche und leitet Teamsitzungen.\n\n- Du schaffst die Rahmenbedingungen für eine gute Team-Performance, legst Wert auf Qualität und die Einhaltung der Sicherheitsvorschriften.\n\n- Mit deinem Engagement führst und entwickelst du dein Team mit konkreten Zielen weiter und du agierst als Ansprechperson und Coach.\n\n- Um deiner Vorbildfunktion gerecht zu werden, packst du im Tagesgeschäft aktiv mit an. Die Arbeitszeiten sind im Spätdienst (14:00-23:00 Uhr) und werden in einer 5-Tagewoche von Montag bis Freitag erbracht.\n\nDas bringst du mit\n\n- Du verfügst über einen eidgenössischen Fachausweis im Bereich Logistik oder eine vergleichbare Ausbildung. Zudem bist du bereit, dich im Bereich Führung/Logistik weiterzubilden. Idealerweise bringst du bereits erste Führungserfahrung in einem ähnlichen Bereich mit.\n\n- Deine Führungserfahrung hilft dir, rasch in der neuen Funktion Fuss zu fassen. Organisatorisches Flair, Flexibilität und die Fähigkeit, in hektischen Situationen den Überblick zu behalten, zeichnen dich aus.\n\n- Du stellst den Beitrag als Team über deine eigenen Ziele, setzt die richtigen Prioritäten und kommunizierst sachlich und transparent.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie erweiterte MS-Office Kenntnisse runden dein Profil ab.\n\nMit dir wird Flexibilität zum Alltag. Wir fördern eine fortschrittliche Teamarbeit und legen Wert auf ein ausgewogenes Arbeitsleben. Diese Stelle kann auch von zwei Personen in «Co-Leitung» übernommen werden. Ihr könnt euch direkt als Duo bewerben oder wir unterstützen dich bei der Suche nach einer passenden Person",
-        "fr": "Für unser Briefzentrum Zürich-Mülligen suchen wir eine dynamische und engagierte Persönlichkeit, die die Rolle des Teamleads im Team «Frankieren Post» übernehmen möchte. Mit dir als Teamleader:in sind unsere Mitarbeitenden in besten Händen und wir schaffen es weiterhin, jeden Tag ca. 5.5 Millionen Briefe und Sendungen ohne Adresse zu verarbeiten.\n\nDas kannst du bewirken\n\n- Du führst ein Team von ca. 16 engagierten Mitarbeitenden sowohl fachlich als auch personell und sorgst für einen wirtschaftlichen Personaleinsatz.\n\n- Gemeinsam mit deiner Stellvertretung bildest du ein starkes Führungsduo, ihr erstellt die kurz- und langfristige Einsatzplanung, führt Mitarbeitergespräche und leitet Teamsitzungen.\n\n- Du schaffst die Rahmenbedingungen für eine gute Team-Performance, legst Wert auf Qualität und die Einhaltung der Sicherheitsvorschriften.\n\n- Mit deinem Engagement führst und entwickelst du dein Team mit konkreten Zielen weiter und du agierst als Ansprechperson und Coach.\n\n- Um deiner Vorbildfunktion gerecht zu werden, packst du im Tagesgeschäft aktiv mit an. Die Arbeitszeiten sind im Spätdienst (14:00-23:00 Uhr) und werden in einer 5-Tagewoche von Montag bis Freitag erbracht.\n\nDas bringst du mit\n\n- Du verfügst über einen eidgenössischen Fachausweis im Bereich Logistik oder eine vergleichbare Ausbildung. Zudem bist du bereit, dich im Bereich Führung/Logistik weiterzubilden. Idealerweise bringst du bereits erste Führungserfahrung in einem ähnlichen Bereich mit.\n\n- Deine Führungserfahrung hilft dir, rasch in der neuen Funktion Fuss zu fassen. Organisatorisches Flair, Flexibilität und die Fähigkeit, in hektischen Situationen den Überblick zu behalten, zeichnen dich aus.\n\n- Du stellst den Beitrag als Team über deine eigenen Ziele, setzt die richtigen Prioritäten und kommunizierst sachlich und transparent.\n\n- Sehr gute mündliche und schriftliche Deutschkenntnisse sowie erweiterte MS-Office Kenntnisse runden dein Profil ab.\n\nMit dir wird Flexibilität zum Alltag. Wir fördern eine fortschrittliche Teamarbeit und legen Wert auf ein ausgewogenes Arbeitsleben. Diese Stelle kann auch von zwei Personen in «Co-Leitung» übernommen werden. Ihr könnt euch direkt als Duo bewerben oder wir unterstützen dich bei der Suche nach einer passenden Person"
+        "it": "Siamo alla ricerca di una personalità dinamica e impegnata che vuole assumere il ruolo di leader di squadra nel team «Frankieren Post». Con voi come leader di squadra: i nostri dipendenti sono nelle migliori mani e continuiamo a farlo, ogni giorno ca. 5,5 milioni di lettere e spedizioni senza indirizzo da elaborare.\n\nPuoi farlo.\n\n- Si guida una squadra di ca. 16 dipendenti dedicati, sia tecnicamente che in termini di personale, e garantire una distribuzione economica del personale.\n\n- Insieme al tuo vice, formi un forte duo di leadership, crei la pianificazione dell'assegnazione a breve e a lungo termine, i principali incontri dei dipendenti e i principali incontri di squadra.\n\n- Crea il quadro per le buone prestazioni del team, attribuisci importanza alla qualità e al rispetto delle normative di sicurezza.\n\n- Con il tuo impegno, guidi e sviluppi il tuo team con obiettivi concreti e ti comporti come persona di contatto e coach.\n\n- Al fine di vivere fino al vostro modello di ruolo, si partecipa attivamente al business giorno per giorno. Le ore di lavoro sono in servizio tardivo (14:00 - 23:00) e sono fornite in una settimana di 5 giorni dal lunedì al venerdì.\n\nLo porti con te.\n\n- Hai un certificato federale nel campo della logistica o un'educazione comparabile. Inoltre, siete pronti ad allenarvi nel campo della leadership / logistica. Idealmente, avrete già esperienza di leadership iniziale in una zona simile.\n\n- La tua esperienza di leadership ti aiuta a guadagnare rapidamente un piede nella nuova funzione. Il fascino organizzativo, la flessibilità e la capacità di tenere traccia delle situazioni frenetiche ti fanno separare.\n\n- Hai messo il contributo come squadra al di sopra dei tuoi obiettivi, impostare le priorità giuste e comunicare oggettivamente e trasparente.\n\n- Molto buone capacità orali e scritte tedesche e avanzate competenze MS-Office completano il vostro profilo.\n\nCon voi, la flessibilità diventa vita quotidiana. Promuoviamo il lavoro di squadra progressivo e valutiamo una vita lavorativa equilibrata. Questa posizione può essere presa anche da due persone in \"cogestione\". È possibile applicare direttamente come duo o ti sosteniamo nella ricerca di una persona adatta",
+        "en": "We are looking for a dynamic and committed personality who wants to take on the role of team leader in the «Frankieren Post» team. With you as a team leader: our employees are in the best hands and we continue to make it, every day approx. 5.5 million letters and shipments without address to process.\n\nYou can do that.\n\n- You lead a team of approx. 16 dedicated employees, both technically and in terms of personnel, and ensure an economic deployment of personnel.\n\n- Together with your deputy, you form a strong leadership duo, you create the short- and long-term assignment planning, lead employee meetings and lead team meetings.\n\n- You create the framework for good team performance, attach importance to quality and compliance with safety regulations.\n\n- With your commitment, you lead and develop your team with concrete goals and you act as a contact person and coach.\n\n- In order to live up to your role model, you actively participate in day-to-day business. The working hours are in late service (14:00 - 23:00) and are provided in a 5-day week from Monday to Friday.\n\nYou bring that with you\n\n- You have a federal certificate in the field of logistics or a comparable education. In addition, you are ready to train yourself in the field of leadership / logistics. Ideally, you will already have initial leadership experience in a similar area.\n\n- Your leadership experience helps you to quickly gain a foothold in the new function. Organizational flair, flexibility and the ability to keep track of hectic situations set you apart.\n\n- You put the contribution as a team above your own goals, set the right priorities and communicate objectively and transparently.\n\n- Very good oral and written German skills as well as advanced MS-Office skills round off your profile.\n\nWith you, flexibility becomes everyday life. We promote progressive teamwork and value a balanced working life. This position can also be taken over by two persons in \"co-management\". You can apply directly as a duo or we support you in the search for a suitable person",
+        "fr": "Nous recherchons une personnalité dynamique et engagée qui veut assumer le rôle de chef d'équipe dans l'équipe «Frankieren Post». Avec vous en tant que chef d'équipe : nos employés sont entre les meilleures mains et nous continuons à le faire, chaque jour environ. 5,5 millions de lettres et d'envois sans adresse à traiter.\n\nTu peux le faire.\n\n- Vous dirigez une équipe d'environ. 16 employés dévoués, tant sur le plan technique que sur le plan du personnel, et assurent un déploiement économique du personnel.\n\n- Avec votre adjoint, vous formez un solide duo de leadership, vous créez la planification des affectations à court et à long terme, les réunions des employés principaux et les réunions de l'équipe principale.\n\n- Vous créez le cadre pour une bonne performance en équipe, attachez de l'importance à la qualité et au respect des règlements de sécurité.\n\n- Avec votre engagement, vous dirigez et développez votre équipe avec des objectifs concrets et vous agissez comme personne de contact et entraîneur.\n\n- Pour être à la hauteur de votre modèle, vous participez activement aux activités quotidiennes. Les heures de travail sont en retard (14:00 - 23:00) et sont fournies dans une semaine de 5 jours du lundi au vendredi.\n\nApporte ça avec toi.\n\n- Vous avez un certificat fédéral dans le domaine de la logistique ou une éducation comparable. En outre, vous êtes prêt à vous former dans le domaine du leadership / logistique. Idéalement, vous aurez déjà une expérience initiale de leadership dans un domaine similaire.\n\n- Votre expérience de leadership vous aide à prendre rapidement pied dans la nouvelle fonction. Le style organisationnel, la flexibilité et la capacité de suivre les situations agitées vous distinguent.\n\n- Vous placez la contribution en tant qu'équipe au-dessus de vos propres objectifs, fixez les bonnes priorités et communiquez de manière objective et transparente.\n\n- De très bonnes compétences orales et écrites en allemand ainsi que des compétences avancées en MS-Office complètent votre profil.\n\nAvec vous, la flexibilité devient la vie quotidienne. Nous encourageons le travail d'équipe progressif et valorisons une vie professionnelle équilibrée. Cette position peut également être reprise par deux personnes en « cogestion ». Vous pouvez postuler directement en tant que duo ou nous vous soutenons dans la recherche d'une personne appropriée"
       },
       "titleByLocale": {
         "de": "Teamleader:in Frankieren Post",
-        "it": "Teamleader:in Frankieren Post",
-        "en": "Teamleader:in Frankieren Post",
-        "fr": "Teamleader:in Frankieren Post"
+        "it": "Team Leaffield Post",
+        "en": "Team Leaffield Post",
+        "fr": "Responsable d’équipe pour l’affranchissement du courrier"
       },
-      "slug": "teamleader-in-frankieren-post-post",
+      "slug": "team-leaffield-post-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "de": "teamleader-in-frankieren-post-post",
-        "it": "teamleader-in-frankieren-post-post",
+        "it": "team-leaffield-post-die-schweizerische-post-zurich-mulligen",
         "en": "teamleader-in-frankieren-post-post",
-        "fr": "teamleader-in-frankieren-post-post"
+        "fr": "responsable-d-equipe-pour-l-affranchissement-du-courrier-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -15180,7 +15178,6 @@
         "canton": "ZH",
         "location": "Zürich-Mülligen"
       },
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-b6e070ef512c",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15199,7 +15196,18 @@
       "addressLocality": "Zürich-Mülligen",
       "addressRegion": "ZH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-10-08T09:54:11.552Z"
+      "firstSeenAt": "2026-10-08T09:54:11.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-in-frankieren-post-post"
+        ],
+        "fr": [
+          "teamleader-in-frankieren-post-post"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-in-frankieren-post-post"
+      ]
     }
   ]
 }

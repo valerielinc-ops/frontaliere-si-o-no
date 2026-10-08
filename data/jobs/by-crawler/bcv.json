@@ -146,7 +146,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T22:15:02.330Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -227,7 +226,6 @@
         "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-09-02T13:36:26.503Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -256,7 +254,7 @@
       "companyDomain": "bcv.ch",
       "title": "Chief Credit Officer - Cheffe ou Chef de division",
       "titleByLocale": {
-        "it": "Chief Credit Officer - Cheffe ou Chef de division",
+        "it": "Chief Credit Officer - Capo divisione",
         "en": "Chief Credit Officer - Head of Division",
         "de": "Chief Credit Officer - Abteilungsleiter",
         "fr": "Chief Credit Officer - Cheffe ou Chef de division"
@@ -308,7 +306,6 @@
         ]
       },
       "firstSeenAt": "2026-10-07T09:21:25.865Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -475,7 +472,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:04.866Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -496,7 +492,7 @@
       "slugByLocale": {
         "it": "fx-vendite-banque-cantonale-vaudoise-lausanne",
         "en": "fx-sales-banque-cantonale-vaudoise-lausanne",
-        "de": "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne",
+        "de": "fx-verkaufe-banque-cantonale-vaudoise-lausanne",
         "fr": "fx-sales-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -553,14 +549,14 @@
         "de": [
           "fx-sales-bcv-lausanne",
           "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-          "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+          "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne",
         "corporate-sales-rates-fx-banque-cantonale-vaudoise-lausanne",
-        "fx-verkaufe-banque-cantonale-vaudoise-lausanne"
+        "unternehmensumsatzraten-fx-banque-cantonale-vaudoise-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
@@ -1085,7 +1081,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:11.588Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1197,7 +1192,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:11:58.690Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1227,7 +1221,7 @@
       "title": "Senior credit officer - PME - Pros Immobilier - Particuliers",
       "titleByLocale": {
         "it": "Senior credit officer - PMI - Pros Immobilier - Individuals",
-        "en": "Senior credit officer - PME - Pros Immobilier - Particuliers",
+        "en": "Senior credit officer - SMEs - Pros Immobilier - Individuals",
         "de": "Senior Credit Officer - KMU - Pros Immobilier - Privatpersonen",
         "fr": "Senior credit officer - PME - Pros Immobilier - Particuliers"
       },
@@ -1276,7 +1270,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:41:48.400Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -1352,7 +1345,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:32:45.206Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1517,7 +1509,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T22:10:44.623Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1601,7 +1592,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:19.315Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1712,7 +1702,7 @@
       "title": "IT Business Analyst - domaine Opérations de Marché",
       "titleByLocale": {
         "it": "IT Business Analista - domaine Opérations de Marché",
-        "en": "IT Business Analyst - domaine Opérations de Marché",
+        "en": "IT Business Analyst - Market Operations domain",
         "de": "IT Business Analyst - Bereich Market Operations",
         "fr": "IT Business Analyste - domaine Opérations de Marché"
       },
@@ -1768,7 +1758,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:26.214Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1798,7 +1787,7 @@
       "title": "Cash Manager pour la clientèle des entreprises",
       "titleByLocale": {
         "it": "Cash Manager per clienti aziendali",
-        "en": "Cash Manager pour la clientèle des entreprises",
+        "en": "Cash Manager for Business Clients",
         "de": "Cash Manager für Geschäftskunden",
         "fr": "Cash Manager pour la clientèle des entreprises"
       },
@@ -1847,7 +1836,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:52:39.969Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1864,12 +1852,12 @@
     },
     {
       "id": "bcv-677e3d1d0e08",
-      "slug": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
+      "slug": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "it": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "en": "specialiste-controlling-et-reportings-credits-bcv-lausanne",
-        "de": "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        "it": "crediti-di-controllo-e-di-reporting-specializzati-banque-cantonale-vaudoise-lausanne",
+        "en": "specialist-controlling-and-reporting-credits-banque-cantonale-vaudoise-lausanne",
+        "de": "spezialisierte-controlling-und-reporting-credits-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -1877,16 +1865,16 @@
       "title": "Spécialiste controlling et reportings crédits",
       "titleByLocale": {
         "fr": "Spécialiste controlling et reportings crédits",
-        "it": "Spécialiste controlling et reportings crédits",
-        "en": "Spécialiste controlling et reportings crédits",
-        "de": "Spécialiste controlling et reportings crédits"
+        "it": "Crediti di controllo e di reporting specializzati",
+        "en": "Specialist controlling and reporting credits",
+        "de": "Spezialisierte Controlling und Reporting Credits"
       },
       "description": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
       "descriptionByLocale": {
         "fr": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "it": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "en": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région.",
-        "de": "Et si votre histoire professionnelle se poursuivait à la BCV ? Mettez vos ambitions managériales au service d’une performance saine et durable en rejoignant la première banque universelle du canton de Vaud, l’une des banques les plus solides au monde, et ses quelque 2000 collaboratrices et collaborateurs. Prenez part au succès d’une institution notée AA par Standard & Poor’s depuis 2011 et contribuez à l’essor du tissu économique vaudois ainsi qu’à l’attractivité et à la vitalité de notre région. Pour notre département Stratégie et Organisation, nous recherchons un ou une :\n\nSpécialiste controlling et reportings crédits 60 à 100% Vos missions\n• Produire les reportings à destination des entités internes (Département, Direction générale, Conseil d'administration) et externes (Finma, BNS), en utilisant des outils comme RStudio/R\n• Assurer le bon fonctionnement des End User Computings (EUCs) (en Access/VBA) du département et apporter un support interne à la Division pour ces développements.\n• Optimiser les sources d'information internes et externes afin de fournir au Département, à la Division et à la Banque des données fiables et pertinentes.\n• Assurer le controlling du Département Support crédits : analyses liées au suivi des risques crédits (monitoring, dépassements/découverts, etc.) et établissement des statistiques.\n• Détecter les opportunités de simplification et proposer des améliorations de procédures sur la base d'une analyse quantitative, objective et financière.\n• Participer à des groupes de travail (IT et/ou processus), voire les conduire, et contribuer à l'analyse de la situation actuelle et future.\n• Rendre compte de l'avancement des projets à la hiérarchie, en mettant en évidence les risques (budget, délais). Votre profil\n• Formation supérieure en ingénierie, en informatique, finance ou sciences (EPF, HES ou équivalent).\n• Au minimum 1 an d'expérience professionnelle ; une expérience dans le reporting bancaire est un atout.\n• Aisance avec la programmation (RStudio/R, Python); connaissances d'Access/VBA, SQL souhaitées.\n• Aisance avec le requêtage et la manipulation de données.\n• Esprit d'analyse, sens du détail et orientation solution.\n• Volonté d'optimiser les processus existants.\n• Personnalité agréable, à l'aise dans un travail d'équipe.\n• Parfaite maîtrise du français et bon niveau d'anglais\n\nSi ce poste est fait pour vous, postulez dès maintenant et participez à l’avenir prometteur de la BCV. Ecrivons ensemble trois histoires, celle de votre carrière, celle de votre banque, celle de notre région."
+        "it": "E se la tua storia professionale continua al BCV? Metti le tue ambizioni manageriali al servizio di una performance sana e sostenibile unendo il cantone della prima banca universale di Vaud, una delle banche più forti del mondo, e i suoi 2.000 collaboratori. Prendere parte al successo di un istituto valutato AA da Standard & Poors dal 2011 e contribuire alla crescita del tessuto economico Vaud, così come per l'attrattiva e la vitalità della nostra regione. Per il nostro dipartimento di strategia e organizzazione, stiamo cercando uno o più:\n\nCrediti di monitoraggio e reporting specializzati da 60 a 100%\n• Produzione di report all'interno (Dipartimento, Branch, Consiglio di Amministrazione) e all'esterno (Finma, BNS), utilizzando strumenti come RStudio/ R\n• Assicurare il buon funzionamento del dipartimento End User Computings (EUCs) e fornire supporto interno alla Divisione per questi sviluppi.\n• Ottimizzare fonti interne ed esterne di informazioni per fornire al Dipartimento, Divisione e Banca dati affidabili e pertinenti.\n• Assicurare il monitoraggio del Dipartimento del Credit Support: analisi relative al monitoraggio dei rischi di credito (monitoraggio, sorpasso/scoperta, ecc.) e alla compilazione delle statistiche.\n• Identificare le opportunità di semplificazione e proporre miglioramenti procedurali basati su analisi quantitative, obiettive e finanziarie.\n• Partecipare a gruppi di lavoro (IT e/o processi) o anche guidarli, e contribuire all'analisi della situazione attuale e futura.\n• Segnala il progresso dei progetti alla gerarchia, evidenziando i rischi (budget, scadenze). Il tuo profilo\n• Formazione avanzata in ingegneria, informatica, finanza o scienza (EPF, HES o equivalente).\n• Almeno 1 anno di esperienza professionale; un'esperienza nel reporting bancario è un bene.\n• (RStudio/R, Python) Conoscenza Accesso/VBA, SQL desiderato.\n• Aisance con querying e gestione dei dati.\n• Spirito di analisi, senso di dettaglio e orientamento della soluzione.\n• Volontà per ottimizzare i processi esistenti.\n• Personalità piacevole, confortevole nel lavoro di squadra.\n• perfetta padronanza del francese e del buon inglese\n\nSe questa posizione è per voi, applicare ora e partecipare al promettente futuro del BCV. Scriviamo insieme tre storie, quella della tua carriera, quella della tua banca, quella della nostra regione.",
+        "en": "What if your professional history continues at the BCV? Put your managerial ambitions at the service of a healthy and sustainable performance by joining the canton of Vaud's first universal bank, one of the strongest banks in the world, and its 2,000 collaborators. Take part in the success of an institution rated AA by Standard & Poors since 2011 and contribute to the growth of the Vaud economic fabric as well as to the attractiveness and vitality of our region. For our Strategy and Organization department, we are looking for one or more:\n\nSpecialist monitoring and reporting credits 60 to 100% Your missions\n• Produce reporting to internal (Department, Branch, Board of Directors) and external (Finma, BNS), using tools such as RStudio/R\n• Ensure the smooth functioning of the department's End User Computings (EUCs) and provide internal support to the Division for these developments.\n• Optimize internal and external sources of information to provide the Department, Division and Bank with reliable and relevant data.\n• Ensure the monitoring of the Credit Support Department: analyses related to the monitoring of credit risks (monitoring, overtaking/discovery, etc.) and the compilation of statistics.\n• Identify opportunities for simplification and propose procedural improvements based on quantitative, objective and financial analysis.\n• Participate in working groups (IT and/or processes) or even lead them, and contribute to the analysis of the current and future situation.\n• Report the progress of projects to the hierarchy, highlighting risks (budget, deadlines). Your profile\n• Advanced training in engineering, computer science, finance or science (EPF, HES or equivalent).\n• At least 1 year of professional experience; an experience in banking reporting is an asset.\n• (RStudio/R, Python) Access/VBA knowledge, SQL desired.\n• Aisance with querying and handling data.\n• Spirit of analysis, sense of detail and solution orientation.\n• Willingness to optimize existing processes.\n• Pleasant personality, comfortable in teamwork.\n• Perfect mastery of French and good English\n\nIf this position is for you, apply now and participate in the promising future of the BCV. Let's write together three stories, that of your career, that of your bank, that of our region.",
+        "de": "Was ist, wenn Ihre berufliche Geschichte an der BCV fortgesetzt wird? Stellen Sie Ihre Führungsambitionen in den Dienst einer gesunden und nachhaltigen Leistung, indem Sie der ersten Universalbank des Kantons Waadt, einer der stärksten Banken der Welt, und ihren 2.000 Mitarbeitern beitreten. Beteiligen Sie sich am Erfolg einer von Standard & Poors seit 2011 mit AA bewerteten Institution und tragen Sie zum Wachstum des Waadt-Wirtschaftsgefüges sowie zur Attraktivität und Vitalität unserer Region bei. Für unsere Abteilung Strategie und Organisation suchen wir eine oder mehrere:\n\nSpezialisierte Überwachung und Berichterstattung Kredite 60 bis 100% Ihre Missionen\n• Berichterstattung an interne (Abteilung, Zweigstelle, Verwaltungsrat) und externe (Finma, BNS) mit Tools wie RStudio/ R\n• Gewährleistung des reibungslosen Funktionierens der End User Computings (EUCs) der Abteilung und interne Unterstützung der Abteilung für diese Entwicklungen.\n• Optimieren Sie interne und externe Informationsquellen, um der Abteilung, Abteilung und Bank zuverlässige und relevante Daten zur Verfügung zu stellen.\n• Gewährleistung der Überwachung der Abteilung für Kreditunterstützung: Analysen zur Überwachung von Kreditrisiken (Überwachung, Überholung/Entdeckung usw.) und Erstellung von Statistiken.\n• Ermittlung von Vereinfachungsmöglichkeiten und Vorschlag von Verfahrensverbesserungen auf der Grundlage quantitativer, objektiver und finanzieller Analysen.\n• Beteiligen Sie sich an Arbeitsgruppen (IT und / oder Prozesse) oder führen Sie sie sogar und tragen Sie zur Analyse der aktuellen und zukünftigen Situation bei.\n• Melden Sie den Fortschritt der Projekte an die Hierarchie, wobei Sie die Risiken (Budget, Fristen) hervorheben. Dein Profil\n• Fortgeschrittene Ausbildung in Ingenieurwissenschaften, Informatik, Finanzen oder Wissenschaft (EPF, HES oder gleichwertig).\n• Mindestens 1 Jahr Berufserfahrung; eine Erfahrung in der Bankenberichterstattung ist ein Vermögenswert.\n• (RStudio/R, Python) Access/VBA-Wissen, SQL gewünscht.\n• Aisance mit Abfrage und Umgang mit Daten.\n• Analysegeist, Detailsinn und Lösungsorientierung.\n• Bereitschaft, bestehende Prozesse zu optimieren.\n• Angenehme Persönlichkeit, komfortabel in der Teamarbeit.\n• Perfekte Beherrschung von Französisch und gutem Englisch\n\nWenn diese Position für Sie ist, bewerben Sie sich jetzt und nehmen Sie an der vielversprechenden Zukunft der BCV teil. Lassen Sie uns zusammen drei Geschichten schreiben, die Ihrer Karriere, die Ihrer Bank, die unserer Region."
       },
       "location": "Lausanne",
       "canton": "VD",
@@ -1916,7 +1904,6 @@
         "fr": []
       },
       "sfJobId": "1445501233",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1930,7 +1917,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-08T09:19:08.034Z"
+      "firstSeenAt": "2026-10-08T09:19:08.034Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "en": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ],
+        "de": [
+          "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-controlling-et-reportings-credits-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-31f441e7888a",
@@ -2004,7 +2005,6 @@
         "responsable-projet-etat-major-finance-risques-bcv-lausanne"
       ],
       "firstSeenAt": "2026-09-07T15:09:40.644Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2109,7 +2109,7 @@
       "title": "Product Manager - Trafic des paiements",
       "titleByLocale": {
         "it": "Product Manager - Trafic dei Pagamenti",
-        "en": "Product Manager - Trafic des paiements",
+        "en": "Product Manager - Payment traffic",
         "de": "Product Manager - Zahlungsverkehr",
         "fr": "Product Manager - Trafic des paiements"
       },
@@ -2162,7 +2162,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:24.288Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2436,7 +2435,7 @@
       "title": "Responsable de plateformes IT Distribution Marketing - Chef de service",
       "titleByLocale": {
         "it": "Responsabile della Piattaforma IT Marketing Distribuzione - Capo Dipartimento",
-        "en": "Responsable de plateformes IT Distribution Marketing - Chef de service",
+        "en": "IT Platform Manager Distribution Marketing - Head of Department",
         "de": "IT Platform Manager Distribution Marketing - Abteilungsleiter",
         "fr": "Responsable de plateformes IT Distribution Marketing - Chef de service"
       },
@@ -2493,7 +2492,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:00.579Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2604,7 +2602,7 @@
       "title": "Responsable du secteur Conseil Private Banking & Advisory",
       "titleByLocale": {
         "it": "Capo della Consulenza, Private Banking & Advisory",
-        "en": "Responsable du secteur Conseil Private Banking & Advisory",
+        "en": "Head of Private Banking & Advisory",
         "de": "Leiter Private Banking & Advisory",
         "fr": "Responsable du secteur Conseil Private Banking & Advisory"
       },
@@ -2661,7 +2659,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:15.798Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -2748,7 +2745,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:17.681Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
@@ -2830,7 +2826,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:16:14.928Z",
-      "needsRetranslation": true,
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",

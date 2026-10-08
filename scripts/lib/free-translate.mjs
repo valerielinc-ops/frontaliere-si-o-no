@@ -1572,6 +1572,23 @@ function _codexInvariantEchoReason(source, output, sourceLang, targetLang, outco
     : null;
 }
 
+/**
+ * Un eco conta come fallimento della lane solo con una prova che il testo
+ * andava tradotto: il rilevatore lo riconosce, con confidenza, nella lingua
+ * sorgente dichiarata. Un titolo corto che il rilevatore non sa attribuire
+ * («Senior .NET Developer» con sorgente `it` verso `en`, «Mediamatico/a AFC»
+ * con sorgente `de` verso `it`) e' quasi sempre gia' nella lingua di arrivo
+ * con la sorgente etichettata male: il modello ha risposto bene, e tre di
+ * questi di fila non dicono nulla sulla salute del tier (run translate-pending
+ * 37788188781: Codex fermato a 103/350 chiamate da tre titoli inglesi).
+ */
+function _codexEchoProvesSourceLanguage(source, sourceLang, targetLang) {
+  const sourceBase = String(sourceLang || '').split('-')[0].toLowerCase();
+  if (!sourceBase) return false;
+  const detected = detectLanguageWithConfidence(source, targetLang);
+  return detected.lang === sourceBase && detected.confidence >= 0.5;
+}
+
 function _logCodexNonTranslation(item, reason) {
   const prefix = item.clean.replace(/\s+/gu, ' ').trim().slice(0, 40);
   console.log(`   ⚠️  [codex] non-tradotto len=${item.clean.length} pair=${item.sourceLang}->${item.targetLang} reason=${reason} prefix=${JSON.stringify(prefix)}`);
@@ -1781,6 +1798,10 @@ async function _translateGroupWithCodex(group) {
   // lo streak e non spegne il tier che puo' ancora tradurre altri testi.
   const realFailures = new Set();
   const invariantEchoes = new Set();
+  // Echi senza prova che il testo fosse nella lingua sorgente: non sono
+  // traduzioni (il chiamante passa al tier successivo) ma non dicono nulla
+  // sulla salute della lane, quindi non muovono lo streak in nessun verso.
+  const unprovenEchoes = new Set();
   const translated = new Set();
   for (const source of unique) {
     const out = byText.get(source) || '';
@@ -1806,7 +1827,8 @@ async function _translateGroupWithCodex(group) {
       const invariantReason = _codexInvariantEchoReason(source, out, item.sourceLang, item.targetLang, item.outcome);
       _logCodexNonTranslation(item, invariantReason ? `invariant-${invariantReason}` : 'echo-source');
       if (invariantReason) invariantEchoes.add(source);
-      else realFailures.add(source);
+      else if (_codexEchoProvesSourceLanguage(source, item.sourceLang, item.targetLang)) realFailures.add(source);
+      else unprovenEchoes.add(source);
       continue;
     }
     translated.add(source);
@@ -1819,7 +1841,9 @@ async function _translateGroupWithCodex(group) {
   // rifiuta e lo conta fra i passthrough, e qui conta come fallimento.
   // L'eccezione e' una riga che il rilevatore classifica come invariabile:
   // azzerare lo streak su quella riga evita di consumare tutto il budget su
-  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri.
+  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri. Una
+  // richiesta di soli echi non provati (`unprovenEchoes`) lascia lo streak
+  // com'e'.
   if (translated.size > 0) _resetCodexFailureStreak();
   else if (realFailures.size > 0) _noteCodexFailure(realFailures, targetLang);
   else if (invariantEchoes.size > 0) _resetCodexFailureStreak();

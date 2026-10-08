@@ -358,6 +358,26 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
   });
 
+  it('noindex rescue hubs do not emit rich JSON-LD', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const anchorStart = src.indexOf('Per-canton city hubs (Phase 3.1)');
+    const anchorEnd = src.indexOf('Static paginated listing pages');
+    const block = src.slice(anchorStart, anchorEnd);
+
+    // Sub-threshold/empty city hubs intentionally remain live as 404-rescue
+    // pages, but their noindex directive must agree with their structured-data
+    // surface. Emitting CollectionPage/ItemList on those pages triggers the
+    // crawler's schema-noindex-conflict rule.
+    expect(block).toContain('const cityHubIndexable = meetsCantonThreshold && !isCityEmpty;');
+    expect(block).toContain('jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],');
+    expect(block).toContain("robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',");
+  });
+
   // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin
   // (pagination / categoria / sector / company-city / keyword / search / combo)
   // must use buildSeoPageHtml. The legacy buildSimplePage default mode wraps

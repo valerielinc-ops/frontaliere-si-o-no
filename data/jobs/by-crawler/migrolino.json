@@ -179,16 +179,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-fa41171abbf1",
       "slug": "assistente-alle-vendite-migrolino-dietikon",
       "slugByLocale": {
-        "it": "assistente-alle-vendite-migrolino-dietikon",
+        "it": "personale-di-vendita-migrolino-dietikon",
         "en": "sales-staff-migrolino-dietikon",
         "de": "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "fr": "assistant-aux-ventes-migrolino-dietikon"
+        "fr": "personnel-de-vente-migrolino-dietikon"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
@@ -234,14 +236,12 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
         "verkaufsmitarbeiter-in-migrolino-dietikon",
-        "personale-di-vendita-migrolino-dietikon",
-        "personnel-de-vente-migrolino-dietikon"
+        "assistant-aux-ventes-migrolino-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "verkaufsmitarbeiter-in-migrolino-dietikon",
-          "personale-di-vendita-migrolino-dietikon"
+          "verkaufsmitarbeiter-in-migrolino-dietikon"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v"
@@ -251,7 +251,7 @@
         ],
         "fr": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "personnel-de-vente-migrolino-dietikon"
+          "assistant-aux-ventes-migrolino-dietikon"
         ]
       },
       "firstSeenAt": "2026-08-25T21:34:52.249Z",
@@ -563,22 +563,22 @@
     },
     {
       "id": "migrolino-e0882521d3db",
-      "slug": "verkaufsmitarbeiter-in-migrolino-interlaken",
+      "slug": "addetto-a-alle-vendite-migrolino-interlaken",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-migrolino-interlaken",
-        "en": "verkaufsmitarbeiter-in-migrolino-interlaken",
+        "it": "addetto-a-alle-vendite-migrolino-interlaken",
+        "en": "sales-associate-migrolino-interlaken",
         "de": "verkaufsmitarbeiter-in-migrolino-interlaken",
-        "fr": "verkaufsmitarbeiter-in-migrolino-interlaken"
+        "fr": "employe-e-de-vente-migrolino-interlaken"
       },
       "company": "migrolino",
       "companyKey": "migrolino",
       "companyDomain": "migrolino.ch",
       "title": "Verkaufsmitarbeiter*in",
       "titleByLocale": {
-        "it": "Verkaufsmitarbeiter*in",
-        "en": "Verkaufsmitarbeiter*in",
+        "it": "Addetto/a alle vendite",
+        "en": "Sales Associate",
         "de": "Verkaufsmitarbeiter*in",
-        "fr": "Verkaufsmitarbeiter*in"
+        "fr": "Employé (e)de vente"
       },
       "description": "Stelle dein Engagement und Herzblut in einem migrolino-Shop unter Beweis und begeistere unsere Kundinnen und Kunden täglich aufs Neue. **Luogo di lavoro:** migrolino Shop, Lindenallee 98, 3800 Interlaken ## Wichtige Hinweise Dein Kontakt: Sutharshini Sritharan, migrol.interlaken@migrolino.com, Tel.Nr.: +41 78 628 01 60 ## Mansioni - Inkasso der Shopeinkäufe sowie Verkauf von Angeboten aus dem Kassenbereich (u.a. Backwaren, Zigaretten, Lose, Waschkarten, etc.) - Beratung und Verkauf über das gesamte Angebot, insbesondere Verkauf von Zusatzangeboten sowie Engagement bei den Treue-Kampagnen und andere Aktionen - Verantwortung für eine einwandfreie Kassenführung und Kassenabrechnung - Überwachung des Verkaufs von Shop sowie allfälliger weiterer Bereiche - Kontrolle von Lieferscheinen, Bestellwesen, Warenpflege und –präsentationen inkl. Preiskontrolle ## \n• Requisiti - Einige Jahre: im Verkauf im Detailhandel - Abgeschlossene Berufslehre (EFZ): Detailhandel - Kunden- und verkaufsorientiertes sowie wirtschaftliches Denken und Handeln - Gepflegtes Erscheinungsbild und gute Umgangsformen - Gute EDV-Kenntnisse - Belastbarkeit und hohes Verantwortungsbewusstsein - Flexible, lösungsorientierte und gewissenhafte Arbeitsweise - Deutsch (sehr gute Kenntnisse) ## Contatto **Bewerbung & Kontakt** Janine Fischer Assistentin HR **Grado di occupazione:** 60-80%",
       "descriptionByLocale": {
@@ -618,7 +618,8 @@
         "sales-staff-migrolino-interlaken",
         "personnel-de-vente-migrolino-interlaken",
         "personale-di-vendita-migrolino-interlaken",
-        "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk"
+        "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
+        "verkaufsmitarbeiter-in-migrolino-interlaken"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -628,13 +629,16 @@
           "sales-staff-migrolino-interlaken",
           "personnel-de-vente-migrolino-interlaken",
           "personale-di-vendita-migrolino-interlaken",
-          "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk"
+          "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
+          "verkaufsmitarbeiter-in-migrolino-interlaken"
         ],
         "en": [
-          "sales-staff-migrolino-interlaken-b79dd7"
+          "sales-staff-migrolino-interlaken-b79dd7",
+          "verkaufsmitarbeiter-in-migrolino-interlaken"
         ],
         "fr": [
-          "personnel-de-vente-migrolino-interlaken-b79dd7"
+          "personnel-de-vente-migrolino-interlaken-b79dd7",
+          "verkaufsmitarbeiter-in-migrolino-interlaken"
         ]
       },
       "needsRetranslation": true,
@@ -803,7 +807,9 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "migrolino-1885e3187a77",
@@ -1019,7 +1025,7 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-brugg"
       ],
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:23:52.270Z",
       "crawlerMissStreak": 1,
       "salaryMin": 62000,
@@ -1034,7 +1040,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 0
     }
   ]
 }

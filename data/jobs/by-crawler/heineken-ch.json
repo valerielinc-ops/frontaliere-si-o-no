@@ -16,7 +16,7 @@
       "title": "Logistics Key Account Specialist (m/w/d) (80-100%)",
       "titleByLocale": {
         "it": "Logistica Key Account Specialista (m/w/d) (80-100%)",
-        "en": "Logistics Key Account Specialist (m/w/d) (80-100%)",
+        "en": "Logistics Key Account Specialist (m/f/d) (80-100%)",
         "de": "Logistics Key Account Specialist (m/w/d) (80-100%)",
         "fr": "Logistique Key Account Spécialiste (m/w/d) (80-100%)"
       },
@@ -49,8 +49,7 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
       "crawledAt": "2026-10-08T09:52:01.335Z",
-      "firstSeenAt": "2026-09-28T21:34:24.739Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-28T21:34:24.739Z"
     },
     {
       "id": "heineken-ch-a85de7fe0f2b",
@@ -68,7 +67,7 @@
       "title": "Technician DBO (m/w/d)",
       "titleByLocale": {
         "it": "Tecnico DBO (m/f/d)",
-        "en": "Technician DBO (m/w/d)",
+        "en": "Technician DBO (m/f/d)",
         "de": "Techniker DBO (m/w/d)",
         "fr": "Technician DBO (m/w/d)"
       },
@@ -101,8 +100,7 @@
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
       "crawledAt": "2026-10-08T09:52:09.096Z",
-      "firstSeenAt": "2026-09-19T23:10:19.910Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T23:10:19.910Z"
     },
     {
       "id": "heineken-ch-3ed8481a3b74",
@@ -212,7 +210,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:22:07.997Z"
+      "firstSeenAt": "2026-09-10T23:22:07.997Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "heineken-ch-5cf60b489116",
@@ -332,7 +331,7 @@
       "title": "Specialist Business Applications & Operations (m/w/d)",
       "titleByLocale": {
         "it": "Specialista Business Applications & Operations (m/w/d)",
-        "en": "Specialist Business Applications & Operations (m/w/d)",
+        "en": "Specialist Business Applications & Operations (m/f/d)",
         "de": "Specialist Business Applications & Operations (m/w/d)",
         "fr": "Spécialiste Business Applications & Operations (m/w/d)"
       },
@@ -366,7 +365,8 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-08T09:52:41.504Z",
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 2
     },
     {
       "id": "heineken-ch-06d1b6fb1d09",
@@ -375,7 +375,7 @@
       "slugByLocale": {
         "it": "specialista-warehouse-m-w-d-heineken-switzerland-luzern",
         "en": "specialist-warehouse-m-w-d-heineken-switzerland-belp",
-        "de": "specialist-warehouse-m-w-d-heineken-ch-belp",
+        "de": "specialist-warehouse-m-w-d-heineken-ch-luzern",
         "fr": "specialiste-warehouse-m-w-d-heineken-switzerland-luzern"
       },
       "company": "Heineken Switzerland",
@@ -384,7 +384,7 @@
       "title": "Specialist Warehouse (m/w/d)",
       "titleByLocale": {
         "it": "Specialista Warehouse (m/w/d)",
-        "en": "Specialist Warehouse (m/w/d)",
+        "en": "Specialist Warehouse (m/f/d)",
         "de": "Specialist Warehouse (m/w/d)",
         "fr": "Spécialiste Warehouse (m/w/d)"
       },
@@ -418,9 +418,6 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-08T09:52:50.455Z",
       "previousSlugsByLocale": {
-        "de": [
-          "specialist-warehouse-m-w-d-heineken-ch-luzern"
-        ],
         "it": [
           "specialist-warehouse-m-w-d-heineken-ch-luzern"
         ],
@@ -434,8 +431,7 @@
       "previousSlugs": [
         "specialist-warehouse-m-w-d-heineken-ch-luzern"
       ],
-      "firstSeenAt": "2026-09-07T23:43:35.597Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-07T23:43:35.597Z"
     },
     {
       "id": "heineken-ch-8d3488d511c4",

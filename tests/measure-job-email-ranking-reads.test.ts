@@ -22,6 +22,24 @@ describe('countingDb', () => {
     expect(counts).toEqual({ calls: 2, docs: 5 });
   });
 
+  it('conta anche query annidate e doc.get', async () => {
+    const fake = {
+      collection: () => ({
+        doc: () => ({
+          collection: () => ({
+            where() { return this; },
+            get: async () => ({ size: 1, docs: [{}] }),
+          }),
+          get: async () => ({ exists: false }),
+        }),
+      }),
+    };
+    const { db, counts } = countingDb(fake);
+    await db.collection('x').doc('a').collection('sub').where('active', '==', true).get();
+    await db.collection('x').doc('b').get();
+    expect(counts).toEqual({ calls: 2, docs: 2 });
+  });
+
   it('summarizeLoader riporta solo conteggi', () => {
     const summary = summarizeLoader(
       { profiles: new Map([['someone', null]]), stats: { recipients: 1, opted_out: 0, read: 1, found: 0, failed: 0, skipped_reason: null } },

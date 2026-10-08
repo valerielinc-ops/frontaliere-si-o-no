@@ -28,6 +28,12 @@ const TARGETS = [
   '.github/corpus-workflows/translate-pending.yml',
 ];
 const GATE_OUTPUT = "steps.repair_lane_budget.outputs.run == 'true'";
+const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+const REPAIR_LANE_CONDITIONS = {
+  gate: "github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true",
+  title: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+  description: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+} as const;
 const GATED = [
   (step: Step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)',
   (step: Step) => step.name === 'Commit title fixes',
@@ -40,6 +46,13 @@ function stepsOf(rel: string): Step[] {
     jobs: Record<string, { steps: Step[] }>;
   };
   return workflow.jobs.translate.steps;
+}
+
+function expectedRepairLaneIf(rel: string, specific: string) {
+  const base = `always() && !cancelled() && steps.checkout.outcome == 'success' && ${specific}`;
+  return rel === '.github/corpus-workflows/translate-pending.yml'
+    ? `${base} && ${RECOVERY_READY}`
+    : base;
 }
 
 describe.each(TARGETS)('translate-pending: gate di budget per 2d/2e (%s)', (rel) => {
@@ -77,6 +90,25 @@ describe.each(TARGETS)('translate-pending: gate di budget per 2d/2e (%s)', (rel)
     // deploy) deve continuare a girare anche quando le corsie sono saltate.
     const dependents = steps.filter((step) => (step.if ?? '').includes('repair_lane_budget'));
     expect(dependents).toHaveLength(GATED.length);
+  });
+
+  it('mantiene le cinque guardie di lane sopravviventi allo scatter e il gate indipendente dai loro output', () => {
+    const gateStep = steps.find((step) => step.id === 'repair_lane_budget');
+    expect(gateStep?.if).toBe(expectedRepairLaneIf(rel, REPAIR_LANE_CONDITIONS.gate));
+    expect(gateStep?.run).not.toContain('steps.');
+
+    const titleFix = steps.find((step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)');
+    const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
+    const descriptionFix = steps.find((step) => step.name === 'Phase 2e: Fix untranslated descriptions (free cascade)');
+    const descriptionCommit = steps.find((step) => step.name === 'Commit description fixes');
+    expect(titleFix?.if).toBe(expectedRepairLaneIf(rel, REPAIR_LANE_CONDITIONS.title));
+    expect(titleCommit?.if).toBe(expectedRepairLaneIf(rel, REPAIR_LANE_CONDITIONS.title));
+    expect(descriptionFix?.if).toBe(expectedRepairLaneIf(rel, REPAIR_LANE_CONDITIONS.description));
+    expect(descriptionCommit?.if).toBe(expectedRepairLaneIf(rel, REPAIR_LANE_CONDITIONS.description));
+
+    const scatter = steps.find((step) => step.name === 'Scatter changes back to per-crawler slices');
+    expect(scatter).toBeDefined();
+    expect(scatter).not.toHaveProperty('continue-on-error');
   });
 });
 

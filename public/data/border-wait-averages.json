@@ -22,11 +22,12 @@
     "evening": "1-8 min"
   },
   "ferney-voltaire-grand-saconnex": {
-    "morning": "0-3 min"
+    "morning": "0-3 min",
+    "evening": "0-2 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
-    "evening": "0-4 min"
+    "evening": "0-5 min"
   },
   "grenzach-wyhlen-riehen": {
     "morning": "0-2 min",
@@ -67,7 +68,8 @@
     "morning": "0-2 min"
   },
   "san-pietro": {
-    "morning": "0-8 min"
+    "morning": "0-8 min",
+    "evening": "0-4 min"
   },
   "st-margrethen-hochst": {
     "morning": "0-3 min",
@@ -78,7 +80,6 @@
     "evening": "0-2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
-    "morning": "0-2 min",
-    "evening": "0-2 min"
+    "morning": "0-2 min"
   }
 }
