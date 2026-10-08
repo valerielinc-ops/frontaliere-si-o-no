@@ -51,6 +51,11 @@ concurrency:
   group: crawl-events
   cancel-in-progress: true
 
+env:
+  # The events dataset is regenerated from merged source slices and caches
+  # when the refresh publisher reconciles it with a moving main branch.
+  EVENTS_DERIVED_DATASET_RECONCILIATION: events
+
 permissions:
   contents: write
   pull-requests: write
