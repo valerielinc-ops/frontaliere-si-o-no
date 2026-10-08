@@ -101113,7 +101113,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - 16 persone hanno partecipato alla pulizia di Malnate - Raccolti 20 chili di rifiuti di vario genere - L'iniziativa si è svolta lunedì 5 ottobre",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/divario-salariale-genere-agosto-2026.webp`,
+        "url": `${BASE_URL}/images/blog/article-mcdonalds-pulizia-malnate-2026.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Area urbana pulita e riqualificata in una cittadina"

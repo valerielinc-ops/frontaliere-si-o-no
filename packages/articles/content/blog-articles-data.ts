@@ -43073,7 +43073,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'mcdonalds-pulizia-malnate-2026',
  category: 'novita',
  date: '2026-10-08T00:02:58.267Z',
- image: '/images/blog/divario-salariale-genere-agosto-2026.webp',
+ image: '/images/blog/article-mcdonalds-pulizia-malnate-2026.webp',
  hasCalculator: true,
  articleType: 'news',
  authorSlug: 'redazione',

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5046
+      "6": 5047
     },
-    "publishedCovers": 6758,
+    "publishedCovers": 6759,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179759,6 +179759,39 @@
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
+    },
+    "article-mcdonalds-pulizia-malnate-2026": {
+      "cover": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
+      "hash": "dd28d3eb59d3a63eb0659d9040234a98d642e650c1835bf1ef4934b26eae3662",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "mcdonalds-pulizia-malnate-2026",
+          "category": "novita",
+          "date": "2026-10-08T00:02:58.267Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-mcdonalds-pulizia-malnate-2026.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina editoriale dedicata generata e registrata con prova provider.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-mcdonalds-pulizia-malnate-2026",
+        "imageUrl": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {
