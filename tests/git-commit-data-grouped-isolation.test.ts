@@ -1531,6 +1531,24 @@ describe('git-commit-data.sh locale translation protection', () => {
     expect(merged.jobs[0]).not.toHaveProperty('needsRetranslation');
   });
 
+  it('restores a valid short remote title when the local slot is empty or missing', () => {
+    const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');
+    const fixture = JSON.parse(readFileSync(join(fixtureDir, 'base.json'), 'utf8'));
+    const realWaveJob = fixture.jobs.find((job: { id: string }) => job.id === 'coop-wave-a4485183');
+    const base = { crawlerKey: 'reflag-churn-fixture', jobs: [structuredClone(realWaveJob)] };
+    base.jobs[0].titleByLocale.de = 'HR';
+    base.jobs[0].titleByLocale.en = 'HR';
+    const remote = structuredClone(base);
+
+    const emptied = structuredClone(base);
+    emptied.jobs[0].titleByLocale.de = '';
+    delete emptied.jobs[0].titleByLocale.en;
+    emptied.jobs[0].needsRetranslation = true;
+
+    const merged = runEmbeddedMerge(base, remote, emptied);
+    expect(merged.jobs[0].titleByLocale).toMatchObject({ de: 'HR', en: 'HR' });
+  });
+
   it('does not let a crawler source-copy replace concurrent translated locale slots', () => {
     const { originDir, repoDir } = initClonePair();
     const fixtureDir = resolve(ROOT, 'tests/fixtures/reflag-churn');

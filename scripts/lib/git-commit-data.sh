@@ -1291,7 +1291,10 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
       // replace it when the remote side carries a complete value; source-copy
       // and empty local slots remain unambiguous crawler regressions even when
       // the reduced fixture uses a short remote string.
-      if (localIsShort && !localIsSourceCopy
+      // An EMPTY local slot is not a short translation: it carries no
+      // detector finding to respect, so a valid short remote value (a title
+      // such as "HR") is still restored.
+      if (localText.length > 0 && localIsShort && !localIsSourceCopy
           && remoteText.length < (field === 'title' ? 3 : 120)) continue;
       if (sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
       if (sameNonEmptyLocaleMergeText(localValue, remoteValue)) continue;
