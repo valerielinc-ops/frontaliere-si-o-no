@@ -31,9 +31,10 @@
  * the 404 it gave a browser while the object was missing (about three minutes
  * on this host: HIT at 112 s, EXPIRED at 218 s, measured 2026-10-07), in one
  * cache entry per `Origin`. The probe cannot see those entries: this host never
- * answers a HEAD from its cache (`cf-cache-status: DYNAMIC`). So every file the
- * first probe did not show is purged at the URL the pages use, in both cache
- * variants, and must then be served there before anything is published.
+ * answers a HEAD from its cache (`cf-cache-status: DYNAMIC`). So the URL the
+ * pages use is asked for every file, in both cache variants; what the probe did
+ * not show, or what does not answer there, is purged at that URL and must then
+ * be served before anything is published.
  */
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -75,6 +76,11 @@ const PURGE_TIMEOUT_MS = 90_000;
 // A purge is acknowledged at once and reaches every edge location within
 // about thirty seconds; the pages' URL is asked again over that span.
 const CONFIRM_DELAYS_MS = [0, 5_000, 15_000, 30_000];
+
+// The two cache entries the edge keeps for a URL: the one of a plain <script>
+// or <link>, and the one of a load that carries the page origin.
+const CACHE_VARIANTS = [undefined, SHELL_ASSET_PAGE_ORIGIN];
+const variantLabel = (pageOrigin) => (pageOrigin ? `Origin ${pageOrigin}` : 'no Origin');
 
 /**
  * The value the full deploy gives the whole assets/ class (`_r2_sync … assets`
@@ -173,8 +179,14 @@ export async function confirmCdnAsset(key, {
       headers: { 'User-Agent': PROBE_USER_AGENT, ...(pageOrigin ? { Origin: pageOrigin } : {}) },
       signal: AbortSignal.timeout(timeoutMs),
     });
-    // The status and the type are the answer; the bytes are not read.
-    await response.body?.cancel?.().catch(() => {});
+    // The status and the type are the answer. The bytes are not read, and
+    // dropping them is not waited for: the time limit of the request ends with
+    // the headers, and a stream that never closes must not hold the step.
+    try {
+      response.body?.cancel?.()?.catch?.(() => {});
+    } catch {
+      // nothing to drop
+    }
     return answerOf(response);
   } catch {
     return 'unknown';
@@ -258,6 +270,10 @@ const waitFor = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * cannot be done or a URL that still does not answer stops the run, whether
  * the file was uploaded here or found on R2.
  *
+ * A file the probe did show is asked for at the URL the pages use as well: the
+ * object can be on R2, uploaded by anyone, while this edge location still
+ * answers with the 404 it kept. Only a file that does not answer is purged.
+ *
  * @param {{
  *   assets: Array<{ key: string, content: string }>,
  *   probe?: (key: string) => Promise<'present' | 'absent' | 'unknown'>,
@@ -303,13 +319,27 @@ export async function ensureCdnShellAssets({
     results.push({ key, outcome: 'uploaded' });
   }
 
+  // Every object is on R2 from here on, so asking for the pages' URL can only
+  // show what the edge kept: it cannot make it keep a 404.
   const unseen = results.filter((result) => result.outcome !== 'served').map((result) => result.key);
-  if (unseen.length > 0) {
-    if (!(await purge(unseen))) {
-      throw new Error(`${unseen.join(', ')}: on R2, but the edge cache could not be purged — a location that kept the 404 would go on answering with it; HTML that references ${unseen.length === 1 ? 'it' : 'them'} must not be published`);
+  const shown = results.filter((result) => result.outcome === 'served').map((result) => result.key);
+  const shownAnswers = await Promise.all(shown.map((key) => (
+    Promise.all(CACHE_VARIANTS.map((pageOrigin) => confirm(key, { pageOrigin })))
+  )));
+  const kept = shown.filter((key, index) => {
+    const unanswered = shownAnswers[index].findIndex((answer) => answer !== 'present');
+    if (unanswered === -1) return false;
+    log(`${key}: readable through the CDN, but the URL the pages use answered ${shownAnswers[index][unanswered]} (${variantLabel(CACHE_VARIANTS[unanswered])}) — purging it`);
+    return true;
+  });
+
+  const purged = [...unseen, ...kept];
+  if (purged.length > 0) {
+    if (!(await purge(purged))) {
+      throw new Error(`${purged.join(', ')}: on R2, but the edge cache could not be purged — a location that kept the 404 would go on answering with it; HTML that references ${purged.length === 1 ? 'it' : 'them'} must not be published`);
     }
-    for (const key of unseen) {
-      for (const pageOrigin of [undefined, SHELL_ASSET_PAGE_ORIGIN]) {
+    for (const key of purged) {
+      for (const pageOrigin of CACHE_VARIANTS) {
         let answer = 'unknown';
         for (const delay of CONFIRM_DELAYS_MS) {
           if (delay > 0) await wait(delay);
@@ -317,7 +347,7 @@ export async function ensureCdnShellAssets({
           if (answer === 'present') break;
         }
         if (answer !== 'present') {
-          throw new Error(`${key}: on R2 and purged, but the URL the pages use still does not serve it (${pageOrigin ? `Origin ${pageOrigin}` : 'no Origin'}: ${answer}) — HTML that references it must not be published`);
+          throw new Error(`${key}: on R2 and purged, but the URL the pages use still does not serve it (${variantLabel(pageOrigin)}: ${answer}) — HTML that references it must not be published`);
         }
       }
     }
