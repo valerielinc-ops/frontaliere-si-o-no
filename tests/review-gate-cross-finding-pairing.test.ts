@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   classifyReview,
   historicalImportantFindings,
@@ -7,6 +7,7 @@ import {
   partitionHistoricalImportantFindings,
   runReviewGate,
 } from '../scripts/ci/review-gate.mjs';
+import { stableFindingId } from '../scripts/ci/lib/review-findings.mjs';
 
 // Accoppiamento per cardinalità FRA finding sullo stesso path (#9968).
 //
@@ -319,5 +320,164 @@ describe('review gate: companion senza riga come contesto dopo un LGTM (#9965)',
   it('resta aperto senza tree autorevole: assente o di fallback', () => {
     expect(intentOpen([opened, approving], {})).toHaveLength(1);
     expect(intentOpen([opened, approving], { repositoryPaths: TREE, repositoryPathsFromFallback: true })).toHaveLength(1);
+  });
+});
+
+// File citato senza riga che la PR non modifica (#12354).
+//
+// Replay delle tre review reali di valerielinc-ops/frontaliere-si-o-no#12346.
+// Il 🔴 della prima è ancorato a `scripts/ci/live-data-test-guard.mjs:L571` e
+// nomina `public/news-ticker-live.json`: è il valore da rimettere nell'elenco
+// `roots` di quella voce, non un secondo file da correggere. Le due review
+// successive (`## LGTM`, `Important: 0`) confermano l'id stabile e l'anchor.
+// Il file esiste nel tree e la PR non lo tocca, quindi nessun reviewer scrive
+// mai `Fix di` su di lui: le run 37732127703 e 37733343324 chiudevano rosse con
+// `BLOCKING finding=1 path=scripts/ci/live-data-test-guard.mjs,public/news-ticker-live.json`.
+//
+// L'id: quelle run stampavano `confirm="b6b17efbacbb"` ed è l'id che le due
+// review confermano. Lo stesso codice, sulle stesse review, qui calcola
+// `90c2e88a9cf3` (con Node 22, 24 e 26): la differenza non è spiegata ed è
+// annotata nella issue 12354. Il replay porta quindi le conferme sull'id che
+// il rilievo ha in questo processo, come accadeva in quelle run; il primo
+// caso fissa il valore, così un ambiente che ne calcola un altro lo dice.
+describe('review gate: file citato senza riga fuori dal diff dopo un LGTM (#12354)', () => {
+  type Review = { id: number; body: string; submitted_at: string; commit_id: string };
+  const real12346 = (JSON.parse(readFileSync(
+    new URL('./fixtures/review-replay/pr-12346-reviews.json', import.meta.url), 'utf8',
+  )) as Review[][]).flat();
+  const GUARD = 'scripts/ci/live-data-test-guard.mjs';
+  const TICKER = 'public/news-ticker-live.json';
+  // I cinque file che la PR modifica.
+  const CHANGED = [
+    GUARD,
+    'scripts/ci/run-related-tests.mjs',
+    'scripts/lib/article-chunk-publish-freshness.mjs',
+    'tests/run-related-tests-selection.test.ts',
+    'tests/scripts/article-chunk-publish-freshness.test.ts',
+  ];
+  const TREE = [...CHANGED, TICKER];
+  const CI_ID = 'b6b17efbacbb';
+  const ID = stableFindingId(importantFindings(real12346[0].body)[0]);
+  const ID_LINE = `Fix di \`${ID}\`: ok.`;
+  const ANCHOR_LINE = `Fix di \`${GUARD}:L571\`: ok.`;
+  const withBody = (review: Review, body: string): Review => ({ ...review, body });
+  const [opened, approvedFirst, approvedHead] = real12346
+    .map((review) => withBody(review, review.body.replaceAll(CI_ID, ID)));
+  const pages12346 = [[opened, approvedFirst, approvedHead]];
+  // La stessa modifica alle due review approvanti: lasciarne una intatta
+  // chiuderebbe il 🔴 comunque.
+  const history = (edit: (body: string) => string = (body) => body, first: Review = opened) =>
+    [first, withBody(approvedFirst, edit(approvedFirst.body)), withBody(approvedHead, edit(approvedHead.body))];
+  const openAfter = (reviews: Review[], options: Record<string, unknown> = { repositoryPaths: TREE, changedFiles: CHANGED }) =>
+    historicalImportantFindings(reviews, { includeLatest: true, ...options });
+  const gate = (extra: Record<string, unknown> = {}) => runReviewGate({
+    repo: 'valerielinc-ops/frontaliere-si-o-no',
+    pr: 12346,
+    headSha: approvedHead.commit_id,
+    reviews: pages12346,
+    repositoryPaths: TREE,
+    mutate: false,
+    changedLinesFn: () => null,
+    classifyAndMintReviewFn: async (body: string, options: Record<string, unknown>) =>
+      classifyReview(body, { files: CHANGED, complete: true, repositoryPaths: TREE, ...options }),
+    ...extra,
+  });
+
+  it('legge l’anchor con riga e il file senza riga; le review reali confermano id e anchor', () => {
+    const [finding] = importantFindings(opened.body);
+    expect(finding.citations).toEqual([
+      { path: GUARD, line: 571 },
+      { path: TICKER, line: null },
+    ]);
+    expect(ID).toBe('90c2e88a9cf3');
+    for (const review of real12346.slice(1)) {
+      expect(review.body).toContain(`Fix di \`${CI_ID}\`: ok.`);
+      expect(review.body).toContain(ANCHOR_LINE);
+      expect(review.body).toContain('## LGTM');
+    }
+  });
+
+  it('replay #12346: senza l’elenco dei file il 🔴 resta aperto dopo due LGTM e il gate blocca', async () => {
+    expect(openAfter(history(), { repositoryPaths: TREE })).toHaveLength(1);
+    const blocked = await gate();
+    expect(blocked.approved).toBe(false);
+    expect(blocked.reason).toBe('finding Important in-diff o non risolvibile');
+  });
+
+  it('replay #12346: con l’elenco dei file il 🔴 è confermato e il gate approva la HEAD', async () => {
+    const { open, confirmed } = partitionHistoricalImportantFindings(pages12346, {
+      includeLatest: true,
+      repositoryPaths: TREE,
+      changedFiles: CHANGED,
+    });
+    expect(open).toHaveLength(0);
+    expect(confirmed.map((finding) => stableFindingId(finding))).toEqual([ID]);
+
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const approved = await gate({ changedFilesFn: () => CHANGED });
+      expect(approved.approved).toBe(true);
+      expect(approved.reviewCommit).toBe(approvedHead.commit_id);
+      expect(log.mock.calls.flat().join('\n'))
+        .toContain(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${ID} path=${TICKER} reason=`);
+    } finally {
+      log.mockRestore();
+    }
+  });
+
+  it('il gate resta bloccato se l’elenco dei file non arriva: incompleto o lettura fallita', async () => {
+    expect((await gate({ changedFilesFn: () => null })).approved).toBe(false);
+    expect((await gate({ changedFilesFn: () => [] })).approved).toBe(false);
+    expect((await gate({ changedFilesFn: () => { throw new Error('gh muto'); } })).approved).toBe(false);
+  });
+
+  it('resta aperto quando la PR modifica il file citato senza riga', () => {
+    expect(openAfter(history(), { repositoryPaths: TREE, changedFiles: [...CHANGED, TICKER] })).toHaveLength(1);
+  });
+
+  it('resta aperto senza la conferma dell’anchor con riga', () => {
+    expect(openAfter(history((body) => body.replace(ANCHOR_LINE, '')))).toHaveLength(1);
+  });
+
+  it('resta aperto senza la conferma dell’id', () => {
+    expect(openAfter(history((body) => body.replace(ID_LINE, '')))).toHaveLength(1);
+  });
+
+  it('resta aperto se le review che confermano non sono approvanti', () => {
+    const notApproving = (body: string) => body
+      .replace('## Findings (Important: 0, Nit: 0)', '## Findings (Important: 1, Nit: 0)')
+      .replace('## LGTM', 'scripts/ci/run-related-tests.mjs:L1: 🔴 Important: [correctness] altro rilievo.');
+    const stillOpen = openAfter(history(notApproving)).map((finding) => stableFindingId(finding));
+    expect(stillOpen).toContain(ID);
+  });
+
+  it('resta aperto senza tree autorevole: assente o di fallback', () => {
+    expect(openAfter(history(), { changedFiles: CHANGED })).toHaveLength(1);
+    expect(openAfter(history(), { repositoryPaths: TREE, repositoryPathsFromFallback: true, changedFiles: CHANGED }))
+      .toHaveLength(1);
+  });
+
+  it('resta aperto quando il file senza riga è l’unica citazione', () => {
+    const onlyBare = withBody(opened, opened.body.replace(`${GUARD}:L571: 🔴 Important:`, '🔴 Important:'));
+    const [finding] = importantFindings(onlyBare.body);
+    expect(finding.citations).toEqual([{ path: TICKER, line: null }]);
+    const bareId = stableFindingId(finding);
+    const reviews = history((body) => body.replace(ID_LINE, `Fix di \`${bareId}\`: ok.`), onlyBare);
+    expect(openAfter(reviews)).toHaveLength(1);
+  });
+
+  it('un secondo file citato con riga vuole la sua conferma anche fuori dal diff (review 5331196488)', () => {
+    const twoFiles = withBody(opened, '## Findings (Important: 1, Nit: 0)\n- a.yml:L1, b.yml:L2: 🔴 Important: [correctness] il lock non viene ricontrollato prima del push.');
+    const id = stableFindingId(importantFindings(twoFiles.body)[0]);
+    const approving = (lines: string[]) => withBody(approvedHead, [
+      '## Findings (Important: 0, Nit: 0)',
+      `Fix di \`${id}\`: ok.`,
+      ...lines,
+      '',
+      '## LGTM',
+    ].join('\n'));
+    const options = { repositoryPaths: ['a.yml', 'b.yml'], changedFiles: ['a.yml'] };
+    expect(openAfter([twoFiles, approving(['Fix di `a.yml:L9`: ok.'])], options)).toHaveLength(1);
+    expect(openAfter([twoFiles, approving(['Fix di `a.yml:L9`: ok.', 'Fix di `b.yml:L7`: ok.'])], options)).toHaveLength(0);
   });
 });
