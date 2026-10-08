@@ -1,7 +1,7 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-10-07T21:33:42.716Z",
+  "generatedAt": "2026-10-08T09:16:47.793Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5183,
-  "avgDurationMs": 5183,
+  "durationMs": 5903,
+  "avgDurationMs": 5903,
   "durationHistory": [
-    5183
+    5903
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fondation-domus-925dd7117fc4",
-      "slug": "assistant-socio-educatif-75-fondation-domus-ch",
+      "slug": "assistente-socio-educativo-75-fondation-domus-ardon",
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
       "companyDomain": "fondation-domus.ch",
@@ -34,7 +35,7 @@
       "url": "https://www.jobup.ch/en/jobs/detail/0fcd991d-f109-4497-bd68-80b990ea4367/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:33:29.618Z",
+      "crawledAt": "2026-10-08T09:16:32.706Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -50,23 +51,21 @@
       "postedDate": "2026-10-06",
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobup.ch/en/jobs/detail/0fcd991d-f109-4497-bd68-80b990ea4367/?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-07T21:33:29.618Z",
       "salaryMin": 45400,
       "salaryMax": 68600,
       "salarySource": "estimated",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-07T21:33:29.618Z",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
