@@ -1,11 +1,15 @@
-import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { afterEach, describe, expect, it } from 'vitest';
+import { spawnSync } from 'node:child_process';
+import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { delimiter, join, resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideLatestDeploy,
   changedFilesRequiringDeploy,
+  COMPARE_FILES_PROJECTION,
   DEFAULT_MAX_BUILDS_PER_SHA,
+  DEPLOY_RUNS_PROJECTION,
   MAX_DURABLE_RETRY_ATTEMPTS,
 } from '../scripts/ci/request-latest-deploy.mjs';
 
@@ -117,5 +121,152 @@ describe('deploy-request.yml contract', () => {
     expect(request).toContain('group: deploy-request-dispatcher');
     expect(request).toContain('cancel-in-progress: false');
     expect(request).not.toMatch(/group:\s*pages-build-run/);
+  });
+});
+
+// ── The shell around the decision: what `gh` hands back (issue 12308) ────────
+// execFileSync stops reading a child at `maxBuffer`, 1 MiB by default, and
+// throws ENOBUFS. The raw listing of 60 deploy runs is larger than that.
+const DEFAULT_EXEC_BUFFER_BYTES = 1024 * 1024;
+const temporary: string[] = [];
+
+afterEach(() => {
+  for (const directory of temporary.splice(0)) rmSync(directory, { recursive: true, force: true });
+});
+
+type RawRun = { id: number; head_sha: string; status: string; conclusion: string | null };
+
+/**
+ * Runs the real script against a `gh` that answers like the REST API: whole
+ * objects padded to a realistic size unless the caller asks for a projection,
+ * which it then applies as `gh --jq` would.
+ */
+function requestDeploy({ runs, compareFiles = [], env = {} }: {
+  runs: RawRun[];
+  compareFiles?: string[];
+  env?: Record<string, string>;
+}) {
+  const directory = mkdtempSync(join(tmpdir(), 'deploy-request-'));
+  temporary.push(directory);
+  const log = join(directory, 'gh.log');
+  writeFileSync(log, '');
+  // A run object of the REST API is about 18 kB, a compare file with its patch easily more.
+  const padding = 'x'.repeat(20_000);
+  const rawRuns = { total_count: runs.length, workflow_runs: runs.map((run) => ({ ...run, repository: { description: padding } })) };
+  const rawCompare = { files: compareFiles.map((filename) => ({ filename, patch: padding })) };
+  writeFileSync(join(directory, 'runs.json'), JSON.stringify(rawRuns));
+  writeFileSync(join(directory, 'compare.json'), JSON.stringify(rawCompare));
+  const gh = join(directory, 'gh');
+  writeFileSync(gh, [
+    '#!/usr/bin/env node',
+    "const fs = require('node:fs');",
+    "const path = require('node:path');",
+    'const args = process.argv.slice(2);',
+    `fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify(args) + '\\n');`,
+    "if (args[0] !== 'api') process.exit(0);",
+    "const at = args.indexOf('--jq');",
+    'const projection = at === -1 ? null : args[at + 1];',
+    "const read = (name) => JSON.parse(fs.readFileSync(path.join(__dirname, name), 'utf8'));",
+    "const answer = (value) => { process.stdout.write((typeof value === 'string' ? value : JSON.stringify(value)) + '\\n'); process.exit(0); };",
+    "const unknown = () => { process.stderr.write('fake gh: no such projection: ' + projection + '\\n'); process.exit(1); };",
+    "if (args[1].includes('/commits/')) answer(projection === '.sha' ? process.env.FAKE_HEAD_SHA : { sha: process.env.FAKE_HEAD_SHA });",
+    "if (args[1].includes('/actions/workflows/')) {",
+    "  const raw = read('runs.json');",
+    '  if (projection === null) answer(raw);',
+    `  if (projection !== ${JSON.stringify(DEPLOY_RUNS_PROJECTION)}) unknown();`,
+    '  answer(raw.workflow_runs.map((run) => ({ id: run.id, headSha: run.head_sha, status: run.status, conclusion: run.conclusion })));',
+    '}',
+    "if (args[1].includes('/compare/')) {",
+    "  const raw = read('compare.json');",
+    '  if (projection === null) answer(raw);',
+    `  if (projection !== ${JSON.stringify(COMPARE_FILES_PROJECTION)}) unknown();`,
+    '  answer({ files: raw.files.map((file) => file.filename), count: raw.files.length });',
+    '}',
+    'process.exit(0);',
+    '',
+  ].join('\n'));
+  chmodSync(gh, 0o755);
+  const cleanEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) => !key.startsWith('DEPLOY_') && key !== 'GITHUB_STEP_SUMMARY'));
+  const result = spawnSync(process.execPath, ['scripts/ci/request-latest-deploy.mjs'], {
+    // Like the contract tests above, from the repository root Vitest runs in.
+    cwd: process.cwd(),
+    encoding: 'utf8',
+    timeout: 30_000,
+    env: {
+      ...cleanEnv,
+      PATH: `${directory}${delimiter}${process.env.PATH || ''}`,
+      GITHUB_REPOSITORY: 'fixture/site',
+      FAKE_HEAD_SHA: HEAD,
+      ...env,
+    },
+  });
+  return {
+    status: result.status,
+    output: `${result.stdout}${result.stderr}`,
+    calls: readFileSync(log, 'utf8').split('\n').filter(Boolean).map((line) => JSON.parse(line) as string[]),
+    rawRunsBytes: Buffer.byteLength(JSON.stringify(rawRuns)),
+    rawCompareBytes: Buffer.byteLength(JSON.stringify(rawCompare)),
+  };
+}
+
+const rawDone = (id: number, headSha: string, conclusion: string): RawRun => ({ id, head_sha: headSha, status: 'completed', conclusion });
+// The page the script asks for: 60 runs, none of them for the current tip.
+const sixtyOldRuns = () => Array.from({ length: 60 }, (_, index) => rawDone(index + 1, OLD, index % 2 ? 'cancelled' : 'success'));
+
+describe('the deploy request reads a queue larger than a pipe buffer', () => {
+  it('dispatches one build when the raw listing would not fit the default buffer', () => {
+    const run = requestDeploy({ runs: sixtyOldRuns() });
+    expect(run.rawRunsBytes).toBeGreaterThan(DEFAULT_EXEC_BUFFER_BYTES);
+    expect(run.output).not.toContain('deploy-queue-read-failed');
+    expect(run.output).toContain(`head=${HEAD} runs=60 → dispatch (pipeline-idle)`);
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls).toContainEqual(['workflow', 'run', 'deploy.yml', '--repo', 'fixture/site', '--ref', 'main']);
+    // No durable retry was needed: the only dispatch is the build itself.
+    expect(run.calls.filter((call) => call[0] === 'workflow')).toHaveLength(1);
+  });
+
+  it('still sees the live build in that listing and waits for it', () => {
+    const runs = sixtyOldRuns();
+    runs[37] = { id: 999, head_sha: OLD, status: 'in_progress', conclusion: null };
+    const run = requestDeploy({ runs });
+    expect(run.rawRunsBytes).toBeGreaterThan(DEFAULT_EXEC_BUFFER_BYTES);
+    expect(run.output).toContain('→ skip (pipeline-moving)');
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls.filter((call) => call[0] === 'workflow')).toHaveLength(0);
+  });
+
+  it('reads a compare whose patches would not fit either, and skips a data-only completion', () => {
+    const compareFiles = Array.from({ length: 80 }, (_, index) => `data/build-history/2026-10-08-${index}.json`);
+    const run = requestDeploy({
+      runs: [rawDone(1, OLD, 'success')],
+      compareFiles,
+      env: { DEPLOY_EVENT_NAME: 'workflow_run', DEPLOY_BUILT_SHA: OLD },
+    });
+    expect(run.rawCompareBytes).toBeGreaterThan(DEFAULT_EXEC_BUFFER_BYTES);
+    expect(run.output).not.toContain('workflow-run-path-compare-failed');
+    expect(run.output).toContain('→ skip (workflow-run-ignored-only)');
+    expect(run.status, run.output).toBe(0);
+    expect(run.calls.filter((call) => call[0] === 'workflow')).toHaveLength(0);
+  });
+
+  it('re-arms conservatively when the compare reached the 300-file cap', () => {
+    const compareFiles = Array.from({ length: 300 }, (_, index) => `data/build-history/2026-10-08-${index}.json`);
+    const run = requestDeploy({
+      runs: [rawDone(1, OLD, 'success')],
+      compareFiles,
+      env: { DEPLOY_EVENT_NAME: 'workflow_run', DEPLOY_BUILT_SHA: OLD },
+    });
+    expect(run.output).toContain('300-file cap');
+    expect(run.output).toContain('→ dispatch (pipeline-idle)');
+    expect(run.status, run.output).toBe(0);
+  });
+
+  it('never reads a REST answer without a projection', () => {
+    const source = readFileSync(resolve('scripts/ci/request-latest-deploy.mjs'), 'utf8');
+    // One place builds an `api` call, and it cannot be reached without a filter.
+    expect(source.match(/'api'/g)).toHaveLength(1);
+    expect(source).toContain("return gh(['api', path, '--jq', projection]);");
+    expect(source).toMatch(/throw new Error\(`a --jq projection is required to read \$\{path\}`\)/);
+    expect(source).toMatch(/maxBuffer: GH_MAX_BUFFER_BYTES/);
   });
 });
