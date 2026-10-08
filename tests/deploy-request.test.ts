@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { delimiter, join, resolve } from 'node:path';
+import { delimiter, dirname, join, resolve } from 'node:path';
 import YAML from 'yaml';
 import {
   decideLatestDeploy,
@@ -136,10 +136,40 @@ afterEach(() => {
 
 type RawRun = { id: number; head_sha: string; status: string; conclusion: string | null };
 
+/** The sparse-checkout list of the dispatcher job, as repository-relative paths. */
+function dispatcherCheckoutPaths(): string[] {
+  const workflow = YAML.parse(readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8')) as {
+    jobs: { request: { steps: { uses?: string; with?: Record<string, string> }[] } };
+  };
+  const checkout = workflow.jobs.request.steps.find((step) => step.uses?.startsWith('actions/checkout@'));
+  const patterns = String(checkout?.with?.['sparse-checkout'] ?? '').split('\n').map((line) => line.trim()).filter(Boolean);
+  expect(patterns.length).toBeGreaterThan(0);
+  // Exact files only: a glob in this list needs a real matcher here first.
+  for (const pattern of patterns) expect(pattern, pattern).toMatch(/^\/[\w./-]+$/);
+  return patterns.map((pattern) => pattern.slice(1));
+}
+
+/**
+ * What the dispatcher job has on disk: the files of its sparse checkout, and
+ * nothing else. No node_modules either, as on the runner, where the job
+ * installs none.
+ */
+function dispatcherCheckout(): string {
+  const directory = mkdtempSync(join(tmpdir(), 'deploy-request-checkout-'));
+  temporary.push(directory);
+  for (const relative of dispatcherCheckoutPaths()) {
+    mkdirSync(dirname(join(directory, relative)), { recursive: true });
+    copyFileSync(resolve(relative), join(directory, relative));
+  }
+  return directory;
+}
+
 /**
  * Runs the real script against a `gh` that answers like the REST API: whole
  * objects padded to a realistic size unless the caller asks for a projection,
- * which it then applies as `gh --jq` would.
+ * which it then applies as `gh --jq` would. The script runs where the job
+ * runs it, in the dispatcher's checkout: from the repository root it would
+ * find files the job never has (issue 12344).
  */
 function requestDeploy({ runs, compareFiles = [], env = {} }: {
   runs: RawRun[];
@@ -188,8 +218,7 @@ function requestDeploy({ runs, compareFiles = [], env = {} }: {
   chmodSync(gh, 0o755);
   const cleanEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) => !key.startsWith('DEPLOY_') && key !== 'GITHUB_STEP_SUMMARY'));
   const result = spawnSync(process.execPath, ['scripts/ci/request-latest-deploy.mjs'], {
-    // Like the contract tests above, from the repository root Vitest runs in.
-    cwd: process.cwd(),
+    cwd: dispatcherCheckout(),
     encoding: 'utf8',
     timeout: 30_000,
     env: {

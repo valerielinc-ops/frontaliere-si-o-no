@@ -188,6 +188,46 @@ export function uncoveredAllowListCode(lines, entries, { cone = false } = {}) {
   return pathsOutsideSparseRules(lines, loaded, { cone });
 }
 
+// Le due forme con cui uno script apre un file del repository per nome: un
+// letterale unito alla cartella di lavoro o a una costante di radice, oppure
+// passato direttamente a un lettore di `fs`.
+const OPENED_BY_NAME = [
+  /\b(?:resolve|join)\s*\(\s*(?:process\.cwd\(\)|[A-Za-z_]*(?:ROOT|Root)[A-Za-z_]*|root|repoRoot)\s*,\s*['"`]([\w./-]+)['"`]\s*\)/g,
+  /\b(?:readFileSync|readFile|createReadStream|existsSync|statSync)\s*\(\s*['"`]([\w./-]+)['"`]/g,
+];
+
+/** I percorsi letterali che un sorgente apre per nome dalla radice del checkout. */
+export function openedByNameIn(source) {
+  const out = new Set();
+  for (const pattern of OPENED_BY_NAME) {
+    for (const m of source.matchAll(pattern)) out.add(m[1].replace(/^(?:\.\/)+/, ''));
+  }
+  return out;
+}
+
+/**
+ * I file tracciati che il codice di un job apre per nome e che la sua
+ * allow-list sparse non materializza. Vuoto = coperta.
+ *
+ * Non sono import: la chiusura statica non li raggiunge e Node non fallisce al
+ * caricamento. Il job fallisce quando arriva a quella riga, oppure cattura
+ * l'ENOENT e prende un altro ramo: `deploy-request.yml` e' rimasto cosi' dalla
+ * PR 12277 alla issue 12344, con il confronto dei path alla fine di ogni deploy
+ * sempre fallito, ripreso da un retry e nessuna run rossa.
+ */
+export function uncoveredAllowListOpenedFiles(lines, entries, { cone = false } = {}) {
+  const tracked = trackedPaths();
+  const opened = new Set();
+  for (const { rel } of transitiveClosure([...new Set(entries)], { staticOnly: true })) {
+    let src;
+    try { src = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { continue; }
+    for (const lit of openedByNameIn(src)) {
+      if (tracked.has(lit)) opened.add(lit);        // un output o un esempio non e' un file del repo
+    }
+  }
+  return pathsOutsideSparseRules(lines, [...opened], { cone });
+}
+
 /** Un percorso e' fuori dal checkout, dati i pattern sparse non-cone. */
 export function isExcludedBy(patterns, p) {
   const list = Array.isArray(patterns) ? patterns : [];
@@ -273,6 +313,16 @@ export function verifyCheckoutProfiles() {
         }
         for (const rel of missing) {
           problems.push(`${where}: l'allow-list sparse non materializza ${rel}, che il job carica come codice`);
+        }
+        let unopened = [];
+        try {
+          unopened = uncoveredAllowListOpenedFiles(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone });
+        } catch (e) {
+          problems.push(`${where}: allow-list sparse non verificabile (git sparse-checkout check-rules: ${String(e.message || e).split('\n')[0]})`);
+          continue;
+        }
+        for (const rel of unopened) {
+          problems.push(`${where}: l'allow-list sparse non materializza ${rel}, che il codice del job apre per nome`);
         }
         continue;
       }
