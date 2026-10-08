@@ -1219,7 +1219,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1268,8 +1268,7 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
-        "psychologiepraktikant-in-pdgr-ch",
-        "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1280,7 +1279,7 @@
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -1595,8 +1594,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1652,16 +1651,15 @@
           "unterassistent-in-pdgr-ch"
         ],
         "en": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
-          "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+          "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
         "unterassistent-in-pdgr-ch",
-        "assistant-psychiatrische-dienste-graubunden-cazis-chur",
         "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
@@ -2373,7 +2371,7 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -2425,7 +2423,8 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-pdgr-ch-t5tvx5"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -2434,13 +2433,14 @@
           "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
-          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
-        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "oberarztin-oberarzt-pdgr-ch-t5tvx5",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2518,12 +2518,20 @@
         "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
         "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis",
         "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        "dipl-pflegefachperson-hf-fh-pdgr-ch",
+        "dipl-pflegefachperson-hf-fh-pdgr-ch-dilxs8",
+        "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-pflegefachperson-hf-fh-pdgr-ch-dilxs8",
+          "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
+          "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
         ],
         "en": [
           "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis"
@@ -2532,7 +2540,8 @@
           "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-pflegefachperson-hf-fh-pdgr-ch-dilxs8"
         ]
       },
       "salaryMin": 81500,
@@ -2556,9 +2565,9 @@
       "slug": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "it": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
+        "it": "medico-senior-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-chur",
+        "fr": "medecin-principal-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2610,23 +2619,72 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch",
-          "medico-senior-psychiatrische-dienste-graubunden-chur"
+          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+          "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+          "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
+          "senior-physician-psychiatrische-dienste-graubunden-chur",
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
+          "medecin-superieur-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-pdgr-ch-t5txek",
+          "oberarztin-oberarzt-pdgr-ch-5xlho7",
+          "oberarztin-oberarzt-pdgr-ch-t5ts7t",
+          "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
+          "oberarztin-oberarzt-pdgr-ch-2",
+          "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
+          "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol",
+          "medico-senior-psychiatrische-dienste-graubunden-cazis",
+          "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d"
         ],
         "de": [
-          "oberarztin-oberarzt-pdgr-ch"
-        ],
-        "en": [
-          "senior-doctor-psychiatrische-dienste-graubunden-chur"
-        ],
-        "fr": [
-          "medecin-principal-psychiatrische-dienste-graubunden-chur"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-pdgr-ch-t5ttp7"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-senior-psychiatrische-dienste-graubunden-chur",
-        "senior-doctor-psychiatrische-dienste-graubunden-chur",
-        "medecin-principal-psychiatrische-dienste-graubunden-chur"
+        "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+        "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "senior-physician-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
+        "medecin-superieur-psychiatrische-dienste-graubunden-chur",
+        "oberarztin-oberarzt-pdgr-ch-t5txek",
+        "oberarztin-oberarzt-pdgr-ch-5xlho7",
+        "oberarztin-oberarzt-pdgr-ch-t5ts7t",
+        "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
+        "oberarztin-oberarzt-pdgr-ch-2",
+        "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
+        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol",
+        "oberarztin-oberarzt-pdgr-ch-t5ttp7",
+        "medico-senior-psychiatrische-dienste-graubunden-cazis",
+        "medico-senior-psychiatrische-dienste-graubunden-chur-3c5f7d",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+        "senior-doctor-psychiatrische-dienste-graubunden-cazis",
+        "senior-doctor-psychiatrische-dienste-graubunden-chur-3c5f7d",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "medecin-principal-psychiatrische-dienste-graubunden-cazis",
+        "medecin-principal-psychiatrische-dienste-graubunden-chur-3c5f7d",
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
+        "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5",
+        "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
+        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+        "primario-psychiatrische-dienste-graubunden-ilanz",
+        "senior-physician-psychiatrische-dienste-graubunden-ilanz",
+        "medecin-chef-psychiatrische-dienste-graubunden-ilanz",
+        "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
+        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz",
+        "oberarztin-oberarzt-pdgr-ch-3",
+        "oberarztin-oberarzt-pdgr-ch-4"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2729,8 +2787,8 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
+        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -2782,22 +2840,29 @@
       "pensum": "20 - 50%",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-pdgr-ch-t5twns"
         ],
         "de": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns"
         ],
         "en": [
-          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
-          "psychiatre-psychiatrische-dienste-graubunden-chur"
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "psychiatrist-psychiatrische-dienste-graubunden-chur",
-        "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
+        "oberarztin-oberarzt-pdgr-ch-t5twns",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2821,8 +2886,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "it": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "en": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz"
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2874,23 +2939,17 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch",
-          "primario-psychiatrische-dienste-graubunden-ilanz"
+          "primario-psychiatrische-dienste-graubunden-ilanz",
+          "oberarztin-oberarzt-pdgr-ch-t5tufv"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch"
-        ],
-        "en": [
-          "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz"
-        ],
-        "fr": [
-          "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
         "primario-psychiatrische-dienste-graubunden-ilanz",
-        "senior-physician-senior-physician-psychiatrische-dienste-graubunden-ilanz",
-        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-ilanz"
+        "oberarztin-oberarzt-pdgr-ch-t5tufv"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2915,7 +2974,7 @@
         "de": "oberarztin-oberarzt-pdgr-ch",
         "it": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
         "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
-        "fr": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2966,15 +3025,17 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-pdgr-ch-t5tsyg"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
+        "oberarztin-oberarzt-pdgr-ch-t5tsyg",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2998,8 +3059,8 @@
       "slugByLocale": {
         "de": "assistenz-oder-fachpsychologe-in-pdgr-ch",
         "it": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
-        "en": "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
-        "fr": "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
+        "en": "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3048,22 +3109,57 @@
       "pensumMin": 40,
       "pensumMax": 100,
       "pensum": "40 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-oder-fachpsychologe-in-pdgr-ch"
+          "assistenz-oder-fachpsychologe-in-pdgr-ch",
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-cekz5c",
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
+          "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+          "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan",
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+          "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
+          "assistente-fachpsychologo-psychiatrische-dienste-graubunden-davos",
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-2",
+          "assistant-fachpsychologist-psychiatrische-dienste-graubunden-samedan",
+          "assistant-or-clinical-psychologist-psychiatrische-dienste-graubunden-chur",
+          "assistant-fachpsychologist-psychiatrische-dienste-graubunden-davos",
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+          "assistante-fachpsychologue-psychiatrische-dienste-graubunden-samedan",
+          "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-samedan",
+          "assistant-ou-psychologue-clinicien-psychiatrische-dienste-graubunden-chur",
+          "assistante-fachpsychologue-psychiatrische-dienste-graubunden-davos"
         ],
         "en": [
-          "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz"
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
         ],
         "fr": [
-          "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
+        ],
+        "de": [
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-cekz5c"
         ]
       },
       "previousSlugs": [
         "assistenz-oder-fachpsychologe-in-pdgr-ch",
-        "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz",
-        "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-cekz5c",
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
+        "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+        "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+        "assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur",
+        "assistente-fachpsychologo-psychiatrische-dienste-graubunden-davos",
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-2",
+        "assistant-fachpsychologist-psychiatrische-dienste-graubunden-samedan",
+        "assistant-or-clinical-psychologist-psychiatrische-dienste-graubunden-chur",
+        "assistant-fachpsychologist-psychiatrische-dienste-graubunden-davos",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "assistante-fachpsychologue-psychiatrische-dienste-graubunden-samedan",
+        "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-samedan",
+        "assistant-ou-psychologue-clinicien-psychiatrische-dienste-graubunden-chur",
+        "assistante-fachpsychologue-psychiatrische-dienste-graubunden-davos",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3221,18 +3317,23 @@
         "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
         "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
         "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur",
-        "mitarbeiter-in-raumpflege-pdgr-ch"
+        "mitarbeiter-in-raumpflege-pdgr-ch",
+        "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
-          "mitarbeiter-in-raumpflege-pdgr-ch"
+          "mitarbeiter-in-raumpflege-pdgr-ch",
+          "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
         ],
         "en": [
           "staff-room-maintenance-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur"
+        ],
+        "de": [
+          "mitarbeiter-in-raumpflege-pdgr-ch-xfnigi"
         ]
       },
       "salaryMin": 62000,

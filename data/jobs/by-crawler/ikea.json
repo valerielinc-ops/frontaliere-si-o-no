@@ -933,7 +933,7 @@
       "id": "ikea-9741b9915eda",
       "slug": "collaborateur-trice-de-vente-40-ikea-vernier",
       "slugByLocale": {
-        "it": "collaborateur-trice-de-vente-40-ikea-vernier",
+        "it": "collaboratore-venditrice-40-ikea-vernier-geneve",
         "en": "collaborator-saleswoman-40-ikea-vernier-geneve",
         "de": "mitarbeiterin-verkauferin-40-ikea-vernier-geneve",
         "fr": "collaborateur-trice-de-vente-40-ikea-ch"
@@ -980,13 +980,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-de-vente-40-ikea-ch",
-        "collaboratore-venditrice-40-ikea-vernier-geneve"
+        "collaborateur-trice-de-vente-40-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-de-vente-40-ikea-ch",
-          "collaboratore-venditrice-40-ikea-vernier-geneve"
+          "collaborateur-trice-de-vente-40-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-de-vente-40-ikea-ch"
@@ -1269,7 +1267,6 @@
           "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",

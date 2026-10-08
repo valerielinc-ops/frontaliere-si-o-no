@@ -10919,9 +10919,9 @@
       "id": "ubs-e3d52b40c79a",
       "slug": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
       "slugByLocale": {
-        "it": "addetto-agli-eventi-retribuito-a-ore-ubs-geneve",
+        "it": "event-attendant-hourly-paid-ubs-geneve-2",
         "en": "event-attendant-hourly-paid-ubs-geneve",
-        "de": "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve",
+        "de": "event-attendant-hourly-paid-ubs-geneve-2",
         "fr": "event-attendant-hourly-paid-ubs-geneve-2"
       },
       "company": "UBS",
@@ -10976,15 +10976,12 @@
       "locationDerivedFrom": "vacancy-text",
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
       "previousSlugsByLocale": {
-        "it": [
-          "event-attendant-hourly-paid-ubs-geneve-2"
-        ],
         "de": [
-          "event-attendant-hourly-paid-ubs-geneve-2"
+          "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
         ]
       },
       "previousSlugs": [
-        "event-attendant-hourly-paid-ubs-geneve-2"
+        "veranstaltungsbetreuer-auf-stundenbasis-bezahlt-ubs-geneve"
       ],
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -11146,7 +11143,6 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",

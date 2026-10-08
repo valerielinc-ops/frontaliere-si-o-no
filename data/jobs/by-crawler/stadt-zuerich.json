@@ -8946,7 +8946,6 @@
       "department": "Sicherheitsdepartement",
       "unit": "Schutz & Rettung",
       "referenceNumber": "51892",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-berufsfeuerwehrmann-frau-mit-eidg-fa-stadt-zuerich-zurigo-51892"
@@ -8977,7 +8976,7 @@
         "it": "trampilota-stadt-zurich-zurich",
         "en": "trampilot-stadt-zurich-zurich",
         "de": "trampilot-in-stadt-zuerich-zurigo-48193",
-        "fr": "trampilot-in-stadt-zurich"
+        "fr": "pilote-tram-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9027,7 +9026,7 @@
       "previousSlugs": [
         "trampilot-in-stadt-zuerich-zurigo-48193",
         "trampilot-in-stadt-zurich-zurich",
-        "pilote-tram-stadt-zurich-zurich"
+        "trampilot-in-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9035,7 +9034,7 @@
           "trampilot-in-stadt-zurich-zurich"
         ],
         "fr": [
-          "pilote-tram-stadt-zurich-zurich"
+          "trampilot-in-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T16:12:36.172Z",
@@ -9538,7 +9537,7 @@
         "it": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich",
         "en": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich",
         "de": "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "fr": "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
+        "fr": "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -9587,14 +9586,14 @@
       "referenceNumber": "51803",
       "previousSlugs": [
         "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803",
-        "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+        "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychotherapeut-in-befristet-stadt-zuerich-zurigo-51803"
         ],
         "fr": [
-          "psycholog-in-psychotherapeut-in-befristet-stadt-zurich-zurich"
+          "psychologue-psychotherapeute-a-duree-determinee-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:59:00.870Z",
@@ -10345,10 +10344,10 @@
       "id": "stadt-zuerich-98edc6f6c870",
       "slug": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "insegnante-di-livello-inferiore-1a-classe-scuola-kolbenacker-stadt-zurich-zurich",
+        "it": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "en": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich",
         "de": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "fr": "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
+        "fr": "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -10397,15 +10396,14 @@
       "referenceNumber": "51901",
       "previousSlugs": [
         "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-        "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+        "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901",
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zuerich-zurigo-51901"
         ],
         "fr": [
-          "unterstufenlehrperson-1-klassen-schule-kolbenacker-stadt-zurich-zurich"
+          "professeur-de-niveau-secondaire-1ere-classe-ecole-kolbenacker-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-07T09:49:25.035Z",
@@ -10995,11 +10993,19 @@
       "referenceNumber": "51887",
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51887"
+          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51887",
+          "schulsozialarbeiter-in-stadt-zurich-zurich-v8vzg2",
+          "schulsozialarbeiter-in-stadt-zurich-zurich",
+          "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx",
+          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51887"
+        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51887",
+        "schulsozialarbeiter-in-stadt-zurich-zurich-v8vzg2",
+        "schulsozialarbeiter-in-stadt-zurich-zurich",
+        "schulsozialarbeiter-in-stadt-zurich-zurich-cvgnwx",
+        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51688"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -11021,9 +11027,9 @@
       "slug": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
-        "en": "finance-specialist-sap-finance-stadt-zurich-zurich",
+        "en": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich",
         "de": "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891",
-        "fr": "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
+        "fr": "finanzspezialist-in-sap-finanzen-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11071,11 +11077,19 @@
       "unit": "Finanzverwaltung",
       "referenceNumber": "51891",
       "previousSlugs": [
-        "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
+        "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891",
+        "finance-specialist-sap-finance-stadt-zurich-zurich",
+        "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "finanzspezialist-in-sap-finanzen-stadt-zuerich-zurigo-51891"
+        ],
+        "en": [
+          "finance-specialist-sap-finance-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "specialiste-en-finance-sap-finance-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-06T21:45:37.980Z",
@@ -12962,7 +12976,6 @@
       "department": "Hochbaudepartement",
       "unit": "Immobilien Stadt Zürich",
       "referenceNumber": "51899",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-objekte-stadt-zuerich-zurigo-51899"
@@ -13121,7 +13134,6 @@
       "department": "Sozialdepartement",
       "unit": "Departementssekretariat SD",
       "referenceNumber": "51879",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "kontraktmanager-in-mit-schwerpunkt-flucht-und-migration-stadt-zuerich-zurigo-51879"
@@ -13201,7 +13213,6 @@
       "department": "Tiefbau- und Entsorgungsdepartement",
       "unit": "Entsorgung + Recycling Zürich",
       "referenceNumber": "51910",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-stadtreinigung-region-sud-e-befristet-auf-1-jahr-mit-option-auf"
@@ -13281,7 +13292,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Uto",
       "referenceNumber": "51909",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mutterschaftsvertretung-fachperson-begabungs-und-begabtenforderung-sekundarschule-lavater"

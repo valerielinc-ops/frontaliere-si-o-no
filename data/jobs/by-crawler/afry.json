@@ -3480,7 +3480,9 @@
         "project-engineer-in-the-field-of-road-and-railway-construction-80-100-brig-afry-brig",
         "projektingenieur-in-im-bereich-strassen-und-bahnbau-80-100-brig-afry-brig"
       ],
-      "postalCode": "3900"
+      "postalCode": "3900",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Pianificatore Elettricista AFC (f/m/d) (secondo apprendistato) – Bellinzona",
@@ -4605,7 +4607,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "candidatura-spontanea-svizzera-afry-zurich",
+        "en": "spontaneous-application-switzerland-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -4628,15 +4630,7 @@
       "sourceIdentity": "url:https://afry.com/en/careers/available-jobs/ref1212e-candidatura-spontanea-svizzera",
       "datePosted": "",
       "postingDateSource": "unknown",
-      "postalCode": "8001",
-      "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-switzerland-afry-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "spontaneous-application-switzerland-afry-zurich"
-      ]
+      "postalCode": "8001"
     },
     {
       "title": "Candidature spontanée - Suisse",

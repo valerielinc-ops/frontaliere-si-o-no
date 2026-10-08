@@ -181,8 +181,9 @@
         "accountName": "",
         "publishEndDate": "2026-10-22T14:57:00.000Z"
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-19T23:20:39.353Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:20:39.353Z",
+      "retranslationAttempts": 0
     },
     {
       "id": "marriott-875e3568d606",
@@ -244,7 +245,8 @@
         "publishEndDate": "2026-11-19T13:48:00.000Z"
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:48:04.821Z"
+      "firstSeenAt": "2026-10-05T21:48:04.821Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "marriott-af6920ea58fc",
@@ -790,7 +792,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-24T14:56:50.057Z"
+      "firstSeenAt": "2026-09-24T14:56:50.057Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "marriott-5cd1241a6795",
@@ -1096,7 +1099,8 @@
         "publishEndDate": ""
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:36:49.218Z"
+      "firstSeenAt": "2026-09-29T21:36:49.218Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "marriott-c86e8646c4c5",
@@ -1285,7 +1289,10 @@
       "id": "marriott-69439d84a679",
       "slug": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
       "slugByLocale": {
-        "en": "welcome-agent-intern-reception-w-verbier-marriott-verbier"
+        "en": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
+        "it": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
+        "de": "welcome-agent-intern-reception-w-verbier-marriott-verbier",
+        "fr": "welcome-agent-intern-reception-w-verbier-marriott-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",

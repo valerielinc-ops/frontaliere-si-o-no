@@ -572,7 +572,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:37:02.775Z"
+      "firstSeenAt": "2026-10-05T21:37:02.775Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-fa0be7be6052",
@@ -761,7 +762,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:37:02.776Z"
+      "firstSeenAt": "2026-10-05T21:37:02.776Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-14caf05d5305",
@@ -769,7 +771,7 @@
       "slugByLocale": {
         "it": "8-10-lektionen-come-sonderpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worb",
         "en": "8-10-lessons-as-a-special-education-teacher-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39755",
-        "de": "6-lektionen-als-shp-fur-die-begleitung-eines-bvsa-int-primarstufenkreis-worb-worb-39755",
+        "de": "8-10-lektionen-als-sonderpadagogin-primarstufenkreis-worb-worb-39755",
         "fr": "8-10-lecons-d-enseignant-specialise-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worb-39755"
       },
       "slugDisambiguator": "39755",
@@ -817,8 +819,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "19-lektionen-shp-primarstufenkreis-worb-worb-39755",
-          "8-10-lektionen-als-sonderpadagogin-primarstufenkreis-worb-worb-39755"
+          "19-lektionen-shp-primarstufenkreis-worb-worb-39755"
         ],
         "it": [
           "19-lektionen-shp-primarstufenkreis-worb-worb-39755"
@@ -832,8 +833,7 @@
       },
       "previousSlugs": [
         "19-lektionen-shp-primarstufenkreis-worb-worb-39755",
-        "19-lektionen-shp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worb",
-        "8-10-lektionen-als-sonderpadagogin-primarstufenkreis-worb-worb-39755"
+        "19-lektionen-shp-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worb"
       ],
       "firstSeenAt": "2026-09-02T13:47:55.974Z"
     },
@@ -2412,7 +2412,7 @@
       "slugByLocale": {
         "it": "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-e-freitag-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-grosshochstetten",
         "en": "specialist-instructor-5-6-10-lessons-sports-french-nmg-mui-monday-and-friday-ksml-kantonaler-stellenmarkt-fur-39726",
-        "de": "fachlehrperson-fur-klasse-5-6-ab-11-januar-2027-bis-ende-schuljahr-10-lektionen-montag-und-39726",
+        "de": "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726",
         "fr": "instructeur-specialise-5-6-10-lecons-sports-francais-nmg-mui-lundi-et-vendredi-ksml-kantonaler-stellenmarkt-fur-39726"
       },
       "slugDisambiguator": "39726",
@@ -2458,14 +2458,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39726",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726"
-        ]
-      },
-      "previousSlugs": [
-        "fachlehrperson-5-6-10-lektionen-sport-franzosisch-nmg-mui-montag-und-freitag-schule-39726"
-      ],
       "firstSeenAt": "2026-10-03T21:26:24.563Z"
     },
     {
@@ -3183,7 +3175,10 @@
       "id": "ksml-f0561834da37",
       "slug": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426",
       "slugByLocale": {
-        "de": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426"
+        "de": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426",
+        "it": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426",
+        "en": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426",
+        "fr": "heilpadagogin-heilpadagoge-14-28-l-schule-lauterbrunnental-lauterbrunnen-40426"
       },
       "slugDisambiguator": "40426",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3665,7 +3660,10 @@
       "id": "ksml-6b2dd7c1112b",
       "slug": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427",
       "slugByLocale": {
-        "de": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427"
+        "de": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427",
+        "it": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427",
+        "en": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427",
+        "fr": "if-lehrperson-ca-22l-4-l-ive-oberstufenzentrum-madretsch-biel-bienne-40427"
       },
       "slugDisambiguator": "40427",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3876,7 +3874,7 @@
       "slugByLocale": {
         "it": "promozione-integrata-nel-ciclo-3-4-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-riggisberg",
         "en": "integrative-promotion-in-cycle-3-4-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39889",
-        "de": "integrative-forderung-im-zyklus-3-8-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889",
+        "de": "integrative-forderung-im-zyklus-3-4-6-lektionen-mr-region-gurbetal-langenberg-arbeitsort-39889",
         "fr": "promotion-integrative-dans-le-cycle-3-4-6-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-39889"
       },
       "slugDisambiguator": "39889",
@@ -3923,16 +3921,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "integrative-forderung-im-zyklus-3-4-6-lektionen-mr-region-gurbetal-langenberg-arbeitsort-39889"
-        ],
         "it": [
           "integrative-forderung-im-zyklus-3-4-6-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
         ]
       },
       "previousSlugs": [
-        "integrative-forderung-im-zyklus-3-4-6-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889",
-        "integrative-forderung-im-zyklus-3-4-6-lektionen-mr-region-gurbetal-langenberg-arbeitsort-39889"
+        "integrative-forderung-im-zyklus-3-4-6-lektionen-spater-auch-erweiterbar-mr-region-gurbetal-39889"
       ],
       "firstSeenAt": "2026-08-17T21:58:35.212Z"
     },
@@ -5435,7 +5429,7 @@
       "slugByLocale": {
         "it": "insegnante-per-classe-3-4-dal-12-10-2026-venerdi-6-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-grosshochstetten",
         "en": "teacher-for-class-3-4-from-12-10-2026-friday-6-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-40219",
-        "de": "lehrperson-fur-klasse-3-4-ab-26-april-2027-freitag-6-lektionen-schule-grosshochstetten-40219",
+        "de": "lehrperson-fur-klasse-3-4-ab-12-10-2026-freitag-6-lektionen-schule-grosshochstetten-40219",
         "fr": "enseignant-pour-la-classe-3-4-a-partir-du-12-10-2026-vendredi-6-lecons-ksml-kantonaler-stellenmarkt-fur-40219"
       },
       "slugDisambiguator": "40219",
@@ -5481,14 +5475,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40219",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "lehrperson-fur-klasse-3-4-ab-12-10-2026-freitag-6-lektionen-schule-grosshochstetten-40219"
-        ]
-      },
-      "previousSlugs": [
-        "lehrperson-fur-klasse-3-4-ab-12-10-2026-freitag-6-lektionen-schule-grosshochstetten-40219"
-      ],
       "needsRetranslation": false,
       "firstSeenAt": "2026-10-03T21:26:24.576Z"
     },
@@ -5680,7 +5666,7 @@
       "slugByLocale": {
         "it": "maestro-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel",
         "en": "teacher-kindergarten-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794",
-        "de": "lehrperson-kindergarten-9-1-lektionen-unbefristet-primarschule-muhlefeld-biel-39794",
+        "de": "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794",
         "fr": "professeur-maternelle-16l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-39794"
       },
       "slugDisambiguator": "39794",
@@ -5726,14 +5712,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39794",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794"
-        ]
-      },
-      "previousSlugs": [
-        "lehrperson-kindergarten-16l-primarschule-muhlefeld-biel-39794"
-      ],
       "firstSeenAt": "2026-09-08T13:49:44.900Z"
     },
     {
@@ -6028,7 +6006,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:33:35.725Z"
+      "firstSeenAt": "2026-10-05T09:33:35.725Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-026ca7ba5b02",
@@ -6775,7 +6754,7 @@
       "slugByLocale": {
         "it": "speech-pediatra-speech-pediatra-13-17-lezioni-rappresentanza-di-maternita-gennaio-luglio-2027-prospettiva-per-la-36578",
         "en": "speech-pediatrician-speech-pediatrician-13-17-lessons-maternity-representation-january-july-2027-perspective-for-36578",
-        "de": "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-jan-juli-2027-perspektive-zur-36578",
+        "de": "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-januar-juli-2027-perspektive-36578",
         "fr": "discours-pediatrique-discours-pediatrique-13-17-lecons-representation-de-la-maternite-janvier-a-juillet-2027-36578"
       },
       "slugDisambiguator": "36578",
@@ -6835,9 +6814,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "de": [
-          "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-januar-juli-2027-perspektive-36578"
-        ],
         "it": [
           "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-januar-juli-2027-perspektive-36578",
           "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-jan-juli-2027-perspektive-36578"
@@ -7632,7 +7608,7 @@
       "slugByLocale": {
         "it": "rappresentanza-di-maternita-tp-6-8-lezioni-1-2-classe-dal-previsto-25-01-2027-31-12-2027-ksml-kantonaler-40196",
         "en": "maternity-representation-tp-6-8-lessons-1-2-class-from-expected-25-01-2027-31-12-2027-ksml-kantonaler-stellenmarkt-40196",
-        "de": "mutterschaftsvertretung-wahlfach-flote-am-mittwoch-nachmittag-voraussichtlich-25-01-2027-40196",
+        "de": "mutterschaftsvertretung-tp-6-8-lektionen-1-2-klasse-ab-voraussichtlich-25-01-2027-31-12-40196",
         "fr": "representation-de-la-maternite-tp-6-8-lecons-1-2-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40196"
       },
       "slugDisambiguator": "40196",
@@ -7679,9 +7655,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "mutterschaftsvertretung-tp-6-8-lektionen-1-2-klasse-ab-voraussichtlich-25-01-2027-31-12-40196"
-        ],
         "it": [
           "mutterschaftsvertretung-tp-6-8-lektionen-1-2-klasse-ab-voraussichtlich-25-01-2027-31-12-40196"
         ],
@@ -7987,7 +7960,7 @@
       "slugByLocale": {
         "it": "terapeuta-psicomotore-dal-10-08-2026-fino-al-20-09-2026-14-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-grosshochstetten",
         "en": "psychomotor-therapist-from-10-08-2026-until-at-least-20-09-2026-14-lessons-ksml-kantonaler-stellenmarkt-fur-36248",
-        "de": "psychomotorik-therapeut-in-ab-12-10-2026-oder-n-v-bis-voraussichtlich-23-12-2026-14-36248",
+        "de": "psychomotorik-therapeut-in-ab-10-08-2026-bis-mindestens-20-09-2026-14-lektionen-schule-36248",
         "fr": "psychomotherapeute-de-10-08-2026-a-au-moins-20-09-2026-14-lecons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-36248"
       },
       "slugDisambiguator": "36248",
@@ -8035,16 +8008,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "psychomotorik-therapeut-in-ab-12-10-2026-bis-voraussichtlich-23-12-2026-14-lektionen-36248",
-          "psychomotorik-therapeut-in-ab-10-08-2026-bis-mindestens-20-09-2026-14-lektionen-schule-36248"
+          "psychomotorik-therapeut-in-ab-12-10-2026-bis-voraussichtlich-23-12-2026-14-lektionen-36248"
         ],
         "it": [
           "psychomotorik-therapeut-in-ab-12-10-2026-bis-voraussichtlich-23-12-2026-14-lektionen-36248"
         ]
       },
       "previousSlugs": [
-        "psychomotorik-therapeut-in-ab-12-10-2026-bis-voraussichtlich-23-12-2026-14-lektionen-36248",
-        "psychomotorik-therapeut-in-ab-10-08-2026-bis-mindestens-20-09-2026-14-lektionen-schule-36248"
+        "psychomotorik-therapeut-in-ab-12-10-2026-bis-voraussichtlich-23-12-2026-14-lektionen-36248"
       ],
       "firstSeenAt": "2026-09-21T16:10:29.264Z"
     },
@@ -8360,7 +8331,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T23:20:21.197Z"
+      "firstSeenAt": "2026-09-01T23:20:21.197Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-e2589950508c",
@@ -9131,7 +9103,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-06T09:33:24.794Z"
+      "firstSeenAt": "2026-10-06T09:33:24.794Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-0caf9c948c9b",
@@ -9271,13 +9244,15 @@
           "vice-insegnante-di-classe-5-6-classe-20-lezioni-di-l-5-kl-funzione-1-ladv-ksml-kantonaler-stellenmarkt-fur-40350"
         ],
         "en": [
-          "deputy-class-teacher-5-6-class-20-l-lessons-5-kl-function-1-l-ladv-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40350"
+          "deputy-class-teacher-5-6-class-20-l-lessons-5-kl-function-1-l-ladv-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40350",
+          "stellvertretende-klassenlehrperson-5-6-klasse-20-l-unterricht-5-kl-funktion-1-l-ladv-40350"
         ],
         "de": [
           "stellvertretende-klassenlehrperson-5-6-klasse-20-l-unterricht-5-kl-funktion-1-l-ladv-40350"
         ],
         "fr": [
-          "professeur-adjoint-5-6-cours-20-l-lecons-5-kl-fonction-1-l-ladv-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40350"
+          "professeur-adjoint-5-6-cours-20-l-lecons-5-kl-fonction-1-l-ladv-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40350",
+          "stellvertretende-klassenlehrperson-5-6-klasse-20-l-unterricht-5-kl-funktion-1-l-ladv-40350"
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.266Z"
@@ -9846,7 +9821,7 @@
       "slugByLocale": {
         "it": "insegnante-di-guarigione-ciclo-di-insegnante-di-guarigione-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf",
         "en": "healing-teacher-healing-teacher-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-38018",
-        "de": "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-schule-untere-emme-utzenstorf-38018",
+        "de": "heilpadagogin-heilpadagoge-zyklus-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzen-38018",
         "fr": "enseignant-en-guerison-enseignant-en-guerison-cycle-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-38018"
       },
       "slugDisambiguator": "38018",
@@ -9893,9 +9868,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "de": [
-          "heilpadagogin-heilpadagoge-zyklus-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzen-38018"
-        ],
         "en": [
           "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
         ],
@@ -9904,8 +9876,7 @@
         ]
       },
       "previousSlugs": [
-        "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf",
-        "heilpadagogin-heilpadagoge-zyklus-3-14-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzen-38018"
+        "stellvertretung-heilpadagogin-heilpadagoge-zyklus-3-16-5-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-utzenstorf"
       ],
       "firstSeenAt": "2026-10-05T21:37:02.803Z"
     },
@@ -10156,7 +10127,7 @@
       "slugByLocale": {
         "it": "livello-di-base-degli-insegnanti-di-classe-aggiunto-pensum-21-lezioni-5-klp-p-300-ksml-kantonaler-stellenmarkt-fur-40078",
         "en": "deputy-class-teacher-base-level-pensum-21-lessons-lessons-5-klp-fr-300-ksml-kantonaler-stellenmarkt-fur-40078",
-        "de": "stellvertretung-klassenlehrperson-basisstufe-pensum-18-lektionen-plus-5-und-chf-300-00-pro-40078",
+        "de": "stellvertretung-klassenlehrperson-basisstufe-pensum-21-lektionen-unterricht-5-klp-fr-300-40078",
         "fr": "niveau-de-base-des-enseignants-adjoints-pensum-21-lecons-5-klp-fr-300-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40078"
       },
       "slugDisambiguator": "40078",
@@ -10233,9 +10204,6 @@
         ]
       },
       "previousSlugsByLocale": {
-        "de": [
-          "stellvertretung-klassenlehrperson-basisstufe-pensum-21-lektionen-unterricht-5-klp-fr-300-40078"
-        ],
         "it": [
           "stellvertretung-klassenlehrperson-basisstufe-pensum-21-lektionen-unterricht-5-klp-fr-300-40078",
           "stellvertretung-klassenlehrperson-basisstufe-pensum-21-lektionen-unterricht-5-klp-fr-300-ksml-kantonaler-stellenma-40078",
@@ -10596,8 +10564,9 @@
           "stellvertretung-logopadie-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-40399"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-03T09:29:22.686Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:29:22.686Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-3e112f8bf55e",
@@ -10853,8 +10822,9 @@
           "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-40393"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-10-01T09:27:21.269Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T09:27:21.269Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-f70160a901e3",
@@ -11291,7 +11261,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-20T10:08:41.103Z"
+      "firstSeenAt": "2026-08-20T10:08:41.103Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-1fca9a503b99",
@@ -11354,13 +11325,14 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:10:29.271Z"
+      "firstSeenAt": "2026-09-21T16:10:29.271Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-74d5839633a5",
       "slug": "stv-kleine-basisstufenklasse-fokus-bs1-2-vom-04-01-09-04-27-mit-8-22l-danach-besteht-die-40104",
       "slugByLocale": {
-        "de": "stv-kleine-basisstufenklasse-fokus-bs1-2-vom-04-01-09-04-27-mit-8-22l-danach-besteht-die-40104",
+        "de": "basisstufe-22-8l-klp-mutterschaftsvertretung-04-01-09-04-27-danach-moglichkeit-der-40104",
         "it": "livello-base-22-8l-klp-sostituzione-maternita-04-01-09-04-27-successivamente-possibilita-di-impiego-permanente-con-40104",
         "en": "basic-level-22-8l-klp-maternity-replacement-04-01-09-04-27-afterwards-possibility-of-permanent-employment-with-red-40104",
         "fr": "niveau-de-base-22-8l-klp-remplacement-maternite-04-01-09-04-27-possibilite-d-emploi-permanent-avec-tp-reduit-ksml-40104"
@@ -11416,8 +11388,7 @@
         "de": [
           "mutterschaftsvertretung-basisstufe-vom-04-01-09-04-27-mit-8-10l-danach-moglichkeit-der-40104",
           "stv-kleine-basisstufenklasse-fokus-bs1-2-vom-04-01-09-27-mit-8-22l-danach-moglichkeit-der-40104",
-          "stv-kleine-basisstufenklasse-fokus-bs1-2-vom-04-01-09-27-mit-8-22l-danach-besteht-die-40104",
-          "basisstufe-22-8l-klp-mutterschaftsvertretung-04-01-09-04-27-danach-moglichkeit-der-40104"
+          "stv-kleine-basisstufenklasse-fokus-bs1-2-vom-04-01-09-27-mit-8-22l-danach-besteht-die-40104"
         ],
         "it": [
           "basisstufe-22-8l-klp-mutterschaftsvertretung-04-01-09-04-27-danach-moglichkeit-der-40104",
@@ -11582,7 +11553,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-06T21:46:46.595Z"
+      "firstSeenAt": "2026-10-06T21:46:46.595Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-98f76a3dab77",
@@ -11661,8 +11633,9 @@
           "4-lecons-therapie-vocale-adjointe-mardi-et-jeudi-apres-midi-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40054"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-09T23:16:51.100Z"
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T23:16:51.100Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "ksml-e1026641bdd6",

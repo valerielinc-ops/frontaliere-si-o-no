@@ -941,7 +941,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-30T21:27:00.187Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1101,7 +1102,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:26:34.303Z"
+      "firstSeenAt": "2026-09-28T21:26:34.303Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "implenia-c5de849571f2",
@@ -1168,7 +1170,10 @@
       "id": "implenia-8ebcad79ac4d",
       "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
       "slugByLocale": {
-        "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
+        "it": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "fr": "gestionnaire-de-proprietes-h-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2458,7 +2463,8 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:26:20.241Z"
+      "firstSeenAt": "2026-10-02T21:26:20.241Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "implenia-c31f56701a42",
@@ -3330,7 +3336,10 @@
       "id": "implenia-d1de4f4db60b",
       "slug": "immobilienbewirtschafter-m-w-d-basel-grosspeteranlage-80-100-implenia-ch",
       "slugByLocale": {
-        "de": "immobilienbewirtschafter-m-w-d-basel-grosspeteranlage-80-100-implenia-ch"
+        "de": "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch",
+        "it": "direttore-immobiliare-m-f-d-basilea-80-100-implenia-basel",
+        "en": "real-estate-manager-m-f-d-basel-80-100-implenia-basel",
+        "fr": "directeur-immobilier-h-f-d-bale-80-100-implenia-basel"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3375,7 +3384,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-basel-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-2c40cca21778",
@@ -3448,7 +3471,8 @@
       "id": "implenia-6f24131d849a",
       "slug": "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch",
       "slugByLocale": {
-        "de": "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch"
+        "de": "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
+        "fr": "gestionnaire-principal-des-couts-h-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3494,7 +3518,18 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+        ],
+        "en": [
+          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-edf91aa4ed50",
@@ -4688,12 +4723,22 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve",
-        "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch",
+        "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch-qrti7u"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gerant-d-immeubles-commerciaux-m-w-d-geneve-80-100-implenia-geneve",
           "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        ],
+        "en": [
+          "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        ],
+        "de": [
+          "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch"
+        ],
+        "fr": [
+          "gerant-d-immeubles-commerciaux-h-f-x-geneve-80-100-implenia-ch-qrti7u"
         ]
       },
       "salaryMin": 83500,

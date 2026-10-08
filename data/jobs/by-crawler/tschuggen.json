@@ -166,7 +166,8 @@
       "department": "Service",
       "hotelName": "Tschuggen Grand Hotel",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:22:02.399Z"
+      "firstSeenAt": "2026-10-03T09:22:02.399Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-a230738e90d2",
@@ -220,7 +221,8 @@
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:22:49.716Z"
+      "firstSeenAt": "2026-09-30T21:22:49.716Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "tschuggen-2bb7c02e5260",
@@ -281,7 +283,7 @@
       "slugByLocale": {
         "it": "chef-de-rang-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "en": "chef-de-rang-m-f-d-winter-season-2026-2027-bewerbermanagement-stellen-lugano",
-        "de": "chef-de-rang-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "de": "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",
         "fr": "chef-de-rang-h-f-d-saison-d-hiver-2026-2027-bewerbermanagement-stellen-lugano"
       },
       "company": "Tschuggen Collection",
@@ -328,8 +330,7 @@
       "hotelName": "Carlton Hotel St. Moritz",
       "previousSlugsByLocale": {
         "de": [
-          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch",
-          "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch"
+          "sous-chef-m-w-d-wintersaison-2026-27-tschuggen-ch"
         ],
         "it": [
           "chef-de-rang-m-w-d-wintersaison-2026-2027-bewerbermanagement-stellen-ch",

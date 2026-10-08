@@ -1275,7 +1275,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:43:26.952Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5427,9 +5426,9 @@
       "slug": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-biel-die-mobiliar-biel",
-        "en": "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "en": "m-d-generalagentur-biel-die-mobiliar-biel",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "fr": "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
+        "fr": "m-d-generalagentur-biel-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5474,14 +5473,15 @@
       "sfJobId": "1164039955",
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch",
-        "m-d-generalagentur-biel-die-mobiliar-biel"
+        "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel",
+        "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "insurance-and-pension-advisor-m-w-d-general-agency-biel-die-mobiliar-biel"
         ],
         "fr": [
-          "m-d-generalagentur-biel-die-mobiliar-biel"
+          "conseiller-en-assurance-et-pension-m-w-d-agence-generale-biel-die-mobiliar-biel"
         ],
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-biel-mobiliar-ch"
@@ -5762,8 +5762,8 @@
       "slug": "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau",
       "slugByLocale": {
         "de": "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "en": "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau",
-        "fr": "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau",
+        "en": "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau",
+        "fr": "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau",
         "it": "versicherungs-e-vorsorgeberater-con-herz-m-w-d-agenzia-generale-mittelthurgau-die-mobiliar-thurgau"
       },
       "company": "die Mobiliar",
@@ -5821,22 +5821,20 @@
         ]
       },
       "sfJobId": "1164155255",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch"
         ],
         "en": [
-          "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau"
+          "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
         ],
         "fr": [
-          "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau"
+          "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
         ]
       },
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-mit-herz-w-m-generalagentur-mittelthurgau-mobiliar-ch",
-        "insurance-and-pension-advisor-with-heart-m-f-die-mobiliar-thurgau",
-        "conseiller-en-assurances-et-prevoyance-avec-c-ur-h-f-die-mobiliar-thurgau"
+        "versicherungs-und-vorsorgeberater-mit-herz-m-w-d-generalagentur-mittelthurgau-die-mobiliar-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -5916,11 +5914,7 @@
           "conseiller-ere-en-assurances-prevoyance-et-hypotheques-a-l-agence-generale-lausanne-nord"
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 6646,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-05-17T10:47:49.813Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

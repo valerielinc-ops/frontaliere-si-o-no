@@ -2580,7 +2580,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-kreditorenverarbeitung/5bd14875-9e1f-43d8-ab58-042bdbaf1c1c"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/mitarbeiter-in-kreditorenverarbeitung/5bd14875-9e1f-43d8-ab58-042bdbaf1c1c",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3a925e18b3fd",
@@ -3605,7 +3606,8 @@
       "employmentType": "FULL_TIME",
       "postalCode": "3900",
       "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/fachtechniker-in-elektro-und-telecom/355090c1-9ae3-4852-9ca0-7e5745b79a93",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-865bf0475be8",
@@ -5735,7 +5737,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3072",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/betriebsmanager-in-mit-schwerpunkt-fahrstromanlagen-16-7-hz/f65523dd-2d7e-4e9d-8417-9addc2819230",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-dd7e9edd499e",
@@ -5819,7 +5822,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-in-der-lackiererei/4c1a2378-fd77-4409-92bb-b08ad8a212ee"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/schichtleiter-in-in-der-lackiererei/4c1a2378-fd77-4409-92bb-b08ad8a212ee",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-2e7144cac881",
@@ -7888,7 +7892,8 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "postalCode": "3004",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/bauingenieur-in-im-konstruktiven-tiefbau/a6c8203e-14a8-4b9a-aa69-7520f9a025a7",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1444e8f8d837",
@@ -12497,7 +12502,7 @@
           "entree-laterale-gestionnaire-du-trafic-ferroviaire-ffs-officine-ferrovie-federali-muttenz"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T12:09:20.673Z",
       "salaryMin": 113000,
       "salaryMax": 192000,
@@ -12515,7 +12520,8 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "postalCode": "4600",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/905caa36-3609-4805-be14-0245d42d2e1b",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -12900,7 +12906,7 @@
           "controleur-de-trafic-ferroviaire-a-entree-laterale-2026-ffs-officine-ferrovie-federali-zurich-flughafen-oder-rangierbahnhof-limmattal"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T23:07:31.007Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -12918,7 +12924,8 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3"
+      "applyUrl": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-zugverkehrsleiter-in/fc9d29a1-5c21-4b43-9570-01f459f561a3",
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-17030e33d4a9",

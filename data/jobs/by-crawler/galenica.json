@@ -3414,7 +3414,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -11782,12 +11783,14 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
         "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
-        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
-          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey"
+          "assistant-di-farmacia-afc-sun-store-apotheke-galenica-conthey",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
         ],
         "en": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-conthey"
@@ -16131,7 +16134,6 @@
         "afc-media-galenica-ag-galenica-bern",
         "medecin-afc-chez-galenica-ag-galenica-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -21094,7 +21096,8 @@
       "id": "galenica-63467eef1376",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+          "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss-nx2v49"
         ],
         "en": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
@@ -21104,7 +21107,8 @@
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss"
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-lyss",
+        "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-lyss-nx2v49"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -21223,7 +21227,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-63dd406e2ce7",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21283,7 +21286,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-453a2b29bdfd",
       "previousSlugsByLocale": {
         "de": [
@@ -21351,7 +21353,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-fa40641f36ae",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21411,7 +21412,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-78405c8f57d0",
       "previousSlugsByLocale": {
         "de": [
@@ -21479,7 +21479,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-57e382b814b1",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -21539,7 +21538,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a1223afb7bfd",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -21599,7 +21597,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d957410d3f3c",
       "previousSlugsByLocale": {
         "de": [
@@ -21667,7 +21664,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-93ab2f0a19e4",
       "previousSlugsByLocale": {
         "de": [
@@ -21735,7 +21731,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-616b5c735b43",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -21795,7 +21790,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-8071fecc0b23",
       "previousSlugsByLocale": {
         "de": [
@@ -21863,7 +21857,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-0da6365b6fc0",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -21923,7 +21916,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-d9b5bc309591",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -21983,7 +21975,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-a8707bf9e909",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -22043,7 +22034,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-558fedf0093f",
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -22103,7 +22093,6 @@
       },
       "datePosted": "",
       "postingDateSource": "unknown",
-      "needsRetranslation": true,
       "id": "galenica-1b201cef0afe",
       "salaryMin": 91500,
       "salaryMax": 128000,
