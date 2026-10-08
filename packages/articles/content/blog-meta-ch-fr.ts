@@ -7940,6 +7940,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.richemont-montblanc-tagli.title': 'Richemont : chez Montblanc, 17 transferts et 6 licenciements',
     'blog.article.richemont-montblanc-tagli.excerpt': 'Richemont transfère 17 employés de Montblanc Six collaborateurs ont été licenciés Unia signale la crise de l\'industrie horlogère Terme Valeur Entreprise',
     'blog.article.richemont-montblanc-tagli.imageAlt': 'Atelier horloger au Locle dans le contexte de la crise du secteur',
+    'blog.article.svizzera-soldi-delusione-lavoro.title': 'Quiconque vient en Suisse uniquement pour l\'argent reste déçu',
+    'blog.article.svizzera-soldi-delusione-lavoro.excerpt': '80% des postes vacants sont pourvus par du personnel local.',
+    'blog.article.svizzera-soldi-delusione-lavoro.imageAlt': 'Professionnel travaillant à domicile avec vue sur le lac en Suisse',
 };
 
 export default blogMetaChFr;

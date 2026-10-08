@@ -2669,6 +2669,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'frankencoin-kraken-zchf': { it: 'frankencoin-kraken-zchf', en: 'frankencoin-kraken-chf', de: 'frankencoin-kraken-schweizer-franken', fr: 'frankencoin-kraken-franc-suisse' },
  'forniture-cemento-aumento-terzo-trimestre': { it: 'forniture-cemento-aumento-terzo-trimestre', en: 'cement-supplies-slightly-up-in-the-third-quarter', de: 'zementlieferungen-im-dritten-quartal-leicht-gestiegen', fr: 'livraisons-de-ciment-en-legere-hausse-au-troisieme-trimestre' },
  'richemont-montblanc-tagli': { it: 'richemont-montblanc-tagli', en: 'richemont-montblanc-cuts', de: 'richemont-montblanc-stellenabbau', fr: 'richemont-montblanc-licenciements' },
+ 'svizzera-soldi-delusione-lavoro': { it: 'svizzera-soldi-delusione-lavoro', en: 'switzerland-money-disappointment-job', de: 'schweiz-geld-enttaeuschung-arbeit', fr: 'suisse-argent-deception-travail' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -26502,6 +26502,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'svizzera-soldi-delusione-lavoro',
+    category: 'pratico',
+    date: '2026-10-08T20:19:18.281Z',
+    image: '/images/blog/article-svizzera-soldi-delusione-lavoro.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5089
+      "6": 5090
     },
-    "publishedCovers": 6801,
+    "publishedCovers": 6802,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180809,6 +180809,33 @@
           "id": "svizzera-leader-nella-robotica-217-aziende-e-7-000-posti",
           "category": "novita",
           "date": "2026-10-08T11:04:25.747Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-svizzera-soldi-delusione-lavoro": {
+      "cover": "/images/blog/article-svizzera-soldi-delusione-lavoro.webp",
+      "hash": "138e442466e2c64f3b49574c7ceb695ee1656ea52ec4d224c1e1d4c686a7f18b",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "svizzera-soldi-delusione-lavoro",
+          "category": "pratico",
+          "date": "2026-10-08T20:19:18.281Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
