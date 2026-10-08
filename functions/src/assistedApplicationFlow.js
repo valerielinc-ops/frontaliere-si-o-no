@@ -5,7 +5,9 @@
  *   draft ready ──► owner_review ──(Valerie approves, or 1 h passes)──► candidate_review
  *   candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
  *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► owner_review …
- *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback)
+ *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback);
+ *     the three are the drafts the candidate was shown (roundsShown), never
+ *     one Valerie had written again before it reached them
  *   a submit of unknown outcome (submitting, or held for Valerie) ──(the
  *     employer's acknowledgement or reply on the alias)──► submitted
  *
@@ -146,6 +148,21 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
 }
 
+/**
+ * The rounds whose draft the candidate was shown, in order. Their MAX_REVIEW_ROUNDS count these and never the
+ * round's number (owner decision 2026-10-08, on an order at «round 3 of 3» whose candidate had seen one
+ * draft: the other two were regenerations Valerie asked for before any reached them). The number still grows
+ * with every regeneration: it names the draft, so that a link of an older one can no longer approve.
+ * A flow written before the record counts every round up to its own, as it did then.
+ * @returns {number[]}
+ */
+export function roundsShown(flow) {
+  if (Array.isArray(flow?.shownRounds)) {
+    return [...new Set(flow.shownRounds.map(Number).filter((round) => Number.isInteger(round) && round > 0))].sort((left, right) => left - right);
+  }
+  return Array.from({ length: Number(flow?.round) || 1 }, (_, index) => index + 1);
+}
+
 /** Why the portal stopped ("whatsapp" from "portal:whatsapp"), or null. */
 function portalStopOf(heldBy = []) {
   const hold = (Array.isArray(heldBy) ? heldBy : []).find((item) => String(item).startsWith('portal:'));
@@ -170,6 +187,11 @@ function base(flow) {
     heldNudges: Number(flow?.heldNudges) || 0,
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
+    shownRounds: roundsShown(flow),
+    // The last wait for the candidate that ended (round, since, until), and when the ad was found closed
+    // during one: see the end of transition, and the tick.
+    lastWait: Number(flow?.lastWait?.until) ? { round: Number(flow.lastWait.round) || 1, since: Number(flow.lastWait.since) || null, until: Number(flow.lastWait.until) } : null,
+    postingExpiredAt: Number(flow?.postingExpiredAt) || null,
   };
 }
 
@@ -177,6 +199,24 @@ function base(flow) {
 function waitsForCandidate(flow) {
   return ['candidate_review', 'needs_candidate_action'].includes(flow.state)
     && flow.heldBy.some((held) => /^(question|document):/.test(String(held)));
+}
+
+/** This round waited, or waits, for what only the candidate can give. */
+function waitedForCandidate(flow) {
+  return waitsForCandidate(flow) || Number(flow.lastWait?.round) === Number(flow.round);
+}
+
+/**
+ * The tick that is due would write to the candidate: a reminder of the questions and documents still open, of
+ * the 12 hours running out, or of the portal step handed to them. (The notice to Valerie after the reminders
+ * of a wait counts too: with the ad closed she hears that instead.)
+ */
+function remindsCandidate(flow, nowMs) {
+  const due = Boolean(flow.reminderAt) && nowMs >= flow.reminderAt;
+  if (!due) return false;
+  if (waitsForCandidate(flow)) return true;
+  if (flow.state === 'candidate_review') return !flow.reminderSentAt && !(flow.deadlineAt && nowMs >= flow.deadlineAt);
+  return flow.state === 'candidate_handoff' && !flow.reminderSentAt;
 }
 
 /** The wait for the candidate's answers starts its reminders, or keeps the ones of a wait already running. */
@@ -238,6 +278,8 @@ function enterOwnerReview(next, flags, nowMs) {
 
 function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline = null } = {}) {
   next.state = 'candidate_review';
+  // The candidate is shown this round's draft: it counts among theirs (roundsShown).
+  if (!next.shownRounds.includes(next.round)) next.shownRounds = [...next.shownRounds, next.round];
   next.heldBy = candidateHolds(flags);
   if (next.heldBy.length) {
     next.deadlineAt = null;
@@ -262,10 +304,12 @@ function enterSubmitting(next, reason) {
 /**
  * @param {object|null} flow current flow (order.automation)
  * @param {{type:string, feedback?:string, questions?:Array, error?:string}} event
- * @param {{draft?:object, answers?:object, nowMs?:number}} context
+ * @param {{draft?:object, answers?:object, nowMs?:number, terms?:{noRefundAfterWait?:boolean}}} context
+ *   terms.noRefundAfterWait: the order was placed under the Terms 6.5 of 2026-10 (an ad that closes while the
+ *   application waits for the candidate is not refunded: assistedApplicationConstants.js waitTermsApply)
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now(), terms = {} } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
@@ -310,8 +354,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'owner_regenerate':
       // Valerie asks for a new draft (e.g. after editing the answers): a new
       // round, so links of the previous round can no longer approve. A round
-      // whose draft never came out is written again as the same round: a
-      // failure on our side never costs the candidate one of their rounds.
+      // whose draft never came out is written again as the same round. Neither
+      // costs the candidate one of their rounds: those are the drafts they
+      // were shown (roundsShown), and this one reaches them only when the
+      // flow enters their review.
       if (!['owner_review', 'owner_takeover', 'candidate_review'].includes(state)) return ignore('not_regenerable');
       if (state !== 'owner_takeover' || !roundDraftMissing(current, draft)) next.round = current.round + 1;
       effects = redraftSameRound(next, 'owner_regenerate');
@@ -330,6 +376,19 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     case 'tick': {
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      // The ad closed while the candidate is awaited (the caller looks before it reminds them:
+      // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
+      // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
+      // once and decides how to close it. Nothing is refunded here: that is her call, or the runner's when
+      // it finds the ad closed (posting_closed).
+      if (event.postingExpired && remindsCandidate(current, nowMs)) {
+        next.reminderAt = null;
+        if (!current.postingExpiredAt) {
+          next.postingExpiredAt = nowMs;
+          effects = [{ type: 'email', kind: 'owner_posting_expired', since: current.heldSince || nowMs }];
+        }
+        break;
+      }
       if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
         const since = current.heldSince || nowMs;
         const nudge = current.heldNudges + 1;
@@ -442,6 +501,14 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.deadlineAt = null;
       next.reminderAt = null;
       next.heldBy = ['posting_closed'];
+      // Terms 6.5 as of 2026-10 (owner decision 2026-10-08), for the orders placed under them: an ad that
+      // closes while the application waits for documents or answers only the candidate can give is not
+      // refunded. The robot cannot tell when the ad closed, only that this round waited for the candidate:
+      // it refunds nothing by itself, and Valerie decides and writes to them.
+      if (terms.noRefundAfterWait && waitedForCandidate(current)) {
+        effects = [{ type: 'email', kind: 'owner_takeover', reason: 'posting_closed_waited' }];
+        break;
+      }
       // Owner decision 2026-09-30: the only refund the welcome e-mail promises
       // is "the ad closed before we could send it" — so it is automatic.
       // The candidate's "we refunded you" e-mail is sent by the refund effect
@@ -469,7 +536,8 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       if (state !== 'candidate_review') return ignore('not_candidate_review');
       const feedback = String(event.feedback || '').trim().slice(0, 2000);
       next.feedback = [...current.feedback, { round: current.round, at: nowMs, text: feedback }];
-      if (current.round >= MAX_REVIEW_ROUNDS) {
+      // The third draft the candidate was shown, whatever its number (roundsShown).
+      if (current.shownRounds.length >= MAX_REVIEW_ROUNDS) {
         next.state = 'owner_takeover';
         next.heldBy = ['max_rounds'];
         effects = [{ type: 'email', kind: 'owner_takeover', reason: 'max_rounds' }];
@@ -532,8 +600,10 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
     default:
       return ignore('unknown_event');
   }
-  // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders.
+  // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders, and
+  // leaves its mark: an ad found closed later in the round is judged knowing the candidate was awaited.
   if (!waitsForCandidate(next)) {
+    if (waitsForCandidate(current) && current.heldSince) next.lastWait = { round: current.round, since: current.heldSince, until: nowMs };
     next.heldSince = null;
     next.heldNudges = 0;
   }

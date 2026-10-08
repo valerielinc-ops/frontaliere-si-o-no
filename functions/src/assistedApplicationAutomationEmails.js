@@ -58,6 +58,7 @@ const CANDIDATE_COPY = {
   it: {
     greeting: (name) => (name ? `Ciao ${name},` : 'Ciao,'),
     badge: 'Candidatura assistita',
+    waitTerms: 'Tieni presente che, se nel frattempo l’annuncio viene chiuso o ritirato, la candidatura non potrà più partire e l’importo non è rimborsato (Termini, punto 6.5).',
     signature: 'Valerie',
     signatureRole: 'Frontaliere Ticino · candidatura assistita',
     jobLink: "Vedi l'annuncio",
@@ -131,6 +132,7 @@ const CANDIDATE_COPY = {
   de: {
     greeting: (name) => (name ? `Hallo ${name},` : 'Hallo,'),
     badge: 'Begleitete Bewerbung',
+    waitTerms: 'Bitte beachte: Wird die Stelle in der Zwischenzeit geschlossen oder zurückgezogen, kann die Bewerbung nicht mehr rausgehen und der Betrag wird nicht erstattet (Nutzungsbedingungen, Ziffer 6.5).',
     signature: 'Valerie',
     signatureRole: 'Frontaliere Ticino · begleitete Bewerbung',
     jobLink: 'Inserat ansehen',
@@ -202,6 +204,7 @@ const CANDIDATE_COPY = {
   fr: {
     greeting: (name) => (name ? `Bonjour ${name},` : 'Bonjour,'),
     badge: 'Candidature assistée',
+    waitTerms: 'À noter : si l’annonce est fermée ou retirée entre-temps, la candidature ne pourra plus partir et le montant n’est pas remboursé (Conditions, point 6.5).',
     signature: 'Valerie',
     signatureRole: 'Frontaliere Ticino · candidature assistée',
     jobLink: "Voir l'annonce",
@@ -273,6 +276,7 @@ const CANDIDATE_COPY = {
   en: {
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
     badge: 'Assisted application',
+    waitTerms: 'Please note: if the ad is closed or withdrawn in the meantime, the application can no longer go out and the amount is not refunded (Terms, section 6.5).',
     signature: 'Valerie',
     signatureRole: 'Frontaliere Ticino · assisted application',
     jobLink: 'See the ad',
@@ -355,6 +359,8 @@ const TAKEOVER_REASONS = {
   runner_timeout: 'il runner non ha dato notizie per due volte di seguito',
   max_rounds: 'il candidato ha rifiutato la bozza per 3 volte',
   posting_closed: 'l’annuncio risulta chiuso: rimborso automatico avviato (se non riesce ricevi un secondo avviso)',
+  // Terms 6.5 of 2026-10: no automatic refund when the round waited for the candidate (assistedApplicationFlow.js).
+  posting_closed_waited: 'l’annuncio risulta chiuso, e in questo giro la candidatura ha atteso documenti o risposte del candidato: NESSUN rimborso automatico. Per i Termini (punto 6.5) accettati con questo ordine, un annuncio ritirato durante quell’attesa non è rimborsato. Decidi tu come chiudere l’ordine e scrivi al candidato; se l’annuncio era già chiuso prima dell’attesa, rimborsa dalla coda',
   refund_failed: 'il rimborso automatico non è riuscito: va fatto a mano dalla coda (il candidato non ha ancora ricevuto l’email di rimborso)',
   submit_failed: 'l’invio non è riuscito',
 };
@@ -448,8 +454,9 @@ export function describeTakeover({ reason, stage, attempts }) {
  *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, fit?:'low'|'partial'|'far'|null, fitVia?:'answers'|'edit'|null,
- *   openQuestions?:number, reason?:string, price?:string, orderId:string}} vars `fit` and `fitVia` as
- *   fitNoticeWording (assistedApplicationFitNotice.js) gives them
+ *   openQuestions?:number, reason?:string, price?:string, orderId:string, waitTerms?:boolean}} vars `fit` and
+ *   `fitVia` as fitNoticeWording (assistedApplicationFitNotice.js) gives them; `waitTerms`: the order was placed
+ *   under the Terms 6.5 of 2026-10 (assistedApplicationConstants.js waitTermsApply)
  */
 export function buildCandidateAutomationEmail(kind, vars) {
   const locale = CANDIDATE_COPY[vars.locale] ? vars.locale : 'it';
@@ -502,6 +509,13 @@ export function buildCandidateAutomationEmail(kind, vars) {
     html.push(brandButton(vars.reviewUrl, kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta));
     text.push(`${kind === 'candidate_reminder' ? copy.reviewCta : copy.openCta}: ${vars.reviewUrl}`);
   }
+  // Whoever is awaited reads what the wait may cost them (Terms 6.5 of 2026-10, for the orders placed under
+  // them): the review held by questions or documents, its reminders, and the portal waiting for an answer.
+  const awaited = (kind === 'candidate_review' && vars.held) || kind === 'candidate_questions_reminder' || kind === 'candidate_action_needed';
+  if (vars.waitTerms && awaited) {
+    html.push(brandFinePrint(esc(copy.waitTerms)));
+    text.push(copy.waitTerms);
+  }
   html.push(brandSignature(copy.signature, copy.signatureRole));
   text.push(copy.signature);
   return {
@@ -520,9 +534,10 @@ export function buildCandidateAutomationEmail(kind, vars) {
 }
 
 /**
- * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'} kind
+ * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'|'owner_posting_expired'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
- *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number}} vars
+ *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number,
+ *   waitTerms?:boolean}} vars waitTerms: the order was placed under the Terms 6.5 of 2026-10
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -569,6 +584,18 @@ export function buildOwnerAutomationEmail(kind, vars) {
     html.push(brandParagraph(esc(lead)));
     text.push(lead);
     // The address in the HTML too: the lead points to it (review of #10803).
+    const email = clean(vars.candidateEmail, 200);
+    if (email) html.push(brandParagraph(`Candidato: <a href="mailto:${esc(email)}">${esc(email)}</a>`));
+  } else if (kind === 'owner_posting_expired') {
+    // The ad closed while the candidate was awaited (owner decision 2026-10-08): no reminder went out.
+    subject = `[Candidatura] Annuncio chiuso durante l’attesa del candidato: ${job} — ${company}`;
+    hero = 'L’annuncio risulta chiuso: solleciti sospesi';
+    const lead = 'Prima di sollecitare il candidato ho controllato l’annuncio: risulta chiuso o ritirato. Il sollecito NON è partito e non ne partiranno altri, perché la candidatura non potrebbe più essere inviata. L’ordine resta in attesa e non è stato rimborsato nulla: verifica l’annuncio e decidi dalla coda come chiuderlo.';
+    const owed = vars.waitTerms
+      ? 'Per i Termini (punto 6.5) accettati con questo ordine, un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato.'
+      : 'Questo ordine è precedente al nuovo punto 6.5 dei Termini: vale la promessa con cui è stato venduto, cioè il rimborso se l’annuncio chiude prima dell’invio. Se confermi che è chiuso, rimborsa dalla coda.';
+    html.push(brandParagraph(esc(lead)), brandParagraph(esc(owed)));
+    text.push(lead, owed);
     const email = clean(vars.candidateEmail, 200);
     if (email) html.push(brandParagraph(`Candidato: <a href="mailto:${esc(email)}">${esc(email)}</a>`));
   } else {

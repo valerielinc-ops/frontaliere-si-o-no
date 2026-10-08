@@ -26,10 +26,11 @@
 
 import { FieldValue } from 'firebase-admin/firestore';
 import { randomUUID } from 'node:crypto';
-import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants.js';
+import { ASSISTED_APPLICATIONS_COLLECTION, waitTermsApply } from './assistedApplicationConstants.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { checkPostingLiveness, postingAddressOf, postingSaysClosed } from './assistedApplicationLiveness.js';
 import { scheduleFollowups } from './assistedApplicationFollowup.js';
 import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
@@ -222,7 +223,11 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flow, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
+    const result = transition(flow, event, {
+      draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs,
+      // Which point 6.5 of the Terms the order was placed under (waitTermsApply).
+      terms: { noRefundAfterWait: waitTermsApply(orderSnapshot.data() || {}) },
+    });
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };
@@ -318,6 +323,8 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
       reminderAt: null,
       reminderSentAt: null,
       heldBy: [],
+      // No draft of this flow has reached the candidate yet (assistedApplicationFlow.js roundsShown).
+      shownRounds: [],
       feedback: existing?.feedback || [],
       answers: existing?.answers || {},
       history: [...(existing?.history || []), { at: nowMs, event: `start:${reason}`, state: 'drafting' }].slice(-40),
@@ -360,11 +367,26 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
 
 // ── Sweep (clocks, reminders, watchdog) ────────────────────────────────────
 
+// Where a due reminder is one to the candidate (assistedApplicationFlow.js, the tick).
+const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
+
+/**
+ * The order's ad says it is closed (assistedApplicationLiveness.js postingSaysClosed), read now at the address
+ * the runner reads before it submits. Any failure reads as «not known closed»: the reminder then goes out.
+ */
+export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fetch, resolve }) {
+  const draftSnapshot = await draftRefFor(db, orderId).get();
+  const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
+  return postingSaysClosed(await checkPostingLiveness({ order, posting: { applyUrl: postingAddressOf(draft) }, fetchImpl, resolve }));
+}
+
 /**
  * Every few minutes: fire due clocks and reminders, and re-dispatch (once) a
  * run that never reported back; a second silence hands the order to Valerie.
+ * `postingClosed` (functions/index.js passes postingClosedForOrder): asked before a reminder to a candidate,
+ * so that none goes out for an ad that closed (owner decision 2026-10-08). Left out, no ad is looked at.
  */
-export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } = {}) {
+export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null } = {}) {
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
@@ -412,7 +434,11 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now() } =
         }
         continue;
       }
-      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick' }, actor: 'clock', runEffect, nowMs });
+      const reminderDue = CANDIDATE_REMINDER_STATES.has(flow.state) && Number(flow.reminderAt) > 0 && Number(flow.reminderAt) <= nowMs;
+      const postingExpired = reminderDue && postingClosed
+        ? Boolean(await Promise.resolve(postingClosed({ db, orderId: doc.id, order: doc.data() || {} })).catch(() => false))
+        : false;
+      const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
       if (result.ok) summary.ticks += 1;
       else {
         summary.ignored += 1;

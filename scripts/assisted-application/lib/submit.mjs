@@ -34,6 +34,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
+import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
@@ -211,9 +212,8 @@ export async function submitApplication(ctx) {
 
   const liveness = await checkPostingLiveness({
     order,
-    // The posting's own page when the channel is the ATS behind it (Coop:
-    // SuccessFactors' sign-in says nothing about the posting being open).
-    posting: { applyUrl: draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl },
+    // The posting's own page when the channel is the ATS behind it (postingAddressOf).
+    posting: { applyUrl: postingAddressOf(draft) },
     fetchImpl: ctx.fetchImpl || fetch,
     resolve: ctx.resolve,
   });
