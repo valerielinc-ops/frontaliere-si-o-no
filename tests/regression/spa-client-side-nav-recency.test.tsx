@@ -97,6 +97,25 @@ function clickAnchor(href: string): { defaultPrevented: boolean } {
   return { defaultPrevented: event.defaultPrevented };
 }
 
+/** Simulate a component-owned link that cancels the native click first. */
+function clickHandledAnchor(href: string): { defaultPrevented: boolean } {
+  const a = document.createElement('a');
+  a.href = href;
+  a.textContent = 'handled link';
+  a.addEventListener('click', (event) => event.preventDefault());
+  document.body.appendChild(a);
+
+  const event = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    button: 0,
+  });
+  a.dispatchEvent(event);
+
+  document.body.removeChild(a);
+  return { defaultPrevented: event.defaultPrevented };
+}
+
 // ── Tests ──────────────────────────────────────────────────────────────────
 
 describe('2b — client-side nav: recency landing guard in click interceptor', () => {
@@ -160,6 +179,20 @@ describe('2b — client-side nav: recency landing guard in click interceptor', (
     // A real job slug should be intercepted by the SPA
     const { defaultPrevented } = clickAnchor('/cerca-lavoro-ticino/software-engineer-lugano/');
     expect(defaultPrevented).toBe(true);
+  });
+
+  it('does not re-route a link whose component handler already prevented the click', async () => {
+    setupJobDetailPage('azienda-board-international');
+    renderHook(() => useNavigationState());
+
+    const router = await import('@/services/router');
+    const pushRouteSpy = router.pushRoute as unknown as ReturnType<typeof vi.fn>;
+    pushRouteSpy.mockClear();
+
+    const { defaultPrevented } = clickHandledAnchor('/cerca-lavoro-ticino/software-engineer-lugano/');
+
+    expect(defaultPrevented).toBe(true);
+    expect(pushRouteSpy).not.toHaveBeenCalled();
   });
 
   it('hydrates company-filter links from job pages instead of falling through to static company pages', () => {
