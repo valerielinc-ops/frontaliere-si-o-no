@@ -458,7 +458,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
     title: 'Parmelin firma accordo con Bahrein per proteggere',
     description: 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni',
     keywords: 'frontalieri, ticino, svizzera, italia, parmelin, firma, accordo, bahrein',
-    ogTitle: 'Parmelin firma accordo con Bahrein per proteggere gli',
+    ogTitle: 'Parmelin firma accordo con Bahrein per proteggere',
     ogDescription: 'Guy Parmelin ha firmato a Washington un accordo bilaterale per proteggere gli investimenti tra Svizzera e Bahrein. L’intesa entra in vigore dopo le approvazioni',
     canonicalPath: '/articoli-frontaliere/parmelin-accordo-investimenti-bahrein-2026/',
     structuredData: {
@@ -3014,7 +3014,7 @@ const BLOG_SEO_METADATA_6: Record<string, SEOMetadata> = {
     title: 'Nuova tassa sui frontalieri: 3% in più | Frontaliere Ticino',
     description: 'Dal settembre 2026, i frontalieri in Lombardia pagheranno una tassa del 3% per finanziare aumenti salariali per medici e infermieri. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, nuova, tassa, finanziare, stipendi',
-    ogTitle: 'Nuova tassa sui frontalieri: 3% in più per finanziare gli',
+    ogTitle: 'Nuova tassa sui frontalieri: 3% in più per finanziare',
     ogDescription: 'Dal settembre 2026, i frontalieri in Lombardia pagheranno una tassa del 3% per finanziare aumenti salariali per medici e infermieri',
     canonicalPath: '/articoli-frontaliere/nuova-tassa-frontalieri-2026/',
     structuredData: {

@@ -93,6 +93,19 @@ function factsForSource(source: string): GuardFacts {
   };
 }
 
+function sourceNeedsGuardAst(source: string) {
+  if (HELPER_GUARD_RE.test(source)) return false;
+
+  // Most CLI modules already contain only a canonical guard. Remove those
+  // expressions before paying the cost of parsing and recursively walking a
+  // potentially very large AST. Any additional argv[1]-based identity or
+  // suffix guard remains visible and is still analysed fail-closed below.
+  const withoutCanonicalGuards = source
+    .replace(new RegExp(ONE_SIDED_GUARD_RE.source, 'g'), '')
+    .replace(new RegExp(TWO_SIDED_GUARD_RE.source, 'g'), '');
+  const remaining = factsForSource(withoutCanonicalGuards);
+  return remaining.arg && (remaining.meta || remaining.marker);
+}
 function mergeFacts(target: GuardFacts, source: GuardFacts) {
   target.arg ||= source.arg;
   target.meta ||= source.meta;
@@ -123,7 +136,7 @@ function babelChildren(node: BabelNode) {
 
 function censusFile(file: string, parse: (source: string) => { type: string; [key: string]: any }) {
   const source = readFileSync(file, 'utf8');
-  if (HELPER_GUARD_RE.test(source)) return [];
+  if (!sourceNeedsGuardAst(source)) return [];
 
   const ast = parse(source) as BabelNode;
   const bindings = new Map<string, Array<{ init: BabelNode; start: number }>>();
@@ -269,6 +282,11 @@ describe('guard di entrypoint canonico (#7292)', () => {
     expect(census.offenders).toEqual([]);
   });
 
+  it('salta il parsing dei guard canonici senza mascherare un secondo guard non canonico', () => {
+    const canonical = "import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href";
+    expect(sourceNeedsGuardAst(canonical)).toBe(false);
+    expect(sourceNeedsGuardAst(`${canonical}; process.argv[1]?.endsWith('worker.mjs')`)).toBe(true);
+  });
   it('la forma a due lati esegue dal symlink e non dall\'omonimo', () => {
     const dir = mkdtempSync(path.join(tmpdir(), 'entrypoint-guard-'));
     const moduleDir = path.join(dir, 'real');
