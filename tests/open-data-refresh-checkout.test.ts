@@ -1,4 +1,5 @@
-import { execFileSync, spawnSync } from 'node:child_process';
+import { execFileSync, spawn, spawnSync } from 'node:child_process';
+import { once } from 'node:events';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -478,7 +479,10 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
     "    if (onRemote(['cat-file', '-e', fields.sha + '^{commit}']).status !== 0) fail('Object does not exist (HTTP 422)');",
     "    if (onRemote(['update-ref', fields.ref, fields.sha]).status !== 0) fail('update-ref failed');",
     '  } else if (method === \'DELETE\' && endpoint.startsWith(heads)) {',
-    "    onRemote(['update-ref', '-d', 'refs/heads/' + endpoint.slice(heads.length)]);",
+    "    const ref = 'refs/heads/' + endpoint.slice(heads.length);",
+    '    // REST deletes whatever is there: if another run lands first, its commit goes with the branch.',
+    "    if (process.env.REFRESH_FIXTURE_CONCURRENT_TIP) onRemote(['update-ref', ref, process.env.REFRESH_FIXTURE_CONCURRENT_TIP]);",
+    "    onRemote(['update-ref', '-d', ref]);",
     '  }',
     '  process.exit(0);',
     '}',
@@ -552,6 +556,37 @@ function publishSitemap(setup: ReturnType<typeof movingMainFixture>, env: Record
   };
 }
 
+/**
+ * Makes the remote refuse every refresh push. A deletion (all-zero new id)
+ * passes the hook, so only its lease decides. `onRefusal` and `onDeletion` are
+ * shell run at those moments (`$refusals` counts the refusals): what someone
+ * else does to the branch while this run is failing or cleaning up.
+ */
+function refuseRefreshPushes(setup: ReturnType<typeof movingMainFixture>, { onRefusal = '', onDeletion = '' } = {}) {
+  const hook = path.join(setup.remote, 'hooks', 'pre-receive');
+  fs.mkdirSync(path.dirname(hook), { recursive: true });
+  fs.writeFileSync(hook, [
+    '#!/bin/sh',
+    'deletion=1',
+    'while read -r _old new _ref; do',
+    '  case "$new" in 0000000000000000000000000000000000000000) ;; *) deletion=0 ;; esac',
+    'done',
+    // The hook runs inside the push's quarantine, where Git forbids ref updates.
+    'unset GIT_QUARANTINE_PATH GIT_OBJECT_DIRECTORY GIT_ALTERNATE_OBJECT_DIRECTORIES',
+    'if [ "$deletion" = 1 ]; then',
+    `  ${onDeletion || ':'}`,
+    '  exit 0',
+    'fi',
+    'refusals=$(( $(cat fixture-refusals 2>/dev/null || echo 0) + 1 ))',
+    'echo "$refusals" > fixture-refusals',
+    onRefusal,
+    'echo "fixture: push refused" >&2',
+    'exit 1',
+    '',
+  ].join('\n'));
+  fs.chmodSync(hook, 0o755);
+}
+
 // A commit that adds one file in a new directory: commit, root tree, `public` tree, blob.
 const OBJECTS_OF_THE_REFRESH = 4;
 
@@ -613,11 +648,7 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
 
   it('removes the base it created when the push keeps failing', () => {
     const setup = movingMainFixture({ afterHistoryGuard: true });
-    // The remote refuses every push; the Git-refs API (the fake gh) still works.
-    const hook = path.join(setup.remote, 'hooks', 'pre-receive');
-    fs.mkdirSync(path.dirname(hook), { recursive: true });
-    fs.writeFileSync(hook, '#!/bin/sh\necho "fixture: push refused" >&2\nexit 1\n');
-    fs.chmodSync(hook, 0o755);
+    refuseRefreshPushes(setup);
     const run = publishSitemap(setup);
     expect(run.result.status, run.output).not.toBe(0);
     expect(run.output).toContain('stable refresh branch push failed after 3 bounded attempts');
@@ -625,9 +656,39 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(remoteBranch(setup.remote, NEW_BRANCH)).toBeNull();
     // One creation for three attempts: a base this run made is reused, not reconciled.
     expect(setup.ghCalls().match(/api -X POST/g)).toHaveLength(1);
-    expect(setup.ghCalls()).toContain(`api -X DELETE repos/fixture/publisher/git/refs/heads/${NEW_BRANCH}`);
     expect(setup.ghCalls()).not.toContain('pr create');
     expect(git(setup.runner, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
+  }, 60_000);
+
+  it('leaves the branch alone when another run advances it at the moment of the cleanup', () => {
+    const setup = movingMainFixture({ afterHistoryGuard: true });
+    setup.advanceMain();
+    const elsewhere = git(setup.remote, ['rev-parse', 'refs/heads/main']);
+    expect(elsewhere).not.toBe(setup.checkout);
+    // Every read of the branch still shows this run's base. Another run's
+    // refresh lands exactly when the cleanup's deletion arrives.
+    refuseRefreshPushes(setup, { onDeletion: `git update-ref refs/heads/${NEW_BRANCH} ${elsewhere}` });
+    const run = publishSitemap(setup, { REFRESH_FIXTURE_CONCURRENT_TIP: elsewhere });
+    expect(run.result.status, run.output).not.toBe(0);
+    expect(remoteBranch(setup.remote, NEW_BRANCH)).toBe(elsewhere);
+    expect(run.output).toContain(`${NEW_BRANCH} was not removed from the remote`);
+    expect(run.output).not.toContain(`Removed ${NEW_BRANCH} from the remote`);
+    // The cleanup is a push with a lease on the base commit, never a bare REST delete.
+    expect(setup.ghCalls()).not.toContain('-X DELETE');
+  }, 60_000);
+
+  it('creates the base again when it disappeared before the retry', () => {
+    const setup = movingMainFixture({ afterHistoryGuard: true });
+    setup.advanceMain();
+    // The first push is refused and the empty branch is cleaned up meanwhile; the second goes through.
+    refuseRefreshPushes(setup, { onRefusal: `if [ "$refusals" -ge 2 ]; then exit 0; fi; git update-ref -d refs/heads/${NEW_BRANCH}` });
+    const run = publishSitemap(setup);
+    expect(run.result.status, run.output).toBe(0);
+    expect(setup.ghCalls().match(/api -X POST/g)).toHaveLength(2);
+    expect({ objectsSent: run.objectsSent, lazyFetchesByPush: run.lazyFetchesByPush, pushes: run.pushes })
+      .toEqual({ objectsSent: OBJECTS_OF_THE_REFRESH, lazyFetchesByPush: 0, pushes: 2 });
+    expect(git(setup.remote, ['rev-parse', `${NEW_BRANCH}^`])).toBe(setup.checkout);
+    expect(setup.ghCalls()).toContain('pr create');
   }, 60_000);
 
   it('gives every push of the publisher a time cap, and the new-branch push no lazy fetch', () => {
@@ -637,8 +698,8 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     const pushLines = lines
       .map((line, index) => ({ line, index }))
       .filter(({ line }) => !line.trimStart().startsWith('#') && /(^|\s)git(\s+-c\s+\S+)*\s+push(\s|$)/.test(line));
-    // Two forms for a new branch (compat and not), one over an existing tip.
-    expect(pushLines).toHaveLength(3);
+    // Two forms for a new branch (compat and not), one over an existing tip, one that removes an unused base.
+    expect(pushLines).toHaveLength(4);
     for (const { index } of pushLines) {
       // The command the push line belongs to starts at most two lines above it.
       const command = lines.slice(Math.max(0, index - 2), index + 1).join('\n');
@@ -646,6 +707,9 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     }
     expect(helper).toMatch(/env GIT_NO_LAZY_FETCH=1 \\\n\s+git -c http\.https:\/\/github\.com\/\.extraheader= push "\$PUSH_URL" "HEAD:\$\{BRANCH\}"/);
     expect(helper).toMatch(/elif push_new_stable_branch; then/);
+    // The cleanup deletes with a lease on the base commit; a REST delete has no such condition.
+    expect(helper).toMatch(/--force-with-lease="refs\/heads\/\$\{BRANCH\}:\$\{REFRESH_BASE\}" \\\n\s+"\$PUSH_URL" ":refs\/heads\/\$\{BRANCH\}"/);
+    expect(helper).not.toContain('-X DELETE');
   });
 });
 
@@ -686,5 +750,27 @@ describe('bounded command runner', () => {
     expect(bounded(['--label', 'x', '--', 'true']).status).toBe(2);
     expect(bounded(['--timeout-seconds', '0', '--label', 'x', '--', 'true']).status).toBe(2);
     expect(bounded(['--timeout-seconds', '5', '--', 'true']).status).toBe(2);
+    // Past the range of a timer the delay would fire at once and stop a healthy command.
+    expect(bounded(['--timeout-seconds', '2147484', '--label', 'x', '--', 'true']).status).toBe(2);
+    expect(bounded(['--timeout-seconds', '2147483', '--label', 'x', '--', 'true']).status).toBe(0);
+  });
+
+  it('stops a command that ignores the signal a cancelled job sends', async () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'bounded-signal-'));
+    directories.push(directory);
+    const ready = path.join(directory, 'ready');
+    const stubborn = `process.on('SIGTERM', () => {}); require('node:fs').writeFileSync(${JSON.stringify(ready)}, 'x'); setInterval(() => {}, 1000);`;
+    const wrapper = spawn(process.execPath, [
+      'scripts/lib/run-bounded-command.mjs', '--timeout-seconds', '60', '--label', 'stubborn', '--', process.execPath, '-e', stubborn,
+    ], { cwd: ROOT, stdio: 'ignore' });
+    const exited = once(wrapper, 'exit');
+    const deadline = Date.now() + 10_000;
+    while (!fs.existsSync(ready) && Date.now() < deadline) await new Promise((resolve) => setTimeout(resolve, 50));
+    expect(fs.existsSync(ready)).toBe(true);
+    const signalledAt = Date.now();
+    wrapper.kill('SIGTERM');
+    const [status] = await exited;
+    expect(Date.now() - signalledAt).toBeLessThan(5_000);
+    expect(status).toBe(137);
   });
 });

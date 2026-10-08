@@ -7,14 +7,16 @@
 // The command inherits stdin/stdout/stderr and its exit status is passed
 // through. Past the cap the whole process group is stopped (SIGTERM, then
 // SIGKILL one second later), an `::error::` line names the label and the cap,
-// and the status is 124, like timeout(1). The label is what the log shows:
-// never put a URL with credentials in it.
+// and the status is 124, like timeout(1). A signal sent to this wrapper is passed
+// on the same way. The label is what the log shows: never put a URL with
+// credentials in it.
 //
 // Why not timeout(1): the publisher scripts are exercised on macOS too, where
 // coreutils is not installed, and a network command that Git runs through
 // helpers (remote-https, pack-objects) only stops if its group is signalled.
 
 import { spawn } from 'node:child_process';
+import { constants } from 'node:os';
 
 function usage(message) {
   if (message) process.stderr.write(`::error::${message}\n`);
@@ -44,7 +46,11 @@ for (let index = 2; index < process.argv.length; index += 1) {
   }
 }
 
-if (!/^[1-9]\d*$/u.test(timeoutSeconds)) usage('--timeout-seconds must be a positive integer.');
+// setTimeout takes a signed 32-bit number of milliseconds; a larger delay fires at once.
+const MAX_TIMEOUT_SECONDS = 2_147_483;
+if (!/^[1-9]\d*$/u.test(timeoutSeconds) || Number(timeoutSeconds) > MAX_TIMEOUT_SECONDS) {
+  usage(`--timeout-seconds must be a positive integer no larger than ${MAX_TIMEOUT_SECONDS}.`);
+}
 if (!label) usage('--label requires a value.');
 if (command.length === 0) usage('the command to run is missing.');
 
@@ -85,9 +91,13 @@ function finish(status) {
 }
 
 // A cancelled job signals this wrapper, not the detached group: pass it on, or
-// the command would outlive the step that started it.
+// the command would outlive the step that started it. A command that ignores
+// the signal is stopped for good one second later, like one past its cap.
 for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP']) {
-  process.on(signal, () => terminate(signal));
+  process.on(signal, () => {
+    terminate(signal);
+    if (!forceTimer) forceTimer = setTimeout(() => terminate('SIGKILL'), 1000);
+  });
 }
 
 child.once('error', (error) => {
@@ -113,5 +123,6 @@ child.once('close', (status, signal) => {
     finish(status);
     return;
   }
-  finish(signal === 'SIGTERM' ? 143 : 1);
+  // Ended by a signal: the shell convention, 128 plus its number.
+  finish(signal && constants.signals[signal] ? 128 + constants.signals[signal] : 1);
 });

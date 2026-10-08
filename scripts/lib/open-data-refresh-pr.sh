@@ -516,17 +516,19 @@ push_new_stable_branch() {
 }
 
 # A base this run created and never moved is not a refresh: leaving it would
-# make the next run reconcile on top of an empty branch.
+# make the next run reconcile on top of an empty branch. The deletion carries a
+# lease on the base commit, so the remote itself refuses it when another run
+# has advanced the branch: reading the tip first and deleting afterwards would
+# remove that run's refresh in between. A deletion sends no objects.
 remove_unused_remote_base() {
-  local tip
   [ "$REMOTE_BASE_CREATED" = true ] || return 0
-  tip="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')" || return 0
-  [ "$tip" = "$REFRESH_BASE" ] || return 0
-  if run_bounded "$REMOTE_BASE_TIMEOUT_SECONDS" "removing the unused base of ${BRANCH} from the remote" \
-    gh api -X DELETE "repos/${REPOSITORY}/git/refs/heads/${BRANCH}" --silent; then
+  if run_bounded "$PUSH_TIMEOUT_SECONDS" "git push that removes the unused base of ${BRANCH}" \
+    git -c http.https://github.com/.extraheader= push \
+    --force-with-lease="refs/heads/${BRANCH}:${REFRESH_BASE}" \
+    "$PUSH_URL" ":refs/heads/${BRANCH}"; then
     echo "Removed ${BRANCH} from the remote: it still pointed at this run's base commit and carried no refresh."
   else
-    echo "::warning::${BRANCH} is left on the remote at this run's base commit ${REFRESH_BASE} with no refresh on it; the next run reconciles on top of it"
+    echo "::warning::${BRANCH} was not removed from the remote: it no longer points at this run's base commit ${REFRESH_BASE}, or the deletion failed; the next run reconciles on top of what is there"
   fi
 }
 
@@ -567,10 +569,16 @@ while :; do
   push_attempt=$((push_attempt + 1))
   sleep "$((push_attempt - 1))"
   REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
-  if [ "$REMOTE_BASE_CREATED" = true ] && [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
-    # Still the base this run created: no other run wrote to the branch, so
-    # there is nothing to reconcile and the same commit is pushed again.
-    REMOTE_HEAD=""
+  if [ "$REMOTE_BASE_CREATED" = true ]; then
+    if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
+      # Still the base this run created: no other run wrote to the branch, so
+      # there is nothing to reconcile and the same commit is pushed again.
+      REMOTE_HEAD=""
+    elif [ -z "$REMOTE_HEAD" ]; then
+      # The base is gone (an empty branch is fair game for a cleanup): the next
+      # attempt must create it again, or it would push with no common base.
+      REMOTE_BASE_CREATED=false
+    fi
   fi
 
   if [ -n "$REMOTE_HEAD" ]; then
