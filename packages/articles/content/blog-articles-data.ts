@@ -43150,6 +43150,17 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'salute-lavoro-progetti-ticino',
+ category: 'pratico',
+ date: '2026-10-08T10:23:18.670Z',
+ image: '/images/blog/article-salute-lavoro-progetti-ticino.webp',
+ hasCalculator: true,
+ articleType: 'news',
+ canton: ['TI'],
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

@@ -12784,6 +12784,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bally-caslano-moratoria-tagli.title': 'Bally in Caslano: moratorium extended and further cuts',
     'blog.article.bally-caslano-moratoria-tagli.excerpt': 'Bally\'s moratorium has been extended. Following the collective dismissal of 25 employees, there have been two purchase offers for the company operating in Caslano.',
     'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Caslano in Ticino, where Bally was active during the personnel cuts',
+    'blog.article.salute-lavoro-progetti-ticino.title': 'Mental health at work: projects in Ticino',
+    'blog.article.salute-lavoro-progetti-ticino.excerpt': '## TL;DR - In Switzerland, one in three people is emotionally exhausted. - In Ticino, almost one in three apprentices reports anxiety disorders. - DSS and Forum GSA',
+    'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Team discussion on workplace mental health in Bellinzona',
 };
 
 export default blogMetaEn;

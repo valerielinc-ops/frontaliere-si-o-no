@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5070
+      "6": 5071
     },
-    "publishedCovers": 6782,
+    "publishedCovers": 6783,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180350,6 +180350,33 @@
           "id": "pedemontana-truffa-sms-frontalieri",
           "category": "pratico",
           "date": "2026-10-07T10:36:08.818Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-salute-lavoro-progetti-ticino": {
+      "cover": "/images/blog/article-salute-lavoro-progetti-ticino.webp",
+      "hash": "c66401dd4c4e63c95c6e053bde8fa7bdcd2e5d18f2471ec997369baea5840584",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "salute-lavoro-progetti-ticino",
+          "category": "pratico",
+          "date": "2026-10-08T10:23:18.670Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

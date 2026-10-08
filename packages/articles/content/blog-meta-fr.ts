@@ -12786,6 +12786,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bally-caslano-moratoria-tagli.title': 'Bally à Caslano : moratoire prolongé et autres coupes',
     'blog.article.bally-caslano-moratoria-tagli.excerpt': 'Le moratoire de Bally a été prolongé. Après le licenciement collectif de 25 employés, il y a eu deux offres de rachat pour l\'entreprise active à Caslano.',
     'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Caslano au Tessin, où Bally était active dans l\'affaire des suppressions de postes',
+    'blog.article.salute-lavoro-progetti-ticino.title': 'Santé mentale au travail : projets au Tessin',
+    'blog.article.salute-lavoro-progetti-ticino.excerpt': '## En bref - En Suisse, une personne sur trois est émotionnellement épuisée. - Au Tessin, près d’un apprenti sur trois fait état de troubles anxieux. - DSS et Forum GSA',
+    'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Équipe discutant de la santé mentale au travail à Bellinzona',
 };
 
 export default blogMetaFr;

@@ -12785,6 +12785,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bally-caslano-moratoria-tagli.title': 'Bally a Caslano: moratoria prorogata e altri tagli',
     'blog.article.bally-caslano-moratoria-tagli.excerpt': 'La moratoria di Bally è stata prorogata. Dopo il licenziamento collettivo di 25 dipendenti, per l\'azienda attiva a Caslano ci sono state due offerte di acquisto.',
     'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Caslano in Ticino, dove Bally era attiva nella vicenda sui tagli al personale',
+    'blog.article.salute-lavoro-progetti-ticino.title': 'Salute mentale sul lavoro: progetti in Ticino',
+    'blog.article.salute-lavoro-progetti-ticino.excerpt': '## In breve - In Svizzera una persona su tre è emotivamente spossata. - In Ticino quasi un apprendista su tre riferisce disturbi d\'ansia. - DSS e Forum GSA',
+    'blog.article.salute-lavoro-progetti-ticino.imageAlt': 'Team di lavoro a Bellinzona per la salute mentale',
 };
 
 export default blogMetaIt;
