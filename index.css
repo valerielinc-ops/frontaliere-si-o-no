@@ -918,10 +918,9 @@ aside.seo-footer-block .seo-fb-section-body a:hover {
     column-gap: clamp(40px, 6vw, 96px);
     align-items: start;
   }
-  aside.seo-footer-block > .seo-fb-head {
-    position: sticky;
-    top: 104px;
-  }
+  /* Niente `position: sticky` sul titolo: Chrome lo vincola all'intero pannello
+     e non alla sua riga, quindi scorrendo finiva sopra il disclaimer (fino a
+     86px, misurato in produzione) e sopra un eventuale annuncio Auto Ads. */
   aside.seo-footer-block > .seo-fb-head .seo-fb-intro {
     margin-bottom: 0;
   }
