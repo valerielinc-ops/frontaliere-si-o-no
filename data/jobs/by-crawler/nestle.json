@@ -217,7 +217,7 @@
       "id": "nestle-1442315333",
       "slug": "key-account-manager-nestle-ch-2",
       "slugByLocale": {
-        "en": "key-account-manager-nestle-ch",
+        "en": "key-account-manager-nestle-ch-hq1dl8",
         "it": "key-account-manager-nestle-ch-2",
         "de": "key-account-manager-nestle-ch-2",
         "fr": "key-account-manager-nestle-ch-2"
@@ -278,7 +278,15 @@
       },
       "postalCode": "1814",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-07-17T11:43:55.042Z"
+      "firstSeenAt": "2026-07-17T11:43:55.042Z",
+      "previousSlugs": [
+        "key-account-manager-nestle-ch"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "key-account-manager-nestle-ch"
+        ]
+      }
     },
     {
       "id": "nestle-1160674301",
@@ -1648,7 +1656,7 @@
           "hr-business-partner-operations-nestle-waters-suisse-sa-nestle-ch"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -6859,7 +6867,7 @@
         "it": "paralegale-aziendale-nestle-vevey",
         "en": "corporate-paralegal-nestle-ch",
         "de": "rechtswidrige-handlungen-nestle-vevey",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -6902,11 +6910,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "corporate-paralegal-nestle-ch",
-        "societe-parajuridique-nestle-vevey"
+        "corporate-paralegal-nestle-vevey"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "societe-parajuridique-nestle-vevey"
+          "corporate-paralegal-nestle-vevey"
         ],
         "it": [
           "corporate-paralegal-nestle-ch"

@@ -2854,7 +2854,9 @@
         }
       },
       "postalCode": "4303",
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "roche-07b1aa61f678",
@@ -5655,7 +5657,6 @@
         "cardio-renal-discovery-area-leader-expert-scientist-roche-ch",
         "cardio-renal-discovery-scientific-strategy-area-leader-roche-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T11:12:15.986Z",
       "salaryMin": 62000,
       "salaryMax": 94000,

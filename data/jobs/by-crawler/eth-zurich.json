@@ -1315,7 +1315,8 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "eth-zurich-87bec8e2cb00",
@@ -1822,7 +1823,7 @@
       "applyUrl": "https://jobs.ethz.ch/job/view/JOPG_ethz_RU68F1vlzLJgmsWpse",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:34:51.946Z",
       "salaryMin": 101500,
       "salaryMax": 154000,

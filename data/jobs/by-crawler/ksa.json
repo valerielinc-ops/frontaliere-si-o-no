@@ -516,7 +516,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -562,7 +562,6 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
         "nursing-specialist-kantonsspital-aarau-ksa-aarau",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       ],
@@ -574,7 +573,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "nursing-specialist-kantonsspital-aarau-ksa-aarau"
@@ -2413,7 +2412,6 @@
           "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:20:17.707Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
