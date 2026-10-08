@@ -65,8 +65,10 @@ describe('Ticino shard tree fan-out', () => {
     const root = join(temp, 'de', 'jobs-im-tessin');
     try {
       mkdirSync(join(root, '_tree', 'ir', 'Ir-Job-123'), { recursive: true });
+      mkdirSync(join(root, '_tree', '.w'), { recursive: true });
       writeFileSync(join(root, 'index.html'), 'section shell');
       writeFileSync(join(root, '_tree', 'ir', 'Ir-Job-123', 'index.html'), 'job');
+      writeFileSync(join(root, '_tree', '.w', '.well-known'), 'metadata');
 
       execFileSync(
         'bash',
@@ -75,6 +77,7 @@ describe('Ticino shard tree fan-out', () => {
       );
 
       expect(readFileSync(join(root, 'Ir-Job-123', 'index.html'), 'utf8')).toBe('job');
+      expect(readFileSync(join(root, '.well-known'), 'utf8')).toBe('metadata');
       expect(readFileSync(join(root, 'index.html'), 'utf8')).toBe('section shell');
       expect(() => readFileSync(join(root, '_tree', 'ir', 'Ir-Job-123', 'index.html'))).toThrow();
     } finally {

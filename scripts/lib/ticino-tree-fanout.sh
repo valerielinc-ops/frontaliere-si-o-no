@@ -78,8 +78,7 @@ ticino_tree_unfanout_stage() {
   fanout_root="$root/$TICINO_TREE_FANOUT_DIR"
   [ -d "$fanout_root" ] || return 0
 
-  for bucket in "$fanout_root"/*; do
-    [ -d "$bucket" ] || continue
+  while IFS= read -r -d '' bucket; do
     while IFS= read -r -d '' src; do
       name="${src##*/}"
       if [ -e "$root/$name" ]; then
@@ -89,6 +88,6 @@ ticino_tree_unfanout_stage() {
       mv "$src" "$root/$name"
     done < <(find "$bucket" -mindepth 1 -maxdepth 1 -print0)
     rmdir "$bucket" || return 1
-  done
+  done < <(find "$fanout_root" -mindepth 1 -maxdepth 1 -type d -print0)
   rmdir "$fanout_root" || return 1
 }
