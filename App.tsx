@@ -234,6 +234,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import { SubTabNav } from '@/components/navigation/SubTabNav';
 import type { SubTabItem } from '@/components/navigation/SubTabNav';
+import ArticleSectionNav from '@/components/navigation/ArticleSectionNav';
 import LiveCantonArticleSections from '@/components/community/LiveCantonArticleSections';
 import {
  useAuth,
@@ -2943,21 +2944,17 @@ const App: React.FC = () => {
  {/* Sub-navigation for Articoli: cross-border vs Switzerland-wide */}
 {activeTab === 'blog' && (
  <>
- <SubTabNav
- items={[
- { key: 'frontaliere' as const, icon: Newspaper, label: t('blog.section.frontalieri') },
- { key: 'svizzera' as const, icon: Newspaper, label: t('blog.section.svizzera') },
- ] satisfies SubTabItem<'frontaliere' | 'svizzera'>[]}
- activeKey={blogSection === 'svizzera' ? 'svizzera' : 'frontaliere'}
- hubKey="frontaliere"
- hrefFor={(key) => buildPath(key === 'svizzera' ? { activeTab: 'blog', blogSection: 'svizzera' } : { activeTab: 'blog' })}
- onSelect={(key) => {
- if (key === 'svizzera') { setSwissArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('svizzera'); }
- else { setBlogArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('frontaliere'); }
- Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', key);
- }}
+ <ArticleSectionNav
+  activeSection={blogSection}
+  onSelect={(section) => {
+   setBlogArticle(null);
+   setSwissArticle(null);
+   setCantonArticle(null);
+   setBlogPage(null);
+   setBlogSection(section);
+   Analytics.trackUIInteraction('articoli', 'navigazione', 'tab_sezione', 'cambio', section);
+  }}
  />
- <LiveCantonArticleSections activeSection={blogSection} />
  </>
 )}
 {/* Per-canton job-board landings are a second discovery surface for local
