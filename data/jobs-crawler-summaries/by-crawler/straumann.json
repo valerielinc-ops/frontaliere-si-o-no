@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-10-07T21:16:58.238Z",
+  "generatedAt": "2026-10-08T09:15:50.716Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3742,
-  "avgDurationMs": 3742,
+  "durationMs": 5357,
+  "avgDurationMs": 5357,
   "durationHistory": [
-    3742
+    5357
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://careers.straumann.com/global/en/job/22092/marketing-operations-activation-specialist-m-w-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:16:48.870Z",
+      "crawledAt": "2026-10-08T09:15:35.255Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -77,7 +77,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:16:48.519Z",
+      "crawledAt": "2026-10-08T09:15:34.640Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4001",
@@ -122,7 +122,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:16:48.216Z",
+      "crawledAt": "2026-10-08T09:15:34.183Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,5 +153,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

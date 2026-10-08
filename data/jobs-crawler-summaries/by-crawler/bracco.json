@@ -1,21 +1,19 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-10-07T21:17:14.030Z",
+  "generatedAt": "2026-10-08T09:15:09.652Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 11352,
-  "avgDurationMs": 11352,
+  "unchangedCount": 1,
+  "durationMs": 13077,
+  "avgDurationMs": 13077,
   "durationHistory": [
-    11352
+    13077
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/Digital-Learning---Training-Internship_JR100407",
@@ -25,7 +23,7 @@
       "location": "Cadempino",
       "canton": "TI",
       "country": "CH",
-      "slug": "digital-learning-training-internship-bracco-suisse",
+      "slug": "tirocinio-in-apprendimento-e-formazione-digitale-bracco-suisse-s-a-cadempino",
       "category": "general",
       "datePosted": "2026-10-05",
       "postedDate": "2026-10-05",
@@ -41,11 +39,10 @@
       },
       "jobReqId": "JR100407",
       "id": "bracco-19deb22ed171",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:28:38.034Z",
       "crawledAt": "",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "currency": "CHF",
       "salarySource": "estimated",
       "addressLocality": "Cadempino",
@@ -58,7 +55,10 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
       "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Cadempino/MEDICAL-DEVICE-SPECIALIST---ACIST-PORTFOLIO_JR100400",
@@ -93,7 +93,6 @@
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "postalCode": "6814",
-      "crawlerMissStreak": 1,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -103,5 +102,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
