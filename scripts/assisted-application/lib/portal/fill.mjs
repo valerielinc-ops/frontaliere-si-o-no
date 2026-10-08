@@ -166,7 +166,7 @@ export function nationalityOptionLabel(value, options, language = '') {
   return preferredKey ? matches.find((option) => normalizedChoice(option).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '') === preferredKey) || '' : '';
 }
 
-const nationalityFieldLanguage = (label) => {
+export const nationalityFieldLanguage = (label) => {
   const text = String(label || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   if (/\bnationalite\b|citoyennete/.test(text)) return 'fr';
   if (/staatsangeh|staatsburg/.test(text)) return 'de';
