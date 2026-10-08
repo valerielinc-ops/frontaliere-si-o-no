@@ -77,9 +77,11 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('git ls-remote "$PUSH_URL"');
     expect(helper).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
     expect(helper).toContain(
-      'git fetch --no-tags "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+      'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
     );
-    expect(helper).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
+    expect(helper).toContain(
+      'git fetch --no-tags --filter=tree:0 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');

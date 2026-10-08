@@ -171,6 +171,51 @@ PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 
+# These are deliberately conservative starting ceilings. The ls-remote, API
+# and gh pr values reuse the existing 60-second remote-branch API ceiling; the
+# fetch value is a five-minute allowance for a filtered graph read. Issue 12175
+# measured completion of that commit graph at 61.6, 62.6, 83.0 and 95.1
+# seconds, so 300 seconds leaves room for ordinary variance. The other read
+# values have not been measured in CI yet.
+# The namespaced override exists only so the offline fixture can replay a stuck
+# read; normal jobs leave it unset and keep the 60-second default.
+LS_REMOTE_TIMEOUT_SECONDS="${OPEN_DATA_REFRESH_LS_REMOTE_TIMEOUT_SECONDS:-60}"
+FETCH_TIMEOUT_SECONDS=300
+API_TIMEOUT_SECONDS=60
+GH_PR_TIMEOUT_SECONDS=60
+
+# This is the 180-second push ceiling introduced for issue 12262 / PR 12318.
+PUSH_TIMEOUT_SECONDS=180
+
+# No network command here may run until the job timeout: past its cap the
+# command is stopped and the log names it.
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
+compat_merge_base() {
+  local left="$1" right="$2" label="$3" base
+  base="$(run_bounded "$API_TIMEOUT_SECONDS" "$label" \
+    gh api "repos/${REPOSITORY}/compare/${left}...${right}" --jq '.merge_base_commit.sha')"
+  [ -n "$base" ] && [ "$base" != null ] || {
+    echo "::error::Missing compatibility merge base for ${left}...${right}" >&2
+    return 1
+  }
+  if ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${base}^{commit}" 2>/dev/null; then
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch compatibility merge base" \
+      git fetch --no-tags --depth=1 "$PUSH_URL" "$base"
+  fi
+  printf '%s\n' "$base"
+}
+
+reconcile_compat_ref() {
+  local merge_base="$1" theirs="$2"
+  node scripts/ci/reconcile-data-refresh-main.mjs \
+    --base "$merge_base" --main "$theirs" --message "$COMMIT_MESSAGE"
+}
+
 check_old_history_ref() {
   local head_ref="$1"
   node "$OLD_HISTORY_GUARD_SCRIPT" \
@@ -190,7 +235,8 @@ check_old_history_ref HEAD
 # Read the lease before changing the local checkout. A stable branch may back
 # an open PR; its tree must be the base for this run instead of the workflow's
 # main snapshot. The lease still protects the final push from a concurrent run.
-REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch" \
+  git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
@@ -198,7 +244,7 @@ REFRESH_PUBLISH_WORKTREE=""
 REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
 
 # Non-compat publishes never select the stable branch in the source checkout.
-# Compat retains its existing restore behavior after its real Git merges.
+# Compat retains its existing restore behavior after tree-level reconciliation.
 cleanup_refresh_checkout() {
   if [ "$RECONCILE_COMPAT" = true ]; then
     local restore_ref="${REFRESH_COMMIT:-$REFRESH_BASE}"
@@ -316,16 +362,18 @@ fi
 # earlier append-only/state records in an unmerged PR without changing the
 # workflow checkout for non-compat refreshes.
 if [ -n "$REMOTE_HEAD" ]; then
-  # The workflow checkout is intentionally shallow. Fetch the stable branch's
-  # commit graph without blobs: both reconciler paths and the history guard
-  # need reliable ancestry rather than a depth-1 tip.
+  # The workflow checkout is intentionally shallow. The non-compat path needs
+  # a filtered graph for its path-aware reconciler; compat only needs the
+  # stable tip and fetches its merge base explicitly below.
   if [ "$RECONCILE_COMPAT" = true ]; then
-    git fetch --no-tags "$PUSH_URL" \
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch stable refresh branch" \
+      git fetch --no-tags --depth=1 "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
   else
-    git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch stable refresh branch without blobs" \
+      git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     # Reconcile in a separate, sparse checkout. A data branch may carry old
@@ -373,8 +421,14 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # the checkout's main snapshot and force-replaces an unmerged sweep. The
   # custom driver performs the store's deterministic 3-way SET merge, keeping
   # distinct additions in the same shard deduped and sorted.
-  git fetch --no-tags "$PUSH_URL" \
-    "refs/heads/main:refs/remotes/origin/main"
+  # A depth-1 tip has no ancestry on the runner, so Git cannot prove that it
+  # descends from the main this checkout already tracks and refuses an unforced
+  # update as a non-fast-forward. The history guard refreshed that ref moments
+  # ago, so main must move in between for it to matter; the retry below, which
+  # reads a branch another run just advanced, would hit it every time.
+  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch main for compatibility reconciliation" \
+    git fetch --no-tags --depth=1 "$PUSH_URL" \
+    "+refs/heads/main:refs/remotes/origin/main"
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
   COMPAT_SHARD_ATTR="$(git check-attr merge -- data/seo-404-compat/part-00.json)"
@@ -383,19 +437,15 @@ if [ "$RECONCILE_COMPAT" = true ]; then
     exit 1
   fi
 
-  merge_refresh_ref() {
-    local ref="$1"
-    if ! git merge --no-edit "$ref"; then
-      git merge --abort 2>/dev/null || true
-      echo "::error::Unable to reconcile refresh branch with ${ref}" >&2
-      exit 1
-    fi
-  }
-
   if [ -n "$REMOTE_HEAD" ]; then
-    merge_refresh_ref "$REFRESH_COMMIT"
+    COMPAT_REFRESH_BASE="$(compat_merge_base "$REMOTE_HEAD" "$REFRESH_BASE" "compatibility refresh compare")"
+    reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"
   fi
-  merge_refresh_ref origin/main
+  COMPAT_MAIN_HEAD="$(git rev-parse refs/remotes/origin/main)"
+  if [ "$COMPAT_MAIN_HEAD" != "$REFRESH_BASE" ]; then
+    COMPAT_MAIN_BASE="$(compat_merge_base "$REFRESH_BASE" "$COMPAT_MAIN_HEAD" "compatibility main compare")"
+    reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main
+  fi
 elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
@@ -434,15 +484,18 @@ elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
 fi
 
 if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
-  git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
+  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh main" \
+    git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
   MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
   # GitHub knows the common ancestor even when the runner has only branch
   # tips. Fetch that single tree, rather than all historical image blobs.
-  MAIN_BASE="$(gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
+  MAIN_BASE="$(run_bounded "$API_TIMEOUT_SECONDS" "gh api refresh compare" \
+    gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
   [ -n "$MAIN_BASE" ] && [ "$MAIN_BASE" != null ] || { echo "::error::Missing refresh/main merge base"; exit 1; }
   if [ "$MAIN_BASE" != "$MAIN_HEAD" ]; then
     if ! git cat-file -e "${MAIN_BASE}^{commit}" 2>/dev/null; then
-      git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh merge base" \
+        git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
     fi
     node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
       --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
@@ -469,20 +522,10 @@ fi
 # a tip both sides know, whatever main does meanwhile, and the pack is this
 # run's commits and nothing else.
 REMOTE_BASE_CREATED=false
-REMOTE_BASE_TIMEOUT_SECONDS=60
-PUSH_TIMEOUT_SECONDS=180
-
-# No network command here may run until the job timeout: past its cap the
-# command is stopped and the log names it.
-run_bounded() {
-  local seconds="$1" label="$2"
-  shift 2
-  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
-}
 
 create_remote_branch_at_base() {
   local detail
-  if detail="$(run_bounded "$REMOTE_BASE_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
+  if detail="$(run_bounded "$API_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
     gh api -X POST "repos/${REPOSITORY}/git/refs" \
       -f "ref=refs/heads/${BRANCH}" -f "sha=${REFRESH_BASE}" --silent 2>&1)"; then
     REMOTE_BASE_CREATED=true
@@ -500,9 +543,9 @@ push_new_stable_branch() {
     create_remote_branch_at_base
   fi
   if [ "$RECONCILE_COMPAT" = true ]; then
-    # The compat publish merges main for real, so its commits can reference
-    # objects this checkout was only promised. The base above already bounds
-    # what is sent to the commits since this run's checkout.
+    # The compat publish carries main's tree into the branch, so its commits
+    # can reference objects this checkout was only promised. The base above
+    # already bounds what is sent to the commits since this run's checkout.
     run_bounded "$PUSH_TIMEOUT_SECONDS" "git push of the new stable branch ${BRANCH}" \
       git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
     return
@@ -568,7 +611,8 @@ while :; do
   fi
   push_attempt=$((push_attempt + 1))
   sleep "$((push_attempt - 1))"
-  REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+  REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch retry" \
+    git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
   if [ "$REMOTE_BASE_CREATED" = true ]; then
     if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
       # Still the base this run created: no other run wrote to the branch, so
@@ -582,18 +626,37 @@ while :; do
   fi
 
   if [ -n "$REMOTE_HEAD" ]; then
-    git fetch --no-tags "$PUSH_URL" \
-      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
-    check_old_history_ref "refs/remotes/refresh/${BRANCH}"
-    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    if [ "$RECONCILE_COMPAT" = true ]; then
+      # Compat names its merge bases: the newest tip is all it reads. Forced
+      # for the same reason as main above.
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
+        git fetch --no-tags --depth=1 "$PUSH_URL" \
+        "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      check_old_history_ref "refs/remotes/refresh/${BRANCH}"
+      # The tree-level reconciliation moved HEAD and the index, not the files.
+      # Everything this run produced is in REFRESH_COMMIT, so nothing is lost.
+      git checkout --force -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    else
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
+        git fetch --no-tags "$PUSH_URL" \
+        "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      check_old_history_ref "refs/remotes/refresh/${BRANCH}"
+      git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    fi
 
     if [ "$RECONCILE_COMPAT" = true ]; then
       # Re-read main as well: the stable branch race can overlap a new 404
       # sweep, and the compatibility merge must retain the newest main base.
-      git fetch --no-tags "$PUSH_URL" \
-        "refs/heads/main:refs/remotes/origin/main"
-      merge_refresh_ref "$REFRESH_COMMIT"
-      merge_refresh_ref origin/main
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest main for compatibility reconciliation" \
+        git fetch --no-tags --depth=1 "$PUSH_URL" \
+        "+refs/heads/main:refs/remotes/origin/main"
+      COMPAT_REFRESH_BASE="$(compat_merge_base "$REMOTE_HEAD" "$REFRESH_BASE" "newest compatibility refresh compare")"
+      reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"
+      COMPAT_MAIN_HEAD="$(git rev-parse refs/remotes/origin/main)"
+      if [ "$COMPAT_MAIN_HEAD" != "$REFRESH_BASE" ]; then
+        COMPAT_MAIN_BASE="$(compat_merge_base "$REFRESH_BASE" "$COMPAT_MAIN_HEAD" "newest compatibility main compare")"
+        reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main
+      fi
     else
       MERGE_ARGS=(
         --base "$REFRESH_BASE"
@@ -619,7 +682,8 @@ while :; do
   fi
 done
 
-OPEN_PR="$(gh pr list \
+OPEN_PR="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR" \
+  gh pr list \
   --repo "$REPOSITORY" \
   --state open \
   --base main \
@@ -630,12 +694,14 @@ OPEN_PR="$(gh pr list \
 if [ -n "$OPEN_PR" ]; then
   # Keep the body linked to the latest successful refresh run when the stable
   # branch already has an open PR. The branch update above re-triggers tests.
-  gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
+  run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr edit stable refresh PR" \
+    gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
   echo "Updated refresh PR #$OPEN_PR"
   exit 0
 fi
 
-gh pr create \
+run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
+  gh pr create \
   --repo "$REPOSITORY" \
   --base main \
   --head "$BRANCH" \

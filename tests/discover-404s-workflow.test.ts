@@ -46,18 +46,22 @@ describe('404 discovery workflows publish protected data through PRs', () => {
 
     expect(publisher).toContain('RECONCILE_COMPAT=true');
     expect(publisher).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
+    // Branch tips only: the compat path names its merge bases and never reads
+    // the history of the stable branch or of main (issue 12262).
     expect(publisher).toContain(
-      'git fetch --no-tags "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+      'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
     );
-    expect(publisher).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
-    expect(publisher).toContain('refs/heads/main:refs/remotes/origin/main');
+    // Forced: a depth-1 tip cannot be proven a fast-forward of the checkout's main.
+    expect(publisher).toContain(
+      'git fetch --no-tags --depth=1 "$PUSH_URL" \\\n    "+refs/heads/main:refs/remotes/origin/main"',
+    );
+    expect(publisher).not.toMatch(/--depth=1 "\$PUSH_URL" \\\n\s+"refs\/heads\//);
     expect(publisher).toContain("git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'");
-    expect(publisher).toContain(
-      'git fetch --no-tags "$PUSH_URL" \\\n    "refs/heads/main:refs/remotes/origin/main"',
-    );
     expect(publisher).toContain('refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}');
-    expect(publisher).toContain('merge_refresh_ref "$REFRESH_COMMIT"');
-    expect(publisher).toContain('merge_refresh_ref origin/main');
+    expect(publisher).toContain('reconcile_compat_ref "$COMPAT_REFRESH_BASE" "$REFRESH_COMMIT"');
+    expect(publisher).toContain('reconcile_compat_ref "$COMPAT_MAIN_BASE" origin/main');
+    // A real merge needs the ancestry of both sides on the runner.
+    expect(publisher).not.toContain('git merge --no-edit');
   });
 
   it.each(WORKFLOWS)('$path escapes Markdown backticks in its generated body', ({ path }) => {
