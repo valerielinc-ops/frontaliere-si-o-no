@@ -705,8 +705,9 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:07:26.125Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 11826
     },
     {
       "id": "proton-7c807d1d269c",
@@ -756,9 +757,10 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T12:41:17.657Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 9042
     },
     {
       "id": "proton-5ea14660b21d",

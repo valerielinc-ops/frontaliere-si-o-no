@@ -52,9 +52,10 @@
       "jobReqId": "17016",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:20:35.765Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4238
     },
     {
       "id": "kuehne-nagel-e682041b5b7f",
@@ -217,9 +218,10 @@
       "jobReqId": "18789",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:20:36.739Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3532
     },
     {
       "id": "kuehne-nagel-c721f3fe0790",

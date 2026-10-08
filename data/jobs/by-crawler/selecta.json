@@ -1130,9 +1130,10 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:49.954Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3346
     },
     {
       "id": "selecta-f525a4ac08a1",

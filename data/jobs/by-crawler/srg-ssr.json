@@ -614,7 +614,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:10:00.319Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-cb3b7eece81e",
@@ -691,7 +691,7 @@
         "pensumMax": 60
       },
       "firstSeenAt": "2026-10-03T09:10:00.855Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-c56cce6f41df",
@@ -768,7 +768,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-10-03T09:10:01.397Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-79793e4d072f",
@@ -1214,7 +1214,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:35:24.095Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-ca520427f93d",
@@ -1364,7 +1364,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:44:37.959Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-df0a3f834154",
@@ -1892,9 +1892,10 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3363
     },
     {
       "id": "srg-ssr-4295227a1917",
@@ -1955,7 +1956,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-26T13:53:52.796Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "srg-ssr-25dd75af254b",
