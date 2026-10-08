@@ -1,65 +1,19 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-08T09:11:19.379Z",
+  "generatedAt": "2026-10-08T21:17:44.798Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 12929,
-  "avgDurationMs": 12929,
+  "unchangedCount": 7,
+  "durationMs": 10274,
+  "avgDurationMs": 10274,
   "durationHistory": [
-    12929
+    10274
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
-      "title": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
-      "category": "science",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:01.360Z",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "id": "sintetica-8218af8800e4",
-      "firstSeenAt": "2026-10-04T21:10:44.868Z",
-      "salaryMin": 66500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
       "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
@@ -79,7 +33,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:04.061Z",
+      "crawledAt": "2026-10-08T21:17:29.166Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -95,10 +49,53 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 0,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/778848/quality-control-microbiological-laboratory-technician-ch/sintetica",
+      "title": "Quality Control Microbiological Laboratory Technician - Mendrisio Site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio",
+      "category": "science",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "crawledAt": "2026-10-08T21:17:29.106Z",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "id": "sintetica-8218af8800e4",
+      "firstSeenAt": "2026-10-04T21:10:44.868Z",
+      "salaryMin": 66500,
+      "salaryMax": 110500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
         "translation": 25,
         "completeness": 20
       }
@@ -122,7 +119,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:01.336Z",
+      "crawledAt": "2026-10-08T21:17:29.067Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -138,14 +135,17 @@
       "salaryMax": 169000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 70,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
@@ -165,7 +165,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:01.288Z",
+      "crawledAt": "2026-10-08T21:17:28.179Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -208,7 +208,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:01.261Z",
+      "crawledAt": "2026-10-08T21:17:28.141Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -251,7 +251,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:11:00.236Z",
+      "crawledAt": "2026-10-08T21:17:27.291Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -294,7 +294,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:10:58.985Z",
+      "crawledAt": "2026-10-08T21:17:26.379Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -337,7 +337,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:10:57.808Z",
+      "crawledAt": "2026-10-08T21:17:25.480Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -380,7 +380,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:10:56.738Z",
+      "crawledAt": "2026-10-08T21:17:24.878Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -423,7 +423,7 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "crawledAt": "2026-10-08T09:10:55.660Z",
+      "crawledAt": "2026-10-08T21:17:24.023Z",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -448,5 +448,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }
