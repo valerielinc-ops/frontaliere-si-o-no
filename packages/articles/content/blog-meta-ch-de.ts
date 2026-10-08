@@ -7913,6 +7913,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-ia-svizzera.title': 'Schweizer KI-Arbeitsmarkt: +32% in einem Jahr',
     'blog.article.mercato-lavoro-ia-svizzera.excerpt': '## Auf einen Blick - Knapp 5\'000 KI-Stellenanzeigen zwischen Juli 2025 und Juni 2026 - Die Nachfrage wächst innerhalb von zwölf Monaten um 32% - Auf Zürich entfallen 2\'181 Anzeigen, 45%',
     'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Fachleute arbeiten in einem modernen Büro in der Schweiz zusammen, Bildschirme zeigen KI-bezogene Daten und Code.',
+    'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen: BIP 2026 bei 1,7%, Inflation bei 0,7%',
+    'blog.article.raiffeisen-pil-inflazione-2026.excerpt': '## Auf einen Blick - Raiffeisen hebt die BIP-Prognose für 2026 auf 1,7% an - Für 2027 bestätigt Raiffeisen ein Wachstum von 1,3% - Inflation 2026 bei 0,7%, gegenüber den geschätzten 0,5%',
+    'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Schweizer Fachperson analysiert Wirtschaftsprognosen mit den Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;

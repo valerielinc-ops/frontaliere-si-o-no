@@ -7913,6 +7913,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-ia-svizzera.title': 'Swiss AI job market: +32% in one year',
     'blog.article.mercato-lavoro-ia-svizzera.excerpt': '## TL;DR - Nearly 5\'000 AI job postings between July 2025 and June 2026 - Demand grows by 32% in twelve months - Zurich accounts for 2\'181 postings, 45%',
     'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Professionals collaborating in a modern office environment in Switzerland, with screens displaying AI-related data and code.',
+    'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen: GDP at 1.7% in 2026, inflation at 0.7%',
+    'blog.article.raiffeisen-pil-inflazione-2026.excerpt': '## TL;DR - Raiffeisen raises the 2026 GDP estimate to 1,7% - For 2027, it confirms growth of 1,3% - 2026 inflation at 0,7%, versus the estimated 0,5%',
+    'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Swiss professional analyzing economic forecasts with the Alps in the background',
 };
 
 export default blogMetaChEn;

@@ -7913,6 +7913,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-ia-svizzera.title': 'Marché de l’emploi dans l’IA en Suisse : +32 % en un an',
     'blog.article.mercato-lavoro-ia-svizzera.excerpt': '## En bref - Près de 5\'000 offres d’emploi en IA entre juillet 2025 et juin 2026 - La demande augmente de 32 % en douze mois - Zurich concentre 2\'181 offres, soit 45 %',
     'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Professionnels collaborant dans un bureau moderne en Suisse, avec des écrans affichant des données et du code liés à l\'IA.',
+    'blog.article.raiffeisen-pil-inflazione-2026.title': 'Raiffeisen : PIB 2026 à 1,7%, inflation à 0,7%',
+    'blog.article.raiffeisen-pil-inflazione-2026.excerpt': '## En bref - Raiffeisen porte à 1,7% la prévision de PIB pour 2026 - Pour 2027, elle confirme une croissance de 1,3% - Inflation 2026 à 0,7%, contre 0,5% estimé',
+    'blog.article.raiffeisen-pil-inflazione-2026.imageAlt': 'Professionnel suisse analysant des prévisions économiques avec les Alpes en arrière-plan',
 };
 
 export default blogMetaChFr;

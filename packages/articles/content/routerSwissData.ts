@@ -2660,6 +2660,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'violazione-dati-publica-indagine': { it: 'violazione-dati-publica-indagine', en: 'publica-data-breach-investigation', de: 'publica-datenleck-ermittlung', fr: 'fuite-donnees-publica-enquete' },
  'crescita-lavoro-intelligenza-artificiale': { it: 'crescita-lavoro-intelligenza-artificiale', en: 'ai-jobs-market-growth-switzerland', de: 'ki-arbeitsmarkt-wachstum-schweiz', fr: 'croissance-emploi-ia-suisse' },
  'mercato-lavoro-ia-svizzera': { it: 'mercato-lavoro-ia-svizzera', en: 'swiss-ai-job-market', de: 'schweizer-ki-arbeitsmarkt', fr: 'marche-travail-ia-suisse' },
+ 'raiffeisen-pil-inflazione-2026': { it: 'raiffeisen-pil-inflazione-2026', en: 'raiffeisen-gdp-at-1-7-in-2026-inflation-at-0-7', de: 'raiffeisen-bip-2026-bei-1-7-inflation-bei-0-7', fr: 'raiffeisen-pib-2026-a-1-7-inflation-a-0-7' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5071
+      "6": 5072
     },
-    "publishedCovers": 6783,
+    "publishedCovers": 6784,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180350,6 +180350,33 @@
           "id": "pedemontana-truffa-sms-frontalieri",
           "category": "pratico",
           "date": "2026-10-07T10:36:08.818Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-raiffeisen-pil-inflazione-2026": {
+      "cover": "/images/blog/article-raiffeisen-pil-inflazione-2026.webp",
+      "hash": "6258022ec4cecc7c1286c7a0828301169bd9fcf8fc0253b7849cefc1f955b52a",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "raiffeisen-pil-inflazione-2026",
+          "category": "pratico",
+          "date": "2026-10-08T10:49:08.868Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
