@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-08T21:27:30.370Z",
+  "generatedAt": "2026-10-08T22:23:18.818Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10192,
-  "avgDurationMs": 10192,
+  "durationMs": 9441,
+  "avgDurationMs": 9441,
   "durationHistory": [
-    10192
+    9441
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -301,48 +301,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Pricing & Revenue Specialist - Hotel",
-      "slug": "pricing-revenue-specialist-hotel-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000152629067&jobName=Pricing",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000152629067-pricing-revenue-specialist-hotel?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-30T09:00:18.895Z",
-      "postedDate": "2026-09-30T09:00:18.895Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-6b2e8f8dfce1",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-30T21:23:06.463Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-10-08T21:26:30.579Z",
+  "assembledAt": "2026-10-08T22:21:21.748Z",
   "jobs": [
     {
       "id": "entero-7b3d8ee4978b",
@@ -33,7 +33,7 @@
       "url": "https://www.entero.ch/de/karriere/psychologin-oder-psychologe-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:26:25.431Z",
+      "crawledAt": "2026-10-08T22:21:14.962Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:26:24.817Z",
+      "crawledAt": "2026-10-08T22:21:14.360Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -131,14 +131,11 @@
       "applyUrl": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
-        "graduated-nurse-hf-60-100-entero-egliswil",
-        "infirmiere-diplomee-hf-60-100-entero-egliswil",
-        "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-        "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
+          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
+        ],
         "it": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
           "graduated-nurse-hf-60-100-entero-egliswil",
@@ -149,14 +146,17 @@
         "en": [
           "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ],
-        "de": [
-          "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
-          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
-        ],
         "fr": [
           "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
         ]
       },
+      "previousSlugs": [
+        "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
+        "graduated-nurse-hf-60-100-entero-egliswil",
+        "infirmiere-diplomee-hf-60-100-entero-egliswil",
+        "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
+        "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
+      ],
       "firstSeenAt": "2026-08-13T10:39:45.203Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -204,7 +204,7 @@
       "url": "https://www.entero.ch/de/karriere/verantwortliche-r-qualitaetsmanagement-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:26:24.206Z",
+      "crawledAt": "2026-10-08T22:21:13.758Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -223,15 +223,15 @@
       "applyUrl": "https://www.entero.ch/de/karriere/verantwortliche-r-qualitaetsmanagement-60-80",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:05:17.052Z",
+      "previousSlugs": [
+        "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
         ]
       },
-      "previousSlugs": [
-        "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
-      ],
+      "firstSeenAt": "2026-09-19T23:05:17.052Z",
       "salaryMin": 79600,
       "salaryMax": 135600,
       "salarySource": "estimated",
@@ -278,7 +278,7 @@
       "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:26:23.583Z",
+      "crawledAt": "2026-10-08T22:21:13.155Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -297,15 +297,15 @@
       "applyUrl": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:23:50.353Z",
+      "previousSlugs": [
+        "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
         ]
       },
-      "previousSlugs": [
-        "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz"
-      ],
+      "firstSeenAt": "2026-10-03T09:23:50.353Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -352,7 +352,7 @@
       "url": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:26:22.972Z",
+      "crawledAt": "2026-10-08T22:21:12.553Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -371,15 +371,15 @@
       "applyUrl": "https://www.entero.ch/de/karriere/koechin-koch-80-100-mit-agogischer-perspektive",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:23:49.732Z",
+      "previousSlugs": [
+        "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
         ]
       },
-      "previousSlugs": [
-        "kochin-koch-80-100-mit-agogischer-perspektive-entero-egliswil"
-      ],
+      "firstSeenAt": "2026-10-03T09:23:49.732Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
