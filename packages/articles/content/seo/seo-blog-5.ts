@@ -6,6 +6,1542 @@ import type { SEOMetadata } from './seoMetadataType';
 const BASE_URL = 'https://frontaliereticino.ch';
 
 const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
+  'blog-borse-in-rosso-prezzo-petrolio-ticino': {
+    title: 'Borse in rosso e prezzo del petrolio in rialzo: cosa significa per il Ticino',
+    description: 'Mercati in calo e petrolio in aumento: impatti sui frontalieri e sui costi di vita in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, rosso, prezzo, petrolio',
+    ogTitle: 'Borse in rosso e prezzo del petrolio in rialzo: cosa significa per il Ticino',
+    ogDescription: 'Mercati in calo e petrolio in aumento: impatti sui frontalieri e sui costi di vita in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/borse-in-rosso-prezzo-petrolio-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse in rosso e prezzo del petrolio in rialzo: cosa significa per il Ticino",
+      "description": "Mercati in calo e petrolio in aumento: impatti sui frontalieri e sui costi di vita in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/borse-in-rosso-prezzo-petrolio-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con lago e montagne circostanti."
+      },
+      "datePublished": "2026-03-03T15:39:51+01:00",
+      "dateModified": "2026-03-03T15:39:51+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-in-rosso-prezzo-petrolio-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliers-sabotage-varese-successo': {
+    title: 'Frontaliers Sabotage conquista Varese: sold out al MIV',
+    description: 'Successo per la prima italiana di Frontaliers Sabotage al cinema MIV di Varese. La saga dei frontalieri continua a riscuotere successo. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, frontaliers, sabotage, conquista, varese',
+    ogTitle: 'Frontaliers Sabotage conquista Varese: sold out al MIV',
+    ogDescription: 'Successo per la prima italiana di Frontaliers Sabotage al cinema MIV di Varese. La saga dei frontalieri continua a riscuotere successo. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/frontaliers-sabotage-varese-successo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliers Sabotage conquista Varese: sold out al MIV",
+      "description": "Successo per la prima italiana di Frontaliers Sabotage al cinema MIV di Varese. La saga dei frontalieri continua a riscuotere successo. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliers-sabotage-varese-successo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano al tramonto sul lago"
+      },
+      "datePublished": "2026-03-04T08:43:28+01:00",
+      "dateModified": "2026-03-04T08:43:28+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliers-sabotage-varese-successo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-svizzera-2026': {
+    title: 'Disoccupazione in Svizzera: crescita e cause nel 2026',
+    description: 'Nel 2026, la disoccupazione in Svizzera cresce più che nell\'UE, con il settore bancario in difficoltà. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, crescita, cause, cresce',
+    ogTitle: 'Disoccupazione in Svizzera: crescita e cause nel 2026',
+    ogDescription: 'Nel 2026, la disoccupazione in Svizzera cresce più che nell\'UE, con il settore bancario in difficoltà. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione in Svizzera: crescita e cause nel 2026",
+      "description": "Nel 2026, la disoccupazione in Svizzera cresce più che nell'UE, con il settore bancario in difficoltà. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Bellinzona con i suoi castelli storici e la vita cittadina."
+      },
+      "datePublished": "2026-03-04T09:11:51+01:00",
+      "dateModified": "2026-03-04T09:11:51+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-infermieri-svizzera-frontalieri-ticino': {
+    title: 'La Svizzera cerca infermieri: 137mila annunci per frontalieri',
+    description: 'La carenza di infermieri in Svizzera è grave, con un terzo degli infermieri provenienti dall\'estero. Il Ticino è interessato da questa tendenza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cerca, infermieri, 137mila, annunci',
+    ogTitle: 'La Svizzera cerca infermieri: 137mila annunci per frontalieri',
+    ogDescription: 'La carenza di infermieri in Svizzera è grave, con un terzo degli infermieri provenienti dall\'estero. Il Ticino è interessato da questa tendenza. Dati aggiornati',
+    canonicalPath: '/articoli-frontaliere/infermieri-svizzera-frontalieri-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Svizzera cerca infermieri: 137mila annunci per frontalieri",
+      "description": "La carenza di infermieri in Svizzera è grave, con un terzo degli infermieri provenienti dall'estero. Il Ticino è interessato da questa tendenza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/infermieri-svizzera-frontalieri-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermieri al lavoro in un ospedale del Ticino"
+      },
+      "datePublished": "2026-03-04T11:17:08+01:00",
+      "dateModified": "2026-03-04T11:17:08+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-svizzera-frontalieri-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-successo-farmaceutica-ticino': {
+    title: 'Farmaceutica: successo globale, preoccupazioni svizzere',
+    description: 'Roche e Novartis registrano risultati record, ma aumentano le richieste di riforme per mantenere la Svizzera attrattiva. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, farmaceutica, successo, globale, preoccupazioni',
+    ogTitle: 'Farmaceutica: successo globale, preoccupazioni svizzere',
+    ogDescription: 'Roche e Novartis registrano risultati record, ma aumentano le richieste di riforme per mantenere la Svizzera attrattiva. Dati aggiornati 2026 per frontalieri',
+    canonicalPath: '/articoli-frontaliere/successo-farmaceutica-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Farmaceutica: successo globale, preoccupazioni svizzere",
+      "description": "Roche e Novartis registrano risultati record, ma aumentano le richieste di riforme per mantenere la Svizzera attrattiva. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/successo-farmaceutica-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con vista sul lago"
+      },
+      "datePublished": "2026-03-04T13:09:08+01:00",
+      "dateModified": "2026-03-04T13:09:08+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/successo-farmaceutica-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-utile-bns-2025-ticino': {
+    title: 'Utile della BNS a 26,1 miliardi di franchi: Impatti sul Ticino',
+    description: 'La Banca Nazionale Svizzera chiude il 2025 con un utile di 26,1 miliardi, confermando 4 miliardi di versamenti a Confederazione e Cantoni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, utile, miliardi, franchi, impatti',
+    ogTitle: 'Utile della BNS a 26,1 miliardi di franchi: Impatti sul Ticino',
+    ogDescription: 'La Banca Nazionale Svizzera chiude il 2025 con un utile di 26,1 miliardi, confermando 4 miliardi di versamenti a Confederazione e Cantoni. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/utile-bns-2025-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Utile della BNS a 26,1 miliardi di franchi: Impatti sul Ticino",
+      "description": "La Banca Nazionale Svizzera chiude il 2025 con un utile di 26,1 miliardi, confermando 4 miliardi di versamenti a Confederazione e Cantoni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/utile-bns-2025-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
+      },
+      "datePublished": "2026-03-04T15:22:12+01:00",
+      "dateModified": "2026-03-04T15:22:12+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/utile-bns-2025-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-banche-ticino-disoccupazione': {
+    title: 'Le banche svizzere assumono meno, la disoccupazione cresce',
+    description: 'A febbraio, le banche svizzere hanno pubblicato 475 annunci di lavoro, un calo del 10% rispetto a gennaio e del 38% su base annua. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, assumono, meno',
+    ogTitle: 'Le banche svizzere assumono meno, la disoccupazione cresce',
+    ogDescription: 'A febbraio, le banche svizzere hanno pubblicato 475 annunci di lavoro, un calo del 10% rispetto a gennaio e del 38% su base annua. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/banche-ticino-disoccupazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Le banche svizzere assumono meno, la disoccupazione cresce",
+      "description": "A febbraio, le banche svizzere hanno pubblicato 475 annunci di lavoro, un calo del 10% rispetto a gennaio e del 38% su base annua. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banche-ticino-disoccupazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con grafico in calo"
+      },
+      "datePublished": "2026-03-04T18:38:10+01:00",
+      "dateModified": "2026-03-04T18:38:10+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-ticino-disoccupazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-medio-vedeggio-gruppo-lavoro-aggregazione': {
+    title: 'Medio Vedeggio: nasce il gruppo di lavoro per l’aggregazione comunale',
+    description: 'Bedano, Cadempino, Gravesano e Lamone avviano uno studio per l’aggregazione entro il 2028, rafforzando la collaborazione in Valle del Vedeggio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, medio, vedeggio, nasce, gruppo',
+    ogTitle: 'Medio Vedeggio: nasce il gruppo di lavoro per l’aggregazione comunale',
+    ogDescription: 'Bedano, Cadempino, Gravesano e Lamone avviano uno studio per l’aggregazione entro il 2028, rafforzando la collaborazione in Valle del Vedeggio. Dati aggiornati',
+    canonicalPath: '/articoli-frontaliere/medio-vedeggio-gruppo-lavoro-aggregazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medio Vedeggio: nasce il gruppo di lavoro per l’aggregazione comunale",
+      "description": "Bedano, Cadempino, Gravesano e Lamone avviano uno studio per l’aggregazione entro il 2028, rafforzando la collaborazione in Valle del Vedeggio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/medio-vedeggio-gruppo-lavoro-aggregazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Medio Vedeggio con i comuni di Bedano, Cadempino, Gravesano e Lamone in Ticino"
+      },
+      "datePublished": "2026-03-04T21:08:46+01:00",
+      "dateModified": "2026-03-04T21:08:46+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/medio-vedeggio-gruppo-lavoro-aggregazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lugano-airport-fondi-salvati-2026': {
+    title: 'Lugano Airport è salvo: il Nazionale boccia il taglio dei fondi',
+    description: 'Il Consiglio Nazionale ha respinto il taglio di 5 milioni annui al contributo federale per Lugano Airport, garantendo la sicurezza e lo sviluppo dello scalo',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, airport, salvo, nazionale',
+    ogTitle: 'Lugano Airport è salvo: il Nazionale boccia il taglio dei fondi',
+    ogDescription: 'Il Consiglio Nazionale ha respinto il taglio di 5 milioni annui al contributo federale per Lugano Airport, garantendo la sicurezza e lo sviluppo dello scalo',
+    canonicalPath: '/articoli-frontaliere/lugano-airport-fondi-salvati-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano Airport è salvo: il Nazionale boccia il taglio dei fondi",
+      "description": "Il Consiglio Nazionale ha respinto il taglio di 5 milioni annui al contributo federale per Lugano Airport, garantendo la sicurezza e lo sviluppo dello scalo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-airport-fondi-salvati-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica dell'aeroporto di Lugano con il lago e la città sullo sfondo in Ticino."
+      },
+      "datePublished": "2026-03-04T22:05:31+01:00",
+      "dateModified": "2026-03-04T22:05:31+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-airport-fondi-salvati-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-made-in-italy-doganali-ticino-2026': {
+    title: 'Made in Italy: revisione norme doganali e impatto sul Ticino',
+    description: 'Il Comitato delle Regioni apre a modifiche sul Codice doganale UE per tutelare il Made in Italy, con ricadute per i frontalieri ticinesi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, made, italy, revisione, norme',
+    ogTitle: 'Made in Italy: revisione norme doganali e impatto sul Ticino',
+    ogDescription: 'Il Comitato delle Regioni apre a modifiche sul Codice doganale UE per tutelare il Made in Italy, con ricadute per i frontalieri ticinesi. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/made-in-italy-doganali-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Made in Italy: revisione norme doganali e impatto sul Ticino",
+      "description": "Il Comitato delle Regioni apre a modifiche sul Codice doganale UE per tutelare il Made in Italy, con ricadute per i frontalieri ticinesi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/made-in-italy-doganali-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne sullo sfondo in una giornata limpida di primavera"
+      },
+      "datePublished": "2026-03-05T00:07:46+01:00",
+      "dateModified": "2026-03-05T00:07:46+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/made-in-italy-doganali-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-ticino-q4-2025': {
+    title: 'Mercato del lavoro Ticino: dati e trend quarto trimestre 2025',
+    description: 'Il Cantone Ticino registra una crescita stabile dell’occupazione e un aumento dei frontalieri nel Q4 2025, con segnali positivi per il 2026. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, dati, trend',
+    ogTitle: 'Mercato del lavoro Ticino: dati e trend quarto trimestre 2025',
+    ogDescription: 'Il Cantone Ticino registra una crescita stabile dell’occupazione e un aumento dei frontalieri nel Q4 2025, con segnali positivi per il 2026. Dati aggiornati',
+    canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro Ticino: dati e trend quarto trimestre 2025",
+      "description": "Il Cantone Ticino registra una crescita stabile dell’occupazione e un aumento dei frontalieri nel Q4 2025, con segnali positivi per il 2026. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-ticino-q4-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lavoratori frontalieri che attraversano un ponte, simbolo dell’economia ticinese"
+      },
+      "datePublished": "2026-03-05T06:06:52+01:00",
+      "dateModified": "2026-03-05T06:06:52+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-q4-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dichiarazione-imposta-digitale-ticino-26': {
+    title: 'Dichiarazione d’imposta sempre più digitale in Ticino nel 2026',
+    description: 'A partire dal 2026, oltre 100’000 ticinesi presentano la dichiarazione d’imposta completamente online, con nuove funzionalità digitali per rate e controlli',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, imposta, sempre, digitale',
+    ogTitle: 'Dichiarazione d’imposta sempre più digitale in Ticino nel 2026',
+    ogDescription: 'A partire dal 2026, oltre 100’000 ticinesi presentano la dichiarazione d’imposta completamente online, con nuove funzionalità digitali per rate e controlli',
+    canonicalPath: '/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione d’imposta sempre più digitale in Ticino nel 2026",
+      "description": "A partire dal 2026, oltre 100’000 ticinesi presentano la dichiarazione d’imposta completamente online, con nuove funzionalità digitali per rate e controlli",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dichiarazione-imposta-digitale-ticino-26.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lago e le montagne sullo sfondo in Ticino"
+      },
+      "datePublished": "2026-03-05T09:01:20+01:00",
+      "dateModified": "2026-03-05T09:01:20+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tilo-25-milioni-passeggeri-2025': {
+    title: 'TILO sfonda quota 25 milioni di passeggeri nel 2025',
+    description: 'Nel 2025 TILO ha trasportato 25 milioni di persone, con un aumento del 50% dal 2019 e nuovi record soprattutto a Lugano e Milano Centrale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, sfonda, quota, milioni',
+    ogTitle: 'TILO sfonda quota 25 milioni di passeggeri nel 2025',
+    ogDescription: 'Nel 2025 TILO ha trasportato 25 milioni di persone, con un aumento del 50% dal 2019 e nuovi record soprattutto a Lugano e Milano Centrale. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/tilo-25-milioni-passeggeri-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TILO sfonda quota 25 milioni di passeggeri nel 2025",
+      "description": "Nel 2025 TILO ha trasportato 25 milioni di persone, con un aumento del 50% dal 2019 e nuovi record soprattutto a Lugano e Milano Centrale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tilo-25-milioni-passeggeri-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Lugano affollata con passeggeri TILO nel 2025, vista urbana del Canton Ticino"
+      },
+      "datePublished": "2026-03-05T11:11:48+01:00",
+      "dateModified": "2026-03-05T11:11:48+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-25-milioni-passeggeri-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-salute-lombardia-rinvio': {
+    title: 'Tassa salute, la Lombardia rinvia: cosa significa per i frontalieri',
+    description: 'La Regione Lombardia non applicherà la tassa sulla salute finché non lo faranno anche le altre regioni italiane. Impatto sui frontalieri che lavorano',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, rinvia',
+    ogTitle: 'Tassa salute, la Lombardia rinvia: cosa significa per i frontalieri',
+    ogDescription: 'La Regione Lombardia non applicherà la tassa sulla salute finché non lo faranno anche le altre regioni italiane. Impatto sui frontalieri che lavorano',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-lombardia-rinvio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute, la Lombardia rinvia: cosa significa per i frontalieri",
+      "description": "La Regione Lombardia non applicherà la tassa sulla salute finché non lo faranno anche le altre regioni italiane. Impatto sui frontalieri che lavorano",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-lombardia-rinvio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che si recano al lavoro a Locarno"
+      },
+      "datePublished": "2026-03-05T13:12:19+01:00",
+      "dateModified": "2026-03-05T13:12:19+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-rinvio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tilo-record-passeggeri-2025': {
+    title: 'TILO raggiunge i 25 milioni di passeggeri nel 2025',
+    description: 'La società ferroviaria TILO ha trasportato 25 milioni di persone nel 2025, con un incremento del 3,7% rispetto al 2024. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, raggiunge, milioni, passeggeri',
+    ogTitle: 'TILO raggiunge i 25 milioni di passeggeri nel 2025',
+    ogDescription: 'La società ferroviaria TILO ha trasportato 25 milioni di persone nel 2025, con un incremento del 3,7% rispetto al 2024. Dati aggiornati 2026 per frontalieri',
+    canonicalPath: '/articoli-frontaliere/tilo-record-passeggeri-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TILO raggiunge i 25 milioni di passeggeri nel 2025",
+      "description": "La società ferroviaria TILO ha trasportato 25 milioni di persone nel 2025, con un incremento del 3,7% rispetto al 2024. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tilo-record-passeggeri-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di Lugano con stazione ferroviaria"
+      },
+      "datePublished": "2026-03-05T15:46:54+01:00",
+      "dateModified": "2026-03-05T15:46:54+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-record-passeggeri-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasporti-lombardia-ticino-record-tilo': {
+    title: 'Trasporti Lombardia-Ticino: Tilo batte record con 25 milioni di passeggeri',
+    description: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. La crescita',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, lombardia-ticino, tilo, batte',
+    ogTitle: 'Trasporti Lombardia-Ticino: Tilo batte record con 25 milioni di passeggeri',
+    ogDescription: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. La crescita',
+    canonicalPath: '/articoli-frontaliere/trasporti-lombardia-ticino-record-tilo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti Lombardia-Ticino: Tilo batte record con 25 milioni di passeggeri",
+      "description": "I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all'anno precedente. La crescita",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trasporti-lombardia-ticino-record-tilo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Tilo in viaggio verso il Canton Ticino."
+      },
+      "datePublished": "2026-03-05T22:55:24+01:00",
+      "dateModified": "2026-03-05T22:55:24+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-lombardia-ticino-record-tilo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-confusione-tassa-salute-frontalieri': {
+    title: 'Frontalieri e tassa salute: la confusione tra politica e normativa',
+    description: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, confusione, politica',
+    ogTitle: 'Frontalieri e tassa salute: la confusione tra politica e normativa',
+    ogDescription: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
+    canonicalPath: '/articoli-frontaliere/confusione-tassa-salute-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e tassa salute: la confusione tra politica e normativa",
+      "description": "Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del valico di Brogeda tra Ticino e Italia con traffico e paesaggi naturali"
+      },
+      "datePublished": "2026-03-06T01:03:53+01:00",
+      "dateModified": "2026-03-06T01:03:53+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confusione-tassa-salute-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburante-ticino-costo-aumenti': {
+    title: 'Il costo del carburante in Ticino si impenna: un problema globale con ripercussioni locali',
+    description: 'Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, carburante, impenna, problema',
+    ogTitle: 'Il costo del carburante in Ticino si impenna: un problema globale con ripercussioni locali',
+    ogDescription: 'Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.',
+    canonicalPath: '/articoli-frontaliere/carburante-ticino-costo-aumenti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il costo del carburante in Ticino si impenna: un problema globale con ripercussioni locali",
+      "description": "Aumenti fino a 14 centesimi su diesel e benzina in Ticino, riflesso della crisi energetica mondiale. La politica e il mercato influiscono sui prezzi locali.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburante-ticino-costo-aumenti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di rifornimento a Lugano, auto in attesa di carburante, paesaggio Ticino."
+      },
+      "datePublished": "2026-03-06T11:00:10+01:00",
+      "dateModified": "2026-03-06T11:00:10+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-ticino-costo-aumenti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cpi-caso-hospita-rivalutazione-periti': {
+    title: 'CPI e Caso Hospita: richiesta di rivalutazione dei periti in Ticino',
+    description: 'La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti',
+    keywords: 'frontalieri, ticino, svizzera, italia, caso, hospita, richiesta, rivalutazione',
+    ogTitle: 'CPI e Caso Hospita: richiesta di rivalutazione dei periti in Ticino',
+    ogDescription: 'La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti',
+    canonicalPath: '/articoli-frontaliere/cpi-caso-hospita-rivalutazione-periti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CPI e Caso Hospita: richiesta di rivalutazione dei periti in Ticino",
+      "description": "La Commissione parlamentare d’inchiesta del Canton Ticino chiede una revisione della nomina dei periti nel caso Hospita, evidenziando possibili conflitti",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cpi-caso-hospita-rivalutazione-periti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano nel Ticino con valico e strada, scenario realistico"
+      },
+      "datePublished": "2026-03-06T12:19:03+01:00",
+      "dateModified": "2026-03-06T12:19:03+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cpi-caso-hospita-rivalutazione-periti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-casellario-giudiziale-ue-ticino': {
+    title: 'Canton Grigioni: Impossibile richiedere il casellario giudiziale per cittadini UE',
+    description: 'Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell\'UE, sollevando interrogativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, canton, grigioni, impossibile, richiedere',
+    ogTitle: 'Canton Grigioni: Impossibile richiedere il casellario giudiziale per cittadini UE',
+    ogDescription: 'Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell\'UE, sollevando interrogativi',
+    canonicalPath: '/articoli-frontaliere/casellario-giudiziale-ue-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canton Grigioni: Impossibile richiedere il casellario giudiziale per cittadini UE",
+      "description": "Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell'UE, sollevando interrogativi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/casellario-giudiziale-ue-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista storica di Bellinzona, Ticino con architettura affascinante al tramonto."
+      },
+      "datePublished": "2026-03-06T15:11:24+01:00",
+      "dateModified": "2026-03-06T15:11:24+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casellario-giudiziale-ue-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-salario-minimo-per-il-controprogetto-la-strada-e-in-discesa': {
+    title: 'Salario minimo: il controprogetto è in discesa',
+    description: 'Il Canton Ticino si avvicina a un accordo sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, controprogetto, discesa',
+    ogTitle: 'Salario minimo: il controprogetto è in discesa',
+    ogDescription: 'Il Canton Ticino si avvicina a un accordo sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. Dati aggiornati',
+    canonicalPath: '/articoli-frontaliere/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario minimo: il controprogetto è in discesa",
+      "description": "Il Canton Ticino si avvicina a un accordo sul salario minimo sociale, con una proposta che potrebbe essere discussa in Gran Consiglio ad aprile. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica di Lugano, con il lago e gli edifici moderni."
+      },
+      "datePublished": "2026-03-06T17:10:57+01:00",
+      "dateModified": "2026-03-06T17:10:57+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-salute-lombardia-frontalieri': {
+    title: 'Tassa sulla salute: Lombardia non applicherà il contributo?',
+    description: 'Giacomo Zamperini chiarisce che se altre regioni non applicano la tassa sulla salute, la Lombardia seguirà lo stesso esempio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, lombardia',
+    ogTitle: 'Tassa sulla salute: Lombardia non applicherà il contributo?',
+    ogDescription: 'Giacomo Zamperini chiarisce che se altre regioni non applicano la tassa sulla salute, la Lombardia seguirà lo stesso esempio. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-lombardia-frontalieri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa sulla salute: Lombardia non applicherà il contributo?",
+      "description": "Giacomo Zamperini chiarisce che se altre regioni non applicano la tassa sulla salute, la Lombardia seguirà lo stesso esempio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-lombardia-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo."
+      },
+      "datePublished": "2026-03-06T19:10:25+01:00",
+      "dateModified": "2026-03-06T19:10:25+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-franco-forte-problemi-economici': {
+    title: 'Il franco forte: opportunità e sfide per il Ticino',
+    description: 'L\'attuale forza del franco svizzero solleva interrogativi sull\'economia ticinese e il futuro dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, forte, opportunità, sfide',
+    ogTitle: 'Il franco forte: opportunità e sfide per il Ticino',
+    ogDescription: 'L\'attuale forza del franco svizzero solleva interrogativi sull\'economia ticinese e il futuro dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/franco-forte-problemi-economici/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il franco forte: opportunità e sfide per il Ticino",
+      "description": "L'attuale forza del franco svizzero solleva interrogativi sull'economia ticinese e il futuro dei frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/franco-forte-problemi-economici.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Bellinzona con i suoi castelli storici."
+      },
+      "datePublished": "2026-03-06T21:06:08+01:00",
+      "dateModified": "2026-03-06T21:06:08+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-problemi-economici/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburante-prezzo-salito-opportunismo': {
+    title: 'Aumento dei Prezzi della Benzina in Ticino: Opportunismo?',
+    description: 'Il prezzo della benzina è salito in Ticino, ma secondo esperti non ci sono giustificazioni valide. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumento, prezzi, benzina, opportunismo',
+    ogTitle: 'Aumento dei Prezzi della Benzina in Ticino: Opportunismo?',
+    ogDescription: 'Il prezzo della benzina è salito in Ticino, ma secondo esperti non ci sono giustificazioni valide. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/carburante-prezzo-salito-opportunismo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento dei Prezzi della Benzina in Ticino: Opportunismo?",
+      "description": "Il prezzo della benzina è salito in Ticino, ma secondo esperti non ci sono giustificazioni valide. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburante-prezzo-salito-opportunismo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con montagne circostanti, rappresentante l'influenza svizzera e italiana."
+      },
+      "datePublished": "2026-03-06T22:06:25+01:00",
+      "dateModified": "2026-03-06T22:06:25+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-prezzo-salito-opportunismo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-tassa-salute-teatro': {
+    title: 'Frontalieri e tassa salute: cancellatela e basta',
+    description: 'La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, cancellatela, basta',
+    ogTitle: 'Frontalieri e tassa salute: cancellatela e basta',
+    ogDescription: 'La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine. Dati aggiornati 2026 per frontalieri',
+    canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-teatro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e tassa salute: cancellatela e basta",
+      "description": "La Lombardia frena sulla tassa salute per i frontalieri, con riflessi sulla gestione politica e sociale del confine. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-teatro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne."
+      },
+      "datePublished": "2026-03-06T23:04:08+01:00",
+      "dateModified": "2026-03-06T23:04:08+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-teatro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-disoccupazione-stabile-svizzera-2026': {
+    title: 'Disoccupazione stabile al 3,2% in Svizzera: i dati di febbraio 2026',
+    description: 'Il tasso di disoccupazione in Svizzera si conferma al 3,2%, mentre in Ticino scende dello 0,1%. Aumentano i senza lavoro che hanno esaurito l\'indennità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, stabile, dati, febbraio',
+    ogTitle: 'Disoccupazione stabile al 3,2% in Svizzera: i dati di febbraio 2026',
+    ogDescription: 'Il tasso di disoccupazione in Svizzera si conferma al 3,2%, mentre in Ticino scende dello 0,1%. Aumentano i senza lavoro che hanno esaurito l\'indennità.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-stabile-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione stabile al 3,2% in Svizzera: i dati di febbraio 2026",
+      "description": "Il tasso di disoccupazione in Svizzera si conferma al 3,2%, mentre in Ticino scende dello 0,1%. Aumentano i senza lavoro che hanno esaurito l'indennità.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disoccupazione-stabile-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con montagne sullo sfondo."
+      },
+      "datePublished": "2026-03-07T00:12:41+01:00",
+      "dateModified": "2026-03-07T00:12:41+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dazi-usa-rimborsi-ritardi': {
+    title: 'Dazi USA: Rimborsi in Ritardo, Cosa Succede ai Frontalieri?',
+    description: 'L\'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma il processo potrebbe richiedere fino a un mese. Quali sono',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, rimborsi, ritardo, cosa',
+    ogTitle: 'Dazi USA: Rimborsi in Ritardo, Cosa Succede ai Frontalieri?',
+    ogDescription: 'L\'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma il processo potrebbe richiedere fino a un mese. Quali sono',
+    canonicalPath: '/articoli-frontaliere/dazi-usa-rimborsi-ritardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi USA: Rimborsi in Ritardo, Cosa Succede ai Frontalieri?",
+      "description": "L'agenzia della Dogana americana sta lavorando a un sistema di rimborsi per i dazi illegali, ma il processo potrebbe richiedere fino a un mese. Quali sono",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dazi-usa-rimborsi-ritardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Acquirenti soddisfatti escono da Foxtown, il famoso outlet di Mendrisio, con i loro acquisti."
+      },
+      "datePublished": "2026-03-07T00:56:51+01:00",
+      "dateModified": "2026-03-07T00:56:51+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-usa-rimborsi-ritardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazioni-8-marzo-iniziativa-ssr-aperto': {
+    title: 'Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in Ticino',
+    description: 'Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, marzo, incerto, sull',
+    ogTitle: 'Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in Ticino',
+    ogDescription: 'Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici',
+    canonicalPath: '/articoli-frontaliere/votazioni-8-marzo-iniziativa-ssr-aperto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni del 8 marzo: l’incerto sull’Iniziativa SSR in Ticino",
+      "description": "Il 8 marzo i cittadini svizzeri si pronunceranno su quattro temi cruciali, con l’Iniziativa SSR ancora in bilico tra sì e no. Analisi e dettagli pratici",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/votazioni-8-marzo-iniziativa-ssr-aperto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Gaggiolo in Ticino con vista sul confine italo-svizzero durante le votazioni del 8 marzo."
+      },
+      "datePublished": "2026-03-07T05:47:30+01:00",
+      "dateModified": "2026-03-07T05:47:30+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-8-marzo-iniziativa-ssr-aperto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ticino-spitex-contributo-pressione': {
+    title: 'Ticino Spitex: Nuove tariffe e pressione sul settore',
+    description: 'Dal primo aprile 2026 entrerà in vigore una nuova misura tariffaria per le cure a domicilio, con contributi degli utenti. Crescita volumi mette sotto pressione',
+    keywords: 'frontalieri, ticino, svizzera, italia, spitex, nuove, tariffe, pressione',
+    ogTitle: 'Ticino Spitex: Nuove tariffe e pressione sul settore',
+    ogDescription: 'Dal primo aprile 2026 entrerà in vigore una nuova misura tariffaria per le cure a domicilio, con contributi degli utenti. Crescita volumi mette sotto pressione',
+    canonicalPath: '/articoli-frontaliere/ticino-spitex-contributo-pressione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino Spitex: Nuove tariffe e pressione sul settore",
+      "description": "Dal primo aprile 2026 entrerà in vigore una nuova misura tariffaria per le cure a domicilio, con contributi degli utenti. Crescita volumi mette sotto pressione",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-spitex-contributo-pressione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Gaggiolo in Ticino con vista su Lugano e il Lago Maggiore"
+      },
+      "datePublished": "2026-03-07T07:05:59+01:00",
+      "dateModified": "2026-03-07T07:05:59+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-spitex-contributo-pressione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stalking-swiss-2026-ticino': {
+    title: 'Dal 2026: lo stalking diventa reato in Svizzera e Ticino',
+    description: 'Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, stalking, diventa, reato, inserito',
+    ogTitle: 'Dal 2026: lo stalking diventa reato in Svizzera e Ticino',
+    ogDescription: 'Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri',
+    canonicalPath: '/articoli-frontaliere/stalking-swiss-2026-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dal 2026: lo stalking diventa reato in Svizzera e Ticino",
+      "description": "Dal 2026, la Svizzera ha inserito lo stalking tra i reati punibili penalmente. Un cambiamento che interessa anche il Canton Ticino e i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stalking-swiss-2026-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico frontaliero in Ticino con controlli di sicurezza, scena realistica"
+      },
+      "datePublished": "2026-03-07T08:52:55+01:00",
+      "dateModified": "2026-03-07T08:52:55+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stalking-swiss-2026-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pirati-strada-ticino-italiani-2026': {
+    title: 'Ticino: Due automobilisti italiani tra i pirati della strada, cinque infrazioni gravi tra gennaio e febbraio',
+    description: 'Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio',
+    keywords: 'frontalieri, ticino, svizzera, italia, automobilisti, italiani, pirati, strada',
+    ogTitle: 'Ticino: Due automobilisti italiani tra i pirati della strada, cinque infrazioni gravi tra gennaio e febbraio',
+    ogDescription: 'Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio',
+    canonicalPath: '/articoli-frontaliere/pirati-strada-ticino-italiani-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: Due automobilisti italiani tra i pirati della strada, cinque infrazioni gravi tra gennaio e febbraio",
+      "description": "Polizia cantonale di Ticino ferma due automobilisti italiani per violazioni gravi, tra cui velocità oltre il doppio dei limiti, in controlli tra gennaio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pirati-strada-ticino-italiani-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto in transito sul valico di Gaggiolo, confine tra Italia e Svizzera, con paesaggio ticinese sullo sfondo"
+      },
+      "datePublished": "2026-03-07T10:01:01+01:00",
+      "dateModified": "2026-03-07T10:01:01+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pirati-strada-ticino-italiani-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comuni-locarno-futuro-aggregazione': {
+    title: 'Sette Comuni del Locarnese sul Futuro: Aggregazione o Autonomia?',
+    description: 'Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sette, comuni, locarnese, futuro',
+    ogTitle: 'Sette Comuni del Locarnese sul Futuro: Aggregazione o Autonomia?',
+    ogDescription: 'Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.',
+    canonicalPath: '/articoli-frontaliere/comuni-locarno-futuro-aggregazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sette Comuni del Locarnese sul Futuro: Aggregazione o Autonomia?",
+      "description": "Un laboratorio coinvolge Locarno, Losone, Minusio e altri per discutere sulla collaborazione regionale. La sfida: mantenere il benessere o restare indipendenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comuni-locarno-futuro-aggregazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Locarno con Lago Maggiore e montagne, scena fotorealistica DSLR."
+      },
+      "datePublished": "2026-03-07T10:56:43+01:00",
+      "dateModified": "2026-03-07T10:56:43+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-locarno-futuro-aggregazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-costi-cure-domicilio-ticino-2026': {
+    title: 'Ticino: dal 2026 si pagherà per le cure a domicilio',
+    description: 'Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pagherà, cure, domicilio, aprile',
+    ogTitle: 'Ticino: dal 2026 si pagherà per le cure a domicilio',
+    ogDescription: 'Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.',
+    canonicalPath: '/articoli-frontaliere/costi-cure-domicilio-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: dal 2026 si pagherà per le cure a domicilio",
+      "description": "Dal 1° aprile 2026 in Ticino entra in vigore la partecipazione ai costi per le cure a domicilio, con un contributo massimo di 15 franchi al giorno.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermiere che assiste una persona anziana a domicilio a Lugano, Ticino"
+      },
+      "datePublished": "2026-03-07T11:53:30+01:00",
+      "dateModified": "2026-03-07T11:53:30+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-cure-domicilio-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lugano-park-ride-bus-sovvenzioni-2026': {
+    title: 'Lugano: Park and Ride poco usati, bus sovvenzionati in crescita',
+    description: 'Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, park, ride, poco',
+    ogTitle: 'Lugano: Park and Ride poco usati, bus sovvenzionati in crescita',
+    ogDescription: 'Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi. Dati aggiornati',
+    canonicalPath: '/articoli-frontaliere/lugano-park-ride-bus-sovvenzioni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano: Park and Ride poco usati, bus sovvenzionati in crescita",
+      "description": "Nel 2024 Lugano ha speso 1,2 milioni in sovvenzioni per abbonamenti bus, mentre i park and ride registrano scarsa frequentazione e alti costi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lugano-park-ride-bus-sovvenzioni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista urbana di Lugano con autobus e parcheggio park and ride poco utilizzato"
+      },
+      "datePublished": "2026-03-07T12:41:11+01:00",
+      "dateModified": "2026-03-07T12:41:11+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-park-ride-bus-sovvenzioni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-crisi-turismo-golfo-persico': {
+    title: 'Crisi in Medio Oriente: Impatto sul Turismo Svizzero',
+    description: 'La crisi nel Golfo Persico modifica le rotte turistiche svizzere, con voli sospesi e carburante alle stelle. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, medio, oriente, impatto',
+    ogTitle: 'Crisi in Medio Oriente: Impatto sul Turismo Svizzero',
+    ogDescription: 'La crisi nel Golfo Persico modifica le rotte turistiche svizzere, con voli sospesi e carburante alle stelle. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/crisi-turismo-golfo-persico/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi in Medio Oriente: Impatto sul Turismo Svizzero",
+      "description": "La crisi nel Golfo Persico modifica le rotte turistiche svizzere, con voli sospesi e carburante alle stelle. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/crisi-turismo-golfo-persico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano durante il tramonto, con riflessi sull'acqua."
+      },
+      "datePublished": "2026-03-07T14:54:36+01:00",
+      "dateModified": "2026-03-07T14:54:36+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-turismo-golfo-persico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-turisti-ticinesi-bloccati-medio-oriente': {
+    title: 'Turisti ticinesi bloccati in Medio Oriente: «Soli e senza risposte»',
+    description: 'Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, turisti, ticinesi, bloccati, medio',
+    ogTitle: 'Turisti ticinesi bloccati in Medio Oriente: «Soli e senza risposte»',
+    ogDescription: 'Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/turisti-ticinesi-bloccati-medio-oriente/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Turisti ticinesi bloccati in Medio Oriente: «Soli e senza risposte»",
+      "description": "Circa 400 turisti svizzeri rimangono bloccati in Medio Oriente senza comunicazioni ufficiali. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/turisti-ticinesi-bloccati-medio-oriente.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Turisti svizzeri in attesa di informazioni in un valico di frontiera."
+      },
+      "datePublished": "2026-03-07T15:54:22+01:00",
+      "dateModified": "2026-03-07T15:54:22+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turisti-ticinesi-bloccati-medio-oriente/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzeri-bloccati-medio-oriente': {
+    title: '5.200 svizzeri bloccati in Medio Oriente | Frontaliere Ticino',
+    description: 'La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, bloccati, medio, oriente',
+    ogTitle: '5.200 svizzeri bloccati in Medio Oriente',
+    ogDescription: 'La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio. Dati aggiornati 2026 per frontalieri',
+    canonicalPath: '/articoli-frontaliere/svizzeri-bloccati-medio-oriente/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "5.200 svizzeri bloccati in Medio Oriente",
+      "description": "La guerra in Medio Oriente ha bloccato 5.200 cittadini svizzeri. Swiss ha organizzato un volo speciale per il rimpatrio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzeri-bloccati-medio-oriente.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Volo di rimpatrio da Mascate, Oman, verso Zurigo, Svizzera."
+      },
+      "datePublished": "2026-03-07T16:51:15+01:00",
+      "dateModified": "2026-03-07T16:51:15+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-bloccati-medio-oriente/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ticino-prevenzione-incendi-scuole-2026': {
+    title: 'Ticino rafforza la sicurezza nelle scuole dopo Crans-Montana',
+    description: 'Il DECS lavora su misure di prevenzione antincendio dopo l\'incidente di Capodanno a Crans-Montana. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rafforza, sicurezza, nelle, scuole',
+    ogTitle: 'Ticino rafforza la sicurezza nelle scuole dopo Crans-Montana',
+    ogDescription: 'Il DECS lavora su misure di prevenzione antincendio dopo l\'incidente di Capodanno a Crans-Montana. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/ticino-prevenzione-incendi-scuole-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino rafforza la sicurezza nelle scuole dopo Crans-Montana",
+      "description": "Il DECS lavora su misure di prevenzione antincendio dopo l'incidente di Capodanno a Crans-Montana. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-prevenzione-incendi-scuole-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuole di Ticino con segni di sicurezza antincendio. Vista aerea con montagne in sfondo."
+      },
+      "datePublished": "2026-03-07T18:00:20+01:00",
+      "dateModified": "2026-03-07T18:00:20+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-prevenzione-incendi-scuole-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-varese-india-export-2026': {
+    title: 'Varese punta a Oriente: l’export verso l’India cresce del 46%',
+    description: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, punta, oriente, export',
+    ogTitle: 'Varese punta a Oriente: l’export verso l’India cresce del 46%',
+    ogDescription: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri',
+    canonicalPath: '/articoli-frontaliere/varese-india-export-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese punta a Oriente: l’export verso l’India cresce del 46%",
+      "description": "Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impresa varesina che esporta macchinari e prodotti chimici in India. Vista panoramica dal Lago di Lugano."
+      },
+      "datePublished": "2026-03-07T18:48:07+01:00",
+      "dateModified": "2026-03-07T18:48:07+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-india-export-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-autotrasporto-rincari-confine-2026': {
+    title: 'Rincari carburante: rischio fermo autotrasportatori al confine',
+    description: 'A marzo 2026 CNA Fita denuncia aumenti speculativi: +0,30 €/l in 3 giorni; per un camion che fa 100.000 km/anno l\'aggravio supera 13.000 euro. Impatti',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincari, carburante, rischio, fermo',
+    ogTitle: 'Rincari carburante: rischio fermo autotrasportatori al confine',
+    ogDescription: 'A marzo 2026 CNA Fita denuncia aumenti speculativi: +0,30 €/l in 3 giorni; per un camion che fa 100.000 km/anno l\'aggravio supera 13.000 euro. Impatti',
+    canonicalPath: '/articoli-frontaliere/autotrasporto-rincari-confine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincari carburante: rischio fermo autotrasportatori al confine",
+      "description": "A marzo 2026 CNA Fita denuncia aumenti speculativi: +0,30 €/l in 3 giorni; per un camion che fa 100.000 km/anno l'aggravio supera 13.000 euro. Impatti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion parcheggiato vicino al valico di Chiasso con vista sul paesaggio del Ticino al tramonto"
+      },
+      "datePublished": "2026-03-08T11:57:24+01:00",
+      "dateModified": "2026-03-08T11:57:24+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autotrasporto-rincari-confine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-carburanti-rincari-confine-ticino': {
+    title: 'Rincaro carburanti: che impatto sui frontalieri ticinesi',
+    description: 'Benzina oltre 1,8 €/l in alcune regioni italiane; Codacons segnala rincari dopo la guerra in Iran. Effetti concreti per frontalieri e pendolari',
+    keywords: 'frontalieri, ticino, svizzera, italia, rincaro, carburanti, impatto, ticinesi',
+    ogTitle: 'Rincaro carburanti: che impatto sui frontalieri ticinesi',
+    ogDescription: 'Benzina oltre 1,8 €/l in alcune regioni italiane; Codacons segnala rincari dopo la guerra in Iran. Effetti concreti per frontalieri e pendolari',
+    canonicalPath: '/articoli-frontaliere/carburanti-rincari-confine-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rincaro carburanti: che impatto sui frontalieri ticinesi",
+      "description": "Benzina oltre 1,8 €/l in alcune regioni italiane; Codacons segnala rincari dopo la guerra in Iran. Effetti concreti per frontalieri e pendolari",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio al confine Ticino-Lombardia con auto in attesa e cartelloni prezzi al mattino"
+      },
+      "datePublished": "2026-03-08T12:45:19+01:00",
+      "dateModified": "2026-03-08T12:45:19+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-rincari-confine-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-votazioni-imposizione-ticino-2026': {
+    title: 'Voti 8 marzo: No al taglio canone, Sì all\'imposizione individuale',
+    description: 'L\'8 marzo il Ticino sembra dire No all\'iniziativa \'200 franchi bastano\' mentre si profila un Sì per l\'imposizione individuale; quadro parziale in aggiornamento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, voti, marzo, taglio, canone',
+    ogTitle: 'Voti 8 marzo: No al taglio canone, Sì all\'imposizione individuale',
+    ogDescription: 'L\'8 marzo il Ticino sembra dire No all\'iniziativa \'200 franchi bastano\' mentre si profila un Sì per l\'imposizione individuale; quadro parziale in aggiornamento.',
+    canonicalPath: '/articoli-frontaliere/votazioni-imposizione-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voti 8 marzo: No al taglio canone, Sì all'imposizione individuale",
+      "description": "L'8 marzo il Ticino sembra dire No all'iniziativa '200 franchi bastano' mentre si profila un Sì per l'imposizione individuale; quadro parziale in aggiornamento.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elettori davanti a un seggio a Bellinzona con bandiere svizzere e scatole per le schede, luce invernale naturale."
+      },
+      "datePublished": "2026-03-08T14:59:41+01:00",
+      "dateModified": "2026-03-08T14:59:41+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-imposizione-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposizione-individuale-ticino-2026': {
+    title: 'Svizzera: tassazione individuale, cosa cambia per il Ticino',
+    description: 'Il 55% dei votanti ha approvato la Legge federale sull\'imposizione individuale (08.03.2026). Figli, deduzioni e nuove tariffe: cosa devono sapere frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassazione, individuale, cosa, cambia',
+    ogTitle: 'Svizzera: tassazione individuale, cosa cambia per il Ticino',
+    ogDescription: 'Il 55% dei votanti ha approvato la Legge federale sull\'imposizione individuale (08.03.2026). Figli, deduzioni e nuove tariffe: cosa devono sapere frontalieri',
+    canonicalPath: '/articoli-frontaliere/imposizione-individuale-ticino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera: tassazione individuale, cosa cambia per il Ticino",
+      "description": "Il 55% dei votanti ha approvato la Legge federale sull'imposizione individuale (08.03.2026). Figli, deduzioni e nuove tariffe: cosa devono sapere frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta fotorealistica di Lugano con pendolare sul lungolago e skyline al mattino"
+      },
+      "datePublished": "2026-03-08T16:03:13+01:00",
+      "dateModified": "2026-03-08T16:03:13+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-ticino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-no-iniziativa-antidumping-ticino': {
+    title: 'Ticino: No all\'iniziativa antidumping, soddisfazione per il Consiglio di Stato',
+    description: 'Il Consiglio di Stato esprime la sua soddisfazione per il rifiuto dell\'iniziativa antidumping e del canone SSR a 200 franchi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, antidumping, soddisfazione, consiglio',
+    ogTitle: 'Ticino: No all\'iniziativa antidumping, soddisfazione per il Consiglio di Stato',
+    ogDescription: 'Il Consiglio di Stato esprime la sua soddisfazione per il rifiuto dell\'iniziativa antidumping e del canone SSR a 200 franchi. Dati aggiornati 2026',
+    canonicalPath: '/articoli-frontaliere/no-iniziativa-antidumping-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: No all'iniziativa antidumping, soddisfazione per il Consiglio di Stato",
+      "description": "Il Consiglio di Stato esprime la sua soddisfazione per il rifiuto dell'iniziativa antidumping e del canone SSR a 200 franchi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con lago e montagne."
+      },
+      "datePublished": "2026-03-08T16:50:38+01:00",
+      "dateModified": "2026-03-08T16:50:38+01:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/no-iniziativa-antidumping-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
   'blog-spese-bancarie-titoli-frontalieri': {
     title: 'Spese bancarie per titoli: Meierhans critica i costi',
     description: 'Le spese per il trasferimento di titoli in Svizzera sono tra i 60 e i 120 franchi, secondo la Sorveglianza dei prezzi. Dati aggiornati 2026 per frontalieri in',
@@ -63089,7 +64625,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-
   'blog-vivere-saint-rhemy-en-bosses-lavorare-vallese-da-frontaliere': {
     title: 'Vivere a Saint-Rhémy-En-Bosses e lavorare in Vallese da frontaliere',
     description: 'Permessi G, lavoro in Vallese, pendolarismo e costo della vita per frontalieri residenti in Saint-Rhémy-En-Bosses. Dati aggiornati 2026 per frontalieri',
@@ -63397,7 +64932,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
-
   'blog-vivere-courmayeur-e-lavorare-vallese-da-frontaliere': {
     title: 'Courmayeur: lavorare in Vallese vivendo in Valle d’Aosta',
     description: 'Come valutare un pendolarismo tra Courmayeur e il Vallese: percorsi, residenza e verifiche da fare prima di accettare un lavoro.',
@@ -63475,7 +65009,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
-
 
   'blog-vivere-gignod-lavorare-vallese-frontaliere': {
     title: 'Vivere a Gignod e lavorare in Vallese da frontaliere',
@@ -63778,7 +65311,6 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
-
 
   'blog-vivere-saint-pierre-e-lavorare-in-vallese-da-frontaliere': {
     title: 'Vivere a Saint-Pierre e lavorare in Vallese da frontaliere',
@@ -100709,7 +102241,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Pedemontana non chiede pedaggi via SMS o e-mail - I truffatori minacciano blocco o fermo del veicolo - I link rimandano a domini falsi - Verifica",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pedemontana-avviso-truffa.webp`,
+        "url": `${BASE_URL}/images/blog/article-pedemontana-truffa-sms-frontalieri.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Foto realistica di un casello autostradale ticinese all'alba con un'auto di un frontalier in avvicinamento"
@@ -101322,6 +102854,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
 
 };
 
