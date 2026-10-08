@@ -1,19 +1,21 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-10-08T09:33:48.903Z",
+  "generatedAt": "2026-10-08T21:30:21.729Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 20441,
-  "avgDurationMs": 20441,
+  "unchangedCount": 10,
+  "durationMs": 20242,
+  "avgDurationMs": 20242,
   "durationHistory": [
-    20441
+    20242
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Management & Marketing Assistant (m/w/d) – 100 %",
       "slug": "gestione-e-marketing-assistant-m-f-d-100-engel-volkers-wohnen-schweiz-ag-zug",
@@ -52,10 +54,7 @@
         "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "consulente-immobiliare-in-m-w-d-100-rheinfelden-ev-rheinfelden-immobilien-ag-rheinfelden",
@@ -417,5 +416,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }

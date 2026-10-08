@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pallas-kliniken",
-  "assembledAt": "2026-10-08T09:34:14.579Z",
+  "assembledAt": "2026-10-08T21:45:21.283Z",
   "jobs": [
     {
       "id": "pallas-kliniken-ca73a56c6513",
@@ -33,7 +33,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQikD2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:34:11.208Z",
+      "crawledAt": "2026-10-08T21:45:15.691Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQgth2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:34:09.678Z",
+      "crawledAt": "2026-10-08T21:45:15.144Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -240,7 +240,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-f5940200a0ef",
@@ -321,7 +322,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-acf85005b712",
@@ -395,7 +397,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-d4d1ad36d8e9",
@@ -473,7 +476,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-0e1d6dcb1b6e",
@@ -551,7 +555,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-16b3fff6239b",
@@ -631,7 +636,8 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-a4e1e78c6e95",
@@ -712,7 +718,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-31ebf27fe70b",
@@ -790,7 +797,8 @@
           "maxValue": 23800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-4019a66c713b",
@@ -870,7 +878,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-776732c3bf58",
@@ -944,7 +953,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-882bacf6e943",
@@ -1010,7 +1020,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-c2ce72189bcc",
@@ -1091,7 +1102,8 @@
           "maxValue": 192000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-30367910756a",
@@ -1171,7 +1183,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-66b01d58dbeb",
@@ -1262,7 +1275,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-deeb163594a6",
@@ -1337,7 +1351,8 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-c1d0f996b77c",
@@ -1427,7 +1442,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-3eee4635fe9f",
@@ -1508,7 +1524,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "pallas-kliniken-841326055835",
@@ -1591,7 +1608,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-10-08T09:33:13.566Z",
+  "generatedAt": "2026-10-08T21:29:13.295Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -16,10 +16,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5654,
-  "avgDurationMs": 5654,
+  "durationMs": 6397,
+  "avgDurationMs": 6397,
   "durationHistory": [
-    5654
+    6397
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:33:01.549Z",
+      "crawledAt": "2026-10-08T21:28:56.852Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -58,8 +58,8 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz TV AG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
+      "needsRetranslation": true,
       "salaryMin": 26000,
       "salaryMax": 39400,
       "salarySource": "estimated",
@@ -84,7 +84,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:33:00.455Z",
+      "crawledAt": "2026-10-08T21:28:55.816Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,8 +107,8 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
+      "needsRetranslation": true,
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",
@@ -124,5 +124,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }

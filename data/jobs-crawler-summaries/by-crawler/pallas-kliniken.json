@@ -1,10 +1,10 @@
 {
   "key": "pallas-kliniken",
   "label": "Pallas Kliniken",
-  "generatedAt": "2026-10-08T09:34:18.565Z",
+  "generatedAt": "2026-10-08T21:45:27.187Z",
   "total": 20,
   "discovered": null,
-  "parsed": 20,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -13,16 +13,61 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 20,
-  "durationMs": 30629,
-  "avgDurationMs": 30629,
+  "unchangedCount": 19,
+  "durationMs": 919192,
+  "avgDurationMs": 919192,
   "durationHistory": [
-    30629
+    919192
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "pallas-kliniken-acf85005b712",
+      "slug": "mpa-flessibile-cercasi-pallas-kliniken-olten",
+      "company": "Pallas Kliniken",
+      "companyKey": "pallas-kliniken",
+      "companyDomain": "pallas-kliniken.ch",
+      "title": "Flexible/-r MPA als Springer/-in gesucht!",
+      "location": "Olten",
+      "canton": "SO",
+      "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
+      "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T09:34:03.943Z",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4600",
+      "streetAddress": "Louis Giroud-Strasse 20",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-03-06",
+      "postedDate": "2026-03-06",
+      "postingDateSource": "reported",
+      "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
+      "firstSeenAt": "2026-09-19T22:59:20.346Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -37,7 +82,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQikD2AT",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:34:11.208Z",
+      "crawledAt": "2026-10-08T21:45:15.691Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,7 +124,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000RQgth2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:34:09.678Z",
+      "crawledAt": "2026-10-08T21:45:15.144Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -143,6 +188,7 @@
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,49 +232,7 @@
       "salaryMin": 70400,
       "salaryMax": 98400,
       "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "pallas-kliniken-acf85005b712",
-      "slug": "mpa-flessibile-cercasi-pallas-kliniken-olten",
-      "company": "Pallas Kliniken",
-      "companyKey": "pallas-kliniken",
-      "companyDomain": "pallas-kliniken.ch",
-      "title": "Flexible/-r MPA als Springer/-in gesucht!",
-      "needsRetranslation": true,
-      "location": "Olten",
-      "canton": "SO",
-      "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
-      "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:34:03.943Z",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4600",
-      "streetAddress": "Louis Giroud-Strasse 20",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "part-time",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-06",
-      "postedDate": "2026-03-06",
-      "postingDateSource": "reported",
-      "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
-      "firstSeenAt": "2026-09-19T22:59:20.346Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -272,6 +276,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -315,6 +320,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -357,6 +363,7 @@
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -400,6 +407,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -443,6 +451,7 @@
       "salaryMin": 17000,
       "salaryMax": 23800,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -485,6 +494,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -527,6 +537,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -569,6 +580,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -612,6 +624,7 @@
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -654,6 +667,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -696,6 +710,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -739,6 +754,7 @@
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -781,6 +797,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -824,6 +841,7 @@
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -867,6 +885,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -876,5 +895,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }

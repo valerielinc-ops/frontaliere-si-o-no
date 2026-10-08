@@ -1,6 +1,6 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-10-08T09:31:17.495Z",
+  "assembledAt": "2026-10-08T21:27:48.961Z",
   "jobs": [
     {
       "id": "selecta-d5d35488eb4c",
@@ -33,7 +33,7 @@
       "url": "https://careers.selecta.ch/Job/4620",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:12.263Z",
+      "crawledAt": "2026-10-08T21:27:41.736Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -59,15 +59,15 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-07-15T22:04:38.034Z",
+      "previousSlugs": [
+        "operator-installation-m-w-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "operator-installation-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "operator-installation-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-07-15T22:04:38.034Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -113,7 +113,7 @@
       "url": "https://careers.selecta.ch/Job/4622",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:12.117Z",
+      "crawledAt": "2026-10-08T21:27:41.048Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -144,11 +144,11 @@
         "business-development-manager-b2b-m-w-d-selecta-westschweiz"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "business-development-manager-b2b-m-w-d-selecta-steinhausen"
-        ],
         "it": [
           "business-development-manager-b2b-m-w-d-selecta-westschweiz"
+        ],
+        "en": [
+          "business-development-manager-b2b-m-w-d-selecta-steinhausen"
         ]
       },
       "firstSeenAt": "2026-07-17T11:06:38.054Z",
@@ -197,7 +197,7 @@
       "url": "https://careers.selecta.ch/Job/4621",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.963Z",
+      "crawledAt": "2026-10-08T21:27:40.898Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -223,15 +223,15 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
-      "firstSeenAt": "2026-07-17T11:06:38.054Z",
+      "previousSlugs": [
+        "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und"
         ]
       },
-      "previousSlugs": [
-        "business-development-manager-b2b-m-w-d-selecta-deutschschweiz-region-be-so-fr-bl-bs-und"
-      ],
+      "firstSeenAt": "2026-07-17T11:06:38.054Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -277,7 +277,7 @@
       "url": "https://careers.selecta.ch/Job/4612",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.814Z",
+      "crawledAt": "2026-10-08T21:27:40.742Z",
       "addressLocality": "Berner Oberland",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -308,14 +308,14 @@
         "automatenbetreuer-m-w-d-selecta-region-berner-oberland"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "automatenbetreuer-m-w-d-selecta-region-berner-oberland"
+        ],
         "en": [
           "automatenbetreuer-m-w-d-selecta-berner-oberland"
         ],
         "fr": [
           "automatenbetreuer-m-w-d-selecta-berner-oberland"
-        ],
-        "it": [
-          "automatenbetreuer-m-w-d-selecta-region-berner-oberland"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:36.479Z",
@@ -364,7 +364,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.656Z",
+      "crawledAt": "2026-10-08T21:27:40.590Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -390,15 +390,15 @@
         "canton": "BE",
         "location": "primär Spiez"
       },
-      "firstSeenAt": "2026-07-22T11:27:48.108Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-primar-spiez-ablosung-in-bern-langnau"
-      ],
+      "firstSeenAt": "2026-07-22T11:27:48.108Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -444,7 +444,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.510Z",
+      "crawledAt": "2026-10-08T21:27:40.444Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -470,15 +470,15 @@
         "canton": "LU",
         "location": "Wolhusen / Luzern"
       },
-      "firstSeenAt": "2026-07-25T10:44:21.562Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-wolhusen-luzern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-wolhusen-luzern"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-wolhusen-luzern"
-      ],
+      "firstSeenAt": "2026-07-25T10:44:21.562Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -524,7 +524,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.353Z",
+      "crawledAt": "2026-10-08T21:27:40.303Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -610,7 +610,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.209Z",
+      "crawledAt": "2026-10-08T21:27:40.156Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -636,15 +636,15 @@
         "canton": "BE",
         "location": "Kirchberg BE -"
       },
-      "firstSeenAt": "2026-09-29T21:22:09.762Z",
+      "previousSlugs": [
+        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
-      ],
+      "firstSeenAt": "2026-09-29T21:22:09.762Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -666,7 +666,7 @@
         "it": "servicetechniker-m-w-d-selecta-basel-solothurn",
         "en": "service-technician-m-f-d-selecta-basel-solothurn",
         "de": "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-        "fr": "technicien-de-service-h-f-d-selecta-basel-solothurn"
+        "fr": "servicetechniker-m-w-d-selecta-basel-solothurn"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -690,7 +690,7 @@
       "url": "https://careers.selecta.ch/Job/4525",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:11.056Z",
+      "crawledAt": "2026-10-08T21:27:40.014Z",
       "addressLocality": "Basel / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -719,7 +719,8 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-region-basel-solothurn",
         "technicien-des-services-m-f-d-selecta-basel-solothurn",
-        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn"
+        "tecnico-di-servizio-m-f-d-selecta-basel-solothurn",
+        "technicien-de-service-h-f-d-selecta-basel-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -731,7 +732,8 @@
         ],
         "fr": [
           "servicetechniker-m-w-d-selecta-region-basel-solothurn",
-          "technicien-des-services-m-f-d-selecta-basel-solothurn"
+          "technicien-des-services-m-f-d-selecta-basel-solothurn",
+          "technicien-de-service-h-f-d-selecta-basel-solothurn"
         ]
       },
       "firstSeenAt": "2026-08-06T11:58:32.609Z",
@@ -780,7 +782,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.913Z",
+      "crawledAt": "2026-10-08T21:27:39.859Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -845,7 +847,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-zurich-aargau",
         "en": "service-technician-m-f-d-selecta-zurich-aargau",
         "de": "servicetechniker-m-w-d-selecta-region-zurich-aargau",
-        "fr": "technicien-des-services-m-f-d-selecta-zurich-aargau"
+        "fr": "servicetechniker-m-w-d-selecta-zurich-aargau"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -869,7 +871,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.762Z",
+      "crawledAt": "2026-10-08T21:27:39.718Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -897,7 +899,8 @@
       },
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-zurich-aargau",
-        "servicetechniker-m-w-d-selecta-region-zurich-aargau"
+        "servicetechniker-m-w-d-selecta-region-zurich-aargau",
+        "technicien-des-services-m-f-d-selecta-zurich-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -905,7 +908,7 @@
           "servicetechniker-m-w-d-selecta-region-zurich-aargau"
         ],
         "fr": [
-          "servicetechniker-m-w-d-selecta-zurich-aargau"
+          "technicien-des-services-m-f-d-selecta-zurich-aargau"
         ]
       },
       "firstSeenAt": "2026-07-04T11:56:53.326Z",
@@ -954,7 +957,7 @@
       "url": "https://careers.selecta.ch/Job/4618",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.616Z",
+      "crawledAt": "2026-10-08T21:27:39.575Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -980,15 +983,15 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-07-14T22:04:38.868Z",
+      "previousSlugs": [
+        "hr-generalist-m-w-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-generalist-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "hr-generalist-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-07-14T22:04:38.868Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1017,10 +1020,10 @@
       "companyDomain": "selecta.com",
       "title": "HR Assistant (m/w/d)",
       "titleByLocale": {
-        "it": "Assistente HR (m/f/d)",
-        "en": "HR Assistant (m/f/d)",
         "de": "Personalwesen Assistent (m/w/d)",
-        "fr": "Assistant RH (h/f/d)"
+        "fr": "Assistant RH (h/f/d)",
+        "it": "Risorse Umane Assistant (m/w/d)",
+        "en": "HR Assistant (m/f/d)"
       },
       "description": "HR Assistant (m/w/d) 80 - 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Eigenverantwortliche Abwicklung sämtlicher personaladministrativer Prozesse (Eintritte, Austritte, Vertragsänderungen, Mutationen, Arbeitszeugnisse etc.)\n• Unterstützung und Organisation sämtlicher administrativer HR-Abläufe\n• Ansprechperson für Mitarbeitende und Führungskräfte bei operativen HR-Fragen\n• Unterstützung bei der monatlichen Lohnverarbeitung in Zusammenarbeit mit Payroll\n• Verwaltung von Arbeits- und Aufenthaltsbewilligungen sowie Korrespondenz mit Behörden, Ämtern und Versicherungen\n• Unterstützung bei der Bearbeitung von Unfall-, Krankheits- und Taggeldfällen Ausbildung\n• Abgeschlossene kaufmännische Grundausbildung sowie eine Weiterbildung als HR-Assistent/in Profil\n• 2–3 Jahre Berufserfahrung in einer vergleichbaren Position\n• Stilsichere Deutsch- und Französischkenntnisse in Wort und Schrift; gute Englischkenntnisse von Vorteil\n• Sie sind flexibel, belastbar und engagiert mit einer hohen Einsatzbereitschaft\n• Selbstständige, strukturierte und sorgfältige Arbeitsweise\n• Hohe Dienstleistungsorientierung, Diskretion und Organisationstalent\n• Proaktive, belastbare und engagierte Persönlichkeit\n• Sehr gute MS-Office-Kenntnisse; Erfahrung mit Abacus, Bridge und/oder Skriba ist von Vorteil Spezielles\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem dynamischen HR-Team\n• Kurze Entscheidungswege und ein kollegiales Arbeitsumfeld\n• Viel Eigenverantwortung sowie die Möglichkeit, HR-Prozesse aktiv mitzugestalten\n• Moderne Arbeitsmittel und attraktive Arbeitsbedingungen\n• Entwicklungsperspektiven sowie Möglichkeiten zur fachlichen Weiterentwicklung Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
@@ -1034,7 +1037,7 @@
       "url": "https://careers.selecta.ch/Job/4617",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.462Z",
+      "crawledAt": "2026-10-08T21:27:39.437Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1060,16 +1063,17 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": true,
       "previousSlugs": [
         "assistant-rh-m-f-d-selecta-kirchberg-be",
         "hr-assistant-m-w-d-selecta-kirchberg-be"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "assistant-rh-m-f-d-selecta-kirchberg-be"
-        ],
         "it": [
           "hr-assistant-m-w-d-selecta-kirchberg-be"
+        ],
+        "fr": [
+          "assistant-rh-m-f-d-selecta-kirchberg-be"
         ]
       },
       "firstSeenAt": "2026-07-14T22:04:38.209Z",
@@ -1118,7 +1122,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.317Z",
+      "crawledAt": "2026-10-08T21:27:39.294Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1144,15 +1148,15 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-08-24T21:43:13.112Z",
+      "previousSlugs": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-associate-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "sales-support-associate-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-08-24T21:43:13.112Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1198,7 +1202,7 @@
       "url": "https://careers.selecta.ch/Job/4605",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.162Z",
+      "crawledAt": "2026-10-08T21:27:39.156Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1224,15 +1228,15 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-07-04T11:56:52.594Z",
+      "previousSlugs": [
+        "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-kundendienst-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:52.594Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1251,26 +1255,26 @@
       "id": "selecta-0957b3462a29",
       "slug": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
       "slugByLocale": {
-        "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
         "it": "supporto-commerciale-associate-m-f-d-selecta-kirchberg-be",
-        "fr": "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be",
-        "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81"
+        "en": "sales-support-associate-m-w-d-selecta-kirchberg-be-cjdx81",
+        "de": "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "fr": "collaborateur-trice-au-support-commercial-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
       "companyDomain": "selecta.com",
       "title": "Sales Support Associate (m/w/d)",
       "titleByLocale": {
-        "de": "Sales Support Associate (m/w/d)",
-        "en": "Sales Support Associate (m/f/d)",
         "it": "Addetto/a al supporto alle vendite (m/f/d)",
+        "en": "Sales Support Associate (m/f/d)",
+        "de": "Sales Support Associate (m/w/d)",
         "fr": "Collaborateur/trice au support commercial (h/f/d)"
       },
       "description": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
-        "de": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "it": "Supporto vendite Associate (m/f/d) 100% Il Gruppo Selecta, con sede in Svizzera dal 1957, è leader europeo nella fornitura di caffè e soluzioni innovative per la tecnologia alimentare sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, impegnati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Kirchberg BE Inizio del lavoro immediatamente o d'accordo\n• Creare offerte\n• Preparazione dei calcoli e delle applicazioni di investimento\n• Creazione e ulteriore elaborazione degli ordini della macchina\n• Controllo delle conferme d'ordine\n• Preparazione di contratti e contratti quadro\n• Creazione di singole lettere cliente\n• Creare, modificare e inoltrare mutazioni e terminazioni\n• Preparazione delle valutazioni e analisi dei clienti\n• Acquisizione di dati in vari sistemi\n• Funzione di interfaccia tra diversi dipartimenti (il supporto diretto del cliente è piuttosto raro)\n• Attività specifiche come specificato\n• Compiti all'interno di un progetto, coordinamento indipendente, supervisione e formazione di cooperazione\n• Formazione commerciale o equivalente completata\n• Prima esperienza professionale nelle vendite\n• Conoscenza utente IT molto buona (Movex, Microsoft CRM, Programmi di Office, Outlook)\n• Lingua madre Francese ed elegante tedesco in parola e scrittura\n• Molto buone abilità di lingua inglese Profilo vantaggioso\n• Metodo di lavoro fresco e preciso\n• Adattamento imprevisto\n• L'orientamento del servizio\n• Alto grado di indipendenza\n• Lavoro di squadra\n• Critica e capacità di conflitto\n• Capacità di carico\n• Hai suscitato il tuo interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
         "en": "Sales Support Associate (m/f/d) 100% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, committed and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Place of work Kirchberg BE Start of work immediately or by agreement Main tasks\n• Creating offers\n• Preparation of calculations and investment applications\n• Creation and further processing of machine orders\n• Checking of order confirmations\n• Preparation of contracts and framework contracts\n• Creating individual customer letters\n• Creating, editing and forwarding mutations and terminations\n• Preparation of customer evaluations and analyses\n• Acquisition of data in various systems\n• Interface function between different departments (direct customer support is rather rare)\n• Specific tasks as specified\n• Tasks within a project, independent coordination, supervision and cooperation training\n• Commercial or equivalent training completed\n• First professional experience in sales\n• Very good IT user knowledge (Movex, Microsoft CRM, Office Programs, Outlook)\n• Mother tongue French and stylish German in word and writing\n• Very good English language skills Advantageous Profile\n• Fresh and exact working method\n• Unforeseen adaptability\n• Service orientation\n• High degree of independence\n• Teamwork\n• Criticism and conflict capability\n• Load capacity\n• Good networked thinking Special Applying Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
+        "de": "Sales Support Associate (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Erstellen von Offerten\n• Erstellen von Kalkulationen und Investitionsanträgen\n• Erstellen und Weiterverarbeiten von Automatenbestellungen\n• Kontrollieren von Auftragsbestätigungen\n• Erstellen von Verträgen und Rahmenverträgen\n• Erstellen von individuellen Kundenschreiben\n• Erstellen, Bearbeiten und Weiterleiten von Mutationen und Kündigungen\n• Erstellen von Kundenauswertungen und Analysen\n• Erfassen von Daten in diversen Systemen\n• Schnittstellen-Funktion zwischen verschiedenen Abteilungen (direkte Kundenbetreuung ist eher selten)\n• Spezialaufgaben nach Vorgabe\n• Aufgaben innerhalb eines Projektes, selbständige Koordination, Überwachung und Mitarbeit Ausbildung\n• Abgeschlossene kaufmännische oder gleichwertige Ausbildung\n• Erste Berufserfahrung im Verkaufsinnendienst\n• Sehr gute IT-Anwenderkenntnisse (Movex, Microsoft CRM, Office Programme, Outlook)\n• Muttersprache Französisch sowie stilsicheres Deutsch in Wort und Schrift\n• Sehr gute Englischkenntnisse von Vorteil Profil\n• Speditive und exakte Arbeitsweise\n• Anpassungsfähigkeit bei Unvorhergesehenem\n• Dienstleistungsorientiertheit\n• Hohes Mass an Selbstständigkeit\n• Teamfähigkeit\n• Kritik- und Konfliktfähigkeit\n• Belastbarkeit\n• Gute vernetzte Denkweise Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "fr": "Soutien aux ventes associé (h/f/d) 100% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de café et de solutions innovantes en matière de technologie alimentaire sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 employés hautement qualifiés, engagés et passionnés: des femmes qui créent des millions de moments de joie pour nos clients chaque jour: des femmes et leurs consommateurs: des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Kirchberg BE Début du travail immédiatement ou d'un commun accord Principales tâches\n• Création d'offres\n• Préparation des calculs et des applications d'investissement\n• Création et traitement ultérieur des commandes de machines\n• Vérification des confirmations de commande\n• Préparation des contrats-cadres\n• Création de lettres individuelles\n• Création, édition et transmission de mutations et de terminaisons\n• Préparation des évaluations et analyses des clients\n• Acquisition de données dans divers systèmes\n• Fonction d'interface entre les différents départements (le soutien à la clientèle directe est assez rare)\n• Tâches spécifiques spécifiées\n• Tâches dans le cadre d'un projet, coordination, supervision et coopération indépendantes\n• Formation commerciale ou équivalente terminée\n• Première expérience professionnelle dans les ventes\n• Très bonne connaissance de l'utilisateur IT (Movex, Microsoft CRM, Programmes de bureau, Outlook)\n• Langue maternelle Français et allemand élégant en paroles et en écriture\n• Très bonnes compétences en anglais Profil avantageux\n• Méthode de travail fraîche et exacte\n• Adaptabilité imprévue\n• Orientation vers les services\n• Haute indépendance\n• Travail d'équipe\n• Critique et capacité de conflit\n• Capacité de charge\n• Bonne pensée en réseau Spécial Application Avez-vous suscité votre intérêt? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
       },
       "location": "Kirchberg BE",
@@ -1278,7 +1282,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:10.019Z",
+      "crawledAt": "2026-10-08T21:27:39.004Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1299,24 +1303,25 @@
       "department": "",
       "jobReqId": "4589",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "_targetScope": {
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "previousSlugs": [
+        "sales-support-associate-m-w-d-selecta-kirchberg-be",
+        "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sales-support-associate-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
-          "sales-support-associate-m-w-d-selecta-kirchberg-be"
+          "sales-support-associate-m-w-d-selecta-kirchberg-be",
+          "associe-de-soutien-aux-ventes-m-f-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "sales-support-associate-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-08-24T21:43:13.112Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1329,17 +1334,16 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-24T21:43:13.112Z"
+      }
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1363,7 +1367,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.867Z",
+      "crawledAt": "2026-10-08T21:27:38.861Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1392,19 +1396,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -1453,7 +1458,7 @@
       "url": "https://careers.selecta.ch/Job/4604",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.712Z",
+      "crawledAt": "2026-10-08T21:27:38.717Z",
       "addressLocality": "Suhr / Reiden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1479,15 +1484,15 @@
         "canton": "AG",
         "location": "Suhr / Reiden"
       },
-      "firstSeenAt": "2026-07-04T11:56:50.146Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-suhr-reiden"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:50.146Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1533,7 +1538,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.559Z",
+      "crawledAt": "2026-10-08T21:27:38.567Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1559,15 +1564,16 @@
         "canton": "BE",
         "location": "Reinach BL / Kirchberg BE"
       },
-      "firstSeenAt": "2026-09-19T22:57:42.872Z",
+      "previousSlugs": [
+        "service-teamleiter-automatenbetreuung-m-w-d-selecta-reinach-bl-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "service-teamleiter-automatenbetreuung-m-w-d-selecta-reinach-bl-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "service-teamleiter-automatenbetreuung-m-w-d-selecta-reinach-bl-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-09-19T22:57:42.872Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1589,7 +1595,7 @@
         "it": "selettore-di-ordini-di-investimento-m-f-d-selecta-kirchberg-be",
         "en": "investment-order-picker-m-f-d-selecta-kirchberg-be",
         "de": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
-        "fr": "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+        "fr": "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1613,7 +1619,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.414Z",
+      "crawledAt": "2026-10-08T21:27:37.885Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1639,18 +1645,19 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-09-19T22:57:42.726Z",
+      "previousSlugs": [
+        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be",
+        "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
         ],
         "fr": [
-          "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
+          "picker-d-ordre-d-investissement-h-f-d-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "anlage-kommissionierer-m-w-d-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-09-19T22:57:42.726Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1696,7 +1703,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.262Z",
+      "crawledAt": "2026-10-08T21:27:37.742Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -1722,15 +1729,15 @@
         "canton": "GL",
         "location": "Wädenswil bis Glarus"
       },
-      "firstSeenAt": "2026-07-04T11:56:49.273Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-wadenswil-bis-glarus"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-wadenswil-bis-glarus"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-wadenswil-bis-glarus"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:49.273Z",
       "salaryMin": 65000,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -1776,7 +1783,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:09.086Z",
+      "crawledAt": "2026-10-08T21:27:37.596Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1802,15 +1809,15 @@
         "canton": "ZH",
         "location": "Dübendorf / Volketswil / Pfäffikon"
       },
-      "firstSeenAt": "2026-07-04T11:56:48.494Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-dubendorf-volketswil-pfaffikon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-dubendorf-volketswil-pfaffikon"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-dubendorf-volketswil-pfaffikon"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:48.494Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1856,7 +1863,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.922Z",
+      "crawledAt": "2026-10-08T21:27:37.455Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1882,15 +1889,16 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "firstSeenAt": "2026-07-04T11:56:48.319Z",
+      "previousSlugs": [
+        "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "deine-ausbildung-bei-selecta-logistiker-in-efz-selecta-kirchberg-be"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:48.319Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1936,7 +1944,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.779Z",
+      "crawledAt": "2026-10-08T21:27:37.310Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1962,19 +1970,19 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2618,
-      "retranslationAttempts": 5,
-      "firstSeenAt": "2026-07-04T11:56:47.626Z",
+      "previousSlugs": [
+        "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
         ]
       },
-      "previousSlugs": [
-        "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
-      ],
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2618,
+      "retranslationAttempts": 5,
+      "firstSeenAt": "2026-07-04T11:56:47.626Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2020,7 +2028,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.628Z",
+      "crawledAt": "2026-10-08T21:27:37.170Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2108,7 +2116,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.483Z",
+      "crawledAt": "2026-10-08T21:27:37.020Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2196,7 +2204,7 @@
       "url": "https://careers.selecta.ch/Job/4607",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.330Z",
+      "crawledAt": "2026-10-08T21:27:36.878Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -2222,19 +2230,19 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3346,
-      "retranslationAttempts": 3,
-      "firstSeenAt": "2026-07-04T11:56:49.954Z",
+      "previousSlugs": [
+        "key-account-manager-new-business-hunter-selecta-westschweiz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-new-business-hunter-selecta-westschweiz"
         ]
       },
-      "previousSlugs": [
-        "key-account-manager-new-business-hunter-selecta-westschweiz"
-      ],
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3346,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-07-04T11:56:49.954Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -2280,7 +2288,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:08.146Z",
+      "crawledAt": "2026-10-08T21:27:36.693Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -2365,7 +2373,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:31:07.991Z",
+      "crawledAt": "2026-10-08T21:27:36.552Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -2391,15 +2399,15 @@
         "canton": "GR",
         "location": "Sargans / Landquart"
       },
-      "firstSeenAt": "2026-07-08T11:18:25.982Z",
+      "previousSlugs": [
+        "automatenbetreuer-m-w-d-selecta-region-sargans-landquart"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "automatenbetreuer-m-w-d-selecta-region-sargans-landquart"
         ]
       },
-      "previousSlugs": [
-        "automatenbetreuer-m-w-d-selecta-region-sargans-landquart"
-      ],
+      "firstSeenAt": "2026-07-08T11:18:25.982Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
