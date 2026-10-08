@@ -98,7 +98,10 @@ function boundedEnvInteger(name, fallback, min, max) {
  */
 export function resolveTitleFixConcurrency() {
   const lanes = boundedEnvInteger('FREE_TRANSLATE_CODEX_LANES', 2, 1, 3);
-  const batchMaxTexts = boundedEnvInteger('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', 5, 1, 10);
+  // Keep this clamp aligned with free-translate's calibration ceiling. The
+  // workflow default remains 10 until a real Luna Max run selects a larger
+  // production value.
+  const batchMaxTexts = boundedEnvInteger('FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS', 5, 1, 50);
   const derived = Math.min(TITLE_FIX_CONCURRENCY_MAX, lanes * batchMaxTexts);
   return boundedEnvInteger('UNTRANSLATED_TITLE_FIX_CONCURRENCY', derived, 1, TITLE_FIX_CONCURRENCY_MAX);
 }

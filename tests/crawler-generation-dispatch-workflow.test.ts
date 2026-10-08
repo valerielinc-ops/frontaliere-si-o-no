@@ -20,6 +20,12 @@ const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation
 const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
 const CODEX_BUDGET_RESOLVER = 'Resolve Codex reserve budget';
 const CODEX_MAX_CALLS_REPO_EXPR = '${{ vars.FREE_TRANSLATE_CODEX_MAX_CALLS }}';
+const CODEX_PHASES = [
+  'Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)',
+  'Phase 2b: Translate pending jobs (cascade top-up)',
+  'Phase 2d: Fix untranslated titles (free cascade)',
+  'Phase 2e: Fix untranslated descriptions (free cascade)',
+];
 const shadowCascadeEnv = {
   SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
   SHADOW_RUN_ID: '${{ github.run_id }}',
@@ -294,6 +300,12 @@ describe('crawler generation PR B workflow wiring', () => {
       const cascadeEnv = steps[cascade.index].env ?? {};
       expect(cascadeEnv.CODEX_AUTH_BROKER_SOCKET).toBeDefined();
       expect(cascadeEnv.FREE_TRANSLATE_CODEX_MAX_CALLS).toBeUndefined();
+      for (const phaseName of CODEX_PHASES) {
+        const phase = findUniqueStep(steps, phaseName).step;
+        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS, phaseName).toBe('10');
+        expect(phase.env?.FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS, phaseName).toBe('3000');
+        expect(phase.env?.FREE_TRANSLATE_CODEX_TIER, phaseName).toBeUndefined();
+      }
       const maxCalls = 30;
       expect(Number.isInteger(maxCalls) && maxCalls > 0).toBe(true);
       expect(cascadeEnv.TRANSLATION_THINKING_AB).toBeUndefined();

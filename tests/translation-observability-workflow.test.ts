@@ -309,6 +309,7 @@ describe('translation observability workflow', () => {
         FREE_TRANSLATE_CODEX_MAX_MS: '900000',
         FREE_TRANSLATE_CODEX_LANES: '3',
         FREE_TRANSLATE_CODEX_BATCH_MAX_TEXTS: '10',
+        FREE_TRANSLATE_CODEX_BATCH_MAX_CHARS: '3000',
       });
       expect(steps[titleIndex]?.env).not.toHaveProperty('FREE_TRANSLATE_CODEX_TIER');
     }

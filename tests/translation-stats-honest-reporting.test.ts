@@ -214,11 +214,24 @@ describe('summarizeJobs / formatReport — presence is separated from translatio
     const before = finalizeEntry(counters, { label: 'before', timestamp: 'T' });
     expect(before).not.toHaveProperty('codexReserve');
 
-    const codexReserve = { calls: 12, textsSent: 20, translated: 17, rejected: 3, spentMs: 240000, verdict: 'covered', byPhase: {} };
+    const codexReserve = {
+      calls: 12,
+      textsSent: 20,
+      charsSent: 10000,
+      avgTextsPerCall: 20 / 12,
+      avgCharsPerCall: 10000 / 12,
+      translated: 17,
+      rejected: 3,
+      spentMs: 240000,
+      verdict: 'covered',
+      byPhase: {},
+    };
     const after = finalizeEntry(counters, { label: 'after', timestamp: 'T', codexReserve });
     expect(after.codexReserve).toEqual(codexReserve);
     const row = formatReport(after).join('\n').split('\n').find((line) => line.includes('Codex reserve:'));
     expect(row).toContain('17 translated, 3 rejected');
+    expect(row).toContain('10000 chars');
+    expect(row).toContain('1.7 texts/call');
 
     // A run that left no report reads "not measured", never zero translations.
     const unmeasured = finalizeEntry(counters, { label: 'after', timestamp: 'T', codexReserve: null });
