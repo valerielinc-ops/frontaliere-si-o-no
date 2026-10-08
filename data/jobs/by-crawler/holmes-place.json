@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holmes-place",
-  "assembledAt": "2026-10-08T21:25:15.395Z",
+  "assembledAt": "2026-10-08T22:31:43.588Z",
   "jobs": [
     {
       "id": "holmes-place-2936eefd975e",
@@ -33,7 +33,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:11.995Z",
+      "crawledAt": "2026-10-08T22:31:34.792Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -52,16 +52,16 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T21:22:53.197Z",
+      "previousSlugs": [
+        "personal-trainer-m-f-d-holmes-place-zurich-jel-personal-trainer-m-f-d"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "personal-trainer-m-f-d-holmes-place-zurich-jel-personal-trainer-m-f-d"
         ]
       },
-      "previousSlugs": [
-        "personal-trainer-m-f-d-holmes-place-zurich-jel-personal-trainer-m-f-d"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T21:22:53.197Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -107,7 +107,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:11.994Z",
+      "crawledAt": "2026-10-08T22:31:34.790Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -126,15 +126,15 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T21:22:53.196Z",
+      "previousSlugs": [
+        "rezeptionist-m-f-d-holmes-place-zurich-jel-rezeptionist-m-f-d"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "rezeptionist-m-f-d-holmes-place-zurich-jel-rezeptionist-m-f-d"
         ]
       },
-      "previousSlugs": [
-        "rezeptionist-m-f-d-holmes-place-zurich-jel-rezeptionist-m-f-d"
-      ],
+      "firstSeenAt": "2026-10-03T21:22:53.196Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -180,7 +180,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:11.991Z",
+      "crawledAt": "2026-10-08T22:31:34.783Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -257,7 +257,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:11.987Z",
+      "crawledAt": "2026-10-08T22:31:34.774Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -276,16 +276,16 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T21:22:53.181Z",
+      "previousSlugs": [
+        "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
         ]
       },
-      "previousSlugs": [
-        "fitness-manager-m-f-d-holmes-place-oberrieden-gen-fitness-manager-m-f-d"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T21:22:53.181Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -331,7 +331,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:25:11.985Z",
+      "crawledAt": "2026-10-08T22:31:34.771Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -350,15 +350,15 @@
       "applyUrl": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T21:22:53.178Z",
+      "previousSlugs": [
+        "ernahrungscoach-m-f-d-holmes-place-oberrieden-see-ernaehrungscoach-m-f-d"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungscoach-m-f-d-holmes-place-oberrieden-see-ernaehrungscoach-m-f-d"
         ]
       },
-      "previousSlugs": [
-        "ernahrungscoach-m-f-d-holmes-place-oberrieden-see-ernaehrungscoach-m-f-d"
-      ],
+      "firstSeenAt": "2026-10-03T21:22:53.178Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
