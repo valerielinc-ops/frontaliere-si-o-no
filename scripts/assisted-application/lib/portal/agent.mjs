@@ -388,6 +388,12 @@ export async function clickSubmitButton(page, target) {
     await target.locator.click({ timeout: ACTION_TIMEOUT_MS });
     return 'ref';
   } catch (error) {
+    // A timeout while Playwright is still waiting for the ref proves that no
+    // click was dispatched. Every other click failure is ambiguous: the
+    // browser may already have sent the event, so let the caller observe the
+    // page outcome instead of risking a duplicate application.
+    const message = String(error?.message || error);
+    if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(message)) return 'outcome';
     if (!target?.name || typeof page.getByRole !== 'function') throw error;
     const candidates = page.getByRole('button', { name: target.name, exact: true });
     const count = await candidates.count().catch(() => 0);

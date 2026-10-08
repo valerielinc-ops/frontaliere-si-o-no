@@ -16,7 +16,7 @@ describe('portal runner self-correction', () => {
   });
 
   it('level 1: re-resolves an agent-named send button after SuccessFactors replaces its ref', async () => {
-    const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout')) };
+    const stale = { click: vi.fn().mockRejectedValue(new Error('locator.click: Timeout while waiting for locator')) };
     const fresh = {
       isVisible: vi.fn().mockResolvedValue(true),
       isEnabled: vi.fn().mockResolvedValue(true),
@@ -28,6 +28,21 @@ describe('portal runner self-correction', () => {
     await expect(clickSubmitButton(page as any, { locator: stale, name: 'Postuler' })).resolves.toBe('role');
     expect(page.getByRole).toHaveBeenCalledWith('button', { name: 'Postuler', exact: true });
     expect(fresh.click).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
+  it('level 1: does not retry a click whose dispatch outcome is ambiguous', async () => {
+    let dispatches = 0;
+    const dispatchedThenRejected = {
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const page = { getByRole: vi.fn() };
+
+    await expect(clickSubmitButton(page as any, { locator: dispatchedThenRejected, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(page.getByRole).not.toHaveBeenCalled();
   });
 
   it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {
