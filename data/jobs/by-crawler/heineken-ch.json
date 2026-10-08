@@ -209,9 +209,10 @@
           "chauffeur-cat-c-e-heineken-switzerland-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:07.997Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1327
     },
     {
       "id": "heineken-ch-5cf60b489116",
@@ -365,8 +366,9 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-08T09:52:41.504Z",
       "firstSeenAt": "2026-09-07T23:43:19.344Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2505
     },
     {
       "id": "heineken-ch-06d1b6fb1d09",

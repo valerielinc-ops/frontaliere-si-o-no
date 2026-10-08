@@ -835,7 +835,7 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:26:01.926Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "implenia-d0a090a286e1",
@@ -942,8 +942,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-30T21:27:00.187Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6001
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1102,9 +1103,10 @@
       "applyUrl": "https://jobs.implenia.com/job/Sachbearbeiter-Center-und-Mixed-Use-Site-Management-%28mwd%29%2C-Basel-%28St%C3%BCckipark%29%2C-80-100/13854-de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:26:34.303Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3039
     },
     {
       "id": "implenia-c5de849571f2",
@@ -2463,9 +2465,10 @@
           "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-02T21:26:20.241Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3318
     },
     {
       "id": "implenia-c31f56701a42",
@@ -3465,7 +3468,7 @@
       "id": "implenia-6f24131d849a",
       "slug": "senior-cost-manager-data-center-m-w-d-opfikon-80-100-implenia-ch",
       "slugByLocale": {
-        "de": "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud",
+        "de": "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
         "fr": "gestionnaire-principal-des-couts-h-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
@@ -3521,11 +3524,12 @@
           "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
         ],
         "de": [
-          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+          "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud"
         ]
       },
       "previousSlugs": [
-        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch"
+        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch",
+        "senior-cost-manager-m-w-d-opfikon-80-100-implenia-ch-21syud"
       ]
     },
     {

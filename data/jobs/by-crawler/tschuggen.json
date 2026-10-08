@@ -165,9 +165,10 @@
       "requirementsByLocale": {},
       "department": "Service",
       "hotelName": "Tschuggen Grand Hotel",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:22:02.399Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2979
     },
     {
       "id": "tschuggen-a230738e90d2",
@@ -220,9 +221,10 @@
       "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:22:49.716Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3087
     },
     {
       "id": "tschuggen-2bb7c02e5260",

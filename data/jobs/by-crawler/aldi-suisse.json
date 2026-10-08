@@ -6666,8 +6666,9 @@
       "datePosted": "",
       "postingDateSource": "unknown",
       "firstSeenAt": "2026-06-29T21:33:13.101Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2904
     },
     {
       "id": "aldi-suisse-c66bd02e0640",

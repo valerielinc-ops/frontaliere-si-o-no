@@ -782,7 +782,6 @@
           "kunsttherapeut-in-pdgr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-18T23:20:49.979Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -797,8 +796,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-c491286aff88",
@@ -2783,7 +2781,7 @@
       "id": "pdgr-d7f7612b1400",
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns",
+        "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
         "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "fr": "psychiatre-psychiatrische-dienste-graubunden-chur",
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
@@ -2842,7 +2840,7 @@
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur-t5twns"
         ],
         "en": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
