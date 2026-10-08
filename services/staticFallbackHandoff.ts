@@ -111,6 +111,67 @@ export function isStaticArticleReadyForTakeover(input: StaticArticleReadiness): 
 }
 
 /**
+ * Marks a static snapshot the SPA left OUTSIDE `#root` to own the body until
+ * its own view is ready. App.tsx sets it; it is never in the served HTML.
+ */
+export const STATIC_SNAPSHOT_OWNER_ATTR = 'data-ft-snapshot-owner';
+
+/**
+ * Take a body-owning snapshot out of the document for good, with the
+ * build-time rail grid it may sit in.
+ *
+ * Removed, not hidden. Hidden it would stay in the DOM as a second copy of the
+ * page (two `<h1>` for a crawler that renders), its rail grid would stay in the
+ * flow as an empty band after the footer, and the next client-side move would
+ * find it and show it as the content of whatever page came next.
+ */
+export function removeOwnedStaticSnapshot(snapshot: Element): void {
+  (snapshot.closest('.ft-rail-grid') ?? snapshot).remove();
+}
+
+/** How long {@link afterRootCrossfade} waits for `#root` before releasing anyway. */
+export const ROOT_CROSSFADE_WAIT_MS = 10_000;
+
+export interface RootCrossfadeEnv {
+  root?: HTMLElement | null;
+  /** Run a callback on the next frame. */
+  schedule?: (callback: () => void) => unknown;
+  now?: () => number;
+  waitMs?: number;
+}
+
+/**
+ * Run `release` once `#root` is opaque again.
+ *
+ * The mount fades `#root` out and back in around the first render
+ * ({@link hideRootForCrossfade}). A snapshot kept OUTSIDE `#root` is not part of
+ * that fade: releasing it while `#root` is still transparent would swap an
+ * article a reader can see for one they cannot. It takes warm caches for the
+ * SPA view to be ready that early, which is exactly a returning reader.
+ *
+ * Synchronous when no fade is in progress — the ordinary case, and the one
+ * that keeps the swap inside the commit that drew the SPA view. Bounded, so a
+ * `#root` that never comes back cannot hold the snapshot for the session.
+ */
+export function afterRootCrossfade(release: () => void, env: RootCrossfadeEnv = {}): void {
+  const root = env.root !== undefined ? env.root : document.getElementById('root');
+  const opaque = () => !root || !root.isConnected
+    || Number.parseFloat(window.getComputedStyle(root).opacity || '1') >= 0.99;
+  if (opaque()) {
+    release();
+    return;
+  }
+  const schedule = env.schedule ?? ((callback: () => void) => window.requestAnimationFrame(callback));
+  const now = env.now ?? (() => performance.now());
+  const deadline = now() + (env.waitMs ?? ROOT_CROSSFADE_WAIT_MS);
+  const check = () => {
+    if (opaque() || now() >= deadline) release();
+    else schedule(check);
+  };
+  schedule(check);
+}
+
+/**
  * Whether the entry should perform the existing body-level fallback adoption.
  *
  * This is deliberately extracted before the article-specific ownership rule is

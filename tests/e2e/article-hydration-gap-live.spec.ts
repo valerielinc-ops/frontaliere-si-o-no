@@ -1,25 +1,52 @@
-import { test, expect } from 'playwright/test';
+import { test, expect, type Page } from 'playwright/test';
+import {
+  installStaticHandoffProbe,
+  judgeStaticHandoff,
+  type HandoffProbeOptions,
+  type HandoffRecord,
+} from '../helpers/staticHandoffProbe';
 
 /**
- * Live guard for issue 12421. The daily brief is intentionally newer than the
- * deployed bundle, so this exercises the runtime article-resolution path that
- * a local fixture cannot reproduce faithfully.
+ * Live guard for issue 12421: an article page, and a canton topic hub, went
+ * blank for seconds between the static HTML and the SPA view.
  *
- * This spec is selected automatically by playwright.live.config.ts because its
- * filename ends in -live.spec.ts. It must run after deployment: the current
- * production bundle predates this fix and is expected to show the gap.
+ * WHY LIVE. The gap needs the page the shard serves, the bundle that was
+ * deployed, and the runtime payloads, all at once. The daily brief adds the
+ * case that broke hardest: an edition dated today is by construction newer than
+ * the bundle, so the SPA has to resolve it at runtime.
+ *
+ * WHAT IS ASSERTED is in `judgeStaticHandoff` and unit-tested in
+ * tests/article-hydration-handoff.test.ts: from the first paint of the static
+ * snapshot until the SPA copy has settled, a reader sees exactly one of the
+ * two, the snapshot does not move while it is the one on screen, and the SPA
+ * `<main>` is not painted above it. Sampled every animation frame, not on a
+ * 250 ms tick: a blank that lasts 100 ms is still a blank.
+ *
+ * ON THE PLAIN URL, like daily-brief-table-parity-live.spec.ts: what the edge
+ * serves is what the reader gets.
+ *
+ * Selected by playwright.live.config.ts (`*-live.spec.ts`), so it runs after a
+ * deploy. Until this fix is live it is red, which is the point.
  */
 
 const BASE = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
 
-const LOCALES = [
+const BRIEFS = [
   { locale: 'it', hub: '/articoli-frontaliere/', slug: 'bollettino-frontaliere' },
   { locale: 'en', hub: '/en/cross-border-articles/', slug: 'cross-border-daily-brief' },
   { locale: 'de', hub: '/de/grenzgaenger-artikel/', slug: 'grenzgaenger-tagesbulletin' },
   { locale: 'fr', hub: '/fr/articles-frontalier/', slug: 'bulletin-frontalier' },
 ] as const;
 
-const editionDate = () => new Date().toISOString().slice(0, 10);
+/** The edition is dated in UTC, the same clock the generator uses. */
+const editionDate = (daysBack: number) => new Date(Date.now() - daysBack * 86_400_000).toISOString().slice(0, 10);
+
+const ARTICLE_PROBE: HandoffProbeOptions = {
+  snapshotSelector: 'main.seo-static-content article.ft-blog-article',
+  settleMs: 1500,
+  limitMs: 30_000,
+};
+const TOPIC_HUB_PROBE: HandoffProbeOptions = { ...ARTICLE_PROBE, snapshotSelector: 'main.seo-static-content' };
 
 test.use({
   viewport: { width: 390, height: 844 },
@@ -28,168 +55,63 @@ test.use({
   isMobile: true,
 });
 
-for (const { locale, hub, slug } of LOCALES) {
-  test(`article hydration has no sampled gap (${locale})`, async ({ page }) => {
-    await page.addInitScript(() => {
-      const probe = {
-        samplePeriodMs: 250,
-        startedAt: null as number | null,
-        hydratedAt: null as number | null,
-        staticHiddenAt: null as number | null,
-        exchangeAt: null as number | null,
-        totalGapMs: 0,
-        gapStartedAt: null as number | null,
-        samples: [] as Array<{ at: number; staticVisible: boolean; spaVisible: boolean }>,
-        violations: [] as Array<{ at: number; staticVisible: boolean; spaVisible: boolean }>,
-        done: false,
-        timedOut: false,
-      };
-
-      const visible = (element: Element | null): boolean => {
-        if (!element || element.getClientRects().length === 0) return false;
-        let current: Element | null = element;
-        while (current) {
-          const style = window.getComputedStyle(current);
-          if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;
-          current = current.parentElement;
-        }
-        return true;
-      };
-
-      const surfaceState = () => {
-        const staticArticle = document.querySelector('main.seo-static-content article.ft-blog-article');
-        const spaArticle = document.querySelector('#root article');
-        const hasArticleContent = (article: Element | null) => Boolean(
-          article
-          && article.querySelector('h1')
-          && (article.textContent || '').trim().length > 80,
-        );
-        return {
-          staticVisible: visible(staticArticle) && hasArticleContent(staticArticle),
-          spaVisible: visible(spaArticle) && hasArticleContent(spaArticle),
-        };
-      };
-
-      let timer: number | undefined;
-      let timeout: number | undefined;
-
-      const finish = (timedOut: boolean) => {
-        if (probe.done) return;
-        if (probe.gapStartedAt !== null) {
-          probe.totalGapMs += performance.now() - probe.gapStartedAt;
-          probe.gapStartedAt = null;
-        }
-        probe.timedOut = timedOut;
-        probe.done = true;
-        if (timer !== undefined) window.clearInterval(timer);
-        if (timeout !== undefined) window.clearTimeout(timeout);
-      };
-
-      const sample = () => {
-        if (probe.done || probe.startedAt === null) return;
-        const at = performance.now();
-        const state = surfaceState();
-        const sample = { at, ...state };
-        probe.samples.push(sample);
-        if (!state.staticVisible && !state.spaVisible) {
-          probe.violations.push(sample);
-          if (probe.gapStartedAt === null) probe.gapStartedAt = at;
-        } else if (probe.gapStartedAt !== null) {
-          probe.totalGapMs += at - probe.gapStartedAt;
-          probe.gapStartedAt = null;
-        }
-        if (!state.staticVisible && probe.staticHiddenAt === null) probe.staticHiddenAt = at;
-        if (state.spaVisible && probe.exchangeAt === null) probe.exchangeAt = at;
-        if (state.spaVisible) {
-          probe.hydratedAt = at;
-          finish(false);
-        }
-      };
-
-      const start = () => {
-        if (probe.startedAt !== null || probe.done) return;
-        probe.startedAt = performance.now();
-        sample();
-        timer = window.setInterval(sample, probe.samplePeriodMs);
-        timeout = window.setTimeout(() => finish(true), 30_000);
-      };
-
-      (window as Window & { __articleHydrationProbe?: typeof probe }).__articleHydrationProbe = probe;
-
-      try {
-        const observer = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            if (entry.name === 'first-paint' || entry.name === 'first-contentful-paint') start();
-          }
-          if (probe.startedAt !== null) observer.disconnect();
-        });
-        observer.observe({ type: 'paint', buffered: true });
-      } catch {
-        // The animation-frame fallback still starts after the first browser frame.
-      }
-
-      requestAnimationFrame(() => requestAnimationFrame(() => start()));
-    });
-
-    const url = `${BASE}${hub}${slug}-${editionDate()}/`;
-    const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 });
-    test.skip(
-      response?.status() === 404,
-      `edition for ${editionDate()} not published yet in ${locale} — this check runs on the publication day,
-and the first production execution is expected only after this fix is deployed`,
-    );
-    expect(response?.status(), `${url} must serve 200`).toBe(200);
-
-    await page.waitForFunction(
-      () => Boolean((window as Window & { __articleHydrationProbe?: { done: boolean } }).__articleHydrationProbe?.done),
-      { timeout: 35_000 },
-    );
-
-    const result = await page.evaluate(() => {
-      const probe = (window as Window & {
-        __articleHydrationProbe?: {
-          startedAt: number | null;
-          hydratedAt: number | null;
-          staticHiddenAt: number | null;
-          exchangeAt: number | null;
-          totalGapMs: number;
-          samples: Array<{ at: number; staticVisible: boolean; spaVisible: boolean }>;
-          violations: Array<{ at: number; staticVisible: boolean; spaVisible: boolean }>;
-          done: boolean;
-          timedOut: boolean;
-        };
-      }).__articleHydrationProbe;
-      if (!probe) throw new Error('article hydration probe did not initialize');
-      return {
-        startedAt: probe.startedAt,
-        hydratedAt: probe.hydratedAt,
-        staticHiddenAt: probe.staticHiddenAt,
-        exchangeAt: probe.exchangeAt,
-        totalGapMs: probe.totalGapMs,
-        samples: probe.samples,
-        violations: probe.violations,
-        done: probe.done,
-        timedOut: probe.timedOut,
-      };
-    });
-
-    const elapsed = (at: number | null) => (
-      at === null || result.startedAt === null ? null : Math.round(at - result.startedAt)
-    );
-    console.log(
-      `[article-hydration] ${locale} gapMs=${Math.round(result.totalGapMs)} `
-      + `exchangeMs=${elapsed(result.exchangeAt) ?? 'n/a'} `
-      + `staticHiddenMs=${elapsed(result.staticHiddenAt) ?? 'n/a'} `
-      + `hydratedMs=${elapsed(result.hydratedAt) ?? 'n/a'} `
-      + `samples=${result.samples.length}`,
-    );
-
-    expect(result.done, `${locale} probe must finish`).toBe(true);
-    expect(result.timedOut, `${locale} article did not hydrate within 30s`).toBe(false);
-    expect(result.hydratedAt, `${locale} must expose an SPA article before the probe ends`).not.toBeNull();
-    expect(
-      result.violations,
-      `${locale} sampled a frame with neither visible static article nor visible SPA article`,
-    ).toEqual([]);
-  });
+async function openWithProbe(page: Page, url: string, probe: HandoffProbeOptions): Promise<number | undefined> {
+  await page.addInitScript(installStaticHandoffProbe, probe);
+  const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 });
+  return response?.status();
 }
+
+async function readHandoff(page: Page, probe: HandoffProbeOptions): Promise<HandoffRecord> {
+  await page.waitForFunction(
+    () => (window as unknown as { __staticHandoff?: HandoffRecord }).__staticHandoff?.endedAt,
+    undefined,
+    { timeout: probe.limitMs + 10_000 },
+  );
+  return page.evaluate(() => (window as unknown as { __staticHandoff: HandoffRecord }).__staticHandoff);
+}
+
+function expectCleanHandoff(label: string, url: string, record: HandoffRecord): void {
+  const verdict = judgeStaticHandoff(record);
+  // One line a red check can be read from, without reopening a browser.
+  console.log(
+    `[static-handoff] ${label} snapshotMs=${verdict.firstSnapshotMs ?? 'n/a'} swapMs=${verdict.swapMs ?? 'n/a'} `
+    + `gapMs=${verdict.gapMs} bothMs=${verdict.bothMs} spaMainOverSnapshotMs=${verdict.spaMainOverSnapshotMs} `
+    + `snapshotShiftPx=${verdict.snapshotShiftPx} layoutShift=${record.layoutShift.toFixed(4)} `
+    + `samples=${record.samples} longestSampleGapMs=${record.longestSampleGapMs} url=${url}`,
+  );
+  expect(verdict.violations, `${label}: ${url}`).toEqual([]);
+}
+
+test.describe('static article → SPA handoff', () => {
+  for (const { locale, hub, slug } of BRIEFS) {
+    test(`${locale}: the daily brief is on screen from first paint to hydration`, async ({ page }) => {
+      // Before the morning's generation today's edition is a 404: yesterday's
+      // is the same handoff (by then it may be in the bundle, which is the
+      // other class this guards), so the check still has a subject at any hour.
+      let url = `${BASE}${hub}${slug}-${editionDate(0)}/`;
+      let status = await openWithProbe(page, url, ARTICLE_PROBE);
+      if (status === 404) {
+        url = `${BASE}${hub}${slug}-${editionDate(1)}/`;
+        status = (await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 }))?.status();
+      }
+      test.skip(status === 404, `no edition published for ${editionDate(0)} or ${editionDate(1)} in ${locale}`);
+      expect(status, `${url} must serve 200`).toBe(200);
+
+      expectCleanHandoff(`brief-${locale}`, url, await readHandoff(page, ARTICLE_PROBE));
+    });
+  }
+
+  // Same class, different snapshot: the hub is drawn from a runtime payload,
+  // and its static HTML sits in the build-time rail grid.
+  test('it: a canton topic hub is on screen from first paint to hydration', async ({ page }) => {
+    const url = `${BASE}/articoli-ticino/fisco/`;
+    const status = await openWithProbe(page, url, TOPIC_HUB_PROBE);
+    expect(status, `${url} must serve 200`).toBe(200);
+
+    expectCleanHandoff('topic-hub-it', url, await readHandoff(page, TOPIC_HUB_PROBE));
+    // Removed at the swap, not hidden: left behind, the rail grid is an empty
+    // band after the footer and the snapshot a second copy of the page.
+    expect(await page.locator('main.seo-static-content').count()).toBe(0);
+    expect(await page.locator('body > .ft-rail-grid').count()).toBe(0);
+  });
+});

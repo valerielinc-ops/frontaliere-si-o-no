@@ -30,10 +30,13 @@ import type {
 import type { ArticleSection } from '@/services/articleSections';
 import type { PharmacyPath } from '@/services/pharmacies/paths';
 import { setLocale, onLocaleChange, type Locale } from '@/services/i18n';
-import { hasStaticArticleFallback, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
+import { hasStaticArticleFallback, isStaticArticleFallbackInDocument, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
 import {
+ afterRootCrossfade,
  pendingArticleSlug,
+ removeOwnedStaticSnapshot,
  shouldKeepStaticFallbackOutsideRoot,
+ STATIC_SNAPSHOT_OWNER_ATTR,
  staticArticleFallbackKey as buildStaticArticleFallbackKey,
  staticArticleFallbackRouteKey,
 } from '@/services/staticFallbackHandoff';
@@ -184,10 +187,12 @@ export function useNavigationState(): NavigationState {
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
  const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
  const initialHasStaticArticleFallback = hasStaticArticleFallback();
+ // The static article owns the body only while it is on the page: the stashed
+ // clone alone (a return to the landing URL after it was removed) owns nothing.
  const initialKeepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(
   initialRoute.route,
   'article',
-  initialHasStaticArticleFallback,
+  isStaticArticleFallbackInDocument(),
  );
  const [articleStaticFallbackKey, setArticleStaticFallbackKey] = useState<string | null>(() => (
   initialKeepsStaticArticle
@@ -238,11 +243,18 @@ export function useNavigationState(): NavigationState {
   }
  }, []);
 
+ // The route can change while a release waits for the mount's fade: what is
+ // released is the owner that asked, never whichever one is current by then.
+ const articleStaticFallbackKeyRef = useRef(articleStaticFallbackKey);
+ articleStaticFallbackKeyRef.current = articleStaticFallbackKey;
  const markStaticArticleReady = useCallback((key: string) => {
-  if (articleStaticFallbackKey !== key) return;
-  setArticleStaticFallbackKey(null);
-  setStaticOverlay(false);
- }, [articleStaticFallbackKey]);
+  if (articleStaticFallbackKeyRef.current !== key) return;
+  afterRootCrossfade(() => {
+   if (articleStaticFallbackKeyRef.current !== key) return;
+   setArticleStaticFallbackKey(null);
+   setStaticOverlay(false);
+  });
+ }, []);
 
  // A direct state navigation can bypass applyRoute (for example a CTA using
  // NavigationContext). Do not let the landing article survive that route
@@ -326,9 +338,11 @@ export function useNavigationState(): NavigationState {
   setStaticOverlay(false);
  };
  const adopt = (id: string) => {
-  const hasFallback = hasStaticArticleFallback();
+  // Hold the SPA view back only behind a static article that is on the page.
+  // With nothing there, the article view draws its own loading state at once.
+  const staticOnPage = isStaticArticleFallbackInDocument();
   setArticleStaticFallbackKey(
-   hasFallback ? buildStaticArticleFallbackKey(section, id, urlLocale) : null,
+   staticOnPage ? buildStaticArticleFallbackKey(section, id, urlLocale) : null,
   );
   setStaticOverlay(false);
  if (isSwiss) setSwissArticle(id);
@@ -448,9 +462,14 @@ export function useNavigationState(): NavigationState {
  // static page. This keeps URL/content always consistent and is rare in
  // practice (back-button after navigating away from an SEO landing).
  if (route.staticOverlay && typeof document !== 'undefined') {
+   // A snapshot that owned the body of the page we are leaving (an article,
+   // a canton topic hub) is not the static landing we are going to.
    const root = document.getElementById('root');
    for (const main of Array.from(document.querySelectorAll<HTMLElement>('main.seo-static-content'))) {
-     if (main.querySelector('article.ft-blog-article') && !root?.contains(main)) main.remove();
+     if (root?.contains(main)) continue;
+     if (main.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR) || main.querySelector('article.ft-blog-article')) {
+       removeOwnedStaticSnapshot(main);
+     }
    }
    if (!document.querySelector('main.seo-static-content')) {
      window.location.reload();
@@ -467,7 +486,7 @@ export function useNavigationState(): NavigationState {
  // removal below must not happen, or the guard would have nothing left to
  // fall back to when resolution fails.
  const hasArticleFallback = hasStaticArticleFallback();
- const keepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(route, 'article', hasArticleFallback);
+ const keepsStaticArticle = shouldKeepStaticFallbackOutsideRoot(route, 'article', isStaticArticleFallbackInDocument());
  const nextOverlay = !!route.staticOverlay
  || (!!pendingArticleSlug(route) && hasArticleFallback);
  setArticleStaticFallbackKey(
@@ -477,7 +496,10 @@ export function useNavigationState(): NavigationState {
  if (!nextOverlay && !keepsStaticArticle && typeof document !== 'undefined') {
    const staticMain = document.querySelector('main.seo-static-content');
    if (staticMain && staticMain.parentElement) {
-     staticMain.parentElement.removeChild(staticMain);
+     // A snapshot left outside #root can sit in the build-time rail grid:
+     // removed on its own it would leave that grid as an empty band.
+     if (staticMain.hasAttribute(STATIC_SNAPSHOT_OWNER_ATTR)) removeOwnedStaticSnapshot(staticMain);
+     else staticMain.parentElement.removeChild(staticMain);
    }
  }
  setActiveTab(route.activeTab);

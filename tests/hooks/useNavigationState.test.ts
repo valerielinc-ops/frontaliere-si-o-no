@@ -62,6 +62,7 @@ import { useNavigationState } from '@/hooks/useNavigationState';
 import { pushRoute, parseHashToPath, parsePath, resolveBlogSlug, learnRuntimeBlogSlugs, getSeoSection } from '@/services/router';
 import { adoptRuntimeArticle } from '@/services/runtimeArticleResolution';
 import { adoptStaticFallbackIntoRoot, shouldAdoptStaticFallbackIntoRoot } from '@/services/staticFallbackHandoff';
+import { __resetStaticArticleFallback, stashStaticArticleFallback } from '@/services/staticArticleFallback';
 import { prefetchTab } from '@/services/prefetch';
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
@@ -319,6 +320,7 @@ describe('useNavigationState', () => {
 
     afterEach(() => {
       document.body.innerHTML = '';
+      __resetStaticArticleFallback();
       vi.mocked(parsePath).mockReturnValue({
         route: { activeTab: 'calculator' as const },
         locale: 'it' as const,
@@ -456,6 +458,48 @@ describe('useNavigationState', () => {
       expect(document.querySelector('main.seo-static-content article.ft-blog-article')).toBeNull();
       expect(result.current.articleStaticFallbackKey).toBeNull();
       expect(result.current.staticOverlay).toBe(false);
+    });
+
+    it('does not hold the article view back behind a clone that is not on the page', async () => {
+      // A return to the landing URL with the back button: the live node was
+      // removed on the way out, the clone is still stashed for this path.
+      // Holding the view back here would leave an empty page, with neither the
+      // static article nor the SPA's loading state.
+      const fallback = document.querySelector<HTMLElement>('main.seo-static-content')!;
+      stashStaticArticleFallback(fallback, window.location.pathname);
+      fallback.remove();
+      vi.mocked(resolveBlogSlug).mockReturnValue('poste-italiane-consulenti-finanziari-varese' as never);
+
+      const { result } = renderHook(() => useNavigationState());
+      expect(result.current.articleStaticFallbackKey).toBeNull();
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+
+      expect(result.current.blogArticle).toBe('poste-italiane-consulenti-finanziari-varese');
+      expect(result.current.staticOverlay).toBe(false);
+      expect(result.current.articleStaticFallbackKey).toBeNull();
+    });
+
+    it('releases the static article only for the owner that asked, and never while #root is faded out', async () => {
+      vi.mocked(resolveBlogSlug).mockReturnValue('poste-italiane-consulenti-finanziari-varese' as never);
+      const { result } = renderHook(() => useNavigationState());
+      await act(async () => { await Promise.resolve(); await Promise.resolve(); });
+      const key = result.current.articleStaticFallbackKey!;
+      expect(key).toBe('frontaliere:poste-italiane-consulenti-finanziari-varese:it');
+
+      // Someone else's key releases nothing.
+      act(() => { result.current.markStaticArticleReady('frontaliere:another-article:it'); });
+      expect(result.current.articleStaticFallbackKey).toBe(key);
+
+      // The mount's fade has #root transparent: the article a reader can see
+      // must not be swapped for one they cannot.
+      const root = document.getElementById('root')!;
+      root.style.opacity = '0';
+      act(() => { result.current.markStaticArticleReady(key); });
+      expect(result.current.articleStaticFallbackKey).toBe(key);
+
+      root.style.opacity = '1';
+      await act(async () => { await new Promise((resolve) => requestAnimationFrame(() => resolve(null))); });
+      expect(result.current.articleStaticFallbackKey).toBeNull();
     });
 
     it('does not blank the page when there is no static article to fall back to', async () => {
