@@ -1,6 +1,6 @@
 {
   "bardonnex": {
-    "morning": "0-9 min",
+    "morning": "0-12 min",
     "evening": "0-8 min"
   },
   "basel-weil-am-rhein-autostrada-a2-a5": {
@@ -22,7 +22,7 @@
     "evening": "1-8 min"
   },
   "ferney-voltaire-grand-saconnex": {
-    "evening": "0-2 min"
+    "morning": "0-3 min"
   },
   "gaggiolo": {
     "morning": "0-8 min",
@@ -42,9 +42,6 @@
     "morning": "0-2 min",
     "evening": "0-2 min"
   },
-  "laufenburg-laufenburg-ag": {
-    "morning": "0-2 min"
-  },
   "moillesulaz": {
     "morning": "0-3 min",
     "evening": "0-2 min"
@@ -53,8 +50,7 @@
     "morning": "0-2 min"
   },
   "ponte-tresa": {
-    "morning": "0-3 min",
-    "evening": "0-2 min"
+    "morning": "0-3 min"
   },
   "porto-ceresio-brusino": {
     "morning": "0-3 min",
@@ -72,7 +68,7 @@
     "evening": "0-2 min"
   },
   "thonex-vallard": {
-    "morning": "0-3 min",
+    "morning": "0-4 min",
     "evening": "0-2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
