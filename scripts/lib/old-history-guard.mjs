@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { realpathSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 
@@ -21,6 +21,15 @@ const FETCH_TIMEOUT_MS = 30_000;
 // history check could finish. Keep a separate, bounded budget for this slower
 // operation instead of relaxing the guard or sharing the short-fetch timeout.
 export const HISTORY_GRAPH_FETCH_TIMEOUT_MS = 5 * 60_000;
+// How many commits a head may add over the refreshed base and still be decided
+// without the history graph. A data writer adds a handful; a longer list is not
+// the ordinary case the bounded proof exists for.
+const BOUNDED_PROOF_MAX_ADDED_COMMITS = 2_000;
+// The refresh the bounded proof starts from brings what the branch gained since
+// the checkout: 0.7 to 2.7 seconds measured. A checkout that shares nothing
+// with the branch would be sent its whole history instead, so the budget is
+// short: past it the proof is abandoned and the complete check decides.
+const BOUNDED_PROOF_FETCH_TIMEOUT_MS = 15_000;
 
 const OLD_HISTORY_REMEDIATION = [
   'Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:',
@@ -76,6 +85,44 @@ function isShallowRepository(cwd) {
     cwd,
     stdio: ['ignore', 'pipe', 'ignore'],
   }) === 'true';
+}
+
+function resolveCommit(ref, cwd) {
+  try {
+    return runGit(['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+  } catch {
+    return '';
+  }
+}
+
+// The commits whose parents the checkout does not have. `null` means the
+// boundary cannot be read, which callers must treat as "unknown", not "none".
+function shallowBoundaryCommits(cwd) {
+  if (!isShallowRepository(cwd)) return new Set();
+  try {
+    const shallowPath = resolve(cwd, runGit(['rev-parse', '--git-path', 'shallow'], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }));
+    return new Set(readFileSync(shallowPath, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
+function timed(trace, step, fn) {
+  const startedAt = Date.now();
+  let failed = true;
+  try {
+    const value = fn();
+    failed = false;
+    return value;
+  } finally {
+    trace?.push({ step, ms: Date.now() - startedAt, ...(failed ? { failed: true } : {}) });
+  }
 }
 
 function historyGuardLockPath(cwd) {
@@ -218,6 +265,87 @@ export function refreshOriginBranch({
   }
 }
 
+/**
+ * Decides whether the verdict can still be `blocked`, using only the commits
+ * the checkout already has. It never answers "is the marker an ancestor of the
+ * head?": a shallow history cannot.
+ *
+ * `blocked` needs the marker to be an ancestor of the head and not of the base.
+ * Every commit that is an ancestor of the head and not of the base is listed by
+ * `rev-list head --not base`, provided no listed commit sits on the shallow
+ * boundary: a boundary commit hides its parents, so the list could stop short
+ * of an ancestor. A truncated history on the base side can only make the list
+ * longer. When the list is closed and the marker is not in it, completing the
+ * history graph cannot change the outcome.
+ *
+ * The answer is relative to `baseRef` as it is now. A caller that needs the
+ * verdict against the remote branch refreshes the ref first: a checkout still
+ * on the previous history then lists its own boundary commit and is not proven.
+ */
+export function proveHeadAddsNoOldHistory({
+  cwd = process.cwd(),
+  markerRef = OLD_HISTORY_FIRST_CHANGED_COMMIT,
+  headRef = 'HEAD',
+  baseRef = DEFAULT_BASE_REF,
+} = {}) {
+  // The marker does not have to be in the checkout: a commit that is not local
+  // cannot be among the listed ones, and the comparison below says so.
+  const marker = /^[0-9a-f]{40,64}$/u.test(markerRef) ? markerRef : resolveCommit(markerRef, cwd);
+  if (!marker) return { proven: false, why: 'marker-unresolved' };
+  if (!commitExists(headRef, cwd) || !commitExists(baseRef, cwd)) return { proven: false, why: 'ref-unavailable' };
+  let added;
+  try {
+    added = runGit([
+      'rev-list',
+      `--max-count=${BOUNDED_PROOF_MAX_ADDED_COMMITS + 1}`,
+      headRef,
+      '--not',
+      baseRef,
+    ], { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).split('\n').filter(Boolean);
+  } catch {
+    return { proven: false, why: 'rev-list-failed' };
+  }
+  if (added.length > BOUNDED_PROOF_MAX_ADDED_COMMITS) return { proven: false, why: 'too-many-added-commits' };
+  if (added.includes(marker)) return { proven: false, why: 'marker-among-added-commits' };
+  const boundary = shallowBoundaryCommits(cwd);
+  if (!boundary) return { proven: false, why: 'shallow-boundary-unreadable' };
+  if (added.some((sha) => boundary.has(sha))) return { proven: false, why: 'added-commit-on-shallow-boundary' };
+  return { proven: true, addedCommits: added.length };
+}
+
+// The bounded proof is about the remote branch as it is now, so its base is
+// refreshed first. No `--filter` here, on purpose: this is the fetch a data
+// writer runs next anyway, and an ordinary fetch leaves the checkout the kind
+// of clone `actions/checkout` made, not a treeless one.
+function refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }) {
+  withHistoryGuardLock(cwd, () => {
+    runGit([
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      remote,
+      `+refs/heads/${branch}:${baseRef}`,
+    ], { cwd, timeout: BOUNDED_PROOF_FETCH_TIMEOUT_MS });
+  });
+}
+
+/**
+ * A shallow checkout whose head adds only known commits to the refreshed base
+ * is decided here, in one ordinary fetch. Anything this cannot prove, including
+ * a fetch that fails or times out, is left to the complete check below.
+ */
+function decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace }) {
+  try {
+    timed(trace, 'refresh-base', () => refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }));
+  } catch {
+    trace?.push({ step: 'bounded-proof', proven: false, why: 'base-refresh-failed' });
+    return false;
+  }
+  const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
+  trace?.push({ step: 'bounded-proof', ...proof });
+  return proof.proven;
+}
+
 export function checkOldHistory({
   cwd = process.cwd(),
   markerRef = OLD_HISTORY_FIRST_CHANGED_COMMIT,
@@ -226,10 +354,19 @@ export function checkOldHistory({
   refreshBase = false,
   remote = 'origin',
   branch = 'main',
+  trace,
 } = {}) {
   let result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
+  // Both of these answers are a shallow negative: the marker is not in the
+  // checkout, or it is and no local path leads to it. Before paying for the
+  // marker and for the whole commit graph, try the proof that needs neither.
+  const shallowNegative = result.reason === 'marker-unavailable' || result.reason === 'marker-not-in-head';
+  if (refreshBase && shallowNegative && isShallowRepository(cwd)
+    && decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace })) {
+    return { outcome: 'pass', reason: 'head-adds-no-old-history' };
+  }
   if (result.reason === 'marker-unavailable' && refreshBase) {
-    const markerFetched = withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef }));
+    const markerFetched = timed(trace, 'fetch-marker', () => withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef })));
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
@@ -241,7 +378,7 @@ export function checkOldHistory({
   const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
     && result.reason !== 'marker-in-base';
   if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
-    withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
+    timed(trace, 'complete-shallow-history', () => withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch })));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
   const baseNeedsRefresh = result.reason === 'marker-in-base'
@@ -272,10 +409,33 @@ export function isOldHistoryBlockedError(value) {
   return text.includes(OLD_HISTORY_BLOCK_MESSAGE);
 }
 
-function printResult(result) {
+const TRACE_STEP_LABELS = {
+  'refresh-base': 'aggiornamento del base',
+  'fetch-marker': 'recupero del marker',
+  'complete-shallow-history': 'completamento del grafo della storia',
+};
+
+// What the check cost and which proof decided it, on the same line as the
+// verdict: a job that starts paying for the whole commit graph again shows it
+// in its own log.
+export function describeTrace(trace = []) {
+  const parts = trace.map((entry) => {
+    if (entry.step === 'bounded-proof') {
+      return entry.proven
+        ? `prova limitata riuscita, ${entry.addedCommits} commit sopra il base`
+        : `prova limitata non conclusiva: ${entry.why}`;
+    }
+    const seconds = `${(entry.ms / 1000).toFixed(1)} s`;
+    return `${TRACE_STEP_LABELS[entry.step] || entry.step}: ${entry.failed ? `non riuscito dopo ${seconds}` : seconds}`;
+  });
+  return parts.length ? ` [${parts.join('; ')}]` : '';
+}
+
+function printResult(result, trace) {
   if (result.outcome === 'blocked') {
     console.error(`::error::${OLD_HISTORY_BLOCK_MESSAGE}`);
     console.error(OLD_HISTORY_REMEDIATION);
+    if (trace?.length) console.error(`old-history-guard:${describeTrace(trace)}`);
     return 1;
   }
 
@@ -283,8 +443,9 @@ function printResult(result) {
     'marker-unavailable': 'il marker non è disponibile nel checkout remoto; controllo superato.',
     'marker-not-in-head': 'il marker non è antenato dell’head; controllo superato.',
     'marker-in-base': 'il marker è ancora antenato del base; controllo inerte prima della riscrittura.',
+    'head-adds-no-old-history': 'l’head aggiunge al base aggiornato solo commit già noti, e il marker non è fra questi; controllo superato senza scaricare il grafo.',
   };
-  console.log(`old-history-guard: ${messages[result.reason] || 'controllo superato.'}`);
+  console.log(`old-history-guard: ${messages[result.reason] || 'controllo superato.'}${describeTrace(trace)}`);
   return 0;
 }
 
@@ -315,11 +476,12 @@ function parseArgs(argv) {
 }
 
 export async function main(argv = process.argv.slice(2)) {
+  const trace = [];
   try {
-    const result = checkOldHistory(parseArgs(argv));
-    process.exitCode = printResult(result);
+    const result = checkOldHistory({ ...parseArgs(argv), trace });
+    process.exitCode = printResult(result, trace);
   } catch (error) {
-    console.error(`::error::Controllo storia precedente non verificabile: ${error.message}`);
+    console.error(`::error::Controllo storia precedente non verificabile: ${error.message}${describeTrace(trace)}`);
     process.exitCode = 1;
   }
 }
