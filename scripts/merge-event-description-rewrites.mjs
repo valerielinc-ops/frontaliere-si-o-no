@@ -69,9 +69,12 @@ function recentSuccessfulRuns(currentStats, recentStatsFiles) {
   const cutoff = Date.now() - 24 * 60 * 60 * 1000;
   const seen = new Set();
   return candidates.filter((run, index) => {
+    const accepted = Number(run?.accepted);
+    if (!Number.isFinite(accepted) || accepted <= 0) return false;
     const completedAt = Date.parse(run.completedAt || run.startedAt || '');
     if (!Number.isFinite(completedAt) || completedAt < cutoff) return false;
-    const key = String(run.runId || `file-${index}`);
+    const runId = String(run.runId ?? '');
+    const key = runId ? `run-${runId}` : `file-${index}`;
     if (seen.has(key)) return false;
     seen.add(key);
     return true;
