@@ -240,6 +240,12 @@ const sourceTreeLintTests = new Map([
   // nuovo non importa il test, quindi senza questa voce entrerebbe senza
   // farlo partire (stessa lezione della PR 11308). Perimetro = quello dello scan.
   ['tests/resolve-issue-by-title-ratchet.test.ts', /^(?:scripts\/.+\.mjs|functions\/.+\.(?:js|mjs|ts))$/],
+  // Letture sincrone di `gh` senza `maxBuffer`: oltre 1 MiB finiscono in
+  // ENOBUFS. La PR 12277 ne ha aggiunta una nella coda del deploy, che da
+  // allora non ha piu' letto l'elenco delle run (issue 12308). Il censimento
+  // legge da disco ogni modulo sotto `scripts/` e non ne importa nessuno:
+  // deve girare sul diff che aggiunge la chiamata.
+  ['tests/gh-exec-buffer-census.test.ts', /^scripts\/.+\.mjs$/],
   // Stessa classe per le allow-list sparse di `bing-seo-loop.yml`: PR 10941
   // ha aggiunto un import a `scripts/lib/jobBoardSections.mjs`, verde, e la
   // run del crawler e' morta con ERR_MODULE_NOT_FOUND. Il perimetro e' un

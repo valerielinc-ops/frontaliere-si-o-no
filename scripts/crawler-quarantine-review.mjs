@@ -82,7 +82,14 @@ function parseArgs(argv) {
 }
 
 function gh(args) {
-  return execFileSync('gh', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  // A raw listing of `--limit` runs (up to 100, about 18 kB each) does not fit
+  // execFileSync's default 1 MiB buffer: it would end in ENOBUFS (issue 12308).
+  return execFileSync('gh', args, {
+    cwd: ROOT,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    maxBuffer: 64 * 1024 * 1024,
+  });
 }
 
 function ghJson(args) {

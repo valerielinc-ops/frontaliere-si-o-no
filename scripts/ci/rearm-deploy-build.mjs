@@ -248,8 +248,17 @@ export function decideRearm({ headSha, runs, selfRunId, maxBuildsPerSha = DEFAUL
 
 const REARM_LISTING_WINDOW_DAYS = 7;
 
+// execFileSync stops reading at `maxBuffer`, 1 MiB when it is not given, and
+// throws ENOBUFS: that is how the request queue next door went blind (issue
+// 12308). The listing here is already projected; the buffer is the second line.
+const GH_MAX_BUFFER_BYTES = 32 * 1024 * 1024;
+
 function gh(args) {
-  return execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  return execFileSync('gh', args, {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    maxBuffer: GH_MAX_BUFFER_BYTES,
+  }).trim();
 }
 
 function ghJson(args) {

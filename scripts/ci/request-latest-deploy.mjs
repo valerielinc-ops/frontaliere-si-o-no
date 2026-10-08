@@ -36,6 +36,12 @@ function skip(reason, detail = reason) {
  * Decide whether the dispatcher may start one build for the current main tip.
  * The cap prevents an unchanged, genuinely broken SHA from retrying forever;
  * a newer SHA gets a fresh budget and supersedes the old content by ancestry.
+ *
+ * @param {{
+ *   headSha?: string,
+ *   runs?: Array<{ id?: number, headSha?: string, status?: string, conclusion?: string | null }>,
+ *   maxBuildsPerSha?: number,
+ * }} [options]
  */
 export function decideLatestDeploy({
   headSha,
@@ -91,14 +97,44 @@ export function changedFilesRequiringDeploy(changedFiles, pathsIgnore) {
   );
 }
 
+/**
+ * What this script needs from the two REST answers it reads, as `gh --jq`
+ * filters. `gh` applies them before the answer crosses the pipe.
+ */
+export const DEPLOY_RUNS_PROJECTION = '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion}]';
+export const COMPARE_FILES_PROJECTION = '{files: [.files[].filename], count: (.files | length)}';
+
+// The second line of defence, should a projection ever grow: execFileSync
+// stops reading at `maxBuffer`, 1 MiB when it is not given.
+const GH_MAX_BUFFER_BYTES = 32 * 1024 * 1024;
+
 /* c8 ignore start — the Actions shell around the pure decision core. */
 function gh(args) {
-  return execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+  return execFileSync('gh', args, {
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    maxBuffer: GH_MAX_BUFFER_BYTES,
+  }).trim();
 }
 
-function ghJson(args) {
-  const raw = gh(args);
-  if (!raw) throw new Error(`empty GitHub response for ${args.join(' ')}`);
+/**
+ * One REST read, always projected. The raw listing of 60 deploy runs is well
+ * over a megabyte: read whole through the default buffer it ended in ENOBUFS
+ * on every attempt, the three durable retries included, and from the moment
+ * this workflow replaced the push trigger no deploy was requested (issue
+ * 12308). A read without a projection is a programming error here, not an
+ * option.
+ */
+function ghApi(path, projection) {
+  if (typeof projection !== 'string' || !projection.trim()) {
+    throw new Error(`a --jq projection is required to read ${path}`);
+  }
+  return gh(['api', path, '--jq', projection]);
+}
+
+function ghApiJson(path, projection) {
+  const raw = ghApi(path, projection);
+  if (!raw) throw new Error(`empty GitHub response for ${path}`);
   return JSON.parse(raw);
 }
 
@@ -175,10 +211,11 @@ function deployRequestPathsIgnore() {
 }
 
 function changedFilesSince({ repo, baseSha, headSha }) {
-  const compare = ghJson(['api', `repos/${repo}/compare/${baseSha}...${headSha}`]);
+  // With its patches a compare of 300 files is megabytes: only the names travel.
+  const compare = ghApiJson(`repos/${repo}/compare/${baseSha}...${headSha}`, COMPARE_FILES_PROJECTION);
   if (!Array.isArray(compare?.files)) throw new Error('compare response has no files array');
-  const files = compare.files.map((file) => file.filename).filter((file) => typeof file === 'string');
-  return { files, truncated: compare.files.length >= 300 };
+  const files = compare.files.filter((file) => typeof file === 'string');
+  return { files, truncated: Number(compare.count) >= 300 };
 }
 
 function main() {
@@ -198,18 +235,12 @@ function main() {
   let headSha;
   let runs;
   try {
-    headSha = gh(['api', `repos/${repo}/commits/${branch}`, '--jq', '.sha']);
-    const rawRuns = ghJson([
-      'api',
+    headSha = ghApi(`repos/${repo}/commits/${branch}`, '.sha');
+    runs = ghApiJson(
       `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&${createdSinceQuery(7)}&per_page=60`,
-    ]);
-    if (!Array.isArray(rawRuns?.workflow_runs)) throw new Error('deploy run response has no workflow_runs array');
-    runs = rawRuns.workflow_runs.map((run) => ({
-      id: run.id,
-      headSha: run.head_sha,
-      status: run.status,
-      conclusion: run.conclusion,
-    }));
+      DEPLOY_RUNS_PROJECTION,
+    );
+    if (!Array.isArray(runs)) throw new Error('deploy run response is not a list of runs');
   } catch (error) {
     // An unreadable queue is not proof that the build lock is free. Keep the
     // event alive by putting its known SHA back into Actions' queue rather
