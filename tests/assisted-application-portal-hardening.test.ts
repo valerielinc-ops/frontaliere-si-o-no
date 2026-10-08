@@ -413,6 +413,9 @@ describe('portal: one employer under two names', () => {
     expect(sameEmployerFamily('Muster Elektro Service AG', 'Muster Elektro AG')).toBe(false);
     expect(sameEmployerFamily('Hotel Deutschland GmbH', 'Hotel Schweiz AG')).toBe(false);
     expect(sameEmployerFamily('Schweiz AG', 'Deutschland GmbH')).toBe(false);
+    // Review of #12292: a continent or «International» is no country of a branch.
+    expect(sameEmployerFamily('Acme Europe', 'Acme International')).toBe(false);
+    expect(sameEmployerFamily('Acme Europe GmbH', 'Acme Switzerland')).toBe(false);
     expect(sameEmployerFamily('', 'Rituals Cosmetics Switzerland')).toBe(false);
     expect(sameEmployerFamily(undefined as any, undefined as any)).toBe(false);
   });
@@ -426,8 +429,18 @@ describe('portal: one employer under two names', () => {
     // Without the posting having named the employer the form alone is still no match, and another role never is.
     expect(formPostingMatch(form, job)).toBe('mismatch');
     expect(formPostingMatch(form, { ...job, title: 'Store Manager' }, { postingMatched: true })).toBe('mismatch');
+    // Review of #12292: the country is skipped only next to a word that labels a field. Next to anything
+    // else it still declares someone else, as every other word of the company does.
+    expect(namesAnotherEmployer('Switzerland Bank', { company: 'Acme Switzerland' })).toBe(true);
+    expect(namesAnotherEmployer('Create Account\nOther Switzerland\nConcierge', { company: 'Acme Switzerland', title: 'Concierge' })).toBe(true);
+    for (const line of ['Country Switzerland', 'Country* Switzerland', 'Nationality: Switzerland', 'Land Schweiz', 'Paese Svizzera', 'Phone Switzerland (+41)', 'Switzerland']) {
+      expect(namesAnotherEmployer(`Create Account\n${line}`, { company: 'Acme Switzerland Schweiz Svizzera' })).toBe(false);
+    }
     // The other entity's own words are the employer's: «Rituals Cosmetics Germany» on the form is nobody else.
     expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, job)).toBe(false);
+    // A legal form next to a word of the company is no one's name; the word after it still counts.
+    expect(namesAnotherEmployer('Create Account\nAcme GmbH', { company: 'Acme AG' })).toBe(false);
+    expect(namesAnotherEmployer('Create Account\nAcme GmbH Partners', { company: 'Acme AG' })).toBe(true);
     expect(namesAnotherEmployer(`${form}\nRituals Cosmetics Germany GmbH`, { ...job, organization: '' })).toBe(true);
     // Another employer next to the brand is still a stop; a data name of another company makes none of its
     // words the employer's («Rituals Retail» stays someone else when the data says «Lush Retail GmbH»).

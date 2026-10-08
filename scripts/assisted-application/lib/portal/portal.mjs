@@ -529,12 +529,22 @@ const FORM_VOCABULARY = new Set([
   'create', 'account', 'sign', 'signin', 'register', 'registration', 'konto', 'erstellen', 'anmelden', 'anmeldung', 'registrieren',
   'registrierung', 'creer', 'compte', 'connexion', 'inscription', 'crea', 'creare', 'accedi', 'accesso', 'registrati', 'registrazione',
 ]);
-// A country or a region in a company's name says which branch it is, not which company: «Rituals Cosmetics
-// Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities.
+// A country in a company's name says which national entity it is, not which company: «Rituals Cosmetics
+// Switzerland» and «Rituals Cosmetics Germany GmbH» are one employer's two entities. Countries only:
+// «Acme Europe» and «Acme International» are two companies (review of #12292).
 const BRANCH_WORDS = new Set([
   'schweiz', 'suisse', 'svizzera', 'switzerland', 'swiss', 'deutschland', 'germany', 'allemagne', 'germania', 'italia', 'italy', 'italien',
-  'italie', 'france', 'frankreich', 'francia', 'osterreich', 'austria', 'autriche', 'liechtenstein', 'europe', 'europa', 'international',
-  'nederland', 'netherlands', 'benelux', 'dach',
+  'italie', 'france', 'frankreich', 'francia', 'osterreich', 'austria', 'autriche', 'liechtenstein', 'nederland', 'netherlands',
+]);
+// What stands next to a country on a form because it labels a field of it, never because it names an
+// employer: «Country Switzerland», «Nationality: Switzerland», «Phone Switzerland». Any other word next to
+// the country of the order's company still declares someone else («Switzerland Bank», «Other Switzerland»).
+const FIELD_LABEL_WORDS = new Set([
+  'country', 'countries', 'land', 'lander', 'staat', 'paese', 'nazione', 'stato', 'pays', 'nationality', 'nationalitat', 'staatsangehorigkeit',
+  'nazionalita', 'cittadinanza', 'nationalite', 'citizenship', 'residence', 'wohnsitz', 'wohnort', 'residenza', 'domicile', 'domicilio',
+  'region', 'regione', 'location', 'standort', 'sede', 'lieu', 'phone', 'telefon', 'telefono', 'telephone', 'mobile', 'code', 'vorwahl',
+  'prefisso', 'address', 'adresse', 'indirizzo', 'city', 'ort', 'citta', 'ville', 'canton', 'kanton', 'cantone', 'province', 'provincia',
+  'select', 'selected', 'one',
 ]);
 
 /**
@@ -595,13 +605,15 @@ export function namesAnotherEmployer(formText, job = {}) {
   for (const phrase of text.split(PHRASE_END_RE)) {
     const words = normalizeWords(phrase).split(' ').filter(Boolean);
     for (const [index, word] of words.entries()) {
-      // The branch's country is on any form as a country («Country Switzerland»): what stands next to it
-      // says nothing about the employer.
-      if (!ours.has(word) || BRANCH_WORDS.has(word)) continue;
+      if (!ours.has(word)) continue;
+      // The country of the order's company is on any form as a country too: next to it, the word that labels
+      // the field says nothing about the employer. Next to any other word of the company, it still would.
+      const labels = BRANCH_WORDS.has(word) ? FIELD_LABEL_WORDS : null;
       for (const step of [-1, 1]) {
         let at = index + step;
-        while (words[at] !== undefined && filler(words[at])) at += step;
-        if (words[at] !== undefined && !neutral.has(words[at])) return true;
+        // A legal form is skipped like filler: «Rituals Cosmetics Germany GmbH» ends in no one's name.
+        while (words[at] !== undefined && (filler(words[at]) || NOT_A_NAME.has(words[at]))) at += step;
+        if (words[at] !== undefined && !neutral.has(words[at]) && !labels?.has(words[at])) return true;
       }
     }
   }
