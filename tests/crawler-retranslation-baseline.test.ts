@@ -250,7 +250,10 @@ describe('wiring in the crawler slice writer', () => {
 
   it('writer scans stale claimant slices when the stable URL owner arrives later', () => {
     const body = fnBody(read('scripts/assemble-jobs-dataset.mjs'), 'export function writeJobsCrawlerSlice(');
-    expect(body).toMatch(/sourceEntries: \[\.\.\.fleetEntries, currentEntry\], apply: true/);
+    // The fleet is still scanned for stale claimants; since issue 12467 the
+    // writer also declares that it owns one slice and writes the others only
+    // through the single-owner writer (tests/scripts/slice-writer-sibling-slices).
+    expect(body).toMatch(/sourceEntries: \[\.\.\.fleet\.entries, currentEntry\],\s+ownedEntries: \[currentEntry\],\s+apply: true,\s+writeSlice: fleet\.writeSlice,/);
   });
 
   it('translate-pending and the slice writer share ONE completeness predicate', () => {
