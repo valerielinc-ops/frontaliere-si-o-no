@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { IMAGE_CDN_ORIGIN, loadPublishedImagePolicy } from '../scripts/lib/published-image-policy.mjs';
 
 const ROOT = process.cwd();
 const BASELINE_PATH = path.join(ROOT, 'data/blog-cover-corpus-baseline.json');
@@ -40,6 +41,26 @@ describe('blog cover ledger invariants', () => {
       expect(articles.size, file).toBe(expected.articles);
       expect(new Set(articles.values()).size, file).toBeGreaterThanOrEqual(expected.distinctImages);
     }
+  });
+
+  it('lets every published cover through the og:image gate, as the ledger gate does', () => {
+    // Two gates judge the same covers: the ledger verifier reads the synced
+    // registries, the og:image gate three sampled pages of each build. Until
+    // issue 12347 they disagreed on every cover kept without a credit, and
+    // only the post-deploy validation of a finished build said so.
+    const policy = loadPublishedImagePolicy({ root: ROOT, warn: () => {} });
+    const rejected: string[] = [];
+    let checked = 0;
+    for (const file of REGISTRIES) {
+      for (const image of new Set(readRegistry(file).values())) {
+        if (!image.startsWith('/images/blog/')) continue;
+        checked += 1;
+        const verdict = policy.checkOg(`${IMAGE_CDN_ORIGIN}${image}`);
+        if (!verdict.valid) rejected.push(`${image} → ${'reason' in verdict ? verdict.reason : 'rejected'}`);
+      }
+    }
+    expect(checked).toBeGreaterThan(1000);
+    expect(rejected).toEqual([]);
   });
 
   it('compares every article by ID when a local corpus checkout is available', () => {
