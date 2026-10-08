@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "sodexo",
+  "assembledAt": "2026-10-08T22:09:58.835Z",
   "jobs": [
     {
       "id": "sodexo-41ffdb637343",
@@ -32,7 +34,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/4f3d7d38d24b740c95da2b03dc3a2333_0/5370/Business_Development_Manager_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:35.454Z",
+      "crawledAt": "2026-10-08T22:09:54.958Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -99,7 +101,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/a2232b5b6b17429cdff8ddc2f14ea8c9_0/5632/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:34.855Z",
+      "crawledAt": "2026-10-08T22:09:54.384Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -188,7 +190,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/18903e4430783a191b0cfab439daaef8_0/5707/Leiter_in_Empfang_95_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:34.266Z",
+      "crawledAt": "2026-10-08T22:09:53.773Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -265,7 +267,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/167ccbe15cc1664c9a63c20ac4c6a55a_0/5739/Technischer_Leiter_m_w_d_-_Facility_Management_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:33.641Z",
+      "crawledAt": "2026-10-08T22:09:53.163Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -342,7 +344,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/31f81674a348511b990af268ca3a8391_0/5743/HLKS-Fachmitarbeiter_m_w_d_100.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:33.073Z",
+      "crawledAt": "2026-10-08T22:09:52.395Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -362,15 +364,15 @@
       "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/31f81674a348511b990af268ca3a8391_0/5743/HLKS-Fachmitarbeiter_m_w_d_100.htm?b=0&lang=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:49:29.067Z",
+      "previousSlugs": [
+        "hlks-fachmitarbeiter-m-w-d-100-sodexo-basel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hlks-fachmitarbeiter-m-w-d-100-sodexo-basel"
         ]
       },
-      "previousSlugs": [
-        "hlks-fachmitarbeiter-m-w-d-100-sodexo-basel"
-      ],
+      "firstSeenAt": "2026-09-19T22:49:29.067Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -417,7 +419,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/0b33f2e8843e8b440dd8caf7086995b0_0/5719/Unterhaltsreiniger_in_m_w_d_50.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:32.470Z",
+      "crawledAt": "2026-10-08T22:09:51.762Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -470,12 +472,12 @@
     },
     {
       "id": "sodexo-6345ce6a73c1",
-      "slug": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern",
+      "slug": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-15h-a-settimana-sodexo-suisse-sa-luzern",
       "slugByLocale": {
-        "it": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern",
-        "en": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern",
+        "it": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-15h-a-settimana-sodexo-suisse-sa-luzern",
+        "en": "maintenance-cleaner-m-f-d-15h-per-week-sodexo-suisse-sa-luzern",
         "de": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern",
-        "fr": "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern"
+        "fr": "agent-e-d-entretien-h-f-d-15-h-par-semaine-sodexo-suisse-sa-luzern"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -494,13 +496,13 @@
         "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 15h pro Woche Stellennummer 5703 am Standort Luzern CH-6005 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht\n• Arbeitszeiten: Mo. - Fr. von 18:00 - 21:00 Uhr Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, +41 44 305 80 90 Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
         "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif: améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde pour construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous poursuivons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Aimeriez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Nettoyeurs d'entretien: en (h/f/d) 15h par semaine numéro d'emploi 5703 au site Lucerne CH-6005 à temps partiel Ce sont vos tâches\n• Aspirateur dans les bureaux et salles de réunion\n• Retirer la vaisselle et rincer\n• Bureaux nettoyés mouillés\n• Rez-de-chaussée des toilettes\n• Toilettes propres, urinoirs et lavabos\n• Élimination du papier et des déchets\n• Heures de travail: Mo. - P. de 18:00 - 21:00\n• Expérience professionnelle en nettoyage\n• Orientation client, service et qualité\n• Flexibilité, fiabilité et travail d'équipe\n• L'attention et la force physique\n• Bonne connaissance de l'allemand Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Le contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous plaidons pour tous et nous sommes engagés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, +41 44 305 80 90 Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, ainsi que les candidatures des recruteurs."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://sodexo-suisse.concludis.de/prj/shw/f7dd39d47c6f28f7877155ccffad0192_0/5703/Unterhaltsreiniger_in_m_w_d_15h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:31.879Z",
+      "crawledAt": "2026-10-08T22:09:51.181Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -521,6 +523,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-25T14:41:39.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern"
+        ],
+        "en": [
+          "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-15h-pro-woche-sodexo-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -537,12 +553,12 @@
     },
     {
       "id": "sodexo-25aaf0202b3f",
-      "slug": "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen",
+      "slug": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-11-25-ore-a-settimana-sodexo-suisse-sa-zurich-flughafen",
       "slugByLocale": {
-        "it": "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen",
+        "it": "addetto-a-alle-pulizie-di-manutenzione-m-f-d-11-25-ore-a-settimana-sodexo-suisse-sa-zurich-flughafen",
         "en": "maintenance-cleaner-m-f-d-11-25-hours-per-week-sodexo-suisse-sa-zurich-flughafen",
         "de": "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen",
-        "fr": "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen"
+        "fr": "agent-e-d-entretien-h-f-d-11-25-heures-par-semaine-sodexo-suisse-sa-zurich-flughafen"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -561,13 +577,13 @@
         "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Unterhaltsreiniger:in (m/w/d) 11.25 Stunden pro Woche Stellennummer 5699 am Standort Zürich Flughafen CH-8058 Teilzeit Das sind deine Aufgaben\n• Staubsaugen in Büros und in Meetingräumen\n• Geschirr abräumen und spülen lassen\n• Schreibtische feucht abwischen\n• Toilettenboden feuchtwischen\n• Toiletten, Urinale und Waschbecken reinigen\n• Entsorgung von Papier und Kehricht Das erwarten wir von dir\n• Berufserfahrung in der Reinigung\n• Kunden-, Service- und Qualitätsorientierung\n• Flexibilität, Zuverlässigkeit und Teamfähigkeit\n• Gründlichkeit und körperliche Belastbarkeit\n• Gute Deutschkenntnisse\n• Computerkenntnisse In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Der Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Violaine Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
         "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif: améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde pour construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous poursuivons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Aimeriez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Nettoyeurs d'entretien: en (h/f/d) 11.25 heures par semaine Job no 5699 à l'aéroport de Zurich CH-8058 à temps partiel Ce sont vos tâches\n• Aspirateur dans les bureaux et salles de réunion\n• Retirer la vaisselle et rincer\n• Bureaux nettoyés mouillés\n• Rez-de-chaussée des toilettes\n• Toilettes propres, urinoirs et lavabos\n• Élimination du papier et des déchets C'est ce que nous attendons de vous.\n• Expérience professionnelle en nettoyage\n• Orientation client, service et qualité\n• Flexibilité, fiabilité et travail d'équipe\n• L'attention et la force physique\n• Bonne connaissance de l'allemand\n• Compétences informatiques Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Le contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous plaidons pour tous et nous sommes engagés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, Melissa Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, ainsi que les candidatures des recruteurs."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich Flughafen",
       "canton": "ZH",
       "url": "https://sodexo-suisse.concludis.de/prj/shw/5c971edc0c2cc92fc99b5a3609450cb7_0/5699/Unterhaltsreiniger_in_m_w_d_11_25_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:31.257Z",
+      "crawledAt": "2026-10-08T22:09:50.554Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -588,6 +604,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-25T14:41:39.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen"
+        ],
+        "fr": [
+          "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-11-25-stunden-pro-woche-sodexo-zurich-flughafen"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -604,12 +631,12 @@
     },
     {
       "id": "sodexo-ae5338c2b3e1",
-      "slug": "rezeptionist-in-60-80-m-w-d-sodexo-luzern",
+      "slug": "addetto-a-alla-reception-60-80-m-f-d-sodexo-suisse-sa-luzern",
       "slugByLocale": {
-        "it": "rezeptionist-in-60-80-m-w-d-sodexo-luzern",
+        "it": "addetto-a-alla-reception-60-80-m-f-d-sodexo-suisse-sa-luzern",
         "en": "receptionist-60-80-m-f-d-sodexo-suisse-sa-luzern",
         "de": "rezeptionist-in-60-80-m-w-d-sodexo-luzern",
-        "fr": "rezeptionist-in-60-80-m-w-d-sodexo-luzern"
+        "fr": "receptionniste-60-80-h-f-d-sodexo-suisse-sa-luzern"
       },
       "company": "Sodexo (Suisse) SA",
       "companyKey": "sodexo",
@@ -628,13 +655,13 @@
         "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Rezeptionist:in 60 - 80% (m/w/d) Stellennummer 5726 am Standort Luzern CH-6005 - Teilzeit Das sind deine Aufgaben\n• Verantwortlich für die professionelle Betreuung und Empfang internationaler Gäste, Kunden, Lieferanten und Handwerker\n• Bedienen der Telefonzentrale und Auskünfte fachgerecht beantworten\n• Durchführen von diversen Sauberkeits- und Verfügbarkeitskontrollen\n• Post- und Kuriermanagement\n• Badge Management\n• Verwaltung von Büro- und Versandmaterial\n• Diverse administrative Tätigkeiten\n• Rapportieren von Arbeitssicherheitsrelevanten Vorfällen und Zusammenarbeit mit internen Abteilungen\n• Mithilfe bei der Eventorganisation & - durchführung Das bringst du mit\n• Du hast bereits einige Jahre an einem Empfang oder in der Hotellerie- oder Gastronomiebranche gearbeitet\n• Bereit, auch Aufgaben in der Kommunikation zu übernehmen\n• Charmantes & gepflegtes Auftreten\n• Du bist äusserst dienstleistungs- und kundenorientiert und dies aus innerster Überzeugung\n• Hohe Einsatzbereitschaft, Flexibilität und die Freude am Arbeiten zeichnen dich aus\n• Sehr gute Ausdrucksweise in der deutschen Sprache sowie gute Englischkenntnisse (B2) sind zwingend, französisch von Vorteil\n• Die Microsoft Office-Palette und Computer-Anwenderkenntnisse beherrschst du\n• Wenn du Spass an Teamarbeit mitbringst, passt du perfekt zu uns In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Melissa Vacic Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
         "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif: améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde pour construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous poursuivons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Aimeriez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Réceptionniste: dans 60 - 80% (h/f/d) emploi numéro 5726 à l'emplacement de Lucerne CH-6005 - à temps partiel Ce sont vos tâches\n• Responsable des soins professionnels et de l'accueil des clients, fournisseurs et artisans internationaux\n• Contrôle du centre téléphonique et information de réponse professionnelle\n• Mise en œuvre de divers contrôles de propreté et de disponibilité\n• Gestion des postes et des messageries\n• Gestion des insignes\n• Services de gestion du matériel de bureau et d ' expédition\n• Activités administratives diverses\n• Rapports sur les incidents liés à la sécurité au travail et coopération avec les services internes\n• Assistance dans l'organisation de l'événement et - mise en œuvre Ça, c'est avec toi.\n• Vous travaillez depuis plusieurs années à une réception ou dans l'hôtellerie ou la restauration\n• Prêt à assumer également des tâches de communication\n• Aspect charmant et bien gardé\n• Vous êtes extrêmement orienté vers le service et le client et ceci de la conviction la plus intérieure\n• Un engagement élevé, une flexibilité et la joie de travailler vous distinguent\n• Très bonne expression en langue allemande ainsi qu'une bonne connaissance de l'anglais (B2) sont obligatoires, le français est un avantage\n• La gamme Microsoft Office et les compétences utilisateur d'ordinateur que vous maîtrisez\n• Si vous aimez le travail d'équipe, vous êtes parfait pour nous Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Votre contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous plaidons pour tous et nous sommes engagés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, Melissa Vacic Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, ainsi que les candidatures des recruteurs."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://sodexo-suisse.concludis.de/prj/shw/2c8ed8587468aec2462a3914f154e570_0/5726/Rezeptionist_in_60_-_80_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:30.670Z",
+      "crawledAt": "2026-10-08T22:09:49.950Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -655,6 +682,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-25T14:41:38.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rezeptionist-in-60-80-m-w-d-sodexo-luzern"
+        ],
+        "fr": [
+          "rezeptionist-in-60-80-m-w-d-sodexo-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "rezeptionist-in-60-80-m-w-d-sodexo-luzern"
+      ],
       "salaryMin": 55600,
       "salaryMax": 84800,
       "salarySource": "estimated",
@@ -671,9 +709,9 @@
     },
     {
       "id": "sodexo-615806b9a329",
-      "slug": "betriebsmitarbeiter-in-service-attache-auf-abruf-sodexo-zurich-flughafen",
+      "slug": "addetto-a-operativo-a-al-servizio-attache-su-chiamata-sodexo-suisse-sa-zurich-flughafen",
       "slugByLocale": {
-        "it": "betriebsmitarbeiter-in-service-attache-auf-abruf-sodexo-zurich-flughafen",
+        "it": "addetto-a-operativo-a-al-servizio-attache-su-chiamata-sodexo-suisse-sa-zurich-flughafen",
         "en": "operations-associate-on-demand-service-attache-sodexo-suisse-sa-zurich-flughafen",
         "de": "betriebsmitarbeiter-in-service-attache-auf-abruf-sodexo-zurich-flughafen",
         "fr": "employe-de-l-entreprise-en-service-attache-a-la-demande-sodexo-suisse-sa-zurich-flughafen"
@@ -695,13 +733,13 @@
         "de": "Sodexo wurde 1966 von Pierre Bellon in Marseille gegründet und ist der weltweit führende Anbieter von nachhaltiger Betriebsgastronomie und besonderen Erlebnissen in allen Lebensbereichen. Mit seinen beiden Geschäftsbereichen Food und Facilities Management Services begegnet Sodexo allen Herausforderungen des täglichen Lebens und verfolgt dabei ein doppeltes Ziel: die Lebensqualität unserer Mitarbeitenden und der Menschen, denen wir dienen, zu verbessern. Wachstum und soziales Engagement gehen dabei Hand in Hand. Das Ziel von Sodexo ist zugleich auch Leitspruch: „to create a better everyday for everyone to build a better life for all.” In der Schweiz sind wir als einziger Anbieter auf Facility Management und Catering Services spezialisiert. Wir verfolgen für unsere Kundinnen und Kunden einen ganzheitlichen Ansatz, bei dem wir die Infrastruktur, den Menschen und sein Wohlbefinden sowie die Umgebung ins Zentrum stellen. Unsere rund 650 Mitarbeitenden arbeiten in den Bereichen Reinigung, Catering, Unternehmensgastronomie, Logistik, Sicherheits- und Empfangsdienste, Konferenzservices sowie Technisches Gebäudemanagement. Wir streben stets danach, mit unserem Handeln und Denken den Alltag von Menschen vor und hinter den Kulissen besser zu machen. Hast du Lust, bei einem der grössten Familienunternehmen der Welt zu arbeiten? Dann werde Teil unseres Teams und bewirb dich für diese spannende Aufgabe. Betriebsmitarbeiter:in Service Attache auf Abruf Stellennummer 5710 eine Premium Lounge am Standort Zürich Flughafen CH-8058 - Geringfügige Beschäftigung Das sind deine Aufgaben\n• Loungebereich nach Vorgabe vor Öffnung vorbereiten\n• Sie bieten den Lounge-Kunden einen effizienten und freundlichen Service, der sicherstellt, dass alle Bedürfnisse erkannt und erfüllt werden\n• Sie bauen aktiv Beziehungen und Interaktion mit Kunden auf\n• Verantwortungsvoller, sorgsamer Umgang mit Lebensmitteln, Getränken und Arbeitsmitteln\n• Zuständig für die Sauberkeit der zugeteilten Station\n• Auffüllen und Reinigen der Servicestation gemäss Reinigungsplan, sauberes Hinterlassen der Servicestation für den folgenden Tag\n• Allgemeine Reinigungarbeiten\n• Täglicher Austausch/Feedback mit Supervisor\n• Die Premium Lounge hat eine 7-Tage Woche Das erwarten wir von dir\n• Erfahrung im Service von Vorteil\n• Kommunikative und offene Persönlichkeit mit Freude am Gästekontakt\n• Schnelle Auffassungsgabe, selbständig, flexibel und hoch motiviert\n• Ausgeprägte Teamfähigkeit\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift In dieser Position hast du viel Handlungsspielraum und Eigenverantwortung und arbeitest in einem spannenden und dynamischen Umfeld. Obwohl wir Teil eines globalen Players sind, leben wir in unserem kleinen Team eine ausgeprägte «Hands-on» Mentalität. Dein Kontakt Fühlst du dich angesprochen? Dann freuen wir uns auf deine vollständigen Bewerbungsunterlagen über unser Online-Portal. Mit unseren Stelleninseraten sprechen wir alle an und setzen uns für Diversität und Vielfalt im Unternehmen ein. Sodexo (Suisse) SA, Violaine Stehli Bitte bewerbe dich direkt hier online. Bewerbungen per Post oder E-Mail können leider nicht berücksichtigt werden, genauso wenig wie Bewerbungen von Personalvermittlern.",
         "fr": "Sodexo a été fondée en 1966 par Pierre Bellon à Marseille et est le premier fournisseur mondial de restauration durable et d'expériences spéciales dans tous les domaines de la vie. Avec ses deux divisions Food and Facilities Management Services, Sodexo répond à tous les défis de la vie quotidienne avec un double objectif : améliorer la qualité de vie de nos employés et des personnes que nous servons. La croissance et l'engagement social vont de pair. La devise de Sodexo est de créer un meilleur quotidien pour tout le monde pour construire une vie meilleure pour tous. En Suisse, nous sommes le seul fournisseur spécialisé dans la gestion des installations et les services de restauration. Nous poursuivons une approche holistique pour nos clients, axée sur l'infrastructure, les personnes et leur bien-être ainsi que l'environnement. Nos quelque 650 employés travaillent dans les domaines du nettoyage, de la restauration, de la restauration d'entreprise, de la logistique, de la sécurité et des services d'accueil, des services de conférence et de la gestion technique des bâtiments. Nous nous efforçons toujours d'améliorer la vie quotidienne des gens devant et derrière les coulisses avec nos actions et nos pensées. Aimeriez-vous travailler pour l'une des plus grandes entreprises familiales au monde? Faites ensuite partie de notre équipe et postulez pour cette tâche passionnante. Personnel d'exploitation: à Service Attaché sur appel numéro 5710 un salon premium à l'aéroport de Zurich CH-8058 - Emploi mineur Ce sont vos tâches\n• Préparer le salon si nécessaire avant l'ouverture\n• Ils fournissent aux clients de salon un service efficace et convivial qui garantit que tous les besoins sont reconnus et satisfaits.\n• Établir activement des relations et des interactions avec les clients\n• Manipulation responsable et soigneuse des aliments, des boissons et des équipements de travail\n• Responsable de la propreté de la station attribuée\n• Remplissage et nettoyage de la station-service selon le plan de nettoyage, laissant la station-service propre pour le lendemain\n• Nettoyage général\n• Échange quotidien/feedback avec le superviseur\n• Le salon Premium a une semaine de 7 jours C'est ce que nous attendons de vous.\n• L'expérience du service est un avantage\n• Personnalité communicative et ouverte avec plaisir en contact avec l'invité\n• Compréhension rapide, indépendante, flexible et très motivée\n• Fortes compétences en équipe\n• Bonne connaissance de l'allemand et de l'anglais en paroles et en écriture Dans cette position, vous avez beaucoup de marge de manoeuvre et de responsabilité personnelle et travaillez dans un environnement passionnant et dynamique. Bien que nous faisons partie d'un joueur mondial, nous vivons dans notre petite équipe une mentalité prononcée de \"hands-on\". Votre contact Vous sentez-vous adressé? Ensuite, nous attendons avec impatience vos documents de candidature complets via notre portail en ligne. Avec nos offres d'emploi, nous plaidons pour tous et nous sommes engagés à la diversité et à la diversité dans l'entreprise. Sodexo (Suisse) SA, Melissa Vacic Veuillez postuler directement ici en ligne. Les candidatures par courrier postal ou par courrier électronique ne peuvent malheureusement pas être considérées, ainsi que les candidatures des recruteurs."
       },
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich Flughafen",
       "canton": "ZH",
       "url": "https://sodexo-suisse.concludis.de/prj/shw/810462d01f318bd13e628a77fc3f92c0_0/5710/Betriebsmitarbeiter_in_Service_Attache_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:30.103Z",
+      "crawledAt": "2026-10-08T22:09:49.365Z",
       "addressLocality": "Zürich Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -722,6 +760,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-25T14:41:37.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-service-attache-auf-abruf-sodexo-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-service-attache-auf-abruf-sodexo-zurich-flughafen"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -768,7 +814,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/0dbcf39d413231953d442f2f17f80cd5_0/5754/Rezeptionist_in_80_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:29.510Z",
+      "crawledAt": "2026-10-08T22:09:48.805Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -835,7 +881,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/588e343066cf54ec3db5132231df7d68_0/5758/Rezeptionist_in_43_m_w_d.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:28.876Z",
+      "crawledAt": "2026-10-08T22:09:48.216Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -902,7 +948,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/d156d4836ea87dd732cfda175b7911cb_0/5771/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:28.307Z",
+      "crawledAt": "2026-10-08T22:09:47.616Z",
       "addressLocality": "Deredingen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -922,15 +968,15 @@
       "applyUrl": "https://sodexo-suisse.concludis.de/prj/shw/d156d4836ea87dd732cfda175b7911cb_0/5771/Unterhaltsreiniger_in_m_w_d_auf_Abruf.htm?b=0&lang=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T21:17:33.604Z",
+      "previousSlugs": [
+        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
         ]
       },
-      "previousSlugs": [
-        "unterhaltsreiniger-in-m-w-d-auf-abruf-sodexo-deredingen"
-      ],
+      "firstSeenAt": "2026-10-07T21:17:33.604Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -977,7 +1023,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/e347c51419ffb23ca3fd5050202f9c3d_0/5750/Unterhaltsreiniger_in_m_w_d_12h_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:27.702Z",
+      "crawledAt": "2026-10-08T22:09:47.024Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1011,6 +1057,7 @@
           "unterhaltsreiniger-in-m-w-d-12h-pro-woche-sodexo-basel"
         ]
       },
+      "firstSeenAt": "2026-10-08T21:24:27.702Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1023,8 +1070,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T21:24:27.702Z"
+      }
     },
     {
       "id": "sodexo-af1cbaad9334",
@@ -1058,7 +1104,7 @@
       "url": "https://sodexo-suisse.concludis.de/prj/shw/ca7be8306ecc3f5fa30ff2c41e64fa7b_0/5778/Unterhaltsreiniger_in_m_w_d_15_Stunden_pro_Woche.htm?b=0&lang=de_DE",
       "source": "Sodexo (Suisse) SA Dedicated Parser (Concludis / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:24:27.137Z",
+      "crawledAt": "2026-10-08T22:09:46.382Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1092,6 +1138,7 @@
           "unterhaltsreiniger-in-m-w-d-15-stunden-pro-woche-sodexo-schlieren"
         ]
       },
+      "firstSeenAt": "2026-10-08T21:24:27.137Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1104,10 +1151,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T21:24:27.137Z"
+      }
     }
-  ],
-  "crawlerKey": "sodexo",
-  "assembledAt": "2026-10-08T21:24:41.602Z"
+  ]
 }

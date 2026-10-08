@@ -1,16 +1,16 @@
 {
   "key": "oscam",
   "label": "OSCAM",
-  "generatedAt": "2026-10-08T21:21:34.680Z",
+  "generatedAt": "2026-10-08T22:10:16.936Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5603,
-  "avgDurationMs": 5603,
+  "durationMs": 4721,
+  "avgDurationMs": 4721,
   "durationHistory": [
-    5603
+    4721
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-08T21:21:17.257Z",
+      "crawledAt": "2026-10-08T22:10:08.693Z",
       "id": "oscam-e59e5b8effd4",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -80,7 +80,7 @@
         "canton": "TI",
         "location": "Castelrotto"
       },
-      "crawledAt": "2026-10-08T21:21:16.922Z",
+      "crawledAt": "2026-10-08T22:10:08.520Z",
       "id": "oscam-90801fb9d04f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -103,5 +103,5 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }
