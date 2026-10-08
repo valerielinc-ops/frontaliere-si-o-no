@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5068
+      "6": 5069
     },
-    "publishedCovers": 6780,
+    "publishedCovers": 6781,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180134,6 +180134,33 @@
           "id": "svizzera-india-accordi-bilaterali",
           "category": "novita",
           "date": "2026-10-07T08:55:11.941Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-bally-caslano-moratoria-tagli": {
+      "cover": "/images/blog/article-bally-caslano-moratoria-tagli.webp",
+      "hash": "8fc49ae2e4a8ab9f89bfe756dfaee8099119dcc8c1d2691fde1a64a25d8ec476",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bally-caslano-moratoria-tagli",
+          "category": "novita",
+          "date": "2026-10-08T08:27:01.797Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

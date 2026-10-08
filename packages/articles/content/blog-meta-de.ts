@@ -12780,6 +12780,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.title': 'Operation Hermes: Mehrwertsteuerbetrug 450 Mio., Entführungen 11 Mio.',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.excerpt': '## Kurz gesagt - Sechs Sicherungsmaßnahmen und Beschlagnahmungen von rund 11 Millionen - Mehrwertsteuerbetrug in Elektronik und Informatik - 93 Unternehmen im italienischen Teil der Untersuchung',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.imageAlt': 'Redaktionelles Bild zu: Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
+    'blog.article.bally-caslano-moratoria-tagli.title': 'Bally in Caslano: Moratorium verlängert und Personalabbau',
+    'blog.article.bally-caslano-moratoria-tagli.excerpt': 'Nach der Massenentlassung von 25 Mitarbeitenden sind für Bally zwei Kaufangebote für das in Caslano tätige Unternehmen eingegangen.',
+    'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Luganersee bei Caslano im Kanton Tessin',
 };
 
 export default blogMetaDe;

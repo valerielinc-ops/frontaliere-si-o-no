@@ -102894,6 +102894,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bally-caslano-moratoria-tagli': {
+    title: 'Bally a Caslano: moratoria prorogata e tagli al personale',
+    description: 'Bally a Caslano: moratoria prorogata, altri tagli al personale e due offerte di acquisto dopo il licenziamento collettivo di 25 dipendenti dell\'azienda.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bally, caslano, moratoria, prorogata',
+    ogTitle: 'Bally a Caslano: due offerte e 25 dipendenti',
+    ogDescription: 'A Caslano, la vicenda Bally combina la proroga della moratoria, altri tagli al personale e due offerte di acquisto arrivate dopo un licenziamento collettivo che ha riguardato 25 dipendenti dell\'azienda attiva a Caslano.',
+    canonicalPath: '/articoli-frontaliere/bally-caslano-moratoria-tagli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bally a Caslano: moratoria prorogata e tagli al personale",
+      "description": "Bally a Caslano: moratoria prorogata, altri tagli al personale e due offerte di acquisto dopo il licenziamento collettivo di 25 dipendenti dell'azienda.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-bally-caslano-moratoria-tagli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano vicino a Caslano, nel Canton Ticino"
+      },
+      "datePublished": "2026-10-08T08:27:01+00:00",
+      "dateModified": "2026-10-08T08:27:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bally-caslano-moratoria-tagli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

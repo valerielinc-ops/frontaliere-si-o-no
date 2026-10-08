@@ -12781,6 +12781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.title': 'Operation Hermes: VAT fraud 450 mln, seizures 11 mln',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.excerpt': '## TL;DR - Six precautionary measures and seizures totaling approximately 11 million - VAT fraud in electronics and IT - 93 companies in the Italian part of the investigation',
     'blog.article.operazione-hermes-frodi-iva-450-mln-sequestri-11-mln.imageAlt': 'Editorial image related to: Operazione Hermes: frodi Iva 450 mln, sequestri 11 mln',
+    'blog.article.bally-caslano-moratoria-tagli.title': 'Bally in Caslano: moratorium extended and staff cuts',
+    'blog.article.bally-caslano-moratoria-tagli.excerpt': 'Following the collective dismissal of 25 employees, Bally has received two offers to acquire the company operating in Caslano.',
+    'blog.article.bally-caslano-moratoria-tagli.imageAlt': 'Lake Lugano near Caslano in the canton of Ticino',
 };
 
 export default blogMetaEn;
