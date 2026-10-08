@@ -1129,8 +1129,11 @@ shard_push_error_is_auth() {
 # permanent size limit. These strings are GitHub's stable rejection forms:
 # the remote does not expose the tree limit as a machine-readable code, so the
 # exact stderr wording is the evidence we can classify without guessing.
+# One pattern for the classifier and for the remote line quoted in the error
+# below: two copies would drift (AGENTS.md #6).
+SHARD_REMOTE_OBJECT_LIMIT_PATTERN="non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size"
 shard_push_error_is_remote_object_limit() {
-  grep -qEi "non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size" "$1"
+  grep -qEi "$SHARD_REMOTE_OBJECT_LIMIT_PATTERN" "$1"
 }
 
 # shard_push_error_is_transport <logfile>
@@ -1389,7 +1392,7 @@ shard_push_with_retry() {
     fi
     if shard_push_error_is_remote_object_limit "$out"; then
       fallback_reason="$(shard_push_failure_reason "$out")"
-      remote_line="$(grep -Ei "non-blob object size limit exceeded|exceeds GitHub's file size limit|GH001: Large files detected|pack exceeds maximum allowed size" "$out" | head -n 1 || true)"
+      remote_line="$(grep -Ei "$SHARD_REMOTE_OBJECT_LIMIT_PATTERN" "$out" | head -n 1 || true)"
       echo "::error::$label: GitHub remote object/tree size limit is permanent, not transient — remote: ${remote_line:-object-size rejection}" >&2
       shard_record_push_failure_reason "$fallback_reason"
       rm -f "$out"
