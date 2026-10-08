@@ -1,8 +1,10 @@
 {
+  "crawlerKey": "cham-swiss-properties",
+  "assembledAt": "2026-10-08T09:33:35.716Z",
   "jobs": [
     {
       "id": "cham-swiss-properties-6a1c2fdbbe1c",
-      "slug": "fachspezialist-in-vertragsmanagement-80-100-cham-swiss-properties-cham",
+      "slug": "specialista-nella-gestione-dei-contratti-80-100-cham-swiss-properties-cham",
       "slugByLocale": {
         "it": "specialista-nella-gestione-dei-contratti-80-100-cham-swiss-properties-cham",
         "en": "specialist-in-contract-management-80-100-cham-swiss-properties-cham",
@@ -32,7 +34,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:41:03.424Z",
+      "crawledAt": "2026-10-08T09:33:31.617Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -55,15 +57,30 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialist-in-contract-management-80-100-cham-swiss-properties-cham",
-        "specialiste-dans-la-gestion-des-contrats-80-100-cham-swiss-properties-cham"
+        "specialiste-dans-la-gestion-des-contrats-80-100-cham-swiss-properties-cham",
+        "fachspezialist-in-vertragsmanagement-80-100-cham-swiss-properties-cham"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialist-in-contract-management-80-100-cham-swiss-properties-cham",
-          "specialiste-dans-la-gestion-des-contrats-80-100-cham-swiss-properties-cham"
+          "specialiste-dans-la-gestion-des-contrats-80-100-cham-swiss-properties-cham",
+          "fachspezialist-in-vertragsmanagement-80-100-cham-swiss-properties-cham"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:16:20.555Z"
+      "firstSeenAt": "2026-08-31T17:16:20.555Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }

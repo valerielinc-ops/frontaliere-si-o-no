@@ -1,7 +1,7 @@
 {
   "key": "fondation-soins-lausanne",
   "label": "Fondation Soins Lausanne",
-  "generatedAt": "2026-10-07T21:42:49.422Z",
+  "generatedAt": "2026-10-08T09:32:12.028Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -16,10 +16,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 11703,
-  "avgDurationMs": 11703,
+  "durationMs": 15029,
+  "avgDurationMs": 15029,
   "durationHistory": [
-    11703
+    15029
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e9c74fcd-db47-4910-b409-147747f5ba59/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:27.643Z",
+      "crawledAt": "2026-10-08T09:31:58.218Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,7 +79,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/fefb37cc-3e8c-4821-b366-ee487095f7d3/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:26.064Z",
+      "crawledAt": "2026-10-08T09:31:56.443Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -122,7 +122,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9b6d2ee6-e54d-4e93-abb6-5ae251a1f385/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:24.573Z",
+      "crawledAt": "2026-10-08T09:31:55.006Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c1ab16fe-30f2-4d9a-b405-c9ef6c8b9c8b/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:26.875Z",
+      "crawledAt": "2026-10-08T09:31:57.483Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -211,7 +211,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/25765642-8932-4959-a044-44aded996b06/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:25.309Z",
+      "crawledAt": "2026-10-08T09:31:55.800Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/de30afb7-b090-406f-a281-1ff34b8a41f9/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:23.858Z",
+      "crawledAt": "2026-10-08T09:31:54.250Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/bb4ca556-78f5-4811-bf70-2f9a8beeb937/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:23.123Z",
+      "crawledAt": "2026-10-08T09:31:53.510Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -338,7 +338,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/94367570-967c-4cd6-b85b-381657e362ab/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:42:22.502Z",
+      "crawledAt": "2026-10-08T09:31:52.519Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -369,5 +369,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
