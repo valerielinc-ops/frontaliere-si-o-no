@@ -1,0 +1,99 @@
+{
+  "_what": "Letture Firestore e tempo degli input della ripresa newsletter: baseline contro HEAD. Solo aggregati.",
+  "_how": "node scripts/measure-newsletter-resume-reads.mjs --recipients <N> --out <file> --baseline-ref <ref>",
+  "generated_at": "2026-10-08T12:21:37.913Z",
+  "baseline_ref": "origin/main",
+  "baseline_sha": "98d8b63b0567e776d804ee74318c7b3a69ea384a",
+  "selected_recipients": 21,
+  "job_alerts": {
+    "baseline": {
+      "function": "fetchAllJobAlerts (collection group)",
+      "firestore_calls": 1,
+      "docs_read": 13038,
+      "elapsed_ms": 84721
+    },
+    "head": {
+      "function": "loadJobAlertsForSubscribers",
+      "firestore_calls": 21,
+      "docs_read": 21,
+      "elapsed_ms": 134,
+      "recipients": 21,
+      "collection_group_queries": 0,
+      "subscriber_queries": 21,
+      "failed_collection_group_queries": 0,
+      "failed_subscriber_queries": 0,
+      "alerts": 21,
+      "subscribers_with_alerts": 21
+    }
+  },
+  "application_intent": {
+    "baseline": {
+      "function": "fetchSubscribers private collection group join",
+      "firestore_calls": 4,
+      "docs_read": 12890,
+      "elapsed_ms": 13449,
+      "recipients": 9457,
+      "private_candidates": 495,
+      "profile_candidates": 495,
+      "profiles_found": 495
+    },
+    "head": {
+      "function": "attachApplicationIntentPersonalization",
+      "firestore_calls": 2,
+      "docs_read": 12,
+      "elapsed_ms": 100,
+      "subscribers": 21,
+      "with_user_id": 9,
+      "private_reads": 9,
+      "private_found": 3,
+      "profile_reads": 3,
+      "profiles_found": 3,
+      "opted_out": 0,
+      "failed_batches": 0
+    }
+  },
+  "ab_totals": {
+    "baseline": {
+      "function": "loadCampaignVariantTotals per previous campaign",
+      "firestore_calls": 4,
+      "docs_read": 85473,
+      "elapsed_ms": 98069,
+      "campaigns": 2
+    },
+    "head": {
+      "function": "loadPooledCampaignVariantTotals",
+      "first_pass": {
+        "firestore_calls": 5,
+        "docs_read": 85474,
+        "firestore_writes": 1,
+        "elapsed_ms": 121681,
+        "source": "calculation",
+        "cache_reads": 1,
+        "cache_hits": 0,
+        "cache_misses": 1,
+        "cache_read_failures": 0,
+        "campaign_calculations": 1,
+        "cache_writes": 1,
+        "cache_write_failures": 0
+      },
+      "second_pass": {
+        "firestore_calls": 1,
+        "docs_read": 1,
+        "firestore_writes": 0,
+        "elapsed_ms": 0,
+        "source": "cache",
+        "cache_reads": 1,
+        "cache_hits": 1,
+        "cache_misses": 0,
+        "cache_read_failures": 0,
+        "campaign_calculations": 0,
+        "cache_writes": 0,
+        "cache_write_failures": 0
+      }
+    }
+  },
+  "notes": [
+    "La lista dei destinatari e la proiezione completa usata dalla baseline sono lette prima e fuori dalla misura; gli indirizzi non vengono stampati.",
+    "La scrittura della cache HEAD è intercettata in memoria: nessuna scrittura arriva a Firestore."
+  ]
+}

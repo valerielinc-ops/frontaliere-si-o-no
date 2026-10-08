@@ -183,6 +183,36 @@ describe('loadJobAlertsForSubscribers', () => {
     expect(Object.values(perResult.stats).every((value) => Number.isInteger(value))).toBe(true);
   });
 
+  it('keeps only alerts owned by the subscriber in both modes', async () => {
+    const requested = ['uno@example.com', 'due@example.com'];
+    const fixture = {
+      alerts: {
+        'uno@example.com': [
+          { email: ' UNO@EXAMPLE.COM ', active: true, keywords: ['valido'] },
+          { active: true, keywords: ['senza-email'] },
+          { email: 'altro@example.com', active: true, keywords: ['altro'] },
+        ],
+        'due@example.com': [],
+      },
+    };
+
+    const perSubscriber = await loadJobAlertsForSubscribers(fakeDb(fixture).db, requested, {
+      perSubscriberMax: 2,
+    });
+    const collectionGroup = await loadJobAlertsForSubscribers(fakeDb(fixture).db, requested, {
+      perSubscriberMax: 1,
+    });
+
+    expect(perSubscriber.alertsByEmail).toEqual(collectionGroup.alertsByEmail);
+    expect(perSubscriber.alertsByEmail.get('uno@example.com')).toEqual([
+      { email: ' UNO@EXAMPLE.COM ', active: true, keywords: ['valido'] },
+    ]);
+    expect(perSubscriber.stats.alerts).toBe(1);
+    expect(perSubscriber.stats.subscribers_with_alerts).toBe(1);
+    expect(collectionGroup.stats.alerts).toBe(1);
+    expect(collectionGroup.stats.subscribers_with_alerts).toBe(1);
+  });
+
   it('counts a failed subscriber query once and never logs its address', async () => {
     const warnings: string[] = [];
     vi.spyOn(console, 'warn').mockImplementation((...args: unknown[]) => warnings.push(args.join(' ')));

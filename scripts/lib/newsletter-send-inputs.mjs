@@ -30,10 +30,12 @@ function positiveInteger(value, fallback) {
 /**
  * Load active job alerts for the subscribers that will actually be processed.
  *
- * The collection-group path is deliberately retained for large audiences: a
- * full Monday send is cheaper there than thousands of individual queries. On
- * resume runs, the audience is small enough that reading each subscriber's
- * known subcollection avoids scanning every active alert in Firestore.
+ * Both paths keep only alerts whose email, normalized as a string with trim and
+ * lowercase, matches the subscriber being loaded. The collection-group path is
+ * deliberately retained for large audiences: a full Monday send is cheaper there
+ * than thousands of individual queries. On resume runs, the audience is small
+ * enough that reading each subscriber's known subcollection avoids scanning every
+ * active alert in Firestore.
  *
  * @param {FirebaseFirestore.Firestore|null} db
  * @param {string[]} emails
@@ -93,7 +95,9 @@ export async function loadJobAlertsForSubscribers(db, emails, {
             .collection('alerts')
             .where('active', '==', true)
             .get();
-          const alerts = (snap.docs || []).map((doc) => doc.data() || {});
+          const alerts = (snap.docs || [])
+            .map((doc) => doc.data() || {})
+            .filter((data) => String(data.email || '').trim().toLowerCase() === email);
           if (alerts.length > 0) alertsByEmail.set(email, alerts);
         } catch {
           failed += 1;
