@@ -52,9 +52,9 @@ import {
   sanitizeClientCheck,
 } from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_waive', 'photo_upload', 'photo_remove', 'cv_lines']);
+const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'photo_upload', 'photo_remove', 'cv_lines']);
 const PHOTO_ACTIONS = new Set(['photo_upload', 'photo_remove']);
-const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove', 'document_waive']);
+const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove']);
 // Where the candidate can still give a document: their review, or a portal waiting for them.
 const DOCUMENT_STATES = new Set(['candidate_review', 'needs_candidate_action']);
 // What the candidate wrote vouches for itself in the fact check (bounded).
@@ -627,8 +627,9 @@ async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action
 
 /**
  * One change to a requested document: a file uploaded (its real type from its
- * bytes, the browser's verdict recorded as given), a file removed, or the
- * candidate's choice to send without it (or to take that choice back).
+ * bytes, the browser's verdict recorded as given), or a file removed. Nothing
+ * else: a required document is given, or the application waits
+ * (assistedApplicationExtraDocuments.js).
  */
 async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
   const flowRef = flowRefFor(db, orderId);
@@ -653,8 +654,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
       const current = (await transaction.get(flowRef)).data() || {};
       const files = filesOf(current);
       if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
-      // A file given is no longer "sent without": the choice is taken back.
-      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file], waivedAt: null } }, updatedAt: nowMs }, { merge: true });
+      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file] } }, updatedAt: nowMs }, { merge: true });
       return true;
     });
     if (!added) {
@@ -675,10 +675,7 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     });
     if (!removed) throw new ReviewError('invalid_file');
     if (bucket) await bucket.file(removed.key).delete().catch(() => {});
-    return;
   }
-  // document_waive: the candidate's choice, after the warning that the employer may discard the application.
-  await flowRef.set({ documents: { [requested.id]: { waivedAt: body.waive === false ? null : nowMs } }, updatedAt: nowMs }, { merge: true });
 }
 
 /**

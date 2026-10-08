@@ -11,6 +11,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
 import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
   BIRTH_FIELD_RE,
@@ -73,6 +74,7 @@ export function candidateRules(candidateLocale) {
 - Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
+- A yes/no question that only asks whether the candidate holds a document listed in documents.extra (they attach it to this application): its "yes", source "documents". When it asks more about the document (a category, a grade, a date), it is an eligibility question as any other.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail, phone and address fields come from identity.
@@ -448,6 +450,18 @@ export function candidateAnswerForField(candidate, field) {
 }
 
 /**
+ * «Do you hold a driver qualification card?» on a form, with that very card among the documents attached to
+ * this application: the field's own «yes» ('' for any other field). The upload is the answer (owner decision
+ * 2026-10-08, lib/documentQuestions.js): the candidate was not asked, and is not asked here.
+ */
+export function attachedDocumentYes(candidate, field) {
+  const yes = yesOption(field?.options);
+  if (!yes) return '';
+  const attached = Array.isArray(candidate?.documents?.extra) ? candidate.documents.extra : [];
+  return documentsHeldAsked({ question: questionFromLabel(field?.label), type: 'yes_no' }, attached).length ? yes : '';
+}
+
+/**
  * The civil status the candidate's CV states in its own words, or they corrected: as the planner's data hold it
  * (candidateForForm, `profile.civilStatus`), or as candidateWithEdits returns it (`personal.civilStatus`).
  */
@@ -516,10 +530,15 @@ export function guardPlan(plan, fields, candidate = null) {
     .filter(([, options]) => options.length === 1)
     .map(([fieldId, [option]]) => [fieldId, option]) : []);
   for (const [fieldId, option] of statusPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+  // A yes/no field that only asks whether the candidate holds a document attached to this application: its
+  // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
+  // licence?» into a question for the candidate who has just uploaded it.
+  const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
+  for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);

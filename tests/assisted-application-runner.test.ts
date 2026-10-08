@@ -659,7 +659,8 @@ describe('submit mode', () => {
     ...draft,
     requiredDocuments: [
       { id: 'school_reports', label: 'Bulletins des trois dernières années', kind: 'school_report', keywords: ['bulletin'], required: true, quote: '' },
-      { id: 'eva_test', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA'], required: true, quote: '' },
+      // Welcome, not demanded: an application leaves without it.
+      { id: 'eva_test', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA'], required: false, quote: '' },
     ],
   });
   const documentsFlow = {
@@ -671,7 +672,7 @@ describe('submit mode', () => {
         // Never a key outside the order's folder.
         { key: 'assisted-application-uploads/other_order/doc.pdf', name: 'c.pdf', detectedType: 'pdf' },
       ] },
-      eva_test: { files: [], waivedAt: 1 },
+      eva_test: { files: [] },
     },
   };
   async function documentsBucket() {
@@ -711,7 +712,8 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf', flow: documentsFlow,
       bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
     });
-    expect(seen.extra).toEqual([{ slot: 'extra_1', label: 'Bulletins des trois dernières années', kind: 'school_report' }]);
+    // With the names the document goes by: a form's «do you hold…?» about it is answered by the upload (plan.mjs).
+    expect(seen.extra).toEqual([{ slot: 'extra_1', label: 'Bulletins des trois dernières années', kind: 'school_report', keywords: ['bulletin'] }]);
     expect(seen.files.extra_1).toHaveLength(2);
     expect(seen.files.extra_2).toBeUndefined();
     expect(seen.first).toBe('%PDF-1.4 report 1');
@@ -947,6 +949,61 @@ describe('submit mode', () => {
     });
     expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     expect((sendCascade.mock.calls as any)[0][0][0].payload.text).toContain('079 123 45 67');
+  });
+
+  // Owner decision 2026-10-08, on an order held twice for one requirement: a document the posting requires is
+  // uploaded, not asked about. The model's own question and the portal's (read ahead) are both left out.
+  it('does not ask whether the candidate holds a document the posting has them upload', async () => {
+    const base = fakeCodex();
+    const question = (id: string, text: string, type: string, options: string[] = []) => ({ id, question: text, why: 'L’annuncio lo chiede.', type, options, required: true });
+    const codex = vi.fn(async (request: any) => {
+      const answer = await base(request);
+      if (request.schema === REQUIREMENTS_SCHEMA) {
+        return { ...answer, requestedDocuments: [{ document: 'Diploma SUP', kind: 'diploma', required: true, quote: 'diploma SUP in cure infermieristiche', keywords: ['diploma SUP', 'Diplom FH'] }] };
+      }
+      if (request.schema === MATCH_SCHEMA) {
+        return { ...answer, questions: [question('sup_diploma', 'Possiedi il diploma SUP?', 'yes_no'), question('ward_years', 'Quanti anni di esperienza di reparto hai?', 'number')] };
+      }
+      return answer;
+    });
+    const logged: string[] = [];
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30),
+      log: (...parts: unknown[]) => { logged.push(parts.join(' ')); },
+      // The portal's form asks the same, in its own words, and one thing only the candidate knows.
+      readPortalQuestions: async () => [
+        { id: 'portal_hai_un_diploma_sup', question: 'Hai un diploma SUP?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
+        { id: 'portal_turni_notturni', question: 'Sei disponibile per i turni notturni?', why: '', type: 'choice', options: ['Sì', 'No'], required: true, source: 'portal' },
+      ],
+    } as any);
+    expect(draft.requiredDocuments).toMatchObject([{ id: 'diploma_sup', label: 'Diploma SUP', required: true }]);
+    const ids = draft.questions.map((item: any) => item.id);
+    expect(ids).toEqual(expect.arrayContaining(['ward_years', 'salary_expectation', 'portal_turni_notturni']));
+    expect(ids).not.toContain('sup_diploma');
+    expect(ids).not.toContain('portal_hai_un_diploma_sup');
+    expect(logged.filter((line) => line.startsWith('question answered by a required document'))).toEqual([
+      'question answered by a required document sup_diploma diploma_sup',
+      'question answered by a required document portal_hai_un_diploma_sup diploma_sup',
+    ]);
+    // The document holds the send, once: no question beside it.
+    expect(evaluateRedFlags(draft, { ward_years: '5', salary_expectation: 'CHF 80k', portal_turni_notturni: 'Sì' })).toMatchObject({ candidate: [], documents: ['diploma_sup'] });
+    // The model is told what the candidate uploads.
+    const matchPrompt = (codex.mock.calls as any[]).map(([request]) => request).find((request) => request.schema === MATCH_SCHEMA).prompt;
+    expect(matchPrompt).toContain('"requestedDocuments":[{"document":"Diploma SUP","required":true}]');
+  });
+
+  // Owner decision 2026-10-08: what the posting demands is uploaded, or nothing leaves. A waiver recorded by an
+  // older flow sent the application without the document, to fail at the portal's upload or at the employer.
+  it('never sends without a required document, whatever an older flow recorded', async () => {
+    const draft = { ...baseDraft, requiredDocuments: [{ id: 'school_reports', label: 'Bulletins scolaires', kind: 'school_report', keywords: [], required: true, quote: '' }] };
+    const sendCascade = vi.fn();
+    const blocked = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' }, documents: { school_reports: { files: [], waivedAt: 1 } } }, draft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket: fakeBucket(), runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    expect(blocked).toEqual({ type: 'submit_needs_candidate', questions: [], documents: ['school_reports'] });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('never sends with an open required question, and hands portals over to the candidate', async () => {

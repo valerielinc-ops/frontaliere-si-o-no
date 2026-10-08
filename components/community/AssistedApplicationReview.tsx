@@ -302,7 +302,6 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     return run('photo_upload', { contentBase64: await fileToBase64(file) });
   };
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
-  const waiveDocument = (document: { id: string }, waive: boolean) => run('document_waive', { documentId: document.id, waive });
 
   // Fields shown to the candidate: an e-mail application uses the letter header and what the tailored CV prints.
   const shownFields = useMemo(
@@ -385,9 +384,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     () => (data?.questions || []).filter((question) => question.required && !String(answers[question.id] || '').trim()),
     [data, answers],
   );
-  // Required documents neither uploaded nor waived: they hold the send like an open question.
+  // Required documents not uploaded yet: they hold the send like an open question.
   const openDocuments = useMemo(
-    () => (data?.documents || []).filter((document) => document.required && !document.files.length && !document.waived),
+    () => (data?.documents || []).filter((document) => document.required && !document.files.length),
     [data],
   );
   const pageLocale = data?.locale || locale || 'it';
@@ -560,7 +559,6 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             disabled={Boolean(busy)}
             onUpload={uploadDocument}
             onRemove={removeDocument}
-            onWaive={waiveDocument}
           />
         )}
 

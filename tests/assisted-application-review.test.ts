@@ -224,10 +224,10 @@ describe('candidate review API', () => {
         .set({ heldBy: ['document:reports', 'document:eva'], heldSince: T0 }, { merge: true });
     });
 
-    it('shows what the posting asks and keeps the application until each document is given or waived', async () => {
+    it('shows what the posting asks and keeps the application until each document is given', async () => {
       const page = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
       expect(page.body).toMatchObject({
-        documents: [{ id: 'reports', label: 'Bulletins scolaires', required: true, quote: 'Vos bulletins', files: [], waived: false }, { id: 'eva', files: [] }],
+        documents: [{ id: 'reports', label: 'Bulletins scolaires', required: true, quote: 'Vos bulletins', files: [] }, { id: 'eva', files: [] }],
         documentLimits: { maxBytes: 10 * 1024 * 1024, maxFiles: 5 },
         can: { approve: false, uploadDocuments: true },
       });
@@ -243,9 +243,14 @@ describe('candidate review API', () => {
       // Still held by the EVA results: no clock yet.
       expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: ['document:eva'], deadlineAt: null });
 
-      // The candidate has no EVA results and chooses to send without them (after the page's warning).
-      expect(await post({ action: 'document_waive', documentId: 'eva', waive: true })).toMatchObject({ status: 200 });
-      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS, documents: { eva: { waivedAt: T0 } } });
+      // No «send without it» (owner decision 2026-10-08): an older page's request is no action, and holds as before.
+      expect((await post({ action: 'document_waive', documentId: 'eva', waive: true })).status).toBe(400);
+      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: ['document:eva'], deadlineAt: null });
+      expect(store.read(`${BASE}/automation/flow`).documents.eva?.waivedAt ?? null).toBeNull();
+      expect((await post({ action: 'approve' })).body).toMatchObject({ error: 'questions_open' });
+      // The EVA results given: the 12 h clock starts, and the candidate can approve.
+      expect(await upload('eva', PDF)).toMatchObject({ status: 200, body: { state: 'candidate_review' } });
+      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS });
       expect((await post({ action: 'approve' })).body).toMatchObject({ state: 'submitting' });
     });
 
@@ -274,7 +279,7 @@ describe('candidate review API', () => {
       for (const strings of [itCore, enCore, deCore, frCore]) expect(String(strings['jobBoard.assisted.review.error.file_unreadable'] || '').trim()).not.toBe('');
     });
 
-    it('removes a file, and a document waived is taken back by a file given', async () => {
+    it('removes a file, and a waiver an older flow recorded lifts nothing', async () => {
       await upload('reports', PDF);
       const fileId = store.read(`${BASE}/automation/flow`).documents.reports.files[0].key.split('/').pop();
       expect(await post({ action: 'document_remove', documentId: 'reports', fileId })).toMatchObject({ status: 200 });
@@ -283,9 +288,16 @@ describe('candidate review API', () => {
       expect(store.read(`${BASE}/automation/flow`).heldBy).toContain('document:reports');
       expect(await post({ action: 'document_remove', documentId: 'reports', fileId })).toMatchObject({ status: 400, body: { error: 'invalid_file' } });
 
-      await post({ action: 'document_waive', documentId: 'eva', waive: true });
+      // As a flow written before the decision of 2026-10-08 holds it.
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow')
+        .set({ documents: { eva: { files: [], waivedAt: T0 } } }, { merge: true });
+      const page = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+      expect(page.body.can).toMatchObject({ approve: false, uploadDocuments: true });
+      expect(page.body.documents.every((document: any) => !('waived' in document))).toBe(true);
+      await upload('reports', PDF);
+      expect(store.read(`${BASE}/automation/flow`).heldBy).toEqual(['document:eva']);
       await upload('eva', PDF);
-      expect(store.read(`${BASE}/automation/flow`).documents.eva).toMatchObject({ waivedAt: null, files: [{ detectedType: 'pdf' }] });
+      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: [], documents: { eva: { files: [{ detectedType: 'pdf' }] } } });
     });
 
     it('accepts documents only while the candidate can still give them', async () => {
