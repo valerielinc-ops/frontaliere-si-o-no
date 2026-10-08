@@ -37,7 +37,7 @@ import { freeTranslateWithRetry, getCascadeStats, getCodexTierStats as getCodexT
 import { installCodexReserveReport } from './lib/codex-reserve-report.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { isTitleRepairQueueVerdict } from './lib/untranslated-title-repair.mjs';
+import { isTitleRepairQueueVerdict, titleRepairQueueLocales, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
@@ -218,7 +218,7 @@ export function runTitleFixCandidatePool({
     const job = sliceData?.jobs?.[candidate.jobIdx];
     if (!job) return;
     const sourceLang = job.sourceLang || 'it';
-    const sourceTitle = (job.title || '').trim();
+    const sourceTitle = titleRepairSourceTitle(job);
     const table = job.titleByLocale || {};
     const existing = String(table[candidate.locale] || '').trim();
     if (!sourceTitle || !existing) return;
@@ -371,30 +371,17 @@ async function main() {
     const jobs = Array.isArray(sliceData?.jobs) ? sliceData.jobs : [];
     for (let jobIdx = 0; jobIdx < jobs.length; jobIdx++) {
       const job = jobs[jobIdx];
-      const sl = job.sourceLang || 'it';
-      const sourceTitle = (job.title || '').trim();
-      if (!sourceTitle) continue;
-      const tbl = job.titleByLocale || {};
-      for (const locale of LOCALES) {
-        if (locale === sl) continue;
-        const existing = String(tbl[locale] || '').trim();
-        if (!existing) continue;
-        const verdict = titleLooksUntranslated({
-          title: existing,
-          sourceTitle,
-          sourceLang: sl,
-          targetLocale: locale,
-          company: job.company || '',
-          location: job.addressLocality || job.location || '',
-        });
-        if (!isTitleRepairQueueVerdict(verdict)) continue;
+      // Same source-title fallback and admission predicate as the Argos
+      // handoff (`shouldQueueArgosSlot`): a slot Argos leaves to this lane must
+      // become a candidate here.
+      for (const { locale, reason } of titleRepairQueueLocales(job, LOCALES)) {
         const key = titleFixAttemptKey(file, job, jobIdx, locale);
         candidates.push({
           file,
           jobIdx,
           locale,
           key,
-          reason: verdict.reason,
+          reason,
           attempts: Number(attemptState.attempts[key]?.attempts) || 0,
           firstSeenAt: job.firstSeenAt || job.crawledAt || '',
         });

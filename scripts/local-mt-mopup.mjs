@@ -60,6 +60,10 @@ import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
 import { isTitleSourceCopy, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import {
+  isTitleRepairQueueSlot,
+  titleRepairDetectorVerdict,
+} from './lib/untranslated-title-repair.mjs';
 import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
 import {
@@ -340,14 +344,7 @@ export function missingSlots(job) {
     // shorter than the floor from the lexical check too (issue #6539).
     const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
       (title.length < MIN_TITLE_CHARS || isTitleSourceCopy(title, sourceTitle));
-    const lexicallyUntranslated = titleLooksUntranslated({
-      title,
-      sourceTitle,
-      sourceLang: srcLang,
-      targetLocale: locale,
-      company: job.company || '',
-      location: job.location || '',
-    }).untranslated;
+    const lexicallyUntranslated = titleRepairDetectorVerdict({ job, locale, title }).untranslated;
     // A model's refusal or request for the input sitting in the slot (the
     // same verdict as isIncomplete): long, not a copy, lexically "English".
     if (tooShortOrCopy || lexicallyUntranslated || isModelMetaAnswer(title, sourceTitle)) {
@@ -715,6 +712,22 @@ export function isOverwriteSlot(job, { locale, field }) {
 }
 
 /**
+ * Whether a slot should remain in the Argos request batch.
+ *
+ * Normal fills/repairs, including descriptions, stay on Argos. Only an
+ * existing-good title that the shared Codex title-lane predicate admits is
+ * reserved for that lane; non-admitted title overwrites keep all Argos guards.
+ * The title lane scans the same admitted slots without an attempt-count or
+ * per-announcement admission filter; `attemptState` only orders retries, and
+ * its deadline defers an unchanged slot to the next Codex run.
+ */
+export function shouldQueueArgosSlot(job, { locale, field }) {
+  if (!isOverwriteSlot(job, { locale, field })) return true;
+  const existing = String(job.titleByLocale?.[locale] || '').trim();
+  return !isTitleRepairQueueSlot({ job, locale, title: existing });
+}
+
+/**
  * How many overwrite slots this pass hands to Argos.
  *
  * WHY. On the corpus run 37272320066 (2026-10-05) Phase 2a translated 4166
@@ -874,7 +887,7 @@ export function classifyMopupStructure({
       sourceLang: srcLang,
       targetLocale: locale,
       company: job.company || '',
-      location: job.location || '',
+      location: job.addressLocality || job.location || '',
     });
     const existingVerdict = ask(existing);
     if (!existingVerdict.untranslated) {
@@ -1431,6 +1444,7 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
   });
   let overwriteQueued = 0;
   let overwriteDeferred = 0;
+  let overwriteTitleHandoff = 0;
 
   for (const { file, jobIdx, job, slots } of selected) {
     const srcLang = job.sourceLang || 'it';
@@ -1459,6 +1473,10 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
         continue;
       }
       const overwrite = isOverwriteSlot(job, { locale, field });
+      if (!shouldQueueArgosSlot(job, { locale, field })) {
+        overwriteTitleHandoff++;
+        continue;
+      }
       if (overwrite) {
         if (overwriteQueued >= overwriteBudget) {
           overwriteDeferred++;
@@ -1487,6 +1505,9 @@ async function runMopup({ dryRun, maxJobs, rollout, candidateRecorder = null }) 
     console.log(`   ♻️  ${negativeCacheHits} fields skipped by the negative MT cache (TTL ${Math.round(NEGATIVE_CACHE_TTL_MS / 86400000)}d).`);
   }
   console.log(`   Overwrite slots: ${overwriteQueued} queued, ${overwriteDeferred} deferred (budget ${overwriteBudget}${earlierRollback ? `; rollback already tripped this run: ${earlierRollback.reason}` : ''}${rollout.overwritesEnabled ? '' : '; kill-switch off, shadow sample only'}).`);
+  if (overwriteTitleHandoff > 0) {
+    console.log(`   ${overwriteTitleHandoff} title overwrite slot(s) reserved for the Codex title-repair lane.`);
+  }
 
   if (requests.length === 0) {
     console.log(negativeCacheHits > 0

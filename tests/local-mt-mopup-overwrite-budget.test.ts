@@ -5,10 +5,12 @@ import { describe, expect, it } from 'vitest';
 import {
   classifyMopupStructure,
   isOverwriteSlot,
+  missingSlots,
   orderMopupRequestsTitleFirst,
   overwriteQueueBudget,
   readOverwriteRollback,
   recordOverwriteRollback,
+  shouldQueueArgosSlot,
   writeReserveMs,
 } from '../scripts/local-mt-mopup.mjs';
 
@@ -62,6 +64,55 @@ describe('isOverwriteSlot()', () => {
       if (structural.languageDriven) expect(overwrite).toBe(true);
       if (!overwrite) expect(structural.languageDriven).not.toBe(true);
     }
+  });
+});
+
+describe('Argos overwrite queue handoff', () => {
+  const eligibleTitle = job({
+    it: 'System Ingegnere con Projekterfahrung 80–100 %',
+  });
+
+  const nonEligibleTitle = {
+    sourceLang: 'de',
+    title: 'Zimmermann/Zimmerin für Montage und Renovationen',
+    titleByLocale: {
+      de: 'Zimmermann/Zimmerin für Montage und Renovationen',
+      it: 'Zimmermann/Zimmerin per Montage e Renovationen',
+    },
+    description: '',
+    descriptionByLocale: {},
+  };
+
+  it('excludes an eligible title overwrite and the queued count reflects the handoff', () => {
+    const slots = [
+      { job: eligibleTitle, locale: 'it', field: 'title' as const },
+      { job: nonEligibleTitle, locale: 'it', field: 'title' as const },
+    ];
+
+    expect(slots.every((slot) => isOverwriteSlot(slot.job, slot))).toBe(true);
+    expect(shouldQueueArgosSlot(eligibleTitle, { locale: 'it', field: 'title' })).toBe(false);
+    expect(shouldQueueArgosSlot(nonEligibleTitle, { locale: 'it', field: 'title' })).toBe(true);
+
+    const queuedOverwriteSlots = slots.filter((slot) =>
+      isOverwriteSlot(slot.job, slot) && shouldQueueArgosSlot(slot.job, slot));
+    expect(queuedOverwriteSlots).toHaveLength(1);
+    expect(`Overwrite slots: ${queuedOverwriteSlots.length} queued`).toBe('Overwrite slots: 1 queued');
+  });
+
+  it('keeps a description slot in the Argos queue', () => {
+    const sourceDescription = 'Ihre Aufgaben und Anforderungen fuer die Stelle. '.repeat(5);
+    const descriptionJob = {
+      ...eligibleTitle,
+      description: sourceDescription,
+      descriptionByLocale: {
+        de: sourceDescription,
+        it: sourceDescription,
+      },
+    };
+
+    expect(missingSlots(descriptionJob)).toContainEqual({ locale: 'it', field: 'description' });
+    expect(isOverwriteSlot(descriptionJob, { locale: 'it', field: 'description' })).toBe(false);
+    expect(shouldQueueArgosSlot(descriptionJob, { locale: 'it', field: 'description' })).toBe(true);
   });
 });
 
