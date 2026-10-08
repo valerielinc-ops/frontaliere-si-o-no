@@ -15,7 +15,7 @@ import {
   roundsShown,
   transition,
 } from '../functions/src/assistedApplicationFlow.js';
-import { applyAutomationEvent, postingClosedForOrder, runAutomationSweep, startAutomation } from '../functions/src/assistedApplicationAutomation.js';
+import { POSTING_LOOKS_AT_ONCE, applyAutomationEvent, postingClosedForOrder, runAutomationSweep, startAutomation } from '../functions/src/assistedApplicationAutomation.js';
 import { automationEmailKey } from '../functions/src/assistedApplicationAutomationEffects.js';
 import { buildCandidateAutomationEmail, buildOwnerAutomationEmail, describeTakeover } from '../functions/src/assistedApplicationAutomationEmails.js';
 import { ASSISTED_APPLICATION_WAIT_TERMS_FROM_MS, waitTermsApply } from '../functions/src/assistedApplicationConstants.js';
@@ -116,13 +116,32 @@ describe('an ad that closed while the candidate is awaited', () => {
     expect(transition(waiting, { type: 'tick', postingExpired: true }, { draft: asking, nowMs: due - 1 }).ignored).toBe('nothing_due');
   });
 
-  it('stops the reminder of the 12 hours and of a portal step handed to the candidate too, and tells the owner once', () => {
+  it('stops the 12 hours with their reminder, and the reminder of a portal step handed to the candidate, and tells the owner once', () => {
     const clock = { state: 'candidate_review', round: 1, shownRounds: [1], heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS, reminderAt: T0 + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS };
     const skipped = transition(clock, { type: 'tick', postingExpired: true }, { draft: clean, nowMs: clock.reminderAt });
     expect(skipped.effects).toEqual([{ type: 'email', kind: 'owner_posting_expired', since: clock.reminderAt }]);
-    expect(skipped.flow).toMatchObject({ state: 'candidate_review', reminderAt: null, deadlineAt: clock.deadlineAt, postingExpiredAt: clock.reminderAt });
-    // The 12 hours still end as they did: the runner looks at the ad itself before it sends.
-    expect(transition(skipped.flow, { type: 'tick' }, { draft: clean, nowMs: clock.deadlineAt }).effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'auto_approved_12h' }]);
+    // Review of #12366: the clock stops too. The notice says the order waits: nothing is sent by itself to an
+    // ad known closed, at the deadline or after it.
+    expect(skipped.flow).toMatchObject({ state: 'candidate_review', reminderAt: null, deadlineAt: null, postingExpiredAt: clock.reminderAt });
+    for (const later of [clock.deadlineAt, clock.deadlineAt + 100 * HOUR]) {
+      const tick = transition(skipped.flow, { type: 'tick' }, { draft: clean, nowMs: later });
+      expect(tick.ignored).toBe('nothing_due');
+      expect(tick.effects).toEqual([]);
+      expect(tick.flow.state).toBe('candidate_review');
+    }
+    // The reminder and the deadline due in the same tick: still no send.
+    const both = transition(clock, { type: 'tick', postingExpired: true }, { draft: clean, nowMs: clock.deadlineAt });
+    expect(both.flow).toMatchObject({ state: 'candidate_review', reminderAt: null, deadlineAt: null });
+    expect(both.effects).toEqual([{ type: 'email', kind: 'owner_posting_expired', since: clock.deadlineAt }]);
+    // The candidate's own approval still sends it: the runner looks at the ad itself before it submits.
+    expect(transition(skipped.flow, { type: 'candidate_approve' }, { draft: clean, nowMs: clock.deadlineAt }).effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' }]);
+
+    // Review of #12366: a portal waiting for the candidate is their side too, whatever holds it.
+    const portal = { state: 'needs_candidate_action', round: 1, shownRounds: [1], heldBy: ['portal:captcha'], reminderAt: T0 + HOUR, deadlineAt: null };
+    const held = transition(portal, { type: 'tick', postingExpired: true }, { draft: clean, nowMs: T0 + HOUR });
+    expect(held.effects).toEqual([{ type: 'email', kind: 'owner_posting_expired', since: T0 + HOUR }]);
+    expect(held.flow).toMatchObject({ state: 'needs_candidate_action', reminderAt: null, postingExpiredAt: T0 + HOUR });
+    expect(held.effects.some((effect: any) => String(effect.kind).startsWith('candidate_'))).toBe(false);
 
     const handoff = { state: 'candidate_handoff', round: 1, heldBy: ['owner_handoff'], reminderAt: T0 + HANDOFF_REMINDER_MS, postingExpiredAt: T0 };
     const quiet = transition(handoff, { type: 'tick', postingExpired: true }, { draft: clean, nowMs: T0 + HANDOFF_REMINDER_MS });
@@ -133,7 +152,7 @@ describe('an ad that closed while the candidate is awaited', () => {
 
   it('is looked at by the sweep only when a reminder to the candidate is due', async () => {
     const seed = (flow: any) => createMemoryFirestore({
-      'assisted_applications/o1': { jobId: 'acme-1', jobUrl: 'https://example.com/jobs/1', automationDueAt: flow.reminderAt || flow.deadlineAt },
+      'assisted_applications/o1': { jobId: 'acme-1', jobUrl: 'https://example.com/jobs/1', automationState: flow.state, automationDueAt: flow.reminderAt || flow.deadlineAt },
       'assisted_applications/o1/automation/flow': flow,
       'assisted_applications/o1/ai_drafts/current': asking,
     });
@@ -166,6 +185,32 @@ describe('an ad that closed while the candidate is awaited', () => {
     await runAutomationSweep({ db: slowStore.db, nowMs: due, postingClosed: slow, postingLookMs: 20, runEffect: async (context: any) => { slowEffects.push(context.effect); return { ok: true }; } });
     expect(slow).toHaveBeenCalledTimes(1);
     expect(slowEffects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+
+    // Review of #12366: a whole batch of reminders due together is looked at several at once, so that the sweep
+    // ends within its run. Fifty looks of 60 ms each: one at a time 3 s, ten at a time 0.3 s.
+    const many = Object.fromEntries(Array.from({ length: 50 }, (_, index) => [`o${index}`, index]).flatMap(([id]) => [
+      [`assisted_applications/${id}`, { jobId: `acme-${id}`, automationState: 'candidate_review', automationDueAt: due }],
+      [`assisted_applications/${id}/automation/flow`, waiting],
+      [`assisted_applications/${id}/ai_drafts/current`, asking],
+    ]));
+    const crowd = createMemoryFirestore(many);
+    let running = 0;
+    let most = 0;
+    const look = vi.fn(async () => {
+      running += 1;
+      most = Math.max(most, running);
+      await new Promise((resolve) => { setTimeout(resolve, 60); });
+      running -= 1;
+      return true;
+    });
+    const started = Date.now();
+    const kinds: string[] = [];
+    const summary = await runAutomationSweep({ db: crowd.db, nowMs: due, postingClosed: look, postingLookMs: 500, runEffect: async (context: any) => { kinds.push(context.effect.kind); return { ok: true }; } });
+    expect(summary).toMatchObject({ ticks: 50, failed: 0 });
+    expect(look).toHaveBeenCalledTimes(50);
+    expect(most).toBe(POSTING_LOOKS_AT_ONCE);
+    expect(Date.now() - started).toBeLessThan(1500);
+    expect(kinds).toEqual(Array.from({ length: 50 }, () => 'owner_posting_expired'));
 
     // The owner's own clock is no reminder to a candidate: the ad is not looked at.
     const never = vi.fn(async () => true);

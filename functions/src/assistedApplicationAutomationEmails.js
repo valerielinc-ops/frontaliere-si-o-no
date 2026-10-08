@@ -590,7 +590,7 @@ export function buildOwnerAutomationEmail(kind, vars) {
     // The ad closed while the candidate was awaited (owner decision 2026-10-08): no reminder went out.
     subject = `[Candidatura] Annuncio chiuso durante l’attesa del candidato: ${job} — ${company}`;
     hero = 'L’annuncio risulta chiuso: solleciti sospesi';
-    const lead = 'Prima di sollecitare il candidato ho controllato l’annuncio: risulta chiuso o ritirato. Il sollecito NON è partito e non ne partiranno altri, perché la candidatura non potrebbe più essere inviata. L’ordine resta in attesa e non è stato rimborsato nulla: verifica l’annuncio e decidi dalla coda come chiuderlo.';
+    const lead = 'Prima di sollecitare il candidato ho controllato l’annuncio: risulta chiuso o ritirato. Il sollecito NON è partito e non ne partiranno altri, perché la candidatura non potrebbe più essere inviata; anche l’approvazione automatica dopo 12 ore è sospesa. L’ordine resta in attesa e non è stato rimborsato nulla: verifica l’annuncio e decidi dalla coda come chiuderlo.';
     const owed = vars.waitTerms
       ? 'Per i Termini (punto 6.5) accettati con questo ordine, un annuncio ritirato mentre aspettiamo documenti o risposte del candidato non è rimborsato.'
       : 'Questo ordine è precedente al nuovo punto 6.5 dei Termini: vale la promessa con cui è stato venduto, cioè il rimborso se l’annuncio chiude prima dell’invio. Se confermi che è chiuso, rimborsa dalla coda.';

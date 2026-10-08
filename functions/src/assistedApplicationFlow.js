@@ -206,17 +206,18 @@ function waitedForCandidate(flow) {
   return waitsForCandidate(flow) || Number(flow.lastWait?.round) === Number(flow.round);
 }
 
+// Where a reminder that is due is one to the candidate: their review, a portal waiting for them, a portal step
+// handed to them. One list for the flow and for the sweep, which looks at the ad before such a reminder
+// (assistedApplicationAutomation.js runAutomationSweep; review of #12366).
+export const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
+
 /**
  * The tick that is due would write to the candidate: a reminder of the questions and documents still open, of
  * the 12 hours running out, or of the portal step handed to them. (The notice to Valerie after the reminders
  * of a wait counts too: with the ad closed she hears that instead.)
  */
 function remindsCandidate(flow, nowMs) {
-  const due = Boolean(flow.reminderAt) && nowMs >= flow.reminderAt;
-  if (!due) return false;
-  if (waitsForCandidate(flow)) return true;
-  if (flow.state === 'candidate_review') return !flow.reminderSentAt && !(flow.deadlineAt && nowMs >= flow.deadlineAt);
-  return flow.state === 'candidate_handoff' && !flow.reminderSentAt;
+  return Boolean(flow.reminderAt) && nowMs >= flow.reminderAt && CANDIDATE_REMINDER_STATES.has(flow.state);
 }
 
 /** The wait for the candidate's answers starts its reminders, or keeps the ones of a wait already running. */
@@ -380,9 +381,12 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       // assistedApplicationAutomation.js runAutomationSweep). No reminder for an application that can no
       // longer leave (owner decision 2026-10-08): the order keeps waiting, silent, and Valerie hears of it
       // once and decides how to close it. Nothing is refunded here: that is her call, or the runner's when
-      // it finds the ad closed (posting_closed).
+      // it finds the ad closed (posting_closed). The 12 hours stop with the reminders: an application is not
+      // sent by itself to an ad known closed, behind the notice that says the order waits (review of #12366).
+      // The candidate's own approval still sends it, and the runner then looks at the ad itself.
       if (event.postingExpired && remindsCandidate(current, nowMs)) {
         next.reminderAt = null;
+        next.deadlineAt = null;
         if (!current.postingExpiredAt) {
           next.postingExpiredAt = nowMs;
           effects = [{ type: 'email', kind: 'owner_posting_expired', since: current.heldSince || nowMs }];
