@@ -1119,7 +1119,7 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
     // degrades to "pushed at the original position", never to "never pushed".
     const r = runPrep({ CDN_TARGET: 'pages' });
     expect(r.stdout).not.toMatch(/skipping the CDN push/);
-    expect(r.stdout).toMatch(/CDN asset stage is missing|no dist\/assets — nothing to offload/);
+    expect(r.stdout).toMatch(/CDN asset stage is missing|no dist\/assets — nothing to offload|no CDN_DEPLOY_KEY secret — skipping CDN push/);
   });
 });
 

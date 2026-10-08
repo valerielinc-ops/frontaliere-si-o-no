@@ -7,13 +7,13 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import {
   assertCdnAssetRefsLive,
   extractCdnAssetUrlsFromHtml,
   findSameOriginAssetRefs,
 } from '../lib/cdn-asset-existence.mjs';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 function underRoot(root, candidate) {
   const resolvedRoot = path.resolve(root);
@@ -110,8 +110,7 @@ export async function main(argv = process.argv.slice(2)) {
   return failed ? 1 : 0;
 }
 
-const entry = process.argv[1] ? path.resolve(process.argv[1]) : '';
-if (entry === fileURLToPath(import.meta.url)) {
+if (isInvokedDirectly(import.meta.url)) {
   main().then((code) => { process.exitCode = code; }).catch((error) => {
     console.error(`::error::[cdn-asset-publish-gate] ${error.message || error}`);
     process.exitCode = 1;
