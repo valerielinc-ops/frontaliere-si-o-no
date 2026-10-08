@@ -106,6 +106,8 @@ export interface NavigationState {
  swissArticle: string | null;
  /** Selected canton-section article id (resolved from the corpus at runtime). */
  cantonArticle: string | null;
+ /** Stable thematic-hub id for a hydrated canton topic route. */
+ cantonTopic: string | null;
  /** One-based page in a canton archive. */
  blogPage: number | null;
  seoLanding: SeoLandingId | null;
@@ -139,6 +141,7 @@ export interface NavigationState {
  setBlogSection: Dispatch<SetStateAction<ArticleSection>>;
  setSwissArticle: Dispatch<SetStateAction<string | null>>;
  setCantonArticle: Dispatch<SetStateAction<string | null>>;
+ setCantonTopic: Dispatch<SetStateAction<string | null>>;
  setBlogPage: Dispatch<SetStateAction<number | null>>;
  setSeoLanding: Dispatch<SetStateAction<SeoLandingId | null>>;
  setGlossaryTerm: Dispatch<SetStateAction<GlossaryTermId | null>>;
@@ -195,6 +198,7 @@ export function useNavigationState(): NavigationState {
  const [blogSection, setBlogSection] = useState<ArticleSection>(initialRoute.route.blogSection || 'frontaliere');
  const [swissArticle, setSwissArticle] = useState<string | null>(initialRoute.route.swissArticle || null);
  const [cantonArticle, setCantonArticle] = useState<string | null>(initialRoute.route.cantonArticle || null);
+ const [cantonTopic, setCantonTopic] = useState<string | null>(initialRoute.route.cantonTopic || null);
  const [blogPage, setBlogPage] = useState<number | null>(initialRoute.route.blogPage || null);
  const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
  const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
@@ -438,6 +442,7 @@ export function useNavigationState(): NavigationState {
  setBlogSection(route.blogSection || 'frontaliere');
  setSwissArticle(route.swissArticle || null);
  setCantonArticle(route.cantonArticle || null);
+ setCantonTopic(route.cantonTopic || null);
  setBlogPage(route.blogPage || null);
  // Deferred slug → article id (bundle first, corpus API second, guard last).
  resolvePendingArticle(route, urlLocale);
@@ -708,6 +713,7 @@ export function useNavigationState(): NavigationState {
   setBlogArticle(null);
   setSwissArticle(null);
   setCantonArticle(null);
+  setCantonTopic(null);
   setBlogPage(null);
   setBlogSection('frontaliere');
  }
@@ -755,6 +761,7 @@ export function useNavigationState(): NavigationState {
   setBlogArticle(null);
   setSwissArticle(null);
   setCantonArticle(null);
+  setCantonTopic(null);
   setBlogPage(null);
  }
 
@@ -777,6 +784,7 @@ export function useNavigationState(): NavigationState {
   setBlogArticle(section === 'frontaliere' ? (subTab as BlogArticleId || null) : null);
   setSwissArticle(section === 'svizzera' ? (subTab || null) : null);
   setCantonArticle(section.startsWith('canton-') ? (subTab || null) : null);
+  setCantonTopic(null);
   setBlogPage(null);
  }
  else if (tab === 'glossario') setGlossaryTerm((subTab as GlossaryTermId) || null);
@@ -979,6 +987,7 @@ export function useNavigationState(): NavigationState {
  route = {
   activeTab: 'blog',
   blogSection,
+  cantonTopic: cantonTopic || undefined,
   cantonArticle: cantonArticle || undefined,
   blogArchive: parsePath(window.location.pathname).route.blogArchive,
   blogPage: blogPage || undefined,
@@ -1018,7 +1027,7 @@ export function useNavigationState(): NavigationState {
  window.scrollTo({ top: 0, behavior: 'instant' });
  }
  }
- }, [blogArticle, swissArticle, cantonArticle, blogSection, blogPage]);
+ }, [blogArticle, swissArticle, cantonArticle, cantonTopic, blogSection, blogPage]);
 
  // Clear initial-mount flag AFTER all sub-tab effects have fired
  useEffect(() => { isInitialMount.current = false; }, []);
@@ -1051,13 +1060,13 @@ export function useNavigationState(): NavigationState {
  return {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
- blogArticle, blogSection, swissArticle, cantonArticle, blogPage, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus,
  notFoundPath, jobBoardFilterParams, staticOverlay,
 
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setPharmacyPath, setStatsSubTab,
- setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
 

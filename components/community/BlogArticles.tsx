@@ -21,6 +21,7 @@ import { isFaqQuestionHeading } from '@/build-plugins/shared/faqQuestionPrefixes
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { cantonSectionConfig, isCantonArticleSection } from '@/services/runtimeArticleSections';
+import CantonTopicHub from '@/components/community/CantonTopicHub';
 import { cantonDisplayName, cantonSectionLabel } from '@/packages/articles/engine/shared/cantonSectionCopy.mjs';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
@@ -1222,6 +1223,12 @@ interface BlogArticlesProps {
  page?: number;
  /** Persist archive pagination in the URL. */
  onPageChange?: (page: number) => void;
+ /** Stable thematic hub id when the route is a canton topic hub. */
+ topic?: string | null;
+ /** Complete the corpus-static → React handoff after the versioned hub payload paints. */
+ onCantonTopicReady?: (key: string) => void;
+ /** Keep the React loading shell behind the corpus snapshot on a cold page load. */
+ deferUntilCantonTopicReady?: boolean;
 }
 
 /* CTA widget config */
@@ -1316,7 +1323,7 @@ const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
  generic: ['calculator', 'exchange', 'pension', 'job-board'],
 };
 
-function BlogArticles({
+function BlogArticlesContent({
  selectedArticle = null,
  onSelectArticle,
  section = 'frontaliere',
@@ -3477,6 +3484,21 @@ function BlogArticles({
  </div>
  </div>
  );
+}
+
+function BlogArticles(props: BlogArticlesProps) {
+ const section = props.section ?? 'frontaliere';
+ if (props.topic && isCantonArticleSection(section)) {
+  return (
+   <CantonTopicHub
+    section={section}
+    topic={props.topic}
+    deferUntilReady={props.deferUntilCantonTopicReady}
+    onReady={props.onCantonTopicReady}
+   />
+  );
+ }
+ return <BlogArticlesContent {...props} />;
 }
 
 export default memo(BlogArticles);

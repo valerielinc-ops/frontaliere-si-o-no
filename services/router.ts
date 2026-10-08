@@ -889,6 +889,8 @@ export interface AppRoute {
  cantonArticle?: string;
  /** Unresolved canton article slug while the corpus map is loading. */
  cantonSlug?: string;
+ /** Stable thematic-hub id for a hydrated canton topic route. */
+ cantonTopic?: string;
   /** One-based canton archive page; page 1 is the archive root. */
   blogPage?: number;
   /** True when the canton route is the `/tutti/` archive rather than landing. */
@@ -2705,16 +2707,19 @@ export function parsePath(pathname: string): ParseResult {
  // 'argomenti'` exactly, so without this the page would 404 into the SPA's
  // deferred-article view after hydration even though the static HTML is there.
  // Canton article sections (piano «sezioni articoli per cantone», S2): the
- // corpus still serves the initial HTML from R2, but landing/archive/article
- // paths are hydrated into the shared React blog view. Topic hubs remain
- // corpus-owned static overlays. A section that is not live yet 404s; the 404
- // page restores the path on the homepage document, and that must keep
- // resolving to notFoundPath as before.
+ // corpus still serves the initial HTML from R2, while landing/archive/article
+ // and thematic-hub paths are hydrated into the shared React blog view. A
+ // section that is not live yet 404s; the 404 page restores the path on the
+ // homepage document, and that must keep resolving to notFoundPath as before.
   const cantonPath = isCantonArticlePath(pathname) ? parseCantonArticlePath(pathname) : null;
   if (cantonPath && (documentOwnedByCorpus() || isLiveCantonArticleSectionCached(cantonPath.section))) {
     if (cantonPath.kind === 'topic') {
       return {
-        route: { activeTab: 'blog', blogSection: cantonPath.section, staticOverlay: true },
+        route: {
+          activeTab: 'blog',
+          blogSection: cantonPath.section,
+          cantonTopic: cantonPath.topic,
+        },
         locale,
       };
     }
@@ -3820,6 +3825,10 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
   if (cantonConfig) {
    const cantonHub = cantonConfig.indexSlug[lang];
    const cantonBase = `${prefix}/${cantonHub}`;
+   if (route.cantonTopic) {
+    const topicSlug = cantonConfig.topicHubs?.[route.cantonTopic]?.[lang];
+    if (topicSlug) return finish(`${cantonBase}/${topicSlug}${hashSuffix}`);
+   }
    if (route.cantonArticle) {
     const slug = _runtimeCantonSlugs[route.blogSection]?.[route.cantonArticle]?.[lang] ?? route.cantonArticle;
     return finish(`${cantonBase}/${slug}${hashSuffix}`);

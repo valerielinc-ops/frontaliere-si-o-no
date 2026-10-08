@@ -26,14 +26,23 @@ export interface RuntimeCantonArticleSection {
   displayName: string;
 }
 
-interface RegistrySection {
+export interface CantonSectionRegistryEntry {
   status?: unknown;
 }
 
-interface RegistryPayload {
-  sections?: Record<string, RegistrySection>;
+export interface CantonSectionRegistry {
+  schema: number;
+  commit: string;
+  sections: Record<string, CantonSectionRegistryEntry>;
 }
 
+interface RegistryPayload {
+  schema?: unknown;
+  commit?: unknown;
+  sections?: Record<string, CantonSectionRegistryEntry>;
+}
+
+let registryPromise: Promise<RegistryPayload | null> | null = null;
 let liveSectionsPromise: Promise<RuntimeCantonArticleSection[]> | null = null;
 let liveSectionIds = new Set<string>();
 
@@ -59,7 +68,7 @@ function runtimeSection(section: CantonArticleSection, locale: Locale): RuntimeC
   };
 }
 
-async function fetchLiveRegistry(): Promise<RuntimeCantonArticleSection[]> {
+async function fetchRegistry(): Promise<RegistryPayload | null> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
   try {
@@ -67,20 +76,45 @@ async function fetchLiveRegistry(): Promise<RuntimeCantonArticleSection[]> {
       signal: controller.signal,
       cache: 'no-store',
     });
-    if (!response.ok) return [];
+    if (!response.ok) return null;
     const payload = await response.json() as RegistryPayload;
-    if (!payload || typeof payload.sections !== 'object' || payload.sections === null) return [];
-    const live = Object.keys(CANTON_ARTICLE_SECTION_CORE)
-      .filter((section): section is CantonArticleSection => payload.sections?.[section]?.status === 'live')
-      .map((section) => runtimeSection(section, 'it'))
-      .filter((entry): entry is RuntimeCantonArticleSection => entry !== null);
-    liveSectionIds = new Set(live.map((entry) => entry.section));
-    return live;
+    if (!payload || typeof payload.sections !== 'object' || payload.sections === null) return null;
+    return payload;
   } catch {
-    return [];
+    return null;
   } finally {
     clearTimeout(timer);
   }
+}
+
+function loadRegistryPayload(): Promise<RegistryPayload | null> {
+  if (!registryPromise) registryPromise = fetchRegistry();
+  return registryPromise;
+}
+
+async function fetchLiveRegistry(): Promise<RuntimeCantonArticleSection[]> {
+  const payload = await loadRegistryPayload();
+  if (!payload?.sections) {
+    liveSectionIds = new Set();
+    return [];
+  }
+  const live = Object.keys(CANTON_ARTICLE_SECTION_CORE)
+    .filter((section): section is CantonArticleSection => payload.sections?.[section]?.status === 'live')
+    .map((section) => runtimeSection(section, 'it'))
+    .filter((entry): entry is RuntimeCantonArticleSection => entry !== null);
+  liveSectionIds = new Set(live.map((entry) => entry.section));
+  return live;
+}
+
+/** The versioned edge registry, or null when it is unavailable/incomplete. */
+export async function loadCantonSectionRegistry(): Promise<CantonSectionRegistry | null> {
+  const payload = await loadRegistryPayload();
+  if (!payload || payload.schema !== 1 || typeof payload.commit !== 'string' || !payload.commit) return null;
+  return {
+    schema: 1,
+    commit: payload.commit,
+    sections: payload.sections ?? {},
+  };
 }
 
 /** Live canton sections, cached for the lifetime of the SPA page. */
@@ -108,6 +142,7 @@ export function localizeCantonArticleSections(
 
 /** Test seam: the next consumer re-reads the edge registry. */
 export function __resetRuntimeArticleSections(): void {
+  registryPromise = null;
   liveSectionsPromise = null;
   liveSectionIds = new Set();
 }
