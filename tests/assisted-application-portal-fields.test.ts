@@ -181,7 +181,7 @@ describe('portal field extraction', () => {
   it('reads SuccessFactors’ picklists as selects and its UI5 birth date as a date field', () => {
     const page = extract(`
       <input aria-label="Anrede" type="text" placeholder="Bitte auswählen" role="combobox" aria-owns="63:_listSelect" aria-required="true" class="rcmpaginatedselectinput">
-      <input aria-label="Nationalité" type="text" placeholder="Aucune sélection" role="combobox" aria-owns="64:_listSelect" aria-required="true">
+      <input aria-label="Nationalité" type="text" value="Aucune sélection" role="combobox" aria-owns="64:_listSelect" aria-required="true">
       <input aria-label="Suche" type="text" role="combobox" aria-controls="results">
       <div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div>`);
     const anrede = page.fields.find((field: any) => field.label === 'Anrede');

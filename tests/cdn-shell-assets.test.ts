@@ -122,7 +122,7 @@ const ASSETS = [
 ];
 
 describe('ensureCdnShellAssets', () => {
-  it('reads nothing from R2 and uploads nothing when the CDN serves every file', async () => {
+  it('reads nothing from R2, uploads and purges nothing when the CDN serves every file', async () => {
     const cdn = fakeCdn(['assets/one.js', 'assets/two.js']);
     const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
 
@@ -130,7 +130,61 @@ describe('ensureCdnShellAssets', () => {
     expect(cdn.calls.checkStored).toEqual([]);
     expect(cdn.calls.upload).toEqual([]);
     expect(cdn.calls.purge).toEqual([]);
-    expect(cdn.calls.confirm).toEqual([]);
+    // The URL the pages use is asked all the same, once per cache variant.
+    expect(cdn.calls.confirm).toEqual([
+      ['assets/one.js', undefined],
+      ['assets/one.js', SHELL_ASSET_PAGE_ORIGIN],
+      ['assets/two.js', undefined],
+      ['assets/two.js', SHELL_ASSET_PAGE_ORIGIN],
+    ]);
+    expect(cdn.calls.wait).toEqual([]);
+  });
+
+  // The object is on R2 and the probe reads it, uploaded by anyone: this edge
+  // location still answers the pages' URL with the 404 it kept.
+  it('purges a file the probe shows when the URL the pages use does not serve it', async () => {
+    const cdn = fakeCdn(['assets/one.js', 'assets/two.js']);
+    cdn.edge404.add('assets/two.js');
+
+    const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
+
+    expect(results.map((result) => result.outcome)).toEqual(['served', 'served']);
+    expect(cdn.calls.checkStored).toEqual([]);
+    expect(cdn.calls.upload).toEqual([]);
+    expect(cdn.calls.purge).toEqual([['assets/two.js']]);
+    expect(cdn.edge404.has('assets/two.js')).toBe(false);
+  });
+
+  it.each([
+    ['only without Origin', undefined],
+    ['only with the page origin', SHELL_ASSET_PAGE_ORIGIN],
+  ] as const)('purges a shown file whose URL fails %s', async (_label, failingOrigin) => {
+    let purgedOnce = false;
+    const cdn = fakeCdn(['assets/one.js', 'assets/two.js'], {
+      confirmAnswer: (key, pageOrigin) => (
+        key === 'assets/two.js' && pageOrigin === failingOrigin && !purgedOnce ? 'absent' : 'present'
+      ),
+    });
+    const purge = (keys: string[]) => {
+      purgedOnce = true;
+      return cdn.purge(keys);
+    };
+
+    await ensureCdnShellAssets({ assets: ASSETS, ...cdn, purge });
+
+    expect(cdn.calls.purge).toEqual([['assets/two.js']]);
+  });
+
+  it('stops when a shown file still does not answer at the URL the pages use', async () => {
+    const cdn = fakeCdn(['assets/one.js', 'assets/two.js'], {
+      confirmAnswer: (key) => (key === 'assets/two.js' ? 'unknown' : 'present'),
+    });
+
+    const message = await failureOf(() => ensureCdnShellAssets({ assets: ASSETS, ...cdn }));
+
+    expect(message).toContain('assets/two.js');
+    expect(message).toContain('still does not serve it');
+    expect(message).toContain('must not be published');
   });
 
   it('uploads the file the CDN does not have, with the content it was given', async () => {
@@ -178,14 +232,16 @@ describe('ensureCdnShellAssets', () => {
     expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
     expect(cdn.calls.purge).toEqual([['assets/two.js']]);
     expect(cdn.edge404.has('assets/two.js')).toBe(false);
-    expect(cdn.calls.confirm).toEqual([
+    // The uploaded file is asked only after the purge: before it, the request
+    // would have been answered by the 404 the edge kept.
+    expect(cdn.calls.confirm.filter(([key]) => key === 'assets/two.js')).toEqual([
       ['assets/two.js', undefined],
       ['assets/two.js', SHELL_ASSET_PAGE_ORIGIN],
     ]);
     expect(cdn.calls.wait).toEqual([]);
   });
 
-  it('stops when the edge cannot be purged, without asking the URL the pages use', async () => {
+  it('stops when the edge cannot be purged, without asking for the uploaded file', async () => {
     const cdn = fakeCdn(['assets/one.js'], { purgeWorks: false });
     cdn.edge404.add('assets/two.js');
 
@@ -196,18 +252,18 @@ describe('ensureCdnShellAssets', () => {
     expect(message).toContain('must not be published');
     // Uploaded all the same: the next run finds the file there.
     expect(cdn.bucket.has('assets/two.js')).toBe(true);
-    expect(cdn.calls.confirm).toEqual([]);
+    expect(cdn.calls.confirm.filter(([key]) => key === 'assets/two.js')).toEqual([]);
   });
 
   it('asks again while the purge reaches the edge', async () => {
     const cdn = fakeCdn(['assets/one.js'], {
-      confirmAnswer: (_key, _pageOrigin, attempt) => (attempt === 0 ? 'absent' : 'present'),
+      confirmAnswer: (key, _pageOrigin, attempt) => (key === 'assets/two.js' && attempt === 0 ? 'absent' : 'present'),
     });
 
     const results: Outcome[] = await ensureCdnShellAssets({ assets: ASSETS, ...cdn });
 
     expect(results.map((result) => result.outcome)).toEqual(['served', 'uploaded']);
-    expect(cdn.calls.confirm).toHaveLength(4);
+    expect(cdn.calls.confirm.filter(([key]) => key === 'assets/two.js')).toHaveLength(4);
     expect(cdn.calls.wait).toEqual([5_000, 5_000]);
   });
 
@@ -364,6 +420,32 @@ describe('confirmCdnAsset', () => {
       throw new Error('timeout');
     }) as unknown as typeof fetch;
     expect(await confirmCdnAsset('assets/a.js', { fetchImpl })).toBe('unknown');
+  });
+
+  it('does not wait for a body that never finishes closing', async () => {
+    const fetchImpl = (async () => ({
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/javascript' }),
+      body: { cancel: () => new Promise(() => {}) },
+    })) as unknown as typeof fetch;
+
+    const answer = await Promise.race([
+      confirmCdnAsset('assets/a.js', { fetchImpl }),
+      new Promise((resolve) => { setTimeout(() => resolve('still waiting'), 500); }),
+    ]);
+    expect(answer).toBe('present');
+  });
+
+  it('answers even when dropping the body throws', async () => {
+    const fetchImpl = (async () => ({
+      ok: false,
+      status: 404,
+      headers: new Headers({ 'content-type': 'text/html' }),
+      body: { cancel: () => { throw new Error('locked'); } },
+    })) as unknown as typeof fetch;
+
+    expect(await confirmCdnAsset('assets/a.js', { fetchImpl })).toBe('absent');
   });
 
   it('leaves the body unread', async () => {

@@ -1,9 +1,51 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 22,
-  "generatedAt": "2026-10-07T21:02:15.000Z",
+  "assetCount": 23,
+  "generatedAt": "2026-10-08T00:13:26.137Z",
   "assets": [
+    {
+      "schema": 1,
+      "assetId": "139-frontalieri-ticino-special-olympics",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "gpt-image-2.5",
+      "executorModel": "gpt-5.6-luna",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "7cd6eec8be100930254df721b48d671e0acfff328bda9c7f4671bc65b00b016f",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "9c1a42de6d99ccbd86a1316bce850d8831d4c8a72eb1c499ad4660cbea99d019",
+      "bytes": 210924,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-08T00:13:19.371Z",
+      "verifiedAt": "2026-10-08T00:13:25.028Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+      "category": "blog",
+      "area": "Ticino, Lombardy and the Swiss Italian border region",
+      "season": "all seasons",
+      "variant": "license-audit-replacement-139-frontalieri-ticino-special-olympics",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "notes": "Original generic editorial landscape illustration; no readable text, logos, or recognizable faces."
+      }
+    },
     {
       "schema": 1,
       "assetId": "acqua-non-potabile-lavizzara",
