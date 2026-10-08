@@ -1053,6 +1053,8 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.field.linkedin': "LinkedIn",
  'jobBoard.assisted.review.field.dateOfBirth': "Date of birth",
  'jobBoard.assisted.review.field.nationality': "Nationality",
+ 'jobBoard.assisted.review.field.salutation': "Form of address",
+ 'jobBoard.assisted.review.field.civilStatus': "Marital status",
  'jobBoard.assisted.review.field.workPermit': "Work permit",
  'jobBoard.assisted.review.field.availability': "Availability",
  'jobBoard.assisted.review.field.salary': "Salary expectation",

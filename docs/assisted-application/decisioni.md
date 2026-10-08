@@ -70,6 +70,23 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 
 **Come si cambia.** L'elenco, le diciture per lingua e la tabella delle nazionalità stanno in un solo modulo condiviso da Functions, runner e pagina di revisione, con la data di aggiornamento dell'elenco UE/AELS. Prima di toccare una dicitura, riaprire la fonte (C86–C89).
 
+## 3 bis. Appellativo e stato civile: ciò che il CV dice non si chiede
+
+**Fatti.**
+- Molti portali svizzeri chiedono l'appellativo come campo obbligatorio («Anrede», «Civilité», «Title»: Signor/Signora). Per non tornare dal candidato al momento dell'invio, la bozza lo chiedeva alla prima revisione di ogni candidatura via portale, sul presupposto che un CV non lo dica mai.
+- Un CV invece spesso lo dice con la propria grammatica: «Né le», «Mariée», «Nata a», «Sposato», «Sesso: F». Ordine dell'8 ottobre 2026: il CV diceva «Né le …» e «Marié», e al candidato è stato chiesto «Quelle civilité indiquer dans les formulaires de candidature ?».
+- Alcuni portali chiedono anche lo stato civile come campo obbligatorio (Workday del 7 ottobre 2026: sei opzioni, da «Single (Switzerland)» a «Partnership Dissolved (Switzerland)»). Il profilo letto dal CV non lo conteneva: sarebbe stato chiesto anche a chi lo scrive nel CV.
+
+**Decisione.**
+- Ciò che il CV dice della persona con parole sue non si chiede: l'appellativo che la sua grammatica dichiara vale come risposta, e lo stato civile che scrive risponde al campo del portale, con l'opzione dell'elenco che dice la stessa cosa.
+- Mai un'ipotesi: non dal nome di battesimo, non da una foto, non da un mestiere («Vendeur») né dal titolo dell'annuncio («Vendeuse/Vendeur»). Conta solo una voce intera dei dati personali (una riga corta, o una sua parte fra virgole o barre): il testo corrente non si legge. Una forma inclusiva («Marié(e)», «nato/a») dà lo stato e nessun genere. Due voci che si contraddicono non dicono nulla, e si chiede come prima.
+- Tedesco e inglese non hanno genere grammaticale nello stato civile né nella nascita: lì l'appellativo si ricava solo da un campo esplicito («Geschlecht: weiblich», «Gender: Female»).
+- Entrambi compaiono fra i campi del modulo sulla pagina di revisione, solo quando sono noti, e si correggono da un elenco chiuso nella lingua del candidato. La parola del candidato vince sul CV; un campo che svuota resta vuoto.
+- Lo stato civile resta fuori da ciò da cui si scrivono lettera e CV su misura: nessuno dei due dice se il candidato è sposato.
+- Sul portale lo stato civile è del candidato da dire: quello del CV, la sua risposta a quella domanda, o un «preferisco non rispondere». Mai una scelta del pianificatore; se il CV tace, un campo obbligatorio diventa una domanda al candidato.
+
+**Come si cambia.** Le parole dello stato civile nelle quattro lingue, gli elenchi mostrati al candidato e le forme di appellativo stanno in `functions/src/lib/personalFacts.js`. Una parola nuova si aggiunge lì, con il suo caso nel test `tests/assisted-application-personal-facts.test.ts` (anche il caso che non deve scattare: un nome, un testo corrente).
+
 ## 4. Formato consegnato
 
 **Fatti.** I datori ricevono PDF. La guida degli URC ticinesi chiede a chi cerca lavoro di conservare copia delle candidature inviate ([`fonti/dossier-in-un-pdf.md`](fonti/dossier-in-un-pdf.md), prove contrarie). Al 3 ottobre 2026 il candidato, dopo l'invio, non riceve né un file né un link; per una candidatura WhatsApp la lettera e il CV preparati non arrivano a nessuno. SDBB consiglia di tenere CV e lettera in un formato modificabile.

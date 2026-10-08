@@ -1092,6 +1092,8 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.field.linkedin': "LinkedIn",
  'jobBoard.assisted.review.field.dateOfBirth': "Data di nascita",
  'jobBoard.assisted.review.field.nationality': "Nazionalità",
+ 'jobBoard.assisted.review.field.salutation': "Appellativo",
+ 'jobBoard.assisted.review.field.civilStatus': "Stato civile",
  'jobBoard.assisted.review.field.workPermit': "Permesso di lavoro",
  'jobBoard.assisted.review.field.availability': "Disponibilità",
  'jobBoard.assisted.review.field.salary': "Pretese salariali",

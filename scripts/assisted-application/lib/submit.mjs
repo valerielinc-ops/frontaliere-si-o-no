@@ -185,6 +185,7 @@ export async function submitApplication(ctx) {
     draft,
     portalQuestions,
     language: draft?.language,
+    personal: initialEdited.personal,
   });
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
   const submitFlow = Object.keys(autoAnswers).length
@@ -434,7 +435,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

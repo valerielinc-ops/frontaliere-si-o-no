@@ -1030,6 +1030,8 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.field.linkedin': "LinkedIn",
  'jobBoard.assisted.review.field.dateOfBirth': "Date de naissance",
  'jobBoard.assisted.review.field.nationality': "Nationalité",
+ 'jobBoard.assisted.review.field.salutation': "Civilité",
+ 'jobBoard.assisted.review.field.civilStatus': "État civil",
  'jobBoard.assisted.review.field.workPermit': "Permis de travail",
  'jobBoard.assisted.review.field.availability': "Disponibilité",
  'jobBoard.assisted.review.field.salary': "Prétentions salariales",
