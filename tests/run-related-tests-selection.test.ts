@@ -27,7 +27,7 @@ function git(root: string, ...args: string[]) {
   return execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim();
 }
 
-function fixture(files: Record<string, string>) {
+function fixture(files: Record<string, string>, linked: string[] = []) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'related-selection-contract-'));
   roots.push(root);
   fs.mkdirSync(path.join(root, 'scripts/ci/lib'), { recursive: true });
@@ -37,11 +37,11 @@ function fixture(files: Record<string, string>) {
     'scripts/ci/dataset-dependent-tests.mjs',
     'scripts/ci/scan-site-hardcoded-secrets.mjs',
     'scripts/ci/corpus-ahead-check.mjs',
-    'scripts/ci/ci-generated-data-tests.mjs',
     'scripts/ci/lib/select-max-workers.mjs',
     'scripts/ci/lib/typecheck-sparse.mjs',
     'scripts/ci/lib/related-graph-scope.mjs',
     'scripts/lib/crawler-generation-runtime-paths.mjs',
+    ...linked,
   ]) link(root, relative);
   for (const [relative, content] of Object.entries(files)) {
     const target = path.join(root, relative);
@@ -81,7 +81,6 @@ function select(
       VITEST_RELATED_DRY_RUN: 'true',
       VITEST_SKIP_CORPUS_WIDE: 'true',
       VITEST_SKIP_LIVE_DATA: '',
-      VITEST_SKIP_GENERATED_DATA_TESTS: '',
       GITHUB_ACTIONS: '',
       GITHUB_EVENT_NAME: 'pull_request',
       GITHUB_OUTPUT: outputPath,
@@ -156,16 +155,72 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).toContain('required=false');
   });
 
-  it('excludes generated-data tests from the blocking CI selection', () => {
+  it('runs a costly generated-artifact test on the diffs that can break it', () => {
+    // A fixed exclusion list kept this file, and the 145 cases in it, out of
+    // every automated run from 2026-10-06 to 2026-10-08. Seventeen hours in, a
+    // change to the translation workflow turned one of them red on main. The
+    // real file is linked here so the edge under test is the one it declares.
     const generated = 'tests/generate-crawler-group-workflows.test.ts';
     const root = fixture({
-      [generated]: 'export const generated = true;\n',
+      '.github/workflows/translate-pending-logic.yml': 'name: translate-pending\n',
+      '.github/workflows/unrelated.yml': 'name: unrelated\n',
       'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    }, [generated]);
+    const prGate = { VITEST_SKIP_LIVE_DATA: 'true' };
+
+    const input = select(root, ['.github/workflows/translate-pending-logic.yml'], 'complete', prGate);
+    expect(input.status, input.stderr || input.stdout).toBe(0);
+    expect(input.stdout).toContain(generated);
+    expect(input.stdout).not.toContain('tests/unrelated.test.ts');
+
+    const itself = select(root, [generated], 'complete', prGate);
+    expect(itself.status, itself.stderr || itself.stdout).toBe(0);
+    expect(itself.stdout).toContain(generated);
+
+    const elsewhere = select(root, ['.github/workflows/unrelated.yml'], 'complete', prGate);
+    expect(elsewhere.stdout).not.toContain(generated);
+  });
+
+  it('runs the live-data guard whenever a test file changes', () => {
+    // The guard reads every test file and imports none of them: on the pull
+    // request that adds a test reading live data, nothing else selects it.
+    const guard = 'tests/live-data-test-guard.test.ts';
+    const root = fixture({
+      [guard]: 'export const guard = true;\n',
+      'tests/check-cron-count-literals.test.ts': 'export const lint = true;\n',
+      'tests/new-reader.test.ts': 'export const reader = true;\n',
+      'services/changed.mjs': 'export const value = 1;\n',
+      'tests/changed.test.ts': "import { value } from '../services/changed.mjs'; export const observed = value;\n",
     });
-    const result = select(root, [generated], 'complete', { VITEST_SKIP_LIVE_DATA: 'true' });
-    expect(result.status, result.stdout).toBe(0);
-    expect(result.stdout).not.toContain(generated);
-    expect(result.stdout).not.toContain('tests/unrelated.test.ts');
-    expect(result.output).toContain('required=false');
+    const added = select(root, ['tests/new-reader.test.ts']);
+    expect(added.status, added.stderr || added.stdout).toBe(0);
+    expect(added.stdout).toContain(guard);
+
+    const sourceOnly = select(root, ['services/changed.mjs']);
+    expect(sourceOnly.status, sourceOnly.stderr || sourceOnly.stdout).toBe(0);
+    expect(sourceOnly.stdout).toContain('tests/changed.test.ts');
+    expect(sourceOnly.stdout).not.toContain(guard);
+  });
+
+  it('runs the image-registry readers on the data pull request that rewrites a registry', () => {
+    // `data/` is outside the import graph: without these links the recurring
+    // licence audit rewrote the registries behind a gate that read none of them.
+    const policy = 'tests/published-image-policy.test.ts';
+    const images = 'tests/generated-site-images.test.ts';
+    const root = fixture({
+      'data/event-image-library.json': '{}\n',
+      'data/generated-image-registry.json': '{}\n',
+      [policy]: 'export const policy = true;\n',
+      [images]: 'export const images = true;\n',
+    });
+    const library = select(root, ['data/event-image-library.json']);
+    expect(library.status, library.stderr || library.stdout).toBe(0);
+    expect(library.stdout).toContain(policy);
+    expect(library.stdout).not.toContain(images);
+
+    const shared = select(root, ['data/generated-image-registry.json']);
+    expect(shared.status, shared.stderr || shared.stdout).toBe(0);
+    expect(shared.stdout).toContain(policy);
+    expect(shared.stdout).toContain(images);
   });
 });

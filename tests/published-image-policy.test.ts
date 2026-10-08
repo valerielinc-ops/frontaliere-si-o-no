@@ -19,6 +19,27 @@ import {
 
 const ROOT = path.resolve(__dirname, '..');
 
+// A credit record taken from the synced article corpus turns this file red
+// when that article is retired or its cover replaced, on whatever pull request
+// runs it next. The credited cover is pinned, together with one event-library
+// record, in a root the policy can load. Each path is spelled out in full so
+// the related-test selector links the fixture to this file.
+const CREDIT_FIXTURE = 'tests/__fixtures__/published-image-policy/blog-credit.json';
+const EVENT_LIBRARY_FIXTURE = 'tests/__fixtures__/license-audit/event-image-library.json';
+
+function withPinnedRoot<T>(run: (root: string) => T): T {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'frontaliere-image-policy-'));
+  try {
+    fs.mkdirSync(path.join(root, 'content/image-credits/blog'), { recursive: true });
+    fs.copyFileSync(path.join(ROOT, CREDIT_FIXTURE), path.join(root, 'content/image-credits/blog/credited-cover.json'));
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.copyFileSync(path.join(ROOT, EVENT_LIBRARY_FIXTURE), path.join(root, 'data/event-image-library.json'));
+    return run(root);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+  }
+}
+
 describe('published image policy', () => {
   it('accepts a generated event CDN URL only with its valid registry record', () => {
     const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
@@ -51,13 +72,15 @@ describe('published image policy', () => {
   });
 
   it('accepts a credited blog cover with status ok and rejects a missing one', () => {
-    const policy = loadPublishedImagePolicy({ root: ROOT });
-    expect(
-      policy.check(`${IMAGE_CDN_ORIGIN}/images/blog/a2-ancora-al-collasso.webp`, { requireCdn: true }),
-    ).toMatchObject({ valid: true, source: 'image-credits' });
-    expect(
-      policy.check(`${IMAGE_CDN_ORIGIN}/images/blog/not-in-ledger.webp`, { requireCdn: true }),
-    ).toMatchObject({ valid: false, reason: 'missing-or-unpublishable-image-credit' });
+    withPinnedRoot((root) => {
+      const policy = loadPublishedImagePolicy({ root });
+      expect(
+        policy.check(`${IMAGE_CDN_ORIGIN}/images/blog/credited-cover.webp`, { requireCdn: true }),
+      ).toMatchObject({ valid: true, source: 'image-credits' });
+      expect(
+        policy.check(`${IMAGE_CDN_ORIGIN}/images/blog/not-in-ledger.webp`, { requireCdn: true }),
+      ).toMatchObject({ valid: false, reason: 'missing-or-unpublishable-image-credit' });
+    });
   });
 
   it('blocks every third-party image before an uploader can fetch it', () => {
@@ -127,17 +150,19 @@ describe('published image policy', () => {
   });
 
   it('checks one representative event, article and static OG family', () => {
-    const registry = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/event-image-library.json'), 'utf8'));
-    const policy = loadPublishedImagePolicy({ root: ROOT });
-    const result = verifyOgImageReferences([
-      { file: 'events/e/index.html', url: `${IMAGE_CDN_ORIGIN}${registry.assets[0].imageUrl}` },
-      { file: 'articles/a/index.html', url: `${IMAGE_CDN_ORIGIN}/images/blog/a2-ancora-al-collasso.webp` },
-      { file: 'static/index.html', url: `${SITE_ORIGIN}/og-image.png` },
-    ], { policy, sampleSize: 3 });
+    withPinnedRoot((root) => {
+      const registry = JSON.parse(fs.readFileSync(path.join(root, 'data/event-image-library.json'), 'utf8'));
+      const policy = loadPublishedImagePolicy({ root });
+      const result = verifyOgImageReferences([
+        { file: 'events/e/index.html', url: `${IMAGE_CDN_ORIGIN}${registry.assets[0].imageUrl}` },
+        { file: 'articles/a/index.html', url: `${IMAGE_CDN_ORIGIN}/images/blog/credited-cover.webp` },
+        { file: 'static/index.html', url: `${SITE_ORIGIN}/og-image.png` },
+      ], { policy, sampleSize: 3 });
 
-    expect(result.valid).toBe(true);
-    expect(result.counts).toEqual({ events: 1, articles: 1, static: 1 });
-    expect(result.errors).toEqual([]);
+      expect(result.valid).toBe(true);
+      expect(result.counts).toEqual({ events: 1, articles: 1, static: 1 });
+      expect(result.errors).toEqual([]);
+    });
   });
 
   it('keeps one row per distinct OG image however many pages share it', () => {
