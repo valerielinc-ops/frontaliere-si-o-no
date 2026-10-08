@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "sobi",
-  "assembledAt": "2026-10-08T22:13:46.234Z",
   "jobs": [
     {
       "id": "sobi-2d75f824d61c",
@@ -138,6 +136,7 @@
         ]
       },
       "firstSeenAt": "2026-06-29T14:05:20.196Z",
+      "retranslationAttempts": 2,
       "salaryMin": 119000,
       "salaryMax": 166000,
       "salarySource": "estimated",
@@ -435,5 +434,7 @@
       "postalCode": "6300",
       "firstSeenAt": "2026-10-08T22:13:39.403Z"
     }
-  ]
+  ],
+  "crawlerKey": "sobi",
+  "assembledAt": "2026-10-08T22:13:46.234Z"
 }

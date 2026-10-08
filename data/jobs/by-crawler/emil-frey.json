@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "emil-frey",
-  "assembledAt": "2026-10-08T22:14:12.542Z",
   "jobs": [
     {
       "id": "emil-frey-5158a5651554",
@@ -5257,7 +5255,6 @@
           "organizzatore-trice-del-veicolo-emil-frey-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:11:37.614Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7448,5 +7445,7 @@
       },
       "firstSeenAt": "2026-06-10T07:52:28.393Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T22:14:12.542Z",
+  "crawlerKey": "emil-frey"
 }

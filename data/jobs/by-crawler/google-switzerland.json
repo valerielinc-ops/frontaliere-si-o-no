@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "google-switzerland",
-  "assembledAt": "2026-10-08T22:11:02.317Z",
   "jobs": [
     {
       "id": "google-switzerland-30025ee810c0",
@@ -2316,6 +2314,9 @@
           "5 years of coding experience in one or more general purpose languages."
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-06T21:11:26.484Z",
+      "retranslationAttempts": 2,
       "previousSlugs": [
         "senior-security-engineer-google-threat-intelligence-group-threat-analyst-google"
       ],
@@ -2324,8 +2325,6 @@
           "senior-security-engineer-google-threat-intelligence-group-threat-analyst-google"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-06T21:11:26.484Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2981,6 +2980,9 @@
           "3 years of experience designing, analyzing, and troubleshooting distributed systems."
         ]
       },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:15:04.623Z",
+      "retranslationAttempts": 2,
       "previousSlugs": [
         "staff-software-engineer-site-reliability-engineering-google-cloud-google-switzerland"
       ],
@@ -2989,8 +2991,6 @@
           "staff-software-engineer-site-reliability-engineering-google-cloud-google-switzerland"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-29T21:15:04.623Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -4591,5 +4591,7 @@
         }
       }
     }
-  ]
+  ],
+  "crawlerKey": "google-switzerland",
+  "assembledAt": "2026-10-08T22:11:02.317Z"
 }

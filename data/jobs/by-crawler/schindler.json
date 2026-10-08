@@ -566,7 +566,6 @@
           "servicetechniker-in-region-luzern-kriens-m-w-d-80-100-schindler-kussnacht-a-r"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T21:29:56.081Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -3795,7 +3794,6 @@
       "previousSlugs": [
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T03:23:35.207Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4984,16 +4982,7 @@
       "jobReqId": "1434522833",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T13:53:46.558Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufsleiter-in-modernisierung-m-w-d-80-100-schindler-schonbuhl"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsleiter-in-modernisierung-m-w-d-80-100-schindler-schonbuhl"
-      ],
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -5007,7 +4996,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsleiter-in-modernisierung-m-w-d-80-100-schindler-schonbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsleiter-in-modernisierung-m-w-d-80-100-schindler-schonbuhl"
+      ]
     },
     {
       "id": "schindler-76e786c7203d",
@@ -6613,6 +6610,7 @@
       "jobReqId": "1263538601",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-23T23:37:18.294Z",
       "previousSlugsByLocale": {
         "de": [
           "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027"
@@ -6630,8 +6628,6 @@
       "previousSlugs": [
         "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:37:18.294Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7421,7 +7417,6 @@
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-schindler-basel",
         "gestionnaire-pour-les-consentements-de-cookies-schindler-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T03:23:35.207Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -7508,7 +7503,6 @@
         "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027",
         "gestionnaire-pour-les-consentements-de-cookies-schindler-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:37:18.294Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -7824,7 +7818,6 @@
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:52:55.666Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8573,7 +8566,6 @@
           "lehrstelle-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-fur-2027-in-3"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:52:57.251Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

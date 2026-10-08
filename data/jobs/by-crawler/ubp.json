@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "ubp",
-  "assembledAt": "2026-10-08T22:17:33.023Z",
   "jobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -384,8 +382,8 @@
           "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T14:38:07.956Z",
+      "retranslationAttempts": 3,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -398,7 +396,9 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2500
     },
     {
       "id": "ubp-4d7144733793",
@@ -3975,6 +3975,9 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:21:00.372Z",
+      "retranslationAttempts": 2,
       "previousSlugs": [
         "sustainable-investment-specialist-temporary-7-months-ubp-ch"
       ],
@@ -3983,8 +3986,6 @@
           "sustainable-investment-specialist-temporary-7-months-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:21:00.372Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4049,6 +4050,7 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
+      "firstSeenAt": "2026-10-02T21:16:48.916Z",
       "previousSlugs": [
         "analyst-sql-api-developer-consultant-ubp-ch"
       ],
@@ -4057,8 +4059,6 @@
           "analyst-sql-api-developer-consultant-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:16:48.916Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4196,6 +4196,9 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-05T09:17:27.423Z",
+      "retranslationAttempts": 2,
       "previousSlugs": [
         "internship-6-months-compliance-data-quality-control-support-ubp-ch"
       ],
@@ -4204,8 +4207,6 @@
           "internship-6-months-compliance-data-quality-control-support-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T09:17:27.423Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -4270,6 +4271,9 @@
       "applyUrl": "https://www.ubp.com/en/about-us/careers/experienced-professionals",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:39:14.858Z",
+      "retranslationAttempts": 2,
       "previousSlugs": [
         "operations-specialist-ubp-ch"
       ],
@@ -4278,8 +4282,6 @@
           "operations-specialist-ubp-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-08T13:39:14.858Z",
       "salaryMin": 68000,
       "salaryMax": 92000,
       "salarySource": "estimated",
@@ -4448,5 +4450,7 @@
         }
       }
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T22:17:33.023Z",
+  "crawlerKey": "ubp"
 }

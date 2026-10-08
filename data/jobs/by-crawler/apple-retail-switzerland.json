@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-10-08T22:18:23.101Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -1341,6 +1339,8 @@
       "applyUrl": "https://jobs.apple.com/en-us/details/200687755/machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group?team=MLAI",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-07T21:26:21.367Z",
       "previousSlugs": [
         "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group"
       ],
@@ -1355,8 +1355,6 @@
           "machine-learning-engineer-with-focus-on-generative-3d-representations-europe-vision-group"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-07T21:26:21.367Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1586,5 +1584,7 @@
         }
       }
     }
-  ]
+  ],
+  "crawlerKey": "apple-retail-switzerland",
+  "assembledAt": "2026-10-08T22:18:23.101Z"
 }

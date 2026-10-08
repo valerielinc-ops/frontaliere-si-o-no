@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "bcvs",
-  "assembledAt": "2026-10-08T22:31:04.371Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -238,6 +236,8 @@
           "Votre maîtrise de l’allemand constitue un atout."
         ]
       },
+      "firstSeenAt": "2026-09-28T21:29:51.717Z",
+      "retranslationAttempts": 3,
       "previousSlugs": [
         "data-analyst-bi-expert-bcvs-sion"
       ],
@@ -246,8 +246,6 @@
           "data-analyst-bi-expert-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T21:29:51.717Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -261,7 +259,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2213
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -327,6 +327,8 @@
           "Personne rigoureuse, vous travaillez de manière autonome."
         ]
       },
+      "firstSeenAt": "2026-04-13T10:04:10.904Z",
+      "retranslationAttempts": 3,
       "previousSlugs": [
         "gestionnaire-back-office-credits-bcvs-sion"
       ],
@@ -335,8 +337,6 @@
           "gestionnaire-back-office-credits-bcvs-sion"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T10:04:10.904Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -350,7 +350,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2439
     },
     {
       "id": "bcvs-add4d1a4e3d9",
@@ -524,5 +526,7 @@
       },
       "postalCode": "1950"
     }
-  ]
+  ],
+  "crawlerKey": "bcvs",
+  "assembledAt": "2026-10-08T22:31:04.371Z"
 }

@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "globus",
-  "assembledAt": "2026-10-08T22:05:58.669Z",
   "jobs": [
     {
       "id": "globus-4ad127809afd",
@@ -1103,7 +1101,6 @@
       "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-Kasse-Kundendienst-Geschenks-de-j2532.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:12:49.270Z",
       "previousSlugsByLocale": {
         "it": [
@@ -1591,5 +1588,7 @@
         }
       }
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T22:05:58.669Z",
+  "crawlerKey": "globus"
 }

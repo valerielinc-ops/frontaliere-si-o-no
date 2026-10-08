@@ -649,16 +649,7 @@
       "applyUrl": "https://jobs.suva.ch/job/Basel-Spezialistin-Fallf%C3%BChrung-80-100-BS-4052/1441705633/",
       "pensum": "80-100%",
       "sfJobId": "1441705633",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:13:50.613Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-in-fallfuhrung-80-100-suva-basel"
-        ]
-      },
-      "previousSlugs": [
-        "spezialist-in-fallfuhrung-80-100-suva-basel"
-      ],
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -672,7 +663,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-fallfuhrung-80-100-suva-basel"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-fallfuhrung-80-100-suva-basel"
+      ]
     },
     {
       "id": "suva-206d4253b2ab",
@@ -1639,7 +1638,7 @@
       "title": "Produktmanager Developer & Integration Platforms (all genders) 80 - 100 %",
       "titleByLocale": {
         "it": "Produktmanager Sviluppatore & Integration Platforms (all genders) 80 - 100 %",
-        "en": "Produktmanager Developer & Integration Platforms (all genders) 80 - 100 %",
+        "en": "Product Manager Developer & Integration Platforms (all genders) 80 - 100%",
         "de": "Produktmanager Entwickler & Integration Platforms (all genders) 80 - 100 %",
         "fr": "Produktmanager Développeur & Integration Platforms (all genders) 80 - 100 %"
       },
@@ -1674,7 +1673,6 @@
       "applyUrl": "https://jobs.suva.ch/job/Luzern-Produktmanager-Developer-&-Integration-Platforms-%28all-genders%29-80-100-LU-6004/1440157833/",
       "pensum": "80-100%",
       "sfJobId": "1440157833",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T09:19:36.978Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -1689,7 +1687,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "needsRetranslation": true
     },
     {
       "id": "suva-3112d031e592",
@@ -2097,7 +2096,6 @@
       "applyUrl": "https://jobs.suva.ch/job/Luzern-Business-Content-Managerin-80-100-LU-6004/1444162333/",
       "pensum": "80-100%",
       "sfJobId": "1444162333",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-05T09:19:57.468Z",
       "salaryMin": 102500,
       "salaryMax": 170000,

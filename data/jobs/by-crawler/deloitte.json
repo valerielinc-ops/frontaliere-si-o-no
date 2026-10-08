@@ -4379,6 +4379,7 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:16:29.043Z",
       "previousSlugsByLocale": {
         "it": [
@@ -4388,7 +4389,6 @@
       "previousSlugs": [
         "manager-technology-risk-advisory-sap-security-and-authorizations-deloitte-geneva"
       ],
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -5071,14 +5071,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:12:46.968Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
-      ],
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -5091,7 +5083,15 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "intern-large-complex-audit-zurich-basel-bern-october-2027-march-2028-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-80a8d8367c34",
@@ -5146,19 +5146,8 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-01T09:16:29.030Z",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
-        ],
-        "fr": [
-          "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
-      ],
+      "firstSeenAt": "2026-10-01T09:16:29.030Z",
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -5171,7 +5160,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
+        ],
+        "fr": [
+          "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "intern-large-complex-audit-geneva-lausanne-october-2027-march-2028-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-6eaba49810d9",
@@ -6109,17 +6109,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-03T09:12:46.954Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
-        ],
-        "fr": [
-          "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
-      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -6132,7 +6121,18 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
+        ],
+        "fr": [
+          "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-analyst-audit-assurance-sme-lausanne-geneva-january-2027-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-2c581adbffd7",
@@ -6256,8 +6256,8 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:12:46.951Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:12:46.951Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -6325,16 +6325,8 @@
       "hiringOrganizationName": "Deloitte",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-01T09:16:29.007Z",
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
-      ],
+      "firstSeenAt": "2026-10-01T09:16:29.007Z",
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -6347,7 +6339,15 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-analyst-financial-services-audit-zurich-basel-october-2027-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-4c1553a192ba",
@@ -6403,17 +6403,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-10-01T09:16:29.005Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
-        ],
-        "fr": [
-          "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
-      ],
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -6426,7 +6415,18 @@
           "maxValue": 183500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
+        ],
+        "fr": [
+          "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "career-start-analyst-financial-services-audit-geneva-october-2027-deloitte-geneva"
+      ]
     },
     {
       "id": "deloitte-56f56604291a",

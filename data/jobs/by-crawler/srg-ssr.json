@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-10-08T22:11:06.754Z",
   "jobs": [
     {
       "id": "srg-ssr-4295227a1917",
@@ -1287,7 +1285,6 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-26T13:53:35.553Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2597,5 +2594,7 @@
       },
       "addressRegion": "GE"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T22:11:06.754Z",
+  "crawlerKey": "srg-ssr"
 }

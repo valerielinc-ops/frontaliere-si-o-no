@@ -3938,7 +3938,6 @@
           "partenaire-d-affaires-rh-60-spital-uster-uster"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-01T09:16:16.945Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
@@ -3952,7 +3951,8 @@
           "maxValue": 66900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-uster-7094d3abfa66",

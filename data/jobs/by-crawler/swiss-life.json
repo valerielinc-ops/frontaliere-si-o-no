@@ -7634,16 +7634,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R13449",
       "hiringOrganization": "Swiss Life AG",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:43:21.764Z",
+      "previousSlugs": [
+        "mandatsleitung-pensionskassen-w-m-d-80-100-swiss-life-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mandatsleitung-pensionskassen-w-m-d-80-100-swiss-life-ch"
         ]
       },
-      "previousSlugs": [
-        "mandatsleitung-pensionskassen-w-m-d-80-100-swiss-life-ch"
-      ],
+      "firstSeenAt": "2026-09-23T23:43:21.764Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
