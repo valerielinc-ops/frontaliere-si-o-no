@@ -22,7 +22,6 @@ import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractMicrodataDescription, extractJobPostingField } from './jobposting-jsonld.mjs';
-import { extractStableJobId } from './job-match-key.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -83,10 +82,17 @@ export function buildImpleniaJobUrl(urlTitle = '', id = '') {
   return decodeHtmlEntitiesOnce(rawUrl);
 }
 
+const IMPLENIA_REQUISITION_PATH_RE = /^https?:\/\/jobs\.implenia\.com\/job\/(?:[^/?#]+\/)?(\d+)-de_de$/i;
+
 /** Merge key used before detail fetching, on the stable requisition id. */
 export function impleniaJobMatchKey(jobOrUrl = '') {
-  const url = typeof jobOrUrl === 'string' ? jobOrUrl : jobOrUrl?.url || '';
-  return extractStableJobId(url);
+  const url = String(typeof jobOrUrl === 'string' ? jobOrUrl : jobOrUrl?.url || '');
+  // `/job/<titolo>/<req>-de_DE`: il titolo e' testo di presentazione (puo'
+  // differire solo per come e' scritta un'entita' HTML), il numero finale e'
+  // la posizione. La chiave resta in questo parser: la chiave URL comune
+  // (`job-url-key.mjs`) non cambia per gli altri crawler.
+  const match = IMPLENIA_REQUISITION_PATH_RE.exec(url.split(/[?#]/)[0]);
+  return match ? `req:${JOB_HOST}:${match[1]}` : '';
 }
 
 const IMPLENIA_LOCALE_MAP_FIELDS = [
@@ -524,7 +530,9 @@ export async function fetchAllImpleniaJobs() {
     if (!title || title.length < 3) continue;
 
     const publicUrl = listing.url || CAREER_URL;
-    const matchKey = impleniaJobMatchKey(publicUrl);
+    // Un URL fuori dal formato delle posizioni non ha chiave: resta distinto
+    // per URL, come prima, invece di collassare su una chiave vuota.
+    const matchKey = impleniaJobMatchKey(publicUrl) || publicUrl;
     if (seen.has(matchKey)) continue;
     seen.add(matchKey);
 

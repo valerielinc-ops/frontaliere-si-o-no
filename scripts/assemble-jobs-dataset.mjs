@@ -714,15 +714,6 @@ const JOBS_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 const SUMMARIES_SLICES_DIR = path.join(ROOT, 'data', 'jobs-crawler-summaries', 'by-crawler');
 
-// The production default stays in the repository. Tests that exercise the
-// writer with real filesystem semantics may redirect the complete active-slice
-// fleet to a temporary directory, so the ownership reconciliation cannot
-// rewrite tracked slices as a side effect of a fixture write.
-function jobsSlicesDirForWrite() {
-  const override = String(process.env.JOBS_CRAWLER_SLICES_DIR || '').trim();
-  return override ? path.resolve(override) : JOBS_SLICES_DIR;
-}
-
 const DATA_JOBS = path.join(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.join(ROOT, 'public', 'data', 'jobs.json');
 const DATA_EXPIRED = path.join(ROOT, 'data', 'expired-jobs.json');
@@ -2801,9 +2792,8 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // ── firstSeenAt backfill ──────────────────────────────────────────────
   // Carry forward firstSeenAt from existing slice; fall back to crawledAt
   // (the original discovery time) for genuinely new jobs.
-  const outputSlicesDir = jobsSlicesDirForWrite();
-  fs.mkdirSync(outputSlicesDir, { recursive: true });
-  const slicePath = path.join(outputSlicesDir, `${crawlerKey}.json`);
+  fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
+  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
   // The slice the previous run committed. In the dedicated-runner path the
   // seed (seedCrawlerSlicesFromDataJobs) has already replaced the file on disk
@@ -3066,7 +3056,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
   // in place forever. The pass only writes entries with a redirect or pruned
   // bucket, so the fleet-wide scan is order-independent without rewriting
   // unrelated slices.
-  const fleetEntries = listSliceFilePaths(outputSlicesDir)
+  const fleetEntries = listSliceFilePaths(JOBS_SLICES_DIR)
     .filter((filePath) => filePath !== slicePath)
     .map((filePath) => ({ filePath, slice: readJson(filePath, null) }))
     .filter((entry) => Array.isArray(entry.slice?.jobs));

@@ -143,13 +143,6 @@ const CLER_DETAIL_LEAF_RE = /\/offene-stellen\/([^/?#]+)$/i;
 // whole-URL keys (#3497). Host-gated so no other crawler's key changes.
 const ETA_HOST_RE = /(?:^|\/\/)(?:www\.)?eta\.ch(?:[:/]|$)/;
 
-// Implenia's RMK API puts the per-job requisition in the final path segment;
-// it is only 5 digits today, below NUM_ID_RE's generic threshold. The title
-// segment is presentation text and may contain HTML entities (`&apos;`), so
-// the host + detail-path gate deliberately ignores it.
-const IMPLENIA_HOST_RE = /^https?:[/][/]jobs[.]implenia[.]com(?:[:/]|$)/;
-const IMPLENIA_DETAIL_PATH_RE = /\/job\/(?:[^/?#]+\/)?(\d+)-de_de$/i;
-
 // apply.refline.ch (host-gated). Detail urls are `/<companyId>/<posId>/pub/<rev>`,
 // optionally suffixed `/index.html`. Some tenants (e.g. ZKB, refline tenant
 // 792841 — see scripts/lib/zkb-job-parser.mjs) resolve the BARE form with no
@@ -301,8 +294,6 @@ export function lowerStripTrailingSlash(url) {
  *      (`-N`/`_N`) KEPT.
  *   P. PageExecutive `/ref/jn-MMYYYY-<req>` detail → final requisition; the
  *      leading date token is shared by every posting opened in that month.
- *   I. Implenia `/job/<title>/<req>-de_DE` detail → numeric requisition;
- *      the title contains freely rewritten/HTML-escaped text.
  *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
  *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
  *      is a shared folder/company id or a `%20`+year artifact).
@@ -430,15 +421,6 @@ export function mergeUrlKey(url) {
   if (ETA_HOST_RE.test(u)) {
     const req = trailingDigitRunFromLeaf(leaf);
     if (req) return `req:eta.ch:${req}`;
-  }
-
-  // Rule I — Implenia requisition id (host-gated). The RMK detail id is only
-  // five digits, and the title portion can differ only by HTML entity spelling
-  // (`&apos;` vs `'`) while referring to the same posting.
-  if (IMPLENIA_HOST_RE.test(u)) {
-    const pathOnly = u.split(/[?#]/)[0];
-    const req = pathOnly.match(IMPLENIA_DETAIL_PATH_RE);
-    if (req) return `req:jobs.implenia.com:${req[1]}`;
   }
 
   // Rule R — apply.refline.ch bare `/<companyId>/<posId>/pub/<rev>` leaf, no
