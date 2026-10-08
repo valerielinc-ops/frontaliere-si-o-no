@@ -54,6 +54,11 @@ test('generated data PR body describes deterministic rejection resolution withou
   assert.doesNotMatch(workflow, /merge elimina la memoria/u);
 });
 
+test('admission skip summary does not execute shell command substitutions', () => {
+  assert.match(workflow, /printf '%s\\n' "- Esito: saltata prima del plan; motivo: \$\{reason\} \(\$\{detail\}\)\."/u);
+  assert.doesNotMatch(workflow, /motivo: `\$reason`/u);
+});
+
 test('planner emits every workflow output without replacing existing step outputs', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'event-description-plan-'));
   const outputPath = path.join(root, 'github-output');
