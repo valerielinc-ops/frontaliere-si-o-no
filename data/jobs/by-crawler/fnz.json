@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fnz",
-  "assembledAt": "2026-10-08T21:16:06.233Z",
+  "assembledAt": "2026-10-08T22:12:36.257Z",
   "jobs": [
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Production-engineer_REQ-17625-1",
@@ -22,18 +22,18 @@
         "fr": "The Production Engineer is responsible for driving the evolution of the firm's monitoring and observability capabilities while actively contributing to the day-to-day operations of the Managed Services organization.\nThe role combines technical leadership in monitoring platform modernization, automation, and operational intelligence with hands-on support responsibilities across client environments. As a member of the Chiasso-based Managed Services team, the individual participates in incident management, service monitoring, on-call rotations, client support activities, and operational governance to ensure the stability, availability, and security of client services.\nThe role also provides expertise and support for CIM-related incidents and operational challenges.\n\nPrimary Responsibilities\nMonitoring & Observability Transformation\n\n• Lead the enhancement and redesign of monitoring dashboards to fully leverage Zabbix Agent 2 capabilities.\n\n• Drive the migration and decommissioning of legacy NWA Agent monitoring components.\n\n• Integrate additional infrastructure and applications into the Zabbix platform, including:\n• Vtom servers and batch processing components\n\n• Year-End environments\n\n• Application and infrastructure log monitoring\n\n• Improve the reliability, quality, and relevance of monitoring alerts and log parsing mechanisms.\n\n• Prepare and support the deployment of new production monitoring infrastructure, including Zabbix servers and proxies.\n\n• Define and implement security processes, governance, and lifecycle management for Zabbix and Agent 2.\n\nAutomation & Tool Integration\n\n• Lead the replacement of MoniPiguet and the transition of monitoring capabilities to strategic platforms.\n\n• Integrate Zabbix with ITM, Jira, and other operational tools to automate incident and ticket lifecycle management.\n\n• Implement intelligent alerting and workflow automation, including:\n• Batch-progress monitoring\n\n• Escalation processes\n\n• Alert acknowledgements for on-call teams\n\n• Automated incident creation and closure where appropriate\n\nReporting & Continuous Improvement\n\n• Produce KPI reports related to incidents, monitoring effectiveness, service availability, and operational performance.\n\n• Analyze trends and recommend improvements to increase service reliability and operational efficiency.\n\n• Contribute to service reviews, post-incident analysis, and continuous improvement initiatives.\n\nManaged Services Operational Responsibilities\nAs a full member of the Chiasso Managed Services team, the individual will:\n\n• Perform daily operational checks and health monitoring across client environments.\n\n• Access client production and non-production environments to investigate incidents and service disruptions.\n\n• Participate in incident management activities, including major incident response and resolution coordination.\n\n• Take part in shift rotations and on-call schedules to provide support outside normal business hours.\n\n• Contribute to change implementation, service requests, and operational support activities.\n\n• Participate in client governance meetings, service reviews, and operational discussions where required.\n\n• Maintain operational documentation, procedures, and knowledge articles.\n\n• Support cross-functional collaboration with Technical Services, Product Owners, Development Teams, and Client Service Managers.\n\nClient Ownership Responsibilities\nThe individual will progressively assume ownership responsibilities for designated clients, including:\n\n• Acting as a key operational contact for assigned clients.\n\n• Coordinating incident resolution and problem management activities.\n\n• Monitoring service performance and identifying opportunities for improvement.\n\n• Supporting operational reviews and client-facing discussions.\n\n• Ensuring adherence to service commitments and operational best practices.\n\nCIM Expertise & Support\n\n• Provide advanced support and expertise for incidents involving CIM-related components.\n\n• Assist Managed Services teams during investigations, troubleshooting, and root cause analyses involving CIM.\n\n• Facilitate knowledge transfer and best-practice sharing across support and operational teams.\n\n• Serve as a subject matter expert when CIM-related issues impact client services.\n\nRequirements\n\n• Strong understanding of FNZ’s operating model and products\n\n• Proven involvement in monitoring modernization initiatives.\n\n• Existing expertise in Zabbix, monitoring automation, and incident management processes.\n\n• Knowledge of CIM and its operational support requirements\n\n• English and French fluent required\n\nAbout FNZ\n\nFNZ is committed to opening up wealth so that everyone, everywhere can invest in their future on their terms. We know the foundation to do that already exists in the wealth management industry, but complexity holds firms back.\n\nWe created wealth’s growth platform to help. We provide a global, end-to-end wealth management platform that integrates modern technology with business and investment operations. All in a regulated financial institution.\n\nWe partner with the world’s leading financial institutions, with over US$2.5 trillion in assets on platform (AoP).\n\nTogether with our clients, we empower nearly 30 million people across all wealth segments to invest in their future."
       },
       "titleByLocale": {
-        "en": "Production engineer",
         "it": "Production Ingegnere",
+        "en": "Production engineer",
         "de": "Production Ingenieur",
         "fr": "Production Ingénieur"
       },
       "slugByLocale": {
+        "it": "production-ingegnere-fnz-switzerland-ag-chiasso",
         "en": "production-engineer-fnz",
-        "it": "production-engineer-fnz",
-        "de": "production-engineer-fnz",
-        "fr": "production-engineer-fnz"
+        "de": "production-ingenieur-fnz-switzerland-ag-chiasso",
+        "fr": "production-ingenieur-fnz-switzerland-ag-chiasso"
       },
-      "slug": "production-engineer-fnz",
+      "slug": "production-ingegnere-fnz-switzerland-ag-chiasso",
       "category": "technology",
       "datePosted": "2026-10-08",
       "postedDate": "2026-10-08",
@@ -48,9 +48,24 @@
         "location": "Chiasso"
       },
       "jobReqId": "REQ-17625",
-      "needsRetranslation": true,
-      "crawledAt": "",
       "id": "fnz-4ac7c8eee969",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-08T21:16:03.321Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "production-engineer-fnz"
+        ],
+        "de": [
+          "production-engineer-fnz"
+        ],
+        "fr": [
+          "production-engineer-fnz"
+        ]
+      },
+      "previousSlugs": [
+        "production-engineer-fnz"
+      ],
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -65,8 +80,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6830",
-      "firstSeenAt": "2026-10-08T21:16:03.321Z"
+      "postalCode": "6830"
     },
     {
       "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
@@ -115,16 +129,16 @@
       },
       "jobReqId": "REQ-16005",
       "id": "fnz-addd1ea2604e",
-      "firstSeenAt": "2026-09-04T13:28:24.249Z",
-      "crawledAt": "",
+      "previousSlugs": [
+        "solution-consultant-crm-fnz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "solution-consultant-crm-fnz"
         ]
       },
-      "previousSlugs": [
-        "solution-consultant-crm-fnz"
-      ],
+      "firstSeenAt": "2026-09-04T13:28:24.249Z",
+      "crawledAt": "",
       "salaryMin": 61000,
       "salaryMax": 97000,
       "currency": "CHF",

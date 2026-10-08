@@ -1,6 +1,6 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-10-08T21:14:30.362Z",
+  "assembledAt": "2026-10-08T22:13:35.059Z",
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
@@ -33,7 +33,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:22.997Z",
+      "crawledAt": "2026-10-08T22:13:29.204Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,17 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017068",
-      "previousSlugs": [
-        "quantitative-analista-trafigura-geneva",
-        "quantitative-analyst-trafigura-geneva",
-        "risikoquantenanalytiker-trafigura-geneva",
-        "risk-quant-analyste-trafigura-geneva",
-        "risk-quant-analyst-trafigura-ch",
-        "quantitative-analyst-trafigura-ch",
-        "risk-quant-analista-trafigura-geneva",
-        "lpg-analyst-trafigura-ch"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "quantitative-analyst-trafigura-geneva",
+          "lpg-analyst-trafigura-ch"
+        ],
         "it": [
           "quantitative-analista-trafigura-geneva",
           "quantitative-analyst-trafigura-geneva",
@@ -73,10 +67,6 @@
           "risk-quant-analista-trafigura-geneva",
           "lpg-analyst-trafigura-ch"
         ],
-        "en": [
-          "quantitative-analyst-trafigura-geneva",
-          "lpg-analyst-trafigura-ch"
-        ],
         "de": [
           "risikoquantenanalytiker-trafigura-geneva"
         ],
@@ -84,6 +74,16 @@
           "risk-quant-analyste-trafigura-geneva"
         ]
       },
+      "previousSlugs": [
+        "quantitative-analista-trafigura-geneva",
+        "quantitative-analyst-trafigura-geneva",
+        "risikoquantenanalytiker-trafigura-geneva",
+        "risk-quant-analyste-trafigura-geneva",
+        "risk-quant-analyst-trafigura-ch",
+        "quantitative-analyst-trafigura-ch",
+        "risk-quant-analista-trafigura-geneva",
+        "lpg-analyst-trafigura-ch"
+      ],
       "firstSeenAt": "2026-07-03T23:41:01.667Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -131,7 +131,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:22.263Z",
+      "crawledAt": "2026-10-08T22:13:28.294Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -150,15 +150,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017868",
-      "firstSeenAt": "2026-07-03T23:40:58.890Z",
+      "previousSlugs": [
+        "market-risk-manager-oil-products-trafigura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "market-risk-manager-oil-products-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "market-risk-manager-oil-products-trafigura-ch"
-      ],
+      "firstSeenAt": "2026-07-03T23:40:58.890Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -206,7 +206,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:21.464Z",
+      "crawledAt": "2026-10-08T22:13:27.358Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -225,15 +225,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-018081",
-      "firstSeenAt": "2026-09-26T13:53:39.035Z",
+      "previousSlugs": [
+        "ctrm-business-architect-trafigura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ctrm-business-architect-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "ctrm-business-architect-trafigura-ch"
-      ],
+      "firstSeenAt": "2026-09-26T13:53:39.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -281,7 +281,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:20.687Z",
+      "crawledAt": "2026-10-08T22:13:26.374Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -300,14 +300,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-018655",
+      "previousSlugs": [
+        "senior-manager-credit-portfolio-management-trafigura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-credit-portfolio-management-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-manager-credit-portfolio-management-trafigura-ch"
-      ],
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -355,7 +355,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Head-of-Treasury---Payments-Technology_R-018663",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:19.909Z",
+      "crawledAt": "2026-10-08T22:13:25.481Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -379,11 +379,11 @@
         "head-of-it-treasury-trafigura-ch"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "head-of-it-treasury-trafigura-geneva"
-        ],
         "it": [
           "head-of-it-treasury-trafigura-ch"
+        ],
+        "en": [
+          "head-of-it-treasury-trafigura-geneva"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:36.331Z",
@@ -434,7 +434,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Business-Developer_R-018703",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:19.127Z",
+      "crawledAt": "2026-10-08T22:13:24.519Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -453,15 +453,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-018703",
-      "firstSeenAt": "2026-09-09T13:44:44.438Z",
+      "previousSlugs": [
+        "business-developer-trafigura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "business-developer-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "business-developer-trafigura-ch"
-      ],
+      "firstSeenAt": "2026-09-09T13:44:44.438Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -509,7 +509,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Investigations-Officer_R-018720",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:18.355Z",
+      "crawledAt": "2026-10-08T22:13:23.627Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -534,12 +534,12 @@
         "specialiste-des-enquetes-hors-classe-trafigura-geneva"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "senior-investigations-officer-trafigura-ch"
+        ],
         "fr": [
           "agent-principal-des-enquetes-trafigura-geneva",
           "specialiste-des-enquetes-hors-classe-trafigura-geneva"
-        ],
-        "it": [
-          "senior-investigations-officer-trafigura-ch"
         ]
       },
       "firstSeenAt": "2026-09-26T13:53:34.822Z",
@@ -589,7 +589,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Trade-Finance--Automation-Lead_R-018841",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:14:17.582Z",
+      "crawledAt": "2026-10-08T22:13:22.637Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -608,7 +608,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-018841",
-      "firstSeenAt": "2026-10-07T21:19:04.503Z",
+      "previousSlugs": [
+        "trade-finance-automation-lead-trafigura-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "trade-finance-automation-lead-trafigura-ch"
@@ -617,9 +619,7 @@
           "trade-finance-automation-lead-trafigura-ch"
         ]
       },
-      "previousSlugs": [
-        "trade-finance-automation-lead-trafigura-ch"
-      ],
+      "firstSeenAt": "2026-10-07T21:19:04.503Z",
       "salaryMin": 174500,
       "salaryMax": 306000,
       "salarySource": "estimated",
