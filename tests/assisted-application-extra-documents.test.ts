@@ -8,6 +8,8 @@ import {
   documentFilesOf,
   extraDocumentFileName,
   extraDocumentsToSend,
+  openRequiredDocuments,
+  documentsView,
   requiredDocumentsFromRequirements,
   requiredDocumentsOf,
 } from '../functions/src/assistedApplicationExtraDocuments.js';
@@ -58,13 +60,32 @@ describe('requested documents', () => {
       { id: 'eva', label: 'Test EVA', kind: 'aptitude_test', keywords: ['EVA'] },
       { id: 'gri', label: 'Test GRI', kind: 'aptitude_test' },
     ] };
-    // Pagelle waived (no files): the EVA keeps slot 2, the GRI slot 3.
-    const flow = { documents: { reports: { files: [], waivedAt: 1 }, eva: { files: [{ key: key('eva.pdf'), detectedType: 'pdf', name: 'x' }] }, gri: { files: [{ key: key('gri.png'), detectedType: 'png' }] } } };
+    // Pagelle not given (no files): the EVA keeps slot 2, the GRI slot 3.
+    const flow = { documents: { reports: { files: [] }, eva: { files: [{ key: key('eva.pdf'), detectedType: 'pdf', name: 'x' }] }, gri: { files: [{ key: key('gri.png'), detectedType: 'png' }] } } };
     expect(extraDocumentsToSend(draft, flow, ORDER)).toEqual([
       { id: 'eva', slot: 'extra_2', label: 'Test EVA', kind: 'aptitude_test', keywords: ['EVA'], files: [{ key: key('eva.pdf'), detectedType: 'pdf', name: 'x' }] },
       { id: 'gri', slot: 'extra_3', label: 'Test GRI', kind: 'aptitude_test', keywords: [], files: [{ key: key('gri.png'), detectedType: 'png' }] },
     ]);
     expect(extraDocumentsToSend(draft, {}, ORDER)).toEqual([]);
+  });
+
+  // Owner decision 2026-10-08: what the posting demands is uploaded, or the application waits. The «send
+  // without it» of 2026-10-02 sent an application that failed at the portal's upload, or at the employer.
+  it('holds a required document until a file is given: nothing else lifts it, not an older flow\'s waiver', () => {
+    const draft = { requiredDocuments: [
+      { id: 'reports', label: 'Pagelle', kind: 'school_report', required: true },
+      { id: 'eva', label: 'Test EVA', kind: 'aptitude_test', required: true },
+      { id: 'portfolio', label: 'Portfolio', kind: 'portfolio', required: false },
+    ] };
+    const file = { key: key('reports.pdf'), detectedType: 'pdf', name: 'reports.pdf' };
+    expect(openRequiredDocuments(draft, {})).toEqual(['reports', 'eva']);
+    expect(openRequiredDocuments(draft, { reports: { files: [file] } })).toEqual(['eva']);
+    // A flow written before the decision still holds its waiver: read by nothing.
+    expect(openRequiredDocuments(draft, { reports: { files: [file] }, eva: { files: [], waivedAt: 1 } })).toEqual(['eva']);
+    expect(openRequiredDocuments(draft, { reports: { files: [file] }, eva: { files: [file] } })).toEqual([]);
+    const view = documentsView(draft, { documents: { eva: { files: [], waivedAt: 1 } } });
+    expect(view.map((document: any) => document.id)).toEqual(['reports', 'eva', 'portfolio']);
+    expect(view.every((document: any) => !('waived' in document))).toBe(true);
   });
 
   it('names files after the document and the candidate', () => {

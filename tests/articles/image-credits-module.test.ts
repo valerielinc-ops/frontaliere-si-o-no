@@ -21,6 +21,7 @@ import {
   coverKey,
   createImageCreditReader,
   hasVisibleImageCredit,
+  imageCreditRecordFromGeneratedImageRecord,
   imageCreditParts,
   imageObjectCreditFields,
   isAllowedAuthorUrl,
@@ -80,6 +81,34 @@ function record(overrides: DeepPartial<ImageCreditRecord> = {}): ImageCreditReco
   return out as unknown as ImageCreditRecord;
 }
 
+function licensedProviderRecord(provider: 'pexels' | 'pixabay'): ImageCreditRecord {
+  const pexels = provider === 'pexels';
+  const pageUrl = pexels
+    ? 'https://www.pexels.com/photo/zurich-office-123/'
+    : 'https://pixabay.com/photos/zurich-office-123/';
+  const author = pexels ? 'Pexels Author' : 'Pixabay Author';
+  const authorUrl = pexels ? 'https://www.pexels.com/@author' : 'https://pixabay.com/users/author-42/';
+  return {
+    schema: 1,
+    cover: `/images/blog/${provider}-cover.webp`,
+    source: 'licensed-photo',
+    photo: { provider, title: `${provider} office.jpg`, pageUrl, width: 2400, height: 1600 },
+    author: { text: author, name: author, url: authorUrl, type: 'Person' },
+    attribution: null,
+    licence: {
+      name: pexels ? 'Pexels License' : 'Pixabay Content License',
+      url: pexels ? 'https://www.pexels.com/license/' : 'https://pixabay.com/service/license-summary/',
+      family: pexels ? 'pexels' : 'pixabay',
+      attributionRequired: false,
+    },
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    modified: 'resized',
+    fetchedAt: '2026-10-08',
+    status: 'ok',
+    curation: null,
+  } as ImageCreditRecord;
+}
+
 const PD = record({
   commons: { title: 'Lugano prokudin.jpg', pageUrl: 'https://commons.wikimedia.org/wiki/File:Lugano_prokudin.jpg' },
   author: { text: 'Sergei Mikhailovich Prokudin-Gorskii', name: 'Sergei Mikhailovich Prokudin-Gorskii', url: null, type: 'Person' },
@@ -123,6 +152,8 @@ const FAMILY_RECORDS: Record<string, ImageCreditRecord> = {
     author: { text: 'Federal Office of Topography', name: 'Federal Office of Topography', url: 'https://en.wikipedia.org/wiki/en:Swisstopo', type: 'Organization' },
     licence: { name: 'Attribution-Swisstopo', url: null, family: 'other-attribution', attributionRequired: true },
   }),
+  pexels: licensedProviderRecord('pexels'),
+  pixabay: licensedProviderRecord('pixabay'),
 };
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -195,6 +226,29 @@ function generatedArticleHero(): ImageCreditRecord {
   } as unknown as ImageCreditRecord;
 }
 
+function licensedArticleHero(): ImageCreditRecord {
+  return imageCreditRecordFromGeneratedImageRecord({
+    kind: 'photo',
+    scope: 'article-hero',
+    assetId: 'licensed-article-cover',
+    provider: 'wikimedia',
+    imageUrl: '/images/blog/licensed-article-cover.webp',
+    photoTitle: 'Zurich employment office.jpg',
+    sourcePageUrl: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
+    sourceWidth: 2400,
+    sourceHeight: 1600,
+    license: 'CC BY-SA 4.0',
+    licenseFamily: 'cc-by-sa',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    credit: 'Ada Foto · CC BY-SA 4.0',
+    author: { name: 'Ada Foto', url: 'https://commons.wikimedia.org/wiki/User:Ada_Foto' },
+    copyrightNotice: '© Ada Foto',
+    modifications: ['cropped', 'resized', 'converted-to-webp'],
+    restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+    generatedAt: '2026-10-08T10:00:00.000Z',
+  }) as unknown as ImageCreditRecord;
+}
+
 describe('generated article-hero image records', () => {
   const generated = generatedArticleHero();
 
@@ -219,6 +273,33 @@ describe('generated article-hero image records', () => {
     expect(imageCreditParts(generated, 'en')?.text).toContain('generated with AI by frontaliereticino.ch');
     expect(mediaRssCreditXml(generated, 'it')).toContain('frontaliereticino.ch');
     expect(mediaRssCreditXml(generated, 'it')).toContain('https://openai.com/policies/terms-of-use/');
+  });
+});
+
+describe('licensed article-hero image records', () => {
+  const photo = licensedArticleHero();
+
+  it('keeps a CC BY-SA photo publishable only with visible attribution data', () => {
+    expect(validateImageCreditRecord(photo)).toEqual({ valid: true, errors: [] });
+    expect(photo.source).toBe('licensed-photo');
+    expect(imageCreditParts(photo, 'it')?.text).toBe(
+      'Immagine di copertina: «Zurich employment office» di Ada Foto, CC BY-SA 4.0, tramite Wikimedia Commons (ritagliata e ridimensionata).',
+    );
+    const html = renderImageCreditHtml(photo, 'it');
+    expect(html).toContain('Ada Foto');
+    expect(html).toContain('https://creativecommons.org/licenses/by-sa/4.0/');
+    expect(html).toContain('https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg');
+  });
+
+  it('projects the same author, licence and source page to JSON-LD', () => {
+    expect(imageObjectCreditFields(photo)).toMatchObject({
+      creditText: 'Ada Foto / Wikimedia Commons',
+      license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
+      isBasedOn: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
+      creator: { name: 'Ada Foto' },
+      description: 'Cropped and resized derivative of the licensed source.',
+    });
   });
 });
 
@@ -291,8 +372,9 @@ describe('every licence family', () => {
       expect(ld[field], `${family}: ${field}`).toBeTruthy();
     }
     expect(new URL(ld.license).protocol).toBe('https:');
-    expect(ld.acquireLicensePage).toBe(rec.commons.pageUrl);
-    expect(ld.isBasedOn).toBe(rec.commons.pageUrl);
+    const sourcePage = rec.source === 'licensed-photo' ? rec.photo.pageUrl : rec.commons.pageUrl;
+    expect(ld.acquireLicensePage).toBe(sourcePage);
+    expect(ld.isBasedOn).toBe(sourcePage);
     expect(ld.creator.name).toBe(rec.author.name);
     expect(JSON.stringify(ld)).not.toMatch(/Frontaliere Ticino|Tutti i diritti riservati/);
     // Commons hosts the file; it is never the creator.
@@ -311,6 +393,8 @@ describe('every licence family', () => {
       'no-known-restrictions': 'No known copyright restrictions',
       fal: '© Riessdo',
       'other-attribution': '© Federal Office of Topography',
+      pexels: '© Pexels Author',
+      pixabay: '© Pixabay Author',
     });
   });
 
@@ -594,7 +678,7 @@ describe('public domain and CC0: no visible credit, same structured data (owner 
 
   it('every other family keeps its line', () => {
     const shown = Object.entries(FAMILY_RECORDS).filter(([family]) => family !== 'pd' && family !== 'cc0');
-    expect(shown.map(([family]) => family).sort()).toEqual(['cc-by', 'cc-by-sa', 'fal', 'no-known-restrictions', 'other-attribution']);
+    expect(shown.map(([family]) => family).sort()).toEqual(['cc-by', 'cc-by-sa', 'fal', 'no-known-restrictions', 'other-attribution', 'pexels', 'pixabay']);
     for (const [family, rec] of shown) {
       expect(hasVisibleImageCredit(rec), family).toBe(true);
       for (const locale of LOCALES) expect(renderImageCreditHtml(rec, locale), `${family} ${locale}`).toMatch(/^<footer class="ft-image-credit/);

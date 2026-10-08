@@ -164,7 +164,7 @@ export function slugId(text) {
  * What the planner may use, with the alias as the e-mail (candidateIdentity).
  * `language`: the form's, for the candidate's Swiss status as a full sentence.
  */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it' }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [], language = 'it', personal = {} }) {
   // The split the candidate chose on the review page, else the surname with its particles (splitName).
   const names = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const latest = (profile.experience || [])[0] || {};
@@ -207,6 +207,10 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       // In the form the portals read.
       dateOfBirth: isoDateOf(profile.dateOfBirth) || profile.dateOfBirth || '',
       nationality: profile.nationality || '',
+      // What the CV says in its own words, or the candidate corrected (candidateWithEdits `personal`): a
+      // portal that asks the civil status is answered from it, not by a question to the candidate. The form
+      // of address the CV states is in `answers.salutation` already.
+      civilStatus: personal?.civilStatus || '',
     },
     // The Swiss status the candidate chose, as a full sentence in the form's language (decision 9). Outside
     // `answers` and `profile`: the substring rule (plan.mjs knownValuesOf) never reads it, so a label holding
@@ -221,7 +225,17 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       coverLetter: draft.coverLetter?.text || '',
     },
     // The requested documents the candidate gave (assistedApplicationExtraDocuments.js), by form slot.
-    documents: { cv: true, cover_letter: true, extra: extraDocuments.map(({ slot, label, kind }) => ({ slot, label, kind })) },
+    // With its keywords: the names the same document goes by in the other languages, for the field that asks it
+    // and for a question that only asks whether the candidate holds it (plan.mjs).
+    // Only a document with a file: being listed here is what answers «do you hold it?» with a yes, and one
+    // requested but not given is not held (review of #12363; extraDocumentsToSend already drops them).
+    documents: {
+      cv: true,
+      cover_letter: true,
+      extra: extraDocuments
+        .filter((document) => Array.isArray(document?.files) && document.files.length > 0)
+        .map(({ slot, label, kind, keywords = [] }) => ({ slot, label, kind, keywords })),
+    },
   };
 }
 

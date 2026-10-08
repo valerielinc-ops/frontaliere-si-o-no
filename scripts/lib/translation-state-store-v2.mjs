@@ -821,7 +821,10 @@ async function writeCommit(git, tip, changes, message, { deterministicRoot = fal
       const blob = await checked(git, ['hash-object', '-w', '--', artifactPath]);
       await checked(git, ['update-index', '--add', '--cacheinfo', `100644,${blob},${change.path}`], { env });
     }
-    const tree = await checked(git, ['write-tree'], { env });
+    // `--missing-ok`: every entry is either in the tip's tree or a blob written
+    // in the loop above; on a partial clone a plain `write-tree` would fetch
+    // the ones the checkout does not have before writing anything.
+    const tree = await checked(git, ['write-tree', '--missing-ok'], { env });
     const args = ['commit-tree', tree, '-m', message];
     if (tip !== null) args.splice(2, 0, '-p', tip);
     // The identity is unconditional; only the DATES are pinned, and only for the

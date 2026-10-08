@@ -5,7 +5,9 @@
  * HTML on R2, answered by the Worker (`serveCorpusSection` in
  * infra/cloudflare-worker/locale-router.js). Landing, archive and article
  * paths are also recognized by the SPA; the corpus still owns the initial
- * HTML and the live/inactive decision.
+ * HTML and the live/inactive decision. The thematic hubs now hand off to the
+ * same React surface after the versioned corpus payload is validated at
+ * runtime, just like landings, archives and articles.
  *
  * The prefix set is the CLOSED one from the generated section core (every
  * canton, active or not); whether a section is live is decided at runtime by
@@ -46,6 +48,8 @@ export interface CantonArticlePathMatch {
   kind: CantonArticlePathKind;
   /** Article slug, or the topic-hub path tail when kind === 'topic'. */
   slug?: string;
+  /** Stable topic id when kind === 'topic' (not the localized URL slug). */
+  topic?: string;
   /** One-based page number for `/tutti/page-N/`; page 1 is omitted. */
   page?: number;
 }
@@ -78,9 +82,9 @@ export function parseCantonArticlePath(pathname: string): CantonArticlePathMatch
     return null;
   }
 
-  // Topic hubs remain corpus-owned static overlays in this site PR.
-  if (entry.topicHubs && Object.values(entry.topicHubs).some((byLocale) => byLocale[locale] === first)) {
-    return { section, locale, kind: 'topic', slug: parts.join('/') };
+  if (parts.length === 1 && entry.topicHubs) {
+    const topic = Object.entries(entry.topicHubs).find(([, byLocale]) => byLocale[locale] === first)?.[0];
+    if (topic) return { section, locale, kind: 'topic', slug: first, topic };
   }
   if (parts.length === 1 && first) return { section, locale, kind: 'article', slug: first };
   return null;

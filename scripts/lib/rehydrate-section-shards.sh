@@ -3,6 +3,7 @@ set -uo pipefail
 
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+. "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"
 
 # Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
 # disjoint dist/ subtrees, but their workers are deliberately bounded. Each
@@ -348,6 +349,12 @@ rehydrate_section() {
       continue
     fi
     if [ -d "$tmp/$sub" ]; then
+      if ! ticino_tree_unfanout_stage "$section" "$tmp/$sub"; then
+        echo "::warning::$section-$loc shard tree fan-out could not be restored to canonical paths — leaving $loc $section missing"
+        trunk_replace_end "$section-$loc"
+        rm -rf "$tmp"
+        continue
+      fi
       mkdir -p "dist/$(dirname "$sub")"
       trunk_replace_begin "$section-$loc" "$sub"
       # A rename, not `cp -r`: the clone is deleted a few lines below anyway,

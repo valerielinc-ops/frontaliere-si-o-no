@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 import { execFileSync, spawnSync } from 'node:child_process';
-import { realpathSync } from 'node:fs';
+import { mkdtempSync, readFileSync, realpathSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { pathToFileURL } from 'node:url';
-import { resolve } from 'node:path';
+import { isAbsolute, join, resolve } from 'node:path';
 
 import { withSingleFlightLock } from './single-flight-lock.mjs';
 
@@ -21,6 +22,19 @@ const FETCH_TIMEOUT_MS = 30_000;
 // history check could finish. Keep a separate, bounded budget for this slower
 // operation instead of relaxing the guard or sharing the short-fetch timeout.
 export const HISTORY_GRAPH_FETCH_TIMEOUT_MS = 5 * 60_000;
+// How many commits a head may add over the refreshed base and still be decided
+// without the history graph. A data writer adds a handful; a longer list is not
+// the ordinary case the bounded proof exists for.
+const BOUNDED_PROOF_MAX_ADDED_COMMITS = 2_000;
+// The refresh the bounded proof starts from brings what the branch gained since
+// the checkout: 0.7 to 2.7 seconds measured. A checkout that shares nothing
+// with the branch would be sent its whole history instead, so the budget is
+// short: past it the proof is abandoned and the complete check decides.
+const BOUNDED_PROOF_FETCH_TIMEOUT_MS = 15_000;
+const REMOTE_DESCENT_FETCH_TIMEOUT_MS = BOUNDED_PROOF_FETCH_TIMEOUT_MS;
+// Commit timestamps can move backwards between machines; widen the shallow
+// window by one day so a clock skew does not hide the old base commit.
+const REMOTE_DESCENT_SINCE_SKEW_SECONDS = 86_400;
 
 const OLD_HISTORY_REMEDIATION = [
   'Ricrea il branch da origin/main aggiornato e riporta solo i tuoi commit con:',
@@ -38,30 +52,86 @@ function safeGitErrorDetail(error) {
     .trim();
 }
 
-function runGit(args, { cwd, stdio = 'ignore', timeout } = {}) {
+function runGit(args, { cwd, stdio = 'ignore', timeout, env } = {}) {
   const output = execFileSync('git', args, {
     cwd,
     encoding: 'utf8',
     stdio,
     timeout,
+    env,
   });
   return output ? output.trim() : '';
 }
 
-function commitExists(ref, cwd) {
+/**
+ * Appends ephemeral Git config entries without overwriting entries supplied by
+ * the caller through GIT_CONFIG_COUNT and its indexed key/value variables.
+ */
+export function appendGitConfigEnvironment(baseEnv, entries) {
+  const parsedCount = Number.parseInt(baseEnv.GIT_CONFIG_COUNT || '0', 10);
+  const existingCount = Number.isSafeInteger(parsedCount) && parsedCount >= 0 ? parsedCount : 0;
+  const env = { ...baseEnv };
+  entries.forEach(({ key, value }, offset) => {
+    const index = existingCount + offset;
+    env[`GIT_CONFIG_KEY_${index}`] = key;
+    env[`GIT_CONFIG_VALUE_${index}`] = value;
+  });
+  env.GIT_CONFIG_COUNT = String(existingCount + entries.length);
+  return env;
+}
+
+// What a parent git exports to bind its children to one repository, index and
+// object store: `git rev-parse --local-env-vars`, minus the two that carry
+// configuration, which is where a caller hands over its credentials. A pre-push
+// hook in a linked worktree runs with GIT_DIR set (githooks(5)). With it in
+// place every command meant for the scratch repository acts on the checkout
+// instead: measured on a shallow one, it gained a stray branch and a promisor
+// remote without a URL, and lost its shallow boundary.
+export const REPOSITORY_BINDING_ENVIRONMENT = [
+  'GIT_ALTERNATE_OBJECT_DIRECTORIES',
+  'GIT_COMMON_DIR',
+  'GIT_CONFIG',
+  'GIT_DIR',
+  'GIT_GRAFT_FILE',
+  'GIT_IMPLICIT_WORK_TREE',
+  'GIT_INDEX_FILE',
+  'GIT_NO_REPLACE_OBJECTS',
+  'GIT_OBJECT_DIRECTORY',
+  'GIT_PREFIX',
+  'GIT_REPLACE_REF_BASE',
+  'GIT_SHALLOW_FILE',
+  'GIT_WORK_TREE',
+];
+
+/** The environment of a git command that must act on a repository of its own. */
+export function detachedRepositoryEnvironment(baseEnv, entries = []) {
+  const env = { ...baseEnv, GIT_TERMINAL_PROMPT: '0' };
+  for (const name of REPOSITORY_BINDING_ENVIRONMENT) delete env[name];
+  return appendGitConfigEnvironment(env, entries);
+}
+
+// An existence probe answers from the local object store, and nothing else.
+// On a partial clone a plain `cat-file -e` first asks the promisor for the
+// object: a fetch with no time limit that the trace never shows, and one that
+// succeeds for the marker, since the remote still serves the previous history
+// by id (2.7 s and 2.2 MB against the real remote from a blobless checkout).
+// Whoever needs a commit that is not local fetches it explicitly, bounded and
+// timed: fetchCommitObject, refreshOriginBranch, completeShallowHistory.
+function commitExists(ref, cwd, env = process.env) {
   try {
-    runGit(['cat-file', '-e', `${ref}^{commit}`], { cwd });
+    runGit(['cat-file', '-e', `${ref}^{commit}`], { cwd, env: { ...env, GIT_NO_LAZY_FETCH: '1' } });
     return true;
   } catch {
     return false;
   }
 }
 
-function isAncestor(ancestor, descendant, cwd) {
+function isAncestor(ancestor, descendant, cwd, env) {
   const result = spawnSync('git', ['merge-base', '--is-ancestor', ancestor, descendant], {
     cwd,
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
+    env,
   });
 
   if (result.status === 0) return true;
@@ -76,6 +146,44 @@ function isShallowRepository(cwd) {
     cwd,
     stdio: ['ignore', 'pipe', 'ignore'],
   }) === 'true';
+}
+
+function resolveCommit(ref, cwd) {
+  try {
+    return runGit(['rev-parse', '--verify', '--quiet', `${ref}^{commit}`], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+  } catch {
+    return '';
+  }
+}
+
+// The commits whose parents the checkout does not have. `null` means the
+// boundary cannot be read, which callers must treat as "unknown", not "none".
+function shallowBoundaryCommits(cwd) {
+  if (!isShallowRepository(cwd)) return new Set();
+  try {
+    const shallowPath = resolve(cwd, runGit(['rev-parse', '--git-path', 'shallow'], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }));
+    return new Set(readFileSync(shallowPath, 'utf8').split('\n').map((line) => line.trim()).filter(Boolean));
+  } catch {
+    return null;
+  }
+}
+
+function timed(trace, step, fn) {
+  const startedAt = Date.now();
+  let failed = true;
+  try {
+    const value = fn();
+    failed = false;
+    return value;
+  } finally {
+    trace?.push({ step, ms: Date.now() - startedAt, ...(failed ? { failed: true } : {}) });
+  }
 }
 
 function historyGuardLockPath(cwd) {
@@ -218,6 +326,241 @@ export function refreshOriginBranch({
   }
 }
 
+/**
+ * Decides whether the verdict can still be `blocked`, using only the commits
+ * the checkout already has. It never answers "is the marker an ancestor of the
+ * head?": a shallow history cannot.
+ *
+ * `blocked` needs the marker to be an ancestor of the head and not of the base.
+ * Every commit that is an ancestor of the head and not of the base is listed by
+ * `rev-list head --not base`, provided no listed commit sits on the shallow
+ * boundary: a boundary commit hides its parents, so the list could stop short
+ * of an ancestor. A truncated history on the base side can only make the list
+ * longer. When the list is closed and the marker is not in it, completing the
+ * history graph cannot change the outcome.
+ *
+ * The answer is relative to `baseRef` as it is now. A caller that needs the
+ * verdict against the remote branch refreshes the ref first: a checkout still
+ * on the previous history then lists its own boundary commit and is not proven.
+ */
+export function proveHeadAddsNoOldHistory({
+  cwd = process.cwd(),
+  markerRef = OLD_HISTORY_FIRST_CHANGED_COMMIT,
+  headRef = 'HEAD',
+  baseRef = DEFAULT_BASE_REF,
+} = {}) {
+  // The marker does not have to be in the checkout: a commit that is not local
+  // cannot be among the listed ones, and the comparison below says so.
+  const marker = /^[0-9a-f]{40,64}$/u.test(markerRef) ? markerRef : resolveCommit(markerRef, cwd);
+  if (!marker) return { proven: false, why: 'marker-unresolved' };
+  if (!commitExists(headRef, cwd) || !commitExists(baseRef, cwd)) return { proven: false, why: 'ref-unavailable' };
+  let added;
+  try {
+    added = runGit([
+      'rev-list',
+      `--max-count=${BOUNDED_PROOF_MAX_ADDED_COMMITS + 1}`,
+      headRef,
+      '--not',
+      baseRef,
+    ], { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).split('\n').filter(Boolean);
+  } catch {
+    return { proven: false, why: 'rev-list-failed' };
+  }
+  if (added.length > BOUNDED_PROOF_MAX_ADDED_COMMITS) return { proven: false, why: 'too-many-added-commits' };
+  if (added.includes(marker)) return { proven: false, why: 'marker-among-added-commits' };
+  const boundary = shallowBoundaryCommits(cwd);
+  if (!boundary) return { proven: false, why: 'shallow-boundary-unreadable' };
+  if (added.some((sha) => boundary.has(sha))) return { proven: false, why: 'added-commit-on-shallow-boundary' };
+  return { proven: true, addedCommits: added.length };
+}
+
+function isRemoteName(value) {
+  return /^[A-Za-z0-9._-]+$/u.test(value);
+}
+
+function isRemoteLocation(value) {
+  return /^(?:[a-z][a-z\d+.-]*:|\/\/|[^/\\\s@]+@[^/\\\s:]+:)/iu.test(value);
+}
+
+function resolveScratchRemote({ cwd, remote }) {
+  let location = remote;
+  if (isRemoteName(remote)) {
+    try {
+      location = runGit(['-C', cwd, 'remote', 'get-url', remote], {
+        cwd,
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+    } catch {
+      location = remote;
+    }
+  }
+  if (isAbsolute(location) || isRemoteLocation(location)) return location;
+  return resolve(cwd, location);
+}
+
+function checkoutHttpExtraHeaders(cwd) {
+  try {
+    const output = runGit(['-C', cwd, 'config', '--get-regexp', '^http\\..*\\.extraheader$'], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return output.split('\n').map((line) => {
+      const match = /^(\S+)\s(.*)$/u.exec(line);
+      return match ? { key: match[1], value: match[2] } : null;
+    }).filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+function remoteDescentFailure(error) {
+  const detail = safeGitErrorDetail(error);
+  return {
+    proven: false,
+    why: isRemoteObjectUnavailable(detail) ? 'base-not-in-remote-branch' : 'remote-descent-unverified',
+  };
+}
+
+/**
+ * Proves that the remote branch still descends from the checkout's old base.
+ *
+ * `blocked` is equivalent to marker ∈ ancestors(head) and marker ∉
+ * ancestors(B_new), where B_new is the current remote branch tip. Let B_old
+ * be the local base and A = `rev-list head --not B_old`. If A is closed (no
+ * commit in A is on the shallow boundary) and the marker is not in A, then
+ * marker ∈ ancestors(head) implies marker ∈ ancestors(B_old), exactly as the
+ * existing bounded proof establishes. If B_old is also an ancestor of B_new,
+ * ancestors(B_old) ⊆ ancestors(B_new), so the marker cannot be outside the
+ * new base and the verdict cannot be `blocked`.
+ * A checkout left on the old history has a B_old that is not an ancestor of a
+ * rewritten B_new, so this proof stays undecided and the existing path blocks
+ * it when the marker is confirmed in the old history.
+ *
+ * The old base is checked against the remote tip in a disposable shallow bare
+ * repository. Shallow boundaries remove parent edges but never add them, so a
+ * path from the remote tip to B_old in that repository proves the real
+ * ancestry. If the date cut hides B_old, this proof simply remains undecided.
+ */
+function proveRemoteBranchDescendsFromBase({ cwd, remote, branch, baseRef }) {
+  const base = resolveCommit(baseRef, cwd);
+  if (!base) return { proven: false, why: 'base-unresolved' };
+
+  let scratch = '';
+  try {
+    const committedAt = Number.parseInt(runGit(['show', '-s', '--format=%ct', base], {
+      cwd,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    }), 10);
+    if (!Number.isFinite(committedAt)) return { proven: false, why: 'remote-descent-unverified' };
+    const since = committedAt - REMOTE_DESCENT_SINCE_SKEW_SECONDS;
+    const remoteUrl = resolveScratchRemote({ cwd, remote });
+    // The URL and the checkout's credentials reach the scratch repository
+    // through the environment only: nothing of them is written to disk.
+    const env = detachedRepositoryEnvironment(process.env, [
+      { key: 'remote.guard.url', value: remoteUrl },
+      ...checkoutHttpExtraHeaders(cwd),
+    ]);
+    // The two reads below answer from what the fetch brought, and nothing else.
+    const readEnv = { ...env, GIT_NO_LAZY_FETCH: '1' };
+
+    scratch = mkdtempSync(join(tmpdir(), 'old-history-guard-'));
+    runGit(['init', '--quiet', '--bare', scratch], {
+      cwd: scratch,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env,
+    });
+    runGit([
+      '--git-dir',
+      scratch,
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      '--no-write-fetch-head',
+      '--filter=tree:0',
+      `--shallow-since=${since}`,
+      'guard',
+      `+refs/heads/${branch}:refs/heads/remote`,
+    ], {
+      cwd: scratch,
+      timeout: REMOTE_DESCENT_FETCH_TIMEOUT_MS,
+      stdio: ['ignore', 'pipe', 'pipe'],
+      env,
+    });
+    if (!commitExists(base, scratch, readEnv)) return { proven: false, why: 'base-not-in-remote-branch' };
+    return isAncestor(base, 'refs/heads/remote', scratch, readEnv)
+      ? { proven: true }
+      : { proven: false, why: 'base-not-in-remote-branch' };
+  } catch (error) {
+    return remoteDescentFailure(error);
+  } finally {
+    if (scratch) {
+      try {
+        // A fetch stopped by its timeout can leave a helper writing for a moment.
+        rmSync(scratch, { recursive: true, force: true, maxRetries: 3, retryDelay: 100 });
+      } catch {
+        // The scratch repository is best-effort cleanup and never changes the verdict.
+      }
+    }
+  }
+}
+
+// The fallback bounded proof is about the remote branch as it is now, so its
+// base is refreshed first. No `--filter` here, on purpose: this is the fetch a
+// data writer runs next anyway, and an ordinary fetch leaves the checkout the
+// kind of clone `actions/checkout` made, not a treeless one. It also registers
+// no promisor remote: a filtered fetch names that remote after its URL, and the
+// callers that publish data pass a URL that carries their token (issue 12320).
+function refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }) {
+  withHistoryGuardLock(cwd, () => {
+    runGit([
+      'fetch',
+      '--quiet',
+      '--no-tags',
+      '--no-write-fetch-head',
+      remote,
+      `+refs/heads/${branch}:${baseRef}`,
+    ], { cwd, timeout: BOUNDED_PROOF_FETCH_TIMEOUT_MS });
+  });
+}
+
+/**
+ * A shallow checkout whose head adds only known commits to the refreshed base
+ * is decided here, in one ordinary fetch. Anything this cannot prove, including
+ * a fetch that fails or times out, is left to the complete check below.
+ */
+function decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace }) {
+  let remoteDescent;
+  try {
+    remoteDescent = timed(trace, 'remote-descends-from-base', () => proveRemoteBranchDescendsFromBase({
+      cwd,
+      remote,
+      branch,
+      baseRef,
+    }));
+  } catch {
+    remoteDescent = { proven: false, why: 'remote-descent-unverified' };
+  }
+  const remoteDescentTrace = trace?.at(-1);
+  if (remoteDescentTrace?.step === 'remote-descends-from-base') {
+    remoteDescentTrace.proven = remoteDescent.proven;
+    if (!remoteDescent.proven) remoteDescentTrace.why = remoteDescent.why;
+  }
+  if (remoteDescent.proven) {
+    const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
+    trace?.push({ step: 'bounded-proof', ...proof });
+    if (proof.proven) return true;
+  }
+  try {
+    timed(trace, 'refresh-base', () => refreshBaseForBoundedProof({ cwd, remote, branch, baseRef }));
+  } catch {
+    trace?.push({ step: 'bounded-proof', proven: false, why: 'base-refresh-failed' });
+    return false;
+  }
+  const proof = proveHeadAddsNoOldHistory({ cwd, markerRef, headRef, baseRef });
+  trace?.push({ step: 'bounded-proof', ...proof });
+  return proof.proven;
+}
+
 export function checkOldHistory({
   cwd = process.cwd(),
   markerRef = OLD_HISTORY_FIRST_CHANGED_COMMIT,
@@ -226,10 +569,19 @@ export function checkOldHistory({
   refreshBase = false,
   remote = 'origin',
   branch = 'main',
+  trace,
 } = {}) {
   let result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
+  // Both of these answers are a shallow negative: the marker is not in the
+  // checkout, or it is and no local path leads to it. Before paying for the
+  // marker and for the whole commit graph, try the proof that needs neither.
+  const shallowNegative = result.reason === 'marker-unavailable' || result.reason === 'marker-not-in-head';
+  if (refreshBase && shallowNegative && isShallowRepository(cwd)
+    && decideShallowWithoutHistoryGraph({ cwd, markerRef, headRef, baseRef, remote, branch, trace })) {
+    return { outcome: 'pass', reason: 'head-adds-no-old-history' };
+  }
   if (result.reason === 'marker-unavailable' && refreshBase) {
-    const markerFetched = withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef }));
+    const markerFetched = timed(trace, 'fetch-marker', () => withHistoryGuardLock(cwd, () => fetchCommitObject({ cwd, remote, commitRef: markerRef })));
     if (!markerFetched) return result;
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
@@ -241,7 +593,7 @@ export function checkOldHistory({
   const historyMayNeedCompletion = result.reason !== 'marker-unavailable'
     && result.reason !== 'marker-in-base';
   if (refreshBase && historyMayNeedCompletion && commitExists(markerRef, cwd) && isShallowRepository(cwd)) {
-    withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch }));
+    timed(trace, 'complete-shallow-history', () => withHistoryGuardLock(cwd, () => completeShallowHistory({ cwd, remote, headRef, branch })));
     result = inspectOldHistory({ cwd, markerRef, headRef, baseRef });
   }
   const baseNeedsRefresh = result.reason === 'marker-in-base'
@@ -272,10 +624,39 @@ export function isOldHistoryBlockedError(value) {
   return text.includes(OLD_HISTORY_BLOCK_MESSAGE);
 }
 
-function printResult(result) {
+const TRACE_STEP_LABELS = {
+  'remote-descends-from-base': 'discendenza del ramo remoto dal base',
+  'refresh-base': 'aggiornamento del base',
+  'fetch-marker': 'recupero del marker',
+  'complete-shallow-history': 'completamento del grafo della storia',
+};
+
+// What the check cost and which proof decided it, on the same line as the
+// verdict: a job that starts paying for the whole commit graph again shows it
+// in its own log.
+export function describeTrace(trace = []) {
+  const parts = trace.map((entry) => {
+    if (entry.step === 'remote-descends-from-base') {
+      const seconds = `${(entry.ms / 1000).toFixed(1)} s`;
+      if (entry.proven) return `${TRACE_STEP_LABELS[entry.step]}: ${seconds}`;
+      return `${TRACE_STEP_LABELS[entry.step]}: non conclusiva: ${entry.why || 'remote-descent-unverified'} dopo ${seconds}`;
+    }
+    if (entry.step === 'bounded-proof') {
+      return entry.proven
+        ? `prova limitata riuscita, ${entry.addedCommits} commit sopra il base`
+        : `prova limitata non conclusiva: ${entry.why}`;
+    }
+    const seconds = `${(entry.ms / 1000).toFixed(1)} s`;
+    return `${TRACE_STEP_LABELS[entry.step] || entry.step}: ${entry.failed ? `non riuscito dopo ${seconds}` : seconds}`;
+  });
+  return parts.length ? ` [${parts.join('; ')}]` : '';
+}
+
+function printResult(result, trace) {
   if (result.outcome === 'blocked') {
     console.error(`::error::${OLD_HISTORY_BLOCK_MESSAGE}`);
     console.error(OLD_HISTORY_REMEDIATION);
+    if (trace?.length) console.error(`old-history-guard:${describeTrace(trace)}`);
     return 1;
   }
 
@@ -283,8 +664,9 @@ function printResult(result) {
     'marker-unavailable': 'il marker non è disponibile nel checkout remoto; controllo superato.',
     'marker-not-in-head': 'il marker non è antenato dell’head; controllo superato.',
     'marker-in-base': 'il marker è ancora antenato del base; controllo inerte prima della riscrittura.',
+    'head-adds-no-old-history': 'l’head aggiunge al base solo commit già noti, e il marker non è fra questi; controllo superato senza scaricare il grafo.',
   };
-  console.log(`old-history-guard: ${messages[result.reason] || 'controllo superato.'}`);
+  console.log(`old-history-guard: ${messages[result.reason] || 'controllo superato.'}${describeTrace(trace)}`);
   return 0;
 }
 
@@ -315,11 +697,12 @@ function parseArgs(argv) {
 }
 
 export async function main(argv = process.argv.slice(2)) {
+  const trace = [];
   try {
-    const result = checkOldHistory(parseArgs(argv));
-    process.exitCode = printResult(result);
+    const result = checkOldHistory({ ...parseArgs(argv), trace });
+    process.exitCode = printResult(result, trace);
   } catch (error) {
-    console.error(`::error::Controllo storia precedente non verificabile: ${error.message}`);
+    console.error(`::error::Controllo storia precedente non verificabile: ${error.message}${describeTrace(trace)}`);
     process.exitCode = 1;
   }
 }

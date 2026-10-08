@@ -400,6 +400,46 @@ function matchSection(pathname) {
   return null;
 }
 
+// GitHub rejects a single tree object above 50 MiB. The Ticino section's
+// localized job root eventually acquired hundreds of thousands of direct
+// entries, so its Pages shard stores those entries below stable two-character
+// buckets. This is a storage detail only: the public URL remains unchanged.
+const SECTION_TREE_FANOUT_DIR = '_tree';
+
+function sectionShardPhysicalPath(pathname, route) {
+  if (!route || route.section !== 'ticino') return pathname;
+  const prefix = route.prefix;
+  if (pathname === prefix || pathname === `${prefix}.html` || !pathname.startsWith(`${prefix}/`)) {
+    return pathname;
+  }
+
+  const rest = pathname.slice(`${prefix}/`.length);
+  if (!rest) return pathname;
+  const separator = rest.indexOf('/');
+  const entry = separator === -1 ? rest : rest.slice(0, separator);
+  if (!entry || entry === 'index.html') return pathname;
+  const suffix = separator === -1 ? '' : rest.slice(separator);
+  const bucket = (entry.slice(0, 2).toLowerCase() || '__');
+  return `${prefix}/${SECTION_TREE_FANOUT_DIR}/${bucket}/${entry}${suffix}`;
+}
+
+function sectionShardPublicPath(pathname, route) {
+  if (!route || route.section !== 'ticino') return pathname;
+  const physicalPrefix = `${route.prefix}/${SECTION_TREE_FANOUT_DIR}/`;
+  if (!pathname.startsWith(physicalPrefix)) return pathname;
+
+  const rest = pathname.slice(physicalPrefix.length);
+  const bucketSeparator = rest.indexOf('/');
+  if (bucketSeparator === -1) return pathname;
+  const entryAndSuffix = rest.slice(bucketSeparator + 1);
+  if (!entryAndSuffix) return pathname;
+  const entrySeparator = entryAndSuffix.indexOf('/');
+  const entry = entrySeparator === -1 ? entryAndSuffix : entryAndSuffix.slice(0, entrySeparator);
+  if (!entry) return pathname;
+  const suffix = entrySeparator === -1 ? '' : entryAndSuffix.slice(entrySeparator);
+  return `${route.prefix}/${entry}${suffix}`;
+}
+
 // First path segment must be exactly en|de|fr, followed by end, slash, or the
 // .html locale-homepage file. Anything like /rss-en.xml or /enterprise stays
 // on the main origin. (The Cloudflare route patterns already scope the Worker
@@ -2317,22 +2357,37 @@ async function serveStaleOnError(url, reason) {
 // Serve a request from a GitHub Pages shard origin (locale shard or a section
 // shard). Rewrites only the upstream Host to `origin` (the gray-cloud custom
 // domain reachable solely from this Worker); the public URL the user sees never
-// changes. Applies the full shard pipeline: tiered edge cache + one retry,
+// changes. A Ticino section route may have a physical _tree fan-out; that
+// rewrite is reversed on origin redirects and a 404 retries the legacy
+// canonical path for race-safe rollout. Applies the full shard pipeline:
+// tiered edge cache + one retry,
 // stale-if-error from the apex-keyed Cache API, origin→apex Location rewrite,
 // Cache-Control stamping, apex-keyed fail-open warmup on 200s, and the job-orphan
 // 301 recoveries on 404s. `recoveryLocale` (it|en|de|fr) selects which
 // within-locale recovery map/board to use — for an IT section subtree it is
 // 'it', so only the canton-drift map recovery (which has IT entries) can fire and
 // the en/de/fr-only company/cluster/board recoveries safely no-op.
-async function serveShard(request, url, origin, recoveryLocale, ctx) {
+async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRoute = null) {
+  const storagePath = sectionShardPhysicalPath(url.pathname, sectionRoute);
   const upstream = new URL(request.url);
   upstream.hostname = origin; // rewrite Host only; path + query preserved
+  upstream.pathname = storagePath;
 
   let resp;
   try {
     resp = await fetchOriginWithRetry(upstream, request, {
       ...SHARD_ORIGIN_FETCH_CF,
     });
+    // During rollout the Worker and the shard can briefly be on different
+    // versions. A physical miss therefore retries the old canonical path
+    // before entering the normal 404/recovery pipeline.
+    if (storagePath !== url.pathname && resp.status === 404) {
+      const legacyUpstream = new URL(request.url);
+      legacyUpstream.hostname = origin;
+      resp = await fetchOriginWithRetry(legacyUpstream, request, {
+        ...SHARD_ORIGIN_FETCH_CF,
+      });
+    }
   } catch {
     // Every attempt timed out / threw — no origin response. Prefer a last-good
     // stale copy (stale-if-error) over an error page.
@@ -2366,6 +2421,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx) {
       locUrl = null; // non-URL Location header → leave untouched
     }
     if (locUrl && locUrl.hostname === origin) {
+      locUrl.pathname = sectionShardPublicPath(locUrl.pathname, sectionRoute);
       locUrl.hostname = url.hostname; // public apex
       const headers = new Headers(resp.headers);
       headers.set('location', locUrl.toString());
@@ -2585,7 +2641,7 @@ const router = {
     // stay a pure apex passthrough (the !match branch below).
     const sec = matchSection(url.pathname);
     if (sec) {
-      return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx);
+      return serveShard(request, url, SECTION_ORIGIN[sec.section][sec.locale], sec.locale, ctx, sec);
     }
 
     const match = url.pathname.match(LOCALE_RE);

@@ -712,7 +712,7 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 
-  it('una richiesta di gruppo fallita e\' un errore per ogni suo testo e un fallimento solo', async () => {
+  it('una richiesta di gruppo fallita conta un solo fallimento, non uno per testo', async () => {
     vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
     try {
       const before = codexCounters();
@@ -726,6 +726,8 @@ describe('freeTranslate — tier Codex Luna Max', () => {
       expect(calls).toHaveLength(2);
       expect(value).toEqual([translationOf(texts[0]), `MYMEMORY ${EN}`, `MYMEMORY ${EN}`, `MYMEMORY ${EN}`]);
       expect(codexCounters().errors - before.errors).toBe(3);
+      // Un gruppo da tre testi andato in errore e' UNA richiesta fallita: il
+      // tier resta acceso.
       expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
     } finally {
       vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
@@ -735,7 +737,17 @@ describe('freeTranslate — tier Codex Luna Max', () => {
   it('tre fallimenti consecutivi fermano il tier, contati come errori del tier', async () => {
     const before = codexCounters();
     const calls = stubCodex(() => { throw new Error('broker non raggiungibile'); });
-    const { value, lines } = await captureLog(async () => [await tr(), await tr(), await tr(), await tr()]);
+    const texts = [
+      `${IT} Errore distinto uno.`,
+      `${IT} Errore distinto due.`,
+      `${IT} Errore distinto tre.`,
+      `${IT} Errore distinto quattro.`,
+    ];
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of texts) results.push(await tr(text));
+      return results;
+    });
     expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
     expect(calls).toHaveLength(3);
     expect(codexCounters().errors - before.errors).toBe(3);
@@ -744,21 +756,120 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     // Il messaggio dell'errore non finisce nel log.
     expect(lines.every((l) => !l.includes('broker non raggiungibile'))).toBe(true);
   });
-  it('tre echi di fila fermano il tier come tre fallimenti, e restano contati come passthrough', async () => {
+  it('tre echi-source distinti fermano il tier come tre fallimenti', async () => {
     const before = codexCounters();
-    const calls = stubCodex(IT);
-    const { value, lines } = await captureLog(async () => [await tr(), await tr(), await tr(), await tr()]);
+    const texts = [
+      `${IT} Titolo distinto uno.`,
+      `${IT} Titolo distinto due.`,
+      `${IT} Titolo distinto tre.`,
+      `${IT} Titolo distinto quattro.`,
+    ];
+    const calls = stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      return /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+    });
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of texts) results.push(await tr(text));
+      return results;
+    });
     expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
     expect(calls).toHaveLength(3);
     expect(codexCounters().passthroughs - before.passthroughs).toBe(3);
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
   });
 
-  it('tre rifiuti di fila fermano il tier come tre fallimenti (review della PR corpus 2166)', async () => {
+  it('tre echi-source dello stesso testo non fermano Codex e il testo diverso parte ancora', async () => {
+    const repeated = `${EN} Repeated title.`;
+    const different = `${EN} New and distinct title.`;
+    const requests = [
+      { text: repeated, sourceLang: 'de' },
+      { text: repeated, sourceLang: 'fr' },
+      { text: repeated, sourceLang: 'de' },
+      { text: different, sourceLang: 'fr' },
+    ];
+    const calls = stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      const source = /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+      return source === repeated ? source : `CODEX ${EN}`;
+    });
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const request of requests) {
+        results.push(await ft.freeTranslate({ ...request, targetLang: 'it', fieldType: 'title' }));
+      }
+      return results;
+    });
+
+    expect(value.slice(0, 3)).toEqual(Array(3).fill(`MYMEMORY ${EN}`));
+    expect(value[3]).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(4);
+    expect(lines.filter((l) => l.includes('reason=echo-source'))).toHaveLength(3);
+    expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(0);
+  });
+
+  it('tre echi distinti di titoli gia\' nella lingua di arrivo non fermano Codex (run 37788188781)', async () => {
+    // Titoli reali: sorgente etichettata `it`, testo gia' inglese. Il rilevatore
+    // non li attribuisce a nessuna lingua con confidenza, quindi l'eco non
+    // prova un guasto del modello.
+    const echoed = [
+      'Automation & MFT Specialist',
+      'Senior .NET Developer',
+      'Sales Project Engineer (a) Ticino',
+      'IT Business Intelligence Specialist',
+    ];
+    const translatable = `${IT} Titolo che va tradotto.`;
+    const calls = stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      const source = /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+      return echoed.includes(source) ? source : `CODEX ${EN}`;
+    });
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of [...echoed, translatable]) {
+        results.push(await ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'en', fieldType: 'title' }));
+      }
+      return results;
+    });
+
+    expect(value[4]).toBe(`CODEX ${EN}`);
+    expect(calls).toHaveLength(5);
+    expect(lines.filter((l) => l.includes('reason=echo-source'))).toHaveLength(4);
+    expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
+  });
+
+  it('un eco non provato non azzera la serie: due echi provati, uno non provato e un terzo provato fermano il tier', async () => {
+    const proven = [
+      `${IT} Titolo distinto uno.`,
+      `${IT} Titolo distinto due.`,
+      `${IT} Titolo distinto tre.`,
+    ];
+    const order = [proven[0], proven[1], 'Senior .NET Developer', proven[2]];
+    stubCodex((messages) => {
+      const user = messages.find((m) => m.role === 'user')!.content;
+      return /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
+    });
+    const { lines } = await captureLog(async () => {
+      for (const text of order) await ft.freeTranslate({ text, sourceLang: 'it', targetLang: 'en', fieldType: 'title' });
+    });
+    expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);
+  });
+
+  it('tre rifiuti su testi distinti fermano il tier come tre fallimenti (review della PR corpus 2166)', async () => {
     // Un rifiuto non e' un eco della sorgente: prima di questa guardia la lane
     // lo contava come traduzione riuscita, azzerava lo streak e non si fermava.
     const calls = stubCodex("Sorry, I can't help with that.");
-    const { value, lines } = await captureLog(async () => [await tr(), await tr(), await tr(), await tr()]);
+    const texts = [
+      `${IT} Rifiuto distinto uno.`,
+      `${IT} Rifiuto distinto due.`,
+      `${IT} Rifiuto distinto tre.`,
+      `${IT} Rifiuto distinto quattro.`,
+    ];
+    const { value, lines } = await captureLog(async () => {
+      const results: string[] = [];
+      for (const text of texts) results.push(await tr(text));
+      return results;
+    });
     expect(value).toEqual(Array(4).fill(`MYMEMORY ${EN}`));
     expect(calls).toHaveLength(3);
     expect(lines.filter((l) => l.includes('3 fallimenti consecutivi'))).toHaveLength(1);

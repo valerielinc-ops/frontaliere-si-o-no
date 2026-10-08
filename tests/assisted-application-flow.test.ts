@@ -263,7 +263,7 @@ describe('approval flow', () => {
   });
 
   // Rolex 2026-10-02: school reports and the EVA test results go with the application.
-  it('holds the send until each required document is uploaded or the candidate chooses to send without it', () => {
+  it('holds the send until each required document is uploaded: nothing else lifts the hold', () => {
     const draft = { ...cleanDraft, requiredDocuments: [
       { id: 'reports', label: 'Bulletins scolaires', kind: 'school_report', required: true },
       { id: 'eva', label: 'Test EVA', kind: 'aptitude_test', required: true },
@@ -278,8 +278,14 @@ describe('approval flow', () => {
     const nudged = transition(step.flow, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
     expect(nudged.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
 
-    // Reports uploaded, the EVA waived (their call, after the warning): the 12 h clock starts.
-    const documents = { reports: { files: [{ key: 'k', detectedType: 'pdf' }] }, eva: { files: [], waivedAt: T0 + 5 } };
+    // Reports uploaded, the EVA not: still held. A waiver an older flow recorded lifts nothing (owner decision
+    // 2026-10-08: what the posting demands is uploaded, or the application waits).
+    const partly = { reports: { files: [{ key: 'k', detectedType: 'pdf' }] }, eva: { files: [], waivedAt: T0 + 5 } };
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, documents: partly, nowMs: T0 + 8 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['document:eva'], heldSince: T0, deadlineAt: null });
+    expect(transition(step.flow, { type: 'candidate_approve' }, { draft, documents: partly, nowMs: T0 + 9 }).ignored).toBe('questions_open');
+    // The EVA uploaded too: the 12 h clock starts.
+    const documents = { reports: { files: [{ key: 'k', detectedType: 'pdf' }] }, eva: { files: [{ key: 'e', detectedType: 'pdf' }] } };
     step = transition(step.flow, { type: 'candidate_answers' }, { draft, documents, nowMs: T0 + 10 });
     expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: [], heldSince: null, deadlineAt: T0 + 10 + CANDIDATE_REVIEW_MS });
     expect(transition(step.flow, { type: 'candidate_approve' }, { draft, documents, nowMs: T0 + 20 }).effects)

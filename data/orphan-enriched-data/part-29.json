@@ -2613,6 +2613,11 @@
           "impressions": 1
         },
         {
+          "query": "apprendistato svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "short list avvocati",
           "clicks": 0,
           "impressions": 1
@@ -2633,7 +2638,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 13,
+      "totalImpressions": 14,
       "totalClicks": 1,
       "topQuery": "apprendistato in svizzera",
       "title": "Apprendistato",
@@ -3961,6 +3966,63 @@
         "en": "/en/find-jobs-ticino/apprenticeship-as-ict-specialist-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
         "de": "/de/jobs-im-tessin/apprenticeship-as-ict-specialist-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
         "fr": "/fr/trouver-emploi-tessin/apprenticeship-as-ict-specialist-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "apprenticeship-fage-efz-2027-senevita-lenk",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/apprenticeship-fage-efz-2027-senevita-lenk/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/apprenticeship-fage-efz-2027-senevita-lenk/"
+      },
+      "queries": [
+        {
+          "query": "jobs lenk",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "jobs lenk",
+      "title": "Apprenticeship fage efz 2027 senevita lenk",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "apprenticeship-fage-efz-2027-senevita-lenk",
+        "en": "apprenticeship-fage-efz-2027-senevita-lenk",
+        "de": "apprenticeship-fage-efz-2027-senevita-lenk",
+        "fr": "apprenticeship-fage-efz-2027-senevita-lenk"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/apprenticeship-fage-efz-2027-senevita-lenk",
+        "en": "/en/find-jobs-bern/apprenticeship-fage-efz-2027-senevita-lenk",
+        "de": "/de/jobs-im-bern/apprenticeship-fage-efz-2027-senevita-lenk",
+        "fr": "/fr/trouver-emploi-berne/apprenticeship-fage-efz-2027-senevita-lenk"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -5580,10 +5642,10 @@
         "fr": "assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
-        "en": "/en/find-jobs-ticino/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
-        "de": "/de/jobs-im-tessin/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
-        "fr": "/fr/trouver-emploi-tessin/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451"
+        "it": "/cerca-lavoro-turgovia/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
+        "en": "/en/find-jobs-thurgau/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
+        "de": "/de/jobs-im-thurgau/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451",
+        "fr": "/fr/trouver-emploi-thurgovie/assistant-commercial-alimentaire-coop-genossenschaft-andermatt-096451"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -7889,10 +7951,10 @@
         "fr": "assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon",
-        "en": "/en/find-jobs-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon",
+        "it": "/cerca-lavoro-turgovia/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon",
+        "en": "/en/find-jobs-thurgau/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon",
         "de": "/de/jobs-im-luzern/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon",
-        "fr": "/fr/trouver-emploi-berne/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon"
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-alle-vendite-alimentari-coop-genossenschaft-dallikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -7940,10 +8002,10 @@
         "fr": "assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg",
-        "en": "/en/find-jobs-aargau/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg",
+        "it": "/cerca-lavoro-turgovia/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg",
+        "en": "/en/find-jobs-thurgau/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg",
         "de": "/de/jobs-im-zurich/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg",
-        "fr": "/fr/trouver-emploi-argovie/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg"
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-alle-vendite-alimentari-coop-genossenschaft-kandersteg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -10486,10 +10548,10 @@
         "fr": "automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
-        "en": "/en/find-jobs-bern/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
-        "de": "/de/jobs-in-bern/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
-        "fr": "/fr/trouver-emploi-berne/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf"
+        "it": "/cerca-lavoro-argovia/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
+        "en": "/en/find-jobs-aargau/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
+        "de": "/de/jobs-im-aargau/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf",
+        "fr": "/fr/trouver-emploi-argovie/automotive-specialist-automotive-mechatronics-technician-emil-frey-dubendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -11594,10 +11656,10 @@
         "fr": "boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
-        "en": "/en/find-jobs-ticino/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
-        "de": "/de/jobs-im-tessin/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
-        "fr": "/fr/trouver-emploi-tessin/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil"
+        "it": "/cerca-lavoro-basilea/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
+        "en": "/en/find-jobs-basel/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
+        "de": "/de/jobs-in-basel/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil",
+        "fr": "/fr/trouver-emploi-bale/boucher-ere-specialiste-en-viande-coop-genossenschaft-allschwil"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -11649,10 +11711,10 @@
         "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
-        "en": "/en/find-jobs-ticino/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
-        "de": "/de/jobs-im-tessin/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
-        "fr": "/fr/trouver-emploi-tessin/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06"
+        "it": "/cerca-lavoro-basilea/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
+        "en": "/en/find-jobs-basel/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
+        "de": "/de/jobs-in-basel/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06",
+        "fr": "/fr/trouver-emploi-bale/boucher-specialiste-de-la-viande-coop-genossenschaft-allschwil-721b06"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12178,6 +12240,47 @@
       ]
     },
     {
+      "slug": "building-technician-m-f-100-yellowshark-ag-luzern",
+      "locale": "en",
+      "path": "/en/find-jobs-lucerne/building-technician-m-f-100-yellowshark-ag-luzern",
+      "observedPaths": {
+        "en": "/en/find-jobs-lucerne/building-technician-m-f-100-yellowshark-ag-luzern"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Building technician yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "building-technology-planner-for-heating-80-100-implenia-bern",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/building-technology-planner-for-heating-80-100-implenia-bern",
@@ -12485,10 +12588,10 @@
         "fr": "butcher-meat-specialist-coop-genossenschaft-allschwil-6670de"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
-        "en": "/en/find-jobs-ticino/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
-        "de": "/de/jobs-im-tessin/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
-        "fr": "/fr/trouver-emploi-tessin/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de"
+        "it": "/cerca-lavoro-basilea/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
+        "en": "/en/find-jobs-basel/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
+        "de": "/de/jobs-in-basel/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de",
+        "fr": "/fr/trouver-emploi-bale/butcher-meat-specialist-coop-genossenschaft-allschwil-6670de"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -14697,10 +14800,10 @@
         "it": "chauffeuse-chauffeur-kat-ce-come-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/chauffeuse-chauffeur-kat-ce-come-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
-        "en": "/en/find-jobs-ticino/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
-        "de": "/de/jobs-im-tessin/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
-        "fr": "/fr/trouver-emploi-tessin/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon"
+        "it": "/cerca-lavoro-lucerna/chauffeuse-chauffeur-kat-ce-come-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
+        "en": "/en/find-jobs-lucerne/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
+        "de": "/de/jobs-in-luzern/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon",
+        "fr": "/fr/trouver-emploi-lucerne/chauffeuse-chauffeur-kat-ce-als-quereinsteiger-w-m-d-traveco-transporte-ag-nebikon"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18048,6 +18151,47 @@
       "source": [
         "gsc",
         "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "construction-manager-m-f-yellowshark-ag-chur",
+      "locale": "en",
+      "path": "/en/find-jobs-graubunden/construction-manager-m-f-yellowshark-ag-chur",
+      "observedPaths": {
+        "en": "/en/find-jobs-graubunden/construction-manager-m-f-yellowshark-ag-chur"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Construction manager yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "slug-parsing"
       ]
     },
@@ -22219,6 +22363,46 @@
       ]
     },
     {
+      "slug": "dessin-electrique-personnel-du-projet-80-100-h-f-yellowshark-ag-regensdorf",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/dessin-electrique-personnel-du-projet-80-100-h-f-yellowshark-ag-regensdorf",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/dessin-electrique-personnel-du-projet-80-100-h-f-yellowshark-ag-regensdorf"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Dessin electrique personnel du projet h yellowshark ag regensdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
+      ]
+    },
+    {
       "slug": "detailhandelsfachfrau-mann-assistent-in-livique-dietlikon",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/detailhandelsfachfrau-mann-assistent-in-livique-dietlikon",
@@ -23598,10 +23782,10 @@
         "fr": "dipl-pflegefachperson-hf-50-70-swiss-medical-network"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-        "en": "/en/find-jobs-basel/dipl-pflegefachperson-hf-50-70-swiss-medical-network",
+        "it": "/cerca-lavoro-san-gallo/dipl-pflegefachperson-hf-50-70-swiss-medical-network",
+        "en": "/en/find-jobs-st-gallen/dipl-pflegefachperson-hf-50-70-swiss-medical-network",
         "de": "/de/jobs-im-schaffhausen/dipl-pflegefachperson-hf-50-70-swiss-medical-network",
-        "fr": "/fr/trouver-emploi-bale/dipl-pflegefachperson-hf-50-70-swiss-medical-network"
+        "fr": "/fr/trouver-emploi-saint-gall/dipl-pflegefachperson-hf-50-70-swiss-medical-network"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -26069,6 +26253,47 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "electriciens-d-affaires-100-h-f-yellowshark-ag-zurich",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/electriciens-d-affaires-100-h-f-yellowshark-ag-zurich",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/electriciens-d-affaires-100-h-f-yellowshark-ag-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Electriciens affaires h yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
       ]
     },
     {
@@ -33946,9 +34171,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "idraulico-pemsa-locarno",
-        "en": "idraulico-pemsa-locarno",
-        "de": "idraulico-pemsa-locarno",
-        "fr": "idraulico-pemsa-locarno"
+        "en": "idraulation-pemsa-locarno",
+        "de": "idraulierung-pemsa-locarno",
+        "fr": "l-idraulation-pemsa-locarno"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/idraulico-pemsa-locarno",
@@ -33956,7 +34181,7 @@
         "de": "/de/jobs-im-tessin/idraulico-pemsa-locarno",
         "fr": "/fr/trouver-emploi-tessin/idraulico-pemsa-locarno"
       },
-      "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2677985",
+      "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2696133",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
@@ -35641,6 +35866,47 @@
       ]
     },
     {
+      "slug": "ingenieur-mecanique-ingenierie-d-usine-80-100-h-f-yellowshark-ag-baden",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-argovie/ingenieur-mecanique-ingenierie-d-usine-80-100-h-f-yellowshark-ag-baden",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-argovie/ingenieur-mecanique-ingenierie-d-usine-80-100-h-f-yellowshark-ag-baden"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Ingenieur mecanique ingenierie usine h yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Baden",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "ingenieur-one-identity-manager-avaloq-bioggio",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/ingenieur-one-identity-manager-avaloq-bioggio",
@@ -37127,6 +37393,63 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "killwangen",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/killwangen/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/killwangen/"
+      },
+      "queries": [
+        {
+          "query": "coop killwangen",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop killwangen",
+      "title": "Killwangen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "killwangen",
+        "en": "killwangen",
+        "de": "killwangen",
+        "fr": "killwangen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/killwangen",
+        "en": "/en/find-jobs-aargau/killwangen",
+        "de": "/de/jobs-im-aargau/killwangen",
+        "fr": "/fr/trouver-emploi-argovie/killwangen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -40548,10 +40871,10 @@
         "fr": "macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
-        "en": "/en/find-jobs-zurich/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
-        "de": "/de/jobs-in-zurich/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
-        "fr": "/fr/trouver-emploi-zurich/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf"
+        "it": "/cerca-lavoro-basilea/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
+        "en": "/en/find-jobs-basel/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
+        "de": "/de/jobs-in-basel/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf",
+        "fr": "/fr/trouver-emploi-bale/macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41029,10 +41352,10 @@
         "fr": "manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vallese/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
-        "en": "/en/find-jobs-valais/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
-        "de": "/de/jobs-im-wallis/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
-        "fr": "/fr/trouver-emploi-valais/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service"
+        "it": "/cerca-lavoro-ginevra/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+        "en": "/en/find-jobs-geneva/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+        "de": "/de/jobs-in-genf/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service",
+        "fr": "/fr/trouver-emploi-geneve/manor-collaborateur-trice-service-manora-100-geneve-1-collaborateurtrice-service"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -41732,6 +42055,87 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "mecanicien-d-assemblage-h-f-yellowshark-ag-langenthal",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/mecanicien-d-assemblage-h-f-yellowshark-ag-langenthal",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/mecanicien-d-assemblage-h-f-yellowshark-ag-langenthal"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Mecanicien assemblage h yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Langenthal",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "mecanicien-des-machines-agricoles-mecanicien-des-machines-de-construction-h-f-100-yellowshark-ag-dietikon",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/mecanicien-des-machines-agricoles-mecanicien-des-machines-de-construction-h-f-100-yellowshark-ag-dietikon",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/mecanicien-des-machines-agricoles-mecanicien-des-machines-de-construction-h-f-100-yellowshark-ag-dietikon"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Mecanicien des machines agricoles mecanicien des machines de construction h yellowshark ag dietikon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -46074,6 +46478,47 @@
       ]
     },
     {
+      "slug": "operational-mechanic-maintenance-80-100-m-f-yellowshark-ag-lenzburg",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/operational-mechanic-maintenance-80-100-m-f-yellowshark-ag-lenzburg",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/operational-mechanic-maintenance-80-100-m-f-yellowshark-ag-lenzburg"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Operational mechanic maintenance yellowshark ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lenzburg",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "operational-technology-specialist-bell-schweiz-ag-basel",
       "locale": "en",
       "path": "/en/find-jobs-ticino/operational-technology-specialist-bell-schweiz-ag-basel/",
@@ -47108,10 +47553,10 @@
         "fr": "pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-friburgo/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg",
-        "en": "/en/find-jobs-fribourg/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg",
+        "it": "/cerca-lavoro-lucerna/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg",
+        "en": "/en/find-jobs-lucerne/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg",
         "de": "/de/jobs-im-freiburg/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg",
-        "fr": "/fr/trouver-emploi-fribourg/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg"
+        "fr": "/fr/trouver-emploi-lucerne/pension-consultant-for-the-general-agency-vorsorge-vermogens-freiburg-axa-svizzera-freiburg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -48119,10 +48564,10 @@
         "fr": "pionier-maurer-m-w-swiss-armed-forces-vtg-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
-        "en": "/en/find-jobs-bern/pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
+        "it": "/cerca-lavoro-nidvaldo/pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
+        "en": "/en/find-jobs-nidwalden/pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
         "de": "/de/jobs-im-bern/pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
-        "fr": "/fr/trouver-emploi-berne/pionier-maurer-m-w-swiss-armed-forces-vtg-bern"
+        "fr": "/fr/trouver-emploi-nidwald/pionier-maurer-m-w-swiss-armed-forces-vtg-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -48439,6 +48884,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "polymechanics-vocational-trainers-80-100-m-f-yellowshark-ag-birr",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/polymechanics-vocational-trainers-80-100-m-f-yellowshark-ag-birr",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/polymechanics-vocational-trainers-80-100-m-f-yellowshark-ag-birr"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Polymechanics vocational trainers yellowshark ag birr",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -50051,6 +50536,47 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "production-technician-polymechanic-m-f-yellowshark-ag-magenwil",
+      "locale": "en",
+      "path": "/en/find-jobs-aargau/production-technician-polymechanic-m-f-yellowshark-ag-magenwil",
+      "observedPaths": {
+        "en": "/en/find-jobs-aargau/production-technician-polymechanic-m-f-yellowshark-ag-magenwil"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Production technician polymechanic yellowshark ag magen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
       ]
     },
     {
@@ -59335,6 +59861,68 @@
       ]
     },
     {
+      "slug": "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen/"
+      },
+      "queries": [
+        {
+          "query": "offene stellen zofingen",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "hilfsarbeiter jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 0,
+      "topQuery": "offene stellen zofingen",
+      "title": "Schreiner in hilfsarbeiter in fur turen und fenster montage fachkraft ch gmbh zofingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "en": "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "de": "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "fr": "schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "en": "/en/find-jobs-aargau/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "de": "/de/jobs-im-aargau/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen",
+        "fr": "/fr/trouver-emploi-argovie/schreiner-in-hilfsarbeiter-in-fur-turen-und-fenster-montage-fachkraft-ch-gmbh-zofingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "schulassistenz-erganzende-betreuung-stadt-zuerich-zurigo-50806",
       "locale": "fr",
       "path": "/fr/trouver-emploi-zurich/schulassistenz-erganzende-betreuung-stadt-zuerich-zurigo-50806/",
@@ -60530,10 +61118,10 @@
         "fr": "seller-in-the-hourly-wage-denner-uetendorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-the-hourly-wage-denner-uetendorf",
-        "en": "/en/find-jobs-zurich/seller-in-the-hourly-wage-denner-uetendorf",
-        "de": "/de/jobs-in-zurich/seller-in-the-hourly-wage-denner-uetendorf",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-the-hourly-wage-denner-uetendorf"
+        "it": "/cerca-lavoro-argovia/seller-in-the-hourly-wage-denner-uetendorf",
+        "en": "/en/find-jobs-aargau/seller-in-the-hourly-wage-denner-uetendorf",
+        "de": "/de/jobs-im-aargau/seller-in-the-hourly-wage-denner-uetendorf",
+        "fr": "/fr/trouver-emploi-argovie/seller-in-the-hourly-wage-denner-uetendorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60585,10 +61173,10 @@
         "fr": "seller-in-the-hourly-wage-denner-worb"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/seller-in-the-hourly-wage-denner-worb",
-        "en": "/en/find-jobs-thurgau/seller-in-the-hourly-wage-denner-worb",
-        "de": "/de/jobs-im-thurgau/seller-in-the-hourly-wage-denner-worb",
-        "fr": "/fr/trouver-emploi-thurgovie/seller-in-the-hourly-wage-denner-worb"
+        "it": "/cerca-lavoro-argovia/seller-in-the-hourly-wage-denner-worb",
+        "en": "/en/find-jobs-aargau/seller-in-the-hourly-wage-denner-worb",
+        "de": "/de/jobs-im-aargau/seller-in-the-hourly-wage-denner-worb",
+        "fr": "/fr/trouver-emploi-argovie/seller-in-the-hourly-wage-denner-worb"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60705,10 +61293,10 @@
         "fr": "seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-nidvaldo/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
-        "en": "/en/find-jobs-nidwalden/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+        "it": "/cerca-lavoro-berna/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
+        "en": "/en/find-jobs-bern/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
         "de": "/de/jobs-im-nidwalden/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans",
-        "fr": "/fr/trouver-emploi-nidwald/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans"
+        "fr": "/fr/trouver-emploi-berne/seller-with-shift-responsibility-m-w-d-60-802-stans-lidl-svizzera-stans"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -62328,10 +62916,10 @@
         "fr": "senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
-        "en": "/en/find-jobs-ticino/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
-        "de": "/de/jobs-im-tessin/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
-        "fr": "/fr/trouver-emploi-tessin/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich"
+        "it": "/cerca-lavoro-zurigo/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
+        "en": "/en/find-jobs-zurich/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
+        "de": "/de/jobs-in-zurich/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
+        "fr": "/fr/trouver-emploi-zurich/senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65472,10 +66060,10 @@
         "fr": "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-        "en": "/en/find-jobs-bern/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
+        "it": "/cerca-lavoro-lucerna/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
+        "en": "/en/find-jobs-lucerne/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
         "de": "/de/jobs-im-bern/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-        "fr": "/fr/trouver-emploi-berne/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
+        "fr": "/fr/trouver-emploi-lucerne/specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66029,6 +66617,89 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "spx-data-analytics-tirocinante-nestle-vevey",
+      "locale": "it",
+      "path": "/cerca-lavoro-vaud/spx-data-analytics-tirocinante-nestle-vevey/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vaud/spx-data-analytics-tirocinante-nestle-vevey/"
+      },
+      "queries": [
+        {
+          "query": "nestlé svizzera lavora con noi",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "emploi nestlé vevey",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "emploi vevey 3 derniers jours",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "nestle emploi",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "nestle job",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "stage nestlé",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "topQuery": "nestlé svizzera lavora con noi",
+      "title": "Spx data analytics tirocinante nestle",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Vevey",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "spx-data-analytics-tirocinante-nestle-vevey",
+        "en": "spx-data-analytics-tirocinante-nestle-vevey",
+        "de": "spx-data-analytics-tirocinante-nestle-vevey",
+        "fr": "spx-data-analytics-tirocinante-nestle-vevey"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vaud/spx-data-analytics-tirocinante-nestle-vevey",
+        "en": "/en/find-jobs-vaud/spx-data-analytics-tirocinante-nestle-vevey",
+        "de": "/de/jobs-im-waadt/spx-data-analytics-tirocinante-nestle-vevey",
+        "fr": "/fr/trouver-emploi-vaud/spx-data-analytics-tirocinante-nestle-vevey"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -67442,10 +68113,10 @@
         "fr": "strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
-        "en": "/en/find-jobs-ticino/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
-        "de": "/de/jobs-im-tessin/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
-        "fr": "/fr/trouver-emploi-tessin/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs"
+        "it": "/cerca-lavoro-grigioni/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
+        "en": "/en/find-jobs-graubunden/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
+        "de": "/de/jobs-in-graubunden/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs",
+        "fr": "/fr/trouver-emploi-grisons/strassenwart-in-kantonale-verwaltung-graubunden-samedan-w4n4vs"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -67957,10 +68628,10 @@
         "fr": "stv-branch-manager-in-denner-emmenbrucke"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-emmenbrucke",
-        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-emmenbrucke",
-        "de": "/de/jobs-in-appenzell/stv-branch-manager-in-denner-emmenbrucke",
-        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-emmenbrucke"
+        "it": "/cerca-lavoro-zurigo/stv-branch-manager-in-denner-emmenbrucke",
+        "en": "/en/find-jobs-zurich/stv-branch-manager-in-denner-emmenbrucke",
+        "de": "/de/jobs-in-zurich/stv-branch-manager-in-denner-emmenbrucke",
+        "fr": "/fr/trouver-emploi-zurich/stv-branch-manager-in-denner-emmenbrucke"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69452,6 +70123,47 @@
       ]
     },
     {
+      "slug": "team-leader-technologie-de-controle-automatisation-100-h-f-yellowshark-ag-flawil",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-saint-gall/team-leader-technologie-de-controle-automatisation-100-h-f-yellowshark-ag-flawil",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-saint-gall/team-leader-technologie-de-controle-automatisation-100-h-f-yellowshark-ag-flawil"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Team leader technologie de controle automatisation h yellowshark ag fla",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "team-leader-terapia-occupazionale-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/team-leader-terapia-occupazionale-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -69549,6 +70261,69 @@
         "en": "/en/find-jobs-zurich/team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
         "de": "/de/jobs-im-basel/team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
         "fr": "/fr/trouver-emploi-zurich/team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich/"
+      },
+      "queries": [
+        {
+          "query": "julius bär jobs",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "julius bär stellen",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "julius bär jobs",
+      "title": "Teamleiter emerging markets investment advisory zurich",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "en": "teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "de": "teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "fr": "teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "en": "/en/find-jobs-zurich/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "de": "/de/jobs-im-zurich/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich",
+        "fr": "/fr/trouver-emploi-zurich/teamleiter-emerging-markets-investment-advisory-zurich-100-m-w-d-julius-baer-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -69894,6 +70669,46 @@
       ]
     },
     {
+      "slug": "technician-maintenance-of-automated-machinery-100-m-f-yellowshark-ag-bubendorf",
+      "locale": "en",
+      "path": "/en/find-jobs-basel/technician-maintenance-of-automated-machinery-100-m-f-yellowshark-ag-bubendorf",
+      "observedPaths": {
+        "en": "/en/find-jobs-basel/technician-maintenance-of-automated-machinery-100-m-f-yellowshark-ag-bubendorf"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Technician maintenance of automated machinery yellowshark ag bubendorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
+      ]
+    },
+    {
       "slug": "technicien-data-center-suisse-leuk-stadt-presentiel-reboot-monkey-leuk-stadt",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/technicien-data-center-suisse-leuk-stadt-presentiel-reboot-monkey-leuk-stadt/",
@@ -70052,6 +70867,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "technicien-de-service-genie-mecanique-international-100-h-f-yellowshark-ag-haldenstein",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-grisons/technicien-de-service-genie-mecanique-international-100-h-f-yellowshark-ag-haldenstein",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-grisons/technicien-de-service-genie-mecanique-international-100-h-f-yellowshark-ag-haldenstein"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Technicien de service genie mecanique international h yellowshark ag haldenstein",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -70320,6 +71175,47 @@
       "source": [
         "gsc",
         "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "techniciens-de-service-dans-le-monde-entier-h-f-100-yellowshark-ag-wetzikon-zh",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/techniciens-de-service-dans-le-monde-entier-h-f-100-yellowshark-ag-wetzikon-zh",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/techniciens-de-service-dans-le-monde-entier-h-f-100-yellowshark-ag-wetzikon-zh"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Techniciens de service dans le monde entier h yellowshark ag zh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wetzikon",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "slug-parsing"
       ]
     },
@@ -72948,9 +73844,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-de-produits-frais-coop-genossenschaft-bulach",
-        "en": "vendeur-de-produits-frais-coop-genossenschaft-bulach",
-        "de": "vendeur-de-produits-frais-coop-genossenschaft-bulach",
+        "de": "verkaufer-in-frischprodukte-coop-bulach-r5n7w3",
+        "it": "vendita-prodotti-freschi-coop-genossenschaft-bulach",
+        "en": "seller-fresh-products-coop-genossenschaft-bulach",
         "fr": "vendeur-de-produits-frais-coop-genossenschaft-bulach"
       },
       "localePaths": {
@@ -72965,6 +73861,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -74601,10 +75498,10 @@
         "fr": "vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
-        "en": "/en/find-jobs-vaud/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
-        "de": "/de/jobs-in-der-waadt/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
-        "fr": "/fr/trouver-emploi-vaud/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
+        "it": "/cerca-lavoro-friburgo/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
+        "en": "/en/find-jobs-fribourg/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
+        "de": "/de/jobs-in-freiburg/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly",
+        "fr": "/fr/trouver-emploi-fribourg/vendeur-vendeuse-m-w-d-40-lidl-svizzera-marly"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74656,10 +75553,10 @@
         "fr": "vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-vaud/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
-        "en": "/en/find-jobs-vaud/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
+        "it": "/cerca-lavoro-friburgo/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
+        "en": "/en/find-jobs-fribourg/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
         "de": "/de/jobs-im-waadt/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy",
-        "fr": "/fr/trouver-emploi-vaud/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
+        "fr": "/fr/trouver-emploi-fribourg/vendeur-vendeuse-m-w-d-60-lidl-svizzera-etoy"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74812,14 +75709,14 @@
       "slugByLocale": {
         "it": "vendita-prodotti-freschi-coop-genossenschaft-engelberg",
         "en": "seller-fresh-products-coop-genossenschaft-engelberg",
-        "de": "verkaufer-in-frischprodukte-coop-engelberg-obwalden-39wjkc",
-        "fr": "vendeur-produits-frais-coop-genossenschaft-engelberg"
+        "de": "verkaufer-in-frischprodukte-coop-engelberg-mfyszc",
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-engelberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/vendita-prodotti-freschi-coop-genossenschaft-engelberg",
-        "en": "/en/find-jobs-bern/vendita-prodotti-freschi-coop-genossenschaft-engelberg",
+        "it": "/cerca-lavoro-zurigo/vendita-prodotti-freschi-coop-genossenschaft-engelberg",
+        "en": "/en/find-jobs-zurich/vendita-prodotti-freschi-coop-genossenschaft-engelberg",
         "de": "/de/jobs-im-basel/vendita-prodotti-freschi-coop-genossenschaft-engelberg",
-        "fr": "/fr/trouver-emploi-berne/vendita-prodotti-freschi-coop-genossenschaft-engelberg"
+        "fr": "/fr/trouver-emploi-zurich/vendita-prodotti-freschi-coop-genossenschaft-engelberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -77943,10 +78840,10 @@
         "fr": "verkaufer-in-im-stundenlohn-denner-3"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/verkaufer-in-im-stundenlohn-denner-3",
-        "en": "/en/find-jobs-thurgau/verkaufer-in-im-stundenlohn-denner-3",
-        "de": "/de/jobs-im-thurgau/verkaufer-in-im-stundenlohn-denner-3",
-        "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-im-stundenlohn-denner-3"
+        "it": "/cerca-lavoro-argovia/verkaufer-in-im-stundenlohn-denner-3",
+        "en": "/en/find-jobs-aargau/verkaufer-in-im-stundenlohn-denner-3",
+        "de": "/de/jobs-im-aargau/verkaufer-in-im-stundenlohn-denner-3",
+        "fr": "/fr/trouver-emploi-argovie/verkaufer-in-im-stundenlohn-denner-3"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79596,10 +80493,10 @@
         "fr": "versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
-        "en": "/en/find-jobs-ticino/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
-        "de": "/de/jobs-im-tessin/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
-        "fr": "/fr/trouver-emploi-tessin/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0"
+        "it": "/cerca-lavoro-zurigo/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
+        "en": "/en/find-jobs-zurich/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
+        "de": "/de/jobs-in-zurich/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0",
+        "fr": "/fr/trouver-emploi-zurich/versicherungsberater-in-fur-die-generalagentur-zurich-west-axa-zurich-x9y2a0"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79759,10 +80656,10 @@
         "fr": "versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
-        "en": "/en/find-jobs-ticino/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
-        "de": "/de/jobs-im-tessin/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
-        "fr": "/fr/trouver-emploi-tessin/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell"
+        "it": "/cerca-lavoro-appenzello/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
+        "en": "/en/find-jobs-appenzell/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
+        "de": "/de/jobs-in-appenzell/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell",
+        "fr": "/fr/trouver-emploi-appenzell/versicherungsberater-in-per-la-hauptagentur-appenzell-axa-svizzera-arbeitsort-appenzell"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79814,10 +80711,10 @@
         "fr": "versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
-        "en": "/en/find-jobs-ticino/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
-        "de": "/de/jobs-im-tessin/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
-        "fr": "/fr/trouver-emploi-tessin/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu"
+        "it": "/cerca-lavoro-san-gallo/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
+        "en": "/en/find-jobs-st-gallen/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
+        "de": "/de/jobs-in-st-gallen/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu",
+        "fr": "/fr/trouver-emploi-saint-gall/versicherungsberater-in-unternehmenskunden-fur-die-generalagentur-st-gallen-axa-st-yn2rgu"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -80809,10 +81706,10 @@
         "fr": "vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
-        "en": "/en/find-jobs-ticino/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
-        "de": "/de/jobs-im-tessin/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
-        "fr": "/fr/trouver-emploi-tessin/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4"
+        "it": "/cerca-lavoro-zurigo/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
+        "en": "/en/find-jobs-zurich/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
+        "de": "/de/jobs-in-zurich/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4",
+        "fr": "/fr/trouver-emploi-zurich/vorsorgeberater-in-fur-die-generalagentur-vorsorge-vermogen-zh-nord-axa-zurich-mvnnj4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

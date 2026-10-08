@@ -34,6 +34,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { autoAnswersForPortalQuestions, candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
+import { postingAddressOf } from './liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
 import { adPackaging, dossierMode, draftCandidateType, packageAttachments } from './dossier.mjs';
 
@@ -78,8 +79,9 @@ export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType, cvKey = 
 /**
  * The documents the posting requires besides the CV and the letter, as the
  * candidate gave them on the review page (flow.documents), downloaded and named.
- * `type`: the type its bytes were verified as at upload; `key`: where it is in Storage.
- * @returns {Promise<Array<{slot:string, label:string, kind:string, files:Array<{fileName:string, buffer:Buffer, key:string, type:string}>}>>}
+ * `type`: the type its bytes were verified as at upload; `key`: where it is in Storage. `keywords`: the names the
+ * document goes by in the other languages, for the form planner (plan.mjs attachedDocumentYes).
+ * @returns {Promise<Array<{slot:string, label:string, kind:string, keywords:string[], files:Array<{fileName:string, buffer:Buffer, key:string, type:string}>}>>}
  */
 export async function downloadExtraDocuments({ bucket, draft, flow, orderId, name }) {
   const out = [];
@@ -89,7 +91,7 @@ export async function downloadExtraDocuments({ bucket, draft, flow, orderId, nam
       const [buffer] = await bucket.file(file.key).download();
       files.push({ fileName: extraDocumentFileName({ label: document.label, index, count: document.files.length, name, type: file.detectedType }), buffer: Buffer.from(buffer), key: file.key, type: file.detectedType });
     }
-    out.push({ slot: document.slot, label: document.label, kind: document.kind, files });
+    out.push({ slot: document.slot, label: document.label, kind: document.kind, keywords: document.keywords, files });
   }
   return out;
 }
@@ -185,6 +187,7 @@ export async function submitApplication(ctx) {
     draft,
     portalQuestions,
     language: draft?.language,
+    personal: initialEdited.personal,
   });
   const autoAnswers = autoAnswersForPortalQuestions({ questions: portalQuestions, candidate: initialCandidate, answers: initialEdited.answers });
   const submitFlow = Object.keys(autoAnswers).length
@@ -210,9 +213,8 @@ export async function submitApplication(ctx) {
 
   const liveness = await checkPostingLiveness({
     order,
-    // The posting's own page when the channel is the ATS behind it (Coop:
-    // SuccessFactors' sign-in says nothing about the posting being open).
-    posting: { applyUrl: draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl },
+    // The posting's own page when the channel is the ATS behind it (postingAddressOf).
+    posting: { applyUrl: postingAddressOf(draft) },
     fetchImpl: ctx.fetchImpl || fetch,
     resolve: ctx.resolve,
   });
@@ -434,7 +436,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: submitFlow.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras, language: draft.language, personal: edited.personal }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

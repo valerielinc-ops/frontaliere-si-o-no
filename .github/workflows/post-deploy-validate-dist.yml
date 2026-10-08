@@ -45,13 +45,23 @@ jobs:
   validate-dist-postbuild:
     runs-on: ubuntu-latest
     # Source, post-build, and BFS phases share this runner and one rehydrated
-    # dist tree. Five hours leaves headroom without an unbounded audit.
-    timeout-minutes: 300
+    # dist tree. On a slow runner the gates alone need ~320 min (run
+    # 37754770528: rehydrate 30, source 76, post-build >84 of ~170, BFS ~40),
+    # so 300 cut the job mid-gate: a cancelled job reads as unknown integrity
+    # and `publish` was skipped. 350 stays under the 360-min hosted-runner cap.
+    # Keep VALIDATE_DIST_TIMEOUT_MIN below in step with this number
+    # (tests/validate-dist-report-budget.test.ts).
+    timeout-minutes: 350
     outputs:
       failed_gates: ${{ steps.gate-results.outputs.failed_gates }}
     permissions:
       actions: read     # for download-artifact same-run (github-pages, sitemaps, shard tars)
     steps:
+      # First step on purpose: the report-only SEO walk at the end of the job
+      # is given whatever is left of the job timeout, measured from here.
+      - name: Record job start
+        run: echo "VALIDATE_DIST_STARTED_AT=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Checkout (build SHA via deploy_ref, else caller default)
         uses: actions/checkout@v7
         with:
@@ -637,16 +647,15 @@ jobs:
       # Report-only wiring (issue #5656 item 2): validate-page-seo-quality.mjs
       # was discovered orphaned — only reachable via `npm run validate:page-seo`,
       # invoked by zero workflows — so it never ran anywhere despite being
-      # written as deploy-blocking (`process.exit(1)` on any error). Surfacing
-      # it here first, non-blocking (`continue-on-error: true`), lets its
-      # findings accumulate real signal before the owner decides to promote it
-      # to deploy-blocking (a distinct risk decision, not this step's call).
-      - name: Validate page SEO quality (report-only)
-        if: always() && steps.assert_dist_complete.outcome == 'success' && steps.migrate_job_slugs.outcome == 'success'
-        continue-on-error: true
-        run: |
-          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
-          build_skew_guard_run npm validate:page-seo npm run validate:page-seo
+      # written as deploy-blocking (`process.exit(1)` on any error). It is
+      # surfaced non-blocking (`continue-on-error: true`) so its findings
+      # accumulate real signal before the owner decides to promote it to
+      # deploy-blocking (a distinct risk decision, not this step's call).
+      #
+      # The step itself now lives at the END of this job ("Validate page SEO
+      # quality (report-only)"). It is a serial 60–115 min walk; ahead of the
+      # gates it spent their budget, and on run 37754770528 the job timeout cut
+      # the blocking validators instead of the report.
 
       # Validation pool.
       # Runs dist/ HTML walkers plus the post-deploy live smoke in capped
@@ -1751,6 +1760,43 @@ jobs:
         run: |
           source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
           build_skew_guard_run node scripts/diff-sitemaps.mjs node scripts/diff-sitemaps.mjs
+
+      # The report-only walk gets what is left of the job timeout, minus a
+      # margin for post-steps, and nothing when less than 15 min remain. Its
+      # own step timeout ends it with `failure` (absorbed by
+      # continue-on-error); it must never reach the JOB timeout, which would
+      # turn an already-computed verdict into `cancelled` = unknown integrity.
+      - name: Budget for the report-only SEO quality walk
+        id: seo_report_budget
+        if: always()
+        env:
+          VALIDATE_DIST_TIMEOUT_MIN: '350'
+          SEO_REPORT_MARGIN_MIN: '10'
+          SEO_REPORT_MIN_USEFUL_MIN: '15'
+        run: |
+          set -uo pipefail
+          minutes=0
+          started="${VALIDATE_DIST_STARTED_AT:-}"
+          if [ -n "$started" ]; then
+            elapsed_min=$(( ($(date +%s) - started + 59) / 60 ))
+            left=$(( VALIDATE_DIST_TIMEOUT_MIN - SEO_REPORT_MARGIN_MIN - elapsed_min ))
+            echo "job elapsed ${elapsed_min} min of ${VALIDATE_DIST_TIMEOUT_MIN}; ${left} min left for the report-only walk"
+            if [ "$left" -ge "$SEO_REPORT_MIN_USEFUL_MIN" ]; then minutes="$left"; fi
+          else
+            echo "::warning::job start timestamp missing — skipping the report-only SEO quality walk"
+          fi
+          if [ "$minutes" -eq 0 ]; then
+            echo "::notice title=SEO quality report skipped::not enough of the job timeout left for the report-only walk"
+          fi
+          echo "minutes=$minutes" >> "$GITHUB_OUTPUT"
+
+      - name: Validate page SEO quality (report-only)
+        if: always() && steps.assert_dist_complete.outcome == 'success' && steps.migrate_job_slugs.outcome == 'success' && steps.seo_report_budget.outputs.minutes != '' && steps.seo_report_budget.outputs.minutes != '0'
+        continue-on-error: true
+        timeout-minutes: ${{ fromJSON(steps.seo_report_budget.outputs.minutes || '1') }}
+        run: |
+          source "$RUNNER_TEMP/deploy-ref-skew-guard.sh"
+          build_skew_guard_run npm validate:page-seo npm run validate:page-seo
 
   validate-dist-report:
     # Centralizes GitHub Issues bookkeeping for the single dist validator

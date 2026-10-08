@@ -8,7 +8,13 @@
  *   draft.requiredDocuments  what the posting asks for, as the draft read it:
  *     [{ id, label, kind, keywords, required, quote }]
  *   flow.documents           what the candidate gave on the review page:
- *     { [id]: { files: [{ key, name, size, detectedType, uploadedAt, clientCheck }], waivedAt } }
+ *     { [id]: { files: [{ key, name, size, detectedType, uploadedAt, clientCheck }] } }
+ *
+ * A required document is uploaded or the application waits (owner decision
+ * 2026-10-08): what the posting demands cannot be skipped, and an application
+ * sent without it only fails later, at the portal's upload or at the employer.
+ * The «send without it» of 2026-10-02 is gone; a `waivedAt` an older flow
+ * still holds is read by nothing.
  *
  * The files live in the order's own Storage folder (purged with it,
  * assistedApplicationRetention.js); a key outside it is never sent.
@@ -64,9 +70,8 @@ export function documentFileId(key) {
 }
 
 /**
- * The review page's view of the requested documents: what the posting asks,
- * what the candidate gave (names and browser verdicts), whether they chose to
- * send without it.
+ * The review page's view of the requested documents: what the posting asks
+ * and what the candidate gave (names and browser verdicts).
  */
 export function documentsView(draft, flow) {
   return requiredDocumentsOf(draft).map((document) => {
@@ -81,7 +86,6 @@ export function documentsView(draft, flow) {
         uploadedAt: Number(file.uploadedAt) || null,
         clientCheck: sanitizeClientCheck(file.clientCheck),
       })),
-      waived: Boolean(given.waivedAt),
     };
   });
 }
@@ -128,9 +132,9 @@ export function requiredDocumentsOf(draft) {
 }
 
 /**
- * The required documents the candidate has neither uploaded nor chosen to
- * send without (owner decision 2026-10-02: a warning, never a block, the
- * choice is theirs): they hold the send like an open question.
+ * The required documents the candidate has not uploaded: they hold the send
+ * like an open question, and nothing but a file lifts the hold (owner
+ * decision 2026-10-08, see the head of this file).
  * @returns {string[]} their ids
  */
 export function openRequiredDocuments(draft, documents = {}) {
@@ -138,7 +142,7 @@ export function openRequiredDocuments(draft, documents = {}) {
     .filter((document) => document.required)
     .filter((document) => {
       const given = documents?.[document.id];
-      return !(Array.isArray(given?.files) && given.files.length) && !given?.waivedAt;
+      return !(Array.isArray(given?.files) && given.files.length);
     })
     .map((document) => document.id);
 }
@@ -166,7 +170,7 @@ export function extraDocumentsToSend(draft, flow, orderId) {
 /**
  * The documents the letter lists under Beilagen/Annexes/Allegati. With the
  * candidate's flow (review page, owner edits, submission): exactly the
- * documents that leave with the application, so a waived one is not listed.
+ * documents that leave with the application, so one with no file is not listed.
  * Without it (the draft's first letter): the documents the posting requires.
  */
 export function enclosedDocumentLabels(draft, flow, orderId) {

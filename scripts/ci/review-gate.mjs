@@ -1160,6 +1160,8 @@ function findingConfirmed(
     // Citazioni accoppiate fra finding dalle conferme di QUESTA review, senza
     // il `carried` delle review precedenti.
     pairedByThisReview = null,
+    // Elenco COMPLETO dei file che la PR modifica; `null` quando non e' noto.
+    changedFiles = null,
   } = {},
 ) {
   if (finding.citations.length === 0) {
@@ -1192,7 +1194,26 @@ function findingConfirmed(
     const confirmedPaths = confirmations.flatMap((confirmation) => confirmation.citations)
       .map((candidate) => candidate.path);
     const citedPaths = [...new Set(finding.citations.map((citation) => citation.path))];
-    if (citedPaths.every((path) => confirmedPaths.some((candidate) => citationPathMatches(candidate, path)))) {
+    // Quella conferma non puo' arrivare per un file citato senza riga che la
+    // PR non modifica: il reviewer scrive `Fix di path:L<n>` solo sui file che
+    // vede nel diff. Su #12346 il 🔴 ancorato a `live-data-test-guard.mjs:L571`
+    // nominava `public/news-ticker-live.json`, il valore da rimettere in un
+    // elenco, e due `## LGTM` con l'id e l'anchor confermati restavano
+    // BLOCKING. Con l'id confermato da una review approvante quel file vale
+    // come contesto, e solo lui: ogni path citato con riga e ogni file che la
+    // PR modifica vogliono ancora la propria conferma, e serve almeno un
+    // anchor con riga. Senza l'elenco completo dei file o senza il tree
+    // autorevole non cambia niente.
+    const hasPreciseAnchor = finding.citations.some((citation) => citation.line !== null);
+    const outOfDiffContext = (path) => {
+      if (!approvingReview || !hasPreciseAnchor) return false;
+      if (!Array.isArray(changedFiles) || !Array.isArray(repositoryPaths) || repositoryPathsFromFallback) return false;
+      if (finding.citations.some((citation) => citation.path === path && citation.line !== null)) return false;
+      const resolved = resolveCitedPath({ path }, repositoryPaths);
+      return resolved.status === 'resolved' && !changedContains(changedFiles, resolved.path);
+    };
+    if (citedPaths.every((path) => confirmedPaths.some((candidate) => citationPathMatches(candidate, path))
+      || outOfDiffContext(path))) {
       return true;
     }
   }
@@ -1317,8 +1338,14 @@ export function partitionHistoricalImportantFindings(
     citationExtractor = extractFileCitations,
     repositoryPaths = null,
     repositoryPathsFromFallback = false,
+    // File che la PR modifica, quando l'elenco e' completo: vedi il ramo
+    // dell'id stabile in `findingConfirmed`.
+    changedFiles = null,
   } = {},
 ) {
+  const changedPaths = Array.isArray(changedFiles)
+    ? [...new Set(changedFiles.map((file) => normalizePath(file, { stripGitPrefix: false })).filter(Boolean))]
+    : null;
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
       && REVIEWER_LOGIN_RE.test(review.user.login || '')
@@ -1359,6 +1386,7 @@ export function partitionHistoricalImportantFindings(
         settledCitations,
         approvingReview,
         pairedByThisReview,
+        changedFiles: changedPaths,
       })) {
         confirmed.push(entry.finding);
         open.delete(key);
@@ -2268,6 +2296,9 @@ export async function runReviewGate({
   classifyAndMintReviewFn = classifyAndMintReview,
   carryFingerprintFn = contributionFingerprint,
   bodyContractPassed = false,
+  // Restituisce l'elenco COMPLETO dei file che la PR modifica, o `null`.
+  // Assente = nessun file citato senza riga viene mai letto come contesto.
+  changedFilesFn = null,
 } = {}) {
   if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
     throw new Error('repo, PR number or HEAD SHA non valido');
@@ -2379,10 +2410,36 @@ export async function runReviewGate({
       staleFindings: staleCarry.findings,
     };
   }
-  const historical = historicalImportantFindings(reviewHistory, {
+  const historicalOptions = {
     repositoryPaths: repositoryPaths ?? null,
     repositoryPathsFromFallback,
-  });
+  };
+  let historical = historicalImportantFindings(reviewHistory, historicalOptions);
+  // L'elenco dei file della PR serve in un caso solo: una review approvante
+  // lascia aperto un 🔴 storico. Si legge li' e basta, e ogni 🔴 che si chiude
+  // per questo lascia una riga nel log: e' il conteggio di quanto decide la
+  // regola del file citato senza riga (vedi `findingConfirmed`).
+  if (historical.length > 0 && typeof changedFilesFn === 'function' && body.includes('## LGTM')) {
+    let changedFiles = null;
+    try {
+      changedFiles = changedFilesFn();
+    } catch {
+      changedFiles = null;
+    }
+    if (Array.isArray(changedFiles) && changedFiles.length > 0) {
+      const withDiff = historicalImportantFindings(reviewHistory, { ...historicalOptions, changedFiles });
+      const stillOpen = new Set(withDiff.map(stableFindingId));
+      for (const finding of historical) {
+        const id = stableFindingId(finding);
+        if (stillOpen.has(id)) continue;
+        const context = [...new Set(finding.citations
+          .filter((citation) => citation.line === null)
+          .map((citation) => citation.path))];
+        console.log(`review-gate: OUT-OF-DIFF-CONTEXT finding id=${id} path=${context.join(',') || '-'} reason=file cited without a line is outside the PR diff; id and line anchors confirmed by an approving review`);
+      }
+      historical = withDiff;
+    }
+  }
   const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
   const findings = importantFindings(effectiveBody);
   const reviewCommit = String(latest.commit_id || '');
@@ -2470,6 +2527,12 @@ async function main() {
     repositoryPathsFromFallback: tree.fromFallback,
     reviewRevision,
     bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
+    // Solo un elenco completo: in uno troncato un file della PR sembrerebbe
+    // fuori dal diff.
+    changedFilesFn: () => {
+      const changed = fetchPrFiles(Number(pr), gh, repo);
+      return changed.complete === true && changed.files.length > 0 ? changed.files : null;
+    },
   });
   writeApproved(result.approved);
   if (!result.approved) {

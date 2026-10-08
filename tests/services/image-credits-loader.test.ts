@@ -132,6 +132,40 @@ function generatedPayload() {
   };
 }
 
+function licensedPayload() {
+  const pageUrl = 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg';
+  const cover = 'licensed-article-cover';
+  return {
+    schema: 1,
+    commit: 'fixture-commit',
+    section: 'blog',
+    files: {
+      [`licensed-photo:wikimedia:${pageUrl}`]: {
+        source: 'licensed-photo',
+        photo: {
+          provider: 'wikimedia',
+          title: 'Zurich employment office.jpg',
+          pageUrl,
+          width: 2400,
+          height: 1600,
+        },
+        pageUrl,
+        author: { name: 'Ada Foto', url: 'https://commons.wikimedia.org/wiki/User:Ada_Foto', type: 'Person' },
+        attribution: null,
+        licence: {
+          name: 'CC BY 4.0',
+          url: 'https://creativecommons.org/licenses/by/4.0/',
+          family: 'cc-by',
+          attributionRequired: true,
+        },
+        restrictions: ['licensed-source', 'no-recognizable-foreground-person', 'no-logo-brand-or-trademark'],
+        fetchedAt: '2026-10-08',
+      },
+    },
+    covers: { [cover]: { file: `licensed-photo:wikimedia:${pageUrl}`, modified: 'cropped' } },
+  };
+}
+
 const okResponse = (body: unknown) => ({ ok: true, status: 200, json: () => Promise.resolve(body) }) as unknown as Response;
 
 function stubFetch(impl: (url: string, init?: RequestInit) => Promise<Response>) {
@@ -234,6 +268,25 @@ describe('the unified blog index carries generated article heroes', () => {
       },
     });
     expect(imageCreditFromIndex(index as never, COVER)).toBeNull();
+  });
+});
+
+describe('the unified blog index carries licensed article heroes', () => {
+  it('rebuilds a licensed photo with its visible attribution and source page', () => {
+    const record = imageCreditFromIndex(licensedPayload() as never, '/images/blog/licensed-article-cover.webp');
+    expect(record).not.toBeNull();
+    expect(validateImageCreditRecord(record).valid).toBe(true);
+    expect(record).toMatchObject({
+      source: 'licensed-photo',
+      photo: { provider: 'wikimedia', title: 'Zurich employment office.jpg' },
+      licence: { family: 'cc-by', attributionRequired: true },
+    });
+    expect(imageCreditParts(record!, 'it')?.text).toContain('Ada Foto');
+    expect(imageCreditParts(record!, 'it')?.text).toContain('CC BY 4.0');
+    expect(imageObjectCreditFields(record!)).toMatchObject({
+      license: 'https://creativecommons.org/licenses/by/4.0/',
+      acquireLicensePage: 'https://commons.wikimedia.org/wiki/File:Zurich_employment_office.jpg',
+    });
   });
 });
 

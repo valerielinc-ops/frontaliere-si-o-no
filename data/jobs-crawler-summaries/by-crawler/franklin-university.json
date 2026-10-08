@@ -1,7 +1,7 @@
 {
   "key": "franklin-university",
   "label": "Franklin University Switzerland",
-  "generatedAt": "2026-10-07T21:39:40.402Z",
+  "generatedAt": "2026-10-08T09:28:10.542Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,19 +12,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4053,
-  "avgDurationMs": 4053,
+  "durationMs": 2891,
+  "avgDurationMs": 2891,
   "durationHistory": [
-    4053
+    2891
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "franklin-university-bd511a369267",
-      "slug": "executive-assistant-office-of-the-president-sorengo-franklin-university",
+      "slug": "assistente-esecutivo-ufficio-del-presidente-franklin-university-switzerland-sorengo",
       "company": "Franklin University Switzerland",
       "companyKey": "franklin-university",
       "companyDomain": "fus.edu",
@@ -49,23 +50,21 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4667",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:39:28.429Z",
+      "crawledAt": "2026-10-08T09:27:59.100Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-10-07T21:39:28.429Z",
-      "_qualityScore": 84,
+      "firstSeenAt": "2026-10-08T09:27:59.100Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "franklin-university-f0ff46335a56",
       "slug": "vice-presidente-della-direzione-iscrizioni-franklin-university-switzerland-sorengo",
@@ -93,7 +92,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4660",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:39:28.127Z",
+      "crawledAt": "2026-10-08T09:27:58.798Z",
       "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "needsRetranslation": true,
       "salaryMin": 68000,
@@ -111,5 +110,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

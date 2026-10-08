@@ -76,6 +76,22 @@
 
 set -euo pipefail
 
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+
+# The 300-second fetch ceiling is supported by issue 12175's 61.6, 62.6,
+# 83.0 and 95.1-second commit-graph measurements. The 180-second push ceiling
+# is the refresh policy already in use; this helper has no separate measurement
+# for either operation. These GIT_PUSH_WITH_RETRY_* overrides are only for the
+# test bench; production keeps the declared defaults.
+GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS="${GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS:-300}"
+GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS="${GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS:-180}"
+
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
 # Register the seo-404 compat-shard merge driver (.gitattributes
 # `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
 # auto-resolve as a 3-way SET merge (deduped + sorted) instead of git's default
@@ -363,7 +379,8 @@ PUSH_STDERR_FILE="$(mktemp)"
 trap 'rm -f -- "$PUSH_STDERR_FILE"' EXIT
 push_head() {
   local status=0
-  git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
+  run_bounded "$GIT_PUSH_WITH_RETRY_PUSH_TIMEOUT_SECONDS" "git push --no-thin origin HEAD:${BRANCH}" \
+    git -c pack.window=0 -c pack.threads=1 push --no-thin --no-verify origin "HEAD:${BRANCH}" \
     2>"$PUSH_STDERR_FILE" || status=$?
   cat -- "$PUSH_STDERR_FILE" >&2
   return "$status"
@@ -386,7 +403,8 @@ until push_head; do
     exit 1
   fi
   echo "Push rejected (attempt $attempt/$MAX_ATTEMPTS); rebasing onto origin/${BRANCH}..."
-  git fetch origin "$BRANCH"
+  run_bounded "$GIT_PUSH_WITH_RETRY_FETCH_TIMEOUT_SECONDS" "git fetch origin ${BRANCH}" \
+    git fetch origin "$BRANCH"
   old_history_guard_main
   stashed=0
   if [ -n "$STASH_DIRTY" ]; then

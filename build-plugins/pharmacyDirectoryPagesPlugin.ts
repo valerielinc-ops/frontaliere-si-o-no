@@ -421,7 +421,7 @@ function sourceLine(pharmacy: Pharmacy, locale: Locale): string {
         : '';
     })
     .join('');
-  return `<p style="${BODY_STYLE}"><strong>${esc(copy.sourceOfficial)}:</strong> <a href="${esc(pharmacy.sourceUrl)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a><br><strong>${esc(copy.checked)}:</strong> ${esc(formatDate(pharmacy.lastVerifiedAt, locale))}${secondary}${externalSources}</p>`;
+  return `<p class="pharmacy-static-source" style="${BODY_STYLE}"><strong>${esc(copy.sourceOfficial)}:</strong> <a href="${esc(pharmacy.sourceUrl)}" rel="nofollow noopener">${esc(copy.sourceLink)}</a><br><strong>${esc(copy.checked)}:</strong> ${esc(formatDate(pharmacy.lastVerifiedAt, locale))}${secondary}${externalSources}</p>`;
 }
 
 function renderPharmacyCard(pharmacy: Pharmacy, locale: Locale): string {
@@ -432,31 +432,31 @@ function renderPharmacyCard(pharmacy: Pharmacy, locale: Locale): string {
     ? cityPath('IT', locale, city, ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug)
     : cityPath('CH', locale, city);
   const badges = [pharmacy.openingHours?.length ? copy.hoursHeading : '', pharmacy.services?.length ? copy.servicesHeading : ''].filter(Boolean);
-  return `<article class="${CARD_CLASS}"><h3 style="${H3_STYLE}"><a href="${esc(buildPharmacyPath(countryPath, locale))}">${esc(pharmacy.name)}</a></h3><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${href(cityUrl, `${pharmacy.postalCode} ${pharmacy.city}`)}${pharmacy.phone ? `<br><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>${badges.length ? `<p style="${BODY_STYLE}">${badges.map(esc).join(' · ')}</p>` : ''}${sourceLine(pharmacy, locale)}</article>`;
+  return `<article class="${CARD_CLASS} pharmacy-static-card"><div class="pharmacy-static-card-main"><span class="pharmacy-static-marker" aria-hidden="true">⌖</span><div><h3 style="${H3_STYLE}"><a href="${esc(buildPharmacyPath(countryPath, locale))}">${esc(pharmacy.name)}</a></h3><p style="${BODY_STYLE}"><strong>${esc(copy.address)}:</strong> ${esc(pharmacy.address)}, ${href(cityUrl, `${pharmacy.postalCode} ${pharmacy.city}`)}${pharmacy.phone ? `<br><strong>${esc(copy.phone)}:</strong> <a href="tel:${esc(pharmacy.phone)}">${esc(pharmacy.phone)}</a>` : ''}</p>${badges.length ? `<p class="pharmacy-static-badges" style="${BODY_STYLE}">${badges.map(esc).join(' · ')}</p>` : ''}</div></div>${sourceLine(pharmacy, locale)}</article>`;
 }
 
 function renderCompactPharmacyListItem(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
   const detailPath = pharmacyPath(pharmacy, locale);
   const source = '<a href="' + esc(pharmacy.sourceUrl) + '" rel="nofollow noopener">' + esc(copy.sourceLink) + '</a>';
-  return '<li><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a> — ' + esc(pharmacy.address) + ', ' + esc(pharmacy.postalCode) + ' ' + esc(pharmacy.city) + ' · ' + source + '</li>';
+  return '<li class="pharmacy-static-list-item"><a href="' + esc(buildPharmacyPath(detailPath, locale)) + '">' + esc(pharmacy.name) + '</a><span> — ' + esc(pharmacy.address) + ', ' + esc(pharmacy.postalCode) + ' ' + esc(pharmacy.city) + '</span><span> · ' + source + '</span></li>';
 }
 
 function renderHours(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
-  if (!pharmacy.openingHours?.length) return `<p style="${BODY_STYLE}">${esc(copy.hoursUnavailable)}</p>`;
-  return `<ul style="${BODY_STYLE}">${pharmacy.openingHours.map((hour) => `<li><strong>${esc(hour.dayOfWeek)}:</strong> ${esc(hour.isClosed ? copy.closed : `${hour.opens}–${hour.closes}`)}</li>`).join('')}</ul>`;
+  if (!pharmacy.openingHours?.length) return `<p class="pharmacy-static-empty" style="${BODY_STYLE}">${esc(copy.hoursUnavailable)}</p>`;
+  return `<ul class="pharmacy-static-hours" style="${BODY_STYLE}">${pharmacy.openingHours.map((hour) => `<li><strong>${esc(hour.dayOfWeek)}:</strong> <span>${esc(hour.isClosed ? copy.closed : `${hour.opens}–${hour.closes}`)}</span></li>`).join('')}</ul>`;
 }
 
 function renderServices(pharmacy: Pharmacy, locale: Locale): string {
   const copy = COPY[locale];
-  if (!pharmacy.services?.length) return `<p style="${BODY_STYLE}">${esc(copy.servicesUnavailable)}</p>`;
-  return `<ul style="${BODY_STYLE}">${pharmacy.services.map((service) => `<li>${esc(service)}</li>`).join('')}</ul>`;
+  if (!pharmacy.services?.length) return `<p class="pharmacy-static-empty" style="${BODY_STYLE}">${esc(copy.servicesUnavailable)}</p>`;
+  return `<ul class="pharmacy-static-services" style="${BODY_STYLE}">${pharmacy.services.map((service) => `<li>${esc(service)}</li>`).join('')}</ul>`;
 }
 
 function renderPharmacyFaq(pharmacy: Pharmacy, locale: Locale): string {
   const items = pharmacyFaqItems(pharmacy, locale);
-  return `<section aria-label="${esc(pharmacyFaqHeading(locale))}"><h2 style="${H2_STYLE}">${esc(pharmacyFaqHeading(locale))}</h2>${items.map((item) => `<details style="${BODY_STYLE}"><summary>${esc(item.question)}</summary><p style="${BODY_STYLE}">${esc(item.answer)}</p></details>`).join('')}</section>`;
+  return `<section class="pharmacy-static-faq" aria-label="${esc(pharmacyFaqHeading(locale))}"><h2 style="${H2_STYLE}">${esc(pharmacyFaqHeading(locale))}</h2>${items.map((item) => `<details style="${BODY_STYLE}"><summary>${esc(item.question)}</summary><p style="${BODY_STYLE}">${esc(item.answer)}</p></details>`).join('')}</section>`;
 }
 
 function renderPharmacyFacts(pharmacy: Pharmacy, locale: Locale, maps?: { osm?: string; google?: string }): string {
@@ -471,7 +471,7 @@ function renderPharmacyFacts(pharmacy: Pharmacy, locale: Locale, maps?: { osm?: 
     ...(maps?.osm ? [`<dt><strong>${esc(copy.map)}</strong></dt><dd><a href="${esc(maps.osm)}" rel="nofollow noopener">${esc(copy.openMap)}</a></dd>`] : []),
     ...(maps?.google ? [`<dt><strong>Google Maps</strong></dt><dd><a href="${esc(maps.google)}" rel="nofollow noopener">Google Maps</a></dd>`] : []),
   ];
-  return `<dl data-pharmacy-facts="true" style="${BODY_STYLE}">${rows.join('')}</dl>`;
+  return `<dl class="pharmacy-static-facts" data-pharmacy-facts="true" style="${BODY_STYLE}">${rows.join('')}</dl>`;
 }
 
 function pharmacyAnswerSummary(pharmacy: Pharmacy, locale: Locale): string {
@@ -902,7 +902,7 @@ function renderBody(
       const areaPath: PharmacyPath = { kind: 'area', country: 'IT', areaSlug: area.slug, locale };
       return `<li>${href(areaPath, area.name)} — ${esc(copy.provinceCount(count))}</li>`;
     }).join('');
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><nav aria-label="${esc(copy.directoryHeading)}"><ul style="${BODY_STYLE}">${provinces}</ul></nav><p style="${BODY_STYLE}">${esc(copy.countryDirectoryNote)}</p><p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p></section>`;
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><nav class="pharmacy-static-province-nav" aria-label="${esc(copy.directoryHeading)}"><ul class="pharmacy-static-province-list" style="${BODY_STYLE}">${provinces}</ul></nav><p style="${BODY_STYLE}">${esc(copy.countryDirectoryNote)}</p><p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p></section>`;
   } else if (descriptor.kind === 'pharmacy') {
     const pharmacy = descriptor.pharmacy!;
     const website = safePharmacyUrl(pharmacy.website);
@@ -911,12 +911,18 @@ function renderBody(
       google: pharmacyGoogleMapsUrl(pharmacy.googlePlaceId) || pharmacyGoogleMapsSearchUrl(pharmacy),
     };
     const parent = pharmacy.country === 'IT' ? cityPath('IT', locale, pharmacyCitySlug(pharmacy.city), ITALY_BORDER_PROVINCES.find((area) => area.code === pharmacy.province)?.slug) : cityPath('CH', locale, pharmacyCitySlug(pharmacy.city));
-    sections = `<p style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><p data-pharmacy-answer="true" style="${LEDE_STYLE}">${esc(pharmacyAnswerSummary(pharmacy, locale))}</p><section><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2>${renderPharmacyFacts(pharmacy, locale, maps)}</section><section><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section>${renderPharmacyFaq(pharmacy, locale)}<section><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></section>`;
+    const actionLinks = [
+      pharmacy.phone ? `<a class="s-cta" href="tel:${esc(pharmacy.phone)}">${esc(copy.phone)}</a>` : '',
+      maps.osm ? `<a class="pharmacy-static-action" href="${esc(maps.osm)}" rel="nofollow noopener">${esc(copy.openMap)}</a>` : '',
+      maps.google ? `<a class="pharmacy-static-action" href="${esc(maps.google)}" rel="nofollow noopener">Google Maps</a>` : '',
+      website ? `<a class="pharmacy-static-action" href="${esc(website)}" rel="nofollow noopener">${esc(copy.website)}</a>` : '',
+    ].filter(Boolean).join('');
+    sections = `<p class="pharmacy-static-back" style="${BODY_STYLE}">${href(parent, `${copy.directoryHeading}: ${pharmacy.city}`)}</p><p data-pharmacy-answer="true" class="pharmacy-static-answer" style="${LEDE_STYLE}">${esc(pharmacyAnswerSummary(pharmacy, locale))}</p><div class="pharmacy-static-detail-actions">${actionLinks}</div><div class="pharmacy-static-detail-grid"><div><section class="pharmacy-static-section"><h2 style="${H2_STYLE}">${esc(copy.contactHeading)}</h2>${renderPharmacyFacts(pharmacy, locale, maps)}</section><section class="pharmacy-static-section"><h2 style="${H2_STYLE}">${esc(copy.hoursHeading)}</h2>${renderHours(pharmacy, locale)}</section><section class="pharmacy-static-section"><h2 style="${H2_STYLE}">${esc(copy.servicesHeading)}</h2>${renderServices(pharmacy, locale)}</section>${renderPharmacyFaq(pharmacy, locale)}</div><aside class="pharmacy-static-source-card"><h2 style="${H2_STYLE}">${esc(copy.sourcesHeading)}</h2>${sourceLine(pharmacy, locale)}<p style="${BODY_STYLE}">${esc(copy.osmNote)}</p><p style="${BODY_STYLE}">${esc(DETAIL_VERIFICATION_NOTE[locale])}</p></aside></div>`;
   } else {
     const pharmacies = pagePharmacies(descriptor, dataset, now);
     const directory = descriptor.kind === 'area'
       ? '<ul style="' + BODY_STYLE + '">' + pharmacies.map((pharmacy) => renderCompactPharmacyListItem(pharmacy, locale)).join('') + '</ul>'
-      : `<div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>`;
+      : `<div class="s-XENO3U pharmacy-static-list" style="grid-template-columns:minmax(0,1fr);gap:12px">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>`;
     const dutyLink = descriptor.country === 'IT'
       ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p>`
       : descriptor.kind === 'city' && descriptor.country === 'CH'
@@ -928,7 +934,7 @@ function renderBody(
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
     : '';
   const cityVerificationNote = descriptor.kind === 'city' ? `<p style="${BODY_STYLE}">${esc(CITY_VERIFICATION_NOTE[locale])}</p>` : '';
-  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale, descriptor.country))}</p></header>${sections}${cityVerificationNote}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
+  return `<header class="pharmacy-static-header"><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale, descriptor.country))}</p></header>${sections}${cityVerificationNote}${faq}<section class="pharmacy-static-disclaimer"><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
 }
 
 function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {

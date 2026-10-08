@@ -1223,7 +1223,10 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 //     richieste parallele di 10 s costano 10 s. Ogni controllo legge il tempo
 //     gia' speso da tutte le richieste partite prima.
 //   - Tre richieste fallite di fila (errore, risposta vuota, rifiuto o soli
-//     echi di testo sostanziale) fermano il tier; gli echi classificati come
+//     echi di testo sostanziale) fermano il tier. Una richiesta conta solo
+//     se porta almeno un testo non ancora visto nella serie (stessa coppia
+//     testo normalizzato + lingua di arrivo): tre copie dello stesso eco non
+//     sono tre prove di un modello guasto. Gli echi classificati come
 //     invarianti non incrementano lo streak.
 // Esaurito un budget, una riga di log e il tier non si tenta piu'; i testi in
 // coda escono subito verso il tier successivo.
@@ -1379,6 +1382,11 @@ let _codexInFlight = 0;
 let _codexPending = [];
 let _codexPumpTimer = null;
 let _codexConsecutiveFailures = 0;
+// The same source title can arrive under different source labels and from
+// different jobs. Count one normalized text/target pair once during the
+// current failure streak: repeated echoes are not independent evidence that
+// the model is broken.
+let _codexConsecutiveFailureKeys = new Set();
 let _codexStopReason = '';
 let _codexEngagedLogged = false;
 /** @type {Promise<any> | null} */
@@ -1418,7 +1426,26 @@ function _stopCodex(reason) {
   console.log(`⏹️  [codex] ${reason} — tier Codex saltato per il resto del processo`);
 }
 
-function _noteCodexFailure() {
+function _codexFailureKey(text, targetLang) {
+  return JSON.stringify([
+    normalizeBlock(text).toLowerCase(),
+    String(targetLang || '').trim().toLowerCase(),
+  ]);
+}
+
+function _resetCodexFailureStreak() {
+  _codexConsecutiveFailures = 0;
+  _codexConsecutiveFailureKeys.clear();
+}
+
+// One failed REQUEST is one failure, whatever the number of texts it carried:
+// a single group that times out must not stop the tier on its own. A request
+// whose texts were all already seen in the current streak adds nothing.
+function _noteCodexFailure(texts, targetLang) {
+  const keys = [...texts].map((text) => _codexFailureKey(text, targetLang));
+  const fresh = keys.filter((key) => !_codexConsecutiveFailureKeys.has(key));
+  if (fresh.length === 0) return;
+  for (const key of fresh) _codexConsecutiveFailureKeys.add(key);
   _codexConsecutiveFailures += 1;
   if (_codexConsecutiveFailures >= CODEX_TRANSLATE_FAILURE_LIMIT) {
     _stopCodex(`${_codexConsecutiveFailures} fallimenti consecutivi`);
@@ -1543,6 +1570,23 @@ function _codexInvariantEchoReason(source, output, sourceLang, targetLang, outco
     && detected.confidence >= 0.5
     ? 'same-language'
     : null;
+}
+
+/**
+ * Un eco conta come fallimento della lane solo con una prova che il testo
+ * andava tradotto: il rilevatore lo riconosce, con confidenza, nella lingua
+ * sorgente dichiarata. Un titolo corto che il rilevatore non sa attribuire
+ * («Senior .NET Developer» con sorgente `it` verso `en`, «Mediamatico/a AFC»
+ * con sorgente `de` verso `it`) e' quasi sempre gia' nella lingua di arrivo
+ * con la sorgente etichettata male: il modello ha risposto bene, e tre di
+ * questi di fila non dicono nulla sulla salute del tier (run translate-pending
+ * 37788188781: Codex fermato a 103/350 chiamate da tre titoli inglesi).
+ */
+function _codexEchoProvesSourceLanguage(source, sourceLang, targetLang) {
+  const sourceBase = String(sourceLang || '').split('-')[0].toLowerCase();
+  if (!sourceBase) return false;
+  const detected = detectLanguageWithConfidence(source, targetLang);
+  return detected.lang === sourceBase && detected.confidence >= 0.5;
 }
 
 function _logCodexNonTranslation(item, reason) {
@@ -1740,7 +1784,7 @@ async function _translateGroupWithCodex(group) {
     // Il messaggio non si stampa (puo' portare la coda di stderr del broker):
     // `tryTier` conta l'errore in `tierErrors.codex`, testo per testo.
     for (const item of group) _logCodexNonTranslation(item, 'error');
-    _noteCodexFailure();
+    _noteCodexFailure(unique, targetLang);
     throw err;
   }
   // La guardia vale anche per la cascata: un'eco del prompt non e' un
@@ -1754,6 +1798,10 @@ async function _translateGroupWithCodex(group) {
   // lo streak e non spegne il tier che puo' ancora tradurre altri testi.
   const realFailures = new Set();
   const invariantEchoes = new Set();
+  // Echi senza prova che il testo fosse nella lingua sorgente: non sono
+  // traduzioni (il chiamante passa al tier successivo) ma non dicono nulla
+  // sulla salute della lane, quindi non muovono lo streak in nessun verso.
+  const unprovenEchoes = new Set();
   const translated = new Set();
   for (const source of unique) {
     const out = byText.get(source) || '';
@@ -1779,7 +1827,8 @@ async function _translateGroupWithCodex(group) {
       const invariantReason = _codexInvariantEchoReason(source, out, item.sourceLang, item.targetLang, item.outcome);
       _logCodexNonTranslation(item, invariantReason ? `invariant-${invariantReason}` : 'echo-source');
       if (invariantReason) invariantEchoes.add(source);
-      else realFailures.add(source);
+      else if (_codexEchoProvesSourceLanguage(source, item.sourceLang, item.targetLang)) realFailures.add(source);
+      else unprovenEchoes.add(source);
       continue;
     }
     translated.add(source);
@@ -1792,10 +1841,12 @@ async function _translateGroupWithCodex(group) {
   // rifiuta e lo conta fra i passthrough, e qui conta come fallimento.
   // L'eccezione e' una riga che il rilevatore classifica come invariabile:
   // azzerare lo streak su quella riga evita di consumare tutto il budget su
-  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri.
-  if (translated.size > 0) _codexConsecutiveFailures = 0;
-  else if (realFailures.size > 0) _noteCodexFailure();
-  else if (invariantEchoes.size > 0) _codexConsecutiveFailures = 0;
+  // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri. Una
+  // richiesta di soli echi non provati (`unprovenEchoes`) lascia lo streak
+  // com'e'.
+  if (translated.size > 0) _resetCodexFailureStreak();
+  else if (realFailures.size > 0) _noteCodexFailure(realFailures, targetLang);
+  else if (invariantEchoes.size > 0) _resetCodexFailureStreak();
   return results;
 }
 
@@ -1871,7 +1922,7 @@ export function setCodexTranslateCallForTests(fn) {
   _codexTexts = 0;
   _codexSpentMs = 0;
   _codexBusySince = 0;
-  _codexConsecutiveFailures = 0;
+  _resetCodexFailureStreak();
   _codexStopReason = '';
   _codexEngagedLogged = false;
 }

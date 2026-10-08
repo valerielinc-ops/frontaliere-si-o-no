@@ -11,7 +11,7 @@
  *   data/image-credits-<section>.json (corpus section indexes)
  *   data/image-credits-blog.json (site-owned generated/inferred bridge)
  *   { schema: 1, commit, section,
- *     files:  { <Commons title>: { pageUrl, author{name,url,type}, attribution,
+ *     files:  { <source title>: { source, pageUrl, author{name,url,type}, attribution,
  *                                  licence{name,url,family,attributionRequired}, fetchedAt } },
  *     covers: { <cover key>: { file: <Commons title>, modified } |
  *                              { evidence: 'inferred', provider: null,
@@ -137,6 +137,9 @@ export function imageCreditFromIndex(index: ImageCreditsIndex, cover: string | n
   const generated = file.source === 'generated-provider' && isPlainObject(file.generated)
     ? file.generated
     : null;
+  const licensedPhoto = file.source === 'licensed-photo' && isPlainObject(file.photo)
+    ? file.photo
+    : null;
   const commons = isPlainObject(file.commons) ? file.commons : {};
   const record = generated
     ? {
@@ -166,6 +169,32 @@ export function imageCreditFromIndex(index: ImageCreditsIndex, cover: string | n
       status: 'ok',
       curation: null,
       generated,
+    }
+    : licensedPhoto
+    ? {
+      schema: 1,
+      cover: sitePath,
+      source: 'licensed-photo',
+      photo: {
+        provider: licensedPhoto.provider,
+        title: licensedPhoto.title,
+        pageUrl: licensedPhoto.pageUrl,
+        ...(typeof licensedPhoto.width === 'number' ? { width: licensedPhoto.width } : {}),
+        ...(typeof licensedPhoto.height === 'number' ? { height: licensedPhoto.height } : {}),
+      },
+      author: { text: file.author.text ?? file.author.name ?? null, name: file.author.name, url: file.author.url, type: file.author.type },
+      attribution: file.attribution ?? null,
+      licence: {
+        name: file.licence.name,
+        url: file.licence.url,
+        family: file.licence.family,
+        attributionRequired: file.licence.attributionRequired,
+      },
+      restrictions: Array.isArray(file.restrictions) ? file.restrictions : [],
+      modified: entry.modified,
+      fetchedAt: file.fetchedAt,
+      status: 'ok',
+      curation: null,
     }
     : {
       schema: 1,

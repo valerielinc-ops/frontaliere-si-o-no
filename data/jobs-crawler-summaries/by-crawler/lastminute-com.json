@@ -1,18 +1,19 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-10-07T21:39:21.804Z",
+  "generatedAt": "2026-10-08T09:27:53.216Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 6,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 10711,
-  "avgDurationMs": 10711,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 9630,
+  "avgDurationMs": 9630,
   "durationHistory": [
-    10711
+    9630
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Data Engineer",
       "slug": "data-engineer-chiasso",
@@ -52,9 +53,7 @@
         "translation": 21,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Consolidation Specialist",
       "slug": "consolidation-specialist-chiasso",
@@ -88,6 +87,47 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T09:28:28.974Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Pricing & Revenue Specialist - Hotel",
+      "slug": "pricing-revenue-specialist-hotel-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000152629067&jobName=Pricing",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000152629067-pricing-revenue-specialist-hotel?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "datePosted": "2026-09-30T09:00:18.895Z",
+      "postedDate": "2026-09-30T09:00:18.895Z",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-6b2e8f8dfce1",
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-30T21:23:06.463Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -302,89 +342,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Data Engineer",
-      "slug": "data-ingegnere-lastminute-com-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000154003829&jobName=Data+Engineer",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000154003829-data-engineer?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-10-07T04:43:20.987Z",
-      "postedDate": "2026-10-07T04:43:20.987Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-461c59d995d3",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "title": "Pricing & Revenue Specialist - Hotel",
-      "slug": "pricing-revenue-specialist-hotel-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000152629067&jobName=Pricing",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000152629067-pricing-revenue-specialist-hotel?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "datePosted": "2026-09-30T09:00:18.895Z",
-      "postedDate": "2026-09-30T09:00:18.895Z",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-6b2e8f8dfce1",
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-30T21:23:06.463Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    }
-  ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

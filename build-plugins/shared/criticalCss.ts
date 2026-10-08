@@ -341,6 +341,9 @@ export const SEO_STATIC_HERO_RESERVE_CSS =
   '.s-zNiFzy{margin:0 0 8px;font-size:13px;font-weight:700}' +
   '.s-wU5Nrr{margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px}' +
   '.s-rDKEKn{margin:0;line-height:1.7;max-width:860px}' +
+  '.pharmacy-static-header{position:relative;min-height:190px;padding:28px 30px;border:1px solid transparent;border-radius:24px}' +
+  '.pharmacy-static-list{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:12px!important}' +
+  '@media(max-width:639px){.pharmacy-static-header{min-height:220px;padding:22px 20px}}' +
   '@media(max-width:639px){.s-cta{display:flex;width:100%;justify-content:center}}';
 
 /**

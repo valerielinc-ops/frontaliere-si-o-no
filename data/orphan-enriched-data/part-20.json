@@ -7317,10 +7317,10 @@
         "fr": "assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
-        "en": "/en/find-jobs-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
-        "de": "/de/jobs-in-bern/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
-        "fr": "/fr/trouver-emploi-berne/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg"
+        "it": "/cerca-lavoro-turgovia/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
+        "en": "/en/find-jobs-thurgau/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
+        "de": "/de/jobs-im-thurgau/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg",
+        "fr": "/fr/trouver-emploi-thurgovie/assistente-alle-vendite-alimentari-coop-genossenschaft-heimberg"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -14515,9 +14515,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "cloud-architetto-avaloq-bioggio",
-        "en": "cloud-architetto-avaloq-bioggio",
-        "de": "cloud-architetto-avaloq-bioggio",
-        "fr": "cloud-architetto-avaloq-bioggio"
+        "en": "cloud-architect-avaloq-bioggio",
+        "de": "cloud-architekt-avaloq-bioggio",
+        "fr": "cloud-architecte-avaloq-bioggio"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/cloud-architetto-avaloq-bioggio",
@@ -14525,12 +14525,13 @@
         "de": "/de/jobs-im-tessin/cloud-architetto-avaloq-bioggio",
         "fr": "/fr/trouver-emploi-tessin/cloud-architetto-avaloq-bioggio"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://jobs.smartrecruiters.com/avaloq1/744000153477839-cloud-architect",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -16656,10 +16657,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "construction-carpenters-pemsa-bellinzona",
+        "it": "carpentiere-edile-pemsa-bellinzona",
         "en": "construction-carpenters-pemsa-bellinzona",
-        "de": "construction-carpenters-pemsa-bellinzona",
-        "fr": "construction-carpenters-pemsa-bellinzona"
+        "fr": "charpentiers-de-construction-pemsa-bellinzona",
+        "de": "bautischler-pemsa-bellinzona"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/construction-carpenters-pemsa-bellinzona",
@@ -16667,12 +16668,13 @@
         "de": "/de/jobs-im-tessin/construction-carpenters-pemsa-bellinzona",
         "fr": "/fr/trouver-emploi-tessin/construction-carpenters-pemsa-bellinzona"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/carpentiere-edile-2697406",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -16951,10 +16953,10 @@
         "fr": "consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf",
-        "en": "/en/find-jobs-basel/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf",
+        "it": "/cerca-lavoro-sciaffusa/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf",
+        "en": "/en/find-jobs-schaffhausen/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf",
         "de": "/de/jobs-im-basel/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf",
-        "fr": "/fr/trouver-emploi-bale/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf"
+        "fr": "/fr/trouver-emploi-schaffhouse/consulente-assicurativo-per-l-agenzia-generale-burgdorf-axa-svizzera-burgdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -17552,6 +17554,99 @@
         "gsc",
         "slug-registry",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "consulenza-cliente-privato-boll-80-100-ubs-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/consulenza-cliente-privato-boll-80-100-ubs-zurich/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/consulenza-cliente-privato-boll-80-100-ubs-zurich/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro zurigo",
+          "clicks": 1,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro zurigo",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerte di lavoro in svizzera da privati",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "annunci lavoro zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cerco lavoro zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro zurigo",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "ubs jobs zurich",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "zurigo lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 13,
+      "totalClicks": 1,
+      "topQuery": "offerte di lavoro zurigo",
+      "title": "Consulenza cliente privato boll",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "en": "consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "de": "consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "fr": "consulenza-cliente-privato-boll-80-100-ubs-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "en": "/en/find-jobs-zurich/consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "de": "/de/jobs-im-zurich/consulenza-cliente-privato-boll-80-100-ubs-zurich",
+        "fr": "/fr/trouver-emploi-zurich/consulenza-cliente-privato-boll-80-100-ubs-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -19572,9 +19667,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "depenses-pemsa-lugano",
-        "en": "depenses-pemsa-lugano",
-        "de": "depenses-pemsa-lugano",
+        "it": "idraulico-esperto-pemsa-lugano",
+        "en": "expenditure-pemsa-lugano",
+        "de": "ausgaben-pemsa-lugano",
         "fr": "depenses-pemsa-lugano"
       },
       "localePaths": {
@@ -19583,12 +19678,13 @@
         "de": "/de/jobs-im-tessin/depenses-pemsa-lugano",
         "fr": "/fr/trouver-emploi-tessin/depenses-pemsa-lugano"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-esperto-2696882",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -23513,6 +23609,46 @@
       ]
     },
     {
+      "slug": "engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+      "locale": "en",
+      "path": "/en/find-jobs-nidwalden/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw",
+      "observedPaths": {
+        "en": "/en/find-jobs-nidwalden/engineering-engineer-hf-m-f-yellowshark-ag-hergiswil-nw"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Engineering engineer hf yellowshark ag hergiswil nw",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
+      ]
+    },
+    {
       "slug": "enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-baar",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-baar",
@@ -24472,6 +24608,64 @@
       ]
     },
     {
+      "slug": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach/"
+      },
+      "queries": [
+        {
+          "query": "swiss medical network",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "swiss medical network",
+      "title": "Facharztin facharzt per allgemeine innere medizin reinach",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "en": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "de": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "fr": "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "en": "/en/find-jobs-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "de": "/de/jobs-im-aargau/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach",
+        "fr": "/fr/trouver-emploi-argovie/facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-reinach"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "fachfrau-fachmann-gesundheit-cfc-m-w-d-60-100-psychiatrie-baselland-liestal",
       "locale": "it",
       "path": "/cerca-lavoro-argovia/fachfrau-fachmann-gesundheit-cfc-m-w-d-60-100-psychiatrie-baselland-liestal",
@@ -24729,6 +24923,74 @@
         "en": "/en/find-jobs-ticino/fachperson-gesundheit-cfc-spitex-foppa-ilanz",
         "de": "/de/jobs-im-tessin/fachperson-gesundheit-cfc-spitex-foppa-ilanz",
         "fr": "/fr/trouver-emploi-tessin/fachperson-gesundheit-cfc-spitex-foppa-ilanz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+      "locale": "de",
+      "path": "/de/jobs-in-graubunden/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur/",
+      "observedPaths": {
+        "de": "/de/jobs-in-graubunden/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur/"
+      },
+      "queries": [
+        {
+          "query": "fage stellen graubünden",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "jobs surselva",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job surselva",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "topQuery": "fage stellen graubünden",
+      "title": "Fachperson gesundheit fage efz imc awr regionalspital surselva",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "en": "fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "de": "fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "fr": "fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "en": "/en/find-jobs-graubunden/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "de": "/de/jobs-im-graubunden/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur",
+        "fr": "/fr/trouver-emploi-grisons/fachperson-gesundheit-fage-efz-60-80-imc-awr-regionalspital-surselva-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29132,10 +29394,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "en": "gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "it": "gpg-isolamento-e-componenti-apqp-leader-hitachi-energy-remote-zurich-switzerland",
+        "en": "gpg-insulation-components-apqp-leader-hitachi-energy-remote-zurich-switzerland",
         "de": "gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
-        "fr": "gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland"
+        "fr": "isolation-gpg-et-composants-apqp-leader-hitachi-energy-remote-zurich-switzerland"
       },
       "localePaths": {
         "it": "/cerca-lavoro-ticino/gpg-isolierung-komponenten-apqp-leader-hitachi-energy-remote-zurich-switzerland",
@@ -29149,6 +29411,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -30749,6 +31012,63 @@
       ]
     },
     {
+      "slug": "hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+      "locale": "de",
+      "path": "/de/jobs-im-aargau/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag/",
+      "observedPaths": {
+        "de": "/de/jobs-im-aargau/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag/"
+      },
+      "queries": [
+        {
+          "query": "lonza stein jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lonza stein jobs",
+      "title": "Hvac utilities ingenieur dps growth project lonza stein ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "en": "hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "de": "hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "fr": "hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "en": "/en/find-jobs-aargau/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "de": "/de/jobs-im-aargau/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag",
+        "fr": "/fr/trouver-emploi-argovie/hvac-utilities-ingenieur-dps-growth-project-80-100-m-f-d-lonza-stein-ag"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "hydraulic-sanitary-and-heating-systems-pemsa-lugano",
       "locale": "en",
       "path": "/en/find-jobs-ticino/hydraulic-sanitary-and-heating-systems-pemsa-lugano",
@@ -31278,10 +31598,10 @@
         "fr": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
-        "en": "/en/find-jobs-bern/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
-        "de": "/de/jobs-in-bern/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
-        "fr": "/fr/trouver-emploi-berne/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona"
+        "it": "/cerca-lavoro-grigioni/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
+        "en": "/en/find-jobs-graubunden/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
+        "de": "/de/jobs-in-graubunden/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona",
+        "fr": "/fr/trouver-emploi-grisons/impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -34050,10 +34370,10 @@
         "fr": "insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
-        "en": "/en/find-jobs-ticino/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
-        "de": "/de/jobs-im-tessin/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
-        "fr": "/fr/trouver-emploi-tessin/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach"
+        "it": "/cerca-lavoro-sciaffusa/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
+        "en": "/en/find-jobs-schaffhausen/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
+        "de": "/de/jobs-in-schaffhausen/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach",
+        "fr": "/fr/trouver-emploi-schaffhouse/insurance-consultant-for-the-general-agency-bulach-axa-svizzera-bulach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -35011,6 +35331,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+      "locale": "en",
+      "path": "/en/find-jobs-appenzell/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau",
+      "observedPaths": {
+        "en": "/en/find-jobs-appenzell/it-supporter-system-engineer-m-f-80-100-yellowshark-ag-herisau"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "It supporter system engineer yellowshark ag herisau",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -39038,10 +39398,10 @@
         "fr": "macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
-        "en": "/en/find-jobs-zurich/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
+        "it": "/cerca-lavoro-basilea/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
+        "en": "/en/find-jobs-basel/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
         "de": "/de/jobs-im-zurich/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen",
-        "fr": "/fr/trouver-emploi-zurich/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen"
+        "fr": "/fr/trouver-emploi-bale/macellaio-a-specialista-in-carne-coop-genossenschaft-munsingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -39331,6 +39691,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+      "locale": "de",
+      "path": "/de/jobs-in-st-gallen/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg/",
+      "observedPaths": {
+        "de": "/de/jobs-in-st-gallen/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg/"
+      },
+      "queries": [
+        {
+          "query": "jobs wil sg",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "jobs wil sg",
+      "title": "Maler in fur innen und aussenbereiche fachkraft ch gmbh sg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "en": "maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "de": "maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "fr": "maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "en": "/en/find-jobs-st-gallen/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "de": "/de/jobs-im-st-gallen/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg",
+        "fr": "/fr/trouver-emploi-saint-gall/maler-in-fur-innen-und-aussenbereiche-fachkraft-ch-gmbh-wil-sg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -45722,9 +46140,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444",
-        "en": "pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444",
-        "de": "pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444",
+        "de": "schulische-heilpadagogin-schulischer-heilpadagoge-if-bvsa-logopadie-sprachforderung-schule-37444",
+        "it": "scuola-curativa-pedagogue-scuola-curativa-pedagogue-if-bvsa-terapia-del-discorso-promozione-della-lingua-ksml-37444",
+        "en": "school-curative-pedagogue-school-curative-pedagogue-if-bvsa-speech-therapy-language-promotion-ksml-kantonaler-37444",
         "fr": "pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444"
       },
       "localePaths": {
@@ -45733,12 +46151,13 @@
         "de": "/de/jobs-im-bern/pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444",
         "fr": "/fr/trouver-emploi-berne/pedagogue-curative-scolaire-pedagogue-curative-scolaire-if-bvsa-orthophonie-promotion-linguistique-ksml-kantonaler-37444"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://www.ksml.apps.be.ch/ksml?q=stellen%2fad%2f37444",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -47091,10 +47510,10 @@
         "fr": "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
-        "en": "/en/find-jobs-bern/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
-        "de": "/de/jobs-in-bern/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
-        "fr": "/fr/trouver-emploi-berne/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern"
+        "it": "/cerca-lavoro-nidvaldo/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
+        "en": "/en/find-jobs-nidwalden/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
+        "de": "/de/jobs-in-nidwalden/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
+        "fr": "/fr/trouver-emploi-nidwald/pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -54156,6 +54575,89 @@
       ]
     },
     {
+      "slug": "responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "pflegejobs stiftung kantonsspital graubünden",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "cerco lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro ticino negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro ticino nell'ultima settimana",
+      "title": "Responsabile pflegeentwicklung kantonsspital graubunden",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "en": "responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "de": "responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "fr": "responsabile-pflegeentwicklung-kantonsspital-graubunden-chur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "en": "/en/find-jobs-graubunden/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "de": "/de/jobs-im-graubunden/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "fr": "/fr/trouver-emploi-grisons/responsabile-pflegeentwicklung-kantonsspital-graubunden-chur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "responsabile-psychiatrische-dienste-graubunden-landquart",
       "locale": "de",
       "path": "/de/jobs-im-tessin/responsabile-psychiatrische-dienste-graubunden-landquart",
@@ -55056,6 +55558,63 @@
       ]
     },
     {
+      "slug": "responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates/"
+      },
+      "queries": [
+        {
+          "query": "administrateur ppe plan les ouates",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "administrateur ppe plan les ouates",
+      "title": "Responsable developpement mouvements vacheron constantin plan les ouates",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "en": "responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "de": "responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "fr": "responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "en": "/en/find-jobs-geneva/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "de": "/de/jobs-im-genf/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates",
+        "fr": "/fr/trouver-emploi-geneve/responsable-developpement-mouvements-vacheron-constantin-plan-les-ouates"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "responsable-du-departement-des-operations-f-h-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
       "locale": "en",
       "path": "/en/find-jobs-ticino/responsable-du-departement-des-operations-f-h-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
@@ -55715,19 +56274,34 @@
       },
       "queries": [
         {
-          "query": "ristoranti italiani a zurigo che cercano personale",
-          "clicks": 1,
-          "impressions": 33
+          "query": "offerte di lavoro ticino ristorazione",
+          "clicks": 2,
+          "impressions": 35
         },
         {
-          "query": "offerte di lavoro ticino ristorazione",
-          "clicks": 0,
-          "impressions": 29
+          "query": "ristoranti italiani a zurigo che cercano personale",
+          "clicks": 1,
+          "impressions": 35
         },
         {
           "query": "offerte di lavoro ristorazione ticino",
           "clicks": 2,
-          "impressions": 26
+          "impressions": 28
+        },
+        {
+          "query": "offerte lavoro ristorazione ticino",
+          "clicks": 3,
+          "impressions": 24
+        },
+        {
+          "query": "lavoro ticino ristorazione",
+          "clicks": 1,
+          "impressions": 23
+        },
+        {
+          "query": "tutti ch lavoro ristorazione",
+          "clicks": 0,
+          "impressions": 22
         },
         {
           "query": "lavoro zurigo ristoranti",
@@ -55735,29 +56309,14 @@
           "impressions": 22
         },
         {
-          "query": "tutti ch lavoro ristorazione",
+          "query": "lavoro ristorazione ticino",
           "clicks": 0,
-          "impressions": 21
-        },
-        {
-          "query": "offerte lavoro ristorazione ticino",
-          "clicks": 2,
-          "impressions": 20
-        },
-        {
-          "query": "lavoro ticino ristorazione",
-          "clicks": 1,
-          "impressions": 20
+          "impressions": 17
         },
         {
           "query": "frontalieri",
           "clicks": 0,
           "impressions": 15
-        },
-        {
-          "query": "lavoro ristorazione ticino",
-          "clicks": 0,
-          "impressions": 14
         },
         {
           "query": "offerte lavoro ristorazione svizzera per italiani",
@@ -55767,10 +56326,20 @@
         {
           "query": "tutti ch ristorazione",
           "clicks": 0,
+          "impressions": 12
+        },
+        {
+          "query": "psicologo italiano online svitto",
+          "clicks": 0,
           "impressions": 11
         },
         {
           "query": "tutti ch ristorazione ticino",
+          "clicks": 0,
+          "impressions": 11
+        },
+        {
+          "query": "tutti.ch ristorazione",
           "clicks": 0,
           "impressions": 11
         },
@@ -55780,12 +56349,7 @@
           "impressions": 10
         },
         {
-          "query": "tutti.ch ristorazione",
-          "clicks": 0,
-          "impressions": 10
-        },
-        {
-          "query": "psicologo italiano online svitto",
+          "query": "offerte di lavoro lugano ristorazione",
           "clicks": 0,
           "impressions": 9
         },
@@ -55793,11 +56357,6 @@
           "query": "tutti ch lavoro ticino ristorazione",
           "clicks": 0,
           "impressions": 9
-        },
-        {
-          "query": "offerte di lavoro lugano ristorazione",
-          "clicks": 0,
-          "impressions": 8
         },
         {
           "query": "pranzo di lavoro ticino",
@@ -55815,9 +56374,9 @@
           "impressions": 7
         }
       ],
-      "totalImpressions": 522,
-      "totalClicks": 13,
-      "topQuery": "ristoranti italiani a zurigo che cercano personale",
+      "totalImpressions": 560,
+      "totalClicks": 16,
+      "topQuery": "offerte di lavoro ticino ristorazione",
       "title": "Ristorazione",
       "titleByLocale": {
         "it": "",
@@ -56268,9 +56827,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "sachbearbeiter-in-kanton-gr-ch",
         "it": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "en": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "de": "sachbearbeiter-in-kanton-gr-ch",
         "fr": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       },
       "localePaths": {
@@ -60240,10 +60799,10 @@
         "fr": "seller-in-the-hourly-wage-denner-frick"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/seller-in-the-hourly-wage-denner-frick",
-        "en": "/en/find-jobs-zurich/seller-in-the-hourly-wage-denner-frick",
-        "de": "/de/jobs-in-zurich/seller-in-the-hourly-wage-denner-frick",
-        "fr": "/fr/trouver-emploi-zurich/seller-in-the-hourly-wage-denner-frick"
+        "it": "/cerca-lavoro-argovia/seller-in-the-hourly-wage-denner-frick",
+        "en": "/en/find-jobs-aargau/seller-in-the-hourly-wage-denner-frick",
+        "de": "/de/jobs-im-aargau/seller-in-the-hourly-wage-denner-frick",
+        "fr": "/fr/trouver-emploi-argovie/seller-in-the-hourly-wage-denner-frick"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60690,6 +61249,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+      "locale": "en",
+      "path": "/en/find-jobs-zug/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug",
+      "observedPaths": {
+        "en": "/en/find-jobs-zug/senior-electrical-engineer-control-technology-building-automation-80-100-m-f-yellowshark-ag-zug"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Senior electrical engineer control technology building automation yellowshark ag zug",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -64622,6 +65221,46 @@
       ]
     },
     {
+      "slug": "specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-soleure/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-soleure/specialiste-de-l-exportation-h-f-80-100-yellowshark-ag-egerkingen"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Specialiste de l exportation h yellowshark ag egerkingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
+      ]
+    },
+    {
       "slug": "specialiste-de-la-viande-coop-genossenschaft-zurich-7njkq1",
       "locale": "en",
       "path": "/en/find-jobs-ticino/specialiste-de-la-viande-coop-genossenschaft-zurich-7njkq1",
@@ -66327,6 +66966,63 @@
       ]
     },
     {
+      "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+      "locale": "it",
+      "path": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen/"
+      },
+      "queries": [
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "frontaliere ticino offerte di lavoro",
+      "title": "Strade specialistiche matterhorn gotthard bahn ulrichen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "en": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "de": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "fr": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "en": "/en/find-jobs-valais/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "de": "/de/jobs-im-wallis/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen",
+        "fr": "/fr/trouver-emploi-valais/strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-chur-9ehx4t",
       "locale": "en",
       "path": "/en/find-jobs-ticino/strassenwart-in-kantonale-verwaltung-graubunden-chur-9ehx4t",
@@ -67067,6 +67763,46 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/supporteur-principal-des-tic-h-f-100-yellowshark-ag-munchenstein"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Supporteur principal des tic h yellowshark ag munchenstein",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc"
       ]
     },
     {
@@ -68393,6 +69129,47 @@
       "source": [
         "gsc",
         "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+      "locale": "en",
+      "path": "/en/find-jobs-st-gallen/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg",
+      "observedPaths": {
+        "en": "/en/find-jobs-st-gallen/technical-project-manager-control-technology-m-f-80-100-yellowshark-ag-gossau-sg"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Technical project manager control technology yellowshark ag sg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Gossau",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {},
+      "localePaths": {},
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "slug-parsing"
       ]
     },
@@ -72620,6 +73397,68 @@
       ]
     },
     {
+      "slug": "vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl/"
+      },
+      "queries": [
+        {
+          "query": "coop oberdorf bl",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "oberdorf coop",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 3,
+      "totalClicks": 0,
+      "topQuery": "coop oberdorf bl",
+      "title": "Vendeur de produits frais coop genossenschaft oberdorf bl",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "en": "vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "de": "vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "fr": "vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "en": "/en/find-jobs-basel/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "de": "/de/jobs-im-basel/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl",
+        "fr": "/fr/trouver-emploi-bale/vendeur-de-produits-frais-coop-genossenschaft-oberdorf-bl"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "vendeur-de-produits-frais-coop-genossenschaft-richterswil-e289sz",
       "locale": "it",
       "path": "/cerca-lavoro-basilea/vendeur-de-produits-frais-coop-genossenschaft-richterswil-e289sz",
@@ -74771,10 +75610,10 @@
         "it": "venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden",
-        "en": "/en/find-jobs-st-gallen/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden",
+        "it": "/cerca-lavoro-argovia/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden",
+        "en": "/en/find-jobs-aargau/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden",
         "de": "/de/jobs-im-schaffhausen/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden",
-        "fr": "/fr/trouver-emploi-saint-gall/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden"
+        "fr": "/fr/trouver-emploi-argovie/venditore-di-fiori-chiosco-coop-genossenschaft-unterentfelden"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75810,10 +76649,10 @@
         "it": "venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten",
-        "en": "/en/find-jobs-st-gallen/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten",
+        "it": "/cerca-lavoro-lucerna/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten",
+        "en": "/en/find-jobs-lucerne/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten",
         "de": "/de/jobs-im-uri/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten",
-        "fr": "/fr/trouver-emploi-saint-gall/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten"
+        "fr": "/fr/trouver-emploi-lucerne/venditore-venditrice-prodotti-freschi-pane-coop-genossenschaft-altstatten"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -76912,10 +77751,10 @@
         "fr": "verkaufer-in-frischprodukte-coop-zurich-4-2"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-coop-zurich-4-2",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-coop-zurich-4-2"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "en": "/en/find-jobs-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "de": "/de/jobs-in-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-frischprodukte-coop-zurich-4-2"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

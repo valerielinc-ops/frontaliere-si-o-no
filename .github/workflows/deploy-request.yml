@@ -87,7 +87,12 @@ jobs:
       - name: Checkout dispatcher
         uses: actions/checkout@v7
         with:
+          # Everything the dispatcher opens, not only what it imports: the
+          # script reads this workflow's own paths-ignore from the checkout to
+          # judge a workflow_run completion. tests/deploy-request.test.ts runs
+          # it in a directory holding exactly this list.
           sparse-checkout: |
+            /.github/workflows/deploy-request.yml
             /scripts/ci/request-latest-deploy.mjs
             /scripts/check-pages-publish-lag.mjs
             /scripts/ci/lib/run-listing-window.mjs

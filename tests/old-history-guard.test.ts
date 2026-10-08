@@ -1,17 +1,21 @@
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 
 import {
   assertOldHistorySafe,
   checkOldHistory,
+  describeTrace,
   HISTORY_GRAPH_FETCH_TIMEOUT_MS,
   inspectOldHistory,
   OLD_HISTORY_FIRST_CHANGED_COMMIT,
+  proveHeadAddsNoOldHistory,
 } from '../scripts/lib/old-history-guard.mjs';
+import * as oldHistoryGuard from '../scripts/lib/old-history-guard.mjs';
 
 const git = (cwd: string, ...args: string[]) => execFileSync('git', args, {
   cwd,
@@ -26,6 +30,103 @@ const commit = (cwd: string, message: string) => git(
   '-c', 'user.email=old-history-guard-test@example.invalid',
   'commit', '--no-verify', '-m', message,
 );
+
+const GUARD_SCRIPT = fileURLToPath(new URL('../scripts/lib/old-history-guard.mjs', import.meta.url));
+const appendGitConfigEnvironment = oldHistoryGuard.appendGitConfigEnvironment;
+
+type TraceEntry = { step: string; ms?: number; failed?: boolean; proven?: boolean; why?: string; addedCommits?: number };
+
+const emptyCommit = (cwd: string, message: string) => {
+  git(
+    cwd,
+    '-c', 'user.name=old-history-guard-test',
+    '-c', 'user.email=old-history-guard-test@example.invalid',
+    'commit', '--no-verify', '--allow-empty', '-m', message,
+  );
+  return git(cwd, 'rev-parse', 'HEAD');
+};
+
+/**
+ * A remote in the state the real one is in after the rewrite: `main` carries
+ * the rewritten history, and the previous one (root → marker → old tip) is
+ * still served under another ref. Both share the root, as the real histories
+ * share everything before the first rewritten commit.
+ */
+function rewrittenRemoteFixture() {
+  const root = mkdtempSync(join(tmpdir(), 'old-history-guard-bounded-'));
+  const seed = join(root, 'seed');
+  const remote = join(root, 'remote.git');
+  git(root, 'init', '--bare', '--quiet', remote);
+  git(root, 'init', '--quiet', '--initial-branch=main', seed);
+  const sharedRoot = emptyCommit(seed, 'root');
+  const fixtureMarker = emptyCommit(seed, 'marker');
+  emptyCommit(seed, 'old tip');
+  git(seed, 'push', '--quiet', remote, 'HEAD:refs/heads/old-branch');
+  git(seed, 'switch', '--quiet', '-c', 'rewritten', sharedRoot);
+  const forkPoint = emptyCommit(seed, 'rewritten one');
+  emptyCommit(seed, 'rewritten two');
+  emptyCommit(seed, 'rewritten three');
+  git(seed, 'push', '--quiet', remote, 'HEAD:refs/heads/main');
+  let clones = 0;
+  return {
+    root,
+    seed,
+    remote,
+    fixtureMarker,
+    forkPoint,
+    shallowClone(branch: string) {
+      clones += 1;
+      const directory = join(root, `checkout-${clones}`);
+      execFileSync('git', ['clone', '--quiet', '--depth', '1', '--branch', branch, `file://${remote}`, directory], {
+        encoding: 'utf8',
+        env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' },
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      return directory;
+    },
+    advanceMain(count: number) {
+      git(seed, 'switch', '--quiet', 'rewritten');
+      for (let index = 0; index < count; index += 1) emptyCommit(seed, `main moved ${index}`);
+      git(seed, 'push', '--quiet', remote, 'HEAD:refs/heads/main');
+      return git(seed, 'rev-parse', 'HEAD');
+    },
+    advanceMainWithLargeBlobs() {
+      git(seed, 'switch', '--quiet', 'rewritten');
+      const files = [0, 1, 2].map((index) => `large-${index}.bin`);
+      files.forEach((file, index) => writeFileSync(join(seed, file), Buffer.alloc(2 * 1024 * 1024, 0x61 + index)));
+      git(seed, 'add', ...files);
+      commit(seed, 'main moved with large blobs');
+      git(seed, 'push', '--quiet', remote, 'HEAD:refs/heads/main');
+      return git(seed, 'rev-parse', 'HEAD');
+    },
+    cleanup() {
+      rmSync(root, { recursive: true, force: true });
+    },
+  };
+}
+
+const guardCall = (cwd: string, markerRef: string, trace: TraceEntry[], headRef = 'HEAD') => checkOldHistory({
+  cwd,
+  markerRef,
+  headRef,
+  baseRef: 'refs/remotes/origin/main',
+  refreshBase: true,
+  remote: 'origin',
+  branch: 'main',
+  trace,
+});
+
+const steps = (trace: TraceEntry[]) => trace.map((entry) => entry.step);
+
+const scratchDirectories = () => readdirSync(tmpdir(), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && entry.name.startsWith('old-history-guard-'))
+  .map((entry) => entry.name)
+  .sort();
+
+const filesUnder = (directory: string): string[] => readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+  const path = join(directory, entry.name);
+  return entry.isDirectory() ? filesUnder(path) : [path];
+});
 
 describe('old-history-guard', () => {
   let repo = '';
@@ -138,6 +239,63 @@ describe('old-history-guard', () => {
 
   it('usa un budget separato e bounded per completare un grafo shallow grande', () => {
     expect(HISTORY_GRAPH_FETCH_TIMEOUT_MS).toBe(5 * 60_000);
+  });
+
+  it('accoda la configurazione Git temporanea senza perdere quella già presente', () => {
+    expect(typeof appendGitConfigEnvironment).toBe('function');
+    if (typeof appendGitConfigEnvironment !== 'function') return;
+    const env = appendGitConfigEnvironment({
+      GIT_CONFIG_COUNT: '1',
+      GIT_CONFIG_KEY_0: 'user.name',
+      GIT_CONFIG_VALUE_0: 'preserved',
+    }, [{ key: 'remote.guard.url', value: 'file:///tmp/remote.git' }]);
+
+    expect(env).toMatchObject({
+      GIT_CONFIG_COUNT: '2',
+      GIT_CONFIG_KEY_0: 'user.name',
+      GIT_CONFIG_VALUE_0: 'preserved',
+      GIT_CONFIG_KEY_1: 'remote.guard.url',
+      GIT_CONFIG_VALUE_1: 'file:///tmp/remote.git',
+    });
+  });
+
+  it('toglie dall’ambiente dello scratch ciò che lega un comando al checkout, non le credenziali', () => {
+    const { detachedRepositoryEnvironment, REPOSITORY_BINDING_ENVIRONMENT } = oldHistoryGuard;
+    expect(typeof detachedRepositoryEnvironment).toBe('function');
+    if (typeof detachedRepositoryEnvironment !== 'function') return;
+
+    const bindings = Object.fromEntries(REPOSITORY_BINDING_ENVIRONMENT.map((name) => [name, `/checkout/${name}`]));
+    const env = detachedRepositoryEnvironment({
+      ...bindings,
+      PATH: '/usr/bin',
+      GIT_CONFIG_PARAMETERS: "'http.extraheader=AUTHORIZATION: basic caller'",
+      GIT_CONFIG_COUNT: '1',
+      GIT_CONFIG_KEY_0: 'http.https://example.invalid/.extraheader',
+      GIT_CONFIG_VALUE_0: 'AUTHORIZATION: basic preserved',
+    }, [{ key: 'remote.guard.url', value: 'file:///tmp/remote.git' }]);
+
+    expect(Object.keys(env).filter((name) => REPOSITORY_BINDING_ENVIRONMENT.includes(name))).toEqual([]);
+    expect(env).toMatchObject({
+      PATH: '/usr/bin',
+      GIT_TERMINAL_PROMPT: '0',
+      GIT_CONFIG_PARAMETERS: "'http.extraheader=AUTHORIZATION: basic caller'",
+      GIT_CONFIG_COUNT: '2',
+      GIT_CONFIG_KEY_0: 'http.https://example.invalid/.extraheader',
+      GIT_CONFIG_VALUE_0: 'AUTHORIZATION: basic preserved',
+      GIT_CONFIG_KEY_1: 'remote.guard.url',
+      GIT_CONFIG_VALUE_1: 'file:///tmp/remote.git',
+    });
+  });
+
+  it('copre ogni variabile che git dichiara locale al repository', () => {
+    // If a newer git binds its children through one more variable, the scratch
+    // repository must drop that one too: this is where it shows up.
+    const configCarriers = ['GIT_CONFIG_PARAMETERS', 'GIT_CONFIG_COUNT'];
+    const declared = git(repo, 'rev-parse', '--local-env-vars').split('\n').filter(Boolean);
+
+    expect(declared).toEqual(expect.arrayContaining(['GIT_DIR', 'GIT_INDEX_FILE', 'GIT_OBJECT_DIRECTORY']));
+    expect(declared.filter((name) => !configCarriers.includes(name)
+      && !(oldHistoryGuard.REPOSITORY_BINDING_ENVIRONMENT || []).includes(name))).toEqual([]);
   });
 
   it('completa il grafo per un marker locale scollegato dall’head shallow', () => {
@@ -256,6 +414,351 @@ describe('old-history-guard', () => {
       expect(git(shallow, 'rev-parse', '--is-shallow-repository')).toBe('false');
     } finally {
       rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  // ── The bounded proof ────────────────────────────────────────────────────
+  // After the rewrite every data writer on a shallow checkout paid for the
+  // whole commit graph before its first commit (61.6 s in a crawler group, 83 s
+  // in the job that then ran out of its 30 minutes). These cases pin the
+  // ordinary shapes that are decided in one fetch, and the ones that are not.
+
+  it('decide un checkout shallow di main senza marker né grafo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(steps(trace)).toEqual(['remote-descends-from-base', 'bounded-proof']);
+      expect(trace[1]).toMatchObject({ proven: true, addedCommits: 0 });
+      // The checkout is left as `actions/checkout` made it.
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
+      expect(() => git(checkout, 'cat-file', '-e', `${fixture.fixtureMarker}^{commit}`)).toThrow();
+      expect(() => git(checkout, 'config', '--get', 'remote.origin.promisor')).toThrow();
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('su un clone parziale non chiede il marker al promisor: decide senza scaricarlo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      // The monitors' checkout is shallow and blobless, so git has a promisor to
+      // ask, and this remote serves the previous history by id as the real one does.
+      git(fixture.remote, 'config', 'uploadpack.allowFilter', 'true');
+      git(fixture.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      const checkout = join(fixture.root, 'partial-checkout');
+      execFileSync('git', [
+        'clone', '--quiet', '--depth', '1', '--filter=blob:none', '--branch', 'main', `file://${fixture.remote}`, checkout,
+      ], { encoding: 'utf8', env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' }, stdio: ['ignore', 'pipe', 'pipe'] });
+      expect(git(checkout, 'config', '--get', 'remote.origin.promisor')).toBe('true');
+      const markerIsLocal = () => {
+        try {
+          execFileSync('git', ['cat-file', '-e', `${fixture.fixtureMarker}^{commit}`], {
+            cwd: checkout,
+            env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1', GIT_NO_LAZY_FETCH: '1' },
+            stdio: 'ignore',
+          });
+          return true;
+        } catch {
+          return false;
+        }
+      };
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(steps(trace)).toEqual(['remote-descends-from-base', 'bounded-proof']);
+      expect(markerIsLocal()).toBe(false);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('non lascia nel checkout l’URL del remoto: né remoto promisor né FETCH_HEAD (issue 12320)', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      fixture.advanceMain(1);
+      // The data-refresh helper passes the push URL, which carries its token.
+      // A filtered fetch would register that URL as a promisor remote.
+      const remoteUrl = `file://localhost${fixture.remote}`;
+      const fetchHead = () => {
+        try {
+          return readFileSync(join(checkout, '.git', 'FETCH_HEAD'), 'utf8');
+        } catch {
+          return null;
+        }
+      };
+      const fetchHeadBefore = fetchHead();
+
+      expect(checkOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: remoteUrl,
+        branch: 'main',
+      })).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+
+      const remoteKeys = git(checkout, 'config', '--local', '--name-only', '--get-regexp', '^remote\\.');
+      expect(remoteKeys.split('\n').filter((key) => !key.startsWith('remote.origin.'))).toEqual([]);
+      expect(remoteKeys).not.toContain('promisor');
+      expect(fetchHead()).toBe(fetchHeadBefore);
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
+      const gitDirectory = resolve(checkout, git(checkout, 'rev-parse', '--git-dir'));
+      const urlBytes = Buffer.from(remoteUrl);
+      expect(filesUnder(gitDirectory).filter((path) => readFileSync(path).includes(urlBytes))).toEqual([]);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('decide senza toccare il checkout quando main è avanzato con blob grandi', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      git(fixture.remote, 'config', 'uploadpack.allowFilter', 'true');
+      git(fixture.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true');
+      const baseBefore = git(checkout, 'rev-parse', 'refs/remotes/origin/main');
+      const objectsBefore = git(checkout, 'count-objects', '-v');
+      const fetchHeadBefore = (() => {
+        try {
+          return readFileSync(join(checkout, '.git', 'FETCH_HEAD'), 'utf8');
+        } catch {
+          return null;
+        }
+      })();
+      const remoteKeysBefore = git(checkout, 'config', '--local', '--name-only', '--get-regexp', '^remote\\.');
+      const shallowBefore = readFileSync(resolve(checkout, git(checkout, 'rev-parse', '--git-path', 'shallow')), 'utf8');
+      const movedTip = fixture.advanceMainWithLargeBlobs();
+      const scratchBefore = scratchDirectories();
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(steps(trace)).toEqual(['remote-descends-from-base', 'bounded-proof']);
+      expect(trace.at(-1)).toMatchObject({ step: 'bounded-proof', proven: true, addedCommits: 0 });
+      // The scratch proof must leave the actions/checkout state untouched.
+      expect(movedTip).not.toBe(baseBefore);
+      expect(git(checkout, 'rev-parse', 'refs/remotes/origin/main')).toBe(baseBefore);
+      expect(git(checkout, 'count-objects', '-v')).toBe(objectsBefore);
+      expect((() => {
+        try {
+          return readFileSync(join(checkout, '.git', 'FETCH_HEAD'), 'utf8');
+        } catch {
+          return null;
+        }
+      })()).toBe(fetchHeadBefore);
+      expect(git(checkout, 'config', '--local', '--name-only', '--get-regexp', '^remote\\.')).toBe(remoteKeysBefore);
+      expect(readFileSync(resolve(checkout, git(checkout, 'rev-parse', '--git-path', 'shallow')), 'utf8')).toBe(shallowBefore);
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
+      expect(scratchDirectories()).toEqual(scratchBefore);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('non scrive nel checkout quando git esporta GIT_DIR, come all’hook pre-push di un worktree collegato', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      git(fixture.remote, 'config', 'uploadpack.allowFilter', 'true');
+      fixture.advanceMain(2);
+      const gitDirectory = resolve(checkout, git(checkout, 'rev-parse', '--git-dir'));
+      const state = () => ({
+        refs: git(checkout, 'for-each-ref', '--format=%(refname) %(objectname)'),
+        shallow: (() => {
+          try {
+            return readFileSync(join(gitDirectory, 'shallow'), 'utf8');
+          } catch {
+            return null;
+          }
+        })(),
+        config: git(checkout, 'config', '--local', '--list'),
+        objects: git(checkout, 'count-objects', '-v'),
+      });
+      const before = state();
+      const scratchBefore = scratchDirectories();
+
+      // What git 2.54 exports to a pre-push hook in a linked worktree, plus the
+      // index a commit-time hook would see.
+      const output = execFileSync(process.execPath, [
+        GUARD_SCRIPT, '--head', 'HEAD', '--base', 'refs/remotes/origin/main', '--refresh-base', '--remote', 'origin', '--branch', 'main',
+      ], {
+        cwd: checkout,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          GIT_CONFIG_NOSYSTEM: '1',
+          GIT_DIR: gitDirectory,
+          GIT_INDEX_FILE: join(gitDirectory, 'index'),
+          GIT_PREFIX: '',
+        },
+      });
+
+      expect(output).toMatch(/\[discendenza del ramo remoto dal base: \d+\.\d s; prova limitata riuscita, 0 commit sopra il base\]/);
+      // Without the detached environment the checkout gained refs/heads/remote
+      // and a promisor remote with no URL, and lost its shallow boundary.
+      expect(state()).toEqual(before);
+      expect(scratchDirectories()).toEqual(scratchBefore);
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('decide un writer che ha già committato sopra il checkout, e il commit che sta per pushare', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      fixture.advanceMain(2);
+      const local = emptyCommit(checkout, 'data refresh');
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(trace.at(-1)).toMatchObject({ step: 'bounded-proof', proven: true, addedCommits: 1 });
+      // The pre-push hook passes the pushed commit, not HEAD.
+      expect(guardCall(checkout, fixture.fixtureMarker, [], local)).toEqual({ outcome: 'pass', reason: 'head-adds-no-old-history' });
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('non decide un checkout shallow rimasto sulla storia precedente: lo blocca il controllo completo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      // The run that the guard exists for: checked out before the rewrite,
+      // still running (or re-run) after it.
+      const checkout = fixture.shallowClone('old-branch');
+      const oldBase = git(checkout, 'rev-parse', 'HEAD');
+      git(checkout, 'update-ref', 'refs/remotes/origin/main', oldBase);
+      const trace: TraceEntry[] = [];
+
+      expect(guardCall(checkout, fixture.fixtureMarker, trace)).toMatchObject({ outcome: 'blocked' });
+      expect(trace.find((entry) => entry.step === 'remote-descends-from-base')).toMatchObject({
+        proven: false,
+        why: 'base-not-in-remote-branch',
+      });
+      expect(trace.find((entry) => entry.step === 'bounded-proof')).toMatchObject({
+        proven: false,
+        why: 'added-commit-on-shallow-boundary',
+      });
+      expect(steps(trace)).toEqual(['remote-descends-from-base', 'refresh-base', 'bounded-proof', 'fetch-marker', 'complete-shallow-history']);
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('false');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('prova limitata: una storia del base troncata allunga l’elenco, e il marker nell’elenco la ferma', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      // Two branches forked below the shallow boundary of main: one on the
+      // rewritten history, one that carries the marker.
+      git(fixture.seed, 'switch', '--quiet', '-c', 'clean-branch', fixture.forkPoint);
+      emptyCommit(fixture.seed, 'clean work');
+      git(fixture.seed, 'push', '--quiet', fixture.remote, 'HEAD:refs/heads/clean-branch');
+      const checkout = fixture.shallowClone('main');
+      git(checkout, 'fetch', '--quiet', '--no-tags', 'origin',
+        '+refs/heads/clean-branch:refs/remotes/origin/clean-branch',
+        '+refs/heads/old-branch:refs/remotes/origin/old-branch');
+      const proof = (headRef: string) => proveHeadAddsNoOldHistory({
+        cwd: checkout,
+        markerRef: fixture.fixtureMarker,
+        headRef,
+        baseRef: 'refs/remotes/origin/main',
+      });
+
+      // root and «rewritten one» are ancestors of main, but the checkout cannot
+      // see that below its boundary: they are listed, and the proof still holds.
+      expect(proof('refs/remotes/origin/clean-branch')).toEqual({ proven: true, addedCommits: 3 });
+      expect(proof('refs/remotes/origin/old-branch')).toEqual({ proven: false, why: 'marker-among-added-commits' });
+      expect(guardCall(checkout, fixture.fixtureMarker, [], 'refs/remotes/origin/old-branch')).toMatchObject({ outcome: 'blocked' });
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('un base che non si aggiorna lascia la decisione al controllo completo', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      const trace: TraceEntry[] = [];
+
+      // No such branch on the remote: the refresh fails, the proof is not
+      // attempted, and the ordinary path answers as it did before.
+      expect(checkOldHistory({
+        cwd: checkout,
+        markerRef: '0'.repeat(40),
+        headRef: 'HEAD',
+        baseRef: 'refs/remotes/origin/main',
+        refreshBase: true,
+        remote: 'origin',
+        branch: 'no-such-branch',
+        trace,
+      })).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
+      expect(trace[0]).toMatchObject({ step: 'remote-descends-from-base', proven: false, why: 'base-not-in-remote-branch' });
+      expect(trace[1]).toMatchObject({ step: 'refresh-base', failed: true });
+      expect(trace[2]).toMatchObject({ step: 'bounded-proof', proven: false, why: 'base-refresh-failed' });
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('ricade senza eccezione quando il remoto è irraggiungibile e pulisce lo scratch', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      const missingRemote = `file://${join(fixture.root, 'missing.git')}`;
+      const scratchBefore = scratchDirectories();
+      const trace: TraceEntry[] = [];
+
+      let result;
+      expect(() => {
+        result = checkOldHistory({
+          cwd: checkout,
+          markerRef: '0'.repeat(40),
+          headRef: 'HEAD',
+          baseRef: 'refs/remotes/origin/main',
+          refreshBase: true,
+          remote: missingRemote,
+          branch: 'main',
+          trace,
+        });
+      }).not.toThrow();
+      expect(result).toEqual({ outcome: 'pass', reason: 'marker-unavailable' });
+      expect(trace[0]).toMatchObject({ step: 'remote-descends-from-base', proven: false, why: 'remote-descent-unverified' });
+      expect(scratchDirectories()).toEqual(scratchBefore);
+      expect(git(checkout, 'rev-parse', '--is-shallow-repository')).toBe('true');
+    } finally {
+      fixture.cleanup();
+    }
+  });
+
+  it('la riga del verdetto dice quale prova ha deciso e quanto è costata', () => {
+    const fixture = rewrittenRemoteFixture();
+    try {
+      const checkout = fixture.shallowClone('main');
+      // The marker is a constant of the real repository, absent from this
+      // remote: the command line exercises the same path a data writer takes.
+      const output = execFileSync(process.execPath, [
+        GUARD_SCRIPT, '--head', 'HEAD', '--base', 'refs/remotes/origin/main', '--refresh-base', '--remote', 'origin', '--branch', 'main',
+      ], { cwd: checkout, encoding: 'utf8', env: { ...process.env, GIT_CONFIG_NOSYSTEM: '1' } });
+
+      expect(output).toMatch(/controllo superato senza scaricare il grafo\. \[discendenza del ramo remoto dal base: \d+\.\d s; prova limitata riuscita, 0 commit sopra il base\]/);
+      expect(describeTrace([
+        { step: 'refresh-base', ms: 900 },
+        { step: 'bounded-proof', proven: false, why: 'added-commit-on-shallow-boundary' },
+        { step: 'complete-shallow-history', ms: 61_600 },
+      ])).toBe(' [aggiornamento del base: 0.9 s; prova limitata non conclusiva: added-commit-on-shallow-boundary; completamento del grafo della storia: 61.6 s]');
+      expect(describeTrace([{ step: 'complete-shallow-history', ms: 300_000, failed: true }]))
+        .toBe(' [completamento del grafo della storia: non riuscito dopo 300.0 s]');
+      expect(describeTrace([{ step: 'remote-descends-from-base', ms: 100, proven: false, why: 'base-not-in-remote-branch' }]))
+        .toBe(' [discendenza del ramo remoto dal base: non conclusiva: base-not-in-remote-branch dopo 0.1 s]');
+      expect(describeTrace([])).toBe('');
+    } finally {
+      fixture.cleanup();
     }
   });
 });

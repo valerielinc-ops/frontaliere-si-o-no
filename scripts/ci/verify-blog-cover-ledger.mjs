@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { coverKey, validateImageCreditRecord } from '../../packages/articles/engine/shared/imageCredits.mjs';
 import { validateGeneratedImageRegistry } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
+import { isExplicitInferredCover } from '../lib/blog-cover-decisions.mjs';
 
 const ROOT = process.cwd();
 const REGISTRIES = [
@@ -66,16 +67,7 @@ function main() {
     }
     const record = recordForKey(key);
     if (!record) {
-      const indexEntry = imageCreditsIndex.covers?.[key];
-      const inferred = inventoryItem.proofLevel === 6
-        && inventoryItem.evidence === 'inferred'
-        && typeof inventoryItem.verifiedAt === 'string'
-        && inventoryItem.status === 'no-credit'
-        && indexEntry?.evidence === 'inferred'
-        && indexEntry?.provider === null
-        && indexEntry?.verifiedAt === inventoryItem.verifiedAt
-        && indexEntry?.status === 'no-credit';
-      if (inferred) {
+      if (isExplicitInferredCover(inventoryItem, imageCreditsIndex.covers?.[key])) {
         counts.inferred += 1;
         continue;
       }

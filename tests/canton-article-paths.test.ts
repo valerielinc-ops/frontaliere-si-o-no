@@ -4,7 +4,7 @@
  *
  * The corpus still owns the initial HTML, but live landing/archive/article
  * paths are now handed to the same React blog view as the historical hubs.
- * Topic hubs remain corpus-owned static pages in this site-only change.
+ * Topic hubs hydrate through the same React shell after the corpus payload is validated.
  * A canton URL that is not live yet answers 404 and its SPA fallback restores
  * the path on the homepage document: there the result must stay what it was
  * before the canton sections existed (notFoundPath).
@@ -97,7 +97,7 @@ describe('parsePath on canton article sections', () => {
     }
   });
 
-  it('recognizes the localized archive root and paginated archive without taking over topic hubs', () => {
+  it('recognizes the localized archive root and paginated archive and resolves topic hubs', () => {
     vi.stubGlobal('document', fakeDocument('corpus'));
     expect(parsePath('/articoli-zurigo/tutti/').route).toMatchObject({
       activeTab: 'blog',
@@ -113,7 +113,7 @@ describe('parsePath on canton article sections', () => {
     expect(parsePath('/articoli-zurigo/carburanti/').route).toEqual({
       activeTab: 'blog',
       blogSection: 'canton-zh',
-      staticOverlay: true,
+      cantonTopic: 'carburanti',
     });
   });
 
@@ -148,6 +148,20 @@ describe('parsePath on canton article sections', () => {
       .toBe('/articoli-zurigo/tutti/');
     expect(buildPath({ activeTab: 'blog', blogSection: 'canton-zh', blogArchive: true, blogPage: 3 }, 'en'))
       .toBe('/en/zurich-articles/all/page-3/');
+  });
+
+  it('builds all localized canton topic hubs from their reserved topic ids', () => {
+    const entry = CANTON_ARTICLE_SECTION_CORE['canton-zh'];
+    for (const topic of Object.keys(entry.topicHubs ?? {})) {
+      for (const locale of LOCALES) {
+        const path = buildPath({ activeTab: 'blog', blogSection: 'canton-zh', cantonTopic: topic }, locale);
+        expect(path, `${topic}:${locale}`).toBe(
+          locale === 'it'
+            ? `/${entry.indexSlug.it}/${entry.topicHubs?.[topic]?.[locale]}/`
+            : `/${locale}/${entry.indexSlug[locale]}/${entry.topicHubs?.[topic]?.[locale]}/`,
+        );
+      }
+    }
   });
 
   it('parses the path contract independently of document ownership', () => {

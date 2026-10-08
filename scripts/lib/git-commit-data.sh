@@ -60,6 +60,32 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+
+# The fetch ceiling is supported by issue 12175's 61.6, 62.6, 83.0 and
+# 95.1-second commit-graph measurements. The pull ceiling has no direct
+# measurement; the push ceiling follows the 180-second refresh policy already
+# in use. These GIT_COMMIT_DATA_* overrides are only for the test bench;
+# production keeps the declared defaults.
+#
+# The unshallow fetch has a ceiling of its own, and it is not the fetch one.
+# It downloads the whole history of main: 31.44 GiB reachable from origin/main
+# across 124,981 commits, measured on a complete clone on 2026-10-08. Under the
+# ordinary 300 seconds it could never finish, and `ensure_full_history` would
+# turn "slow" into "refusing to guess" on every run. Its real duration has not
+# been measured in CI; an hour bounds a hung transfer without cutting one that
+# is still arriving. The crawler-group jobs that reach it allow 340 minutes.
+GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-300}"
+GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS:-3600}"
+GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
+GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
+
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
 # Register the seo-404 compat-shard merge driver (.gitattributes
 # `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
 # auto-resolve as a 3-way SET merge (deduped + sorted) instead of git's default
@@ -389,7 +415,8 @@ _SHALLOW_CHECKOUT_STATUS=""
 ensure_full_history() {
   if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
     if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
-      if git fetch --unshallow origin main >/dev/null 2>&1 \
+      if run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS" "git fetch --unshallow origin main" \
+        bash -c 'git fetch --unshallow origin main >/dev/null 2>&1' \
         && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
         _SHALLOW_CHECKOUT_STATUS="unshallowed"
       else
@@ -1240,7 +1267,8 @@ function sameNonEmptyLocaleMergeText(left, right) {
  * Protect only the narrow, observable regression:
  * - sourceLang is present in the merge base and the same on remote and local;
  * - the source field is present in the merge base and unchanged on both sides;
- * - local non-source slot is a normalized copy of that source field; and
+ * - local non-source slot is missing, too short, or a normalized copy of that
+ *   source field; and
  * - remote has a non-empty, different value for the same slot.
  *
  * If the source or source language changed, the local copy remains authoritative
@@ -1277,8 +1305,24 @@ function planLocaleTranslationProtection(baseObj, remoteObj, localObj) {
       if (locale === sourceLang) continue;
       const localValue = localMap[locale];
       const remoteValue = remoteMap[locale];
-      if (!sameNonEmptyLocaleMergeText(localValue, localSource)) continue;
-      if (normalizeLocaleMergeText(remoteValue).length === 0) continue;
+      const localText = normalizeLocaleMergeText(localValue);
+      const remoteText = normalizeLocaleMergeText(remoteValue);
+      const localIsSourceCopy = sameNonEmptyLocaleMergeText(localValue, localSource);
+      const localIsShort = localText.length < (field === 'title' ? 3 : 120);
+      const localSlotIsRegression = localText.length === 0
+        || localIsSourceCopy
+        || localIsShort;
+      if (!localSlotIsRegression) continue;
+      if (remoteText.length === 0) continue;
+      // A short local translation can also be a genuine detector finding. Only
+      // replace it when the remote side carries a complete value; source-copy
+      // and empty local slots remain unambiguous crawler regressions even when
+      // the reduced fixture uses a short remote string.
+      // An EMPTY local slot is not a short translation: it carries no
+      // detector finding to respect, so a valid short remote value (a title
+      // such as "HR") is still restored.
+      if (localText.length > 0 && localIsShort && !localIsSourceCopy
+          && remoteText.length < (field === 'title' ? 3 : 120)) continue;
       if (sameNonEmptyLocaleMergeText(remoteValue, remoteSource)) continue;
       if (sameNonEmptyLocaleMergeText(localValue, remoteValue)) continue;
       repairs.push({ mapKey, locale, value: remoteValue });
@@ -1296,7 +1340,7 @@ function applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, 
     merged[mapKey][locale] = clone(value);
   }
 
-  // A crawler flag caused only by the source-copy regression is stale once both
+  // A crawler flag caused only by this stale-slot regression is stale once both
   // locale maps are exactly the pipeline's remote maps. Do not clear a marker
   // for a different detector finding or when the remote writer still has it.
   const mapsMatchRemote = ['titleByLocale', 'descriptionByLocale'].every((mapKey) => {
@@ -1312,10 +1356,10 @@ function applyLocaleTranslationProtection(baseObj, remoteObj, localObj, merged, 
 
   const fields = repairs.map(({ mapKey, locale }) => `${mapKey}.${locale}`).join(', ');
   warnings.push(
-    `Preserved remote locale translation at ${pathLabel} (${fields}) because the local source copy had unchanged source text.`
+    `Preserved remote locale translation at ${pathLabel} (${fields}) because the local slot was missing, short, or a source copy while source text stayed unchanged.`
   );
   if (clearLocalFlag) {
-    warnings.push(`Preserved remote needsRetranslation state at ${pathLabel} after source-copy repair.`);
+    warnings.push(`Preserved remote needsRetranslation state at ${pathLabel} after stale-slot repair.`);
   }
   return clearLocalFlag;
 }
@@ -1327,16 +1371,65 @@ function applyLocaleTranslationProtectionToValue(
   merged,
   warnings,
   pathLabel,
+  forcedKey = '',
 ) {
-  if (!isPlainObject(merged)) return;
-  applyLocaleTranslationProtection(
-    isPlainObject(baseValue) ? baseValue : {},
-    isPlainObject(remoteValue) ? remoteValue : {},
-    isPlainObject(localValue) ? localValue : {},
-    merged,
-    warnings,
-    pathLabel,
+  if (isPlainObject(merged)) {
+    applyLocaleTranslationProtection(
+      isPlainObject(baseValue) ? baseValue : {},
+      isPlainObject(remoteValue) ? remoteValue : {},
+      isPlainObject(localValue) ? localValue : {},
+      merged,
+      warnings,
+      pathLabel,
+    );
+
+    // The root of a crawler slice is an object containing a jobs array. A
+    // base-equality fast path returns that object before mergeValue() reaches
+    // each job, so walk nested containers here as well. Otherwise a file whose
+    // remote root is unchanged bypasses the same protection that works when a
+    // different job made the root a normal object merge.
+    const baseObj = isPlainObject(baseValue) ? baseValue : {};
+    const remoteObj = isPlainObject(remoteValue) ? remoteValue : {};
+    const localObj = isPlainObject(localValue) ? localValue : {};
+    for (const key of Object.keys(merged)) {
+      const child = merged[key];
+      if (!isPlainObject(child) && !Array.isArray(child)) continue;
+      applyLocaleTranslationProtectionToValue(
+        baseObj[key],
+        remoteObj[key],
+        localObj[key],
+        child,
+        warnings,
+        `${pathLabel}.${key}`,
+        forcedKey,
+      );
+    }
+    return;
+  }
+  if (!Array.isArray(merged)) return;
+
+  const keyHint = detectArrayKey(
+    [baseValue, remoteValue, localValue, merged],
+    forcedKey,
   );
+  if (!keyHint) return;
+  const baseData = arrayToMap(Array.isArray(baseValue) ? baseValue : [], keyHint);
+  const remoteData = arrayToMap(Array.isArray(remoteValue) ? remoteValue : [], keyHint);
+  const localData = arrayToMap(Array.isArray(localValue) ? localValue : [], keyHint);
+  const mergedData = arrayToMap(merged, keyHint);
+  for (const key of mergedData.order) {
+    const child = mergedData.map.get(key);
+    if (!isPlainObject(child)) continue;
+    applyLocaleTranslationProtectionToValue(
+      baseData.map.get(key),
+      remoteData.map.get(key),
+      localData.map.get(key),
+      child,
+      warnings,
+      `${pathLabel}[${keyHint}=${key}]`,
+      '',
+    );
+  }
 }
 
 function mergeValue(baseValue, remoteValue, localValue, warnings, pathLabel, forcedKey = '') {
@@ -1814,7 +1907,8 @@ git_fetch_retry() {
   local attempts=0
   while true; do
     attempts=$((attempts + 1))
-    if git fetch origin main; then
+    if run_bounded "$GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS" "git fetch origin main" \
+      git fetch origin main; then
       return 0
     fi
     if [ "$attempts" -ge "$MAX_FETCH_ATTEMPTS" ]; then
@@ -1923,6 +2017,51 @@ if (lines.length > 0) {
 NODE
 }
 
+# ── The private index on a partial clone ─────────────────────────────────────
+# The private index is seeded with the WHOLE remote tree (`read-tree
+# "$remote_sha"`) and then receives only this writer's files. A plain
+# `git write-tree` insists that every blob named by the index exists locally,
+# and on a partial clone it makes that true: one bulk fetch from the promisor
+# of every blob the checkout had left out. The three monitors that commit a
+# single series check out with `filter: blob:none` precisely not to download
+# the repository, and paid for all of it at commit time instead.
+#   Measured on unsubscribe-credential-monitor: from "1 file(s) computed" to
+#   the push result, 298 s on 2026-10-06 (run 37479001157) and 321 s on
+#   2026-10-08 (run 37756906498), where the push then lost the race for `main`
+#   and the rebuilt second attempt (blobs already local) took 19 s. The job
+#   cap is 10 minutes. On a partial clone of the real repository the same
+#   index is written by `write-tree --missing-ok` in 0.09 s.
+# `--missing-ok` is the right contract here, not a shortcut: every blob in the
+# tree is either one the remote already has (it came from `remote_sha`) or one
+# this run wrote, and the second kind is vouched for explicitly, one by one,
+# by stage_isolated_blob below. That check is also stricter than the implicit
+# one it replaces: `update-index --cacheinfo` records any id it is handed.
+stage_isolated_blob() {
+  local index_file="$1" mode="$2" blob="$3" path="$4"
+  if [ -z "$blob" ] || ! GIT_NO_LAZY_FETCH=1 git cat-file -e "${blob}^{blob}" 2>/dev/null; then
+    echo "❌ grouped-isolated: the blob to stage for $path is not in the local object store (${blob:-empty id}) — refusing to publish a tree that references it"
+    return 1
+  fi
+  if ! GIT_INDEX_FILE="$index_file" git update-index --add --cacheinfo "${mode},${blob},${path}"; then
+    echo "❌ grouped-isolated: could not stage $path in the private index — refusing a commit that would silently leave it out"
+    return 1
+  fi
+}
+
+# Prints the tree id on stdout. This function runs with errexit suspended
+# (its caller is invoked through `||`), so a failed write must be turned into
+# a return code here: an empty tree id used to flow into `commit-tree`, and
+# the empty commit id that followed into `git push origin :refs/heads/main`,
+# which is a request to DELETE the branch.
+write_isolated_tree() {
+  local index_file="$1" tree
+  if ! tree="$(GIT_INDEX_FILE="$index_file" git write-tree --missing-ok)" || [ -z "$tree" ]; then
+    echo "❌ grouped-isolated: git write-tree failed — refusing to build a commit from an unwritten tree" >&2
+    return 1
+  fi
+  printf '%s\n' "$tree"
+}
+
 append_translation_stats_to_index() {
   local tmp_index="$1"
   local tree_sha="$2"
@@ -1962,8 +2101,115 @@ append_translation_stats_to_index() {
     return 1
   fi
   stats_blob="$(git hash-object -w -- "$stats_file")"
-  GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${stats_blob},data/translation-stats-history.json"
+  if ! stage_isolated_blob "$tmp_index" "100644" "$stats_blob" "data/translation-stats-history.json"; then
+    rm -rf "$stats_root"
+    return 1
+  fi
   rm -rf "$stats_root"
+}
+
+# ── Where an isolated attempt spends its time ────────────────────────────────
+# One line per attempt. Everything in this path runs inside the global
+# data-pipeline lease, and most of it is silent: a stall used to be visible
+# only as a gap between two log timestamps. Issue 12379 measured 52-197 s
+# without a single log line in the first attempt of the crawler groups, and
+# the blobless write-tree fixed in PR 12388 cost 298-321 s the same way.
+# Observation only: nothing here changes what is staged, merged or pushed.
+declare -A _ISOLATED_PHASE_MS=()
+declare -A _ISOLATED_PHASE_NOTE=()
+declare -A _ISOLATED_FILE_PHASE_MS=()
+_ISOLATED_PHASE_ORDER=()
+_ISOLATED_FILE_CURRENT=""
+_ISOLATED_FILE_STARTED=0
+_ISOLATED_SLOWEST_FILE=""
+_ISOLATED_SLOWEST_FILE_MS=0
+# The parts of the per-file loop that run a subprocess over whole slices.
+_ISOLATED_FILE_PHASES=(retirement-history ownership merge integrity)
+
+# isolated_mark <variable>: milliseconds since the epoch, without a fork.
+isolated_mark() {
+  local micros
+  if [ -n "${EPOCHREALTIME:-}" ]; then
+    micros="${EPOCHREALTIME/[.,]/}"
+    printf -v "$1" '%s' "$(( micros / 1000 ))"
+  else
+    printf -v "$1" '%s' "$(( $(date +%s) * 1000 ))"
+  fi
+}
+
+isolated_phase_reset() {
+  _ISOLATED_PHASE_MS=()
+  _ISOLATED_PHASE_NOTE=()
+  _ISOLATED_FILE_PHASE_MS=()
+  _ISOLATED_PHASE_ORDER=()
+  _ISOLATED_FILE_CURRENT=""
+  _ISOLATED_SLOWEST_FILE=""
+  _ISOLATED_SLOWEST_FILE_MS=0
+}
+
+# isolated_phase_add <label> <started_ms>: the phases of the attempt, in order.
+isolated_phase_add() {
+  local label="$1" started="$2" now spent
+  isolated_mark now
+  if [ -z "${_ISOLATED_PHASE_MS[$label]+set}" ]; then
+    _ISOLATED_PHASE_ORDER+=("$label")
+    _ISOLATED_PHASE_MS[$label]=0
+  fi
+  spent="${_ISOLATED_PHASE_MS[$label]}"
+  _ISOLATED_PHASE_MS[$label]=$(( spent + now - started ))
+}
+
+# isolated_file_phase_add <label> <started_ms>: what the per-file loop is made of.
+isolated_file_phase_add() {
+  local label="$1" started="$2" now spent
+  isolated_mark now
+  spent="${_ISOLATED_FILE_PHASE_MS[$label]:-0}"
+  _ISOLATED_FILE_PHASE_MS[$label]=$(( spent + now - started ))
+}
+
+# isolated_file_begin <path>: closes the previous file and starts the clock for
+# this one, so a file that leaves the loop body early is still accounted for.
+isolated_file_begin() {
+  isolated_file_end
+  _ISOLATED_FILE_CURRENT="$1"
+  isolated_mark _ISOLATED_FILE_STARTED
+}
+
+isolated_file_end() {
+  local now spent
+  [ -n "$_ISOLATED_FILE_CURRENT" ] || return 0
+  isolated_mark now
+  spent=$(( now - _ISOLATED_FILE_STARTED ))
+  if [ "$spent" -gt "$_ISOLATED_SLOWEST_FILE_MS" ]; then
+    _ISOLATED_SLOWEST_FILE_MS="$spent"
+    _ISOLATED_SLOWEST_FILE="$_ISOLATED_FILE_CURRENT"
+  fi
+  _ISOLATED_FILE_CURRENT=""
+}
+
+isolated_format_ms() {
+  printf '%d.%d s' "$(( $1 / 1000 ))" "$(( ($1 % 1000) / 100 ))"
+}
+
+isolated_phase_report() {
+  local attempt="$1" label sub line="" detail
+  for label in ${_ISOLATED_PHASE_ORDER[@]+"${_ISOLATED_PHASE_ORDER[@]}"}; do
+    line+="${line:+, }${label} $(isolated_format_ms "${_ISOLATED_PHASE_MS[$label]}")"
+    detail="${_ISOLATED_PHASE_NOTE[$label]:-}"
+    if [ "$label" = files ]; then
+      for sub in "${_ISOLATED_FILE_PHASES[@]}"; do
+        # Under a tenth of a second a sub-phase is measurement noise.
+        [ "${_ISOLATED_FILE_PHASE_MS[$sub]:-0}" -ge 100 ] || continue
+        detail+="${detail:+, }${sub} $(isolated_format_ms "${_ISOLATED_FILE_PHASE_MS[$sub]}")"
+      done
+      # One slow file and many quick ones call for different fixes.
+      if [ "$_ISOLATED_SLOWEST_FILE_MS" -ge 1000 ]; then
+        detail+="${detail:+; }slowest ${_ISOLATED_SLOWEST_FILE} $(isolated_format_ms "$_ISOLATED_SLOWEST_FILE_MS")"
+      fi
+    fi
+    [ -z "$detail" ] || line+=" (${detail})"
+  done
+  echo "⏱️ grouped-isolated attempt ${attempt} timings: ${line:-nothing measured}"
 }
 
 commit_isolated_from_worktree() {
@@ -1976,6 +2222,7 @@ commit_isolated_from_worktree() {
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
+  local phase_started file_phase_started ownership_listing ownership_missing ownership_total
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
@@ -2010,9 +2257,14 @@ commit_isolated_from_worktree() {
 
   while true; do
     push_attempt=$((push_attempt + 1))
+    isolated_phase_reset
     ensure_git_auth
+    isolated_mark phase_started
     git_fetch_retry || return 1
+    isolated_phase_add fetch "$phase_started"
+    isolated_mark phase_started
     old_history_guard_main || return 1
+    isolated_phase_add history-guard "$phase_started"
     remote_sha="$(git rev-parse origin/main)"
     remote_tree="$(git rev-parse "${remote_sha}^{tree}")"
 
@@ -2025,6 +2277,7 @@ commit_isolated_from_worktree() {
     # primary slice is left, the remote ownership archive). Absent files
     # (explicit deletions), ignored files and files missing on the remote are
     # never skipped; --group-batch is snapshot-bound and is left untouched.
+    isolated_mark phase_started
     effective_files=()
     skipped_identical=0
     has_primary_slice=false
@@ -2041,11 +2294,14 @@ commit_isolated_from_worktree() {
         has_primary_slice=true
       fi
     done
+    isolated_phase_add skip-scan "$phase_started"
     echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${skipped_identical} file(s) skipped because identical to origin/main, ${#effective_files[@]} candidate(s)"
 
     # Private index seeded from the CURRENT remote head — never the shared
     # .git/index (GIT_INDEX_FILE scopes every index operation below).
+    isolated_mark phase_started
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
+    isolated_phase_add seed-index "$phase_started"
     reused_count=0
     computed_count=0
 
@@ -2056,19 +2312,39 @@ commit_isolated_from_worktree() {
     # slices are added to this temporary view as we go, which also makes the
     # atomic batch deterministic when two descriptors in the same group claim
     # one URL.
+    isolated_mark phase_started
     if [ "$has_primary_slice" = true ]; then
       ownership_root="$merge_dir/remote-ownership"
       rm -rf "$ownership_root"
       mkdir -p "$ownership_root/data/jobs/by-crawler"
       if git cat-file -e "$remote_sha:data/jobs/by-crawler" 2>/dev/null; then
+        # On a blobless checkout (what actions/checkout makes of a sparse one)
+        # `git archive` asks the promisor for every slice that changed on main
+        # since the checkout. Count them first, without fetching anything.
+        # A listing that fails is reported as such: a silent zero would read as
+        # "every slice was already here".
+        if ownership_listing="$(git rev-list --objects --missing=print "${remote_sha}:data/jobs/by-crawler" 2>/dev/null)"; then
+          ownership_missing="$(grep -c '^?' <<< "$ownership_listing" || true)"
+        else
+          ownership_missing=unknown
+        fi
         if ! git archive --format=tar "$remote_sha" data/jobs/by-crawler | tar -xf - -C "$ownership_root"; then
           echo "❌ grouped-isolated: could not materialise remote crawler slices for ownership guard"
           return 1
         fi
+        if [ "$ownership_missing" = unknown ]; then
+          _ISOLATED_PHASE_NOTE[ownership-view]="remote slices fetched on demand: count unavailable"
+        elif [ "${ownership_missing:-0}" -gt 0 ]; then
+          ownership_total="$(git ls-tree -r --name-only "$remote_sha" -- data/jobs/by-crawler 2>/dev/null | grep -c . || true)"
+          _ISOLATED_PHASE_NOTE[ownership-view]="${ownership_missing} of ${ownership_total} remote slices fetched on demand"
+        fi
       fi
+      isolated_phase_add ownership-view "$phase_started"
     fi
 
+    isolated_mark phase_started
     for f in ${effective_files[@]+"${effective_files[@]}"}; do
+      isolated_file_begin "$f"
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       local_merge_path="$f"
       candidate_path="$local_merge_path"
@@ -2150,8 +2426,10 @@ commit_isolated_from_worktree() {
               )
             fi
             integrity_exit=0
+            isolated_mark file_phase_started
             HOUSEKEEPING_BASE_SHA="$base_sha" node "$(dirname "$0")/crawler-slice-integrity.mjs" "${integrity_args[@]}" \
               || integrity_exit=$?
+            isolated_file_phase_add integrity "$file_phase_started"
             case "$integrity_exit" in
               0) ;;
               1)
@@ -2253,11 +2531,13 @@ commit_isolated_from_worktree() {
                 # workflows pin fetch-depth 50, so a retirement more than 50
                 # commits before this checkout would otherwise be misread as
                 # first-run create and silently resurrected.
+                isolated_mark file_phase_started
                 if ! ensure_full_history; then
                   echo "❌ grouped-isolated: cannot verify retirement history for $f — checkout remains shallow after an unshallow attempt, refusing to guess between first-run create and resurrection"
                   return 1
                 fi
                 history_blob="$(git log -1 --format=%H -- "$f" 2>/dev/null || true)"
+                isolated_file_phase_add retirement-history "$file_phase_started"
                 if [ -z "$history_blob" ]; then
                   echo "⚠️ grouped-isolated: $f is absent from the primary slice registry and has no prior history — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
                 else
@@ -2301,7 +2581,7 @@ commit_isolated_from_worktree() {
           mkdir -p "$ownership_root/data/jobs/by-crawler"
           git cat-file blob "${_ISOLATED_RESULT_OWNED_BLOB[$f]}" > "$ownership_root/$f"
         fi
-        GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${_ISOLATED_RESULT_BLOB[$f]},${f}"
+        stage_isolated_blob "$tmp_index" "$mode_to_stage" "${_ISOLATED_RESULT_BLOB[$f]}" "$f" || return 1
         reused_count=$((reused_count + 1))
         continue
       fi
@@ -2331,6 +2611,7 @@ commit_isolated_from_worktree() {
         ownership_output_path="$merge_dir/ownership-filtered/$f"
         mkdir -p "$(dirname "$ownership_output_path")"
         rm -f "$merge_dir/ownership-verdict"
+        isolated_mark file_phase_started
         if ! ownership_result="$(node "$ownership_helper" \
           "$crawler_key" \
           "$ownership_base_path" \
@@ -2341,6 +2622,7 @@ commit_isolated_from_worktree() {
           echo "❌ grouped-isolated: crawler ownership guard failed for $f"
           return 1
         fi
+        isolated_file_phase_add ownership "$file_phase_started"
         ownership_verdict="$(cat "$merge_dir/ownership-verdict" 2>/dev/null || true)"
         # Only a result that did not read the remote ownership view may be
         # reused on the next attempt (fail closed on a missing verdict).
@@ -2359,6 +2641,7 @@ commit_isolated_from_worktree() {
       # Remote moved for this file since our checkout AND disagrees with our
       # local content → merge instead of clobbering (keeps e.g. translation
       # updates or another group's slice pushed mid-run).
+      isolated_mark file_phase_started
       if { [[ "$f" == *.json ]] || [ "$f" = "data/crawler-generation-ledger.jsonl" ]; } \
         && [ -n "$remote_blob" ] \
         && [ "$remote_blob" != "$local_blob" ] \
@@ -2399,8 +2682,11 @@ commit_isolated_from_worktree() {
           # Preserve the established non-batch policy for sequential callers.
           echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
         fi
+        isolated_file_phase_add merge "$file_phase_started"
       fi
 
+      # Archive canonicalization and the integrity guard, measured together.
+      isolated_mark file_phase_started
       if [[ "$f" == data/jobs/expired/by-crawler/*.json ]]; then
         canonicalization_base_path="$merge_dir/canonicalization-base.json"
         canonicalization_proof_path="$merge_dir/canonicalization-proof.json"
@@ -2478,39 +2764,60 @@ commit_isolated_from_worktree() {
         esac
       fi
 
-      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
+      isolated_file_phase_add integrity "$file_phase_started"
+      stage_isolated_blob "$tmp_index" "$mode_to_stage" "$blob_to_stage" "$f" || return 1
       if [ "$result_cacheable" = true ]; then
         _ISOLATED_RESULT_KEY[$f]="$result_key"
         _ISOLATED_RESULT_BLOB[$f]="$blob_to_stage"
         _ISOLATED_RESULT_OWNED_BLOB[$f]="$local_blob"
       fi
     done
+    isolated_file_end
+    isolated_phase_add files "$phase_started"
     echo "ℹ️ grouped-isolated attempt ${push_attempt}: ${computed_count} file(s) computed, ${reused_count} reused from the previous attempt"
 
-    new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+    isolated_mark phase_started
+    new_tree="$(write_isolated_tree "$tmp_index")" || return 1
     if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
       # The snapshot must happen after the remote refresh and every 3-way merge,
       # but before this exact index becomes the pushed commit. On a retry the
       # candidate is rebuilt and measured again against the newer remote tree.
       append_translation_stats_to_index "$tmp_index" "$new_tree" || return 1
-      new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
+      new_tree="$(write_isolated_tree "$tmp_index")" || return 1
     fi
+    isolated_phase_add tree "$phase_started"
     if [ "$new_tree" = "$remote_tree" ]; then
+      isolated_phase_report "$push_attempt"
       emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
       echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
       return 0
     fi
 
-    new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")"
+    isolated_mark phase_started
+    new_commit="$(git commit-tree "$new_tree" -p "$remote_sha" -m "$COMMIT_MSG")" || new_commit=""
+    if [ -z "$new_commit" ]; then
+      # See write_isolated_tree: with an empty source the refspec below would
+      # read `:refs/heads/main`, a deletion of the branch.
+      echo "❌ grouped-isolated: git commit-tree failed — nothing to push"
+      return 1
+    fi
 
     ensure_git_auth
+    # `push` is the network round trip alone: building the commit object and
+    # refreshing the credentials are charged to their own phase.
+    isolated_phase_add commit "$phase_started"
+    isolated_mark phase_started
     # Capture the push output (echoed below either way, so the step log stays
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.
     push_out=""
-    if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
+    if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+      "git push --no-thin origin <commit>:refs/heads/main" \
+      git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
+      isolated_phase_add push "$phase_started"
       printf '%s\n' "$push_out"
+      isolated_phase_report "$push_attempt"
       emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
@@ -2530,7 +2837,9 @@ commit_isolated_from_worktree() {
       fi
       return 0
     fi
+    isolated_phase_add push "$phase_started"
     printf '%s\n' "$push_out"
+    isolated_phase_report "$push_attempt"
 
     if git_push_rejection_is_permanent "$push_out"; then
       emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
@@ -2623,11 +2932,13 @@ if [ "$LOCAL" != "$REMOTE" ]; then
   git stash --include-untracked
 
   ensure_git_auth
-  if ! git pull --rebase origin main; then
+  if ! run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --rebase origin main" \
+    git pull --rebase origin main; then
     git rebase --abort 2>/dev/null || true
     echo "⚠️ Fast-rebase failed — pulling with merge..."
     ensure_git_auth
-    git pull --no-rebase origin main || true
+    run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --no-rebase origin main" \
+      git pull --no-rebase origin main || true
   fi
 
   # Restore local changes
@@ -2769,7 +3080,8 @@ if ! git rebase origin/main 2>/dev/null; then
   # Re-pull with merge strategy to get remote changes
   git stash --include-untracked 2>/dev/null || true
   ensure_git_auth
-  git pull --no-rebase origin main || true
+  run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --no-rebase origin main" \
+    git pull --no-rebase origin main || true
 
   restore_stashed_changes_with_safe_merge \
     "$LAST_MOMENT_SNAPSHOT_DIR" \
@@ -2796,7 +3108,9 @@ ensure_git_auth
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
-if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
+if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+  "git push --no-thin origin main" \
+  git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 

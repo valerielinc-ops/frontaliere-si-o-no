@@ -11,6 +11,8 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { documentsHeldAsked, yesOption } from '../../../../functions/src/lib/documentQuestions.js';
+import { civilStatusCode, civilStatusCodes, civilStatusOption, isCivilStatusField } from '../../../../functions/src/lib/personalFacts.js';
 import {
   BIRTH_FIELD_RE,
   NATIONALITY_FIELD_RE,
@@ -69,8 +71,10 @@ export function candidateRules(candidateLocale) {
 - Current school or university: when profile.currentEducation.institution is non-empty, answer a current-school question from it. If the portal offers no matching institution but has an "Other/Autre/Andere" choice, select that choice; if it then exposes a text field for the name, fill the institution exactly as written. Never infer a current school from a completed or undated education entry.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Salutation or form of address (Title Mr/Ms, Anrede Herr/Frau, Titolo Signor/Signora, Civilité Monsieur/Madame): only from what the candidate said (answers.salutation, or an answer in portalQuestionsAnswered), choosing the option that means the same in the form's language. Never guess it from the first name: when the candidate has not said, a required one is missing.
+- Marital or civil status (Marital status, Zivilstand, Stato civile, État civil): only from profile.civilStatus (the candidate's CV, in its own words) or an answer in portalQuestionsAnswered, choosing the option that means the same in the form's language. Never guess it: when the candidate data does not say, a required one is missing and an optional one is skipped.
 - A required choice (radio or select) on what happens to the data afterwards — kept for future openings or a talent pool, or deleted once this application is over: select the option that deletes it / does not keep it. It is the same rule as an unticked talent-pool box, not a question for the candidate.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
+- A yes/no question that only asks whether the candidate holds a document listed in documents.extra (they attach it to this application): its "yes", source "documents". When it asks more about the document (a category, a grade, a date), it is an eligibility question as any other.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail, phone and address fields come from identity.
@@ -244,6 +248,7 @@ function addressQuestionTopic(text) {
 /** A stable topic for portal questions whose wording/field id varies by ATS or language. */
 export function questionTopic(label) {
   const text = questionFromLabel(label);
+  if (isCivilStatusField(text)) return 'civil_status';
   if (isNationalityField(text)) return 'nationality';
   if (isPermitField(text) && asksHeldStatus(text)) return 'permit';
   if (BIRTH_FIELD_RE.test(text)) return 'birth_date';
@@ -353,6 +358,11 @@ function equivalentAnswer(question, left, right) {
     const rightBoolean = booleanAnswer(right);
     return leftBoolean !== null && leftBoolean === rightBoolean;
   }
+  // «Marié» and «Married (Switzerland)» are one status; an option that offers two holds either.
+  if (topic === 'civil_status') {
+    const leftCode = civilStatusCode(left);
+    return Boolean(leftCode) && civilStatusCodes(right).has(leftCode);
+  }
   return false;
 }
 
@@ -396,6 +406,7 @@ function optionForAnswer(field, answer) {
     const match = options.find((option) => answerBoolean !== null && booleanAnswer(option.label) === answerBoolean);
     if (match) return match.label;
   }
+  if (topic === 'civil_status') return civilStatusOption(options.map((option) => option.label), answer);
   return '';
 }
 
@@ -419,6 +430,15 @@ export function candidateAnswerForField(candidate, field) {
     }
     return null;
   }
+  // The civil status the candidate's CV states in its own words, or they corrected (candidateWithEdits
+  // `personal`): the one option of the list that says it, or the words themselves in a text field.
+  if (topic === 'civil_status') {
+    const stated = statedCivilStatus(candidate);
+    if (!civilStatusCode(stated)) return null;
+    // A list takes its one option that says the status; a field with no list takes the CV's words as they are.
+    const value = field?.options?.length ? optionForAnswer(field, stated) : stated;
+    return value ? { value, source: 'profile' } : null;
+  }
   if (topic !== 'current_school') return null;
   const institution = String(candidate?.profile?.currentEducation?.institution || '').trim();
   if (!institution) return null;
@@ -428,6 +448,29 @@ export function candidateAnswerForField(candidate, field) {
   const other = field.options.find((option) => OTHER_OPTION_RE.test(String(option.label || '')));
   return other ? { value: other.label, source: 'profile' } : null;
 }
+
+/**
+ * The question only asks whether the candidate holds a document attached to this application («Do you hold a
+ * driver qualification card?», with that very card among `documents.extra`). The upload is the answer (owner
+ * decision 2026-10-08, lib/documentQuestions.js): the candidate was not asked, and is not asked on the portal.
+ * One reader for the planner's guard below and for the agentic fallback's (agent.mjs guardAgentStep).
+ */
+export function asksAttachedDocument(candidate, question) {
+  const attached = Array.isArray(candidate?.documents?.extra) ? candidate.documents.extra : [];
+  return documentsHeldAsked({ question: questionFromLabel(question), type: 'yes_no' }, attached).length > 0;
+}
+
+/** That question as a form field with a yes/no list: the field's own «yes»; '' for any other field. */
+export function attachedDocumentYes(candidate, field) {
+  const yes = yesOption(field?.options);
+  return yes && asksAttachedDocument(candidate, field?.label) ? yes : '';
+}
+
+/**
+ * The civil status the candidate's CV states in its own words, or they corrected: as the planner's data hold it
+ * (candidateForForm, `profile.civilStatus`), or as candidateWithEdits returns it (`personal.civilStatus`).
+ */
+const statedCivilStatus = (candidate) => String(candidate?.profile?.civilStatus || candidate?.personal?.civilStatus || '').trim();
 
 /** The candidate already answered this very question with this answer (review page). */
 export function answeredByCandidate(candidate, question, answer) {
@@ -492,10 +535,15 @@ export function guardPlan(plan, fields, candidate = null) {
     .filter(([, options]) => options.length === 1)
     .map(([fieldId, [option]]) => [fieldId, option]) : []);
   for (const [fieldId, option] of statusPick) actions.push({ fieldId, action: 'select', value: option.label, document: 'none', source: 'rule', evidence: '' });
+  // A yes/no field that only asks whether the candidate holds a document attached to this application: its
+  // «yes», whatever the plan says (attachedDocumentYes). Before the gates below, which would turn «a driving
+  // licence?» into a question for the candidate who has just uploaded it.
+  const heldPick = new Map(fields.map((field) => [field.id, attachedDocumentYes(candidate, field)]).filter(([, value]) => value));
+  for (const [fieldId, value] of heldPick) actions.push({ fieldId, action: 'select', value, document: 'none', source: 'documents', evidence: '' });
   plan = {
     ...plan,
-    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId)),
-    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId)),
+    actions: (plan.actions || []).filter((action) => !agencyIds.has(action.fieldId) && !statusPick.has(action.fieldId) && !heldPick.has(action.fieldId)),
+    missingRequired: (plan.missingRequired || []).filter((item) => !agencyNo.has(item.fieldId) && !statusPick.has(item.fieldId) && !heldPick.has(item.fieldId)),
   };
   for (const item of plan.missingRequired || []) {
     if (!missing.some((other) => other.fieldId === item.fieldId)) missing.push(item);
@@ -534,6 +582,16 @@ export function guardPlan(plan, fields, candidate = null) {
     } else if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
       ask(field);
       continue;
+    }
+    // A civil status is the candidate's own to say: the one their CV states (or they corrected), their
+    // answer to this very question, or declining. Never a planner's choice; the right option is put in
+    // below (candidateAnswerForField) when the candidate has said it.
+    if (candidate && ['fill', 'select'].includes(action.action) && !declines && questionTopic(field.label) === 'civil_status') {
+      const stated = civilStatusCode(statedCivilStatus(candidate));
+      if (!(stated && civilStatusCodes(action.value).has(stated)) && !answeredByCandidate(candidate, field.label, action.value)) {
+        ask(field);
+        continue;
+      }
     }
     // "Deutsch C1?" answered "Ja" with nothing in the CV to show it: the candidate says.
     // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The

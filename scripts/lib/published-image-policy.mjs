@@ -21,7 +21,8 @@ import {
   validateGeneratedImageRecord,
   validateGeneratedImageRegistry,
 } from '../../packages/articles/engine/shared/generatedImageRegistry.mjs';
-import { createImageCreditReader } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import { coverKey, createImageCreditReader } from '../../packages/articles/engine/shared/imageCredits.mjs';
+import { loadInferredCoverDecisions } from './blog-cover-decisions.mjs';
 
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const IMAGE_CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
@@ -125,10 +126,15 @@ function cdnPrefixForPath(pathname) {
  * `requireCdn: true` is for uploaders that hand the URL to a third party. The
  * build OG gate leaves it false so it can inspect same-origin emitted HTML
  * before the CDN offload rewrite has happened.
+ *
+ * `inferredCovers` is passed by the build OG gate only. It answers for the
+ * historical blog covers the owner keeps without a credit: the page already
+ * shows them, so its `og:image` may name them. An uploader does not pass it,
+ * and such a cover stays unpublishable to a third party.
  */
 export function checkPublishedImageUrl(
   imageUrl,
-  { records = [], imageCreditReader = null, requireCdn = false } = {},
+  { records = [], imageCreditReader = null, requireCdn = false, inferredCovers = null } = {},
 ) {
   const url = asAbsoluteHttpsUrl(imageUrl);
   if (!url) return failure('not-https-url', imageUrl);
@@ -156,7 +162,12 @@ export function checkPublishedImageUrl(
       return failure('missing-image-credit-reader', imageUrl, { path: pathname });
     }
     const record = imageCreditReader.get(pathname);
-    if (!record) return failure('missing-or-unpublishable-image-credit', imageUrl, { path: pathname });
+    if (!record) {
+      if (inferredCovers && typeof inferredCovers.has === 'function' && inferredCovers.has(coverKey(pathname))) {
+        return { valid: true, source: 'inferred-no-credit', url: String(imageUrl), path: pathname };
+      }
+      return failure('missing-or-unpublishable-image-credit', imageUrl, { path: pathname });
+    }
     return {
       valid: true,
       source: 'image-credits',
@@ -229,7 +240,10 @@ export function loadPublishedImagePolicy({ root = process.cwd(), warn = console.
     ...options,
     records,
     imageCreditReader,
+    // Never for an uploader, whatever the caller passes.
+    inferredCovers: null,
   });
-  const checkOg = (imageUrl) => checkOwnedOgImage(imageUrl, { records, imageCreditReader });
+  const inferredCovers = loadInferredCoverDecisions({ root });
+  const checkOg = (imageUrl) => checkOwnedOgImage(imageUrl, { records, imageCreditReader, inferredCovers });
   return { records, imageCreditReader, registryErrors, check, checkOg };
 }

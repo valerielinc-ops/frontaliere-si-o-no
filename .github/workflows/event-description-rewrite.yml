@@ -39,6 +39,11 @@ concurrency:
   group: event-description-rewrite
   cancel-in-progress: false
 
+env:
+  # The events dataset is regenerated from merged source slices and caches
+  # when the refresh publisher reconciles it with a moving main branch.
+  EVENTS_DERIVED_DATASET_RECONCILIATION: events
+
 permissions:
   actions: read
   contents: write

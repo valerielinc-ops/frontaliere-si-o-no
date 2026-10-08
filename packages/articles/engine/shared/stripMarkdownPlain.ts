@@ -30,3 +30,32 @@ export function stripMarkdownPlain(text: string): string {
     .replace(/\s{2,}/g, ' ')
     .trim();
 }
+
+const EXCERPT_LABEL_RE = /^\s*(?:In breve|In short|Kurz gesagt|En bref)\s*(?::|[-–—])?\s*/i;
+const EXCERPT_TABLE_SEPARATOR_RE = /^\s*\|?\s*:?-{3,}:?\s*(?:\|\s*:?-{3,}:?\s*)+\|?\s*$/;
+const EXCERPT_TABLE_ROW_RE = /^\s*\|[^|]+(?:\|[^|]+)+\|?\s*$/;
+
+/**
+ * Flatten a translated article excerpt before it reaches a card or JSON-LD.
+ *
+ * Excerpts are supposed to be plain text, but this remains a last-mile guard
+ * for stale corpus values, runtime overlays and translations arriving before
+ * a corpus repair. Table rows need a small pre-pass because the general body
+ * flattener intentionally preserves pipe prose.
+ */
+export function normalizeArticleExcerptPlain(text: string): string {
+  const tableSafe = String(text ?? '')
+    .replace(/\r\n?/g, '\n')
+    .split('\n')
+    .filter((line) => !EXCERPT_TABLE_SEPARATOR_RE.test(line))
+    .map((line) => {
+      if (!EXCERPT_TABLE_ROW_RE.test(line)) return line;
+      return line
+        .replace(/^\s*\|/, '')
+        .replace(/\|\s*$/, '')
+        .replace(/\s*\|\s*/g, ' ');
+    })
+    .join('\n');
+
+  return stripMarkdownPlain(tableSafe).replace(EXCERPT_LABEL_RE, '').trim();
+}

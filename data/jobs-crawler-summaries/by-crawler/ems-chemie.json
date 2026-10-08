@@ -1,56 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-10-07T21:31:12.419Z",
-  "total": 16,
+  "generatedAt": "2026-10-08T09:23:39.929Z",
+  "total": 15,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 63273,
-  "avgDurationMs": 63273,
+  "updatedCount": 4,
+  "removedCount": 1,
+  "unchangedCount": 11,
+  "durationMs": 11653,
+  "avgDurationMs": 11653,
   "durationHistory": [
-    63273
+    11653
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/57840d6e-dee1-48cf-889e-5b3d8b5d2239",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "sourceLang": "de",
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "source": "company-website",
-      "slug": "senior-financial-accountant-specialista-contabilita-m-f-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-c4ab3875eaa7",
-      "salaryMin": 118000,
-      "salaryMax": 196000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "applyUrl": "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/57840d6e-dee1-48cf-889e-5b3d8b5d2239",
-      "firstSeenAt": "2026-09-07T15:09:56.644Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
     {
       "title": "Mitarbeiter Kommunikation & Events (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -206,7 +169,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Elektroinstallateur/ Automatiker/in (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -237,7 +202,6 @@
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/elektroinstallateur-automatiker-in-m-w-d/3a3724b6-107c-44ed-ae6a-2bafbed774ff",
       "datePosted": "2026-09-08",
       "postingDateSource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,8 +211,44 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Senior Financial Accountant / Fachspezialist Rechnungswesen (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/57840d6e-dee1-48cf-889e-5b3d8b5d2239",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "sourceLang": "de",
+      "datePosted": "2026-10-07",
+      "postedDate": "2026-10-07",
+      "postingDateSource": "reported",
+      "source": "company-website",
+      "slug": "senior-financial-accountant-specialista-contabilita-m-f-d-100-ems-chemie-ag-domat-ems",
+      "crawledAt": "",
+      "id": "ems-chemie-c4ab3875eaa7",
+      "salaryMin": 118000,
+      "salaryMax": 196000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "applyUrl": "https://jobs.ems-group.com/offene-stellen/senior-financial-accountant-fachspezialist-rechnungswesen-m-w-d/57840d6e-dee1-48cf-889e-5b3d8b5d2239",
+      "firstSeenAt": "2026-09-07T15:09:56.644Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
     {
       "title": "Personalbereichsleiter (m/w/d) 80-100%",
       "company": "EMS-Chemie AG",
@@ -498,14 +498,13 @@
       "salarySource": "estimated",
       "applyUrl": "https://jobs.ems-group.com/offene-stellen/leiter-technischer-einkauf-m-w-d/56d90e8c-ea03-49f4-9449-0fda3fa4d7c4",
       "firstSeenAt": "2026-10-03T09:17:46.264Z",
-      "needsRetranslation": true,
       "datePosted": "2026-10-01",
       "postingDateSource": "reported",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -623,5 +622,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

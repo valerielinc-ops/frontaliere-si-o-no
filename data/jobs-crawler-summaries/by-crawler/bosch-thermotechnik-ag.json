@@ -1,21 +1,65 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-10-07T21:13:16.631Z",
+  "generatedAt": "2026-10-08T09:12:09.382Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 18457,
-  "avgDurationMs": 18457,
+  "durationMs": 22392,
+  "avgDurationMs": 22392,
   "durationHistory": [
-    18457
+    22392
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
+      "slug": "internship-gestione-del-progetto-acquisizione-degli-strumenti-di-potere-accessori-ref297531b-bosch-thermotechnik-ag",
+      "url": "https://jobs.bosch.com/en/job/REF297531B-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921319-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-0bab547c7e47",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-03T09:12:47.552Z",
+      "datePosted": "2026-10-01",
+      "postingDateSource": "reported",
+      "postalCode": "4500",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Fertigungs- und Problemlösungsmechaniker (w/m/div.) - REF297949Q",
-      "slug": "fertigungs-e-problemlosungsmechaniker-w-m-div-ref297949q-bosch-thermotechnik-ag-st-niklaus",
+      "slug": "meccanico-a-di-produzione-e-risoluzione-dei-problemi-m-f-div-ref297949q-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF297949Q-fertigungs-und-problemloesungsmechaniker-w-m-div-ref297949q",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000154094259-fertigungs-und-problemlosungsmechaniker-w-m-div-ref297949q-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -38,55 +82,12 @@
       "postingDateSource": "reported",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-8514e6dc9c43",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "3924",
       "firstSeenAt": "2026-10-07T21:13:03.119Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF297091A",
-      "slug": "stage-nell-ottimizzazione-dei-processi-f-m-div-ref297091a-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF297091A-praktikum-in-der-prozessoptimierung-w-m-div-ref297091a",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000151836935-praktikum-in-der-prozessoptimierung-w-m-div-ref297091a?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-25",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-35bd9e267c91",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-09-26T13:55:17.547Z",
-      "datePosted": "2026-09-25",
-      "postingDateSource": "reported",
-      "postalCode": "8500",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,9 +95,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
       "slug": "ingegnere-di-processo-100-w-m-div-ref297511w-bosch-thermotechnik-ag-st-niklaus",
@@ -257,46 +256,6 @@
       }
     },
     {
-      "title": "Praktikum – Projektmanagement Einkauf Power Tools Accessories REF297531B",
-      "slug": "internship-gestione-del-progetto-acquisizione-degli-strumenti-di-potere-accessori-ref297531b-bosch-thermotechnik-ag",
-      "url": "https://jobs.bosch.com/en/job/REF297531B-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152921319-praktikum-projektmanagement-einkauf-power-tools-accessories-ref297531b-?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-0bab547c7e47",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-03T09:12:47.552Z",
-      "datePosted": "2026-10-01",
-      "postingDateSource": "reported",
-      "postalCode": "4500",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Logisitker (w/m/div.) - REF297188H",
       "slug": "logisitker-f-m-div-ref297188-hh-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF297188H-logisitker-w-m-div-ref297188h",
@@ -375,5 +334,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

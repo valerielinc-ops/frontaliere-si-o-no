@@ -1,0 +1,196 @@
+// functions/src/lib/documentQuestions.js: a question that only asks whether the candidate holds a document the
+// same application has them upload. Owner decision of 2026-10-08, on an order held twice for one requirement:
+// the question is not asked, and where a portal's form asks it the attached document says «yes».
+// Every example here is invented.
+import { describe, expect, it } from 'vitest';
+import { documentsHeldAsked, saysYes, yesOption } from '../functions/src/lib/documentQuestions.js';
+import { matchSystemPrompt, matchUserText } from '../functions/src/assistedApplicationAiPrompts.js';
+import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
+import { asksAttachedDocument, attachedDocumentYes, candidateRules, guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { candidateForForm } from '../scripts/assisted-application/lib/portal/portal.mjs';
+
+const card = { id: 'card', label: 'carte de qualification de conducteur (OACP)', keywords: ['OACP', 'carta di qualificazione del conducente', 'Fahrerqualifizierungsnachweis', 'driver qualification card'] };
+const licence = { id: 'licence', label: 'permis de conduire', keywords: ['patente di guida', 'Führerausweis', 'driving licence'] };
+const reports = { id: 'reports', label: 'Bulletins scolaires', keywords: ['pagelle', 'Schulzeugnisse', 'school reports'] };
+const documents = [card, licence, reports];
+const held = (question: string, type = 'yes_no', options: string[] = []) => documentsHeldAsked({ question, type, options }, documents).map((document: any) => document.id);
+
+describe('a question that only asks whether the candidate holds a document they upload', () => {
+  it('is recognised in the four languages, by the document\'s label or one of its keywords', () => {
+    expect(held('Possédez-vous une carte de qualification de conducteur (OACP) à jour ?')).toEqual(['card']);
+    expect(held('Possiedi una carta di qualificazione del conducente aggiornata?')).toEqual(['card']);
+    expect(held('Verfügen Sie über einen gültigen Fahrerqualifizierungsnachweis?')).toEqual(['card']);
+    expect(held('Sei in possesso della patente di guida?')).toEqual(['licence']);
+    // A choice whose options are yes and no is the same question.
+    expect(held('Do you hold a valid driver qualification card?', 'choice', ['Yes', 'No'])).toEqual(['card']);
+    // Two documents joined by «and»: both named, both uploaded.
+    expect(held('Sei in possesso della patente di guida e della carta di qualificazione del conducente?')).toEqual(['card', 'licence']);
+  });
+
+  it('is not one that asks more than the document shows, nor one about another document', () => {
+    // A category, a grade: only the candidate can say.
+    expect(held('Hai una patente di guida valida per la categoria D?')).toEqual([]);
+    expect(held('Avez-vous obtenu une moyenne supérieure à 5 dans vos bulletins scolaires ?')).toEqual([]);
+    // «or» is not answered by one upload; a negation is not «do you hold».
+    expect(held('Hai le pagelle o un attestato equivalente?')).toEqual([]);
+    expect(held('Non hai la patente di guida?')).toEqual([]);
+    // No document of this application.
+    expect(held('Do you have a forklift licence?')).toEqual([]);
+    // Not a yes/no question: an open text, a list of categories.
+    expect(held('Possiedi una carta di qualificazione del conducente aggiornata?', 'text')).toEqual([]);
+    expect(held('Quale categoria di patente di guida hai?', 'choice', ['B', 'C', 'D'])).toEqual([]);
+    expect(documentsHeldAsked({ question: 'Possiedi la patente di guida?', type: 'yes_no' }, [])).toEqual([]);
+    expect(documentsHeldAsked(null, documents)).toEqual([]);
+  });
+
+  // A document's name may open with another's («certificat» and «certificat de travail»): the longer is read
+  // whole, whatever the order the documents come in, and a question about one never passes for the other.
+  it('reads the longest document name first, whatever the order of the documents', () => {
+    const certificate = { id: 'certificate', label: 'Certificat', keywords: [] };
+    const reference = { id: 'reference', label: 'Certificat de travail', keywords: ['Arbeitszeugnis'] };
+    for (const order of [[certificate, reference], [reference, certificate]]) {
+      const ids = (question: string) => documentsHeldAsked({ question, type: 'yes_no' }, order).map((document: any) => document.id);
+      expect(ids('Avez-vous un certificat de travail ?')).toEqual(['reference']);
+      expect(ids('Avez-vous un certificat ?')).toEqual(['certificate']);
+      expect(ids('Haben Sie ein Arbeitszeugnis?')).toEqual(['reference']);
+    }
+    // Only the bare one is uploaded: the longer question names more than it, and stays a question.
+    expect(documentsHeldAsked({ question: 'Avez-vous un certificat de travail ?', type: 'yes_no' }, [certificate])).toEqual([]);
+  });
+
+  it('reads the «yes» of a yes/no choice, and of nothing else', () => {
+    expect(yesOption(['Oui', 'Non'])).toBe('Oui');
+    // Besides the two, only the list's own prompt, in any of its usual wordings.
+    expect(yesOption([{ label: 'Ja' }, { label: 'Nein' }, { label: 'Bitte wählen' }])).toBe('Ja');
+    expect(yesOption(['-- Select One --', 'Yes', 'No'])).toBe('Yes');
+    expect(yesOption(['—', 'Sì', 'No'])).toBe('Sì');
+    expect(yesOption(['Sélectionner', 'Oui', 'Non'])).toBe('Oui');
+    // A third choice of substance makes it another question (review of #12363).
+    expect(yesOption(['Yes', 'No', 'Not applicable'])).toBe('');
+    expect(yesOption(['Oui', 'Non', 'Je ne sais pas'])).toBe('');
+    expect(yesOption(['Sì', 'No', 'Forse', 'Altro'])).toBe('');
+    expect(yesOption(['Yes', 'Yes, expired', 'No'])).toBe('');
+    expect(yesOption(['B', 'C'])).toBe('');
+    expect(yesOption(undefined)).toBe('');
+    expect(['Oui', 'Ja', 'Sì', 'yes'].map(saysYes)).toEqual([true, true, true, true]);
+    expect(['Non', 'Nein', 'No', '', 'Oui, depuis 2020'].map(saysYes)).toEqual([false, false, false, false, false]);
+  });
+
+  it('tells the model which documents the candidate uploads, and not to ask about them', () => {
+    const text = matchUserText({
+      profile: {}, answers: {}, postingExcerpt: 'x',
+      requirements: { requirements: [], requestedDocuments: [{ document: 'Permis de conduire', kind: 'other', required: true, quote: 'q', keywords: ['patente'] }, { document: 'Portfolio', required: false }] },
+    });
+    expect(JSON.parse(text.split('\n\n<<<POSTING EXCERPT')[0]).requestedDocuments).toEqual([{ document: 'Permis de conduire', required: true }, { document: 'Portfolio', required: false }]);
+    expect(matchSystemPrompt('it')).toContain('never ask whether the candidate holds, has or can provide a document listed in requestedDocuments');
+    expect(candidateRules('it')).toContain('only asks whether the candidate holds a document listed in documents.extra');
+  });
+});
+
+describe('a portal\'s own «do you hold…?» field, with that document attached', () => {
+  const yesNo = (id: string, label: string, extra: object = {}) => ({ id, kind: 'radio', label, required: true, options: [{ label: 'Oui' }, { label: 'Non' }], ...extra });
+  const file = (fileName: string) => ({ fileName, buffer: Buffer.from('%PDF-1.4'), key: `assisted-application-uploads/order_1/${fileName}`, type: 'pdf' });
+  const candidate = candidateForForm({
+    identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' },
+    extraDocuments: [{ slot: 'extra_1', ...licence, kind: 'other', files: [file('licence.pdf')] }, { slot: 'extra_2', ...card, kind: 'certificate', files: [file('card.pdf')] }],
+  });
+  const none = candidateForForm({ identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' } });
+
+  it('hands the planner each attached document with the names it goes by', () => {
+    expect(candidate.documents.extra).toEqual([
+      { slot: 'extra_1', label: 'permis de conduire', kind: 'other', keywords: licence.keywords },
+      { slot: 'extra_2', label: card.label, kind: 'certificate', keywords: card.keywords },
+    ]);
+    expect(none.documents.extra).toEqual([]);
+  });
+
+  it('answers its «yes», whatever the plan says: skipped, asked of the candidate, or answered «no»', () => {
+    const field = yesNo('f1', 'Possédez-vous une carte de qualification de conducteur à jour ? *');
+    expect(attachedDocumentYes(candidate, field)).toBe('Oui');
+    const yes = { fieldId: 'f1', action: 'select', value: 'Oui', document: 'none', source: 'documents', evidence: '' };
+    const skipped = guardPlan({ actions: [{ fieldId: 'f1', action: 'skip', value: '', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [field], candidate);
+    expect(skipped).toEqual({ actions: [yes], missingRequired: [] });
+    const asked = guardPlan({ actions: [], missingRequired: [{ fieldId: 'f1', question: 'Carte de qualification ?', why: '', type: 'yes_no', options: ['Oui', 'Non'] }] }, [field], candidate);
+    expect(asked).toEqual({ actions: [yes], missingRequired: [] });
+    const denied = guardPlan({ actions: [{ fieldId: 'f1', action: 'select', value: 'Non', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [field], candidate);
+    expect(denied).toEqual({ actions: [yes], missingRequired: [] });
+    // A licence is a knock-out question («permis de conduire»): the upload answers it all the same.
+    const licenceField = yesNo('f2', 'Avez-vous un permis de conduire ?');
+    expect(guardPlan({ actions: [], missingRequired: [] }, [licenceField], candidate).actions).toEqual([{ ...yes, fieldId: 'f2' }]);
+  });
+
+  it('leaves every other field to the usual gates: no document attached, more asked, no yes/no', () => {
+    const field = yesNo('f1', 'Possédez-vous une carte de qualification de conducteur à jour ?');
+    // Nothing attached (the pre-read of a portal, before the candidate gave anything): a question for them.
+    expect(attachedDocumentYes(none, field)).toBe('');
+    expect(guardPlan({ actions: [], missingRequired: [] }, [field], none).missingRequired.map((item: any) => item.fieldId)).toEqual(['f1']);
+    // More than «do you hold»: the category is the candidate's to state.
+    const category = yesNo('f3', 'Votre permis de conduire couvre-t-il la catégorie D ?');
+    expect(attachedDocumentYes(candidate, category)).toBe('');
+    expect(guardPlan({ actions: [], missingRequired: [] }, [category], candidate).missingRequired.map((item: any) => item.fieldId)).toEqual(['f3']);
+    // A list that is no yes/no.
+    const list = { id: 'f4', kind: 'select', label: 'Permis de conduire', required: true, options: [{ label: 'B' }, { label: 'C' }, { label: 'D' }] };
+    expect(attachedDocumentYes(candidate, list)).toBe('');
+    // «Yes / No / Not applicable» about an attached document: not the yes/no the rule answers by itself.
+    const three = { id: 'f7', kind: 'select', label: 'Avez-vous un permis de conduire ?', required: true, options: [{ label: 'Oui' }, { label: 'Non' }, { label: 'Non applicable' }] };
+    expect(attachedDocumentYes(candidate, three)).toBe('');
+    expect(guardPlan({ actions: [], missingRequired: [] }, [three], candidate).missingRequired.map((item: any) => item.fieldId)).toEqual(['f7']);
+  });
+
+  // Review of #12363: a document the posting welcomes and the candidate did not give is not held. Listed with no
+  // file, it never reaches the planner's data, so neither guard answers «yes» for it.
+  it('answers nothing for a requested document the candidate gave no file for', () => {
+    const firstAid = { id: 'first_aid', label: 'Certificat de premiers secours', keywords: ['first aid certificate'] };
+    const some = candidateForForm({
+      identity: { name: 'Maria Rossi', email: 'maria.rossi@example.com', phone: '+41 79 123 45 67' },
+      extraDocuments: [
+        { slot: 'extra_1', ...licence, kind: 'other', files: [file('licence.pdf')] },
+        // Welcome, not demanded, and not given.
+        { slot: 'extra_2', ...firstAid, kind: 'certificate', required: false, files: [] },
+        { slot: 'extra_3', label: 'Portfolio', kind: 'portfolio' },
+      ],
+    });
+    expect(some.documents.extra.map((document: any) => document.slot)).toEqual(['extra_1']);
+    const field = yesNo('f5', 'Avez-vous un certificat de premiers secours ?');
+    // The question is the one the rule knows, about a document of this application: only the file is missing.
+    expect(documentsHeldAsked({ question: field.label, type: 'yes_no' }, [firstAid]).map((document: any) => document.id)).toEqual(['first_aid']);
+    expect(asksAttachedDocument(some, field.label)).toBe(false);
+    expect(attachedDocumentYes(some, field)).toBe('');
+    // The planner's guard: no «yes» of its own, a «yes» of the plan is refused, and the field is the candidate's.
+    const planned = guardPlan({ actions: [{ fieldId: 'f5', action: 'select', value: 'Oui', document: 'none', source: 'documents', evidence: '' }], missingRequired: [] }, [field], some);
+    expect(planned.actions).toEqual([]);
+    expect(planned.missingRequired.map((item: any) => item.fieldId)).toEqual(['f5']);
+    // The agentic fallback's guard: its «yes» is not clicked, and the question goes to the candidate.
+    const act = { ref: 'e21', action: 'click', value: '', document: 'none', question: field.label, answer: 'Oui', source: 'documents', evidence: '' };
+    const guarded = guardAgentStep({ status: 'act', reason: '', advanceRef: '', actions: [act], questions: [] }, some);
+    expect(guarded).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(guarded.questions.map((item: any) => item.question)).toEqual([field.label]);
+    // The document with a file is answered as before.
+    expect(attachedDocumentYes(some, yesNo('f6', 'Avez-vous un permis de conduire ?'))).toBe('Oui');
+  });
+
+  // The agentic fallback reads no option list: its own guard (guardAgentStep) grounds the «yes» in the upload.
+  it('lets the agentic fallback answer «yes» too, and only «yes»', () => {
+    const act = (action: Record<string, string>) => ({ ref: 'e5', action: 'click', value: '', document: 'none', question: '', answer: '', source: 'documents', evidence: '', ...action });
+    const turn = (actions: any[] = [], questions: any[] = []) => ({ status: 'act', reason: '', advanceRef: '', actions, questions });
+    const question = 'Avez-vous un permis de conduire ?';
+    expect(asksAttachedDocument(candidate, question)).toBe(true);
+    expect(asksAttachedDocument(none, question)).toBe(false);
+    // A knock-out question («permis de conduire»), answered from the document attached: the move runs.
+    const yes = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), candidate);
+    expect(yes).toMatchObject({ status: 'act', questions: [] });
+    expect(yes.actions.map((action: any) => action.ref)).toEqual(['e12']);
+    // Nothing attached: the candidate says.
+    const unknown = guardAgentStep(turn([act({ ref: 'e12', question, answer: 'Oui' })]), none);
+    expect(unknown).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(unknown.questions.map((item: any) => item.question)).toEqual([question]);
+    // «No» with the licence attached is never clicked, and never becomes a question: the upload answered it.
+    const denied = guardAgentStep(turn([act({ ref: 'e13', question, answer: 'Non' })]), candidate);
+    expect(denied).toMatchObject({ actions: [], questions: [] });
+    // A question the model itself wants to ask is not asked either.
+    expect(guardAgentStep(turn([], [{ question, why: '', type: 'yes_no', options: ['Oui', 'Non'] }]), candidate).questions).toEqual([]);
+    // More than «do you hold»: the usual gate.
+    const category = 'Votre permis de conduire couvre-t-il la catégorie D ?';
+    expect(guardAgentStep(turn([act({ ref: 'e14', question: category, answer: 'Oui' })]), candidate).questions.map((item: any) => item.question)).toEqual([category]);
+  });
+});

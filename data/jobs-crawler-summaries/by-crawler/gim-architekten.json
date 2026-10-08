@@ -1,7 +1,7 @@
 {
   "key": "gim-architekten",
   "label": "GIM Architekten AG",
-  "generatedAt": "2026-10-07T21:32:59.201Z",
+  "generatedAt": "2026-10-08T09:23:17.543Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -16,10 +16,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4993,
-  "avgDurationMs": 4993,
+  "durationMs": 4774,
+  "avgDurationMs": 4774,
   "durationHistory": [
-    4993
+    4774
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -27,18 +27,18 @@
   "unchangedJobs": [
     {
       "id": "gim-architekten-58546e32c2db",
-      "slug": "dipl-architekt-in-gim-gim-architekten-bern",
+      "slug": "architetto-a-diplomato-a-gim-gim-architekten-ag-bern",
       "company": "GIM Architekten AG",
       "companyKey": "gim-architekten",
       "companyDomain": "gim.ch",
       "title": "Dipl. Architekt/In - GIM",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/5e404baa-b2f6-4200-9737-2837b9fcf049/",
       "source": "GIM Architekten AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:46.109Z",
+      "crawledAt": "2026-10-08T09:23:05.030Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -59,14 +59,14 @@
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

@@ -1,18 +1,105 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-10-07T21:19:07.727Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-10-08T09:18:29.131Z",
+  "total": 10,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 6679,
-  "avgDurationMs": 6679,
+  "durationMs": 7880,
+  "avgDurationMs": 7880,
   "durationHistory": [
-    6679
+    7880
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "il/la caposezione (realizzazione) al 100% presso la Divisione edilizia pubblica",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=D3EFB578E68DB565C1258E8900330066",
+      "applyUrl": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=D3EFB578E68DB565C1258E8900330066",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Piazza della Riforma",
+      "employmentType": "FULL_TIME",
+      "category": "engineering",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "company-website",
+      "slug": "il-la-caposezione-realizzazione-al-100-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
+      "sourceLang": "it",
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "citta-di-lugano-82898c6699ba",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:18:22.821Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "due collaboratori/trici MyLugano al 100% presso la Divisione amministrazione generale (Sviluppo economico)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E09B93EE95270297C1258E830031BA36",
+      "applyUrl": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=E09B93EE95270297C1258E830031BA36",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Piazza della Riforma",
+      "employmentType": "FULL_TIME",
+      "category": "administration",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "company-website",
+      "slug": "due-collaboratori-trici-mylugano-al-100-presso-la-divisione-amministrazione-generale-sviluppo-economico-citta-di-lugano",
+      "sourceLang": "it",
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "citta-di-lugano-214a66703245",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T09:18:22.821Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -361,5 +448,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }

@@ -26,6 +26,24 @@ export const GENERATED_IMAGE_SCOPES = Object.freeze([
   'publisher',
 ]);
 
+/** Scopes where a verified, licensed real photograph is an allowed fallback. */
+export const LICENSED_PHOTO_SCOPES = Object.freeze([
+  'event-library',
+  'article-hero',
+  'place',
+]);
+
+/** Scopes that must remain generation-only, including people-facing assets. */
+export const GENERATED_ONLY_IMAGE_SCOPES = Object.freeze([
+  'editorial-profile',
+  'og',
+  'publisher',
+]);
+
+export function scopeAllowsLicensedPhoto(scope) {
+  return LICENSED_PHOTO_SCOPES.includes(String(scope || '').trim());
+}
+
 export const GENERATED_IMAGE_PROVIDERS = Object.freeze([
   'openai-codex',
   'gemini',
@@ -197,6 +215,11 @@ function normalizeText(value) {
     .replace(/\s+/g, ' ');
 }
 
+function normalizeSpecKeywords(value) {
+  const values = Array.isArray(value) ? value : String(value ?? '').split(/[\n,;|]+/);
+  return [...new Set(values.map(normalizeText).filter(Boolean))].slice(0, 32);
+}
+
 function aspectRatio(width, height) {
   return `${width}:${height}`;
 }
@@ -245,6 +268,7 @@ export function normalizeGeneratedImageSpec(spec = {}) {
   }
   const assetId = normalizeText(spec.assetId) || undefined;
   if (assetId && !ASSET_ID_RE.test(assetId)) throw new Error('Generated-image assetId is invalid');
+  const keywords = normalizeSpecKeywords(spec.keywords);
   return Object.freeze({
     scope,
     kind,
@@ -254,6 +278,10 @@ export function normalizeGeneratedImageSpec(spec = {}) {
     format: Object.freeze({ width, height, format: outputFormat, maxBytes }),
     category: normalizeText(spec.category) || undefined,
     variant: normalizeText(spec.variant) || undefined,
+    title: normalizeText(spec.title) || undefined,
+    topic: normalizeText(spec.topic) || undefined,
+    place: normalizeText(spec.place) || undefined,
+    ...(keywords.length ? { keywords: Object.freeze(keywords) } : {}),
     assetId,
   });
 }
@@ -339,6 +367,7 @@ export function validateGeneratedImageRecord(record) {
     }
   } else if (isPhoto) {
     if (record.kind !== LICENSED_PHOTO_KIND) errors.push('licensed photo kind must be photo');
+    if (!scopeAllowsLicensedPhoto(record.scope)) errors.push('licensed photos are not allowed for this scope');
     if (!allowedPhotoLicense(record)) {
       errors.push('photo license is not allowed for the provider');
     }
@@ -421,6 +450,8 @@ export function validateGeneratedImageRecord(record) {
     || record.vision.contains_logo !== false
     || record.vision.contains_recognizable_face !== false
     || (isPhoto ? record.vision.is_photograph !== true : false)
+    || (isPhoto && record.scope === 'article-hero' ? record.vision.contains_recognizable_foreground_person !== false : false)
+    || (isPhoto && record.scope === 'article-hero' ? record.vision.is_topic_relevant !== true : false)
     || (isPhoto ? typeof record.vision.contains_text !== 'boolean' : record.vision.contains_text !== false)
     || (isPhoto ? typeof record.vision.looks_like_specific_real_event !== 'boolean' : record.vision.looks_like_specific_real_event !== false)
     || !nonEmpty(record.vision.notes))) {

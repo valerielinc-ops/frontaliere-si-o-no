@@ -135,8 +135,8 @@ function writeManyPayload(scenario: Scenario, count: number, changedIndex = -1):
   }
 }
 
-function writeSectionPayload(scenario: Scenario, files: Record<string, string>): void {
-  const sectionRoot = join(scenario.dist, 'en', 'find-jobs-ticino');
+function writeSectionPayload(scenario: Scenario, files: Record<string, string>, sectionSlug = 'find-jobs-ticino'): void {
+  const sectionRoot = join(scenario.dist, 'en', sectionSlug);
   rmSync(scenario.dist, { recursive: true, force: true });
   mkdirSync(sectionRoot, { recursive: true });
   writeFileSync(join(sectionRoot, 'index.html'), '<html>section-root</html>');
@@ -147,11 +147,11 @@ function writeSectionPayload(scenario: Scenario, files: Record<string, string>):
   }
 }
 
-function writeTicinoItPayload(scenario: Scenario, files: Record<string, string>): void {
-  const sectionRoot = join(scenario.dist, 'cerca-lavoro-ticino');
+function writeSectionItPayload(scenario: Scenario, sectionSlug: string, files: Record<string, string>): void {
+  const sectionRoot = join(scenario.dist, sectionSlug);
   rmSync(scenario.dist, { recursive: true, force: true });
   mkdirSync(sectionRoot, { recursive: true });
-  writeFileSync(join(sectionRoot, 'index.html'), '<html>ticino-root</html>');
+  writeFileSync(join(sectionRoot, 'index.html'), `<html>${sectionSlug}-root</html>`);
   for (const [page, content] of Object.entries(files)) {
     const pageDir = join(sectionRoot, page);
     mkdirSync(pageDir, { recursive: true });
@@ -179,6 +179,17 @@ function treeSha(remote: string): string {
 function treeFiles(remote: string): string[] {
   const output = git(['-c', 'core.quotePath=false', '-C', remote, 'ls-tree', '-r', '--name-only', 'main']);
   return output ? output.split('\n') : [];
+}
+
+function ticinoPhysicalPath(publicPath: string): string {
+  const prefix = publicPath.startsWith('en/find-jobs-ticino/')
+    ? 'en/find-jobs-ticino'
+    : 'cerca-lavoro-ticino';
+  const rest = publicPath.slice(`${prefix}/`.length);
+  const separator = rest.indexOf('/');
+  const entry = separator === -1 ? rest : rest.slice(0, separator);
+  const suffix = separator === -1 ? '' : rest.slice(separator);
+  return `${prefix}/_tree/${entry.slice(0, 2).toLowerCase()}/${entry}${suffix}`;
 }
 
 function makeRemoteMarkerUnreadable(scenario: Scenario, marker = '.shard-deploys'): string {
@@ -631,7 +642,7 @@ describe('delta push degli shard', () => {
     }
   });
 
-  it('applica lo stesso delta alla entrypoint dei section shard', () => {
+  it('mantiene il full overlay e il fan-out fisico alla entrypoint dei section shard', () => {
     const scenario = createScenario('section-lifecycle');
     const sectionTarget = {
       script: PUSH_SECTION,
@@ -646,7 +657,7 @@ describe('delta push degli shard', () => {
       });
       writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
       expect(runPush(scenario, 'delta', {}, sectionTarget).status).toBe(0);
-      expect(treeFiles(scenario.remote)).toContain('en/find-jobs-ticino/pages/a/index.html');
+      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'));
 
       writeSectionPayload(scenario, {
         'pages/a': '<html>A</html>',
@@ -655,10 +666,10 @@ describe('delta push degli shard', () => {
       writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
       const result = runPush(scenario, 'delta', {}, sectionTarget);
       expect(result.status).toBe(0);
-      expect(result.output).toContain('delta indexed tree');
-      expect(treeFiles(scenario.remote)).toContain('en/find-jobs-ticino/pages/c/index.html');
-      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
-      assertContent(scenario.remote, 'en/find-jobs-ticino/pages/a/index.html', '<html>A</html>');
+      expect(result.output).toContain('forcing full overlay');
+      expect(treeFiles(scenario.remote)).toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/c/index.html'));
+      expect(treeFiles(scenario.remote)).not.toContain(ticinoPhysicalPath('en/find-jobs-ticino/pages/b/index.html'));
+      assertContent(scenario.remote, ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'), '<html>A</html>');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -755,7 +766,7 @@ describe('delta push degli shard', () => {
         write: (scenario: Scenario) => writeSectionPayload(scenario, {
           'pages/a': '<html>section recovered</html>',
         }),
-        path: 'en/find-jobs-ticino/pages/a/index.html',
+        path: ticinoPhysicalPath('en/find-jobs-ticino/pages/a/index.html'),
         content: '<html>section recovered</html>',
       },
     ];
@@ -904,22 +915,22 @@ describe('delta push degli shard', () => {
     const scenario = createScenario('section-full-verify');
     const sectionTarget = {
       script: PUSH_SECTION,
-      args: (current: Scenario) => ['ticino', 'en', current.dist],
-      deployKey: 'SHARD_TICINO_EN_DEPLOY_KEY',
+      args: (current: Scenario) => ['svizzera', 'en', current.dist],
+      deployKey: 'SHARD_SVIZZERA_EN_DEPLOY_KEY',
       label: 'section',
     };
     try {
-      writeSectionPayload(scenario, { 'pages/a': '<html>A v1</html>', 'pages/b': '<html>B</html>' });
-      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-ticino');
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v1</html>', 'pages/b': '<html>B</html>' }, 'find-jobs-switzerland');
+      writeManifest(scenario, ['pages/a', 'pages/b'], 'v1', 'en/find-jobs-switzerland');
       expect(runPush(scenario, 'full', {}, sectionTarget).status).toBe(0);
 
-      writeSectionPayload(scenario, { 'pages/a': '<html>A v2</html>', 'pages/c': '<html>C</html>' });
-      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-ticino');
+      writeSectionPayload(scenario, { 'pages/a': '<html>A v2</html>', 'pages/c': '<html>C</html>' }, 'find-jobs-switzerland');
+      writeManifest(scenario, ['pages/a', 'pages/c'], 'v2', 'en/find-jobs-switzerland');
       const result = runPush(scenario, 'full', { SHARD_PUSH_VERIFY: '1' }, sectionTarget);
       expect(result.status).toBe(0);
       expect(result.output).toMatch(/\[shard-push-verify\] shard=.* mode=full plan=delta .*mismatches=0 wall_plan=\d+s/);
       expect(treeFiles(scenario.remote)).toContain('.deploy-manifest/v1/en.jsonl');
-      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-ticino/pages/b/index.html');
+      expect(treeFiles(scenario.remote)).not.toContain('en/find-jobs-switzerland/pages/b/index.html');
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
@@ -1023,15 +1034,15 @@ describe('delta push degli shard', () => {
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
-  });
+  }, 30000);
 });
 
-describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo renderer', () => {
-  const ticinoIt = {
+describe('#9788: snippet OFFERWALL stale su uno section shard dopo un cambio del solo renderer', () => {
+  const sectionIt = {
     script: PUSH_SECTION,
-    args: (current: Scenario) => ['ticino', 'it', current.dist],
-    deployKey: 'SHARD_TICINO_IT_DEPLOY_KEY',
-    label: 'section-ticino-it',
+    args: (current: Scenario) => ['svizzera', 'it', current.dist],
+    deployKey: 'SHARD_SVIZZERA_IT_DEPLOY_KEY',
+    label: 'section-svizzera-it',
   };
   const JOB = 'stagista-52-settimane-supsi-dti-manno';
   const SAME = 'impiegato-contabile-lugano';
@@ -1043,7 +1054,7 @@ describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo re
     scenario,
     [JOB, SAME],
     'v1',
-    'cerca-lavoro-ticino',
+    'cerca-lavoro-svizzera',
     false,
     [],
     { locale: 'it', emitterFingerprint: fingerprint },
@@ -1052,26 +1063,26 @@ describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo re
   it('ripubblica le pagine con input invariato quando cambia il fingerprint del renderer', () => {
     const scenario = createScenario('9788-render-change');
     try {
-      writeTicinoItPayload(scenario, { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
       writeIt(scenario, RENDER_V1);
-      expect(runPush(scenario, 'delta', {}, ticinoIt).status).toBe(0);
-      const sameBlob = blobSha(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`);
+      expect(runPush(scenario, 'delta', {}, sectionIt).status).toBe(0);
+      const sameBlob = blobSha(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`);
 
       // #9788: build-plugins/constants.ts changed, the page input did not.
-      writeTicinoItPayload(scenario, { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
       writeIt(scenario, RENDER_9788);
-      const changed = runPush(scenario, 'delta', {}, ticinoIt);
+      const changed = runPush(scenario, 'delta', {}, sectionIt);
       expect(changed.status).toBe(0);
       expect(changed.output).toContain('render-stale=active-job:2');
       expect(changed.output).not.toContain('delta fallback:');
       // Both pages are re-evaluated; only the one whose bytes moved is written
       // (changed = that page + the sidecar; reused = the other page + root).
       expect(changed.output).toMatch(/delta indexed tree.*changed=2, unmanifested-overlay=1, reused=2,/);
-      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, NEW_JOB);
-      expect(blobSha(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`)).toBe(sameBlob);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, NEW_JOB);
+      expect(blobSha(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`)).toBe(sameBlob);
 
       // A deploy without renderer changes goes back to the input-hash delta.
-      const steady = runPush(scenario, 'delta', {}, ticinoIt);
+      const steady = runPush(scenario, 'delta', {}, sectionIt);
       expect(steady.status).toBe(0);
       expect(steady.output).toMatch(/mode=delta .* changed=0 unchanged=2 .* render-stale=none/);
     } finally {
@@ -1082,9 +1093,9 @@ describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo re
   it('ripara uno shard già stale: sidecar pre-fix col fingerprint nuovo e i byte vecchi', () => {
     const scenario = createScenario('9788-stale-sidecar');
     try {
-      writeTicinoItPayload(scenario, { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: OLD_JOB, [SAME]: SAME_BYTES });
       writeIt(scenario, RENDER_V1);
-      expect(runPush(scenario, 'delta', {}, ticinoIt).status).toBe(0);
+      expect(runPush(scenario, 'delta', {}, sectionIt).status).toBe(0);
 
       // The live state after deploy 36112880009: the pre-fix delta kept the
       // old bytes but wrote a sidecar that already names the new renderer.
@@ -1100,15 +1111,15 @@ describe('#9788: snippet OFFERWALL stale su ticino-it dopo un cambio del solo re
       writeFileSync(sidecar, `${records.map((record) => JSON.stringify(record)).join('\n')}\n`);
       git(['commit', '-qam', 'pre-fix delta: new renderer named, old bytes kept'], live);
       git(['push', '-q', 'origin', 'main'], live);
-      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, OLD_JOB);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, OLD_JOB);
 
-      writeTicinoItPayload(scenario, { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
+      writeSectionItPayload(scenario, 'cerca-lavoro-svizzera', { [JOB]: NEW_JOB, [SAME]: SAME_BYTES });
       writeIt(scenario, RENDER_9788);
-      const repaired = runPush(scenario, 'delta', {}, ticinoIt);
+      const repaired = runPush(scenario, 'delta', {}, sectionIt);
       expect(repaired.status).toBe(0);
       expect(repaired.output).toContain('render-stale=active-job:2');
-      assertContent(scenario.remote, `cerca-lavoro-ticino/${JOB}/index.html`, NEW_JOB);
-      assertContent(scenario.remote, `cerca-lavoro-ticino/${SAME}/index.html`, SAME_BYTES);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${JOB}/index.html`, NEW_JOB);
+      assertContent(scenario.remote, `cerca-lavoro-svizzera/${SAME}/index.html`, SAME_BYTES);
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }

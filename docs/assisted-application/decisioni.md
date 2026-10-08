@@ -70,6 +70,40 @@ Fonti: [`fonti/permesso-e-dati-personali.md`](fonti/permesso-e-dati-personali.md
 
 **Come si cambia.** L'elenco, le diciture per lingua e la tabella delle nazionalità stanno in un solo modulo condiviso da Functions, runner e pagina di revisione, con la data di aggiornamento dell'elenco UE/AELS. Prima di toccare una dicitura, riaprire la fonte (C86–C89).
 
+## 3 bis. Appellativo e stato civile: ciò che il CV dice non si chiede
+
+**Fatti.**
+- Molti portali svizzeri chiedono l'appellativo come campo obbligatorio («Anrede», «Civilité», «Title»: Signor/Signora). Per non tornare dal candidato al momento dell'invio, la bozza lo chiedeva alla prima revisione di ogni candidatura via portale, sul presupposto che un CV non lo dica mai.
+- Un CV invece spesso lo dice con la propria grammatica: «Né le», «Mariée», «Nata a», «Sposato», «Sesso: F». Ordine dell'8 ottobre 2026: il CV diceva «Né le …» e «Marié», e al candidato è stato chiesto «Quelle civilité indiquer dans les formulaires de candidature ?».
+- Alcuni portali chiedono anche lo stato civile come campo obbligatorio (Workday del 7 ottobre 2026: sei opzioni, da «Single (Switzerland)» a «Partnership Dissolved (Switzerland)»). Il profilo letto dal CV non lo conteneva: sarebbe stato chiesto anche a chi lo scrive nel CV.
+
+**Decisione.**
+- Ciò che il CV dice della persona con parole sue non si chiede: l'appellativo che la sua grammatica dichiara vale come risposta, e lo stato civile che scrive risponde al campo del portale, con l'opzione dell'elenco che dice la stessa cosa.
+- Mai un'ipotesi: non dal nome di battesimo, non da una foto, non da un mestiere («Vendeur») né dal titolo dell'annuncio («Vendeuse/Vendeur»). Conta solo una voce intera dei dati personali (una riga corta, o una sua parte fra virgole o barre): il testo corrente non si legge. Una forma inclusiva («Marié(e)», «nato/a») dà lo stato e nessun genere. Due voci che si contraddicono non dicono nulla, e si chiede come prima.
+- Tedesco e inglese non hanno genere grammaticale nello stato civile né nella nascita: lì l'appellativo si ricava solo da un campo esplicito («Geschlecht: weiblich», «Gender: Female»).
+- Entrambi compaiono fra i campi del modulo sulla pagina di revisione, solo quando sono noti, e si correggono da un elenco chiuso nella lingua del candidato. La parola del candidato vince sul CV; un campo che svuota resta vuoto.
+- Lo stato civile resta fuori da ciò da cui si scrivono lettera e CV su misura: nessuno dei due dice se il candidato è sposato.
+- Sul portale lo stato civile è del candidato da dire: quello del CV, la sua risposta a quella domanda, o un «preferisco non rispondere». Mai una scelta del pianificatore; se il CV tace, un campo obbligatorio diventa una domanda al candidato.
+
+**Come si cambia.** Le parole dello stato civile nelle quattro lingue, gli elenchi mostrati al candidato e le forme di appellativo stanno in `functions/src/lib/personalFacts.js`. Una parola nuova si aggiunge lì, con il suo caso nel test `tests/assisted-application-personal-facts.test.ts` (anche il caso che non deve scattare: un nome, un testo corrente).
+
+## 3 ter. Documenti obbligatori: si caricano, non si chiedono e non si saltano
+
+**Fatti.**
+- Un annuncio può esigere documenti oltre al CV e alla lettera (pagelle, esiti di un test, una carta di qualifica, la patente). La bozza li elenca e il candidato li carica dalla pagina di revisione.
+- Ordine dell'8 ottobre 2026: lo stesso requisito tratteneva la candidatura due volte, come domanda obbligatoria «possiedi questo documento?» e come documento obbligatorio da caricare. La domanda non aggiunge nulla: chi carica il documento ha risposto.
+- Dal 2 ottobre 2026 il candidato poteva scegliere «non ho questo documento: invia la candidatura senza». La candidatura partiva priva di ciò che l'annuncio esige, per fermarsi al campo di caricamento obbligatorio del portale o essere scartata dal datore.
+
+**Decisione (8 ottobre 2026, sostituisce quella del 2 ottobre sui documenti obbligatori).**
+- Una domanda sì/no che chiede soltanto se il candidato possiede un documento obbligatorio non si fa: il caricamento è la risposta. Vale per la domanda scritta dal modello e per quella letta in anticipo dal modulo del portale.
+- Dove il modulo del portale la chiede, risponde «sì» il documento allegato a quella candidatura, qualunque cosa abbia scelto il pianificatore.
+- La regola è stretta di proposito: la domanda deve contenere solo «possiedi» più il nome del documento (la sua etichetta o una delle sue parole chiave) più parole che non chiedono altro («valido», «aggiornato», un articolo). Se chiede di più (una categoria, una media, una data) resta una domanda al candidato.
+- Un documento obbligatorio non si salta: finché manca il file la candidatura aspetta, con i solleciti di ogni attesa. Non esiste più «invia senza», e la rinuncia registrata da un flusso precedente non viene letta.
+- Resta del candidato la scelta di quale file inviare: un file che non sembra il documento chiesto riceve un avviso, non un blocco.
+- Un documento che l'annuncio gradisce ma non esige (`required: false`) non trattiene nulla e non toglie nessuna domanda.
+
+**Come si cambia.** Il riconoscimento della domanda sta in `functions/src/lib/documentQuestions.js` (le forme di «possiedi» nelle quattro lingue e le parole che non chiedono altro); una forma nuova si aggiunge lì, con il suo esempio in `tests/assisted-application-document-questions.test.ts`. Che cosa trattiene l'invio sta in `openRequiredDocuments` (`functions/src/assistedApplicationExtraDocuments.js`).
+
 ## 4. Formato consegnato
 
 **Fatti.** I datori ricevono PDF. La guida degli URC ticinesi chiede a chi cerca lavoro di conservare copia delle candidature inviate ([`fonti/dossier-in-un-pdf.md`](fonti/dossier-in-un-pdf.md), prove contrarie). Al 3 ottobre 2026 il candidato, dopo l'invio, non riceve né un file né un link; per una candidatura WhatsApp la lettera e il CV preparati non arrivano a nessuno. SDBB consiglia di tenere CV e lettera in un formato modificabile.
@@ -160,6 +194,24 @@ Alla rigenerazione dello stesso ordine il CV su misura è stato scartato per un 
 - Un lavoro stagionale (aiuto natalizio, estate, inverno, «stagionale», letto nel titolo come parola intera: «Winterthur» e «Real Estate» non lo sono) viene pubblicato mesi prima e resta aperto fino alla stagione: la sua età è un segnale neutro fino a 120 giorni, come già per i datori pubblici (90) e per le posizioni aperte in continuo. È la regola di career-ops «età corretta per il tipo di ruolo». Oltre i 120 giorni, o per un lavoro di ogni stagione, vale la regola di sempre. La nota «lavoro stagionale» resta visibile al proprietario.
 
 **Come cambiarla.** `SEASONAL_TITLE_RE` e `SEASONAL_MAX_AGE_DAYS` in `functions/src/assistedApplicationLegitimacy.js`; `classifyWorkdayLiveness` e `CORROBORATED_CODES` in `scripts/assisted-application/lib/liveness.mjs`.
+
+## 8 ter. Attesa del candidato: round, annuncio che chiude, rimborso
+
+**Fatti.**
+- Il candidato ha tre versioni della bozza. Il flusso le contava dal numero del round, che però cresce anche quando è il proprietario a far riscrivere la bozza prima che arrivi al candidato. Ordine dell'8 ottobre 2026: «round 3 di 3», con il candidato che aveva visto una sola bozza; al suo primo rifiuto l'ordine sarebbe passato al proprietario come «3 rifiuti».
+- Quando la candidatura aspetta risposte o documenti che solo il candidato può dare non parte nulla: il candidato riceve due solleciti, poi il proprietario un avviso. Nessuno guardava l'annuncio durante l'attesa: un ordine fermo da sei giorni continuava a essere sollecitato per un annuncio che il datore aveva ritirato dal proprio portale.
+- Workday, per un annuncio ritirato, non risponde «non esiste» (404) ma «permesso negato» (403): da solo il 403 non distingue l'annuncio ritirato dal portale che rifiuta il nostro client. Lo distingue la ricerca dello stesso portale: risponde, e non elenca più quella posizione sotto nessun indirizzo.
+- L'unico rimborso promesso era «l'annuncio chiude prima che riusciamo a inviare la candidatura», ed era automatico in ogni caso, anche quando l'annuncio chiudeva mentre si aspettava il candidato da giorni.
+
+**Decisioni (8 ottobre 2026).**
+- **Round.** I tre round del candidato sono le bozze che gli sono state mostrate (`shownRounds` nel flusso), non il numero del round. Il numero continua a crescere a ogni rigenerazione, perché dà il nome alla bozza e fa scadere i link delle precedenti. La pagina di revisione dice quante versioni restano con lo stesso conto. Un flusso scritto prima di questa regola conta tutti i round fino al proprio, come allora.
+- **Niente solleciti ad annuncio chiuso.** Prima di ogni sollecito al candidato lo sweep guarda l'annuncio. Se l'annuncio stesso dice di essere chiuso (la sua pagina con un codice inequivocabile, o il suo portale che lo dichiara chiuso o ritirato), il sollecito non parte e non ne partono altri: sollecitare per una candidatura che non può più partire non ha senso. Si ferma anche l'orologio delle 12 ore: una candidatura non parte da sola verso un annuncio che risulta chiuso (se il candidato la approva di persona parte, e il runner riguarda l'annuncio prima di inviare). L'ordine resta in attesa, il proprietario riceve un solo avviso e decide come chiuderlo. Se il controllo non riesce, il sollecito parte come prima.
+- **Questo controllo non rimborsa nulla.** Il rimborso automatico resta quello del runner, che chiede anche la conferma del nostro dataset: una pagina che sembra vuota o un portale che blocca la lettura non rimborsano e non fermano i solleciti.
+- **Termini, punto 6.5.** Se l'annuncio viene chiuso o ritirato mentre la candidatura è in attesa di documenti o risposte chiesti al candidato, l'importo non è rimborsato. Il flusso non sa quando l'annuncio ha chiuso, sa solo che in quel giro la candidatura ha atteso il candidato: in quel caso non rimborsa da solo, passa l'ordine al proprietario e glielo scrive. Il proprietario può sempre rimborsare dalla coda, per esempio un annuncio che era già chiuso prima dell'attesa.
+- **Nessuna data di decorrenza.** La prima stesura limitava la regola agli ordini effettuati da un certo giorno e lo scriveva nei Termini. Il proprietario, lo stesso 8 ottobre: «aggiorniamo senza riferimento alla data». I Termini non nominano nessun giorno e il flusso tratta allo stesso modo ogni ordine; per quelli già in corso la conseguenza è la stessa di tutti: nessun rimborso automatico dopo un'attesa del candidato, decide il proprietario.
+- **Il candidato lo legge prima.** L'eccezione sta nell'e-mail di benvenuto, accanto alla promessa di rimborso, e in ogni e-mail che chiede al candidato risposte o documenti.
+
+**Come si cambia.** Il testo del punto 6.5 sta in `services/legal/terms.ts`, nelle quattro lingue; quando un annuncio chiuso non viene rimborsato da solo lo decide `posting_closed` in `functions/src/assistedApplicationFlow.js` (`waitedForCandidate`). `tests/assisted-application-wait-terms.test.ts` tiene insieme le due cose. Quali esiti del controllo fermano un sollecito sta in `postingSaysClosed` (`functions/src/assistedApplicationLiveness.js`); quali rimborsano da soli resta `isHardClosed`, nello stesso file.
 
 ## 9. Dove si compone il PDF
 

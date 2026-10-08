@@ -16,6 +16,7 @@ import {
 } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
 import { COMPANION_CHUNKS, REGISTRIES } from '../../scripts/publish-article-chunks.mjs';
 import { EDGE_PUSHED_FILES } from '../../infra/cloudflare-worker/locale-router.js';
+import { SKIP_LIVE_DATA } from '../helpers/live-data';
 
 const OLD_SHA = 'a'.repeat(40);
 const NEW_SHA = 'b'.repeat(40);
@@ -239,7 +240,10 @@ describe('article chunk publish freshness fence', () => {
     }
   });
 
-  it('covers every file esbuild reads for a published chunk', async () => {
+  // The one case here that reads the synced corpus: esbuild bundles the
+  // published registries. Everything else in this file reads code, and
+  // runs on the pull requests that change it.
+  it.skipIf(SKIP_LIVE_DATA)('covers every file esbuild reads for a published chunk', async () => {
     const uncovered: string[] = [];
     let bundledInputs = 0;
     for (const { source } of [...REGISTRIES, ...COMPANION_CHUNKS]) {

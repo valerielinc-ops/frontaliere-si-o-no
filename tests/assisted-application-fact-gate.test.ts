@@ -1415,12 +1415,12 @@ describe('letter at submission', () => {
     const text = await extractPdfText(rebuilt.pdf);
     expect(text).toContain('Via Esempio 3');
     expect(text).toContain('Allegati: Curriculum vitae, Diplomi');
-    // Review of PR 10919: a waived document (no file) is not listed. One enclosure: the singular (Città di Lugano).
-    const waived = await extractPdfText((await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() })).pdf);
-    expect(waived).toContain('Allegato: Curriculum vitae');
-    expect(waived).not.toContain('Diplomi');
+    // Review of PR 10919: a document with no file is not listed. One enclosure: the singular (Città di Lugano).
+    const without = await extractPdfText((await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { files: [] } } }, nowMs: Date.now() })).pdf);
+    expect(without).toContain('Allegato: Curriculum vitae');
+    expect(without).not.toContain('Diplomi');
     expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, null, 'order-1')).toEqual(['Diploma']);
-    expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, { documents: { diploma: { waivedAt: 1 } } }, 'order-1')).toEqual([]);
+    expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, { documents: { diploma: { files: [] } } }, 'order-1')).toEqual([]);
     const older = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft: { ...draft, letterAddress: undefined, coverLetterPdfKey: 'k' }, flow: {}, nowMs: Date.now() });
     expect(older.pdf.toString()).toBe('stored');
     // The stored file leaves: its key, and no writer when the draft does not record one.

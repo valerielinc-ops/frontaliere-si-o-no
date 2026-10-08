@@ -37,6 +37,7 @@ import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
+import { isArticlePublisherCodePath } from '../lib/article-chunk-publish-freshness.mjs';
 import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 
@@ -178,6 +179,12 @@ const sourceTreeLintTests = new Map([
   // e' passato senza che il test girasse. Il perimetro e' l'elenco stesso, non
   // una regex che possa divergere da esso.
   ['tests/generate-crawler-group-workflows.test.ts', (file) => crawlerGenerationRuntimePaths.has(file)],
+  // Stessa forma per il codice che pubblica gli articoli: il test parte dagli
+  // script che il replay invoca e ne segue da disco import e processi figli,
+  // ma ne importa solo due. Un import nuovo in uno degli altri allarga la
+  // chiusura senza che il grafo scelga il test. Il perimetro e' l'elenco che
+  // il classificatore stesso usa.
+  ['tests/scripts/article-chunk-publish-freshness.test.ts', isArticlePublisherCodePath],
   // Il ledger durevole dei loop e' riletto a runtime contro il registry
   // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
   // illeggibile. Registry e ledger sono dati, nessun import li collega al test
@@ -306,6 +313,15 @@ const sourceTreeLintTests = new Map([
   // sorgenti giudicati sono letti da disco: dopo la PR 11327 la bio corretta nel
   // registro e' rimasta vecchia nelle copie a mano senza che nulla fallisse.
   ['tests/author-metadata-single-source.test.ts', /^(?:data\/[^/]+\.(?:[cm]?[jt]sx?|json)|services\/seo\/seo-pages\.ts|build-plugins\/staticPagesPlugin\.ts|build-plugins\/shared\/authorEditorial\.ts|scripts\/lib\/llms-txt-generator\.mjs|services\/seo\/authorProfileMetadata\.ts)$/], // Scope producers: build-plugins/shared/authorEditorial.ts, scripts/lib/llms-txt-generator.mjs, services/seo/authorProfileMetadata.ts.
+  // I letterali delle immagini in seo-pages.ts sono giudicati da due test che
+  // leggono il file da disco: i campi dei diritti tutti o nessuno
+  // (static-pages-image-credit) e l'identificatore del sito sui creator
+  // (imageObjectLd). La PR 12329 ha aggiunto un creator del sito a 36 letterali
+  // con credito di terzi: toccava seo-pages.ts, il primo test non e' stato
+  // selezionato e main e' rimasto rosso per ogni PR che lo ereditava (issue
+  // 12353).
+  ['tests/static-pages-image-credit.test.ts', /^services\/seo\/seo-pages\.ts$/],
+  ['tests/seo/imageObjectLd.test.ts', /^services\/seo\/seo-pages\.ts$/],
   // Profili sparse dei workflow contro il codice che i job caricano. Il test
   // legge da disco i YAML, le action locali, gli script npm di package.json e
   // la chiusura degli import di ogni job: nessun import lo lega a quei file.

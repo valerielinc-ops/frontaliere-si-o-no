@@ -32,7 +32,8 @@ import {
   verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
-import { LEGACY_PREV_SLUGS_CAP, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { LEGACY_PREV_SLUGS_CAP, cleanPreviousSlugsPerLocale, isSelfCanonicalPreviousSlug, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { decontaminateEntries } from '../scripts/decontaminate-prev-slugs.mjs';
 
 const baseSlice = () => ({
   id: 'company-abc',
@@ -171,6 +172,256 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  it('treats an Aldi bridge already served by its hash owner in another locale as owned', () => {
+    // Reduced from origin/main:data/jobs/by-crawler/aldi-suisse.json at the
+    // 37756583870 input state. Both records deliberately keep the same master
+    // slug; only the URL-derived stable hash identifies the owner of vx06v8.
+    const bridge = 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vx06v8';
+    const claimant = {
+      id: 'aldi-suisse-b678db8da4ef',
+      url: 'https://www.jobs.aldi.ch/job/1421213133',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-martigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-martigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-martigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-7'],
+        fr: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-vwi61l'],
+      },
+    };
+    const owner = {
+      id: 'aldi-suisse-3cf969335f77',
+      url: 'https://www.jobs.aldi.ch/job/1421220833',
+      slug: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse',
+      slugByLocale: {
+        it: 'apprendistato-al-dettaglio-cfc-o-afp-aldi-suisse-bussigny',
+        en: 'retail-apprenticeship-cfc-or-afp-aldi-suisse-bussigny',
+        de: 'auszubildende-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny',
+        fr: 'apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-bussigny',
+      },
+      titleByLocale: { it: 'Apprendistato', en: 'Retail Apprenticeship', de: 'Auszubildende', fr: 'Apprenti' },
+      descriptionByLocale: {},
+      previousSlugs: [bridge],
+      previousSlugsByLocale: {
+        it: ['apprenti-e-du-commerce-de-detail-cfc-ou-afp-aldi-suisse-5'],
+        de: ['lehrlingsausbildung-im-einzelhandel-cfc-oder-afp-aldi-suisse-bussigny'],
+        fr: [bridge],
+      },
+    };
+    expect(stableSlugHash(claimant)).toBe('vwi61l');
+    expect(stableSlugHash(owner)).toBe('vx06v8');
+
+    // The real decontaminator moves an already-persisted IT claim to the
+    // suffix owner in IT while retaining the owner's existing FR claim. The
+    // scatter edge below is different: A's IT claim exists only in the
+    // assembled duplicate and must not be created on disk again.
+    const contaminatedClaimant = structuredClone(claimant);
+    contaminatedClaimant.previousSlugs = [];
+    contaminatedClaimant.previousSlugsByLocale = { it: [bridge] };
+    const contaminatedOwner = structuredClone(owner);
+    const contaminationEntries = [
+      { filePath: null, slice: { jobs: [contaminatedClaimant] } },
+      { filePath: null, slice: { jobs: [contaminatedOwner] } },
+    ];
+    expect(decontaminateEntries(contaminationEntries, { apply: false })).toMatchObject({ moved: 1 });
+    expect(contaminatedClaimant.previousSlugsByLocale?.it || []).not.toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.it || []).toContain(bridge);
+    expect(contaminatedOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+
+    const assembledClaimant = structuredClone(claimant);
+    assembledClaimant.previousSlugsByLocale.it.push(bridge);
+    const assembled = [assembledClaimant, structuredClone(owner)];
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-aldi-ownership-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'aldi-suisse.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [claimant, owner] }, null, 2)}\n`);
+      const read = () => [{ file: 'aldi-suisse.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const persistedEntries = () => read().map(({ file, slice }) => ({ file, jobs: slice.jobs }));
+      const first = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterFirst = read();
+      const firstOwner = afterFirst[0].slice.jobs.find((job) => job.id === owner.id);
+      const firstClaimant = afterFirst[0].slice.jobs.find((job) => job.id === claimant.id);
+
+      // The bridge is already served by its unique hash owner in FR. A's IT
+      // attribution is a duplicate assembled claim, not a missing projection.
+      expect(first.updatedJobs).toBe(0);
+      expect(first.ownership.moved).toBe(0);
+      expect(firstClaimant.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.fr || []).toContain(bridge);
+      expect(firstOwner.previousSlugsByLocale.it || []).not.toContain(bridge);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+
+      const firstDisk = JSON.stringify(afterFirst[0].slice);
+      const second = scatterAssembledIntoSliceEntries(assembled, read(), { persist: true });
+      const afterSecond = read();
+      expect(second.updatedJobs).toBe(0);
+      expect(second.ownership.moved).toBe(0);
+      expect(second.changedEntries).toHaveLength(0);
+      expect(JSON.stringify(afterSecond[0].slice)).toBe(firstDisk);
+      expect(verifyScatterParity(assembled, persistedEntries())).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps a genuinely ownerless bridge as a parity failure', () => {
+    const sliceJob = { ...baseSlice(), previousSlugs: [], previousSlugsByLocale: {} };
+    const assembled = {
+      ...sliceJob,
+      previousSlugs: [],
+      previousSlugsByLocale: { it: ['legacy-route-without-owner'] },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'fixture.json', jobs: [sliceJob] }])).toMatchObject({
+      missingBridges: 1,
+      pendingWrites: 1,
+      passed: false,
+    });
+  });
+
+  // Reduced from translate-pending run 37723588903 (arxada.json, R53358): the
+  // assembled job attributes to IT a previous slug that is the job's own
+  // master/DE slug. cleanPreviousSlugsPerLocale() drops it on the ownership
+  // pass, so the scatter re-added it on every run and the parity gate counted
+  // 1065 such bridges as missing (1049 pending writes).
+  const arxadaSlice = () => ({
+    id: 'arxada-r53358',
+    url: 'https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358',
+    title: 'Rangierdienst Spezialist/in',
+    company: 'Arxada',
+    location: 'Visp',
+    canton: 'VS',
+    sourceLang: 'de',
+    slug: 'rangierdienst-spezialist-in-arxada-ch',
+    slugByLocale: {
+      it: 'specialista-in-servizio-di-manovra-arxada-visp',
+      en: 'yard-service-specialist-arxada-visp',
+      de: 'rangierdienst-spezialist-in-arxada-ch',
+      fr: 'specialiste-en-service-de-man-uvre-arxada-visp',
+    },
+    titleByLocale: { it: 'a', en: 'b', de: 'c', fr: 'd' },
+    descriptionByLocale: {},
+    previousSlugs: ['rangierdienst-spezialist-in-arxada-visp'],
+    previousSlugsByLocale: { de: ['rangierdienst-spezialist-in-arxada-visp'] },
+  });
+
+  it('does not treat a bridge the cleaner drops (master slug under another locale) as missing', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    assembled.previousSlugs.push('rangierdienst-spezialist-in-arxada-ch');
+    assembled.previousSlugsByLocale.it = ['rangierdienst-spezialist-in-arxada-ch'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
+    expect(applyAssembledToSliceJob(sliceJob, assembled).changed).toBe(false);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-selfbridge-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'arxada.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [sliceJob] }, null, 2)}\n`);
+      const read = () => [{ file: 'arxada.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const run = scatterAssembledIntoSliceEntries([assembled], read(), { persist: true });
+      expect(run.updatedJobs).toBe(0);
+      expect(verifyScatterParity([assembled], read().map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still carries a locale bridge that equals ANOTHER locale active slug but not the master', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    // Old FR slug that today is the EN active slug: the cleaner keeps it.
+    assembled.previousSlugsByLocale.fr = ['yard-service-specialist-arxada-visp'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'fr', slug: 'yard-service-specialist-arxada-visp' },
+    ]);
+    const { job } = applyAssembledToSliceJob(sliceJob, assembled);
+    cleanPreviousSlugsPerLocale(job);
+    expect(job.previousSlugsByLocale.fr).toContain('yard-service-specialist-arxada-visp');
+  });
+
+  it('isSelfCanonicalPreviousSlug predicts exactly what cleanPreviousSlugsPerLocale drops', () => {
+    const base = arxadaSlice();
+    const candidates: Array<[string | null, string]> = [
+      ['it', base.slug],
+      ['it', base.slugByLocale.it],
+      ['it', base.slugByLocale.en],
+      ['fr', base.slugByLocale.en],
+      ['de', 'some-old-slug'],
+      [null, base.slug],
+      [null, base.slugByLocale.fr],
+      [null, 'some-flat-old-slug'],
+    ];
+    for (const [locale, slug] of candidates) {
+      const job = arxadaSlice();
+      job.previousSlugs = [slug];
+      job.previousSlugsByLocale = locale ? { [locale]: [slug] } : {};
+      cleanPreviousSlugsPerLocale(job);
+      const survived = locale
+        ? (job.previousSlugsByLocale?.[locale] || []).includes(slug)
+        : (job.previousSlugs || []).includes(slug);
+      expect({ locale, slug, dropped: !survived }).toEqual({
+        locale,
+        slug,
+        dropped: isSelfCanonicalPreviousSlug(base, locale, slug),
+      });
+    }
+  });
+
+  it('allows a cross-crawler duplicate shadowed by the slice that owns the assembled URL', () => {
+    // run 37723588903: the same jobs.admin.ch posting sits in two crawler
+    // slices under two locale paths; assembly keeps the offene-stellen record.
+    const assembled = {
+      ...baseSlice(),
+      id: 'vtg-8c077b4f',
+      url: 'https://jobs.admin.ch/offene-stellen/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+    const owner = { ...assembled };
+    const shadow = {
+      ...baseSlice(),
+      id: 'confederazione-8c077b4f',
+      url: 'https://jobs.admin.ch/posti-vacanti/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+    ])).toMatchObject({
+      duplicateAssembledMatches: 0,
+      shadowedSliceMatches: 1,
+      passed: true,
+    });
+    // Two records joined at the same strength stay an ambiguity.
+    const otherShadow = { ...shadow, id: 'third-8c077b4f', url: shadow.url.replace('posti-vacanti', 'postes-vacants') };
+    expect(verifyScatterParity([assembled], [
+      { file: 'a.json', jobs: [shadow] },
+      { file: 'b.json', jobs: [otherShadow] },
+    ])).toMatchObject({ duplicateAssembledMatches: 1, passed: false });
   });
 
   it('keeps a stable-token join when only the path changes on the same host', () => {

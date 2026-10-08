@@ -9,16 +9,16 @@ import type { ReviewDocument } from '@/services/assistedApplicationReviewService
  * 2026-10-02: school reports, the EVA and GRI test results), on the
  * candidate's review page. Each file is checked in the browser first: a file
  * that does not look like the document asked for gets a warning, never a
- * block — the candidate may send it, or send without the document, and that
- * choice is theirs (owner decision 2026-10-02).
+ * block — which file to send is the candidate's choice (owner decision
+ * 2026-10-02). Sending without a required document is not: the application
+ * waits for it (owner decision 2026-10-08).
  */
-export function AssistedApplicationDocuments({ documents, limits, disabled, onUpload, onRemove, onWaive }: {
+export function AssistedApplicationDocuments({ documents, limits, disabled, onUpload, onRemove }: {
   documents: ReviewDocument[];
   limits: { maxBytes: number; maxFiles: number };
   disabled: boolean;
   onUpload: (document: ReviewDocument, file: File, check: DocumentCheck) => Promise<boolean>;
   onRemove: (document: ReviewDocument, fileId: string) => Promise<boolean>;
-  onWaive: (document: ReviewDocument, waive: boolean) => Promise<boolean>;
 }) {
   const { t } = useTranslation();
   // The document whose file is being checked and sent, and a file refused before sending.
@@ -109,7 +109,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
               </ul>
             )}
 
-            {!full && !document.waived && (
+            {!full && (
               <div>
                 <label
                   htmlFor={inputId}
@@ -132,22 +132,7 @@ export function AssistedApplicationDocuments({ documents, limits, disabled, onUp
             {localError[document.id] && <p className="text-xs text-danger" role="alert">{localError[document.id]}</p>}
 
             {document.required && document.files.length === 0 && (
-              document.waived ? (
-                <div className="flex flex-wrap items-center gap-2 rounded-md border border-warning-border bg-warning-subtle/60 p-2 text-xs text-body">
-                  <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-warning" aria-hidden="true" />
-                  <span>{t('jobBoard.assisted.review.documents.waived', { label: document.label })}</span>
-                  <button type="button" disabled={disabled} onClick={() => { void onWaive(document, false); }} className="min-h-[44px] font-semibold text-accent underline disabled:opacity-60">
-                    {t('jobBoard.assisted.review.documents.unwaive')}
-                  </button>
-                </div>
-              ) : (
-                <div className="space-y-1">
-                  <p className="text-xs text-subtle">{t('jobBoard.assisted.review.documents.waiveWarning', { label: document.label })}</p>
-                  <button type="button" disabled={disabled} onClick={() => { void onWaive(document, true); }} className="min-h-[44px] text-xs font-semibold text-subtle underline hover:text-heading disabled:opacity-60">
-                    {t('jobBoard.assisted.review.documents.waive')}
-                  </button>
-                </div>
-              )
+              <p className="text-xs text-subtle">{t('jobBoard.assisted.review.documents.requiredNote', { label: document.label })}</p>
             )}
           </div>
         );

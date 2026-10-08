@@ -172,7 +172,9 @@ export function workdayPostingApiUrl(value) {
  *   - `{gone: false, info}`: the posting (`jobPostingInfo`: jobDescription,
  *     canApply, posted, startDate, location…);
  *   - `{gone: true, info: null}`: Workday answers that it does not exist (HTTP
- *     404, its error «not found: Job_Posting_Anchor_ID»);
+ *     404, its error «not found: Job_Posting_Anchor_ID»), or refuses it (HTTP
+ *     403) while the tenant's own search lists the requisition no more
+ *     (workdayPostingUnlisted);
  *   - null: not a Workday posting, or an answer this cannot read. The caller
  *     then knows nothing more than before.
  */
@@ -187,7 +189,44 @@ export async function fetchWorkdayPosting(fetchImpl, postingUrl, resolve = looku
     return { gone: false, info: body.jobPostingInfo, organization: clean(body.hiringOrganization?.name, 200) };
   }
   if (response.status === 404 && /Job_Posting_Anchor_ID/.test(String(body?.message || ''))) return { gone: true, info: null };
+  if (response.status === 403 && (await workdayPostingUnlisted(fetchImpl, api, resolve).catch(() => false))) return { gone: true, info: null };
   return null;
+}
+
+/**
+ * A posting Workday took off its career site: its JSON answers 403 «permission denied» (a real order,
+ * 2026-10-08: an apprenticeship withdrawn while the candidate was awaited). The 403 alone could be a tenant
+ * refusing this client, so the tenant's own search settles it: it answers this client, and lists the
+ * requisition under no address. A requisition published again under another address is not withdrawn.
+ * @returns {Promise<boolean>} true: withdrawn. false: still listed, or the search did not answer (nothing known)
+ */
+async function workdayPostingUnlisted(fetchImpl, api, resolve) {
+  const url = new URL(api);
+  const segment = decodeURIComponent(url.pathname.split('/').filter(Boolean).pop() || '');
+  // «…--a-_JR06989»: the requisition closes the address, after its last underscore.
+  const token = segment.includes('_') ? segment.slice(segment.lastIndexOf('_') + 1).toLowerCase() : '';
+  if (!/\d{3,}/.test(token)) return false;
+  // «JR04622-1» is the same requisition published a second time: the search indexes «JR04622».
+  const requisition = token.replace(/-\d{1,2}$/, '');
+  const searchUrl = `${url.origin}${url.pathname.replace(/\/job\/.*$/, '/jobs')}`;
+  if (!(await resolvesToPublicHost(searchUrl, resolve))) return false;
+  for (const searchText of new Set([token, requisition])) {
+    const response = await fetchWithTimeout(fetchImpl, searchUrl, {
+      method: 'POST',
+      redirect: 'manual',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ appliedFacets: {}, limit: 20, offset: 0, searchText }),
+    });
+    const body = response.status === 200 ? await response.json().catch(() => null) : null;
+    if (!Array.isArray(body?.jobPostings)) return false;
+    const listed = body.jobPostings.some((job) => {
+      const path = String(job?.externalPath || '').toLowerCase();
+      const ids = (Array.isArray(job?.bulletFields) ? job.bulletFields : []).map((id) => String(id).toLowerCase());
+      return ids.includes(requisition) || path.endsWith(`_${token}`) || path.endsWith(`_${requisition}`) || path.includes(`_${requisition}-`);
+    });
+    if (listed) return false;
+  }
+  return true;
 }
 
 // ── Apply redirect ─────────────────────────────────────────────────────────

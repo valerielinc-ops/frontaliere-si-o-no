@@ -45,13 +45,20 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     });
   });
 
-  it('keeps legacy static SEO image creators on the canonical organization', () => {
+  it('keeps every site creator of a static SEO blog image on the canonical organization', () => {
     const source = readFileSync(resolve(__dirname, '../../services/seo/seo-pages.ts'), 'utf8');
     const imageLines = source
       .split('\n')
       .filter((line) => line.includes('"@type": "ImageObject"') && line.includes('`${BASE_URL}/images/blog/'));
     expect(imageLines.length).toBeGreaterThan(0);
-    for (const imageLine of imageLines) {
+    // A cover with a credit record carries none of the rights fields in its
+    // literal: the record supplies creator and licence, and a site creator
+    // there would claim a photo the site did not take
+    // (tests/static-pages-image-credit.test.ts). Only the literals that name
+    // a creator are judged here.
+    const siteClaims = imageLines.filter((line) => line.includes('"creator"'));
+    expect(siteClaims.length).toBeGreaterThan(0);
+    for (const imageLine of siteClaims) {
       expect(imageLine).toContain(`"@id": "${CANONICAL_SITE_ORGANIZATION_ID}"`);
     }
   });

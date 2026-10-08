@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-cic",
-  "assembledAt": "2026-10-07T21:14:17.919Z",
+  "assembledAt": "2026-10-08T09:13:32.110Z",
   "jobs": [
     {
       "id": "clinique-cic-5ea73471cf90",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9c51a18f-a41d-4618-b1fe-a6ad0492d29a/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:14:13.076Z",
+      "crawledAt": "2026-10-08T09:13:26.649Z",
       "addressLocality": "Clarens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       "slugByLocale": {
         "it": "infermiera-clinique-cic-saxon-saxon",
         "en": "nurse-clinique-cic-saxon-saxon",
-        "de": "infirmier-ere-clinique-cic-saxon",
+        "de": "krankenschwester-clinique-cic-saxon-saxon",
         "fr": "infirmier-ere-clinique-cic-saxon"
       },
       "company": "Clinique CIC Saxon",
@@ -109,7 +109,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/198a04bf-c7b2-44aa-9d81-49f92a330378/",
       "source": "Clinique CIC (Saxon & Clarens) Dedicated Parser (jobup.ch mask)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-07T21:14:12.439Z",
+      "crawledAt": "2026-10-08T09:13:25.969Z",
       "addressLocality": "Saxon",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -130,7 +130,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infirmier-ere-clinique-cic-saxon",
-        "krankenschwester-clinique-cic-saxon-saxon",
         "krankenpfleger-in-clinique-cic-saxon-saxon"
       ],
       "previousSlugsByLocale": {
@@ -141,8 +140,8 @@
           "infirmier-ere-clinique-cic-saxon"
         ],
         "de": [
-          "krankenschwester-clinique-cic-saxon-saxon",
-          "krankenpfleger-in-clinique-cic-saxon-saxon"
+          "krankenpfleger-in-clinique-cic-saxon-saxon",
+          "infirmier-ere-clinique-cic-saxon"
         ]
       },
       "firstSeenAt": "2026-09-30T21:10:26.798Z",

@@ -233,6 +233,7 @@ questions: what ONLY the candidate can answer and the application needs, written
 - availability when the posting mentions a start date or notice period and the profile does not state it;
 - one question for each critical or high requirement whose status is missing only because the profile is silent on it (for example a driving licence, a certificate, a language level) — required true;
 - never ask which school or institution the candidate currently attends when profile.currentEducation.institution is non-empty; the portal runner maps that field from the profile;
+- never ask whether the candidate holds, has or can provide a document listed in requestedDocuments: they upload it on the review page, and the upload is the answer. Ask about such a document only what the document itself cannot show;
 - nothing else. Keep at most 6 questions. required is true only when the application cannot honestly go out without the answer.
 validation (for every question): the rule the answer must satisfy, checked on the page while the candidate types. pattern = a JavaScript regular expression the WHOLE answer must match, "" when the type already says enough (choice, yes_no, date); keep it simple: no lookbehind, no backreferences, no nested quantifiers. minLength/maxLength in characters (0 when none). min/max for a number (null when none). minDate "today" for a start date, else "". example = one valid answer in the expected format. message = one short sentence in ${questionLanguage} on what a valid answer looks like.
 
@@ -250,6 +251,8 @@ export function matchUserText({ profile, requirements, answers, candidateNotes =
     languageRequirements: requirements?.languageRequirements || [],
     workPermitQuote: requirements?.workPermitQuote || '',
     salaryRequested: Boolean(requirements?.salaryRequested),
+    // What the candidate uploads on the review page: never asked about (lib/documentQuestions.js).
+    requestedDocuments: (requirements?.requestedDocuments || []).map((item) => ({ document: item.document, required: item.required !== false })),
   };
   return `${JSON.stringify(payload)}\n\n<<<POSTING EXCERPT\n${postingExcerpt}\nPOSTING EXCERPT>>>`;
 }

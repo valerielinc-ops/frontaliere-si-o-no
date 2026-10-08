@@ -3,6 +3,7 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
 import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_CITIES } from '../services/pharmacies/data';
+import { buildDutyCoverageMatrix } from '../services/pharmacies/dutyCoverageMatrix';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
@@ -27,6 +28,25 @@ const provincePaths = {
 
 afterEach(cleanup);
 afterEach(() => vi.useRealTimers());
+
+/**
+ * One minute after the whole release was fetched. A release is a set of
+ * snapshots taken one after the other (the duties, then the catalogue) and is
+ * fresh only once the last one exists. Counting from `_fetchedAt` alone put
+ * the clock 261 ms before the catalogue on 2026-10-08, when the cron took
+ * 60.261 s between the two (54.7 to 58.5 s on the four releases before), and
+ * the surface read as stale.
+ */
+function oneMinuteAfterRelease(dataset: {
+  _fetchedAt?: unknown;
+  _release?: { snapshots?: Record<string, { fetchedAt?: unknown }> };
+}): Date {
+  const instants = [
+    dataset._fetchedAt,
+    ...Object.values(dataset._release?.snapshots ?? {}).map((snapshot) => snapshot?.fetchedAt),
+  ].map((value) => Date.parse(String(value))).filter(Number.isFinite);
+  return new Date(Math.max(...instants) + 60_000);
+}
 
 const provinceCounts = ITALY_BORDER_PROVINCES.map(
   (province) => ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === province.code).length,
@@ -82,8 +102,14 @@ describe('pharmacy country SPA route', () => {
   });
 
   it('emits a measured completion and marks reviewed next actions on a fresh duty surface', () => {
-    const now = new Date(Date.parse(String(ticinoDutiesJson._fetchedAt)) + 60_000);
+    const now = oneMinuteAfterRelease(ticinoDutiesJson);
     vi.useFakeTimers({ now });
+    // Whether the Ticino release is ready is in the snapshot the pharmacy cron
+    // rewrites several times a day: the expectation follows the model, not
+    // today's data, as for the Italian week below (#9743).
+    const model = buildDutyCoverageMatrix({ locale: 'it', now });
+    const measured = model.releaseReady && model.regions.some((region) => region.duties.length > 0);
+    const completed = { kind: 'completed', surface: 'pharmacy', id: 'duty_lookup' };
     const events: unknown[] = [];
     const onBridge = (event: Event) => events.push((event as CustomEvent<unknown>).detail);
     window.addEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
@@ -91,10 +117,16 @@ describe('pharmacy country SPA route', () => {
     const { container } = render(<PharmacyDirectory page={{ kind: 'duty-hub', locale: 'it' }} />);
     const matrix = container.querySelector('[data-coverage-matrix="true"]');
 
-    expect(matrix).toHaveAttribute(DECISION_MOMENT_COMPLETED_ATTRIBUTE, 'true');
-    expect(matrix).toHaveAttribute(DECISION_MOMENT_ID_ATTRIBUTE, 'duty_lookup');
-    expect(matrix?.querySelector(`[${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_pharmacy"]`)).toBeInTheDocument();
-    expect(events).toContainEqual({ kind: 'completed', surface: 'pharmacy', id: 'duty_lookup' });
+    expect(matrix).toHaveAttribute('data-release-ready', String(model.releaseReady));
+    if (measured) {
+      expect(matrix).toHaveAttribute(DECISION_MOMENT_COMPLETED_ATTRIBUTE, 'true');
+      expect(matrix).toHaveAttribute(DECISION_MOMENT_ID_ATTRIBUTE, 'duty_lookup');
+      expect(matrix?.querySelector(`[${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_pharmacy"]`)).toBeInTheDocument();
+      expect(events).toContainEqual(completed);
+    } else {
+      expect(matrix).not.toHaveAttribute(DECISION_MOMENT_COMPLETED_ATTRIBUTE);
+      expect(events).not.toContainEqual(completed);
+    }
 
     window.removeEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
   });
@@ -121,7 +153,7 @@ describe('pharmacy country SPA route', () => {
   });
 
   it.each(locales)('routes the Italian duty hub and week to a fail-closed country UI (%s)', (locale) => {
-    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    const now = oneMinuteAfterRelease(italyDutiesJson);
     vi.useFakeTimers({ now });
     const weekStart = currentItalyDutyWeekStart(now);
     const italyModel = buildItalyDutyWeekModel({ now, weekStart });
@@ -168,7 +200,7 @@ describe('pharmacy country SPA route', () => {
   });
 
   it.each(locales)('routes the generic Italian duty aliases to the standalone coverage matrix (%s)', (locale) => {
-    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    const now = oneMinuteAfterRelease(italyDutiesJson);
     vi.useFakeTimers({ now });
     const italyModel = buildItalyDutyWeekModel({ now, weekStart: currentItalyDutyWeekStart(now) });
     const expectedRows = italyModel.provinces.flatMap((province) => province.duties).length;

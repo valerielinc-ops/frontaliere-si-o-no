@@ -17,7 +17,7 @@
 //   api.e-control.at (the API is publicly documented, but no separate open-data
 //   licence was found; keep the provider attribution in the output).
 // - DE: Tankerkönig/MTS-K data is CC BY 4.0. The optional adapter uses one
-//   list.php request per configured border group, serialised at the provider's
+//   list.php request per configured border point, serialised at the provider's
 //   one-request-per-minute limit, and skips the whole overlay on ok:false.
 // One plain request per source per daily run, honest User-Agent, no header
 // spoofing. Tankerkönig requests deliberately have no retry: a retry would be
@@ -165,38 +165,42 @@ export async function fetchGermanStations({
   const coverage = {};
   let rejectedReason = null;
   let requestNumber = 0;
-  // Requests are intentionally sequential. Tankerkönig documents one request
-  // per minute for the free API; parallel calls would make an otherwise valid
-  // daily run exceed that limit and could deactivate the key.
+  // Requests are intentionally sequential, including multiple points in one
+  // canton. Tankerkönig documents one request per minute for the free API;
+  // parallel calls would make an otherwise valid daily run exceed that limit
+  // and could deactivate the key.
   for (const [canton, points] of Object.entries(DE_POINTS_BY_CANTON)) {
-    if (requestNumber > 0 && requestIntervalMs > 0) await sleepImpl(requestIntervalMs);
-    requestNumber++;
     const seen = new Map();
-    const point = points[0];
-    const qs = new URLSearchParams({
-      lat: String(point.lat), lng: String(point.lng), rad: String(DE_SEARCH_RADIUS_KM),
-      sort: 'dist', type: 'all', apikey: apiKey,
-    });
-    let parsedStations = false;
-    try {
-      // Never retry a Tankerkönig request: even a transient HTTP/network
-      // error is reported as a source failure and leaves the other overlays
-      // publishable. A rejected ok:false response also stops immediately, as
-      // the provider recommends sending no further requests for that key.
-      const response = await fetchWithRetry(`${DE_TANKERKOENIG_LIST_URL}?${qs}`, { fetchImpl, retries: 1 });
-      if (response?.ok === false) {
-        rejectedReason = `rejected: ${redactKey(response.message || 'API returned ok:false', apiKey)}`;
-        break;
+    let parsedPoint = false;
+    for (const point of points) {
+      if (requestNumber > 0 && requestIntervalMs > 0) await sleepImpl(requestIntervalMs);
+      requestNumber++;
+      const radiusKm = Number.isFinite(point.radiusKm) ? point.radiusKm : DE_SEARCH_RADIUS_KM;
+      const qs = new URLSearchParams({
+        lat: String(point.lat), lng: String(point.lng), rad: String(radiusKm),
+        sort: 'dist', type: 'all', apikey: apiKey,
+      });
+      try {
+        // Never retry a Tankerkönig request: even a transient HTTP/network
+        // error is reported as a source failure and leaves the other overlays
+        // publishable. A rejected ok:false response also stops immediately, as
+        // the provider recommends sending no further requests for that key.
+        const response = await fetchWithRetry(`${DE_TANKERKOENIG_LIST_URL}?${qs}`, { fetchImpl, retries: 1 });
+        if (response?.ok === false) {
+          rejectedReason = `rejected: ${redactKey(response.message || 'API returned ok:false', apiKey)}`;
+          break;
+        }
+        for (const s of parseTankerkoenigStations(response)) {
+          if (!seen.has(s.id)) seen.set(s.id, s);
+        }
+        parsedPoint = true;
+      } catch (err) {
+        failures.push(`${canton}/${point.label}: ${redactKey(err?.message || err, apiKey)}`);
       }
-      for (const s of parseTankerkoenigStations(response)) {
-        if (!seen.has(s.id)) seen.set(s.id, s);
-      }
-      parsedStations = true;
-    } catch (err) {
-      failures.push(`${canton}: ${redactKey(err?.message || err, apiKey)}`);
     }
+    if (rejectedReason) break;
     byCanton[canton] = [...seen.values()];
-    if (!parsedStations) continue;
+    if (!parsedPoint) continue;
     const stations = byCanton[canton];
     const counts = Object.fromEntries(FUELS.map((fuel) => [
       fuel,

@@ -65,7 +65,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-fb0c616e05fa",
@@ -140,7 +140,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-ee4514d1b32e",
@@ -220,7 +220,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-4a8c0ac3123a",
@@ -287,7 +287,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-6b10f78fd5c2",
@@ -361,7 +361,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-a588d1c5cf0d",
@@ -441,7 +441,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-3c306b854149",
@@ -474,7 +474,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:52.258Z",
+      "crawledAt": "2026-10-08T09:22:23.538Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,7 +491,6 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:07:30.709Z"
     },
     {
@@ -567,7 +566,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-0e67f9a781e5",
@@ -646,7 +645,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-e8fc8bcc059c",
@@ -679,7 +678,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:51.302Z",
+      "crawledAt": "2026-10-08T09:22:22.594Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -704,9 +703,10 @@
           "senior-engineering-manager-proton-geneva-switzerland-paris-france"
         ]
       },
-      "firstSeenAt": "2026-09-26T14:07:26.125Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 11826,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-26T14:07:26.125Z"
     },
     {
       "id": "proton-7c807d1d269c",
@@ -739,7 +739,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:50.987Z",
+      "crawledAt": "2026-10-08T09:22:22.279Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -756,9 +756,10 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-20T12:41:17.657Z",
-      "retranslationAttempts": 1
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 9042,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-07-20T12:41:17.657Z"
     },
     {
       "id": "proton-5ea14660b21d",
@@ -841,7 +842,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-e69503c03816",
@@ -924,7 +925,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-d7df4da8623e",
@@ -1007,7 +1008,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-51c9c784cdd5",
@@ -1090,7 +1091,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-eb42c06ef6d8",
@@ -1123,7 +1124,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:51.606Z",
+      "crawledAt": "2026-10-08T09:22:22.899Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1140,7 +1141,6 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T23:16:31.304Z"
     },
     {
@@ -1221,7 +1221,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-6565c2255033",
@@ -1254,7 +1254,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:51.927Z",
+      "crawledAt": "2026-10-08T09:22:23.213Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1285,7 +1285,7 @@
       "id": "proton-375e455f983d",
       "slug": "business-development-manager-proton-ch",
       "slugByLocale": {
-        "it": "business-development-manager-proton-ch",
+        "it": "responsabile-dello-sviluppo-commerciale-proton-geneva",
         "en": "business-development-manager-proton-ch",
         "de": "geschaftsentwicklungsleiter-proton-geneva",
         "fr": "directeur-du-developpement-des-affaires-proton-geneva-zurich"
@@ -1312,7 +1312,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4868059101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:50.608Z",
+      "crawledAt": "2026-10-08T09:22:21.926Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1338,7 +1338,7 @@
         ]
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "proton-550dbdc996fb",
@@ -1418,7 +1418,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-cc8da9b61b1f",
@@ -1501,7 +1501,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-86014680b084",
@@ -1534,7 +1534,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:29:52.565Z",
+      "crawledAt": "2026-10-08T09:22:23.844Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1551,7 +1551,10 @@
       "applyUrl": "https://job-boards.eu.greenhouse.io/proton/jobs/4836677101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:07:31.618Z"
+      "firstSeenAt": "2026-09-26T14:07:31.618Z",
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 11446
     },
     {
       "id": "proton-ef9a5e6f4cac",
@@ -1631,7 +1634,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-895906bfa11f",
@@ -1716,7 +1719,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-4715d65515fc",
@@ -1791,7 +1794,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-00d3aff6de32",
@@ -1871,7 +1874,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-15b36b558ab2",
@@ -1952,7 +1955,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-548fc6c7342d",
@@ -2033,7 +2036,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-fa82de98165b",
@@ -2114,7 +2117,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-82a2e728edb3",
@@ -2196,7 +2199,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-7e17c1b398c6",
@@ -2279,7 +2282,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-e66d34ef594c",
@@ -2360,7 +2363,7 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-87da4532b371",
@@ -2445,7 +2448,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-45018d9aa734",
@@ -2525,7 +2528,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-aaf66c7623ea",
@@ -2605,7 +2608,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "proton-55074e299a5c",
@@ -2695,7 +2698,7 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

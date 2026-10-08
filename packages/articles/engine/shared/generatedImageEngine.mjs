@@ -37,6 +37,7 @@ import {
   LICENSED_PHOTO_RESTRICTIONS,
   IMAGE_PROVIDERS,
   generatedImagePathForScope,
+  scopeAllowsLicensedPhoto,
   validateGeneratedImageRecord,
 } from './generatedImageRegistry.mjs';
 import {
@@ -63,6 +64,12 @@ export const DEFAULT_PHOTO_PROVIDER_CHAIN = Object.freeze([
   'pexels',
   'pixabay',
   ...DEFAULT_GENERATION_PROVIDER_CHAIN,
+]);
+export const DEFAULT_AUTO_PROVIDER_CHAIN = Object.freeze([
+  ...DEFAULT_GENERATION_PROVIDER_CHAIN,
+  'wikimedia',
+  'pexels',
+  'pixabay',
 ]);
 export const OPENAI_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS['openai-codex'];
 export const GEMINI_TERMS_URL = GENERATED_IMAGE_LICENSE_URLS.gemini;
@@ -107,11 +114,13 @@ const VISION_SCHEMA = Object.freeze({
     contains_text: { type: 'boolean' },
     contains_logo: { type: 'boolean' },
     contains_recognizable_face: { type: 'boolean' },
+    contains_recognizable_foreground_person: { type: 'boolean' },
     looks_like_specific_real_event: { type: 'boolean' },
     is_photograph: { type: 'boolean' },
+    is_topic_relevant: { type: 'boolean' },
     notes: { type: 'string' },
   },
-  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'looks_like_specific_real_event', 'is_photograph', 'notes'],
+  required: ['ok', 'contains_text', 'contains_logo', 'contains_recognizable_face', 'contains_recognizable_foreground_person', 'looks_like_specific_real_event', 'is_photograph', 'is_topic_relevant', 'notes'],
 });
 
 function listFilesRecursively(root) {
@@ -181,14 +190,18 @@ function normalizeProviderList(value) {
   return [...new Set(values.map((item) => String(item).trim().toLowerCase()).filter((item) => IMAGE_PROVIDERS.includes(item)))];
 }
 
-/** Return the one deterministic chain used by every caller. An explicit
- * provider or chain is still bounded to the allowlisted providers; `auto`
- * uses real photos first only when the caller asks for `kind: photo`. */
-export function imageProviderSequence({ kind = GENERATED_IMAGE_KIND, provider = 'auto', chain, providers } = {}) {
+/** Return the one deterministic chain used by every caller. Explicit provider
+ * lists keep their order; `auto` tries generation first and appends licensed
+ * photos only for scopes that permit real photographs. */
+export function imageProviderSequence({ kind = GENERATED_IMAGE_KIND, scope, provider = 'auto', chain, providers } = {}) {
   const requested = providers || chain || (provider !== 'auto' ? provider : '');
   const explicit = normalizeProviderList(requested);
   if (explicit.length) return explicit;
-  return [...(kind === LICENSED_PHOTO_KIND ? DEFAULT_PHOTO_PROVIDER_CHAIN : DEFAULT_GENERATION_PROVIDER_CHAIN)];
+  if (scopeAllowsLicensedPhoto(scope)) return [...DEFAULT_AUTO_PROVIDER_CHAIN];
+  // Keep the legacy photo-kind default for callers that have not supplied a
+  // scope. All governed engine calls have a scope and use the rule above.
+  if (kind === LICENSED_PHOTO_KIND && scope === undefined) return [...DEFAULT_PHOTO_PROVIDER_CHAIN];
+  return [...DEFAULT_GENERATION_PROVIDER_CHAIN];
 }
 
 export function providerConfiguration(provider, env = process.env) {
@@ -597,6 +610,157 @@ const PHOTO_AREA_ANCHORS = Object.freeze({
   laghi: ['lake lugano', 'lago lugano', 'lac lugano', 'lake maggiore', 'lago maggiore', 'lake geneva', 'lac leman', 'lake zurich', 'lake lucerne', 'lake neuchatel', 'lugano', 'maggiore', 'geneva', 'zurich', 'lucerne', 'neuchatel'],
 });
 
+/** Small, explicit vocabulary bridge for Italian article metadata → photo APIs. */
+const ARTICLE_PHOTO_TERM_MAP = Object.freeze({
+  fiscale: 'fiscal',
+  fiscalita: 'taxation',
+  stipendio: 'salary',
+  stipendi: 'salary',
+  salario: 'salary',
+  salari: 'salary',
+  netto: 'net',
+  lordi: 'gross',
+  lordo: 'gross',
+  calcolo: 'calculation',
+  calcoli: 'calculation',
+  deduzione: 'deduction',
+  deduzioni: 'deductions',
+  fonte: 'withholding',
+  accordo: 'agreement',
+  reddito: 'income',
+  redditi: 'income',
+  tassa: 'tax',
+  tasse: 'tax',
+  tassazione: 'taxation',
+  fiscale: 'fiscal',
+  fisco: 'tax',
+  imposta: 'tax',
+  imposte: 'tax',
+  lavoro: 'employment',
+  lavoratore: 'employment',
+  lavoratori: 'employment',
+  occupazione: 'employment',
+  impiego: 'employment',
+  impieghi: 'employment',
+  professione: 'employment',
+  pensione: 'retirement',
+  pensioni: 'retirement',
+  previdenza: 'retirement',
+  affitto: 'rent',
+  affitti: 'rent',
+  casa: 'housing',
+  case: 'housing',
+  abitazione: 'housing',
+  traffico: 'traffic',
+  mobilita: 'mobility',
+  mobilità: 'mobility',
+  trasporto: 'transport',
+  trasporti: 'transport',
+  treno: 'railway',
+  treni: 'railway',
+  salute: 'health',
+  sanitaria: 'health',
+  sanitario: 'health',
+  assicurazione: 'insurance',
+  assicurazioni: 'insurance',
+  lamal: 'insurance',
+  cmi: 'health',
+  cassa: 'health',
+  malati: 'health',
+  copertura: 'coverage',
+  coperture: 'coverage',
+  premi: 'premiums',
+  premio: 'premium',
+  diritto: 'right',
+  opzione: 'option',
+  costi: 'costs',
+  costo: 'cost',
+  sanita: 'healthcare',
+  sanità: 'healthcare',
+  famiglia: 'family',
+  famiglie: 'family',
+  bambini: 'children',
+  scuola: 'school',
+  istruzione: 'education',
+  educazione: 'education',
+  banca: 'banking',
+  banche: 'banking',
+  bancario: 'banking',
+  turismo: 'tourism',
+  viaggi: 'travel',
+  viaggio: 'travel',
+  clima: 'climate',
+  ambiente: 'environment',
+  confine: 'border',
+  frontaliere: 'cross-border',
+  frontalieri: 'cross-border',
+  transfrontaliero: 'cross-border',
+  transfrontalieri: 'cross-border',
+  regione: 'region',
+  regioni: 'regions',
+  ticino: 'Ticino',
+  svizzera: 'Switzerland',
+  svizzero: 'Swiss',
+  svizzeri: 'Swiss',
+  zurigo: 'Zurich',
+  ginevra: 'Geneva',
+  berna: 'Bern',
+  lugano: 'Lugano',
+  locarno: 'Locarno',
+  bellinzona: 'Bellinzona',
+  mendrisio: 'Mendrisio',
+  como: 'Como',
+  varese: 'Varese',
+  italia: 'Italy',
+  italiano: 'Italian',
+  italiani: 'Italian',
+});
+const ARTICLE_PHOTO_STOP_WORDS = new Set([
+  'a', 'ad', 'al', 'alla', 'alle', 'and', 'anche', 'at', 'con', 'da', 'de', 'del', 'della', 'delle',
+  'di', 'e', 'for', 'from', 'gli', 'il', 'in', 'la', 'le', 'lo', 'nel', 'of', 'per', 'su', 'the', 'to',
+  'un', 'una', 'uno', 'with', 'and', 'article', 'articolo', 'editorial', 'illustration', 'scene',
+  'come', 'quando', 'quale', 'quali', 'quanto', 'quanti', 'perche', 'perché',
+]);
+const ARTICLE_PHOTO_FORBIDDEN_METADATA = Object.freeze([
+  'brand', 'branding', 'lettering', 'logo', 'logos', 'signage', 'trademark', 'watermark',
+  'poster', 'text overlay', 'typography', 'wordmark',
+]);
+const ARTICLE_GENERIC_PLACE_TERMS = new Set([
+  'border', 'canton', 'cantons', 'cross', 'italian', 'italy', 'region', 'regions', 'swiss', 'switzerland', 'ticino',
+]);
+
+function foldArticlePhotoText(value) {
+  return String(value ?? '')
+    .toLocaleLowerCase('it-CH')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+function articlePhotoTerms(value) {
+  return [...new Set(foldArticlePhotoText(value)
+    .split(/\s+/)
+    .filter((token) => token.length > 2 && !ARTICLE_PHOTO_STOP_WORDS.has(token))
+    .map((token) => ARTICLE_PHOTO_TERM_MAP[token] || token))];
+}
+
+function articlePhotoContext(spec = {}) {
+  const title = articlePhotoTerms(spec.title || '');
+  const subject = title.length ? title : articlePhotoTerms(spec.subject || '');
+  const topic = articlePhotoTerms([spec.topic, spec.category].filter(Boolean).join(' '));
+  const keywords = articlePhotoTerms(Array.isArray(spec.keywords) ? spec.keywords.join(' ') : spec.keywords || '');
+  const explicitPlace = articlePhotoTerms(spec.place || '');
+  const place = explicitPlace.length ? explicitPlace : articlePhotoTerms(spec.area || '');
+  return {
+    topic: [...new Set([...topic, ...keywords, ...subject])],
+    place: [...new Set(place)],
+    title: [...new Set(subject)],
+    requiresPlace: explicitPlace.length > 0,
+  };
+}
+
 function photoCandidateText(candidate) {
   return stripMarkup([
     candidate?.title,
@@ -611,11 +775,30 @@ function photoCandidateText(candidate) {
 
 /** Keep a search hit tied to the geographical area encoded by its slot. */
 export function isPhotoCandidateRelevantToSpec(spec, candidate) {
+  if (String(spec?.scope || '').trim() === 'article-hero') {
+    const context = articlePhotoContext(spec);
+    const text = articlePhotoTerms(photoCandidateText(candidate)).map((term) => term.toLowerCase());
+    const topic = context.topic.map((term) => term.toLowerCase());
+    const place = context.place.map((term) => term.toLowerCase());
+    const topicalTerms = topic.filter((term) => !place.includes(term));
+    const specificPlace = place.filter((term) => !ARTICLE_GENERIC_PLACE_TERMS.has(term));
+    if (!text.length || !topicalTerms.length) return false;
+    const hasTopic = topicalTerms.some((term) => text.includes(term));
+    const placeTerms = specificPlace.length ? specificPlace : place;
+    const hasPlace = !context.requiresPlace || !placeTerms.length || placeTerms.some((term) => text.includes(term));
+    return hasTopic && hasPlace;
+  }
   const anchors = PHOTO_AREA_ANCHORS[String(spec?.area || '').trim()];
   if (!anchors) return true;
   const text = photoCandidateText(candidate);
   if (!text) return false;
   return anchors.some((anchor) => text.includes(String(anchor).toLowerCase()));
+}
+
+export function isSuitableArticlePhotoCandidate(spec, candidate) {
+  if (!isSuitablePhotoCandidate(candidate)) return false;
+  const text = photoCandidateText(candidate);
+  return !ARTICLE_PHOTO_FORBIDDEN_METADATA.some((term) => text.includes(term));
 }
 
 function recordSourcePageUrl(record) {
@@ -660,13 +843,16 @@ export function selectDeterministicPhotoCandidates(spec, candidates, { usedRecor
   for (const candidate of Array.isArray(candidates) ? candidates : []) {
     const sourcePageUrl = recordSourcePageUrl(candidate);
     const candidateHash = photoCollisionKey(candidate.sha256 || candidate.sourceSha256);
-    if (!sourcePageUrl || !isSuitablePhotoCandidate(candidate) || !isPhotoCandidateRelevantToSpec(spec, candidate)) continue;
+    const suitable = String(spec?.scope || '').trim() === 'article-hero'
+      ? isSuitableArticlePhotoCandidate(spec, candidate)
+      : isSuitablePhotoCandidate(candidate);
+    if (!sourcePageUrl || !suitable || !isPhotoCandidateRelevantToSpec(spec, candidate)) continue;
     if (usedPages.has(sourcePageUrl) || excludedPages.has(sourcePageUrl) || (candidateHash && usedHashes.has(candidateHash))) continue;
     if (!unique.has(sourcePageUrl)) unique.set(sourcePageUrl, candidate);
   }
   return [...unique.values()].sort((a, b) => {
-    const aScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${recordSourcePageUrl(a)}`);
-    const bScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${recordSourcePageUrl(b)}`);
+    const aScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${spec?.title || ''}|${spec?.topic || ''}|${spec?.place || ''}|${recordSourcePageUrl(a)}`);
+    const bScore = sha256(`${spec?.scope || ''}|${spec?.assetId || ''}|${spec?.category || ''}|${spec?.area || ''}|${spec?.season || ''}|${spec?.variant || ''}|${spec?.title || ''}|${spec?.topic || ''}|${spec?.place || ''}|${recordSourcePageUrl(b)}`);
     return aScore.localeCompare(bScore) || recordSourcePageUrl(a).localeCompare(recordSourcePageUrl(b));
   });
 }
@@ -823,8 +1009,30 @@ export function extractPixabayPhoto(response) {
   return extractPixabayPhotos(response)[0] || null;
 }
 
+export function articleHeroPhotoSearchQueries(spec = {}) {
+  const context = articlePhotoContext(spec);
+  const topicTerms = context.topic.filter((term) => !context.place.includes(term));
+  const titleTerms = context.title.filter((term) => !context.place.includes(term));
+  const topic = (topicTerms.length ? topicTerms : context.topic).slice(0, 6).join(' ');
+  const place = context.place.slice(0, 5).join(' ');
+  const title = (titleTerms.length ? titleTerms : context.title).slice(0, 6).join(' ');
+  const queries = [
+    [topic, place, 'photograph'],
+    [title, place, 'photograph'],
+    [topic, 'Switzerland', 'photograph'],
+    [place, topic, 'photograph'],
+    [topic, 'editorial photograph'],
+    [place, 'landscape photograph'],
+  ];
+  return [...new Set(queries
+    .map((parts) => parts.filter(Boolean).join(' ').replace(/\s+/g, ' ').trim())
+    .filter(Boolean))];
+}
+
 export function photoSearchQueries(spec) {
-  return eventImagePhotoSearchQueries(spec);
+  return String(spec?.scope || '').trim() === 'article-hero'
+    ? articleHeroPhotoSearchQueries(spec)
+    : eventImagePhotoSearchQueries(spec);
 }
 
 export function photoQuery(spec) {
@@ -942,13 +1150,21 @@ async function runPixabayPhoto(spec, destination, { timeoutMs = 45_000, usedReco
   return { imagePath: destination, model: 'Pixabay photo search', photo };
 }
 
-async function runGeminiVision(filePath, { timeoutMs = 120_000, kind = GENERATED_IMAGE_KIND } = {}) {
+async function runGeminiVision(filePath, {
+  timeoutMs = 120_000,
+  kind = GENERATED_IMAGE_KIND,
+  scope,
+  subject,
+  topic,
+  place,
+  keywords,
+} = {}) {
   const apiKey = String(process.env.GEMINI_API_KEY || '').trim();
   if (!apiKey) throw new Error('GEMINI_API_KEY is not configured for the vision fallback');
   const image = fs.readFileSync(filePath).toString('base64');
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
-    'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, looks_like_specific_real_event, is_photograph and notes.',
+    'Return only one JSON object with the keys ok, contains_text, contains_logo, contains_recognizable_face, contains_recognizable_foreground_person, looks_like_specific_real_event, is_photograph, is_topic_relevant and notes.',
     kind === LICENSED_PHOTO_KIND
       ? 'This is a real licensed photo candidate; a real place is allowed, but reject recognizable people in the foreground and logos or brands.'
       : 'Set ok=true only when the image is an original generic illustration and has none of the forbidden properties.',
@@ -957,10 +1173,14 @@ async function runGeminiVision(filePath, { timeoutMs = 120_000, kind = GENERATED
       : 'Mark any readable or decorative lettering, signage, watermark or signature as contains_text=true.',
     'Mark any logo, brand or trademark as contains_logo=true.',
     'Mark any recognizable human face or public figure as contains_recognizable_face=true.',
+    'Mark any recognizable person in the foreground as contains_recognizable_foreground_person=true, even when the face is not fully visible.',
     'Mark a documentary/news image of a specific real event as looks_like_specific_real_event=true.',
     kind === LICENSED_PHOTO_KIND
       ? 'Set is_photograph=true only when the image is a real camera photograph, not a painting, drawing, map, scan, poster, logo or illustration.'
       : 'Set is_photograph=false for this generated illustration.',
+    scope === 'article-hero'
+      ? `For an article hero, set is_topic_relevant=true only when the photograph visibly matches the article topic and place. Subject: ${subject || 'unspecified'}. Topic: ${topic || 'unspecified'}. Place: ${place || 'unspecified'}. Keywords: ${Array.isArray(keywords) ? keywords.join(', ') : keywords || 'unspecified'}. Reject readable text, signage, watermarks and logos.`
+      : '',
     `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   const controller = new AbortController();
@@ -1052,7 +1272,15 @@ function parseVisionResult(text) {
   throw new Error('vision verifier returned no JSON result');
 }
 
-export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERATED_IMAGE_KIND } = {}) {
+export async function verifyGeneratedImage(filePath, {
+  deadlineAt,
+  kind = GENERATED_IMAGE_KIND,
+  scope,
+  subject,
+  topic,
+  place,
+  keywords,
+} = {}) {
   const prompt = [
     'Inspect the attached generated image for a publication safety gate.',
     'Return only the requested JSON object.',
@@ -1064,10 +1292,14 @@ export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERA
       : 'contains_text is true for any readable or decorative lettering, signage, watermark or signature.',
     'contains_logo is true for any logo, brand or trademark.',
     'contains_recognizable_face is true for any recognizable human face or public figure.',
+    'contains_recognizable_foreground_person is true for any recognizable person in the foreground, even when the face is not fully visible.',
     'looks_like_specific_real_event is true for a documentary/news photograph of a specific real event.',
     kind === LICENSED_PHOTO_KIND
       ? 'is_photograph is true only for a real camera photograph, never a painting, drawing, map, scan, poster, logo or illustration.'
       : 'is_photograph is false for this generated illustration.',
+    scope === 'article-hero'
+      ? `This article hero must be relevant to its subject. Subject: ${subject || 'unspecified'}. Topic: ${topic || 'unspecified'}. Place: ${place || 'unspecified'}. Keywords: ${Array.isArray(keywords) ? keywords.join(', ') : keywords || 'unspecified'}. Set is_topic_relevant=true only for a clear match; reject readable text, signage, watermarks and logos.`
+      : '',
     `Policy: ${kind === LICENSED_PHOTO_KIND ? LICENSED_PHOTO_RESTRICTIONS.join(' ') : GENERATED_IMAGE_POLICY.join(' ')}`,
   ].join('\n');
   let verdict;
@@ -1087,11 +1319,23 @@ export async function verifyGeneratedImage(filePath, { deadlineAt, kind = GENERA
     verdict = await runGeminiVision(filePath, {
       timeoutMs: timeoutForDeadline(deadlineAt, 120_000),
       kind,
+      scope,
+      subject,
+      topic,
+      place,
+      keywords,
     });
   }
   assertBeforeDeadline(deadlineAt, 'image vision result');
+  const articlePhoto = kind === LICENSED_PHOTO_KIND && scope === 'article-hero';
   const rejected = kind === LICENSED_PHOTO_KIND
-    ? (!verdict.ok || verdict.is_photograph !== true || verdict.contains_logo || verdict.contains_recognizable_face)
+    ? (!verdict.ok
+      || verdict.is_photograph !== true
+      || verdict.contains_logo
+      || verdict.contains_recognizable_face
+      || (articlePhoto && verdict.contains_recognizable_foreground_person !== false)
+      || (articlePhoto && verdict.contains_text)
+      || (articlePhoto && verdict.is_topic_relevant !== true))
     : (!verdict.ok || verdict.contains_text || verdict.contains_logo || verdict.contains_recognizable_face || verdict.looks_like_specific_real_event);
   if (rejected) {
     throw new Error(`vision gate rejected image: ${String(verdict.notes || 'forbidden content')}`);
@@ -1132,7 +1376,7 @@ export async function generateImageFromSpec(spec, {
   fs.mkdirSync(destinationDir, { recursive: true, mode: 0o700 });
   const finalPath = path.join(destinationDir, `${finalAssetId}.webp`);
   const variationBase = normalized.variant ? `variant ${normalized.variant}` : 'balanced composition';
-  const sequence = imageProviderSequence({ kind: normalized.kind, provider, chain, providers });
+  const sequence = imageProviderSequence({ scope: normalized.scope, kind: normalized.kind, provider, chain, providers });
   const attemptLimit = Number.isInteger(maxAttempts) && maxAttempts > 0
     ? Math.min(maxAttempts, sequence.length)
     : sequence.length;
@@ -1150,6 +1394,13 @@ export async function generateImageFromSpec(spec, {
     }
     const isPhotoProvider = LICENSED_PHOTO_PROVIDERS.includes(selectedProvider);
     const recordKind = isPhotoProvider ? LICENSED_PHOTO_KIND : GENERATED_IMAGE_KIND;
+    if (recordKind === LICENSED_PHOTO_KIND && !scopeAllowsLicensedPhoto(normalized.scope)) {
+      const error = new Error(`licensed photos are not allowed for scope ${normalized.scope}`);
+      error.code = 'PHOTO_SCOPE_FORBIDDEN';
+      failures.push({ provider: selectedProvider, reason: error.message });
+      lastError = error;
+      continue;
+    }
     const variation = attempt === 0 ? variationBase : `${variationBase}; safety revision ${attempt}`;
     const prompt = recordKind === GENERATED_IMAGE_KIND
       ? buildGeneratedImagePrompt({ ...normalized, kind: GENERATED_IMAGE_KIND }, { variation })
@@ -1235,7 +1486,15 @@ export async function generateImageFromSpec(spec, {
       await normalizeToWebp(rawPath, finalPath, normalizedForProvider, xmpMetadata);
       const inspected = await inspectWebp(finalPath, { ...normalized.format, kind: recordKind }, xmpMetadata);
       assertBeforeDeadline(deadlineAt, 'image vision verification');
-      const vision = await verifyImage(finalPath, { deadlineAt, kind: recordKind });
+      const vision = await verifyImage(finalPath, {
+        deadlineAt,
+        kind: recordKind,
+        scope: normalized.scope,
+        subject: normalized.subject,
+        topic: normalized.topic,
+        place: normalized.place,
+        keywords: normalized.keywords,
+      });
       assertBeforeDeadline(deadlineAt, 'image record finalization');
       const verifiedAt = now().toISOString();
       const record = {
@@ -1261,6 +1520,7 @@ export async function generateImageFromSpec(spec, {
           sourceImageUrl: photo.sourceImageUrl,
           sourceWidth: photo.sourceWidth || photo.width,
           sourceHeight: photo.sourceHeight || photo.height,
+          photoTitle: stripMarkup(photo.title || normalized.title || normalized.subject),
           copyrightNotice: photo.copyrightNotice,
           acquireLicensePage: photo.acquireLicensePage,
           ...(modifications ? { modifications } : {}),
