@@ -256,11 +256,11 @@
     },
     {
       "id": "nant-e518f34e66bb",
-      "slug": "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey",
+      "slug": "psicologo-associato-o-assistente-alla-fine-della-formazione-80-fondation-de-nant-vevey",
       "slugByLocale": {
         "fr": "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey",
-        "it": "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey",
-        "en": "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey",
+        "it": "psicologo-associato-o-assistente-alla-fine-della-formazione-80-fondation-de-nant-vevey",
+        "en": "associate-psychologist-or-end-of-training-assistant-80-fondation-de-nant-vevey",
         "de": "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey"
       },
       "company": "Fondation de Nant",
@@ -320,7 +320,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:14:50.286Z"
+      "firstSeenAt": "2026-10-07T21:14:50.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey"
+        ],
+        "en": [
+          "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-associe-e-ou-assistant-e-fin-de-formation-80-nant-vevey"
+      ]
     }
   ]
 }

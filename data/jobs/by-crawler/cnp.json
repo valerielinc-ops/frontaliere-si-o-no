@@ -922,7 +922,7 @@
       "slugByLocale": {
         "it": "medico-capo-clinica-o-vice-medico-capo-clinica-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "chief-resident-physician-or-deputy-chief-resident-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -969,14 +969,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel",
-        "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-de-clinique-ou-medecin-chef-de-clinique-adjoint-cnp-neuchatel"
         ],
         "de": [
-          "oberarzt-oder-stellvertretender-oberarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "klinischer-leiter-arzt-oder-klinischer-leiter-arztassistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:28.696Z",
@@ -1167,7 +1167,7 @@
       "slugByLocale": {
         "it": "assistente-medico-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "en": "assistant-physician-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "de": "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "de": "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-assistant-cnp-neuchatel"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1218,7 +1218,7 @@
         "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel",
         "infermiera-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1231,7 +1231,7 @@
           "assistant-psychologist-in-child-psychiatry-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "de": [
-          "assistenzarzt-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+          "medecin-assistent-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ],
         "fr": [
           "psychologue-assistant-e-en-pedopsychiatrie-cnp-neuchatel"

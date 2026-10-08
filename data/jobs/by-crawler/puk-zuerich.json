@@ -3681,7 +3681,7 @@
       "slug": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
         "it": "terapista-professionale-terapista-professionale-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich",
+        "en": "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
         "fr": "ergotherapie-ergotherapeute-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
       },
@@ -3734,7 +3734,7 @@
         "ergotherapeutin-ergotherapeuten-fh-60-80-puk-zuerich-zurich",
         "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
         "ergotherapeute-ergotherapeute-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
-        "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
+        "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3744,7 +3744,7 @@
         ],
         "en": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich",
-          "occupational-therapist-occupational-therapist-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
+          "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich"
         ],
         "fr": [
           "ergotherapeutin-ergotherapeuten-fh-60-80-psychiatrische-universitatsklinik-zurich-zurich"
@@ -3771,8 +3771,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-puk",
         "it": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik",
-        "fr": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik"
+        "en": "dipl-nursing-professional-dipl-nursing-specialist-hf-fh-centre-for-dependency-diseases-psychiatrische-universitatsklinik",
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-hf-fh-centre-des-maladies-de-la"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3825,10 +3825,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-puk"
+        ],
+        "en": [
+          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-puk"
+        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-puk",
+        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-fh-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -6141,7 +6148,7 @@
         "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
         "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "fr": "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
+        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -6256,7 +6263,7 @@
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6294,7 +6301,7 @@
           "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+          "infirmiere-en-medecine-avancee-apn-age-de-la-syiatrie-service-de-consiliar-et-de-liaison-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-09-25T14:42:33.839Z",

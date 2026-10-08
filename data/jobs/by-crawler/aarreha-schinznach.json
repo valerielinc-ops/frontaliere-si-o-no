@@ -1046,12 +1046,12 @@
     },
     {
       "id": "aarreha-schinznach-aabf5fd38d4c",
-      "slug": "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-bad-und-zofingen",
+      "slug": "medico-senior-chief-physician-geriatrics-aarreha-schinznach-schinznach-bad-und-zofingen",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen",
-        "it": "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-bad-und-zofingen",
-        "en": "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen",
-        "fr": "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen"
+        "it": "medico-senior-chief-physician-geriatrics-aarreha-schinznach-schinznach-bad-und-zofingen",
+        "en": "senior-physician-chief-physician-geriatrics-aarreha-schinznach-schinznach-bad-und-zofingen",
+        "fr": "medecin-principal-chef-medecin-geriatrique-aarreha-schinznach-schinznach-bad-und-zofingen"
       },
       "company": "aarReha Schinznach",
       "companyKey": "aarreha-schinznach",
@@ -1098,11 +1098,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen",
+          "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-bad-und-zofingen"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen"
+        ],
+        "fr": [
           "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen"
         ]
       },
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen"
+        "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-schinznach-bad-und-zofingen",
+        "leitende-arztin-leitender-arzt-geriatrie-aarreha-schinznach-bad-und-zofingen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

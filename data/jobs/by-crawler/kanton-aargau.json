@@ -4407,12 +4407,12 @@
     },
     {
       "id": "kanton-aargau-d14a6a454632",
-      "slug": "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch",
+      "slug": "personale-legale-personale-legale-land-registry-kanton-aargau-laufenburg",
       "slugByLocale": {
         "de": "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch",
-        "it": "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch",
-        "en": "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch",
-        "fr": "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch"
+        "it": "personale-legale-personale-legale-land-registry-kanton-aargau-laufenburg",
+        "en": "legal-staff-legal-staff-land-registry-kanton-aargau-laufenburg",
+        "fr": "personnel-juridique-personnel-juridique-registre-foncier-kanton-aargau-laufenburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4459,16 +4459,30 @@
       "requirementsByLocale": {
         "de": []
       },
-      "department": "Abteilung Register und Personenstand"
+      "department": "Abteilung Register und Personenstand",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-mitarbeiterin-juristischer-mitarbeiter-grundbuchamt-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-ee42ac14e348",
-      "slug": "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch",
+      "slug": "servizio-legale-interno-interno-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch",
-        "it": "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch",
-        "en": "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch",
-        "fr": "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch"
+        "it": "servizio-legale-interno-interno-100-kanton-aargau-aarau",
+        "en": "intern-intern-100-legal-service-kanton-aargau-aarau",
+        "fr": "stage-internat-100-service-juridique-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4515,16 +4529,30 @@
       "requirementsByLocale": {
         "de": []
       },
-      "department": "Generalsekretariat DFR"
+      "department": "Generalsekretariat DFR",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-100-rechtsdienst-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-9db7756b3d7f",
-      "slug": "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch",
+      "slug": "intern-internship-50-servizio-giuridico-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch",
-        "it": "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch",
-        "en": "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch",
-        "fr": "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch"
+        "it": "intern-internship-50-servizio-giuridico-kanton-aargau-aarau",
+        "en": "intern-internship-50-legal-service-kanton-aargau-aarau",
+        "fr": "stage-stage-50-service-juridique-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4571,7 +4599,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "department": "Generalsekretariat DFR"
+      "department": "Generalsekretariat DFR",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-50-rechtsdienst-kanton-aargau-ch"
+      ]
     }
   ]
 }

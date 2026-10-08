@@ -471,7 +471,7 @@
       "slug": "bar-service-collaboratore-trice-aushilfe-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "bar-service-collaboratore-trice-aushilfe-zfv-unternehmungen-basel",
-        "en": "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-basel",
+        "en": "bar-service-staff-member-temporary-worker-zfv-unternehmungen-basel",
         "de": "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-basel",
         "fr": "bar-service-collaborateur-trice-aushilfe-zfv-unternehmungen-basel"
       },
@@ -525,6 +525,9 @@
           "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-basel"
         ],
         "fr": [
+          "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-basel"
+        ],
+        "en": [
           "bar-service-mitarbeiter-in-aushilfe-zfv-unternehmungen-basel"
         ]
       },
@@ -2196,7 +2199,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-baden",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-baden",
-        "en": "kochin-koch-zfv-unternehmungen-baden",
+        "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
         "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
@@ -2243,15 +2246,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-zfv-unternehmungen-baden",
-        "cook-cook-zfv-unternehmungen-baden"
+        "kochin-koch-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
-          "cook-cook-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden"
@@ -2686,7 +2688,7 @@
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
         "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
-        "fr": "cuire-80-zfv-unternehmungen-adliswil"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2736,7 +2738,8 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
+        "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2757,7 +2760,7 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
+          "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
       "firstSeenAt": "2026-07-18T22:01:28.657Z",
@@ -5609,7 +5612,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5661,14 +5664,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",

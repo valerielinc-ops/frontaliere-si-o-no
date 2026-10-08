@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "spital-uster-efebdab76435",
-      "slug": "unterassistent-in-100-frauenklinik-spital-uster-ch",
+      "slug": "sotto-assistente-a-100-ospedale-ginecologico-spital-uster-uster",
       "slugByLocale": {
         "de": "unterassistent-in-100-frauenklinik-spital-uster-ch",
-        "it": "unterassistent-in-100-frauenklinik-spital-uster-ch",
-        "en": "unterassistent-in-100-frauenklinik-spital-uster-ch",
-        "fr": "unterassistent-in-100-frauenklinik-spital-uster-ch"
+        "it": "sotto-assistente-a-100-ospedale-ginecologico-spital-uster-uster",
+        "en": "assistant-physician-100-women-s-clinic-spital-uster-uster",
+        "fr": "assistant-e-medical-e-100-clinique-gynecologique-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -63,13 +63,30 @@
           "Bonne connaissance de la langue allemande"
         ]
       },
-      "department": "Lernende/Studierende/Praktikanten"
+      "department": "Lernende/Studierende/Praktikanten",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-100-frauenklinik-spital-uster-ch"
+        ],
+        "en": [
+          "unterassistent-in-100-frauenklinik-spital-uster-ch"
+        ],
+        "fr": [
+          "unterassistent-in-100-frauenklinik-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-100-frauenklinik-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-9834b8034af6",
-      "slug": "unterassistent-in-100-chirurgie-spital-uster-ch",
+      "slug": "assistente-medico-100-chirurgia-spital-uster-uster",
       "slugByLocale": {
-        "de": "unterassistent-in-100-chirurgie-spital-uster-ch"
+        "de": "unterassistent-in-100-chirurgie-spital-uster-ch",
+        "it": "assistente-medico-100-chirurgia-spital-uster-uster",
+        "en": "medical-assistant-100-surgery-spital-uster-uster",
+        "fr": "assistant-medical-100-chirurgie-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -135,7 +152,15 @@
         ]
       },
       "department": "Lernende/Studierende/Praktikanten",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-in-100-chirurgie-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-in-100-chirurgie-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-0d42f0948cd9",

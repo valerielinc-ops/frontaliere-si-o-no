@@ -18372,7 +18372,7 @@
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-stans",
         "it": "vendita-cassetti-servizi-jumbo-stans",
-        "en": "verkaufer-in-kassen-services-jumbo-stans",
+        "en": "sales-associate-cash-registers-services-jumbo-stans",
         "fr": "caisses-enregistreuses-services-du-vendeur-jumbo-stans"
       },
       "company": "JUMBO",
@@ -18439,6 +18439,9 @@
           "verkaufer-in-kassen-services-jumbo-stans"
         ],
         "fr": [
+          "verkaufer-in-kassen-services-jumbo-stans"
+        ],
+        "en": [
           "verkaufer-in-kassen-services-jumbo-stans"
         ]
       },
@@ -18643,7 +18646,7 @@
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-kusnacht",
         "it": "vendita-cassetti-servizi-jumbo-kusnacht",
-        "en": "verkaufer-in-kassen-services-jumbo-kusnacht",
+        "en": "vendor-cash-registers-services-jumbo-kusnacht",
         "fr": "caisses-enregistreuses-services-du-vendeur-jumbo-kusnacht"
       },
       "company": "JUMBO",
@@ -18711,6 +18714,9 @@
         ],
         "fr": [
           "verkaufer-in-kassen-services-jumbo-kusnacht"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-kusnacht"
         ]
       },
       "firstSeenAt": "2026-10-06T21:17:46.454Z",
@@ -18735,7 +18741,7 @@
         "de": "verkaufer-in-food-jumbo-thalwil",
         "it": "vendita-prodotti-alimentari-jumbo-thalwil",
         "en": "seller-food-jumbo-thalwil",
-        "fr": "verkaufer-in-food-jumbo-thalwil"
+        "fr": "vendeur-e-dans-l-alimentation-jumbo-thalwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18804,6 +18810,9 @@
         ],
         "en": [
           "verkaufer-in-food-jumbo-thalwil"
+        ],
+        "fr": [
+          "verkaufer-in-food-jumbo-thalwil"
         ]
       },
       "firstSeenAt": "2026-10-06T21:17:46.449Z",
@@ -18823,12 +18832,12 @@
     },
     {
       "id": "jumbo-696ed077-e3e",
-      "slug": "verkaufsberater-in-garden-jumbo-volketswil",
+      "slug": "consulente-di-vendita-garden-jumbo-volketswil",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-volketswil",
-        "it": "verkaufsberater-in-garden-jumbo-volketswil",
-        "en": "verkaufsberater-in-garden-jumbo-volketswil",
-        "fr": "verkaufsberater-in-garden-jumbo-volketswil"
+        "it": "consulente-di-vendita-garden-jumbo-volketswil",
+        "en": "sales-consultant-garden-jumbo-volketswil",
+        "fr": "jardin-de-consultants-en-vente-jumbo-volketswil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -18900,7 +18909,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-volketswil"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-volketswil"
+      ]
     },
     {
       "id": "jumbo-09ea23ff-db8",

@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "givaudan-ab22d47b75eb",
-      "slug": "technicien-d-exploitation-2x8-h-f-d-givaudan-ch",
+      "slug": "tecnica-operativa-2x8-m-f-d-givaudan-vernier-switzerland",
       "slugByLocale": {
         "fr": "technicien-d-exploitation-2x8-h-f-d-givaudan-ch",
-        "it": "technicien-d-exploitation-2x8-h-f-d-givaudan-ch",
-        "en": "technicien-d-exploitation-2x8-h-f-d-givaudan-ch",
-        "de": "technicien-d-exploitation-2x8-h-f-d-givaudan-ch"
+        "it": "tecnica-operativa-2x8-m-f-d-givaudan-vernier-switzerland",
+        "en": "operating-technician-2x8-m-f-d-givaudan-vernier-switzerland",
+        "de": "bedienungstechniker-2x8-m-w-d-givaudan-vernier-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -51,7 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-d-exploitation-2x8-h-f-d-givaudan-ch"
+        ],
+        "en": [
+          "technicien-d-exploitation-2x8-h-f-d-givaudan-ch"
+        ],
+        "de": [
+          "technicien-d-exploitation-2x8-h-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-d-exploitation-2x8-h-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-20b94b1da471",

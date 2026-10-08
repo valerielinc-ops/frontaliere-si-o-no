@@ -150,12 +150,12 @@
     },
     {
       "id": "suva-d732568b8c5e",
-      "slug": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon",
+      "slug": "impiegato-spese-mediche-ambulatoriali-80-100-suva-wetzikon",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon",
-        "en": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon",
+        "it": "impiegato-spese-mediche-ambulatoriali-80-100-suva-wetzikon",
+        "en": "clerk-medical-costs-outpatient-80-100-suva-wetzikon",
         "de": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon",
-        "fr": "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon"
+        "fr": "frais-medicaux-de-commis-en-ambulatoire-80-100-suva-wetzikon"
       },
       "company": "Suva",
       "companyKey": "suva",
@@ -212,7 +212,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon"
+        ],
+        "en": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon"
+        ],
+        "fr": [
+          "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-heilkosten-ambulant-80-100-suva-wetzikon"
+      ]
     },
     {
       "id": "suva-370c6b72d694",

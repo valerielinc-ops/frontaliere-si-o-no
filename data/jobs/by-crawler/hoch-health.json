@@ -4826,7 +4826,7 @@
       "slug": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "psychologin-psychologe-per-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
-        "en": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen",
+        "en": "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen",
         "de": "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "fr": "psychologue-psychologue-60-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -4874,7 +4874,7 @@
       "previousSlugs": [
         "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
         "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-        "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
+        "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4883,7 +4883,7 @@
         "en": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen",
           "psychologist-for-psychotherapy-60-80-hoch-health-ostschweiz-st-gallen",
-          "psychologist-psychologist-60-80-hoch-health-ostschweiz-st-gallen"
+          "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-ostschweiz-st-gallen"
         ],
         "fr": [
           "psychologin-psychologe-fur-psychotherapie-60-80-hoch-health-st-gallen"
@@ -12846,9 +12846,9 @@
       "slug": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "persona-responsabile-60-80-hoch-health-ostschweiz-grabs",
-        "en": "employee-60-80-hoch-health-ostschweiz-grabs",
+        "en": "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
         "de": "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "fr": "employe-60-80-hoch-health-ostschweiz-grabs"
+        "fr": "responsable-60-80-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -12894,8 +12894,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-        "person-in-charge-60-80-hoch-health-ostschweiz-grabs",
-        "responsable-60-80-hoch-health-ostschweiz-grabs"
+        "employee-60-80-hoch-health-ostschweiz-grabs",
+        "employe-60-80-hoch-health-ostschweiz-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12903,11 +12903,11 @@
         ],
         "en": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-          "person-in-charge-60-80-hoch-health-ostschweiz-grabs"
+          "employee-60-80-hoch-health-ostschweiz-grabs"
         ],
         "fr": [
           "sachbearbeiter-in-aufnahme-60-80-hoch-health-grabs",
-          "responsable-60-80-hoch-health-ostschweiz-grabs"
+          "employe-60-80-hoch-health-ostschweiz-grabs"
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:30.059Z",
@@ -14649,7 +14649,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -14701,7 +14701,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14709,7 +14709,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -17617,7 +17617,7 @@
       "slug": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "salute-professionale-40-80-hoch-health-ostschweiz-st-gallen",
-        "en": "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen",
+        "en": "professional-health-40-80-hoch-health-ostschweiz-st-gallen",
         "de": "fachfrau-mann-gesundheit-40-80-hoch-health-st-gallen",
         "fr": "sante-professionnelle-40-80-hoch-health-ostschweiz-st-gallen"
       },
@@ -17666,7 +17666,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen",
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-        "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+        "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17674,7 +17674,7 @@
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-st-gallen",
-          "professional-health-40-80-hoch-health-ostschweiz-st-gallen"
+          "specialist-man-health-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-st-gallen"
@@ -17782,12 +17782,12 @@
     },
     {
       "id": "hoch-health-cfe0bc8a5823",
-      "slug": "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-ostschweiz-uznach",
+      "slug": "specialista-in-radiologia-dipl-sss-40-60-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-ostschweiz-uznach",
-        "en": "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach",
+        "it": "specialista-in-radiologia-dipl-sss-40-60-hoch-health-ostschweiz-uznach",
+        "en": "certified-radiology-specialist-hf-40-60-hoch-health-ostschweiz-uznach",
         "de": "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach",
-        "fr": "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach"
+        "fr": "specialiste-en-radiologie-diplome-es-40-60-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -17831,10 +17831,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach"
+        "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach",
+        "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach",
+          "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-ostschweiz-uznach"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach"
+        ],
+        "fr": [
           "dipl-radiologiefachfrau-mann-hf-40-60-hoch-health-uznach"
         ]
       },
@@ -18447,12 +18455,12 @@
     },
     {
       "id": "hoch-health-1841ea94bc6e",
-      "slug": "ict-security-spezialist-in-80-100-hoch-health-st-gallen",
+      "slug": "specialista-di-sicurezza-delle-tic-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "ict-security-spezialist-in-80-100-hoch-health-st-gallen",
+        "it": "specialista-di-sicurezza-delle-tic-80-100-hoch-health-ostschweiz-st-gallen",
         "en": "ict-security-spezialist-in-80-100-hoch-health-st-gallen",
         "de": "ict-security-spezialist-in-80-100-hoch-health-st-gallen",
-        "fr": "ict-security-spezialist-in-80-100-hoch-health-st-gallen"
+        "fr": "specialiste-de-la-securite-des-tic-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18509,7 +18517,18 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-security-spezialist-in-80-100-hoch-health-st-gallen"
+        ],
+        "fr": [
+          "ict-security-spezialist-in-80-100-hoch-health-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "ict-security-spezialist-in-80-100-hoch-health-st-gallen"
+      ]
     },
     {
       "id": "hoch-health-0aa16e422d6e",

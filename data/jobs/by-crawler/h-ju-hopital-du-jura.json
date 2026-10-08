@@ -953,10 +953,10 @@
     },
     {
       "id": "h-ju-hopital-du-jura-aa05de2bc1ac",
-      "slug": "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy",
+      "slug": "assistente-medico-mediped-porrentruy-hopital-du-jura-h-ju-porrentruy",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy",
-        "it": "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy",
+        "it": "assistente-medico-mediped-porrentruy-hopital-du-jura-h-ju-porrentruy",
         "en": "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy",
         "de": "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy"
       },
@@ -1017,7 +1017,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:16:23.930Z"
+      "firstSeenAt": "2026-10-07T21:16:23.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-mediped-porrentruy-h-ju-hopital-du-jura-porrentruy"
+      ]
     }
   ]
 }

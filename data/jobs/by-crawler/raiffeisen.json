@@ -9,7 +9,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -55,11 +55,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -407,7 +407,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -466,7 +466,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -489,7 +489,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -668,7 +668,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -718,7 +718,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -728,7 +728,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -839,7 +839,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -889,14 +889,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -11681,9 +11679,9 @@
     },
     {
       "id": "raiffeisen-b323d28da40a",
-      "slug": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-st-gallen",
+      "slug": "consulente-del-centro-servizi-clienti-con-focus-sulle-vendite-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-st-gallen",
+        "it": "consulente-del-centro-servizi-clienti-con-focus-sulle-vendite-m-f-d-raiffeisen-st-gallen",
         "en": "consultant-customer-service-center-with-focus-sales-m-f-d-raiffeisen-st-gallen",
         "de": "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-st-gallen",
         "fr": "consultant-centre-de-service-a-la-clientele-avec-ventes-ciblees-h-f-d-raiffeisen-st-gallen"
@@ -11743,7 +11741,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "berater-kunden-service-center-mit-fokus-vertrieb-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-87de4e9c4758",
@@ -12519,12 +12525,12 @@
     },
     {
       "id": "raiffeisen-c2a9b1fdaf3c",
-      "slug": "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen",
+      "slug": "responsabile-della-conformita-e-responsabile-del-team-backoffice-m-f-d-raiffeisen-warth-weiningen",
       "slugByLocale": {
-        "it": "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen",
-        "en": "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen",
+        "it": "responsabile-della-conformita-e-responsabile-del-team-backoffice-m-f-d-raiffeisen-warth-weiningen",
+        "en": "compliance-officer-team-leader-back-office-m-f-d-raiffeisen-warth-weiningen",
         "de": "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen",
-        "fr": "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen"
+        "fr": "responsable-conformite-chef-d-equipe-backoffice-h-f-d-raiffeisen-warth-weiningen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12581,7 +12587,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen"
+        ],
+        "en": [
+          "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen"
+        ],
+        "fr": [
+          "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-beauftragte-r-amp-teamleiter-in-backoffice-w-m-d-raiffeisen-warth-weiningen"
+      ]
     },
     {
       "id": "raiffeisen-3a411d462208",
@@ -12820,12 +12840,12 @@
     },
     {
       "id": "raiffeisen-c8627e33f71c",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-sachseln",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-sachseln",
       "slugByLocale": {
         "de": "firmenkundenberater-w-m-d-raiffeisen-sachseln",
-        "it": "firmenkundenberater-w-m-d-raiffeisen-sachseln",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-sachseln",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-sachseln"
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-sachseln",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-sachseln",
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-sachseln"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12884,7 +12904,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:33:13.826Z"
+      "firstSeenAt": "2026-10-07T21:33:13.826Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-sachseln"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-sachseln"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-sachseln"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-sachseln"
+      ]
     },
     {
       "id": "raiffeisen-2b8180e29d78",

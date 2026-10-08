@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "fondation-domus-925dd7117fc4",
-      "slug": "assistant-socio-educatif-75-fondation-domus-ch",
+      "slug": "assistente-socio-educativo-75-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "assistant-socio-educatif-75-fondation-domus-ch",
-        "it": "assistant-socio-educatif-75-fondation-domus-ch",
+        "it": "assistente-socio-educativo-75-fondation-domus-ardon",
         "en": "assistant-socio-educatif-75-fondation-domus-ch",
         "de": "assistant-socio-educatif-75-fondation-domus-ch"
       },
@@ -67,7 +67,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-07T21:33:29.618Z"
+      "firstSeenAt": "2026-10-07T21:33:29.618Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-socio-educatif-75-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-socio-educatif-75-fondation-domus-ch"
+      ]
     }
   ]
 }

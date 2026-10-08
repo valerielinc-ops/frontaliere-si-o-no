@@ -337,12 +337,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-1ac2ff021771",
-      "slug": "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
+        "it": "assistente-sociale-per-i-servizi-sociali-in-somatica-acuta-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "social-worker-for-the-social-service-in-acute-care-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
-        "fr": "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
+        "fr": "travailleur-social-pour-les-services-sociaux-en-soins-somatiques-aigus-h-f-d-spitalverbund-appenzell-ausserrhoden-svar"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -387,10 +387,18 @@
       "requirementsByLocale": {},
       "externalId": "4080648",
       "previousSlugs": [
-        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
+        "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
+        "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar",
+          "sozialarbeiter-in-per-den-sozialdienst-in-der-akutsomatik-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "sozialarbeiter-in-fur-den-sozialdienst-in-der-akutsomatik-m-w-d-svar-spitalverbund-ar"
         ]
       },
@@ -398,9 +406,9 @@
     },
     {
       "id": "svar-spitalverbund-ar-395d36332e4c",
-      "slug": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
+      "slug": "operatrice-operatore-sociosanitario-efz-o-mpa-per-reparto-di-degenza-con-focus-sulla-medicina-interna-m-f-d",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "it": "operatrice-operatore-sociosanitario-efz-o-mpa-per-reparto-di-degenza-con-focus-sulla-medicina-interna-m-f-d",
         "en": "health-efz-or-mpa-for-bed-station-with-focus-on-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar",
         "de": "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m",
         "fr": "sante-efz-ou-mpa-pour-la-station-lit-avec-l-accent-sur-la-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden"
@@ -447,7 +455,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4080261",
-      "firstSeenAt": "2026-10-06T09:13:16.187Z"
+      "firstSeenAt": "2026-10-06T09:13:16.187Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-cfc-o-mpa-per-bettenstation-con-fokus-auf-innere-medizin-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fachfrau-fachmann-gesundheit-efz-oder-mpa-fur-bettenstation-mit-fokus-auf-innere-medizin-m"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-e4e41f278ce4",
@@ -559,9 +577,9 @@
     },
     {
       "id": "svar-spitalverbund-ar-4b06b37a59d3",
-      "slug": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
+      "slug": "infermiere-a-diplomato-a-hf-per-il-turno-di-notte-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "it": "infermiere-a-diplomato-a-hf-per-il-turno-di-notte-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "dipl-nurse-hf-for-the-night-watch-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau",
         "fr": "dipl-infirmiere-hf-pour-la-garde-de-nuit-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau"
@@ -608,16 +626,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "4080242",
-      "firstSeenAt": "2026-10-06T09:13:12.775Z"
+      "firstSeenAt": "2026-10-06T09:13:12.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-per-la-nachtwache-50-100-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-50-100-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-4a4557b5eee8",
-      "slug": "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau",
+      "slug": "stazione-subacute-medico-superiore-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau",
-        "it": "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau",
-        "en": "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau",
-        "fr": "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+        "it": "stazione-subacute-medico-superiore-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-superior-physician-subacute-station-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "medecin-superieur-medecin-superieur-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -662,16 +690,30 @@
       "requirementsByLocale": {
         "de": []
       },
-      "externalId": "4081560"
+      "externalId": "4081560",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-subakutstation-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-3e0e33157b2e",
-      "slug": "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "vice-direttore-della-stazione-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        "it": "vice-direttore-della-stazione-psicoterapia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "deputy-station-manager-psychotherapy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "directeur-adjoint-de-station-psychotherapie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -716,7 +758,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "externalId": "4081663"
+      "externalId": "4081663",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-stationsleitung-psychotherapie-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     }
   ]
 }

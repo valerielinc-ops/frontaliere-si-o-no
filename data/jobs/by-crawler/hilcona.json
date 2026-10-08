@@ -920,8 +920,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-logistiker-in-efz-2027-hilcona-basel",
         "it": "apprendistato-come-logistiker-in-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-logistiker-in-efz-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-logistiker-in-efz-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-a-logistician-in-efz-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-en-logistique-a-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -964,10 +964,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-logistiker-in-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-logistiker-in-efz-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-logistiker-in-efz-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-logistiker-in-efz-2027-hilcona-basel"
+        "lehrstelle-als-logistiker-in-efz-2027-hilcona-basel",
+        "lehrstelle-als-logistiker-in-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -1853,8 +1860,8 @@
       "slugByLocale": {
         "de": "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
         "it": "apprendistato-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell",
-        "en": "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell",
-        "fr": "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
+        "en": "apprenticeship-farmer-in-efz-poultry-farming-bell-schweiz-ag-zell",
+        "fr": "apprentissage-en-elevage-avicole-d-efz-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1898,10 +1905,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell"
+        ],
+        "en": [
+          "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell"
+        "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
+        "lehrstelle-landwirt-landwirtin-in-efz-gefluegelhaltung-bell-schweiz-ag-zell"
       ],
       "salaryMin": 52000,
       "salaryMax": 70000,
@@ -2239,8 +2253,8 @@
       "slugByLocale": {
         "de": "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell",
         "it": "apprendistato-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-specializzazione-convenience-bell-schweiz-ag-zell",
-        "en": "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell",
-        "fr": "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell"
+        "en": "apprenticeship-food-technologist-food-technologist-efz-2027-field-of-convenience-bell-schweiz-ag-zell",
+        "fr": "apprentissage-technologue-alimentaire-technologue-alimentaire-efz-2027-domaine-de-commodite-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2282,6 +2296,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell"
+        ],
+        "en": [
+          "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell"
+        ],
+        "fr": [
           "lehrstelle-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell"
         ]
       },
@@ -2810,8 +2830,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-zerlegerei-datenkontrolle-hilcona-oensingen",
         "it": "collaboratore-trice-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen",
-        "en": "mitarbeiter-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen",
-        "fr": "mitarbeiter-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen"
+        "en": "employees-in-delegation-data-control-bell-schweiz-ag-oensingen",
+        "fr": "employes-au-controle-des-donnees-de-delegation-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -2856,16 +2876,15 @@
           "mitarbeiter-in-zerlegerei-datenkontrolle-hilcona-oensingen"
         ],
         "en": [
-          "employees-in-delegation-data-control-bell-schweiz-ag-oensingen"
+          "mitarbeiter-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen"
         ],
         "fr": [
-          "employes-au-controle-des-donnees-de-delegation-bell-schweiz-ag-oensingen"
+          "mitarbeiter-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-zerlegerei-datenkontrolle-hilcona-oensingen",
-        "employees-in-delegation-data-control-bell-schweiz-ag-oensingen",
-        "employes-au-controle-des-donnees-de-delegation-bell-schweiz-ag-oensingen"
+        "mitarbeiter-in-zerlegerei-datenkontrolle-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -3268,7 +3287,7 @@
         "it": "laboratorio-in-60-80-eisberg-ag-dallikon",
         "en": "laboratory-in-60-80-eisberg-ag-dallikon",
         "de": "laborant-in-60-80-hilcona-dallikon",
-        "fr": "laborant-in-60-80-eisberg-ag-dallikon"
+        "fr": "laboratoire-en-60-80-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -3308,7 +3327,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
-        "laboratoire-en-60-80-eisberg-ag-dallikon"
+        "laborant-in-60-80-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3318,7 +3337,7 @@
           "laborant-in-60-80-hilcona-dallikon"
         ],
         "fr": [
-          "laboratoire-en-60-80-eisberg-ag-dallikon"
+          "laborant-in-60-80-eisberg-ag-dallikon"
         ]
       },
       "firstSeenAt": "2026-09-26T14:05:29.008Z",
@@ -3990,8 +4009,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel",
         "it": "apprendistato-come-automatiker-in-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel",
-        "fr": "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel"
+        "en": "apprenticeship-as-automatic-engineer-in-efz-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-comme-ingenieur-automatique-en-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4033,6 +4052,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel"
+        ],
+        "fr": [
           "lehrstelle-als-automatiker-in-efz-2027-hilcona-basel"
         ]
       },
@@ -4484,8 +4509,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
         "it": "apprendistato-come-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-a-meat-specialist-meat-specialist-efz-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-viande-specialiste-de-la-viande-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4529,10 +4554,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel"
+        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
+        "lehrstelle-als-fleischfachmann-fleischfachfrau-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -4969,8 +5001,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel",
         "it": "apprendistato-come-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-a-food-practitioner-in-eba-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-en-tant-que-praticien-de-l-alimentation-en-eba-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5014,10 +5046,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel"
+        "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-hilcona-basel",
+        "lehrstelle-als-lebensmittelpraktiker-in-eba-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -5042,8 +5081,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel",
         "it": "apprendistato-come-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-a-meat-specialist-assistant-in-eba-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-comme-assistant-specialiste-de-la-viande-a-eba-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5087,10 +5126,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel"
+        "lehrstelle-als-fleischfachassistent-in-eba-2027-hilcona-basel",
+        "lehrstelle-als-fleischfachassistent-in-eba-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -5115,8 +5161,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel",
         "it": "apprendistato-come-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-a-production-mechanic-in-efz-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-en-tant-que-mecanicien-de-production-en-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5160,10 +5206,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel"
+        "lehrstelle-als-produktionsmechaniker-in-efz-2027-hilcona-basel",
+        "lehrstelle-als-produktionsmechaniker-in-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,
@@ -5265,9 +5318,9 @@
       "slug": "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
-        "it": "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen",
-        "en": "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen",
-        "fr": "fleischfachmann-fleischfachfrau-zerlegerei-bell-schweiz-ag-oensingen"
+        "it": "specialista-di-carne-bell-schweiz-ag-oensingen-1de105",
+        "en": "meat-specialist-meat-specialist-bell-schweiz-ag-oensingen-1de105",
+        "fr": "specialiste-des-viandes-specialiste-des-viandes-bell-schweiz-ag-oensingen-1de105"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5309,21 +5362,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
-          "specialista-di-carne-bell-schweiz-ag-oensingen-1de105"
-        ],
-        "en": [
-          "meat-specialist-meat-specialist-bell-schweiz-ag-oensingen-1de105"
-        ],
-        "fr": [
-          "specialiste-des-viandes-specialiste-des-viandes-bell-schweiz-ag-oensingen-1de105"
+          "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
         ]
       },
       "previousSlugs": [
-        "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen",
-        "specialista-di-carne-bell-schweiz-ag-oensingen-1de105",
-        "meat-specialist-meat-specialist-bell-schweiz-ag-oensingen-1de105",
-        "specialiste-des-viandes-specialiste-des-viandes-bell-schweiz-ag-oensingen-1de105"
+        "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -5425,8 +5468,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel",
         "it": "apprendistato-come-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel",
-        "en": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel",
-        "fr": "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
+        "en": "apprenticeship-as-food-technologist-food-technologist-efz-2027-bell-schweiz-ag-basel",
+        "fr": "apprentissage-en-tant-que-technologue-alimentaire-technologue-alimentaire-efz-2027-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -5469,10 +5512,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel"
+        ],
+        "en": [
+          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel"
+        "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel",
+        "lehrstelle-als-lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
       ],
       "salaryMin": 50500,
       "salaryMax": 68000,

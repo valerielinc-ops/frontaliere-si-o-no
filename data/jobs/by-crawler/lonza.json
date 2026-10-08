@@ -14903,7 +14903,7 @@
       "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "it": "biotecnologo-m-f-d-lonza-ch",
-        "en": "biotechnologist-m-w-d-lonza-visp",
+        "en": "biotechn-dlz-m-f-d-lonza-visp",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologue-m-f-d-lonza-ch"
       },
@@ -14957,8 +14957,7 @@
         "biotechnologist-m-f-d-lonza-ch-j4go5d",
         "biotechn-dlz-m-w-d-lonza-visp",
         "biotechnologist-m-f-d-lonza-ch-3yq0nb",
-        "biotechnologist-m-f-d-lonza-ch-3ypftx",
-        "biotechn-dlz-m-f-d-lonza-visp"
+        "biotechnologist-m-f-d-lonza-ch-3ypftx"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14974,7 +14973,7 @@
         ],
         "en": [
           "biotechnologist-m-f-d-lonza-ch-2",
-          "biotechn-dlz-m-f-d-lonza-visp"
+          "biotechnologist-m-w-d-lonza-visp"
         ],
         "fr": [
           "biotechnologist-m-w-d-lonza-visp",
@@ -15083,12 +15082,12 @@
     },
     {
       "id": "lonza-f22b92697afe",
-      "slug": "deputy-treasurer-lonza-ch",
+      "slug": "tesoriere-aggiunto-lonza-basel",
       "slugByLocale": {
         "en": "deputy-treasurer-lonza-ch",
-        "it": "deputy-treasurer-lonza-ch",
-        "de": "deputy-treasurer-lonza-ch",
-        "fr": "deputy-treasurer-lonza-ch"
+        "it": "tesoriere-aggiunto-lonza-basel",
+        "de": "stellvertretender-schatzmeister-lonza-basel",
+        "fr": "tresorier-adjoint-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15147,7 +15146,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-10-07T21:18:41.409Z"
+      "firstSeenAt": "2026-10-07T21:18:41.409Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "deputy-treasurer-lonza-ch"
+        ],
+        "de": [
+          "deputy-treasurer-lonza-ch"
+        ],
+        "fr": [
+          "deputy-treasurer-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "deputy-treasurer-lonza-ch"
+      ]
     },
     {
       "id": "lonza-5b606df8295a",
@@ -15235,12 +15248,12 @@
     },
     {
       "id": "lonza-2e2f46ed1958",
-      "slug": "senior-scientist-qc-lonza-ch",
+      "slug": "scienziato-senior-qc-lonza-visp",
       "slugByLocale": {
         "de": "senior-scientist-qc-lonza-ch",
-        "it": "senior-scientist-qc-lonza-ch",
+        "it": "scienziato-senior-qc-lonza-visp",
         "en": "senior-scientist-qc-lonza-visp",
-        "fr": "senior-scientist-qc-lonza-ch"
+        "fr": "chercheur-principal-qc-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15300,7 +15313,18 @@
       },
       "postalCode": "3930",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-01T14:27:30.004Z"
+      "firstSeenAt": "2026-09-01T14:27:30.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-qc-lonza-ch"
+        ],
+        "fr": [
+          "senior-scientist-qc-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-qc-lonza-ch"
+      ]
     },
     {
       "id": "lonza-d7466ca5ffcd",
@@ -16108,7 +16132,7 @@
         "it": "senior-direttore-strategy-lonza-basel",
         "en": "senior-director-strategy-lonza-ch",
         "de": "senior-direktor-strategy-lonza-basel",
-        "fr": "senior-director-strategy-lonza-basel"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -16152,7 +16176,7 @@
       "jobReqId": "R79521",
       "previousSlugs": [
         "senior-director-strategy-lonza-ch",
-        "directeur-principal-strategie-lonza-basel"
+        "senior-director-strategy-lonza-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16162,7 +16186,7 @@
           "senior-director-strategy-lonza-ch"
         ],
         "fr": [
-          "directeur-principal-strategie-lonza-basel"
+          "senior-director-strategy-lonza-basel"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:16.372Z",

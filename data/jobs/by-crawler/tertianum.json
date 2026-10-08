@@ -6,7 +6,7 @@
       "slug": "leiter-in-kuche-tertianum-meilen",
       "slugByLocale": {
         "it": "responsabile-kuche-tertianum-meilen",
-        "en": "leiter-in-kuche-tertianum-meilen",
+        "en": "head-of-kitchen-tertianum-meilen",
         "de": "leiter-in-kuche-tertianum-meilen",
         "fr": "chef-de-cuisine-tertianum-meilen"
       },
@@ -17516,12 +17516,12 @@
     },
     {
       "id": "tertianum-b3a426fa2d95",
-      "slug": "pflegefachfrau-mann-tertianum-basel",
+      "slug": "infermiera-tertianum-basel",
       "slugByLocale": {
-        "it": "pflegefachfrau-mann-tertianum-basel",
-        "en": "pflegefachfrau-mann-tertianum-basel",
+        "it": "infermiera-tertianum-basel",
+        "en": "nurse-tertianum-basel",
         "de": "pflegefachfrau-mann-tertianum-basel",
-        "fr": "pflegefachfrau-mann-tertianum-basel"
+        "fr": "infirmiere-tertianum-basel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -17564,7 +17564,21 @@
       "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8868/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-06T21:46:04.139Z"
+      "firstSeenAt": "2026-10-06T21:46:04.139Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-tertianum-basel"
+        ],
+        "en": [
+          "pflegefachfrau-mann-tertianum-basel"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-tertianum-basel"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-tertianum-basel"
+      ]
     },
     {
       "id": "tertianum-3d09db97cc44",
@@ -17651,9 +17665,9 @@
       "slug": "pflegehelfer-in-srk-o-ags-per-unsere-demenzabteilung-tertianum-zizers",
       "slugByLocale": {
         "it": "pflegehelfer-in-srk-o-ags-per-unsere-demenzabteilung-tertianum-zizers",
-        "en": "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers",
+        "en": "nursing-assistant-srk-or-ags-for-our-dementia-department-tertianum-zizers",
         "de": "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers",
-        "fr": "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers"
+        "fr": "assistant-infirmier-srk-ou-ags-pour-notre-departement-de-demence-tertianum-zizers"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -17701,6 +17715,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers"
+        ],
+        "fr": [
           "pflegehelfer-in-srk-oder-ags-fur-unsere-demenzabteilung-tertianum-zizers"
         ]
       },
@@ -17764,9 +17784,9 @@
       "slug": "lernende-r-fachfrau-mann-betriebsunterhalt-tertianum-zurich",
       "slugByLocale": {
         "it": "apprendista-fachfrau-mann-betriebsunterhalt-tertianum-zurich",
-        "en": "lernende-r-fachfrau-mann-betriebsunterhalt-tertianum-zurich",
+        "en": "apprentice-specialist-in-business-maintenance-tertianum-zurich",
         "de": "lernende-r-fachfrau-mann-betriebsunterhalt-tertianum-zurich",
-        "fr": "lernende-r-fachfrau-mann-betriebsunterhalt-tertianum-zurich"
+        "fr": "apprenti-specialiste-en-maintenance-d-entreprise-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18105,9 +18125,9 @@
       "slug": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
-        "it": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
-        "en": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich",
-        "fr": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-zurich"
+        "it": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+        "en": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich",
+        "fr": "apprendista-fachfrau-mann-gesundheit-tertianum-zurich"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18211,9 +18231,9 @@
       "slug": "praktikantin-praktikant-pflege-und-betreuung-80-100-tertianum-weesen",
       "slugByLocale": {
         "de": "praktikantin-praktikant-pflege-und-betreuung-80-100-tertianum-weesen",
-        "it": "praktikantin-praktikant-pflege-und-betreuung-80-100-tertianum-weesen",
-        "en": "praktikantin-praktikant-pflege-und-betreuung-80-100-tertianum-weesen",
-        "fr": "praktikantin-praktikant-pflege-und-betreuung-80-100-tertianum-weesen"
+        "it": "prakticante-prakticante-cure-e-assistenza-80-100-tertianum-weesen",
+        "en": "practical-nurse-betreuung-80-100-tertianum-weesen",
+        "fr": "stagiaire-en-soins-et-assistance-80-100-tertianum-weesen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18261,12 +18281,12 @@
     },
     {
       "id": "tertianum-2f12873e7ef8",
-      "slug": "fachfrau-mann-gesundheit-tertianum-egnach",
+      "slug": "salute-professionale-tertianum-egnach",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-tertianum-egnach",
-        "it": "fachfrau-mann-gesundheit-tertianum-egnach",
-        "en": "fachfrau-mann-gesundheit-tertianum-egnach",
-        "fr": "fachfrau-mann-gesundheit-tertianum-egnach"
+        "it": "salute-professionale-tertianum-egnach",
+        "en": "health-professional-tertianum-egnach",
+        "fr": "professionnels-de-la-sante-tertianum-egnach"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18310,16 +18330,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-tertianum-egnach"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-tertianum-egnach"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-tertianum-egnach"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-tertianum-egnach"
+      ]
     },
     {
       "id": "tertianum-5df152d2bf17",
-      "slug": "pflegehelfer-in-srk-tertianum-egnach",
+      "slug": "assistente-infermieristico-srk-tertianum-egnach",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-tertianum-egnach",
-        "it": "pflegehelfer-in-srk-tertianum-egnach",
-        "en": "pflegehelfer-in-srk-tertianum-egnach",
-        "fr": "pflegehelfer-in-srk-tertianum-egnach"
+        "it": "assistente-infermieristico-srk-tertianum-egnach",
+        "en": "nursing-assistant-srk-tertianum-egnach",
+        "fr": "assistant-infirmier-srk-tertianum-egnach"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18363,16 +18397,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-tertianum-egnach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-tertianum-egnach"
+      ]
     },
     {
       "id": "tertianum-41c1bff21d40",
-      "slug": "pflegefachfrau-mann-tertianum-egnach",
+      "slug": "infermieristica-professionale-tertianum-egnach",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-tertianum-egnach",
-        "it": "pflegefachfrau-mann-tertianum-egnach",
-        "en": "pflegefachfrau-mann-tertianum-egnach",
-        "fr": "pflegefachfrau-mann-tertianum-egnach"
+        "it": "infermieristica-professionale-tertianum-egnach",
+        "en": "nursing-professional-tertianum-egnach",
+        "fr": "professionnels-des-soins-infirmiers-tertianum-egnach"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18416,16 +18464,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-tertianum-egnach"
+        ],
+        "en": [
+          "pflegefachfrau-mann-tertianum-egnach"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-tertianum-egnach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-tertianum-egnach"
+      ]
     },
     {
       "id": "tertianum-6556048a742b",
-      "slug": "kochin-koch-tertianum-olten",
+      "slug": "cuocere-cucinare-tertianum-olten",
       "slugByLocale": {
         "de": "kochin-koch-tertianum-olten",
-        "it": "kochin-koch-tertianum-olten",
-        "en": "kochin-koch-tertianum-olten",
-        "fr": "kochin-koch-tertianum-olten"
+        "it": "cuocere-cucinare-tertianum-olten",
+        "en": "cook-cook-tertianum-olten",
+        "fr": "cuisiniere-tertianum-olten"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -18469,7 +18531,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-tertianum-olten"
+        ],
+        "en": [
+          "kochin-koch-tertianum-olten"
+        ],
+        "fr": [
+          "kochin-koch-tertianum-olten"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-tertianum-olten"
+      ]
     }
   ]
 }

@@ -567,7 +567,7 @@
         "it": "manutenzione-del-manubrio-f-m-d-valora-group-emmenbrucke",
         "en": "teamlead-maintenance-f-m-d-valora-group-emmenbrucke",
         "de": "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
-        "fr": "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
+        "fr": "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -627,14 +627,14 @@
         "fr": [
           "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
           "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-          "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+          "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "teamlead-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-w-m-d-valora-emmenbrucke",
         "mitarbeiter-instandhaltung-m-w-d-valora-group-emmenbrucke",
-        "entretien-du-chef-d-equipe-f-m-d-valora-group-emmenbrucke"
+        "maintenance-des-employes-m-w-d-valora-group-emmenbrucke"
       ],
       "firstSeenAt": "2026-07-22T22:06:00.739Z",
       "salaryMin": 69500,
@@ -3086,7 +3086,7 @@
       "slug": "venditore-avec-25-ore-valora-group-muttenz",
       "slugByLocale": {
         "it": "venditore-avec-25-ore-valora-group-muttenz",
-        "en": "seller-avec-25-hours-valora-group-muttenz",
+        "en": "saleswoman-salesman-with-25-hrs-valora-group-muttenz",
         "de": "verkauferin-verkaufer-avec-25-std-valora-muttenz",
         "fr": "vendeur-avec-25-heures-valora-group-muttenz"
       },
@@ -3134,14 +3134,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+        "verkauferin-verkaufer-avec-25-std-valora-muttenz",
+        "seller-avec-25-hours-valora-group-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkauferin-verkaufer-avec-25-std-valora-muttenz"
         ],
         "en": [
-          "verkauferin-verkaufer-avec-25-std-valora-muttenz"
+          "verkauferin-verkaufer-avec-25-std-valora-muttenz",
+          "seller-avec-25-hours-valora-group-muttenz"
         ],
         "fr": [
           "verkauferin-verkaufer-avec-25-std-valora-muttenz"

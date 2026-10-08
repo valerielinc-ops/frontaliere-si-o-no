@@ -179,7 +179,7 @@
       "slugByLocale": {
         "it": "responsabile-per-sicurezza-e-sicurezza-m-f-patek-philippe-plan-les-ouates",
         "en": "responsible-for-safety-and-security-m-f-patek-philippe-plan-les-ouates",
-        "de": "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates",
+        "de": "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates",
         "fr": "charge-de-surete-et-securite-h-f-patek-philippe-plan-les-ouates"
       },
       "company": "Patek Philippe",
@@ -227,12 +227,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
-        "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
+        "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "de": [
           "verantwortlich-fur-sicherheit-m-w-patek-philippe-plan-les-ouates",
-          "sicherheitsbeauftragter-m-w-patek-philippe-plan-les-ouates"
+          "charge-de-surete-et-securite-m-w-d-patek-philippe-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-09-29T21:20:33.207Z"
@@ -999,12 +999,12 @@
     },
     {
       "id": "patek-philippe-799539f36190",
-      "slug": "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+      "slug": "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds",
       "slugByLocale": {
         "fr": "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
-        "it": "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
+        "it": "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds",
         "en": "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds",
-        "de": "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
+        "de": "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds"
       },
       "company": "Patek Philippe",
       "companyKey": "patek-philippe",
@@ -1051,15 +1051,18 @@
       },
       "previousSlugs": [
         "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds",
-        "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds"
+        "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds",
+        "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentice-dressing-terminator-watchmaker-m-f-patek-philippe-la-chaux-de-fonds",
-          "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds"
+          "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds",
+          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ],
         "de": [
-          "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds"
+          "lehrling-dressing-terminator-uhrmacher-m-w-patek-philippe-la-chaux-de-fonds",
+          "apprenti-termineur-en-habillage-horloger-h-f-patek-philippe-la-chaux-de-fonds"
         ]
       }
     },

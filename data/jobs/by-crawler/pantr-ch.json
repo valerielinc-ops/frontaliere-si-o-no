@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pantr-ch-9bb03bc2169d",
-      "slug": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+      "slug": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
       "slugByLocale": {
         "de": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "it": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
+        "it": "controllore-di-affari-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
         "en": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d",
-        "fr": "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+        "fr": "controleur-d-entreprise-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
       },
       "slugDisambiguator": "9bb03bc2169d",
       "company": "Pantr GmbH",
@@ -69,7 +69,18 @@
         }
       },
       "postalCode": "4142",
-      "firstSeenAt": "2026-10-07T21:52:19.213Z"
+      "firstSeenAt": "2026-10-07T21:52:19.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+        ],
+        "fr": [
+          "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-pantr-gmbh-munchenstein-basel-stadt-9bb03bc2169d"
+      ]
     },
     {
       "id": "pantr-ch-cfd0a7b808cb",

@@ -17740,9 +17740,9 @@
     },
     {
       "id": "usz-a1475a9bb50d",
-      "slug": "fachperson-gesundheit-per-la-kardiologische-bettenabteilung-70-100-universitatsspital-zurich-usz-zurich",
+      "slug": "specialista-sanitario-per-il-reparto-cardiologico-70-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-per-la-kardiologische-bettenabteilung-70-100-universitatsspital-zurich-usz-zurich",
+        "it": "specialista-sanitario-per-il-reparto-cardiologico-70-100-universitatsspital-zurich-usz-zurich",
         "en": "health-specialist-for-the-cardiology-bed-department-70-100-universitatsspital-zurich-usz-zurich",
         "de": "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch",
         "fr": "specialiste-de-la-sante-pour-le-departement-de-cardiologie-70-100-universitatsspital-zurich-usz-zurich"
@@ -17789,11 +17789,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
+        "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch",
+        "fachperson-gesundheit-per-la-kardiologische-bettenabteilung-70-100-universitatsspital-zurich-usz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
+          "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch",
+          "fachperson-gesundheit-per-la-kardiologische-bettenabteilung-70-100-universitatsspital-zurich-usz-zurich"
         ],
         "en": [
           "fachperson-gesundheit-fur-die-kardiologische-bettenabteilung-70-100-usz-ch"
@@ -18185,8 +18187,8 @@
       "slugByLocale": {
         "de": "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch",
         "it": "mpa-fage-o-pflegefachperson-per-la-ambulante-gynakologie-60-100-universitatsspital-zurich-usz-zurich",
-        "en": "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch",
-        "fr": "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
+        "en": "mpa-fage-or-nurse-for-outpatient-gynecology-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "mpa-fage-ou-infirmiere-en-gynecologie-externe-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18234,6 +18236,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
+        ],
+        "en": [
+          "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
+        ],
+        "fr": [
           "mpa-fage-oder-pflegefachperson-fur-die-ambulante-gynakologie-60-100-usz-ch"
         ]
       },
@@ -18331,12 +18339,12 @@
     },
     {
       "id": "usz-db21c3ddfd84",
-      "slug": "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-das-herzkatheterlabor-50-universitatsspital-zurich-usz-zurich",
+      "slug": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-il-laboratorio-di-cateterismo-cardiaco-50",
       "slugByLocale": {
         "de": "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch",
-        "it": "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-das-herzkatheterlabor-50-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch",
-        "fr": "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch"
+        "it": "cure-specialistiche-esperta-esperto-in-cure-infermieristiche-m-f-d-per-il-laboratorio-di-cateterismo-cardiaco-50",
+        "en": "specialized-nursing-nursing-specialist-nursing-specialist-m-f-d-for-the-cardiac-catheterization-laboratory-50",
+        "fr": "soins-specialises-experte-expert-en-soins-h-f-d-pour-le-laboratoire-de-catheterisme-cardiaque-50-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -18384,11 +18392,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch",
+          "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-das-herzkatheterlabor-50-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch"
+        ],
+        "fr": [
           "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch"
+        "spezialpflege-fachexpertin-fachexperte-pflege-w-m-d-fur-das-herzkatheterlabor-50-usz-ch",
+        "spezialpflege-fachexpertin-fachexperte-pflege-m-w-d-per-das-herzkatheterlabor-50-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,

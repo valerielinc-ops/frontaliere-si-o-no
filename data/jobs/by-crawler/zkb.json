@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "zkb-4176c6a76e40",
-      "slug": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
+      "slug": "direzione-aziendale-banca-diretta-zurcher-kantonalbank-zurich",
       "slugByLocale": {
         "de": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
-        "it": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
-        "en": "firmenkundenbetreuer-in-direktbank-zkb-zurich",
-        "fr": "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+        "it": "direzione-aziendale-banca-diretta-zurcher-kantonalbank-zurich",
+        "en": "corporate-management-direct-bank-zurcher-kantonalbank-zurich",
+        "fr": "banque-directe-de-gestion-d-entreprise-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",
@@ -55,7 +55,21 @@
       "externalId": "11415",
       "pensumMin": 60,
       "pensumMax": 60,
-      "pensum": "60%"
+      "pensum": "60%",
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+        ],
+        "en": [
+          "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+        ],
+        "fr": [
+          "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenbetreuer-in-direktbank-zkb-zurich"
+      ]
     },
     {
       "id": "zkb-34fe77ce4c0f",
@@ -350,7 +364,7 @@
         "it": "imposte-del-team-leader-zurcher-kantonalbank-zurich",
         "en": "team-leader-taxation-zurcher-kantonalbank-zurich",
         "de": "teamleiter-in-steuern-zkb-zurich",
-        "fr": "teamleiter-in-steuern-zkb-zurich"
+        "fr": "responsable-d-equipe-fiscalite-zurcher-kantonalbank-zurich"
       },
       "company": "Zürcher Kantonalbank",
       "companyKey": "zkb",

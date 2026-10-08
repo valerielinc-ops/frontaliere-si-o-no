@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "stryker-982b7c26fc9b",
-      "slug": "berufsbildner-m-w-d-stryker-ch",
+      "slug": "formazione-professionale-m-f-d-stryker-selzach",
       "slugByLocale": {
         "de": "berufsbildner-m-w-d-stryker-ch",
-        "it": "berufsbildner-m-w-d-stryker-ch",
-        "en": "berufsbildner-m-w-d-stryker-ch",
-        "fr": "berufsbildner-m-w-d-stryker-ch"
+        "it": "formazione-professionale-m-f-d-stryker-selzach",
+        "en": "professional-trainers-m-f-d-stryker-selzach",
+        "fr": "trainers-professionnels-h-f-d-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -51,7 +51,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "jobReqId": "R574592"
+      "jobReqId": "R574592",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-m-w-d-stryker-ch"
+        ],
+        "en": [
+          "berufsbildner-m-w-d-stryker-ch"
+        ],
+        "fr": [
+          "berufsbildner-m-w-d-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-m-w-d-stryker-ch"
+      ]
     },
     {
       "id": "stryker-2636fa728ff0",

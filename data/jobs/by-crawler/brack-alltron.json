@@ -2552,12 +2552,12 @@
     },
     {
       "id": "brack-alltron-1c48b57bd70b",
-      "slug": "technical-sales-datacenter-brack-alltron-magenwil",
+      "slug": "vendita-tecnica-datacenter-brack-alltron-ag-magenwil",
       "slugByLocale": {
         "de": "technical-sales-datacenter-brack-alltron-magenwil",
-        "it": "technical-sales-datacenter-brack-alltron-magenwil",
+        "it": "vendita-tecnica-datacenter-brack-alltron-ag-magenwil",
         "en": "technical-sales-datacenter-brack-alltron-magenwil",
-        "fr": "technical-sales-datacenter-brack-alltron-magenwil"
+        "fr": "donnees-techniques-de-vente-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2617,7 +2617,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:38:19.614Z"
+      "firstSeenAt": "2026-10-07T21:38:19.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-sales-datacenter-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "technical-sales-datacenter-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "technical-sales-datacenter-brack-alltron-magenwil"
+      ]
     }
   ]
 }

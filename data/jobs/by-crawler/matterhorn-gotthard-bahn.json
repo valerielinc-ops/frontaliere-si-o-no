@@ -903,7 +903,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -971,14 +971,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",
@@ -1001,7 +999,7 @@
       "id": "matterhorn-gotthard-bahn-e957ff653084",
       "slug": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
       "slugByLocale": {
-        "it": "strade-specialistiche-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
+        "it": "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "en": "specialist-road-surface-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
         "de": "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "surface-routiere-specialisee-m-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
@@ -1070,14 +1068,12 @@
       },
       "previousSlugs": [
         "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-        "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+        "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch",
-          "specialista-stradale-lunedi-f-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
+          "fachspezialist-fahrbahn-m-w-d-matterhorn-gotthard-bahn-ulrichen-fiesch"
         ]
       },
       "needsRetranslation": true,
@@ -1203,12 +1199,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-a717e66ce041",
-      "slug": "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "specialista-automobilistico-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
         "de": "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "specialista-automobilistico-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "en": "automotive-specialist-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
+        "fr": "specialiste-automobile-h-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -1283,7 +1279,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-07T21:40:00.785Z"
+      "firstSeenAt": "2026-10-07T21:40:00.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automobilfachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     }
   ]
 }

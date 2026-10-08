@@ -2,9 +2,12 @@
   "jobs": [
     {
       "id": "senevita-99865c27e8f0",
-      "slug": "hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern",
+      "slug": "consulente-hr-80-100-m-f-d-senevita-be-muri-b-bern",
       "slugByLocale": {
-        "de": "hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern"
+        "de": "hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern",
+        "it": "consulente-hr-80-100-m-f-d-senevita-be-muri-b-bern",
+        "en": "hr-consultant-80-100-m-f-d-senevita-be-muri-b-bern",
+        "fr": "consultant-en-rh-80-100-h-f-d-senevita-be-muri-b-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -49,7 +52,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern"
+        ]
+      },
+      "previousSlugs": [
+        "hr-berater-in-80-100-m-w-d-senevita-be-muri-b-bern"
+      ]
     },
     {
       "id": "senevita-5bc5a7c2c1c7",
@@ -109,9 +120,9 @@
       "slug": "mitarbeiter-in-service-und-verpflegungsdienst-100-senevita-ag-spreitenbach",
       "slugByLocale": {
         "it": "collaboratore-trice-in-service-e-verpflegungsdienst-100-senevita-ag-spreitenbach",
-        "en": "mitarbeiter-in-service-und-verpflegungsdienst-100-senevita-ag-spreitenbach",
+        "en": "service-and-catering-employee-100-senevita-ag-spreitenbach",
         "de": "mitarbeiter-in-service-und-verpflegungsdienst-100-senevita-ag-spreitenbach",
-        "fr": "mitarbeiter-in-service-und-verpflegungsdienst-100-senevita-ag-spreitenbach"
+        "fr": "employe-e-du-service-et-de-la-restauration-100-senevita-ag-spreitenbach"
       },
       "company": "Senevita",
       "companyKey": "senevita",

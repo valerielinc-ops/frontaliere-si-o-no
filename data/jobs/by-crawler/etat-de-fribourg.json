@@ -6763,7 +6763,7 @@
         "it": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "en": "polizeiaspirant-in-etat-de-fribourg-granges-paccot",
         "de": "polizeiaspirant-in-etat-de-fribourg-ch",
-        "fr": "polizeiaspirant-in-etat-de-fribourg-granges-paccot"
+        "fr": "aspirant-policier-etat-de-fribourg-granges-paccot"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6810,15 +6810,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "polizeiaspirant-in-etat-de-fribourg-ch",
-        "aspirant-policier-etat-de-fribourg-granges-paccot"
+        "polizeiaspirant-in-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizeiaspirant-in-etat-de-fribourg-ch"
-        ],
-        "fr": [
-          "aspirant-policier-etat-de-fribourg-granges-paccot"
         ]
       },
       "needsRetranslation": true,
@@ -7792,12 +7788,12 @@
     },
     {
       "id": "etat-de-fribourg-580fd9d156ff",
-      "slug": "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers",
+      "slug": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
       "slugByLocale": {
-        "it": "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers",
-        "en": "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers",
+        "it": "tirocinante-come-cancelliere-del-tribunale-etat-de-fribourg-tafers",
+        "en": "court-clerk-trainee-etat-de-fribourg-tafers",
         "de": "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
-        "fr": "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        "fr": "stagiaire-greffier-judiciaire-etat-de-fribourg-tafers"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7844,11 +7840,19 @@
       "pensumMax": 100,
       "pensum": "90-100%",
       "previousSlugs": [
-        "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch"
+        "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
+        "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch"
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-ch",
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        ],
+        "en": [
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
+        ],
+        "fr": [
+          "gerichtsschreiberpraktikant-in-etat-de-fribourg-tafers"
         ]
       },
       "firstSeenAt": "2026-10-06T21:46:11.594Z",

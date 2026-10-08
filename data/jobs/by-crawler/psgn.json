@@ -79,12 +79,12 @@
     },
     {
       "id": "psgn-92cef58b71fe",
-      "slug": "assistenzarztin-assistenzarzt-psgn-wil-sg",
+      "slug": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "it": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "en": "assistenzarztin-assistenzarzt-psgn-wil-sg",
-        "fr": "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg",
+        "en": "assistant-doctor-assistant-doctor-psychiatrie-st-gallen-wil-sg",
+        "fr": "assistant-medecin-assistant-medecin-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -128,7 +128,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-psgn-wil-sg"
+      ]
     },
     {
       "id": "psgn-19f6220fd2c4",

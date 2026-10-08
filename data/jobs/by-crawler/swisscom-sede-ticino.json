@@ -1826,9 +1826,9 @@
         "de": "URLAO-Verwaltung",
         "fr": "Gestionnaire de promo"
       },
-      "slug": "promo-manager-swisscom-fribourg-drxcb7",
+      "slug": "responsabile-promo-swisscom-fribourg",
       "slugByLocale": {
-        "it": "promo-manager-swisscom-fribourg-drxcb7",
+        "it": "responsabile-promo-swisscom-fribourg",
         "en": "promo-manager-swisscom-fribourg-drxcb7",
         "de": "urlao-verwaltung-swisscom-fribourg",
         "fr": "gestionnaire-de-promo-swisscom-fribourg"
@@ -1865,7 +1865,15 @@
         }
       },
       "addressRegion": "FR",
-      "postalCode": "1700"
+      "postalCode": "1700",
+      "previousSlugsByLocale": {
+        "it": [
+          "promo-manager-swisscom-fribourg-drxcb7"
+        ]
+      },
+      "previousSlugs": [
+        "promo-manager-swisscom-fribourg-drxcb7"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Fribourg/Product-Manager_R-0006681",

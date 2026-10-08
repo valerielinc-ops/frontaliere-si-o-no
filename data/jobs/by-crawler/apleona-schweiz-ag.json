@@ -395,12 +395,12 @@
     },
     {
       "id": "apleona-schweiz-ag-392dceb736da",
-      "slug": "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau",
+      "slug": "impiegato-amministrativo-apleona-schweiz-ag-aarau",
       "slugByLocale": {
         "de": "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau",
-        "it": "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau",
-        "en": "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau",
-        "fr": "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau"
+        "it": "impiegato-amministrativo-apleona-schweiz-ag-aarau",
+        "en": "administration-clerk-apleona-schweiz-ag-aarau",
+        "fr": "greffier-administratif-apleona-schweiz-ag-aarau"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -456,7 +456,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-apleona-schweiz-ag-aarau"
+      ]
     },
     {
       "id": "apleona-schweiz-ag-5b1bb9567696",
@@ -691,8 +705,8 @@
       "slugByLocale": {
         "de": "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich",
         "it": "empfangsmitarbeitende-per-springer-pool-m-w-d-apleona-schweiz-ag-zurich",
-        "en": "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich",
-        "fr": "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich"
+        "en": "reception-staff-for-springer-pool-m-f-d-apleona-schweiz-ag-zurich",
+        "fr": "personnel-de-reception-pour-piscine-springer-h-f-d-apleona-schweiz-ag-zurich"
       },
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
@@ -739,6 +753,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich"
+        ],
+        "en": [
+          "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich"
+        ],
+        "fr": [
           "empfangsmitarbeitende-fur-springer-pool-m-w-d-apleona-schweiz-ag-zurich"
         ]
       },

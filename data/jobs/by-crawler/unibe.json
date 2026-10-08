@@ -1144,7 +1144,7 @@
       "slug": "studente-medico-studente-di-dottorato-universitat-bern-bern",
       "slugByLocale": {
         "it": "studente-medico-studente-di-dottorato-universitat-bern-bern",
-        "en": "doktorand-doktorandin-universitat-bern",
+        "en": "doctoral-student-doctoral-student-universitat-bern-bern",
         "de": "doktorand-doktorandin-unibe-bern",
         "fr": "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern"
       },
@@ -1201,7 +1201,7 @@
         "etudiant-au-doctorat-en-histoire-universitat-bern-bern",
         "doktorand-doktorandin-unibe-bern",
         "doktorand-doktorandin-universitat-bern-bern",
-        "doctoral-student-doctoral-student-universitat-bern-bern"
+        "doktorand-doktorandin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1218,7 +1218,7 @@
         "en": [
           "doktorandin-doktorand-psychologie-universitat-bern-bern",
           "doktorand-doktorandin-universitat-bern-bern",
-          "doctoral-student-doctoral-student-universitat-bern-bern"
+          "doktorand-doktorandin-universitat-bern"
         ],
         "de": [
           "doktorandin-doktorand-psychologie-unibe-bern"
@@ -1570,7 +1570,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1617,14 +1617,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+        "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+          "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
@@ -1729,10 +1729,10 @@
       "id": "unibe-d8e0f02fa4d1",
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
-        "it": "artigiano-specializzato-ii-universitat-bern-bern",
+        "it": "spezialhandwerker-in-ii-universitat-bern-bern",
         "en": "spezialhandwerker-in-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
-        "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
+        "fr": "spezialhandwerker-in-ii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1781,17 +1781,16 @@
         "spezialhandwerker-in-ii-unibe-bern",
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
-        "spezialhandwerker-in-ii-universitat-bern-bern"
+        "artisan-ne-specialise-e-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern"
+          "artigiani-specializzati-ii-universitat-bern-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
-          "spezialhandwerker-in-ii-universitat-bern-bern"
+          "artisan-ne-specialise-e-ii-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.247Z",
@@ -2218,7 +2217,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "data-science-officer-universitat-bern"
+        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2266,7 +2265,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "data-science-officer-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2277,7 +2276,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+          "data-science-officer-universitat-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -2867,9 +2866,9 @@
       "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-system-administrator-universitat-bern-bern",
+        "en": "it-systemadministrator-in-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
+        "fr": "it-systemadministrator-in-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2915,11 +2914,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systemadministrator-in-unibe-bern"
+        "it-systemadministrator-in-unibe-bern",
+        "it-system-administrator-universitat-bern-bern",
+        "administrateur-systeme-informatique-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern"
+        ],
+        "en": [
+          "it-system-administrator-universitat-bern-bern"
+        ],
+        "fr": [
+          "administrateur-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -4312,12 +4319,12 @@
     },
     {
       "id": "unibe-aa8a4e1cd883",
-      "slug": "werkstattleiter-in-100-universitat-bern-bern",
+      "slug": "responsabile-dell-officina-100-universitat-bern-bern",
       "slugByLocale": {
-        "it": "werkstattleiter-in-100-universitat-bern-bern",
-        "en": "werkstattleiter-in-100-universitat-bern-bern",
+        "it": "responsabile-dell-officina-100-universitat-bern-bern",
+        "en": "workshop-manager-100-universitat-bern-bern",
         "de": "werkstattleiter-in-100-unibe-bern",
-        "fr": "werkstattleiter-in-100-universitat-bern-bern"
+        "fr": "responsable-d-atelier-100-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4362,11 +4369,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstattleiter-in-100-unibe-bern"
+        "werkstattleiter-in-100-unibe-bern",
+        "werkstattleiter-in-100-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstattleiter-in-100-unibe-bern"
+          "werkstattleiter-in-100-unibe-bern",
+          "werkstattleiter-in-100-universitat-bern-bern"
+        ],
+        "en": [
+          "werkstattleiter-in-100-universitat-bern-bern"
+        ],
+        "fr": [
+          "werkstattleiter-in-100-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-10-05T21:45:22.136Z",
@@ -4549,12 +4564,12 @@
     },
     {
       "id": "unibe-27455c60c681",
-      "slug": "responsabile-zentrale-dienste-universitat-bern",
+      "slug": "capo-dei-servizi-centrali-universitat-bern-bern",
       "slugByLocale": {
-        "it": "responsabile-zentrale-dienste-universitat-bern",
-        "en": "leiter-in-zentrale-dienste-unibe-bern",
+        "it": "capo-dei-servizi-centrali-universitat-bern-bern",
+        "en": "head-of-central-services-universitat-bern-bern",
         "de": "leiter-in-zentrale-dienste-unibe-bern",
-        "fr": "leiter-in-zentrale-dienste-unibe-bern"
+        "fr": "chef-des-services-centraux-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4599,10 +4614,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-zentrale-dienste-unibe-bern"
+        "leiter-in-zentrale-dienste-unibe-bern",
+        "responsabile-zentrale-dienste-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-zentrale-dienste-unibe-bern",
+          "responsabile-zentrale-dienste-universitat-bern"
+        ],
+        "en": [
+          "leiter-in-zentrale-dienste-unibe-bern"
+        ],
+        "fr": [
           "leiter-in-zentrale-dienste-unibe-bern"
         ]
       },
@@ -4789,8 +4812,8 @@
       "slugByLocale": {
         "de": "studien-und-prufungssekretariat-unibe-bern",
         "it": "studien-e-prufungssekretariat-universitat-bern",
-        "en": "studien-und-prufungssekretariat-universitat-bern-bern",
-        "fr": "studien-und-prufungssekretariat-universitat-bern-bern"
+        "en": "secretariat-for-studies-and-examinations-universitat-bern-bern",
+        "fr": "secretariat-pour-les-etudes-et-les-examens-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -4840,10 +4863,17 @@
       "previousSlugsByLocale": {
         "it": [
           "studien-und-prufungssekretariat-unibe-bern"
+        ],
+        "en": [
+          "studien-und-prufungssekretariat-universitat-bern-bern"
+        ],
+        "fr": [
+          "studien-und-prufungssekretariat-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "studien-und-prufungssekretariat-unibe-bern"
+        "studien-und-prufungssekretariat-unibe-bern",
+        "studien-und-prufungssekretariat-universitat-bern-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

@@ -2,9 +2,12 @@
   "jobs": [
     {
       "id": "srg-ssr-e3d58e75efed",
-      "slug": "fotograf-in-mit-videokompetenzen-srg-ssr-geneve-8",
+      "slug": "fotografo-in-con-competenze-video-srg-ssr-geneve-8",
       "slugByLocale": {
-        "de": "fotograf-in-mit-videokompetenzen-srg-ssr-geneve-8"
+        "de": "fotograf-in-mit-videokompetenzen-srg-ssr-geneve-8",
+        "it": "fotografo-in-con-competenze-video-srg-ssr-geneve-8",
+        "en": "photographer-in-with-video-skills-srg-ssr-geneve-8",
+        "fr": "photographe-avec-des-competences-video-srg-ssr-geneve-8"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -68,16 +71,24 @@
         "pensumMin": 50,
         "pensumMax": 50
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fotograf-in-mit-videokompetenzen-srg-ssr-geneve-8"
+        ]
+      },
+      "previousSlugs": [
+        "fotograf-in-mit-videokompetenzen-srg-ssr-geneve-8"
+      ]
     },
     {
       "id": "srg-ssr-baf6695d1696",
-      "slug": "hr-partner-in-operationen-srg-ssr-zurich",
+      "slug": "operazioni-dei-partner-hr-srg-ssr-zurich",
       "slugByLocale": {
         "de": "hr-partner-in-operationen-srg-ssr-zurich",
-        "it": "hr-partner-in-operationen-srg-ssr-zurich",
-        "en": "hr-partner-in-operationen-srg-ssr-zurich",
-        "fr": "hr-partner-in-operationen-srg-ssr-zurich"
+        "it": "operazioni-dei-partner-hr-srg-ssr-zurich",
+        "en": "hr-partner-operations-srg-ssr-zurich-22e95c",
+        "fr": "operations-des-partenaires-rh-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -142,16 +153,30 @@
         "orgLabel": "SRG SSR",
         "pensumMin": 80,
         "pensumMax": 80
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-partner-in-operationen-srg-ssr-zurich"
+        ],
+        "en": [
+          "hr-partner-in-operationen-srg-ssr-zurich"
+        ],
+        "fr": [
+          "hr-partner-in-operationen-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-partner-in-operationen-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-eb0e2b660c84",
       "slug": "hr-partner-operazioni-srg-ssr-zurich",
       "slugByLocale": {
         "it": "hr-partner-operazioni-srg-ssr-zurich",
-        "en": "hr-partner-operazioni-srg-ssr-zurich",
-        "de": "hr-partner-operazioni-srg-ssr-zurich",
-        "fr": "hr-partner-operazioni-srg-ssr-zurich"
+        "en": "hr-partner-operations-srg-ssr-zurich-a2cc19",
+        "de": "hr-partner-operations-srg-ssr-zurich-a2cc19",
+        "fr": "operations-des-partenaires-rh-srg-ssr-zurich-a2cc19"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -220,10 +245,10 @@
     },
     {
       "id": "srg-ssr-4376279da255",
-      "slug": "hr-partner-operations-srg-ssr-zurich",
+      "slug": "operazioni-dei-partner-hr-srg-ssr-zurich-4a3665",
       "slugByLocale": {
         "fr": "hr-partner-operations-srg-ssr-zurich",
-        "it": "hr-partner-operations-srg-ssr-zurich",
+        "it": "operazioni-dei-partner-hr-srg-ssr-zurich-4a3665",
         "en": "hr-partner-operations-srg-ssr-zurich",
         "de": "hr-partner-operations-srg-ssr-zurich"
       },
@@ -290,7 +315,15 @@
         "orgLabel": "SRG SSR",
         "pensumMin": 80,
         "pensumMax": 80
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-partner-operations-srg-ssr-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-partner-operations-srg-ssr-zurich"
+      ]
     },
     {
       "id": "srg-ssr-1ced9200a5bc",
@@ -359,9 +392,9 @@
     },
     {
       "id": "srg-ssr-5ce27a0a1c61",
-      "slug": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+      "slug": "giurista-con-brevetto-di-avvocato-srg-ssr-lausanne",
       "slugByLocale": {
-        "it": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
+        "it": "giurista-con-brevetto-di-avvocato-srg-ssr-lausanne",
         "en": "lawyer-admitted-to-the-bar-srg-ssr-lausanne",
         "de": "jurist-in-mit-anwaltspatent-srg-ssr-lausanne",
         "fr": "avocat-admis-au-barreau-srg-ssr-lausanne"
@@ -420,7 +453,15 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-10-05T21:23:10.190Z"
+      "firstSeenAt": "2026-10-05T21:23:10.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-mit-anwaltspatent-srg-ssr-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-mit-anwaltspatent-srg-ssr-lausanne"
+      ]
     },
     {
       "id": "srg-ssr-a56f15fe76f0",

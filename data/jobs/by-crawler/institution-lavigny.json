@@ -60,7 +60,7 @@
       "slugByLocale": {
         "it": "infermieri-a-80-100-institution-de-lavigny-lavigny",
         "en": "nurses-at-80-100-institution-de-lavigny-lavigny",
-        "de": "krankenschwestern-bei-80-100-institution-de-lavigny-lavigny",
+        "de": "pflegehelfer-in-80-100-institution-de-lavigny-lavigny",
         "fr": "aide-infirmier-ere-a-80-100-institution-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
@@ -105,7 +105,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
-      "firstSeenAt": "2026-10-05T21:47:14.629Z"
+      "firstSeenAt": "2026-10-05T21:47:14.629Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "krankenschwestern-bei-80-100-institution-de-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "krankenschwestern-bei-80-100-institution-de-lavigny-lavigny"
+      ]
     },
     {
       "id": "institution-lavigny-b47e5f8e0ca2",

@@ -1889,10 +1889,10 @@
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
+        "it": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1937,15 +1937,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
         ],
         "fr": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
+          "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-07-21T22:10:12.203Z",
@@ -3227,10 +3226,10 @@
       "id": "unispital-basel-c6b7a7b547f5",
       "slug": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "vice-capo-reparto-endoscopia-sede-claraspital-usb-universitatsspital-basel-basel",
+        "it": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "en": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "de": "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "fr": "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
+        "fr": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3277,17 +3276,16 @@
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
         "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
         "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+        "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
+          "direction-adjointe-du-service-d-endoscopie-site-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
       "needsRetranslation": true,
@@ -8824,7 +8822,7 @@
       "id": "unispital-basel-4ea8a41de814",
       "slug": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "sviluppatore-di-sistemi-senior-applicazioni-cliniche-universitatsspital-basel-basel",
+        "it": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "en": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel",
         "de": "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
         "fr": "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
@@ -8871,13 +8869,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-        "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+        "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-systementwickler-in-clinical-applications-unispital-basel-ch",
-          "senior-systementwickler-in-clinical-applications-universitatsspital-basel-basel"
+          "senior-systementwickler-in-clinical-applications-unispital-basel-ch"
         ]
       },
       "needsRetranslation": true,
@@ -10581,9 +10577,9 @@
     },
     {
       "id": "unispital-basel-e5f832fd97e5",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-ags-dialyse-universitatsspital-basel",
+      "slug": "assistente-dialisi-per-la-salute-e-gli-affari-sociali-ags-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistentin-assistent-gesundheit-e-soziales-ags-dialyse-universitatsspital-basel",
+        "it": "assistente-dialisi-per-la-salute-e-gli-affari-sociali-ags-universitatsspital-basel-basel",
         "en": "assistant-assistant-health-and-social-affairs-ags-dialysis-universitatsspital-basel-basel",
         "de": "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch",
         "fr": "assistant-assistant-sante-et-affaires-sociales-ags-dialyse-universitatsspital-basel-basel"
@@ -10630,11 +10626,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch"
+        "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch",
+        "assistentin-assistent-gesundheit-e-soziales-ags-dialyse-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch"
+          "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch",
+          "assistentin-assistent-gesundheit-e-soziales-ags-dialyse-universitatsspital-basel"
         ],
         "en": [
           "assistentin-assistent-gesundheit-und-soziales-ags-dialyse-unispital-basel-ch"
@@ -10660,12 +10658,12 @@
     },
     {
       "id": "unispital-basel-3a5d0b5fd269",
-      "slug": "study-nurse-study-coordinatore-klinische-forschung-universitatsspital-basel-basel",
+      "slug": "infermiere-di-studio-coordinatore-di-studio-ricerca-clinica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "study-nurse-study-coordinatore-klinische-forschung-universitatsspital-basel-basel",
+        "it": "infermiere-di-studio-coordinatore-di-studio-ricerca-clinica-universitatsspital-basel-basel",
         "en": "study-nurse-study-coordinator-clinical-research-universitatsspital-basel-basel",
         "de": "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
-        "fr": "study-nurse-study-coordinateur-klinische-forschung-universitatsspital-basel-basel"
+        "fr": "infirmier-d-etude-coordinateur-d-etude-recherche-clinique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10710,17 +10708,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "study-nurse-study-coordinator-klinische-forschung-universitatsspital-basel-basel",
-        "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch"
+        "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
+        "study-nurse-study-coordinatore-klinische-forschung-universitatsspital-basel-basel",
+        "study-nurse-study-coordinateur-klinische-forschung-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "en": [
           "study-nurse-study-coordinator-klinische-forschung-universitatsspital-basel-basel"
         ],
         "it": [
-          "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch"
+          "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
+          "study-nurse-study-coordinatore-klinische-forschung-universitatsspital-basel-basel"
         ],
         "fr": [
-          "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch"
+          "study-nurse-study-coordinator-klinische-forschung-unispital-basel-ch",
+          "study-nurse-study-coordinateur-klinische-forschung-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-10-07T09:38:38.800Z",

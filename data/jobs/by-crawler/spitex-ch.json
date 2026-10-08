@@ -1459,9 +1459,9 @@
     },
     {
       "id": "spitex-ch-05ed783a1880",
-      "slug": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-2027-spitex-baretswil",
+      "slug": "apprendistato-come-specialista-in-sanita-fage-afc-2027-spitex-baretswil-baretswil",
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-2027-spitex-baretswil",
+        "it": "apprendistato-come-specialista-in-sanita-fage-afc-2027-spitex-baretswil-baretswil",
         "en": "apprenticeship-as-a-specialist-in-health-fage-efz-2027-spitex-baretswil-baretswil",
         "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-2027-spitex-baretswil-baretswil"
@@ -1509,11 +1509,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-2027-spitex-baretswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-2027-spitex-baretswil"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-2027-spitex-ch-baretswil"
@@ -1539,9 +1541,9 @@
     },
     {
       "id": "spitex-ch-d1a332b043f7",
-      "slug": "fachverantwortung-familienhilfe-e-hauswirtschaft-60-80-spitex-region-lenzburg",
+      "slug": "responsabilita-specialistica-per-l-assistenza-familiare-e-l-economia-domestica-60-80-spitex-region-lenzburg-lenzburg",
       "slugByLocale": {
-        "it": "fachverantwortung-familienhilfe-e-hauswirtschaft-60-80-spitex-region-lenzburg",
+        "it": "responsabilita-specialistica-per-l-assistenza-familiare-e-l-economia-domestica-60-80-spitex-region-lenzburg-lenzburg",
         "en": "professional-responsibility-family-help-and-housekeeping-60-80-spitex-region-lenzburg-lenzburg",
         "de": "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
         "fr": "responsabilite-professionnelle-aide-familiale-et-menage-60-80-spitex-region-lenzburg-lenzburg"
@@ -1589,11 +1591,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
+        "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
+        "fachverantwortung-familienhilfe-e-hauswirtschaft-60-80-spitex-region-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
+          "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg",
+          "fachverantwortung-familienhilfe-e-hauswirtschaft-60-80-spitex-region-lenzburg"
         ],
         "en": [
           "fachverantwortung-familienhilfe-und-hauswirtschaft-60-80-spitex-ch-lenzburg"
@@ -2063,9 +2067,9 @@
     },
     {
       "id": "spitex-ch-40ab72f66e0d",
-      "slug": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+      "slug": "infermiere-sss-con-funzione-aggiuntiva-vice-responsabile-del-team-60-100-spitex-obwalden-sarnen",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "it": "infermiere-sss-con-funzione-aggiuntiva-vice-responsabile-del-team-60-100-spitex-obwalden-sarnen",
         "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
         "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
@@ -2126,7 +2130,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+      ]
     },
     {
       "id": "spitex-ch-42e83d4b6d60",
@@ -2287,8 +2299,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
         "it": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
-        "en": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fage-im-spatdienst-60-90-spitex-spitex-ch-weiningen-zh"
+        "en": "health-professional-efz-fage-in-late-service-60-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "professionnels-de-la-sante-efz-fage-en-service-tardif-60-90-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -2356,8 +2368,8 @@
       "slugByLocale": {
         "de": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-spitex-ch",
         "it": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren",
-        "en": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren",
-        "fr": "zusatzverdienst-mit-flexiblen-arbeitszeiten-im-bereich-betreuung-entlastung-regiospitex-limmattal-schlieren"
+        "en": "additional-earnings-with-flexible-working-hours-in-the-area-of-care-discharge-regiospitex-limmattal-schlieren",
+        "fr": "gains-supplementaires-avec-horaires-de-travail-flexibles-dans-le-domaine-des-soins-conges-regiospitex-limmattal"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",

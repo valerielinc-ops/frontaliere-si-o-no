@@ -2216,9 +2216,9 @@
     },
     {
       "id": "geberit-2270",
-      "slug": "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch",
+      "slug": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona",
       "slugByLocale": {
-        "it": "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch",
+        "it": "responsabile-tecnico-dell-informatica-aziendale-con-mansioni-dirigenziali-a-100-geberit-rapperswil-jona",
         "en": "responsible-business-informatics-with-management-task-a-100-geberit-rapperswil-jona",
         "de": "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch",
         "fr": "informatique-commerciale-responsable-avec-tache-de-gestion-a-100-geberit-rapperswil-jona"
@@ -2277,7 +2277,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortlicher-betriebsinformatik-mit-fuhrungsaufgabe-a-100-geberit-ch"
+      ]
     }
   ]
 }

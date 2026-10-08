@@ -1258,12 +1258,12 @@
     },
     {
       "id": "pdgr-7ece1370e212",
-      "slug": "dipl-pflegefachperson-hf-fh-pdgr-ch",
+      "slug": "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-pdgr-ch",
-        "it": "dipl-pflegefachperson-hf-fh-pdgr-ch",
-        "en": "dipl-pflegefachperson-hf-fh-pdgr-ch",
-        "fr": "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        "it": "dipl-professionista-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-care-professional-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-soins-professionnels-hf-fh-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1311,7 +1311,21 @@
       "facility": "Forensische Psychiatrie",
       "pensumMin": 80,
       "pensumMax": 100,
-      "pensum": "80 - 100%"
+      "pensum": "80 - 100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-c9fc518561fc",

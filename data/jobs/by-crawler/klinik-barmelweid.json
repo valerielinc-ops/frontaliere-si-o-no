@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "klinik-barmelweid-fc4c699af27a",
-      "slug": "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid",
+      "slug": "imparare-la-cura-professionale-dei-bambini-imparare-la-cura-professionale-dei-bambini-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid",
-        "it": "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid",
-        "en": "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid",
-        "fr": "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid"
+        "it": "imparare-la-cura-professionale-dei-bambini-imparare-la-cura-professionale-dei-bambini-a-klinik-barmelweid-barmelweid",
+        "en": "learning-professional-child-care-learning-professional-child-care-a-klinik-barmelweid-barmelweid",
+        "fr": "apprentissage-professionnel-de-la-garde-d-enfants-apprentissage-professionnel-de-la-garde-d-enfants-a-klinik-barmelweid"
       },
       "company": "Klinik Barmelweid",
       "companyKey": "klinik-barmelweid",
@@ -51,7 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid"
+        ],
+        "en": [
+          "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid"
+        ],
+        "fr": [
+          "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid"
+        ]
+      },
+      "previousSlugs": [
+        "lernende-fachfrau-betreuung-kind-lernender-fachmann-betreuung-kind-a-klinik-barmelweid"
+      ]
     },
     {
       "id": "klinik-barmelweid-65919705caea",

@@ -789,7 +789,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -813,11 +813,12 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+          "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
+        "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
       ],
       "id": "posta-svizzera-centro-regionale-b6979983514b",
       "salaryMin": 60500,
@@ -6384,7 +6385,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -6408,7 +6409,7 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+          "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
@@ -6416,8 +6417,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -14349,7 +14349,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kublis",
-        "en": "courierletters-and-parcels-die-schweizerische-post-kublis",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kublis",
         "de": "zusteller-in-briefe-und-pakete-post-apujwm",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kublis"
       },
@@ -14379,7 +14379,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-          "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
+          "courierletters-and-parcels-die-schweizerische-post-kublis"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis"
@@ -14388,7 +14388,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-kublis",
-        "delivery-in-letters-and-packages-die-schweizerische-post-kublis"
+        "courierletters-and-parcels-die-schweizerische-post-kublis"
       ],
       "id": "posta-svizzera-centro-regionale-d5882d13279d",
       "salaryMin": 57500,
@@ -14905,12 +14905,12 @@
         "fr": "Chef adjoint de l'équipe de répartition",
         "it": "Smistamento del Vicecapo Squadra"
       },
-      "slug": "stv-teamleader-in-sortierung-post",
+      "slug": "smistamento-del-vicecapo-squadra-die-schweizerische-post-untervaz",
       "slugByLocale": {
-        "it": "stv-teamleader-in-sortierung-post",
-        "en": "stv-teamleader-in-sortierung-post",
+        "it": "smistamento-del-vicecapo-squadra-die-schweizerische-post-untervaz",
+        "en": "deputy-team-leader-sorting-die-schweizerische-post-untervaz",
         "de": "stv-teamleader-in-sortierung-post",
-        "fr": "stv-teamleader-in-sortierung-post"
+        "fr": "chef-adjoint-de-l-equipe-de-repartition-die-schweizerische-post-untervaz"
       },
       "sourceLang": "de",
       "department": "",
@@ -14947,7 +14947,21 @@
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "postalCode": "7204",
-      "firstSeenAt": "2026-10-06T21:55:50.110Z"
+      "firstSeenAt": "2026-10-06T21:55:50.110Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleader-in-sortierung-post"
+        ],
+        "en": [
+          "stv-teamleader-in-sortierung-post"
+        ],
+        "fr": [
+          "stv-teamleader-in-sortierung-post"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleader-in-sortierung-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Teamleaderin-Zustellung-Briefe-und-Pakete/74804-de_DE",
@@ -14971,12 +14985,12 @@
         "de": "Teamleader:in Zustellung Briefe und Pakete",
         "fr": "Lettres de livraison et colis du chef d'équipe"
       },
-      "slug": "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-hitzkirch",
+      "slug": "lettere-di-consegna-e-pacchi-del-team-leader-die-schweizerische-post-hitzkirch",
       "slugByLocale": {
-        "it": "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-hitzkirch",
-        "en": "teamleader-in-zustellung-briefe-und-pakete-post",
+        "it": "lettere-di-consegna-e-pacchi-del-team-leader-die-schweizerische-post-hitzkirch",
+        "en": "team-leader-delivery-letters-and-parcels-die-schweizerische-post-hitzkirch",
         "de": "teamleader-in-zustellung-briefe-und-pakete-post",
-        "fr": "teamleader-in-zustellung-briefe-und-pakete-post"
+        "fr": "lettres-de-livraison-et-colis-du-chef-d-equipe-die-schweizerische-post-hitzkirch"
       },
       "sourceLang": "de",
       "department": "",
@@ -14998,11 +15012,19 @@
       "id": "posta-svizzera-centro-regionale-1144c43b1ea4",
       "previousSlugsByLocale": {
         "it": [
+          "teamleader-in-zustellung-briefe-und-pakete-post",
+          "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-hitzkirch"
+        ],
+        "en": [
+          "teamleader-in-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "teamleader-in-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "teamleader-in-zustellung-briefe-und-pakete-post"
+        "teamleader-in-zustellung-briefe-und-pakete-post",
+        "teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-hitzkirch"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -15129,7 +15151,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-        "en": "courierletters-and-parcels-die-schweizerische-post-munsingen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen",
         "de": "zusteller-in-briefe-und-pakete-post-onda5b",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen"
       },
@@ -15159,7 +15181,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-          "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+          "courierletters-and-parcels-die-schweizerische-post-munsingen"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen"
@@ -15168,7 +15190,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-munsingen",
-        "delivery-in-letters-and-packages-die-schweizerische-post-munsingen"
+        "courierletters-and-parcels-die-schweizerische-post-munsingen"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-e284265aa262",
@@ -15297,7 +15319,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-solothurn",
-        "en": "courierletters-and-parcels-die-schweizerische-post-solothurn",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-solothurn",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-solothurn"
       },
@@ -15324,7 +15346,7 @@
         ],
         "en": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-          "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
+          "courierletters-and-parcels-die-schweizerische-post-solothurn"
         ],
         "fr": [
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn"
@@ -15333,7 +15355,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-solothurn",
-        "delivery-in-letters-and-packages-die-schweizerische-post-solothurn"
+        "courierletters-and-parcels-die-schweizerische-post-solothurn"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-32f37d392976",
@@ -15453,12 +15475,12 @@
         "en": "Manager/Building Manager Region Jura / Jura Bernese and Bienne",
         "de": "Manager/Gebäudemanager Region Jura / Jura Bernese und Bienne"
       },
-      "slug": "gerante-gerant-d-immeubles-region-jura-bernois-et-bienne-la-poste-suisse-teletravail-renens-vd",
+      "slug": "manager-building-manager-regione-jura-jura-bernese-e-bienne-la-poste-suisse-teletravail-renens-vd",
       "slugByLocale": {
         "fr": "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post",
-        "it": "gerante-gerant-d-immeubles-region-jura-bernois-et-bienne-la-poste-suisse-teletravail-renens-vd",
-        "en": "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post",
-        "de": "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post"
+        "it": "manager-building-manager-regione-jura-jura-bernese-e-bienne-la-poste-suisse-teletravail-renens-vd",
+        "en": "manager-building-manager-region-jura-jura-bernese-and-bienne-la-poste-suisse-teletravail-renens-vd",
+        "de": "manager-gebaudemanager-region-jura-jura-bernese-und-bienne-la-poste-suisse-teletravail-renens-vd"
       },
       "sourceLang": "fr",
       "department": "",
@@ -15480,11 +15502,19 @@
       "id": "posta-svizzera-centro-regionale-f2c0e70312ff",
       "previousSlugsByLocale": {
         "it": [
+          "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post",
+          "gerante-gerant-d-immeubles-region-jura-bernois-et-bienne-la-poste-suisse-teletravail-renens-vd"
+        ],
+        "en": [
+          "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post"
+        ],
+        "de": [
           "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post"
         ]
       },
       "previousSlugs": [
-        "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post"
+        "gerante-gerant-d-immeubles-region-jura-jura-bernois-et-bienne-post",
+        "gerante-gerant-d-immeubles-region-jura-bernois-et-bienne-la-poste-suisse-teletravail-renens-vd"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -15602,12 +15632,12 @@
         "en": "Letter and Parcel Delivery Driver",
         "fr": "Distributeur·rice de lettres et de colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
+      "slug": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
       "slugByLocale": {
         "de": "zusteller-in-briefe-und-pakete-post",
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
-        "en": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "it": "addetto-a-alla-consegna-di-lettere-e-pacchi-die-schweizerische-post-dattwil-ag",
+        "en": "letter-and-parcel-delivery-driver-die-schweizerische-post-dattwil-ag",
+        "fr": "distributeur-rice-de-lettres-et-de-colis-die-schweizerische-post-dattwil-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -15629,11 +15659,19 @@
       "id": "posta-svizzera-centro-regionale-dfec9f76d526",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-dattwil-ag"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-dattwil-ag"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

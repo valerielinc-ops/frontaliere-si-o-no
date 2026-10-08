@@ -1071,12 +1071,12 @@
     },
     {
       "id": "galliker-b8a92cda2e9f",
-      "slug": "supervisore-waschanlage-a-galliker-transport-ag-altishofen",
+      "slug": "supervisore-dell-impianto-di-lavaggio-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
-        "it": "supervisore-waschanlage-a-galliker-transport-ag-altishofen",
+        "it": "supervisore-dell-impianto-di-lavaggio-a-galliker-transport-ag-altishofen",
         "en": "supervisor-washing-system-a-galliker-transport-ag-altishofen",
         "de": "supervisor-waschanlage-a-galliker-altishofen",
-        "fr": "superviseur-waschanlage-a-galliker-transport-ag-altishofen"
+        "fr": "superviseur-station-de-lavage-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -1122,17 +1122,21 @@
       "requirementsByLocale": {},
       "externalId": "0431",
       "previousSlugs": [
-        "supervisor-waschanlage-a-galliker-altishofen"
+        "supervisor-waschanlage-a-galliker-altishofen",
+        "supervisore-waschanlage-a-galliker-transport-ag-altishofen",
+        "superviseur-waschanlage-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "supervisor-waschanlage-a-galliker-altishofen"
+          "supervisor-waschanlage-a-galliker-altishofen",
+          "supervisore-waschanlage-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "supervisor-waschanlage-a-galliker-altishofen"
         ],
         "fr": [
-          "supervisor-waschanlage-a-galliker-altishofen"
+          "supervisor-waschanlage-a-galliker-altishofen",
+          "superviseur-waschanlage-a-galliker-transport-ag-altishofen"
         ]
       },
       "firstSeenAt": "2026-10-05T21:24:57.532Z",

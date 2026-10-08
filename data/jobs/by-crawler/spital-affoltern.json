@@ -847,9 +847,9 @@
     },
     {
       "id": "spital-affoltern-aca5169b14a6",
-      "slug": "fachfrau-fachmann-gesundheit-efz-notfallzentrum-spital-affoltern-affoltern-am-albis",
+      "slug": "operatore-operatrice-sociosanitario-a-afc-centro-di-emergenza-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-efz-notfallzentrum-spital-affoltern-affoltern-am-albis",
+        "it": "operatore-operatrice-sociosanitario-a-afc-centro-di-emergenza-spital-affoltern-ag-affoltern-am-albis",
         "en": "professional-health-efz-emergency-center-spital-affoltern-ag-affoltern-am-albis",
         "de": "fachfrau-fachmann-gesundheit-efz-notfallzentrum-spital-affoltern-affoltern-am-albis",
         "fr": "centre-d-urgence-efz-pour-la-sante-professionnelle-spital-affoltern-ag-affoltern-am-albis"
@@ -908,7 +908,15 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-efz-notfallzentrum-spital-affoltern-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-efz-notfallzentrum-spital-affoltern-affoltern-am-albis"
+      ]
     },
     {
       "id": "spital-affoltern-f69d2abc979c",

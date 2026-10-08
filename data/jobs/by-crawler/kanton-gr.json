@@ -1273,8 +1273,8 @@
       "slugByLocale": {
         "de": "2-sachbearbeiterinnen-sachbearbeiter-kanton-gr-ch",
         "it": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
-        "en": "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur",
-        "fr": "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur"
+        "en": "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
+        "fr": "2-commis-commis-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1332,16 +1332,15 @@
           "sachbearbeiter-in-chur-thusis-kanton-gr-ch"
         ],
         "en": [
-          "2-clerks-clerks-kantonale-verwaltung-graubunden-chur"
+          "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "2-commis-commis-kantonale-verwaltung-graubunden-chur"
+          "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-chur-thusis-kanton-gr-ch",
-        "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
-        "2-commis-commis-kantonale-verwaltung-graubunden-chur"
+        "sachbearbeiter-in-chur-thusis-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 65000,
       "salaryMax": 111500,

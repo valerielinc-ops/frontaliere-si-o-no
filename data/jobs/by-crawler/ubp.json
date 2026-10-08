@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "ubp-11d8af09ae00",
-      "slug": "head-of-operational-risk-ubp-ch",
+      "slug": "capo-del-rischio-operativo-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "head-of-operational-risk-ubp-ch",
-        "it": "head-of-operational-risk-ubp-ch",
-        "de": "head-of-operational-risk-ubp-ch",
-        "fr": "head-of-operational-risk-ubp-ch"
+        "it": "capo-del-rischio-operativo-union-bancaire-privee-geneva-switzerland",
+        "de": "leiter-des-operationellen-risikos-union-bancaire-privee-geneva-switzerland",
+        "fr": "chef-des-risques-operationnels-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -51,7 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-operational-risk-ubp-ch"
+        ],
+        "de": [
+          "head-of-operational-risk-ubp-ch"
+        ],
+        "fr": [
+          "head-of-operational-risk-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-operational-risk-ubp-ch"
+      ]
     },
     {
       "id": "ubp-c2f3138211bd",

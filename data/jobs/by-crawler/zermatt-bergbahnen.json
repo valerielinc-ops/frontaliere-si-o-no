@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "zermatt-bergbahnen-4992cc0352fc",
-      "slug": "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen",
+      "slug": "capocuoco-capocuoca-nel-servizio-diurno-zermatt-bergbahnen-zermatt",
       "slugByLocale": {
-        "it": "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen",
-        "en": "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen",
+        "it": "capocuoco-capocuoca-nel-servizio-diurno-zermatt-bergbahnen-zermatt",
+        "en": "head-chef-in-day-operations-zermatt-bergbahnen-zermatt",
         "de": "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen",
-        "fr": "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
+        "fr": "chef-cheffe-de-cuisine-en-service-de-jour-zermatt-bergbahnen-zermatt"
       },
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
@@ -63,7 +63,21 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
+        ],
+        "en": [
+          "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
+        ],
+        "fr": [
+          "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchef-kuchenchefin-im-tagesbetrieb-zermatt-zermatt-bergbahnen"
+      ]
     },
     {
       "id": "zermatt-bergbahnen-450c7c2a86a3",

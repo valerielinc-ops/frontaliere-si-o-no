@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "bachtelen-644b3fabbae0",
-      "slug": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen",
+      "slug": "scuola-curativa-insegnante-scuola-curativa-insegnante-resp-maestro-stiftung-bachtelen-grenchen",
       "slugByLocale": {
         "de": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen",
-        "it": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen",
-        "en": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen",
-        "fr": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen"
+        "it": "scuola-curativa-insegnante-scuola-curativa-insegnante-resp-maestro-stiftung-bachtelen-grenchen",
+        "en": "school-curative-teacher-school-curative-teacher-resp-teacher-stiftung-bachtelen-grenchen",
+        "fr": "professeur-curatif-de-l-ecole-professeur-curatif-de-l-ecole-resp-enseignant-stiftung-bachtelen-grenchen"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -51,16 +51,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen"
+        ],
+        "en": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen"
+        ],
+        "fr": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-bachtelen-grenchen"
+      ]
     },
     {
       "id": "bachtelen-6174ce8a0d86",
-      "slug": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer",
+      "slug": "scuola-curativa-insegnante-scuola-curativa-insegnante-resp-insegnante-di-una-classe-mista-a-ciclo-cicli-1-e-2-stiftung",
       "slugByLocale": {
         "de": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer",
-        "it": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer",
-        "en": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer",
-        "fr": "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer"
+        "it": "scuola-curativa-insegnante-scuola-curativa-insegnante-resp-insegnante-di-una-classe-mista-a-ciclo-cicli-1-e-2-stiftung",
+        "en": "school-curative-teacher-school-curative-teacher-resp-teacher-of-a-cycle-mixed-class-cycles-1-and-2-stiftung-bachtelen",
+        "fr": "professeur-curatif-de-l-ecole-professeur-curatif-de-l-ecole-resp-enseignant-d-une-classe-a-cycle-mixte-cycles-1-et-2"
       },
       "company": "Stiftung Bachtelen",
       "companyKey": "bachtelen",
@@ -104,7 +118,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer"
+        ],
+        "en": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer"
+        ],
+        "fr": [
+          "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer"
+        ]
+      },
+      "previousSlugs": [
+        "schulische-heilpadagogin-schulischer-heilpadagoge-resp-lehrperson-einer"
+      ]
     },
     {
       "id": "bachtelen-1883ada24267",

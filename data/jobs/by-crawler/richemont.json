@@ -493,8 +493,8 @@
       "slugByLocale": {
         "en": "supply-chain-project-intern-richemont-bellevue",
         "it": "supply-chain-project-intern-richemont-bellevue",
-        "de": "supply-chain-project-intern-richemont-bellevue",
-        "fr": "supply-chain-project-intern-richemont-bellevue"
+        "de": "lieferkette-project-praktikant-richemont-bellevue",
+        "fr": "chaine-d-approvisionnement-project-stagiaire-richemont-bellevue"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -726,7 +726,7 @@
       "slugByLocale": {
         "it": "vendite-associate-60-montblanc-geneva",
         "en": "sales-associate-60-richemont-geneva",
-        "de": "sales-associate-60-richemont-geneva",
+        "de": "verkaufsmitarbeiter-60-montblanc-geneva",
         "fr": "associe-de-vente-60-montblanc-geneva"
       },
       "company": "Montblanc",
@@ -778,6 +778,9 @@
           "sales-associate-60-richemont-geneva"
         ],
         "fr": [
+          "sales-associate-60-richemont-geneva"
+        ],
+        "de": [
           "sales-associate-60-richemont-geneva"
         ]
       },
@@ -1918,7 +1921,7 @@
       "slugByLocale": {
         "it": "responsabile-sviluppo-orologi-panerai-neuchatel",
         "en": "watch-development-manager-panerai-neuchatel",
-        "de": "responsible-development-uhren-panerai-neuchatel",
+        "de": "leiter-uhrentwicklung-panerai-neuchatel",
         "fr": "responsable-developpement-montres-panerai-neuchatel"
       },
       "company": "Panerai",
@@ -1974,13 +1977,13 @@
         ],
         "de": [
           "responsable-developpement-montres-panerai-neuchatel",
-          "leiter-uhrentwicklung-panerai-neuchatel"
+          "responsible-development-uhren-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
         "responsable-developpement-montres-richemont-neuchatel",
         "responsable-developpement-montres-panerai-neuchatel",
-        "leiter-uhrentwicklung-panerai-neuchatel"
+        "responsible-development-uhren-panerai-neuchatel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2159,7 +2162,7 @@
       "slugByLocale": {
         "it": "responsabile-processo-acquisti-richemont-plan-les-ouates",
         "en": "procurement-process-manager-richemont-plan-les-ouates",
-        "de": "beschaffungsprozess-manager-richemont-plan-les-ouates",
+        "de": "beschaffungsprozessmanager-richemont-plan-les-ouates",
         "fr": "gestionnaire-du-processus-d-approvisionnement-richemont-plan-les-ouates"
       },
       "company": "Richemont",
@@ -2205,7 +2208,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-process-manager-richemont-plan-les-ouates",
-        "beschaffungsprozessmanager-richemont-plan-les-ouates"
+        "beschaffungsprozess-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2213,7 +2216,7 @@
         ],
         "de": [
           "procurement-process-manager-richemont-plan-les-ouates",
-          "beschaffungsprozessmanager-richemont-plan-les-ouates"
+          "beschaffungsprozess-manager-richemont-plan-les-ouates"
         ],
         "fr": [
           "procurement-process-manager-richemont-plan-les-ouates"
@@ -2358,7 +2361,7 @@
       "slugByLocale": {
         "it": "regolatore-meccanico-strike-procadrans-la-chaux-de-fonds",
         "en": "mechanic-adjuster-strike-procadrans-la-chaux-de-fonds",
-        "de": "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds",
+        "de": "mechaniker-strike-procadrans-la-chaux-de-fonds",
         "fr": "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -2405,7 +2408,7 @@
       "previousSlugs": [
         "mecanicien-regleur-frappe-richemont-la-chaux-de-fonds",
         "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds",
-        "mechaniker-strike-procadrans-la-chaux-de-fonds"
+        "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2413,7 +2416,7 @@
           "mecanicien-regleur-frappe-procadrans-la-chaux-de-fonds"
         ],
         "de": [
-          "mechaniker-strike-procadrans-la-chaux-de-fonds"
+          "mechanischer-versteller-streik-procadrans-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-07-17T11:30:23.949Z",
@@ -2654,7 +2657,7 @@
       "slugByLocale": {
         "it": "prototypiste-cartier-manufacture-la-chaux-de-fonds",
         "en": "prototypist-cartier-manufacture-le-cret-du-locle",
-        "de": "prototyp-cartier-manufacture-le-cret-du-locle",
+        "de": "prototypen-cartier-manufacture-le-cret-du-locle",
         "fr": "prototypiste-richemont-la-chaux-de-fonds"
       },
       "company": "Cartier Manufacture",
@@ -2712,14 +2715,14 @@
         "de": [
           "prototylist-cartier-manufacture-le-cret-du-locle",
           "prototypiste-cartier-manufacture-le-cret-du-locle",
-          "prototypen-cartier-manufacture-le-cret-du-locle"
+          "prototyp-cartier-manufacture-le-cret-du-locle"
         ]
       },
       "previousSlugs": [
         "prototypiste-richemont-le-cret-du-locle",
         "prototylist-cartier-manufacture-le-cret-du-locle",
         "prototypiste-cartier-manufacture-le-cret-du-locle",
-        "prototypen-cartier-manufacture-le-cret-du-locle"
+        "prototyp-cartier-manufacture-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-09-26T14:07:23.482Z",
       "salaryMin": 60500,
@@ -5514,7 +5517,7 @@
       "slug": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "leader-del-progetto-di-riferimento-industrializzazione-donze-baume-les-breuleux",
-        "en": "reference-project-leader-industrialization-donze-baume-les-breuleux",
+        "en": "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
         "de": "referenzprojektleiter-industrialisierung-donze-baume-les-breuleux",
         "fr": "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
       },
@@ -5568,7 +5571,7 @@
           "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
         ],
         "en": [
-          "referent-chef-de-projet-industrialisation-richemont-les-breuleux"
+          "reference-project-leader-industrialization-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
@@ -5577,7 +5580,8 @@
       },
       "previousSlugs": [
         "referent-chef-de-projet-industrialisation-richemont-les-breuleux",
-        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux"
+        "referent-chef-de-projet-industrialisation-donze-baume-les-breuleux",
+        "reference-project-leader-industrialization-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.511Z",
       "salaryMin": 60500,
@@ -5601,8 +5605,8 @@
       "slug": "programmazione-di-riferimento-donze-baume-les-breuleux",
       "slugByLocale": {
         "it": "programmazione-di-riferimento-donze-baume-les-breuleux",
-        "en": "reference-programming-donze-baume-les-breuleux",
-        "de": "referent-programmplanung-donze-baume-les-breuleux",
+        "en": "referent-programmation-richemont-les-breuleux",
+        "de": "referenzprogrammierung-donze-baume-les-breuleux",
         "fr": "referent-programmation-donze-baume-les-breuleux"
       },
       "company": "Donzé Baume",
@@ -5660,13 +5664,13 @@
         ],
         "en": [
           "planner-donze-baume-les-breuleux",
-          "referent-programmation-richemont-les-breuleux"
+          "reference-programming-donze-baume-les-breuleux"
         ],
         "de": [
           "referent-programmation-richemont-les-breuleux",
           "planer-donze-baume-les-breuleux",
           "referent-programmation-donze-baume-les-breuleux",
-          "referenzprogrammierung-donze-baume-les-breuleux"
+          "referent-programmplanung-donze-baume-les-breuleux"
         ]
       },
       "previousSlugs": [
@@ -5676,7 +5680,8 @@
         "planer-donze-baume-les-breuleux",
         "planificateur-richemont-les-breuleux",
         "referent-programmation-donze-baume-les-breuleux",
-        "referenzprogrammierung-donze-baume-les-breuleux"
+        "reference-programming-donze-baume-les-breuleux",
+        "referent-programmplanung-donze-baume-les-breuleux"
       ],
       "firstSeenAt": "2026-07-16T22:17:40.466Z",
       "salaryMin": 60500,
@@ -5701,7 +5706,7 @@
       "slugByLocale": {
         "it": "horloger-hh-panerai-neuchatel",
         "en": "horloger-hh-richemont-neuchatel",
-        "de": "uhr-hh-panerai-neuchatel",
+        "de": "horloge-hh-panerai-neuchatel",
         "fr": "horloger-hh-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -5748,7 +5753,7 @@
       "previousSlugs": [
         "horloger-hh-richemont-neuchatel",
         "orologiaio-hh-panerai-neuchatel",
-        "horloge-hh-panerai-neuchatel"
+        "uhr-hh-panerai-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5756,7 +5761,7 @@
           "orologiaio-hh-panerai-neuchatel"
         ],
         "de": [
-          "horloge-hh-panerai-neuchatel"
+          "uhr-hh-panerai-neuchatel"
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:32.485Z",
@@ -6736,7 +6741,7 @@
       "id": "richemont-6922099e48c5",
       "slug": "societa-commerciale-van-cleef-arpels-zurich",
       "slugByLocale": {
-        "it": "societa-commerciale-van-cleef-arpels-zurich",
+        "it": "vendite-van-cleef-arpels-zurich",
         "en": "sales-associate-van-cleef-arpels-zurich",
         "de": "vertriebsmitarbeiter-van-cleef-arpels-zurich",
         "fr": "sales-associate-richemont-zurich"
@@ -6785,8 +6790,7 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-van-cleef-arpels-zurich",
-          "sales-associate-richemont-zurich",
-          "vendite-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "fr": [
           "sales-associate-richemont-zurich-t0sdvd"
@@ -6801,8 +6805,7 @@
       "previousSlugs": [
         "sales-associate-richemont-zurich-t0sdvd",
         "sales-associate-van-cleef-arpels-zurich",
-        "sales-associate-richemont-zurich",
-        "vendite-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich"
       ],
       "firstSeenAt": "2026-08-19T21:42:09.964Z",
       "salaryMin": 83000,
@@ -6995,8 +6998,8 @@
       "slugByLocale": {
         "it": "amministratore-delegato-buccellati-geneva",
         "en": "stock-administrator-richemont-geneva",
-        "de": "bestand-buccellati-geneva",
-        "fr": "stock-buccellati-geneva"
+        "de": "bestandsverwalter-buccellati-geneva",
+        "fr": "administrateur-des-stocks-buccellati-geneva"
       },
       "company": "Buccellati",
       "companyKey": "richemont",
@@ -7042,8 +7045,8 @@
       "previousSlugs": [
         "stock-administrator-richemont-geneva",
         "stock-administrator-buccellati-geneva",
-        "bestandsverwalter-buccellati-geneva",
-        "administrateur-des-stocks-buccellati-geneva"
+        "bestand-buccellati-geneva",
+        "stock-buccellati-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7051,11 +7054,11 @@
         ],
         "de": [
           "stock-administrator-buccellati-geneva",
-          "bestandsverwalter-buccellati-geneva"
+          "bestand-buccellati-geneva"
         ],
         "fr": [
           "stock-administrator-buccellati-geneva",
-          "administrateur-des-stocks-buccellati-geneva"
+          "stock-buccellati-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -7297,7 +7300,7 @@
       "slugByLocale": {
         "it": "analisi-dei-materiali-specialistici-richemont-glovelier",
         "en": "specialist-materials-analysis-richemont-glovelier",
-        "de": "spezialist-analysiert-materialien-richemont-glovelier",
+        "de": "spezialisierte-materialanalyse-richemont-glovelier",
         "fr": "specialiste-analyses-materiaux-richemont-glovelier"
       },
       "company": "Richemont",
@@ -7343,14 +7346,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "specialiste-analyses-materiaux-richemont-glovelier",
-        "spezialisierte-materialanalyse-richemont-glovelier"
+        "spezialist-analysiert-materialien-richemont-glovelier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-analyses-materiaux-richemont-glovelier"
         ],
         "de": [
-          "spezialisierte-materialanalyse-richemont-glovelier"
+          "spezialist-analysiert-materialien-richemont-glovelier"
         ]
       },
       "firstSeenAt": "2026-08-18T09:59:08.377Z",
@@ -7557,7 +7560,7 @@
       "slugByLocale": {
         "it": "gestionnaire-paie-etassicurazione-sociales-richemont-meyrin",
         "en": "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
-        "de": "gestionnaire-paie-et-assurances-sociales-richemont-meyrin",
+        "de": "kostenpflichtiger-und-sozialversicherungstrager-richemont-meyrin",
         "fr": "gestionnaire-paie-et-assurances-sociales-richemont-meyrin"
       },
       "company": "Richemont",
@@ -7610,7 +7613,8 @@
           "gestionnaire-paie-et-assurances-sociales-richemont-meyrin"
         ],
         "de": [
-          "payroll-manager-und-sozialversicherung-richemont-meyrin"
+          "payroll-manager-und-sozialversicherung-richemont-meyrin",
+          "gestionnaire-paie-et-assurances-sociales-richemont-meyrin"
         ]
       },
       "needsRetranslation": true,
@@ -7636,7 +7640,7 @@
       "slugByLocale": {
         "it": "elettrodomestici-polimeccanici-cfc-cartier-manufacture-glovelier",
         "en": "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
-        "de": "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier",
+        "de": "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier",
         "fr": "apprenti-e-polymecanicien-ne-cfc-cartier-manufacture-glovelier"
       },
       "company": "Cartier Manufacture",
@@ -7690,13 +7694,13 @@
         "de": [
           "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
           "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-          "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+          "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
         ]
       },
       "previousSlugs": [
         "apprenti-e-polymecanicien-ne-cfc-richemont-glovelier",
         "lehrling-polymechaniker-in-efz-cartier-manufacture-glovelier",
-        "auszubildende-mit-polymechanischem-fckw-cartier-manufacture-glovelier"
+        "lehrling-polymekaniker-cfc-cartier-manufacture-glovelier"
       ],
       "firstSeenAt": "2026-08-18T09:59:08.365Z",
       "salaryMin": 51100,
@@ -8031,7 +8035,7 @@
       "slug": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
         "it": "formatore-professioni-cartier-manufacture-le-cret-du-locle",
-        "en": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "en": "business-trainer-cartier-manufacture-le-cret-du-locle",
         "de": "berufsbildner-cartier-manufacture-le-cret-du-locle",
         "fr": "formateur-metiers-richemont-le-cret-du-locle"
       },
@@ -8078,16 +8082,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "formateur-metiers-richemont-le-cret-du-locle",
-        "business-trainer-cartier-manufacture-le-cret-du-locle",
-        "vocational-trainer-cartier-manufacture-le-cret-du-locle"
+        "vocational-trainer-cartier-manufacture-le-cret-du-locle",
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "formateur-metiers-richemont-le-cret-du-locle"
         ],
         "en": [
-          "business-trainer-cartier-manufacture-le-cret-du-locle",
-          "vocational-trainer-cartier-manufacture-le-cret-du-locle"
+          "vocational-trainer-cartier-manufacture-le-cret-du-locle",
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "de": [
           "formateur-metiers-richemont-le-cret-du-locle"
@@ -9595,7 +9599,7 @@
         "it": "societa-commerciale-cartier-zurich",
         "en": "sales-associate-cartier-zurich",
         "de": "vertriebsmitarbeiter-cartier-zurich",
-        "fr": "associe-de-vente-cartier-zurich"
+        "fr": "sales-associate-richemont-zurich"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -9667,7 +9671,7 @@
         ],
         "fr": [
           "sales-associate-temps-partiel-20-cartier-zurich",
-          "sales-associate-richemont-zurich"
+          "associe-de-vente-cartier-zurich"
         ]
       },
       "previousSlugs": [
@@ -9686,7 +9690,8 @@
         "conseiller-ere-de-vente-temps-partiel-20-cartier-zurich",
         "assistente-vendita-parte-tempo-20-cartier-zurich",
         "verkaufsassistent-teilzeit-20-cartier-zurich",
-        "venditore-part-time-40-cartier-zurich"
+        "venditore-part-time-40-cartier-zurich",
+        "associe-de-vente-cartier-zurich"
       ],
       "firstSeenAt": "2026-09-08T13:49:32.379Z",
       "salaryMin": 83000,
@@ -9710,7 +9715,7 @@
       "slug": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
       "slugByLocale": {
         "it": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
-        "en": "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane",
+        "en": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane",
         "de": "chef-de-gruppe-usinage-equipe-de-nuit-m-w-x-cartier-manufacture-villars-sur-glane",
         "fr": "chef-de-groupe-usinage-equipe-de-nuit-h-f-x-richemont-villars-sur-glane"
       },
@@ -9771,7 +9776,15 @@
         }
       },
       "postalCode": "1752",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-the-machining-group-night-shift-m-f-x-cartier-manufacture-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-39b950a43765",

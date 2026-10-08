@@ -729,12 +729,12 @@
     },
     {
       "id": "gmo-ac7868278538",
-      "slug": "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827",
+      "slug": "psicologia-psicoterapeuta-fsp-gmo-1219-le-lignon-ac786827",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827",
-        "it": "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827",
-        "en": "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827",
-        "de": "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827"
+        "it": "psicologia-psicoterapeuta-fsp-gmo-1219-le-lignon-ac786827",
+        "en": "psychologist-psychotherapist-fsp-gmo-1219-le-lignon-ac786827",
+        "de": "psychologe-psychotherapeut-fsp-gmo-1219-le-lignon-ac786827"
       },
       "slugDisambiguator": "ac786827",
       "company": "gmo",
@@ -793,7 +793,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:17:59.232Z"
+      "firstSeenAt": "2026-10-07T21:17:59.232Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-fsp-gmo-1219-le-lignon-ac786827"
+      ]
     },
     {
       "id": "gmo-576ebe7aaad6",

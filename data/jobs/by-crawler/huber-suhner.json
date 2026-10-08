@@ -746,12 +746,12 @@
     },
     {
       "id": "huber-suhner-ac81693fa4d4",
-      "slug": "anlagenfuhrer-extrusion-huber-suhner-herisau",
+      "slug": "gestione-dell-installazione-estrusione-huber-suhner-ag-herisau",
       "slugByLocale": {
         "de": "anlagenfuhrer-extrusion-huber-suhner-herisau",
-        "it": "anlagenfuhrer-extrusion-huber-suhner-herisau",
-        "en": "anlagenfuhrer-extrusion-huber-suhner-herisau",
-        "fr": "anlagenfuhrer-extrusion-huber-suhner-herisau"
+        "it": "gestione-dell-installazione-estrusione-huber-suhner-ag-herisau",
+        "en": "installation-manager-extrusion-huber-suhner-ag-herisau",
+        "fr": "extrusion-du-gestionnaire-d-installation-huber-suhner-ag-herisau"
       },
       "company": "Huber+Suhner AG",
       "companyKey": "huber-suhner",
@@ -814,7 +814,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:50:20.403Z"
+      "firstSeenAt": "2026-10-07T21:50:20.403Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-extrusion-huber-suhner-herisau"
+        ],
+        "en": [
+          "anlagenfuhrer-extrusion-huber-suhner-herisau"
+        ],
+        "fr": [
+          "anlagenfuhrer-extrusion-huber-suhner-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-extrusion-huber-suhner-herisau"
+      ]
     },
     {
       "id": "huber-suhner-9889439ecd19",

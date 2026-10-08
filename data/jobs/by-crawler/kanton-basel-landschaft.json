@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "kanton-basel-landschaft-0523116f8bbc",
-      "slug": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal",
+      "slug": "sequestri-del-direttore-procedurale-direttore-tecnico-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "de": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal",
-        "it": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal",
-        "en": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal",
-        "fr": "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+        "it": "sequestri-del-direttore-procedurale-direttore-tecnico-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "procedural-director-procedural-director-seizures-kantonale-verwaltung-basel-landschaft-liestal",
+        "fr": "saisie-du-directeur-de-la-procedure-directeur-de-la-procedure-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -52,7 +52,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
+          "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "verfahrensleiterin-verfahrensleiter-pfandungen-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-2a6d3bf42873",
@@ -121,12 +135,12 @@
     },
     {
       "id": "kanton-basel-landschaft-ab1fa7232cde",
-      "slug": "sachbearbeiterin-sachbearbeiter-hr-administration-kanton-basel-landschaft-liestal",
+      "slug": "addetta-addetto-all-amministrazione-hr-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-hr-administration-kantonale-verwaltung-basel-landschaft-liestal",
+        "it": "addetta-addetto-all-amministrazione-hr-kantonale-verwaltung-basel-landschaft-liestal",
         "en": "case-handler-case-handler-hr-administration-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "sachbearbeiterin-sachbearbeiter-hr-administration-kanton-basel-landschaft-liestal",
-        "fr": "sachbearbeiterin-sachbearbeiter-hr-administration-kantonale-verwaltung-basel-landschaft-liestal"
+        "fr": "gestionnaire-administratif-ve-rh-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -170,7 +184,20 @@
       "applyUrl": "https://jobs.baselland.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-hr-administration/e59b641b-7e13-44c9-ba4a-0bad3a4c367d",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-06T09:12:36.981Z"
+      "firstSeenAt": "2026-10-06T09:12:36.981Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-hr-administration-kantonale-verwaltung-basel-landschaft-liestal",
+          "sachbearbeiterin-sachbearbeiter-hr-administration-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-hr-administration-kantonale-verwaltung-basel-landschaft-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-hr-administration-kantonale-verwaltung-basel-landschaft-liestal",
+        "sachbearbeiterin-sachbearbeiter-hr-administration-kanton-basel-landschaft-liestal"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-a526ce70cd64",

@@ -1448,7 +1448,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -1504,7 +1504,7 @@
           "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
       "previousSlugs": [
@@ -1513,7 +1513,7 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
         "dipl-nursing-professional-dipl-nursing-professional-for-nds-hf-anesthesia-pediatrics-universitats-kinderspital-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
       "salaryMin": 91500,
@@ -2672,9 +2672,9 @@
     },
     {
       "id": "kispi-a0b2b8415424",
-      "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+      "slug": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+        "it": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
         "en": "disponentine-m-f-70-universitats-kinderspital-zurich-zurich",
         "de": "disponentin-m-w-70-kispi-zurich",
         "fr": "depontine-h-f-70-universitats-kinderspital-zurich-zurich"
@@ -2724,13 +2724,13 @@
       "previousSlugs": [
         "disponentin-m-w-70-kispi-zurich",
         "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
-        "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+        "disponentin-m-w-d-70-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-m-w-70-kispi-zurich",
           "dispatcher-m-f-70-universitats-kinderspital-zurich-zurich",
-          "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+          "disponentin-m-w-d-70-universitats-kinderspital-zurich"
         ],
         "en": [
           "disponentin-m-w-70-kispi-zurich"
@@ -4180,9 +4180,9 @@
     },
     {
       "id": "kispi-fdc3a3e68b66",
-      "slug": "disponentin-ikm-planung-m-w-d-80-100-im-ikm-werden-bettenplanung-op-programme-personaleinsatz-e-datenprognosen-intelligent-miteinander-vernetzt-um-unsere-patientinnen-e-patienten-z",
+      "slug": "pianificazione-ikm-m-f-80-100-nell-ikm-la-pianificazione-dei-letti-i-programmi-chirurgici-l-impiego-del-personale-e-le",
       "slugByLocale": {
-        "it": "disponentin-ikm-planung-m-w-d-80-100-im-ikm-werden-bettenplanung-op-programme-personaleinsatz-e-datenprognosen-intelligent-miteinander-vernetzt-um-unsere-patientinnen-e-patienten-z",
+        "it": "pianificazione-ikm-m-f-80-100-nell-ikm-la-pianificazione-dei-letti-i-programmi-chirurgici-l-impiego-del-personale-e-le",
         "en": "m-f-80-100-in-the-ikm-bed-planning-surgical-programs-personnel-deployment-and-data-forecasts-are-intelligently-networked",
         "de": "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme",
         "fr": "h-f-80-100-dans-l-ikm-la-planification-du-lit-les-programmes-chirurgicaux-le-deploiement-du-personnel-et-les-previsions"
@@ -4230,11 +4230,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
+        "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme",
+        "disponentin-ikm-planung-m-w-d-80-100-im-ikm-werden-bettenplanung-op-programme-personaleinsatz-e-datenprognosen-intelligent-miteinander-vernetzt-um-unsere-patientinnen-e-patienten-z"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
+          "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme",
+          "disponentin-ikm-planung-m-w-d-80-100-im-ikm-werden-bettenplanung-op-programme-personaleinsatz-e-datenprognosen-intelligent-miteinander-vernetzt-um-unsere-patientinnen-e-patienten-z"
         ],
         "en": [
           "disponentin-ikm-planung-m-w-80-100-im-ikm-werden-bettenplanung-op-programme"
@@ -4263,7 +4265,7 @@
       "slug": "maestro-m-f-80-scuola-di-ospedale-della-stazione-di-terapia-psichiatrica-psicologica-universitats-kinderspital-zurich",
       "slugByLocale": {
         "it": "maestro-m-f-80-scuola-di-ospedale-della-stazione-di-terapia-psichiatrica-psicologica-universitats-kinderspital-zurich",
-        "en": "lehrperson-m-w-d-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
+        "en": "teacher-m-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich",
         "de": "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi",
         "fr": "enseignant-h-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich"
       },
@@ -4312,7 +4314,7 @@
       "previousSlugs": [
         "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-kispi",
         "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
-        "teacher-m-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich"
+        "lehrperson-m-w-d-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4321,7 +4323,7 @@
         ],
         "en": [
           "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich",
-          "teacher-m-f-80-hospital-school-of-psychosomatic-psychiatric-therapy-station-universitats-kinderspital-zurich-zurich"
+          "lehrperson-m-w-d-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
         ],
         "fr": [
           "lehrperson-m-w-80-spitalschule-der-psychosomatisch-psychiatrischen-therapiestation-universitats-kinderspital-zurich"
@@ -4344,9 +4346,9 @@
     },
     {
       "id": "kispi-a84c8e984ba7",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neurologie-neurochirurgie-neuroonkologie",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professional-80-100-neurologia-neurochirurgia-neurooncologia-e",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neurologie-neurochirurgie-neuroonkologie",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professional-80-100-neurologia-neurochirurgia-neurooncologia-e",
         "en": "dipl-nursing-professional-dipl-nursing-professional-80-100-neurology-neurosurgery-neurooncology-and-general-pediatrics",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neurologie-neurochirurgie-neuroonkologie",
         "fr": "dipl-soins-infirmiers-professionnels-dipl-professionnels-des-soins-infirmiers-80-100-neurologie-neurochirurgie"
@@ -4405,13 +4407,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neurologie-neurochirurgie-neuroonkologie"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-neurologie-neurochirurgie-neuroonkologie"
+      ]
     },
     {
       "id": "kispi-cf2c42f55f25",
-      "slug": "fachfrau-fachmann-gesundheit-60-100-fachliche-schwerpunkte-adoleszentenmedizin",
+      "slug": "specialista-sanitario-60-100-focus-specialistico-medicina-dell-adolescenza-e-psicosomatica-endocrinologia-diabete",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-60-100-fachliche-schwerpunkte-adoleszentenmedizin",
+        "it": "specialista-sanitario-60-100-focus-specialistico-medicina-dell-adolescenza-e-psicosomatica-endocrinologia-diabete",
         "en": "specialist-health-60-100-specialist-focuses-adolescent-medicine-psychosomatics-endocrinology-diabetes-nutritional-and",
         "de": "fachfrau-fachmann-gesundheit-60-100-fachliche-schwerpunkte-adoleszentenmedizin",
         "fr": "specialistes-de-la-sante-60-100-specialites-specialisees-medecine-et-psychosomatique-des-adolescents-endocrinologie"
@@ -4471,16 +4481,24 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-60-100-fachliche-schwerpunkte-adoleszentenmedizin"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-100-fachliche-schwerpunkte-adoleszentenmedizin"
+      ]
     },
     {
       "id": "kispi-7d027d6bf84c",
-      "slug": "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche",
+      "slug": "guarigione-pedagogica-primo-insegnante-m-f-carico-di-lavoro-20-30-su-due-giorni-lavorativi-alla-settimana-universitats",
       "slugByLocale": {
         "de": "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche",
-        "it": "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche",
-        "en": "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche",
-        "fr": "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche"
+        "it": "guarigione-pedagogica-primo-insegnante-m-f-carico-di-lavoro-20-30-su-due-giorni-lavorativi-alla-settimana-universitats",
+        "en": "healing-pedagogical-early-teacher-m-f-workload-20-30-on-two-working-days-per-week-universitats-kinderspital-zurich",
+        "fr": "professeur-pedagogique-de-guerison-h-f-charge-de-travail-20-30-sur-deux-jours-ouvrables-par-semaine-universitats"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4538,7 +4556,21 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche"
+        ],
+        "en": [
+          "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche"
+        ],
+        "fr": [
+          "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche"
+        ]
+      },
+      "previousSlugs": [
+        "heilpadagogische-fruherzieherin-m-w-arbeitspensum-20-30-an-zwei-arbeitstagen-pro-woche"
+      ]
     }
   ]
 }

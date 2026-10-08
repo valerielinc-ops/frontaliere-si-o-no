@@ -2500,12 +2500,12 @@
     },
     {
       "id": "swissquote-33034e611307",
-      "slug": "compliance-assistant-investigations-temporary-swissquote-gland",
+      "slug": "assistente-di-compliance-investigazioni-temporary-swissquote-gland",
       "slugByLocale": {
         "en": "compliance-assistant-investigations-temporary-swissquote-gland",
-        "it": "compliance-assistant-investigations-temporary-swissquote-gland",
+        "it": "assistente-di-compliance-investigazioni-temporary-swissquote-gland",
         "de": "compliance-assistant-investigations-temporary-swissquote-gland",
-        "fr": "compliance-assistant-investigations-temporary-swissquote-gland"
+        "fr": "assistant-a-la-conformite-enquetes-temporaire-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2565,7 +2565,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:42:41.483Z"
+      "firstSeenAt": "2026-10-07T21:42:41.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-assistant-investigations-temporary-swissquote-gland"
+        ],
+        "fr": [
+          "compliance-assistant-investigations-temporary-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-assistant-investigations-temporary-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-8a89632b4f44",
@@ -2713,12 +2724,12 @@
     },
     {
       "id": "swissquote-c50c4068b070",
-      "slug": "kundenberater-in-customer-care-80-100-swissquote-dubendorf",
+      "slug": "consulente-alla-clientela-customer-care-80-100-swissquote-dubendorf",
       "slugByLocale": {
-        "it": "kundenberater-in-customer-care-80-100-swissquote-dubendorf",
+        "it": "consulente-alla-clientela-customer-care-80-100-swissquote-dubendorf",
         "en": "kundenberater-in-customer-care-80-100-swissquote-dubendorf",
         "de": "kundenberater-in-customer-care-80-100-swissquote-dubendorf",
-        "fr": "kundenberater-in-customer-care-80-100-swissquote-dubendorf"
+        "fr": "conseiller-ere-clientele-customer-care-80-100-swissquote-dubendorf"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2776,7 +2787,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-customer-care-80-100-swissquote-dubendorf"
+        ],
+        "fr": [
+          "kundenberater-in-customer-care-80-100-swissquote-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-customer-care-80-100-swissquote-dubendorf"
+      ]
     },
     {
       "id": "swissquote-0e5b60f33402",
@@ -2963,9 +2985,9 @@
     },
     {
       "id": "swissquote-77c24008104c",
-      "slug": "compliance-officer-investigations-temporary-swissquote-gland",
+      "slug": "responsabile-della-conformita-indagini-temporaneo-swissquote-gland",
       "slugByLocale": {
-        "it": "compliance-officer-investigations-temporary-swissquote-gland",
+        "it": "responsabile-della-conformita-indagini-temporaneo-swissquote-gland",
         "en": "compliance-officer-investigations-temporary-swissquote-gland",
         "de": "compliance-officer-untersuchungen-temporar-swissquote-gland",
         "fr": "agent-de-conformite-enquetes-temporaires-swissquote-gland"
@@ -3027,7 +3049,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-investigations-temporary-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-investigations-temporary-swissquote-gland"
+      ]
     }
   ]
 }

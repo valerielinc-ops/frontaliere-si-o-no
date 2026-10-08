@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "uroviva-bd0d101ac838",
-      "slug": "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach",
+      "slug": "assistente-medico-60-100-uroviva-trimbach",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach",
-        "en": "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach",
+        "it": "assistente-medico-60-100-uroviva-trimbach",
+        "en": "medical-practice-assistant-60-100-uroviva-trimbach",
         "de": "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach",
-        "fr": "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach"
+        "fr": "assistant-en-pratique-medicale-60-100-uroviva-trimbach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",
@@ -50,7 +50,21 @@
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/6eda3e5e-8df1-409a-b559-1d8a990d973d/detail?lang=DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:40:03.070Z"
+      "firstSeenAt": "2026-10-07T09:40:03.070Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-60-100-uroviva-trimbach"
+      ]
     },
     {
       "id": "uroviva-b8e1944659e8",
@@ -233,7 +247,8 @@
       "id": "uroviva-d0ee42c74f03",
       "slug": "finance-business-partner-80-100-uroviva-bulach",
       "slugByLocale": {
-        "de": "finance-business-partner-80-100-uroviva-bulach"
+        "de": "finance-business-partner-80-100-uroviva-bulach",
+        "fr": "finance-partenaire-d-affaires-80-100-uroviva-bulach"
       },
       "company": "Uroviva",
       "companyKey": "uroviva",

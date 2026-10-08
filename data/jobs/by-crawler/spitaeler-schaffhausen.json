@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "spitaeler-schaffhausen-62803b709d63",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung",
+      "slug": "dipl-infermieristica-specialista-infermieristica-hf-psichiatria-con-responsabilita-specialistica-formazione-spitaler",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
+        "it": "dipl-infermieristica-specialista-infermieristica-hf-psichiatria-con-responsabilita-specialistica-formazione-spitaler",
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-psychiatry-with-specialist-responsibility-training-spitaler-schaffhausen",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-psychiatrie-avec-responsabilite-specialisee"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -52,7 +52,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-a2a712d5c72e",
@@ -118,12 +132,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-8875fa8cbd7a",
-      "slug": "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen",
+      "slug": "coordinamento-del-personale-radiologia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
-        "en": "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
+        "it": "coordinamento-del-personale-radiologia-spitaler-schaffhausen-schaffhausen",
+        "en": "radiology-coordinator-spitaler-schaffhausen-schaffhausen",
         "de": "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen"
+        "fr": "coordinateur-en-radiologie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -167,7 +181,23 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-koordination-radiologie/c28f12c7-9b64-4556-a024-629162f98f9c",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:42:15.873Z"
+      "firstSeenAt": "2026-10-07T09:42:15.873Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
+          "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
+        "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-852ccc400a58",
@@ -332,12 +362,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-dc2ff415e82c",
-      "slug": "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
+      "slug": "psicologo-a-kjpd-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
-        "en": "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
+        "it": "psicologo-a-kjpd-spitaler-schaffhausen-schaffhausen",
+        "en": "psychologist-kjpd-spitaler-schaffhausen-schaffhausen",
         "de": "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
-        "fr": "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        "fr": "psychologue-kjpd-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -381,16 +411,30 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/psychologe-in-kjpd/21fb82a3-cb58-48c2-b8ca-6f2250b94eec",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T21:46:43.853Z"
+      "firstSeenAt": "2026-10-05T21:46:43.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "psychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-5d391b5bdb64",
-      "slug": "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
+      "slug": "psicologo-a-specializzato-a-kjpd-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
-        "en": "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
+        "it": "psicologo-a-specializzato-a-kjpd-spitaler-schaffhausen-schaffhausen",
+        "en": "specialist-psychologist-kjpd-spitaler-schaffhausen-schaffhausen",
         "de": "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen",
-        "fr": "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        "fr": "psychologue-specialise-e-kjpd-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -434,7 +478,21 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachpsychologe-in-kjpd/342c791e-eee7-45ed-ad36-cca1b11d0779",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T21:46:43.856Z"
+      "firstSeenAt": "2026-10-05T21:46:43.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "fachpsychologe-in-kjpd-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-32dcc0daa843",

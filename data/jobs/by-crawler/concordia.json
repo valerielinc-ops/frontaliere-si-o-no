@@ -3553,12 +3553,12 @@
     },
     {
       "id": "concordia-7d5484693250",
-      "slug": "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich",
+      "slug": "responsabile-del-team-consulenza-clienti-80-100-a-zurigo-concordia-zurich",
       "slugByLocale": {
-        "it": "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich",
-        "en": "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich",
+        "it": "responsabile-del-team-consulenza-clienti-80-100-a-zurigo-concordia-zurich",
+        "en": "customer-advisory-team-leader-80-100-in-zurich-concordia-zurich",
         "de": "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich",
-        "fr": "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich"
+        "fr": "responsable-d-equipe-conseil-a-la-clientele-80-100-a-zurich-concordia-zurich"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3615,16 +3615,30 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich"
+        ],
+        "en": [
+          "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich"
+        ],
+        "fr": [
+          "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-kundenberatung-80-100-in-zurich-concordia-zurich"
+      ]
     },
     {
       "id": "concordia-882790324ba7",
-      "slug": "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1",
+      "slug": "consulente-clienti-80-100-a-buchs-sg-concordia-buchs-1",
       "slugByLocale": {
-        "it": "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1",
-        "en": "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1",
+        "it": "consulente-clienti-80-100-a-buchs-sg-concordia-buchs-1",
+        "en": "customer-advisor-80-100-in-buchs-sg-concordia-buchs-1",
         "de": "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1",
-        "fr": "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1"
+        "fr": "conseiller-ere-a-la-clientele-80-100-a-buchs-sg-concordia-buchs-1"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3681,7 +3695,21 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1"
+        ],
+        "en": [
+          "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1"
+        ],
+        "fr": [
+          "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-80-100-in-buchs-sg-concordia-buchs-1"
+      ]
     },
     {
       "id": "concordia-a23e133e6deb",

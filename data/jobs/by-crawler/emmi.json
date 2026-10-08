@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "emmi-3e39f8da5211",
-      "slug": "teamleiter-in-produktion-uht-past-emmi-ch",
+      "slug": "team-leader-produzione-uht-past-emmi-ostermundigen-bern",
       "slugByLocale": {
         "de": "teamleiter-in-produktion-uht-past-emmi-ch",
-        "it": "teamleiter-in-produktion-uht-past-emmi-ch",
-        "en": "teamleiter-in-produktion-uht-past-emmi-ch",
-        "fr": "teamleiter-in-produktion-uht-past-emmi-ch"
+        "it": "team-leader-produzione-uht-past-emmi-ostermundigen-bern",
+        "en": "team-leader-production-uht-past-emmi-ostermundigen-bern",
+        "fr": "chef-d-equipe-production-uht-past-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -65,16 +65,30 @@
           "• Du verfügst über sehr gute MS Office Kenntnisse sowie gute SAP-Anwenderkenntnisse.",
           "• Du bringst verhandlungssichere Deutschkenntnisse in Wort und Schrift mit."
         ]
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-produktion-uht-past-emmi-ch"
+        ],
+        "en": [
+          "teamleiter-in-produktion-uht-past-emmi-ch"
+        ],
+        "fr": [
+          "teamleiter-in-produktion-uht-past-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-produktion-uht-past-emmi-ch"
+      ]
     },
     {
       "id": "emmi-b74a237abbf8",
-      "slug": "maschinenfuhrer-in-emmi-ch",
+      "slug": "operatori-di-macchine-emmi-kirchberg-bern",
       "slugByLocale": {
         "de": "maschinenfuhrer-in-emmi-ch",
-        "it": "maschinenfuhrer-in-emmi-ch",
-        "en": "maschinenfuhrer-in-emmi-ch",
-        "fr": "maschinenfuhrer-in-emmi-ch"
+        "it": "operatori-di-macchine-emmi-kirchberg-bern",
+        "en": "machine-operators-emmi-kirchberg-bern",
+        "fr": "operateurs-de-machines-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -128,16 +142,30 @@
           "• 🚗 Du bist mobil und bereit, zu verschiedenen Arbeitszeiten zu arbeiten (1-2 Schicht).",
           "• 🗣 Du verfügst über fliessende Deutschkenntnisse in Wort und Schrift."
         ]
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "maschinenfuhrer-in-emmi-ch"
+        ],
+        "en": [
+          "maschinenfuhrer-in-emmi-ch"
+        ],
+        "fr": [
+          "maschinenfuhrer-in-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "maschinenfuhrer-in-emmi-ch"
+      ]
     },
     {
       "id": "emmi-897dfd7bab0c",
-      "slug": "fachspezialist-in-forschung-entwicklung-emmi-ch",
+      "slug": "ricerca-specialistica-e-sviluppo-emmi-emmen-luzern",
       "slugByLocale": {
         "de": "fachspezialist-in-forschung-entwicklung-emmi-ch",
-        "it": "fachspezialist-in-forschung-entwicklung-emmi-ch",
-        "en": "fachspezialist-in-forschung-entwicklung-emmi-ch",
-        "fr": "fachspezialist-in-forschung-entwicklung-emmi-ch"
+        "it": "ricerca-specialistica-e-sviluppo-emmi-emmen-luzern",
+        "en": "specialist-research-development-emmi-emmen-luzern",
+        "fr": "recherche-et-developpement-de-specialistes-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -195,7 +223,21 @@
           "• Eine selbstständige, strukturierte und zuverlässige Arbeitsweise zeichnet dich aus und du packst gerne mit an.",
           "• Du arbeitest gerne mit verschiedenen Schnittstellen zusammen und bringst gute Deutschkenntnisse sowie gute Anwenderkenntnisse in MS Office mit; SAP- und IQSoft-Kenntnisse sind ein Plus."
         ]
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-forschung-entwicklung-emmi-ch"
+        ],
+        "en": [
+          "fachspezialist-in-forschung-entwicklung-emmi-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-forschung-entwicklung-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-forschung-entwicklung-emmi-ch"
+      ]
     },
     {
       "id": "emmi-81e4f991ac46",
@@ -1102,12 +1144,12 @@
     },
     {
       "id": "emmi-9d875a61b16c",
-      "slug": "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch",
+      "slug": "responsabile-del-team-della-preparazione-di-yogurt-e-caffe-emmi-ostermundigen-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch",
-        "en": "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch",
+        "it": "responsabile-del-team-della-preparazione-di-yogurt-e-caffe-emmi-ostermundigen-bern",
+        "en": "team-leader-yogurt-coffee-processing-emmi-ostermundigen-bern",
         "de": "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch",
-        "fr": "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch"
+        "fr": "responsable-d-equipe-preparation-des-yaourts-et-du-cafe-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -1166,7 +1208,21 @@
           "• Du verfügst über verhandlungssichere Deutschkenntnisse in Wort und Schrift."
         ]
       },
-      "firstSeenAt": "2026-10-05T21:32:05.411Z"
+      "firstSeenAt": "2026-10-05T21:32:05.411Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch"
+        ],
+        "en": [
+          "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch"
+        ],
+        "fr": [
+          "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-jogurt-kaffeeaufbereitung-emmi-ch"
+      ]
     },
     {
       "id": "emmi-df055a8a1cf3",
@@ -1235,9 +1291,9 @@
     },
     {
       "id": "emmi-e41add27af17",
-      "slug": "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+      "slug": "specialista-in-costruzione-e-manutenzione-di-tubazioni-emmi-dagmersellen-luzern",
       "slugByLocale": {
-        "it": "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
+        "it": "specialista-in-costruzione-e-manutenzione-di-tubazioni-emmi-dagmersellen-luzern",
         "en": "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen",
         "de": "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
         "fr": "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
@@ -1299,13 +1355,15 @@
         "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
         "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen",
         "pipeline-and-plant-engineering-coordinator-emmi-dagmersellen-luzern",
-        "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern"
+        "coordinateur-dans-la-construction-de-conduites-et-d-installations-emmi-dagmersellen-luzern",
+        "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-rohrleitungsbau-instandhaltung-emmi-ch",
           "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",
-          "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen"
+          "koordinator-in-rohrleitungs-e-anlagenbau-emmi-dagmersellen",
+          "spezialist-in-rohrleitungsbau-instandhaltung-emmi-dagmersellen"
         ],
         "en": [
           "koordinator-in-rohrleitungs-und-anlagenbau-emmi-ch",

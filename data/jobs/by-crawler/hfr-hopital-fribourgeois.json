@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-09669f3bc153",
-      "slug": "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg",
+      "slug": "radiologia-medica-tecnico-80-100-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
         "fr": "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg",
-        "it": "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg",
-        "en": "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg",
-        "de": "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg"
+        "it": "radiologia-medica-tecnico-80-100-hopital-fribourgeois-hfr-fribourg",
+        "en": "medical-radiology-technician-80-100-hopital-fribourgeois-hfr-fribourg",
+        "de": "medizinische-radiologie-techniker-80-100-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
@@ -52,7 +52,21 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "externalId": "93fbcbf55b45"
+      "externalId": "93fbcbf55b45",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "en": [
+          "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg"
+        ],
+        "de": [
+          "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-medicale-80-100-hfr-hopital-fribourgeois-fribourg"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-37bd23b43f2d",
@@ -169,7 +183,7 @@
         "it": "controleur-euse-de-gestion-80-100-controllore-finanziario-controllore-finanziario-80-100-hopital-fribourgeois-hfr",
         "en": "controleur-euse-de-gestion-80-100-financial-controller-financial-controller-80-100-hopital-fribourgeois-hfr-fribourg",
         "de": "controleur-euse-de-gestion-80-100-finanzcontrollerin-finanzcontroller-80-100-hfr-hopital",
-        "fr": "controleur-euse-de-gestion-80-100-finanzcontrollerin-finanzcontroller-80-100-hfr-hopital"
+        "fr": "controleur-euse-de-gestion-80-100-controleuse-financiere-controleur-financier-80-100-hopital-fribourgeois-hfr-fribourg"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",

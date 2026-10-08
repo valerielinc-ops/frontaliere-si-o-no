@@ -2112,7 +2112,7 @@
       "slug": "ufficiale-di-stato-civile-90-100-stadt-luzern-luzern",
       "slugByLocale": {
         "it": "ufficiale-di-stato-civile-90-100-stadt-luzern-luzern",
-        "en": "civil-registrar-90-100-stadt-luzern-luzern",
+        "en": "civil-status-officer-90-100-stadt-luzern-luzern",
         "de": "zivilstandsbeamtin-zivilstandsbeamter-90-100-stadt-luzern-luzern",
         "fr": "specialiste-de-l-etat-civil-90-100-stadt-luzern-luzern"
       },
@@ -2160,7 +2160,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "zivilstandsbeamtin-zivilstandsbeamter-90-100-stadt-luzern-luzern",
-        "civil-status-officer-90-100-stadt-luzern-luzern"
+        "civil-registrar-90-100-stadt-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2168,7 +2168,7 @@
         ],
         "en": [
           "zivilstandsbeamtin-zivilstandsbeamter-90-100-stadt-luzern-luzern",
-          "civil-status-officer-90-100-stadt-luzern-luzern"
+          "civil-registrar-90-100-stadt-luzern-luzern"
         ],
         "fr": [
           "zivilstandsbeamtin-zivilstandsbeamter-90-100-stadt-luzern-luzern"
@@ -2272,9 +2272,9 @@
     },
     {
       "id": "stadt-luzern-c26c78718a03",
-      "slug": "hauswart-in-mit-eidg-fachausweis-80-100-stadt-luzern-luzern",
+      "slug": "custode-con-attestato-professionale-federale-80-100-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "hauswart-in-mit-eidg-fachausweis-80-100-stadt-luzern-luzern",
+        "it": "custode-con-attestato-professionale-federale-80-100-stadt-luzern-luzern",
         "en": "housekeeper-with-federal-professional-id-80-100-stadt-luzern-luzern",
         "de": "hauswart-in-mit-eidg-fachausweis-80-100-stadt-luzern-luzern",
         "fr": "femme-de-menage-avec-carte-d-identite-professionnelle-federale-80-100-stadt-luzern-luzern"
@@ -2334,7 +2334,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-mit-eidg-fachausweis-80-100-stadt-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-mit-eidg-fachausweis-80-100-stadt-luzern-luzern"
+      ]
     }
   ]
 }

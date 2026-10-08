@@ -1505,12 +1505,12 @@
     },
     {
       "id": "abbott-070e987e339b",
-      "slug": "territory-manager-laao-romandy-abbott-ch",
+      "slug": "territorio-manager-laao-romandia-abbott-allschwil",
       "slugByLocale": {
         "en": "territory-manager-laao-romandy-abbott-ch",
-        "it": "territory-manager-laao-romandy-abbott-ch",
+        "it": "territorio-manager-laao-romandia-abbott-allschwil",
         "de": "territory-manager-laao-romandy-abbott-ch",
-        "fr": "territory-manager-laao-romandy-abbott-ch"
+        "fr": "gestionnaire-territoire-laao-romandy-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1570,7 +1570,18 @@
         }
       },
       "postalCode": "4123",
-      "firstSeenAt": "2026-10-07T21:41:13.869Z"
+      "firstSeenAt": "2026-10-07T21:41:13.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "territory-manager-laao-romandy-abbott-ch"
+        ],
+        "fr": [
+          "territory-manager-laao-romandy-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "territory-manager-laao-romandy-abbott-ch"
+      ]
     }
   ]
 }

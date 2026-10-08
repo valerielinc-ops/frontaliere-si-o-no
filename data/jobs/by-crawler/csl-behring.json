@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "csl-behring-0766caaabb70",
-      "slug": "associate-director-analytical-strategy-csl-behring-ch",
+      "slug": "direttore-associato-strategia-analitica-csl-behring-bern",
       "slugByLocale": {
         "en": "associate-director-analytical-strategy-csl-behring-ch",
-        "it": "associate-director-analytical-strategy-csl-behring-ch",
-        "de": "associate-director-analytical-strategy-csl-behring-ch",
-        "fr": "associate-director-analytical-strategy-csl-behring-ch"
+        "it": "direttore-associato-strategia-analitica-csl-behring-bern",
+        "de": "associate-director-analytische-strategie-csl-behring-bern",
+        "fr": "directeur-associe-strategie-analytique-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -51,7 +51,21 @@
       "requirementsByLocale": {
         "en": []
       },
-      "jobReqId": "Regular"
+      "jobReqId": "Regular",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-analytical-strategy-csl-behring-ch"
+        ],
+        "de": [
+          "associate-director-analytical-strategy-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-analytical-strategy-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-analytical-strategy-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-bfcc5d0d1dc8",

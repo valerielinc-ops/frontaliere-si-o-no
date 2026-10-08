@@ -106,9 +106,9 @@
       "slug": "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch",
       "slugByLocale": {
         "it": "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch",
-        "en": "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch",
+        "en": "specialistin-marketing-communication-m-f-d-eth-zurich-zurich",
         "de": "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch",
-        "fr": "fachspezialist-in-marketing-kommunikation-m-w-d-eth-zurich-ch"
+        "fr": "specialiste-en-marketing-et-communication-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -259,7 +259,7 @@
       "slugByLocale": {
         "it": "robotx-postdoctoral-fellowship-eth-zurich-ch",
         "en": "robotx-postdoctoral-fellowship-eth-zurich-ch",
-        "de": "robotx-postdoctoral-fellowship-eth-zurich-ch",
+        "de": "robotx-postdoktorandenstipendium-eth-zurich-zurich",
         "fr": "bourse-de-recherche-postdoctorale-robotx-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -306,11 +306,11 @@
     },
     {
       "id": "eth-zurich-7991b34fb0fc",
-      "slug": "robotx-phd-fellowship-2027-eth-zurich-ch",
+      "slug": "borsa-di-studio-di-dottorato-robotx-2027-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "robotx-phd-fellowship-2027-eth-zurich-ch",
+        "it": "borsa-di-studio-di-dottorato-robotx-2027-eth-zurich-zurich",
         "en": "robotx-phd-fellowship-2027-eth-zurich-ch",
-        "de": "robotx-phd-fellowship-2027-eth-zurich-ch",
+        "de": "robotx-promotionsstipendium-2027-eth-zurich-zurich",
         "fr": "bourse-de-doctorat-robotx-2027-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
@@ -353,7 +353,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:52:37.903Z"
+      "firstSeenAt": "2026-10-05T21:52:37.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "robotx-phd-fellowship-2027-eth-zurich-ch"
+        ],
+        "de": [
+          "robotx-phd-fellowship-2027-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "robotx-phd-fellowship-2027-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-0df61e50ccfa",
@@ -411,7 +422,7 @@
       "slugByLocale": {
         "it": "phd-posizione-nei-metodi-computazionali-per-i-gemelli-digitali-dello-sviluppo-embrionale-e-delle-malattie-eth-zurich",
         "en": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
-        "de": "phd-position-in-computational-methods-for-digital-twins-of-embryonic-development-disease",
+        "de": "promotionsstelle-fur-computergestutzte-methoden-fur-digitale-zwillinge-der-embryonalen-entwicklung-und-von-krankheiten",
         "fr": "doctorat-en-methodes-de-calcul-pour-les-jumeaux-numeriques-de-developpement-embryonnaire-et-maladie-eth-zurich-basel"
       },
       "company": "ETH Zürich",
@@ -459,12 +470,12 @@
     },
     {
       "id": "eth-zurich-db3b861dff3c",
-      "slug": "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch",
+      "slug": "dottorando-a-nella-percezione-del-calo-demografico-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch",
-        "en": "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch",
+        "it": "dottorando-a-nella-percezione-del-calo-demografico-m-f-d-eth-zurich-zurich",
+        "en": "phd-candidate-in-the-perception-of-population-decline-m-f-d-eth-zurich-zurich",
         "de": "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch",
-        "fr": "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch"
+        "fr": "doctorant-e-en-perception-du-declin-demographique-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -506,7 +517,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-05T21:52:39.476Z"
+      "firstSeenAt": "2026-10-05T21:52:39.476Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doktorand-in-in-wahrnehmung-des-bevolkerungsruckgangs-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-27bbaa29cab4",

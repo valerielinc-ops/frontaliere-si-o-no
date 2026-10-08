@@ -51,12 +51,12 @@
     },
     {
       "id": "franklin-university-bd511a369267",
-      "slug": "executive-assistant-office-of-the-president-sorengo-franklin-university",
+      "slug": "assistente-esecutivo-ufficio-del-presidente-franklin-university-switzerland-sorengo",
       "slugByLocale": {
         "en": "executive-assistant-office-of-the-president-sorengo-franklin-university",
-        "it": "executive-assistant-office-of-the-president-sorengo-franklin-university",
-        "de": "executive-assistant-office-of-the-president-sorengo-franklin-university",
-        "fr": "executive-assistant-office-of-the-president-sorengo-franklin-university"
+        "it": "assistente-esecutivo-ufficio-del-presidente-franklin-university-switzerland-sorengo",
+        "de": "executive-assistant-buro-des-prasidenten-franklin-university-switzerland-sorengo",
+        "fr": "assistant-executif-bureau-du-president-franklin-university-switzerland-sorengo"
       },
       "company": "Franklin University Switzerland",
       "companyKey": "franklin-university",
@@ -95,7 +95,21 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4667",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:39:28.429Z"
+      "crawledAt": "2026-10-07T21:39:28.429Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-office-of-the-president-sorengo-franklin-university"
+        ],
+        "de": [
+          "executive-assistant-office-of-the-president-sorengo-franklin-university"
+        ],
+        "fr": [
+          "executive-assistant-office-of-the-president-sorengo-franklin-university"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-office-of-the-president-sorengo-franklin-university"
+      ]
     }
   ]
 }

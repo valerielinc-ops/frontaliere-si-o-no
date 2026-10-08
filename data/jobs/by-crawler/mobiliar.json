@@ -3968,7 +3968,7 @@
         "it": "devsecops-ingegnere-per-aws-cloud-plattform-m-w-d-die-mobiliar-bern",
         "en": "devsecops-engineer-fur-aws-cloud-plattform-w-m-d-mobiliar-ch",
         "de": "devsecops-engineer-fur-aws-cloud-plattform-w-m-d-mobiliar-ch",
-        "fr": "devsecops-engineer-fur-aws-cloud-plattform-w-m-d-mobiliar-ch"
+        "fr": "devsecops-ingenieur-pour-aws-cloud-platform-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4554,12 +4554,12 @@
     },
     {
       "id": "mobiliar-0a3faf5643ed",
-      "slug": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
+      "slug": "supporto-vendite-del-dipendente-m-f-d-agenzia-generale-wetzikon-pfaffikon-die-mobiliar-wetzikon",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
-        "it": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+        "it": "supporto-vendite-del-dipendente-m-f-d-agenzia-generale-wetzikon-pfaffikon-die-mobiliar-wetzikon",
+        "en": "employee-sales-support-m-f-d-general-agency-wetzikon-pfaffikon-die-mobiliar-wetzikon",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-wetzikon-pfaffikon-die-mobiliar-wetzikon"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -4603,7 +4603,21 @@
       "requirementsByLocale": {
         "de": []
       },
-      "sfJobId": "1165574355"
+      "sfJobId": "1165574355",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wetzikon-pfaffikon-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-550095000420",

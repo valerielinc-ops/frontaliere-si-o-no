@@ -1563,12 +1563,12 @@
     },
     {
       "id": "stadt-bern-4a1f27f8e91f",
-      "slug": "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern",
+      "slug": "progetti-di-tirocinio-portafoglio-consulenza-e-amministrazione-stadt-bern-bern",
       "slugByLocale": {
-        "it": "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern",
-        "en": "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern",
+        "it": "progetti-di-tirocinio-portafoglio-consulenza-e-amministrazione-stadt-bern-bern",
+        "en": "intern-projects-portfolio-consulting-administration-stadt-bern-bern",
         "de": "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern",
-        "fr": "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern"
+        "fr": "projets-de-stage-portefeuille-conseil-et-administration-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1612,16 +1612,30 @@
       "applyUrl": "https://jobs.bern.ch/offene-stellen/praktikant-in-projekte-portfolio-beratung-administration/02550176-6f15-4ac9-b5e0-ce755ff25c82",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-07T09:11:51.320Z"
+      "firstSeenAt": "2026-10-07T09:11:51.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern"
+        ],
+        "en": [
+          "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern"
+        ],
+        "fr": [
+          "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-projekte-portfolio-beratung-amp-administration-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-6ef2c944bb71",
-      "slug": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
+      "slug": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
       "slugByLocale": {
         "de": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
-        "it": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
-        "en": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern",
-        "fr": "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+        "it": "gestione-dei-moduli-nell-ambiente-sap-stadt-bern-bern",
+        "en": "module-managers-in-the-sap-environment-stadt-bern-bern",
+        "fr": "gestionnaires-de-modules-dans-l-environnement-sap-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -1666,7 +1680,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+        ],
+        "en": [
+          "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+        ],
+        "fr": [
+          "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "modulverantwortliche-n-im-sap-umfeld-stadt-bern-bern"
+      ]
     }
   ]
 }

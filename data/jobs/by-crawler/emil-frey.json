@@ -2,9 +2,11 @@
   "jobs": [
     {
       "id": "emil-frey-3890bf9bc611",
-      "slug": "head-of-marketing-administration-emil-frey-opfikon",
+      "slug": "responsabile-marketing-e-amministrazione-emil-frey-opfikon",
       "slugByLocale": {
-        "de": "head-of-marketing-administration-emil-frey-opfikon"
+        "de": "head-of-marketing-administration-emil-frey-opfikon",
+        "it": "responsabile-marketing-e-amministrazione-emil-frey-opfikon",
+        "fr": "responsable-du-marketing-et-de-l-administration-emil-frey-opfikon"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -49,7 +51,15 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-marketing-administration-emil-frey-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-marketing-administration-emil-frey-opfikon"
+      ]
     },
     {
       "id": "emil-frey-f0669cfbb77c",
@@ -402,9 +412,9 @@
       "slug": "leiter-in-verkauf-neuwagen-emil-frey-brugg-be",
       "slugByLocale": {
         "it": "responsabile-vendita-neuwagen-emil-frey-brugg-be",
-        "en": "leiter-in-verkauf-neuwagen-emil-frey-brugg-be",
+        "en": "head-of-sales-new-vehicles-emil-frey-brugg-be",
         "de": "leiter-in-verkauf-neuwagen-emil-frey-brugg-be",
-        "fr": "leiter-in-verkauf-neuwagen-emil-frey-brugg-be"
+        "fr": "responsable-des-ventes-vehicules-neufs-emil-frey-brugg-be"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",

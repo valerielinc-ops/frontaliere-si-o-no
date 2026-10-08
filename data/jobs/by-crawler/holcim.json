@@ -9,7 +9,7 @@
         "it": "partner-delle-persone-in-holcim-group-eclepens",
         "en": "people-partner-holcim-group-eclepens",
         "de": "people-partner-in-holcim-ch",
-        "fr": "people-partner-50-holcim-group-eclepens"
+        "fr": "personnes-partenaire-in-holcim-group-eclepens"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -54,7 +54,7 @@
       "previousSlugs": [
         "people-partner-in-50-holcim-ch",
         "people-partner-in-50-holcim-group-eclepens",
-        "personnes-partenaire-in-holcim-group-eclepens"
+        "people-partner-50-holcim-group-eclepens"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,7 +65,7 @@
         ],
         "fr": [
           "people-partner-in-50-holcim-group-eclepens",
-          "personnes-partenaire-in-holcim-group-eclepens"
+          "people-partner-50-holcim-group-eclepens"
         ]
       },
       "firstSeenAt": "2026-09-17T06:59:02.388Z",
@@ -234,12 +234,12 @@
     },
     {
       "id": "holcim-be91586a04ec",
-      "slug": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+      "slug": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
+        "it": "impiegato-clienti-e-supporto-vendite-holcim-group-mulligen",
         "en": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen",
         "de": "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
-        "fr": "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
+        "fr": "commis-de-support-client-et-commercial-holcim-group-mulligen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -282,11 +282,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch"
+        "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+        "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-customer-amp-sales-support-holcim-ch"
+          "sachbearbeiter-in-customer-amp-sales-support-holcim-ch",
+          "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
+        ],
+        "fr": [
+          "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
         ]
       },
       "firstSeenAt": "2026-10-07T09:37:20.491Z",
@@ -626,12 +631,12 @@
     },
     {
       "id": "holcim-5d07e93b185c",
-      "slug": "schiffsfuhrer-in-holcim-ch",
+      "slug": "conduttore-trice-di-navi-holcim-group-stansstad",
       "slugByLocale": {
-        "it": "schiffsfuhrer-in-holcim-ch",
-        "en": "schiffsfuhrer-in-holcim-ch",
+        "it": "conduttore-trice-di-navi-holcim-group-stansstad",
+        "en": "boat-captain-holcim-group-stansstad",
         "de": "schiffsfuhrer-in-holcim-ch",
-        "fr": "schiffsfuhrer-in-holcim-ch"
+        "fr": "conducteur-trice-de-bateau-holcim-group-stansstad"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -687,7 +692,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6362"
+      "postalCode": "6362",
+      "previousSlugsByLocale": {
+        "it": [
+          "schiffsfuhrer-in-holcim-ch"
+        ],
+        "en": [
+          "schiffsfuhrer-in-holcim-ch"
+        ],
+        "fr": [
+          "schiffsfuhrer-in-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schiffsfuhrer-in-holcim-ch"
+      ]
     },
     {
       "id": "holcim-960650fcd523",

@@ -2,9 +2,11 @@
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-9c84779dbc64",
-      "slug": "private-clients-consultant-vz-vermoegenszentrum-ch",
+      "slug": "consulente-clienti-privati-vz-vermogenszentrum-basel-basel-stadt",
       "slugByLocale": {
-        "de": "private-clients-consultant-vz-vermoegenszentrum-ch"
+        "de": "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "it": "consulente-clienti-privati-vz-vermogenszentrum-basel-basel-stadt",
+        "fr": "consultant-aupres-de-clients-prives-vz-vermogenszentrum-basel-basel-stadt"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -60,7 +62,15 @@
           "• Lernbereitschaft, Neugier und Ehrgeiz"
         ]
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "private-clients-consultant-vz-vermoegenszentrum-ch"
+        ]
+      },
+      "previousSlugs": [
+        "private-clients-consultant-vz-vermoegenszentrum-ch"
+      ]
     },
     {
       "id": "vz-vermoegenszentrum-69e6bf652a7f",

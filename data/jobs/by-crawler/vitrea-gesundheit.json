@@ -586,9 +586,9 @@
     },
     {
       "id": "vitrea-gesundheit-a5729dbaa6ba",
-      "slug": "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "specialista-a-operazioni-finanziarie-e-fatturazione-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
-        "it": "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "specialista-a-operazioni-finanziarie-e-fatturazione-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "en": "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "de": "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "fr": "specialiste-a-operations-financieres-et-facturation-vitrea-gesundheit-zihlschlacht-sitterdorf"
@@ -647,7 +647,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-a-finance-operations-billing-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-5ab91d57cabb",
@@ -655,8 +663,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
         "it": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
-        "en": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im",
-        "fr": "dipl-pflegefachperson-mit-besonderen-aufgaben-a-50-100-vitrea-gesundheit-seewis-im"
+        "en": "dipl-nurse-with-special-duties-a-50-100-vitrea-gesundheit-seewis-im-prattigau",
+        "fr": "dipl-infirmiere-ayant-des-fonctions-speciales-a-50-100-vitrea-gesundheit-seewis-im-prattigau"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",

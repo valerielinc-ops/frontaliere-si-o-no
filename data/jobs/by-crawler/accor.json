@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "accor-6193382cc898",
-      "slug": "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
+      "slug": "responsabile-vendite-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
       "slugByLocale": {
         "fr": "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
-        "it": "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
+        "it": "responsabile-vendite-m-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
         "en": "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c",
-        "de": "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c"
+        "de": "verkaufsleiter-m-w-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c"
       },
       "slugDisambiguator": "6193382c",
       "company": "Ibis Budget",
@@ -51,13 +51,27 @@
       "requirements": [],
       "requirementsByLocale": {
         "fr": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c"
+        ],
+        "de": [
+          "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-h-f-x-ibis-budget-hotel-rotary-geneva-mgallery-geneva-switzerland-6193382c"
+      ]
     },
     {
       "id": "accor-8b3df8199bb9",
-      "slug": "demi-chef-de-partie-montreux-jazz-cafe-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819",
+      "slug": "mezza-carica-di-montreux-jazz-cafe-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819",
       "slugByLocale": {
-        "fr": "demi-chef-de-partie-montreux-jazz-cafe-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819"
+        "fr": "demi-chef-de-partie-montreux-jazz-cafe-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819",
+        "it": "mezza-carica-di-montreux-jazz-cafe-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819",
+        "en": "half-head-of-montreux-jazz-cafe-m-f-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819",
+        "de": "halbleiter-des-montreux-jazz-cafe-m-w-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819"
       },
       "slugDisambiguator": "8b3df819",
       "company": "Ibis Budget",
@@ -102,7 +116,15 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-de-partie-montreux-jazz-cafe-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-montreux-jazz-cafe-f-h-x-cdi-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland-8b3df819"
+      ]
     },
     {
       "id": "accor-e6fbe5712ddc",

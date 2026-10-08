@@ -5326,12 +5326,12 @@
     },
     {
       "id": "stadtspital-zuerich-d93443169ae7",
-      "slug": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
+      "slug": "dipl-specialista-di-cura-intensiva-cura-triemli-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
-        "it": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
-        "en": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139",
-        "fr": "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+        "it": "dipl-specialista-di-cura-intensiva-cura-triemli-stadtspital-zurich-zurich",
+        "en": "dipl-care-specialist-intensive-care-triemli-stadtspital-zurich-zurich",
+        "fr": "dipl-specialiste-des-soins-intensifs-triemli-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5379,16 +5379,30 @@
       },
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
-      "referenceNumber": "49139"
+      "referenceNumber": "49139",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+        ],
+        "en": [
+          "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-intensivpflege-triemli-stadtspital-zuerich-49139"
+      ]
     },
     {
       "id": "stadtspital-zuerich-08f961a37dd3",
-      "slug": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
+      "slug": "expert-expert-intensive-care-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
-        "it": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
+        "it": "expert-expert-intensive-care-stadtspital-zurich-zurich",
         "en": "expertin-experte-intensivpflege-stadtspital-zuerich-49141",
-        "fr": "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
+        "fr": "expert-expert-soins-intensifs-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -5436,7 +5450,18 @@
       },
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Stadtspital Zürich",
-      "referenceNumber": "49141"
+      "referenceNumber": "49141",
+      "previousSlugsByLocale": {
+        "it": [
+          "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
+        ],
+        "fr": [
+          "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
+        ]
+      },
+      "previousSlugs": [
+        "expertin-experte-intensivpflege-stadtspital-zuerich-49141"
+      ]
     }
   ]
 }

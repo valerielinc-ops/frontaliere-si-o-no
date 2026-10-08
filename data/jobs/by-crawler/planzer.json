@@ -460,12 +460,12 @@
     },
     {
       "id": "planzer-e5d224a9f723",
-      "slug": "sachbearbeiter-logistik-m-w-d-planzer-harkingen",
+      "slug": "agente-logistico-m-f-d-planzer-harkingen",
       "slugByLocale": {
         "de": "sachbearbeiter-logistik-m-w-d-planzer-harkingen",
-        "it": "sachbearbeiter-logistik-m-w-d-planzer-harkingen",
-        "en": "sachbearbeiter-logistik-m-w-d-planzer-harkingen",
-        "fr": "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
+        "it": "agente-logistico-m-f-d-planzer-harkingen",
+        "en": "logistic-agent-m-f-d-planzer-harkingen",
+        "fr": "agent-logistique-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -525,7 +525,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:21:49.582Z"
+      "firstSeenAt": "2026-10-07T21:21:49.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-logistik-m-w-d-planzer-harkingen"
+      ]
     },
     {
       "id": "planzer-54cdb5212251",
@@ -533,8 +547,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-logistik-m-w-d-planzer-harkingen",
         "it": "addetto-a-alla-logistica-m-w-d-planzer-harkingen",
-        "en": "mitarbeiter-logistik-m-w-d-planzer-harkingen",
-        "fr": "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        "en": "employee-logistics-m-f-d-planzer-harkingen",
+        "fr": "logistique-des-employes-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -583,6 +597,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "mitarbeiter-logistik-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
           "mitarbeiter-logistik-m-w-d-planzer-harkingen"
         ]
       },
@@ -984,9 +1004,9 @@
     },
     {
       "id": "planzer-d3067635b802",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
+      "slug": "personale-picking-m-f-d-planzer-harkingen",
       "slugByLocale": {
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
+        "it": "personale-picking-m-f-d-planzer-harkingen",
         "en": "employee-picking-m-f-d-planzer-harkingen",
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
         "fr": "selection-des-employes-h-f-d-planzer-harkingen"
@@ -1035,11 +1055,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+        "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+          "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
         ],
         "en": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"

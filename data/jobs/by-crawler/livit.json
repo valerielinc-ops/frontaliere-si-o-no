@@ -2127,12 +2127,12 @@
     },
     {
       "id": "livit-4bbca53b6c02",
-      "slug": "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen",
+      "slug": "gestore-immobiliare-possibile-nel-lavoro-in-condivisione-livit-ag-st-gallen",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen",
-        "en": "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen",
+        "it": "gestore-immobiliare-possibile-nel-lavoro-in-condivisione-livit-ag-st-gallen",
+        "en": "real-estate-manager-possible-in-job-sharing-livit-ag-st-gallen",
         "de": "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen",
-        "fr": "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen"
+        "fr": "gestionnaire-immobilier-possible-en-colocation-d-emploi-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2189,7 +2189,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-in-im-jobsharing-moglich-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-613bdad49082",
@@ -2261,11 +2275,11 @@
     },
     {
       "id": "livit-a9abb51783d9",
-      "slug": "assistant-e-de-gerance-immobiliere-livit-geneve",
+      "slug": "assistente-alla-gestione-delle-proprieta-livit-ag-geneve",
       "slugByLocale": {
         "fr": "assistant-e-de-gerance-immobiliere-livit-geneve",
-        "it": "assistant-e-de-gerance-immobiliere-livit-geneve",
-        "en": "assistant-e-de-gerance-immobiliere-livit-geneve",
+        "it": "assistente-alla-gestione-delle-proprieta-livit-ag-geneve",
+        "en": "property-management-assistant-livit-ag-geneve",
         "de": "assistant-e-de-gerance-immobiliere-livit-geneve"
       },
       "company": "Livit AG",
@@ -2324,7 +2338,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-de-gerance-immobiliere-livit-geneve"
+        ],
+        "en": [
+          "assistant-e-de-gerance-immobiliere-livit-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-de-gerance-immobiliere-livit-geneve"
+      ]
     }
   ]
 }

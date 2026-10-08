@@ -532,7 +532,7 @@
         "it": "ordina-picker-ordine-picker-transgourmet-neuendorf",
         "en": "order-picker-order-picker-transgourmet-neuendorf",
         "de": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "fr": "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -594,8 +594,7 @@
         ]
       },
       "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -605,7 +604,7 @@
           "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ],
         "fr": [
-          "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.106Z",
@@ -630,7 +629,7 @@
         "it": "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon",
         "en": "employee-employee-sales-butchery-transgourmet-dietikon",
         "de": "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
-        "fr": "employe-commercial-chez-butcher-transgourmet-dietikon"
+        "fr": "boucherie-des-ventes-des-employes-transgourmet-dietikon"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -694,7 +693,7 @@
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
         "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
-        "boucherie-des-ventes-des-employes-transgourmet-dietikon"
+        "employe-commercial-chez-butcher-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -702,7 +701,7 @@
         ],
         "fr": [
           "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
-          "boucherie-des-ventes-des-employes-transgourmet-dietikon"
+          "employe-commercial-chez-butcher-transgourmet-dietikon"
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:36.867Z",
@@ -2023,7 +2022,7 @@
       "slug": "chef-chef-team-culinario-transgourmet-moosseedorf",
       "slugByLocale": {
         "it": "chef-chef-team-culinario-transgourmet-moosseedorf",
-        "en": "chef-chef-culinary-team-transgourmet-moosseedorf",
+        "en": "female-cook-male-cook-culinary-team-transgourmet-moosseedorf",
         "de": "kochin-koch-kulinarik-team-transgourmet-moosseedorf",
         "fr": "chef-equipe-culinaire-chef-transgourmet-moosseedorf"
       },
@@ -2080,14 +2079,16 @@
         ]
       },
       "previousSlugs": [
-        "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
+        "kochin-koch-kulinarik-team-transgourmet-moosseedorf",
+        "chef-chef-culinary-team-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
         ],
         "en": [
-          "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
+          "kochin-koch-kulinarik-team-transgourmet-moosseedorf",
+          "chef-chef-culinary-team-transgourmet-moosseedorf"
         ],
         "fr": [
           "kochin-koch-kulinarik-team-transgourmet-moosseedorf"
@@ -2110,12 +2111,12 @@
     },
     {
       "id": "transgourmet-34fe2937-c68",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-molkerei-transgourmet-chur",
+      "slug": "addetta-addetto-alle-vendite-nel-reparto-latticini-transgourmet-chur",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-molkerei-transgourmet-chur",
-        "en": "mitarbeiterin-sales-associate-molkerei-transgourmet-chur",
+        "it": "addetta-addetto-alle-vendite-nel-reparto-latticini-transgourmet-chur",
+        "en": "dairy-sales-employee-transgourmet-chur",
         "de": "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur",
-        "fr": "mitarbeiterin-vendeur-se-molkerei-transgourmet-chur"
+        "fr": "collaboratrice-collaborateur-de-vente-en-produits-laitiers-transgourmet-chur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2177,17 +2178,23 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur"
+        "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur",
+        "mitarbeiterin-addetto-a-alle-vendite-molkerei-transgourmet-chur",
+        "mitarbeiterin-sales-associate-molkerei-transgourmet-chur",
+        "mitarbeiterin-vendeur-se-molkerei-transgourmet-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur",
+          "mitarbeiterin-addetto-a-alle-vendite-molkerei-transgourmet-chur"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur",
+          "mitarbeiterin-sales-associate-molkerei-transgourmet-chur"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-molkerei-transgourmet-chur",
+          "mitarbeiterin-vendeur-se-molkerei-transgourmet-chur"
         ]
       },
       "firstSeenAt": "2026-10-05T21:26:06.529Z",
@@ -2207,12 +2214,12 @@
     },
     {
       "id": "transgourmet-11a8a04e-111",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-allrounder-transgourmet-chur",
+      "slug": "addetta-addetto-alle-vendite-polivalente-transgourmet-chur",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-allrounder-transgourmet-chur",
-        "en": "mitarbeiterin-sales-associate-allrounder-transgourmet-chur",
+        "it": "addetta-addetto-alle-vendite-polivalente-transgourmet-chur",
+        "en": "all-rounder-sales-employee-transgourmet-chur",
         "de": "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur",
-        "fr": "mitarbeiterin-vendeur-se-allrounder-transgourmet-chur"
+        "fr": "collaboratrice-collaborateur-de-vente-polyvalent-e-transgourmet-chur"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2274,17 +2281,23 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur"
+        "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur",
+        "mitarbeiterin-addetto-a-alle-vendite-allrounder-transgourmet-chur",
+        "mitarbeiterin-sales-associate-allrounder-transgourmet-chur",
+        "mitarbeiterin-vendeur-se-allrounder-transgourmet-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur",
+          "mitarbeiterin-addetto-a-alle-vendite-allrounder-transgourmet-chur"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur",
+          "mitarbeiterin-sales-associate-allrounder-transgourmet-chur"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur"
+          "mitarbeiterin-mitarbeiter-verkauf-allrounder-transgourmet-chur",
+          "mitarbeiterin-vendeur-se-allrounder-transgourmet-chur"
         ]
       },
       "firstSeenAt": "2026-10-05T21:26:06.535Z",
@@ -2479,12 +2492,12 @@
     },
     {
       "id": "transgourmet-148f5c81-c6c",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz",
+      "slug": "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz",
-        "en": "mitarbeiterin-sales-associate-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+        "it": "addetta-addetto-alla-vendita-di-frutta-e-verdura-transgourmet-risch-rotkreuz",
+        "en": "female-sales-employee-male-sales-employee-fruit-and-vegetables-transgourmet-risch-rotkreuz",
         "de": "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
-        "fr": "mitarbeiterin-vendeur-se-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        "fr": "employee-employe-au-rayon-fruits-et-legumes-transgourmet-risch-rotkreuz"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2548,17 +2561,23 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+        "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz",
+        "mitarbeiterin-sales-associate-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+        "mitarbeiterin-vendeur-se-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+          "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-transgourmet-risch-rotkreuz"
         ],
         "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+          "mitarbeiterin-sales-associate-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-transgourmet-risch-rotkreuz",
+          "mitarbeiterin-vendeur-se-fruchte-und-gemuse-transgourmet-risch-rotkreuz"
         ]
       },
       "firstSeenAt": "2026-10-06T09:12:27.782Z",
@@ -2673,12 +2692,12 @@
     },
     {
       "id": "transgourmet-56c54d28-52b",
-      "slug": "mitarbeiterin-addetto-a-alle-vendite-front-office-transgourmet-kriens",
+      "slug": "front-office-vendite-per-i-dipendenti-transgourmet-kriens",
       "slugByLocale": {
-        "it": "mitarbeiterin-addetto-a-alle-vendite-front-office-transgourmet-kriens",
+        "it": "front-office-vendite-per-i-dipendenti-transgourmet-kriens",
         "en": "mitarbeiterin-sales-associate-front-office-transgourmet-kriens",
         "de": "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens",
-        "fr": "mitarbeiterin-vendeur-se-front-office-transgourmet-kriens"
+        "fr": "front-office-des-ventes-employes-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2738,17 +2757,21 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens"
+        "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens",
+        "mitarbeiterin-addetto-a-alle-vendite-front-office-transgourmet-kriens",
+        "mitarbeiterin-vendeur-se-front-office-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens"
+          "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens",
+          "mitarbeiterin-addetto-a-alle-vendite-front-office-transgourmet-kriens"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens"
         ],
         "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens"
+          "mitarbeiterin-mitarbeiter-verkauf-front-office-transgourmet-kriens",
+          "mitarbeiterin-vendeur-se-front-office-transgourmet-kriens"
         ]
       },
       "firstSeenAt": "2026-10-07T09:18:48.701Z",
@@ -2859,12 +2882,12 @@
     },
     {
       "id": "transgourmet-affa2b12-d54",
-      "slug": "collaboratrice-collaborateur-vente-food-transgourmet-givisiez",
+      "slug": "collaboratore-competitore-food-transgourmet-givisiez",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-vente-food-transgourmet-givisiez",
-        "it": "collaboratrice-collaborateur-vente-food-transgourmet-givisiez",
-        "en": "collaboratrice-collaborateur-vente-food-transgourmet-givisiez",
-        "de": "collaboratrice-collaborateur-vente-food-transgourmet-givisiez"
+        "it": "collaboratore-competitore-food-transgourmet-givisiez",
+        "en": "collaborator-competitor-food-transgourmet-givisiez",
+        "de": "mitarbeiter-konkurrent-lebensmittel-transgourmet-givisiez"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2942,16 +2965,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:17:57.857Z"
+      "firstSeenAt": "2026-10-07T21:17:57.857Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-vente-food-transgourmet-givisiez"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-vente-food-transgourmet-givisiez"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-vente-food-transgourmet-givisiez"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-vente-food-transgourmet-givisiez"
+      ]
     },
     {
       "id": "transgourmet-1d1d59b9-c16",
-      "slug": "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz",
+      "slug": "collaboratore-sale-collaboratore-bevande-tabacco-transgourmet-rennaz",
       "slugByLocale": {
         "fr": "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz",
-        "it": "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz",
-        "en": "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz",
-        "de": "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz"
+        "it": "collaboratore-sale-collaboratore-bevande-tabacco-transgourmet-rennaz",
+        "en": "collaborator-sales-collaborator-beverages-tobacco-transgourmet-rennaz",
+        "de": "collaborator-sales-collaborator-getranke-tabak-transgourmet-rennaz"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -3029,7 +3066,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-07T21:17:57.853Z"
+      "firstSeenAt": "2026-10-07T21:17:57.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz"
+        ],
+        "en": [
+          "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz"
+        ],
+        "de": [
+          "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-collaborateur-vente-boissons-amp-tabac-transgourmet-rennaz"
+      ]
     }
   ]
 }

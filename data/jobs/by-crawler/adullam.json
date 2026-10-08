@@ -551,12 +551,12 @@
     },
     {
       "id": "adullam-3ed556975cef",
-      "slug": "business-application-manager-in-gesundheitswesen-adullam-basel",
+      "slug": "responsabile-delle-applicazioni-aziendali-nel-settore-sanitario-adullam-stiftung-basel",
       "slugByLocale": {
-        "it": "business-application-manager-in-gesundheitswesen-adullam-basel",
+        "it": "responsabile-delle-applicazioni-aziendali-nel-settore-sanitario-adullam-stiftung-basel",
         "en": "business-application-manager-in-gesundheitswesen-adullam-basel",
         "de": "business-application-manager-in-gesundheitswesen-adullam-basel",
-        "fr": "business-application-manager-in-gesundheitswesen-adullam-basel"
+        "fr": "responsable-des-applications-metier-dans-le-domaine-de-la-sante-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -617,7 +617,18 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-application-manager-in-gesundheitswesen-adullam-basel"
+        ],
+        "fr": [
+          "business-application-manager-in-gesundheitswesen-adullam-basel"
+        ]
+      },
+      "previousSlugs": [
+        "business-application-manager-in-gesundheitswesen-adullam-basel"
+      ]
     },
     {
       "id": "adullam-a8ad282b351a",

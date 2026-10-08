@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "kanton-solothurn-2840f7618963",
-      "slug": "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
+      "slug": "capo-dipartimento-pianificazione-del-traffico-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
-        "it": "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
-        "en": "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn",
-        "fr": "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
+        "it": "capo-dipartimento-pianificazione-del-traffico-80-100-kanton-solothurn-solothurn",
+        "en": "head-of-department-traffic-planning-80-100-kanton-solothurn-solothurn",
+        "fr": "chef-du-departement-planification-de-la-circulation-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -52,16 +52,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-verkehrsplanung-80-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-b2d38fca563d",
-      "slug": "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
+      "slug": "capo-dipartimento-per-la-costruzione-stradale-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
         "de": "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
-        "it": "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
-        "en": "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn",
-        "fr": "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
+        "it": "capo-dipartimento-per-la-costruzione-stradale-80-100-kanton-solothurn-solothurn",
+        "en": "head-of-department-for-road-construction-80-100-kanton-solothurn-solothurn",
+        "fr": "chef-de-service-pour-la-construction-routiere-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -106,16 +120,30 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-strassenbau-80-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-4f3add0e22eb",
-      "slug": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
+      "slug": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
-        "en": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
+        "it": "collaboratore-trice-giuridico-a-servizio-giuridico-80-100-kanton-solothurn-solothurn",
+        "en": "legal-service-80-100-kanton-solothurn-solothurn",
         "de": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn",
-        "fr": "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+        "fr": "employe-e-juridique-service-juridique-80-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -159,7 +187,23 @@
       "applyUrl": "https://job.so.ch/offene-stellen/juristische-r-mitarbeiter-in-rechtsdienst/bc019a21-4f68-4ad3-9959-a084db0adae5",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-06T21:39:43.867Z"
+      "firstSeenAt": "2026-10-06T21:39:43.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
+          "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "juristische-r-collaboratore-trice-in-rechtsdienst-80-100-kanton-solothurn",
+        "juristische-r-mitarbeiter-in-rechtsdienst-80-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-f2a825b14d29",

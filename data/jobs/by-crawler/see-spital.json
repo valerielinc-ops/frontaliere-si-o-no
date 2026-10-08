@@ -6,7 +6,7 @@
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
+        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -56,13 +56,11 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen",
-        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
-          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -740,9 +738,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
+        "en": "emergency-medical-technician-in-training-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -819,18 +817,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "emergency-medical-technician-in-training-see-spital-horgen",
-        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
+        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "emergency-medical-technician-in-training-see-spital-horgen"
+          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
         ],
         "fr": [
-          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -2648,7 +2646,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "pflegeexpert-in-see-spital-horgen",
+        "en": "nursing-expert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2698,7 +2696,7 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "nursing-expert-see-spital-horgen"
+        "pflegeexpert-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2706,7 +2704,7 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "nursing-expert-see-spital-horgen"
+          "pflegeexpert-in-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"

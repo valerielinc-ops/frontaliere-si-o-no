@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
+        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -59,11 +59,12 @@
           "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
         ],
         "de": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
-        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+        "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
       "salaryMin": 109000,
@@ -878,12 +879,12 @@
     },
     {
       "id": "jsafrasarasin-66f29e9a5acd",
-      "slug": "head-fund-operations-jssif-jsafrasarasin-ch",
+      "slug": "operazioni-del-fondo-capo-jssif-j-safra-sarasin-basel-ch",
       "slugByLocale": {
         "en": "head-fund-operations-jssif-jsafrasarasin-ch",
-        "it": "head-fund-operations-jssif-jsafrasarasin-ch",
+        "it": "operazioni-del-fondo-capo-jssif-j-safra-sarasin-basel-ch",
         "de": "head-fund-operations-jssif-jsafrasarasin-ch",
-        "fr": "head-fund-operations-jssif-jsafrasarasin-ch"
+        "fr": "operations-du-fonds-principal-j-safra-sarasin-basel-ch"
       },
       "company": "J. Safra Sarasin",
       "companyKey": "jsafrasarasin",
@@ -942,7 +943,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-10-07T21:17:40.734Z"
+      "firstSeenAt": "2026-10-07T21:17:40.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-fund-operations-jssif-jsafrasarasin-ch"
+        ],
+        "fr": [
+          "head-fund-operations-jssif-jsafrasarasin-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-fund-operations-jssif-jsafrasarasin-ch"
+      ]
     },
     {
       "id": "jsafrasarasin-bd631f43c6b5",

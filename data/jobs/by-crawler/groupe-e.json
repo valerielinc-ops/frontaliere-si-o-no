@@ -1558,7 +1558,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-telecom-it-80-100-groupe-e-matran-mad-4",
         "en": "telecom-project-manager-it-80-100-groupe-e-matran-mad-4",
-        "de": "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4",
+        "de": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
         "fr": "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
       },
       "company": "Groupe E",
@@ -1604,7 +1604,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+        "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4",
+        "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1614,7 +1615,7 @@
           "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
         ],
         "de": [
-          "cheffe-ou-chef-de-projet-telecom-it-80-100-groupe-e-matran-mad-4"
+          "telekommunikationsprojektmanager-it-80-100-groupe-e-matran-mad-4"
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:08.792Z",
@@ -2108,12 +2109,12 @@
     },
     {
       "id": "groupe-e-dba8406967b5",
-      "slug": "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen",
+      "slug": "installatore-di-impianti-sanitari-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
       "slugByLocale": {
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "it": "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen",
-        "en": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
-        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
+        "it": "installatore-di-impianti-sanitari-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
+        "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen",
+        "fr": "installateur-sanitaire-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -2161,11 +2162,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
+          "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen"
+        ],
+        "en": [
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
+        ],
+        "fr": [
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
         ]
       },
       "previousSlugs": [
-        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2"
+        "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
+        "sanitar-e-heizungsinstallateur-m-w-d-80-100-groupe-e-guin-dudingen"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -2981,12 +2990,12 @@
     },
     {
       "id": "groupe-e-eeb194ddd8d7",
-      "slug": "ingenieur-in-o-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot-plexus",
+      "slug": "ingegnere-o-ingegnere-di-progetto-centrali-idroelettriche-80-100-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
-        "it": "ingenieur-in-o-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot-plexus",
-        "en": "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot",
+        "it": "ingegnere-o-ingegnere-di-progetto-centrali-idroelettriche-80-100-groupe-e-granges-paccot-plexus",
+        "en": "engineer-or-project-engineer-hydropower-plants-80-100-groupe-e-granges-paccot-plexus",
         "de": "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot",
-        "fr": "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot"
+        "fr": "ingenieur-ou-ingenieur-de-projet-centrales-hydroelectriques-80-100-groupe-e-granges-paccot-plexus"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3030,10 +3039,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot"
+        "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot",
+        "ingenieur-in-o-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot-plexus"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot",
+          "ingenieur-in-o-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot-plexus"
+        ],
+        "en": [
+          "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot"
+        ],
+        "fr": [
           "ingenieur-in-oder-projektingenieur-in-wasserkraftanlagen-80-100-groupe-e-granges-paccot"
         ]
       },

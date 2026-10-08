@@ -1532,7 +1532,7 @@
       "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "it": "psicoterapeuta-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
         "de": "psychotherapeut-50-hug-geneve",
         "fr": "psychologue-psychotherapeute-50-hug-geneve"
       },
@@ -1578,15 +1578,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-psychotherapeute-50-hug-geneve",
-        "psychotherapist-50-hug-geneve"
+        "psychologue-psychotherapeute-50-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "en": [
-          "psychotherapist-50-hug-geneve"
+          "psychologue-psychotherapeute-50-hug-geneve"
         ],
         "de": [
           "psychologue-psychotherapeute-50-hug-geneve"
@@ -3067,7 +3066,7 @@
       "slugByLocale": {
         "it": "weekendista-20-hug-geneve",
         "en": "weekendist-20-hug-geneve",
-        "de": "weekendiste-20-hug-geneve",
+        "de": "wochenendler-20-hug-geneve",
         "fr": "weekendiste-20-hug-geneve"
       },
       "company": "HUG",
@@ -3119,6 +3118,9 @@
           "weekendiste-20-hug-geneve"
         ],
         "en": [
+          "weekendiste-20-hug-geneve"
+        ],
+        "de": [
           "weekendiste-20-hug-geneve"
         ]
       },
@@ -3534,12 +3536,12 @@
     },
     {
       "id": "hug-6f71b6f43109",
-      "slug": "directeur-ou-directrice-des-soins-100-hug-geneve",
+      "slug": "direttore-di-cura-100-hug-geneve",
       "slugByLocale": {
         "fr": "directeur-ou-directrice-des-soins-100-hug-geneve",
-        "it": "directeur-ou-directrice-des-soins-100-hug-geneve",
-        "en": "directeur-ou-directrice-des-soins-100-hug-geneve",
-        "de": "directeur-ou-directrice-des-soins-100-hug-geneve"
+        "it": "direttore-di-cura-100-hug-geneve",
+        "en": "director-of-care-100-hug-geneve",
+        "de": "direktor-von-care-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3598,16 +3600,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-07T21:35:08.978Z"
+      "firstSeenAt": "2026-10-07T21:35:08.978Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-ou-directrice-des-soins-100-hug-geneve"
+        ],
+        "en": [
+          "directeur-ou-directrice-des-soins-100-hug-geneve"
+        ],
+        "de": [
+          "directeur-ou-directrice-des-soins-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-ou-directrice-des-soins-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-39f240ac8018",
-      "slug": "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve",
+      "slug": "infermiera-antalgia-team-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve",
-        "it": "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve",
-        "en": "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve",
-        "de": "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve"
+        "it": "infermiera-antalgia-team-80-al-100-hug-geneve",
+        "en": "nurse-antalgia-team-80-to-100-hug-geneve",
+        "de": "krankenschwester-antalgie-team-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3666,7 +3682,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-10-07T21:35:08.974Z"
+      "firstSeenAt": "2026-10-07T21:35:08.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-equipe-antalgie-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-9530b0ed51fd",

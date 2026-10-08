@@ -432,7 +432,7 @@
         "it": "legal-entity-contabile-vontobel-zurich-gotthardstrasse-35",
         "en": "legal-entity-accountant-vontobel-ch",
         "de": "legal-entity-buchhalter-vontobel-zurich-gotthardstrasse-35",
-        "fr": "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
+        "fr": "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
       },
       "company": "Vontobel",
       "companyKey": "vontobel",
@@ -484,7 +484,7 @@
         "comptable-des-entites-juridiques-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-en-personne-morale-e-u-vontobel-zurich-gotthardstrasse-35",
         "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-        "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+        "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -506,7 +506,7 @@
         "fr": [
           "legal-entity-accountant-us-vontobel-zurich-gotthardstrasse-35",
           "comptable-de-l-entite-juridique-vontobel-zurich-gotthardstrasse-35",
-          "comptable-en-personne-morale-vontobel-zurich-gotthardstrasse-35"
+          "legal-entity-accountant-vontobel-zurich-gotthardstrasse-35"
         ]
       },
       "firstSeenAt": "2026-08-10T22:04:14.969Z",
@@ -1628,11 +1628,11 @@
     },
     {
       "id": "vontobel-90c04799db8e",
-      "slug": "senior-legal-counsel-l-c-supervision-vontobel-ch",
+      "slug": "consulente-legale-senior-supervisione-l-c-vontobel-zurich-gotthardstrasse-44",
       "slugByLocale": {
-        "it": "senior-legal-counsel-l-c-supervision-vontobel-ch",
+        "it": "consulente-legale-senior-supervisione-l-c-vontobel-zurich-gotthardstrasse-44",
         "en": "senior-legal-counsel-l-c-supervision-vontobel-ch",
-        "de": "senior-legal-counsel-l-c-supervision-vontobel-ch",
+        "de": "leitende-r-rechtsberater-in-l-c-aufsicht-vontobel-zurich-gotthardstrasse-44",
         "fr": "conseiller-juridique-principal-vontobel-zurich-gotthardstrasse-44"
       },
       "company": "Vontobel",
@@ -1691,7 +1691,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-legal-counsel-l-c-supervision-vontobel-ch"
+        ],
+        "de": [
+          "senior-legal-counsel-l-c-supervision-vontobel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-legal-counsel-l-c-supervision-vontobel-ch"
+      ]
     },
     {
       "id": "vontobel-7604724ba14b",

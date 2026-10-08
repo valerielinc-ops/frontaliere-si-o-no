@@ -1847,12 +1847,12 @@
     },
     {
       "id": "kanton-zuerich-c5306515af5d",
-      "slug": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich",
+      "slug": "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich",
-        "en": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
+        "it": "infermiere-a-diplomato-a-sss-kantonale-verwaltung-zurich-zurich",
+        "en": "registered-nurse-hf-kantonale-verwaltung-zurich-zurich",
         "de": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
-        "fr": "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich"
+        "fr": "infirmier-iere-diplome-e-es-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1900,10 +1900,18 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich"
+        "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
+        "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich",
+          "dipl-pflegefachfrau-mann-hf-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-kanton-zuerich-zurich"
         ]
       },
@@ -2014,7 +2022,7 @@
         "it": "stage-presso-il-segretariato-generale-della-direzione-finanziaria-kantonale-verwaltung-zurich-zurich",
         "en": "internship-in-the-general-secretariat-of-the-financial-directorate-kantonale-verwaltung-zurich-zurich",
         "de": "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
-        "fr": "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich"
+        "fr": "stage-au-secretariat-general-de-la-direction-financiere-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -2065,7 +2073,7 @@
         "praktikum-im-generalsekretariat-der-finanzdirektion-kanton-zuerich-zurich",
         "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich",
         "stage-au-secretariat-general-de-la-direction-des-finances-kantonale-verwaltung-zurich-zurich",
-        "stage-au-secretariat-general-de-la-direction-financiere-kantonale-verwaltung-zurich-zurich"
+        "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2078,7 +2086,7 @@
         "fr": [
           "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich-zurich",
           "stage-au-secretariat-general-de-la-direction-des-finances-kantonale-verwaltung-zurich-zurich",
-          "stage-au-secretariat-general-de-la-direction-financiere-kantonale-verwaltung-zurich-zurich"
+          "praktikum-im-generalsekretariat-der-finanzdirektion-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:30.492Z",
@@ -2410,7 +2418,7 @@
       "slug": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "esperti-di-trasporto-kantonale-verwaltung-zurich-zurich",
-        "en": "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich",
+        "en": "transport-expert-kantonale-verwaltung-zurich-zurich",
         "de": "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "fr": "specialiste-des-transports-kantonale-verwaltung-zurich-zurich"
       },
@@ -2462,7 +2470,7 @@
       "previousSlugs": [
         "verkehrsexpertin-verkehrsexperte-kanton-zuerich-zurich",
         "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-        "transport-expert-kantonale-verwaltung-zurich-zurich"
+        "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2471,7 +2479,7 @@
         ],
         "en": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich",
-          "transport-expert-kantonale-verwaltung-zurich-zurich"
+          "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich"
         ],
         "fr": [
           "verkehrsexpertin-verkehrsexperte-kantonale-verwaltung-zurich-zurich"
@@ -3384,9 +3392,9 @@
       "slug": "wissenschaftliche-r-collaboratore-trice-kantonale-verwaltung-zurich",
       "slugByLocale": {
         "it": "wissenschaftliche-r-collaboratore-trice-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich",
+        "en": "research-associate-kantonale-verwaltung-zurich-zurich",
         "de": "wissenschaftliche-r-mitarbeiter-in-kanton-zuerich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
+        "fr": "collaborateur-trice-scientifique-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3434,11 +3442,18 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-kanton-zuerich-zurich"
+        "wissenschaftliche-r-mitarbeiter-in-kanton-zuerich-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:40:00.640Z",
@@ -3632,12 +3647,12 @@
     },
     {
       "id": "kanton-zuerich-a8b9cb45a8e2",
-      "slug": "wissenschaftliche-r-collaboratore-trice-in-per-den-bereich-altlasten-kantonale-verwaltung-zurich",
+      "slug": "collaboratore-trice-scientifico-a-per-il-settore-siti-contaminati-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-collaboratore-trice-in-per-den-bereich-altlasten-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kantonale-verwaltung-zurich-zurich",
+        "it": "collaboratore-trice-scientifico-a-per-il-settore-siti-contaminati-kantonale-verwaltung-zurich-zurich",
+        "en": "research-associate-in-the-field-of-contaminated-sites-kantonale-verwaltung-zurich-zurich",
         "de": "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kanton-zuerich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kantonale-verwaltung-zurich-zurich"
+        "fr": "collaborateur-trice-scientifique-dans-le-domaine-des-sites-contamines-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3685,11 +3700,20 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kanton-zuerich-zurich"
+        "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kanton-zuerich-zurich",
+        "wissenschaftliche-r-collaboratore-trice-in-per-den-bereich-altlasten-kantonale-verwaltung-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kanton-zuerich-zurich"
+          "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kanton-zuerich-zurich",
+          "wissenschaftliche-r-collaboratore-trice-in-per-den-bereich-altlasten-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-fur-den-bereich-altlasten-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:39:59.215Z",
@@ -3792,7 +3816,7 @@
       "slug": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "it": "rettore-rettore-kantonale-verwaltung-zurich-zurich",
-        "en": "rektor-rektorin-kantonale-verwaltung-zurich",
+        "en": "rector-rector-kantonale-verwaltung-zurich-zurich",
         "de": "rektor-rektorin-kanton-zuerich-zurich",
         "fr": "recteur-recteur-kantonale-verwaltung-zurich-zurich"
       },
@@ -3857,7 +3881,7 @@
         ],
         "en": [
           "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-          "rector-rector-kantonale-verwaltung-zurich-zurich"
+          "rektor-rektorin-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:11.023Z",
@@ -3877,12 +3901,12 @@
     },
     {
       "id": "kanton-zuerich-67d834de8080",
-      "slug": "collaboratore-trice-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich",
+      "slug": "collaboratore-trice-per-l-imposta-alla-fonte-a-tempo-determinato-per-6-mesi-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "collaboratore-trice-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich",
-        "en": "mitarbeiter-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich-zurich",
+        "it": "collaboratore-trice-per-l-imposta-alla-fonte-a-tempo-determinato-per-6-mesi-kantonale-verwaltung-zurich-zurich",
+        "en": "withholding-tax-staff-member-fixed-term-for-6-months-kantonale-verwaltung-zurich-zurich",
         "de": "mitarbeiter-in-quellensteuer-befristet-6-monate-kanton-zuerich-zurich",
-        "fr": "mitarbeiter-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich-zurich"
+        "fr": "collaborateur-trice-en-matiere-d-impot-a-la-source-a-duree-determinee-de-6-mois-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -3930,11 +3954,20 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "mitarbeiter-in-quellensteuer-befristet-6-monate-kanton-zuerich-zurich"
+        "mitarbeiter-in-quellensteuer-befristet-6-monate-kanton-zuerich-zurich",
+        "collaboratore-trice-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich",
+        "mitarbeiter-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-quellensteuer-befristet-6-monate-kanton-zuerich-zurich"
+          "mitarbeiter-in-quellensteuer-befristet-6-monate-kanton-zuerich-zurich",
+          "collaboratore-trice-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-quellensteuer-befristet-6-monate-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-05T21:39:57.795Z",
@@ -4397,7 +4430,7 @@
         "it": "neuropsicologo-neuropsicologo-kantonale-verwaltung-zurich-zurich-altstetten",
         "en": "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich-altstetten",
         "de": "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
-        "fr": "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
+        "fr": "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4448,7 +4481,7 @@
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+        "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4457,7 +4490,7 @@
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
           "neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten"
+          "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:25.654Z",
@@ -7016,7 +7049,7 @@
         "it": "sviluppo-di-applicazione-sviluppo-di-applicazione-kantonale-verwaltung-zurich-8050-zurich",
         "en": "application-development-application-development-fire-kantonale-verwaltung-zurich-8050-zurich",
         "de": "applikationsentwickler-applikationsentwicklerin-feuerwehr-kanton-zuerich-8050-zurich",
-        "fr": "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
+        "fr": "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7065,8 +7098,7 @@
       "pensum": "80%",
       "previousSlugs": [
         "applikationsentwickler-applikationsentwicklerin-feuerwehr-kanton-zuerich-8050-zurich",
-        "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich",
-        "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich"
+        "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7077,7 +7109,7 @@
           "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
         ],
         "fr": [
-          "developpement-des-demandes-feu-de-developpement-des-demandes-kantonale-verwaltung-zurich-8050-zurich"
+          "applikationsentwickler-applikationsentwicklerin-feuerwehr-kantonale-verwaltung-zurich-8050-zurich"
         ]
       },
       "firstSeenAt": "2026-09-28T21:26:32.896Z",
@@ -8395,7 +8427,7 @@
         "it": "analista-di-affari-kantonale-verwaltung-zurich-zurich",
         "en": "business-analyst-in-kantonale-verwaltung-zurich-zurich",
         "de": "business-analyst-in-kanton-zuerich-zurich",
-        "fr": "business-analyst-kantonale-verwaltung-zurich"
+        "fr": "analyste-des-entreprises-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8468,7 +8500,7 @@
         "business-analista-in-kantonale-verwaltung-zurich-zurich-ae1f95",
         "business-analyste-in-kantonale-verwaltung-zurich-zurich-ae1f95",
         "business-analyst-in-kanton-zuerich-zurich-b5dbbh",
-        "analyste-des-entreprises-kantonale-verwaltung-zurich-zurich"
+        "business-analyst-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8499,7 +8531,7 @@
           "business-analyst-in-kanton-zuerich-zurich",
           "business-analyste-in-kantonale-verwaltung-zurich-zurich",
           "business-analyste-in-kantonale-verwaltung-zurich-zurich-ae1f95",
-          "analyste-des-entreprises-kantonale-verwaltung-zurich-zurich"
+          "business-analyst-kantonale-verwaltung-zurich"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -10284,7 +10316,7 @@
         "it": "system-e-requirements-ingegnere-input-outputmanagement-kantonale-verwaltung-zurich",
         "en": "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich",
         "de": "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich",
-        "fr": "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
+        "fr": "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10333,14 +10365,14 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich",
-        "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich"
+        "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-und-requirements-engineer-input-outputmanagement-kanton-zuerich-zurich"
         ],
         "fr": [
-          "system-und-requirements-engineer-input-outputmanagement-kantonale-verwaltung-zurich-zurich"
+          "systeme-et-exigences-ingenieur-gestion-des-entrees-et-des-sorties-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:54.680Z",
@@ -10360,9 +10392,9 @@
     },
     {
       "id": "kanton-zuerich-cc435a09ce1d",
-      "slug": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf",
         "en": "workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-d-atelier-a-duree-determinee-kantonale-verwaltung-zurich-regensdorf"
@@ -10415,13 +10447,13 @@
       "previousSlugs": [
         "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
         "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
-        "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+        "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstattbetreuer-befristet-kanton-zuerich-regensdorf",
           "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf-916fb4",
-          "assistenti-di-laboratorio-temporanei-kantonale-verwaltung-zurich-regensdorf"
+          "werkstattbetreuer-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-24T14:46:32.192Z",
@@ -11903,12 +11935,12 @@
     },
     {
       "id": "kanton-zuerich-dcb55008474d",
-      "slug": "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach",
+      "slug": "assistente-sociale-sup-kjz-bulach-a-tempo-indeterminato-kantonale-verwaltung-zurich-bulach",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach",
-        "en": "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach",
+        "it": "assistente-sociale-sup-kjz-bulach-a-tempo-indeterminato-kantonale-verwaltung-zurich-bulach",
+        "en": "social-worker-uas-kjz-bulach-permanent-kantonale-verwaltung-zurich-bulach",
         "de": "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach",
-        "fr": "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach"
+        "fr": "travailleur-euse-social-e-hes-kjz-bulach-a-duree-indeterminee-kantonale-verwaltung-zurich-bulach"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11968,7 +12000,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach"
+        ],
+        "en": [
+          "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach"
+        ],
+        "fr": [
+          "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-fh-kjz-bulach-unbefristet-kanton-zuerich-bulach"
+      ]
     },
     {
       "id": "kanton-zuerich-368aa9c3626e",
@@ -15374,7 +15420,7 @@
       "slug": "sottosegretario-di-stato-o-di-amministrazione-kantonale-verwaltung-zurich-wald",
       "slugByLocale": {
         "it": "sottosegretario-di-stato-o-di-amministrazione-kantonale-verwaltung-zurich-wald",
-        "en": "notariatssekretar-in-oder-verwaltungssekretar-in-kantonale-verwaltung-zurich-wald",
+        "en": "notary-secretary-or-administrative-secretary-kantonale-verwaltung-zurich-wald",
         "de": "notariatssekretar-in-oder-verwaltungssekretar-in-kanton-zuerich-wald",
         "fr": "notaire-ou-secretaire-administratif-kantonale-verwaltung-zurich-wald"
       },
@@ -15434,6 +15480,9 @@
           "notariatssekretar-in-o-verwaltungssekretar-in-kantonale-verwaltung-zurich-wald"
         ],
         "fr": [
+          "notariatssekretar-in-oder-verwaltungssekretar-in-kantonale-verwaltung-zurich-wald"
+        ],
+        "en": [
           "notariatssekretar-in-oder-verwaltungssekretar-in-kantonale-verwaltung-zurich-wald"
         ]
       },
@@ -15625,12 +15674,12 @@
     },
     {
       "id": "kanton-zuerich-8d11e02c41d4",
-      "slug": "praktikant-in-sozialdienst-kanton-zuerich-winterthur",
+      "slug": "servizio-sociale-per-tirocinanti-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
-        "it": "praktikant-in-sozialdienst-kanton-zuerich-winterthur",
-        "en": "praktikant-in-sozialdienst-kanton-zuerich-winterthur",
+        "it": "servizio-sociale-per-tirocinanti-kantonale-verwaltung-zurich-winterthur",
+        "en": "intern-social-service-kantonale-verwaltung-zurich-winterthur",
         "de": "praktikant-in-sozialdienst-kanton-zuerich-winterthur",
-        "fr": "praktikant-in-sozialdienst-kanton-zuerich-winterthur"
+        "fr": "internes-en-service-social-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15690,16 +15739,30 @@
           "maxValue": 114500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-sozialdienst-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "praktikant-in-sozialdienst-kanton-zuerich-winterthur"
+        ],
+        "fr": [
+          "praktikant-in-sozialdienst-kanton-zuerich-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-sozialdienst-kanton-zuerich-winterthur"
+      ]
     },
     {
       "id": "kanton-zuerich-135d6d30ec5c",
-      "slug": "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-uster",
+      "slug": "consulente-di-orientamento-studio-e-orientatore-kantonale-verwaltung-zurich-uster",
       "slugByLocale": {
-        "it": "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-uster",
-        "en": "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-uster",
+        "it": "consulente-di-orientamento-studio-e-orientatore-kantonale-verwaltung-zurich-uster",
+        "en": "career-study-and-career-counsellor-kantonale-verwaltung-zurich-uster",
         "de": "berufs-studien-und-laufbahnberater-in-kanton-zuerich-uster",
-        "fr": "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-uster"
+        "fr": "conseiller-d-orientation-d-etudes-et-d-orientation-professionnelle-kantonale-verwaltung-zurich-uster"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15747,11 +15810,20 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "berufs-studien-und-laufbahnberater-in-kanton-zuerich-uster"
+        "berufs-studien-und-laufbahnberater-in-kanton-zuerich-uster",
+        "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-uster",
+        "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufs-studien-und-laufbahnberater-in-kanton-zuerich-uster"
+          "berufs-studien-und-laufbahnberater-in-kanton-zuerich-uster",
+          "berufs-studien-e-laufbahnberater-in-kantonale-verwaltung-zurich-uster"
+        ],
+        "en": [
+          "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-uster"
+        ],
+        "fr": [
+          "berufs-studien-und-laufbahnberater-in-kantonale-verwaltung-zurich-uster"
         ]
       },
       "firstSeenAt": "2026-10-07T09:31:58.841Z",
@@ -15775,8 +15847,8 @@
       "slugByLocale": {
         "de": "die-kantonsschule-enge-zurich-sucht-vereinswart-in-im-spatdienst-bis-22-30-uhr-kanton",
         "it": "die-kantonsschule-enge-zurich-sucht-vereinswart-in-im-spatdienst-bis-22-30-uhr-kanton",
-        "en": "die-kantonsschule-enge-zurich-sucht-vereinswart-in-im-spatdienst-bis-22-30-uhr-kanton",
-        "fr": "die-kantonsschule-enge-zurich-sucht-vereinswart-in-im-spatdienst-bis-22-30-uhr-kanton"
+        "en": "the-cantonal-school-enge-zurich-is-looking-for-vereinswart-in-late-service-until-22-30-kantonale-verwaltung-zurich-8002",
+        "fr": "l-ecole-cantonale-enge-zurich-recherche-vereinswart-in-service-tardif-jusqu-au-22-30-kantonale-verwaltung-zurich-8002"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",

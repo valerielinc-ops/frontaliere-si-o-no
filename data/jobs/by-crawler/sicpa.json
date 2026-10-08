@@ -2,12 +2,12 @@
   "jobs": [
     {
       "id": "sicpa-ea09f5b30d7a",
-      "slug": "sovereign-data-program-intern-sicpa-prilly",
+      "slug": "interno-del-programma-di-dati-sovrano-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "sovereign-data-program-intern-sicpa-prilly",
-        "it": "sovereign-data-program-intern-sicpa-prilly",
-        "de": "sovereign-data-program-intern-sicpa-prilly",
-        "fr": "sovereign-data-program-intern-sicpa-prilly"
+        "it": "interno-del-programma-di-dati-sovrano-sicpa-sa-prilly",
+        "de": "staatsdatenprogramm-intern-sicpa-sa-prilly",
+        "fr": "stagiaire-du-programme-de-donnees-souveraines-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -51,7 +51,21 @@
       "requirements": [],
       "requirementsByLocale": {
         "en": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sovereign-data-program-intern-sicpa-prilly"
+        ],
+        "de": [
+          "sovereign-data-program-intern-sicpa-prilly"
+        ],
+        "fr": [
+          "sovereign-data-program-intern-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "sovereign-data-program-intern-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-ee4544be3e45",

@@ -4,7 +4,8 @@
       "id": "spital-zollikerberg-3e4a6c3a4bfc",
       "slug": "stiftung-diakoniewerk-neumunster-marketing-manager-managerin-middle-office-spital",
       "slugByLocale": {
-        "de": "stiftung-diakoniewerk-neumunster-marketing-manager-managerin-middle-office-spital"
+        "de": "stiftung-diakoniewerk-neumunster-marketing-manager-managerin-middle-office-spital",
+        "fr": "fondation-diakoniewerk-neumunster-directeur-du-marketing-directeur-du-centre-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -53,9 +54,12 @@
     },
     {
       "id": "spital-zollikerberg-3278b2d6f421",
-      "slug": "stiftung-diakoniewerk-neumunster-spezialist-spezialistin-unternehmenskommunikation-middle",
+      "slug": "fondazione-diakoniewerk-neumunster-specialist-specialista-comunicazione-aziendale-middle-office-spital-zollikerberg",
       "slugByLocale": {
-        "de": "stiftung-diakoniewerk-neumunster-spezialist-spezialistin-unternehmenskommunikation-middle"
+        "de": "stiftung-diakoniewerk-neumunster-spezialist-spezialistin-unternehmenskommunikation-middle",
+        "it": "fondazione-diakoniewerk-neumunster-specialist-specialista-comunicazione-aziendale-middle-office-spital-zollikerberg",
+        "en": "foundation-diakoniewerk-neumunster-specialist-specialist-corporate-communication-middle-office-spital-zollikerberg",
+        "fr": "fondation-diakoniewerk-neumunster-specialiste-specialiste-de-la-communication-d-entreprise-spital-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -100,7 +104,15 @@
       "requirements": [],
       "requirementsByLocale": {
         "de": []
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stiftung-diakoniewerk-neumunster-spezialist-spezialistin-unternehmenskommunikation-middle"
+        ]
+      },
+      "previousSlugs": [
+        "stiftung-diakoniewerk-neumunster-spezialist-spezialistin-unternehmenskommunikation-middle"
+      ]
     },
     {
       "id": "spital-zollikerberg-c63befe6f54f",

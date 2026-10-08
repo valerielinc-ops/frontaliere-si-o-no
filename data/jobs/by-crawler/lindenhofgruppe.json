@@ -3678,12 +3678,12 @@
     },
     {
       "id": "lindenhofgruppe-b76719a1be79",
-      "slug": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
+      "slug": "assistente-di-direzione-cmo-cno-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
-        "en": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
+        "it": "assistente-di-direzione-cmo-cno-lindenhofgruppe-lindenhofspital",
+        "en": "executive-assistant-cmo-cno-lindenhofgruppe-lindenhofspital",
         "de": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch",
-        "fr": "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch"
+        "fr": "assistant-e-de-direction-cmo-cno-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3740,7 +3740,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "direktionsassistent-in-cmo-cno-lindenhofgruppe-ch"
+      ]
     }
   ]
 }

@@ -1897,12 +1897,12 @@
     },
     {
       "id": "spital-thusis-813da09128cc",
-      "slug": "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch",
+      "slug": "coordinatore-a-radiologia-segretario-a-medico-a-50-100-spital-thusis-thusis",
       "slugByLocale": {
-        "it": "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch",
-        "en": "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch",
+        "it": "coordinatore-a-radiologia-segretario-a-medico-a-50-100-spital-thusis-thusis",
+        "en": "radiology-medical-secretary-coordinator-50-100-spital-thusis-thusis",
         "de": "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch",
-        "fr": "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch"
+        "fr": "coordinateur-trice-en-radiologie-secretaire-medical-e-50-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
@@ -1980,7 +1980,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch"
+        ],
+        "en": [
+          "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch"
+        ],
+        "fr": [
+          "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-radiologie-medizinische-r-sekretar-in-50-100-spital-thusis-ch"
+      ]
     }
   ]
 }

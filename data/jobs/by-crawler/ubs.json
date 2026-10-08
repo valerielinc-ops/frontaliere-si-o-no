@@ -3313,7 +3313,7 @@
       "slugByLocale": {
         "it": "2027-programma-di-studi-in-materia-di-diritti-umani-europa-orientale-israele-e-overseas-ubs-zurich",
         "en": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
-        "de": "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich",
+        "de": "talentprogramm-fur-hochschulabsolventen-2027-wm-osteuropa-israel-ubersee-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-wm-europe-de-l-est-israel-et-outre-mer-ubs-zurich"
       },
       "company": "UBS",
@@ -3370,6 +3370,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich"
+        ],
+        "de": [
           "2027-graduate-talent-program-wm-eastern-europe-israel-overseas-ubs-zurich"
         ]
       },
@@ -3639,9 +3642,9 @@
     },
     {
       "id": "ubs-4c6d1b542647",
-      "slug": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
+      "slug": "programma-di-talenti-per-neolaureati-2027-approvvigionamento-zh-ubs-zurich",
       "slugByLocale": {
-        "it": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
+        "it": "programma-di-talenti-per-neolaureati-2027-approvvigionamento-zh-ubs-zurich",
         "en": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
         "de": "2027-graduate-talent-program-procurement-zh-ubs-zurich",
         "fr": "2027-programme-des-talents-diplomes-approvisionnement-zh-ubs-zurich"
@@ -3709,7 +3712,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-graduate-talent-program-procurement-zh-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-graduate-talent-program-procurement-zh-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-62c5b0df0aa0",
@@ -3792,7 +3803,7 @@
         "en": "2027-graduate-talent-program-corporate-real-estate-romandie-ubs-lausanne",
         "it": "2027-graduate-talent-program-corporate-real-estate-romandie-ubs-lausanne",
         "de": "2027-graduate-talent-program-corporate-real-estate-romandie-ubs-lausanne",
-        "fr": "2027-graduate-talent-program-corporate-real-estate-romandie-ubs-lausanne"
+        "fr": "2027-programme-de-talents-diplomes-entreprise-et-immobilier-romandie-ubs-lausanne"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8076,7 +8087,7 @@
         "it": "partecipante-all-evento-a-pagamento-orario-ubs-geneve",
         "en": "event-attendant-hourly-paid-ubs-geneve",
         "de": "event-attendant-stundenlohn-ubs-geneve",
-        "fr": "event-attendant-hourly-paid-ubs-geneve"
+        "fr": "prepose-e-aux-evenements-remunere-e-a-l-heure-ubs-geneve"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -8140,7 +8151,8 @@
           "event-attendant-hourly-paid-ubs-geneve"
         ],
         "fr": [
-          "participant-a-l-evenement-paye-en-heures-ubs-geneve"
+          "participant-a-l-evenement-paye-en-heures-ubs-geneve",
+          "event-attendant-hourly-paid-ubs-geneve"
         ]
       },
       "firstSeenAt": "2026-10-06T09:14:59.207Z",
