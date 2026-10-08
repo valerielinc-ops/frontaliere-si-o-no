@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuehne-nagel",
-  "assembledAt": "2026-10-08T09:21:19.790Z",
+  "assembledAt": "2026-10-08T21:29:01.925Z",
   "jobs": [
     {
       "id": "kuehne-nagel-d69fcc2c7b9c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL16638EXTERNALENGLOBAL/blue-yonder-wms-specialist-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:21:13.893Z",
+      "crawledAt": "2026-10-08T21:28:56.652Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -109,7 +109,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL7329EXTERNALENGLOBAL/servicetechniker-logistik-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:21:13.502Z",
+      "crawledAt": "2026-10-08T21:28:55.838Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "postalCode": "8424",
@@ -130,15 +130,16 @@
       "jobReqId": "7329",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-04T11:08:08.265Z",
+      "previousSlugs": [
+        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
         ]
       },
-      "previousSlugs": [
-        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T11:08:08.265Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -151,9 +152,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "id": "kuehne-nagel-4116e8bfc73f",
@@ -186,7 +185,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17789EXTERNALENGLOBAL/senior-sea-logistics-specialist-m-f-d-geneva",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:21:12.878Z",
+      "crawledAt": "2026-10-08T21:28:55.094Z",
       "addressLocality": "Ge Chatelaine",
       "addressRegion": "GE",
       "postalCode": "1219",
@@ -207,15 +206,15 @@
       "jobReqId": "17789",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-25T14:44:57.232Z",
+      "previousSlugs": [
+        "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
         ]
       },
-      "previousSlugs": [
-        "senior-sea-logistics-specialist-m-f-d-geneva-kuehne-nagel-ge-chatelaine"
-      ],
+      "firstSeenAt": "2026-09-25T14:44:57.232Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -261,7 +260,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL18789EXTERNALENGLOBAL/speditionskaufmann-frau-luftfracht-export-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:21:12.442Z",
+      "crawledAt": "2026-10-08T21:28:55.442Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -340,7 +339,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17233EXTERNALENGLOBAL/senior-internal-auditor",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:21:12.076Z",
+      "crawledAt": "2026-10-08T21:28:54.744Z",
       "addressLocality": "Schindellegi",
       "addressRegion": "SZ",
       "postalCode": "8834",
@@ -361,16 +360,16 @@
       "jobReqId": "17233",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-08T23:26:37.350Z",
+      "previousSlugs": [
+        "senior-internal-auditor-kuehne-nagel-schindellegi"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-internal-auditor-kuehne-nagel-schindellegi"
         ]
       },
-      "previousSlugs": [
-        "senior-internal-auditor-kuehne-nagel-schindellegi"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T23:26:37.350Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -392,7 +391,7 @@
         "it": "spedizioniere-a-trasporto-marittimo-m-f-d-kuehne-nagel-opfikon",
         "en": "freight-forwarding-clerk-seefracht-m-f-d-kuehne-nagel-opfikon",
         "de": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
-        "fr": "agent-e-de-transport-fret-maritime-h-f-d-kuehne-nagel-opfikon"
+        "fr": "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -416,7 +415,7 @@
       "url": "https://jobs.kuehne-nagel.com/global/en/job/KUNAGLOBAL17016EXTERNALENGLOBAL/speditionskaufmann-frau-seefracht-m-w-d",
       "source": "Kuehne+Nagel Dedicated Parser (Phenom People)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:21:11.161Z",
+      "crawledAt": "2026-10-08T21:28:54.230Z",
       "addressLocality": "Opfikon",
       "addressRegion": "ZH",
       "postalCode": "8152",
@@ -446,11 +445,12 @@
           "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
         ],
         "fr": [
-          "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+          "agent-e-de-transport-fret-maritime-h-f-d-kuehne-nagel-opfikon"
         ]
       },
       "previousSlugs": [
-        "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon"
+        "speditionskaufmann-frau-seefracht-m-w-d-kuehne-nagel-opfikon",
+        "agent-e-de-transport-fret-maritime-h-f-d-kuehne-nagel-opfikon"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,

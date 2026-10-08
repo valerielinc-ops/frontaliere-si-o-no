@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nvidia-zurich",
-  "assembledAt": "2026-10-08T09:27:48.661Z",
+  "assembledAt": "2026-10-08T21:27:49.114Z",
   "jobs": [
     {
       "id": "nvidia-zurich-ac40a1fa78c0",
@@ -33,7 +33,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Architect--GPU-Networking-Research_JR2016906",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:40.286Z",
+      "crawledAt": "2026-10-08T21:27:42.479Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,15 +52,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2016906",
-      "firstSeenAt": "2026-07-03T22:25:14.631Z",
+      "previousSlugs": [
+        "senior-software-architect-gpu-networking-research-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-software-architect-gpu-networking-research-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-software-architect-gpu-networking-research-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-07-03T22:25:14.631Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -71,80 +71,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001"
-    },
-    {
-      "id": "nvidia-zurich-164fb2ea13ca",
-      "slug": "senior-site-reliability-ingegnere-dgx-cloud-nvidia-ufficio-zurich-zurich",
-      "slugByLocale": {
-        "it": "senior-site-reliability-ingegnere-dgx-cloud-nvidia-ufficio-zurich-zurich",
-        "en": "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch",
-        "de": "senior-site-reliability-ingenieur-dgx-cloud-nvidia-ufficio-zurich-zurich",
-        "fr": "senior-site-reliability-ingenieur-dgx-cloud-nvidia-ufficio-zurich-zurich"
-      },
-      "company": "NVIDIA (ufficio Zurich)",
-      "companyKey": "nvidia-zurich",
-      "companyDomain": "nvidia.com",
-      "title": "Senior Site Reliability Engineer, DGX Cloud",
-      "titleByLocale": {
-        "it": "Senior Site Reliability Ingegnere, DGX Cloud",
-        "en": "Senior Site Reliability Engineer, DGX Cloud",
-        "de": "Senior Site Reliability Ingenieur, DGX Cloud",
-        "fr": "Senior Site Reliability Ingénieur, DGX Cloud"
-      },
-      "description": "NVIDIA has been transforming computer graphics, PC gaming, and accelerated computing for more than 25 years. It’s a unique legacy of innovation that’s fueled by great technology—and amazing people. Today, we’re tapping into the unlimited potential of AI to define the next era of computing. An era in which our GPU acts as the brains of computers, robots, and self-driving cars that can understand the world. Doing what’s never been done before takes vision, innovation, and the world’s best talent. As an NVIDIAN, you’ll be immersed in a diverse, supportive environment where everyone is inspired to do their best work. Come join the team and see how you can make a lasting impact on the world.\nNVIDIA is driving AI and high-performance computing forward. DGX Cloud aims to deliver a fully managed AI platform on major cloud providers, optimizing AI workloads using high-performance NVIDIA infrastructure. Work with NVIDIA's DGX Cloud team as a Senior Site Reliability Engineer to maintain high-performance DGX Cloud clusters for AI researchers and enterprise clients worldwide.\n\nWhat you’ll be doing:\n\n• Build, implement and support operational and reliability aspects of large-scale Kubernetes clusters with focus on performance at scale, real time monitoring, logging and alerting\n\n• Define SLOs/SLIs, monitor error budgets, and streamline reporting\n\n• Support services before they launch through system creation consulting, developing software tools, platforms and frameworks, capacity management, and launch reviews\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health\n\n• Operate and optimize GPU workloads across AWS, GCP, Azure, OCI, and private clouds\n\n• Scale systems sustainably through mechanisms like automation and evolve systems by pushing for changes that improve reliability and velocity\n\n• Lead triage and root-cause analysis of high-severity incidents\n\n• Practice balanced incident response and blameless postmortems\n\n• Participate in on-call rotation to support production services\n\nWhat we need to see:\n\n• BS in Computer Science or related technical field, or equivalent experience\n\n• 10+ years of experience operating production services\n\n• Expert-level knowledge of Kubernetes administration, containerization, and microservices architecture\n\n• Experience with infrastructure automation tools (e.g., Terraform, Ansible, Chef, Puppet)\n\n• Proficiency in at least one high-level programming language (e.g., Python, Go)\n\n• In-depth knowledge of Linux operating systems, networking fundamentals (TCP/IP), and cloud security standards\n\n• Proficient knowledge of SRE principles, encompassing SLOs, SLIs, error budgets, and incident handling\n\n• Experience building and operating comprehensive observability stacks (monitoring, logging, tracing) using tools like OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, etc.\n\nWays to stand out from the crowd:\n\n• Operating GPU-accelerated clusters with KubeVirt in production\n\n• Applying generative-AI techniques to reduce operational toil\n\n• Experience with workflow orchestration platforms such as Temporal, Cadence, Airflow, Argo Workflows, or Step Functions\n\n• Experience operating and troubleshooting production AI inference workloads across the model-to-GPU stack, including vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL, and GPU performance analysis",
-      "descriptionByLocale": {
-        "it": "NVIDIA sta trasformando la grafica del computer, il gioco del PC e l'elaborazione accelerata da più di 25 anni. È un’eredità unica dell’innovazione alimentata da una grande tecnologia e da persone incredibili. Oggi, stiamo toccando il potenziale illimitato di AI per definire la prossima era di calcolo. Un'epoca in cui la nostra GPU agisce come il cervello di computer, robot e auto-driving automobili che possono comprendere il mondo. Fare ciò che non è mai stato fatto prima di prendere visione, innovazione e il miglior talento del mondo. Come NVIDIAN, sarete immersi in un ambiente diversificato e di supporto, dove tutti si ispirano a fare il loro lavoro migliore. Unisciti alla squadra e scopri come puoi avere un impatto duraturo sul mondo.\nNVIDIA sta guidando l'intelligenza artificiale e l'elaborazione ad alte prestazioni in avanti. DGX Cloud mira a fornire una piattaforma AI completamente gestita sui principali fornitori di cloud, ottimizzando i carichi di lavoro AI utilizzando infrastrutture NVIDIA ad alte prestazioni. Lavorare con il team DGX Cloud di NVIDIA come Senior Site Reliability Engineer per mantenere cluster DGX Cloud ad alte prestazioni per ricercatori e clienti aziendali AI in tutto il mondo.\n\nCosa farai:\n\n• Costruire, implementare e supportare gli aspetti operativi e di affidabilità dei cluster Kubernetes su larga scala con attenzione alle prestazioni in scala, monitoraggio in tempo reale, registrazione e allerta\n\n• Definire SLOs/SLIs, monitorare i bilanci degli errori e semplificare la reportistica\n\n• I servizi di supporto prima di lanciare attraverso la consulenza di creazione di sistema, lo sviluppo di strumenti software, piattaforme e quadri, la gestione della capacità, e lanciare recensioni\n\n• Mantenere i servizi una volta che sono in diretta misurando e monitorando la disponibilità, la latenza e la salute generale del sistema\n\n• Operare e ottimizzare i carichi di lavoro GPU attraverso AWS, GCP, Azure, OCI, e nuvole private\n\n• Sistemi scalabili in modo sostenibile attraverso meccanismi come l'automazione e sistemi evoluti, spingendo per cambiamenti che migliorano affidabilità e velocità\n\n• Piombo triage e radice-per l'analisi di incidenti ad alta gravità\n\n• Praticare la risposta di incidente equilibrata e postmortems incolpare\n\n• Partecipa a rotazione on-call per supportare i servizi di produzione\n\nCosa dobbiamo vedere:\n\n• BS in Informatica o campo tecnico correlato, o esperienza equivalente\n\n• 10+ anni di esperienza dei servizi di produzione operativa\n\n• Conoscenza a livello di esperti dell'amministrazione Kubernetes, della containerizzazione e dell'architettura dei microservizi\n\n• Esperienza con strumenti di automazione delle infrastrutture (ad esempio, Terraform, Ansible, Chef, Puppet)\n\n• Competenza in almeno un linguaggio di programmazione di alto livello (ad esempio, Python, Go)\n\n• Conoscenza approfondita dei sistemi operativi Linux, dei fondamenti di rete (TCP/IP) e degli standard di sicurezza cloud\n\n• Conoscenza competente dei principi SRE, che comprende SLO, SLI, budget di errore e gestione degli incidenti\n\n• Esperienza costruzione e funzionamento completo pile di osservabilità (monitoring, logging, tracciamento) utilizzando strumenti come OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, ecc.\n\nModi per distinguersi dalla folla:\n\n• cluster accelerati dalla GPU con KubeVirt in produzione\n\n• Applicare tecniche generative-AI per ridurre la fatica operativa\n\n• Esperienza con piattaforme di orchestrazione del flusso di lavoro come Temporal, Cadence, Airflow, Argo Workflows, o Step Functions\n\n• Sperimenta i carichi di lavoro di inferenza dell'IA attraverso lo stack modello-to-GPU, tra cui vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL e GPU analisi delle prestazioni",
-        "en": "NVIDIA has been transforming computer graphics, PC gaming, and accelerated computing for more than 25 years. It’s a unique legacy of innovation that’s fueled by great technology—and amazing people. Today, we’re tapping into the unlimited potential of AI to define the next era of computing. An era in which our GPU acts as the brains of computers, robots, and self-driving cars that can understand the world. Doing what’s never been done before takes vision, innovation, and the world’s best talent. As an NVIDIAN, you’ll be immersed in a diverse, supportive environment where everyone is inspired to do their best work. Come join the team and see how you can make a lasting impact on the world.\nNVIDIA is driving AI and high-performance computing forward. DGX Cloud aims to deliver a fully managed AI platform on major cloud providers, optimizing AI workloads using high-performance NVIDIA infrastructure. Work with NVIDIA's DGX Cloud team as a Senior Site Reliability Engineer to maintain high-performance DGX Cloud clusters for AI researchers and enterprise clients worldwide.\n\nWhat you’ll be doing:\n\n• Build, implement and support operational and reliability aspects of large-scale Kubernetes clusters with focus on performance at scale, real time monitoring, logging and alerting\n\n• Define SLOs/SLIs, monitor error budgets, and streamline reporting\n\n• Support services before they launch through system creation consulting, developing software tools, platforms and frameworks, capacity management, and launch reviews\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health\n\n• Operate and optimize GPU workloads across AWS, GCP, Azure, OCI, and private clouds\n\n• Scale systems sustainably through mechanisms like automation and evolve systems by pushing for changes that improve reliability and velocity\n\n• Lead triage and root-cause analysis of high-severity incidents\n\n• Practice balanced incident response and blameless postmortems\n\n• Participate in on-call rotation to support production services\n\nWhat we need to see:\n\n• BS in Computer Science or related technical field, or equivalent experience\n\n• 10+ years of experience operating production services\n\n• Expert-level knowledge of Kubernetes administration, containerization, and microservices architecture\n\n• Experience with infrastructure automation tools (e.g., Terraform, Ansible, Chef, Puppet)\n\n• Proficiency in at least one high-level programming language (e.g., Python, Go)\n\n• In-depth knowledge of Linux operating systems, networking fundamentals (TCP/IP), and cloud security standards\n\n• Proficient knowledge of SRE principles, encompassing SLOs, SLIs, error budgets, and incident handling\n\n• Experience building and operating comprehensive observability stacks (monitoring, logging, tracing) using tools like OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, etc.\n\nWays to stand out from the crowd:\n\n• Operating GPU-accelerated clusters with KubeVirt in production\n\n• Applying generative-AI techniques to reduce operational toil\n\n• Experience with workflow orchestration platforms such as Temporal, Cadence, Airflow, Argo Workflows, or Step Functions\n\n• Experience operating and troubleshooting production AI inference workloads across the model-to-GPU stack, including vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL, and GPU performance analysis",
-        "de": "NVIDIA verändert seit mehr als 25 Jahren Computergrafik, PC-Gaming und beschleunigtes Rechnen. Es ist ein einzigartiges Erbe der Innovation, das durch großartige Technologie angetrieben wird - und erstaunliche Menschen. Heute nutzen wir das unbegrenzte Potenzial der KI, um die nächste Ära des Computing zu definieren. Eine Ära, in der unsere GPU als Gehirn von Computern, Robotern und selbstfahrenden Autos fungiert, die die Welt verstehen können. Zu tun, was noch nie zuvor getan wurde, erfordert Vision, Innovation und die besten Talente der Welt. Als NVIDIAN werden Sie in eine vielfältige, unterstützende Umgebung eintauchen, in der jeder dazu inspiriert ist, seine beste Arbeit zu leisten. Treten Sie dem Team bei und sehen Sie, wie Sie die Welt nachhaltig beeinflussen können.\nNVIDIA treibt KI und Hochleistungs-Computing voran. DGX Cloud zielt darauf ab, eine vollständig verwaltete KI-Plattform für große Cloud-Anbieter bereitzustellen und KI-Workloads mithilfe einer leistungsstarken NVIDIA-Infrastruktur zu optimieren. Arbeiten Sie mit dem DGX Cloud-Team von NVIDIA als Senior Site Reliability Engineer zusammen, um leistungsstarke DGX Cloud-Cluster für KI-Forscher und Unternehmenskunden weltweit zu pflegen.\n\nWas du tun wirst:\n\n• Erstellen, Implementieren und Unterstützen von Betriebs- und Zuverlässigkeitsaspekten großer Kubernetes-Cluster mit Schwerpunkt auf skalierbarer Leistung, Echtzeitüberwachung, Protokollierung und Alarmierung\n\n• Definieren Sie SLOs / SLIs, überwachen Sie Fehlerbudgets und straffen Sie die Berichterstattung\n\n• Support-Services vor dem Start durch Systemerstellungsberatung, Entwicklung von Software-Tools, Plattformen und Frameworks, Kapazitätsmanagement und Launch Reviews\n\n• Pflegen Sie Services, sobald sie live sind, indem Sie Verfügbarkeit, Latenz und Gesamtzustand des Systems messen und überwachen\n\n• Betrieb und Optimierung von GPU-Workloads in AWS, GCP, Azure, OCI und privaten Clouds\n\n• Skalieren Sie Systeme nachhaltig durch Mechanismen wie Automatisierung und entwickeln Sie Systeme, indem Sie auf Veränderungen drängen, die die Zuverlässigkeit und Geschwindigkeit verbessern\n\n• Lead Triage und Root-Cause-Analyse von hochgradigen Vorfällen\n\n• Praxis ausgewogene Incident Response und schuldlose Postmortems\n\n• Teilnahme an der On-Call-Rotation zur Unterstützung von Produktionsdienstleistungen\n\nWas wir sehen müssen:\n\n• BS in Informatik oder verwandten technischen Bereich oder gleichwertige Erfahrung\n\n• 10+ Jahre Erfahrung im Betrieb von Produktionsdienstleistungen\n\n• Expertenwissen über Kubernetes Administration, Containerisierung und Microservices Architektur\n\n• Erfahrung mit Infrastruktur-Automatisierungstools (z.B. Terraform, Ansible, Chef, Puppet)\n\n• Kenntnisse in mindestens einer High-Level-Programmiersprache (z.B. Python, Go)\n\n• Vertiefte Kenntnisse von Linux-Betriebssystemen, Netzwerkgrundlagen (TCP/IP) und Cloud-Sicherheitsstandards\n\n• Kenntnisse der SRE-Prinzipien, einschließlich SLOs, SLIs, Fehlerbudgets und Incident-Handling\n\n• Erleben Sie das Erstellen und Betreiben umfassender Observability Stacks (Monitoring, Logging, Tracing) mit Tools wie OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk usw.\n\nMöglichkeiten, sich von der Masse abzuheben:\n\n• GPU-beschleunigte Cluster mit KubeVirt in Produktion\n\n• Anwendung von Generativ-KI-Techniken zur Verringerung der betrieblichen Arbeit\n\n• Erfahrung mit Workflow-Orchestrierungsplattformen wie Temporal, Cadence, Airflow, Argo Workflows oder Step Functions\n\n• Erleben Sie die Bedienung und Fehlerbehebung von AI-Inferenz-Workloads im gesamten Model-to-GPU-Stack, einschließlich vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL und GPU-Leistungsanalyse",
-        "fr": "NVIDIA transforme le graphisme informatique, le jeu PC et l'informatique accélérée depuis plus de 25 ans. C'est un héritage unique d'innovation qui est alimenté par de grandes technologies – et des gens incroyables. Aujourd'hui, nous utilisons le potentiel illimité de l'IA pour définir la prochaine ère de l'informatique. Une époque où notre GPU agit comme le cerveau d'ordinateurs, de robots et de voitures autonomes qui peuvent comprendre le monde. Faire ce qui n'a jamais été fait avant prend la vision, l'innovation, et le monde des meilleurs talents. En tant que NVIDIAN, vous serez immergé dans un environnement diversifié et solidaire où tout le monde est inspiré à faire son meilleur travail. Venez rejoindre l'équipe et voir comment vous pouvez avoir un impact durable sur le monde.\nNVIDIA conduit l'IA et l'informatique haute performance vers l'avant. DGX Cloud vise à fournir une plate-forme d'IA entièrement gérée sur les principaux fournisseurs de cloud, en optimisant la charge de travail d'IA en utilisant une infrastructure NVIDIA haute performance. Travailler avec l'équipe DGX Cloud de NVIDIA en tant qu'ingénieur principal de fiabilité du site pour maintenir des grappes DGX Cloud haute performance pour les chercheurs en AI et les clients d'entreprise dans le monde entier.\n\nCe que vous allez faire:\n\n• Construire, mettre en œuvre et soutenir les aspects opérationnels et de fiabilité des grandes grappes Kubernetes en mettant l'accent sur les performances à l'échelle, la surveillance en temps réel, l'enregistrement et l'alerte\n\n• Définir les ALS/ALS, surveiller les budgets d'erreurs et rationaliser les rapports\n\n• Services d'appui avant leur lancement par la création de systèmes, le développement d'outils logiciels, de plates-formes et de cadres, la gestion des capacités et les examens de lancement\n\n• Maintenir les services une fois qu'ils sont en vie en mesurant et en surveillant la disponibilité, la latence et la santé globale du système\n\n• Exploiter et optimiser les charges de travail du GPU sur les nuages AWS, GCP, Azure, OCI et privés\n\n• Systèmes d'échelle durable grâce à des mécanismes tels que l'automatisation et l'évolution des systèmes en poussant vers des changements qui améliorent la fiabilité et la vitesse\n\n• Triage du plomb et analyse des incidents de haute gravité à cause des racines\n\n• Pratiquer une réponse équilibrée aux incidents et des postmortems irréprochables\n\n• Participer à la rotation sur appel pour soutenir les services de production\n\nCe que nous devons voir :\n\n• BS en informatique ou dans un domaine technique connexe, ou expérience équivalente\n\n• 10 ans et plus d'expérience dans l'exploitation de services de production\n\n• Connaissances spécialisées de l'administration de Kubernetes, de la conteneurisation et de l'architecture des microservices\n\n• Expérience des outils d'automatisation de l'infrastructure (p. ex. Terraform, Ansible, Chef, Marionnette)\n\n• Compétence dans au moins un langage de programmation de haut niveau (p. ex. Python, Go)\n\n• Connaissance approfondie des systèmes d'exploitation Linux, des bases de réseau (TCP/IP) et des normes de sécurité en nuage\n\n• Connaissance approfondie des principes du SRE, englobant les ALS, les ALS, les budgets d'erreurs et la gestion des incidents\n\n• Expérimentez la construction et l'exploitation de piles d'observation complètes (surveillance, log, traçage) à l'aide d'outils comme OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Spunk, etc.\n\nDes façons de se démarquer de la foule :\n\n• Exploitation de grappes accélérées GPU avec KubeVirt en production\n\n• Application des techniques d'AI générative pour réduire le travail opérationnel\n\n• Expérience avec les plates-formes d'orchestration de workflow comme Temporal, Cadence, Airflow, Argo Workflows ou Step Functions\n\n• Expérimentez les charges de travail d'inférence AI de production dans la pile modèle-to-GPU, y compris vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL et GPU"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
-      "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:31.074Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Tecnologia / Semiconduttori",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "JR2021427",
-      "firstSeenAt": "2026-08-18T21:58:17.874Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch"
-        ]
-      },
-      "previousSlugs": [
-        "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch"
-      ],
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
           "unitText": "YEAR"
         }
       },
@@ -181,7 +107,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Research-Scientist--AI-RL-and-LLMs_JR2023706",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:30.392Z",
+      "crawledAt": "2026-10-08T21:27:36.503Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,15 +126,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2023706",
-      "firstSeenAt": "2026-08-26T10:03:51.795Z",
+      "previousSlugs": [
+        "research-scientist-ai-rl-and-llms-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "research-scientist-ai-rl-and-llms-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "research-scientist-ai-rl-and-llms-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-08-26T10:03:51.795Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -256,7 +182,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-and-AI-Network-Software-Architect_JR2022878",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:29.707Z",
+      "crawledAt": "2026-10-08T21:27:35.630Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -346,7 +272,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Solutions-Architect--Higher-Education-and-Research--Multimodal-and-Physical-AI_JR2024873",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:28.745Z",
+      "crawledAt": "2026-10-08T21:27:34.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -431,7 +357,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Supercomputing-and-Higher-Education-Account-Manager_JR2024073",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:27.168Z",
+      "crawledAt": "2026-10-08T21:27:33.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -450,15 +376,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2024073",
-      "firstSeenAt": "2026-09-10T23:10:49.063Z",
+      "previousSlugs": [
+        "senior-supercomputing-and-higher-education-account-manager-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-supercomputing-and-higher-education-account-manager-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-supercomputing-and-higher-education-account-manager-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-09-10T23:10:49.063Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -505,7 +431,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Developer_JR2008695",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:25.563Z",
+      "crawledAt": "2026-10-08T21:27:31.734Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,7 +523,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-AI-Cluster-Engineer_JR2018385",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:24.602Z",
+      "crawledAt": "2026-10-08T21:27:31.017Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -616,15 +542,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2018385",
-      "firstSeenAt": "2026-09-19T22:57:10.646Z",
+      "previousSlugs": [
+        "senior-hpc-ai-cluster-engineer-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-hpc-ai-cluster-engineer-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-hpc-ai-cluster-engineer-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-09-19T22:57:10.646Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -671,7 +597,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-GPU-Networking-Architect_JR2015083",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:12.708Z",
+      "crawledAt": "2026-10-08T21:27:23.488Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -690,15 +616,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2015083",
-      "firstSeenAt": "2026-07-03T22:25:10.473Z",
+      "previousSlugs": [
+        "senior-gpu-networking-architect-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-gpu-networking-architect-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-gpu-networking-architect-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-07-03T22:25:10.473Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -746,7 +672,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:05.000Z",
+      "crawledAt": "2026-10-08T21:27:18.056Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -765,15 +691,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2024606",
-      "firstSeenAt": "2026-09-28T21:20:11.877Z",
+      "previousSlugs": [
+        "phd-research-intern-autonomous-systems-and-physical-ai-research-2027-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "phd-research-intern-autonomous-systems-and-physical-ai-research-2027-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "phd-research-intern-autonomous-systems-and-physical-ai-research-2027-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-09-28T21:20:11.877Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -821,7 +747,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineering-Intern---Compute-Performance_JR2026775",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:02.300Z",
+      "crawledAt": "2026-10-08T21:27:15.552Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -840,15 +766,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2026775",
-      "firstSeenAt": "2026-09-30T21:18:07.989Z",
+      "previousSlugs": [
+        "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-09-30T21:18:07.989Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -896,7 +822,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/AI-Compiler-Formal-Verification-Intern_JR2027025",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:27:00.342Z",
+      "crawledAt": "2026-10-08T21:27:13.278Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,15 +841,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR2027025",
-      "firstSeenAt": "2026-10-05T09:20:47.433Z",
+      "previousSlugs": [
+        "ai-compiler-formal-verification-intern-nvidia-zurich-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ai-compiler-formal-verification-intern-nvidia-zurich-ch"
         ]
       },
-      "previousSlugs": [
-        "ai-compiler-formal-verification-intern-nvidia-zurich-ch"
-      ],
+      "firstSeenAt": "2026-10-05T09:20:47.433Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -938,6 +864,81 @@
         }
       },
       "postalCode": "8001"
+    },
+    {
+      "id": "nvidia-zurich-164fb2ea13ca",
+      "slug": "senior-site-reliability-ingegnere-dgx-cloud-nvidia-ufficio-zurich-zurich",
+      "slugByLocale": {
+        "it": "senior-site-reliability-ingegnere-dgx-cloud-nvidia-ufficio-zurich-zurich",
+        "en": "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch",
+        "de": "senior-site-reliability-ingenieur-dgx-cloud-nvidia-ufficio-zurich-zurich",
+        "fr": "senior-site-reliability-ingenieur-dgx-cloud-nvidia-ufficio-zurich-zurich"
+      },
+      "company": "NVIDIA (ufficio Zurich)",
+      "companyKey": "nvidia-zurich",
+      "companyDomain": "nvidia.com",
+      "title": "Senior Site Reliability Engineer, DGX Cloud",
+      "titleByLocale": {
+        "it": "Senior Site Reliability Ingegnere, DGX Cloud",
+        "en": "Senior Site Reliability Engineer, DGX Cloud",
+        "de": "Senior Site Reliability Ingenieur, DGX Cloud",
+        "fr": "Senior Site Reliability Ingénieur, DGX Cloud"
+      },
+      "description": "NVIDIA has been transforming computer graphics, PC gaming, and accelerated computing for more than 25 years. It’s a unique legacy of innovation that’s fueled by great technology—and amazing people. Today, we’re tapping into the unlimited potential of AI to define the next era of computing. An era in which our GPU acts as the brains of computers, robots, and self-driving cars that can understand the world. Doing what’s never been done before takes vision, innovation, and the world’s best talent. As an NVIDIAN, you’ll be immersed in a diverse, supportive environment where everyone is inspired to do their best work. Come join the team and see how you can make a lasting impact on the world.\nNVIDIA is driving AI and high-performance computing forward. DGX Cloud aims to deliver a fully managed AI platform on major cloud providers, optimizing AI workloads using high-performance NVIDIA infrastructure. Work with NVIDIA's DGX Cloud team as a Senior Site Reliability Engineer to maintain high-performance DGX Cloud clusters for AI researchers and enterprise clients worldwide.\n\nWhat you’ll be doing:\n\n• Build, implement and support operational and reliability aspects of large-scale Kubernetes clusters with focus on performance at scale, real time monitoring, logging and alerting\n\n• Define SLOs/SLIs, monitor error budgets, and streamline reporting\n\n• Support services before they launch through system creation consulting, developing software tools, platforms and frameworks, capacity management, and launch reviews\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health\n\n• Operate and optimize GPU workloads across AWS, GCP, Azure, OCI, and private clouds\n\n• Scale systems sustainably through mechanisms like automation and evolve systems by pushing for changes that improve reliability and velocity\n\n• Lead triage and root-cause analysis of high-severity incidents\n\n• Practice balanced incident response and blameless postmortems\n\n• Participate in on-call rotation to support production services\n\nWhat we need to see:\n\n• BS in Computer Science or related technical field, or equivalent experience\n\n• 10+ years of experience operating production services\n\n• Expert-level knowledge of Kubernetes administration, containerization, and microservices architecture\n\n• Experience with infrastructure automation tools (e.g., Terraform, Ansible, Chef, Puppet)\n\n• Proficiency in at least one high-level programming language (e.g., Python, Go)\n\n• In-depth knowledge of Linux operating systems, networking fundamentals (TCP/IP), and cloud security standards\n\n• Proficient knowledge of SRE principles, encompassing SLOs, SLIs, error budgets, and incident handling\n\n• Experience building and operating comprehensive observability stacks (monitoring, logging, tracing) using tools like OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, etc.\n\nWays to stand out from the crowd:\n\n• Operating GPU-accelerated clusters with KubeVirt in production\n\n• Applying generative-AI techniques to reduce operational toil\n\n• Experience with workflow orchestration platforms such as Temporal, Cadence, Airflow, Argo Workflows, or Step Functions\n\n• Experience operating and troubleshooting production AI inference workloads across the model-to-GPU stack, including vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL, and GPU performance analysis",
+      "descriptionByLocale": {
+        "it": "NVIDIA sta trasformando la grafica del computer, il gioco del PC e l'elaborazione accelerata da più di 25 anni. È un’eredità unica dell’innovazione alimentata da una grande tecnologia e da persone incredibili. Oggi, stiamo toccando il potenziale illimitato di AI per definire la prossima era di calcolo. Un'epoca in cui la nostra GPU agisce come il cervello di computer, robot e auto-driving automobili che possono comprendere il mondo. Fare ciò che non è mai stato fatto prima di prendere visione, innovazione e il miglior talento del mondo. Come NVIDIAN, sarete immersi in un ambiente diversificato e di supporto, dove tutti si ispirano a fare il loro lavoro migliore. Unisciti alla squadra e scopri come puoi avere un impatto duraturo sul mondo.\nNVIDIA sta guidando l'intelligenza artificiale e l'elaborazione ad alte prestazioni in avanti. DGX Cloud mira a fornire una piattaforma AI completamente gestita sui principali fornitori di cloud, ottimizzando i carichi di lavoro AI utilizzando infrastrutture NVIDIA ad alte prestazioni. Lavorare con il team DGX Cloud di NVIDIA come Senior Site Reliability Engineer per mantenere cluster DGX Cloud ad alte prestazioni per ricercatori e clienti aziendali AI in tutto il mondo.\n\nCosa farai:\n\n• Costruire, implementare e supportare gli aspetti operativi e di affidabilità dei cluster Kubernetes su larga scala con attenzione alle prestazioni in scala, monitoraggio in tempo reale, registrazione e allerta\n\n• Definire SLOs/SLIs, monitorare i bilanci degli errori e semplificare la reportistica\n\n• I servizi di supporto prima di lanciare attraverso la consulenza di creazione di sistema, lo sviluppo di strumenti software, piattaforme e quadri, la gestione della capacità, e lanciare recensioni\n\n• Mantenere i servizi una volta che sono in diretta misurando e monitorando la disponibilità, la latenza e la salute generale del sistema\n\n• Operare e ottimizzare i carichi di lavoro GPU attraverso AWS, GCP, Azure, OCI, e nuvole private\n\n• Sistemi scalabili in modo sostenibile attraverso meccanismi come l'automazione e sistemi evoluti, spingendo per cambiamenti che migliorano affidabilità e velocità\n\n• Piombo triage e radice-per l'analisi di incidenti ad alta gravità\n\n• Praticare la risposta di incidente equilibrata e postmortems incolpare\n\n• Partecipa a rotazione on-call per supportare i servizi di produzione\n\nCosa dobbiamo vedere:\n\n• BS in Informatica o campo tecnico correlato, o esperienza equivalente\n\n• 10+ anni di esperienza dei servizi di produzione operativa\n\n• Conoscenza a livello di esperti dell'amministrazione Kubernetes, della containerizzazione e dell'architettura dei microservizi\n\n• Esperienza con strumenti di automazione delle infrastrutture (ad esempio, Terraform, Ansible, Chef, Puppet)\n\n• Competenza in almeno un linguaggio di programmazione di alto livello (ad esempio, Python, Go)\n\n• Conoscenza approfondita dei sistemi operativi Linux, dei fondamenti di rete (TCP/IP) e degli standard di sicurezza cloud\n\n• Conoscenza competente dei principi SRE, che comprende SLO, SLI, budget di errore e gestione degli incidenti\n\n• Esperienza costruzione e funzionamento completo pile di osservabilità (monitoring, logging, tracciamento) utilizzando strumenti come OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, ecc.\n\nModi per distinguersi dalla folla:\n\n• cluster accelerati dalla GPU con KubeVirt in produzione\n\n• Applicare tecniche generative-AI per ridurre la fatica operativa\n\n• Esperienza con piattaforme di orchestrazione del flusso di lavoro come Temporal, Cadence, Airflow, Argo Workflows, o Step Functions\n\n• Sperimenta i carichi di lavoro di inferenza dell'IA attraverso lo stack modello-to-GPU, tra cui vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL e GPU analisi delle prestazioni",
+        "en": "NVIDIA has been transforming computer graphics, PC gaming, and accelerated computing for more than 25 years. It’s a unique legacy of innovation that’s fueled by great technology—and amazing people. Today, we’re tapping into the unlimited potential of AI to define the next era of computing. An era in which our GPU acts as the brains of computers, robots, and self-driving cars that can understand the world. Doing what’s never been done before takes vision, innovation, and the world’s best talent. As an NVIDIAN, you’ll be immersed in a diverse, supportive environment where everyone is inspired to do their best work. Come join the team and see how you can make a lasting impact on the world.\nNVIDIA is driving AI and high-performance computing forward. DGX Cloud aims to deliver a fully managed AI platform on major cloud providers, optimizing AI workloads using high-performance NVIDIA infrastructure. Work with NVIDIA's DGX Cloud team as a Senior Site Reliability Engineer to maintain high-performance DGX Cloud clusters for AI researchers and enterprise clients worldwide.\n\nWhat you’ll be doing:\n\n• Build, implement and support operational and reliability aspects of large-scale Kubernetes clusters with focus on performance at scale, real time monitoring, logging and alerting\n\n• Define SLOs/SLIs, monitor error budgets, and streamline reporting\n\n• Support services before they launch through system creation consulting, developing software tools, platforms and frameworks, capacity management, and launch reviews\n\n• Maintain services once they are live by measuring and monitoring availability, latency and overall system health\n\n• Operate and optimize GPU workloads across AWS, GCP, Azure, OCI, and private clouds\n\n• Scale systems sustainably through mechanisms like automation and evolve systems by pushing for changes that improve reliability and velocity\n\n• Lead triage and root-cause analysis of high-severity incidents\n\n• Practice balanced incident response and blameless postmortems\n\n• Participate in on-call rotation to support production services\n\nWhat we need to see:\n\n• BS in Computer Science or related technical field, or equivalent experience\n\n• 10+ years of experience operating production services\n\n• Expert-level knowledge of Kubernetes administration, containerization, and microservices architecture\n\n• Experience with infrastructure automation tools (e.g., Terraform, Ansible, Chef, Puppet)\n\n• Proficiency in at least one high-level programming language (e.g., Python, Go)\n\n• In-depth knowledge of Linux operating systems, networking fundamentals (TCP/IP), and cloud security standards\n\n• Proficient knowledge of SRE principles, encompassing SLOs, SLIs, error budgets, and incident handling\n\n• Experience building and operating comprehensive observability stacks (monitoring, logging, tracing) using tools like OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk, etc.\n\nWays to stand out from the crowd:\n\n• Operating GPU-accelerated clusters with KubeVirt in production\n\n• Applying generative-AI techniques to reduce operational toil\n\n• Experience with workflow orchestration platforms such as Temporal, Cadence, Airflow, Argo Workflows, or Step Functions\n\n• Experience operating and troubleshooting production AI inference workloads across the model-to-GPU stack, including vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL, and GPU performance analysis",
+        "de": "NVIDIA verändert seit mehr als 25 Jahren Computergrafik, PC-Gaming und beschleunigtes Rechnen. Es ist ein einzigartiges Erbe der Innovation, das durch großartige Technologie angetrieben wird - und erstaunliche Menschen. Heute nutzen wir das unbegrenzte Potenzial der KI, um die nächste Ära des Computing zu definieren. Eine Ära, in der unsere GPU als Gehirn von Computern, Robotern und selbstfahrenden Autos fungiert, die die Welt verstehen können. Zu tun, was noch nie zuvor getan wurde, erfordert Vision, Innovation und die besten Talente der Welt. Als NVIDIAN werden Sie in eine vielfältige, unterstützende Umgebung eintauchen, in der jeder dazu inspiriert ist, seine beste Arbeit zu leisten. Treten Sie dem Team bei und sehen Sie, wie Sie die Welt nachhaltig beeinflussen können.\nNVIDIA treibt KI und Hochleistungs-Computing voran. DGX Cloud zielt darauf ab, eine vollständig verwaltete KI-Plattform für große Cloud-Anbieter bereitzustellen und KI-Workloads mithilfe einer leistungsstarken NVIDIA-Infrastruktur zu optimieren. Arbeiten Sie mit dem DGX Cloud-Team von NVIDIA als Senior Site Reliability Engineer zusammen, um leistungsstarke DGX Cloud-Cluster für KI-Forscher und Unternehmenskunden weltweit zu pflegen.\n\nWas du tun wirst:\n\n• Erstellen, Implementieren und Unterstützen von Betriebs- und Zuverlässigkeitsaspekten großer Kubernetes-Cluster mit Schwerpunkt auf skalierbarer Leistung, Echtzeitüberwachung, Protokollierung und Alarmierung\n\n• Definieren Sie SLOs / SLIs, überwachen Sie Fehlerbudgets und straffen Sie die Berichterstattung\n\n• Support-Services vor dem Start durch Systemerstellungsberatung, Entwicklung von Software-Tools, Plattformen und Frameworks, Kapazitätsmanagement und Launch Reviews\n\n• Pflegen Sie Services, sobald sie live sind, indem Sie Verfügbarkeit, Latenz und Gesamtzustand des Systems messen und überwachen\n\n• Betrieb und Optimierung von GPU-Workloads in AWS, GCP, Azure, OCI und privaten Clouds\n\n• Skalieren Sie Systeme nachhaltig durch Mechanismen wie Automatisierung und entwickeln Sie Systeme, indem Sie auf Veränderungen drängen, die die Zuverlässigkeit und Geschwindigkeit verbessern\n\n• Lead Triage und Root-Cause-Analyse von hochgradigen Vorfällen\n\n• Praxis ausgewogene Incident Response und schuldlose Postmortems\n\n• Teilnahme an der On-Call-Rotation zur Unterstützung von Produktionsdienstleistungen\n\nWas wir sehen müssen:\n\n• BS in Informatik oder verwandten technischen Bereich oder gleichwertige Erfahrung\n\n• 10+ Jahre Erfahrung im Betrieb von Produktionsdienstleistungen\n\n• Expertenwissen über Kubernetes Administration, Containerisierung und Microservices Architektur\n\n• Erfahrung mit Infrastruktur-Automatisierungstools (z.B. Terraform, Ansible, Chef, Puppet)\n\n• Kenntnisse in mindestens einer High-Level-Programmiersprache (z.B. Python, Go)\n\n• Vertiefte Kenntnisse von Linux-Betriebssystemen, Netzwerkgrundlagen (TCP/IP) und Cloud-Sicherheitsstandards\n\n• Kenntnisse der SRE-Prinzipien, einschließlich SLOs, SLIs, Fehlerbudgets und Incident-Handling\n\n• Erleben Sie das Erstellen und Betreiben umfassender Observability Stacks (Monitoring, Logging, Tracing) mit Tools wie OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk usw.\n\nMöglichkeiten, sich von der Masse abzuheben:\n\n• GPU-beschleunigte Cluster mit KubeVirt in Produktion\n\n• Anwendung von Generativ-KI-Techniken zur Verringerung der betrieblichen Arbeit\n\n• Erfahrung mit Workflow-Orchestrierungsplattformen wie Temporal, Cadence, Airflow, Argo Workflows oder Step Functions\n\n• Erleben Sie die Bedienung und Fehlerbehebung von AI-Inferenz-Workloads im gesamten Model-to-GPU-Stack, einschließlich vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL und GPU-Leistungsanalyse",
+        "fr": "NVIDIA transforme le graphisme informatique, le jeu PC et l'informatique accélérée depuis plus de 25 ans. C'est un héritage unique d'innovation qui est alimenté par de grandes technologies – et des gens incroyables. Aujourd'hui, nous utilisons le potentiel illimité de l'IA pour définir la prochaine ère de l'informatique. Une époque où notre GPU agit comme le cerveau d'ordinateurs, de robots et de voitures autonomes qui peuvent comprendre le monde. Faire ce qui n'a jamais été fait avant prend la vision, l'innovation, et le monde des meilleurs talents. En tant que NVIDIAN, vous serez immergé dans un environnement diversifié et solidaire où tout le monde est inspiré à faire son meilleur travail. Venez rejoindre l'équipe et voir comment vous pouvez avoir un impact durable sur le monde.\nNVIDIA conduit l'IA et l'informatique haute performance vers l'avant. DGX Cloud vise à fournir une plate-forme d'IA entièrement gérée sur les principaux fournisseurs de cloud, en optimisant la charge de travail d'IA en utilisant une infrastructure NVIDIA haute performance. Travailler avec l'équipe DGX Cloud de NVIDIA en tant qu'ingénieur principal de fiabilité du site pour maintenir des grappes DGX Cloud haute performance pour les chercheurs en AI et les clients d'entreprise dans le monde entier.\n\nCe que vous allez faire:\n\n• Construire, mettre en œuvre et soutenir les aspects opérationnels et de fiabilité des grandes grappes Kubernetes en mettant l'accent sur les performances à l'échelle, la surveillance en temps réel, l'enregistrement et l'alerte\n\n• Définir les ALS/ALS, surveiller les budgets d'erreurs et rationaliser les rapports\n\n• Services d'appui avant leur lancement par la création de systèmes, le développement d'outils logiciels, de plates-formes et de cadres, la gestion des capacités et les examens de lancement\n\n• Maintenir les services une fois qu'ils sont en vie en mesurant et en surveillant la disponibilité, la latence et la santé globale du système\n\n• Exploiter et optimiser les charges de travail du GPU sur les nuages AWS, GCP, Azure, OCI et privés\n\n• Systèmes d'échelle durable grâce à des mécanismes tels que l'automatisation et l'évolution des systèmes en poussant vers des changements qui améliorent la fiabilité et la vitesse\n\n• Triage du plomb et analyse des incidents de haute gravité à cause des racines\n\n• Pratiquer une réponse équilibrée aux incidents et des postmortems irréprochables\n\n• Participer à la rotation sur appel pour soutenir les services de production\n\nCe que nous devons voir :\n\n• BS en informatique ou dans un domaine technique connexe, ou expérience équivalente\n\n• 10 ans et plus d'expérience dans l'exploitation de services de production\n\n• Connaissances spécialisées de l'administration de Kubernetes, de la conteneurisation et de l'architecture des microservices\n\n• Expérience des outils d'automatisation de l'infrastructure (p. ex. Terraform, Ansible, Chef, Marionnette)\n\n• Compétence dans au moins un langage de programmation de haut niveau (p. ex. Python, Go)\n\n• Connaissance approfondie des systèmes d'exploitation Linux, des bases de réseau (TCP/IP) et des normes de sécurité en nuage\n\n• Connaissance approfondie des principes du SRE, englobant les ALS, les ALS, les budgets d'erreurs et la gestion des incidents\n\n• Expérimentez la construction et l'exploitation de piles d'observation complètes (surveillance, log, traçage) à l'aide d'outils comme OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Spunk, etc.\n\nDes façons de se démarquer de la foule :\n\n• Exploitation de grappes accélérées GPU avec KubeVirt en production\n\n• Application des techniques d'AI générative pour réduire le travail opérationnel\n\n• Expérience avec les plates-formes d'orchestration de workflow comme Temporal, Cadence, Airflow, Argo Workflows ou Step Functions\n\n• Expérimentez les charges de travail d'inférence AI de production dans la pile modèle-to-GPU, y compris vLLM, SGLang, PyTorch, TensorRT-LLM, NVIDIA Dynamo, CUDA, NCCL et GPU"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
+      "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-08T09:27:31.074Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Tecnologia / Semiconduttori",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-20",
+      "postedDate": "2026-08-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "JR2021427",
+      "firstSeenAt": "2026-08-18T21:58:17.874Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-site-reliability-engineer-dgx-cloud-nvidia-zurich-ch"
+      ],
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "crawlerMissStreak": 1
     }
   ]
 }
