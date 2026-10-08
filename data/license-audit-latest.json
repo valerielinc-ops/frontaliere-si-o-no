@@ -1,16 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T23:28:59.726Z",
-  "commit": "7bbdc76734b14efe9f7329a1c41eecb61b6da509",
+  "generatedAt": "2026-10-08T00:13:43.268Z",
+  "commit": "ab476ef7d38eb459d8c49a07d4dbcd97981d6434",
   "mainRef": "origin/main",
   "refsInspected": [
     "origin/main",
-    "refs/audit/pr-12294",
-    "refs/audit/pr-12293",
+    "refs/audit/pr-12304",
+    "refs/audit/pr-12300",
     "refs/audit/pr-12292",
-    "refs/audit/pr-12286",
     "refs/audit/pr-12281",
-    "refs/audit/pr-12277",
     "refs/audit/pr-12251",
     "refs/audit/pr-12214"
   ],
@@ -83,8 +81,8 @@
       "counts": {
         "files": 11268,
         "published": 11112,
-        "ok": 3453,
-        "inferred": 7659,
+        "ok": 3455,
+        "inferred": 7657,
         "withoutRecord": 0,
         "unlicensed": 0,
         "orphan": 137,
@@ -93,11 +91,6 @@
         "unusedLogos": 19
       },
       "examples": [
-        {
-          "family": "blog",
-          "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-          "status": "inferred"
-        },
         {
           "family": "blog",
           "imageUrl": "/images/blog/13esima-avs-iva-nazionale.webp",
@@ -141,6 +134,11 @@
         {
           "family": "blog",
           "imageUrl": "/images/blog/a13-chiusure-mappo-minusio-2026.webp",
+          "status": "inferred"
+        },
+        {
+          "family": "blog",
+          "imageUrl": "/images/blog/a13-lumino-san-vittore-compensazione-ambientale.webp",
           "status": "inferred"
         }
       ],
@@ -358,7 +356,7 @@
       "threshold": "refs containing old marker = 0; only main and open-PR refs are inspected",
       "status": "pass",
       "counts": {
-        "refsInspected": 9,
+        "refsInspected": 7,
         "refsContainingMarker": 0,
         "markerObjectUnavailable": 0
       },
@@ -396,8 +394,8 @@
     "images": {
       "inventory": 11268,
       "statusCounts": {
-        "ok": 3453,
-        "inferred": 7659,
+        "ok": 3455,
+        "inferred": 7657,
         "orfano": 137,
         "inutilizzato": 19
       },
@@ -425,30 +423,27 @@
     "candidates": []
   },
   "alarm": {
-    "required": true,
+    "required": false,
     "title": "License audit: non-remediable publication violations",
-    "nonRemediableFailures": [
-      {
-        "kind": "article-hero",
-        "assetId": "139-frontalieri-ticino-special-olympics",
-        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
-      }
-    ]
+    "nonRemediableFailures": []
   },
   "actions": {
     "requested": 1,
     "selected": 1,
     "deferred": 0,
-    "generated": [],
-    "reused": [],
-    "failures": [
+    "generated": [
       {
         "kind": "article-hero",
+        "scope": "article-hero",
         "assetId": "139-frontalieri-ticino-special-olympics",
         "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
-        "error": "All image providers failed for 139-frontalieri-ticino-special-olympics: openai-codex (spawn codex ENOENT); gemini (Gemini image request failed with HTTP 429: {\"error\":{\"message\":\"Rate limit exceeded for model gemini-3.1-flash-image (limit: 0 input tokens per minute on Free Tier). Please upgrade your"
+        "provider": "openai-codex",
+        "sha256": "9c1a42de6d99ccbd86a1316bce850d8831d4c8a72eb1c499ad4660cbea99d019",
+        "localFile": ".cache/license-audit/article-hero/139-frontalieri-ticino-special-olympics.webp",
+        "forced": true
       }
-    ]
+    ],
+    "reused": [],
+    "failures": []
   }
 }

@@ -44,16 +44,22 @@
         }
       ],
       "proofLevel": 6,
-      "evidence": "inferred",
-      "recordFile": null,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/139-frontalieri-ticino-special-olympics.json",
       "inheritedFrom": null,
-      "action": "record-inferred",
+      "action": "generated",
       "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
       "priority": 1777,
       "verifiedAt": "2026-10-07",
       "provider": null,
       "currentlyPublished": true,
-      "status": "no-credit"
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "139-frontalieri-ticino-special-olympics",
+        "imageUrl": "/images/blog/139-frontalieri-ticino-special-olympics.webp",
+        "evidence": "generated-engine-record"
+      }
     },
     "13esima-avs-iva-nazionale": {
       "cover": "/images/blog/13esima-avs-iva-nazionale.webp",
