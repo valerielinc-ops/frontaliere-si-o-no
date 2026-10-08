@@ -99,6 +99,20 @@
       "decidedAt": "2026-10-04T11:15:12Z",
       "ref": "#11033, #10476, #10182",
       "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non classificano ogni token o linea per shape, ma validano dominio e contesto e gestiscono unknown, ambigui e non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
+      "outcome": "declined",
+      "decidedAt": "2026-10-08T12:10:56Z",
+      "ref": "#12331, #12286, #12264, #12232, #11732",
+      "reason": "Catch-all eterogeneo: retry di side effect, predicate localizzati, validazione di contratti e collisioni di identita' non formano una bug class preventiva unica; AGENTS.md #6 copre gia' sibling e invarianti condivisi."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-sends-every",
+      "outcome": "declined",
+      "decidedAt": "2026-10-08T12:10:56Z",
+      "ref": "#12238, #11340, #9948",
+      "reason": "Gia' coperto da AGENTS.md #6: non instradare ogni shape, valore non vuoto o errore verso lo stesso consumer/fallback; validare dominio, contesto e classe dell'errore e preservare unknown."
     }
   ]
 }
