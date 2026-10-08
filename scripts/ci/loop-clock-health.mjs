@@ -163,6 +163,25 @@ function listDispatchRuns(repository, workflow, limit, windowMinutes = LOOP_CLOC
   return rows;
 }
 
+const LOOP_CLOCK_TABLE_PATH = 'functions/src/loopClockTable.js';
+
+/**
+ * When the table last changed on main, in milliseconds. Read from the commit
+ * history of the repository that owns it: this script runs in a depth-1
+ * checkout, where git dates every file to HEAD. The repository merges by
+ * squash, so the committer date is the moment the change reached main.
+ */
+async function tableChangedAt(repository) {
+  const output = gh([
+    'api', '-X', 'GET', `repos/${repository}/commits`,
+    '-f', `path=${LOOP_CLOCK_TABLE_PATH}`, '-f', 'sha=main', '-f', 'per_page=1',
+    '--jq', '.[0].commit.committer.date',
+  ]);
+  const changedAt = Date.parse(output);
+  if (!Number.isFinite(changedAt)) throw new Error('table history response invalid');
+  return changedAt;
+}
+
 /** Count of the untriaged issues and the creation time of the oldest one. */
 function untriagedIssues(repository) {
   const output = gh([
@@ -228,8 +247,10 @@ function clockDownDescription({ stale, clockSeenSince }) {
  *  - `not_due`: a conditional entry whose condition is false;
  *  - `too_early`: nothing was owed yet, because the clock itself is younger
  *    than the threshold of the entry (first hours after a deploy: an entry
- *    every 240 minutes cannot have run yet) or because the oldest untriaged
- *    issue is. Neither opens nor resolves an issue;
+ *    every 240 minutes cannot have run yet), because the table changed less
+ *    than a threshold ago (an entry that has just joined a running clock), or
+ *    because the oldest untriaged issue is that young. Neither opens nor
+ *    resolves an issue;
  *  - `inconclusive`: the evidence could not be read to the start of the window.
  *
  * One fault, one issue: when no entry at all has a dispatch inside its
@@ -243,6 +264,7 @@ export async function runLoopClockHealth({
   repository,
   listRunsImpl = listDispatchRuns,
   untriagedIssuesImpl = untriagedIssues,
+  tableChangedAtImpl = tableChangedAt,
   createIssueImpl = createGithubIssue,
   resolveIssueImpl = resolveGithubIssue,
 } = {}) {
@@ -318,6 +340,21 @@ export async function runLoopClockHealth({
     if (oldest !== null && (clockSeenSince === null || oldest < clockSeenSince)) clockSeenSince = oldest;
   }
 
+  // Read once, and only when an entry of an established clock has no dispatch
+  // of its own. `null`: the history could not be read.
+  let tableChange;
+  const tableChangedSince = async () => {
+    if (tableChange === undefined) {
+      try {
+        const changedAt = Number(await tableChangedAtImpl(resolvedRepository));
+        tableChange = Number.isFinite(changedAt) ? changedAt : null;
+      } catch {
+        tableChange = null;
+      }
+    }
+    return tableChange;
+  };
+
   // 4. Verdicts, before any issue is touched: whether a stale entry gets its
   // own issue depends on what the other entries show.
   const judged = [];
@@ -343,6 +380,8 @@ export async function runLoopClockHealth({
       }
       let warmupSince = clockSeenSince;
       let warmupReason = 'clock_younger_than_threshold';
+      // A date declared in the entry counts first, and can lie ahead of the
+      // merge that carries it.
       if (Object.prototype.hasOwnProperty.call(entry, 'introducedAt')) {
         const introducedAt = Date.parse(String(entry.introducedAt ?? ''));
         if (!Number.isFinite(introducedAt)) {
@@ -353,6 +392,24 @@ export async function runLoopClockHealth({
         if (warmupSince !== null && introducedAt > warmupSince) {
           warmupSince = introducedAt;
           warmupReason = 'entry_younger_than_threshold';
+        }
+      }
+      // Declared or not, an entry is not owed a dispatch for longer than the
+      // table has carried it, and nothing in the table is older than its last
+      // change. That date is read from the history: `introducedAt` is
+      // optional, the second entry that joined the running clock came without
+      // it and was called stale eight minutes after its merge (#12284). No
+      // verdict of absence when the history cannot be read.
+      if (warmupSince !== null && ageMinutes(warmupSince) >= freshness.thresholdMinutes) {
+        const changedAt = await tableChangedSince();
+        if (changedAt === null) {
+          errors += 1;
+          results.push({ id: entry.id, state: 'inconclusive', reason: 'table_history_unavailable' });
+          continue;
+        }
+        if (changedAt > warmupSince) {
+          warmupSince = changedAt;
+          warmupReason = 'table_younger_than_threshold';
         }
       }
       if (warmupSince !== null && ageMinutes(warmupSince) < freshness.thresholdMinutes) {
@@ -409,6 +466,7 @@ export async function runLoopClockHealth({
   return {
     checkedAt: checkedAt.toISOString(),
     clockSeenSince: clockSeenSince === null ? null : new Date(clockSeenSince).toISOString(),
+    tableChangedAt: tableChange ? new Date(tableChange).toISOString() : null,
     clockDown,
     results,
     errors,
