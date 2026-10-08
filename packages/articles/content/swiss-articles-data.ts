@@ -26402,6 +26402,16 @@ const RAW_SWISS_ARTICLES_CHUNK_11: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'mercato-lavoro-ia-svizzera',
+    category: 'novita',
+    date: '2026-10-08T09:36:45.122Z',
+    image: '/images/blog/mercato-lavoro-svizzera-giugno-2026.webp',
+    hasCalculator: true,
+    articleType: 'news',
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 const RAW_SWISS_ARTICLES: Article[] = [

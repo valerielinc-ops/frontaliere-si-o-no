@@ -7910,6 +7910,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.crescita-lavoro-intelligenza-artificiale.title': 'AI job market: +32% of job postings in one year',
     'blog.article.crescita-lavoro-intelligenza-artificiale.excerpt': '## TL;DR - Nearly 5\'000 AI job postings between July 2025 and June 2026 - AI demand grows by 32% in one year - The public sector records the largest jump',
     'blog.article.crescita-lavoro-intelligenza-artificiale.imageAlt': 'Modern workstation with data analytics on screen in Lugano',
+    'blog.article.mercato-lavoro-ia-svizzera.title': 'Swiss AI job market: +32% in one year',
+    'blog.article.mercato-lavoro-ia-svizzera.excerpt': '## TL;DR - Nearly 5\'000 AI job postings between July 2025 and June 2026 - Demand grows by 32% in twelve months - Zurich accounts for 2\'181 postings, 45%',
+    'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Professionals collaborating in a modern office environment in Switzerland, with screens displaying AI-related data and code.',
 };
 
 export default blogMetaChEn;

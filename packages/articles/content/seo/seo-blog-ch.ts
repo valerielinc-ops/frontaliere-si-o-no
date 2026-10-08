@@ -99711,6 +99711,39 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-ia-svizzera': {
+    title: 'Mercato lavoro IA Svizzera: +32% in un anno | Frontaliere Ticino',
+    description: '## In breve - Quasi 5\'000 annunci IA tra luglio 2025 e giugno 2026 - La domanda cresce del 32% in dodici mesi - Zurigo concentra 2\'181 annunci, il 45%',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, anno, breve',
+    ogTitle: 'Mercato lavoro IA Svizzera: crescita del 32% in un anno',
+    ogDescription: '## In breve - Quasi 5\'000 annunci IA tra luglio 2025 e giugno 2026 - La domanda cresce del 32% in dodici mesi - Zurigo concentra 2\'181 annunci, il 45%',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-ia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato lavoro IA Svizzera: +32% in un anno",
+      "description": "## In breve - Quasi 5'000 annunci IA tra luglio 2025 e giugno 2026 - La domanda cresce del 32% in dodici mesi - Zurigo concentra 2'181 annunci, il 45%",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-svizzera-giugno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti che collaborano in un ambiente ufficio moderno in Svizzera, con schermi che mostrano dati e codice IA."
+      },
+      "datePublished": "2026-10-08T09:36:45+00:00",
+      "dateModified": "2026-10-08T09:36:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-ia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

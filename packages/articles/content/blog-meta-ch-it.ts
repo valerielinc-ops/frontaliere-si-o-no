@@ -7910,6 +7910,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.crescita-lavoro-intelligenza-artificiale.title': 'Mercato lavoro IA: +32% di annunci in un anno',
     'blog.article.crescita-lavoro-intelligenza-artificiale.excerpt': '## In breve - Quasi 5\'000 annunci IA tra luglio 2025 e giugno 2026 - La domanda IA cresce del 32% in un anno - Il settore pubblico registra il balzo maggiore',
     'blog.article.crescita-lavoro-intelligenza-artificiale.imageAlt': 'Postazione di lavoro moderna con analisi dati su schermo a Lugano',
+    'blog.article.mercato-lavoro-ia-svizzera.title': 'Mercato lavoro IA Svizzera: +32% in un anno',
+    'blog.article.mercato-lavoro-ia-svizzera.excerpt': '## In breve - Quasi 5\'000 annunci IA tra luglio 2025 e giugno 2026 - La domanda cresce del 32% in dodici mesi - Zurigo concentra 2\'181 annunci, il 45%',
+    'blog.article.mercato-lavoro-ia-svizzera.imageAlt': 'Professionisti che collaborano in un ambiente ufficio moderno in Svizzera, con schermi che mostrano dati e codice IA.',
 };
 
 export default blogMetaChIt;
