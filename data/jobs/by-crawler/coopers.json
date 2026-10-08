@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-07T21:32:39.876Z",
+  "assembledAt": "2026-10-08T09:26:34.100Z",
   "jobs": [
     {
       "id": "coopers-ab1752bb6b8f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:32:31.441Z",
+      "crawledAt": "2026-10-08T09:26:24.435Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -147,7 +147,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:30.520Z",
+      "crawledAt": "2026-10-08T09:26:23.496Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -212,7 +212,7 @@
       "title": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
       "titleByLocale": {
         "it": "Senior Fullstack Software Ingegnere - Java/Angular (m/w/d)",
-        "en": "Senior Fullstack Software Engineer - Java/Angular (m/f/d)",
+        "en": "Senior Fullstack Software Engineer - Java/Angular (m/w/d)",
         "de": "Senior Fullstack Software Ingenieur - Java/Angular (m/w/d)",
         "fr": "Senior Fullstack Software Ingénieur - Java/Angular (m/w/d)"
       },
@@ -228,7 +228,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:29.596Z",
+      "crawledAt": "2026-10-08T09:26:22.605Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "title": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
       "titleByLocale": {
         "it": "ICT System & Network Ingegnere 80 bis 100% (m/w/d)",
-        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 to 100% (m/f/d)",
+        "en": "ICT Infrastructure Engineer (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "de": "ICT Infrastructure Ingenieur (Microsoft & Network) 80 bis 100 % (m/w/d)",
         "fr": "ICT System & Network Ingénieur 80 bis 100% (m/w/d)"
       },
@@ -311,7 +311,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:28.668Z",
+      "crawledAt": "2026-10-08T09:26:21.630Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -402,7 +402,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:27.743Z",
+      "crawledAt": "2026-10-08T09:26:20.698Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
+        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -497,7 +497,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:26.793Z",
+      "crawledAt": "2026-10-08T09:26:19.813Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -568,6 +568,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T23:17:39.897Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -614,7 +615,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=90V2CZ",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:32:25.861Z",
+      "crawledAt": "2026-10-08T09:26:18.936Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -659,6 +660,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:29:35.824Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -705,7 +707,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:24.924Z",
+      "crawledAt": "2026-10-08T09:26:18.057Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -781,7 +783,7 @@
       "title": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
       "titleByLocale": {
         "it": "Solution Architetto D365 & Power Platform 80 – 100 % (m/w/d)",
-        "en": "Solution Architect D365 & Power Platform 80 – 100% (m/f/d)",
+        "en": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "de": "Solution Architect D365 & Power Platform 80 – 100 % (m/w/d)",
         "fr": "Solution Architecte D365 & Power Platform 80 – 100 % (m/w/d)"
       },
@@ -797,7 +799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:24.004Z",
+      "crawledAt": "2026-10-08T09:26:17.178Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -881,7 +883,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:23.064Z",
+      "crawledAt": "2026-10-08T09:26:16.280Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -986,7 +988,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:22.147Z",
+      "crawledAt": "2026-10-08T09:26:15.389Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1074,7 +1076,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:21.224Z",
+      "crawledAt": "2026-10-08T09:26:14.505Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1164,7 +1166,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:20.284Z",
+      "crawledAt": "2026-10-08T09:26:13.626Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1256,7 +1258,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:19.361Z",
+      "crawledAt": "2026-10-08T09:26:12.738Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1350,7 +1352,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:18.443Z",
+      "crawledAt": "2026-10-08T09:26:11.852Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1447,7 +1449,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:17.507Z",
+      "crawledAt": "2026-10-08T09:26:10.963Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1536,7 +1538,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:16.591Z",
+      "crawledAt": "2026-10-08T09:26:10.086Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1614,7 +1616,7 @@
       "title": "Senior Microsoft Power Platform Engineer – Security & Governance (m/w/d)",
       "titleByLocale": {
         "it": "Senior Microsoft Power Platform Ingegnere – Security & Governance (m/w/d)",
-        "en": "Senior Microsoft Power Platform Engineer – Security & Governance (m/f/d)",
+        "en": "Senior Microsoft Power Platform Engineer – Security & Governance (m/w/d)",
         "de": "Senior Microsoft Power Platform Ingenieur – Security & Governance (m/w/d)",
         "fr": "Senior Microsoft Power Platform Ingénieur – Security & Governance (m/w/d)"
       },
@@ -1630,7 +1632,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:15.671Z",
+      "crawledAt": "2026-10-08T09:26:09.209Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1697,7 +1699,7 @@
         "it": "Senior Procurement Professional – Automazione e tecnologia industriale (m/f/d)",
         "en": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)",
         "de": "Senior Procurement Professional – Automatisierung & Industrietechnik (m/w/d)",
-        "fr": "Professionnel principal de l'approvisionnement – Automatisation et technologie industrielle (h/f/d)"
+        "fr": "Senior Procurement Professional – Automation & Industrial Technology (m/f/d)"
       },
       "description": "For our client, we are looking for an experienced Senior Procurement Professional / Category Manager with a strong focus on Automation & Industrial Technology within a pharmaceutical manufacturing environment. The ideal candidate brings extensive experience in strategic procurement, category management, supplier management, and complex commercial negotiations, combined with a solid understanding of industrial automation technologies. The role involves developing and executing the Automation Procurement category strategy, managing key OEMs, technology suppliers, and system integrators, and leading sourcing activities for automation equipment, systems, software, services, and CAPEX projects. The successful candidate will work closely with Engineering, Manufacturing, Automation, IT/OT, Quality, Validation, and Supply Chain teams to optimize costs, manage supplier performance and risks, and ensure effective procurement throughout the automation lifecycle.\n\nStart date: 01.10.26\n\nEnd date : 30.09.27 (Option for extension)\n\nDuration: 1 year (with option to extend)\n\nWorkload: 100%\n\nLocation: Canton Valais\n\nYour Tasks:\n• Own and develop the Automation Procurement category strategy , aligned with business, engineering, manufacturing, and global procurement objectives.\n• Develop and implement sourcing strategies for automation equipment, systems, software, services, spare parts, maintenance, and lifecycle support.\n• Manage strategic relationships with automation OEMs, technology suppliers, system integrators, and service providers .\n• Lead supplier selection, qualification, negotiations, and contract management , including pricing, frameworks, licensing, maintenance, warranties, and commercial terms.\n• Analyze spend, supplier markets, and technology trends to identify cost optimization, standardization, and value-creation opportunities .\n• Partner closely with Engineering, Automation, Manufacturing, IT/OT, Quality, Validation, Supply Chain, and Project teams .\n• Lead procurement activities for CAPEX and manufacturing projects , from early design through sourcing, contracting, delivery, commissioning, and handover.\n• Support technical-commercial evaluations of automation solutions, considering technical requirements, validation, lifecycle costs, and project timelines .\n• Manage supplier performance and mitigate supply, commercial, lifecycle, and single-source risks .\n• Drive strategies for technology upgrades, obsolescence, modernization, and lifecycle management .\n\nYour Profile:\n• 10+ years of experience in Procurement , preferably in strategic procurement or category management.\n• Proven experience in supplier management, strategic sourcing, and commercial negotiations .\n• Experience working with SAP and SAP Ariba .\n• Experience managing stakeholders in a multinational environment .\n• Strong understanding of industrial automation and/or engineering-related procurement .\n• Experience in pharmaceutical/GMP environments is a strong advantage.\n• Educational background in Engineering, Procurement, Supply Chain, or a related field .\n• Fluent English ; German is a plus.\n\nJob profile\n• Life Sciences - Quality Management\n• Wallis\n• Contracting\n• Full Time\n• 01.10.26 - 30.09.27\n• Procurement, Supplier management, SAP, Negotiations, supply chain management, MES, Process control, PLC\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Modern workspace",
       "descriptionByLocale": {
@@ -1711,7 +1713,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:32:14.748Z",
+      "crawledAt": "2026-10-08T09:26:08.234Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1757,6 +1759,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:03:23.983Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1803,7 +1806,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:13.805Z",
+      "crawledAt": "2026-10-08T09:26:07.322Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1899,7 +1902,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:12.883Z",
+      "crawledAt": "2026-10-08T09:26:06.377Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1974,7 +1977,7 @@
       "title": "Senior ICT Infrastructure & Network Architect (m/w/d)",
       "titleByLocale": {
         "it": "Senior ICT Infrastructure & Network Architetto (m/w/d)",
-        "en": "Senior ICT Infrastructure & Network Architect (m/f/d)",
+        "en": "Senior ICT Infrastructure & Network Architect (m/w/d)",
         "de": "Senior ICT Infrastructure & Network Architect (m/w/d)",
         "fr": "Senior ICT Infrastructure & Network Architecte (m/w/d)"
       },
@@ -1990,7 +1993,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:11.957Z",
+      "crawledAt": "2026-10-08T09:26:05.491Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2084,7 +2087,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:11.013Z",
+      "crawledAt": "2026-10-08T09:26:04.603Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2160,7 +2163,7 @@
       "title": "Senior Project Management Officer (PMO) (m/w/d)",
       "titleByLocale": {
         "it": "Senior Project Management Officer (PMO) (m/f/d)",
-        "en": "Senior Project Management Officer (PMO) (m/f/d)",
+        "en": "Senior Project Management Officer (PMO) (m/w/d)",
         "de": "Senior Project Management Officer (PMO) (m/w/d)",
         "fr": "Agent principal de gestion de projet (AGP) (h/f/d)"
       },
@@ -2176,7 +2179,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:10.092Z",
+      "crawledAt": "2026-10-08T09:26:03.727Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2242,7 +2245,7 @@
       "title": "Senior ITSM & ServiceNow Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior ITSM & ServiceNow Ingegnere (m/w/d)",
-        "en": "Senior ITSM & ServiceNow Engineer (m/f/d)",
+        "en": "Senior ITSM & ServiceNow Engineer (m/w/d)",
         "de": "Senior ITSM & ServiceNow Ingenieur (m/w/d)",
         "fr": "Senior ITSM & ServiceNow Ingénieur (m/w/d)"
       },
@@ -2258,7 +2261,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:09.165Z",
+      "crawledAt": "2026-10-08T09:26:02.849Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2335,7 +2338,7 @@
       "title": "Senior Security & Encryption Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Security & Encryption Ingegnere (m/w/d)",
-        "en": "Senior Security & Encryption Engineer (m/f/d)",
+        "en": "Senior Security & Encryption Engineer (m/w/d)",
         "de": "Senior Security & Encryption Ingenieur (m/w/d)",
         "fr": "Senior Security & Encryption Ingénieur (m/w/d)"
       },
@@ -2351,7 +2354,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:08.219Z",
+      "crawledAt": "2026-10-08T09:26:01.965Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2446,7 +2449,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:07.260Z",
+      "crawledAt": "2026-10-08T09:26:01.085Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2510,7 +2513,7 @@
       "title": "Senior Infrastructure & Network Security Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Infrastructure & Network Security Ingegnere (m/w/d)",
-        "en": "Senior Infrastructure & Network Security Engineer (m/f/d)",
+        "en": "Senior Infrastructure & Network Security Engineer (m/w/d)",
         "de": "Senior Infrastructure & Network Security Ingenieur (m/w/d)",
         "fr": "Senior Infrastructure & Network Security Ingénieur (m/w/d)"
       },
@@ -2526,7 +2529,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:06.321Z",
+      "crawledAt": "2026-10-08T09:26:00.188Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2622,7 +2625,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:05.390Z",
+      "crawledAt": "2026-10-08T09:25:59.294Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2694,7 +2697,7 @@
       "title": "Senior IT Integration & DevOps Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior IT Integration & DevOps Ingegnere (m/w/d)",
-        "en": "Senior IT Integration & DevOps Engineer (m/f/d)",
+        "en": "Senior IT Integration & DevOps Engineer (m/w/d)",
         "de": "Senior IT Integration & DevOps Ingenieur (m/w/d)",
         "fr": "Senior IT Integration & DevOps Ingénieur (m/w/d)"
       },
@@ -2710,7 +2713,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:04.467Z",
+      "crawledAt": "2026-10-08T09:25:58.299Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2802,7 +2805,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:03.516Z",
+      "crawledAt": "2026-10-08T09:25:57.387Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2877,7 +2880,7 @@
       "title": "Senior Workplace, VDI & Application Lifecycle Engineers (m/w/d)",
       "titleByLocale": {
         "it": "Senior Workplace, VDI & Application Lifecycle Engineers (m/f/d)",
-        "en": "Senior Workplace, VDI & Application Lifecycle Engineers (m/f/d)",
+        "en": "Senior Workplace, VDI & Application Lifecycle Engineers (m/w/d)",
         "de": "Senior Workplace, VDI & Application Lifecycle Engineers (m/w/d)",
         "fr": "Ingénieurs principaux en milieu de travail, VDI et application cycle de vie (h/f/d)"
       },
@@ -2893,7 +2896,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:02.368Z",
+      "crawledAt": "2026-10-08T09:25:56.492Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2962,7 +2965,7 @@
       "title": "Senior Test & Collaboration Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Senior Test & Collaboration Ingegnere (m/w/d)",
-        "en": "Senior test and collaboration engineer (m/f/d)",
+        "en": "Senior Test & Collaboration Engineer (m/w/d)",
         "de": "Senior Test & Collaboration Ingenieur (m/w/d)",
         "fr": "Senior Test & Collaboration Ingénieur (m/w/d)"
       },
@@ -2978,7 +2981,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:01.452Z",
+      "crawledAt": "2026-10-08T09:25:55.606Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3056,7 +3059,7 @@
       "title": "Senior Product & Service Manager - Digital Workplace (m/w/d)",
       "titleByLocale": {
         "it": "Senior Product & Service Manager - Digital Workplace (m/f/d)",
-        "en": "Senior Product & Service Manager - Digital Workplace (m/f/d)",
+        "en": "Senior Product & Service Manager - Digital Workplace (m/w/d)",
         "de": "Senior Product & Service Manager - Digital Workplace (m/w/d)",
         "fr": "Gestionnaire principal de produits et de services - Milieu de travail numérique (h/f/d)"
       },
@@ -3072,7 +3075,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:32:00.528Z",
+      "crawledAt": "2026-10-08T09:25:54.692Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3153,7 +3156,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:59.607Z",
+      "crawledAt": "2026-10-08T09:25:53.810Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3231,7 +3234,7 @@
       "title": "Product Owner (m/w/d)",
       "titleByLocale": {
         "it": "Proprietario del prodotto (m/f/d)",
-        "en": "Product Owner (m/f/d)",
+        "en": "Product Owner (m/w/d)",
         "de": "Product Owner (m/w/d)",
         "fr": "Propriétaire du produit (h/f/d)"
       },
@@ -3247,7 +3250,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:58.682Z",
+      "crawledAt": "2026-10-08T09:25:52.924Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3293,6 +3296,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:50.522Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -3339,7 +3343,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:57.747Z",
+      "crawledAt": "2026-10-08T09:25:52.040Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3441,7 +3445,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:56.822Z",
+      "crawledAt": "2026-10-08T09:25:51.165Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -3532,7 +3536,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:55.902Z",
+      "crawledAt": "2026-10-08T09:25:50.256Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -3613,7 +3617,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:54.973Z",
+      "crawledAt": "2026-10-08T09:25:49.348Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3705,7 +3709,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:54.058Z",
+      "crawledAt": "2026-10-08T09:25:48.466Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3796,7 +3800,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:53.139Z",
+      "crawledAt": "2026-10-08T09:25:47.567Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3900,7 +3904,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:52.210Z",
+      "crawledAt": "2026-10-08T09:25:46.682Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3991,7 +3995,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:51.288Z",
+      "crawledAt": "2026-10-08T09:25:45.780Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4065,7 +4069,7 @@
       "companyDomain": "coopers.ch",
       "title": "M365 Senior System Administrator (m/w/d)",
       "titleByLocale": {
-        "it": "M365 Amministratore di sistema senior (m/f/d)",
+        "it": "M365 Senior System Administrator (m/w/d)",
         "en": "M365 Senior System Administrator (m/f/d)",
         "de": "M365 Senior System Administrator (m/w/d)",
         "fr": "M365 Administrateur principal du système (h/f/d)"
@@ -4082,7 +4086,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:50.367Z",
+      "crawledAt": "2026-10-08T09:25:44.895Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4129,6 +4133,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:20:58.084Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -4159,7 +4164,7 @@
       "title": "Senior IT Risk & Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Senior IT Risk & Governance Manager (m/f/d)",
-        "en": "Senior IT Risk & Governance Manager (m/f/d)",
+        "en": "Senior IT Risk & Governance Manager (m/w/d)",
         "de": "Senior IT Risk & Governance Manager (m/w/d)",
         "fr": "Gestionnaire principal des risques et de la gouvernance en TI (h/f/d)"
       },
@@ -4175,7 +4180,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:49.433Z",
+      "crawledAt": "2026-10-08T09:25:44.004Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4256,7 +4261,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:48.504Z",
+      "crawledAt": "2026-10-08T09:25:43.115Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4339,7 +4344,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:47.581Z",
+      "crawledAt": "2026-10-08T09:25:42.241Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4431,7 +4436,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:46.638Z",
+      "crawledAt": "2026-10-08T09:25:41.318Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4525,7 +4530,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:45.723Z",
+      "crawledAt": "2026-10-08T09:25:40.435Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4604,7 +4609,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:44.802Z",
+      "crawledAt": "2026-10-08T09:25:39.545Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -4694,7 +4699,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:43.879Z",
+      "crawledAt": "2026-10-08T09:25:38.662Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4759,7 +4764,7 @@
       "title": "Sales Manager Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile vendite Svizzera (m/f/d)",
-        "en": "Sales Manager Switzerland (m/f/d)",
+        "en": "Sales Manager Schweiz (m/w/d)",
         "de": "Sales Manager Schweiz (m/w/d)",
         "fr": "Directeur des ventes Suisse (h/f/d)"
       },
@@ -4775,7 +4780,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:42.953Z",
+      "crawledAt": "2026-10-08T09:25:37.779Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4819,6 +4824,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:33.293Z",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -4851,7 +4857,7 @@
         "it": "Delivery Direttore - Data Lakehouse & AI Platform (m/f/d)",
         "en": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)",
         "de": "Delivery Direktor - Data Lakehouse & AI Platform (m/f/d)",
-        "fr": "Directeur de livraison - Data Lakehouse & AI Platform (h/f/d)"
+        "fr": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)"
       },
       "description": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
       "descriptionByLocale": {
@@ -4865,7 +4871,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:41.999Z",
+      "crawledAt": "2026-10-08T09:25:36.851Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4909,6 +4915,7 @@
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:32.330Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -4955,7 +4962,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:41.072Z",
+      "crawledAt": "2026-10-08T09:25:35.960Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5040,7 +5047,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:40.147Z",
+      "crawledAt": "2026-10-08T09:25:35.076Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5122,7 +5129,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=JH10D5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:39.219Z",
+      "crawledAt": "2026-10-08T09:25:34.188Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5204,7 +5211,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C88S5E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:38.290Z",
+      "crawledAt": "2026-10-08T09:25:33.310Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5279,7 +5286,7 @@
       "title": "Quality System Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Quality System Specialista (m/w/d)",
-        "en": "Quality Systems Specialist (m/f/d)",
+        "en": "Quality System Specialist (m/w/d)",
         "de": "Qualität System Spezialist (m/w/d)",
         "fr": "Qualité System Spécialiste (m/w/d)"
       },
@@ -5295,7 +5302,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=071DXL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:37.335Z",
+      "crawledAt": "2026-10-08T09:25:32.408Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5381,7 +5388,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4U31NG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:31:36.387Z",
+      "crawledAt": "2026-10-08T09:25:31.505Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5440,10 +5447,10 @@
     },
     {
       "id": "coopers-5ff8d5c16b29",
-      "slug": "senior-specialist-quality-assurance-m-f-d-coopers-aargau",
+      "slug": "senior-specialista-quality-assurance-m-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
+        "it": "senior-specialista-quality-assurance-m-f-d-coopers-group-ag-aargau",
         "en": "senior-specialist-quality-assurance-m-f-d-coopers-aargau",
-        "it": "senior-specialist-quality-assurance-m-f-d-coopers-aargau",
         "de": "senior-spezialist-qualitat-assurance-m-f-d-coopers-group-ag-aargau",
         "fr": "senior-specialiste-qualite-assurance-m-f-d-coopers-group-ag-aargau"
       },
@@ -5452,15 +5459,15 @@
       "companyDomain": "coopers.ch",
       "title": "Senior Specialist Quality Assurance (m/f/d)",
       "titleByLocale": {
-        "en": "Senior Specialist Quality Assurance (m/f/d)",
         "it": "Senior Specialista Quality Assurance (m/f/d)",
+        "en": "Senior Specialist Quality Assurance (m/f/d)",
         "de": "Senior Spezialist Qualität Assurance (m/f/d)",
         "fr": "Senior Spécialiste Qualité Assurance (m/f/d)"
       },
       "description": "For our client, we are looking for a Senior QA Specialist responsible for QC microbiology ensuring adherence to standards and compliance with GMP regulation in DPS.\n\nLocation: Stein\n\nContract duration: 6 months\n\nWorkload: 60%\n\nResponsibilities:\n• Collaborate closely with cross-functional teams to work on growth projects as per site quality objectives and strategic goals. Ensure that project timelines and deliverables under the responsibility of QA/QC are fulfilled.\n• Provides guidance and quality oversight for QC.\n• Support growth projects and act as primary point of contact in QA for implementation of gLIMS (laboratory execution system).\n• Represents the QA support and guidance to the Quality Control (QC) department and ensures that GMP requirements are met and SOPs are followed.\n• Review and Approval of GMP relevant documents from quality control, including SOPs with focus on implementation of gLIMS.\n• Supervise and execute GMP compliance activities like changes (CRs), document management, non-conformities (DRs).\n• Write or revise SOPs in the area of expertise and be the owner of these documents.\n• Support QA for QC raw data review, as deemed required.\n• Meet internal and external guidelines regarding quality and safety (quality manuals, regulatory GMP guidelines, health authority guidance, SOPs, HSE, etc.)\n• Management and reporting of KPIs.\n• Perform/support inspections and audits as required.\n\nRequirements:\n• 7+ experience in projects in implementation of laboratory execution systems, within a quality-focused environment.\n• Strong background in cGMP regulations, including US, European and Japanese Pharmacopoeia.\n• Very good knowledge in laboratories/laboratory equipment/software qualification/validation.\n• Experience in interaction with health authorities (FDA, Swissmedic, etc.).\n• Project management certification would be considered as advantage (Green/Black Belt etc.).\n\nJob profile\n• Life Sciences - Quality Management\n• Aargau\n• Contracting\n• Part Time, 60%\n• Immediately - the contract will last 6 months\n• Quality Assurance, Quality Control, GMP",
       "descriptionByLocale": {
-        "en": "For our client, we are looking for a Senior QA Specialist responsible for QC microbiology ensuring adherence to standards and compliance with GMP regulation in DPS.\n\nLocation: Stein\n\nContract duration: 6 months\n\nWorkload: 60%\n\nResponsibilities:\n• Collaborate closely with cross-functional teams to work on growth projects as per site quality objectives and strategic goals. Ensure that project timelines and deliverables under the responsibility of QA/QC are fulfilled.\n• Provides guidance and quality oversight for QC.\n• Support growth projects and act as primary point of contact in QA for implementation of gLIMS (laboratory execution system).\n• Represents the QA support and guidance to the Quality Control (QC) department and ensures that GMP requirements are met and SOPs are followed.\n• Review and Approval of GMP relevant documents from quality control, including SOPs with focus on implementation of gLIMS.\n• Supervise and execute GMP compliance activities like changes (CRs), document management, non-conformities (DRs).\n• Write or revise SOPs in the area of expertise and be the owner of these documents.\n• Support QA for QC raw data review, as deemed required.\n• Meet internal and external guidelines regarding quality and safety (quality manuals, regulatory GMP guidelines, health authority guidance, SOPs, HSE, etc.)\n• Management and reporting of KPIs.\n• Perform/support inspections and audits as required.\n\nRequirements:\n• 7+ experience in projects in implementation of laboratory execution systems, within a quality-focused environment.\n• Strong background in cGMP regulations, including US, European and Japanese Pharmacopoeia.\n• Very good knowledge in laboratories/laboratory equipment/software qualification/validation.\n• Experience in interaction with health authorities (FDA, Swissmedic, etc.).\n• Project management certification would be considered as advantage (Green/Black Belt etc.).\n\nJob profile\n• Life Sciences - Quality Management\n• Aargau\n• Contracting\n• Part Time, 60%\n• Immediately - the contract will last 6 months\n• Quality Assurance, Quality Control, GMP",
         "it": "Per il nostro cliente, stiamo cercando uno specialista senior QA responsabile della microbiologia QC assicurando l'aderenza agli standard e la conformità alla normativa GMP in DPS.\n\nPosizione: Stein\n\nDurata del contratto: 6 mesi\n\nCarico di lavoro: 60%\n\nResponsabilità:\n• Collaborare a stretto contatto con team interfunzionali per lavorare su progetti di crescita come per obiettivi di qualità del sito e obiettivi strategici. Assicurarsi che i tempi del progetto e i consegnabili sotto la responsabilità di QA/QC siano soddisfatti.\n• Fornisce guida e supervisione di qualità per QC.\n• Sostenere i progetti di crescita e agire come punto primario di contatto in QA per l'attuazione di gLIMS (sistema di esecuzione di laboratorio).\n• Rappresenta il supporto e la guida QA al reparto Controllo Qualità (QC) e assicura che i requisiti GMP siano soddisfatti e le SOP sono seguite.\n• Recensione e approvazione di documenti rilevanti GMP da controllo di qualità, tra cui SOP con focus sull'implementazione di gLIMS.\n• Superviare ed eseguire attività di conformità GMP come modifiche (CR), gestione dei documenti, non conformità (DR).\n• Scrivere o rivedere le SOP nel settore delle competenze ed essere il proprietario di questi documenti.\n• Supporto QA per la revisione dei dati grezzi QC, come ritenuto necessario.\n• Soddisfare le linee guida interne ed esterne in materia di qualità e sicurezza (manuali di qualità, linee guida GMP regolamentari, guida dell'autorità sanitaria, SOP, HSE, ecc.)\n• Gestione e reporting dei KPI.\n• Eseguire / sostenere ispezioni e audit come richiesto.\n\nRequisiti:\n• 7+ esperienza nei progetti di realizzazione di sistemi di esecuzione di laboratorio, all'interno di un ambiente focalizzato sulla qualità.\n• Forte sfondo nelle normative cGMP, tra cui US, European e Japanese Pharmacopoeia.\n• Ottima conoscenza nei laboratori/attrezzatura di laboratorio/ qualificazione/validazione del software.\n• Esperienza in interazione con le autorità sanitarie (FDA, Swissmedic, ecc.).\n• La certificazione di gestione del progetto sarebbe considerata vantaggio (Green/Black Belt ecc.).\n\nProfilo del lavoro\n• Scienze della vita - Gestione della qualità\n• Aargau\n• Contratti\n• Tempo parziale, 60%\n• Immediatamente - il contratto durerà 6 mesi\n• Garanzia di qualità, controllo qualità, GMP",
+        "en": "For our client, we are looking for a Senior QA Specialist responsible for QC microbiology ensuring adherence to standards and compliance with GMP regulation in DPS.\n\nLocation: Stein\n\nContract duration: 6 months\n\nWorkload: 60%\n\nResponsibilities:\n• Collaborate closely with cross-functional teams to work on growth projects as per site quality objectives and strategic goals. Ensure that project timelines and deliverables under the responsibility of QA/QC are fulfilled.\n• Provides guidance and quality oversight for QC.\n• Support growth projects and act as primary point of contact in QA for implementation of gLIMS (laboratory execution system).\n• Represents the QA support and guidance to the Quality Control (QC) department and ensures that GMP requirements are met and SOPs are followed.\n• Review and Approval of GMP relevant documents from quality control, including SOPs with focus on implementation of gLIMS.\n• Supervise and execute GMP compliance activities like changes (CRs), document management, non-conformities (DRs).\n• Write or revise SOPs in the area of expertise and be the owner of these documents.\n• Support QA for QC raw data review, as deemed required.\n• Meet internal and external guidelines regarding quality and safety (quality manuals, regulatory GMP guidelines, health authority guidance, SOPs, HSE, etc.)\n• Management and reporting of KPIs.\n• Perform/support inspections and audits as required.\n\nRequirements:\n• 7+ experience in projects in implementation of laboratory execution systems, within a quality-focused environment.\n• Strong background in cGMP regulations, including US, European and Japanese Pharmacopoeia.\n• Very good knowledge in laboratories/laboratory equipment/software qualification/validation.\n• Experience in interaction with health authorities (FDA, Swissmedic, etc.).\n• Project management certification would be considered as advantage (Green/Black Belt etc.).\n\nJob profile\n• Life Sciences - Quality Management\n• Aargau\n• Contracting\n• Part Time, 60%\n• Immediately - the contract will last 6 months\n• Quality Assurance, Quality Control, GMP",
         "de": "Für unseren Kunden suchen wir einen Senior QA Specialist, der für die QC-Mikrobiologie verantwortlich ist und die Einhaltung der Standards und die Einhaltung der GMP-Vorschriften in DPS gewährleistet.\n\nStandort: Stein\n\nVertragslaufzeit: 6 Monate\n\nWorkload: 60%\n\nZuständigkeiten:\n• Arbeiten Sie eng mit funktionsübergreifenden Teams zusammen, um an Wachstumsprojekten gemäß den Qualitätszielen und strategischen Zielen des Standorts zu arbeiten. Gewährleistung, dass die Projektzeitpläne und Ergebnisse unter der Verantwortung von QA/QC erfüllt werden.\n• Bietet Anleitung und Qualitätsaufsicht für QC.\n• Unterstützen Sie Wachstumsprojekte und fungieren Sie als primärer Ansprechpartner in QA für die Implementierung von gLIMS (Labor Execution System).\n• Stellt die QA-Unterstützung und Anleitung für die Qualitätskontrolle (QC) dar und stellt sicher, dass die GMP-Anforderungen erfüllt und SOPs befolgt werden.\n• Überprüfung und Genehmigung von GMP-relevanten Dokumenten aus der Qualitätskontrolle, einschließlich SOPs mit Schwerpunkt auf der Implementierung von gLIMS.\n• Überwachung und Durchführung von GMP-Compliance-Aktivitäten wie Änderungen (CRs), Dokumentenmanagement, Nichtkonformitäten (DRs).\n• Schreiben oder überarbeiten Sie SOPs im Fachbereich und seien Sie Eigentümer dieser Dokumente.\n• Unterstützung von QA für die QC-Rohdatenüberprüfung, wie es für erforderlich gehalten wird.\n• Erfüllung interner und externer Richtlinien in Bezug auf Qualität und Sicherheit (Qualitätshandbücher, regulatorische GMP-Richtlinien, Leitlinien der Gesundheitsbehörden, SOPs, HSE usw.)\n• Verwaltung und Berichterstattung über KPIs.\n• Durchführung / Unterstützung von Inspektionen und Audits nach Bedarf.\n\nAnforderungen:\n• 7+ Erfahrung in Projekten bei der Implementierung von Laborausführungssystemen in einer qualitätsorientierten Umgebung.\n• Starker Hintergrund in cGMP-Vorschriften, einschließlich US-amerikanischer, europäischer und japanischer Pharmakopöen.\n• Sehr gute Kenntnisse in Laboratorien / Laborausrüstung / Softwarequalifikation / Validierung.\n• Erfahrung im Umgang mit Gesundheitsbehörden (FDA, Swissmedic, etc.).\n• Projektmanagement-Zertifizierung würde als Vorteil angesehen werden (Green/Black Belt etc.).\n\nStellenprofil\n• Life Sciences - Qualitätsmanagement\n• Aargau\n• Vertrag\n• Teilzeit, 60%\n• Sofort - der Vertrag dauert 6 Monate\n• Qualitätssicherung, Qualitätskontrolle, GMP",
         "fr": "Pour notre client, nous sommes à la recherche d'un spécialiste principal de l'AQ responsable de la microbiologie QC assurant le respect des normes et de la réglementation des BPF dans le DPS.\n\nLieu: Stein\n\nDurée du contrat : 6 mois\n\nCharge de travail: 60%\n\nResponsabilités :\n• Collaborer étroitement avec les équipes interfonctionnelles pour travailler sur des projets de croissance selon les objectifs de qualité du site et les buts stratégiques. Veiller à ce que les échéances et les produits livrables du projet sous la responsabilité de l'AQ/CQ soient respectés.\n• Fournit des conseils et une surveillance de la qualité pour le QC.\n• Soutenir les projets de croissance et agir comme point de contact principal dans l'AQ pour la mise en œuvre de gLIMS (système d'exécution en laboratoire).\n• Représente le soutien et l'orientation en matière d'AQ au ministère du Contrôle de la qualité (CQ) et veille à ce que les exigences en matière de BPF soient respectées et que les PON soient respectées.\n• Examen et approbation des documents pertinents des BPF provenant du contrôle de la qualité, y compris les PON, en mettant l'accent sur la mise en oeuvre du SGGI g.\n• Superviser et exécuter les activités de conformité aux BPF comme les changements (RC), la gestion des documents, les non-conformités (DR).\n• Rédiger ou réviser les SOP dans le domaine de l'expertise et être le propriétaire de ces documents.\n• Appuyer l'AQ pour l'examen des données brutes du CQ, au besoin.\n• Respecter les lignes directrices internes et externes en matière de qualité et de sécurité (manuels de qualité, lignes directrices réglementaires sur les BPF, directives des autorités sanitaires, SOP, SSE, etc.)\n• Gestion et établissement de rapports sur les ICR.\n• Effectuer/soutenir des inspections et des vérifications au besoin.\n\nExigences:\n• 7+ expérience dans des projets de mise en œuvre de systèmes d'exécution en laboratoire, dans un environnement axé sur la qualité.\n• Un contexte solide dans les règlements sur les GMPc, y compris la pharmacopée américaine, européenne et japonaise.\n• Très bonne connaissance dans les laboratoires/matériel de laboratoire/qualification/validation des logiciels.\n• Expérience en interaction avec les autorités sanitaires (FDA, Swissmedic, etc.).\n• La certification de gestion de projet serait considérée comme un avantage (ceinture verte/noire, etc.).\n\nProfil d'emploi\n• Sciences de la vie - Gestion de la qualité\n• Argovie\n• Contrats\n• Temps partiel, 60%\n• Immédiatement - le contrat durera 6 mois\n• Assurance de la qualité, contrôle de la qualité, BPF"
       },
@@ -5469,7 +5476,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OBI201",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:35.467Z",
+      "crawledAt": "2026-10-08T09:25:30.614Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5496,13 +5503,21 @@
       "requirementsByLocale": {
         "en": [
           "Life Sciences - Quality Management",
-          "Aargau",
           "Contracting",
           "Part Time, 60%",
           "Immediately - the contract will last 6 months",
           "Quality Assurance, Quality Control, GMP"
         ]
       },
+      "firstSeenAt": "2026-10-07T21:31:35.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-specialist-quality-assurance-m-f-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "senior-specialist-quality-assurance-m-f-d-coopers-aargau"
+      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -5516,8 +5531,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-10-07T21:31:35.467Z"
+      "postalCode": "5000"
     },
     {
       "id": "coopers-4321e9622ab0",
@@ -5550,7 +5564,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3F2NK1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-07T21:31:34.544Z",
+      "crawledAt": "2026-10-08T09:25:29.730Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5705,7 +5719,7 @@
         }
       },
       "postalCode": "1950",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-5a6ab26c279e",
@@ -5796,7 +5810,7 @@
         }
       },
       "postalCode": "5000",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
