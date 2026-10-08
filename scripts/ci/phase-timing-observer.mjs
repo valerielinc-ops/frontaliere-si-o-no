@@ -13,6 +13,9 @@ import fs from 'node:fs';
 import { positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 export const PHASE_TIMING_THRESHOLD = 1.3;
+export const PHASE_TIMING_SPREAD_CAP = 1.6;
+export const PHASE_TIMING_MATERIAL_SHARE = 0.05;
+export const PHASE_TIMING_BASELINE_WINDOW = 12;
 export const MIN_HISTORY_SAMPLES = 3;
 export const MAX_PHASE_ROWS = 25;
 // Tre run verdi complete rendono una singola oscillazione insufficiente per
@@ -60,45 +63,132 @@ export function parseBuildProfileHistory(jsonl, locale) {
   // Older rows predate the explicit outcome field. Do not guess that a
   // cancelled or failed leg was a successful baseline; three new green
   // rows establish the advisory median after this observer lands.
-  return parseBuildProfileRows(jsonl).filter((row) => row.locale === locale && row.build_status === 'success');
+  return successfulProfileRows(parseBuildProfileRows(jsonl), locale);
+}
+
+function quantile(values, probability) {
+  const sorted = values.filter(Number.isFinite).sort((a, b) => a - b);
+  if (sorted.length === 0) return null;
+  const index = (sorted.length - 1) * probability;
+  const lower = Math.floor(index);
+  const upper = Math.ceil(index);
+  return sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
 }
 
 function median(values) {
-  const sorted = values.filter(Number.isFinite).sort((a, b) => a - b);
-  if (sorted.length === 0) return null;
-  const middle = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 1
-    ? sorted[middle]
-    : (sorted[middle - 1] + sorted[middle]) / 2;
+  return quantile(values, 0.5);
 }
 
-export function observePhaseTimings({ log, history, locale, threshold = PHASE_TIMING_THRESHOLD, minSamples = MIN_HISTORY_SAMPLES }) {
-  const current = parsePhaseMarkers(log);
-  const historyRows = parseBuildProfileHistory(history, locale);
-  const historyByMarker = new Map();
-  for (const row of historyRows) {
-    for (const phase of row.phases) {
-      const ms = Number(phase?.ms);
-      if (typeof phase?.marker !== 'string' || !Number.isFinite(ms) || ms < 0) continue;
-      const values = historyByMarker.get(phase.marker) ?? [];
-      values.push(ms / 1000);
-      historyByMarker.set(phase.marker, values);
-    }
+function successfulProfileRows(rows, locale) {
+  return rows
+    .filter((row) => row.locale === locale
+      && row.build_status === 'success'
+      && Array.isArray(row.phases)
+      && row.phases.length > 0
+      && normalizeRunId(row.run_id))
+    .sort((a, b) => compareRunIds(String(a.run_id), String(b.run_id)));
+}
+
+function baselineRowsBeforePrevious(historyRows, baselineWindow) {
+  const previousIndex = historyRows.length - 1;
+  if (previousIndex < 0) return [];
+  return historyRows.slice(Math.max(0, previousIndex - baselineWindow), previousIndex);
+}
+
+function evaluatePhaseTimings({
+  currentPhases,
+  previousPhases,
+  baselineRows,
+  threshold,
+  minSamples,
+}) {
+  const baselineByMarker = new Map();
+  const sampleCountByMarker = new Map();
+  for (const phase of currentPhases) {
+    const samples = baselineRows
+      .map((row) => phaseMap(row)?.get(phase.marker))
+      .filter((ms) => Number.isFinite(ms))
+      .map((ms) => ms / 1000);
+    sampleCountByMarker.set(phase.marker, samples.length);
+    if (samples.length < minSamples) continue;
+    baselineByMarker.set(phase.marker, {
+      median: median(samples),
+      p90: quantile(samples, 0.9),
+      samples: samples.length,
+    });
   }
 
-  const rows = current.map((phase) => {
+  const materialityBaseline = [...baselineByMarker.values()]
+    .reduce((total, baseline) => total + baseline.median, 0);
+  const materialityThreshold = materialityBaseline * PHASE_TIMING_MATERIAL_SHARE;
+
+  return currentPhases.map((phase) => {
     const seconds = phase.ms / 1000;
-    const samples = historyByMarker.get(phase.marker) ?? [];
-    const baseline = samples.length >= minSamples ? median(samples) : null;
-    const deltaPct = baseline && baseline > 0 ? ((seconds / baseline) - 1) * 100 : null;
+    const baseline = baselineByMarker.get(phase.marker);
+    const previousMs = previousPhases?.get(phase.marker);
+    const previousSeconds = Number.isFinite(previousMs) ? previousMs / 1000 : null;
+    const thresholdValue = baseline === undefined
+      ? null
+      : Math.max(
+        baseline.median * threshold,
+        Math.min(baseline.p90, baseline.median * PHASE_TIMING_SPREAD_CAP),
+      );
+    const excess = baseline === undefined ? null : seconds - baseline.median;
+    const exceedsThreshold = thresholdValue !== null && seconds > thresholdValue;
+    const previousExceedsThreshold = thresholdValue !== null
+      && previousSeconds !== null
+      && previousSeconds > thresholdValue;
+    const material = baseline !== undefined && excess >= materialityThreshold;
+    const regression = exceedsThreshold && previousExceedsThreshold && material;
+    let status;
+    if (baseline === undefined) {
+      status = 'baseline insufficiente';
+    } else if (regression) {
+      status = '⚠️ regressione confermata';
+    } else if (exceedsThreshold && !material) {
+      status = 'oltre soglia ma non materiale';
+    } else if (exceedsThreshold && !previousExceedsThreshold) {
+      status = 'oltre soglia, in attesa di conferma';
+    } else {
+      status = 'ok';
+    }
     return {
       marker: phase.marker,
       seconds,
-      baseline,
-      samples: samples.length,
-      deltaPct,
-      regression: baseline !== null && seconds > baseline * threshold,
+      baseline: baseline?.median ?? null,
+      p90: baseline?.p90 ?? null,
+      threshold: thresholdValue,
+      previousSeconds,
+      samples: baseline?.samples ?? sampleCountByMarker.get(phase.marker) ?? 0,
+      deltaPct: baseline?.median > 0 ? ((seconds / baseline.median) - 1) * 100 : null,
+      excess,
+      materialityThreshold: baseline === undefined ? null : materialityThreshold,
+      exceedsThreshold,
+      previousExceedsThreshold,
+      material,
+      regression,
+      status,
     };
+  });
+}
+
+export function observePhaseTimings({
+  log,
+  history,
+  locale,
+  threshold = PHASE_TIMING_THRESHOLD,
+  minSamples = MIN_HISTORY_SAMPLES,
+}) {
+  const current = parsePhaseMarkers(log);
+  const historyRows = parseBuildProfileHistory(history, locale);
+  const previous = historyRows.at(-1);
+  const previousPhases = phaseMap(previous);
+  const rows = evaluatePhaseTimings({
+    currentPhases: current,
+    previousPhases,
+    baselineRows: baselineRowsBeforePrevious(historyRows, PHASE_TIMING_BASELINE_WINDOW),
+    threshold,
+    minSamples,
   });
 
   return {
@@ -121,22 +211,17 @@ export function formatPhaseTimingSummary(observation, threshold = PHASE_TIMING_T
   const lines = [
     `## Phase timing per lingua (${observation.locale})`,
     '',
-    '| fase | secondi | mediana storica | delta | stato |',
-    '|---|---:|---:|---:|---|',
+    '| fase | secondi | mediana | p90 | soglia | precedente | delta | campioni | stato |',
+    '|---|---:|---:|---:|---:|---:|---:|---:|---|',
   ];
   if (observation.rows.length === 0) {
-    lines.push('| _nessun marker_ | — | — | — | log assente o fase non misurata |');
+    lines.push('| _nessun marker_ | — | — | — | — | — | — | — | log assente o fase non misurata |');
   } else {
     for (const row of observation.rows) {
-      const status = row.regression
-        ? '⚠️ oltre soglia'
-        : row.baseline === null
-          ? 'baseline insufficiente'
-          : 'ok';
-      lines.push(`| \`${row.marker}\` | ${seconds(row.seconds)} | ${row.baseline === null ? '—' : seconds(row.baseline)} | ${delta(row.deltaPct)} | ${status} |`);
+      lines.push(`| \`${row.marker}\` | ${seconds(row.seconds)} | ${row.baseline === null ? '—' : seconds(row.baseline)} | ${row.p90 === null ? '—' : seconds(row.p90)} | ${row.threshold === null ? '—' : seconds(row.threshold)} | ${row.previousSeconds === null ? '—' : seconds(row.previousSeconds)} | ${delta(row.deltaPct)} | ${row.samples} | ${row.status} |`);
     }
   }
-  lines.push('', `Soglia advisory: oltre +${((threshold - 1) * 100).toFixed(0)}% sulla mediana della stessa lingua; il deploy non viene bloccato.`);
+  lines.push('', `Soglia advisory: max(mediana × ${threshold}, min(p90, mediana × ${PHASE_TIMING_SPREAD_CAP})); servono conferma del valore precedente e un eccesso materiale di almeno ${(PHASE_TIMING_MATERIAL_SHARE * 100).toFixed(0)}% delle mediane disponibili; il deploy non viene bloccato.`);
   return lines.join('\n');
 }
 
@@ -271,9 +356,10 @@ export function hasStablePhaseTimingRecovery({
     const measured = measuredByRun.get(run.runId);
     for (const locale of requiredLocales) {
       const current = measured.get(locale);
-      const previousRows = profileRows
-        .filter((row) => row.locale === locale && row.build_status === 'success' && compareRunIds(String(row.run_id), run.runId) < 0)
-        .sort((a, b) => compareRunIds(String(a.run_id), String(b.run_id)));
+      const successfulRows = successfulProfileRows(profileRows, locale);
+      const currentIndex = successfulRows.findIndex((row) => normalizeRunId(row.run_id) === run.runId);
+      if (currentIndex < 0) return false;
+      const previousRows = successfulRows.slice(0, currentIndex);
       const previous = previousRows.at(-1);
       const previousPhases = phaseMap(previous);
       if (!previousPhases) return false;
@@ -284,15 +370,17 @@ export function hasStablePhaseTimingRecovery({
         if (!current.phases.has(marker)) return false;
       }
 
-      for (const [marker, currentMs] of current.phases) {
-        const samples = previousRows
-          .map((row) => phaseMap(row)?.get(marker))
-          .filter((ms) => Number.isFinite(ms));
-        const baseline = samples.length >= minSamples ? median(samples) : null;
-        // Strictly below +30%: a value exactly on the alarm boundary is not
-        // sufficient proof for closing an advisory regression.
-        if (baseline === null || baseline <= 0 || !(currentMs < baseline * threshold)) return false;
-      }
+      const phaseRows = evaluatePhaseTimings({
+        currentPhases: [...current.phases].map(([marker, ms]) => ({ marker, ms })),
+        previousPhases,
+        baselineRows: previousRows.slice(Math.max(0, previousRows.length - 1 - PHASE_TIMING_BASELINE_WINDOW), -1),
+        threshold,
+        minSamples,
+      });
+      // A phase without a sufficient base is not evidence of recovery. A
+      // clean run also cannot close the advisory while any phase is confirmed
+      // as regressed under the same rule used for opening it.
+      if (phaseRows.some((row) => row.baseline === null || row.regression)) return false;
     }
   }
   return true;
@@ -346,11 +434,13 @@ function main() {
     const body = [
       `Regressione advisory delle fasi di build per la lingua ${locale}.`,
       '',
-      `La fase corrente supera del 30% la mediana storica dopo ${observation.historySamples} righe comparabili.`,
+      'La regressione è confermata perché la fase corrente e quella precedente superano la soglia calcolata e l’eccesso è materiale.',
       '',
-      '| fase | corrente | mediana | delta | campioni |',
-      '|---|---:|---:|---:|---:|',
-      ...observation.regressions.map((row) => `| \`${row.marker}\` | ${seconds(row.seconds)} | ${seconds(row.baseline)} | ${delta(row.deltaPct)} | ${row.samples} |`),
+      '| fase | corrente | precedente | mediana | p90 | soglia | eccesso | materiale richiesto | campioni |',
+      '|---|---:|---:|---:|---:|---:|---:|---:|---:|',
+      ...observation.regressions.map((row) => `| \`${row.marker}\` | ${seconds(row.seconds)} | ${seconds(row.previousSeconds)} | ${seconds(row.baseline)} | ${seconds(row.p90)} | ${seconds(row.threshold)} | ${seconds(row.excess)} | ${seconds(row.materialityThreshold)} | ${row.samples} |`),
+      '',
+      `La soglia è max(mediana × ${PHASE_TIMING_THRESHOLD}, min(p90, mediana × ${PHASE_TIMING_SPREAD_CAP})); sono state usate le ultime ${PHASE_TIMING_BASELINE_WINDOW} righe riuscite prima del valore precedente, con almeno ${MIN_HISTORY_SAMPLES} campioni per fase. Le ${observation.historySamples} righe riuscite della lingua precedono la run corrente.`,
     ].join('\n');
     fs.writeFileSync(alertPath, `${body}\n`, 'utf8');
   }
