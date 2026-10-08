@@ -1,7 +1,7 @@
 {
   "key": "holmes-place",
   "label": "Holmes Place",
-  "generatedAt": "2026-10-07T21:31:08.102Z",
+  "generatedAt": "2026-10-08T09:23:46.017Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 15096,
-  "avgDurationMs": 15096,
+  "unchangedCount": 0,
+  "durationMs": 16010,
+  "avgDurationMs": 16010,
   "durationHistory": [
-    15096
+    16010
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "holmes-place-2936eefd975e",
       "slug": "personal-trainer-zqh0hqz-m-f-d-holmes-place-zurich",
@@ -37,7 +35,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-personal-trainer-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:30:51.295Z",
+      "crawledAt": "2026-10-08T09:23:32.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -79,7 +77,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-rezeptionist-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:30:51.293Z",
+      "crawledAt": "2026-10-08T09:23:32.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -120,7 +118,7 @@
       "url": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:30:51.287Z",
+      "crawledAt": "2026-10-08T09:23:32.505Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -137,8 +135,8 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.holmesplace.ch/jobs/jel-gruppenfitness-instruktor-m-f-d/",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T21:22:53.190Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -162,7 +160,7 @@
       "url": "https://www.holmesplace.ch/jobs/gen-fitness-manager-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:30:51.279Z",
+      "crawledAt": "2026-10-08T09:23:32.498Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -204,7 +202,7 @@
       "url": "https://www.holmesplace.ch/jobs/see-ernaehrungscoach-m-f-d/",
       "source": "Holmes Place Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:30:51.276Z",
+      "crawledAt": "2026-10-08T09:23:32.496Z",
       "addressLocality": "Oberrieden",
       "addressRegion": "ZH",
       "streetAddress": "Seestrasse 97",
@@ -234,5 +232,7 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
