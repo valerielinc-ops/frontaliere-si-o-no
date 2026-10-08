@@ -1,18 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-10-07T21:52:48.253Z",
+  "generatedAt": "2026-10-08T09:39:25.875Z",
   "total": 5,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2552,
-  "avgDurationMs": 2552,
+  "unchangedCount": 1,
+  "durationMs": 2786,
+  "avgDurationMs": 2786,
   "durationHistory": [
-    2552
+    2786
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -90,6 +90,49 @@
       },
       "id": "klinik-wyssholzli-7ae216cba293",
       "firstSeenAt": "2026-09-25T15:00:02.770Z",
+      "salaryMin": 51000,
+      "salaryMax": 71400,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
+      "slug": "terapeuta-del-movimento-koerper-01-01-2027-60-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
+      },
+      "id": "klinik-wyssholzli-9eb3b2cca6b8",
+      "firstSeenAt": "2026-09-30T21:26:48.276Z",
       "salaryMin": 51000,
       "salaryMax": 71400,
       "currency": "CHF",
@@ -189,50 +232,7 @@
         "translation": 21,
         "completeness": 20
       }
-    },
-    {
-      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
-      "slug": "terapeuta-del-movimento-koerper-01-01-2027-60-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
-      },
-      "id": "klinik-wyssholzli-9eb3b2cca6b8",
-      "firstSeenAt": "2026-09-30T21:26:48.276Z",
-      "salaryMin": 51000,
-      "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
