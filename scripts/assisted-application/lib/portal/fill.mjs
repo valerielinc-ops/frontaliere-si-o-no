@@ -285,6 +285,19 @@ async function fillCombobox(page, field, locator, value) {
     const options = frame.getByRole('option');
     const labels = (await options.allInnerTexts()).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean);
     selectedLabel = nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label));
+    // A generic combobox filters in the form language. The candidate answer
+    // may be Italian ("italiana") while the French SuccessFactors list only
+    // returns a result after the French prefix ("ital"). Retry with that
+    // canonical query before declaring the nationality unavailable.
+    if (!selectedLabel) {
+      const query = nationalitySearchQuery(value, field.label);
+      if (query) {
+        await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
+        await Promise.resolve(locator.press('Backspace')).catch(() => {});
+        await Promise.resolve(locator.pressSequentially(query, { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS })).catch(() => {});
+        selectedLabel = (await waitForNationalityOption(page, options, value, nationalityFieldLanguage(field.label))).selectedLabel;
+      }
+    }
     if (!selectedLabel) {
       await locator.press('Escape').catch(() => {});
       throw new Error('option_not_found');

@@ -110,6 +110,41 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(localizedOption.click).toHaveBeenCalledWith({ timeout: 6000 });
   });
 
+  it('retries a generic nationality combobox with the form-language prefix', async () => {
+    let typed = '';
+    let selected = '';
+    const localizedOption = {
+      waitFor: vi.fn(async () => {}),
+      click: vi.fn(async () => { selected = 'Italien'; }),
+    };
+    const rawOption = { first: () => ({ waitFor: vi.fn(async () => { throw new Error('not found'); }) }) };
+    const control = {
+      click: vi.fn(),
+      press: vi.fn(async () => {}),
+      pressSequentially: vi.fn(async (value: string) => { typed = value; }),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const frame = {
+      locator: vi.fn(() => ({ first: () => control })),
+      getByRole: vi.fn((_role: string, options?: { name?: string; exact?: boolean }) => options?.name === 'italiana'
+        ? rawOption
+        : options?.name === 'Italien'
+          ? { first: () => localizedOption }
+          : { allInnerTexts: vi.fn(async () => typed === 'ital' ? ['Italien'] : []) }),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame, waitForTimeout: vi.fn(async () => {}) };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'combobox',
+      label: '* Nationalité',
+      selectLike: false,
+    }], [{ fieldId: 'nationality', action: 'select', value: 'italiana' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(control.pressSequentially).toHaveBeenNthCalledWith(2, 'ital', expect.objectContaining({ timeout: 6000 }));
+    expect(localizedOption.click).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
   it('keeps the original DOM index when a SuccessFactors picklist has a blank option', async () => {
     let selected = '';
     const clicked: number[] = [];
