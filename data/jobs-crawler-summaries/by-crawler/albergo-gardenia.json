@@ -1,24 +1,29 @@
 {
   "key": "albergo-gardenia",
   "label": "Albergo Gardenia",
-  "generatedAt": "2026-10-07T21:58:48.306Z",
+  "generatedAt": "2026-10-08T09:53:33.334Z",
   "total": 0,
-  "discovered": null,
-  "parsed": null,
-  "lastFetchOutcome": "connection_error",
+  "discovered": 0,
+  "parsed": 0,
+  "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "connection-level-fetch",
   "written": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 378687,
+  "avgDurationMs": 378687,
+  "durationHistory": [
+    378687
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
