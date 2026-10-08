@@ -41,6 +41,7 @@ function fixture(files: Record<string, string>, linked: string[] = []) {
     'scripts/ci/lib/typecheck-sparse.mjs',
     'scripts/ci/lib/related-graph-scope.mjs',
     'scripts/lib/crawler-generation-runtime-paths.mjs',
+    'scripts/lib/article-chunk-publish-freshness.mjs',
     ...linked,
   ]) link(root, relative);
   for (const [relative, content] of Object.entries(files)) {
@@ -222,5 +223,27 @@ describe('run-related-tests selection contract', () => {
     expect(shared.status, shared.stderr || shared.stdout).toBe(0);
     expect(shared.stdout).toContain(policy);
     expect(shared.stdout).toContain(images);
+  });
+
+  it('runs the publisher-code closure test when a file it only reaches by name changes', () => {
+    // The freshness test walks the replay's scripts from disk and imports two
+    // of them; the edge publisher and the upload helper it reaches by name.
+    const freshness = 'tests/scripts/article-chunk-publish-freshness.test.ts';
+    const root = fixture({
+      'scripts/publish-edge-files.mjs': 'export const edge = true;\n',
+      'scripts/lib/upload-cdn-file.sh': '#!/usr/bin/env bash\n',
+      'scripts/unrelated.mjs': 'export const unrelated = true;\n',
+      'tests/unrelated.test.ts': "import '../scripts/unrelated.mjs';\n",
+      [freshness]: 'export const freshness = true;\n',
+    });
+    for (const changed of ['scripts/publish-edge-files.mjs', 'scripts/lib/upload-cdn-file.sh']) {
+      const result = select(root, [changed]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      expect(result.stdout, changed).toContain(freshness);
+    }
+
+    const unrelated = select(root, ['scripts/unrelated.mjs']);
+    expect(unrelated.status, unrelated.stderr || unrelated.stdout).toBe(0);
+    expect(unrelated.stdout).not.toContain(freshness);
   });
 });

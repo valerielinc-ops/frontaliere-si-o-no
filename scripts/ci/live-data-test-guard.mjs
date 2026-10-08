@@ -249,12 +249,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // SEO modules. Its corpus reads are intentional, but the runtime/source
   // inventory must keep it out of the blocking PR partition.
   { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
-  // These corpus-backed checks landed on main after the previous inventory
-  // sweep; the publisher rewrites their inputs, so they belong in the live
+  // This corpus-backed check landed on main after the previous inventory
+  // sweep; the publisher rewrites its inputs, so it belongs in the live
   // partition rather than the blocking PR suite.
   { file: "tests/blog-cover-ledger.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
-  { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/", "public/news-ticker-live.json"], since: "2026-10-07", evidence: "review", runtime: true },
-  { file: "tests/sync-articles-sitemaps-parse-gate.test.ts", roots: ["packages/articles/content/"], since: "2026-10-07", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
@@ -510,6 +508,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['packages/articles/'],
     reason: 'the test verifies the synchronized live article metadata and SEO shards; those files are rewritten by the corpus sync pipeline and are intentionally the subject of the assertion',
   },
+  {
+    file: 'tests/sync-articles-sitemaps-parse-gate.test.ts',
+    roots: ['packages/articles/content/'],
+    reason: 'packages/articles/content/ appears as text the workflow steps must contain and as a made-up changed path handed to a stubbed git; the test runs the real step script in a temporary directory with git and npx replaced by recording stubs and reads no synced file',
+  },
 ]);
 
 
@@ -550,6 +553,12 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // #10686: il caso sui creator ImageObject legge i template SEO statici del
   // corpus pubblicato; gli altri verificano codice del sito e restano nel gate.
   { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
+  // Un solo caso su 22 legge il corpus sincronizzato (esbuild impacchetta i
+  // registri pubblicati); gli altri leggono workflow e script. Dal 07-10 il
+  // file era nell'inventario per intero: la PR 12251 ha aggiunto un import al
+  // pubblicatore senza eseguire il caso che tiene completo l'elenco del suo
+  // codice, rimasto rosso su main fino a questa riclassificazione.
+  { file: "tests/scripts/article-chunk-publish-freshness.test.ts", roots: ["packages/articles/content/"], since: "2026-10-08", evidence: "replay", runtime: true },
   { file: "tests/cf-hot-404-bridge.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/cippatrasporti-crawler.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/crawler-brand-domain-pairing.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
