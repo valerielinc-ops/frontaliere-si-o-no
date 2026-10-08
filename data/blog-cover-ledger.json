@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5045
+      "6": 5046
     },
-    "publishedCovers": 6757,
+    "publishedCovers": 6758,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179711,6 +179711,33 @@
           "id": "raffineria-cressier-carburanti",
           "category": "novita",
           "date": "2026-10-07T05:28:44.247Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-lavaggio-denaro-avvocatura": {
+      "cover": "/images/blog/article-lavaggio-denaro-avvocatura.webp",
+      "hash": "253044e7b656aa712c6b6b6fa9f3d23b4122468b0e03f2bf84a12f23f9540347",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "lavaggio-denaro-avvocatura",
+          "category": "novita",
+          "date": "2026-10-07T23:29:16.083Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }
