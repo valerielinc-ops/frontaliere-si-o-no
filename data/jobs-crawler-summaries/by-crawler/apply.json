@@ -1,7 +1,7 @@
 {
   "key": "apply",
   "label": "LEITpuls AG",
-  "generatedAt": "2026-10-08T21:30:02.222Z",
+  "generatedAt": "2026-10-08T22:18:21.610Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,18 +13,16 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3969,
-  "avgDurationMs": 3969,
+  "unchangedCount": 0,
+  "durationMs": 4155,
+  "avgDurationMs": 4155,
   "durationHistory": [
-    3969
+    4155
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "apply-fa0e71e72c9b",
       "slug": "project-manager-coordinamento-tecnico-gestione-complessiva-della-tecnologia-edilizia-80-100-leitpuls-ag-bern",
@@ -37,7 +35,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:29:50.916Z",
+      "crawledAt": "2026-10-08T22:18:10.020Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -67,5 +65,7 @@
       }
     }
   ],
-  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "bcb87e5bb39af41fe77dc9a1208d83e5d3816678"
 }
