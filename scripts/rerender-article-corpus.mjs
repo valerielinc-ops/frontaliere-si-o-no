@@ -87,10 +87,11 @@ import {
   prepareCorpusContentOverlay,
 } from './lib/article-corpus-overlay.mjs';
 import { filterEntriesByImagePostcondition } from './lib/article-image-postcondition.mjs';
+import { CDN_ASSET_ORIGIN } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 const SELF_PATH = fileURLToPath(import.meta.url);
 const ROOT_DIR = path.resolve(path.dirname(SELF_PATH), '..');
-const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const CDN_BASE = CDN_ASSET_ORIGIN;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // Pinned to the SAME tsx major version fast-publish-article.yml pins for its

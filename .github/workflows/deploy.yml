@@ -1028,7 +1028,9 @@ jobs:
       # by the next step used to go live BEFORE this build's CDN payload
       # existed (they run the same CDN offload on their staged copy — see
       # CDN_BASE_FIXED in push-section-shard.sh — but were never gated). After
-      # the hoist they publish after it.
+      # the hoist they publish only when this step's CDN_BASE handshake
+      # succeeded; a failed early push leaves the prior shard live while the
+      # full prep retries the payload at its historical position.
       #
       # continue-on-error + the CDN_BASE handshake: on success the script
       # exports CDN_BASE into $GITHUB_ENV, and "Deploy prep" then SKIPS its own
@@ -1137,7 +1139,7 @@ jobs:
       # scripts/lib/section-shard-slugs.json).
       - name: Push section shards (IT → frontaliere-<section>-it)
         id: push-section-shards-it
-        if: matrix.locale == 'it'
+        if: matrix.locale == 'it' && steps.cdn-push-early.outcome == 'success'
         # A push failure must never block the apex publish: the strip then no-ops
         # (no ok-marker) so that section stays in the apex (>10 GB, deploy fails —
         # but never UNSERVED). The shard otherwise keeps serving its previous build.

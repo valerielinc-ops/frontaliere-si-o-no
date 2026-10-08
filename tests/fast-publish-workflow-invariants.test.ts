@@ -222,6 +222,14 @@ describe('push-article-shard-incremental.sh invariants', () => {
     expect(script).toContain('attempt $try/$retry_max_attempts failed');
     expect(script).toContain('re-clone to pick up any concurrent push');
   });
+
+  it('checks replacement HTML against the CDN before cloning or publishing the shard', () => {
+    const gateAt = script.indexOf('verify-cdn-asset-publish.mjs');
+    const cloneAt = script.indexOf('git clone');
+    expect(gateAt, 'the shared CDN coherence gate is missing').toBeGreaterThan(-1);
+    expect(cloneAt, 'the shard clone call is missing').toBeGreaterThan(gateAt);
+    expect(script.slice(gateAt, cloneAt)).toContain('cdn_gate_args');
+  });
 });
 
 describe('wait-for-live-article-shards.mjs invariants', () => {

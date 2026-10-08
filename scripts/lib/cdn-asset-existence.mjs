@@ -1,3 +1,9 @@
+import {
+  ASSET_EXT_ALTERNATION,
+  ASSETS_SAME_ORIGIN_RX,
+  CDN_ASSET_ORIGIN,
+} from '../../build-plugins/shared/cdnAssetOffloadRx.mjs';
+
 /**
  * cdn-asset-existence.mjs — l'asset riscritto sul CDN esiste davvero?
  *
@@ -60,8 +66,46 @@ export const CDN_ASSET_CHECK_MAX_URLS = 24;
  */
 export const CDN_ASSET_CHECK_BUDGET_MS = 30_000;
 
+/**
+ * Extract the canonical CDN asset URLs from one rendered HTML document.
+ * The extension alphabet is shared with the offload rewrite and deploy Guard B
+ * so a new asset type cannot silently bypass this publish-time check.
+ * @param {string} html
+ * @param {string} [cdnOrigin]
+ * @returns {string[]}
+ */
+export function extractCdnAssetUrlsFromHtml(html, cdnOrigin = CDN_ASSET_ORIGIN) {
+  let origin;
+  try {
+    origin = new URL(cdnOrigin).origin;
+  } catch {
+    return [];
+  }
+  const escapedOrigin = origin.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(
+    `${escapedOrigin}/assets/([^"'\\s)?]+?\\.(?:${ASSET_EXT_ALTERNATION}))`,
+    'g',
+  );
+  const urls = new Set();
+  for (const match of String(html).matchAll(pattern)) {
+    urls.add(`${origin}/assets/${match[1]}`);
+  }
+  return [...urls];
+}
+
+/**
+ * Return surviving same-origin asset references in a rendered HTML document.
+ * A shard page cannot resolve these after the deploy drops dist/assets.
+ * @param {string} html
+ * @returns {string[]}
+ */
+export function findSameOriginAssetRefs(html) {
+  const pattern = new RegExp(ASSETS_SAME_ORIGIN_RX.source, 'g');
+  return String(html).match(pattern) || [];
+}
+
 /** Estensioni per cui una risposta `text/html` non puo' essere l'oggetto chiesto. */
-const NEVER_HTML = /\.(?:js|mjs|css|json|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico)(?:[?#]|$)/i;
+const NEVER_HTML = new RegExp(`\\.(?:${ASSET_EXT_ALTERNATION})(?:[?#]|$)`, 'i');
 
 /**
  * Un `200` che non e' l'oggetto chiesto. Vedi «PERCHE' LO STATUS CODE NON
@@ -172,6 +216,31 @@ export async function verifyCdnAssetRefs({
     }
   }
 
+  return results;
+}
+
+/**
+ * Fail closed when a page is about to become live but one of its CDN asset
+ * references is missing, unverified, or skipped by the bounded checker.
+ *
+ * The existing offload path intentionally remains fail-open for diagnostics.
+ * Shard publication has the opposite safety contract: publishing HTML that
+ * points at no bytes is irreversible until the next deploy, so every state
+ * other than `present` must stop the mutation.
+ *
+ * @param {object} options
+ * @returns {Promise<Array<{url: string, state: string, status: number|null, reason: string|null}>>}
+ */
+export async function assertCdnAssetRefsLive(options) {
+  const results = await verifyCdnAssetRefs(options);
+  const notLive = results.filter((result) => result.state !== 'present');
+  if (notLive.length > 0) {
+    const error = new Error(
+      `${notLive.length} CDN asset reference(s) are not proven live; refusing shard publication`,
+    );
+    error.results = results;
+    throw error;
+  }
   return results;
 }
 

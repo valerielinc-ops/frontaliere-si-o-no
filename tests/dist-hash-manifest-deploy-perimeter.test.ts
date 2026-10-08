@@ -161,11 +161,11 @@ describe('dist-hash-manifest --deploy-artifact-perimeter (#4894)', () => {
   });
 
   it('reads the offload perimeter from the canonical constant, and fails loud if it moves', () => {
-    // AGENTS.md #6: offload-generated-images-cdn.mjs, deploy-it-pages-prep.sh and
-    // ensure-image-cdn-redirect.mjs each keep their own copy and each names
-    // services/cdnImageBase.ts as the one to stay in sync with. The manifest
-    // script parses that one instead of adding a fifth copy — so a rename must
-    // break the run, never silently empty the perimeter.
+    // AGENTS.md #6: the image path perimeter remains owned by
+    // services/cdnImageBase.ts, while the canonical CDN host is shared by the
+    // generated-HTML/offload consumers. The manifest script parses the path
+    // constant instead of adding another copy, so a rename must break the run,
+    // never silently empty the perimeter.
     const src = fs.readFileSync(path.join(ROOT, 'services', 'cdnImageBase.ts'), 'utf-8');
     const block = src.match(/export const CDN_OFFLOADED_IMAGE_PREFIXES\s*=\s*\[([\s\S]*?)\]\s*as const/);
     expect(block, 'CDN_OFFLOADED_IMAGE_PREFIXES must stay parseable by dist-hash-manifest.mjs').not.toBeNull();

@@ -66,9 +66,10 @@
 # Exit codes:
 #   0 — pushed, or a clean no-op (identical content already live, or the
 #       deploy-key secret is not provisioned for this section+locale yet)
-#   1 — bad usage, a source relpath is missing on disk, the shard repo has no
-#       commits on main yet (needs push-section-shard.sh to seed it first), or
-#       the push failed after the bounded retry budget
+#   1 — bad usage, a source relpath is missing on disk, a rendered page still
+#       points at same-origin/missing/unverified CDN assets, the shard repo has
+#       no commits on main yet (needs push-section-shard.sh to seed it first),
+#       or the push failed after the bounded retry budget
 # ─────────────────────────────────────────────────────────────────────────────
 set -uo pipefail
 
@@ -92,6 +93,7 @@ esac
 
 repo_root="$(pwd)"
 owners_json="$repo_root/scripts/lib/section-shard-owners.json"
+cdn_asset_gate="$repo_root/scripts/ci/verify-cdn-asset-publish.mjs"
 SECTION_UPPER="$(echo "$section" | tr a-z A-Z)"
 LOC_UPPER="$(echo "$loc" | tr a-z A-Z)"
 
@@ -114,6 +116,21 @@ key_val="${!key_var:-}"
 if [ -z "$key_val" ]; then
   echo "no $key_var secret — skipping $loc $section article fast-path push (not provisioned)"
   exit 0
+fi
+
+# A fast publisher renders current-main HTML without publishing the full
+# dist/assets producer set. Keep the old shard page live unless every asset
+# ref in the exact replacement files is live on the CDN; an unknown response
+# is a failure too, because publishing it would create a page that cannot
+# boot until a later full deploy. This is the single mutation-point guard for
+# publish-article-fast, rerender-article-hubs, and rerender-article-corpus.
+cdn_gate_args=(--dist "$scratch_dist_dir")
+for rel in "${relpaths[@]}"; do
+  cdn_gate_args+=(--file "$rel")
+done
+if ! node "$cdn_asset_gate" "${cdn_gate_args[@]}"; then
+  echo "::error::refusing $loc $section article shard publication: replacement HTML is not CDN-coherent" >&2
+  exit 1
 fi
 
 SHARD_OWNER="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' "$owners_json" 2>/dev/null || echo valerielinc-ops)"

@@ -49,6 +49,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { spawnSync } from 'node:child_process';
+import { CDN_ASSET_ORIGIN } from '../../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 /**
  * The CDN origin every article-surface renderer and the offload script agree
@@ -59,7 +60,7 @@ import { spawnSync } from 'node:child_process';
  * value for every real deploy build, so matching it is a byte-identity
  * requirement, not configuration.
  */
-export const CDN_BASE = 'https://cdn.frontaliereticino.ch';
+export const CDN_BASE = CDN_ASSET_ORIGIN;
 
 /**
  * Set the two process-level knobs the hub renderers inherit from the deploy
