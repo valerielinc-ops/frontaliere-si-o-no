@@ -8,10 +8,12 @@ import {
   extractPexelsPhoto,
   extractPixabayPhoto,
   extractTogetherImageData,
+  articleHeroPhotoSearchQueries,
   formatProviderHttpError,
   imageProviderSequence,
   isPhotoCandidateRelevantToSpec,
   isPhotographicMetadata,
+  isSuitableArticlePhotoCandidate,
   isSuitablePhotoCandidate,
   photoQuery,
   photoRecordCollision,
@@ -64,6 +66,15 @@ describe('generated image provider contracts', () => {
 
   it('uses the governed generation chain with Codex first', () => {
     expect(imageProviderSequence()).toEqual(['openai-codex', 'gemini', 'fal', 'together', 'pollinations']);
+    expect(imageProviderSequence({ scope: 'event-library' })).toEqual([
+      'openai-codex', 'gemini', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
+    ]);
+    expect(imageProviderSequence({ scope: 'article-hero' })).toEqual([
+      'openai-codex', 'gemini', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
+    ]);
+    expect(imageProviderSequence({ scope: 'editorial-profile' })).toEqual([
+      'openai-codex', 'gemini', 'fal', 'together', 'pollinations',
+    ]);
     expect(imageProviderSequence({ kind: 'photo' })).toEqual([
       'wikimedia', 'pexels', 'pixabay', 'openai-codex', 'gemini', 'fal', 'together', 'pollinations',
     ]);
@@ -146,6 +157,22 @@ describe('generated image provider contracts', () => {
     expect(photoQuery({ category: 'musica', area: 'svizzera-urbana', season: 'autunno-inverno' })).toBe(queries[0]);
   });
 
+  it('builds article-hero queries from topic, place and keywords in English', () => {
+    const spec = {
+      scope: 'article-hero',
+      title: 'Tasse e lavoro a Zurigo',
+      topic: 'tassazione e occupazione',
+      place: 'Zurigo, Svizzera',
+      keywords: ['credito fiscale'],
+    };
+    const queries = articleHeroPhotoSearchQueries(spec);
+    expect(queries[0]).toContain('taxation');
+    expect(queries[0]).toContain('Zurich');
+    expect(queries[0]).toContain('Switzerland');
+    expect(queries.some((query) => query.includes('employment'))).toBe(true);
+    expect(photoSearchQueries(spec)).toEqual(queries);
+  });
+
   it('selects a stable candidate while excluding used source pages and hashes', () => {
     const spec = {
       scope: 'event-library',
@@ -201,6 +228,51 @@ describe('generated image provider contracts', () => {
       { area: 'laghi' },
       { title: '', width: 2400, height: 1600 },
     )).toBe(false);
+  });
+
+  it('requires article photos to match the topic and rejects branded or written candidates', () => {
+    const spec = {
+      scope: 'article-hero',
+      title: 'Tasse e lavoro a Zurigo',
+      topic: 'tassazione e occupazione',
+      place: 'Zurigo, Svizzera',
+    };
+    expect(isPhotoCandidateRelevantToSpec(spec, {
+      title: 'Tax and employment office in Zurich Switzerland',
+      width: 2400,
+      height: 1600,
+    })).toBe(true);
+    expect(isPhotoCandidateRelevantToSpec(spec, {
+      title: 'Swiss Alps landscape',
+      width: 6240,
+      height: 4160,
+    })).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec({
+      scope: 'article-hero',
+      title: 'Guida per frontalieri in Ticino',
+      place: 'Ticino, Svizzera',
+      keywords: ['Ticino', 'Svizzera'],
+    }, {
+      title: 'Ticino mountain landscape Switzerland',
+      width: 6240,
+      height: 4160,
+    })).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec({
+      scope: 'article-hero',
+      title: 'Turismo in Valposchiavo',
+      topic: 'turismo',
+      place: 'Valposchiavo, Svizzera',
+    }, {
+      title: 'Cevio village in Ticino Switzerland',
+      width: 6240,
+      height: 4160,
+    })).toBe(false);
+    expect(isSuitableArticlePhotoCandidate(spec, {
+      type: 'photo',
+      title: 'Zurich employment brand logo with text overlay',
+      width: 2400,
+      height: 1600,
+    })).toBe(false);
   });
 
   it('exposes the persistence collision guard for an existing photo scope', () => {

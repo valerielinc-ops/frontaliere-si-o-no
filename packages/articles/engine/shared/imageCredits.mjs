@@ -52,7 +52,11 @@
  * decision named only those two).
  */
 
-import { validateGeneratedImageRecord } from './generatedImageRegistry.mjs';
+import {
+  isLicensedPhotoRecord,
+  LICENSED_PHOTO_PROVIDERS,
+  validateGeneratedImageRecord,
+} from './generatedImageRegistry.mjs';
 
 export const IMAGE_CREDIT_SCHEMA_VERSION = 1;
 
@@ -60,11 +64,14 @@ export const IMAGE_CREDIT_SCHEMA_VERSION = 1;
 export const IMAGE_CREDIT_SOURCE = 'wikimedia-commons';
 /** The source used by the shared generated-image engine. */
 export const IMAGE_CREDIT_GENERATED_SOURCE = 'generated-provider';
+/** A licensed real photo selected by the shared image engine. */
+export const IMAGE_CREDIT_LICENSED_PHOTO_SOURCE = 'licensed-photo';
 /** An explicit record for a cover whose provider/licence is not demonstrated. */
 export const IMAGE_CREDIT_INFERRED_SOURCE = 'inferred';
 export const IMAGE_CREDIT_SOURCES = Object.freeze([
   IMAGE_CREDIT_SOURCE,
   IMAGE_CREDIT_GENERATED_SOURCE,
+  IMAGE_CREDIT_LICENSED_PHOTO_SOURCE,
   IMAGE_CREDIT_INFERRED_SOURCE,
 ]);
 
@@ -77,6 +84,8 @@ export const IMAGE_CREDIT_LICENCE_FAMILIES = Object.freeze([
   'no-known-restrictions',
   'fal',
   'other-attribution',
+  'pexels',
+  'pixabay',
 ]);
 
 /** Families whose licence does not require attribution: the credit is a courtesy. */
@@ -152,7 +161,7 @@ function imageCreatorId(record) {
   if (author.name && author.url) return author.url;
   const seed = author.name
     ? `${author.type}:${author.name}`
-    : `${author.type}:${record.commons?.pageUrl ?? record.cover}`;
+    : `${author.type}:${record.commons?.pageUrl ?? record.photo?.pageUrl ?? record.cover}`;
   return `${IMAGE_CREATOR_ID_PREFIX}${imageCreatorKey(seed)}`;
 }
 
@@ -172,6 +181,13 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  *   aliases?: string[],
  * }} ImageCreditCommons
  * @typedef {{
+ *   provider: 'wikimedia' | 'pexels' | 'pixabay',
+ *   title: string,
+ *   pageUrl: string,
+ *   width?: number,
+ *   height?: number,
+ * }} ImageCreditPhoto
+ * @typedef {{
  *   text: string | null,
  *   name: string | null,
  *   url: string | null,
@@ -187,8 +203,9 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  * @typedef {{
  *   schema: 1,
  *   cover: string,
- *   source: 'wikimedia-commons' | 'generated-provider' | 'inferred',
+ *   source: 'wikimedia-commons' | 'generated-provider' | 'licensed-photo' | 'inferred',
  *   commons?: ImageCreditCommons,
+ *   photo?: ImageCreditPhoto,
  *   author?: ImageCreditAuthor,
  *   attribution?: string | null,
  *   licence?: ImageCreditLicence,
@@ -209,6 +226,7 @@ const MAX_LENGTH = Object.freeze({ authorName: 150, attribution: 200, title: 255
  *   license: string,
  *   acquireLicensePage: string,
  *   isBasedOn?: string,
+ *   description?: string,
  * }} ImageCreditImageObjectFields
  * @typedef {{
  *   kind: 'text' | 'title' | 'author' | 'licence',
@@ -241,6 +259,8 @@ export const IMAGE_CREDIT_COPY = Object.freeze({
     by: ' di ',
     unknownAuthor: 'autore sconosciuto',
     via: 'tramite Wikimedia Commons',
+    viaPexels: 'tramite Pexels',
+    viaPixabay: 'tramite Pixabay',
     generatedVia: 'generata con IA tramite frontaliereticino.ch',
     modified: Object.freeze({ cropped: 'ritagliata e ridimensionata', resized: 'ridimensionata' }),
     licenceNames: Object.freeze({
@@ -256,6 +276,8 @@ export const IMAGE_CREDIT_COPY = Object.freeze({
     by: ' by ',
     unknownAuthor: 'author unknown',
     via: 'via Wikimedia Commons',
+    viaPexels: 'via Pexels',
+    viaPixabay: 'via Pixabay',
     generatedVia: 'generated with AI by frontaliereticino.ch',
     modified: Object.freeze({ cropped: 'cropped and resized', resized: 'resized' }),
     licenceNames: Object.freeze({
@@ -271,6 +293,8 @@ export const IMAGE_CREDIT_COPY = Object.freeze({
     by: ' von ',
     unknownAuthor: 'Urheber unbekannt',
     via: 'via Wikimedia Commons',
+    viaPexels: 'via Pexels',
+    viaPixabay: 'via Pixabay',
     generatedVia: 'mit KI von frontaliereticino.ch generiert',
     modified: Object.freeze({ cropped: 'zugeschnitten und skaliert', resized: 'skaliert' }),
     licenceNames: Object.freeze({
@@ -289,6 +313,8 @@ export const IMAGE_CREDIT_COPY = Object.freeze({
     by: ' par ',
     unknownAuthor: 'auteur inconnu',
     via: 'via Wikimedia Commons',
+    viaPexels: 'via Pexels',
+    viaPixabay: 'via Pixabay',
     generatedVia: 'générée avec l’IA par frontaliereticino.ch',
     modified: Object.freeze({ cropped: 'recadrée et redimensionnée', resized: 'redimensionnée' }),
     licenceNames: Object.freeze({
@@ -450,17 +476,20 @@ export function isAllowedAuthorUrl(url) {
     return /^\/wiki\/Q[1-9][0-9]*$/.test(pathname);
   }
   if (host === 'www.flickr.com' || host === 'flickr.com') return /^\/(?:people|photos)\/[^/]+\/?$/.test(pathname);
+  if (host === 'www.pexels.com' || host === 'pexels.com') return /^\/@[^/]+\/?$/.test(pathname);
+  if (host === 'pixabay.com' || host === 'www.pixabay.com') return /^\/users\/[^/]+\/?$/.test(pathname);
   return false;
 }
 
 // ── Validation ─────────────────────────────────────────────────────────────
 
 const TOP_LEVEL_KEYS = new Set([
-  'schema', 'cover', 'source', 'commons', 'author', 'attribution', 'licence',
+  'schema', 'cover', 'source', 'commons', 'photo', 'author', 'attribution', 'licence',
   'restrictions', 'modified', 'fetchedAt', 'status', 'curation', 'generated',
   'evidence', 'provider', 'verifiedAt',
 ]);
 const COMMONS_KEYS = new Set(['title', 'pageUrl', 'pageId', 'width', 'height', 'revision', 'aliases']);
+const PHOTO_KEYS = new Set(['provider', 'title', 'pageUrl', 'width', 'height']);
 const AUTHOR_KEYS = new Set(['text', 'name', 'url', 'type']);
 const LICENCE_KEYS = new Set(['name', 'url', 'family', 'attributionRequired']);
 const CURATION_KEYS = new Set(['by', 'at', 'note']);
@@ -542,6 +571,7 @@ export function validateImageCreditRecord(record) {
   }
   const inferredSource = record.source === IMAGE_CREDIT_INFERRED_SOURCE;
   const generatedSource = record.source === IMAGE_CREDIT_GENERATED_SOURCE;
+  const licensedPhotoSource = record.source === IMAGE_CREDIT_LICENSED_PHOTO_SOURCE;
   if (!IMAGE_CREDIT_SOURCES.includes(record.source)) {
     errors.push(`source must be one of ${IMAGE_CREDIT_SOURCES.join(', ')}`);
   }
@@ -557,6 +587,7 @@ export function validateImageCreditRecord(record) {
     }
     if (record.status !== 'review') errors.push('status must be "review" for inferred records');
     if (record.generated !== undefined) errors.push('generated is not allowed for inferred records');
+    if (record.photo !== undefined) errors.push('photo is not allowed for inferred records');
     return { valid: errors.length === 0, errors };
   }
 
@@ -578,9 +609,39 @@ export function validateImageCreditRecord(record) {
   } else if (record.generated !== undefined) {
     errors.push('generated is only allowed for generated-provider records');
   }
+  if (!licensedPhotoSource && record.photo !== undefined) {
+    errors.push('photo is only allowed for licensed-photo records');
+  }
 
   const commons = record.commons;
-  if (!isPlainObject(commons)) {
+  if (licensedPhotoSource) {
+    if (record.generated !== undefined) errors.push('generated is not allowed for licensed-photo records');
+    if (!isPlainObject(record.photo)) {
+      errors.push('photo must be an object for licensed-photo records');
+    } else {
+      const photo = record.photo;
+      rejectUnknownKeys(photo, PHOTO_KEYS, 'photo', errors);
+      if (!LICENSED_PHOTO_PROVIDERS.includes(photo.provider)) {
+        errors.push(`photo.provider must be one of ${LICENSED_PHOTO_PROVIDERS.join(', ')}`);
+      }
+      checkDisplayString(photo.title, 'photo.title', MAX_LENGTH.title, errors);
+      if (typeof photo.pageUrl !== 'string' || httpsUrlOrNull(photo.pageUrl) === null) {
+        errors.push('photo.pageUrl must be an https URL');
+      } else if (photo.provider === 'wikimedia' && !/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(photo.pageUrl)) {
+        errors.push('Wikimedia photo.pageUrl must be a Commons file page');
+      } else if (photo.provider === 'pexels' && !/^https:\/\/www\.pexels\.com\/photo\//i.test(photo.pageUrl)) {
+        errors.push('Pexels photo.pageUrl must be a Pexels photo page');
+      } else if (photo.provider === 'pixabay' && !/^https:\/\/pixabay\.com\/(?:photos|users)\//i.test(photo.pageUrl)) {
+        errors.push('Pixabay photo.pageUrl must be a Pixabay page');
+      }
+      for (const field of ['width', 'height']) {
+        if (photo[field] !== undefined && !isPositiveInteger(photo[field])) {
+          errors.push(`photo.${field} must be a positive integer`);
+        }
+      }
+    }
+    if (commons !== undefined) errors.push('commons is not allowed for licensed-photo records');
+  } else if (!isPlainObject(commons)) {
     errors.push('commons must be an object');
   } else {
     rejectUnknownKeys(commons, COMMONS_KEYS, 'commons', errors);
@@ -712,6 +773,61 @@ export function validateImageCreditRecord(record) {
   return { valid: errors.length === 0, errors };
 }
 
+/**
+ * Convert one validated engine photo record into the schema consumed by every
+ * article renderer. The conversion is deliberately strict: a CC BY/CC BY-SA
+ * cover that cannot become a complete visible credit is rejected before it can
+ * reach static HTML, SPA JSON-LD or the corpus ledger.
+ *
+ * @param {Record<string, unknown>} record
+ * @returns {ImageCreditRecord}
+ */
+export function imageCreditRecordFromGeneratedImageRecord(record) {
+  if (!isLicensedPhotoRecord(record) || record.scope !== 'article-hero') {
+    throw new Error('only licensed article-hero records can become blog image credits');
+  }
+  const family = String(record.licenseFamily || '').trim().toLowerCase();
+  const photoProvider = String(record.provider || '').trim().toLowerCase();
+  const title = String(record.photoTitle || record.assetId || '').replace(/^File:/i, '').trim();
+  const pageUrl = String(record.sourcePageUrl || '').trim();
+  const authorName = String(record.author?.name || '').trim();
+  const authorUrl = isAllowedAuthorUrl(record.author?.url) ? record.author.url : null;
+  const licenceUrl = normaliseLicenceUrl(record.licenseUrl);
+  const credit = {
+    schema: IMAGE_CREDIT_SCHEMA_VERSION,
+    cover: String(record.imageUrl || ''),
+    source: IMAGE_CREDIT_LICENSED_PHOTO_SOURCE,
+    photo: {
+      provider: photoProvider,
+      title,
+      pageUrl,
+      ...(Number.isInteger(record.sourceWidth) ? { width: record.sourceWidth } : {}),
+      ...(Number.isInteger(record.sourceHeight) ? { height: record.sourceHeight } : {}),
+    },
+    author: {
+      text: authorName || null,
+      name: authorName || null,
+      url: authorUrl,
+      type: 'Person',
+    },
+    attribution: null,
+    licence: {
+      name: String(record.license || '').trim(),
+      url: licenceUrl,
+      family,
+      attributionRequired: family === 'cc-by' || family === 'cc-by-sa',
+    },
+    restrictions: Array.isArray(record.restrictions) ? [...record.restrictions] : [],
+    modified: Array.isArray(record.modifications) && record.modifications.includes('cropped') ? 'cropped' : 'resized',
+    fetchedAt: String(record.generatedAt || '').slice(0, 10),
+    status: 'ok',
+    curation: null,
+  };
+  const validation = validateImageCreditRecord(credit);
+  if (!validation.valid) throw new Error(`licensed article-hero credit is invalid: ${validation.errors.join(', ')}`);
+  return credit;
+}
+
 // ── Reader ─────────────────────────────────────────────────────────────────
 
 /** @param {unknown} error */
@@ -837,7 +953,7 @@ function licenceHref(record) {
   const family = record.licence.family;
   return record.licence.url
     ?? (family === 'cc0' || family === 'no-known-restrictions' ? FAMILY_DEFAULT_LICENCE_URL[family] : null)
-    ?? record.commons.pageUrl;
+    ?? (isLicensedPhotoCredit(record) ? record.photo.pageUrl : record.commons.pageUrl);
 }
 
 /** @param {ImageCreditRecord} record @param {ImageCreditLocale} locale */
@@ -855,6 +971,18 @@ function creditedName(record) {
 /** @param {ImageCreditRecord} record */
 function isGeneratedRecord(record) {
   return record?.source === IMAGE_CREDIT_GENERATED_SOURCE;
+}
+
+/** @param {ImageCreditRecord | null | undefined} record */
+function isLicensedPhotoCredit(record) {
+  return record?.source === IMAGE_CREDIT_LICENSED_PHOTO_SOURCE;
+}
+
+/** @param {ImageCreditRecord} record @param {ImageCreditLocale} locale */
+function photoProviderCopy(record, locale) {
+  if (record?.photo?.provider === 'pexels') return IMAGE_CREDIT_COPY[locale].viaPexels;
+  if (record?.photo?.provider === 'pixabay') return IMAGE_CREDIT_COPY[locale].viaPixabay;
+  return IMAGE_CREDIT_COPY[locale].via;
 }
 
 /** @param {ImageCreditRecord | null | undefined} record */
@@ -877,7 +1005,8 @@ function namesWikimediaCommons(name) {
  * The ImageObject fields of a credited cover, to spread into `imageObjectLd`
  * after `url`, in place of the site defaults it would otherwise fill in.
  * The five fields Google's image-licence metadata documents, plus `isBasedOn`
- * (the Commons file page: the cover is a cropped/resized derivative).
+ * (the source page) and, for a licensed photo, a machine-readable description
+ * of the crop/resize modification.
  *
  *   creator           Person/Organization from the record, never the site,
  *                     Commons or the uploader; a known profile URL is also
@@ -893,7 +1022,9 @@ function namesWikimediaCommons(name) {
  */
 export function imageObjectCreditFields(record) {
   if (isInferredRecord(record)) return {};
-  const pageUrl = isGeneratedRecord(record) ? record.generated.licenseUrl : record.commons.pageUrl;
+  const pageUrl = isGeneratedRecord(record)
+    ? record.generated.licenseUrl
+    : isLicensedPhotoCredit(record) ? record.photo.pageUrl : record.commons.pageUrl;
   const authorName = record.author.name;
   const credited = creditedName(record) ?? UNKNOWN_AUTHOR_NAME;
   const family = record.licence.family;
@@ -919,12 +1050,19 @@ export function imageObjectCreditFields(record) {
     // is not suffixed a second time.
     creditText: isGeneratedRecord(record)
       ? `${credited} (generated media)`
-      : namesWikimediaCommons(credited) ? credited : `${credited} / Wikimedia Commons`,
+      : isLicensedPhotoCredit(record)
+        ? `${credited} / ${record.photo.provider === 'pexels' ? 'Pexels' : record.photo.provider === 'pixabay' ? 'Pixabay' : 'Wikimedia Commons'}`
+        : namesWikimediaCommons(credited) ? credited : `${credited} / Wikimedia Commons`,
     copyrightNotice,
     license: licenceHref(record),
     acquireLicensePage: pageUrl,
   };
   if (!isGeneratedRecord(record)) fields.isBasedOn = pageUrl;
+  if (isLicensedPhotoCredit(record)) {
+    fields.description = record.modified === 'cropped'
+      ? 'Cropped and resized derivative of the licensed source.'
+      : 'Resized derivative of the licensed source.';
+  }
   return fields;
 }
 
@@ -995,8 +1133,10 @@ export function imageCreditParts(record, locale) {
   if (isInferredRecord(record)) return null;
   const loc = resolveLocale(locale);
   const copy = IMAGE_CREDIT_COPY[loc];
-  const pageUrl = httpsUrlOrNull(isGeneratedRecord(record) ? record?.generated?.licenseUrl : record?.commons?.pageUrl);
-  const title = record?.commons?.title;
+  const pageUrl = httpsUrlOrNull(isGeneratedRecord(record)
+    ? record?.generated?.licenseUrl
+    : isLicensedPhotoCredit(record) ? record?.photo?.pageUrl : record?.commons?.pageUrl);
+  const title = isLicensedPhotoCredit(record) ? record?.photo?.title : record?.commons?.title;
   if (!pageUrl || !isNonEmptyString(title) || !isNonEmptyString(record?.licence?.name)) return null;
   if (!hasVisibleImageCredit(record)) return null;
 
@@ -1018,7 +1158,9 @@ export function imageCreditParts(record, locale) {
   }
   const via = isGeneratedRecord(record)
     ? `, ${copy.generatedVia}`
-    : namesWikimediaCommons(credited) ? '' : `, ${copy.via}`;
+    : isLicensedPhotoCredit(record)
+      ? `, ${photoProviderCopy(record, loc)}`
+      : namesWikimediaCommons(credited) ? '' : `, ${copy.via}`;
   raw.push(
     segment('text', ', '),
     segment('licence', licenceLabel(record, loc), { href: httpsUrlOrNull(licenceHref(record)) ?? pageUrl }),
