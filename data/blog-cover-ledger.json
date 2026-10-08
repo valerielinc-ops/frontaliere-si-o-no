@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5049
+      "6": 5050
     },
-    "publishedCovers": 6761,
+    "publishedCovers": 6762,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -179846,6 +179846,39 @@
       "provider": null,
       "currentlyPublished": true,
       "status": "no-credit"
+    },
+    "article-festival-racconto-varese-ottobre": {
+      "cover": "/images/blog/article-festival-racconto-varese-ottobre.webp",
+      "hash": "40161bee5a8662281eae77801b7ede56f9b78382aac0680cca2bb51871381476",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "festival-racconto-varese-ottobre",
+          "category": "novita",
+          "date": "2026-10-08T01:52:55.465Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-festival-racconto-varese-ottobre.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina editoriale dedicata generata e registrata con prova provider.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-festival-racconto-varese-ottobre",
+        "imageUrl": "/images/blog/article-festival-racconto-varese-ottobre.webp",
+        "evidence": "generated-engine-record"
+      }
     }
   },
   "repair": {

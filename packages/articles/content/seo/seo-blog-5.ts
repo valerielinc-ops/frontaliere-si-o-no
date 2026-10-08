@@ -101186,7 +101186,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Due appuntamenti culturali a Varese il 9 e l'11 ottobre - Dante al centro dell'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/compatta-usata-frontalieri-varese-milano.webp`,
+        "url": `${BASE_URL}/images/blog/article-festival-racconto-varese-ottobre.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Villa Recalcati a Varese ospita il Festival del Racconto"

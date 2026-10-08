@@ -43093,7 +43093,7 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  id: 'festival-racconto-varese-ottobre',
  category: 'novita',
  date: '2026-10-08T01:52:55.465Z',
- image: '/images/blog/compatta-usata-frontalieri-varese-milano.webp',
+ image: '/images/blog/article-festival-racconto-varese-ottobre.webp',
  hasCalculator: false,
  articleType: 'news',
  authorSlug: 'redazione',

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "commit": "ab476ef7d38eb459d8c49a07d4dbcd97981d6434",
+  "commit": "d3a98ee3358f01f21a13e943a5e70a6d10a63fba",
   "section": "blog",
   "files": {
     "generated:139-frontalieri-ticino-special-olympics": {
@@ -73,79 +73,6 @@
           "looks_like_specific_real_event": false,
           "is_photograph": false,
           "notes": "Original generic editorial landscape illustration; no readable text, logos, or recognizable faces."
-        }
-      }
-    },
-    "generated:article-mcdonalds-pulizia-malnate-2026": {
-      "source": "generated-provider",
-      "commons": {
-        "title": "Generated editorial illustration",
-        "pageUrl": "https://openai.com/policies/terms-of-use/",
-        "width": 1200,
-        "height": 675,
-        "revision": "2026-10-08T00:42:00.000Z"
-      },
-      "author": {
-        "text": "frontaliereticino.ch",
-        "name": "frontaliereticino.ch",
-        "url": null,
-        "type": "Organization"
-      },
-      "attribution": null,
-      "licence": {
-        "name": "Generated media — provider terms apply",
-        "url": "https://openai.com/policies/terms-of-use/",
-        "family": "other-attribution",
-        "attributionRequired": true
-      },
-      "restrictions": [
-        "illustrative-only",
-        "no-real-recognizable-foreground-person",
-        "no-public-figure-face",
-        "no-logo-brand-or-text",
-        "no-specific-real-event-photojournalism"
-      ],
-      "fetchedAt": "2026-10-08",
-      "generated": {
-        "schema": 1,
-        "assetId": "article-mcdonalds-pulizia-malnate-2026",
-        "kind": "generated",
-        "provider": "openai-codex",
-        "model": "OpenAI built-in image generator",
-        "executorModel": "Codex",
-        "promptVersion": "frontaliereticino.generated-image-policy.v1",
-        "promptHash": "796e96d7ed16e6555b5d2e05e742b183c79d2572c7cff8eaa04cf48fe3add69b",
-        "license": "generated-provider",
-        "licenseUrl": "https://openai.com/policies/terms-of-use/",
-        "credit": "frontaliereticino.ch",
-        "sha256": "dd28d3eb59d3a63eb0659d9040234a98d642e650c1835bf1ef4934b26eae3662",
-        "bytes": 178532,
-        "width": 1200,
-        "height": 675,
-        "format": "webp",
-        "generatedAt": "2026-10-08T00:42:00.000Z",
-        "verifiedAt": "2026-10-08T00:42:00.000Z",
-        "restrictions": [
-          "illustrative-only",
-          "no-real-recognizable-foreground-person",
-          "no-public-figure-face",
-          "no-logo-brand-or-text",
-          "no-specific-real-event-photojournalism"
-        ],
-        "scope": "article-hero",
-        "imageUrl": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
-        "category": "novita",
-        "area": "Malnate, Varese and the Swiss-Italian border region",
-        "season": "autumn",
-        "variant": "community-cleanup-malnate",
-        "vision": {
-          "ok": true,
-          "contains_text": false,
-          "contains_logo": false,
-          "contains_recognizable_face": false,
-          "looks_like_specific_real_event": false,
-          "is_photograph": false,
-          "notes": "Original editorial illustration of generic volunteers cleaning a public area; no text, logos, recognizable faces or documentary-event cues."
         }
       }
     },
@@ -2106,6 +2033,152 @@
           "contains_recognizable_face": false,
           "looks_like_specific_real_event": false,
           "notes": "Original editorial illustration of a generic community theatre stage; no text, logos, recognizable faces or documentary-event cues."
+        }
+      }
+    },
+    "generated:article-festival-racconto-varese-ottobre": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-08T02:33:00.000Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "url": "https://openai.com/policies/terms-of-use/",
+        "family": "other-attribution",
+        "attributionRequired": true
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-08",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-festival-racconto-varese-ottobre",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "OpenAI built-in image generator",
+        "executorModel": "Codex",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "7d86f9ff485ea429f7c55d4930cb138450cb1e741b6e3cb13b4f529dd1e50544",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "40161bee5a8662281eae77801b7ede56f9b78382aac0680cca2bb51871381476",
+        "bytes": 60088,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-08T02:33:00.000Z",
+        "verifiedAt": "2026-10-08T02:33:00.000Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-festival-racconto-varese-ottobre.webp",
+        "category": "novita",
+        "area": "Varese and the Swiss-Italian border region",
+        "season": "autumn",
+        "variant": "festival-racconto-varese-autumn-stage",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "notes": "Original editorial image of a generic autumn storytelling stage with an open book and microphone; no text, logos, recognizable faces or documentary-event cues."
+        }
+      }
+    },
+    "generated:article-mcdonalds-pulizia-malnate-2026": {
+      "source": "generated-provider",
+      "commons": {
+        "title": "Generated editorial illustration",
+        "pageUrl": "https://openai.com/policies/terms-of-use/",
+        "width": 1200,
+        "height": 675,
+        "revision": "2026-10-08T00:42:00.000Z"
+      },
+      "author": {
+        "text": "frontaliereticino.ch",
+        "name": "frontaliereticino.ch",
+        "url": null,
+        "type": "Organization"
+      },
+      "attribution": null,
+      "licence": {
+        "name": "Generated media — provider terms apply",
+        "url": "https://openai.com/policies/terms-of-use/",
+        "family": "other-attribution",
+        "attributionRequired": true
+      },
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "fetchedAt": "2026-10-08",
+      "generated": {
+        "schema": 1,
+        "assetId": "article-mcdonalds-pulizia-malnate-2026",
+        "kind": "generated",
+        "provider": "openai-codex",
+        "model": "OpenAI built-in image generator",
+        "executorModel": "Codex",
+        "promptVersion": "frontaliereticino.generated-image-policy.v1",
+        "promptHash": "796e96d7ed16e6555b5d2e05e742b183c79d2572c7cff8eaa04cf48fe3add69b",
+        "license": "generated-provider",
+        "licenseUrl": "https://openai.com/policies/terms-of-use/",
+        "credit": "frontaliereticino.ch",
+        "sha256": "dd28d3eb59d3a63eb0659d9040234a98d642e650c1835bf1ef4934b26eae3662",
+        "bytes": 178532,
+        "width": 1200,
+        "height": 675,
+        "format": "webp",
+        "generatedAt": "2026-10-08T00:42:00.000Z",
+        "verifiedAt": "2026-10-08T00:42:00.000Z",
+        "restrictions": [
+          "illustrative-only",
+          "no-real-recognizable-foreground-person",
+          "no-public-figure-face",
+          "no-logo-brand-or-text",
+          "no-specific-real-event-photojournalism"
+        ],
+        "scope": "article-hero",
+        "imageUrl": "/images/blog/article-mcdonalds-pulizia-malnate-2026.webp",
+        "category": "novita",
+        "area": "Malnate, Varese and the Swiss-Italian border region",
+        "season": "autumn",
+        "variant": "community-cleanup-malnate",
+        "vision": {
+          "ok": true,
+          "contains_text": false,
+          "contains_logo": false,
+          "contains_recognizable_face": false,
+          "looks_like_specific_real_event": false,
+          "is_photograph": false,
+          "notes": "Original editorial illustration of generic volunteers cleaning a public area; no text, logos, recognizable faces or documentary-event cues."
         }
       }
     },
@@ -14082,6 +14155,10 @@
       "provider": null,
       "verifiedAt": "2026-10-08",
       "status": "no-credit"
+    },
+    "article-festival-racconto-varese-ottobre": {
+      "file": "generated:article-festival-racconto-varese-ottobre",
+      "modified": "resized"
     },
     "article-ffs-sportelli-chiusi-stazioni": {
       "evidence": "inferred",

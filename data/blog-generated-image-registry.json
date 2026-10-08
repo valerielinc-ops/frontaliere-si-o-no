@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "cdnPrefix": "/images/blog/",
-  "assetCount": 24,
-  "generatedAt": "2026-10-08T00:42:00.000Z",
+  "assetCount": 25,
+  "generatedAt": "2026-10-08T02:33:00.000Z",
   "assets": [
     {
       "schema": 1,
@@ -86,6 +86,48 @@
         "looks_like_specific_real_event": false,
         "is_photograph": false,
         "notes": "Original editorial illustration of generic volunteers cleaning a public area; no text, logos, recognizable faces or documentary-event cues."
+      }
+    },
+    {
+      "schema": 1,
+      "assetId": "article-festival-racconto-varese-ottobre",
+      "kind": "generated",
+      "provider": "openai-codex",
+      "model": "OpenAI built-in image generator",
+      "executorModel": "Codex",
+      "promptVersion": "frontaliereticino.generated-image-policy.v1",
+      "promptHash": "7d86f9ff485ea429f7c55d4930cb138450cb1e741b6e3cb13b4f529dd1e50544",
+      "license": "generated-provider",
+      "licenseUrl": "https://openai.com/policies/terms-of-use/",
+      "credit": "frontaliereticino.ch",
+      "sha256": "40161bee5a8662281eae77801b7ede56f9b78382aac0680cca2bb51871381476",
+      "bytes": 60088,
+      "width": 1200,
+      "height": 675,
+      "format": "webp",
+      "generatedAt": "2026-10-08T02:33:00.000Z",
+      "verifiedAt": "2026-10-08T02:33:00.000Z",
+      "restrictions": [
+        "illustrative-only",
+        "no-real-recognizable-foreground-person",
+        "no-public-figure-face",
+        "no-logo-brand-or-text",
+        "no-specific-real-event-photojournalism"
+      ],
+      "scope": "article-hero",
+      "imageUrl": "/images/blog/article-festival-racconto-varese-ottobre.webp",
+      "category": "novita",
+      "area": "Varese and the Swiss-Italian border region",
+      "season": "autumn",
+      "variant": "festival-racconto-varese-autumn-stage",
+      "vision": {
+        "ok": true,
+        "contains_text": false,
+        "contains_logo": false,
+        "contains_recognizable_face": false,
+        "looks_like_specific_real_event": false,
+        "is_photograph": false,
+        "notes": "Original editorial image of a generic autumn storytelling stage with an open book and microphone; no text, logos, recognizable faces or documentary-event cues."
       }
     },
     {
