@@ -376,9 +376,12 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
   }, TIMEOUT);
 
   it('riconosce un file aperto per nome dalla radice, non una stringa qualsiasi', () => {
+    // `PROJECT_ROOT` e non `ROOT`: lo scanner dei dati vivi legge `join(ROOT`
+    // in un test come una lettura dal checkout, anche dentro una stringa, e
+    // con il `data/jobs/` nominato piu' sopra segnalava questo file.
     const source = [
       "const workflow = resolve(process.cwd(), '.github/workflows/deploy-request.yml');",
-      "const ledger = path.join(ROOT, 'data/blog-cover-ledger.json');",
+      "const ledger = path.join(PROJECT_ROOT, 'data/blog-cover-ledger.json');",
       "const policy = fs.readFileSync('./scripts/ci/policy.json', 'utf8');",
       "console.log('rigenera con scripts/ci/apply-checkout-profiles.mjs');",
       "const output = path.join(outDir, 'report.json');",
