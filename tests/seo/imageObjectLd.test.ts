@@ -6,6 +6,8 @@
  * *always* present in the output, even when the caller passes a sparse input.
  */
 import { describe, expect, it } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import {
   imageObjectLd,
   imageObjectLdDocument,
@@ -14,6 +16,7 @@ import {
 } from '@/services/seo/imageObjectLd';
 
 const REQUIRED = ['acquireLicensePage', 'copyrightNotice', 'license', 'creator', 'creditText'] as const;
+const CANONICAL_SITE_ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
 
 describe('imageObjectLd — GSC licensable-image quintet', () => {
   it('emits @type ImageObject with all 5 required fields when called with only contentUrl', () => {
@@ -40,6 +43,17 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });
+  });
+
+  it('keeps legacy static SEO image creators on the canonical organization', () => {
+    const source = readFileSync(resolve(__dirname, '../../services/seo/seo-pages.ts'), 'utf8');
+    const imageLines = source
+      .split('\n')
+      .filter((line) => line.includes('"@type": "ImageObject"') && line.includes('`${BASE_URL}/images/blog/'));
+    expect(imageLines.length).toBeGreaterThan(0);
+    for (const imageLine of imageLines) {
+      expect(imageLine).toContain(`"@id": "${CANONICAL_SITE_ORGANIZATION_ID}"`);
+    }
   });
 
   it.each([
