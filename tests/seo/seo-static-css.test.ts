@@ -235,6 +235,19 @@ describe('index.css (SPA bundle source) cascade does not re-hide the cluster bod
       expect(rootRule('aside.seo-footer-block')?.toString()).not.toContain('display: grid');
     });
 
+    // Uno sticky sul titolo scivola sopra il disclaimer e sopra gli annunci
+    // inseriti nel pannello: Chrome lo vincola al pannello, non alla riga.
+    it('never pins a part of the SEO panel while scrolling', () => {
+      const pinned: string[] = [];
+      root.walkDecls('position', (declaration) => {
+        const rule = declaration.parent as postcss.Rule;
+        if (/sticky|fixed/.test(declaration.value) && /seo-footer-block/.test(rule.selector ?? '')) {
+          pinned.push(rule.selector);
+        }
+      });
+      expect(pinned).toEqual([]);
+    });
+
     it('keeps the tools list responsive without boxing each entry', () => {
       const cards = rootRule('aside.seo-footer-block .seo-fb-cards');
       expect(cards?.toString()).toContain('grid-template-columns: repeat(2, minmax(0, 1fr))');
