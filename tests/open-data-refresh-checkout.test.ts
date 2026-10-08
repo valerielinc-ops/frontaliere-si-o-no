@@ -13,6 +13,28 @@ const identity = {
   GIT_COMMITTER_EMAIL: '296434481+frontaliere-automation[bot]@users.noreply.github.com',
 };
 
+describe('bounded network command runner', () => {
+  it('interrupts a command that exceeds its cap and names the command', () => {
+    const startedAt = Date.now();
+    const result = spawnSync(process.execPath, [
+      'scripts/lib/run-bounded-command.mjs',
+      '--timeout-seconds', '1',
+      '--label', 'git fetch stable branch',
+      '--', process.execPath, '-e', 'setTimeout(() => {}, 30000);',
+    ], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      timeout: 5_000,
+    });
+
+    expect(result.error).toBeUndefined();
+    expect(result.status).toBe(124);
+    expect(`${result.stdout}${result.stderr}`).toContain('git fetch stable branch');
+    expect(`${result.stdout}${result.stderr}`).toContain('timed out after 1 second');
+    expect(Date.now() - startedAt).toBeLessThan(5_000);
+  });
+});
+
 afterEach(() => {
   for (const directory of directories.splice(0)) fs.rmSync(directory, { recursive: true, force: true });
 });
@@ -41,6 +63,7 @@ function fixture() {
     'scripts/lib/open-data-refresh-pr.sh',
     'scripts/lib/old-history-guard.mjs',
     'scripts/lib/single-flight-lock.mjs',
+    'scripts/lib/run-bounded-command.mjs',
     'scripts/lib/git-add-resolved.mjs',
     'scripts/lib/resolve-git-add-path.mjs',
     'scripts/lib/read-git-blob.mjs',

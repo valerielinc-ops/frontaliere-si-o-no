@@ -169,10 +169,35 @@ REPOSITORY="${GITHUB_REPOSITORY:-}"
 # workflows, so `origin` is not allowed to be the authentication boundary.
 PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+
+# Keep every remote operation diagnostic and finite. The total budget is for
+# this publisher's network phase, including bounded retries and backoff; the
+# shortest caller job has a 10-minute timeout, leaving five minutes for the
+# render, cleanup and the job's post-step handling.
+NETWORK_COMMAND_TIMEOUT_SECONDS=45
+NETWORK_TOTAL_BUDGET_SECONDS=240
+NETWORK_BUDGET_STARTED_SECONDS="$SECONDS"
+
+run_bounded_network() {
+  local label="$1"
+  shift
+  local remaining="$((NETWORK_TOTAL_BUDGET_SECONDS - (SECONDS - NETWORK_BUDGET_STARTED_SECONDS)))"
+  if [ "$remaining" -le 0 ]; then
+    echo "::error::${label} cannot start: network budget of ${NETWORK_TOTAL_BUDGET_SECONDS} seconds exhausted" >&2
+    return 124
+  fi
+  local timeout_seconds="$NETWORK_COMMAND_TIMEOUT_SECONDS"
+  [ "$remaining" -lt "$timeout_seconds" ] && timeout_seconds="$remaining"
+  node "$BOUNDED_COMMAND_SCRIPT" \
+    --timeout-seconds "$timeout_seconds" \
+    --label "$label" \
+    -- "$@"
+}
 
 check_old_history_ref() {
   local head_ref="$1"
-  node "$OLD_HISTORY_GUARD_SCRIPT" \
+  run_bounded_network "node old-history-guard" node "$OLD_HISTORY_GUARD_SCRIPT" \
     --head "$head_ref" \
     --base refs/remotes/origin/main \
     --refresh-base \
@@ -189,7 +214,7 @@ check_old_history_ref HEAD
 # Read the lease before changing the local checkout. A stable branch may back
 # an open PR; its tree must be the base for this run instead of the workflow's
 # main snapshot. The lease still protects the final push from a concurrent run.
-REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+REMOTE_HEAD="$(run_bounded_network "git ls-remote stable refresh branch" git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
@@ -319,12 +344,12 @@ if [ -n "$REMOTE_HEAD" ]; then
   # commit graph without blobs: both reconciler paths and the history guard
   # need reliable ancestry rather than a depth-1 tip.
   if [ "$RECONCILE_COMPAT" = true ]; then
-    git fetch --no-tags "$PUSH_URL" \
+    run_bounded_network "git fetch stable refresh branch" git fetch --no-tags "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
-    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    run_bounded_network "git checkout stable refresh branch" git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
   else
-    git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
+    run_bounded_network "git fetch stable refresh tree" git fetch --no-tags --filter=blob:none "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     # Reconcile in a separate, sparse checkout. A data branch may carry old
@@ -337,7 +362,7 @@ if [ -n "$REMOTE_HEAD" ]; then
       done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
     fi
     REFRESH_PUBLISH_WORKTREE="$MERGE_REFRESH_SCRIPT_DIR/publish"
-    git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
+    run_bounded_network "git worktree add stable refresh checkout" git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
     cd "$REFRESH_PUBLISH_WORKTREE"
     if [ "${#PUBLISH_PATHS[@]}" -gt 0 ]; then
       # The article content refresh keeps destination-only cover-credit files
@@ -352,13 +377,13 @@ if [ -n "$REMOTE_HEAD" ]; then
           break
         fi
       done
-      printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+      printf '/%s\n' "${PUBLISH_PATHS[@]}" | run_bounded_network "git sparse-checkout stable refresh paths" git sparse-checkout set --no-cone --stdin
       PATHS=("${PUBLISH_PATHS[@]}")
     else
-      git sparse-checkout set --no-cone --stdin </dev/null
+      run_bounded_network "git sparse-checkout stable refresh paths" git sparse-checkout set --no-cone --stdin </dev/null
       PATHS=()
     fi
-    git checkout --quiet
+    run_bounded_network "git checkout stable refresh paths" git checkout --quiet
     # These are the real committed paths, already resolved through symlinks
     # by the initial stage. The sparse checkout need not include alias paths.
     RESOLVE_SYMLINKS=false
@@ -372,7 +397,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # the checkout's main snapshot and force-replaces an unmerged sweep. The
   # custom driver performs the store's deterministic 3-way SET merge, keeping
   # distinct additions in the same shard deduped and sorted.
-  git fetch --no-tags "$PUSH_URL" \
+  run_bounded_network "git fetch main for compatibility reconciliation" git fetch --no-tags "$PUSH_URL" \
     "refs/heads/main:refs/remotes/origin/main"
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
@@ -384,7 +409,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
 
   merge_refresh_ref() {
     local ref="$1"
-    if ! git merge --no-edit "$ref"; then
+    if ! run_bounded_network "git merge refresh reconciliation" git merge --no-edit "$ref"; then
       git merge --abort 2>/dev/null || true
       echo "::error::Unable to reconcile refresh branch with ${ref}" >&2
       exit 1
@@ -433,21 +458,26 @@ elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
 fi
 
 if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
-  git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
+  run_bounded_network "git fetch refresh main" git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
   MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
   # GitHub knows the common ancestor even when the runner has only branch
   # tips. Fetch that single tree, rather than all historical image blobs.
-  MAIN_BASE="$(gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
+  MAIN_BASE="$(run_bounded_network "gh api refresh compare" gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
   [ -n "$MAIN_BASE" ] && [ "$MAIN_BASE" != null ] || { echo "::error::Missing refresh/main merge base"; exit 1; }
   if [ "$MAIN_BASE" != "$MAIN_HEAD" ]; then
     if ! git cat-file -e "${MAIN_BASE}^{commit}" 2>/dev/null; then
-      git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
+      run_bounded_network "git fetch refresh merge base" git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
     fi
     node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
       --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
   fi
 fi
 
+# Remote state is deliberately monotonic at the handoff points below. Before
+# the first successful push, only the local refresh commit exists. A push that
+# succeeds while the client times out may leave a stable branch without a PR;
+# the next run leases that branch and reconciles it. After a PR mutation starts,
+# the next run lists the branch's open PR and repairs or creates the body.
 # A stable branch is intentionally shared by concurrent refreshes. The first
 # push may therefore lose the lease after the branch was reconciled above. A
 # bounded retry must rebuild the local branch from the newest remote tip before
@@ -458,12 +488,12 @@ push_attempt=1
 while :; do
   push_succeeded=false
   if [ -n "$REMOTE_HEAD" ]; then
-    if git -c http.https://github.com/.extraheader= push \
+    if run_bounded_network "git push stable refresh branch" git -c http.https://github.com/.extraheader= push \
       --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \
       "$PUSH_URL" "HEAD:${BRANCH}"; then
       push_succeeded=true
     fi
-  elif git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"; then
+  elif run_bounded_network "git push new refresh branch" git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"; then
     push_succeeded=true
   fi
 
@@ -478,18 +508,18 @@ while :; do
   echo "::warning::stable refresh branch moved during push attempt ${push_attempt}/${MAX_PUSH_ATTEMPTS}; reconciling the newest remote tip"
   push_attempt=$((push_attempt + 1))
   sleep "$((push_attempt - 1))"
-  REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+  REMOTE_HEAD="$(run_bounded_network "git ls-remote stable refresh branch" git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 
   if [ -n "$REMOTE_HEAD" ]; then
-    git fetch --no-tags "$PUSH_URL" \
+    run_bounded_network "git fetch newest stable refresh branch" git fetch --no-tags "$PUSH_URL" \
       "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
-    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+    run_bounded_network "git checkout newest stable refresh branch" git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
 
     if [ "$RECONCILE_COMPAT" = true ]; then
       # Re-read main as well: the stable branch race can overlap a new 404
       # sweep, and the compatibility merge must retain the newest main base.
-      git fetch --no-tags "$PUSH_URL" \
+      run_bounded_network "git fetch newest main for compatibility reconciliation" git fetch --no-tags "$PUSH_URL" \
         "refs/heads/main:refs/remotes/origin/main"
       merge_refresh_ref "$REFRESH_COMMIT"
       merge_refresh_ref origin/main
@@ -514,11 +544,11 @@ while :; do
     # The branch may have been closed and deleted between attempts. Recreate it
     # from this run's immutable refresh commit and let the next push establish
     # the stable ref again.
-    git checkout -B "$BRANCH" "$REFRESH_COMMIT"
+    run_bounded_network "git checkout refresh commit" git checkout -B "$BRANCH" "$REFRESH_COMMIT"
   fi
 done
 
-OPEN_PR="$(gh pr list \
+OPEN_PR="$(run_bounded_network "gh pr list stable refresh PR" gh pr list \
   --repo "$REPOSITORY" \
   --state open \
   --base main \
@@ -529,12 +559,12 @@ OPEN_PR="$(gh pr list \
 if [ -n "$OPEN_PR" ]; then
   # Keep the body linked to the latest successful refresh run when the stable
   # branch already has an open PR. The branch update above re-triggers tests.
-  gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
+  run_bounded_network "gh pr edit stable refresh PR" gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
   echo "Updated refresh PR #$OPEN_PR"
   exit 0
 fi
 
-gh pr create \
+run_bounded_network "gh pr create stable refresh PR" gh pr create \
   --repo "$REPOSITORY" \
   --base main \
   --head "$BRANCH" \

@@ -97,6 +97,22 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).not.toMatch(/HEAD:main/);
   });
 
+  it('puts every outbound command behind the bounded network runner', () => {
+    const helper = read('scripts/lib/open-data-refresh-pr.sh');
+    const networkCommand = /\bgit(?:\s+-c\s+\S+)?\s+(?:fetch|push|ls-remote|clone)\b|\bgh\s+(?:api|pr|issue|run|workflow)\b/u;
+    const unbounded = helper.split('\n').filter((line) => {
+      const code = line.replace(/\s+#.*$/u, '').trim();
+      return code && !code.startsWith('#') && networkCommand.test(code) && !code.includes('run_bounded_network');
+    });
+
+    expect(unbounded).toEqual([]);
+    expect(helper).toContain('NETWORK_COMMAND_TIMEOUT_SECONDS=45');
+    expect(helper).toContain('NETWORK_TOTAL_BUDGET_SECONDS=240');
+    expect(helper).toContain('run-bounded-command.mjs');
+    expect(helper).toContain('--filter=blob:none');
+    expect(helper).not.toContain('--filter=tree:0 "$PUSH_URL"');
+  });
+
   it('carries stable refresh files without turning stale branch absence into deletions', () => {
     const helper = read('scripts/lib/restore-stable-refresh-files.sh');
     expect(helper).toContain('git ls-tree -r --name-only -z');
