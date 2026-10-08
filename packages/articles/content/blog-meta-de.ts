@@ -12771,6 +12771,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agrivarese-angera-ottobre-2026.title': 'Agrivarese kehrt nach Angera zurück: Landwirtschaftsmesse am 11. Oktober',
     'blog.article.agrivarese-angera-ottobre-2026.excerpt': '## Auf einen Blick - Am Sonntag, dem 11. Oktober, kommt Agrivarese an die Uferpromenade von Angera - Die Veranstaltung ist von 9 bis 19 Uhr geöffnet - Auf dem Programm stehen mehr als 40 Unternehmen',
     'blog.article.agrivarese-angera-ottobre-2026.imageAlt': 'Lokale landwirtschaftliche Marktstände am Seeufer von Angera während des Agrivarese-Events.',
+    'blog.article.festival-racconto-varese-ottobre.title': 'Erzählfestival: zwei Termine in Varese',
+    'blog.article.festival-racconto-varese-ottobre.excerpt': '## In Kürze - Zwei Kulturveranstaltungen in Varese am 9. und 11. Oktober - Dante im Mittelpunkt des Treffens am Freitag um 17:30 Uhr - Drei unveröffentlichte Geschichten von Carlo',
+    'blog.article.festival-racconto-varese-ottobre.imageAlt': 'Villa Recalcati in Varese beherbergt das Festival del Racconto',
 };
 
 export default blogMetaDe;

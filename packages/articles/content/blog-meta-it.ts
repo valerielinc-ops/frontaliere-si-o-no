@@ -12773,6 +12773,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agrivarese-angera-ottobre-2026.title': 'Agrivarese torna ad Angera: fiera agricola l\'11 ottobre',
     'blog.article.agrivarese-angera-ottobre-2026.excerpt': '## In breve - Domenica 11 ottobre Agrivarese arriva sul lungolago di Angera - La manifestazione sarà aperta dalle 9 alle 19 - In programma oltre 40 aziende',
     'blog.article.agrivarese-angera-ottobre-2026.imageAlt': 'Bancarelle di prodotti agricoli locali sul lungolago di Angera durante l\'evento Agrivarese.',
+    'blog.article.festival-racconto-varese-ottobre.title': 'Festival del Racconto: due appuntamenti a Varese',
+    'blog.article.festival-racconto-varese-ottobre.excerpt': '## In breve - Due appuntamenti culturali a Varese il 9 e l\'11 ottobre - Dante al centro dell\'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo',
+    'blog.article.festival-racconto-varese-ottobre.imageAlt': 'Villa Recalcati a Varese ospita il Festival del Racconto',
 };
 
 export default blogMetaIt;

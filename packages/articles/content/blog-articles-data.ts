@@ -43089,6 +43089,16 @@ const RAW_ARTICLES_CHUNK_17: Article[] = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'festival-racconto-varese-ottobre',
+ category: 'novita',
+ date: '2026-10-08T01:52:55.465Z',
+ image: '/images/blog/compatta-usata-frontalieri-varese-milano.webp',
+ hasCalculator: false,
+ articleType: 'news',
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ];
 
 const RAW_ARTICLES: Article[] = [

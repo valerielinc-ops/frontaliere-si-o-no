@@ -101172,6 +101172,40 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-festival-racconto-varese-ottobre': {
+    title: 'Festival del Racconto: due appuntamenti a Varese',
+    description: '## In breve - Due appuntamenti culturali a Varese il 9 e l\'11 ottobre - Dante al centro dell\'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo',
+    keywords: 'frontalieri, ticino, svizzera, italia, festival, racconto, appuntamenti, varese',
+    ogTitle: 'Festival del Racconto: Dante e inediti di Carlo Linati',
+    ogDescription: '## In breve - Due appuntamenti culturali a Varese il 9 e l\'11 ottobre - Dante al centro dell\'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo',
+    canonicalPath: '/articoli-frontaliere/festival-racconto-varese-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Festival del Racconto: due appuntamenti a Varese",
+      "description": "## In breve - Due appuntamenti culturali a Varese il 9 e l'11 ottobre - Dante al centro dell'incontro di venerdì alle 17:30 - Tre racconti inediti di Carlo",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/compatta-usata-frontalieri-varese-milano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Recalcati a Varese ospita il Festival del Racconto"
+      },
+      "datePublished": "2026-10-08T01:52:55+00:00",
+      "dateModified": "2026-10-08T01:52:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/festival-racconto-varese-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -12772,6 +12772,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agrivarese-angera-ottobre-2026.title': 'Agrivarese returns to Angera: agricultural fair on October 11',
     'blog.article.agrivarese-angera-ottobre-2026.excerpt': '## TL;DR - Sunday, October 11 Agrivarese arrives on Angera\'s lakeside - The event will be open from 9 to 19 - More than 40 companies are scheduled',
     'blog.article.agrivarese-angera-ottobre-2026.imageAlt': 'Local agricultural produce stalls at the Agrivarese event on the Angera lakefront.',
+    'blog.article.festival-racconto-varese-ottobre.title': 'Storytelling Festival: two events in Varese',
+    'blog.article.festival-racconto-varese-ottobre.excerpt': '## In brief - Two cultural events at Varese on 9 and 11 October - Dante at the centre of Friday\'s meeting at 5:30 pm - Three unpublished stories by Carlo',
+    'blog.article.festival-racconto-varese-ottobre.imageAlt': 'Villa Recalcati in Varese hosting the Festival del Racconto',
 };
 
 export default blogMetaEn;
