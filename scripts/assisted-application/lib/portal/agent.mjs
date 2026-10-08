@@ -404,9 +404,13 @@ export async function clickSubmitButton(page, target) {
       try {
         await candidate.click({ timeout: ACTION_TIMEOUT_MS });
         return 'role';
-      } catch {
+      } catch (candidateError) {
+        // A candidate click may have dispatched before rejecting. Do not try
+        // another same-name control; the caller must observe the outcome.
+        const candidateMessage = String(candidateError?.message || candidateError);
+        if (!/waiting for locator|strict mode violation|resolved to 0 elements/i.test(candidateMessage)) return 'outcome';
         // SuccessFactors can replace the button once more while it is being
-        // resolved; try the next exact-name control, never a broader match.
+        // resolved; only a proven pre-dispatch miss may try the next exact-name control.
       }
     }
     throw error;

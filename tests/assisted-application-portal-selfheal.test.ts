@@ -45,6 +45,29 @@ describe('portal runner self-correction', () => {
     expect(page.getByRole).not.toHaveBeenCalled();
   });
 
+  it('level 1: stops after the first ambiguous fallback click', async () => {
+    let dispatches = 0;
+    const first = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn(async () => {
+        dispatches += 1;
+        throw new Error('locator.click: Timeout while waiting for navigation');
+      }),
+    };
+    const second = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: vi.fn().mockResolvedValue(undefined),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(2), nth: vi.fn((index: number) => index === 0 ? first : second) };
+    const page = { getByRole: vi.fn().mockReturnValue(candidates) };
+
+    await expect(clickSubmitButton(page as any, { locator: { click: vi.fn().mockRejectedValue(new Error('waiting for locator')) }, name: 'Postuler' })).resolves.toBe('outcome');
+    expect(dispatches).toBe(1);
+    expect(second.click).not.toHaveBeenCalled();
+  });
+
   it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {
     const { db, read } = createMemoryFirestore();
     const store = portalKnowledgeStore({ db });
