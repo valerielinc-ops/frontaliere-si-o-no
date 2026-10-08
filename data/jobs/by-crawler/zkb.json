@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "zkb",
-  "assembledAt": "2026-10-08T21:16:15.332Z",
   "jobs": [
     {
       "id": "zkb-eb85223e1cb0",
@@ -1973,7 +1971,7 @@
       "companyDomain": "zkb.ch",
       "title": "Auditor:in Vertrieb Firmenkunden",
       "titleByLocale": {
-        "it": "Auditor:in Vertrieb Firmenkunden",
+        "it": "Auditor/trice delle vendite per clienti aziendali",
         "en": "Corporate Customer Sales Auditor",
         "de": "Auditor:in Vertrieb Firmenkunden",
         "fr": "Auditeur :en vente pour les entreprises clientes"
@@ -5019,5 +5017,7 @@
         }
       }
     }
-  ]
+  ],
+  "crawlerKey": "zkb",
+  "assembledAt": "2026-10-08T21:16:15.332Z"
 }

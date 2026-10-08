@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-10-08T21:21:13.922Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -1560,7 +1558,7 @@
       "companyDomain": "bern.ch",
       "title": "Sozialarbeiter*in Intake",
       "titleByLocale": {
-        "it": "Sozialarbeiter*in Intake",
+        "it": "Assistente sociale per l'accoglienza",
         "en": "Socialworker intake",
         "de": "Sozialarbeiter*in Intake",
         "fr": "Travailleursocial Intake"
@@ -2291,5 +2289,7 @@
       },
       "firstSeenAt": "2026-10-08T21:20:51.608Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T21:21:13.922Z",
+  "crawlerKey": "stadt-bern"
 }

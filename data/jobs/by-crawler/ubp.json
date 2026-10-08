@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "ubp",
-  "assembledAt": "2026-10-08T21:23:37.233Z",
   "jobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -4018,7 +4016,7 @@
       "title": "Analyst - SQL/API Developer ( Consultant )",
       "titleByLocale": {
         "it": "Analista - SQL/API Sviluppatore ( Consulente )",
-        "en": "Analyst - SQL/API Developer ( Consultant )",
+        "en": "Analyst - SQL/API Developer",
         "de": "Analyst - SQL/API Entwickler ( Berater )",
         "fr": "Analyste - SQL/API Développeur ( Consultant )"
       },
@@ -4452,5 +4450,7 @@
       },
       "firstSeenAt": "2026-10-08T21:23:01.499Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T21:23:37.233Z",
+  "crawlerKey": "ubp"
 }

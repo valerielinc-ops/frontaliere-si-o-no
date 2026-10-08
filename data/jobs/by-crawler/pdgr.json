@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "pdgr",
-  "assembledAt": "2026-10-08T21:24:11.026Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -3089,10 +3087,10 @@
       "companyDomain": "pdgr.ch",
       "title": "Mitarbeiter/-in Raumpflege",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Raumpflege",
-        "en": "Mitarbeiter/-in Raumpflege",
         "de": "Mitarbeiter/-in Raumpflege",
-        "fr": "Mitarbeiter/-in Raumpflege"
+        "it": "Collaboratore/trice Cura degli ambienti",
+        "en": "Room care employee",
+        "fr": "Employé (e) d'entretien des locaux"
       },
       "description": "Ihre Umgebung:\nSie arbeiten in einem modernen Umfeld der Klinik Waldhaus in Chur und sind Teil eines engagierten Reinigungs-Teams. Sie übernehmen eigenverantwortlich hauswirtschaftliche Aufgaben und profitieren von einem unterstützenden, kollegialen Arbeitsumfeld.\n\nIhre Aufgaben:\n- Sie werden als Springer/-in flexibel in der allgemeinen Reinigung in der Klinik Waldhaus sowie an den Aussenstandorten eingesetzt und übernehmen Ferienvertretungen\n\n- Sie führen Grundreinigungen und alle anfallenden hauswirtschaftlichen Tätigkeiten selbständig und fachgerecht aus.\n\n- Sie sind mitverantwortlich für die Einhaltung unseres hohen Qualitätsstandards im Bereich der Raumpflege\n\n- Ihre Arbeitszeiten variieren je nach Einsatz von Montag bis Sonntag von 6.30 Uhr bis 20.00 Uhr\n\nUnser Anforderungsprofil:\n- Sie haben bereits langjährige Berufserfahrung in der Reinigung und sind eine körperlich robuste\n\nPersönlichkeit mit hohem Engagement\n\n- Sie arbeiten gerne im Team und Loyalität wird bei Ihnen grossgeschrieben\n\n- Sie bringen Bereitschaft zur Einsatztätigkeit auch an den Wochenenden mit\n\n- Sie sind flexibel, zuverlässig, pflichtbewusst und arbeiten speditiv\n\n- Sie verfügen über ein gepflegtes Erscheinungsbild sowie über gute Deutschkenntnisse\n\n- Sie besitzen einen Führerausweis (Kategorie B)\n\nWir bieten Ihnen:\n- Eine vielseitige und abwechslungsreiche Tätigkeit in einem lebhaften Betreib\n\n- Sie können Ihre Erfahrungen in verschiedenen Bereichen der Hotellerie einbringen\n\n- Sie arbeiten in einem angenehmen, sozialen Umfeld\n\n- Sie profitieren von fortschrittlichen Arbeitsbedingungen (Überdurchschnittliche Sozialleistungen, Ferienguthaben von mindestens 30 Tagen)\n\n- Sie haben die Möglichkeit Weiterbildungskurse zu besuchen",
       "descriptionByLocale": {
@@ -3128,6 +3126,7 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "needsRetranslation": true,
       "previousSlugs": [
         "manutenzione-del-personale-psychiatrische-dienste-graubunden-chur",
         "staff-room-maintenance-psychiatrische-dienste-graubunden-chur",
@@ -3151,8 +3150,6 @@
           "entretien-des-locaux-du-personnel-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:23:38.984Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -3166,7 +3163,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-03T09:23:38.984Z"
     },
     {
       "id": "pdgr-6718300e4f28",
@@ -3334,5 +3332,7 @@
       },
       "addressRegion": "GR"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T21:24:11.026Z",
+  "crawlerKey": "pdgr"
 }

@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "apple-retail-switzerland",
-  "assembledAt": "2026-10-08T21:23:39.496Z",
   "jobs": [
     {
       "id": "apple-retail-switzerland-514c0e1f28a1",
@@ -1307,10 +1305,10 @@
       "companyDomain": "jobs.apple.com",
       "title": "Machine Learning Engineer with Focus on Generative 3D Representations - Europe Vision Group",
       "titleByLocale": {
-        "it": "Machine Learning Ingegnere with Focus on Generative 3D Representations - Europe Vision Group",
+        "it": "Ingegnere di apprendimento automatico con focus su Rappresentanze 3D Generative - Europe Vision Group",
         "en": "Machine Learning Engineer with Focus on Generative 3D Representations - Europe Vision Group",
         "de": "Machine Learning Ingenieur with Focus on Generative 3D Representations - Europe Vision Group",
-        "fr": "Machine Learning Ingénieur with Focus on Generative 3D Representations - Europe Vision Group"
+        "fr": "Ingénieur d'apprentissage automatique avec focalisation sur les représentations 3D génériques - Europe Vision Group"
       },
       "description": "Summary\nAt Apple, new ideas have a way of becoming extraordinary products, services, and customer experiences very quickly. Bring passion for problem-solving and dedication to your job, and there's no telling what you could accomplish. We advance the state of the art to improve the lives of our customers worldwide.\n\nThe European Vision Group (EVG) is dedicated to fundamental and applied research in computer vision and machine learning, with a focus on enriching human communication.\n\nOur team has delivered groundbreaking human-centric vision technologies used by millions worldwide, including Persona for Apple Vision Pro, Portrait Mode, FaceTime Eye Contact, Animoji and ARKit. These innovations are the result of world-class research combined with world-class engineering.\n\nWe are seeking a researcher/machine learning engineer who is passionate about shaping the future of Apple products and excited to contribute to the next wave of transformative computer vision experiences.\n\nDescription\nYou will be working on next generation 3D representation and generative modeling projects in our Machine Learning and Computer Vision research and development team in Zurich, Switzerland, combining modern Machine Learning approaches with geometric knowledge from Computer Vision and Computer Graphics. As a member of the algorithm development team, your objective is to accelerate our development cycle through the design of innovative tools to develop, monitor and improve the quality of our models.\n\nThis position requires highly-motivated individuals who want to join us in the fast-moving field of large-scale models for 3D representations. You will be responsible for developing, implementing, evaluating, and improving machine learning algorithms that model 3D content in complex and diverse scenarios.\n\nMinimum Qualifications\n• In-depth understanding of Machine Learning principles\n• In-depth understanding of 3D Geometry , 3D representations, and Computer Vision\n• Strong understanding of generative models and/or multi-modal foundation models\n• Experience in Python, deep learning and data analysis frameworks (PyTorch, pandas, and similar)\n• Experience in working on large scale projects with good software development principles\n• Scientific mindset and data-driven approach to problem solving\n• Excellent collaboration and teamwork skills\n• Willingness to pick up novel tasks and acquire new skills\n• Strong written and verbal communication in English\n\nPreferred Qualifications\n• Publication record at top conferences such as CVPR, ECCV , ICCV , NeurIPS or SIGGRAPH is a plus\n• Experience in the industry is a plus\n\nAt Apple, we're not all the same. And that's our greatest strength. We draw on the differences in who we are, what we've experienced, and how we think. Because to create products that serve everyone, we believe in including everyone. Therefore, we are committed to treating all applicants fairly and equally. We will work with applicants to make any reasonable accommodations.\n\nAt Apple, we believe accessibility is a fundamental human right. You’ll find that idea reflected in everything here — in our culture, our benefits and our digital tools. By welcoming as many perspectives as possible, we help you build a career where you feel like you belong.\n\nLearn about accessibility in Apple’s workplace",
       "descriptionByLocale": {
@@ -1666,5 +1664,7 @@
       "addressRegion": "VD",
       "crawlerMissStreak": 2
     }
-  ]
+  ],
+  "crawlerKey": "apple-retail-switzerland",
+  "assembledAt": "2026-10-08T21:23:39.496Z"
 }

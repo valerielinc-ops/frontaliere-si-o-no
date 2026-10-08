@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-10-08T21:16:28.829Z",
   "jobs": [
     {
       "id": "srg-ssr-4295227a1917",
@@ -1325,7 +1323,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Fachspezialist:in Public Affairs",
       "titleByLocale": {
-        "it": "Fachspezialist:in Public Affairs",
+        "it": "Specialista di Public Affairs",
         "en": "Specialistin Public Affairs",
         "de": "Fachspezialist:in Public Affairs",
         "fr": "Spécialiste en affaires publiques"
@@ -2688,5 +2686,7 @@
       "addressRegion": "GE",
       "firstSeenAt": "2026-10-08T21:15:34.973Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T21:16:28.829Z",
+  "crawlerKey": "srg-ssr"
 }

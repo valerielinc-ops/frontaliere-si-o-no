@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-10-08T21:20:26.037Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-20362b2dcf3f",
@@ -3982,7 +3980,7 @@
       "title": "Junior Finanzmarktanalyst/-in & Redaktor/-in",
       "titleByLocale": {
         "it": "Analista/a dei mercati finanziari junior e redattore/trice",
-        "en": "Junior Finanzmarktanalyst/-in & Redaktor/-in",
+        "en": "Junior Financial Market Analyst & Editor",
         "de": "Junior Finanzmarktanalyst/-in & Redaktor/-in",
         "fr": "Analyste financier junior & Rédacteur"
       },
@@ -4717,5 +4715,7 @@
       },
       "firstSeenAt": "2026-09-01T14:16:53.113Z"
     }
-  ]
+  ],
+  "assembledAt": "2026-10-08T21:20:26.037Z",
+  "crawlerKey": "vz-vermoegenszentrum"
 }
