@@ -30,6 +30,35 @@ export function isTitleRepairQueueVerdict(verdict) {
 }
 
 /**
+ * The source title both lanes translate FROM: `job.title`, or the source
+ * locale's slot when a crawler left `title` empty. The Argos handoff and the
+ * Codex discovery must read the same value, or a slot Argos gives up is never
+ * picked up by Codex.
+ */
+export function titleRepairSourceTitle(job) {
+  const sourceLang = job?.sourceLang || 'it';
+  return String(job?.title || job?.titleByLocale?.[sourceLang] || '').trim();
+}
+
+/**
+ * Locale slots of one job admitted to the Codex title-repair lane, with the
+ * detector reason. Single discovery predicate for `fix-untranslated-titles`.
+ */
+export function titleRepairQueueLocales(job, locales = []) {
+  const sourceLang = job?.sourceLang || 'it';
+  if (!titleRepairSourceTitle(job)) return [];
+  const admitted = [];
+  for (const locale of locales) {
+    if (locale === sourceLang) continue;
+    const existing = String(job?.titleByLocale?.[locale] || '').trim();
+    if (!existing) continue;
+    const verdict = titleRepairDetectorVerdict({ job, locale, title: existing });
+    if (isTitleRepairQueueVerdict(verdict)) admitted.push({ locale, reason: verdict.reason });
+  }
+  return admitted;
+}
+
+/**
  * Run the title detector with the exact job context used by the Codex lane.
  * Keeping this context here prevents the Argos handoff from drifting on
  * address/company stripping or on the source-locale fallback.
@@ -38,7 +67,7 @@ export function titleRepairDetectorVerdict({ job, locale, title } = {}) {
   const sourceLang = job?.sourceLang || 'it';
   return titleLooksUntranslated({
     title,
-    sourceTitle: String(job?.title || job?.titleByLocale?.[sourceLang] || '').trim(),
+    sourceTitle: titleRepairSourceTitle(job),
     sourceLang,
     targetLocale: locale,
     company: job?.company || '',

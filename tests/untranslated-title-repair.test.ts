@@ -93,6 +93,29 @@ describe('title repair queue admission', () => {
     ]);
   });
 
+  it('discovers for Codex the slot Argos hands off when job.title is empty and the source sits in titleByLocale', async () => {
+    // Review of PR 12463: the handoff read the source title with a fallback to
+    // the source-locale slot, the Codex discovery only read `job.title`, so a
+    // slot Argos gave up had no writer at all.
+    const { titleRepairQueueLocales, titleRepairSourceTitle } = await import('../scripts/lib/untranslated-title-repair.mjs');
+    const job = {
+      sourceLang: 'de',
+      title: '',
+      titleByLocale: {
+        de: 'Systemingenieur mit Projekterfahrung 80–100 %',
+        it: 'System Ingegnere con Projekterfahrung 80–100 %',
+      },
+      description: '',
+      descriptionByLocale: {},
+    };
+
+    expect(titleRepairSourceTitle(job)).toBe('Systemingenieur mit Projekterfahrung 80–100 %');
+    expect(shouldQueueArgosSlot(job, { locale: 'it', field: 'title' })).toBe(false);
+    expect(titleRepairQueueLocales(job, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
+    // No source title anywhere: neither lane takes the slot.
+    expect(titleRepairQueueLocales({ ...job, titleByLocale: { it: job.titleByLocale.it } }, ['it', 'en', 'de', 'fr'])).toEqual([]);
+  });
+
   it('keeps a failed Codex title in the Codex queue on the next run', async () => {
     const fixer = await loadTitleFixer();
     const data = fixture(1);
