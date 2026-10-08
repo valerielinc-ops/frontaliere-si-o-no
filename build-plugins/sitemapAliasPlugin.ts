@@ -26,7 +26,10 @@ import fs from 'node:fs';
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL } from './constants';
-import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+  jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from './shared/buildSignals';
 import {
   FUEL_SITEMAP_FILES,
   isFuelSitemapFile,
@@ -486,7 +489,9 @@ export function sitemapAliasPlugin(rootDir: string): Plugin {
         //    The explicit jobs barrier is required even though this hook is
         //    post/sequential: closeBundle scheduling can otherwise expose a
         //    stale foreign-locale shard before the jobs writer resolves.
-        await jobsSeoPagesFlushed;
+        if (shouldAwaitJobsSeoPagesFlushed()) {
+          await jobsSeoPagesFlushed;
+        }
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs());
 
         // Article translations can be temporarily quarantined with
