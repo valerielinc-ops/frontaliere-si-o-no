@@ -171,6 +171,28 @@ PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 OLD_HISTORY_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/old-history-guard.mjs"
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 
+# These are deliberately conservative starting ceilings. The ls-remote, API
+# and gh pr values reuse the existing 60-second remote-branch API ceiling; the
+# fetch value is a five-minute allowance for a filtered graph read. None of the
+# read values has been measured in CI yet.
+# The namespaced override exists only so the offline fixture can replay a stuck
+# read; normal jobs leave it unset and keep the 60-second default.
+LS_REMOTE_TIMEOUT_SECONDS="${OPEN_DATA_REFRESH_LS_REMOTE_TIMEOUT_SECONDS:-60}"
+FETCH_TIMEOUT_SECONDS=300
+API_TIMEOUT_SECONDS=60
+GH_PR_TIMEOUT_SECONDS=60
+
+# This is the 180-second push ceiling introduced for issue 12262 / PR 12318.
+PUSH_TIMEOUT_SECONDS=180
+
+# No network command here may run until the job timeout: past its cap the
+# command is stopped and the log names it.
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
 check_old_history_ref() {
   local head_ref="$1"
   node "$OLD_HISTORY_GUARD_SCRIPT" \
@@ -190,7 +212,8 @@ check_old_history_ref HEAD
 # Read the lease before changing the local checkout. A stable branch may back
 # an open PR; its tree must be the base for this run instead of the workflow's
 # main snapshot. The lease still protects the final push from a concurrent run.
-REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch" \
+  git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
@@ -320,12 +343,14 @@ if [ -n "$REMOTE_HEAD" ]; then
   # commit graph without blobs: both reconciler paths and the history guard
   # need reliable ancestry rather than a depth-1 tip.
   if [ "$RECONCILE_COMPAT" = true ]; then
-    git fetch --no-tags "$PUSH_URL" \
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch stable refresh branch" \
+      git fetch --no-tags "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
   else
-    git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch stable refresh branch without blobs" \
+      git fetch --no-tags --filter=tree:0 "$PUSH_URL" \
       "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     # Reconcile in a separate, sparse checkout. A data branch may carry old
@@ -373,7 +398,8 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   # the checkout's main snapshot and force-replaces an unmerged sweep. The
   # custom driver performs the store's deterministic 3-way SET merge, keeping
   # distinct additions in the same shard deduped and sorted.
-  git fetch --no-tags "$PUSH_URL" \
+  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch main for compatibility reconciliation" \
+    git fetch --no-tags "$PUSH_URL" \
     "refs/heads/main:refs/remotes/origin/main"
   git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'
 
@@ -434,15 +460,18 @@ elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
 fi
 
 if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
-  git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
+  run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh main" \
+    git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
   MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
   # GitHub knows the common ancestor even when the runner has only branch
   # tips. Fetch that single tree, rather than all historical image blobs.
-  MAIN_BASE="$(gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
+  MAIN_BASE="$(run_bounded "$API_TIMEOUT_SECONDS" "gh api refresh compare" \
+    gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
   [ -n "$MAIN_BASE" ] && [ "$MAIN_BASE" != null ] || { echo "::error::Missing refresh/main merge base"; exit 1; }
   if [ "$MAIN_BASE" != "$MAIN_HEAD" ]; then
     if ! git cat-file -e "${MAIN_BASE}^{commit}" 2>/dev/null; then
-      git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch refresh merge base" \
+        git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
     fi
     node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
       --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
@@ -469,20 +498,10 @@ fi
 # a tip both sides know, whatever main does meanwhile, and the pack is this
 # run's commits and nothing else.
 REMOTE_BASE_CREATED=false
-REMOTE_BASE_TIMEOUT_SECONDS=60
-PUSH_TIMEOUT_SECONDS=180
-
-# No network command here may run until the job timeout: past its cap the
-# command is stopped and the log names it.
-run_bounded() {
-  local seconds="$1" label="$2"
-  shift 2
-  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
-}
 
 create_remote_branch_at_base() {
   local detail
-  if detail="$(run_bounded "$REMOTE_BASE_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
+  if detail="$(run_bounded "$API_TIMEOUT_SECONDS" "creating ${BRANCH} on the remote at the base commit" \
     gh api -X POST "repos/${REPOSITORY}/git/refs" \
       -f "ref=refs/heads/${BRANCH}" -f "sha=${REFRESH_BASE}" --silent 2>&1)"; then
     REMOTE_BASE_CREATED=true
@@ -568,7 +587,8 @@ while :; do
   fi
   push_attempt=$((push_attempt + 1))
   sleep "$((push_attempt - 1))"
-  REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+  REMOTE_HEAD="$(run_bounded "$LS_REMOTE_TIMEOUT_SECONDS" "git ls-remote stable refresh branch retry" \
+    git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
   if [ "$REMOTE_BASE_CREATED" = true ]; then
     if [ "$REMOTE_HEAD" = "$REFRESH_BASE" ]; then
       # Still the base this run created: no other run wrote to the branch, so
@@ -582,7 +602,8 @@ while :; do
   fi
 
   if [ -n "$REMOTE_HEAD" ]; then
-    git fetch --no-tags "$PUSH_URL" \
+    run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest stable refresh branch" \
+      git fetch --no-tags "$PUSH_URL" \
       "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
     check_old_history_ref "refs/remotes/refresh/${BRANCH}"
     git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
@@ -590,7 +611,8 @@ while :; do
     if [ "$RECONCILE_COMPAT" = true ]; then
       # Re-read main as well: the stable branch race can overlap a new 404
       # sweep, and the compatibility merge must retain the newest main base.
-      git fetch --no-tags "$PUSH_URL" \
+      run_bounded "$FETCH_TIMEOUT_SECONDS" "git fetch newest main for compatibility reconciliation" \
+        git fetch --no-tags "$PUSH_URL" \
         "refs/heads/main:refs/remotes/origin/main"
       merge_refresh_ref "$REFRESH_COMMIT"
       merge_refresh_ref origin/main
@@ -619,7 +641,8 @@ while :; do
   fi
 done
 
-OPEN_PR="$(gh pr list \
+OPEN_PR="$(run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr list stable refresh PR" \
+  gh pr list \
   --repo "$REPOSITORY" \
   --state open \
   --base main \
@@ -630,12 +653,14 @@ OPEN_PR="$(gh pr list \
 if [ -n "$OPEN_PR" ]; then
   # Keep the body linked to the latest successful refresh run when the stable
   # branch already has an open PR. The branch update above re-triggers tests.
-  gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
+  run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr edit stable refresh PR" \
+    gh pr edit "$OPEN_PR" --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
   echo "Updated refresh PR #$OPEN_PR"
   exit 0
 fi
 
-gh pr create \
+run_bounded "$GH_PR_TIMEOUT_SECONDS" "gh pr create stable refresh PR" \
+  gh pr create \
   --repo "$REPOSITORY" \
   --base main \
   --head "$BRANCH" \

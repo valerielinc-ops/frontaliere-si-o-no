@@ -132,6 +132,227 @@ function publishPlain(setup: ReturnType<typeof fixture>, extraArgs: string[] = [
   });
 }
 
+type ShellLine = { number: number; text: string };
+type ShellCommand = { lines: ShellLine[]; text: string };
+type NetworkViolation = { line: number; command: string };
+
+function stripShellComment(line: string) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < line.length; index += 1) {
+    const character = line[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) {
+        escaped = false;
+      } else if (character === '\\') {
+        escaped = true;
+      } else if (character === '"') {
+        quote = '';
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '#' && (index === 0 || /[\s;|&(){}]/u.test(line[index - 1]))) {
+      return line.slice(0, index);
+    }
+  }
+  return line;
+}
+
+function findHereDoc(line: string) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < line.length - 1; index += 1) {
+    const character = line[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') quote = '';
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character === "'" || character === '"') {
+      quote = character;
+      continue;
+    }
+    if (character !== '<' || line[index + 1] !== '<' || line[index + 2] === '<') continue;
+    let delimiterIndex = index + 2;
+    const stripTabs = line[delimiterIndex] === '-';
+    if (stripTabs) delimiterIndex += 1;
+    while (/\s/u.test(line[delimiterIndex] || '')) delimiterIndex += 1;
+    const delimiterStart = line[delimiterIndex];
+    if (delimiterStart === "'" || delimiterStart === '"') {
+      const end = line.indexOf(delimiterStart, delimiterIndex + 1);
+      if (end > delimiterIndex + 1) {
+        return { index, delimiter: line.slice(delimiterIndex + 1, end), stripTabs };
+      }
+      continue;
+    }
+    const match = /^[^\s;|&<>]+/u.exec(line.slice(delimiterIndex));
+    if (match) return { index, delimiter: match[0], stripTabs };
+  }
+  return undefined;
+}
+
+function hasLineContinuation(line: string) {
+  const match = /(\\+)\s*$/u.exec(line);
+  return Boolean(match && match[1].length % 2 === 1);
+}
+
+function updateSubstitutionDepth(text: string, depth: number) {
+  let quote = '';
+  let escaped = false;
+  for (let index = 0; index < text.length; index += 1) {
+    const character = text[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') quote = '';
+      else if (character === '$' && text[index + 1] === '(') {
+        depth += 1;
+        index += 1;
+      } else if (character === ')' && depth > 0) {
+        depth -= 1;
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '$' && text[index + 1] === '(') {
+      depth += 1;
+      index += 1;
+    } else if (character === ')' && depth > 0) {
+      depth -= 1;
+    }
+  }
+  return depth;
+}
+
+function logicalShellCommands(source: string): ShellCommand[] {
+  const commands: ShellCommand[] = [];
+  let current: ShellLine[] = [];
+  let substitutionDepth = 0;
+  let heredoc: { delimiter: string; stripTabs: boolean } | undefined;
+  for (const [index, rawLine] of source.split('\n').entries()) {
+    const number = index + 1;
+    if (heredoc) {
+      const bodyLine = heredoc.stripTabs ? rawLine.replace(/^\t+/u, '') : rawLine;
+      if (bodyLine === heredoc.delimiter) heredoc = undefined;
+      continue;
+    }
+    const line = stripShellComment(rawLine.replace(/\r$/u, ''));
+    const hereDoc = findHereDoc(line);
+    const commandLine = hereDoc ? line.slice(0, hereDoc.index) : line;
+    if (current.length || commandLine.trim()) current.push({ number, text: commandLine });
+    substitutionDepth = updateSubstitutionDepth(commandLine, substitutionDepth);
+    if (hereDoc) heredoc = { delimiter: hereDoc.delimiter, stripTabs: hereDoc.stripTabs };
+    if (!hasLineContinuation(commandLine) && substitutionDepth === 0) {
+      if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
+      current = [];
+    }
+  }
+  if (current.length) commands.push({ lines: current, text: current.map(({ text }) => text).join('\n') });
+  return commands;
+}
+
+const NETWORK_COMMAND = /\bgit(?:(?:\s+-[A-Za-z]\s+\S+)|(?:\s+--?\S+))*\s+(?:fetch|push|ls-remote|clone|pull)\b|\bgh\s+\S+/gu;
+
+function executableAt(text: string, target: number) {
+  let quote = '';
+  let escaped = false;
+  let substitutions = 0;
+  for (let index = 0; index < target; index += 1) {
+    const character = text[index];
+    if (quote === "'") {
+      if (character === "'") quote = '';
+      continue;
+    }
+    if (quote === '"') {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"' && substitutions === 0) quote = '';
+      else if (character === '$' && text[index + 1] === '(') {
+        substitutions += 1;
+        index += 1;
+      } else if (character === ')' && substitutions > 0) {
+        substitutions -= 1;
+      }
+      continue;
+    }
+    if (escaped) {
+      escaped = false;
+    } else if (character === '\\') {
+      escaped = true;
+    } else if (character === "'" || character === '"') {
+      quote = character;
+    } else if (character === '$' && text[index + 1] === '(') {
+      substitutions += 1;
+      index += 1;
+    } else if (character === ')' && substitutions > 0) {
+      substitutions -= 1;
+    }
+  }
+  return !quote || substitutions > 0;
+}
+
+function unboundedNetworkCommands(helper: string): NetworkViolation[] {
+  const violations: NetworkViolation[] = [];
+  for (const command of logicalShellCommands(helper)) {
+    NETWORK_COMMAND.lastIndex = 0;
+    let match: RegExpExecArray | null;
+    while ((match = NETWORK_COMMAND.exec(command.text))) {
+      if (!executableAt(command.text, match.index)) continue;
+      const offset = command.text.slice(0, match.index).split('\n').length - 1;
+      const line = command.lines[offset]?.number ?? command.lines.at(-1)!.number;
+      const before = command.text.slice(0, match.index);
+      NETWORK_COMMAND.lastIndex = match.index + match[0].length;
+      if (/\brun_bounded\b/u.test(before)) continue;
+      violations.push({ line, command: match[0] });
+    }
+  }
+  return violations;
+}
+
+describe('bounded network commands in the data refresh helper', () => {
+  it('requires every direct network command to run through run_bounded', () => {
+    const helper = fs.readFileSync(path.join(ROOT, 'scripts/lib/open-data-refresh-pr.sh'), 'utf8');
+    const violations = unboundedNetworkCommands(helper);
+    const report = violations.map(({ line, command }) => `line ${line}: ${command}`).join('; ');
+    expect(
+      report,
+      `Unbounded network commands: ${report}`,
+    ).toBe('');
+  });
+});
+
 describe('optional refresh paths (sync run 37515283217)', () => {
   // The article sync lists `public/images/generated`, a directory that does not
   // exist until the publisher emits its first governed cover. `git add` aborted
@@ -491,6 +712,23 @@ function movingMainFixture({ afterHistoryGuard }: { afterHistoryGuard: boolean }
     '',
   ].join('\n'));
   fs.chmodSync(gh, 0o755);
+  const realGit = execFileSync('which', ['git'], { encoding: 'utf8' }).trim();
+  const gitProxy = path.join(bin, 'git');
+  fs.writeFileSync(gitProxy, [
+    '#!/usr/bin/env node',
+    "const { spawnSync } = require('node:child_process');",
+    `const realGit = ${JSON.stringify(realGit)};`,
+    "if (process.argv[2] === 'ls-remote' && process.env.REFRESH_FIXTURE_STALL_LS_REMOTE === '1') {",
+    '  setTimeout(() => process.exit(0), 5000);',
+    '  setInterval(() => {}, 1000);',
+    '} else {',
+    "  const result = spawnSync(realGit, process.argv.slice(2), { stdio: 'inherit' });",
+    "  if (result.error) { process.stderr.write(result.error.message + '\\n'); process.exit(127); }",
+    '  process.exit(result.status ?? 1);',
+    '}',
+    '',
+  ].join('\n'));
+  fs.chmodSync(gitProxy, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture sitemap.\n\n## Non implementato (ancora)\n- Nessuno.\n');
 
@@ -644,6 +882,18 @@ describe('a new stable branch is pushed from a base the remote has (issue 12262)
     expect(git(setup.remote, ['rev-parse', `${NEW_BRANCH}^`])).toBe(setup.checkout);
     expect(run.objectsSent).toBe(OBJECTS_OF_THE_REFRESH);
     expect(run.lazyFetchesByPush).toBe(0);
+  }, 60_000);
+
+  it('stops a nonresponsive stable-branch read at its cap and names it', () => {
+    const setup = movingMainFixture({ afterHistoryGuard: true });
+    const run = publishSitemap(setup, {
+      REFRESH_FIXTURE_STALL_LS_REMOTE: '1',
+      OPEN_DATA_REFRESH_LS_REMOTE_TIMEOUT_SECONDS: '1',
+    });
+    expect(run.result.status, run.output).toBe(124);
+    expect(run.seconds).toBeLessThan(10);
+    expect(run.output).toContain('::error::git ls-remote stable refresh branch timed out after 1 second');
+    expect(run.output).not.toContain('x-access-token:fixture-token');
   }, 60_000);
 
   it('removes the base it created when the push keeps failing', () => {
