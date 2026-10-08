@@ -7,8 +7,9 @@ import { realpathSync } from 'node:fs';
  * The source build plan leaves en/de/fr source-ready while their validated
  * artifacts cross the workflow boundary. This resolver promotes a locale only
  * after the post-build receipt proves the full tail and the receipt artifact
- * belongs to this publish run. A partial tail cannot accompany a new IT
- * snapshot: the resulting cross-locale hreflang graph would be incomplete.
+ * belongs to this publish run. A locale whose tail is incomplete is reported
+ * as stale and keeps serving its previous shard; it does not stop the IT
+ * snapshot from being published (see the comment above `allowed`).
  */
 import fs from 'node:fs';
 
@@ -111,7 +112,36 @@ export function resolveNonItPublishPlan({
   }
 
   const incompleteLocales = LOCALES.filter((locale) => !healthy.has(locale));
-  const allowed = failures.length === 0 && incompleteLocales.length === 0;
+  // A non-IT locale whose tail did not complete stays on its last-known-good
+  // shard and is REPORTED as stale; it no longer vetoes the IT Pages snapshot.
+  // Owner rule (2026-10-07): no gate blocks publication. Requiring every locale
+  // froze production twice in one night — run 37671196544 (three section shards
+  // rejected with 403) and run 37728960699, where GitHub refused the ticino-de
+  // push because one git tree had grown past 50 MiB ("non-blob object size
+  // limit exceeded"): that condition does not clear by itself, so every later
+  // publish would have skipped Pages as well. validate-live already receives
+  // stale_locales and checks those locales against their declared fallback.
+  // Still blocking: an IT snapshot that was not admitted, and unreadable or
+  // contradictory receipts (`failures`) — those are "state unknown", not stale.
+  const allowed = failures.length === 0 && healthy.has('it');
+  const staleNonIt = incompleteLocales.filter((locale) => locale !== 'it');
+  const admittedReason = readyLocales.length > 0
+    ? `admitted post-build tail for ${readyLocales.join(', ')}`
+    : 'admitted the IT snapshot with no completed post-build tail';
+  if (allowed) {
+    return {
+      allowed,
+      healthyLocales: LOCALES.filter((locale) => healthy.has(locale)),
+      staleLocales: LOCALES.filter((locale) => stale.has(locale)),
+      staleReasons,
+      readyLocales,
+      requestedTail,
+      failures,
+      reason: staleNonIt.length > 0
+        ? `${admittedReason}; stale fallback for ${staleNonIt.join(', ')}`
+        : admittedReason,
+    };
+  }
   return {
     allowed,
     healthyLocales: LOCALES.filter((locale) => healthy.has(locale)),
