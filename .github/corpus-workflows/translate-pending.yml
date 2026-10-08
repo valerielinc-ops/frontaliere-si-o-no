@@ -693,13 +693,13 @@ jobs:
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Gate Phase 2d/2e repair lanes on remaining run budget
         id: repair_lane_budget
-        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           REPAIR_LANE_DEADLINE_MS: "12600000"
           REPAIR_LANE_MIN_REMAINING_MS: "900000"
         run: node scripts/translate-repair-lane-gate.mjs
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
+        if: always() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "12600000"
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
@@ -711,7 +711,7 @@ jobs:
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
-        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
+        if: always() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: |
@@ -720,7 +720,7 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
+        if: always() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "12600000"
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
@@ -735,7 +735,7 @@ jobs:
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes
         id: commit_description_fixes
-        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'
+        if: always() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: |
