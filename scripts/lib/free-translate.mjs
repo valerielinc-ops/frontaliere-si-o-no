@@ -1223,7 +1223,10 @@ async function translateWithAzure(text, sourceLang, targetLang, outcome = null) 
 //     richieste parallele di 10 s costano 10 s. Ogni controllo legge il tempo
 //     gia' speso da tutte le richieste partite prima.
 //   - Tre richieste fallite di fila (errore, risposta vuota, rifiuto o soli
-//     echi di testo sostanziale) fermano il tier; gli echi classificati come
+//     echi di testo sostanziale) fermano il tier. Una richiesta conta solo
+//     se porta almeno un testo non ancora visto nella serie (stessa coppia
+//     testo normalizzato + lingua di arrivo): tre copie dello stesso eco non
+//     sono tre prove di un modello guasto. Gli echi classificati come
 //     invarianti non incrementano lo streak.
 // Esaurito un budget, una riga di log e il tier non si tenta piu'; i testi in
 // coda escono subito verso il tier successivo.
@@ -1379,6 +1382,11 @@ let _codexInFlight = 0;
 let _codexPending = [];
 let _codexPumpTimer = null;
 let _codexConsecutiveFailures = 0;
+// The same source title can arrive under different source labels and from
+// different jobs. Count one normalized text/target pair once during the
+// current failure streak: repeated echoes are not independent evidence that
+// the model is broken.
+let _codexConsecutiveFailureKeys = new Set();
 let _codexStopReason = '';
 let _codexEngagedLogged = false;
 /** @type {Promise<any> | null} */
@@ -1418,7 +1426,26 @@ function _stopCodex(reason) {
   console.log(`⏹️  [codex] ${reason} — tier Codex saltato per il resto del processo`);
 }
 
-function _noteCodexFailure() {
+function _codexFailureKey(text, targetLang) {
+  return JSON.stringify([
+    normalizeBlock(text).toLowerCase(),
+    String(targetLang || '').trim().toLowerCase(),
+  ]);
+}
+
+function _resetCodexFailureStreak() {
+  _codexConsecutiveFailures = 0;
+  _codexConsecutiveFailureKeys.clear();
+}
+
+// One failed REQUEST is one failure, whatever the number of texts it carried:
+// a single group that times out must not stop the tier on its own. A request
+// whose texts were all already seen in the current streak adds nothing.
+function _noteCodexFailure(texts, targetLang) {
+  const keys = [...texts].map((text) => _codexFailureKey(text, targetLang));
+  const fresh = keys.filter((key) => !_codexConsecutiveFailureKeys.has(key));
+  if (fresh.length === 0) return;
+  for (const key of fresh) _codexConsecutiveFailureKeys.add(key);
   _codexConsecutiveFailures += 1;
   if (_codexConsecutiveFailures >= CODEX_TRANSLATE_FAILURE_LIMIT) {
     _stopCodex(`${_codexConsecutiveFailures} fallimenti consecutivi`);
@@ -1740,7 +1767,7 @@ async function _translateGroupWithCodex(group) {
     // Il messaggio non si stampa (puo' portare la coda di stderr del broker):
     // `tryTier` conta l'errore in `tierErrors.codex`, testo per testo.
     for (const item of group) _logCodexNonTranslation(item, 'error');
-    _noteCodexFailure();
+    _noteCodexFailure(unique, targetLang);
     throw err;
   }
   // La guardia vale anche per la cascata: un'eco del prompt non e' un
@@ -1793,9 +1820,9 @@ async function _translateGroupWithCodex(group) {
   // L'eccezione e' una riga che il rilevatore classifica come invariabile:
   // azzerare lo streak su quella riga evita di consumare tutto il budget su
   // nomi, sigle e metadati senza togliere lo stop ai rifiuti veri.
-  if (translated.size > 0) _codexConsecutiveFailures = 0;
-  else if (realFailures.size > 0) _noteCodexFailure();
-  else if (invariantEchoes.size > 0) _codexConsecutiveFailures = 0;
+  if (translated.size > 0) _resetCodexFailureStreak();
+  else if (realFailures.size > 0) _noteCodexFailure(realFailures, targetLang);
+  else if (invariantEchoes.size > 0) _resetCodexFailureStreak();
   return results;
 }
 
@@ -1871,7 +1898,7 @@ export function setCodexTranslateCallForTests(fn) {
   _codexTexts = 0;
   _codexSpentMs = 0;
   _codexBusySince = 0;
-  _codexConsecutiveFailures = 0;
+  _resetCodexFailureStreak();
   _codexStopReason = '';
   _codexEngagedLogged = false;
 }
