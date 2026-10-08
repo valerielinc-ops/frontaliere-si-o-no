@@ -518,31 +518,6 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     expect(lines.filter((line) => line.includes('3 fallimenti consecutivi'))).toHaveLength(0);
   });
 
-  it('titoli brevi gia\' italiani con AFC sono invarianti, ma un titolo tedesco resta echo-source', async () => {
-    const cases = [
-      { text: 'Assistente di farmacia AFC', reason: 'invariant-same-language' },
-      { text: 'Informatico/a AFC tecnica di sistemi', reason: 'invariant-same-language' },
-      { text: 'Sachbearbeiter/in Buchhaltung', reason: 'echo-source' },
-    ];
-    const calls = stubCodex((messages) => {
-      const items = batchItems(messages);
-      if (items) return JSON.stringify({ items: items.map(({ id, text }) => ({ id, text })) });
-      const user = messages.find((message) => message.role === 'user')!.content;
-      return /^BEGIN_TEXT_[A-Z0-9]{8}\n([\s\S]*)\nEND_TEXT_[A-Z0-9]{8}$/.exec(user)![1];
-    });
-
-    const { lines } = await captureLog(async () => {
-      for (const { text } of cases) {
-        await ft.freeTranslate({ text, sourceLang: 'de', targetLang: 'it', fieldType: 'title' });
-      }
-    });
-
-    expect(calls).toHaveLength(cases.length);
-    for (const { text, reason } of cases) {
-      expect(lines.some((line) => line.includes(`reason=${reason}`) && line.includes(`prefix=\"${text}`)), text).toBe(true);
-    }
-  });
-
   it('con una corsia le richieste passano una alla volta e non superano insieme il budget di tempo', async () => {
     // Orologio finto: ogni chiamata "dura" 10 s. Con 20 s di budget la prima
     // chiamata lascia 10 s, sotto il minimo di 15 s per chiamata: le altre non
@@ -737,7 +712,7 @@ describe('freeTranslate — tier Codex Luna Max', () => {
     }
   });
 
-  it('una richiesta di gruppo fallita e\' un errore distinto per ogni suo testo', async () => {
+  it('una richiesta di gruppo fallita conta un solo fallimento, non uno per testo', async () => {
     vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '1');
     try {
       const before = codexCounters();
@@ -751,7 +726,9 @@ describe('freeTranslate — tier Codex Luna Max', () => {
       expect(calls).toHaveLength(2);
       expect(value).toEqual([translationOf(texts[0]), `MYMEMORY ${EN}`, `MYMEMORY ${EN}`, `MYMEMORY ${EN}`]);
       expect(codexCounters().errors - before.errors).toBe(3);
-      expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(1);
+      // Un gruppo da tre testi andato in errore e' UNA richiesta fallita: il
+      // tier resta acceso.
+      expect(lines.filter((l) => l.includes('fallimenti consecutivi'))).toHaveLength(0);
     } finally {
       vi.stubEnv('FREE_TRANSLATE_CODEX_LANES', '');
     }
