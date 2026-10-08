@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-10-08T21:31:11.251Z",
+  "assembledAt": "2026-10-08T22:35:56.540Z",
   "jobs": [
     {
       "id": "holcim-07473013ef87",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-People-Partnerin-50-AG-5303/1367342357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:54.264Z",
+      "crawledAt": "2026-10-08T22:35:39.944Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -86,9 +86,9 @@
     },
     {
       "id": "holcim-de6f7059de98",
-      "slug": "allrounder-in-holcim-ch",
+      "slug": "professionista-polivalente-holcim-group-ingenbohl-brunnen",
       "slugByLocale": {
-        "it": "allrounder-in-holcim-ch",
+        "it": "professionista-polivalente-holcim-group-ingenbohl-brunnen",
         "en": "all-rounder-holcim-group-ingenbohl-brunnen",
         "de": "allrounder-in-holcim-ch",
         "fr": "polyvalent-e-holcim-group-ingenbohl-brunnen"
@@ -115,7 +115,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:53.792Z",
+      "crawledAt": "2026-10-08T22:35:39.465Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -134,13 +134,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "allrounder-in-holcim-group-ingenbohl-brunnen"
+        "allrounder-in-holcim-group-ingenbohl-brunnen",
+        "allrounder-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "allrounder-in-holcim-group-ingenbohl-brunnen"
+        ],
+        "it": [
+          "allrounder-in-holcim-ch"
         ]
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-26T14:04:08.857Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -188,7 +193,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kirchberg-Chauffeurin-Kies%2C-Beton-&-Recycling-80-100-Kirchberg-St_-9533/1369275457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:53.344Z",
+      "crawledAt": "2026-10-08T22:35:39.008Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -265,7 +270,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kehrsiten-KieswerkmaschinistinAllrounderin-NW-6365/1373604957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:52.901Z",
+      "crawledAt": "2026-10-08T22:35:38.550Z",
       "addressLocality": "Kehrsiten",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -310,9 +315,9 @@
     },
     {
       "id": "holcim-960650fcd523",
-      "slug": "mechaniker-in-holcim-ch",
+      "slug": "meccanico-a-holcim-group-oberdorf",
       "slugByLocale": {
-        "it": "mechaniker-in-holcim-ch",
+        "it": "meccanico-a-holcim-group-oberdorf",
         "en": "mechanic-holcim-group-oberdorf",
         "de": "mechaniker-in-holcim-ch",
         "fr": "mecanicien-ne-holcim-group-oberdorf"
@@ -339,7 +344,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Mechanikerin-NW-6370/1373927057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:47.030Z",
+      "crawledAt": "2026-10-08T22:35:32.538Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -358,13 +363,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mechaniker-in-holcim-ch-2"
+        "mechaniker-in-holcim-ch-2",
+        "mechaniker-in-holcim-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mechaniker-in-holcim-ch-2"
+          "mechaniker-in-holcim-ch-2",
+          "mechaniker-in-holcim-ch"
         ]
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-28T21:27:07.903Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -412,7 +420,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Stansstad-Schiffsf%C3%BChrerin-NW-6362/1373927957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:52.027Z",
+      "crawledAt": "2026-10-08T22:35:37.632Z",
       "addressLocality": "Stansstad",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -491,7 +499,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Collaborateur%C2%B7trice-polyvalent%C2%B7e-Entretien-industriel-VD-1312/1373033457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:51.517Z",
+      "crawledAt": "2026-10-08T22:35:37.155Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -574,7 +582,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Electrical-Engineering-Project-Manager-AG-5303/1354025757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:51.059Z",
+      "crawledAt": "2026-10-08T22:35:36.699Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -653,7 +661,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:50.585Z",
+      "crawledAt": "2026-10-08T22:35:36.227Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -726,7 +734,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/H%C3%BCntwangen-Baumaschinenf%C3%BChrerin-Allrounderin-Zuri-8194/1372320657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:50.144Z",
+      "crawledAt": "2026-10-08T22:35:35.748Z",
       "addressLocality": "Hüntwangen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -807,7 +815,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Zurich-Sachbearbeitung-Disposition-Kreislaufwirtschaft-CH-%C2%AD8050/1373927257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:49.706Z",
+      "crawledAt": "2026-10-08T22:35:35.295Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -886,7 +894,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:49.250Z",
+      "crawledAt": "2026-10-08T22:35:34.831Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -970,7 +978,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Morges-Chauffeur-malaxeurrempl_-pompiste-VD-1110/1372291457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:48.801Z",
+      "crawledAt": "2026-10-08T22:35:34.370Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1044,7 +1052,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Manno-Autista-di-autobetoniera-a-chiamata-TI-6928/1370811157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-08T21:30:48.367Z",
+      "crawledAt": "2026-10-08T22:35:33.918Z",
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1063,7 +1071,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-31T17:18:45.490Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1077,7 +1084,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-b7ca418e6d0a",
@@ -1110,7 +1118,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-GR-7204/1368625757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:47.929Z",
+      "crawledAt": "2026-10-08T22:35:33.462Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1209,7 +1217,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:47.483Z",
+      "crawledAt": "2026-10-08T22:35:33.013Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1274,7 +1282,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-ExperteExpertin-in-Automations-und-Steuerungstechnik-80-100-AG-5303/1367844357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:46.570Z",
+      "crawledAt": "2026-10-08T22:35:32.077Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1353,7 +1361,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-Automation-GR-7204/1369828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:46.130Z",
+      "crawledAt": "2026-10-08T22:35:31.613Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1426,7 +1434,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:45.684Z",
+      "crawledAt": "2026-10-08T22:35:31.136Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1505,7 +1513,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Projektleiterin-Mechanik-80-100-GR-7204/1371543657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:45.124Z",
+      "crawledAt": "2026-10-08T22:35:30.665Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1591,7 +1599,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:44.658Z",
+      "crawledAt": "2026-10-08T22:35:30.215Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1625,7 +1633,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:03:58.460Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1639,7 +1646,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7204"
+      "postalCode": "7204",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-16a9c4e06e7b",
@@ -1672,7 +1680,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Morges-Agent-de-transport-VD-1110/1371950357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-08T21:30:44.157Z",
+      "crawledAt": "2026-10-08T22:35:29.759Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1705,7 +1713,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:41:30.502Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1719,7 +1726,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1110"
+      "postalCode": "1110",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-be91586a04ec",
@@ -1752,7 +1760,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/M%C3%BClligen-Sachbearbeiterin-Customer-&-Sales-Support-AG-5243/1374161257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:43.702Z",
+      "crawledAt": "2026-10-08T22:35:29.300Z",
       "addressLocality": "Mülligen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1783,8 +1791,8 @@
           "sachbearbeiter-in-customer-sales-support-holcim-group-mulligen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-07T09:37:20.491Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -1831,7 +1839,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:43.254Z",
+      "crawledAt": "2026-10-08T22:35:28.839Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1908,7 +1916,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:42.814Z",
+      "crawledAt": "2026-10-08T22:35:28.375Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1989,7 +1997,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Luzern-Disponentin-6074/1369717057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:42.352Z",
+      "crawledAt": "2026-10-08T22:35:27.913Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2075,7 +2083,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Luzern-Lastwagenf%C3%BChrerin-6074/1374160657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:30:41.906Z",
+      "crawledAt": "2026-10-08T22:35:27.460Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2148,7 +2156,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Operational-Technology-Engineer-6300/1373113757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:41.394Z",
+      "crawledAt": "2026-10-08T22:35:27.010Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2181,7 +2189,6 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:54:07.627Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2195,7 +2202,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-717d832b7306",
@@ -2228,7 +2236,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Process-Data-Scientist-6300/1373112557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:40.952Z",
+      "crawledAt": "2026-10-08T22:35:26.555Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2261,7 +2269,6 @@
         ]
       },
       "firstSeenAt": "2026-09-25T14:54:06.129Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2275,7 +2282,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-dd1b84f7d066",
@@ -2308,7 +2316,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Electrical-and-Automation-Engineer-6300/1372834057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:40.504Z",
+      "crawledAt": "2026-10-08T22:35:26.093Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2341,7 +2349,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:45:52.692Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -2355,7 +2362,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-9da729e1acfd",
@@ -2388,7 +2396,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Intern-Analyst-6300/1373504257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:40.025Z",
+      "crawledAt": "2026-10-08T22:35:25.636Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2425,7 +2433,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:24:26.919Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2439,7 +2446,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-584336dcc939",
@@ -2472,7 +2480,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Regional-Security-Manager-Europe-%28EUCE%2C-EUW%29-6300/1355606057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:39.559Z",
+      "crawledAt": "2026-10-08T22:35:25.168Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2505,7 +2513,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:58:45.320Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2519,7 +2526,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6300"
+      "postalCode": "6300",
+      "needsRetranslation": true
     },
     {
       "id": "holcim-7f6b305a95c9",
@@ -2552,7 +2560,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Category-Manager-Production-Services-6300/1373697257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:30:39.016Z",
+      "crawledAt": "2026-10-08T22:35:24.694Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2598,6 +2606,74 @@
         }
       },
       "postalCode": "6300"
+    },
+    {
+      "id": "holcim-168e370988cd",
+      "slug": "mechaniker-in-holcim-ch",
+      "slugByLocale": {
+        "de": "mechaniker-in-holcim-ch",
+        "it": "mechaniker-in-holcim-ch",
+        "en": "mechaniker-in-holcim-ch",
+        "fr": "mechaniker-in-holcim-ch"
+      },
+      "company": "Holcim Group",
+      "companyKey": "holcim",
+      "companyDomain": "holcim.com",
+      "title": "Mechaniker:in",
+      "titleByLocale": {
+        "de": "Mechaniker:in",
+        "it": "Mechaniker:in",
+        "en": "Mechaniker:in",
+        "fr": "Mechaniker:in"
+      },
+      "description": "Was dich erwartet:\n\n• Du führst selbstständig Reparatur-, Instandhaltungs- und Montagearbeiten an Anlagen, Maschinen und Geräten in deinem zugewiesenen Bereich durch\n\n• Du stellst Schweiss- und Blechkonstruktionen her und bearbeitest diese fachgerecht\n\n• Du übernimmst selbstständig zugewiesene Aufgaben und Projekte und stellst deren termingerechte Umsetzung sicher\n\n• Du koordinierst und betreust externe Dienstleister und stellst eine professionelle Ausführung der Arbeiten sicher\n\n• Du erkennst Optimierungspotenziale und bringst dich aktiv bei der kontinuierlichen Verbesserung von Anlagen, Maschinen und Prozessen ein\n\n• Du bedienst spanabhebende Maschinen für die Herstellung von Einzelanfertigungen\n\n• Du arbeitest eng mit den involvierten Abteilungen zusammen und unterstützt diese proaktiv bei technischen und betrieblichen Aufgaben\n\n• Du leistest Pikettdienst gemäss Einsatzplanung\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene mechanische oder mechatronische Berufslehre oder eine vergleichbare Ausbildung mit entsprechender Berufserfahrung\n\n• Du hast eine Ausbildung als Bediener/in von Hubarbeitsbühnen (IPAF) und als Staplerfahrer/in\n\n• Du besitzt einen Führerausweis der Kategorie B\n\n• Ein Berufsbildnerausweis ist von Vorteil\n\n• Du bringst Erfahrung im technischen oder handwerklichen Bereich sowie in der Instandhaltung von Industrieanlagen mit\n\n• Du verfügst über gute IT-Anwenderkenntnisse, insbesondere in Google-Tools, MS Office und SAP\n\n• Du bist technikaffin und hast Freude daran, dich mit neuen Technologien auseinanderzusetzen\n\n•\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "descriptionByLocale": {
+        "de": "Was dich erwartet:\n\n• Du führst selbstständig Reparatur-, Instandhaltungs- und Montagearbeiten an Anlagen, Maschinen und Geräten in deinem zugewiesenen Bereich durch\n\n• Du stellst Schweiss- und Blechkonstruktionen her und bearbeitest diese fachgerecht\n\n• Du übernimmst selbstständig zugewiesene Aufgaben und Projekte und stellst deren termingerechte Umsetzung sicher\n\n• Du koordinierst und betreust externe Dienstleister und stellst eine professionelle Ausführung der Arbeiten sicher\n\n• Du erkennst Optimierungspotenziale und bringst dich aktiv bei der kontinuierlichen Verbesserung von Anlagen, Maschinen und Prozessen ein\n\n• Du bedienst spanabhebende Maschinen für die Herstellung von Einzelanfertigungen\n\n• Du arbeitest eng mit den involvierten Abteilungen zusammen und unterstützt diese proaktiv bei technischen und betrieblichen Aufgaben\n\n• Du leistest Pikettdienst gemäss Einsatzplanung\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene mechanische oder mechatronische Berufslehre oder eine vergleichbare Ausbildung mit entsprechender Berufserfahrung\n\n• Du hast eine Ausbildung als Bediener/in von Hubarbeitsbühnen (IPAF) und als Staplerfahrer/in\n\n• Du besitzt einen Führerausweis der Kategorie B\n\n• Ein Berufsbildnerausweis ist von Vorteil\n\n• Du bringst Erfahrung im technischen oder handwerklichen Bereich sowie in der Instandhaltung von Industrieanlagen mit\n\n• Du verfügst über gute IT-Anwenderkenntnisse, insbesondere in Google-Tools, MS Office und SAP\n\n• Du bist technikaffin und hast Freude daran, dich mit neuen Technologien auseinanderzusetzen\n\n•\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+        "it": "Was dich erwartet:\n\n• Du führst selbstständig Reparatur-, Instandhaltungs- und Montagearbeiten an Anlagen, Maschinen und Geräten in deinem zugewiesenen Bereich durch\n\n• Du stellst Schweiss- und Blechkonstruktionen her und bearbeitest diese fachgerecht\n\n• Du übernimmst selbstständig zugewiesene Aufgaben und Projekte und stellst deren termingerechte Umsetzung sicher\n\n• Du koordinierst und betreust externe Dienstleister und stellst eine professionelle Ausführung der Arbeiten sicher\n\n• Du erkennst Optimierungspotenziale und bringst dich aktiv bei der kontinuierlichen Verbesserung von Anlagen, Maschinen und Prozessen ein\n\n• Du bedienst spanabhebende Maschinen für die Herstellung von Einzelanfertigungen\n\n• Du arbeitest eng mit den involvierten Abteilungen zusammen und unterstützt diese proaktiv bei technischen und betrieblichen Aufgaben\n\n• Du leistest Pikettdienst gemäss Einsatzplanung\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene mechanische oder mechatronische Berufslehre oder eine vergleichbare Ausbildung mit entsprechender Berufserfahrung\n\n• Du hast eine Ausbildung als Bediener/in von Hubarbeitsbühnen (IPAF) und als Staplerfahrer/in\n\n• Du besitzt einen Führerausweis der Kategorie B\n\n• Ein Berufsbildnerausweis ist von Vorteil\n\n• Du bringst Erfahrung im technischen oder handwerklichen Bereich sowie in der Instandhaltung von Industrieanlagen mit\n\n• Du verfügst über gute IT-Anwenderkenntnisse, insbesondere in Google-Tools, MS Office und SAP\n\n• Du bist technikaffin und hast Freude daran, dich mit neuen Technologien auseinanderzusetzen\n\n•\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+        "en": "Was dich erwartet:\n\n• Du führst selbstständig Reparatur-, Instandhaltungs- und Montagearbeiten an Anlagen, Maschinen und Geräten in deinem zugewiesenen Bereich durch\n\n• Du stellst Schweiss- und Blechkonstruktionen her und bearbeitest diese fachgerecht\n\n• Du übernimmst selbstständig zugewiesene Aufgaben und Projekte und stellst deren termingerechte Umsetzung sicher\n\n• Du koordinierst und betreust externe Dienstleister und stellst eine professionelle Ausführung der Arbeiten sicher\n\n• Du erkennst Optimierungspotenziale und bringst dich aktiv bei der kontinuierlichen Verbesserung von Anlagen, Maschinen und Prozessen ein\n\n• Du bedienst spanabhebende Maschinen für die Herstellung von Einzelanfertigungen\n\n• Du arbeitest eng mit den involvierten Abteilungen zusammen und unterstützt diese proaktiv bei technischen und betrieblichen Aufgaben\n\n• Du leistest Pikettdienst gemäss Einsatzplanung\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene mechanische oder mechatronische Berufslehre oder eine vergleichbare Ausbildung mit entsprechender Berufserfahrung\n\n• Du hast eine Ausbildung als Bediener/in von Hubarbeitsbühnen (IPAF) und als Staplerfahrer/in\n\n• Du besitzt einen Führerausweis der Kategorie B\n\n• Ein Berufsbildnerausweis ist von Vorteil\n\n• Du bringst Erfahrung im technischen oder handwerklichen Bereich sowie in der Instandhaltung von Industrieanlagen mit\n\n• Du verfügst über gute IT-Anwenderkenntnisse, insbesondere in Google-Tools, MS Office und SAP\n\n• Du bist technikaffin und hast Freude daran, dich mit neuen Technologien auseinanderzusetzen\n\n•\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+        "fr": "Was dich erwartet:\n\n• Du führst selbstständig Reparatur-, Instandhaltungs- und Montagearbeiten an Anlagen, Maschinen und Geräten in deinem zugewiesenen Bereich durch\n\n• Du stellst Schweiss- und Blechkonstruktionen her und bearbeitest diese fachgerecht\n\n• Du übernimmst selbstständig zugewiesene Aufgaben und Projekte und stellst deren termingerechte Umsetzung sicher\n\n• Du koordinierst und betreust externe Dienstleister und stellst eine professionelle Ausführung der Arbeiten sicher\n\n• Du erkennst Optimierungspotenziale und bringst dich aktiv bei der kontinuierlichen Verbesserung von Anlagen, Maschinen und Prozessen ein\n\n• Du bedienst spanabhebende Maschinen für die Herstellung von Einzelanfertigungen\n\n• Du arbeitest eng mit den involvierten Abteilungen zusammen und unterstützt diese proaktiv bei technischen und betrieblichen Aufgaben\n\n• Du leistest Pikettdienst gemäss Einsatzplanung\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene mechanische oder mechatronische Berufslehre oder eine vergleichbare Ausbildung mit entsprechender Berufserfahrung\n\n• Du hast eine Ausbildung als Bediener/in von Hubarbeitsbühnen (IPAF) und als Staplerfahrer/in\n\n• Du besitzt einen Führerausweis der Kategorie B\n\n• Ein Berufsbildnerausweis ist von Vorteil\n\n• Du bringst Erfahrung im technischen oder handwerklichen Bereich sowie in der Instandhaltung von Industrieanlagen mit\n\n• Du verfügst über gute IT-Anwenderkenntnisse, insbesondere in Google-Tools, MS Office und SAP\n\n• Du bist technikaffin und hast Freude daran, dich mit neuen Technologien auseinanderzusetzen\n\n•\n\nUnser Angebot:\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst"
+      },
+      "location": "Würenlingen",
+      "canton": "AG",
+      "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-AG-5303/1373278357/",
+      "source": "Holcim Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T22:35:38.098Z",
+      "addressLocality": "Würenlingen",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Materiali da costruzione / Cemento",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-28T00:00:00Z",
+      "postedDate": "2026-09-28T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Mechanikerin-AG-5303/1373278357/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5303",
+      "firstSeenAt": "2026-09-28T21:27:07.903Z"
     }
   ]
 }
