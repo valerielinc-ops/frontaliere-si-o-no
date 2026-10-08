@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitaeler-schaffhausen",
-  "assembledAt": "2026-10-08T09:39:28.416Z",
+  "assembledAt": "2026-10-08T21:45:34.201Z",
   "jobs": [
     {
       "id": "spitaeler-schaffhausen-043ddb8a44ce",
@@ -33,7 +33,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-3-jaehrige-ausbildung/46109be5-c8a7-4744-8a56-e59fe3fd6f0d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.315Z",
+      "crawledAt": "2026-10-08T21:44:34.444Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -76,15 +76,15 @@
           "Très bonnes compétences linguistiques allemandes à l'oral et à l'écrit (niveau C1)"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:21:35.656Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-3-jahrige-ausbildung-spitaeler-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-3-jahrige-ausbildung-spitaeler-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-3-jahrige-ausbildung-spitaeler-schaffhausen"
-      ],
+      "firstSeenAt": "2026-05-19T12:21:35.656Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -130,7 +130,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-2-jaehrige-ausbildung/92dfa61f-39df-4d3b-a328-a11bf8378f52",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.314Z",
+      "crawledAt": "2026-10-08T21:44:34.443Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-fachfrau-fachmann-operationstechnik-hf-in-ausbildung/c9147ef3-1888-43f6-aeb1-896c17ea8ba7",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.312Z",
+      "crawledAt": "2026-10-08T21:44:34.442Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -305,15 +305,15 @@
           "Personnalité responsable, d'équipe, physiquement et psychologiquement résistante"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:21:35.654Z",
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-in-ausbildung-spitaeler-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachfrau-fachmann-operationstechnik-hf-in-ausbildung-spitaeler-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "dipl-fachfrau-fachmann-operationstechnik-hf-in-ausbildung-spitaeler-schaffhausen"
-      ],
+      "firstSeenAt": "2026-05-19T12:21:35.654Z",
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -359,7 +359,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung/33480439-055b-4676-aecc-3dd514771373",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.311Z",
+      "crawledAt": "2026-10-08T21:44:34.441Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -388,9 +388,6 @@
           "Precise operation and manual skill"
         ]
       },
-      "previousSlugs": [
-        "dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung-spitaeler"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung-spitaeler"
@@ -399,6 +396,9 @@
           "dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung-spitaeler"
         ]
       },
+      "previousSlugs": [
+        "dipl-biomedizinische-analytikerin-biomedizinischer-analytiker-hf-in-ausbildung-spitaeler"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.653Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -445,7 +445,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-radiologiefachfrau-fachmann-hf-in-ausbildung/cf7b54f7-2fa0-4f6d-b961-633881501977",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.310Z",
+      "crawledAt": "2026-10-08T21:44:34.439Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -496,15 +496,15 @@
           "Bonnes compétences en communication"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:21:35.652Z",
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-fachmann-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachfrau-fachmann-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "dipl-radiologiefachfrau-fachmann-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-05-19T12:21:35.652Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -551,7 +551,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikantin-praktikant-kantonsspital/db3c570a-f737-4efb-b7f0-03be9f0439a4",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.309Z",
+      "crawledAt": "2026-10-08T21:44:34.438Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -571,9 +571,6 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikantin-praktikant-kantonsspital/db3c570a-f737-4efb-b7f0-03be9f0439a4",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikantin-praktikant-kantonsspital-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "praktikantin-praktikant-kantonsspital-spitaeler-schaffhausen-schaffhausen"
@@ -582,6 +579,9 @@
           "praktikantin-praktikant-kantonsspital-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "praktikantin-praktikant-kantonsspital-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.643Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -629,7 +629,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-hauswirtschaft/5fcd8756-51e1-4e70-a200-65d1e6a5a22f",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.308Z",
+      "crawledAt": "2026-10-08T21:44:34.437Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -676,9 +676,6 @@
           "Punctualité"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-hauswirtschaft-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "zivildienstleistender-hauswirtschaft-spitaeler-schaffhausen-schaffhausen"
@@ -687,6 +684,9 @@
           "zivildienstleistender-hauswirtschaft-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistender-hauswirtschaft-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.645Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -734,7 +734,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-kueche-kantonsspital/f4ef91c3-ec05-4deb-b9ce-f16938b6d79d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.307Z",
+      "crawledAt": "2026-10-08T21:44:34.436Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -775,9 +775,6 @@
           "Amabilité"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-kuche-kantonsspital-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "zivildienstleistender-kuche-kantonsspital-spitaeler-schaffhausen-schaffhausen"
@@ -786,6 +783,9 @@
           "zivildienstleistender-kuche-kantonsspital-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistender-kuche-kantonsspital-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.646Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -833,7 +833,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-gastronomie-kantonsspital/6f88976b-3508-43dc-adb4-d41ddf5eb93b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.306Z",
+      "crawledAt": "2026-10-08T21:44:34.435Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -874,9 +874,6 @@
           "Amabilité"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-gastronomie-kantonsspital-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "zivildienstleistender-gastronomie-kantonsspital-spitaeler-schaffhausen-schaffhausen"
@@ -885,6 +882,9 @@
           "zivildienstleistender-gastronomie-kantonsspital-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistender-gastronomie-kantonsspital-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.647Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -932,7 +932,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-ops-vorbereitung-und-gipszimmer/62739bc7-08a5-46e6-86e6-5d1bb716ddbe",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.305Z",
+      "crawledAt": "2026-10-08T21:44:34.434Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -976,15 +976,15 @@
           "Capacité de travail en équipe"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:21:35.648Z",
+      "previousSlugs": [
+        "zivildienstleistender-ops-vorbereitung-und-gipszimmer-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "zivildienstleistender-ops-vorbereitung-und-gipszimmer-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-ops-vorbereitung-und-gipszimmer-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-05-19T12:21:35.648Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1031,7 +1031,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-technischer-dienst/5932e0e1-5749-47bb-962f-ceae3706f26e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.304Z",
+      "crawledAt": "2026-10-08T21:44:34.433Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1117,7 +1117,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-zentrallager-und-patiententransport/c9fce74b-f7c1-4b20-afb7-521665360bab",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.302Z",
+      "crawledAt": "2026-10-08T21:44:34.432Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1155,9 +1155,6 @@
           "transport for diagnostic examinations and therapeutic treatments) Requirements:"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-zentrallager-und-patiententransport-spitaeler-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "zivildienstleistender-zentrallager-und-patiententransport-spitaeler-schaffhausen"
@@ -1166,6 +1163,9 @@
           "zivildienstleistender-zentrallager-und-patiententransport-spitaeler-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistender-zentrallager-und-patiententransport-spitaeler-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.650Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1213,7 +1213,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/zivildienstleistender-assistenzarzt/5910c492-df51-4993-9bd9-d7569a0a6b21",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.301Z",
+      "crawledAt": "2026-10-08T21:44:34.431Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1254,9 +1254,6 @@
           "Motivation"
         ]
       },
-      "previousSlugs": [
-        "zivildienstleistender-assistenzarzt-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "zivildienstleistender-assistenzarzt-spitaeler-schaffhausen-schaffhausen"
@@ -1265,6 +1262,9 @@
           "zivildienstleistender-assistenzarzt-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "zivildienstleistender-assistenzarzt-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.651Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1312,7 +1312,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/sitzwache-im-stundenlohn/e92dd9d5-1b9a-4056-b4ad-fb671f9c2ce9",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.300Z",
+      "crawledAt": "2026-10-08T21:44:34.430Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1332,9 +1332,6 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/sitzwache-im-stundenlohn/e92dd9d5-1b9a-4056-b4ad-fb671f9c2ce9",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sitzwache-im-stundenlohn-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
         "de": [
           "sitzwache-im-stundenlohn-spitaeler-schaffhausen-schaffhausen"
@@ -1343,6 +1340,9 @@
           "sitzwache-im-stundenlohn-spitaeler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "sitzwache-im-stundenlohn-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.644Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1390,7 +1390,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikant-in-im-sozialdienst-in-ausbildung/a5d2ec1c-bff7-48ea-b8c6-27397bcd3d4c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.298Z",
+      "crawledAt": "2026-10-08T21:44:34.429Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1431,14 +1431,11 @@
           "Intérêt pour le travail avec des patients psychiatriques et en équipe de traitement interdisciplinaire"
         ]
       },
-      "previousSlugs": [
-        "internship-servizio-sociale-spitaler-schaffhausen-schaffhausen",
-        "internship-social-service-spitaler-schaffhausen-schaffhausen",
-        "praktikant-in-sozialdienst-spitaeler-schaffhausen-schaffhausen",
-        "stage-service-social-spitaler-schaffhausen-schaffhausen",
-        "praktikant-in-im-sozialdienst-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-sozialdienst-spitaeler-schaffhausen-schaffhausen",
+          "praktikant-in-im-sozialdienst-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
+        ],
         "it": [
           "internship-servizio-sociale-spitaler-schaffhausen-schaffhausen",
           "internship-social-service-spitaler-schaffhausen-schaffhausen",
@@ -1449,14 +1446,17 @@
         "en": [
           "internship-social-service-spitaler-schaffhausen-schaffhausen"
         ],
-        "de": [
-          "praktikant-in-sozialdienst-spitaeler-schaffhausen-schaffhausen",
-          "praktikant-in-im-sozialdienst-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
-        ],
         "fr": [
           "stage-service-social-spitaler-schaffhausen-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "internship-servizio-sociale-spitaler-schaffhausen-schaffhausen",
+        "internship-social-service-spitaler-schaffhausen-schaffhausen",
+        "praktikant-in-sozialdienst-spitaeler-schaffhausen-schaffhausen",
+        "stage-service-social-spitaler-schaffhausen-schaffhausen",
+        "praktikant-in-im-sozialdienst-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
+      ],
       "firstSeenAt": "2026-05-19T12:21:35.641Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -1503,7 +1503,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/oberarzt-oberaerztin-paediatrie/0b982cd5-3a16-4b34-ae8b-6bde9c330b5c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.297Z",
+      "crawledAt": "2026-10-08T21:44:34.428Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1615,7 +1615,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/klinische-r-pharmazeut-in-fph/b18894c1-71fa-4fdd-a3b9-0b4135c2f039",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.296Z",
+      "crawledAt": "2026-10-08T21:44:34.425Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1635,15 +1635,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/klinische-r-pharmazeut-in-fph/b18894c1-71fa-4fdd-a3b9-0b4135c2f039",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-17T07:28:05.124Z",
+      "previousSlugs": [
+        "klinische-r-pharmazeut-in-fph-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "klinische-r-pharmazeut-in-fph-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "klinische-r-pharmazeut-in-fph-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-17T07:28:05.124Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1689,7 +1689,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/mpa-zentrales-ambulatorium/e4e47fb1-5dab-4d73-a39e-7cbed71f1b1b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.295Z",
+      "crawledAt": "2026-10-08T21:44:34.423Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1709,15 +1709,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/mpa-zentrales-ambulatorium/e4e47fb1-5dab-4d73-a39e-7cbed71f1b1b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-17T07:28:05.122Z",
+      "previousSlugs": [
+        "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "mpa-zentrales-ambulatorium-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-17T07:28:05.122Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1763,7 +1763,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitende-aerztin-leitender-arzt-pneumologie/6b614d77-7e1d-4c0b-abb5-182ca53c8671",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.294Z",
+      "crawledAt": "2026-10-08T21:44:34.421Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1783,15 +1783,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/leitende-aerztin-leitender-arzt-pneumologie/6b614d77-7e1d-4c0b-abb5-182ca53c8671",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-17T07:28:05.119Z",
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitender-arzt-pneumologie-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-17T07:28:05.119Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1838,7 +1838,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz-langzeitpsychiatrie/90cf3973-11a7-4d76-bc28-45283ccb4752",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.292Z",
+      "crawledAt": "2026-10-08T21:44:34.419Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1917,7 +1917,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool/9e440503-ed0a-414c-9b1a-398f11e0034e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.291Z",
+      "crawledAt": "2026-10-08T21:44:34.417Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1966,9 +1966,9 @@
       "id": "spitaeler-schaffhausen-56e43712bd4d",
       "slug": "specialista-sanitario-efz-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "it": "specialista-sanitario-efz-spitaler-schaffhausen-schaffhausen",
         "en": "health-specialist-efz-spitaler-schaffhausen-schaffhausen",
+        "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "fr": "specialiste-de-la-sante-efz-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -1976,16 +1976,16 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Fachmann/-frau Gesundheit EFZ",
       "titleByLocale": {
-        "de": "Fachmann/-frau Gesundheit EFZ",
         "it": "Operatore/trice sociosanitario/a AFC",
         "en": "Healthcare Professional EFZ",
+        "de": "Fachmann/-frau Gesundheit EFZ",
         "fr": "Assistant/e en soins et santé communautaire CFC"
       },
       "description": "## Das erwartet Dich\n• Du entwickelst die Pflegequalität auf unserer Privatstation mit hohem Service-Anspruch aktiv weiter\n• Professionelle Pflege und Betreuung unserer Patienten in enger Zusammenarbeit mit dem diplomierten Personal\n• Du übernimmst administrative und logistische Aufgaben, die einen reibungslosen Stationsalltag garantieren\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n• Offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50% Kantonsspital Schaffhausen\nFür unsere interdisziplinäre Privatstation mit 21 Betten suchen wir per sofort oder nach Vereinbarung eine Fachperson Gesundheit EFZ.\nWenn Du Freude an einer ganzheitlichen Betreuung hast und unseren Patientinnen und Patienten mit viel Empathie begegnest, freuen wir uns auf Dich.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
       "descriptionByLocale": {
-        "de": "## Das erwartet Dich\n• Du entwickelst die Pflegequalität auf unserer Privatstation mit hohem Service-Anspruch aktiv weiter\n• Professionelle Pflege und Betreuung unserer Patienten in enger Zusammenarbeit mit dem diplomierten Personal\n• Du übernimmst administrative und logistische Aufgaben, die einen reibungslosen Stationsalltag garantieren\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n• Offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50% Kantonsspital Schaffhausen\nFür unsere interdisziplinäre Privatstation mit 21 Betten suchen wir per sofort oder nach Vereinbarung eine Fachperson Gesundheit EFZ.\nWenn Du Freude an einer ganzheitlichen Betreuung hast und unseren Patientinnen und Patienten mit viel Empathie begegnest, freuen wir uns auf Dich.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
         "it": "## Questo è ciò che vi aspetta\n• Si svilupperà attivamente la qualità della cura sulla nostra stazione privata con elevate esigenze di servizio\n• Assistenza professionale e cura dei nostri pazienti in stretta collaborazione con il personale qualificato\n• Si assumono compiti amministrativi e logistici che garantiscono una regolare routine di stazione\n\n## Questo ci porterà oltre.\n• Formazione completa e esperienza professionale come una salute professionale EFZ\n• Comunicazione aperta e rispettosa con tutti gli stakeholder\n• Flessibilità, responsabilità e resilienza\n• Impegno alla cooperazione di gruppo e interdisciplinare\nPrecauzione\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche bene.\n\n## 50% Ospedale cantonale Sciaffusa\nPer la nostra stazione privata interdisciplinare con 21 posti letto, stiamo cercando un professionista sanitario EFZ immediatamente o di accordo.\nSe vi piace una cura olistica e incontrare i nostri pazienti con un sacco di empatia, non vediamo l'ora di voi.\nQuesto è ciò che vi aspetta\nQuesto ci porterà oltre.\nVantaggi\nAmicizia familiare\n\n## Bilancia della vita lavorativa\nLa tua vita è sfaccettata e lo capiamo. Se part-time, la condivisione di lavoro (anche in posizioni di gestione), il congedo di maternità prolungato, il congedo non retribuito o ferie aggiuntive al posto di 13. Scommessa mensile: progettiamo soluzioni flessibili con voi.\n\n## Precauzione\nPensiamo a te. Con una quota del datore di lavoro del 60% dei contributi del fondo pensione, forniamo già per il vostro futuro in modo che siete ben protetti in pensione e la vostra qualità di vita è mantenuta.\n\n## Alloggio\nSei nuovo a Schaffhausen o hai bisogno di una casa temporanea? Nessun problema. Vi forniamo camere arredate, semplici, vicino al posto di lavoro e perfetto per il vostro inizio.\n\n## Parcheggio per i dipendenti e controlli REKA\nPotete raggiungerci bene in autobus, treno o auto. Nelle immediate vicinanze dell'ospedale, numerosi parcheggi per i dipendenti sono disponibili in condizioni interessanti. Trasporto pubblico invece delle auto? Pensiamo grande e ti premiamo con i controlli Reka con fino al 20% di sconto.\n\n## Formazione\nVuoi saperne di più, essere in grado di fare di più, spostare di più? Vi offriamo una vasta gamma di opportunità di formazione interna per il vostro prossimo passo, la vostra sete di conoscenza e il vostro sviluppo personale.\n\n## Ospedali Schaffhausen come datore di lavoro\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.\nPagina della Carriera\nApplicare ora:",
         "en": "## This is what awaits you\n• You will actively develop the care quality on our private station with high service demands\n• Professional care and care of our patients in close cooperation with the qualified staff\n• You take on administrative and logistical tasks that guarantee a smooth station routine\n\n## This will take us further.\n• Completed education and professional experience as a professional health EFZ\n• Open and respectful communication with all stakeholders\n• Flexibility, responsibility and resilience\n• Commitment to team-oriented and interdisciplinary cooperation\nPrecautionary benefit\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\n## 50% Cantonal Hospital Schaffhausen\nFor our interdisciplinary private station with 21 beds, we are looking for a health professional EFZ immediately or by agreement.\nIf you enjoy a holistic care and meet our patients with a lot of empathy, we look forward to you.\nThis is what awaits you\nThis will take us further.\nBenefits\nFamily friendliness\n\n## Work-life balance\nYour life is multifaceted and we understand that. Whether part-time, job sharing (also in management positions), extended maternity leave, unpaid leave or additional holidays instead of 13. Monthly wage: We design flexible solutions with you.\n\n## Precautionary benefit\nWe think ahead with you. With an employer share of 60% of the pension fund contributions, we already provide for your future so that you are well protected in retirement and your quality of life is maintained.\n\n## Accommodation\nAre you new to Schaffhausen or need a temporary home? No problem. We provide you with furnished rooms, uncomplicated, close to the workplace and perfect for your start.\n\n## Employee parking and REKA checks\nYou can reach us well by bus, train or car. In the immediate vicinity of the hospital, numerous employee parking spaces are available at attractive conditions. Public transport instead of cars? We think great and reward you with Reka checks with up to 20% discount.\n\n## Training\nYou want to know more, be able to do more, move more? We offer you a wide range of internal training opportunities for your next step, your thirst for knowledge and your personal development.\n\n## Hospitals Schaffhausen as an employer\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.\nThe Career Page\nApply now:",
+        "de": "## Das erwartet Dich\n• Du entwickelst die Pflegequalität auf unserer Privatstation mit hohem Service-Anspruch aktiv weiter\n• Professionelle Pflege und Betreuung unserer Patienten in enger Zusammenarbeit mit dem diplomierten Personal\n• Du übernimmst administrative und logistische Aufgaben, die einen reibungslosen Stationsalltag garantieren\n\n## Damit bringst Du uns weiter\n• Abgeschlossene Ausbildung und Berufserfahrung als Fachmann/-frau Gesundheit EFZ\n• Offene und respektvolle Kommunikation mit allen Anspruchsgruppen\n• Flexibilität, Verantwortungsbewusstsein und Belastbarkeit\n• Engagement für teamorientierte und interdisziplinäre Zusammenarbeit\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50% Kantonsspital Schaffhausen\nFür unsere interdisziplinäre Privatstation mit 21 Betten suchen wir per sofort oder nach Vereinbarung eine Fachperson Gesundheit EFZ.\nWenn Du Freude an einer ganzheitlichen Betreuung hast und unseren Patientinnen und Patienten mit viel Empathie begegnest, freuen wir uns auf Dich.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
         "fr": "## C'est ce qui vous attend\n• Vous développerez activement la qualité des soins sur notre station privée avec des exigences de service élevées\n• Soins professionnels et soins de nos patients en étroite collaboration avec le personnel qualifié\n• Vous assumez des tâches administratives et logistiques qui garantissent une routine de station en douceur\n\n## Cela nous mènera plus loin.\n• Études et expérience professionnelles terminées en tant que professionnel de la santé EFZ\n• Communication ouverte et respectueuse avec toutes les parties prenantes\n• Flexibilité, responsabilité et résilience\n• Engagement en faveur de la coopération en équipe et interdisciplinaire\nPrestations de précaution\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\n## 50% Hôpital cantonal Schaffhausen\nPour notre station privée interdisciplinaire avec 21 lits, nous sommes à la recherche d'un professionnel de la santé EFZ immédiatement ou par accord.\nSi vous profitez d'un soin holistique et rencontrez nos patients avec beaucoup d'empathie, nous vous attendons avec impatience.\nC'est ce qui vous attend\nCela nous mènera plus loin.\nAvantages\nAmabilité de la famille\n\n## Équilibre travail-vie privée\nVotre vie est multiforme et nous le comprenons. Qu'il s'agisse de temps partiel, de partage de l'emploi (également à des postes de direction), de congé de maternité prolongé, de congé non rémunéré ou de congés supplémentaires au lieu de 13. Salaire mensuel: Nous concevons des solutions flexibles avec vous.\n\n## Prestations de précaution\nNous pensons en avant avec vous. Avec une part de l'employeur de 60 % des cotisations du fonds de pension, nous fournissons déjà votre avenir afin que vous soyez bien protégé à la retraite et que votre qualité de vie soit maintenue.\n\n## Hébergement\nÊtes-vous nouveau à Schaffhausen ou besoin d'une maison temporaire? Pas de problème. Nous vous fournissons des chambres meublées, simples, à proximité du lieu de travail et parfaites pour votre départ.\n\n## Stationnement des employés et contrôles REKA\nVous pouvez bien nous rejoindre en bus, en train ou en voiture. Dans les environs immédiats de l'hôpital, de nombreuses places de stationnement sont disponibles dans des conditions attrayantes. Les transports publics au lieu des voitures ? Nous pensons grand et vous récompenser avec des chèques Reka avec jusqu'à 20% de réduction.\n\n## Formation\nTu veux en savoir plus, être capable de faire plus, bouger plus ? Nous vous offrons un large éventail de possibilités de formation interne pour votre prochaine étape, votre soif de connaissances et votre développement personnel.\n\n## Hospitals Schaffhausen en tant qu'employeur\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton.\nPage de carrière\nAppliquer maintenant:"
       },
       "location": "Schaffhausen",
@@ -1993,7 +1993,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/e435514a-a806-4b53-b46e-44b609e8b5eb",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.290Z",
+      "crawledAt": "2026-10-08T21:44:34.415Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2012,36 +2012,7 @@
       "postingDateSource": "reported",
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/e435514a-a806-4b53-b46e-44b609e8b5eb",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-          "specialista-della-salute-efz-spitaler-schaffhausen-schaffhausen",
-          "esperto-a-in-salute-efz-spitaler-schaffhausen-schaffhausen",
-          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
-          "healthcare-specialist-efz-spitaler-schaffhausen-schaffhausen",
-          "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
-          "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
-          "professional-health-efz-spitaler-schaffhausen-schaffhausen",
-          "sante-professionnelle-efz-spitaler-schaffhausen-schaffhausen",
-          "specialiste-en-sante-efz-spitaler-schaffhausen-schaffhausen",
-          "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
-          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-j17dop",
-          "fachmann-frau-gesundheit-cfc-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen",
-          "fachmann-frau-gesundheit-efz-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-          "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
-          "health-specialist-efz-experiencing-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen",
-          "specialiste-de-la-sante-efz-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen",
-          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-vn930t",
-          "professional-wife-health-efz-spitaler-schaffhausen-schaffhausen",
-          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-8ed915"
-        ],
-        "de": [
-          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-qd6stj"
-        ]
-      },
+      "requirementsByLocale": {},
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
         "specialista-della-salute-efz-spitaler-schaffhausen-schaffhausen",
@@ -2072,6 +2043,34 @@
         "professional-health-efz-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
         "psychiatrie-a-long-terme-de-l-efz-spitaler-schaffhausen-schaffhausen"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "esperto-a-in-salute-efz-spitaler-schaffhausen-schaffhausen",
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-2",
+          "healthcare-specialist-efz-spitaler-schaffhausen-schaffhausen",
+          "specialista-in-salute-efz-in-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+          "healthcare-specialist-efz-in-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+          "professional-health-efz-spitaler-schaffhausen-schaffhausen",
+          "sante-professionnelle-efz-spitaler-schaffhausen-schaffhausen",
+          "specialiste-en-sante-efz-spitaler-schaffhausen-schaffhausen",
+          "specialiste-en-sante-efz-en-psychiatrie-de-longue-duree-spitaler-schaffhausen-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-j17dop",
+          "fachmann-frau-gesundheit-cfc-vielfalt-erleben-im-flex-pool-spitaler-schaffhausen",
+          "fachmann-frau-gesundheit-efz-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
+          "fachfrau-fachmann-gesundheit-cfc-langzeitpsychiatrie-spitaler-schaffhausen-schaffhausen",
+          "health-specialist-efz-experiencing-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen",
+          "specialiste-de-la-sante-efz-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-vn930t",
+          "professional-wife-health-efz-spitaler-schaffhausen-schaffhausen",
+          "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen-8ed915",
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
+          "specialista-della-salute-efz-spitaler-schaffhausen-schaffhausen"
+        ],
+        "de": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen-qd6stj"
+        ]
+      },
+      "firstSeenAt": "2026-09-17T07:28:05.113Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2084,8 +2083,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-17T07:28:05.113Z"
+      }
     },
     {
       "id": "spitaeler-schaffhausen-ef31a8a82373",
@@ -2118,7 +2116,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv/28a0daf9-1f64-47b7-b0b0-ea9360c09d87",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.289Z",
+      "crawledAt": "2026-10-08T21:44:34.414Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2195,7 +2193,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-zaemehalt/ef978f9d-dc80-4e01-914d-3b619ebf15f4",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.288Z",
+      "crawledAt": "2026-10-08T21:44:34.412Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2215,15 +2213,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-zaemehalt/ef978f9d-dc80-4e01-914d-3b619ebf15f4",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-18T14:11:56.763Z",
+      "previousSlugs": [
+        "leitung-zamehalt-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-zamehalt-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "leitung-zamehalt-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-18T14:11:56.763Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2270,7 +2268,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/medizinsche-r-praxisassistent-in-kardiologie/68fd5dbc-3bd6-4065-ab69-bb48c45afe5e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.286Z",
+      "crawledAt": "2026-10-08T21:44:34.410Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2352,7 +2350,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/242bb7dc-fb6f-4ce9-ac44-1d86678fe1cd",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.285Z",
+      "crawledAt": "2026-10-08T21:44:34.408Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2372,15 +2370,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz/242bb7dc-fb6f-4ce9-ac44-1d86678fe1cd",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-17T07:28:05.113Z",
+      "previousSlugs": [
+        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-17T07:28:05.113Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2426,7 +2424,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachmann-frau-gesundheit-efz-erwachsenenbildung-art-32-geriatrischen-rehabilitation-und-uebergangspflege/684f5135-9c69-4508-a23e-b9ced5a06aee",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.284Z",
+      "crawledAt": "2026-10-08T21:44:34.407Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2503,7 +2501,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-mann-hf/52554632-7399-4b3d-b2cb-b33a443e57a1",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.254Z",
+      "crawledAt": "2026-10-08T21:44:34.374Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2523,15 +2521,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-mann-hf/52554632-7399-4b3d-b2cb-b33a443e57a1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-07T15:18:14.965Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-07T15:18:14.965Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2578,7 +2576,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/praktikantin-praktikant-handelsmittelschule/a1ecd7a7-09bd-4a29-9541-0ba386c122ca",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.282Z",
+      "crawledAt": "2026-10-08T21:44:34.403Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2636,7 +2634,7 @@
         "it": "fisioterapisti-spitaler-schaffhausen-schaffhausen",
         "en": "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "de": "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "fr": "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
+        "fr": "physiotherapeute-spitaler-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2661,7 +2659,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/physiotherapeut-in/a5e7cd28-1c3b-4739-b204-64ea0eac440d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.281Z",
+      "crawledAt": "2026-10-08T21:44:34.402Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2685,7 +2683,7 @@
         "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
         "physiotherapeut-in-spitaler-schaffhausen",
         "physiotherapeut-in-spitaeler-schaffhausen-schaffhausen",
-        "physiotherapeute-spitaler-schaffhausen"
+        "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2695,7 +2693,7 @@
         "fr": [
           "physiotherapeut-in-spitaler-schaffhausen-schaffhausen",
           "physiotherapeut-in-spitaler-schaffhausen",
-          "physiotherapeute-spitaler-schaffhausen"
+          "physiotherapeutes-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-09-24T00:09:49.682Z",
@@ -2744,7 +2742,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-notfall-pflege/a1bf7e6d-e4b1-4dfb-985e-dfc9ba075e70",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.280Z",
+      "crawledAt": "2026-10-08T21:44:34.400Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2764,14 +2762,14 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/leitung-notfall-pflege/a1bf7e6d-e4b1-4dfb-985e-dfc9ba075e70",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
-      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2817,7 +2815,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/kaderaerztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin/8f09ccce-8e11-474f-88db-dea5aa89d05e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.278Z",
+      "crawledAt": "2026-10-08T21:44:34.399Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2837,15 +2835,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/kaderaerztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin/8f09ccce-8e11-474f-88db-dea5aa89d05e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-02T13:48:04.122Z",
+      "previousSlugs": [
+        "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "kaderarztin-kaderarzt-mit-besonderer-funktion-mbf-notfallmedizin-spitaeler-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-02T13:48:04.122Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2892,7 +2890,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion-fachverantwortung-pflege/8f260f24-b256-4271-8770-1ec0bf771d2e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.277Z",
+      "crawledAt": "2026-10-08T21:44:34.397Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2912,15 +2910,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion-fachverantwortung-pflege/8f260f24-b256-4271-8770-1ec0bf771d2e",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-02T13:48:04.123Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-mit-zusatzfunktion"
-      ],
+      "firstSeenAt": "2026-09-02T13:48:04.123Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2966,7 +2964,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/hilfskoechin-hilfskoch/17cb938a-2d6f-4286-a88d-648eeb5e370d",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.276Z",
+      "crawledAt": "2026-10-08T21:44:34.396Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2992,12 +2990,12 @@
         "hilfskochin-hilfskoch-spitaeler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-spitaeler-schaffhausen-schaffhausen"
+        ],
         "en": [
           "hilfskochin-hilfskoch-spitaler-schaffhausen-schaffhausen",
           "auxiliary-cook-auxiliary-cook-spitaler-schaffhausen-schaffhausen"
-        ],
-        "it": [
-          "hilfskochin-hilfskoch-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-10-03T09:33:36.455Z",
@@ -3046,7 +3044,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-geriatrie/8f7421f8-048f-42e4-aeda-e97a2618058e",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.275Z",
+      "crawledAt": "2026-10-08T21:44:34.395Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3138,7 +3136,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/d9482aed-6a92-4d7b-b9f1-69e2ab16b50f",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.274Z",
+      "crawledAt": "2026-10-08T21:44:34.394Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3240,7 +3238,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-notfallmedizin/9138ebe3-10cf-4628-8cf8-ec6f04010204",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.273Z",
+      "crawledAt": "2026-10-08T21:44:34.393Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3332,7 +3330,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-urologie/353bf439-f6ae-4272-b5ed-38a0b41a84c5",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.271Z",
+      "crawledAt": "2026-10-08T21:44:34.392Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3418,7 +3416,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-chirurgie/76ccb79c-eb9a-4d50-8077-921fc355e8ae",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.270Z",
+      "crawledAt": "2026-10-08T21:44:34.391Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3504,7 +3502,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-anaesthesie/d47e644c-c9f3-49fa-b1c8-f2287e41b739",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.269Z",
+      "crawledAt": "2026-10-08T21:44:34.390Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3596,7 +3594,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-psychiatrische-klinik/e1733883-e6e9-4eb1-95ee-dd7c2e038d56",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.265Z",
+      "crawledAt": "2026-10-08T21:44:34.389Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3690,7 +3688,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-psychiatrische-klinik/e44bfdd5-3c9d-46dc-a5c4-3a193bce1e7b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.264Z",
+      "crawledAt": "2026-10-08T21:44:34.385Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3785,7 +3783,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachaerztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie-und-nuklearmedizin/346b1f3c-200f-4225-bc50-7be14ed7a46b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.263Z",
+      "crawledAt": "2026-10-08T21:44:34.383Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3805,15 +3803,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/fachaerztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie-und-nuklearmedizin/346b1f3c-200f-4225-bc50-7be14ed7a46b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-03T09:33:36.419Z",
+      "previousSlugs": [
+        "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
         ]
       },
-      "previousSlugs": [
-        "facharztin-facharzt-nuklearmedizin-mit-interesse-an-doppel-facharztausbildung-radiologie"
-      ],
+      "firstSeenAt": "2026-10-03T09:33:36.419Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -3859,7 +3857,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/expertin-experte-anaesthesiepflege-nds-hf-in-ausbildung/f25f7808-cd2c-4485-b226-1ef9b5699552",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.261Z",
+      "crawledAt": "2026-10-08T21:44:34.382Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3879,15 +3877,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/expertin-experte-anaesthesiepflege-nds-hf-in-ausbildung/f25f7808-cd2c-4485-b226-1ef9b5699552",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T13:45:35.405Z",
+      "previousSlugs": [
+        "expertin-experte-anasthesiepflege-nds-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "expertin-experte-anasthesiepflege-nds-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "expertin-experte-anasthesiepflege-nds-hf-in-ausbildung-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-04T13:45:35.405Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -3933,7 +3931,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/ec3b624e-ad58-4abc-bf7a-aeb55dc5206b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.260Z",
+      "crawledAt": "2026-10-08T21:44:34.381Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -3953,15 +3951,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-chirurgie/ec3b624e-ad58-4abc-bf7a-aeb55dc5206b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-04T13:45:35.369Z",
+      "previousSlugs": [
+        "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "unterassistentin-unterassistent-chirurgie-100-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-09-04T13:45:35.369Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4008,7 +4006,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme/f6c59448-841e-4fd6-bbdd-15c7c798db6b",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.259Z",
+      "crawledAt": "2026-10-08T21:44:34.379Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4028,15 +4026,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme/f6c59448-841e-4fd6-bbdd-15c7c798db6b",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T09:24:50.367Z",
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-in-patientenaufnahme-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-10-05T09:24:50.367Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4083,7 +4081,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/fachpsychologe-in-kjpd/342c791e-eee7-45ed-ad36-cca1b11d0779",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.258Z",
+      "crawledAt": "2026-10-08T21:44:34.378Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4163,7 +4161,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/psychologe-in-kjpd/21fb82a3-cb58-48c2-b8ca-6f2250b94eec",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.256Z",
+      "crawledAt": "2026-10-08T21:44:34.376Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4244,7 +4242,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/bereichsmanager-in-psychiatrie/a0c8134f-f017-47d8-a0cd-5fc6a4337e68",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.255Z",
+      "crawledAt": "2026-10-08T21:44:34.375Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4264,15 +4262,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/bereichsmanager-in-psychiatrie/a0c8134f-f017-47d8-a0cd-5fc6a4337e68",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T21:46:43.840Z",
+      "previousSlugs": [
+        "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "bereichsmanager-in-psychiatrie-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-10-05T21:46:43.840Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4319,7 +4317,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/oberaerztin-oberarzt-schmerzmedizin-und-anaesthesie/6db9ef70-748b-4e55-b8c8-f69a145a8fae",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.252Z",
+      "crawledAt": "2026-10-08T21:44:34.372Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4339,15 +4337,15 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/oberaerztin-oberarzt-schmerzmedizin-und-anaesthesie/6db9ef70-748b-4e55-b8c8-f69a145a8fae",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-26T10:12:48.404Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "oberarztin-oberarzt-schmerzmedizin-und-anasthesie-spitaeler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-08-26T10:12:48.404Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4358,89 +4356,6 @@
           "@type": "QuantitativeValue",
           "minValue": 110500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spitaeler-schaffhausen-8875fa8cbd7a",
-      "slug": "coordinamento-del-personale-radiologia-spitaler-schaffhausen-schaffhausen",
-      "slugByLocale": {
-        "it": "coordinamento-del-personale-radiologia-spitaler-schaffhausen-schaffhausen",
-        "en": "radiology-coordinator-spitaler-schaffhausen-schaffhausen",
-        "de": "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "coordinateur-en-radiologie-spitaler-schaffhausen-schaffhausen"
-      },
-      "company": "Spitäler Schaffhausen",
-      "companyKey": "spitaeler-schaffhausen",
-      "companyDomain": "spitaeler-sh.ch",
-      "title": "Sachbearbeiter/in Koordination Radiologie",
-      "titleByLocale": {
-        "it": "Coordinamento del personale Radiologia",
-        "en": "Radiology Coordinator",
-        "de": "Sachbearbeiter/in Koordination Radiologie",
-        "fr": "Sachbearbeiter/in Koordination Radiologie"
-      },
-      "description": "Der Bereich Radiologie und Nuklearmedizin bietet ein breites Spektrum an Untersuchungsmethoden; konven­tionelle Radiologie, digitale Durchleuchtung, Computertomographie, Magnetresonanztomografie, interventionelle Radiologie, Mammographie, Ultraschall und Nuklearmedizin. Wir arbeiten im Kanton Schaffhausen sowie in angrenzenden Regionen eng mit den zuweisenden und nachbehandelnden Ärztinnen/Ärzten zusammen und gewährleisten so eine umfassende Betreuung. Unsere Mitarbeitenden werden parallel zur technischen Entwicklung laufend weitergebildet.\n\n## Das erwartet Dich\n• Telefonische und schriftliche Terminvereinbarungen\n• Administrative Patientenaufnahme/Fallmanagement\n• Telefonische Auskünfte an Patientinnen, Patienten und Zuweiser\n• Einsatz am Patientenschalter der Radiologie\n• Koordination des Untersuchungsprogrammes für zwei Radiologie-Standorte\n• Digitaler Versand von Dokumenten und Röntgenbildern\n\n## Damit bringst Du uns weiter\n• Ausbildung als Medizinische/r Praxisassistent/in EFZ oder andere medizinische oder kaufmännische Grundausbildung\n• Einige Jahre Berufserfahrung\n• Verantwortungsbewusste, belastbare und dienstleistungsorientierte Persönlichkeit\n• Starke Organisations- und Planungsfähigkeiten\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50–100% Kantonsspital Schaffhausen\nWir suchen Dich für die Koordinationsstelle in der Radiologie ab 1. Januar 2027 oder nach Vereinbarung befristet bis 30. September 2027 als Sachbearbeiter/in mit einem Pensum von 50-100%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-      "descriptionByLocale": {
-        "it": "Il campo della radiologia e della medicina nucleare offre una vasta gamma di metodi di esame; Radiologia convenzionale, fluoroscopia digitale, tomografia computerizzata, risonanza magnetica, radiologia interventistica, mammografia, ecografia e medicina nucleare. Nel Cantone di Sciaffusa e nelle regioni adiacenti, lavoriamo a stretto contatto con i medici di assegnazione e post-trattamento e quindi garantiamo una cura completa. I nostri dipendenti sono continuamente formati in parallelo con lo sviluppo tecnico.\n\n## Questo è ciò che vi aspetta\n• Telefono e appuntamenti scritti\n• ammissione del paziente amministrativo/gestione dei casi\n• Informazioni telefoniche per pazienti e referenti\n• Utilizzare sul paziente interruttore di radiologia\n• Coordinamento del programma di indagine per due siti di radiologia\n• Invio digitale di documenti e immagini a raggi X\n\n## Questo ci porterà oltre.\n• Formazione di assistenti medici/pratici o di altra formazione medica o commerciale\n• Alcuni anni di esperienza professionale\n• personalità responsabile, resiliente e orientata al servizio\n• Forte capacità organizzative e di pianificazione\n• Metodo di lavoro indipendente, strutturato e affidabile\nPrecauzione\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\n## 50–100% Ospedale cantonale Schaffhausen\nVi stiamo cercando per l'ufficio di coordinamento in radiologia da 1. Gennaio 2027 o per accordo limitato a 30. Settembre 2027 come impiegato con un carico di lavoro del 50-100%.\nQuesto è ciò che vi aspetta\nQuesto ci porterà oltre.\nVantaggi\nAmicizia familiare\n\n## Bilancia della vita lavorativa\nLa tua vita è sfaccettata e lo capiamo. Se part-time, la condivisione di lavoro (anche in posizioni di gestione), il congedo di maternità prolungato, il congedo non retribuito o altre vacanze al posto di 13. Scommessa mensile: progettiamo soluzioni flessibili con voi.\n\n## Precauzione\nPensiamo a te. Con una quota del datore di lavoro del 60% dei contributi del fondo pensione, forniamo già per il vostro futuro in modo che siete ben protetti in pensione e la vostra qualità di vita è mantenuta.\n\n## Alloggio\nSei nuovo a Schaffhausen o hai bisogno di una casa temporanea? Nessun problema. Vi forniamo camere arredate, semplici, vicino al posto di lavoro e perfetto per il vostro inizio.\n\n## Parcheggio per i dipendenti e controlli REKA\nPotete raggiungerci bene in autobus, treno o auto. Nelle immediate vicinanze dell'ospedale, numerosi parcheggi per i dipendenti sono disponibili in condizioni attraenti. Trasporti pubblici invece di auto? Pensiamo grande e ti ricompense con i controlli Reka con fino al 20% di sconto.\n\n## Formazione\nVuoi saperne di più, essere in grado di fare di più, spostare di più? Vi offriamo una vasta gamma di opportunità di formazione interna per il vostro prossimo passo, la vostra sete di conoscenza e il vostro sviluppo personale.\n\n## Ospedali Schaffhausen come datore di lavoro\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulatoriali. Siamo anche un importante centro di formazione nel Cantone.\nPagina della Carriera\nApplicare ora:",
-        "en": "The field of radiology and nuclear medicine offers a wide range of examination methods; Conventional radiology, digital fluoroscopy, computed tomography, magnetic resonance imaging, interventional radiology, mammography, ultrasound and nuclear medicine. In the Canton of Schaffhausen as well as in adjacent regions, we work closely with the assigning and post-treatment doctors and thus ensure comprehensive care. Our employees are continuously trained in parallel with technical development.\n\n## This is what awaits you\n• Telephone and written appointments\n• Administrative patient admission/case management\n• Telephone information for patients and referees\n• Use on the patient switch of radiology\n• Coordination of the investigation program for two radiology sites\n• Digital sending of documents and X-ray images\n\n## This will take us further.\n• Medical/practical assistant training or other basic medical or commercial training\n• Some years of professional experience\n• Responsible, resilient and service-oriented personality\n• Strong organizational and planning capabilities\n• Independent, structured and reliable working method\nPrecautionary benefit\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\n## 50–100% Cantonal Hospital Schaffhausen\nWe are looking for you for the coordination office in radiology from 1. January 2027 or by arrangement limited to 30. September 2027 as a clerk with a workload of 50-100%.\nThis is what awaits you\nThis will take us further.\nBenefits\nFamily friendliness\n\n## Work-life balance\nYour life is multifaceted and we understand that. Whether part-time, job sharing (also in management positions), extended maternity leave, unpaid leave or additional holidays instead of 13. Monthly wage: We design flexible solutions with you.\n\n## Precautionary benefit\nWe think ahead with you. With an employer share of 60% of the pension fund contributions, we already provide for your future so that you are well protected in retirement and your quality of life is maintained.\n\n## Accommodation\nAre you new to Schaffhausen or need a temporary home? No problem. We provide you with furnished rooms, uncomplicated, close to the workplace and perfect for your start.\n\n## Employee parking and REKA checks\nYou can reach us well by bus, train or car. In the immediate vicinity of the hospital, numerous employee parking spaces are available at attractive conditions. Public transport instead of car? We think great and reward you with Reka checks with up to 20% discount.\n\n## Training\nYou want to know more, be able to do more, move more? We offer you a wide range of internal training opportunities for your next step, your thirst for knowledge and your personal development.\n\n## Hospitals Schaffhausen as an employer\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.\nThe Career Page\nApply now:",
-        "de": "Der Bereich Radiologie und Nuklearmedizin bietet ein breites Spektrum an Untersuchungsmethoden; konven­tionelle Radiologie, digitale Durchleuchtung, Computertomographie, Magnetresonanztomografie, interventionelle Radiologie, Mammographie, Ultraschall und Nuklearmedizin. Wir arbeiten im Kanton Schaffhausen sowie in angrenzenden Regionen eng mit den zuweisenden und nachbehandelnden Ärztinnen/Ärzten zusammen und gewährleisten so eine umfassende Betreuung. Unsere Mitarbeitenden werden parallel zur technischen Entwicklung laufend weitergebildet.\n\n## Das erwartet Dich\n• Telefonische und schriftliche Terminvereinbarungen\n• Administrative Patientenaufnahme/Fallmanagement\n• Telefonische Auskünfte an Patientinnen, Patienten und Zuweiser\n• Einsatz am Patientenschalter der Radiologie\n• Koordination des Untersuchungsprogrammes für zwei Radiologie-Standorte\n• Digitaler Versand von Dokumenten und Röntgenbildern\n\n## Damit bringst Du uns weiter\n• Ausbildung als Medizinische/r Praxisassistent/in EFZ oder andere medizinische oder kaufmännische Grundausbildung\n• Einige Jahre Berufserfahrung\n• Verantwortungsbewusste, belastbare und dienstleistungsorientierte Persönlichkeit\n• Starke Organisations- und Planungsfähigkeiten\n• Selbständige, strukturierte und zuverlässige Arbeitsweise\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 50–100% Kantonsspital Schaffhausen\nWir suchen Dich für die Koordinationsstelle in der Radiologie ab 1. Januar 2027 oder nach Vereinbarung befristet bis 30. September 2027 als Sachbearbeiter/in mit einem Pensum von 50-100%.\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
-        "fr": "Le domaine de la radiologie et de la médecine nucléaire offre un large éventail de méthodes d'examen; Radiologie conventionnelle, fluoroscopie numérique, tomographie calculée, imagerie par résonance magnétique, radiologie interventionnelle, mammographie, échographie et médecine nucléaire. Dans le canton de Schaffhausen ainsi que dans les régions adjacentes, nous travaillons en étroite collaboration avec les médecins responsables et post-traitement et nous assurons ainsi des soins complets. Nos employés sont continuellement formés parallèlement au développement technique.\n\n## C'est ce qui vous attend.\n• Nominations par téléphone et par écrit\n• Admission/gestion des cas\n• Renseignements téléphoniques pour les patients et les arbitres\n• Utilisation sur le changement de patient de radiologie\n• Coordination du programme d'enquête pour deux sites de radiologie\n• Envoi numérique de documents et d'images à rayons X\n\n## Cela nous mènera plus loin.\n• Formation d'assistant médical/pratique ou autre formation médicale ou commerciale de base\n• Quelques années d'expérience professionnelle\n• Personnalité responsable, résiliente et orientée vers le service\n• Renforcement des capacités organisationnelles et de planification\n• Méthode de travail indépendante, structurée et fiable\nPrestations de précaution\nVoulez - vous bien concilier votre famille et votre travail? Avec notre crèche en interne directement sur le site de l'hôpital cantonal, nous vous accompagnons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\n## Hôpital cantonal de Schaffhausen 50–100%\nNous vous recherchons le bureau de coordination en radiologie de 1. Janvier 2027 ou par arrangement limité à 30. Septembre 2027 comme commis avec une charge de travail de 50-100%.\nC'est ce qui vous attend.\nCela nous mènera plus loin.\nAvantages\nAdaptation à la famille\n\n## Équilibre travail-vie privée\nVotre vie est multiforme et nous le comprenons. Qu'il s'agisse de temps partiel, de partage de l'emploi (également à des postes de direction), de congé de maternité prolongé, de congé non rémunéré ou de congés supplémentaires au lieu de 13. Salaire mensuel: Nous concevons des solutions flexibles avec vous.\n\n## Prestations de précaution\nNous pensons en avant avec vous. Avec une part de l'employeur de 60 % des cotisations de la caisse de retraite, nous fournissons déjà votre avenir afin que vous soyez bien protégé à la retraite et que votre qualité de vie soit maintenue.\n\n## Hébergement\nÊtes-vous nouveau à Schaffhausen ou avez-vous besoin d'une maison temporaire? Pas de problème. Nous vous fournissons des chambres meublées, simples, à proximité du lieu de travail et parfaites pour votre départ.\n\n## Stationnement des employés et contrôles REKA\nVous pouvez bien nous rejoindre en bus, en train ou en voiture. Dans les environs immédiats de l'hôpital, de nombreuses places de stationnement sont disponibles dans des conditions attrayantes. Les transports publics au lieu de la voiture ? Nous pensons grand et vous récompenser avec des chèques Reka avec jusqu'à 20% de réduction.\n\n## Formation\nVous voulez en savoir plus, être capable de faire plus, bouger plus ? Nous vous offrons un large éventail de possibilités de formation interne pour votre prochaine étape, votre soif de connaissances et votre développement personnel.\n\n## Hospitals Schaffhausen comme employeur\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous garantissons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton.\nPage de carrière\nAppliquer maintenant:"
-      },
-      "needsRetranslation": true,
-      "location": "Schaffhausen",
-      "canton": "SH",
-      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-koordination-radiologie/c28f12c7-9b64-4556-a024-629162f98f9c",
-      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.251Z",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8200",
-      "streetAddress": "Geissbergstrasse 81",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/sachbearbeiter-in-koordination-radiologie/c28f12c7-9b64-4556-a024-629162f98f9c",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
-        "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen",
-          "sachbearbeiter-in-koordination-radiologie-spitaeler-schaffhausen-schaffhausen"
-        ],
-        "en": [
-          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen"
-        ],
-        "fr": [
-          "sachbearbeiter-in-koordination-radiologie-spitaler-schaffhausen-schaffhausen"
-        ]
-      },
-      "firstSeenAt": "2026-10-07T09:42:15.873Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -4476,7 +4391,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/pflegehelferin-pflegehelfer-srk/bca86456-96c1-4977-bebc-298094fe9fa0",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.249Z",
+      "crawledAt": "2026-10-08T21:44:34.370Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4553,7 +4468,7 @@
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung/f0ef68d2-5efd-4188-b798-226bf7cd941c",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.247Z",
+      "crawledAt": "2026-10-08T21:44:34.369Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4587,6 +4502,7 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-psychiatrie-mit-fachverantwortung-ausbildung"
         ]
       },
+      "firstSeenAt": "2026-10-08T09:38:15.247Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4599,16 +4515,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-08T09:38:15.247Z"
+      }
     },
     {
       "id": "spitaeler-schaffhausen-c3fc4242a4dd",
       "slug": "collaboratore-trice-portier-spitaler-schaffhausen",
       "slugByLocale": {
-        "de": "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
         "it": "collaboratore-trice-portier-spitaler-schaffhausen",
         "en": "porter-spitaler-schaffhausen-schaffhausen",
+        "de": "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
         "fr": "employe-e-de-conciergerie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
@@ -4616,24 +4531,25 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Mitarbeiter/in Portier",
       "titleByLocale": {
-        "de": "Mitarbeiter/in Portier",
         "it": "Collaboratore/trice Portier",
         "en": "Porter",
+        "de": "Mitarbeiter/in Portier",
         "fr": "Employé/e de conciergerie"
       },
       "description": "Für die Portierloge / den Empfang des Kantonsspitals suchen wir per 1. November 2026 oder nach Vereinbarung eine Mitarbeiterin oder einen Mitarbeiter im Stundenlohn, befristet bis 31. Juli 2027\n\n## Das erwartet Dich\n• Erteilen von Auskünften an Patientinnen und Patienten, Besucher/innen und das Personal während 24 Stunden im 3-Schicht-Betrieb\n• Führen der Telefonzentrale ausserhalb der ordentlichen Arbeitszeiten\n• Überwachen/Bedienen der Sicherheits- und Alarmierungseinrichtungen\n• Diverse administrative Aufgaben, inkl. Falleröffnung und Patientendaten\n• Dienstzeiten:06.30-14.40 Uhr, 14.30-22.40 Uhr oder 22.30-06.40 Uhr (alle Dienste müssen geleistet werden)\n• Diensttage: Montag - Sonntag\n\n## Damit bringst Du uns weiter\n• Kaufmännische Grundausbildung oder Berufserfahrung in ähnlicher Position\n• Flexibilität für unregelmässige Arbeitszeiten und -einsätze, insbesondere auch Nachtdienst\n• Gute IT-Anwenderkenntnisse\n• Belastbarkeit und Selbstständigkeit\n• Gepflegtes Erscheinungsbild sowie hohe Dienstleistungsorientierung\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse erwünscht\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n10–40% Kantonsspital Schaffhausen\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
       "descriptionByLocale": {
-        "de": "Für die Portierloge / den Empfang des Kantonsspitals suchen wir per 1. November 2026 oder nach Vereinbarung eine Mitarbeiterin oder einen Mitarbeiter im Stundenlohn, befristet bis 31. Juli 2027\n\n## Das erwartet Dich\n• Erteilen von Auskünften an Patientinnen und Patienten, Besucher/innen und das Personal während 24 Stunden im 3-Schicht-Betrieb\n• Führen der Telefonzentrale ausserhalb der ordentlichen Arbeitszeiten\n• Überwachen/Bedienen der Sicherheits- und Alarmierungseinrichtungen\n• Diverse administrative Aufgaben, inkl. Falleröffnung und Patientendaten\n• Dienstzeiten:06.30-14.40 Uhr, 14.30-22.40 Uhr oder 22.30-06.40 Uhr (alle Dienste müssen geleistet werden)\n• Diensttage: Montag - Sonntag\n\n## Damit bringst Du uns weiter\n• Kaufmännische Grundausbildung oder Berufserfahrung in ähnlicher Position\n• Flexibilität für unregelmässige Arbeitszeiten und -einsätze, insbesondere auch Nachtdienst\n• Gute IT-Anwenderkenntnisse\n• Belastbarkeit und Selbstständigkeit\n• Gepflegtes Erscheinungsbild sowie hohe Dienstleistungsorientierung\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse erwünscht\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n10–40% Kantonsspital Schaffhausen\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
         "it": "Per la loggia del portiere / ricevimento dell'ospedale cantonale stiamo cercando 1. Novembre 2026 o per accordo un dipendente nelle retribuzioni orarie, limitata a 31. Luglio 2027\n\n## Questo è ciò che vi aspetta\n• Fornire informazioni a pazienti, visitatori e personale durante 24 ore in funzionamento a 3 turni\n• Gestione dello scambio telefonico al di fuori delle ore di lavoro regolari\n• Monitoraggio/utilizzo dei dispositivi di sicurezza e di allarme\n• Vari compiti amministrativi, inclusi l'apertura dei casi e i dati dei pazienti\n• Orari di servizio: 06.30-14.40, 14.30-22.40 o 22.30-06.40 (tutti i servizi devono essere forniti)\n• Giorni di servizio: lunedì - domenica\n\n## Questo ci porterà oltre.\n• Istruzione commerciale di base o esperienza professionale in una posizione simile\n• Flessibilità per ore di lavoro irregolari e assegnazioni, in particolare servizio notturno\n• Buona conoscenza degli utenti IT\n• Resilienza e indipendenza\n• Aspetto mantenuto e orientamento di servizio elevato\n• Conoscenza molto buona del tedesco, ulteriore conoscenza delle lingue straniere desiderate\nPrecauzione\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche bene.\n10–40% Ospedale cantonale Schaffhausen\nQuesto è ciò che vi aspetta\nQuesto ci porterà oltre.\nVantaggi\nAmicizia familiare\n\n## Bilancia della vita lavorativa\nLa tua vita è sfaccettata e lo capiamo. Se part-time, la condivisione di lavoro (anche in posizioni di gestione), il congedo di maternità prolungato, il congedo non retribuito o ferie aggiuntive al posto di 13. Scommessa mensile: progettiamo soluzioni flessibili con voi.\n\n## Precauzione\nPensiamo a te. Con una quota del datore di lavoro del 60% dei contributi del fondo pensione, forniamo già per il vostro futuro in modo che siete ben protetti in pensione e la vostra qualità di vita è mantenuta.\n\n## Alloggio\nSei nuovo a Schaffhausen o hai bisogno di una casa temporanea? Nessun problema. Vi forniamo camere arredate, semplici, vicino al posto di lavoro e perfetto per il vostro inizio.\n\n## Parcheggio per i dipendenti e controlli REKA\nPotete raggiungerci bene in autobus, treno o auto. Nelle immediate vicinanze dell'ospedale, numerosi parcheggi per i dipendenti sono disponibili in condizioni interessanti. Trasporto pubblico invece delle auto? Pensiamo grande e ti premiamo con i controlli Reka con fino al 20% di sconto.\n\n## Formazione\nVuoi saperne di più, essere in grado di fare di più, spostare di più? Vi offriamo una vasta gamma di opportunità di formazione interna per il vostro prossimo passo, la vostra sete di conoscenza e il vostro sviluppo personale.\n\n## Ospedali Schaffhausen come datore di lavoro\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.\nPagina della Carriera\nApplicare ora:",
         "en": "For the porter lodge / reception of the cantonal hospital we are looking for 1. November 2026 or by arrangement an employee in hourly wages, limited to 31. July 2027\n\n## This is what awaits you\n• Providing information to patients, visitors and staff during 24 hours in 3-shift operation\n• Managing the telephone exchange outside regular working hours\n• Monitoring/operating the safety and alarming devices\n• Various administrative tasks, including case opening and patient data\n• Service hours: 06.30-14.40, 14.30-22.40 or 22.30-06.40 (all services must be provided)\n• Service Days: Monday - Sunday\n\n## This will take us further.\n• Basic commercial education or professional experience in a similar position\n• Flexibility for irregular working hours and assignments, in particular night service\n• Good IT user knowledge\n• Resilience and independence\n• Maintained appearance and high service orientation\n• Very good knowledge of German, further knowledge of foreign languages desired\nPrecautionary benefit\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n10–40% Cantonal Hospital Schaffhausen\nThis is what awaits you\nThis will take us further.\nBenefits\nFamily friendliness\n\n## Work-life balance\nYour life is multifaceted and we understand that. Whether part-time, job sharing (also in management positions), extended maternity leave, unpaid leave or additional holidays instead of 13. Monthly wage: We design flexible solutions with you.\n\n## Precautionary benefit\nWe think ahead with you. With an employer share of 60% of the pension fund contributions, we already provide for your future so that you are well protected in retirement and your quality of life is maintained.\n\n## Accommodation\nAre you new to Schaffhausen or need a temporary home? No problem. We provide you with furnished rooms, uncomplicated, close to the workplace and perfect for your start.\n\n## Employee parking and REKA checks\nYou can reach us well by bus, train or car. In the immediate vicinity of the hospital, numerous employee parking spaces are available at attractive conditions. Public transport instead of cars? We think great and reward you with Reka checks with up to 20% discount.\n\n## Training\nYou want to know more, be able to do more, move more? We offer you a wide range of internal training opportunities for your next step, your thirst for knowledge and your personal development.\n\n## Hospitals Schaffhausen as an employer\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.\nThe Career Page\nApply now:",
+        "de": "Für die Portierloge / den Empfang des Kantonsspitals suchen wir per 1. November 2026 oder nach Vereinbarung eine Mitarbeiterin oder einen Mitarbeiter im Stundenlohn, befristet bis 31. Juli 2027\n\n## Das erwartet Dich\n• Erteilen von Auskünften an Patientinnen und Patienten, Besucher/innen und das Personal während 24 Stunden im 3-Schicht-Betrieb\n• Führen der Telefonzentrale ausserhalb der ordentlichen Arbeitszeiten\n• Überwachen/Bedienen der Sicherheits- und Alarmierungseinrichtungen\n• Diverse administrative Aufgaben, inkl. Falleröffnung und Patientendaten\n• Dienstzeiten:06.30-14.40 Uhr, 14.30-22.40 Uhr oder 22.30-06.40 Uhr (alle Dienste müssen geleistet werden)\n• Diensttage: Montag - Sonntag\n\n## Damit bringst Du uns weiter\n• Kaufmännische Grundausbildung oder Berufserfahrung in ähnlicher Position\n• Flexibilität für unregelmässige Arbeitszeiten und -einsätze, insbesondere auch Nachtdienst\n• Gute IT-Anwenderkenntnisse\n• Belastbarkeit und Selbstständigkeit\n• Gepflegtes Erscheinungsbild sowie hohe Dienstleistungsorientierung\n• Sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse erwünscht\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n10–40% Kantonsspital Schaffhausen\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
         "fr": "Pour le pavillon de portier / réception de l'hôpital cantonal nous cherchons 1. Novembre 2026 ou par arrangement un employé en salaire horaire, limité à 31. Juillet 2027\n\n## C'est ce qui vous attend\n• Information des patients, des visiteurs et du personnel pendant 24 heures en 3 équipes\n• Gestion du central téléphonique en dehors des heures normales de travail\n• Surveillance/exploitation des dispositifs de sécurité et des dispositifs alarmants\n• Diverses tâches administratives, y compris l'ouverture des dossiers et les données du patient\n• Heures de service: 06.30-14.40, 14.30-22.40 ou 22.30-06.40 (tous les services doivent être fournis)\n• Jours de service: Lundi - Dimanche\n\n## Cela nous mènera plus loin.\n• Éducation commerciale de base ou expérience professionnelle dans un poste similaire\n• Flexibilité pour les horaires et les affectations irréguliers, en particulier le service de nuit\n• Bonne connaissance de l'utilisateur informatique\n• Résilience et indépendance\n• Aspect maintenu et orientation haut service\n• Très bonne connaissance de l'allemand, meilleure connaissance des langues étrangères souhaitée\nPrestations de précaution\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n10–40% Hôpital cantonal Schaffhausen\nC'est ce qui vous attend\nCela nous mènera plus loin.\nAvantages\nAmabilité de la famille\n\n## Équilibre travail-vie privée\nVotre vie est multiforme et nous le comprenons. Qu'il s'agisse de temps partiel, de partage de l'emploi (également à des postes de direction), de congé de maternité prolongé, de congé non rémunéré ou de congés supplémentaires au lieu de 13. Salaire mensuel: Nous concevons des solutions flexibles avec vous.\n\n## Prestations de précaution\nNous pensons en avant avec vous. Avec une part de l'employeur de 60 % des cotisations du fonds de pension, nous fournissons déjà votre avenir afin que vous soyez bien protégé à la retraite et que votre qualité de vie soit maintenue.\n\n## Hébergement\nÊtes-vous nouveau à Schaffhausen ou besoin d'une maison temporaire? Pas de problème. Nous vous fournissons des chambres meublées, simples, à proximité du lieu de travail et parfaites pour votre départ.\n\n## Stationnement des employés et contrôles REKA\nVous pouvez bien nous rejoindre en bus, en train ou en voiture. Dans les environs immédiats de l'hôpital, de nombreuses places de stationnement sont disponibles dans des conditions attrayantes. Les transports publics au lieu des voitures ? Nous pensons grand et vous récompenser avec des chèques Reka avec jusqu'à 20% de réduction.\n\n## Formation\nTu veux en savoir plus, être capable de faire plus, bouger plus ? Nous vous offrons un large éventail de possibilités de formation interne pour votre prochaine étape, votre soif de connaissances et votre développement personnel.\n\n## Hospitals Schaffhausen en tant qu'employeur\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton.\nPage de carrière\nAppliquer maintenant:"
       },
+      "needsRetranslation": false,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/mitarbeiter-in-portier/19373658-f0de-47bb-9d83-09083d49f79a",
       "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:38:15.234Z",
+      "crawledAt": "2026-10-08T21:44:34.367Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4652,9 +4568,11 @@
       "postingDateSource": "reported",
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/mitarbeiter-in-portier/19373658-f0de-47bb-9d83-09083d49f79a",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
+        "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen"
@@ -4666,10 +4584,7 @@
           "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-portier-spitaeler-schaffhausen-schaffhausen",
-        "mitarbeiter-in-portier-spitaler-schaffhausen-schaffhausen"
-      ],
+      "firstSeenAt": "2026-10-08T09:38:15.234Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -4682,8 +4597,76 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "spitaeler-schaffhausen-b7fc71e91af9",
+      "slug": "pflegefachfrau-endoskopie-70-spitaeler-schaffhausen-schaffhausen",
+      "slugByLocale": {
+        "de": "pflegefachfrau-endoskopie-70-spitaeler-schaffhausen-schaffhausen",
+        "it": "pflegefachfrau-endoskopie-70-spitaeler-schaffhausen-schaffhausen",
+        "en": "pflegefachfrau-endoskopie-70-spitaeler-schaffhausen-schaffhausen",
+        "fr": "pflegefachfrau-endoskopie-70-spitaeler-schaffhausen-schaffhausen"
       },
-      "firstSeenAt": "2026-10-08T09:38:15.234Z"
+      "company": "Spitäler Schaffhausen",
+      "companyKey": "spitaeler-schaffhausen",
+      "companyDomain": "spitaeler-sh.ch",
+      "title": "Pflegefachfrau Endoskopie 70%",
+      "titleByLocale": {
+        "de": "Pflegefachfrau Endoskopie 70%",
+        "it": "Pflegefachfrau Endoskopie 70%",
+        "en": "Pflegefachfrau Endoskopie 70%",
+        "fr": "Pflegefachfrau Endoskopie 70%"
+      },
+      "description": "In unserer Abteilung werden jährlich ca. 2'000 endoskopische Untersuchungen durchgeführt. Diese umfassen alle gängigen diagnostischen und interventionellen Verfahren der Gastroskopie, Koloskopie, ERCP, Endosonographie und Bronchoskopie/EBUS sowie die Abdomensonographie einschliesslich Punktionen.\n\n## Das erwartet Dich\n• Vorbereitung und Nachsorge der Patientinnen und Patienten bei endoskopischen Untersuchungen\n• Assistenz bei endoskopischen Eingriffen und Probenentnahmen\n• Reinigung und Desinfektion der endoskopischen Geräte und Instrumente\n• Dokumentation und Abrechnung der Eingriffe\n• Tagdienste von Montag bis Freitag, Pikettdienste am Wochenende\n\n## Damit bringst Du uns weiter\n• Eine abgeschlossene Ausbildung zum/zur dipl. Pflegefachfrau/mann\n• Flexibilität, Teamfähigkeit und EDV-Kenntnisse\n• Eine Fachweiterbildung Endoskopie oder mehrjährige Berufserfahrung in diesem Bereich ist erwünscht, aber nicht zwingend erforderlich\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 70% Kantonsspital Schaffhausen\nFür unsere Gastroenterologie suchen wir per sofort oder nach Vereinbarung eine/einen Dipl. Pflegefachfrau/Pflegefachmann HF/FH\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+      "descriptionByLocale": {
+        "de": "In unserer Abteilung werden jährlich ca. 2'000 endoskopische Untersuchungen durchgeführt. Diese umfassen alle gängigen diagnostischen und interventionellen Verfahren der Gastroskopie, Koloskopie, ERCP, Endosonographie und Bronchoskopie/EBUS sowie die Abdomensonographie einschliesslich Punktionen.\n\n## Das erwartet Dich\n• Vorbereitung und Nachsorge der Patientinnen und Patienten bei endoskopischen Untersuchungen\n• Assistenz bei endoskopischen Eingriffen und Probenentnahmen\n• Reinigung und Desinfektion der endoskopischen Geräte und Instrumente\n• Dokumentation und Abrechnung der Eingriffe\n• Tagdienste von Montag bis Freitag, Pikettdienste am Wochenende\n\n## Damit bringst Du uns weiter\n• Eine abgeschlossene Ausbildung zum/zur dipl. Pflegefachfrau/mann\n• Flexibilität, Teamfähigkeit und EDV-Kenntnisse\n• Eine Fachweiterbildung Endoskopie oder mehrjährige Berufserfahrung in diesem Bereich ist erwünscht, aber nicht zwingend erforderlich\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 70% Kantonsspital Schaffhausen\nFür unsere Gastroenterologie suchen wir per sofort oder nach Vereinbarung eine/einen Dipl. Pflegefachfrau/Pflegefachmann HF/FH\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "it": "In unserer Abteilung werden jährlich ca. 2'000 endoskopische Untersuchungen durchgeführt. Diese umfassen alle gängigen diagnostischen und interventionellen Verfahren der Gastroskopie, Koloskopie, ERCP, Endosonographie und Bronchoskopie/EBUS sowie die Abdomensonographie einschliesslich Punktionen.\n\n## Das erwartet Dich\n• Vorbereitung und Nachsorge der Patientinnen und Patienten bei endoskopischen Untersuchungen\n• Assistenz bei endoskopischen Eingriffen und Probenentnahmen\n• Reinigung und Desinfektion der endoskopischen Geräte und Instrumente\n• Dokumentation und Abrechnung der Eingriffe\n• Tagdienste von Montag bis Freitag, Pikettdienste am Wochenende\n\n## Damit bringst Du uns weiter\n• Eine abgeschlossene Ausbildung zum/zur dipl. Pflegefachfrau/mann\n• Flexibilität, Teamfähigkeit und EDV-Kenntnisse\n• Eine Fachweiterbildung Endoskopie oder mehrjährige Berufserfahrung in diesem Bereich ist erwünscht, aber nicht zwingend erforderlich\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 70% Kantonsspital Schaffhausen\nFür unsere Gastroenterologie suchen wir per sofort oder nach Vereinbarung eine/einen Dipl. Pflegefachfrau/Pflegefachmann HF/FH\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "en": "In unserer Abteilung werden jährlich ca. 2'000 endoskopische Untersuchungen durchgeführt. Diese umfassen alle gängigen diagnostischen und interventionellen Verfahren der Gastroskopie, Koloskopie, ERCP, Endosonographie und Bronchoskopie/EBUS sowie die Abdomensonographie einschliesslich Punktionen.\n\n## Das erwartet Dich\n• Vorbereitung und Nachsorge der Patientinnen und Patienten bei endoskopischen Untersuchungen\n• Assistenz bei endoskopischen Eingriffen und Probenentnahmen\n• Reinigung und Desinfektion der endoskopischen Geräte und Instrumente\n• Dokumentation und Abrechnung der Eingriffe\n• Tagdienste von Montag bis Freitag, Pikettdienste am Wochenende\n\n## Damit bringst Du uns weiter\n• Eine abgeschlossene Ausbildung zum/zur dipl. Pflegefachfrau/mann\n• Flexibilität, Teamfähigkeit und EDV-Kenntnisse\n• Eine Fachweiterbildung Endoskopie oder mehrjährige Berufserfahrung in diesem Bereich ist erwünscht, aber nicht zwingend erforderlich\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 70% Kantonsspital Schaffhausen\nFür unsere Gastroenterologie suchen wir per sofort oder nach Vereinbarung eine/einen Dipl. Pflegefachfrau/Pflegefachmann HF/FH\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:",
+        "fr": "In unserer Abteilung werden jährlich ca. 2'000 endoskopische Untersuchungen durchgeführt. Diese umfassen alle gängigen diagnostischen und interventionellen Verfahren der Gastroskopie, Koloskopie, ERCP, Endosonographie und Bronchoskopie/EBUS sowie die Abdomensonographie einschliesslich Punktionen.\n\n## Das erwartet Dich\n• Vorbereitung und Nachsorge der Patientinnen und Patienten bei endoskopischen Untersuchungen\n• Assistenz bei endoskopischen Eingriffen und Probenentnahmen\n• Reinigung und Desinfektion der endoskopischen Geräte und Instrumente\n• Dokumentation und Abrechnung der Eingriffe\n• Tagdienste von Montag bis Freitag, Pikettdienste am Wochenende\n\n## Damit bringst Du uns weiter\n• Eine abgeschlossene Ausbildung zum/zur dipl. Pflegefachfrau/mann\n• Flexibilität, Teamfähigkeit und EDV-Kenntnisse\n• Eine Fachweiterbildung Endoskopie oder mehrjährige Berufserfahrung in diesem Bereich ist erwünscht, aber nicht zwingend erforderlich\nVorsorgeleistung\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\n## 70% Kantonsspital Schaffhausen\nFür unsere Gastroenterologie suchen wir per sofort oder nach Vereinbarung eine/einen Dipl. Pflegefachfrau/Pflegefachmann HF/FH\nDas erwartet Dich\nDamit bringst Du uns weiter\nBenefits\nFamilienfreundlichkeit\n\n## Work-Life-Balance\nDein Leben ist vielseitig und das verstehen wir. Ob Teilzeit, Jobsharing (auch in Führungspositionen), verlängerter Mutterschaftsurlaub, unbezahlter Urlaub oder zusätzliche Ferientage statt 13. Monatslohn: Wir gestalten mit Dir flexible Lösungen.\n\n## Vorsorgeleistung\nWir denken mit Dir voraus. Mit einem Arbeitgeberanteil von 60 % an den Pensionskassenbeiträgen sorgen wir heute schon für Deine Zukunft, damit Du im Ruhestand gut abgesichert bist und Deine Lebensqualität erhalten bleibt.\n\n## Unterkunft\nDu bist neu in Schaffhausen oder brauchst vorübergehend ein Zuhause? Kein Problem. Wir stellen Dir bei Bedarf möblierte Zimmer zur Verfügung, unkompliziert, nah am Arbeitsplatz und perfekt für Deinen Start.\n\n## Mitarbeiterparkplätze & REKA-Schecks\nDu erreichst uns gut mit Bus, Zug oder Auto. In direkter Nähe zum Spital stehen Dir zahlreiche Mitarbeitendenparkplätze zu attraktiven Konditionen zur Verfügung. ÖV statt Auto? Finden wir super und belohnen dich mit Reka-Checks mit bis zu 20%-Rabatt.\n\n## Weiterbildung\nDu willst mehr wissen, mehr können, mehr bewegen? Wir bieten Dir vielfältige interne Weiterbildungsmöglichkeiten, für Deinen nächsten Schritt, Deinen Wissensdurst und Deine persönliche Entwicklung.\n\n## Die Spitäler Schaffhausen als Arbeitgeber\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.\nZur Karriereseite\nJetzt bewerben:"
+      },
+      "needsRetranslation": true,
+      "location": "Schaffhausen",
+      "canton": "SH",
+      "url": "https://stellen.spitaeler-sh.ch/offene-stellen/pflegefachfrau-endoskopie/bb2ea9ca-b90c-4a9d-8643-1b9cace57b87",
+      "source": "Spitäler Schaffhausen Dedicated Parser (Prospective medium 1008352)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-08T21:44:34.355Z",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8200",
+      "streetAddress": "Geissbergstrasse 81",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-08",
+      "postedDate": "2026-10-08",
+      "postingDateSource": "reported",
+      "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/pflegefachfrau-endoskopie/bb2ea9ca-b90c-4a9d-8643-1b9cace57b87",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 57100,
+      "salaryMax": 79800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57100,
+          "maxValue": 79800,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-08T21:44:34.355Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unibe",
-  "assembledAt": "2026-10-08T09:37:54.162Z",
+  "assembledAt": "2026-10-08T21:48:00.378Z",
   "jobs": [
     {
       "id": "unibe-8a556a727251",
@@ -33,7 +33,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstellen-polymechaniker-in-efz/c7672ba0-f824-464c-8363-5a5ae1e76c5e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.115Z",
+      "crawledAt": "2026-10-08T21:46:56.335Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/schnupperlehre-polymechaniker-in-efz/81dbe0f1-3709-43d0-a231-247eae2dbfeb",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.115Z",
+      "crawledAt": "2026-10-08T21:46:56.336Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-position-in-mathematical-foundations-of-machine-learning/1ce589e6-9dac-41ed-9cf3-128b3df135d2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.114Z",
+      "crawledAt": "2026-10-08T21:46:56.334Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrstelle-dentalassistentin-efz-2027/2dfca9c9-b7a8-4e94-a1af-4b5132a042f1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.113Z",
+      "crawledAt": "2026-10-08T21:46:56.333Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -355,7 +355,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dentalassistentin-efz-koordination-und-patientenmanagement/3d7f423a-010e-44ed-a16a-2005868c0bcf",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.113Z",
+      "crawledAt": "2026-10-08T21:46:56.334Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/7bd99f30-747b-4bc8-9d01-8b8b59dbef35",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.112Z",
+      "crawledAt": "2026-10-08T21:46:56.333Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/automation-technician-automatiker-hf-fh/abbc6836-31fa-4828-94e9-d169582b982a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.111Z",
+      "crawledAt": "2026-10-08T21:46:56.332Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -565,86 +565,6 @@
       }
     },
     {
-      "id": "unibe-3f2c26d40d1a",
-      "slug": "posizione-di-formazione-della-patologia-anatomica-veterinaria-stage-residenza-residenza-combinata-universitat-bern-bern",
-      "slugByLocale": {
-        "it": "posizione-di-formazione-della-patologia-anatomica-veterinaria-stage-residenza-residenza-combinata-universitat-bern-bern",
-        "en": "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency",
-        "de": "veterinary-anatomic-pathology-training-position-praktikum-residenz-kombinierte-residenz-phd-universitat-bern-bern",
-        "fr": "poste-de-formation-en-pathologie-anatomique-veterinaire-stage-residence-residence-combinee-et-doctorat-universitat-bern"
-      },
-      "company": "Universität Bern",
-      "companyKey": "unibe",
-      "companyDomain": "unibe.ch",
-      "title": "Veterinary Anatomic Pathology Training Position – Internship / Residency / combined Residency & PhD",
-      "titleByLocale": {
-        "it": "Posizione di formazione sulla patologia anatomica veterinaria. Stage/Residenza/Residenza combinata & Dottorato di ricerca",
-        "en": "Veterinary Anatomic Pathology Training Position – Internship / Residency / combined Residency & PhD",
-        "de": "Veterinäre Anatomische Pathologie Ausbildung – Praktikum / Residency / kombinierte Residency & PhD",
-        "fr": "Poste de formation en pathologie anatomique vétérinaire – Stage / Résidence / Résidence combinée & PhD"
-      },
-      "description": "UniBE is interconnected.\nWith us, you're part of an international community and benefit from interdisciplinary collaboration.\n\n## Scope of this position\nThe successful candidate will focus on the training in morphological pathology of farm, companion & zoo animals during the first year, which can also account for an internship. At the end of the first year, we will jointly evaluate the candidate's interests and career goals. The training can then continue along one of two pathways:\n• Residency in Veterinary Anatomic Pathology – up to three additional years of structured diagnostic training and preparation for the board examination of the European College of Veterinary Pathologists (ECVP); or\n• Combined Residency/PhD Program – integrating pathology residency training with an intensive research program leading to a PhD through the Graduate School for Cellular and Biomedical Sciences at the University of Bern (six-year appointment).\nBoth pathways provide structured preparation for the ECVP board examination. Candidates pursuing the combined Residency/PhD program will have the opportunity to conduct research in areas including cancer therapy resistance, DNA repair, and host–pathogen interactions within the collaborative research environment of the University of Bern.\nMore information about the Institute of Animal Pathology and its training and research programs is available on our website Institute of Animal Pathology.\n\n## Your profile\nWe are looking for a highly motivated veterinarian with a strong interest in pathology and research. The following qualifications are required:\n• a degree in veterinary medicine (Master of Veterinary Medicine, DVM, or equivalent);\n• a collaborative mindset and enthusiasm for contributing to our team-based approach to diagnostics, teaching, and research;\n• fluency in English and German language skills at a minimum B2 level at the time of the interview.\n• Fluency in French is not required but is considered an advantage.\nWe offer an enthusiastic diagnostic team, an inspiring research environment, excellent research training in cancer therapy resistance, DNA repair, and host–pathogen interactions, long-standing experience in preparing candidates for the ECVP board examination, and an attractive working environment in Bern. Remuneration is in accordance with the regulations of the University of Bern.\nInternational reputation\nApplication and Contact\nPlease submit your application as a PDF document, including a motivation letter indicating which training program you are interested in pursuing, your CV, and contact information for two references.\nWith us, you create value.\nFor yourself and for society.\n\n## Training Position – Internship / Residency / Residency & PhD\nA training position is available at the Institute of Animal Pathology, University of Bern, Switzerland, offering the opportunity to join our comprehensive animal pathology center.\nPathology is a central bridge between clinical veterinary disciplines and basic research. Thorough training in this field opens up diverse career opportunities in science and academia, governmental authorities, private diagnostic laboratories, and the pharmaceutical industry.\nScope of this position\n\n## Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nCollaborative environment and ambitious team\nInspiring work environment\nHands-on practical insights\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-      "descriptionByLocale": {
-        "it": "UniBE è interconnessa. Con noi, fai parte di una comunità internazionale e beneficia di una collaborazione interdisciplinare.\n\nAufgaben: il candidato di successo si concentrerà sulla formazione in patologia morfologica degli animali agricoli, compagni e zoo durante il primo anno, che può anche rendere conto di uno stage. Alla fine del primo anno, valuteremo congiuntamente gli interessi del candidato e gli obiettivi di carriera. La formazione può quindi continuare lungo uno dei due percorsi:\n• Residenza in Patologia Anatomica Veterinaria. fino a tre anni supplementari di formazione diagnostica strutturata e preparazione per l'esame del consiglio di amministrazione del Collegio europeo dei patologi veterinari (ECVP); o\n\n• Programma di ricerca combinata. Integrare la formazione di residenza in patologia con un programma di ricerca intensivo che porta ad un dottorato attraverso la Scuola di laurea per le Scienze Cellulari e Biomediche presso l'Università di Berna (appuntamento di sei anni).\n\nEntrambi i percorsi forniscono una preparazione strutturata per l'esame di bordo ECVP. I candidati che seguono il programma combinato Residenza / Dottorato di ricerca avranno l'opportunità di condurre la ricerca in aree tra cui resistenza alla terapia del cancro, riparazione del DNA, e interazioni host.pathogen all'interno dell'ambiente di ricerca collaborativa dell'Università di Berna. Ulteriori informazioni sull'Istituto di Patologia Animale e i suoi programmi di formazione e di ricerca sono disponibili sul nostro sito web Institute of Animal Pathology.\n\nAnforderungen: Stiamo cercando un veterinario altamente motivato con un forte interesse per la patologia e la ricerca. Le seguenti qualifiche sono richieste:\n• una laurea in medicina veterinaria (Master of Veterinary Medicine, DVM, o equivalente);\n\n• una mentalità collaborativa ed entusiasmo per contribuire al nostro approccio basato sul team alla diagnostica, all'insegnamento e alla ricerca;\n\n• fluenza delle competenze linguistiche in inglese e tedesco ad un livello B2 minimo al momento dell'intervista.\n\n• La fluidità in francese non è richiesta ma è considerata un vantaggio.\n\nOffriamo un team diagnostico entusiasta, un ambiente di ricerca stimolante, un ottimo addestramento di ricerca nella resistenza alla terapia del cancro, riparazione del DNA e interazioni host.pathogen, esperienza di lunga data nella preparazione dei candidati per l'esame di bordo ECVP, e un ambiente di lavoro attraente a Berna. La retribuzione è conforme alle norme dell'Università di Berna.\n\nWirbiet: reputazione internazionale",
-        "en": "UniBE is interconnected.\nWith us, you're part of an international community and benefit from interdisciplinary collaboration.\n\n## Scope of this position\nThe successful candidate will focus on the training in morphological pathology of farm, companion & zoo animals during the first year, which can also account for an internship. At the end of the first year, we will jointly evaluate the candidate's interests and career goals. The training can then continue along one of two pathways:\n• Residency in Veterinary Anatomic Pathology – up to three additional years of structured diagnostic training and preparation for the board examination of the European College of Veterinary Pathologists (ECVP); or\n• Combined Residency/PhD Program – integrating pathology residency training with an intensive research program leading to a PhD through the Graduate School for Cellular and Biomedical Sciences at the University of Bern (six-year appointment).\nBoth pathways provide structured preparation for the ECVP board examination. Candidates pursuing the combined Residency/PhD program will have the opportunity to conduct research in areas including cancer therapy resistance, DNA repair, and host–pathogen interactions within the collaborative research environment of the University of Bern.\nMore information about the Institute of Animal Pathology and its training and research programs is available on our website Institute of Animal Pathology.\n\n## Your profile\nWe are looking for a highly motivated veterinarian with a strong interest in pathology and research. The following qualifications are required:\n• a degree in veterinary medicine (Master of Veterinary Medicine, DVM, or equivalent);\n• a collaborative mindset and enthusiasm for contributing to our team-based approach to diagnostics, teaching, and research;\n• fluency in English and German language skills at a minimum B2 level at the time of the interview.\n• Fluency in French is not required but is considered an advantage.\nWe offer an enthusiastic diagnostic team, an inspiring research environment, excellent research training in cancer therapy resistance, DNA repair, and host–pathogen interactions, long-standing experience in preparing candidates for the ECVP board examination, and an attractive working environment in Bern. Remuneration is in accordance with the regulations of the University of Bern.\nInternational reputation\nApplication and Contact\nPlease submit your application as a PDF document, including a motivation letter indicating which training program you are interested in pursuing, your CV, and contact information for two references.\nWith us, you create value.\nFor yourself and for society.\n\n## Training Position – Internship / Residency / Residency & PhD\nA training position is available at the Institute of Animal Pathology, University of Bern, Switzerland, offering the opportunity to join our comprehensive animal pathology center.\nPathology is a central bridge between clinical veterinary disciplines and basic research. Thorough training in this field opens up diverse career opportunities in science and academia, governmental authorities, private diagnostic laboratories, and the pharmaceutical industry.\nScope of this position\n\n## Your profile\nMore Information\nJob-Abo\nApplication Process\n\n## Your Benefits\nCollaborative environment and ambitious team\nInspiring work environment\nHands-on practical insights\nOther benefits\n\n## Working at the University of Bern\nThe University of Bern not only offers exciting tasks but also an environment that actively promotes development, diversity, and equal opportunities. Discover what makes us stand out as an employer and how you can grow with us.\nCareer page\nOpen positions",
-        "de": "UniBE ist vernetzt. Mit uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von interdisziplinärer Zusammenarbeit.\n\nDer erfolgreiche Kandidat wird sich im ersten Jahr auf die Ausbildung in morphologischer Pathologie von Farm-, Begleit- und Zootieren konzentrieren, die auch ein Praktikum einschließen kann. Ende des ersten Jahres werden wir gemeinsam die Interessen und Karriereziele des Kandidaten bewerten. Die Ausbildung kann dann auf einem der zwei Wege fortgesetzt werden:\n• Residency in Veterinary Anatomic Pathology – bis zu drei weitere Jahre strukturierter diagnostischer Ausbildung und Vorbereitung auf die Board-Prüfung des European College of Veterinary Pathologists (ECVP); oder\n\n• Kombinierte Residency/PhD-Programm – Integration der pathologischen Residency-Ausbildung mit einem intensiven Forschungsprogramm, das über die Graduate School for Cellular and Biomedical Sciences an der Universität Bern (sechs Jahre Berufung) zu einem PhD führt.\n\nBeide Wege ermöglichen eine strukturierte Vorbereitung auf die ECVP-Vorstandsprüfung. Kandidaten, die das kombinierte Residency/PhD-Programm verfolgen, haben die Möglichkeit, in Bereichen wie Krebstherapieresistenz, DNA-Reparatur und Wirt-pathogen-Interaktionen innerhalb des kollaborativen Forschungsumfelds der Universität Bern zu forschen. Weitere Informationen zum Institut für Tierpathologie und deren Ausbildung und Forschungsprogramme finden Sie auf unserer Website Institute of Animal Pathology.\n\nWir suchen einen hochmotivierten Tierarzt mit einem starken Interesse an Pathologie und Forschung. Folgende Qualifikationen sind erforderlich:\n• ein Studium der Veterinärmedizin (Master of Veterinary Medicine, DVM, oder gleichwertig);\n\n• eine kollaborative Denkweise und Begeisterung für unseren teambasierten Ansatz in den Bereichen Diagnostik, Lehre und Forschung;\n\n• Sprachkenntnisse in Englisch und Deutsch auf einem Niveau von mindestens B2 zum Zeitpunkt des Interviews.\n\n• Die Fluenzen in Französisch sind nicht erforderlich, sondern gelten als Vorteil.\n\nWir bieten ein begeistertes Diagnostikteam, ein inspirierendes Forschungsumfeld, eine hervorragende Forschungsausbildung in den Bereichen Krebstherapieresistenz, DNA-Reparatur und Wirt-pathogen-Interaktionen, langjährige Erfahrung bei der Vorbereitung von Kandidaten für die ECVP-Vorstandsprüfung und ein attraktives Arbeitsumfeld in Bern. Vergütungen sind nach den Bestimmungen der Universität Bern.\n\nWirsid: Internationaler Ruf",
-        "fr": "UniBE est interconnecté. Avec nous, vous faites partie d'une communauté internationale et profitez d'une collaboration interdisciplinaire.\n\nAufgaben: Le candidat retenu se concentrera sur la formation en pathologie morphologique des animaux de ferme, de compagnie et de zoo pendant la première année, qui peut également expliquer un stage. A la fin de la première année, nous évaluerons conjointement les intérêts du candidat et les objectifs de carrière. La formation peut ensuite se poursuivre sur l'un des deux parcours:\n• Résidence en Anatomic Pathology vétérinaire – jusqu'à trois années supplémentaires de formation structurée en diagnostic et de préparation à l'examen du conseil d'administration du Collège européen des pathologistes vétérinaires (ECVP); ou\n\n• Programme combiné de résidence/de doctorat – intégrant la formation en résidence en pathologie avec un programme de recherche intensif menant à un doctorat par l'intermédiaire de l'École de hautes études en sciences cellulaires et biomédicales de l'Université de Berne (six ans de nomination).\n\nLes candidats qui poursuivent le programme combiné Résidence/PhD auront la possibilité de mener des recherches dans des domaines tels que la résistance à la thérapie contre le cancer, la réparation de l'ADN et les interactions hôte-pathogène dans le cadre de la recherche collaborative de l'Université de Berne. De plus amples renseignements sur l'Institut de pathologie animale et ses programmes de formation et de recherche sont disponibles sur notre site Internet Institut de pathologie animale.\n\nAnforderungen: Nous recherchons un vétérinaire très motivé qui s'intéresse fortement à la pathologie et à la recherche. Les qualifications suivantes sont requises:\n• un diplôme en médecine vétérinaire (Master of Veterinary Medicine, DVM, ou équivalent);\n\n• une attitude collaborative et un enthousiasme pour contribuer à notre approche en équipe du diagnostic, de l'enseignement et de la recherche;\n\n• maîtrise de l'anglais et de l'allemand au niveau minimum B2 au moment de l'entretien.\n\n• La maîtrise du français n'est pas requise mais est considérée comme un avantage.\n\nNous offrons une équipe de diagnostic enthousiaste, un environnement de recherche inspirant, une excellente formation en recherche sur la résistance à la thérapie contre le cancer, la réparation de l'ADN et les interactions hôte-pathogène, une expérience de longue date dans la préparation des candidats à l'examen du comité ECVP, et un environnement de travail attrayant à Berne.\n\nWir bieten: Une réputation internationale"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.unibe.ch/job-vacancies/veterinary-anatomic-pathology-training-position-internship-residency-combined-residency-phd/77e67efa-8f3a-474f-8764-e41e902ee6fa",
-      "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
-      "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.111Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-20",
-      "postedDate": "2026-08-20",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/job-vacancies/veterinary-anatomic-pathology-training-position-internship-residency-combined-residency-phd/77e67efa-8f3a-474f-8764-e41e902ee6fa",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ],
-        "de": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ],
-        "fr": [
-          "veterinary-anatomic-pathology-training-position-internship-residency-combined-residency"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T22:06:56.105Z",
-      "salaryMin": 76000,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 76000,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "unibe-e7dda69437e4",
       "slug": "posizione-di-phd-legge-e-o-scienze-politiche-governance-degli-estremi-climatici-universitat-bern-bern",
       "slugByLocale": {
@@ -676,7 +596,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-position-law-and-or-political-science-governance-of-climate-extremes/10d2c788-8f5c-4cc4-9191-8648dd91c378",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.110Z",
+      "crawledAt": "2026-10-08T21:46:56.331Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -750,7 +670,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/leiter-in-studiendekanat-der-medizinischen-fakultaet/36d2bc6c-f634-4ca5-8c28-dcf00bc522cb",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.110Z",
+      "crawledAt": "2026-10-08T21:46:56.332Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -833,7 +753,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/58eb1323-eeb1-4d2f-a8e4-765e087a907a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.109Z",
+      "crawledAt": "2026-10-08T21:46:56.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -918,7 +838,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-on-conditional-generative-modelling-of-local-high-impact-events-under-structured-scenarios/35d91b0a-298f-4f5b-9230-91c4bb5fae9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.108Z",
+      "crawledAt": "2026-10-08T21:46:56.330Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -992,7 +912,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiter-in-kaufmaennisches-gebaeudemanagement/a73ad620-91da-40de-82ce-1b06adf016e4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.107Z",
+      "crawledAt": "2026-10-08T21:46:56.329Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1074,7 +994,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/early-postdoc/78ee3a85-00e9-4788-9d6c-afdc382a26e6",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.107Z",
+      "crawledAt": "2026-10-08T21:46:56.329Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1170,7 +1090,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-student/e3bfc166-6a4b-4a0d-b7e3-9506d8dd0247",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.106Z",
+      "crawledAt": "2026-10-08T21:46:56.327Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1224,7 +1144,7 @@
       "slug": "studente-medico-studente-di-dottorato-universitat-bern-bern",
       "slugByLocale": {
         "it": "studente-medico-studente-di-dottorato-universitat-bern-bern",
-        "en": "doctoral-student-doctoral-student-universitat-bern-bern",
+        "en": "doktorand-doktorandin-universitat-bern",
         "de": "doktorand-doktorandin-unibe-bern",
         "fr": "etudiant-au-doctorat-etudiant-au-doctorat-universitat-bern-bern"
       },
@@ -1250,7 +1170,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-doktorandin/68e9e7e8-b10f-43b7-9226-9264b4a5dbc9",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.106Z",
+      "crawledAt": "2026-10-08T21:46:56.328Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1281,7 +1201,7 @@
         "etudiant-au-doctorat-en-histoire-universitat-bern-bern",
         "doktorand-doktorandin-unibe-bern",
         "doktorand-doktorandin-universitat-bern-bern",
-        "doktorand-doktorandin-universitat-bern"
+        "doctoral-student-doctoral-student-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1298,7 +1218,7 @@
         "en": [
           "doktorandin-doktorand-psychologie-universitat-bern-bern",
           "doktorand-doktorandin-universitat-bern-bern",
-          "doktorand-doktorandin-universitat-bern"
+          "doctoral-student-doctoral-student-universitat-bern-bern"
         ],
         "de": [
           "doktorandin-doktorand-psychologie-unibe-bern"
@@ -1355,7 +1275,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/postdoc-protect-sh-und-nasa/892293d2-4efb-4b33-82df-df8550761b5a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.105Z",
+      "crawledAt": "2026-10-08T21:46:56.327Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1429,7 +1349,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/ict-systemadministrator-in/fc65114c-373d-45e0-a09a-a65f17e61556",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.104Z",
+      "crawledAt": "2026-10-08T21:46:56.325Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1519,7 +1439,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/fachspezialist-in-schliess-und-zutrittskontrollanlagen/011d47b8-59e7-4bbe-b3b4-8eb855436fa3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.104Z",
+      "crawledAt": "2026-10-08T21:46:56.326Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1569,7 +1489,7 @@
         "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
+        "fr": "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1594,7 +1514,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/managing-director-administrativer-direktor-administrative-direktorin/39836d63-ec97-4a60-a006-9f443ce58b42",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.103Z",
+      "crawledAt": "2026-10-08T21:46:56.325Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1616,14 +1536,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+        "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
         ],
         "fr": [
-          "managing-director-administrativer-direktor-administrative-direktorin-universitat-bern"
+          "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
@@ -1673,7 +1593,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-klinische-paediatrische-adipositasforschung-kardiovaskulaere-phaenotypisierung/aff1a4f4-eb9b-4677-85bd-ce24bd7d01d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.102Z",
+      "crawledAt": "2026-10-08T21:46:56.324Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1748,7 +1668,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/4dfe01c5-ece3-4a0c-b789-903eb27ca4f2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.102Z",
+      "crawledAt": "2026-10-08T21:46:56.324Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1803,10 +1723,10 @@
       "id": "unibe-d8e0f02fa4d1",
       "slug": "artigiano-specializzato-ii-universitat-bern-bern",
       "slugByLocale": {
-        "it": "spezialhandwerker-in-ii-universitat-bern-bern",
+        "it": "artigiano-specializzato-ii-universitat-bern-bern",
         "en": "spezialhandwerker-in-ii-universitat-bern-bern",
         "de": "spezialhandwerker-in-ii-unibe-bern",
-        "fr": "spezialhandwerker-in-ii-universitat-bern-bern"
+        "fr": "artisan-ne-specialise-e-ii-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -1831,7 +1751,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/spezialhandwerker-in-ii/fa8cc917-7f34-47bf-8ba2-9299981876e1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.101Z",
+      "crawledAt": "2026-10-08T21:46:56.323Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1855,16 +1775,17 @@
         "spezialhandwerker-in-ii-unibe-bern",
         "artigiani-specializzati-ii-universitat-bern-bern",
         "ouvriers-specialises-ii-universitat-bern-bern",
-        "artisan-ne-specialise-e-ii-universitat-bern-bern"
+        "spezialhandwerker-in-ii-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialhandwerker-in-ii-unibe-bern",
-          "artigiani-specializzati-ii-universitat-bern-bern"
+          "artigiani-specializzati-ii-universitat-bern-bern",
+          "spezialhandwerker-in-ii-universitat-bern-bern"
         ],
         "fr": [
           "ouvriers-specialises-ii-universitat-bern-bern",
-          "artisan-ne-specialise-e-ii-universitat-bern-bern"
+          "spezialhandwerker-in-ii-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:13:09.247Z",
@@ -1913,7 +1834,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/postdoctoral-researcher-multimodal-ai-for-whole-body-pet-ct/1a455bb2-9285-437b-aad8-57db26fcd011",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.100Z",
+      "crawledAt": "2026-10-08T21:46:56.321Z",
       "addressLocality": "Bern University Hospital",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1994,7 +1915,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in-in-bwl-fachgebiet-operations-research/61fd4f87-47a4-44f9-a811-755f4909b76c",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.100Z",
+      "crawledAt": "2026-10-08T21:46:56.321Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2077,7 +1998,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sachbearbeiterin-administration/0d62deed-f215-4b54-9cb3-f2727b6bdbe1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.098Z",
+      "crawledAt": "2026-10-08T21:46:56.318Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2160,7 +2081,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/project-manager-for-enlight-joint-master-s-degree-development/df355ec3-2194-49e8-a709-8be8490e810e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.098Z",
+      "crawledAt": "2026-10-08T21:46:56.319Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2240,7 +2161,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/assistant-professorship-non-tenure-track-in-clinical-cancer-informatics-werner-and-hedy-berger-janser-foundation-endowed-professorship/54f98e0e-b406-41a2-ad87-37a7d06823c1",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.097Z",
+      "crawledAt": "2026-10-08T21:46:56.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2296,7 +2217,7 @@
         "it": "responsabile-della-scienza-dei-dati-universitat-bern-bern",
         "en": "data-science-officer-unibe-bern",
         "de": "data-science-beauftragter-universitat-bern-bern",
-        "fr": "specialiste-des-sciences-des-donnees-universitat-bern-bern"
+        "fr": "data-science-officer-universitat-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2321,7 +2242,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/data-science-officer/7771b117-8d60-4cee-b56d-21ad863eab1f",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.097Z",
+      "crawledAt": "2026-10-08T21:46:56.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2344,7 +2265,7 @@
       "previousSlugs": [
         "data-science-officer-unibe-bern",
         "data-science-officer-universitat-bern-bern",
-        "data-science-officer-universitat-bern"
+        "specialiste-des-sciences-des-donnees-universitat-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2355,7 +2276,7 @@
         ],
         "fr": [
           "data-science-officer-universitat-bern-bern",
-          "data-science-officer-universitat-bern"
+          "specialiste-des-sciences-des-donnees-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-24T00:02:05.731Z",
@@ -2404,7 +2325,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-80/fac13cf6-4b70-4ae2-8a98-145090f06c88",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.096Z",
+      "crawledAt": "2026-10-08T21:46:56.316Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2487,7 +2408,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter/c5023cce-bc9c-4562-8384-eff975607487",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.095Z",
+      "crawledAt": "2026-10-08T21:46:56.315Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2568,7 +2489,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/early-postdoc-position-on-the-governance-of-climate-extremes/6bc2f305-92d1-449a-b9e0-ecb994dffc82",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.094Z",
+      "crawledAt": "2026-10-08T21:46:56.313Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2649,7 +2570,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/phd-stelle-neuropsychologie-neuropaediatrie-entwicklung-und-rehabilitation/6f878792-9e73-4111-945b-f17efbe24b56",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.094Z",
+      "crawledAt": "2026-10-08T21:46:56.314Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2730,7 +2651,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/ecvn-neurology-residency-training-program-in-bern/af0e41af-16a9-4d55-9cce-959b60141050",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.093Z",
+      "crawledAt": "2026-10-08T21:46:56.312Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2811,7 +2732,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/sekretaer-in/a65030ab-a871-45b7-92f6-06bcb721623e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.088Z",
+      "crawledAt": "2026-10-08T21:46:56.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2865,9 +2786,9 @@
       "slug": "it-systemadministrator-in-universitat-bern-bern",
       "slugByLocale": {
         "it": "it-systemadministrator-in-universitat-bern-bern",
-        "en": "it-systemadministrator-in-universitat-bern-bern",
+        "en": "it-system-administrator-universitat-bern-bern",
         "de": "it-systemadministrator-in-unibe-bern",
-        "fr": "it-systemadministrator-in-universitat-bern-bern"
+        "fr": "administrateur-systeme-informatique-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -2891,7 +2812,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/it-systemadministrator-in/47fc7ff0-6645-4659-9cc2-7d7c64320128",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.087Z",
+      "crawledAt": "2026-10-08T21:46:56.308Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2912,19 +2833,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systemadministrator-in-unibe-bern",
-        "it-system-administrator-universitat-bern-bern",
-        "administrateur-systeme-informatique-universitat-bern-bern"
+        "it-systemadministrator-in-unibe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-systemadministrator-in-unibe-bern"
-        ],
-        "en": [
-          "it-system-administrator-universitat-bern-bern"
-        ],
-        "fr": [
-          "administrateur-systeme-informatique-universitat-bern-bern"
         ]
       },
       "firstSeenAt": "2026-09-25T14:57:34.448Z",
@@ -2974,7 +2887,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/direktionsassistenz-befristet-bis-31-12-2028-mit-option-zur-verlaengerung/fc9d2e32-0a00-4af8-8734-e2251c787580",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.086Z",
+      "crawledAt": "2026-10-08T21:46:56.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3057,7 +2970,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/communication-officer/c890dc16-def4-4eb5-a917-3798bd6c17d3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.085Z",
+      "crawledAt": "2026-10-08T21:46:56.307Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3138,7 +3051,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/kommunikationsbeauftragten/f70eada7-2d61-4296-ae0c-0200d2a3ac9e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.084Z",
+      "crawledAt": "2026-10-08T21:46:56.305Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3223,7 +3136,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/dozentur-fuer-innovative-anatomische-lehre/69f08921-1ab4-45c0-9531-1452e1b62d87",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.084Z",
+      "crawledAt": "2026-10-08T21:46:56.306Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3304,7 +3217,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/specialty-internships-innere-medizin-und-chirurgie-an-der-kleintierklinik/eeeccaf7-bd9a-40e9-ad2a-5c7d54f432c8",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.083Z",
+      "crawledAt": "2026-10-08T21:46:56.305Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3385,7 +3298,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/sem-lab-manager-with-teaching-responsibilities/5056d134-52bf-4b5a-91d2-1b392cba47ce",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.082Z",
+      "crawledAt": "2026-10-08T21:46:56.304Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3470,7 +3383,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/lehrauftrag-sozialversicherungsrecht-nachfolge-prof-kurt-paerli/3adcb202-ef29-4f30-801c-2f81caeb1419",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.081Z",
+      "crawledAt": "2026-10-08T21:46:56.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3551,7 +3464,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistenz/9c26cc94-c223-4667-8d36-3dee86d25cd3",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.081Z",
+      "crawledAt": "2026-10-08T21:46:56.303Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3632,7 +3545,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorierendenstelle-oder-wissenschatfliche-r-mitarbeitende-r-in-der-nutztiermedizin-zum-thema-infektionsschutz-beim-kalb/5b2f65ed-4e06-411e-a391-28b6f5306a74",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.079Z",
+      "crawledAt": "2026-10-08T21:46:56.301Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3712,7 +3625,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/laborant-in-im-forschungslabor/1cd5675a-7d46-493b-95f8-165ec7ad7d50",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.078Z",
+      "crawledAt": "2026-10-08T21:46:56.300Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3787,7 +3700,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/stv-leitung-kreditorenbuchhaltung/53d04428-ff4f-4307-aafb-f4afdf98b89a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.077Z",
+      "crawledAt": "2026-10-08T21:46:56.299Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3869,7 +3782,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/assistenzstelle-mit-moeglichkeit-zur-promotion/68bdd60b-60ec-479f-aa31-52a02ff3142e",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.076Z",
+      "crawledAt": "2026-10-08T21:46:56.298Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3944,7 +3857,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/forschungspraktikum/3c9ceb04-3e02-4b4f-b772-dd2d4fb3568a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.075Z",
+      "crawledAt": "2026-10-08T21:46:56.297Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4027,7 +3940,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/doktorand-in-und-assistent-in/6a750fc5-edce-4199-947e-d84a17968b51",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.074Z",
+      "crawledAt": "2026-10-08T21:46:56.296Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4103,7 +4016,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/laborant-laborantin-forschungslabor/fef0917a-93a4-406a-9960-c049b795a564",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.073Z",
+      "crawledAt": "2026-10-08T21:46:56.294Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4185,7 +4098,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/tiermedizinische-r-praxisassistent-in/04141d6e-6b5f-4740-ac8a-f57b19e5250b",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.073Z",
+      "crawledAt": "2026-10-08T21:46:56.295Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4268,7 +4181,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/werkstattleiter-in/6c6441c6-9e7a-41f7-b313-22604a10090a",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.072Z",
+      "crawledAt": "2026-10-08T21:46:56.293Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4351,7 +4264,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/zwei-anstellungen-als-hilfsassistent-in-je-in-der-abteilung-systemlinguistik-institut-fur-germanistik-prof-luise-kempf/ce12d004-e80d-458d-af49-1158e08e46e2",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.071Z",
+      "crawledAt": "2026-10-08T21:46:56.292Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4433,7 +4346,7 @@
       "url": "https://jobs.unibe.ch/job-vacancies/phd-student-in-translational-cancer-research-snsf-project/49b665a5-4e94-4fb8-b005-3654ed74bd33",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:37:24.069Z",
+      "crawledAt": "2026-10-08T21:46:56.290Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4514,7 +4427,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/leiter-in-zentrale-dienste/bc02b75d-e6cc-4b51-b8a9-4d0b68f12f58",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.068Z",
+      "crawledAt": "2026-10-08T21:46:56.289Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4597,7 +4510,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/hilfsassistent-in/00e21fe2-c167-4fa2-86f8-f359032c405c",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.067Z",
+      "crawledAt": "2026-10-08T21:46:56.288Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4678,7 +4591,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studentische-assistenz/c0cc1918-2d38-42c4-9ebc-0be657708351",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.066Z",
+      "crawledAt": "2026-10-08T21:46:56.287Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4759,7 +4672,7 @@
       "url": "https://jobs.unibe.ch/offene-stellen/studien-und-pruefungssekretariat/1bbf4290-9b20-4ed5-93f4-632d09b8c409",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T09:37:24.058Z",
+      "crawledAt": "2026-10-08T21:46:56.286Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4812,83 +4725,81 @@
       }
     },
     {
-      "id": "unibe-b9a128526e15",
-      "slug": "projektmanager-in-kommunikation-e-marketing-80-universitat-bern",
+      "id": "unibe-dc1a481247c5",
+      "slug": "wissenschaftliche-assistenz-universitat-bern-bern",
       "slugByLocale": {
-        "it": "projektmanager-in-kommunikation-e-marketing-80-universitat-bern",
-        "en": "projektmanager-in-kommunikation-und-marketing-80-universitat-bern-bern",
-        "de": "projektmanager-in-kommunikation-und-marketing-80-unibe-bern",
-        "fr": "chef-fe-de-projet-communication-et-marketing-80-universitat-bern-bern"
+        "de": "wissenschaftliche-assistenz-unibe-bern",
+        "it": "wissenschaftliche-assistenz-universitat-bern-bern",
+        "en": "wissenschaftliche-assistenz-universitat-bern-bern",
+        "fr": "wissenschaftliche-assistenz-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
       "companyDomain": "unibe.ch",
-      "title": "Projektmanager*in Kommunikation und Marketing 80%",
+      "title": "Wissenschaftliche Assistenz",
       "titleByLocale": {
-        "it": "Project Manager Comunicazione e Marketing 80%",
-        "en": "ProjectManager Communication and Marketing 80%",
-        "de": "Projektmanager*in Kommunikation und Marketing 80%",
-        "fr": "Chef·fe de projet Communication et Marketing 80 %"
+        "de": "Wissenschaftliche Assistenz",
+        "it": "Wissenschaftliche Assistenz",
+        "en": "Wissenschaftliche Assistenz",
+        "fr": "Wissenschaftliche Assistenz"
       },
-      "description": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Ihre Aufgaben\n• Entwicklung von Kommunikations- und Marketingkonzepten, -plänen inkl. Storytelling, Ressourcenschätzung, Umsetzungs- und Zeitplanung\n• Mitarbeit sowie Umsetzungsbeauftragung und -überwachung einzelner Massnahmen gemäss den entwickelten Kommunikations- und Marketingkonzepten\n• Eigenständige Konzeption und Betreuung von Projekten nach Auftrag\n• Durchführung von allgemeinen Kommunikations- und Marketingberatungen\n• Mitarbeit bei der strategischen Planung für Kommunikation & Marketing der Gesamtuniversität\n• Beschaffung und Anwendung bestehender Daten als Basis zur Konzeptentwicklung\n• Budgetmanagement\n\n## Was Sie mitbringen\n• Bachelor und funktionsspezifische Weiterbildung oder vergleichbare Ausbildung in Kommunikation und/oder Marketing\n• Ausgewiesene Projektmanagementskills\n• Ausgewiesene Kompetenzen und Erfahrung in der Entwicklung von Kommunikations- und/oder Marketingkonzepten\n• Erfahrung im Leiten von mittleren und grösseren Projekten\n• Ausgewiesene Storytellingerfahrung und -Skills\n• Hohe digitale Kompetenz insbesondere auch in Bezug auf KI\n• Allgemeine Beratungskompetenzen\n• Gute Allgemeinbildung und strategisches Denkvermögen\n• Sprachkenntnisse: Deutsch und Englisch sehr gut, Französisch von Vorteil\n• Sicheres Auftreten und ausgezeichnete Umgangsformen\n• Hohe Sozialkompetenz\n• Hohe Flexibilität und Leistungsbereitschaft sowie Durchsetzungsvermögen\n• Erfahrung im Umfeld von Hochschulen von Vorteil\nVielseitige und anspruchsvolle Tätikeiten\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Universität Bern ist eine der grössten Universitäten der Schweiz mit über 19'000 Studierenden und 7'000 Mitarbeitenden. Sie ist national und international hervorragend vernetzt und gleichzeitig in der Region verankert. Mit ihrer Forschung setzt sie weltweit Akzente – in der Medizin sowie in der Weltraum- und Klimaforschung gehört sie zur Spitze.\nDie Abteilung Kommunikation & Marketing (AKM) ist Teil des Rektorats und verantwortet die interne und externe Kommunikation der Universität Bern. Der Bereich Projektmanagement ist innerhalb der AKM die zentrale Einheit für die Konzeption und Steuerung von Kommunikations- und Marketingprojekten. Sie entwickelt Kommunikations- und Marketingkonzepte, berät Organisationseinheiten und verantwortet interdisziplinäre Projekte von der Planung bis zur Realisierung. Dabei stellt sie sicher, dass die Massnahmen zielgerichtet, koordiniert und wirkungsvoll umgesetzt werden.\nIhre Aufgaben\n\n## Was Sie mitbringen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nSinnstiftende Arbeit und faire Entlöhnung\nKollaboratives Umfeld und ambitioniertes Team\nTeamorientiertes Arbeiten\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+      "description": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
       "descriptionByLocale": {
-        "it": "L'UniBE è versatile.\nCon noi, ci si può aspettare una vasta gamma di argomenti e un sacco di libertà di progettazione.\n\n## I loro compiti\n• Sviluppo di concetti di comunicazione e marketing, piani incl. Storytelling, stima delle risorse, implementazione e pianificazione del tempo\n• Cooperazione e attuazione messa in servizio e monitoraggio delle singole misure in base ai concetti di comunicazione e marketing sviluppati\n• Progettazione indipendente e supervisione dei progetti per ordine\n• Gestione dei servizi di comunicazione generale e consulenza di marketing\n• Partecipazione alla pianificazione strategica per la comunicazione e il marketing dell'intera università\n• Approvvigionamento e applicazione dei dati esistenti come base per lo sviluppo del concetto\n• Gestione del bilancio\n\n## Cosa porti\n• Corso di laurea e funzione-specifica formazione ulteriore o formazione comparabile in comunicazione e/o marketing\n• Capacità di gestione progettuale\n• Prove competenze ed esperienza nello sviluppo di concetti di comunicazione e/o marketing\n• Gestione dell'esperienza di progetti di medie e grandi dimensioni\n• Esperienza e competenze di storytelling provate\n• Alta competenza digitale, soprattutto per quanto riguarda l'AI\n• Competenze consultive generali\n• Buona educazione generale e pensiero strategico\n• Competenze linguistiche: tedesco e inglese molto buono, francese è vantaggioso\n• Aspetto sicuro e buone maniere\n• Alto livello di competenze sociali\n• Alta flessibilità, disponibilità e assertività\n• L'esperienza nel campo delle università è vantaggiosa\nAttività versatili e impegnative\nApplicazione e contatto\nCon noi, crei valore.\nPer se stessi e per la società.\n\n## Informazioni su di noi\nL'Università di Berna è una delle più grandi università in Svizzera con oltre 19.000 studenti e 7.000 dipendenti. È ottimamente collegato a livello nazionale e internazionale e allo stesso tempo ancorato nella regione. Con la sua ricerca pone in primo piano un accento mondiale, sia in medicina che in ricerca spaziale e climatica.\nIl Dipartimento di Comunicazione e Marketing (AKM) fa parte del Rettore ed è responsabile della comunicazione interna ed esterna dell'Università di Berna. All'interno dell'AKM, la gestione del progetto è l'unità centrale per la concezione e il controllo dei progetti di comunicazione e marketing. Sviluppa concetti di comunicazione e marketing, consiglia unità organizzative ed è responsabile di progetti interdisciplinari dalla pianificazione alla realizzazione. Assicura che le misure siano attuate in modo mirato, coordinato ed efficace.\nI loro compiti\n\n## Cosa porti\nAbbonamento al lavoro\nProcedura di applicazione\n\n## I tuoi vantaggi\nLavoro significativo e onesta remunerazione\nAmbiente collaborativo e team ambizioso\nLavoro orientato al team\nI tuoi vantaggi\n\n## Lavorare sulla UniBE\nL'Università di Berna non solo offre compiti entusiasmanti, ma anche un ambiente che promuove attivamente lo sviluppo, la diversità e le pari opportunità. Scopri cosa ci distingue come un datore di lavoro e come si ottiene avanti con noi.\nPagina della carriera\nPosti di lavoro",
-        "en": "The UniBE is versatile.\nWith us, you can expect a wide variety of topics and a lot of design freedom.\n\n## Their tasks\n• Development of communication and marketing concepts, plans incl. Storytelling, resource estimation, implementation and time planning\n• Cooperation and implementation commissioning and monitoring of individual measures according to the developed communication and marketing concepts\n• Independent design and supervision of projects by order\n• Conduct of general communication and marketing consultancy services\n• Participation in the strategic planning for communication & marketing of the entire university\n• Procurement and application of existing data as a basis for concept development\n• Budget management\n\n## What you bring\n• Bachelor and function-specific further education or comparable training in communication and/or marketing\n• Designated project management skills\n• Proven skills and experience in the development of communication and/or marketing concepts\n• Experience managing medium and larger projects\n• Proven storytelling experience and skills\n• High digital competence, especially with regard to AI\n• General advisory competencies\n• Good general education and strategic thinking\n• Language skills: German and English very good, French is advantageous\n• Safe appearance and excellent manners\n• High level of social skills\n• High flexibility, willingness and assertiveness\n• Experience in the field of universities is advantageous\nVersatile and challenging activities\nApplication and contact\nWith us, you create value.\nFor themselves and society.\n\n## About us\nThe University of Bern is one of the largest universities in Switzerland with over 19,000 students and 7,000 employees. It is excellently networked nationally and internationally and at the same time anchored in the region. With her research she sets a worldwide accents – in medicine as well as in space and climate research she is at the forefront.\nThe Department of Communication & Marketing (AKM) is part of the Rectorate and is responsible for the internal and external communication of the University of Bern. Within the AKM, project management is the central unit for the conception and control of communication and marketing projects. She develops communication and marketing concepts, advises organizational units and is responsible for interdisciplinary projects from planning to realization. It ensures that the measures are implemented in a targeted, coordinated and effective manner.\nTheir tasks\n\n## What you bring\nJob subscription\nApplication procedure\n\n## Your Benefits\nMeaningful work and fair remuneration\nCollaborative environment and ambitious team\nTeam-oriented work\nYour Benefits\n\n## Working on the UniBE\nThe University of Bern not only offers exciting tasks, but also an environment that actively promotes development, diversity and equal opportunities. Discover what distinguishes us as an employer and how you get ahead with us.\nCareer page\nJob vacancies",
-        "de": "Die UniBE ist vielseitig.\nBei uns erwartet Sie eine grosse Themenvielfalt und viel Gestaltungsfreiraum.\n\n## Ihre Aufgaben\n• Entwicklung von Kommunikations- und Marketingkonzepten, -plänen inkl. Storytelling, Ressourcenschätzung, Umsetzungs- und Zeitplanung\n• Mitarbeit sowie Umsetzungsbeauftragung und -überwachung einzelner Massnahmen gemäss den entwickelten Kommunikations- und Marketingkonzepten\n• Eigenständige Konzeption und Betreuung von Projekten nach Auftrag\n• Durchführung von allgemeinen Kommunikations- und Marketingberatungen\n• Mitarbeit bei der strategischen Planung für Kommunikation & Marketing der Gesamtuniversität\n• Beschaffung und Anwendung bestehender Daten als Basis zur Konzeptentwicklung\n• Budgetmanagement\n\n## Was Sie mitbringen\n• Bachelor und funktionsspezifische Weiterbildung oder vergleichbare Ausbildung in Kommunikation und/oder Marketing\n• Ausgewiesene Projektmanagementskills\n• Ausgewiesene Kompetenzen und Erfahrung in der Entwicklung von Kommunikations- und/oder Marketingkonzepten\n• Erfahrung im Leiten von mittleren und grösseren Projekten\n• Ausgewiesene Storytellingerfahrung und -Skills\n• Hohe digitale Kompetenz insbesondere auch in Bezug auf KI\n• Allgemeine Beratungskompetenzen\n• Gute Allgemeinbildung und strategisches Denkvermögen\n• Sprachkenntnisse: Deutsch und Englisch sehr gut, Französisch von Vorteil\n• Sicheres Auftreten und ausgezeichnete Umgangsformen\n• Hohe Sozialkompetenz\n• Hohe Flexibilität und Leistungsbereitschaft sowie Durchsetzungsvermögen\n• Erfahrung im Umfeld von Hochschulen von Vorteil\nVielseitige und anspruchsvolle Tätikeiten\nBewerbung und Kontakt\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDie Universität Bern ist eine der grössten Universitäten der Schweiz mit über 19'000 Studierenden und 7'000 Mitarbeitenden. Sie ist national und international hervorragend vernetzt und gleichzeitig in der Region verankert. Mit ihrer Forschung setzt sie weltweit Akzente – in der Medizin sowie in der Weltraum- und Klimaforschung gehört sie zur Spitze.\nDie Abteilung Kommunikation & Marketing (AKM) ist Teil des Rektorats und verantwortet die interne und externe Kommunikation der Universität Bern. Der Bereich Projektmanagement ist innerhalb der AKM die zentrale Einheit für die Konzeption und Steuerung von Kommunikations- und Marketingprojekten. Sie entwickelt Kommunikations- und Marketingkonzepte, berät Organisationseinheiten und verantwortet interdisziplinäre Projekte von der Planung bis zur Realisierung. Dabei stellt sie sicher, dass die Massnahmen zielgerichtet, koordiniert und wirkungsvoll umgesetzt werden.\nIhre Aufgaben\n\n## Was Sie mitbringen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nSinnstiftende Arbeit und faire Entlöhnung\nKollaboratives Umfeld und ambitioniertes Team\nTeamorientiertes Arbeiten\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
-        "fr": "L'UniBE est polyvalent.\nAvec nous, vous pouvez vous attendre à une grande variété de sujets et beaucoup de liberté de conception.\n\n## Leurs tâches\n• Développement de concepts de communication et de marketing, plans, y compris Histoire, estimation des ressources, mise en oeuvre et planification du temps\n• Coopération et mise en œuvre de la mise en œuvre et du suivi des mesures individuelles selon les concepts développés de communication et de commercialisation\n• Conception et supervision indépendantes des projets par ordre\n• Conduite de services généraux de conseil en communication et en marketing\n• Participation à la planification stratégique de la communication et du marketing de l'ensemble de l'université\n• Achat et utilisation des données existantes comme base pour l ' élaboration de concepts\n• Gestion budgétaire\n\n## Ce que vous apportez\n• Baccalauréat et formation complémentaire spécifique à la fonction ou formation comparable en communication et/ou marketing\n• Compétences en gestion de projet désignées\n• Compétences et expérience éprouvées dans le développement de concepts de communication et/ou de marketing\n• Expérience de gestion de projets de taille moyenne et plus grande\n• Expérience et compétences de narration éprouvées\n• Haute compétence numérique, en particulier en ce qui concerne l'IA\n• Compétences générales en matière de conseil\n• Bonne éducation générale et réflexion stratégique\n• Compétences linguistiques: Allemand et anglais très bien, le français est avantageux\n• Aspect sûr et excellentes manières\n• Niveau élevé de compétences sociales\n• Haute flexibilité, volonté et assurance\n• L'expérience dans le domaine des universités est avantageuse\nActivités polyvalentes et stimulantes\nDemande et contact\nAvec nous, vous créez de la valeur.\nPour eux-mêmes et la société.\n\n## Sur nous\nL'Université de Berne est l'une des plus grandes universités de Suisse avec plus de 19 000 étudiants et 7 000 employés. Elle est parfaitement mise en réseau aux niveaux national et international, tout en étant ancrée dans la région. Grâce à ses recherches, elle met un accent mondial sur la médecine et la recherche spatiale et climatique.\nLe Département Communication & Marketing (AKM) fait partie du Rectorat et est responsable de la communication interne et externe de l'Université de Berne. Au sein de l'AKM, la gestion de projet est l'unité centrale pour la conception et le contrôle des projets de communication et de marketing. Elle développe des concepts de communication et de marketing, conseille les unités organisationnelles et est responsable des projets interdisciplinaires de la planification à la réalisation. Elle veille à ce que les mesures soient mises en œuvre de manière ciblée, coordonnée et efficace.\nLeurs tâches\n\n## Ce que vous apportez\nAbonnement emploi\nProcédure de demande\n\n## Vos avantages\nTravail utile et rémunération équitable\nEnvironnement collaboratif et équipe ambitieuse\nTravaux axés sur l ' équipe\nVos avantages\n\n## Travailler sur l'UniBE\nL'Université de Berne offre non seulement des tâches passionnantes, mais aussi un environnement qui favorise activement le développement, la diversité et l'égalité des chances. Découvrez ce qui nous distingue en tant qu'employeur et comment vous avancez avec nous.\nPage de carrière\nEmplois vacants"
+        "de": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "it": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "en": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen",
+        "fr": "Die UniBE ist vernetzt.\nBei uns sind Sie Teil einer internationalen Gemeinschaft und profitieren von der interdisziplinären Zusammenarbeit.\n\n## Aufgaben\n• Mitarbeit beim Verfassen von wissenschaftlichen Publikationen und Gutachten\n• Mithilfe bei der Organisation von wissenschaftlichen Konferenzen\n• Mitarbeit in Forschungsprojekten\n• Eigenständige wissenschaftliche Forschung\n• Mitarbeit in der Human Rights Law Clinic der Universität Bern\n• Mithilfe bei der Vorbereitung und Durchführung von Lehrveranstaltungen (Vorlesungen, Seminare) und der Betreuung von Studierenden\n• Mithilfe bei der Entwicklung und Korrektur von Prüfungen und schriftliche Arbeiten\n\n## Anforderungen\n• Herausragende redaktionelle Fähigkeiten, stilsicheres Deutsch und Gewandtheit im schriftlichen Ausdruck (Erfahrungen beim Verfassen oder beim Lektorat wissenschaftlicher Texte sind von Vorteil)\n• Freude am Migrationsrecht und menschenrechtlichen Fragestellungen\n• Interesse an kreativem und wissenschaftlichem Denken und Motivation zum Verfassen einer Dissertation\n• Freude an der Zusammenarbeit im Team\n• Selbständige, strukturierte und sorgfältige Arbeitsweise\n• Gute Studienleistungen\nGute Forschungsinfrastrukturen und internationales Netzwerk\nBewerbung und Kontakt\nSenden Sie Ihre Bewerbung inkl. detailliertem Lebenslauf, Zeugnissen sowie einer Schreibprobe („Writing Sample“) von max. 1 Seite (z. B. Auszug aus einer Seminar- oder Masterarbeit) bitte in einem PDF per E-Mail bis am 31. Oktober 2026 an Marlen Weibel (marlen.weibel@unibe.ch).\nBei uns schaffen Sie Wert.\nFür sich und die Gesellschaft.\n\n## Über uns\nDas Zentrum für Migrationsrecht der Universität Bern ist dem Institut für öffentliches Recht angegliedert. Es widmet sich der Forschung auf dem gesamten Gebiet des Migrationsrechts unter Berücksichtigung von menschenrechtlicher, völker- und europarechtlicher und verfassungsrechtlicher Bezüge. Das Zentrum für Migrationsrecht organisiert die Schweizerischen Migrationsrechtstage und gibt das Jahrbuch für Migrationsrecht heraus.\nZum BENEFRI Zentrum für Migrationsrecht: www.ius-migration.ch\nAufgaben\n\n## Anforderungen\nJob-Abo\nBewerbungsablauf\n\n## Ihre Benefits\nKollaboratives Umfeld und ambitioniertes Team\nInternationales Renommee\nIndividueller Karrieresupport\nIhre Benefits\n\n## Arbeiten an der UniBE\nDie Universität Bern bietet nicht nur spannende Aufgaben, sondern auch ein Umfeld, das Entwicklung, Vielfalt und Chancengleichheit aktiv fördert. Entdecken Sie, was uns als Arbeitgeberin auszeichnet und wie Sie bei uns weiterkommen.\nKarriereseite\nOffene Stellen"
       },
       "needsRetranslation": true,
       "location": "Bern",
       "canton": "BE",
-      "url": "https://jobs.unibe.ch/offene-stellen/projektmanager-in-kommunikation-und-marketing/22a8b82e-2a28-4ddf-b676-b82ecff71054",
+      "url": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/9a00041a-e3ee-4eb8-a059-27b7e68ad7c4",
       "source": "Universität Bern Dedicated Parser (Prospective medium 1001892)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-07T21:41:51.719Z",
+      "crawledAt": "2026-10-08T21:46:56.278Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3004",
       "streetAddress": "",
-      "category": "Marketing",
+      "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-09-30",
-      "postedDate": "2026-09-30",
+      "datePosted": "2026-10-08",
+      "postedDate": "2026-10-08",
       "postingDateSource": "reported",
-      "applyUrl": "https://jobs.unibe.ch/offene-stellen/projektmanager-in-kommunikation-und-marketing/22a8b82e-2a28-4ddf-b676-b82ecff71054",
+      "applyUrl": "https://jobs.unibe.ch/offene-stellen/wissenschaftliche-assistenz/9a00041a-e3ee-4eb8-a059-27b7e68ad7c4",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
-          "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
-        ],
-        "fr": [
-          "projektmanager-in-kommunikation-und-marketing-80-unibe-bern"
+          "wissenschaftliche-assistenz-unibe-bern"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:32:25.096Z",
-      "salaryMin": 85200,
-      "salaryMax": 150800,
+      "previousSlugs": [
+        "wissenschaftliche-assistenz-unibe-bern"
+      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85200,
-          "maxValue": 150800,
+          "minValue": 85000,
+          "maxValue": 119000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-09-19T23:13:09.252Z"
     }
   ]
 }
