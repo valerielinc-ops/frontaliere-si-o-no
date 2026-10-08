@@ -159,6 +159,13 @@ describe('an ad that closed while the candidate is awaited', () => {
     expect((await run(seed(waiting), failing, due)).effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
     // No look given (as every caller before): reminded as before.
     expect((await run(seed(waiting), null, due)).effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+    // A look that outlasts its time says nothing either: the sweep serves every due order within its run.
+    const slowStore = seed(waiting);
+    const slowEffects: any[] = [];
+    const slow = vi.fn(() => new Promise((resolve) => { setTimeout(() => resolve(true), 400); }));
+    await runAutomationSweep({ db: slowStore.db, nowMs: due, postingClosed: slow, postingLookMs: 20, runEffect: async (context: any) => { slowEffects.push(context.effect); return { ok: true }; } });
+    expect(slow).toHaveBeenCalledTimes(1);
+    expect(slowEffects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
 
     // The owner's own clock is no reminder to a candidate: the ad is not looked at.
     const never = vi.fn(async () => true);

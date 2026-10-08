@@ -369,6 +369,19 @@ export async function startAutomation({ db, orderId, runEffect, nowMs = Date.now
 
 // Where a due reminder is one to the candidate (assistedApplicationFlow.js, the tick).
 const CANDIDATE_REMINDER_STATES = new Set(['candidate_review', 'needs_candidate_action', 'candidate_handoff']);
+// How long the sweep waits for the look at one ad. A posting's page, its ATS and its redirects each have their
+// own timeout, and together they can outlast the sweep's run, which serves every due order: a look that takes
+// longer says nothing, and the reminder goes out.
+export const POSTING_LOOK_MS = 15_000;
+
+/** The look's answer, or false when it fails or outlasts `ms`. */
+function lookWithin(look, ms) {
+  return new Promise((resolve) => {
+    const timer = setTimeout(() => resolve(false), ms);
+    timer.unref?.();
+    Promise.resolve().then(look).then((closed) => resolve(Boolean(closed)), () => resolve(false)).finally(() => clearTimeout(timer));
+  });
+}
 
 /**
  * The order's ad says it is closed (assistedApplicationLiveness.js postingSaysClosed), read now at the address
@@ -385,8 +398,9 @@ export async function postingClosedForOrder({ db, orderId, order, fetchImpl = fe
  * run that never reported back; a second silence hands the order to Valerie.
  * `postingClosed` (functions/index.js passes postingClosedForOrder): asked before a reminder to a candidate,
  * so that none goes out for an ad that closed (owner decision 2026-10-08). Left out, no ad is looked at.
+ * `postingLookMs`: how long one look may take (POSTING_LOOK_MS).
  */
-export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null } = {}) {
+export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), postingClosed = null, postingLookMs = POSTING_LOOK_MS } = {}) {
   const snapshot = await db.collection(ASSISTED_APPLICATIONS_COLLECTION)
     .where('automationDueAt', '<=', nowMs)
     .limit(SWEEP_BATCH)
@@ -436,7 +450,7 @@ export async function runAutomationSweep({ db, runEffect, nowMs = Date.now(), po
       }
       const reminderDue = CANDIDATE_REMINDER_STATES.has(flow.state) && Number(flow.reminderAt) > 0 && Number(flow.reminderAt) <= nowMs;
       const postingExpired = reminderDue && postingClosed
-        ? Boolean(await Promise.resolve(postingClosed({ db, orderId: doc.id, order: doc.data() || {} })).catch(() => false))
+        ? await lookWithin(() => postingClosed({ db, orderId: doc.id, order: doc.data() || {} }), postingLookMs)
         : false;
       const result = await applyAutomationEvent({ db, orderId: doc.id, event: { type: 'tick', ...(postingExpired ? { postingExpired: true } : {}) }, actor: 'clock', runEffect, nowMs });
       if (result.ok) summary.ticks += 1;

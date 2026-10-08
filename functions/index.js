@@ -2394,7 +2394,8 @@ export const applyAssistedApplicationRunnerEvent = onDocumentCreated(
 // Clocks of the flow (1 h owner review, 12 h candidate review, reminders)
 // and the watchdog of runs that never reported back.
 export const sweepAssistedApplicationAutomation = onSchedule(
-  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB' },
+  // 120 s: before a reminder to a candidate the sweep looks at the ad (up to POSTING_LOOK_MS for each).
+  { region: 'europe-west6', schedule: 'every 5 minutes', timeZone: 'Europe/Zurich', memory: '256MiB', timeoutSeconds: 120 },
   async () => {
     try {
       const summary = await runAutomationSweep({ db: getAdminDb(), runEffect: (context) => runAutomationEffect(context), postingClosed: postingClosedForOrder });
