@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huber-suhner",
-  "assembledAt": "2026-10-08T21:45:58.873Z",
+  "assembledAt": "2026-10-08T22:31:44.718Z",
   "jobs": [
     {
       "id": "huber-suhner-dc95c9b6a90f",
@@ -34,7 +34,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:52.376Z",
+      "crawledAt": "2026-10-08T22:31:37.494Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -55,15 +55,15 @@
       "applyUrl": "https://recruiting.hubersuhner.com/Vacancies/8112/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-07T15:17:36.103Z",
+      "previousSlugs": [
+        "mechaniker-instandhaltungstechniker-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mechaniker-instandhaltungstechniker-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "mechaniker-instandhaltungstechniker-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-09-07T15:17:36.103Z",
       "salaryMin": 73000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -110,7 +110,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:51.211Z",
+      "crawledAt": "2026-10-08T22:31:36.921Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:50.088Z",
+      "crawledAt": "2026-10-08T22:31:35.853Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -215,15 +215,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-19T23:05:17.310Z",
+      "previousSlugs": [
+        "mitarbeiter-micro-montage-rf-cay-com-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-micro-montage-rf-cay-com-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-micro-montage-rf-cay-com-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-09-19T23:05:17.310Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -270,7 +270,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:48.925Z",
+      "crawledAt": "2026-10-08T22:31:34.832Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -294,21 +294,21 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugsByLocale": {
+        "de": [
+          "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon"
+        ],
+        "it": [
+          "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
+          "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon",
+          "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon"
+        ]
+      },
       "previousSlugs": [
         "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
         "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon",
         "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
-          "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon",
-          "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon"
-        ],
-        "de": [
-          "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon"
-        ]
-      },
       "firstSeenAt": "2026-07-16T11:46:32.935Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -355,7 +355,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:47.773Z",
+      "crawledAt": "2026-10-08T22:31:33.774Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:46.605Z",
+      "crawledAt": "2026-10-08T22:31:32.697Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -460,15 +460,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-24T14:43:14.632Z",
+      "previousSlugs": [
+        "montagemitarbeiter-rf-cay-com-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "montagemitarbeiter-rf-cay-com-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "montagemitarbeiter-rf-cay-com-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-09-24T14:43:14.632Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -515,7 +515,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8215/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:45:45.476Z",
+      "crawledAt": "2026-10-08T22:31:31.759Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -586,7 +586,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8279/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:44.344Z",
+      "crawledAt": "2026-10-08T22:31:30.833Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -610,15 +610,15 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "firstSeenAt": "2026-10-03T09:29:02.669Z",
+      "previousSlugs": [
+        "customer-service-representative-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "customer-service-representative-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "customer-service-representative-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-10-03T09:29:02.669Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -665,7 +665,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:43.330Z",
+      "crawledAt": "2026-10-08T22:31:30.235Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -689,15 +689,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-10-03T09:29:01.719Z",
+      "previousSlugs": [
+        "polymechaniker-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "polymechaniker-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-10-03T09:29:01.719Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -744,7 +744,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8273/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-08T21:45:42.662Z",
+      "crawledAt": "2026-10-08T22:31:29.188Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -768,15 +768,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-10-07T21:50:20.403Z",
+      "previousSlugs": [
+        "anlagenfuhrer-extrusion-huber-suhner-herisau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-extrusion-huber-suhner-herisau"
         ]
       },
-      "previousSlugs": [
-        "anlagenfuhrer-extrusion-huber-suhner-herisau"
-      ],
+      "firstSeenAt": "2026-10-07T21:50:20.403Z",
       "salaryMin": 118500,
       "salaryMax": 159500,
       "salarySource": "estimated",
