@@ -40,7 +40,12 @@ import { inferInterest } from '../services/newsletter-segments.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
-import { loadCampaignVariantTotals, previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
+import { previousCampaignIds, weeklyCampaignId } from './lib/newsletter-ab-data.mjs';
+import {
+  attachApplicationIntentPersonalization,
+  loadJobAlertsForSubscribers,
+  loadPooledCampaignVariantTotals,
+} from './lib/newsletter-send-inputs.mjs';
 import {
   JOB_ALERT_COOLDOWN_MS as JOB_ALERT_COOLDOWN_DEFAULT_MS,
   JOB_ALERT_COOLDOWN_MAX_DEFER_DAYS,
@@ -1221,31 +1226,6 @@ async function saveRecentlyFeaturedJobs(slugs) {
 // \u2500\u2500\u2500 Job alert matching \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 
 /**
- * Load all active job alerts, keyed by email.
- * Uses a collectionGroup query to avoid N+1 reads.
- * @returns {Promise<Map<string, object[]>>}
- */
-async function fetchAllJobAlerts() {
-  if (!db) return new Map();
-  try {
-    const snap = await db.collectionGroup('alerts').where('active', '==', true).get();
-    const map = new Map();
-    snap.forEach((doc) => {
-      const data = doc.data();
-      const email = (data.email || '').toLowerCase();
-      if (!email) return;
-      if (!map.has(email)) map.set(email, []);
-      map.get(email).push(data);
-    });
-    console.log(`\ud83d\udd14 Job alerts loaded: ${map.size} subscribers with active alerts`);
-    return map;
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Load job alerts failed:', e.message);
-    return new Map();
-  }
-}
-
-/**
  * Returns true if the job matches any of the subscriber's active alerts.
  * Within each filter type: OR logic (any match is enough).
  * Across filter types: AND logic (all non-empty filters must match).
@@ -1605,59 +1585,6 @@ async function fetchSubscribers() {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
 
-  // Application-intent personalization is private and account-backed. Join
-  // it only through the verified Auth uid stored on the subscriber document
-  // and the matching marker written by the authenticated client; an email
-  // address alone is not proof that an anonymous browser signal belongs to
-  // this newsletter relationship.
-  try {
-    const personalizationByEmail = new Map();
-    const personalizationSnap = await db.collectionGroup('private').get();
-    for (const docSnap of personalizationSnap.docs || []) {
-      if (docSnap.id !== 'personalization') continue;
-      const subscriberRef = docSnap.ref.parent.parent;
-      const email = normalizeEmail(subscriberRef?.id);
-      const subscriber = email ? subscribers.get(email) : null;
-      if (!subscriber?.userId) continue;
-      const personalization = docSnap.data() || {};
-      const uid = String(subscriber.userId).trim();
-      if (!uid || personalization.applicationIntentAuthUid !== uid) continue;
-      if (personalization.applicationIntent) {
-        personalizationByEmail.set(email, { uid, applicationIntent: personalization.applicationIntent });
-      }
-    }
-
-    // The newsletter sender must re-read the account preference from its
-    // owner document. A private profile can be stale after the preference
-    // center changed it, and a missing/erroring owner read must fail closed.
-    const uids = [...new Set([...personalizationByEmail.values()].map((entry) => entry.uid))];
-    if (uids.length > 0) {
-      if (typeof db.getAll !== 'function') throw new Error('batched users profile lookup unavailable');
-      const accountProfiles = new Map();
-      const PROFILE_CHUNK_SIZE = 200;
-      for (let i = 0; i < uids.length; i += PROFILE_CHUNK_SIZE) {
-        const chunk = uids.slice(i, i + PROFILE_CHUNK_SIZE);
-        const snapshots = await db.getAll(...chunk.map((uid) => db.collection('users').doc(uid)));
-        snapshots.forEach((snapshot, index) => {
-          const exists = typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
-          if (!exists) return;
-          const data = snapshot.data() || {};
-          accountProfiles.set(chunk[index], { optedOut: data.applicationIntent?.optedOut === true });
-        });
-      }
-      for (const [email, candidate] of personalizationByEmail) {
-        const account = accountProfiles.get(candidate.uid);
-        if (!account || account.optedOut) continue;
-        const subscriber = subscribers.get(email);
-        if (subscriber) subscriber.applicationIntent = candidate.applicationIntent;
-      }
-    }
-  } catch (e) {
-    // Browsing personalization is optional. A failed join must not change the
-    // newsletter audience or turn anonymous/stale account data into a
-    // recommendation signal.
-    console.warn('⚠️ Application-intent personalization fetch failed:', e.message);
-  }
   console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size} (excludedNoBasis ${excludedNoBasis})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
@@ -1794,28 +1721,17 @@ const AB_PROMOTE_LOOKBACK = Math.max(1, intFromEnv('NEWSLETTER_AB_LOOKBACK', 2))
  *
  * @returns {Promise<{byProvider:Record<string,string|null>, global:string|null}>}
  */
-async function resolveWinnersForCampaign(database, campaignId) {
+async function resolveWinnersForCampaign(database, campaignId, { persist = false } = {}) {
   if (!AB_AUTOPROMOTE || !database) return { byProvider: {}, global: null };
   try {
     const ids = previousCampaignIds(campaignId, AB_PROMOTE_LOOKBACK);
-    const pooledCells = {};
-    for (const cid of ids) {
-      const { cells } = await loadCampaignVariantTotals(database, cid);
-      for (const [provider, variants] of Object.entries(cells)) {
-        pooledCells[provider] ??= {};
-        for (const [v, c] of Object.entries(variants)) {
-          pooledCells[provider][v] ??= { sends: 0, opens: 0 };
-          pooledCells[provider][v].sends += c.sends;
-          pooledCells[provider][v].opens += c.opens;
-        }
-      }
-    }
+    const { pooledCells, source } = await loadPooledCampaignVariantTotals(database, campaignId, ids, { persist });
     const { byProvider, global } = resolveWinnersByProvider(pooledCells);
     const perProvider = Object.entries(byProvider).filter(([, w]) => w).map(([p, w]) => `${p}:${w}`);
     if (global || perProvider.length) {
-      console.log(`🏆 Auto-promote (ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s): global=${global || 'none'}${perProvider.length ? `, per-provider=${perProvider.join(',')}` : ''}`);
+      console.log(`🏆 Auto-promote (ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s): global=${global || 'none'}${perProvider.length ? `, per-provider=${perProvider.join(',')}` : ''} (source: ${source})`);
     } else {
-      console.log('⚖️  Auto-promote: even split (no significant winner yet)');
+      console.log(`⚖️  Auto-promote: even split (no significant winner yet; source: ${source})`);
     }
     return { byProvider, global };
   } catch (e) {
@@ -2247,11 +2163,9 @@ async function main() {
   const { jobs } = loadLocalJobsData();
   const jobContextIndex = buildJobContextIndex(jobs);
 
-  // Load job rotation history and subscriber alerts (parallel, non-blocking)
-  const [recentlyFeaturedJobs, allJobAlerts] = await Promise.all([
-    fetchRecentlyFeaturedJobs(),
-    fetchAllJobAlerts(),
-  ]);
+  // Load job rotation history; subscriber alerts are loaded after the final
+  // recipient filters, immediately before Phase 1.
+  const recentlyFeaturedJobs = await fetchRecentlyFeaturedJobs();
   if (recentlyFeaturedJobs.length) {
     console.log(`🔄 Job rotation: excluding ${recentlyFeaturedJobs.length} recently featured slugs`);
   }
@@ -2336,6 +2250,7 @@ async function main() {
   // Unsent audience of this campaign before the daily cap trims it (send mode
   // only); null elsewhere, where every built email is the whole audience.
   let unsentBeforeDailyCap = null;
+  let allJobAlerts = new Map();
   if (mode === 'test') {
     const target = targetEmail
       ? await fetchTargetSubscriber(targetEmail)
@@ -2475,6 +2390,16 @@ async function main() {
       subscribers = capped.kept;
       console.log(`⏱️  Daily cap (pre-build): preparing ${subscribers.length}/${unsentBeforeDailyCap} (limit: ${DAILY_SEND_LIMIT}/day); ${capped.deferred} deferred to the next run, no AI briefing built for them.`);
     }
+  }
+
+  const alertLoad = await loadJobAlertsForSubscribers(
+    db,
+    subscribers.map((subscriber) => subscriber.email),
+  );
+  allJobAlerts = alertLoad.alertsByEmail;
+  if (mode === 'send') {
+    const personalization = await attachApplicationIntentPersonalization(db, subscribers);
+    subscribers = personalization.subscribers;
   }
 
   subscribers = subscribers.map((subscriber) => enrichSubscriberJobContext(subscriber, jobContextIndex));
@@ -2647,7 +2572,7 @@ async function main() {
   // default; null/empty = even split until a significant winner exists). The
   // global winner is the assembly-time default; the per-provider winner is
   // applied at send time once the provider is known (finalizeForProvider below).
-  const winners = await resolveWinnersForCampaign(db, campaignId);
+  const winners = await resolveWinnersForCampaign(db, campaignId, { persist: mode === 'send' });
   const promotedVariant = winners.global;
 
   // Per-user send-time (#3798): tally so the dry-run/preview table + the
