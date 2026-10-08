@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nord-anglia",
-  "assembledAt": "2026-10-08T09:20:00.000Z",
+  "assembledAt": "2026-10-08T21:27:41.818Z",
   "jobs": [
     {
       "id": "nord-anglia-bc57a0eab6be",
@@ -33,7 +33,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-Driver/1440179333/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:56.308Z",
+      "crawledAt": "2026-10-08T21:27:36.904Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -54,15 +54,15 @@
       "jobReqId": "1440179333",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-29T09:23:19.903Z",
+      "previousSlugs": [
+        "driver-nord-anglia-villars-sur-ollon"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "driver-nord-anglia-villars-sur-ollon"
         ]
       },
-      "previousSlugs": [
-        "driver-nord-anglia-villars-sur-ollon"
-      ],
+      "firstSeenAt": "2026-09-29T09:23:19.903Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -83,7 +83,7 @@
       "slugByLocale": {
         "it": "consigliere-scolastico-copertina-breve-termine-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "en": "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "de": "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon",
+        "de": "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "fr": "conseiller-scolaire-short-couverture-temporaire-80-nord-anglia-education-switzerland-villars-sur-ollon"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -108,7 +108,7 @@
       "url": "https://careers.nordanglia.com/job/Villars-sur-Ollon-School-Counsellor-%28Short-Term-cover-80%29/1443654733/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:55.306Z",
+      "crawledAt": "2026-10-08T21:27:35.912Z",
       "addressLocality": "Villars sur Ollon",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -132,15 +132,15 @@
       "previousSlugs": [
         "schulberater-kurzzeitversicherung-80-nord-anglia-education-switzerland-villars-sur-ollon",
         "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon",
-        "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon"
+        "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "schulberater-kurzzeitversicherung-80-nord-anglia-education-switzerland-villars-sur-ollon",
-          "school-counsellor-short-term-cover-80-nord-anglia-education-switzerland-villars-sur-ollon"
-        ],
         "it": [
           "school-counsellor-short-term-cover-80-nord-anglia-villars-sur-ollon"
+        ],
+        "de": [
+          "schulberater-kurzzeitversicherung-80-nord-anglia-education-switzerland-villars-sur-ollon",
+          "schulberater-kurzzeitdeckung-80-nord-anglia-education-switzerland-villars-sur-ollon"
         ]
       },
       "firstSeenAt": "2026-10-03T09:22:39.971Z",
@@ -189,7 +189,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-MoniteursMonitrices-SkiSnowboard/1443646733/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:54.300Z",
+      "crawledAt": "2026-10-08T21:27:35.141Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -210,16 +210,16 @@
       "jobReqId": "1443646733",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-03T09:22:30.975Z",
+      "previousSlugs": [
+        "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
         ]
       },
-      "previousSlugs": [
-        "moniteurs-monitrices-ski-snowboard-nord-anglia-pully"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-10-03T09:22:30.975Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -265,7 +265,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Nurse-on-call/1441010133/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:53.496Z",
+      "crawledAt": "2026-10-08T21:27:34.305Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -344,7 +344,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignant-e-en-philosophie-%C3%A0-30/1444672633/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:52.676Z",
+      "crawledAt": "2026-10-08T21:27:33.323Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -419,7 +419,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Assistant-e-socio-%C3%A9ducatif-ve-%28ASE%29/1429682533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:51.919Z",
+      "crawledAt": "2026-10-08T21:27:32.531Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -445,11 +445,11 @@
         "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
-        ],
         "it": [
           "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
+        ],
+        "fr": [
+          "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:16.952Z",
@@ -498,7 +498,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Learning-Support-Teacher-Temporary-100/1429260933/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:51.121Z",
+      "crawledAt": "2026-10-08T21:27:31.748Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -519,15 +519,15 @@
       "jobReqId": "1429260933",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-10-05T10:34:53.444Z",
+      "previousSlugs": [
+        "learning-support-teacher-temporary-100-nord-anglia-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "learning-support-teacher-temporary-100-nord-anglia-geneva"
         ]
       },
-      "previousSlugs": [
-        "learning-support-teacher-temporary-100-nord-anglia-geneva"
-      ],
+      "firstSeenAt": "2026-10-05T10:34:53.444Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -573,7 +573,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-ICT-Teacher-45/1425918433/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:50.016Z",
+      "crawledAt": "2026-10-08T21:27:30.751Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -594,15 +594,15 @@
       "jobReqId": "1425918433",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:21.241Z",
+      "previousSlugs": [
+        "ict-teacher-45-nord-anglia-pully"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-teacher-45-nord-anglia-pully"
         ]
       },
-      "previousSlugs": [
-        "ict-teacher-45-nord-anglia-pully"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:21.241Z",
       "salaryMin": 23000,
       "salaryMax": 42500,
       "salarySource": "estimated",
@@ -648,7 +648,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Teachers-Primary/1145234101/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:49.257Z",
+      "crawledAt": "2026-10-08T21:27:30.010Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -669,15 +669,16 @@
       "jobReqId": "1145234101",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:24.772Z",
+      "previousSlugs": [
+        "teachers-primary-nord-anglia-pully"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teachers-primary-nord-anglia-pully"
         ]
       },
-      "previousSlugs": [
-        "teachers-primary-nord-anglia-pully"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:24.772Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -723,7 +724,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:48.423Z",
+      "crawledAt": "2026-10-08T21:27:29.253Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -744,15 +745,16 @@
       "jobReqId": "1079699301",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:13.924Z",
+      "previousSlugs": [
+        "learning-support-assistants-nord-anglia-aubonne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "learning-support-assistants-nord-anglia-aubonne"
         ]
       },
-      "previousSlugs": [
-        "learning-support-assistants-nord-anglia-aubonne"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:13.924Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -773,7 +775,7 @@
       "slugByLocale": {
         "it": "insegnante-primario-sostituzione-maternita-nord-anglia-education-switzerland-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne",
+        "de": "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne",
         "fr": "enseignant-principal-remplacement-de-la-maternite-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
@@ -798,7 +800,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Primary-Teacher-%28maternity-replacement%29/1432262533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:47.527Z",
+      "crawledAt": "2026-10-08T21:27:22.467Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -822,15 +824,15 @@
       "previousSlugs": [
         "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
         "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
+        "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
       ],
       "previousSlugsByLocale": {
-        "de": [
-          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
-          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-aubonne"
-        ],
         "it": [
           "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ],
+        "de": [
+          "primary-teacher-maternity-replacement-nord-anglia-education-switzerland-lausanne",
+          "grundlehrerin-mutterschaftsersatz-nord-anglia-education-switzerland-aubonne"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:21.946Z",
@@ -879,7 +881,7 @@
       "url": "https://careers.nordanglia.com/job/Geneva-Boarding-House-Tutor/1432993533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:46.153Z",
+      "crawledAt": "2026-10-08T21:27:28.492Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Rue de l'Hôtel-de-Ville 2",
@@ -900,15 +902,15 @@
       "jobReqId": "1432993533",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-26T14:03:51.226Z",
+      "previousSlugs": [
+        "boarding-house-tutor-nord-anglia-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "boarding-house-tutor-nord-anglia-geneva"
         ]
       },
-      "previousSlugs": [
-        "boarding-house-tutor-nord-anglia-geneva"
-      ],
+      "firstSeenAt": "2026-09-26T14:03:51.226Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -954,7 +956,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Surveillant-e/1437550533/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:45.202Z",
+      "crawledAt": "2026-10-08T21:27:27.490Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1031,7 +1033,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Enseignants-es-Primaire/1145233801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:44.130Z",
+      "crawledAt": "2026-10-08T21:27:26.485Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1111,7 +1113,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-IB-Teachers/1142314801/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:43.066Z",
+      "crawledAt": "2026-10-08T21:27:25.496Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1132,15 +1134,16 @@
       "jobReqId": "1142314801",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:23.422Z",
+      "previousSlugs": [
+        "ib-teachers-nord-anglia-pully"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ib-teachers-nord-anglia-pully"
         ]
       },
-      "previousSlugs": [
-        "ib-teachers-nord-anglia-pully"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:23.422Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -1186,7 +1189,7 @@
       "url": "https://careers.nordanglia.com/job/Aubonne-Chauffeur-de-bus-scolaire/1088889301/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:42.044Z",
+      "crawledAt": "2026-10-08T21:27:24.509Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1207,15 +1210,16 @@
       "jobReqId": "1088889301",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:18.432Z",
+      "previousSlugs": [
+        "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-de-bus-scolaire-nord-anglia-aubonne"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:18.432Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1261,7 +1265,7 @@
       "url": "https://careers.nordanglia.com/job/Pully-Study-Coaches/1414160233/",
       "source": "Nord Anglia Education Switzerland Dedicated Parser (SuccessFactors HTML fallback)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:19:41.047Z",
+      "crawledAt": "2026-10-08T21:27:23.476Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1282,15 +1286,15 @@
       "jobReqId": "1414160233",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T22:53:13.075Z",
+      "previousSlugs": [
+        "study-coaches-nord-anglia-pully"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "study-coaches-nord-anglia-pully"
         ]
       },
-      "previousSlugs": [
-        "study-coaches-nord-anglia-pully"
-      ],
+      "firstSeenAt": "2026-09-19T22:53:13.075Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
