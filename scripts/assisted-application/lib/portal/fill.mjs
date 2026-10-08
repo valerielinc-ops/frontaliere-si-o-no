@@ -155,12 +155,15 @@ async function choiceCommitted(locator, field, label) {
  * example «italiana» vs «italienne»). This is safe only for nationality
  * fields: the shared catalogue maps both labels to the same country code.
  */
-export function nationalityOptionLabel(value, options) {
+export function nationalityOptionLabel(value, options, language = '') {
   const wanted = nationalityOf(value)?.code;
   if (!wanted) return '';
   const matches = [...new Set((options || []).map((option) => String(option || '').replace(/\s+/g, ' ').trim()))]
     .filter((option) => nationalityOf(option)?.code === wanted);
-  return matches.length === 1 ? matches[0] : '';
+  if (matches.length === 1) return matches[0];
+  const preferred = nationalityLabelOf(wanted, language);
+  const preferredKey = normalizedChoice(preferred).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '');
+  return preferredKey ? matches.find((option) => normalizedChoice(option).replace(/\s*\((?:eu|ue|efta|aele|aels)\)\s*$/i, '') === preferredKey) || '' : '';
 }
 
 const nationalityFieldLanguage = (label) => {
@@ -181,12 +184,12 @@ const readOwnedListEntries = async (options) => (await options.allInnerTexts())
   .map((label, index) => ({ label: String(label).replace(/\s+/g, ' ').trim(), index }))
   .filter(({ label }) => Boolean(label));
 
-async function waitForNationalityOption(page, options, value) {
+async function waitForNationalityOption(page, options, value, language) {
   const deadline = Date.now() + 5000;
   let entries = [];
   for (;;) {
     entries = await readOwnedListEntries(options);
-    const selectedLabel = nationalityOptionLabel(value, entries.map(({ label }) => label));
+    const selectedLabel = nationalityOptionLabel(value, entries.map(({ label }) => label), language);
     if (selectedLabel) return { entries, selectedLabel };
     const remaining = deadline - Date.now();
     if (remaining <= 0) return { entries, selectedLabel: '' };
@@ -297,7 +300,7 @@ async function chooseInOwnedList(page, field, locator, value) {
     const findSelectedLabel = () => {
       const labels = entries.map(({ label }) => label);
       const exact = entries.find(({ label }) => normalizedChoice(label) === normalizedChoice(value));
-      return exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels) : '');
+      return exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(value, labels, nationalityFieldLanguage(field.label)) : '');
     };
     let selectedLabel = findSelectedLabel();
     // Some SuccessFactors picklists do not expose the complete catalogue when
@@ -310,7 +313,7 @@ async function chooseInOwnedList(page, field, locator, value) {
         await Promise.resolve(locator.press('ControlOrMeta+A')).catch(() => {});
         await Promise.resolve(locator.press('Backspace')).catch(() => {});
         await Promise.resolve(locator.pressSequentially(query, { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS })).catch(() => {});
-        const filtered = await waitForNationalityOption(page, options, value);
+        const filtered = await waitForNationalityOption(page, options, value, nationalityFieldLanguage(field.label));
         entries = filtered.entries;
         selectedLabel = filtered.selectedLabel || findSelectedLabel();
       }
@@ -562,7 +565,7 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         let selectedLabel = action.value;
         if (field.kind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
-          selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label)) : '');
+          selectedLabel = exact?.label || (isNationalityField(field.label) ? nationalityOptionLabel(action.value, (field.options || []).map((option) => option.label), nationalityFieldLanguage(field.label)) : '');
           if (!selectedLabel) throw new Error('option_not_found');
           await locator.selectOption({ label: selectedLabel }, { timeout: ACTION_TIMEOUT_MS });
         } else if (field.kind === 'listbox') {

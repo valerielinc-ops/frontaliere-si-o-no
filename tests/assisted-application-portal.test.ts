@@ -56,6 +56,26 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(COVER_LETTER_UPLOAD_RE.test('Joindre une lettre de motivation')).toBe(true);
     expect(nationalityOptionLabel('italiana', ['allemande', 'italienne', 'suisse'])).toBe('italienne');
     expect(nationalityOptionLabel('italiana', ['Italie', 'Italia'])).toBe('');
+    expect(nationalityOptionLabel('italiana', ['Italie', 'italienne'], 'fr')).toBe('italienne');
+  });
+
+  it('chooses the canonical French label when a native nationality select has equivalent options', async () => {
+    let selected = '';
+    const control = {
+      selectOption: vi.fn(async ({ label }: { label: string }) => { selected = label; }),
+      evaluate: vi.fn(async (_read: unknown, data: { wanted: string }) => selected.toLowerCase() === data.wanted),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'nationality',
+      kind: 'select',
+      label: '* Nationalité',
+      options: [{ label: 'Italie' }, { label: 'italienne' }],
+    }], [{ fieldId: 'nationality', action: 'select', value: 'italiana' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'nationality', ok: true }]);
+    expect(control.selectOption).toHaveBeenCalledWith({ label: 'italienne' }, { timeout: 6000 });
   });
 
   it('keeps the original DOM index when a SuccessFactors picklist has a blank option', async () => {
