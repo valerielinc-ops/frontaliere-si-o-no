@@ -1,6 +1,4 @@
 {
-  "crawlerKey": "kzu",
-  "assembledAt": "2026-10-08T09:19:03.664Z",
   "jobs": [
     {
       "id": "kzu-bd9b969abcfa",
@@ -563,7 +561,7 @@
       "companyDomain": "kzu.ch",
       "title": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
+        "it": "Infermiere dipl. SSS/ SUP 40-100%",
         "en": "Dipl. HF/FH 40-100% (Palliative Care)",
         "de": "Dipl. Pflegefachfrau/-mann HF/ FH 40-100%",
         "fr": "Diplômé(e) en soins infirmiers HF/FH 40-100% (Soins palliatifs)"
@@ -805,5 +803,7 @@
         }
       }
     }
-  ]
+  ],
+  "crawlerKey": "kzu",
+  "assembledAt": "2026-10-08T09:19:03.664Z"
 }
