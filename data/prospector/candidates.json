@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-10-08T12:23:14.142Z",
+  "updatedAt": "2026-10-08T12:23:38.861Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -675619,12 +675619,12 @@
     },
     "pianorm.ch": {
       "key": "pianorm.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web"
       ],
       "firstSeenAt": "2026-08-21T09:48:05.301Z",
-      "updatedAt": "2026-10-08T12:20:06.954Z",
+      "updatedAt": "2026-10-08T12:23:38.835Z",
       "name": "pianorm",
       "domain": "pianorm.ch",
       "careersUrl": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
@@ -675767,7 +675767,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "12413",
+      "promotionBranch": "prospector/promote-2026-10-08"
     },
     "piattodoro.ch": {
       "key": "piattodoro.ch",
