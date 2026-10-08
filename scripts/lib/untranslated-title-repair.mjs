@@ -30,13 +30,24 @@ export function isTitleRepairQueueVerdict(verdict) {
 }
 
 /**
+ * Source locale of a job as the base language code the locale maps are keyed
+ * by: a stored regional tag (`de-CH`, `fr_CH`) must still find the `de`/`fr`
+ * slot and must still exclude it from the target locales. One place for the
+ * default, so lookup, exclusion and the detector cannot drift.
+ */
+export function titleRepairSourceLang(job) {
+  const base = String(job?.sourceLang || '').trim().toLowerCase().split(/[-_]/u)[0];
+  return base || 'it';
+}
+
+/**
  * The source title both lanes translate FROM: `job.title`, or the source
  * locale's slot when a crawler left `title` empty. The Argos handoff and the
  * Codex discovery must read the same value, or a slot Argos gives up is never
  * picked up by Codex.
  */
 export function titleRepairSourceTitle(job) {
-  const sourceLang = job?.sourceLang || 'it';
+  const sourceLang = titleRepairSourceLang(job);
   // Trim before choosing: a whitespace-only `title` is an empty title, not a
   // reason to skip the source-locale slot.
   return String(job?.title || '').trim()
@@ -48,7 +59,7 @@ export function titleRepairSourceTitle(job) {
  * detector reason. Single discovery predicate for `fix-untranslated-titles`.
  */
 export function titleRepairQueueLocales(job, locales = []) {
-  const sourceLang = job?.sourceLang || 'it';
+  const sourceLang = titleRepairSourceLang(job);
   if (!titleRepairSourceTitle(job)) return [];
   const admitted = [];
   for (const locale of locales) {
@@ -67,7 +78,7 @@ export function titleRepairQueueLocales(job, locales = []) {
  * address/company stripping or on the source-locale fallback.
  */
 export function titleRepairDetectorVerdict({ job, locale, title } = {}) {
-  const sourceLang = job?.sourceLang || 'it';
+  const sourceLang = titleRepairSourceLang(job);
   return titleLooksUntranslated({
     title,
     sourceTitle: titleRepairSourceTitle(job),

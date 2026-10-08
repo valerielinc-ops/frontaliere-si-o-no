@@ -115,6 +115,11 @@ describe('title repair queue admission', () => {
     // A whitespace-only title is empty too: the fallback still applies.
     expect(titleRepairQueueLocales({ ...job, title: '   ' }, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
     expect(shouldQueueArgosSlot({ ...job, title: '   ' }, { locale: 'it', field: 'title' })).toBe(false);
+    // A regional source tag still resolves the base-language slot and never
+    // offers the source locale itself as a target.
+    const regional = { ...job, sourceLang: 'de-CH' };
+    expect(titleRepairSourceTitle(regional)).toBe('Systemingenieur mit Projekterfahrung 80–100 %');
+    expect(titleRepairQueueLocales(regional, ['it', 'en', 'de', 'fr']).map(({ locale }) => locale)).toEqual(['it']);
     // No source title anywhere: neither lane takes the slot.
     expect(titleRepairQueueLocales({ ...job, titleByLocale: { it: job.titleByLocale.it } }, ['it', 'en', 'de', 'fr'])).toEqual([]);
   });
