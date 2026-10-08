@@ -322,6 +322,299 @@ export function verifyScatterParity(assembledJobs, sliceEntries) {
   return report;
 }
 
+const PARITY_DIAGNOSTIC_EXAMPLE_LIMITS = Object.freeze({
+  pendingWrites: 10,
+  missingBridges: 6,
+  duplicateAssembledMatches: 4,
+});
+
+function diagnosticJobRef(entry, job) {
+  return {
+    file: String(entry?.file || (entry?.filePath ? path.basename(entry.filePath) : '')),
+    url: normalizedJobUrl(job),
+  };
+}
+
+function diagnosticTextLocaleMap(map) {
+  const value = map && typeof map === 'object' ? map : {};
+  return Object.fromEntries(LOCALES.map((locale) => {
+    const text = String(value[locale] || '');
+    return [locale, { present: text.trim().length > 0, length: text.length }];
+  }));
+}
+
+function diagnosticSlugLocaleMap(map) {
+  const value = map && typeof map === 'object' ? map : {};
+  return Object.fromEntries(LOCALES
+    .filter((locale) => String(value[locale] || '').trim())
+    .map((locale) => [locale, String(value[locale])]));
+}
+
+function diagnosticHistory(job) {
+  const byLocale = {};
+  for (const locale of LOCALES) {
+    const values = Array.isArray(job?.previousSlugsByLocale?.[locale])
+      ? job.previousSlugsByLocale[locale].map((slug) => String(slug)).filter(Boolean)
+      : [];
+    if (values.length > 0) byLocale[locale] = values.slice(0, 8);
+  }
+  return {
+    previousSlugs: (Array.isArray(job?.previousSlugs) ? job.previousSlugs : [])
+      .map((slug) => String(slug)).filter(Boolean).slice(0, 8),
+    previousSlugsByLocale: byLocale,
+  };
+}
+
+function diagnosticServedHistory(job, slug) {
+  const value = String(slug || '');
+  if (!value || !job || typeof job !== 'object') return false;
+  if (String(job.slug || '') === value) return true;
+  if (Object.values(job.slugByLocale || {}).some((active) => String(active || '') === value)) return true;
+  if ((Array.isArray(job.previousSlugs) ? job.previousSlugs : []).includes(value)) return true;
+  return Object.values(job.previousSlugsByLocale || {}).some((slugs) => (
+    Array.isArray(slugs) && slugs.includes(value)
+  ));
+}
+
+function diagnosticLocaleAttributions(job, slug) {
+  const value = String(slug || '');
+  const locales = [];
+  for (const [locale, slugs] of Object.entries(job?.previousSlugsByLocale || {})) {
+    if (Array.isArray(slugs) && slugs.includes(value)) locales.push(locale);
+  }
+  return locales;
+}
+
+function diagnosticBridgeCandidates(assembled) {
+  const candidates = [];
+  const seen = new Set();
+  const add = (locale, slug) => {
+    const value = String(slug || '');
+    if (!value) return;
+    const key = `${locale || ''}\u0000${value}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    candidates.push({ locale: locale || null, slug: value, key });
+  };
+  for (const locale of LOCALES) {
+    for (const slug of (Array.isArray(assembled?.previousSlugsByLocale?.[locale])
+      ? assembled.previousSlugsByLocale[locale]
+      : [])) add(locale, slug);
+  }
+  for (const slug of (Array.isArray(assembled?.previousSlugs) ? assembled.previousSlugs : [])) {
+    add(null, slug);
+  }
+  return candidates;
+}
+
+function diagnosticFindProjectionJob(projectionEntries, entry, sliceJob) {
+  const projectionEntry = (Array.isArray(projectionEntries) ? projectionEntries : [])
+    .find((candidate) => (
+      candidate?.file === entry?.file
+      || (candidate?.filePath && entry?.filePath && candidate.filePath === entry.filePath)
+    ));
+  if (!projectionEntry) return null;
+  const sliceUrl = normalizedJobUrl(sliceJob);
+  const sliceKey = resolveJobDiffKey(sliceJob);
+  return sliceEntryJobs(projectionEntry).find((job) => (
+    (sliceUrl && normalizedJobUrl(job) === sliceUrl)
+    || (sliceKey && resolveJobDiffKey(job) === sliceKey)
+  )) || null;
+}
+
+function diagnosticPendingChangeSummary(sliceJob, projectedJob, assembled, missingBridges) {
+  const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
+  const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
+  const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+  const changes = {};
+  if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) {
+    changes.title = {
+      before: diagnosticTextLocaleMap(sliceJob.titleByLocale),
+      after: diagnosticTextLocaleMap(projectedJob.titleByLocale),
+    };
+  }
+  if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) {
+    changes.description = {
+      before: diagnosticTextLocaleMap(sliceJob.descriptionByLocale),
+      after: diagnosticTextLocaleMap(projectedJob.descriptionByLocale),
+    };
+  }
+  if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) {
+    // Report entry, not a job mutation: built with Object.assign so the
+    // slug-write encapsulation scan does not read it as a direct slug write.
+    Object.assign(changes, {
+      slug: {
+        before: diagnosticSlugLocaleMap(sliceJob.slugByLocale),
+        after: diagnosticSlugLocaleMap(projectedJob.slugByLocale),
+      },
+    });
+  }
+  if (missingBridges.length > 0) {
+    changes.bridge = {
+      candidates: missingBridges.slice(0, 8).map(({ locale, slug }) => ({ locale, slug })),
+      before: diagnosticHistory(sliceJob),
+      after: diagnosticHistory(projectedJob),
+    };
+  }
+  return changes;
+}
+
+function diagnosticProjectionTouched(sliceJob, projectionJob) {
+  if (!projectionJob) return false;
+  return !localeMapsEqual(sliceJob.titleByLocale, projectionJob.titleByLocale)
+    || !localeMapsEqual(sliceJob.descriptionByLocale, projectionJob.descriptionByLocale)
+    || !localeMapsEqual(sliceJob.slugByLocale, projectionJob.slugByLocale)
+    || JSON.stringify(diagnosticHistory(sliceJob)) !== JSON.stringify(diagnosticHistory(projectionJob));
+}
+
+/**
+ * Produce bounded evidence for a failed parity check. This is deliberately
+ * post-write and read-only: it never changes the projection or the verdict.
+ * Text fields are represented by presence/length, while public URLs and
+ * slugs remain visible so the next runner log can identify the data class.
+ *
+ * @param {Array<object>} assembledJobs
+ * @param {Array<{file?: string, filePath?: string, jobs?: Array<object>, slice?: object}>} sliceEntries
+ * @param {{projectionEntries?: Array<object>, maxExamples?: number}} [options]
+ * @returns {object}
+ */
+export function diagnoseScatterParity(assembledJobs, sliceEntries, { projectionEntries = [], maxExamples = 20 } = {}) {
+  const jobs = Array.isArray(assembledJobs) ? assembledJobs : [];
+  const entries = Array.isArray(sliceEntries) ? sliceEntries : [];
+  const index = buildAssembledJobIndex(jobs);
+  const ownership = buildSliceOwnershipIndex(entries);
+  const budgets = {
+    pendingWrites: Math.min(PARITY_DIAGNOSTIC_EXAMPLE_LIMITS.pendingWrites, Math.max(0, maxExamples)),
+    missingBridges: Math.min(PARITY_DIAGNOSTIC_EXAMPLE_LIMITS.missingBridges, Math.max(0, maxExamples - 10)),
+    duplicateAssembledMatches: Math.min(PARITY_DIAGNOSTIC_EXAMPLE_LIMITS.duplicateAssembledMatches, Math.max(0, maxExamples - 16)),
+  };
+  const pendingWrites = { total: 0, byClass: {}, examples: [] };
+  const missingBridges = {
+    total: 0,
+    byClass: {},
+    candidateCounts: {},
+    examples: [],
+    capSuppressed: 0,
+  };
+  const duplicateAssembledMatches = { total: 0, examples: [] };
+  const matchCounts = new Map();
+  const firstMatch = new Map();
+
+  const increment = (bucket, key) => {
+    bucket.byClass[key] = (bucket.byClass[key] || 0) + 1;
+  };
+  const incrementCandidate = (key) => {
+    missingBridges.candidateCounts[key] = (missingBridges.candidateCounts[key] || 0) + 1;
+  };
+  const addBridgeExample = (entry, sliceJob, locale, slug, className, parityMissing) => {
+    if (missingBridges.examples.length >= budgets.missingBridges) return;
+    missingBridges.examples.push({
+      ...diagnosticJobRef(entry, sliceJob),
+      locale,
+      slug,
+      class: className,
+      parityMissing,
+    });
+  };
+
+  for (const entry of entries) {
+    for (const sliceJob of sliceEntryJobs(entry)) {
+      const assembled = matchAssembledJob(sliceJob, index);
+      if (!assembled) continue;
+
+      const matchCount = (matchCounts.get(assembled) || 0) + 1;
+      matchCounts.set(assembled, matchCount);
+      if (matchCount > 1) {
+        duplicateAssembledMatches.total++;
+        if (duplicateAssembledMatches.examples.length < budgets.duplicateAssembledMatches) {
+          duplicateAssembledMatches.examples.push({
+            assembledUrl: normalizedJobUrl(assembled),
+            firstSlice: firstMatch.get(assembled),
+            duplicateSlice: diagnosticJobRef(entry, sliceJob),
+          });
+        }
+      } else {
+        firstMatch.set(assembled, diagnosticJobRef(entry, sliceJob));
+      }
+
+      const skipBridges = bridgesOwnedByAnotherSlice(sliceJob, entry, assembled, ownership);
+      const missing = collectMissingAssembledBridges(sliceJob, assembled, { skipBridges });
+      const applied = applyAssembledToSliceJob(sliceJob, assembled, { skipBridges });
+      if (applied.changed) {
+        pendingWrites.total++;
+        const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
+        const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
+        const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
+        const classes = [];
+        if (!localeMapsEqual(mergedTitle, sliceJob.titleByLocale)) classes.push('title');
+        if (!localeMapsEqual(mergedDesc, sliceJob.descriptionByLocale)) classes.push('description');
+        if (!localeMapsEqual(mergedSlug, sliceJob.slugByLocale)) classes.push('slug');
+        if (missing.length > 0) classes.push('bridge');
+        const className = classes.length === 1 ? classes[0] : (classes.length > 1 ? 'multiple' : 'unknown');
+        increment(pendingWrites, className);
+        if (pendingWrites.examples.length < budgets.pendingWrites) {
+          pendingWrites.examples.push({
+            ...diagnosticJobRef(entry, sliceJob),
+            classes,
+            changes: diagnosticPendingChangeSummary(sliceJob, applied.job, assembled, missing),
+          });
+        }
+      }
+
+      const candidateByKey = new Map(diagnosticBridgeCandidates(assembled).map((candidate) => [candidate.key, candidate]));
+      const selectedKeys = new Set(missing.map(({ locale, slug }) => `${locale || ''}\u0000${String(slug)}`));
+      const selectedSlugs = new Set(missing.map(({ slug }) => String(slug)));
+      for (const candidate of candidateByKey.values()) {
+        const { locale, slug, key } = candidate;
+        const projectionJob = diagnosticFindProjectionJob(projectionEntries, entry, sliceJob);
+        const served = diagnosticServedHistory(sliceJob, slug);
+        const attributed = diagnosticLocaleAttributions(sliceJob, slug);
+        const selected = selectedKeys.has(key);
+        if (selected) {
+          missingBridges.total++;
+          let className;
+          if (served && locale && !attributed.includes(locale)) {
+            className = 'differentLocaleAttribution';
+          } else if (projectionJob && diagnosticServedHistory(projectionJob, slug)) {
+            className = 'writtenThenRemovedByWriter';
+          } else if (projectionEntries.length > 0 && !diagnosticProjectionTouched(sliceJob, projectionJob)) {
+            className = 'jobNotTouchedByFirstPass';
+          } else {
+            className = 'stillMissingAfterWrite';
+          }
+          increment(missingBridges, className);
+          incrementCandidate(className);
+          addBridgeExample(entry, sliceJob, locale, slug, className, true);
+          continue;
+        }
+        // The same bridge can appear once in previousSlugsByLocale and once
+        // in the legacy flat mirror. collectMissingAssembledBridges counts
+        // that as one candidate; do not report the mirror as a second cap
+        // suppression.
+        if (selectedSlugs.has(slug)) continue;
+        if (served && locale && !attributed.includes(locale)) {
+          incrementCandidate('differentLocaleAttribution');
+          addBridgeExample(entry, sliceJob, locale, slug, 'differentLocaleAttribution', false);
+        } else if (skipBridges.has(slug)) {
+          incrementCandidate('writtenAndMoved');
+          addBridgeExample(entry, sliceJob, locale, slug, 'writtenAndMoved', false);
+        } else {
+          missingBridges.capSuppressed++;
+          incrementCandidate('notWrittenAboveCap');
+          addBridgeExample(entry, sliceJob, locale, slug, 'notWrittenAboveCap', false);
+        }
+      }
+    }
+  }
+
+  return {
+    exampleLimit: Math.min(20, Math.max(0, maxExamples)),
+    pendingWrites,
+    missingBridges,
+    duplicateAssembledMatches,
+  };
+}
+
 function readSliceFileEntries(directory) {
   return listSliceFileNames(directory).flatMap((file) => {
     const filePath = path.join(directory, file);
@@ -699,9 +992,20 @@ function main() {
   // Verify what was actually persisted, not the in-memory projection: the
   // writer applies the slug-preservation guard, so only a re-read proves the
   // committed slices match the assembled snapshot.
-  const parity = verifyScatterParity(jobs, readSliceFileEntries(SLICES_DIR).map(({ file, slice }) => ({ file, jobs: slice.jobs })));
+  const persistedFileEntries = readSliceFileEntries(SLICES_DIR);
+  const persistedEntries = persistedFileEntries.map(({ file, slice }) => ({ file, jobs: slice.jobs }));
+  const parity = verifyScatterParity(jobs, persistedEntries);
   console.log(`🔎 SCATTER_PARITY ${JSON.stringify(parity)}`);
   if (!parity.passed) {
+    const inMemoryParity = verifyScatterParity(
+      jobs,
+      projection.entries.map(({ file, slice }) => ({ file, jobs: slice.jobs })),
+    );
+    const diagnostics = diagnoseScatterParity(jobs, persistedFileEntries, {
+      projectionEntries: projection.entries,
+      maxExamples: 20,
+    });
+    console.error(`🧪 SCATTER_PARITY_DIAGNOSTICS ${JSON.stringify({ inMemoryParity, persistedParity: parity, ...diagnostics })}`);
     console.error('❌ Scatter parity failed — refusing to publish an unverified assembled→slice projection.');
     process.exitCode = 1;
   }

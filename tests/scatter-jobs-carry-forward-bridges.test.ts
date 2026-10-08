@@ -26,6 +26,7 @@ import {
   applyAssembledToSliceJob,
   buildAssembledJobIndex,
   collectMissingAssembledBridges,
+  diagnoseScatterParity,
   matchAssembledJob,
   scatterAssembledIntoSliceEntries,
   verifyScatterParity,
@@ -263,6 +264,46 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
       pendingWrites: 1,
       passed: false,
     });
+  });
+
+  it('bounds failed-parity diagnostics and classifies pending fields and duplicate matches', () => {
+    const sliceJob = { ...baseSlice() };
+    const assembled = {
+      ...baseSlice(),
+      previousSlugs: ['bridge-missing-from-slice'],
+      previousSlugsByLocale: { en: ['bridge-missing-from-slice'] },
+      titleByLocale: { it: 'T', en: 'Translated title' },
+      descriptionByLocale: { it: 'Description' },
+      slugByLocale: { it: 's-it', en: 's-en-new' },
+    };
+    const duplicate = { ...sliceJob, id: 'duplicate-slice-job' };
+    const report = diagnoseScatterParity(
+      [assembled],
+      [{ file: 'fixture.json', jobs: [sliceJob, duplicate] }],
+      { maxExamples: 20 },
+    );
+
+    expect(report.pendingWrites.total).toBe(2);
+    expect(report.pendingWrites.byClass.multiple).toBe(2);
+    expect(report.pendingWrites.examples).toHaveLength(2);
+    expect(report.pendingWrites.examples[0].changes).toMatchObject({
+      title: expect.any(Object),
+      description: expect.any(Object),
+      slug: expect.any(Object),
+      bridge: expect.any(Object),
+    });
+    expect(report.missingBridges).toMatchObject({
+      total: 2,
+      byClass: { stillMissingAfterWrite: 2 },
+      candidateCounts: { stillMissingAfterWrite: 2 },
+    });
+    expect(report.duplicateAssembledMatches).toMatchObject({
+      total: 1,
+      examples: [{ assembledUrl: assembled.url }],
+    });
+    expect(report.pendingWrites.examples.length
+      + report.missingBridges.examples.length
+      + report.duplicateAssembledMatches.examples.length).toBeLessThanOrEqual(20);
   });
 
   it('projects a bridge to its decontamination owner and is idempotent across a second scatter', () => {
