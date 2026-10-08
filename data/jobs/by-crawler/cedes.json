@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-10-08T21:13:51.326Z",
+  "assembledAt": "2026-10-08T22:08:28.016Z",
   "jobs": [
     {
       "id": "cedes-38194b91f772",
@@ -47,16 +47,16 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:13:44.931Z",
-      "firstSeenAt": "2026-08-25T09:46:00.183Z",
+      "crawledAt": "2026-10-08T22:08:23.080Z",
+      "previousSlugs": [
+        "lead-buyer-electronics-cedes-landquart"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lead-buyer-electronics-cedes-landquart"
         ]
       },
-      "previousSlugs": [
-        "lead-buyer-electronics-cedes-landquart"
-      ],
+      "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
       "salarySource": "estimated",
@@ -117,7 +117,7 @@
       "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:13:44.347Z",
+      "crawledAt": "2026-10-08T22:08:22.519Z",
       "previousSlugs": [
         "operatore-in-assemblaggio-smd-cedes-ag-landquart",
         "operatore-nel-montaggio-smd-cedes-ag-landquart",
@@ -132,6 +132,7 @@
           "operatore-nell-assemblaggio-smd-cedes-ag-landquart"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-10-03T09:12:24.879Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -146,8 +147,7 @@
           "unitText": "YEAR"
         }
       },
-      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
-      "needsRetranslation": true
+      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/"
     },
     {
       "id": "cedes-3fa516c3ca31",
@@ -194,7 +194,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T21:13:43.840Z",
+      "crawledAt": "2026-10-08T22:08:22.040Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
