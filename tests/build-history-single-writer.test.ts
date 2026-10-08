@@ -205,6 +205,8 @@ const HISTORY = 'data/build-history/memory-peaks.jsonl';
 const WRITER_FILES = [
   'scripts/lib/commit-build-history-rows.sh',
   'scripts/lib/git-push-with-retry.sh',
+  // Il push con retry lancia ogni comando di rete attraverso questo wrapper.
+  'scripts/lib/run-bounded-command.mjs',
   'scripts/lib/configure-main-push-auth.sh',
   'scripts/lib/clear-checkout-git-credentials.sh',
   'scripts/lib/git-push-rejection.sh',

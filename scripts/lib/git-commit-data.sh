@@ -60,6 +60,32 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
+BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
+
+# The fetch ceiling is supported by issue 12175's 61.6, 62.6, 83.0 and
+# 95.1-second commit-graph measurements. The pull ceiling has no direct
+# measurement; the push ceiling follows the 180-second refresh policy already
+# in use. These GIT_COMMIT_DATA_* overrides are only for the test bench;
+# production keeps the declared defaults.
+#
+# The unshallow fetch has a ceiling of its own, and it is not the fetch one.
+# It downloads the whole history of main: 31.44 GiB reachable from origin/main
+# across 124,981 commits, measured on a complete clone on 2026-10-08. Under the
+# ordinary 300 seconds it could never finish, and `ensure_full_history` would
+# turn "slow" into "refusing to guess" on every run. Its real duration has not
+# been measured in CI; an hour bounds a hung transfer without cutting one that
+# is still arriving. The crawler-group jobs that reach it allow 340 minutes.
+GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS:-300}"
+GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS:-3600}"
+GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS:-300}"
+GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS="${GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS:-180}"
+
+run_bounded() {
+  local seconds="$1" label="$2"
+  shift 2
+  node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
 # Register the seo-404 compat-shard merge driver (.gitattributes
 # `merge=compat-shard`) so concurrent rebases of data/seo-404-compat/part-*.json
 # auto-resolve as a 3-way SET merge (deduped + sorted) instead of git's default
@@ -389,7 +415,8 @@ _SHALLOW_CHECKOUT_STATUS=""
 ensure_full_history() {
   if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
     if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
-      if git fetch --unshallow origin main >/dev/null 2>&1 \
+      if run_bounded "$GIT_COMMIT_DATA_UNSHALLOW_TIMEOUT_SECONDS" "git fetch --unshallow origin main" \
+        bash -c 'git fetch --unshallow origin main >/dev/null 2>&1' \
         && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
         _SHALLOW_CHECKOUT_STATUS="unshallowed"
       else
@@ -1880,7 +1907,8 @@ git_fetch_retry() {
   local attempts=0
   while true; do
     attempts=$((attempts + 1))
-    if git fetch origin main; then
+    if run_bounded "$GIT_COMMIT_DATA_FETCH_TIMEOUT_SECONDS" "git fetch origin main" \
+      git fetch origin main; then
       return 0
     fi
     if [ "$attempts" -ge "$MAX_FETCH_ATTEMPTS" ]; then
@@ -2784,7 +2812,9 @@ commit_isolated_from_worktree() {
     # complete) so exhaustion can be classified on the LAST attempt: only a
     # genuine rejection/race may become exit 42.
     push_out=""
-    if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
+    if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+      "git push --no-thin origin <commit>:refs/heads/main" \
+      git -c pack.window=0 -c pack.threads=1 push --no-thin origin "${new_commit}:refs/heads/main" 2>&1)"; then
       isolated_phase_add push "$phase_started"
       printf '%s\n' "$push_out"
       isolated_phase_report "$push_attempt"
@@ -2902,11 +2932,13 @@ if [ "$LOCAL" != "$REMOTE" ]; then
   git stash --include-untracked
 
   ensure_git_auth
-  if ! git pull --rebase origin main; then
+  if ! run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --rebase origin main" \
+    git pull --rebase origin main; then
     git rebase --abort 2>/dev/null || true
     echo "⚠️ Fast-rebase failed — pulling with merge..."
     ensure_git_auth
-    git pull --no-rebase origin main || true
+    run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --no-rebase origin main" \
+      git pull --no-rebase origin main || true
   fi
 
   # Restore local changes
@@ -3048,7 +3080,8 @@ if ! git rebase origin/main 2>/dev/null; then
   # Re-pull with merge strategy to get remote changes
   git stash --include-untracked 2>/dev/null || true
   ensure_git_auth
-  git pull --no-rebase origin main || true
+  run_bounded "$GIT_COMMIT_DATA_PULL_TIMEOUT_SECONDS" "git pull --no-rebase origin main" \
+    git pull --no-rebase origin main || true
 
   restore_stashed_changes_with_safe_merge \
     "$LAST_MOMENT_SNAPSHOT_DIR" \
@@ -3075,7 +3108,9 @@ ensure_git_auth
 # complete) so exhaustion can be classified on the LAST attempt: only a
 # genuine rejection/race may become exit 42.
 push_out=""
-if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
+if push_out="$(run_bounded "$GIT_COMMIT_DATA_PUSH_TIMEOUT_SECONDS" \
+  "git push --no-thin origin main" \
+  git -c pack.window=0 -c pack.threads=1 push --no-thin origin main 2>&1)"; then
   printf '%s\n' "$push_out"
   echo "✅ Pushed successfully"
 
