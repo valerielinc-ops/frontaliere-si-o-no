@@ -1,9 +1,9 @@
 {
   "date": "2026-10-08",
-  "generatedAt": "2026-10-08T07:49:46.507Z",
+  "generatedAt": "2026-10-08T14:00:44.424Z",
   "zones": {
     "chiasso": {
-      "diesel": 2.285,
+      "diesel": 2.292,
       "benzina": 2.013
     },
     "mendrisio": {
@@ -12,26 +12,26 @@
     },
     "lugano": {
       "diesel": 2.285,
-      "benzina": 2.005
+      "benzina": 2.007
     },
     "bellinzona": {
-      "diesel": 2.268,
-      "benzina": 1.985
+      "diesel": 2.271,
+      "benzina": 1.987
     },
     "locarno": {
-      "diesel": 2.267,
-      "benzina": 2.013
+      "diesel": 2.22,
+      "benzina": 1.97
     }
   },
   "regional": {
-    "diesel": 2.333,
-    "benzina": 2.047
+    "diesel": 2.331,
+    "benzina": 2.042
   },
   "diesel": {
     "source": "api",
-    "realCoveragePct": 93.6,
-    "realStationCount": 88,
-    "totalStationCount": 94
+    "realCoveragePct": 92.5,
+    "realStationCount": 86,
+    "totalStationCount": 93
   },
   "italianCities": {
     "como": {
@@ -134,15 +134,15 @@
       "diesel": 2.21,
       "benzina": 1.98
     },
-    "eni-via-del-breggia": {
-      "diesel": 2.39,
-      "benzina": 1.99
-    },
     "silo-via-emilio-bossi": {
       "diesel": 2.29,
       "benzina": 1.99
     },
-    "socar-via-del-breggia": {
+    "eni-via-del-breggia": {
+      "diesel": 2.39,
+      "benzina": 1.99
+    },
+    "bp-via-del-breggia": {
       "diesel": 2.38,
       "benzina": 1.99
     },
@@ -156,11 +156,7 @@
     },
     "texon-via-cantonale": {
       "diesel": 2.24,
-      "benzina": 1.95
-    },
-    "euro-via-colombera": {
-      "diesel": 2.24,
-      "benzina": 1.95
+      "benzina": 1.94
     },
     "euro-via-cantonale": {
       "diesel": 2.19,
@@ -174,7 +170,7 @@
       "diesel": 2.13,
       "benzina": 1.95
     },
-    "bp-via-del-breggia": {
+    "socar-via-del-breggia": {
       "diesel": 2.38,
       "benzina": 1.99
     },
@@ -194,10 +190,6 @@
       "diesel": 2.27,
       "benzina": 1.99
     },
-    "gioia-str-cantonale": {
-      "diesel": 2.26,
-      "benzina": 1.95
-    },
     "euro-via-monte-ceneri": {
       "diesel": 2.24,
       "benzina": 1.96
@@ -206,11 +198,11 @@
       "diesel": 2.28,
       "benzina": 1.98
     },
-    "migrol-via-al-foss": {
+    "socar-strada-cantonale": {
       "diesel": 2.32,
       "benzina": 2.04
     },
-    "socar-strada-cantonale": {
+    "migrol-via-al-foss": {
       "diesel": 2.32,
       "benzina": 2.04
     },
@@ -222,33 +214,41 @@
       "diesel": 2.69,
       "benzina": 2.39
     },
-    "garage-via-lugano": {
-      "diesel": 2.28,
-      "benzina": 1.98
-    },
     "agrola-via-san-gottardo": {
       "diesel": 2.25,
       "benzina": 1.98
     },
-    "coop-via-san-gottardo": {
+    "garage-viale-c-olgiati": {
       "diesel": 2.26,
       "benzina": 1.99
     },
-    "garage-viale-c-olgiati": {
-      "diesel": 2.26,
+    "eni-via-motta": {
+      "diesel": 2.29,
+      "benzina": 1.99
+    },
+    "garage-via-lugano": {
+      "diesel": 2.28,
       "benzina": 1.99
     },
     "socar-via-san-gottardo": {
       "diesel": 2.26,
       "benzina": 1.99
     },
-    "eni-via-pobbia": {
+    "coop-via-monte-ceneri": {
       "diesel": 2.26,
       "benzina": 1.99
     },
-    "socar-via-maestri-comacini": {
-      "diesel": 2.32,
+    "socar-in-tirada": {
+      "diesel": 2.26,
+      "benzina": 1.99
+    },
+    "eni-via-como": {
+      "diesel": 2.35,
       "benzina": 2.04
+    },
+    "coop-via-cantonale": {
+      "diesel": 2.25,
+      "benzina": 1.98
     },
     "righetti-via-circonvallazione": {
       "diesel": 2.3,
@@ -258,8 +258,16 @@
       "diesel": 2.29,
       "benzina": 2.02
     },
+    "gioia-str-cantonale": {
+      "diesel": 2.26,
+      "benzina": 1.95
+    },
     "real-via-tinelle": {
       "diesel": 2.34,
+      "benzina": 1.99
+    },
+    "coop-via-san-gottardo": {
+      "diesel": 2.26,
       "benzina": 1.99
     },
     "piccadilly-via-san-gottardo": {
@@ -291,9 +299,9 @@
       "diesel": 2.29,
       "benzina": 2.02
     },
-    "eni-via-valletta": {
+    "piccadilly-via-canova": {
       "diesel": 2.33,
-      "benzina": 2.05
+      "benzina": 2.07
     },
     "bp-via-adorna": {
       "diesel": 2.28,
@@ -303,9 +311,9 @@
       "diesel": 2.29,
       "benzina": 1.99
     },
-    "piccadilly-via-cios": {
-      "diesel": 2.33,
-      "benzina": 2.09
+    "euro-via-colombera": {
+      "diesel": 2.29,
+      "benzina": 1.99
     },
     "eni-via-comacini": {
       "diesel": 2.32,
@@ -314,14 +322,6 @@
     "eni-via-marcetto": {
       "diesel": 2.33,
       "benzina": 2.05
-    },
-    "eni-via-passeggiata": {
-      "diesel": 2.35,
-      "benzina": 2.09
-    },
-    "eni-via-cios": {
-      "diesel": 2.33,
-      "benzina": 2.09
     },
     "ecsa-via-valmara": {
       "diesel": 2.29,
@@ -342,23 +342,23 @@
     "eni-strada-cantonale": {
       "benzina": 2.06
     },
+    "migrol-via-valmaggina": {
+      "diesel": 2.29,
+      "benzina": 2.02
+    },
     "fahrzeug-furkastrasse": {
       "diesel": 2.46,
-      "benzina": 2.14
-    },
-    "coop-nagereija": {
-      "diesel": 2.4,
       "benzina": 2.14
     },
     "bp-furkastrasse": {
       "diesel": 2.43,
       "benzina": 2.14
     },
-    "tamoil-furkastrasse": {
-      "diesel": 2.44,
-      "benzina": 2.15
+    "coop-nagereija": {
+      "diesel": 2.4,
+      "benzina": 2.14
     },
-    "tamoil-fuergangen": {
+    "tamoil-furkastrasse": {
       "diesel": 2.44,
       "benzina": 2.15
     },
@@ -366,9 +366,8 @@
       "diesel": 2.22,
       "benzina": 1.97
     },
-    "eni-via-luini": {
-      "diesel": 2.29,
-      "benzina": 2.03
+    "antrobio-la-cantonal": {
+      "benzina": 2.02
     },
     "laposte-schinerstrasse": {
       "diesel": 2.43,
@@ -380,10 +379,6 @@
     "bp-via-cantonale": {
       "diesel": 2.27,
       "benzina": 1.99
-    },
-    "tamoil-locarno": {
-      "diesel": 2.29,
-      "benzina": 2.04
     },
     "migrol-vial-di-curtin": {
       "diesel": 2.36,
@@ -456,11 +451,11 @@
       "diesel": 2.39,
       "benzina": 2.15
     },
-    "avia-stradun": {
+    "tamoil-via-da-manarol": {
       "diesel": 2.39,
       "benzina": 2.15
     },
-    "tamoil-via-da-manarol": {
+    "avia-stradun": {
       "diesel": 2.39,
       "benzina": 2.15
     }
