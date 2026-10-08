@@ -11,7 +11,10 @@ import { runtimeArticleRecords, fetchArticleBodyParts, publishRuntimeArticleBody
 import type { Locale } from '@/services/i18n';
 import { buildPath, preloadBlogData, learnRuntimeBlogSlugs, learnRuntimeSwissSlugs, learnRuntimeCantonSlugs } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
-import { stripMarkdownPlain } from '@/build-plugins/shared/stripMarkdownPlain';
+import {
+ normalizeArticleExcerptPlain,
+ stripMarkdownPlain,
+} from '@/build-plugins/shared/stripMarkdownPlain';
 import {
  advanceMarkdownFence,
  markdownFenceFor,
@@ -1759,7 +1762,7 @@ function BlogArticlesContent({
  const article = articles.find(a => a.id === selectedArticle);
  if (!article) return;
  const title = t(`blog.article.${article.id}.title`);
- const excerpt = t(`blog.article.${article.id}.excerpt`);
+ const excerpt = normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`));
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
  const canonicalUrl = `https://frontaliereticino.ch${buildPath(buildArticleLinkRoute(article.id))}`;
@@ -2711,7 +2714,7 @@ function BlogArticlesContent({
  <div className="px-4 sm:px-6 py-6 space-y-5">
  <Callout status="accent" variant="plain">
  <p className="text-lg text-subtle italic">
- {t(`blog.article.${article.id}.excerpt`)}
+ {normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`))}
  </p>
  </Callout>
 
@@ -3275,7 +3278,7 @@ function BlogArticlesContent({
  {t(`blog.article.${pageArticles[0].id}.title`)}
  </h2>
  <p className="text-on-accent/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">
- {t(`blog.article.${pageArticles[0].id}.excerpt`)}
+ {normalizeArticleExcerptPlain(t(`blog.article.${pageArticles[0].id}.excerpt`))}
  </p>
  </div>
  </div>
@@ -3335,7 +3338,7 @@ function BlogArticlesContent({
  {t(`blog.article.${article.id}.title`)}
  </h3>
  <p className="text-sm text-subtle line-clamp-2 mb-3 leading-relaxed">
- {t(`blog.article.${article.id}.excerpt`)}
+ {normalizeArticleExcerptPlain(t(`blog.article.${article.id}.excerpt`))}
  </p>
  <div className="flex flex-wrap items-center gap-1.5 mb-3">
  {article.hasCalculator && (
