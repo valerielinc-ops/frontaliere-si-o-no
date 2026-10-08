@@ -16,9 +16,9 @@
       "3": 0,
       "4": 0,
       "5": 19,
-      "6": 5060
+      "6": 5065
     },
-    "publishedCovers": 6772,
+    "publishedCovers": 6777,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 150,
     "inheritedRecordsMaterialized": 197,
@@ -180134,6 +180134,141 @@
           "id": "svizzera-india-accordi-bilaterali",
           "category": "novita",
           "date": "2026-10-07T08:55:11.941Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-biasca-17enne-arrestato-accoltellamento": {
+      "cover": "/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp",
+      "hash": "cbb4330ac1dff4099becf948d35004a5122410ad3dbf9c8549a9caa43bc2f6b3",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "biasca-17enne-arrestato-accoltellamento",
+          "category": "novita",
+          "date": "2026-10-07T10:19:58.619Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-cancro-prostata-assistenza-svizzera": {
+      "cover": "/images/blog/article-cancro-prostata-assistenza-svizzera.webp",
+      "hash": "d55591845ab6255b4ca9e987686a09305cf152f5e518a9d93fe7f52cc14176a1",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "cancro-prostata-assistenza-svizzera",
+          "category": "pratico",
+          "date": "2026-10-07T10:02:14.636Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-incentivi-energetici-lucerna-requisiti": {
+      "cover": "/images/blog/article-incentivi-energetici-lucerna-requisiti.webp",
+      "hash": "2fba0c10d3caf4b3edfd46151f770231c07ca1015c9a92e8d3ee6f4bb09d8b74",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "svizzera",
+          "id": "incentivi-energetici-lucerna-requisiti",
+          "category": "pratico",
+          "date": "2026-10-08T04:06:47.790Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-kastritis-varese-momento-difficile": {
+      "cover": "/images/blog/article-kastritis-varese-momento-difficile.webp",
+      "hash": "b1139186242332341bfec8f2e635bb69e89caa0b40820789d110c4cc657b05bd",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "kastritis-varese-momento-difficile",
+          "category": "novita",
+          "date": "2026-10-08T03:50:32.226Z",
+          "updatedAt": null,
+          "authorSlug": "redazione"
+        }
+      ],
+      "proofLevel": 6,
+      "evidence": "inferred",
+      "recordFile": null,
+      "inheritedFrom": null,
+      "action": "record-inferred",
+      "reason": "Copertina senza prova certa; conservata con record inferred senza credito.",
+      "priority": 1791,
+      "verifiedAt": "2026-10-08",
+      "provider": null,
+      "currentlyPublished": true,
+      "status": "no-credit"
+    },
+    "article-treno-foliage-locarno-domodossola": {
+      "cover": "/images/blog/article-treno-foliage-locarno-domodossola.webp",
+      "hash": "36f90e9c41662798f2bd665f9eb1ae652486164f2e840cc2720bac909ef7ec66",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "treno-foliage-locarno-domodossola",
+          "category": "novita",
+          "date": "2026-10-07T09:13:12.596Z",
           "updatedAt": null,
           "authorSlug": "redazione"
         }

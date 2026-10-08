@@ -7901,6 +7901,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Motor vehicle tax in the canton of Lucerne: calculation and payment',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Motor vehicle tax in the Canton of Lucerne: calculation, deadlines, amounts and payment. Change of vehicle and address according to the cantonal rules of Lucerne.',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Vehicle tax paperwork and a Swiss cantonal road in Lucerne',
+    'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Energy incentives in the Canton of Lucerne: requirements and application',
+    'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## TL;DR - In the Canton of Lucerne, incentives concern buildings and installations. - The requirements to be verified are technical. - The application must be submitted beforehand',
+    'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Residential building undergoing energy renovation in Switzerland',
 };
 
 export default blogMetaChEn;

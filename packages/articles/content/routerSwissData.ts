@@ -2656,6 +2656,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salario-minimo-lucerna-requisiti': { it: 'salario-minimo-lucerna-requisiti', en: 'lucerne-minimum-wage-requirements', de: 'mindestlohnabhaengigkeit-kanton-luzern', fr: 'salaire-minimum-canton-lucerne-exigences' },
  'assistenza-sociale-lucerna-requisiti': { it: 'assistenza-sociale-lucerna-requisiti', en: 'social-assistance-lucerne-requirements', de: 'sozialhilfe-kanton-luzern-voraussetzungen', fr: 'aide-sociale-lucerne-exigences' },
  'imposta-autoveicoli-lucerna-calcolo': { it: 'imposta-autoveicoli-lucerna-calcolo', en: 'lucerne-vehicle-tax-calculation', de: 'luzern-motorfahrzeugsteuer-berechnung', fr: 'lucerne-impot-vehicules-calcul' },
+ 'incentivi-energetici-lucerna-requisiti': { it: 'incentivi-energetici-lucerna-requisiti', en: 'energy-incentives-lucerne-requirements', de: 'energiefoerderung-luzern-anforderungen', fr: 'subventions-energetiques-lucerne-exigences' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

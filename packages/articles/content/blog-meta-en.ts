@@ -12781,6 +12781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pro-patria-varese-5-2-coppa-italia.title': 'Pro patria beats Varese 5-2 in the Coppa Italia',
     'blog.article.pro-patria-varese-5-2-coppa-italia.excerpt': '## TL;DR - Pro Patria beats Varese 5-2 at Franco Ossola. - Maistrello, Mapelli and Bonaidi seal the first 3-0. - Gallotti and Castellucchio bring back',
     'blog.article.pro-patria-varese-5-2-coppa-italia.imageAlt': 'Lake Lugano at sunset with mountain reflections',
+    'blog.article.kastritis-varese-momento-difficile.title': 'Kastritis: difficult moment will help us grow, maximum confidence in the group',
+    'blog.article.kastritis-varese-momento-difficile.excerpt': 'Varese loses his Champions League debut in Murcia against UCAM Murcia, with the absences of McDowell and Della Valle; Kastritis highlights the defensive intensity and confidence in the group, next game in three days.',
+    'blog.article.kastritis-varese-momento-difficile.imageAlt': 'Pallacanestro Varese players in defensive action on an outdoor court in Lugano with lake and mountain backdrop',
 };
 
 export default blogMetaEn;

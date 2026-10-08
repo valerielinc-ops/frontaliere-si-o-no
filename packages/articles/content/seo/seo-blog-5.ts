@@ -100641,7 +100641,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - Dal 10 ottobre al 15 novembre 2026 - 52 chilometri tra Locarno e Domodossola - Poco meno di due ore per tratta - Biglietto valido uno o due giorni",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/camelie-locarno-record-visitatori-2026-2.webp`,
+        "url": `${BASE_URL}/images/blog/article-treno-foliage-locarno-domodossola.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Il Treno del Foliage attraversa i paesaggi autunnali tra Locarno e Domodossola"
@@ -100675,7 +100675,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "description": "## In breve - A Biasca arrestato un 17enne siriano dimorante - Ferito all’addome, il 21enne è fuori pericolo - L’accusa principale è di tentato omicidio",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/biasca-accoltellamento-21enne.webp`,
+        "url": `${BASE_URL}/images/blog/article-biasca-17enne-arrestato-accoltellamento.webp`,
         "width": 1200,
         "height": 675,
         "caption": "Nastro della polizia e luci lampeggianti vicino alla stazione di Biasca al tramonto"
@@ -101283,6 +101283,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-kastritis-varese-momento-difficile': {
+    title: 'Kastritis: momento difficile ci aiuterà a crescere, massima fiducia nel gruppo',
+    description: 'Varese cade all\'esordio in Champions League a Murcia contro l\'UCAM Murcia; Kastritis elogia la difesa, cita le assenze di McDowell e Della Valle e annuncia',
+    keywords: 'frontalieri, ticino, svizzera, italia, kastritis, momento, difficile, aiuterà',
+    ogTitle: 'Kastritis: momento difficile ci aiuterà a crescere, massima fiducia nel gruppo',
+    ogDescription: 'Dopo la sconfitta dell\'esordio in Champions League a Murcia contro l\'UCAM Murcia, l\'allenatore Ioannis Kastritis sottolinea l\'intensità difensiva mostrata dai giocatori, nonostante le assenze rilevanti di McDowell e Della Valle. Egli mantiene massima',
+    canonicalPath: '/articoli-frontaliere/kastritis-varese-momento-difficile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Kastritis: momento difficile ci aiuterà a crescere, massima fiducia nel gruppo",
+      "description": "Varese cade all'esordio in Champions League a Murcia contro l'UCAM Murcia; Kastritis elogia la difesa, cita le assenze di McDowell e Della Valle e annuncia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-kastritis-varese-momento-difficile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giocatori di Pallacanestro Varese in azione difensiva su un campo aperto a Lugano con lo sfondo del lago e delle montagne"
+      },
+      "datePublished": "2026-10-08T03:50:32+00:00",
+      "dateModified": "2026-10-08T03:50:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kastritis-varese-momento-difficile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -7901,6 +7901,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Imposta sugli autoveicoli canton Lucerna: calcolo e pagamento',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Imposta sugli autoveicoli nel Cantone di Lucerna: calcolo, scadenze, importi e pagamento. Cambio veicolo e indirizzo secondo le regole cantonali di Lucerna.',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Pratica per l\'imposta sugli autoveicoli e strada cantonale a Lucerna',
+    'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Incentivi energetici Cantone Lucerna: requisiti e domanda',
+    'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## In breve - Nel Cantone di Lucerna gli incentivi riguardano edifici e impianti. - I requisiti da verificare sono tecnici. - La domanda va presentata prima',
+    'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Edificio residenziale in fase di ristrutturazione energetica in Svizzera',
 };
 
 export default blogMetaChIt;

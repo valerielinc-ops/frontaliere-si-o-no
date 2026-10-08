@@ -7901,6 +7901,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Impôt sur les véhicules à Lucerne : calcul et paiement',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Impôt sur les véhicules automobiles dans le canton de Lucerne : calcul, échéances, montants et paiement. Changement de véhicule et d’adresse selon les règles cantonales de Lucerne.',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Dossier de taxe automobile et route cantonale à Lucerne',
+    'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Incitations énergétiques du canton de Lucerne : conditions et demande',
+    'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## En bref - Dans le canton de Lucerne, les incitations concernent les bâtiments et les installations. - Les conditions à vérifier sont techniques. - La demande doit être déposée avant',
+    'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Bâtiment résidentiel en cours de rénovation énergétique en Suisse',
 };
 
 export default blogMetaChFr;

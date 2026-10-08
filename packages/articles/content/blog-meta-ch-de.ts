@@ -7901,6 +7901,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-autoveicoli-lucerna-calcolo.title': 'Motorfahrzeugsteuer im Kanton Luzern: Berechnung und Zahlung',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.excerpt': 'Motorfahrzeugsteuer im Kanton Luzern: Berechnung, Fristen, Beträge und Zahlung. Fahrzeug- und Adresswechsel gemäß den kantonalen Regeln von Luzern.',
     'blog.article.imposta-autoveicoli-lucerna-calcolo.imageAlt': 'Unterlagen zur Motorfahrzeugsteuer und Kantonsstrasse in Luzern',
+    'blog.article.incentivi-energetici-lucerna-requisiti.title': 'Energieförderungen im Kanton Luzern: Voraussetzungen und Antrag',
+    'blog.article.incentivi-energetici-lucerna-requisiti.excerpt': '## Auf einen Blick - Im Kanton Luzern betreffen die Förderungen Gebäude und Anlagen. - Die zu prüfenden Voraussetzungen sind technischer Art. - Der Antrag muss vorher eingereicht werden',
+    'blog.article.incentivi-energetici-lucerna-requisiti.imageAlt': 'Wohngebäude während der energetischen Sanierung in der Schweiz',
 };
 
 export default blogMetaChDe;
