@@ -120,6 +120,27 @@ describe('generated event image policy', () => {
 
   it('validates licensed photo metadata and rejects a missing licence', () => {
     expect(validateGeneratedImageRecord(PHOTO_RECORD).valid).toBe(true);
+    const articlePhoto = {
+      ...PHOTO_RECORD,
+      assetId: 'article-hero-photo',
+      scope: 'article-hero',
+      imageUrl: '/images/blog/article-hero-photo.webp',
+      vision: {
+        ...PHOTO_RECORD.vision,
+        contains_text: false,
+        contains_recognizable_foreground_person: false,
+        is_topic_relevant: true,
+      },
+    };
+    expect(validateGeneratedImageRecord(articlePhoto)).toEqual({ valid: true, errors: [] });
+    expect(validateGeneratedImageRecord({
+      ...articlePhoto,
+      vision: { ...articlePhoto.vision, contains_recognizable_foreground_person: true },
+    }).valid).toBe(false);
+    expect(validateGeneratedImageRecord({
+      ...articlePhoto,
+      vision: { ...articlePhoto.vision, is_topic_relevant: false },
+    }).valid).toBe(false);
     expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, license: '' }).valid).toBe(false);
     expect(validateGeneratedImageRecord({ ...PHOTO_RECORD, author: undefined }).valid).toBe(false);
     const imageAuthorUrl = validateGeneratedImageRecord({
