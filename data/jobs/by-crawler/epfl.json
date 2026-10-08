@@ -502,9 +502,9 @@
     },
     {
       "id": "epfl-e2e7220070f5",
-      "slug": "postdoc-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-epfl-lausanne-d75756",
       "slugByLocale": {
-        "it": "postdoc-epfl-lausanne",
+        "it": "ricercatore-post-dottorato-epfl-lausanne-d75756",
         "en": "postdoc-epfl-lausanne",
         "de": "postdoktoranden-epfl-lausanne",
         "fr": "postdoctorat-epfl-lausanne"
@@ -566,7 +566,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-3e76086c07e7",
@@ -2795,7 +2803,7 @@
         "it": "ricercatore-post-dottorato-e-docente-in-imprenditoria-100-epfl-lausanne",
         "en": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
         "de": "postdoktorand-und-dozent-fur-unternehmertum-100-epfl-lausanne",
-        "fr": "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
+        "fr": "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2840,8 +2848,7 @@
       "contractType": "Post-doc / Collab. scientifique",
       "externalId": "1165354555",
       "previousSlugs": [
-        "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne",
-        "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
+        "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2851,7 +2858,7 @@
           "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
         ],
         "fr": [
-          "chercheur-postdoctoral-et-conferencier-en-entrepreneuriat-100-epfl-lausanne"
+          "postdoctoral-researcher-and-lecturer-in-entrepreneurship-100-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:09:11.267Z",
@@ -3998,7 +4005,7 @@
         "it": "2-phd-posizioni-in-meccanica-di-cemento-armato-enac-construct-epfl-lausanne",
         "en": "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne",
         "de": "2-phd-positionen-in-der-mechanik-des-verstarkten-betons-enac-construct-epfl-lausanne",
-        "fr": "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
+        "fr": "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4043,8 +4050,7 @@
       "contractType": "PhD Student",
       "externalId": "1165376555",
       "previousSlugs": [
-        "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne",
-        "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
+        "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4054,7 +4060,7 @@
           "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
         ],
         "fr": [
-          "2-postes-de-doctorat-en-mecanique-du-beton-arme-enac-construct-epfl-lausanne"
+          "2-phd-positions-in-mechanics-of-reinforced-concrete-enac-construct-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-02T23:12:04.368Z",

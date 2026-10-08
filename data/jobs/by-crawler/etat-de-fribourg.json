@@ -616,7 +616,7 @@
       "slugByLocale": {
         "it": "cantoner-ere-deposito-di-lowenberg-etat-de-fribourg-morat",
         "en": "cantoner-lowenberg-depot-etat-de-fribourg-morat",
-        "de": "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-morat",
+        "de": "stra-enwarter-in-depot-lowenberg-etat-de-fribourg-morat",
         "fr": "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -665,7 +665,8 @@
       "pensum": "95-100%",
       "previousSlugs": [
         "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch",
-        "roadman-depot-lowenberg-etat-de-fribourg-morat"
+        "roadman-depot-lowenberg-etat-de-fribourg-morat",
+        "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-morat"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -676,7 +677,8 @@
         ],
         "de": [
           "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-ch",
-          "roadman-depot-lowenberg-etat-de-fribourg-morat"
+          "roadman-depot-lowenberg-etat-de-fribourg-morat",
+          "cantonnier-ere-depot-du-lowenberg-etat-de-fribourg-morat"
         ]
       },
       "needsRetranslation": true,
@@ -4606,9 +4608,9 @@
       "slug": "wissenschaftl-collaboratore-trice-etat-de-fribourg",
       "slugByLocale": {
         "it": "wissenschaftl-collaboratore-trice-etat-de-fribourg",
-        "en": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
+        "en": "scientific-assistant-etat-de-fribourg-fribourg",
         "de": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch",
-        "fr": "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
+        "fr": "collaborateur-trice-scientifique-etat-de-fribourg-fribourg-acf1e8"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4659,6 +4661,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "wissenschaftl-mitarbeiter-in-etat-de-fribourg-ch"
         ]
       },

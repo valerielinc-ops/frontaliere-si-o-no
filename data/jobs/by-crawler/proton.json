@@ -224,9 +224,9 @@
     },
     {
       "id": "proton-4a8c0ac3123a",
-      "slug": "senior-product-manager-b2b-vpn-proton-ch",
+      "slug": "responsabile-prodotto-senior-b2b-vpn-proton-barcelona",
       "slugByLocale": {
-        "it": "senior-product-manager-b2b-vpn-proton-ch",
+        "it": "responsabile-prodotto-senior-b2b-vpn-proton-barcelona",
         "en": "senior-product-manager-b2b-vpn-proton-ch",
         "de": "senior-product-manager-b2b-vpn-proton-ch",
         "fr": "gestionnaire-principal-de-produits-b2b-vpn-proton-barcelona-london-geneva"
@@ -287,7 +287,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-b2b-vpn-proton-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-b2b-vpn-proton-ch"
+      ]
     },
     {
       "id": "proton-6b10f78fd5c2",

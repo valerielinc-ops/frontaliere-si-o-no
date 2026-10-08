@@ -1129,9 +1129,9 @@
     },
     {
       "id": "buehler-97ce593659e9",
-      "slug": "cnc-schleifer-in-buehler-uzwil",
+      "slug": "rettificatore-trice-cnc-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "cnc-schleifer-in-buehler-uzwil",
+        "it": "rettificatore-trice-cnc-buhler-group-uzwil",
         "en": "cnc-grinder-buhler-group-uzwil",
         "de": "cnc-schleifer-in-buehler-uzwil",
         "fr": "ponceuse-cnc-buhler-group-uzwil"
@@ -1191,7 +1191,15 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cnc-schleifer-in-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "cnc-schleifer-in-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-cf527cefec01",

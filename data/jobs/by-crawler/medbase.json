@@ -10860,9 +10860,9 @@
     },
     {
       "id": "medbase-c237d0b2c872",
-      "slug": "apotheker-in-a-80-100-medbase-ch",
+      "slug": "farmacista-a-80-100-medbase-reinach",
       "slugByLocale": {
-        "it": "apotheker-in-a-80-100-medbase-ch",
+        "it": "farmacista-a-80-100-medbase-reinach",
         "en": "pharmacist-a-80-100-medbase-reinach",
         "de": "apotheker-in-a-80-100-medbase-ch",
         "fr": "pharmacien-en-a-80-100-medbase-reinach"
@@ -10923,7 +10923,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4153"
+      "postalCode": "4153",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-in-a-80-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-in-a-80-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-25d0b99c1afd",

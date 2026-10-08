@@ -146,9 +146,9 @@
     },
     {
       "id": "ottos-9136798f44ad",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
+      "slug": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-wattwil",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
+        "it": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-wattwil",
         "en": "temporary-food-non-food-salesperson-otto-s-ag-wattwil",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-wattwil",
         "fr": "vendeur-auxiliaire-in-food-non-food-otto-s-ag-wattwil"
@@ -199,7 +199,15 @@
       "pensumMin": 20,
       "pensumMax": 40,
       "pensum": "20 - 40%",
-      "firstSeenAt": "2026-09-28T21:27:34.118Z"
+      "firstSeenAt": "2026-09-28T21:27:34.118Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-wattwil"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-wattwil"
+      ]
     },
     {
       "id": "ottos-ef7783fad4c3",
@@ -837,9 +845,9 @@
     },
     {
       "id": "ottos-c87ed4ad1dc0",
-      "slug": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon",
+      "slug": "addetto-a-alle-vendite-occasionale-profumeria-cosmetica-otto-s-ag-zurich-oerlikon",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon",
+        "it": "addetto-a-alle-vendite-occasionale-profumeria-cosmetica-otto-s-ag-zurich-oerlikon",
         "en": "sales-assistant-perfume-cosmetics-otto-s-ag-zurich-oerlikon",
         "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon",
         "fr": "vendeur-auxiliaire-en-parfumerie-cosmetique-otto-s-ag-zurich-oerlikon"
@@ -890,7 +898,15 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "firstSeenAt": "2026-07-04T11:28:03.708Z"
+      "firstSeenAt": "2026-07-04T11:28:03.708Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-parfum-kosmetik-ottos-zurich-oerlikon"
+      ]
     },
     {
       "id": "ottos-5207d7745b16",
@@ -1088,9 +1104,9 @@
     },
     {
       "id": "ottos-f83e365345d1",
-      "slug": "verkaufsmitarbeiter-in-mobel-ottos-langenthal",
+      "slug": "addetto-a-alle-vendite-di-mobili-otto-s-ag-langenthal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
+        "it": "addetto-a-alle-vendite-di-mobili-otto-s-ag-langenthal",
         "en": "furniture-sales-associate-otto-s-ag-langenthal",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-langenthal",
         "fr": "employe-e-commercial-e-dans-otto-s-ag-langenthal"
@@ -1144,13 +1160,17 @@
       "previousSlugs": [
         "personale-di-vendita-in-mobili-otto-s-ag-langenthal",
         "sales-staff-in-furniture-otto-s-ag-langenthal",
-        "personnel-de-vente-en-mobilier-otto-s-ag-langenthal"
+        "personnel-de-vente-en-mobilier-otto-s-ag-langenthal",
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
+        "verkaufsmitarbeiter-in-mobel-ottos-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-vendita-in-mobili-otto-s-ag-langenthal",
           "sales-staff-in-furniture-otto-s-ag-langenthal",
-          "personnel-de-vente-en-mobilier-otto-s-ag-langenthal"
+          "personnel-de-vente-en-mobilier-otto-s-ag-langenthal",
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-langenthal",
+          "verkaufsmitarbeiter-in-mobel-ottos-langenthal"
         ],
         "en": [
           "sales-staff-in-furniture-otto-s-ag-langenthal"
@@ -1713,9 +1733,9 @@
     },
     {
       "id": "ottos-1d1d3de2eb2b",
-      "slug": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur",
+      "slug": "addetto-a-alle-vendite-occasionale-profumeria-cosmetica-otto-s-ag-winterthur",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur",
+        "it": "addetto-a-alle-vendite-occasionale-profumeria-cosmetica-otto-s-ag-winterthur",
         "en": "sales-assistant-perfume-cosmetics-otto-s-ag-winterthur",
         "de": "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur",
         "fr": "vendeur-auxiliaire-en-parfumerie-cosmetique-otto-s-ag-winterthur"
@@ -1769,13 +1789,15 @@
       "previousSlugs": [
         "assistente-assistente-vendite-profumi-cosmetici-otto-s-ag-winterthur",
         "help-vendor-in-perfume-cosmetics-otto-s-ag-winterthur",
-        "aide-vendeur-en-parfum-cosmetiques-otto-s-ag-winterthur"
+        "aide-vendeur-en-parfum-cosmetiques-otto-s-ag-winterthur",
+        "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-assistente-vendite-profumi-cosmetici-otto-s-ag-winterthur",
           "help-vendor-in-perfume-cosmetics-otto-s-ag-winterthur",
-          "aide-vendeur-en-parfum-cosmetiques-otto-s-ag-winterthur"
+          "aide-vendeur-en-parfum-cosmetiques-otto-s-ag-winterthur",
+          "aushilfe-verkaufer-in-parfum-kosmetik-ottos-winterthur"
         ],
         "en": [
           "help-vendor-in-perfume-cosmetics-otto-s-ag-winterthur"
@@ -2392,9 +2414,9 @@
     },
     {
       "id": "ottos-f964ebb3f5b4",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
+      "slug": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-interlaken",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
+        "it": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-interlaken",
         "en": "temporary-food-non-food-salesperson-otto-s-ag-interlaken",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-interlaken",
         "fr": "vendeur-auxiliaire-in-food-non-food-otto-s-ag-interlaken"
@@ -2445,7 +2467,15 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "firstSeenAt": "2026-07-16T11:35:36.911Z"
+      "firstSeenAt": "2026-07-16T11:35:36.911Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-interlaken"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-interlaken"
+      ]
     },
     {
       "id": "ottos-b7e0d5ce754e",
@@ -3420,9 +3450,9 @@
     },
     {
       "id": "ottos-b825b108d61c",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-ottos-langnau",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-langnau",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-langnau",
         "en": "food-non-food-sales-associate-otto-s-ag-langnau",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-langnau",
         "fr": "collaborateur-commercial-in-food-non-food-otto-s-ag-langnau"
@@ -3476,13 +3506,17 @@
       "previousSlugs": [
         "personale-di-vendita-in-food-non-food-otto-s-ag-langnau",
         "sales-staff-in-food-non-food-otto-s-ag-langnau",
-        "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-langnau"
+        "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-langnau",
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
+        "verkaufsmitarbeiter-in-food-non-food-ottos-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-vendita-in-food-non-food-otto-s-ag-langnau",
           "sales-staff-in-food-non-food-otto-s-ag-langnau",
-          "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-langnau"
+          "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-langnau",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-langnau",
+          "verkaufsmitarbeiter-in-food-non-food-ottos-langnau"
         ],
         "en": [
           "sales-staff-in-food-non-food-otto-s-ag-langnau"
@@ -3553,9 +3587,9 @@
     },
     {
       "id": "ottos-382109cf3370",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
+      "slug": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-luzern",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
+        "it": "addetto-a-alle-vendite-occasionale-food-non-food-otto-s-ag-luzern",
         "en": "temporary-food-non-food-salesperson-otto-s-ag-luzern",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-luzern",
         "fr": "vendeur-auxiliaire-in-food-non-food-otto-s-ag-luzern"
@@ -3606,7 +3640,15 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "firstSeenAt": "2026-07-04T11:27:25.425Z"
+      "firstSeenAt": "2026-07-04T11:27:25.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-luzern"
+      ]
     },
     {
       "id": "ottos-73aa0141aebf",
@@ -5665,9 +5707,9 @@
     },
     {
       "id": "ottos-f22dadbc4972",
-      "slug": "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
+      "slug": "addetto-a-alle-vendite-di-mobili-otto-s-ag-kreuzlingen",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
+        "it": "addetto-a-alle-vendite-di-mobili-otto-s-ag-kreuzlingen",
         "en": "furniture-sales-associate-otto-s-ag-kreuzlingen",
         "de": "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen",
         "fr": "employe-e-commercial-e-dans-otto-s-ag-kreuzlingen"
@@ -5718,7 +5760,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-28T21:28:27.501Z"
+      "firstSeenAt": "2026-09-28T21:28:27.501Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
+          "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-mobel-otto-s-ag-kreuzlingen",
+        "verkaufsmitarbeiter-in-mobel-ottos-kreuzlingen"
+      ]
     },
     {
       "id": "ottos-31667c552b62",
@@ -7238,9 +7290,9 @@
     },
     {
       "id": "ottos-d5e9cdb07302",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
+      "slug": "addetto-a-alle-vendite-food-non-food-otto-s-ag-horw",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
+        "it": "addetto-a-alle-vendite-food-non-food-otto-s-ag-horw",
         "en": "food-non-food-sales-associate-otto-s-ag-horw",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-horw",
         "fr": "collaborateur-commercial-in-food-non-food-otto-s-ag-horw"
@@ -7291,7 +7343,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "firstSeenAt": "2026-09-28T21:28:40.771Z"
+      "firstSeenAt": "2026-09-28T21:28:40.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
+          "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-horw",
+        "verkaufsmitarbeiter-in-food-non-food-ottos-horw"
+      ]
     },
     {
       "id": "ottos-dd030559a1b9",

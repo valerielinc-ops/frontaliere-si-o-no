@@ -3886,9 +3886,9 @@
     },
     {
       "id": "szb-chb-514b9c759053",
-      "slug": "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "medico-a-dirigente-in-psichiatria-infantile-e-dell-adolescenza-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
       "slugByLocale": {
-        "it": "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "medico-a-dirigente-in-psichiatria-infantile-e-dell-adolescenza-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel",
         "en": "senior-physician-child-and-adolescent-psychiatry-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
         "fr": "medecin-principal-psychiatrie-de-l-enfant-et-de-l-adolescent-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
@@ -3937,7 +3937,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
+        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
+        "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -3947,7 +3948,8 @@
           "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "it": [
-          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
+          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
+          "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:33.580Z",
@@ -4215,7 +4217,7 @@
       "slug": "ict-system-specialista-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
         "it": "ict-system-specialista-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "information-technology-systems-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "ict-system-specialist-100-szb-chb-biel-bienne",
         "fr": "ict-system-specialiste-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
@@ -4265,10 +4267,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ict-system-specialist-100-szb-chb-biel-bienne"
+        ],
+        "en": [
+          "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "ict-system-specialist-100-szb-chb-biel-bienne"
+        "ict-system-specialist-100-szb-chb-biel-bienne",
+        "ict-system-specialist-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "salaryMin": 73000,
       "salaryMax": 124500,

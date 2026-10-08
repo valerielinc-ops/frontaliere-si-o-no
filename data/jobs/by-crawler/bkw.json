@@ -23224,9 +23224,9 @@
     },
     {
       "id": "bkw-86c53cdc02d4",
-      "slug": "spezialist-in-engineering-alle-bkw-ch",
+      "slug": "specialista-engineering-tutti-bkw-oberkirch",
       "slugByLocale": {
-        "it": "spezialist-in-engineering-alle-bkw-ch",
+        "it": "specialista-engineering-tutti-bkw-oberkirch",
         "en": "specialist-engineering-all-bkw-oberkirch-1ca9c4",
         "de": "spezialist-in-engineering-alle-bkw-ch",
         "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch-1ca9c4"
@@ -23286,7 +23286,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-engineering-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-engineering-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-1022e395f284",

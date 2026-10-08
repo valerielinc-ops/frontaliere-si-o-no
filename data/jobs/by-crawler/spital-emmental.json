@@ -3611,9 +3611,9 @@
     },
     {
       "id": "spital-emmental-beaa618af03d",
-      "slug": "praktikant-in-a-spital-emmental-burgdorf",
+      "slug": "tirocinante-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "praktikant-in-a-spital-emmental-burgdorf",
+        "it": "tirocinante-a-spital-emmental-burgdorf-langnau",
         "en": "intern-a-spital-emmental-burgdorf-langnau",
         "de": "praktikant-in-a-spital-emmental-burgdorf",
         "fr": "stagiaire-en-a-spital-emmental-burgdorf-langnau"
@@ -3678,7 +3678,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-e4af86857da1",

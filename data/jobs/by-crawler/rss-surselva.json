@@ -285,9 +285,9 @@
     },
     {
       "id": "rss-surselva-b2727d76562f",
-      "slug": "med-praxiskoordinator-in-mpk-60-100-rss-surselva-ch",
+      "slug": "coordinatore-trice-di-studio-medico-mpk-60-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "coordinatore-di-pratica-mpk-regionalspital-surselva-ilanz",
+        "it": "coordinatore-trice-di-studio-medico-mpk-60-100-regionalspital-surselva-ilanz",
         "en": "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz",
         "de": "med-praxiskoordinator-in-mpk-60-100-rss-surselva-ch",
         "fr": "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz"
@@ -338,11 +338,15 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "previousSlugs": [
-        "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz"
+        "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz",
+        "coordinatore-di-pratica-mpk-regionalspital-surselva-ilanz",
+        "med-praxiskoordinator-in-mpk-60-100-rss-surselva-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz"
+          "med-praxiskoordinator-in-mpk-60-100-regionalspital-surselva-ilanz",
+          "coordinatore-di-pratica-mpk-regionalspital-surselva-ilanz",
+          "med-praxiskoordinator-in-mpk-60-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:32:21.783Z"

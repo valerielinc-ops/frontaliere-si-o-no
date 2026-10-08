@@ -16700,10 +16700,10 @@
     },
     {
       "id": "jumbo-ce3bdd1f-be0",
-      "slug": "rayonleiter-in-do-it-jumbo-rickenbach",
+      "slug": "responsabile-di-reparto-do-it-jumbo-rickenbach",
       "slugByLocale": {
         "de": "rayonleiter-in-do-it-jumbo-rickenbach",
-        "it": "rayonleiter-in-do-it-jumbo-rickenbach",
+        "it": "responsabile-di-reparto-do-it-jumbo-rickenbach",
         "en": "rayon-leader-do-it-jumbo-rickenbach",
         "fr": "responsable-de-rayon-in-do-it-jumbo-rickenbach"
       },
@@ -16778,7 +16778,15 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-do-it-jumbo-rickenbach"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-do-it-jumbo-rickenbach"
+      ]
     },
     {
       "id": "jumbo-c0d1ead5-ce0",
@@ -18256,10 +18264,10 @@
     },
     {
       "id": "jumbo-bfcb996b-385",
-      "slug": "verkaufsberater-in-garden-jumbo-kusnacht",
+      "slug": "consulente-di-vendita-garden-jumbo-kusnacht",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-kusnacht",
-        "it": "verkaufsberater-in-garden-jumbo-kusnacht",
+        "it": "consulente-di-vendita-garden-jumbo-kusnacht",
         "en": "garden-sales-consultant-jumbo-kusnacht",
         "fr": "conseiller-de-vente-a-garden-jumbo-kusnacht"
       },
@@ -18333,7 +18341,15 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-kusnacht"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-kusnacht"
+      ]
     },
     {
       "id": "jumbo-eac887de-908",

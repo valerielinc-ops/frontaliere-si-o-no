@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "strabag-34b788893e82",
-      "slug": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+      "slug": "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
       "slugByLocale": {
-        "it": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+        "it": "meccanico-a-di-macchine-da-cantiere-per-lavori-speciali-di-fondazione-strabag-bmti-gmbh-rothenburg",
         "en": "civil-engineering-construction-machinery-mechanic-strabag-bmti-gmbh-rothenburg",
         "de": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
         "fr": "mecanicien-de-machines-de-chantier-dans-les-travaux-speciaux-du-genie-civil-strabag-bmti-gmbh-rothenburg"
@@ -66,7 +66,15 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
+        ]
+      },
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
+      ]
     },
     {
       "id": "strabag-c1863528d206",

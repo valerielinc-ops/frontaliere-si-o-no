@@ -1866,7 +1866,7 @@
         "it": "supervisore-supervisore-con-impiego-in-amministrazione-e-sede-centrale-kantonale-verwaltung-zurich-horgen",
         "en": "supervisor-supervisor-with-assignment-in-administration-and-headquarters-kantonale-verwaltung-zurich-horgen",
         "de": "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
-        "fr": "superviseur-superviseur-affecte-a-l-administration-et-au-siege-social-kantonale-verwaltung-zurich-horgen"
+        "fr": "surveillant-e-accompagnateur-trice-avec-affectation-a-l-administration-et-a-la-centrale-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1916,7 +1916,8 @@
       "previousSlugs": [
         "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen",
         "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen",
-        "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen"
+        "aufseher-in-betreuer-in-con-einsatz-in-administration-e-zentrale-kantonale-verwaltung-zurich-horgen",
+        "superviseur-superviseur-affecte-a-l-administration-et-au-siege-social-kantonale-verwaltung-zurich-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1927,7 +1928,8 @@
           "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kanton-zuerich-horgen"
         ],
         "fr": [
-          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen"
+          "aufseher-in-betreuer-in-mit-einsatz-in-administration-und-zentrale-kantonale-verwaltung-zurich-horgen",
+          "superviseur-superviseur-affecte-a-l-administration-et-au-siege-social-kantonale-verwaltung-zurich-horgen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:42.444Z",
@@ -3680,7 +3682,7 @@
       "slug": "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
       "slugByLocale": {
         "it": "terapista-ambientale-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
-        "en": "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "en": "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "milieutherapeut-in-befristet-kanton-zuerich-regensdorf",
         "fr": "therapeute-en-milieu-de-vie-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
       },
@@ -3730,15 +3732,14 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+        "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "en": [
-          "environmental-therapist-temporary-kantonale-verwaltung-zurich-regensdorf"
+          "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ],
         "fr": [
           "milieutherapeut-in-befristet-kantonale-verwaltung-zurich-regensdorf"
@@ -3816,9 +3817,9 @@
     },
     {
       "id": "kanton-zuerich-7e9e48eb236a",
-      "slug": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
+      "slug": "addetto-a-alla-gestione-dell-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "addetto-a-alla-gestione-dell-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
         "en": "temporary-workshop-supervisor-temporary-kantonale-verwaltung-zurich-regensdorf",
         "de": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
         "fr": "assistant-e-assistant-e-d-atelier-pour-une-duree-limitee-kantonale-verwaltung-zurich-regensdorf"
@@ -3874,7 +3875,9 @@
         "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf",
         "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
         "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
-        "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf"
+        "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
+        "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3883,7 +3886,9 @@
           "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf",
           "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
           "assistenti-temporanei-temporanei-kantonale-verwaltung-zurich-regensdorf",
-          "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf"
+          "assistente-di-officina-a-tempo-determinato-kantonale-verwaltung-zurich-regensdorf",
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+          "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf"
         ],
         "en": [
           "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf"
@@ -11456,7 +11461,7 @@
         "it": "aspirante-poliziotto-kantonale-verwaltung-zurich-zurich",
         "en": "police-aspirant-kantonale-verwaltung-zurich-zurich",
         "de": "polizeiaspirant-in-kanton-zuerich-zurich",
-        "fr": "polizeiaspirant-in-kantonale-verwaltung-zurich"
+        "fr": "aspirant-e-de-police-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11505,12 +11510,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
-        "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich"
+        "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich",
+        "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
-          "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich"
+          "inspirant-e-policier-e-kantonale-verwaltung-zurich-zurich",
+          "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
       "firstSeenAt": "2026-09-08T13:51:26.443Z"
