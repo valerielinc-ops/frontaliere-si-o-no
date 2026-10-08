@@ -1,28 +1,75 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-10-08T09:14:15.783Z",
-  "total": 1,
+  "generatedAt": "2026-10-08T21:16:10.758Z",
+  "total": 2,
   "discovered": null,
-  "parsed": 1,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 1,
+  "written": 2,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4158,
-  "avgDurationMs": 4158,
+  "unchangedCount": 1,
+  "durationMs": 4639,
+  "avgDurationMs": 4639,
   "durationHistory": [
-    4158
+    4639
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "gavi-ee86033d5ad4",
+      "slug": "senior-manager-vaccine-forecasting-gavi-le-grand-saconnex",
+      "company": "Gavi, the Vaccine Alliance",
+      "companyKey": "gavi",
+      "companyDomain": "gavi.org",
+      "title": "Senior Manager, Vaccine Forecasting",
+      "location": "Le Grand-Saconnex",
+      "canton": "GE",
+      "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
+      "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-08T21:15:57.742Z",
+      "addressLocality": "Le Grand-Saconnex",
+      "addressRegion": "GE",
+      "streetAddress": "Chemin du Pommier 40",
+      "postalCode": "1218",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Salute globale / Organizzazioni internazionali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2541&portal=Global",
+      "jobReqId": "VN2541",
+      "needsRetranslation": true,
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-08T21:15:57.742Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 23
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gavi-779c03b3dd09",
       "slug": "senior-manager-progettazione-dei-grant-gavi-the-vaccine-alliance-le-grand-saconnex",
@@ -35,7 +82,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-08T09:13:59.205Z",
+      "crawledAt": "2026-10-08T21:15:57.089Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -55,6 +102,7 @@
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2509&portal=Global",
       "jobReqId": "VN2509",
       "firstSeenAt": "2026-10-05T21:26:05.940Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -67,7 +115,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }

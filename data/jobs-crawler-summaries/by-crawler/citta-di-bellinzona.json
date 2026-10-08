@@ -1,7 +1,7 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-10-08T09:13:37.953Z",
+  "generatedAt": "2026-10-08T21:18:03.936Z",
   "total": 2,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3492,
-  "avgDurationMs": 3492,
+  "durationMs": 4426,
+  "avgDurationMs": 4426,
   "durationHistory": [
-    3492
+    4426
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,7 +45,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-08T09:13:26.225Z",
+      "crawledAt": "2026-10-08T21:17:49.958Z",
       "firstSeenAt": "2026-10-03T09:11:46.572Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -85,7 +85,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-08T09:13:26.035Z",
+      "crawledAt": "2026-10-08T21:17:49.712Z",
       "firstSeenAt": "2026-10-03T09:11:46.377Z",
       "salaryMin": 34000,
       "salaryMax": 51500,
@@ -99,5 +99,5 @@
       }
     }
   ],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }

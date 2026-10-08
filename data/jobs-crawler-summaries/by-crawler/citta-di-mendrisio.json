@@ -1,16 +1,16 @@
 {
   "key": "citta-di-mendrisio",
   "label": "Città di Mendrisio",
-  "generatedAt": "2026-10-08T09:13:21.351Z",
+  "generatedAt": "2026-10-08T21:17:58.566Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7805,
-  "avgDurationMs": 7805,
+  "durationMs": 6755,
+  "avgDurationMs": 6755,
   "durationHistory": [
-    7805
+    6755
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +36,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "crawledAt": "2026-10-08T09:13:01.988Z",
+      "crawledAt": "2026-10-08T21:17:40.288Z",
       "id": "citta-di-mendrisio-aef82706506d",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -81,7 +81,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "crawledAt": "2026-10-08T09:13:01.861Z",
+      "crawledAt": "2026-10-08T21:17:40.248Z",
       "id": "citta-di-mendrisio-372a55430eb4",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -107,5 +107,5 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
+  "codeCommit": "8f04c9ff5c9042a79d5c0253874b05bd539e8a74"
 }
