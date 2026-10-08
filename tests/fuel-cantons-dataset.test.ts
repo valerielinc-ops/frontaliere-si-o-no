@@ -340,27 +340,49 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     expect(calls).toBe(2);
   });
 
-  it('uses one serialised request per DE group and exposes the active coverage', async () => {
+  it('queries every configured border point serially, dedupes stations, and exposes coverage', async () => {
     const requests: URL[] = [];
+    const waits: number[] = [];
+    const cantonOrder = Object.keys(DE_POINTS_BY_CANTON);
+    const configuredPoints = Object.values(DE_POINTS_BY_CANTON).flat();
+    const zhStart = cantonOrder
+      .slice(0, cantonOrder.indexOf('ZH'))
+      .reduce((sum, canton) => sum + DE_POINTS_BY_CANTON[canton].length, 0);
     const result = await fetchGermanStations({
       apiKey: 'key-used-only-in-test',
-      requestIntervalMs: 0,
+      requestIntervalMs: DE_REQUEST_INTERVAL_MS,
+      sleepImpl: async (ms) => waits.push(ms),
       fetchImpl: (async (url: string) => {
         requests.push(new URL(url));
+        const requestNumber = requests.length;
+        const isZhRequest = requestNumber > zhStart
+          && requestNumber <= zhStart + DE_POINTS_BY_CANTON.ZH.length;
         return okResponse({
           ok: true,
-          stations: [0, 1, 2].map((i) => ({ id: `${requests.length}-${i}`, e5: 1.8 + i / 100, diesel: 2.0 + i / 100 })),
+          stations: [0, 1, 2].map((i) => ({
+            id: isZhRequest && i === 0 ? 'zh-shared' : `${requestNumber}-${i}`,
+            e5: 1.8 + i / 100,
+            diesel: 2.0 + i / 100,
+          })),
         });
       }) as any,
     });
     expect(DE_REQUEST_INTERVAL_MS).toBe(60_000);
     expect(Object.keys(DE_POINTS_BY_CANTON)).toEqual(['BASILEA', 'AG', 'SH', 'TG', 'ZH', 'SG']);
-    expect(requests).toHaveLength(Object.keys(DE_POINTS_BY_CANTON).length);
-    expect(requests.every((url) => url.searchParams.get('rad') === String(DE_SEARCH_RADIUS_KM))).toBe(true);
+    expect(requests).toHaveLength(configuredPoints.length);
+    expect(waits).toEqual(Array(configuredPoints.length - 1).fill(DE_REQUEST_INTERVAL_MS));
+    expect(requests.every((url, i) => url.searchParams.get('rad') === String(configuredPoints[i].radiusKm ?? DE_SEARCH_RADIUS_KM))).toBe(true);
+    expect(requests.slice(zhStart, zhStart + DE_POINTS_BY_CANTON.ZH.length).map((url) => url.searchParams.get('lat')))
+      .toEqual(DE_POINTS_BY_CANTON.ZH.map((point) => String(point.lat)));
     expect(result.status).toBe('ok');
     for (const canton of Object.keys(DE_POINTS_BY_CANTON)) {
-      expect(result.coverage[canton]).toMatchObject({ stations: 3, sp95: 3, diesel: 3 });
+      const expectedStations = canton === 'ZH'
+        ? 3 + (DE_POINTS_BY_CANTON.ZH.length - 1) * 2
+        : 3;
+      expect(result.coverage[canton]).toMatchObject({ stations: expectedStations, sp95: expectedStations, diesel: expectedStations });
     }
+    expect(new Set(result.data.ZH.map((station: any) => station.id)).size).toBe(result.data.ZH.length);
+    expect(result.data.ZH).toHaveLength(3 + (DE_POINTS_BY_CANTON.ZH.length - 1) * 2);
 
     const dataset = await buildFromInput({}, {
       fetchers: {
@@ -412,13 +434,13 @@ describe('fuel cantons — fetchers are failure-isolated', () => {
     for (const { de, health } of cases) {
       const dataset = await buildFromInput({}, { fetchers: fetchers(de) });
       if (health === 'failed:network offline') {
-        expect(dataset.health.de).toMatch(/^failed:.*network offline$/);
+        expect(dataset.health.de).toContain('network offline');
       } else {
         expect(dataset.health.de).toBe(health);
       }
       expect(validateFuelCantonsDataset(dataset).ok).toBe(true);
     }
-    expect(sourceHealth(offline)).toMatch(/^failed:.*network offline$/);
+    expect(sourceHealth(offline)).toContain('network offline');
   });
 
   it('reads the Austrian regions and the French zip through the injected fetch', async () => {

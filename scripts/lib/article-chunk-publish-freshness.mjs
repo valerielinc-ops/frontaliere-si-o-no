@@ -40,11 +40,17 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
 // edge; no script may name the purge script without its targeted flag
 // anyway, see tests/cf-zone-purge-blast-radius.test.ts), the ticker
 // computation the replay skips and the llms.txt generator it never requests.
+// How the purge is requested stays out; which URLs it evicts does not, and
+// that is the one entry below that writes nothing.
 export const ARTICLE_PUBLISHER_CODE_PATHS = Object.freeze([
   'scripts/publish-article-chunks.mjs',
   'scripts/publish-edge-files.mjs',
   'scripts/lib/upload-cdn-file.sh',
   'infra/cloudflare-worker/locale-router.js',
+  // Not a writer: the CDN origin of the URLs the chunk publisher evicts after
+  // an upload. A checkout from before a change to it would upload the new
+  // chunks and purge another host, leaving the old ones at the edge.
+  'build-plugins/shared/cdnAssetOffloadRx.mjs',
 ]);
 
 export const PUBLISH_SOURCE_VERDICTS = Object.freeze({
@@ -86,14 +92,18 @@ export function isArticleSurfacePath(changedPath) {
     && ARTICLE_SURFACE_REGEXES.some((pattern) => pattern.test(changedPath));
 }
 
+/** True for the publisher code of the second list above. */
+export function isArticlePublisherCodePath(changedPath) {
+  return typeof changedPath === 'string'
+    && ARTICLE_PUBLISHER_CODE_REGEXES.some((pattern) => pattern.test(changedPath));
+}
+
 /**
  * True for every path whose change alters what the replay publishes: the
  * article surfaces themselves and the code that builds and uploads them.
  */
 export function isArticlePublishInputPath(changedPath) {
-  return isArticleSurfacePath(changedPath)
-    || (typeof changedPath === 'string'
-      && ARTICLE_PUBLISHER_CODE_REGEXES.some((pattern) => pattern.test(changedPath)));
+  return isArticleSurfacePath(changedPath) || isArticlePublisherCodePath(changedPath);
 }
 
 /**

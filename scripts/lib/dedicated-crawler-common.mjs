@@ -8381,6 +8381,31 @@ export function getAllPreviousSlugs(job) {
 }
 
 /**
+ * Would `cleanPreviousSlugsPerLocale()` drop this previous slug from `job`?
+ *
+ * A locale-attributed entry is dropped when it equals that locale's active
+ * slug or the master slug; an unattributed (flat-only) entry when it equals
+ * the master slug or any active locale slug. Writers that carry bridges
+ * forward must ask this before adding one: a bridge the cleaner removes on
+ * the next pass can never be persisted, so treating it as missing makes the
+ * writer non-idempotent (translate-pending run 37723588903: 1065 such
+ * bridges kept the scatter parity gate red).
+ *
+ * @param {object} job job whose ACTIVE slugs decide the verdict
+ * @param {string|null} locale bucket the slug is attributed to, null = flat
+ * @param {string} slug candidate previous slug
+ * @returns {boolean}
+ */
+export function isSelfCanonicalPreviousSlug(job, locale, slug) {
+  const norm = normalizeSpace(String(slug || ''));
+  if (!norm || !job || typeof job !== 'object') return false;
+  if (norm === normalizeSpace(job.slug || '')) return true;
+  const active = job.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {};
+  if (locale) return norm === normalizeSpace(active[locale] || '');
+  return Object.values(active).some((value) => value && norm === normalizeSpace(String(value)));
+}
+
+/**
  * Per-locale safety net: for each locale, strip previousSlugsByLocale entries
  * that match ONLY that same locale's active slug. Cross-locale matches are
  * preserved (e.g. old FR slug that matches current DE slug → keep for FR bridge).

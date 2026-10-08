@@ -55,13 +55,24 @@ export const AT_REGIONS_BY_CANTON = Object.freeze({
   GR: [8, 7],
 });
 
-/** DE side (optional): one Tankerkönig radius search per border group. */
+/**
+ * DE side (optional): one or more Tankerkönig radius searches per border
+ * group. ZH has a long, discontinuous German-facing edge: one search at
+ * Jestetten missed the Rafzerfeld/Weiach and Waldshut approaches and left the
+ * overlay below the station floor. Every point keeps the same 5 km quality
+ * radius; the fetcher serialises the points under the provider limit.
+ */
 export const DE_POINTS_BY_CANTON = Object.freeze({
   BASILEA: [{ label: 'Lörrach', lat: 47.6156, lng: 7.6614 }],
   AG: [{ label: 'Waldshut-Tiengen', lat: 47.623, lng: 8.214 }],
   SH: [{ label: 'Gottmadingen', lat: 47.735, lng: 8.776 }],
   TG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
-  ZH: [{ label: 'Jestetten', lat: 47.654, lng: 8.573 }],
+  ZH: [
+    { label: 'Lottstetten (Rafz/Eglisau-Hüntwangen)', lat: 47.6275, lng: 8.5736 },
+    { label: 'Jestetten', lat: 47.654, lng: 8.573 },
+    { label: 'Hohentengen am Hochrhein (Weiach)', lat: 47.5707, lng: 8.4345 },
+    { label: 'Waldshut-Tiengen', lat: 47.6282, lng: 8.2409 },
+  ],
   SG: [{ label: 'Konstanz', lat: 47.663, lng: 9.175 }],
 });
 export const DE_SEARCH_RADIUS_KM = 5;
@@ -635,7 +646,7 @@ export function buildDeRecords({ germanByCanton, observedAt }) {
         canton, side: 'DE', fuel, currency: 'EUR',
         observations: stations.map((s) => ({ id: s.id, price: s[fuel], observedAt })),
         source: DE_SOURCE_ATTRIBUTION,
-        area: points.map((p) => `DE-${p.label} ${DE_SEARCH_RADIUS_KM} km`).join(','),
+        area: points.map((p) => `DE-${p.label} ${p.radiusKm ?? DE_SEARCH_RADIUS_KM} km`).join(','),
         coverage: 'radius',
         granularity: 'region',
       }));

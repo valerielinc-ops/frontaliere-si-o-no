@@ -32,7 +32,7 @@ import {
   verifyScatterParity,
 } from '../scripts/scatter-jobs-to-slices.mjs';
 import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
-import { LEGACY_PREV_SLUGS_CAP, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { LEGACY_PREV_SLUGS_CAP, cleanPreviousSlugsPerLocale, isSelfCanonicalPreviousSlug, stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const baseSlice = () => ({
   id: 'company-abc',
@@ -171,6 +171,133 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
+  });
+
+  // Reduced from translate-pending run 37723588903 (arxada.json, R53358): the
+  // assembled job attributes to IT a previous slug that is the job's own
+  // master/DE slug. cleanPreviousSlugsPerLocale() drops it on the ownership
+  // pass, so the scatter re-added it on every run and the parity gate counted
+  // 1065 such bridges as missing (1049 pending writes).
+  const arxadaSlice = () => ({
+    id: 'arxada-r53358',
+    url: 'https://lsi.wd3.myworkdayjobs.com/en/Arxada_Careers/job/CH---Visp/Rangierdienst-Spezialist-in_R53358',
+    title: 'Rangierdienst Spezialist/in',
+    company: 'Arxada',
+    location: 'Visp',
+    canton: 'VS',
+    sourceLang: 'de',
+    slug: 'rangierdienst-spezialist-in-arxada-ch',
+    slugByLocale: {
+      it: 'specialista-in-servizio-di-manovra-arxada-visp',
+      en: 'yard-service-specialist-arxada-visp',
+      de: 'rangierdienst-spezialist-in-arxada-ch',
+      fr: 'specialiste-en-service-de-man-uvre-arxada-visp',
+    },
+    titleByLocale: { it: 'a', en: 'b', de: 'c', fr: 'd' },
+    descriptionByLocale: {},
+    previousSlugs: ['rangierdienst-spezialist-in-arxada-visp'],
+    previousSlugsByLocale: { de: ['rangierdienst-spezialist-in-arxada-visp'] },
+  });
+
+  it('does not treat a bridge the cleaner drops (master slug under another locale) as missing', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    assembled.previousSlugs.push('rangierdienst-spezialist-in-arxada-ch');
+    assembled.previousSlugsByLocale.it = ['rangierdienst-spezialist-in-arxada-ch'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([]);
+    expect(applyAssembledToSliceJob(sliceJob, assembled).changed).toBe(false);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'scatter-selfbridge-'));
+    const dir = path.join(root, 'data', 'jobs', 'by-crawler');
+    fs.mkdirSync(dir, { recursive: true });
+    try {
+      const filePath = path.join(dir, 'arxada.json');
+      fs.writeFileSync(filePath, `${JSON.stringify({ jobs: [sliceJob] }, null, 2)}\n`);
+      const read = () => [{ file: 'arxada.json', filePath, slice: JSON.parse(fs.readFileSync(filePath, 'utf8')) }];
+      const run = scatterAssembledIntoSliceEntries([assembled], read(), { persist: true });
+      expect(run.updatedJobs).toBe(0);
+      expect(verifyScatterParity([assembled], read().map(({ file, slice }) => ({ file, jobs: slice.jobs })))).toMatchObject({
+        missingBridges: 0,
+        pendingWrites: 0,
+        passed: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('still carries a locale bridge that equals ANOTHER locale active slug but not the master', () => {
+    const sliceJob = arxadaSlice();
+    const assembled = arxadaSlice();
+    // Old FR slug that today is the EN active slug: the cleaner keeps it.
+    assembled.previousSlugsByLocale.fr = ['yard-service-specialist-arxada-visp'];
+
+    expect(collectMissingAssembledBridges(sliceJob, assembled)).toEqual([
+      { locale: 'fr', slug: 'yard-service-specialist-arxada-visp' },
+    ]);
+    const { job } = applyAssembledToSliceJob(sliceJob, assembled);
+    cleanPreviousSlugsPerLocale(job);
+    expect(job.previousSlugsByLocale.fr).toContain('yard-service-specialist-arxada-visp');
+  });
+
+  it('isSelfCanonicalPreviousSlug predicts exactly what cleanPreviousSlugsPerLocale drops', () => {
+    const base = arxadaSlice();
+    const candidates: Array<[string | null, string]> = [
+      ['it', base.slug],
+      ['it', base.slugByLocale.it],
+      ['it', base.slugByLocale.en],
+      ['fr', base.slugByLocale.en],
+      ['de', 'some-old-slug'],
+      [null, base.slug],
+      [null, base.slugByLocale.fr],
+      [null, 'some-flat-old-slug'],
+    ];
+    for (const [locale, slug] of candidates) {
+      const job = arxadaSlice();
+      job.previousSlugs = [slug];
+      job.previousSlugsByLocale = locale ? { [locale]: [slug] } : {};
+      cleanPreviousSlugsPerLocale(job);
+      const survived = locale
+        ? (job.previousSlugsByLocale?.[locale] || []).includes(slug)
+        : (job.previousSlugs || []).includes(slug);
+      expect({ locale, slug, dropped: !survived }).toEqual({
+        locale,
+        slug,
+        dropped: isSelfCanonicalPreviousSlug(base, locale, slug),
+      });
+    }
+  });
+
+  it('allows a cross-crawler duplicate shadowed by the slice that owns the assembled URL', () => {
+    // run 37723588903: the same jobs.admin.ch posting sits in two crawler
+    // slices under two locale paths; assembly keeps the offene-stellen record.
+    const assembled = {
+      ...baseSlice(),
+      id: 'vtg-8c077b4f',
+      url: 'https://jobs.admin.ch/offene-stellen/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+    const owner = { ...assembled };
+    const shadow = {
+      ...baseSlice(),
+      id: 'confederazione-8c077b4f',
+      url: 'https://jobs.admin.ch/posti-vacanti/stellvertretende-r-chefaerztin-arzt-rekrutierungszentrum-aarau/8c077b4f-49b0-4d5e-966b-8d39f7c3943c',
+    };
+
+    expect(verifyScatterParity([assembled], [
+      { file: 'confederazione-ticino.json', jobs: [shadow] },
+      { file: 'vtg.json', jobs: [owner] },
+    ])).toMatchObject({
+      duplicateAssembledMatches: 0,
+      shadowedSliceMatches: 1,
+      passed: true,
+    });
+    // Two records joined at the same strength stay an ambiguity.
+    const otherShadow = { ...shadow, id: 'third-8c077b4f', url: shadow.url.replace('posti-vacanti', 'postes-vacants') };
+    expect(verifyScatterParity([assembled], [
+      { file: 'a.json', jobs: [shadow] },
+      { file: 'b.json', jobs: [otherShadow] },
+    ])).toMatchObject({ duplicateAssembledMatches: 1, passed: false });
   });
 
   it('keeps a stable-token join when only the path changes on the same host', () => {
