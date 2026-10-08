@@ -777,8 +777,9 @@ export function isPhotoCandidateRelevantToSpec(spec, candidate) {
     const text = articlePhotoTerms(photoCandidateText(candidate)).map((term) => term.toLowerCase());
     const topic = context.topic.map((term) => term.toLowerCase());
     const place = context.place.map((term) => term.toLowerCase());
-    if (!text.length || !topic.length) return false;
-    const hasTopic = topic.some((term) => text.includes(term));
+    const topicalTerms = topic.filter((term) => !place.includes(term));
+    if (!text.length || !topicalTerms.length) return false;
+    const hasTopic = topicalTerms.some((term) => text.includes(term));
     const hasPlace = !context.requiresPlace || !place.length || place.some((term) => text.includes(term));
     return hasTopic && hasPlace;
   }

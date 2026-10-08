@@ -247,6 +247,16 @@ describe('generated image provider contracts', () => {
       width: 6240,
       height: 4160,
     })).toBe(false);
+    expect(isPhotoCandidateRelevantToSpec({
+      scope: 'article-hero',
+      title: 'Guida per frontalieri in Ticino',
+      place: 'Ticino, Svizzera',
+      keywords: ['Ticino', 'Svizzera'],
+    }, {
+      title: 'Ticino mountain landscape Switzerland',
+      width: 6240,
+      height: 4160,
+    })).toBe(false);
     expect(isSuitableArticlePhotoCandidate(spec, {
       type: 'photo',
       title: 'Zurich employment brand logo with text overlay',
