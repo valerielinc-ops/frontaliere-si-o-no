@@ -387,17 +387,30 @@ const App: React.FC = () => {
  const {
  activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
  guidaSubTab, vitaSubTab, pharmacyPath, statsSubTab,
- blogArticle, blogSection, swissArticle, cantonArticle, blogPage, seoLanding, glossaryTerm, borderCrossing,
+ blogArticle, blogSection, swissArticle, cantonArticle, cantonTopic, blogPage, seoLanding, glossaryTerm, borderCrossing,
  jobSlug, author, taxReturnCountry, showApiStatus, notFoundPath,
  jobBoardFilterParams, staticOverlay,
  setActiveTab, setCalcolatoreSubTab, setConfrontiSubTab, setFiscoSubTab,
  setGuidaSubTab, setVitaSubTab, setStatsSubTab,
- setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
+ setBlogArticle, setBlogSection, setSwissArticle, setCantonArticle, setCantonTopic, setBlogPage, setSeoLanding, setGlossaryTerm, setBorderCrossing,
  setJobSlug, setAuthor, setTaxReturnCountry, setShowApiStatus,
  setNotFoundPath, setJobBoardFilterParams, setStaticOverlay,
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+
+ // A direct canton hub already contains a complete corpus-rendered body. Keep
+ // that body visible until the version-matched HTTP payload has painted the
+ // React equivalent; this makes the hydration handoff atomic and avoids both
+ // a blank frame and a layout shift on slow mobile connections.
+ const [cantonTopicReadyKey, setCantonTopicReadyKey] = useState<string | null>(null);
+ const cantonTopicRouteKey = blogSection.startsWith('canton-') && cantonTopic
+   ? `${blogSection}:${cantonTopic}:${locale}`
+   : null;
+ const cantonTopicStaticFallback = !!cantonTopicRouteKey && cantonTopicReadyKey !== cantonTopicRouteKey;
+ const cantonTopicDeferUntilReady = cantonTopicStaticFallback
+   && typeof document !== 'undefined'
+   && !!document.querySelector('main.seo-static-content');
 
  const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
  const contextualConversion = useMemo(
@@ -542,13 +555,22 @@ const App: React.FC = () => {
        staticMain.style.removeProperty('display');
        continue;
      }
+     // A canton topic hub has a React equivalent, but its first HTML is the
+     // corpus snapshot. Do not hide that snapshot until the runtime payload
+     // with the matching edge commit has rendered; on a soft navigation the
+     // old static main has already been removed, so the React loading shell is
+     // allowed to own the viewport.
+     if (cantonTopicStaticFallback) {
+       staticMain.style.removeProperty('display');
+       continue;
+     }
      if (staticOverlay) {
        staticMain.style.removeProperty('display');
      } else {
        staticMain.style.setProperty('display', 'none', 'important');
      }
    }
- }, [activeTab, staticOverlay]);
+ }, [activeTab, staticOverlay, cantonTopicStaticFallback]);
 
  // Static sub-nav deduplication: build plugins (staticPagesPlugin via
  // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
@@ -2193,7 +2215,7 @@ const App: React.FC = () => {
  else if (tab === 'job-board' && subTab) setJobSlug(subTab);
  else if (tab === 'autore' && subTab) setAuthor(subTab);
  // Programmatic nav into the blog tab defaults to the cross-border section.
- if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setBlogPage(null); setBlogSection('frontaliere'); }
+ if (tab === 'blog') { setSwissArticle(null); setCantonArticle(null); setCantonTopic(null); setBlogPage(null); setBlogSection('frontaliere'); }
  const route: AppRoute = { activeTab: tab };
  if (tab === 'calculator') route.calcolatoreSubTab = (subTab || calcolatoreSubTab) as CalcolatoreSubTab;
  if (tab === 'confronti') route.confrontiSubTab = (subTab || confrontiSubTab) as ConfrontiSubTab;
@@ -3054,6 +3076,9 @@ const App: React.FC = () => {
  <div className="max-xlw:max-w-7xl xlw:max-w-[1600px] mx-auto">
  <BlogArticles
  section={blogSection}
+ topic={cantonTopic}
+ onCantonTopicReady={setCantonTopicReadyKey}
+ deferUntilCantonTopicReady={cantonTopicDeferUntilReady}
  selectedArticle={blogSection === 'svizzera' ? swissArticle : blogSection.startsWith('canton-') ? cantonArticle : blogArticle}
  page={blogPage ?? undefined}
  onPageChange={(nextPage) => setBlogPage(nextPage)}
@@ -3409,7 +3434,7 @@ const App: React.FC = () => {
    *   <div id="footer-root"></div>   ← portal target
    * so the footer flows naturally after the SEO content in visual order. */}
  {(() => {
-   const footerPortalTarget = (staticOverlay || activeTab === 'job-board')
+   const footerPortalTarget = (staticOverlay || cantonTopicStaticFallback || activeTab === 'job-board')
      ? document.getElementById('footer-root')
      : null;
    // CLS fix (Phase 6 — 2026-05-18): removed content-visibility:auto +
