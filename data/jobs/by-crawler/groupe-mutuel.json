@@ -1,4 +1,6 @@
 {
+  "crawlerKey": "groupe-mutuel",
+  "assembledAt": "2026-10-08T09:17:30.966Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4402?c=groupemutuel&lang=fr-FR",
@@ -24,10 +26,10 @@
       },
       "slug": "consulente-in-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-neuchatel",
       "slugByLocale": {
-        "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
-        "en": "insurance-and-insurance-advisor-h-f-80-100-groupe-mutuel-neuchatel",
         "it": "consulente-in-assicurazioni-e-previdenza-m-f-80-100-groupe-mutuel-neuchatel",
-        "de": "versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-neuchatel"
+        "en": "insurance-and-insurance-advisor-h-f-80-100-groupe-mutuel-neuchatel",
+        "de": "versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-neuchatel",
+        "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
       "datePosted": "2026-10-07",
@@ -43,6 +45,9 @@
         "location": "Neuchâtel"
       },
       "jobReqId": "4402",
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
@@ -54,9 +59,26 @@
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
         ]
       },
-      "previousSlugs": [
-        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
-      ]
+      "crawledAt": "",
+      "id": "groupe-mutuel-05eb500d0e59",
+      "salaryMin": 65000,
+      "salaryMax": 108500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2000",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "firstSeenAt": "2026-08-06T12:15:49.733Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4398?c=groupemutuel&lang=fr-FR",
@@ -80,7 +102,7 @@
         "de": "Medizinische Hilfskraft - Temporär 12 Monate (m/w) 100%",
         "fr": "Assistant médical - Temporaire 12 mois (h/f) 100%"
       },
-      "slug": "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel",
+      "slug": "assistente-medico-temporary-12-mesi-m-f-100-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "assistente-medico-temporary-12-mesi-m-f-100-groupe-mutuel-sion",
         "en": "medical-assistant-temporary-12-months-m-f-100-groupe-mutuel-sion",
@@ -102,7 +124,33 @@
       },
       "jobReqId": "4398",
       "id": "groupe-mutuel-f3a9b6202e7b",
-      "firstSeenAt": "2026-10-06T21:13:30.811Z"
+      "firstSeenAt": "2026-10-06T21:13:30.811Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-hilfskraft-temporar-12-monate-m-w-100-groupe-mutuel"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4392?c=groupemutuel&lang=fr-FR",
@@ -126,7 +174,7 @@
         "de": "Business Manager IJM (m/w) 80-100%",
         "fr": "Gestionnaire Entreprise IJM (h/f) 80-100%"
       },
-      "slug": "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel",
+      "slug": "business-manager-ijm-m-f-80-100-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "business-manager-ijm-m-f-80-100-groupe-mutuel-sion",
         "en": "business-manager-ijm-m-f-80-100-groupe-mutuel-sion",
@@ -149,14 +197,34 @@
       "jobReqId": "4392",
       "id": "groupe-mutuel-3ca7bbb5bdb4",
       "previousSlugs": [
-        "gestionnaire-entreprise-ijm-m-w-d-80-100-groupe-mutuel-sion"
+        "gestionnaire-entreprise-ijm-m-w-d-80-100-groupe-mutuel-sion",
+        "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-entreprise-ijm-m-w-d-80-100-groupe-mutuel-sion"
+          "gestionnaire-entreprise-ijm-m-w-d-80-100-groupe-mutuel-sion",
+          "gestionnaire-entreprise-ijm-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-10-05T09:16:43.673Z"
+      "firstSeenAt": "2026-10-05T09:16:43.673Z",
+      "crawledAt": "",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 126500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4382?c=groupemutuel&lang=fr-FR",
@@ -180,7 +248,7 @@
         "de": "Planungsberater (m/w) 80-100%",
         "fr": "Conseiller en Prévoyance (h/f) 80-100%"
       },
-      "slug": "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel",
+      "slug": "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier",
       "slugByLocale": {
         "it": "consigliere-di-pianificazione-m-f-80-100-groupe-mutuel-crissier",
         "en": "planning-advisor-m-f-80-100-groupe-mutuel-crissier",
@@ -202,7 +270,33 @@
       },
       "jobReqId": "4382",
       "id": "groupe-mutuel-7ec000b8e178",
-      "firstSeenAt": "2026-09-30T21:13:42.224Z"
+      "firstSeenAt": "2026-09-30T21:13:42.224Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1023",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4391?c=groupemutuel&lang=fr-FR",
@@ -226,7 +320,7 @@
         "de": "Auszubildender kaufmännischer Angestellter/Dienstleistungen und Verwaltung (m/w) - 100 %",
         "fr": "Apprenti Employé de commerce/Services et administration (h/f) - 100%"
       },
-      "slug": "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel",
+      "slug": "apprendista-impiegato-di-commercio-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
       "slugByLocale": {
         "it": "apprendista-impiegato-di-commercio-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
         "en": "apprentice-commercial-employee-services-and-administration-m-f-100-groupe-mutuel-martigny",
@@ -250,17 +344,37 @@
       "id": "groupe-mutuel-30467c448a1b",
       "previousSlugs": [
         "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
-        "apprenti-business-mitarbeiter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny"
+        "apprenti-business-mitarbeiter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny",
+        "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny"
+          "apprenti-business-dipendente-servizi-e-amministrazione-m-f-100-groupe-mutuel-martigny",
+          "apprenti-employe-de-commerce-services-et-administration-h-f-100-groupe-mutuel"
         ],
         "de": [
           "apprenti-business-mitarbeiter-dienstleistungen-und-verwaltung-m-w-100-groupe-mutuel-martigny"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:20:20.573Z"
+      "firstSeenAt": "2026-09-29T21:20:20.573Z",
+      "crawledAt": "",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4390?c=groupemutuel&lang=fr-FR",
@@ -284,7 +398,7 @@
         "de": "Lehre Kauffrau/Kaufmann EFZ Dienstleistung und Administration 100%",
         "fr": "Apprentissage employée de commerce CFC Services et administration 100 %"
       },
-      "slug": "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-servizio-e-amministrazione-100-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-servizio-e-amministrazione-100-groupe-mutuel-sion",
         "en": "apprenticeship-as-a-businessperson-efz-service-and-administration-100-groupe-mutuel-sion",
@@ -309,11 +423,13 @@
       "previousSlugs": [
         "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion",
         "teaching-kauffrau-kaufmann-efz-service-and-administration-100-groupe-mutuel-sion",
-        "enseignement-kauffrau-kaufmann-efz-service-et-administration-100-groupe-mutuel-sion"
+        "enseignement-kauffrau-kaufmann-efz-service-et-administration-100-groupe-mutuel-sion",
+        "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion"
+          "lehre-kauffrau-kaufmann-cfc-dienstleistung-e-administration-100-groupe-mutuel-sion",
+          "lehre-kauffrau-kaufmann-efz-dienstleistung-und-administration-100-groupe-mutuel"
         ],
         "en": [
           "teaching-kauffrau-kaufmann-efz-service-and-administration-100-groupe-mutuel-sion"
@@ -322,7 +438,25 @@
           "enseignement-kauffrau-kaufmann-efz-service-et-administration-100-groupe-mutuel-sion"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:20:20.573Z"
+      "firstSeenAt": "2026-09-29T21:20:20.573Z",
+      "crawledAt": "",
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4389?c=groupemutuel&lang=fr-FR",
@@ -346,7 +480,7 @@
         "de": "Auszubildender Agent für Kundenbeziehungen (m/w) - 100 %",
         "fr": "Apprenti Agent relation clients (h/f) - 100%"
       },
-      "slug": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+      "slug": "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne",
       "slugByLocale": {
         "it": "apprendista-agente-relazione-clienti-m-f-100-groupe-mutuel-lausanne",
         "en": "apprentice-customer-relationship-officer-m-f-100-groupe-mutuel-lausanne",
@@ -368,7 +502,33 @@
       },
       "jobReqId": "4389",
       "id": "groupe-mutuel-f1b2cd353471",
-      "firstSeenAt": "2026-08-10T21:51:09.427Z"
+      "firstSeenAt": "2026-08-10T21:51:09.427Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+      ],
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4376?c=groupemutuel&lang=fr-FR",
@@ -392,7 +552,7 @@
         "de": "Vorsorgeberater (m/w) 80-100%",
         "fr": "Conseiller de précaution (h/f) 80-100 %"
       },
-      "slug": "vorsorgeberater-m-w-80-100-groupe-mutuel",
+      "slug": "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich",
       "slugByLocale": {
         "it": "consigliere-preventivo-m-f-80-100-groupe-mutuel-zurich",
         "en": "precautionary-advisor-m-f-80-100-groupe-mutuel-zurich",
@@ -414,7 +574,33 @@
       },
       "jobReqId": "4376",
       "id": "groupe-mutuel-729b23590810",
-      "firstSeenAt": "2026-09-25T14:43:22.731Z"
+      "firstSeenAt": "2026-09-25T14:43:22.731Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "vorsorgeberater-m-w-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4287?c=groupemutuel&lang=fr-FR",
@@ -438,7 +624,7 @@
         "de": "Kundenberater (m/w) 60-100%",
         "fr": "Conseiller clientèle agence (h/f) 60%"
       },
-      "slug": "conseiller-clientele-agence-h-f-60-groupe-mutuel",
+      "slug": "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg",
       "slugByLocale": {
         "it": "agenzia-di-consulenza-clienti-m-f-60-100-groupe-mutuel-fribourg",
         "en": "customer-advisor-agency-m-f-60-100-groupe-mutuel-fribourg",
@@ -461,11 +647,13 @@
       "jobReqId": "4287",
       "id": "groupe-mutuel-ff797954f4a2",
       "previousSlugs": [
-        "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
+        "conseiller-clientele-agence-h-f-60-100-groupe-mutuel",
+        "conseiller-clientele-agence-h-f-60-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
+          "conseiller-clientele-agence-h-f-60-100-groupe-mutuel",
+          "conseiller-clientele-agence-h-f-60-groupe-mutuel"
         ],
         "en": [
           "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
@@ -474,7 +662,25 @@
           "conseiller-clientele-agence-h-f-60-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-08-11T10:25:30.851Z"
+      "firstSeenAt": "2026-08-11T10:25:30.851Z",
+      "crawledAt": "",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4370?c=groupemutuel&lang=fr-FR",
@@ -485,11 +691,11 @@
       "location": "Biel/Bienne",
       "canton": "BE",
       "country": "CH",
-      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
       "descriptionByLocale": {
         "it": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
         "en": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
-        "de": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+        "de": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
         "fr": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen\n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen"
       },
       "titleByLocale": {
@@ -498,7 +704,7 @@
         "de": "Kundenberater Agenturen (m/w) 80-100%",
         "fr": "Agences de service à la clientèle (h/f) 80-100 %"
       },
-      "slug": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne",
       "slugByLocale": {
         "it": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-biel-bienne",
         "en": "customer-service-agencies-m-f-80-100-groupe-mutuel-biel-bienne",
@@ -521,7 +727,33 @@
       "jobReqId": "4370",
       "id": "groupe-mutuel-4a5a7f5c6b11",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:39:13.149Z"
+      "firstSeenAt": "2026-09-23T23:39:13.149Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4373?c=groupemutuel&lang=fr-FR",
@@ -532,11 +764,11 @@
       "location": "St. Gallen",
       "canton": "SG",
       "country": "CH",
-      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
       "descriptionByLocale": {
         "it": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
         "en": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient",
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
         "fr": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere\n• Aufgaben erledigst du präzise und effizient"
       },
       "titleByLocale": {
@@ -545,7 +777,7 @@
         "de": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
         "fr": "Conseiller en assurance et retraite (h/f) 80-100 %"
       },
-      "slug": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
       "slugByLocale": {
         "it": "consulente-assicurativo-m-f-80-100-groupe-mutuel-st-gallen",
         "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-st-gallen",
@@ -571,14 +803,16 @@
         "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
         "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
         "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen"
+        "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen-pdliyb",
           "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen",
           "conseillers-en-assurance-et-retraite-m-f-80-100-groupe-mutuel-st-gallen",
-          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen"
+          "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-st-gallen",
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ],
         "en": [
           "insurance-and-pension-advisors-m-f-80-100-groupe-mutuel-st-gallen"
@@ -588,6 +822,255 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "salaryMin": 62000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4372?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Wil",
+      "canton": "SG",
+      "country": "CH",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+      "descriptionByLocale": {
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "it": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "en": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "fr": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient"
+      },
+      "titleByLocale": {
+        "de": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
+        "it": "Versicherungs e Vorsorgeberater (m/w) 80-100%",
+        "en": "Versicherungs und Vorsorgeberater (m/w) 80-100%",
+        "fr": "Versicherungs und Vorsorgeberater (m/w) 80-100%"
+      },
+      "slug": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
+      "slugByLocale": {
+        "fr": "conseiller-en-assurance-et-retraite-h-f-80-100-groupe-mutuel-wil",
+        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-wil",
+        "it": "consulente-assicurativo-m-f-80-100-groupe-mutuel-wil",
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
+      },
+      "category": "insurance",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SG",
+        "location": "Wil"
+      },
+      "jobReqId": "4372",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-c2a3704aef81",
+      "salaryMin": 62000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "9500",
+      "addressLocality": "Wil",
+      "addressRegion": "SG",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4371?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+      "descriptionByLocale": {
+        "fr": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "it": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "en": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "de": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision"
+      },
+      "titleByLocale": {
+        "fr": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "it": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "en": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "de": "Conseiller en Assurances et Prévoyance (h/f) 80-100%"
+      },
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle",
+      "slugByLocale": {
+        "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "en": "insurance-and-planning-advisor-m-f-80-100-groupe-mutuel-bulle",
+        "it": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-bulle",
+        "de": "versicherungs-und-planungsberater-m-w-80-100-groupe-mutuel-bulle"
+      },
+      "category": "insurance",
+      "datePosted": "2026-09-17",
+      "postedDate": "2026-09-17",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Bulle"
+      },
+      "jobReqId": "4371",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-5f62e3078e11",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4357?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Delémont",
+      "canton": "JU",
+      "country": "CH",
+      "description": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+      "descriptionByLocale": {
+        "fr": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "it": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "en": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "de": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision"
+      },
+      "titleByLocale": {
+        "fr": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "it": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "en": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "de": "Conseiller en Assurances et Prévoyance (h/f) 80-100%"
+      },
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont",
+      "slugByLocale": {
+        "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "en": "insurance-and-planning-advisor-m-f-80-100-groupe-mutuel-delemont",
+        "it": "consulente-per-l-assicurazione-e-la-pianificazione-m-f-80-100-groupe-mutuel-delemont",
+        "de": "versicherungs-und-planungsberater-m-w-80-100-groupe-mutuel-delemont"
+      },
+      "category": "insurance",
+      "datePosted": "2026-09-16",
+      "postedDate": "2026-09-16",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "JU",
+        "location": "Delémont"
+      },
+      "jobReqId": "4357",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-be494013d591",
+      "salaryMin": 65000,
+      "salaryMax": 108500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "2800",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
       "firstSeenAt": "2026-09-19T22:52:47.178Z"
     },
     {
@@ -607,9 +1090,9 @@
         "fr": "Vous supervisez l'administration du personnel de nos employés de l'entrée à la sortie et assurez un traitement efficace et de haute qualité de tous les processus administratifs En tant que personne-ressource compétente, vous répondrez aux questions des employés et des gestionnaires sur les RH administratives Vous maintenez les données sur le personnel dans nos systèmes et assurez la qualité et la mise à jour des données RH Vous préparez de l'information pertinente sur les salaires et soutenez les processus salariaux mensuels En collaboration avec les partenaires d'affaires RH et d'autres secteurs spécialisés en RH, vous assurez un soutien professionnel à nos employés Vous contribuez aux projets RH et contribuez à l'optimisation continue de nos processus et services"
       },
       "titleByLocale": {
-        "it": "Specialista HR (m/f) 80-100 %",
+        "it": "HR Spezialist (m/w) 80-100%",
         "en": "HR Spezia (m/f) 80-100%",
-        "de": "HR Spezialist (m/w) 80-100%",
+        "de": "Personalwesen Spezialist (m/w) 80-100%",
         "fr": "Ressources Humaines Spezialist (m/w) 80-100%"
       },
       "slug": "hr-spezialist-m-w-80-100-groupe-mutuel",
@@ -634,7 +1117,183 @@
       },
       "jobReqId": "4366",
       "id": "groupe-mutuel-9fef30c8ca3e",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z",
+      "crawledAt": "",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4352?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Aarau",
+      "canton": "AG",
+      "country": "CH",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+      "descriptionByLocale": {
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "it": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "en": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "fr": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient"
+      },
+      "titleByLocale": {
+        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+        "it": "Versicherungs- e Vorsorgeberater (m/w) 80-100%",
+        "en": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+        "fr": "Versicherungs- und Vorsorgeberater (m/w) 80-100%"
+      },
+      "slug": "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau",
+      "slugByLocale": {
+        "fr": "conseiller-en-assurance-et-pension-h-f-80-100-groupe-mutuel-aarau",
+        "en": "insurance-and-pension-advisor-m-f-80-100-groupe-mutuel-aarau",
+        "it": "consulente-assicurativo-e-pensionistico-m-f-80-100-groupe-mutuel-aarau",
+        "de": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+      },
+      "category": "insurance",
+      "datePosted": "2026-09-10",
+      "postedDate": "2026-09-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Aarau"
+      },
+      "jobReqId": "4352",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-a9f1a2cdb918",
+      "salaryMin": 67000,
+      "salaryMax": 111000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5000",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
       "firstSeenAt": "2026-09-19T22:52:47.178Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4348?c=groupemutuel&lang=fr-FR",
+      "title": "Kundenberater Agenturen (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Olten",
+      "canton": "SO",
+      "country": "CH",
+      "description": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+      "descriptionByLocale": {
+        "de": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+        "it": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+        "en": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen",
+        "fr": "Beratung und Betreuung unserer Kundinnen und Kunden in allen Versicherungsfragen – telefonisch und direkt am Schalter Vertragsänderungen bearbeitest du selbstständig und effizient Du vereinbarst telefonisch Beratungstermine für unsere Versicherungs- und Vorsorgeberater:innen – mit Gespür für Koordination und Akquise Die internen Abteilungen unterstützt du bei administrativen \n• Aufgaben, insbesondere bei der Vertragsverwaltung Flexibilität ist gefragt: Du bist bereit, bei Bedarf auch in anderen Agenturen der Groupe Mutuel als Vertretung einzuspringen"
+      },
+      "titleByLocale": {
+        "de": "Kundenberater Agenturen (m/w) 80-100%",
+        "it": "Kundenberater Agenturen (m/w) 80-100%",
+        "en": "Kundenberater Agenturen (m/w) 80-100%",
+        "fr": "Kundenberater Agenturen (m/w) 80-100%"
+      },
+      "slug": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten",
+      "slugByLocale": {
+        "fr": "agences-de-service-a-la-clientele-h-f-80-100-groupe-mutuel-olten",
+        "en": "customer-service-agencies-m-f-80-100-groupe-mutuel-olten",
+        "it": "agenzie-di-servizio-clienti-m-f-80-100-groupe-mutuel-olten",
+        "de": "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      },
+      "category": "customer-service",
+      "datePosted": "2026-09-07",
+      "postedDate": "2026-09-07",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Olten"
+      },
+      "jobReqId": "4348",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-e37ade3b9f16",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4600",
+      "addressLocality": "Olten",
+      "addressRegion": "SO",
+      "firstSeenAt": "2026-09-23T23:39:13.149Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
@@ -658,7 +1317,7 @@
         "de": "Auszubildender IT-Betreiber (m/w) - 100 %",
         "fr": "Apprenti Opérateur en informatique (h/f) - 100%"
       },
-      "slug": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+      "slug": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
       "slugByLocale": {
         "it": "apprenti-computer-operator-m-f-100-groupe-mutuel-martigny",
         "en": "computer-operator-apprentice-m-f-100-groupe-mutuel-martigny",
@@ -680,7 +1339,33 @@
       },
       "jobReqId": "4341",
       "id": "groupe-mutuel-c7d22a7adca1",
-      "firstSeenAt": "2026-09-01T23:08:41.806Z"
+      "firstSeenAt": "2026-09-01T23:08:41.806Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+      ],
+      "salaryMin": 57000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57000,
+          "maxValue": 97000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
@@ -704,7 +1389,7 @@
         "de": "Trainee MPE (m/w) - 100%",
         "fr": "Stagiaire MPE (h/f) - 100%"
       },
-      "slug": "stagiaire-mpe-h-f-100-groupe-mutuel",
+      "slug": "allenatore-mpe-m-f-100-groupe-mutuel-martigny",
       "slugByLocale": {
         "it": "allenatore-mpe-m-f-100-groupe-mutuel-martigny",
         "en": "trainee-mpe-m-f-100-groupe-mutuel-martigny",
@@ -726,7 +1411,109 @@
       },
       "jobReqId": "4332",
       "id": "groupe-mutuel-a81a159b177f",
-      "firstSeenAt": "2026-08-27T19:54:30.926Z"
+      "firstSeenAt": "2026-08-27T19:54:30.926Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpe-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpe-h-f-100-groupe-mutuel"
+      ],
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4307?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4307?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Agent relation clients (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Répondre aux questions de nos assurés par téléphone te permet de mettre en pratique tes connaissances dans le domaine de l’assurance-maladie Chaque échange avec les assurés et les clients potentiels est l’occasion de démontrer ton aisance en communication La gestion administrative (coordination de rendez-vous avec nos conseillers, suivi des dossiers) fait naturellement partie de ton quotidien En collaborant avec différents départements et partenaires, tu développes ta capacité à travailler en réseau Ton apprentissage est complet : il combine théorie et pratique, en entreprise comme à l’école professionnelle Progressivement, tu enrichis tes compétences professionnelles, méthodologiques, sociales et personnelles pour bâtir ton avenir",
+      "descriptionByLocale": {
+        "fr": "Répondre aux questions de nos assurés par téléphone te permet de mettre en pratique tes connaissances dans le domaine de l’assurance-maladie Chaque échange avec les assurés et les clients potentiels est l’occasion de démontrer ton aisance en communication La gestion administrative (coordination de rendez-vous avec nos conseillers, suivi des dossiers) fait naturellement partie de ton quotidien En collaborant avec différents départements et partenaires, tu développes ta capacité à travailler en réseau Ton apprentissage est complet : il combine théorie et pratique, en entreprise comme à l’école professionnelle Progressivement, tu enrichis tes compétences professionnelles, méthodologiques, sociales et personnelles pour bâtir ton avenir",
+        "it": "Répondre aux questions de nos assurés par téléphone te permet de mettre en pratique tes connaissances dans le domaine de l’assurance-maladie Chaque échange avec les assurés et les clients potentiels est l’occasion de démontrer ton aisance en communication La gestion administrative (coordination de rendez-vous avec nos conseillers, suivi des dossiers) fait naturellement partie de ton quotidien En collaborant avec différents départements et partenaires, tu développes ta capacité à travailler en réseau Ton apprentissage est complet : il combine théorie et pratique, en entreprise comme à l’école professionnelle Progressivement, tu enrichis tes compétences professionnelles, méthodologiques, sociales et personnelles pour bâtir ton avenir",
+        "en": "Répondre aux questions de nos assurés par téléphone te permet de mettre en pratique tes connaissances dans le domaine de l’assurance-maladie Chaque échange avec les assurés et les clients potentiels est l’occasion de démontrer ton aisance en communication La gestion administrative (coordination de rendez-vous avec nos conseillers, suivi des dossiers) fait naturellement partie de ton quotidien En collaborant avec différents départements et partenaires, tu développes ta capacité à travailler en réseau Ton apprentissage est complet : il combine théorie et pratique, en entreprise comme à l’école professionnelle Progressivement, tu enrichis tes compétences professionnelles, méthodologiques, sociales et personnelles pour bâtir ton avenir",
+        "de": "Répondre aux questions de nos assurés par téléphone te permet de mettre en pratique tes connaissances dans le domaine de l’assurance-maladie Chaque échange avec les assurés et les clients potentiels est l’occasion de démontrer ton aisance en communication La gestion administrative (coordination de rendez-vous avec nos conseillers, suivi des dossiers) fait naturellement partie de ton quotidien En collaborant avec différents départements et partenaires, tu développes ta capacité à travailler en réseau Ton apprentissage est complet : il combine théorie et pratique, en entreprise comme à l’école professionnelle Progressivement, tu enrichis tes compétences professionnelles, méthodologiques, sociales et personnelles pour bâtir ton avenir"
+      },
+      "titleByLocale": {
+        "fr": "Apprenti Agent relation clients (h/f) - 100%",
+        "it": "Apprenti Agent relation clients (h/f) - 100%",
+        "en": "Apprenti Agent relation clients (h/f) - 100%",
+        "de": "Apprenti Agent relation clients (h/f) - 100%"
+      },
+      "slug": "apprenti-agente-rapporto-cliente-m-f-100-groupe-mutuel-fribourg",
+      "slugByLocale": {
+        "fr": "apprenti-agent-relation-clients-h-f-100-groupe-mutuel",
+        "en": "apprenti-customer-relationship-agent-m-f-100-groupe-mutuel-fribourg",
+        "it": "apprenti-agente-rapporto-cliente-m-f-100-groupe-mutuel-fribourg",
+        "de": "apprenti-customer-relationship-agent-m-w-100-groupe-mutuel-fribourg"
+      },
+      "category": "general",
+      "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "4307",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ],
+        "en": [
+          "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-agent-relation-clients-h-f-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-784d5dec6634",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-08-10T21:51:09.427Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4306?c=groupemutuel&lang=fr-FR",
@@ -750,7 +1537,7 @@
         "de": "Auszubildender kaufmännischer Mitarbeiter / Kranken- und Sozialversicherung (m/w) - 100%",
         "fr": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%"
       },
-      "slug": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
+      "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne",
       "slugByLocale": {
         "it": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-lausanne",
         "en": "apprenti-commercial-employee-health-and-social-insurance-m-f-100-groupe-mutuel-lausanne",
@@ -772,7 +1559,341 @@
       },
       "jobReqId": "4306",
       "id": "groupe-mutuel-7bfc97dd04cf",
+      "firstSeenAt": "2026-08-10T21:51:09.427Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+      ],
+      "salaryMin": 53000,
+      "salaryMax": 88500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 53000,
+          "maxValue": 88500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4305?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4305?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+      "descriptionByLocale": {
+        "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "it": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "en": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "de": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant"
+      },
+      "titleByLocale": {
+        "fr": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "it": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "en": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "de": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%"
+      },
+      "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg",
+      "slugByLocale": {
+        "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
+        "en": "apprenti-commercial-employee-health-and-social-insurance-m-f-100-groupe-mutuel-fribourg",
+        "it": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-fribourg",
+        "de": "auszubildender-kaufmannischer-mitarbeiter-kranken-und-sozialversicherung-m-w-100-groupe-mutuel-fribourg"
+      },
+      "category": "insurance",
+      "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "4305",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-8da195c3daa6",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
       "firstSeenAt": "2026-08-10T21:51:09.427Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4304?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4304?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+      "descriptionByLocale": {
+        "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "it": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "en": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant",
+        "de": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant"
+      },
+      "titleByLocale": {
+        "fr": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "it": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "en": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%",
+        "de": "Apprenti Employé de commerce/Assurances-maladie et sociales (h/f) - 100%"
+      },
+      "slug": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny",
+      "slugByLocale": {
+        "fr": "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel",
+        "en": "apprenti-commercial-employee-health-and-social-insurance-m-f-100-groupe-mutuel-martigny",
+        "it": "apprenti-dipendente-commerciale-salute-e-assicurazione-sociale-m-f-100-groupe-mutuel-martigny",
+        "de": "auszubildender-kaufmannischer-mitarbeiter-kranken-und-sozialversicherung-m-w-100-groupe-mutuel-martigny"
+      },
+      "category": "insurance",
+      "datePosted": "2026-08-10",
+      "postedDate": "2026-08-10",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4304",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-assurances-maladie-et-sociales-h-f-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-1b6ea619c3ff",
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-08-10T21:51:09.427Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4282?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4282?c=groupemutuel&lang=fr-FR",
+      "title": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Monthey",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+      "descriptionByLocale": {
+        "fr": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "it": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "en": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision",
+        "de": "Tu conseilles les clients avec professionnalisme dans les domaines de l’assurance-maladie, de l’assurance-vie, du patrimoine et des solutions pour les entreprises Grâce au cross-selling et à l’upselling, tu développes des relations de confiance et contribues à renforcer leur fidélité L’acquisition de nouveaux clients, qu’elle vienne d’initiatives internes ou de recommandations, fait partie intégrante de ton quotidien Tu organises et réalises des rendez-vous, que ce soit au téléphone ou en présentiel, avec rigueur et sens du contact Tu assures également le suivi administratif : établissement d’offres, gestion des rendez-vous et autres tâches connexes, toujours avec précision"
+      },
+      "titleByLocale": {
+        "fr": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "it": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "en": "Conseiller en Assurances et Prévoyance (h/f) 80-100%",
+        "de": "Conseiller en Assurances et Prévoyance (h/f) 80-100%"
+      },
+      "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey",
+      "slugByLocale": {
+        "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "en": "insurance-and-insurance-advisor-h-f-80-100-groupe-mutuel-monthey",
+        "it": "consulente-assicurativo-h-f-80-100-groupe-mutuel-monthey",
+        "de": "versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-monthey"
+      },
+      "category": "insurance",
+      "datePosted": "2026-08-06",
+      "postedDate": "2026-08-06",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Monthey"
+      },
+      "jobReqId": "4282",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "id": "groupe-mutuel-304fc68db623",
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1870",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-08-06T12:15:49.733Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4259?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4259?c=groupemutuel&lang=fr-FR",
+      "title": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Winterthur",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+      "descriptionByLocale": {
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "it": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "en": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
+        "fr": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient"
+      },
+      "titleByLocale": {
+        "de": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+        "it": "Versicherungs- e Vorsorgeberater (m/w) 80-100%",
+        "en": "Versicherungs- und Vorsorgeberater (m/w) 80-100%",
+        "fr": "Versicherungs- und Vorsorgeberater (m/w) 80-100%"
+      },
+      "slug": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-winterthur",
+      "slugByLocale": {
+        "fr": "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "en": "versicherungs-und-vorsorgeberater-m-w-d-80-100-groupe-mutuel-winterthur",
+        "de": "conseiller-en-assurance-prev-conseiller-en-assurance-prev-groupe-mutuel",
+        "it": "versicherungs-e-vorsorgeberater-m-w-d-80-100-groupe-mutuel-winterthur"
+      },
+      "category": "insurance",
+      "datePosted": "2026-07-23",
+      "postedDate": "2026-07-23",
+      "postingDateSource": "reported",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Winterthur"
+      },
+      "jobReqId": "4259",
+      "needsRetranslation": true,
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+          "insurance-pension-advisor-insurance-pension-advisor-groupe-mutuel-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "consulente-in-assicurazione-previdenza-consulente-in-assicurazione-previdenza-groupe-mutuel-winterthur",
+        "insurance-pension-advisor-insurance-pension-advisor-groupe-mutuel-winterthur"
+      ],
+      "id": "groupe-mutuel-b5d5bdae0a39",
+      "salaryMin": 79000,
+      "salaryMax": 131000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 131000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-19T22:52:47.178Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4220?c=groupemutuel&lang=fr-FR",
@@ -796,7 +1917,7 @@
         "de": "Versicherungs- und Vorsorgeberater Quereinstieg (m/w) 80–100%",
         "fr": "Conseiller en Assurance et Prévoyance (m/f) 80–100%"
       },
-      "slug": "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel",
+      "slug": "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern",
       "slugByLocale": {
         "it": "versicherungs-e-vorsorgeberater-cambio-carriera-m-w-d-80-100-groupe-mutuel-bern",
         "en": "insurance-and-pension-consultants-cross-entry-m-f-80-100-groupe-mutuel-bern",
@@ -818,7 +1939,33 @@
       },
       "jobReqId": "4220",
       "id": "groupe-mutuel-597359dba84a",
-      "firstSeenAt": "2026-07-14T11:31:17.691Z"
+      "firstSeenAt": "2026-07-14T11:31:17.691Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-quereinstieg-m-w-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4212?c=groupemutuel&lang=fr-FR",
@@ -842,7 +1989,7 @@
         "de": "Vorsorgeberater (m/w) 60-100%",
         "fr": "Conseiller en prévoyance (h/f) 60-100%"
       },
-      "slug": "vorsorgeberater-m-w-60-100-groupe-mutuel",
+      "slug": "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans",
       "slugByLocale": {
         "it": "consulente-per-la-cura-m-f-60-100-groupe-mutuel-sargans",
         "en": "care-advisor-m-f-60-100-groupe-mutuel-sargans",
@@ -864,7 +2011,33 @@
       },
       "jobReqId": "4212",
       "id": "groupe-mutuel-fa0cd0482fb7",
-      "firstSeenAt": "2026-07-10T13:11:58.722Z"
+      "firstSeenAt": "2026-07-10T13:11:58.722Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorsorgeberater-m-w-60-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "vorsorgeberater-m-w-60-100-groupe-mutuel"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7320",
+      "addressLocality": "Sargans",
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4177?c=groupemutuel&lang=fr-FR",
@@ -875,11 +2048,11 @@
       "location": "Solothurn",
       "canton": "SO",
       "country": "CH",
-      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
       "descriptionByLocale": {
         "it": "Descrizione\n\nFornisci consulenza in materia di assicurazione sanitaria, sulla vita, patrimoniale e aziendale e offri soluzioni su misura per le esigenze dei clienti\nAttraverso il cross- e l'upselling mirato costruisci relazioni di fiducia e rafforzi la fidelizzazione dei clienti\nL'acquisizione di nuovi clienti – sia di propria iniziativa che di raccomandazioni – fa parte della tua vita quotidiana\nOrganizzi e conduci colloqui di consulenza, telefonicamente o di persona, con impegno e tatto\nAnche il follow-up amministrativo è nelle tue mani: crea offerte, gestisci gli appuntamenti e altro\n\n- Svolgi i compiti in modo preciso ed efficiente\n\nInformazioni su Groupe Mutuel\n\nIl Groupe Mutuel è uno dei principali gruppi assicurativi svizzeri, con sede a Martigny (Vallese).\nLa società offre una vasta gamma di prodotti assicurativi e pensionistici per gli individui e le imprese in tutta la Svizzera.",
         "en": "Description\n\nYou advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross- and up-selling you build trusting relationships and strengthen customer loyalty The acquisition of new customers – whether through initiative or recommendations – is part of your everyday life You organize and conduct consulting discussions, by telephone or personally, with commitment and a sense of touch The administrative post-processing is also in your hands: create offers, manage appointments and other\n\n- Tasks are done precisely and efficiently\n\nAbout Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland'stail insurance group, headquartered in Martigny (Valais). The company's offer is a wide range of insurance companies and pension company for individuals and businesses in Europe.",
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
         "fr": "Désignation des marchandises\n\nVous conseillez en assurance santé, vie, patrimoine et entreprise et vous offrez des solutions sur mesure pour les besoins des clients.Par des ventes croisées et à la hausse ciblées, vous créez des relations de confiance et renforcez la loyauté de la clientèle.L'acquisition de nouveaux clients – que ce soit par l'initiative ou les recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des discussions de consultation, par téléphone ou personnellement, avec engagement et un sentiment de contact.\n\n- Les tâches sont effectuées avec précision et efficacité\n\nGroupe Mutuel\n\nGroupe Mutuel est l'un des groupes d'assurances Suisses, dont le siège social est à Martigny (Valais). L'offre de la société est un large éventail de compagnies d'assurances et de sociétés de retraite pour les particuliers et les entreprises en Europe."
       },
       "titleByLocale": {
@@ -924,7 +2097,25 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-07-10T10:52:25.056Z"
+      "firstSeenAt": "2026-07-10T10:52:25.056Z",
+      "crawledAt": "",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4500",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
@@ -948,7 +2139,7 @@
         "de": "Verkaufscoach Vorsorgespezialist (m/w) 80-100%",
         "fr": "Spécialiste des pensions d'entraîneur de vente (m/f) 80-100 %"
       },
-      "slug": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
+      "slug": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
       "slugByLocale": {
         "it": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
         "en": "sales-coach-pension-specialist-m-f-80-100-groupe-mutuel-st-gallen",
@@ -970,7 +2161,33 @@
       },
       "jobReqId": "4138",
       "id": "groupe-mutuel-0bdf59be43e4",
-      "firstSeenAt": "2026-06-15T14:43:17.699Z"
+      "firstSeenAt": "2026-06-15T14:43:17.699Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 105000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 105000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4082?c=groupemutuel&lang=fr-FR",
@@ -994,7 +2211,7 @@
         "de": "Versicherungs- und Planungsberater (h/f) 80-100%",
         "fr": "Conseiller Assurance et Prévoyance (h/f) 80-100%"
       },
-      "slug": "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel",
+      "slug": "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve",
       "slugByLocale": {
         "it": "consulente-per-l-assicurazione-e-la-pianificazione-h-f-80-100-groupe-mutuel-geneve",
         "en": "insurance-and-planning-advisor-h-f-80-100-groupe-mutuel-geneve",
@@ -1016,7 +2233,33 @@
       },
       "jobReqId": "4082",
       "id": "groupe-mutuel-5dd175c9d179",
-      "firstSeenAt": "2026-05-22T22:18:14.485Z"
+      "firstSeenAt": "2026-05-22T22:18:14.485Z",
+      "crawledAt": "",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-assurance-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "salaryMin": 65500,
+      "salaryMax": 109000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -1027,11 +2270,11 @@
       "location": "Zürich",
       "canton": "ZH",
       "country": "CH",
-      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+      "description": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
       "descriptionByLocale": {
         "it": "Si consiglia in salute, vita, ricchezza e assicurazione aziendale e offrire soluzioni su misura per le esigenze del cliente Attraverso cross-selling mirato e upselling, si costruisce relazioni di fiducia e rafforzare la fedeltà del cliente L'acquisizione di nuovi clienti – sia attraverso la propria iniziativa o raccomandazioni – fa parte della vostra vita quotidiana Si organizza e conduce consultazioni, per telefono o personalmente, con impegno e sensibilità.\n• Completi con precisione ed efficienza",
         "en": "You advise in health, life, wealth and corporate insurance and offer tailor-made solutions for customer needs Through targeted cross-selling and upselling, you build trusting relationships and strengthen customer loyalty The acquisition of new customers – be it through own initiative or recommendations – is part of your everyday life You organize and conduct consultations, by phone or personally, with commitment and sensitivity.\n• Complete tasks precisely and efficiently",
-        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere Aufgaben erledigst du präzise und effizient",
+        "de": "Du berätst in Kranken-, Lebens-, Vermögens- und Unternehmensversicherung und bietest massgeschneiderte Lösungen für Kundenbedürfnisse Durch gezieltes Cross- und Upselling baust du vertrauensvolle Beziehungen auf und stärkst die Kundenbindung Die Gewinnung neuer Kundschaft – sei es durch Eigeninitiative oder Empfehlungen – gehört zu deinem Alltag Du organisierst und führst Beratungsgespräche, telefonisch oder persönlich, mit Engagement und Fingerspitzengefühl Auch die administrative Nachbearbeitung liegt in deinen Händen: Offerten erstellen, Termine verwalten und weitere \n• Aufgaben erledigst du präzise und effizient",
         "fr": "Vous conseillez en matière d'assurance santé, vie, patrimoine et entreprise et offrez des solutions sur mesure pour les besoins des clients. L'acquisition de nouveaux clients – qu'il s'agisse d'initiative ou de recommandations – fait partie de votre vie quotidienne.Vous organisez et dirigez des consultations, par téléphone ou personnellement, avec engagement et sensibilité.\n• Achever les tâches avec précision et efficacité"
       },
       "titleByLocale": {
@@ -1078,8 +2321,25 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-16T21:40:55.557Z"
+      "firstSeenAt": "2026-04-16T21:40:55.557Z",
+      "crawledAt": "",
+      "salaryMin": 79000,
+      "salaryMax": 131000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 131000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH"
     }
-  ],
-  "assembledAt": "2026-10-07T21:18:24.659Z"
+  ]
 }

@@ -1,21 +1,22 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-07T21:20:25.167Z",
+  "generatedAt": "2026-10-08T09:16:31.358Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 2498,
-  "avgDurationMs": 2498,
+  "durationMs": 2234,
+  "avgDurationMs": 2234,
   "durationHistory": [
-    2498
+    2234
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Product Administrator Factory Outlet Intern",
-      "slug": "product-administrator-factory-outlet-intern-guess-europe-sagl-stabio-switzerland",
+      "slug": "product-administrator-factory-outlet-tirocinante-guess-europe-sagl-stabio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/",
       "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/F6C925347F/apply/",
       "company": "Guess Europe Sagl",
@@ -44,23 +45,21 @@
         "Discount on our products both online and in stores"
       ],
       "id": "guess-europe-e41ee2b5a6e0",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "6855",
       "firstSeenAt": "2026-10-07T21:20:15.058Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -514,5 +513,5 @@
       }
     }
   ],
-  "codeCommit": "bc2b2b60c97013fc76dcbb5a57d0e09f978cb692"
+  "codeCommit": "74ac4c84848f312666b864f9ffe6028fabc9ca3d"
 }
